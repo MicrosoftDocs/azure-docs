@@ -409,7 +409,7 @@ A sample deployment is shown below:
 
 #### Monitoring
 
-The Monitoring blade allows you to configure a Azure Monitor logs
+The Monitoring blade allows you to configure an Azure Monitor logs
 resource for your network. The monitoring agent will collect and surface useful
 metrics and logs from your network, providing the ability to quickly
 check the network health or debug issues.
@@ -588,7 +588,7 @@ statistics.
 
 ![network stats](./media/ethereum-poa-deployment/network-stats.png)
 
-#### Sample Azure Monitor logs queries
+#### Sample Kusto queries
 
 Behind these dashboards is a set of queryable raw logs. You can use
 these raw logs to customize the dashboards, investigate failures, or
