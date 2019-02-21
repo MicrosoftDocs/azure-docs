@@ -20,6 +20,8 @@ You can use the [IoT Hub resource provider REST API][lnk-rest-api] to create and
 > [!NOTE]
 > Azure has two different deployment models for creating and working with resources:  [Azure Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the Azure Resource Manager deployment model.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To complete this tutorial, you need the following:
 
 * Visual Studio 2015 or Visual Studio 2017.

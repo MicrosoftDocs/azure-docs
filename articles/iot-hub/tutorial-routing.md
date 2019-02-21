@@ -33,6 +33,8 @@ In this tutorial, you perform the following tasks:
 
 ## Prerequisites
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 - Install [Visual Studio](https://www.visualstudio.com/). 

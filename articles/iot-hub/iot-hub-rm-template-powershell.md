@@ -19,6 +19,8 @@ You can use Azure Resource Manager to create and manage Azure IoT hubs programma
 > [!NOTE]
 > Azure has two different deployment models for creating and working with resources: [Azure Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Azure Resource Manager deployment model.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To complete this tutorial, you need the following:
 
 * An active Azure account. <br/>If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
