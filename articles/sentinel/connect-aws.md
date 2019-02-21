@@ -105,5 +105,5 @@ To stream logs from AWS to Azure Sentinel, you first have to download keys to yo
 
 ## Next steps
 In this document, you learned how to connect AWS to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-
-*
+- Learn how to [get visibility into your data, and potential threats](qs-get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).

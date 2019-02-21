@@ -1,5 +1,5 @@
 ---
-title: Collecting Office 365 data in Azure Sentinel | Microsoft Docs
+title: Collect Office 365 data in Azure Sentinel | Microsoft Docs
 description: Learn how to collect Office 365 data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -43,4 +43,6 @@ You can stream audit logs from [Office 365](https://docs.microsoft.com/en-us/off
 
 ## Next steps
 In this document, you learned how to connect Office 365 to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+- Learn how to [get visibility into your data, and potential threats](qs-get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
 

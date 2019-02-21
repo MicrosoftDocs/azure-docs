@@ -1,6 +1,6 @@
 ---
-title: Collecting data in Azure Sentinel | Microsoft Docs
-description: Learn how to collect data in Azure Sentinel.
+title: Collecting Azure Security Center data in Azure Sentinel | Microsoft Docs
+description: Learn how to collect Azure Security Center data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -37,5 +37,5 @@ Azure Sentinel enables you to collect alerts from [Azure Security Center](../sec
 
 ## Next steps
 In this document, you learned how to connect Azure Security Center to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-
-*
+- Learn how to [get visibility into your data, and potential threats](qs-get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).

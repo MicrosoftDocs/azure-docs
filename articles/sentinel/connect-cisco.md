@@ -1,13 +1,13 @@
 ---
-title: Collect CEF data in Azure Sentinel | Microsoft Docs
-description: Learn how to collect CEF data in Azure Sentinel.
+title: Collect Cisco data in Azure Sentinel | Microsoft Docs
+description: Learn how to collect Cisco data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
 manager: MBaldwin
 editor: ''
 
-ms.assetid: cbf5003b-76cf-446f-adb6-6d816beca70f
+ms.assetid: 62029b5c-29d3-4336-8a22-a9db8214eb7e
 ms.service: sentinel
 ms.devlang: na
 ms.topic: conceptual
@@ -17,32 +17,16 @@ ms.date: 2/28/2019
 ms.author: rkarlin
 
 ---
-# Connect your on-premises appliance to Azure Sentinel using Common Event Format
+# Connect your Cisco ASA appliance to Azure Sentinel
 
-You can connect Azure Sentinel with any following on-premises appliance that enables you to save log files in Syslog. If your appliance enables you to save logs as Syslog Common Event Format (CEF), the integration with Azure Sentinel enables you to easily run analytics and queries across the data.
+You can connect Azure Sentinel to any Cisco ASA appliance. Cisco ASA is natively integrated with Azure Sentinel for data ingestion, so that even though your Cisco appliance doesn't save logs as CEF, Azure Sentinel ingests them in the same way it handles CEF logs. The integration with Azure Sentinel enables you to easily run analytics and queries across the log file data from Cisco ASA. 
 
 > [!NOTE]
+> - Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
 
-> Data is stored in the geographic location of the workspace on which you are running Azure Sentinel.
+## Step 1: Connect your Cisco ASA appliance using an agent
 
-## How it works
-
-The connection between Azure Sentinel and your CEF appliance takes place in three steps:
-
-1. On the appliance you need to set these values so that the appliance sends the necessary logs in the necessary format to the Azure Sentinel Syslog agent. You can modify these parameters in your appliance, as long as you also modify them in the Syslog daemon on the Azure Sentinel agent.
-    - Protocol = UDP
-    - Port = 514
-    - Facility = Local-4
-    - Format = CEF
-2. On the Syslog agent, two processes run:
-    - the Syslog daemon knows how to take the logs and send them to the agent.
-    - the agent parses the logs into a format that can be understood by Log Analytics, and sends them to the Azure Sentinel workspace.
-3. The Agent knows the workspace's keys so that communication between them is secure. The Azure Sentinel workspace stores the data in Log Analytics so it can be queried as needed.
-
-
-## Step 1: Connect to your CEF appliance via dedicated Azure VM
-
-You need to deploy an agent on a dedicated machine (VM or on-prem) to support the communication between the appliance and Azure Sentinel. You can deploy the agent automatically or manually. Automatic deployment is only available if your dedicated machine is a new VM you are creating in Azure. 
+To connect your Cisco ASA appliance to Azure Sentinel, you need to deploy an agent on a dedicated machine (VM or on-prem) to support the communication between the appliance and Azure Sentinel. You can deploly the agent automatically or manually. Automatic deployment is only available if your dedicated machine is a new VM you are creating in Azure. 
 
 
 ![CEF in Azure](./media/connect-cef/cef-syslog-azure.png)
@@ -52,7 +36,6 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 ![CEF on-prem](./media/connect-cef/cef-syslog-onprem.png)
 
 ### Deploy the agent in Azure
-
 
 1. In the Azure Sentinel portal, click **Data collection** and select your appliance type. 
 
@@ -81,13 +64,14 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 
               1. Tell the Syslog daemon to send the Syslog messages to the Azure Sentinel agent using port 25226. `wget -P /etc/opt/microsoft/omsagent/802d39e1-9d70-404d-832c-2de5e2478eda/conf/omsagent.d/ "https://aka.ms/asi-syslog-config-file-linux"`
               2. Download and install the [security_events config file](https://aka.ms/asi-syslog-config-file-linux) that configures the Syslog agent to listen on port 25226. `wget -P /etc/opt/microsoft/omsagent/802d39e1-9d70-404d-832c-2de5e2478eda/conf/omsagent.d/ "https://aka.ms/asi-syslog-config-file-linux"`
-              c. Restart the syslog daemon `sudo service syslog-ng restart`
+              3. Restart the syslog daemon `sudo service syslog-ng restart`
       2. Restart the Syslog agent using this command: `sudo /opt/microsoft/omsagent/bin/service_control restart [802d39e1-9d70-404d-832c-2de5e2478eda]`
       1. Confirm that there are no errors in the agent log by running this command: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
 
-### Deploy the agent on an on-prem Linux server
+### Deploy the agent in an on-prem Linux server
 
-If you aren't using Azure, manually deploy the Azure Sentinel agent to run on a dedicated Linux server.
+
+If you aren't using Azure, you can manually set up the Azure Sentinel agent to run on a dedicated Linux server.
 
 
 1. In the Azure Sentinel portal, click **Data collection** and select your appliance type.
@@ -107,8 +91,18 @@ If you aren't using Azure, manually deploy the Azure Sentinel agent to run on a 
             3. Restart the syslog daemon `sudo service syslog-ng restart`
     5. Restart the Syslog agent using this command: `sudo /opt/microsoft/omsagent/bin/service_control restart [802d39e1-9d70-404d-832c-2de5e2478eda]`
     6. Confirm that there are no errors in the agent log by running this command: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
-  
-## Step 2: Validate connectivity
+ 
+## Step 2: Forward Cisco ASA logs to the Syslog agent
+
+Configure Cisco ASA to forward Syslog messages to your Azure workspace via the Syslog agent:
+
+Go to [Send Syslog messages to an external Syslog server](https://aka.ms/asi-syslog-cisco-forwarding), and follow the instructions to set up the connection. Use these parameters when prompted:
+- Set **port** to 514 or the port you set in the agent.
+- Set **syslog_ip** to the IP address of the agent.
+- Set **logging facility** to the facility you set in the agent. By default, the agent sets the facility to 4.
+
+
+## Step 3: Validate connectivity
 
 It may take upwards of 20 minutes until your logs start to appear in Log Analytics. 
 
@@ -122,7 +116,7 @@ It may take upwards of 20 minutes until your logs start to appear in Log Analyti
 
 
 ## Next steps
-In this document, you learned how to connect CEF appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+In this document, you learned how to connect Cisco ASA appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](qs-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
 

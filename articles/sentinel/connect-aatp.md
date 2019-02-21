@@ -1,6 +1,6 @@
 ---
-title: Collecting data in Azure Sentinel | Microsoft Docs
-description: Learn how to collect data in Azure Sentinel.
+title: Collect Azure ATP data in Azure Sentinel | Microsoft Docs
+description: Learn how to collect Azure ATP data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -38,4 +38,6 @@ If Azure ATP is deployed and ingesting your data, the suspicious alerts can easi
 
 ## Next steps
 In this document, you learned how to connect Azure Advanced Threat Protection to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+- Learn how to [get visibility into your data, and potential threats](qs-get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
 

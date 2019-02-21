@@ -1,13 +1,13 @@
 ---
-title: Collect CEF data in Azure Sentinel | Microsoft Docs
-description: Learn how to collect CEF data in Azure Sentinel.
+title: Collect Fortinet data in Azure Sentinel | Microsoft Docs
+description: Learn how to collect Fortinet data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
 manager: MBaldwin
 editor: ''
 
-ms.assetid: cbf5003b-76cf-446f-adb6-6d816beca70f
+ms.assetid: add92907-0d7c-42b8-a773-f570f2d705ff
 ms.service: sentinel
 ms.devlang: na
 ms.topic: conceptual
@@ -17,32 +17,17 @@ ms.date: 2/28/2019
 ms.author: rkarlin
 
 ---
-# Connect your on-premises appliance to Azure Sentinel using Common Event Format
+# Connect your Fortinet appliance to Azure Sentinel
 
-You can connect Azure Sentinel with any following on-premises appliance that enables you to save log files in Syslog. If your appliance enables you to save logs as Syslog Common Event Format (CEF), the integration with Azure Sentinel enables you to easily run analytics and queries across the data.
+
+You can connect Azure Sentinel to any Fortinet appliance by saving the log files as Syslog CEF. The integration with Azure Sentinel enables you to easily run analytics and queries across the log file data from Fortinet. For more information on how Azure Sentinel ingests CEF data, see [Connect CEF appliances](connect-cef.md).
 
 > [!NOTE]
+> - Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
 
-> Data is stored in the geographic location of the workspace on which you are running Azure Sentinel.
+## Step 1: Connect your Fortinet appliance using an agent
 
-## How it works
-
-The connection between Azure Sentinel and your CEF appliance takes place in three steps:
-
-1. On the appliance you need to set these values so that the appliance sends the necessary logs in the necessary format to the Azure Sentinel Syslog agent. You can modify these parameters in your appliance, as long as you also modify them in the Syslog daemon on the Azure Sentinel agent.
-    - Protocol = UDP
-    - Port = 514
-    - Facility = Local-4
-    - Format = CEF
-2. On the Syslog agent, two processes run:
-    - the Syslog daemon knows how to take the logs and send them to the agent.
-    - the agent parses the logs into a format that can be understood by Log Analytics, and sends them to the Azure Sentinel workspace.
-3. The Agent knows the workspace's keys so that communication between them is secure. The Azure Sentinel workspace stores the data in Log Analytics so it can be queried as needed.
-
-
-## Step 1: Connect to your CEF appliance via dedicated Azure VM
-
-You need to deploy an agent on a dedicated machine (VM or on-prem) to support the communication between the appliance and Azure Sentinel. You can deploy the agent automatically or manually. Automatic deployment is only available if your dedicated machine is a new VM you are creating in Azure. 
+To connect your Fortinet appliance to Azure Sentinel, you need to deploy an agent on a dedicated machine (VM or on-prem) to support the communication between the appliance and Azure Sentinel. You can deploly the agent automatically or manually. Automatic deployment is only available if your dedicated machine is a new VM you are creating in Azure. 
 
 
 ![CEF in Azure](./media/connect-cef/cef-syslog-azure.png)
@@ -52,7 +37,6 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 ![CEF on-prem](./media/connect-cef/cef-syslog-onprem.png)
 
 ### Deploy the agent in Azure
-
 
 1. In the Azure Sentinel portal, click **Data collection** and select your appliance type. 
 
@@ -81,13 +65,14 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 
               1. Tell the Syslog daemon to send the Syslog messages to the Azure Sentinel agent using port 25226. `wget -P /etc/opt/microsoft/omsagent/802d39e1-9d70-404d-832c-2de5e2478eda/conf/omsagent.d/ "https://aka.ms/asi-syslog-config-file-linux"`
               2. Download and install the [security_events config file](https://aka.ms/asi-syslog-config-file-linux) that configures the Syslog agent to listen on port 25226. `wget -P /etc/opt/microsoft/omsagent/802d39e1-9d70-404d-832c-2de5e2478eda/conf/omsagent.d/ "https://aka.ms/asi-syslog-config-file-linux"`
-              c. Restart the syslog daemon `sudo service syslog-ng restart`
+              3. Restart the syslog daemon `sudo service syslog-ng restart`
       2. Restart the Syslog agent using this command: `sudo /opt/microsoft/omsagent/bin/service_control restart [802d39e1-9d70-404d-832c-2de5e2478eda]`
       1. Confirm that there are no errors in the agent log by running this command: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
 
-### Deploy the agent on an on-prem Linux server
+### Deploy the agent in an on-prem Linux server
 
-If you aren't using Azure, manually deploy the Azure Sentinel agent to run on a dedicated Linux server.
+
+If you aren't using Azure, you can manually set up the Azure Sentinel agent to run on a dedicated Linux server.
 
 
 1. In the Azure Sentinel portal, click **Data collection** and select your appliance type.
@@ -107,22 +92,46 @@ If you aren't using Azure, manually deploy the Azure Sentinel agent to run on a 
             3. Restart the syslog daemon `sudo service syslog-ng restart`
     5. Restart the Syslog agent using this command: `sudo /opt/microsoft/omsagent/bin/service_control restart [802d39e1-9d70-404d-832c-2de5e2478eda]`
     6. Confirm that there are no errors in the agent log by running this command: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
-  
-## Step 2: Validate connectivity
+ 
+## Step 2: Forward Fortinet logs to the Syslog agent
+
+Configure Fortinet to forward Syslog messages in CEF format to your Azure workspace via the Syslog agent:
+
+Open the CLI on your Fortinet appliance and run the following commands:
+
+        config log syslogd setting
+        set format cef
+        set facility <facility_name>
+        set port 514
+        set reliable disable
+        set server <ip_address_of_Receiver>
+        set status enable
+        end
+
+- Replace the server **ip address** with the IP address of the agent.
+- Set the **facility_name** to use the facility you configured in the agent. By default, the agent sets this to local4.
+- Set the **syslog port** to **514**, or the port set on the agent.
+- To enable CEF format in early FortiOS versions, you may need to run the command set **csv disable**.
+ 
+> [!NOTE] 
+> For more information, go to the [Fortinet Document Library](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary). Choose your version and use the **Handbook** and **Log Message Reference**.
+
+## Step 3: Validate connectivity
 
 It may take upwards of 20 minutes until your logs start to appear in Log Analytics. 
 
+1. If your Fortinet logs aren't being received by the agent, run this command, depending on which type of Syslog daemon you are using, to set the facility and set the logs to search for the word Fortinet in the logs:
+   - rsyslog.d: `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Fortinet\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
+   - syslog-ng: `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };\n\nfilter f_msg_oms { match(\"Fortinet\" value(\"MESSAGE\")); };\n  destination security_msg_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_msg_oms); destination(security_msg_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
 1. Make sure that your logs are getting to the right port in the Syslog agent. Run this command the new machine on which you installed the Syslog agent: `tcpdump -A -ni any  port 514 -vv` Make sure that logs are being received from the source appliance on the right port and right facility.
 2. Check that there is communication between the Syslog daemon and the agent. Run this command the new machine on which you installed the Syslog agent: `tcpdump -A -ni any  port 25226 -vv` Make sure that the logs are also being received on the agent.
-3. If both of those commands provided successful results, check Log Analytics to see if your logs are arriving. All events streamed from these appliances appear in raw form in Log Analytics under `CommonSecurityLog ` type.
+1. If both of those commands provided successful results, check Log Analytics to see if your logs are arriving. All events streamed from these appliances appear in raw form in Log Analytics under `CommonSecurityLog ` type.
 1. To check if there are errors or if the logs aren't arriving, look in `ail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
-4. Make sure that your Syslog message default size is limited to 2048 bytes (2KB). If logs are too long, update the security_events.conf using this command: `message_length_limit 4096`
-
-
+1. Make sure that your Syslog message default size is limited to 2048 bytes (2KB). If logs are too long, update the security_events.conf using this command: `message_length_limit 4096`
 
 
 ## Next steps
-In this document, you learned how to connect CEF appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+In this document, you learned how to connect Fortinet appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](qs-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
 

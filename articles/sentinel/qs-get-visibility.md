@@ -118,7 +118,7 @@ You can create different dashboards based on role of person looking at the data 
 
 
 ## Next steps
-In this quickstart, you learned how to get started using Azure Sentinel. Continue to the tutorial for [how to write a playbook](tutorial-respond-threats-playbook.md).
+In this quickstart, you learned how to get started using Azure Sentinel. Continue to the tutorial for [how to detect threats](tutorial-detect-threats.md).
 > [!div class="nextstepaction"]
-> [Create playbooks](tutorial-respond-threats-playbook.md) to automate your responses to threats.
+> [Detect threats](tutorial-detect-threats.md) to automate your responses to threats.
 

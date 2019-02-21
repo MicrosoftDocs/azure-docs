@@ -70,3 +70,6 @@ Azure Sentinel also collects [Syslog](connect-syslog.md) and [CEF over Syslog](c
 
 ## Next steps
 In this document, you learned about connecting data sources to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+- Learn how to [get visibility into your data, and potential threats](qs-get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
+- Stream data from [Common Error Format appliances](connect-cef.md) into Azure Sentinel.

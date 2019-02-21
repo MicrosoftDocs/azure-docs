@@ -1,5 +1,5 @@
 ---
-title: Collecting Syslog data in Azure Sentinel | Microsoft Docs
+title: Collect Syslog data in Azure Sentinel | Microsoft Docs
 description: Learn how to collect Syslog data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -44,4 +44,5 @@ Syslog collection is accomplished using an agent for Linux. By default, the agen
 
 ## Next steps
 In this document, you learned how to connect Syslog on-premises appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-
+- Learn how to [get visibility into your data, and potential threats](qs-get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
