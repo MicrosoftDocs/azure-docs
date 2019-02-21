@@ -1,6 +1,6 @@
 ---
 title: Automatic update of Mobility Service in Azure to Azure disaster recovery | Microsoft Docs
-description: Provides an overview of automatic update of Mobility Service, when replicating Azure VMs using Azure Site Recovery.
+description: An overview of automatic update of Mobility Service, when replicating Azure VMs using Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram 
 manager: rochakm
@@ -10,56 +10,61 @@ ms.date: 11/27/2018
 ms.author: rajanaki
 
 ---
-# Automatic update of the Mobility Service in Azure to Azure replication
+# Automatic update of Mobility Service in Azure to Azure replication
 
-Azure Site Recovery has a monthly release cadence where enhancements to existing features or new ones are added, and known issues if any are fixed. This would mean that to remain current with the service, you need to plan for deployment of these patches, monthly. In order to avoid the over head associated with the upgrade, users can instead choose to allow Site Recovery to manage updates of the components. As detailed in the [architecture reference](azure-to-azure-architecture.md) for Azure to Azure disaster recovery, Mobility Service gets installed on all Azure virtual machines for which replication is enabled while replicating virtual machines from one Azure region to another. Once you enable automatic update, the Mobility service extension gets updated with every new release. This document details the following:
+Azure Site Recovery uses a monthly release cadence to fix any issues and enhance existing features or add new ones. To remain current with the service, you must plan for patch deployment each month. To avoid overhead associated with each upgrade, users can instead allow Site Recovery to manage component updates.
 
-- How does automatic update work?
-- Enable automatic updates
-- Common issues & troubleshooting
+As mentioned in [Azure to Azure disaster recovery architecture](azure-to-azure-architecture.md), Mobility Service is installed on all Azure virtual machines (VMs) for which replication is enabled, while replicating VMs from one Azure region to another. When you use automatic updates, each new release updates the mobility service extension.
+
+In this article:
+
+- How automatic updates work
+- Managing updates with Site Recovery
+- Common issues and troubleshooting
  
-## How does automatic update work
+## How automatic updates work
 
-Once you allow Site Recovery to manage updates, a global runbook (which is used by Azure services) is deployed via an automation account, which is created in the same subscription as the vault. One automation account is used for a specific vault. The runbook checks for each VM in a vault for which auto-updates are turned ON and initiates an upgrade of the Mobility Service extension if a newer version is available. The default schedule of the runbook recurs daily at 12:00 AM as per the time zone of the replicated virtual machine's geo. 
-The runbook schedule can also be modified via the automation account by the user, if necessary. 
+When you use Site Recovery to manage updates, it deploys a global runbook (used by Azure services) via an automation account, created in the same subscription as the vault. Each vault uses one automation account. The runbook checks for each VM in a vault for active auto-updates and upgrades the mobility service extension if a newer version is available.
 
-> [!NOTE]
-> Enabling automatic updates doesn't require a reboot of your Azure VMs, and doesn't affect on-going replication.
+The default runbook schedule recurs daily at 12:00 AM per the time zone of the replicated VM's geo. Users may also change the runbook schedule via the automation account.
 
 > [!NOTE]
-> Billing for jobs used by automation account is based on the number of job run time minutes used in the month and by default 500 minutes are included as free units for an automation account. The execution of the job daily amounts from a **few seconds to about a minute** and will be **covered in the free credits**.
+> Turning on automatic updates doesn't require a restart of your Azure VMs or affect ongoing replication.
+
+> [!NOTE]
+> Automation account job billing is based on the number of job runtime minutes used in a month. By default, 500 minutes are included as free units for an automation account. Job execution takes a few seconds to about a minute each day and is covered as free credits.
 
 FREE UNITS INCLUDED (PER MONTH)**	PRICE
-Job run time	500 minutes	₹0.14/minute
+Job runtime	500 minutes	₹0.14/minute
 
-## Enable automatic updates
+## Managing updates with Site Recovery
 
-You can choose to allow Site Recovery to manage updates in the following ways:-
+You can allow Site Recovery to manage updates in the following ways:
 
 - [As part of the enable replication step](#as-part-of-the-enable-replication-step)
 - [Toggle the extension update settings inside the vault](#toggle-the-extension-update-settings-inside-the-vault)
 
 ### As part of the enable replication step:
 
-When you enable replication for a virtual machine either starting [from the virtual machine view](azure-to-azure-quickstart.md), or [from the recovery services vault](azure-to-azure-how-to-enable-replication.md), you will get an option to choose to either allow Site Recovery to manage updates for the Site Recovery extension or to manually manage the same.
+When you use replication for a VM either starting [from the VM view](azure-to-azure-quickstart.md) or [from the recovery services vault](azure-to-azure-how-to-enable-replication.md), you can either allow Site Recovery to manage updates for the site recovery extension or manage it manually.
 
 ![enable-replication-auto-update](./media/azure-to-azure-autoupdate/enable-rep.png)
 
 ### Toggle the extension update settings inside the vault
 
-1. Inside the vault, navigate to **Manage**-> **Site Recovery Infrastructure**
-2. Under **For Azure virtual Machines**-> **Extension Update Settings**, click the toggle to choose whether you want to allow *ASR to manage updates* or *manage manually*. Click **Save**.
+1. Inside the vault, go to **Manage** > **Site Recovery Infrastructure**.
+2. Under **For Azure Virtual Machines** > **Extension Update Settings**, select the toggle to choose either **Allow Site Recovery to manage** or **manage manually**, then select **Save**.
 
 ![vault-toggle-auto-update](./media/azure-to-azure-autoupdate/vault-toggle.png)
 
 > [!Important] 
-> When you choose *Allow ASR to manage*, the setting is applied to all virtual machines in the corresponding vault.
+> When you choose **Allow Site Recovery to manage**, the setting is applied to all VMs in the corresponding vault.
 
 
 > [!Note] 
-> Both the options will notify you of the automation account that is used for managing the updates. If you are enabling this feature for the first time in a vault, a new automation account will be created. All subsequent enable replications in the same vault will use the previously created one.
+> Either option will notify you of the automation account used for managing updates. If you're using this feature in a vault for the first time, a new automation account will be created. All subsequent enable replications in the same vault will use the previously created one.
 
-**If you want to use a custom automation account, please use the below script:-**
+**For a custom automation account, use the following script:**
 
 ```azurepowershell
 param(
@@ -496,38 +501,35 @@ elseif($JobsCompletedSuccessList.Count -ne $ContainerMappingList.Count)
 Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -DisplayMessageToUser
 ```
 
-### Manage manually
+### Manage updates manually
 
-1. If there are new updates available for the Mobility Service installed on your Azure VMs, you see a notification that reads "New Site recovery replication agent update is available. Click to install."
+1. If there are new updates available for the Mobility Service installed on your VMs, you'll see the following notification: **New Site recovery replication agent update is available. Click to install**.
 
      ![Replicated items window](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
-3. Select the notification to open the virtual machine selection page.
-4. Select the virtual machines you want to upgrade mobility service on, and select **OK**.
+2. Select the notification to open the VM selection page.
+3. Choose the VMs you want to upgrade, then select **OK**. The Update Mobility service will start for each selected VM.
 
      ![Replicated items VM list](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
-The Update Mobility Service job starts for each of the selected virtual machines.
 
+## Common issues and troubleshooting
 
-## Common issues & troubleshooting
+If there's an issue with the automatic updates, you'll see an error notification under **Configuration issues** in the vault dashboard. 
 
-If there is an issue with the automatic updates, you'll be notified of the same under 'Configuration issues' in the vault dashboard. 
+If you couldn't turn on automatic updates, see the following common errors and recommended actions:
 
-In case you tried to enable automatic updates and it failed, refer below for troubleshooting.
+**Error #1**: You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal. 
 
-**Error**: You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal. 
-- Recommended Action: Ensure that the logged in account is assigned the 'Contributor' and retry the operation. Refer to [this](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) document for further information on assigning the right permissions.
+**Recommended action**: Make sure that the signed-in account is assigned as Contributor and try again. Refer to the required permissions section in the [Use the portal to create an Azure AD application and service principal that can access resources ](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) document for more info about assigning permissions.
  
-Once automatic updates are turned ON, most of the issues can be healed by the Site Recovery service and requires you to click on the '**Repair**' button.
+Once automatic updates are turned on, most issues can be fixed by the site recovery service by selecting **Repair**. If the repair button isn't available, see the error message displayed under extension settings pane.
 
 ![repair-button](./media/azure-to-azure-autoupdate/repair.png)
 
-In case the repair button isn't available, refer to the error message displayed under extension settings pane.
+ - **Error #2**: The Run As account does not have the permission to access the recovery services resource.
 
- - **Error**: The Run As account does not have the permission to access the recovery services resource.
+    **Recommended Action**: Delete and then [re-create the Run As account](https://docs.microsoft.com/azure/automation/automation-create-runas-account). Or, make sure that the Automation Run As account's Azure Active Directory Application has access to the recovery services resource.
 
-    **Recommended Action**: Delete and then [re-create the Run As account](https://docs.microsoft.com/azure/automation/automation-create-runas-account) or make sure that the Automation Run As account's Azure Active Directory Application has access to the recovery services resource.
+- **Error #3**: Run As account is not found. Either one of these was deleted or not created - Azure Active Directory Application, Service Principal, Role, Automation Certificate asset, Automation Connection asset - or the Thumbprint is not identical between Certificate and Connection. 
 
-- **Error**: Run As account is not found. Either one of these was deleted or not created - Azure Active Directory Application, Service Principal, Role, Automation Certificate asset, Automation Connection asset - or the Thumbprint is not identical between Certificate and Connection. 
-
-    **Recommended Action**: Delete and [then re-create the Run As account](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+    **Recommended Action**: Delete and then [re-create the Run As account](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
