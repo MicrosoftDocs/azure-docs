@@ -45,20 +45,21 @@
         items:  
         - name: Connect generic CEF appliances
           href: connect-cef.md
-        - name: Connect Syslog appliances
-          href: connect-syslog.md
-        - name: Connect Cisco appliances
-          href: connect-cisco.md
-      - name: Connect Barracuda appliances
-        href: connect-barracuda.md
-      - name: Connect Check Point appliances
-        href: connect-checkpoint.md
-      - name: Connect Palo Alto appliances
-        href: connect-paloalto.md
-      - name: Connect Fortinet appliances
-        href: connect-fortinet.md
-      - name: Connect F5 appliances
-        href: connect-f5.md
+        - name: Connect Barracuda appliances
+          href: connect-barracuda.md
+        - name: Connect Check Point appliances
+          href: connect-checkpoint.md
+        - name: Connect Palo Alto appliances
+          href: connect-paloalto.md
+        - name: Connect Fortinet appliances
+          href: connect-fortinet.md
+        - name: Connect F5 appliances
+          href: connect-f5.md
+        
+    - name: Connect Syslog appliances
+      href: connect-syslog.md
+    - name: Connect Cisco appliances
+      href: connect-cisco.md
     - name: Connect other clouds
       items:
       - name: Connect AWS
