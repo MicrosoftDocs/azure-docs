@@ -2,11 +2,11 @@
 title: 'Create and modify an ExpressRoute circuit - PowerShell: Azure | Microsoft Docs'
 description: Create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
 services: expressroute
-author: ganesr
+author: cherylmc
 
 ms.service: expressroute
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 02/20/2019
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
 
@@ -77,7 +77,6 @@ If you don't already have a resource group, you must create one before you creat
 ```azurepowershell-interactive
 New-AzResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
 ```
-
 
 The following example shows how to create a 200-Mbps ExpressRoute circuit through Equinix in Silicon Valley. If you're using a different provider and different settings, substitute that information when you make your request. Use the following example to request a new service key:
 
@@ -164,12 +163,6 @@ The response looks similar to the following example:
     ServiceKey                       : **************************************
     Peerings                         : []
 
-
-You can get detailed descriptions of all the parameters by running the following command:
-
-```azurepowershell-interactive
-get-help Get-AzExpressRouteCircuit -detailed
-```
 
 ### 5. Send the service key to your connectivity provider for provisioning
 *ServiceProviderProvisioningState* provides information about the current state of provisioning on the service-provider side. Status provides the state on the Microsoft side. For more information about circuit provisioning states, see [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states).
