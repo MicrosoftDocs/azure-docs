@@ -99,7 +99,7 @@ Azure Sentinel gives you two primary options for responding to threats using pla
 
 
 ## Next steps
-In this tutorial, you learned how to get started detecting threats using Azure Sentinel. Continue to the tutorial for [how to respond to threats using automated playbooks](tutorial-respond-threats-playbooks.md).
+In this tutorial, you learned how to get started detecting threats using Azure Sentinel. Continue to the tutorial for [how to respond to threats using automated playbooks](tutorial-respond-threats-playbook.md).
 > [!div class="nextstepaction"]
-> [Respond to threats](tutorial-respond-threats-playbooks.md) to automate your responses to threats.
+> [Respond to threats](tutorial-respond-threats-playbook.md) to automate your responses to threats.
 
