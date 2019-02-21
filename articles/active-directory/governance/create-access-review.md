@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/19/2019
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -26,7 +26,7 @@ This article describes how to create one or more access reviews for group member
 ## Prerequisites
 
 - [Access reviews enabled](access-reviews-overview.md)
-- Global Administrator or Account Administrator
+- Global Administrator or User Account Administrator
 
 ## Create one or more access reviews
 
