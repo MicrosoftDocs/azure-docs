@@ -45,10 +45,26 @@ You can use a [live on-premises encoder](recommended-on-premises-live-encoders.m
 
 ## Content protection
 
-For FAQs related to content protection, see:
+### How and where to get JWT token before using it to request license or key?
 
-- [Content protection overview](content-protection-overview.md#frequently-asked-questions)
-- [Design of a multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md#faqs)
+1. For production, you need to have a Secure Token Services (STS) (web service) which issues JWT token upon a HTTPS request. For test, you could use the code shown in **GetTokenAsync** method defined in [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
+2. Player will need to make a request, after a user is authenticated, to the STS for such a token and assign it as the value of the token. You can use the [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/).
+
+* For an example of running STS, with either symmetric and asymmetric key, please see [http://aka.ms/jwt](https://aka.ms/jwt). 
+* For an example of a player based on Azure Media Player using such JWT token, see [http://aka.ms/amtest](https://aka.ms/amtest) (expand "player_settings" link to see the token input).
+
+### How do you authorize requests to stream videos with AES encryption?
+
+The correct approach is to leverage STS (Secure Token Service):
+
+In STS, depending on user profile, add different claims (such as "Premium User", "Basic User", "Free Trial User"). With different claims in a JWT, the user can see different contents. Of course, for different content/asset, the ContentKeyPolicyRestriction will have the corresponding RequiredClaims.
+
+Use Azure Media Services APIs for configuring license/key delivery and encrypting your assets (as shown in [this sample](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs).
+
+For more information, see:
+
+- [Content protection overview](content-protection-overview.md)
+- [Design of a multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md)
 
 ## Media Services v2 vs v3 
 
