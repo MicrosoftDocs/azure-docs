@@ -37,18 +37,11 @@ This tutorial covers the following steps:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## 1. Create a namespace using the Azure portal
-
-> [!NOTE] 
-> You can also create a Service Bus namespace and messaging entities using [PowerShell](/powershell/azure/get-started-azureps). For more information, see [Use PowerShell to manage Service Bus resources](service-bus-manage-with-ps.md).
-
-If you have already created a Service Bus Messaging namespace, jump to the [Create a topic using the Azure portal](#2-create-a-topic-using-the-azure-portal) section.
-
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 [!INCLUDE [service-bus-create-topics-subscriptions-portal](../../includes/service-bus-create-topics-subscriptions-portal.md)]
 
-## 4. Send messages to the topic
+## Send messages to the topic
 
 To send messages to the topic, write a C# console application using Visual Studio.
 
@@ -205,7 +198,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
    
       ![Message size][topic-message]
 
-## 5. Receive messages from the subscription
+## Receive messages from the subscription
 
 To receive the messages you just sent, create another .NET Core console application and install the **Microsoft.Azure.ServiceBus** NuGet package, similar to the previous sender application.
 
