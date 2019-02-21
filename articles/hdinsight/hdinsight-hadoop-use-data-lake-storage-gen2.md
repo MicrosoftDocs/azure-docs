@@ -6,7 +6,7 @@ author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: howto
-ms.date: 01/10/2019
+ms.date: 02/19/2019
 ms.author: hrasheed
 
 ---
@@ -25,7 +25,7 @@ Data Lake Storage Gen2 is available as a storage option for almost all Azure HDI
 
 ## Use the Azure portal
 
-To create an HDInsight cluster that uses Data Lake Storage Gen2 for storage, follow these steps to create and configure a Data Lake Storage Gen2 account.
+To create an HDInsight cluster that uses Data Lake Storage Gen2 for storage, follow these steps to configure a Data Lake Storage Gen2 account.
 
 1. Create a user-assigned managed identity, if you don’t already have one. See [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
@@ -106,7 +106,7 @@ az group deployment create --name HDInsightADLSGen2Deployment \
 
 ### What kinds of permissions does Data Lake Storage Gen2 support?
 
-Data Lake Storage Gen2 uses an access control model that supports both role-based access control (RBAC) and POSIX-like access control lists (ACLs). Data Lake Storage Gen1 supported access control lists only for controlling access to data.
+Data Lake Storage Gen2 uses an access control model that supports both role-based access control (RBAC) and POSIX-like access control lists (ACLs). Data Lake Storage Gen1 supports access control lists only for controlling access to data.
 
 RBAC uses role assignments to effectively apply sets of permissions to users, groups, and service principals for Azure resources. Typically, those Azure resources are constrained to top-level resources (for example, Azure Storage accounts). For Azure Storage, and also Data Lake Storage Gen2, this mechanism has been extended to the file system resource.
 
@@ -116,7 +116,7 @@ For more information about file permissions with ACLs, see [Access control lists
 
 ### How do I control access to my data in Data Lake Storage Gen2?
 
-Your HDInsight cluster's ability to access files in Data Lake Storage Gen2 is controlled through managed identities. A managed identity is an identity registered in Azure Active Directory (Azure AD) whose credentials are managed by Azure. With managed identities, you don't need to register service principals in Azure AD and maintain credentials such as certificates.
+Your HDInsight cluster's ability to access files in Data Lake Storage Gen2 is controlled through managed identities. A managed identity is an identity registered in Azure Active Directory (Azure AD) whose credentials are managed by Azure. With managed identities, you don't need to register service principals in Azure AD or maintain credentials such as certificates.
 
 Azure services have two types of managed identities: system-assigned and user-assigned. HDInsight uses user-assigned managed identities to access Data Lake Storage Gen2. A user-assigned managed identity is created as a standalone Azure resource. Through a create process, Azure creates an identity in the Azure AD tenant that's trusted by the subscription in use. After the identity is created, the identity can be assigned to one or more Azure service instances.
 
