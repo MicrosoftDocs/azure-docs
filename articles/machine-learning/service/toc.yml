@@ -63,6 +63,8 @@
       href: how-to-manage-workspace.md
     - name: Use a Resource Manager template
       href: how-to-create-workspace-template.md
+    - name: Manage users and roles
+      href: how-to-assign-roles.md
   - name: Set up development environment 
     items:
     - name: Configure dev environments
@@ -96,7 +98,7 @@
       href: how-to-train-ml-models.md
     - name: Use PyTorch
       href: how-to-train-pytorch.md
-    - name: Use TensorFlow
+    - name: Use TensorFlow and Keras
       href: how-to-train-tensorflow.md
     - name: Tune hyperparameters
       displayName: parameter
