@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
 ---
@@ -66,6 +66,6 @@ These represent the limits for each update action; that is, clicking *Save and t
 
 Learn when and how to change service tiers:
 
-* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku):When you need to have more source files or bigger documents in your knowledge base, beyond your current tier, upgrade your QnA Maker service pricing tier.
-* [App Service](how-to/upgrade-qnamaker-service.md#upgrade-app-service) - When your knowledge base needs to serve more requests from your client app, upgrade your app service pricing tier.
-* [Azure Search](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service):When you plan to have many knowledge bases, upgrade your Azure Search service pricing tier.
+* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): When you need to have more source files or bigger documents in your knowledge base, beyond your current tier, upgrade your QnA Maker service pricing tier.
+* [App Service](how-to/upgrade-qnamaker-service.md#upgrade-app-service): When your knowledge base needs to serve more requests from your client app, upgrade your app service pricing tier.
+* [Azure Search](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): When you plan to have many knowledge bases, upgrade your Azure Search service pricing tier.
