@@ -9,7 +9,7 @@ manager: daauld
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: quickstart
-ms.date: 12/05/2018
+ms.date: 2/21/2019
 ms.author: areddish
 ---
 
