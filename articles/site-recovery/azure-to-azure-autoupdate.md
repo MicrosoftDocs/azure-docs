@@ -62,7 +62,7 @@ When you use replication for a VM either starting [from the VM view](azure-to-az
 
 
 > [!Note] 
-> Either option will notify you of the automation account used for managing updates. If you're using this feature in a vault for the first time, a new automation account will be created. All subsequent enable replications in the same vault will use the previously created one.
+> Either option notifies you of the automation account used for managing updates. If you're using this feature in a vault for the first time, a new automation account is be created. All subsequent enable replications in the same vault use the previously created one.
 
 **For a custom automation account, use the following script:**
 
@@ -522,7 +522,7 @@ If you couldn't turn on automatic updates, see the following common errors and r
 
 **Recommended action**: Make sure that the signed-in account is assigned as Contributor and try again. Refer to the required permissions section in the [Use the portal to create an Azure AD application and service principal that can access resources ](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) document for more info about assigning permissions.
  
-Once automatic updates are turned on, most issues can be fixed by the site recovery service by selecting **Repair**. If the repair button isn't available, see the error message displayed under extension settings pane.
+Once automatic updates are turned on, most issues can be resolved with the site recovery service by selecting **Repair**. If the repair button isn't available, see the error message displayed under extension settings pane.
 
 ![repair-button](./media/azure-to-azure-autoupdate/repair.png)
 
