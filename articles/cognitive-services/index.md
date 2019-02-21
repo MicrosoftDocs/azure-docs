@@ -7,7 +7,7 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 02/15/2019
+ms.date: 02/21/2019
 ms.topic: hub-page
 ---
 
@@ -72,7 +72,6 @@ ms.topic: hub-page
                 </div>
             </a>
         </li>
-
         <li>
             <a href="/azure/cognitive-services/language-support/">
                 <div class="cardSize">
@@ -146,11 +145,9 @@ ms.topic: hub-page
                     <div class="cardText">
                         <h3>Recognize speech using Speech Service</h3>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-csharp-windows/">Using C#</a></p>
-                        <p><a href="/azure/cognitive-services/speech-service/quickstart-java-jre">Using Java</a></p>
-                        <p><a href="/azure/cognitive-services/speech-service/quickstart-objectivec-ios">Using Objective-C</a></p>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-js-browser">Using JavaScript</a></p>
-                        <p><a href="/azure/cognitive-services/speech-service/quickstart-cpp-windows">Using C++</a></p>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-python">Using Python</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service/quickstart-java-jre">Using Java</a></p>
                     </div>
                 </div>
             </div>
