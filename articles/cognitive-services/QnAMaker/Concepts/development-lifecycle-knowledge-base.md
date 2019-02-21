@@ -30,7 +30,7 @@ The knowledge base is ready for testing once it is populated with content, eithe
 
 This tight loop of test-update continues until you are satisfied with the results. Learn how to [test your knowledge base](../How-To/test-knowledge-base.md).
 
-For large KBs, use automated testing with the [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) and the `isTest=true` query string parameter which queries the `testkb` search index instead of the published search index. 
+For large KBs, use automated testing with the [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) and the `isTest=true` query string parameter which queries the `test` knowledge base instead of the published knowledge base. 
 
 ## Publish the knowledge base
 Once you are done testing the knowledge base, you can publish it. Publish pushes the latest version of the tested knowledge base  to a dedicated Azure Search index representing the **published** knowledge base. It also creates an endpoint that can be called in your application or chat bot.
