@@ -123,6 +123,17 @@ The following table shows which bindings are supported in each runtime version.
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
+## Default and Maximum Timeout Duration 
+
+Azure Functions in the Consumption plan have a default timeout of 5 minutes, and a maximum configurable timeout of 10 minutes for both 1.x and 2.x runtime versions.
+
+Azure Functions on an App Service Plan have an unlimited default and unlimited maximum timeout for the 1.x runtime; and a 30 minutes default and unlimited maximum timeout for the 2.x runtime.
+
+[!INCLUDE [Timeout Duration table](../../includes/functions-timeout-duration.md)]
+
+The timeout value can be changed for the Function App by changing the property functionTimeout in the [host.json](functions-host-json.md#functiontimeout) project file for both runtime versions.
+
+
 ## Next steps
 
 For more information, see the following resources:
