@@ -11,32 +11,49 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 12/10/2018
+ms.date: 02/12/2019
 ---
 # Quickstart: Use .NET Core (C#) to query an Azure SQL database
 
-This quickstart demonstrates how to use [.NET Core](https://www.microsoft.com/net/) and C# code to connect to an Azure SQL database and run a Transact-SQL statement to query data.
+In this quickstart, you'll use [.NET Core](https://www.microsoft.com/net/) and C# code to connect to an Azure SQL database. You'll then run a Transact-SQL statement to query data.
 
 ## Prerequisites
 
 For this tutorial, you need:
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+- An Azure SQL database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
 
-- A [server-level firewall rule](sql-database-get-started-portal-firewall.md) for your computer's public IP address.
+  || Single database | Managed instance |
+  |:--- |:--- |:---|
+  | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  | Configure | [Server-level IP firewall rule](sql-database-server-level-firewall-rule.md)| [Connectivity from a VM](sql-database-managed-instance-configure-vm.md)|
+  |||[Connectivity from on-site](sql-database-managed-instance-configure-p2s.md)
+  |Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |||Restore or import Adventure Works from [BACPAC](sql-database-import.md) file from [github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||
 
-- [.NET Core for your operating system](https://www.microsoft.com/net/core) installed. 
+  > [!IMPORTANT]
+  > The scripts in this article are written to use the Adventure Works database. With a managed instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
+
+- [.NET Core for your operating system](https://www.microsoft.com/net/core) installed.
 
 > [!NOTE]
 > This quickstart uses the *mySampleDatabase* database. If you want to use a different database, you will need
 > to change the database references and modify the `SELECT` query in the C# code.
 
-
 ## Get SQL server connection information
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
+Get the connection information you need to connect to the Azure SQL database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
 
-#### Get ADO.NET connection information (optional)
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+2. Navigate to the **SQL databases**  or **SQL managed instances** page.
+
+3. On the **Overview** page, review the fully qualified server name next to **Server name** for a single database or the fully qualified server name next to **Host** for a managed instance. To copy the server name or host name, hover over it and select the **Copy** icon.
+
+## Get ADO.NET connection information (optional)
 
 1. Navigate to the **mySampleDatabase** page and, under **Settings**, select **Connection strings**.
 
@@ -48,14 +65,14 @@ For this tutorial, you need:
   
 ## Create a new .NET Core project
 
-1. Open a command prompt and create a folder named **sqltest**. Navigate to this folder and run the following command.
+1. Open a command prompt and create a folder named **sqltest**. Navigate to this folder and run this command.
 
     ```cmd
     dotnet new console
     ```
-    This creates new app project files, including an initial C# code file (**Program.cs**), an XML configuration file (**sqltest.csproj**), and needed binaries.
+    This command creates new app project files, including an initial C# code file (**Program.cs**), an XML configuration file (**sqltest.csproj**), and needed binaries.
 
-2. In a text editor, open **sqltest.csproj** and paste the following XML between the `<Project>` tags. This adds `System.Data.SqlClient` as a dependency.
+2. In a text editor, open **sqltest.csproj** and paste the following XML between the `<Project>` tags. This XML adds `System.Data.SqlClient` as a dependency.
 
     ```xml
     <ItemGroup>
@@ -170,7 +187,7 @@ namespace sqltest
 
    Done. Press enter.
    ```
-3. Press **Enter** to close the application window.
+3. Choose **Enter** to close the application window.
 
 ## Next steps
 

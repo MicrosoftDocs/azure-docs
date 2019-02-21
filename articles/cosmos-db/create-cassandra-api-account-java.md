@@ -5,7 +5,7 @@ author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
+ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
@@ -40,7 +40,7 @@ This tutorial covers the following tasks:
 
 2. Select **Create a resource** > **Databases** > **Azure Cosmos DB**. 
 
-3. In the **New account** pane, enter the settings for the new Azure Cosmos account. 
+3. In the **New account** pane, enter the settings for the new Azure Cosmos account. 
 
    |Setting   |Suggested value  |Description  |
    |---------|---------|---------|

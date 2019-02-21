@@ -40,7 +40,7 @@ In some high memory-consumption scenarios, your app might truly require more com
 ## How do I automate App Service web apps by using PowerShell?
 
 You can use PowerShell cmdlets to manage and maintain App Service web apps. In our blog post [Automate web apps hosted in Azure App Service by using PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/), we describe how to use Azure Resource Manager-based PowerShell cmdlets to automate common tasks. The blog post also has sample code for various web apps management tasks. 
-For descriptions and syntax for all App Service web apps cmdlets, see [AzureRM.Websites](https://docs.microsoft.com/powershell/module/azurerm.websites/?view=azurermps-4.0.0).
+For descriptions and syntax for all App Service web apps cmdlets, see [Az.Websites](/powershell/module/az.websites).
 
 ## How do I view my web app's event logs?
 
@@ -110,7 +110,7 @@ To turn on failed request tracing:
 10. Select **Web.config**.
 11. In system.webServer, add this configuration (to capture a specific URL):
 
-    ```
+    ```xml
     <system.webServer>
     <tracing> <traceFailedRequests>
     <remove path="*api*" />
@@ -126,7 +126,7 @@ To turn on failed request tracing:
     </tracing>
     ```
 12. To troubleshoot slow-performance issues, add this configuration (if the capturing request is taking more than 30 seconds):
-    ```
+    ```xml
     <system.webServer>
     <tracing> <traceFailedRequests>
     <remove path="*" />
@@ -160,7 +160,7 @@ For more information, see [Configure web apps in App Service](web-sites-configur
 
 Azure Load Balancer has a default idle timeout setting of four minutes. This is generally a reasonable response time limit for a web request. If your web app requires background processing, we recommend using Azure WebJobs. The Azure web app can call WebJobs and be notified when background processing is finished. You can choose from multiple methods for using WebJobs, including queues and triggers.
 
-WebJobs is designed for background processing. You can do as much background processing as you want in a WebJob. For more information about WebJobs, see [Run background tasks with WebJobs](web-sites-create-web-jobs.md).
+WebJobs is designed for background processing. You can do as much background processing as you want in a WebJob. For more information about WebJobs, see [Run background tasks with WebJobs](webjobs-create.md).
 
 ## ASP.NET Core applications that are hosted in App Service sometimes stop responding. How do I fix this issue?
 

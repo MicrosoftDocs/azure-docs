@@ -12,17 +12,66 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/14/2018
+ms.date: 2/5/2019
 ms.author: raiye
 
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
 
-## December 2018 Guest OS
+## January 2019 Guest OS
 
->[!NOTE]
->The December Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the December Guest OS. This list is subject to change.
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 19-01 | [4480116] | Windows 10 Security | 6.3 | January 8, 2019 |
+| Rel 19-01 | [4480961] | Windows 10 Security | 5.27 | January 8, 2019 |
+| Rel 19-01 | [4480964] | Windows Security | 4.62 | January 8, 2019 |
+| Rel 19-01 | [4480972] | Windows Security | 3.69 | January 8, 2019 |
+| Rel 19-01 | [4480960] | Windows Security | 2.82 | January 8, 2019 |
+| Rel 19-01 | [4480056] | .Net Security | 6.3 | January 8, 2019 |
+| Rel 19-01 | [4480074] | .Net 4.x Security | 4.62 | January 8, 2019 |
+| Rel 19-01 | [4480075] | .Net 4.x Security | 3.69 | January 8, 2019 |
+| Rel 19-01 | [4480076] | .Net 4.x Security | 2.82 | January 8, 2019 |
+| Rel 19-01 | [4480086] | .Net 3.x Security | 4.62 | January 8, 2019 |
+| Rel 19-01 | [4480083] | .Net 3.x Security | 3.69 | January 8, 2019 |
+| Rel 19-01 | [4480085] | .Net 3.x Security | 2.82 | January 8, 2019 |
+| Rel 19-01 | [4480979] | Flash | 3.69, 4.62, 5.27, 6.3 | January 8, 2019 |
+| Rel 19-01 | [4480965] | Internet Explorer | 2.82, 3.69, 4.62 | January 8, 2019 |
+| N/A | [4471318] | December Non-Security rollup | 2.82 | December 11, 2018 |
+| N/A | [4470641] | December Non-Security Rollup .NET 3.x | 2.82 | December 11, 2018 |
+| N/A | [4470637] | December Non-Security Rollup .NET 4.x | 2.82 | December 11, 2018 |
+| N/A | [4471330] | December Non-Security rollup | 3.69 | December 11, 2018 |
+| N/A | [4470629] | December Non-Security Rollup .NET 3.x | 3.69 | December 11, 2018 |
+| N/A | [4470623] | December Non-Security Rollup .NET 4.x | 3.69 | December 11, 2018 |
+| N/A | [4471320] | December Non-Security rollup | 4.62 | December 11, 2018 |
+| N/A | [4470630] | December Non-Security Rollup .NET 3.x | 4.62 | December 11, 2018 |
+| N/A | [4470622] | December Non-Security Rollup .NET 4.x | 4.62 | December 11, 2018 |
+
+[4480116]: http://support.microsoft.com/kb/4480116
+[4480961]: http://support.microsoft.com/kb/4480961
+[4480964]: http://support.microsoft.com/kb/4480964
+[4480972]: http://support.microsoft.com/kb/4480972
+[4480960]: http://support.microsoft.com/kb/4480960
+[4480056]: http://support.microsoft.com/kb/4480056
+[4480074]: http://support.microsoft.com/kb/4480074
+[4480075]: http://support.microsoft.com/kb/4480075
+[4480076]: http://support.microsoft.com/kb/4480076
+[4480086]: http://support.microsoft.com/kb/4480086
+[4480083]: http://support.microsoft.com/kb/4480083
+[4480085]: http://support.microsoft.com/kb/4480085
+[4480979]: http://support.microsoft.com/kb/4480979
+[4480965]: http://support.microsoft.com/kb/4480965
+[4471318]: http://support.microsoft.com/kb/4471318
+[4470641]: http://support.microsoft.com/kb/4470641
+[4470637]: http://support.microsoft.com/kb/4470637
+[4471330]: http://support.microsoft.com/kb/4471330
+[4470629]: http://support.microsoft.com/kb/4470629
+[4470623]: http://support.microsoft.com/kb/4470623
+[4471320]: http://support.microsoft.com/kb/4471320
+[4470630]: http://support.microsoft.com/kb/4470630
+[4470622]: http://support.microsoft.com/kb/4470622
+
+## December 2018 Guest OS
 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |

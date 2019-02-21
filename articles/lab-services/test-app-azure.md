@@ -53,8 +53,8 @@ This article provides steps for testing your application in Azure using DevTest 
 
     ![Select the lab VM](media/test-app-in-azure/select-lab-vm.png)
 2. Select **Connect** on the toolbar to connect to the VM. 
-3. [Install Azure PowerShell](https://azure.microsoft.com/downloads/) by using the **Windows install** link in the **Command-line tools** section. For other ways of installing Azure PowerShell, see [this article](/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1).
-4. Follow instructions in the [Mount the file share](#mount-the-file-share) section. 
+3. [Install Azure PowerShell](https://azure.microsoft.com/downloads/) by using the **Windows install** link in the **Command-line tools** section. For other ways of installing Azure PowerShell, see [this article](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
+4. Follow instructions in the Mount the file share section. 
 
 ## Publish your app from Visual Studio
 In this section, you publish your app from Visual Studio to a test VM in the cloud.

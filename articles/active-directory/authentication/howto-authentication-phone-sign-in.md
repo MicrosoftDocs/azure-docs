@@ -1,18 +1,21 @@
 ---
-title: Password-less Azure AD sign-in with the Microsoft Authenticator app (public preview)
+title: Password-less Azure AD sign-in with the Microsoft Authenticator app (preview)
 description: Sign-in to Azure AD using the Microsoft Authenticator app without using your password (public preview)
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 02/01/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: librown
 
+ms.custom: seo-update-azuread-jan
+
+ms.collection: M365-identity-device-management
 ---
 # Password-less phone sign-in with the Microsoft Authenticator app (public preview)
 
@@ -34,16 +37,21 @@ For public preview, an admin must first add a policy via powershell to allow use
 
 ### Steps to enable
 
-Ensure you have the latest version of the Public Preview release of Azure Active Directory V2 PowerShell Module. You may wish to uninstall and reinstall to confirm this by executing the following commands:
+1. Ensure you have the latest version of the Public Preview release of the Azure Active Directory V2 PowerShell Module. You may wish to uninstall and reinstall to confirm this by executing the following commands:
+    ```powershell
+    Uninstall-Module -Name AzureADPreview
+    Install-Module -Name AzureADPreview
+    ```
 
-1. `Uninstall-Module -Name AzureADPreview`
-2. `Install-Module -Name AzureADPreview`
+2. Authenticate to the Azure AD tenant to use the Azure AD V2 PowerShell module. The account used must either be a Security Administrator or Global Administrator.
+    ```powershell
+    Connect-AzureAD
+    ```
 
-You can enable the password-less phone sign-in preview using the following PowerShell commands:
-
-1. `Connect-AzureAD`
-   1. In the authentication dialog, sign in with an account in the tenant. The account must either be a Security Administrator or Global Administrator.
-1. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
+3. Create the Authenticator Sign In policy:
+    ```powershell
+    New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn
+    ```
 
 ## How do my end users enable phone sign-in?
 

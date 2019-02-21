@@ -3,8 +3,8 @@ title: 'App Service on Azure Stack: Fault Domain Update | Microsoft Docs'
 description: How to redistribute Azure App Service on Azure Stack across fault domains
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: jeffgilb
+manager: femila
 editor: ''
 
 ms.assetid:
@@ -14,7 +14,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
-ms.author: anwestg
+ms.author: jeffgilb
+ms.reviewer: anwestg
+ms.lastreviewed: 09/05/2018
 
 ---
 # How to redistribute Azure App Service on Azure Stack across fault domains

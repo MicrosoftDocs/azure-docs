@@ -15,9 +15,9 @@ ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
 
 # Tutorial: Extract, transform, and load data using Apache Hive on Azure HDInsight
 
-In this tutorial, you take a raw CSV data file, import it into an HDInsight cluster storage, and then transform the data using [Apache Hive](https://hive.apache.org/) on Azure HDInsight. Once the data is transformed, you load that data into an Azure SQL database using [Apache Sqoop](http://sqoop.apache.org/). In this article, you use publicly available flight data.
+In this tutorial, you take a raw CSV data file, import it into an HDInsight cluster storage, and then transform the data using [Apache Hive](https://hive.apache.org/) on Azure HDInsight. Once the data is transformed, you load that data into an Azure SQL database using [Apache Sqoop](https://sqoop.apache.org/). In this article, you use publicly available flight data.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on Azure HDInsight version 3.4 or later. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 This tutorial covers the following tasks: 
@@ -73,7 +73,7 @@ There are many ways to upload data to the storage associated with an HDInsight c
 
     Replace *FILENAME* with the name of the .zip file. Replace *USERNAME* with the SSH login for the HDInsight cluster. Replace *CLUSTERNAME* with the name of the HDInsight cluster.
 
-   > [!NOTE]
+   > [!NOTE]  
    > If you use a password to authenticate your SSH login, you're prompted for the password. If you use a public key, you might need to use the `-i` parameter and specify the path to the matching private key. For example, `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
 2. After the upload has finished, connect to the cluster by using SSH. On the command prompt, enter the following command:
@@ -210,7 +210,7 @@ If you already have a SQL database, you must get the server name. To find the se
 
 ![Get Azure SQL server details](./media/hdinsight-analyze-flight-delay-data-linux/get-azure-sql-server-details.png "Get Azure SQL server details")
 
-> [!NOTE]
+> [!NOTE]  
 > There are many ways to connect to SQL Database and create a table. The following steps use [FreeTDS](http://www.freetds.org/) from the HDInsight cluster.
 
 
@@ -328,7 +328,7 @@ To learn more ways to work with data in HDInsight, see the following articles:
 [azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
 
-[rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
+[rita-website]: https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 [hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
@@ -344,4 +344,4 @@ To learn more ways to work with data in HDInsight, see the following articles:
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 
-[technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx

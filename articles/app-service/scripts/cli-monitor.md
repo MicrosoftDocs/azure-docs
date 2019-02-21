@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Monitor a web app with web server logs | Microsoft Docs
-description: Azure CLI Script Sample - Monitor a web app with web server logs
+title: Azure CLI Script Sample - Monitor an app with web server logs | Microsoft Docs
+description: Azure CLI Script Sample - Monitor an app in App Service with web server logs
 services: appservice
 documentationcenter: appservice
 author: msangapu
@@ -20,9 +20,9 @@ ms.custom: mvc
 ms.custom: seodec18
 ---
 
-# Monitor a web app with web server logs using Azure CLI
+# Monitor an App Service app with web server logs using Azure CLI
 
-This sample script creates a resource group, app service plan, and web app, and configures the web app to enable web server logs. It then downloads the log files for review.
+This sample script creates a resource group, App Service plan, and app, and configures the app to enable web server logs. It then downloads the log files for review.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -38,15 +38,15 @@ If you choose to install and use the CLI locally, you need Azure CLI version 2.0
 
 ## Script explanation
 
-This script uses the following commands to create a resource group, web app, and all related resources. Each command in the table links to command specific documentation.
+This script uses the following commands to create a resource group, App Service app, and all related resources. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Creates a resource group in which all resources are stored. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Creates an App Service plan. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Creates an Azure web app. |
-| [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) | Configures which logs an Azure web app persists. |
-| [`az webapp log download`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-download) | Downloads the logs of an Azure web app to your local machine. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Creates an App Service app. |
+| [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) | Configures which logs an App Service app persists. |
+| [`az webapp log download`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-download) | Downloads the logs of an App Service app to your local machine. |
 
 ## Next steps
 

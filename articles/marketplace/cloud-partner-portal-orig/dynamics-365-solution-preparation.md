@@ -1,6 +1,6 @@
 ---
 title: Dynamics 365 Solution Preparation | Microsoft Docs
-description: Framewrok for packaing, installing and unstalling components 
+description: Framework for packaging, installing and uninstalling components 
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
 author: pbutlerm

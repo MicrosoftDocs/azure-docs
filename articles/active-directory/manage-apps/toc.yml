@@ -67,6 +67,8 @@
         href: manage-certificates-for-federated-single-sign-on.md
       - name: Tenant restrictions
         href: tenant-restrictions.md
+      - name: Configure SAML token encryption (Preview)
+        href: howto-saml-token-encryption.md
     - name: Single sign-on
       href: what-is-single-sign-on.md
     - name: End-user portals
@@ -99,6 +101,8 @@
         href: application-proxy-configure-custom-home-page.md
       - name: Translate inline links
         href: application-proxy-configure-hard-coded-link-translation.md
+      - name: Configure cookie settings
+        href: application-proxy-configure-cookie-settings.md
       - name: Publish using wildcards
         href: application-proxy-wildcard.md
       - name: Remove personal data
@@ -109,9 +113,11 @@
         href: application-proxy-troubleshoot.md
       - name: Publishing walkthroughs
         items:
+        - name: Integrate with Cloud App Security
+          href: application-proxy-integrate-with-microsoft-cloud-application-security.md
         - name: Integrate with Remote Desktop
           href: application-proxy-integrate-with-remote-desktop-services.md
-        - name: Integrate with Sharepoint
+        - name: Integrate with SharePoint
           href: application-proxy-integrate-with-sharepoint-server.md
         - name: Integrate with Teams
           href: application-proxy-integrate-with-teams.md

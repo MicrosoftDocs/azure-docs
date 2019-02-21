@@ -47,6 +47,8 @@
     href: batch-quota-limit.md
   - name: Supported VM sizes
     href: batch-pool-vm-sizes.md
+  - name: High availability and disaster recovery
+    href: high-availability-disaster-recovery.md
 - name: How-to guides
   items:
   - name: Manage Batch accounts
@@ -172,6 +174,8 @@
       href: /rest/api/batchservice
     - name: Batch Management
       href: /rest/api/batchmanagement/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.batch/allversions
   - name: Batch Analytics
     href: batch-analytics.md
     items:

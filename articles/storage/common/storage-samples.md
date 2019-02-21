@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/03/2017
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 # Azure Storage samples
 

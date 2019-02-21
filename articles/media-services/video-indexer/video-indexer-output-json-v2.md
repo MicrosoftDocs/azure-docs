@@ -8,7 +8,7 @@ manager: femila
 
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 02/10/2019
 ms.author: juliako
 ---
 
@@ -162,7 +162,7 @@ A face might  have an ID, a name, a thumbnail, other metadata, and a list of its
 |audioEffects|The [audioEffects](#audioEffects) dimension.|
 |sentiments|The [sentiments](#sentiments) dimension.|
 |visualContentModeration|The [visualContentModeration](#visualcontentmoderation) dimension.|
-|textualConentModeration|The [textualConentModeration](#textualconentmoderation) dimension.|
+|textualContentModeration|The [textualContentModeration](#textualcontentmoderation) dimension.|
 |emotions| The [emotions](#emotions) dimension.|
 |topics|The [topics](#topics) dimension.|
 
@@ -183,7 +183,7 @@ Example:
   "audioEffects": ...,
   "sentiments": ...,
   "visualContentModeration": ...,
-  "textualConentModeration": ...
+  "textualContentModeration": ...
 }
 ```
 
@@ -330,7 +330,7 @@ Example:
 |name|The name of the face. It can be 'Unknown #0, an identified celebrity or a customer trained person.|
 |confidence|The face identification confidence.|
 |description|A description of the celebrity. |
-|thumbnalId|The ID of the thumbnail of that face.|
+|thumbnailId|The ID of the thumbnail of that face.|
 |knownPersonId|If it is a known person, its internal ID.|
 |referenceId|If it is a Bing celebrity, its Bing ID.|
 |referenceType|Currently, just Bing.|
@@ -658,7 +658,7 @@ Videos that are found to contain adult or racy content might be available for pr
 ] 
 ```
 
-#### textualConentModeration 
+#### textualContentModeration 
 
 |Name|Description|
 |---|---|

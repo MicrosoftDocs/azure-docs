@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Connect a web app to MongoDB (Cosmos DB) | Microsoft Docs
-description: Azure CLI Script Sample - Connect a web app to MongoDB (Cosmos DB)
+title: Azure CLI Script Sample - Connect an app to MongoDB (Cosmos DB) | Microsoft Docs
+description: Azure CLI Script Sample - Connect an app to MongoDB (Cosmos DB)
 services: appservice
 documentationcenter: appservice
 author: msangapu
@@ -20,9 +20,9 @@ ms.custom: mvc
 ms.custom: seodec18
 ---
 
-# Connect a web app to Cosmos DB using CLI
+# Connect an App Service app to Cosmos DB using CLI
 
-This sample script creates an Azure Cosmos DB API account for MongoDB and an Azure web app. It then links the MongoDB connection string to the web app using app settings.
+This sample script creates an Azure Cosmos DB account using the Azure Cosmos DB's API for MongoDB and an App Service app. It then links a MongoDB connection string to the web app using app settings.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -38,16 +38,16 @@ If you choose to install and use the CLI locally, you need Azure CLI version 2.0
 
 ## Script explanation
 
-This script uses the following commands to create a resource group, web app, Cosmos DB, and all related resources. Each command in the table links to command specific documentation.
+This script uses the following commands to create a resource group, App Service app, Cosmos DB, and all related resources. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Creates a resource group in which all resources are stored. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Creates an App Service plan. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Creates an Azure web app. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Creates an App Service app. |
 | [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create) | Creates a Cosmos DB account. |
 | [`az cosmosdb list-connection-strings`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-connection-strings) | Lists connection strings for the specified Cosmos DB account. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Creates or updates an app setting for an Azure web app. App settings are exposed as environment variables for your app. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Creates or updates an app setting for an App Service app. App settings are exposed as environment variables for your app. |
 
 ## Next steps
 

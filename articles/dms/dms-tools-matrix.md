@@ -4,9 +4,9 @@ description: Learn about the services and tools available to migrate databases a
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: 
-ms.reviewer: 
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
@@ -120,4 +120,4 @@ The following tables identify the service and tools that you can use to plan suc
 
 ## Next steps
 
-For an overview of the Azure Database Migration Service, see [What is the Azure Database Migration Service Preview](dms-overview.md).
+For an overview of the Azure Database Migration Service, see the article [What is the Azure Database Migration Service](dms-overview.md).

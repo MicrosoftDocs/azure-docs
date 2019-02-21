@@ -9,9 +9,9 @@ ms.devlang:
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 04/04/2018
+ms.date: 12/19/2018
 ---
 
 # Use the Intelligent Insights Azure SQL Database performance diagnostics log

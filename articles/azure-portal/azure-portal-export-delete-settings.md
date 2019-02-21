@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: 
 manager:  dougeby
-ms.author: cwatson
+ms.author: kfollis
 ---
 # Export or delete settings in the Azure portal
 You can export and delete the following settings from the Azure portal settings menu:

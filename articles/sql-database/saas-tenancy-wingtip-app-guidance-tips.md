@@ -9,9 +9,9 @@ ms.devlang:
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer:
+ms.reviewer: sstein
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 12/18/2018
 ---
 # General guidance for working with Wingtip Tickets sample SaaS apps
 

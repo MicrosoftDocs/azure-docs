@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -97,7 +97,7 @@ The *spam* column was read as an integer, but it's actually a categorical variab
 
     data$spam <- as.factor(data$spam)
 
-To do some exploratory analysis, use the [ggplot2](http://ggplot2.org/) package, a popular graphing library for R that is already installed on the VM. Note, from the summary data displayed earlier, that we have summary statistics on the frequency of the exclamation mark character. Let's plot those frequencies here with the following commands:
+To do some exploratory analysis, use the [ggplot2](https://ggplot2.tidyverse.org/) package, a popular graphing library for R that is already installed on the VM. Note, from the summary data displayed earlier, that we have summary statistics on the frequency of the exclamation mark character. Let's plot those frequencies here with the following commands:
 
     library(ggplot2)
     ggplot(data) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
@@ -176,10 +176,10 @@ Let's also try a random forest model. Random forests train a multitude of decisi
     accuracy
 
 
-## Deploy a model to Azure ML
-[Azure Machine Learning Studio](https://studio.azureml.net/) (AzureML) is a cloud service that makes it easy to build and deploy predictive analytics models. One of the nice features of AzureML is its ability to publish any R function as a web service. The AzureML R package makes deployment easy to do right from our R session on the DSVM.
+## Deploy a model to Azure Machine Learning studio
+[Azure Machine Learning Studio](https://studio.azureml.net/) is a cloud service that makes it easy to build and deploy predictive analytics models. One of the nice features of Azure Machine Learning studio is its ability to publish any R function as a web service. The Azure Machine Learning studio R package makes deployment easy to do right from our R session on the DSVM.
 
-To deploy the decision tree code from the previous section, you need to sign in to Azure Machine Learning Studio. You need your workspace ID and an authorization token to sign in. To find these values and initialize the AzureML variables with them:
+To deploy the decision tree code from the previous section, you need to sign in to Azure Machine Learning Studio. You need your workspace ID and an authorization token to sign in. To find these values and initialize the Azure Machine Learning variables with them:
 
 Select **Settings** on the left-hand menu. Note your **WORKSPACE ID**. ![2](./media/linux-dsvm-walkthrough/workspace-id.png)
 
@@ -266,7 +266,7 @@ For development using Python, the Anaconda Python distributions 2.7 and 3.5 have
 Let's read in some of the spambase dataset and classify the emails with support vector machines in scikit-learn:
 
     import pandas
-    from sklearn import svm    
+    from sklearn import svm
     data = pandas.read_csv("spambaseHeaders.data", sep = ',\s*')
     X = data.ix[:, 0:57]
     y = data.ix[:, 57]

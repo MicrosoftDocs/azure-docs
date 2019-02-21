@@ -11,10 +11,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance
-ms.date: 12/12/2018
+ms.subservice: compliance
+ms.date: 02/09/2019
 ms.author: rolyon
 
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory Terms of use feature
@@ -73,7 +74,7 @@ Once you have finalized your Terms of use document, use the following procedure 
 
     ![Add TOU](./media/active-directory-tou/new-tou.png)
 
-1. In the  **Name** box, enter a name for the Terms of use that will be used in the Azure portal.
+1. In the **Name** box, enter a name for the Terms of use that will be used in the Azure portal.
 
 1. In the **Display name** box, enter a title that users see when they sign in.
 
@@ -124,9 +125,9 @@ Once you have finalized your Terms of use document, use the following procedure 
     | **Create conditional access policy later** | This terms of use will appear in the grant control list when creating a conditional access policy. |
 
     >[!IMPORTANT]
-    >Conditional access policy controls (including Terms of use) do not support enforcement on service accounts.  We recommend excluding all service accounts from the conditional access policy.
+    >Conditional access policy controls (including Terms of use) do not support enforcement on service accounts. We recommend excluding all service accounts from the conditional access policy.
 
-     Custom conditional access policies enable granular Terms of use, down to a specific cloud application or group of users.  For more information, see [Quickstart: Require terms of use to be accepted before accessing cloud apps](../conditional-access/require-tou.md).
+     Custom conditional access policies enable granular Terms of use, down to a specific cloud application or group of users. For more information, see [Quickstart: Require terms of use to be accepted before accessing cloud apps](../conditional-access/require-tou.md).
 
 1. Click **Create**.
 
@@ -204,7 +205,7 @@ Users can review and see the Terms of use that they have accepted by using the f
 
     ![Profile - Review terms of use](./media/active-directory-tou/tou13a.png)
 
-1. From there, you can review the Terms of use you have accepted. 
+1. From there, you can review the Terms of use you have accepted.
 
 ## Edit Terms of use details
 You can edit some details of Terms of use, but you can't modify an existing document. The following procedure describes how to edit the details.
@@ -254,7 +255,7 @@ Here is a list of the supported platforms and software.
 > |  | iOS | Android | Windows 10 | Other |
 > | --- | --- | --- | --- | --- |
 > | **Native app** | Yes | Yes | Yes |  |
-> | **Edge** | Yes | Yes | Yes |  |
+> | **Microsoft Edge** | Yes | Yes | Yes |  |
 > | **Internet Explorer** | Yes | Yes | Yes |  |
 > | **Chrome (with extension)** | Yes | Yes | Yes |  |
 
@@ -262,7 +263,7 @@ Per-device Terms of use has the following constraints:
 
 - A device can only be joined to one tenant.
 - A user must have permissions to join their device.
-- The Intune enrollment app is not supported.
+- The Intune Enrollment app is not supported.
 
 If the user's device is not joined, they will receive a message that they need to join their device. Their experience will be dependent on the platform and software.
 
@@ -296,7 +297,7 @@ You can delete old Terms of use using the following procedure.
     You should no longer see your Terms of use.
 
 ## Deleted users and active Terms of use
-By default, a deleted user is in a deleted state in Azure AD for 30 days, during which time they can be restored by an administrator if necessary.  After 30 days, that user is permanently deleted.  In addition, using the Azure Active Directory portal, a Global Administrator can explicitly [permanently delete a recently deleted user](../fundamentals/active-directory-users-restore.md) before that time period is reached.  One a user has been permanently deleted, subsequent data about that user will be removed from the active Terms of use.  Audit information about deleted users remains in the audit log.
+By default, a deleted user is in a deleted state in Azure AD for 30 days, during which time they can be restored by an administrator if necessary. After 30 days, that user is permanently deleted. In addition, using the Azure Active Directory portal, a Global Administrator can explicitly [permanently delete a recently deleted user](../fundamentals/active-directory-users-restore.md) before that time period is reached. One a user has been permanently deleted, subsequent data about that user will be removed from the active Terms of use. Audit information about deleted users remains in the audit log.
 
 ## Policy changes
 Conditional access policies take effect immediately. When this happens, the administrator will start to see “sad clouds” or "Azure AD token issues". The administrator must sign out and sign in again in order to satisfy the new policy.
@@ -330,45 +331,48 @@ You can configure a conditional access policy for the Microsoft Intune Enrollmen
 
 ![Microsoft Intune cloud app](./media/active-directory-tou/cloud-app-intune.png)
 
+> [!NOTE]
+> The Intune Enrollment app is not supported for [Per-device Terms of use](#per-device-terms-of-use).
+
 ## Frequently asked questions
 
-**Q: How do I see when/if a user has accepted a Terms of use?**</br>
-A: On the Terms of use blade, click the number under **Accepted**. You can also view or search the accept activity in the Azure AD audit logs. For more information, see [View report of who has accepted and declined](#view-who-has-accepted-and-declined) and [View Azure AD audit logs](#view-azure-ad-audit-logs).
+**Q: How do I see when/if a user has accepted a Terms of use?**<br />
+A: On the Terms of use blade, click the number under **Accepted**. You can also view or search the accept activity in the Azure AD audit logs. For more information, see View report of who has accepted and declined and [View Azure AD audit logs](#view-azure-ad-audit-logs).
 
-**Q: How long is information stored?**</br>
+**Q: How long is information stored?**<br />
 A: The user counts in the Terms of use report and who accepted/declined are stored for the life of the Terms of use. The Azure AD audit logs are stored for 30 days.
 
-**Q: Why do I see a different number of consents in the Terms of use report vs. the Azure AD audit logs?**</br>
+**Q: Why do I see a different number of consents in the Terms of use report vs. the Azure AD audit logs?**<br />
 A: The Terms of use report is stored for the lifetime of that Terms of use, while the Azure AD audit logs are stored for 30 days. Also, the Terms of use report only displays the users current consent state. For example, if a user declines and then accepts, the Terms of use report will only show that user's accept. If you need to see the history, you can use the Azure AD audit logs.
 
-**Q: If I edit the details for a Terms of use, does it require users to accept again?**</br>
+**Q: If I edit the details for a Terms of use, does it require users to accept again?**<br />
 A: No, if an administrator edits the details for a Terms of use (name, display name, require users to expand, or add a language), it does not require users to reaccept the new terms.
 
-**Q: Can I update an existing Terms of use document?**</br>
+**Q: Can I update an existing Terms of use document?**<br />
 A: Currently, you can't update an existing Terms of use document. To change a Terms of use document, you will have to create a new Terms of use instance.
 
-**Q: If hyperlinks are in the Terms of use PDF document, will end users be able to click them?**</br>
+**Q: If hyperlinks are in the Terms of use PDF document, will end users be able to click them?**<br />
 A: The PDF is rendered by default as a JPEG, so hyperlinks are not clickable. Users have the option to select **Having trouble viewing? Click here**, which renders the PDF natively where hyperlinks are supported.
 
-**Q: Can a Terms of use support multiple languages?**</br>
+**Q: Can a Terms of use support multiple languages?**<br />
 A: Yes. Currently there are 108 different languages an administrator can configure for a single Terms of use. An administrator can upload multiple PDF documents and tag those documents with a corresponding language (up to 108). When end users sign in, we look at their browser language preference and display the matching document. If there is no match, we will display the default document, which is the first document that is uploaded.
 
-**Q: When is the Terms of use triggered?**</br>
+**Q: When is the Terms of use triggered?**<br />
 A: The Terms of use is triggered during the sign-in experience.
 
-**Q: What applications can I target a Terms of use to?**</br>
-A: You can create a conditional access policy on the enterprise applications using modern authentication.  For more information, see [enterprise applications](./../manage-apps/view-applications-portal.md).
+**Q: What applications can I target a Terms of use to?**<br />
+A: You can create a conditional access policy on the enterprise applications using modern authentication. For more information, see [enterprise applications](./../manage-apps/view-applications-portal.md).
 
-**Q: Can I add multiple Terms of use to a given user or app?**</br>
+**Q: Can I add multiple Terms of use to a given user or app?**<br />
 A: Yes, by creating multiple conditional access policies targeting those groups or applications. If a user falls in scope of multiple Terms of use, they accept one Terms of use at a time.
- 
-**Q: What happens if a user declines the Terms of use?**</br>
+
+**Q: What happens if a user declines the Terms of use?**<br />
 A: The user is blocked from getting access to the application. The user would have to sign in again and accept the terms in order to get access.
- 
-**Q: Is it possible to unaccept Terms of use that were previously accepted?**</br>
+
+**Q: Is it possible to unaccept Terms of use that were previously accepted?**<br />
 A: You can [review previously accepted Terms of use](#how-users-can-review-their-terms-of-use), but currently there isn't a way to unaccept.
 
-**Q: What happens if I'm also using Intune terms and conditions?**</br>
+**Q: What happens if I'm also using Intune terms and conditions?**<br />
 A: If you have configured both Azure AD Terms of use and [Intune terms and conditions](/intune/terms-and-conditions-create), the user will be required to accept both. For more information, see the [Choosing the right Terms solution for your organization blog post](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 ## Next steps

@@ -10,7 +10,6 @@ metadata:
   manager: craigg
   ms.service: dms
   ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 12/12/2018
   ms.author: rajpo
@@ -50,6 +49,7 @@ sections:
     - html: <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Migrate SQL Server to Azure SQL Database Managed Instance online using DMS</a>
     - html: <a href="/azure/dms/tutorial-mysql-azure-mysql-online">Migrate MySQL to Azure Database for MySQL online using DMS</a> 
     - html: <a href="/azure/dms/tutorial-postgresql-azure-postgresql-online">Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS</a> 
+    - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db">Migrate MongoDB to Azure Cosmos DB Mongo API offline using DMS</a> 
 - title: Samples
   items:
   - type: list

@@ -1,19 +1,18 @@
 ---
 title: 'Quickstart: Recognize speech, Objective-C - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in Objective-C on iOS using the Speech Service SDK
+description: Learn how to recognize speech in Objective-C on iOS using the Speech SDK
 services: cognitive-services
 author: chlandsi
-manager: cgronlun
-
+manager: nitinme
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 2/20/2019
 ms.author: chlandsi
 ---
 
-# Quickstart: Recognize speech in Objective-C on iOS using the Speech Service SDK
+# Quickstart: Recognize speech in Objective-C on iOS using the Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -31,7 +30,7 @@ Before you get started, here's a list of prerequisites:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-The current version of the Cognitive Services Speech SDK is `1.2.0`.
+The current version of the Cognitive Services Speech SDK is `1.3.0`.
 
 The Cognitive Services Speech SDK for Mac and iOS is currently distributed as a Cocoa Framework.
 It can be downloaded from https://aka.ms/csspeech/iosbinary. Download the file to your home directory.
@@ -96,10 +95,7 @@ Currently the Speech SDK only supports 64bit iOS platforms.
 
 1. After you click the "Recognize (Microphone)" button in the app and say a few words, you should see the text you have spoken on the lower part of the screen.
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Look for this sample in the `quickstart/objectivec-ios` folder.
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get our samples](speech-sdk.md#get-the-samples)
+> [Explore Objective-C samples on GitHub](https://aka.ms/csspeech/samples)

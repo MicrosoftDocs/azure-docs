@@ -18,7 +18,7 @@ ms.author: bwren
 # Create custom fields in Log Analytics
 
 > [!NOTE]
-> This article describes how to parse text data in Log Analytics as it's collected. There are advantages to parsing text datain a query after it's collected as described in [Parse text data in Log Analytics](../log-query/parse-text.md).
+> This article describes how to parse text data in Log Analytics as it's collected. There are advantages to parsing text data in a query after it's collected as described in [Parse text data in Log Analytics](../log-query/parse-text.md).
 
 The **Custom Fields** feature of Log Analytics allows you to extend existing records in Log Analytics by adding your own searchable fields.  Custom fields are automatically populated from data extracted from other properties in the same record.
 

@@ -4,7 +4,7 @@ description: An Overview of Azure Automation State Configuration (DSC), its term
 keywords: powershell dsc, desired state configuration, powershell dsc azure
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 11/06/2018

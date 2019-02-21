@@ -19,6 +19,8 @@
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
   - name: Create multiple instances
     href: resource-manager-tutorial-create-multiple-instances.md
+  - name: Move resources
+    href: resource-manager-tutorial-move-resources.md
   - name: Set resource deployment order
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
   - name: Use conditions
@@ -35,6 +37,8 @@
     href: resource-manager-tutorial-secure-artifacts.md
   - name: Use safe deployment practices
     href: deployment-manager-tutorial.md
+  - name: Troubleshoot template deployment
+    href: resource-manager-tutorial-troubleshoot.md
 - name: Samples
   items:
   - name: Resource Manager templates
@@ -43,9 +47,10 @@
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager
 - name: Concepts
   items:
-  - name: Template structure
-    href: resource-group-authoring-templates.md
+  - name: Templates
     items:
+    - name: Template file structure
+      href: resource-group-authoring-templates.md
     - name: Parameters
       href: resource-manager-templates-parameters.md
     - name: Variables
@@ -56,17 +61,21 @@
       href: resource-manager-templates-resources.md
     - name: Outputs
       href: resource-manager-templates-outputs.md
+  - name: Guidance
+    items:
+    - name: Template best practices
+      href: template-best-practices.md
+    - name: Subscription governance
+      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold
+      maintainContext: true
+    - name: Templates for cloud consistency
+      href: templates-cloud-consistency.md
   - name: Resource providers and types
     href: resource-manager-supported-services.md
   - name: Management groups
     href: management-groups-overview.md
   - name: Deployment Manager
     href: deployment-manager-overview.md
-  - name: Subscription governance
-    href: /azure/architecture/cloud-adoption-guide/subscription-governance
-    maintainContext: true
-  - name: Templates for cloud consistency
-    href: templates-cloud-consistency.md
   - name: Deployment modes
     href: deployment-modes.md
   - name: Resource deletion
@@ -77,6 +86,8 @@
   items:
   - name: Create templates
     items:
+    - name: Create template
+      href: how-to-create-template.md
     - name: Create resource groups and resources at subscription
       href: deploy-to-subscription.md
     - name: Define resource dependencies
@@ -120,7 +131,7 @@
     - name: Continuous integration with Azure DevOps Services
       href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
       maintainContext: true
-  - name: Manage templates
+  - name: Manage resources
     items:
     - name: Manage by using the Azure portal
       href: resource-group-portal.md
@@ -130,9 +141,6 @@
       href: cli-azure-resource-manager.md
     - name: Move resources
       href: resource-group-move-resources.md
-      items:
-      - name: Move support per resource type
-        href: move-support-resources.md
     - name: Organize resources by using tags
       href: resource-group-using-tags.md
     - name: Lock resources
@@ -143,6 +151,8 @@
       href: programmatically-create-subscription.md
     - name: Grant access to create EA subscriptions
       href: grant-access-to-create-subscription.md
+    - name: Authenticate across tenants
+      href: authenticate-multi-tenant.md
   - name: Audit deployments
     items:
     - name: View activity logs
@@ -204,8 +214,14 @@
       href: resource-group-template-functions-resource.md
     - name: String functions
       href: resource-group-template-functions-string.md
-  - name: Tag support
-    href: tag-support.md
+  - name: Resource capabilities
+    items:
+    - name: Complete mode deletion
+      href: complete-mode-deletion.md
+    - name: Move support
+      href: move-support-resources.md
+    - name: Tag support
+      href: tag-support.md
   - name: REST - Resource Manager
     href: /rest/api/resources/
   - name: REST - Deployment Manager
@@ -229,7 +245,7 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=azure-resource-manager
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-resource-manager
+    href: https://stackoverflow.com/questions/tagged/azure-resource-manager
   - name: Manage personal data
     href: resource-manager-personal-data.md
   - name: Videos

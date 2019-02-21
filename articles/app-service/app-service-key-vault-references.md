@@ -29,12 +29,12 @@ In order to read secrets from Key Vault, you need to have a vault created and gi
 
 1. Create a key vault by following the [Key Vault quickstart](../key-vault/quick-create-cli.md).
 
-1. Create a [system-assigned managed identity](app-service-managed-service-identity.md) for your application.
+1. Create a [system-assigned managed identity](overview-managed-identity.md) for your application.
 
    > [!NOTE] 
    > Key Vault references currently only support system-assigned managed identities. User-assigned identities cannot be used.
 
-1. Create an [access policy in Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) for the application identity you created earlier. Enable the "Get" secret permission on this policy.
+1. Create an [access policy in Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) for the application identity you created earlier. Enable the "Get" secret permission on this policy. Do not configure the "authorized application" or `appliationId` settings, as this is not compatible with a managed identity.
 
 ## Reference syntax
 

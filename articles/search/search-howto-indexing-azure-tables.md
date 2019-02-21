@@ -1,6 +1,6 @@
 ---
 title: Index content from Azure Table storage for full text search - Azure Search
-description: Learn how to index data stored in Azure Table storage with Azure Search.
+description: Learn how to index data stored in Azure Table storage with an Azure Search indexer.
 
 ms.date: 10/17/2018
 author: mgottein 

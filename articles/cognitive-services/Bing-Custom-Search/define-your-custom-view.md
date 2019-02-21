@@ -1,15 +1,15 @@
-﻿---
+---
 title: Configure your Bing Custom Search experience | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: Describes how to create site and vertical search services
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: conceptual
-ms.date: 09/28/2017
+ms.date: 02/12/2019
 ms.author: aahi
 ---
 
@@ -66,7 +66,7 @@ To upload a file, create a text file and specify a single domain, subpage, or we
 
 ### Get website suggestions for your search experience
 
-After adding web slices to the **Active** list, the Bing Custom Search portal will generate website and subpage suggestions at the bottom of the the tab. These are slices that Bing Custom Search thinks you might want to include. Click **Refresh** to get updated suggestions after updating your custom search instance's settings. This section is only visible if suggestions are available.
+After adding web slices to the **Active** list, the Bing Custom Search portal will generate website and subpage suggestions at the bottom of the tab. These are slices that Bing Custom Search thinks you might want to include. Click **Refresh** to get updated suggestions after updating your custom search instance's settings. This section is only visible if suggestions are available.
 
 ## Search for images and videos
 
@@ -110,7 +110,7 @@ Super boost, boost, and demote are not available for the image and video searche
 
 ## Pin slices to the top of search results
 
-The portal also lets you pin URLs to the top of search results for specific search terms, using the **Pinned** tab. Enter a URL and query query to specify the webpage that will appear as the top result. Note that you can pin a maximum of one webpage per search query, and only indexed webpages will be displayed in searches. Pinning results is not available for image or video searches.
+The portal also lets you pin URLs to the top of search results for specific search terms, using the **Pinned** tab. Enter a URL and query to specify the webpage that will appear as the top result. Note that you can pin a maximum of one webpage per search query, and only indexed webpages will be displayed in searches. Pinning results is not available for image or video searches.
 
 You can pin a webpage to the top in two ways:
 

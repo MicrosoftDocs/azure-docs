@@ -4,14 +4,15 @@ description: Get cloud passwords written back to on-premises AD infratstructure
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 01/16/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
+ms.collection: M365-identity-device-management
 ---
 # What is password writeback?
 
@@ -38,7 +39,7 @@ Password writeback provides:
 * **Doesn’t require any inbound firewall rules**: Password writeback uses an Azure Service Bus relay as an underlying communication channel. All communication is outbound over port 443.
 
 > [!Note]
-> User accounts that exist within protected groups in on-premises Active Directory cannot be used with password writeback. For more information about protected groups, see [Protected accounts and groups in Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
+> User accounts that exist within protected groups in on-premises Active Directory cannot be used with password writeback. Administrator accounts that exist within protected groups in on-premises AD can be used with password writeback. For more information about protected groups, see [Protected accounts and groups in Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
 >
 
 ## Licensing requirements for password writeback
@@ -54,9 +55,10 @@ To use password writeback, you must have one of the following licenses assigned 
 * Microsoft 365 E3 or A3
 * Microsoft 365 E5 or A5
 * Microsoft 365 F1
+* Microsoft 365 Business
 
 > [!WARNING]
-> Standalone Office 365 licensing plans *don't support password writeback* and require that you have one of the preceding plans for this functionality to work.
+> Standalone Office 365 licensing plans *don't support "Self-Service Password Reset/Change/Unlock with on-premises writeback"* and require that you have one of the preceding plans for this functionality to work.
 >
 
 ## How password writeback works

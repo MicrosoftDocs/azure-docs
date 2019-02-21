@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
-ms.component: ""
+ms.subservice: ""
 ---
 
 # Send Guest OS metrics to the Azure Monitor data store for a Windows virtual machine (classic)
@@ -24,7 +24,7 @@ The process that's outlined in this article only works on classic virtual machin
 
 - You must be a [service administrator or co-administrator](../../billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription. 
 
-- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
+- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
 - You need to have either  [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installed.
 
@@ -196,3 +196,4 @@ Give this app “Monitoring Metrics Publisher” permissions to the resource tha
 
 ## Next steps
 - Learn more about [custom metrics](metrics-custom-overview.md).
+
