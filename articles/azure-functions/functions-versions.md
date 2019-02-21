@@ -123,7 +123,7 @@ The following table shows which bindings are supported in each runtime version.
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-## Default and Maximum Timeout Duration 
+## <a name="timeout"></a>Default and Maximum Timeout Duration 
 
 Azure Functions in the Consumption plan have a default timeout of 5 minutes, and a maximum configurable timeout of 10 minutes for both 1.x and 2.x runtime versions.
 
