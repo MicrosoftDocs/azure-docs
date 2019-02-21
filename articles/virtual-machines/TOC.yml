@@ -13,6 +13,7 @@
   - name: SAP
     href: workloads/sap/get-started.md
   - name: Mainframe rehosting
+    href: workloads/mainframe-rehosting/overview.md
     items:
     - name: Overview
       items:
