@@ -17,9 +17,7 @@ ms.author: juliako
 
 # Transforms and Jobs
 
-This topic gives details about [Transforms](https://docs.microsoft.com/rest/api/media/transforms) and [Jobs](https://docs.microsoft.com/rest/api/media/jobs) and explains the relationship between these entities.
-
-The following diagram shows transforms/jobs workflow.
+This topic gives details about [Transforms](https://docs.microsoft.com/rest/api/media/transforms) and [Jobs](https://docs.microsoft.com/rest/api/media/jobs) and explains the relationship between these entities.<br/>The following diagram shows transforms/jobs workflow.
 
 ![Transforms](./media/encoding/transforms-jobs.png)
 
