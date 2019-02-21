@@ -112,6 +112,7 @@
     - name: Containers and items
       items:
       - name: Work with databases, containers, and items
+        displayName: collection
         href: databases-containers-items.md
       - name: SQL language reference 
         href: sql-api-query-reference.md
@@ -136,8 +137,10 @@
         - name: Change feed processor
           href: change-feed-processor.md
         - name: Trigger Azure Functions 
+          displayName: change feed
           href: change-feed-functions.md
       - name: Time to live
+        displayName: delete, delete data
         href: time-to-live.md
       - name: Unique key constraints
         href: unique-keys.md
@@ -351,6 +354,7 @@
         - name: Manage data indexing
           href: mongodb-indexing.md
     - name: Gremlin API
+      displayName: graph, graph database
       items: 
       - name: Introduction
         href: graph-introduction.md
@@ -483,6 +487,7 @@
       - name: Query a container
         href: how-to-query-container.md
       - name: Configure time to live
+        displayName: delete, delete data
         href: how-to-time-to-live.md
       - name: Work with data using Azure Storage Explorer
         href: storage-explorer.md
