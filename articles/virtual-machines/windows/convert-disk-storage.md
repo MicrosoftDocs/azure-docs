@@ -115,18 +115,18 @@ Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
 Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```
 
-## Convert a managed disk from standard to premium in Azure Portal
+## Convert managed disks from standard to premium in Azure portal
 
-You can also convert a managed disks from standard to premium in Azure Protal.
+You can convert a managed disk from standard to premium in the Azure portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
-2. Select the VM from the list of **Virtual machines** in the portal
-3. If the VM is not stopped, click **Stop** button on the top of VM Overview blade and wait for the VM to stop
-3. In the blade for the VM, select **Disks** from the menu
-4. Select the disk you want to convert
-5. Select **Configuration** from the menu
-6. Change the **Account type** from **Standard HDD** to **Premium SSD**
-7. Click **Save** and close the disk blade
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select the VM from the list of **Virtual machines** in the portal.
+3. If the VM is not stopped, click **Stop** on the top of VM Overview blade and wait for the VM to stop.
+3. In the blade for the VM, select **Disks** from the menu.
+4. Select the disk you want to convert.
+5. Select **Configuration** from the menu.
+6. Change the **Account type** from **Standard HDD** to **Premium SSD**.
+7. Click **Save** and close the disk blade.
 
 The update of disk type is effective instantaneous. You can restart your VM after the conversion.
 
