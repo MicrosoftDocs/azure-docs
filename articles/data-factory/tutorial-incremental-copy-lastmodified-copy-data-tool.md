@@ -1,5 +1,5 @@
 ---
-title: Incrementally copy new and changed files only based on LastModifiedDate | Microsoft Docs
+title: Using Azure Data Factory to incrementally copy new and changed files only based on LastModifiedDate | Microsoft Docs
 description: Create an Azure data factory and then use the Copy Data tool to incrementally load new files only based on LastModifiedDate.
 services: data-factory
 documentationcenter: ''
@@ -194,3 +194,10 @@ Prepare your Blob storage for the tutorial by performing these steps.
 	You can also verify the same by using Azure Storage Explorer (http://storageexplorer.com/) to scan the files.
 	
 	![Monitor pipeline runs](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs8.png)
+
+	
+## Next steps
+Advance to the following tutorial to learn about transforming data by using a Spark cluster on Azure:
+
+> [!div class="nextstepaction"]
+>[Transform data using Spark cluster in cloud](tutorial-transform-data-spark-portal.md)
