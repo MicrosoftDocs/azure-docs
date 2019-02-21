@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/20/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -124,13 +124,9 @@ With a token-restricted content key policy, the content key is sent only to a cl
 
 When you configure the token restricted policy, you must specify the primary verification key, issuer, and audience parameters. The primary verification key contains the key that the token was signed with. The issuer is the secure token service that issues the token. The audience, sometimes called scope, describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
 
-## <a id="faq"/>Frequently asked questions
+## Frequently asked questions
 
-### Question
-
-How to implement multi-DRM (PlayReady, Widevine, and FairPlay) system using Azure Media Services (AMS) v3 and also use AMS license/key delivery service?
-
-### Answer
+### How to implement multi-DRM (PlayReady, Widevine, and FairPlay) system with Media Services v3 and also use Media Services license/key delivery service?
 
 For end-to-end scenario, see the [following code example](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs). 
 
@@ -145,24 +141,17 @@ The example shows how to:
     ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
     ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
     ```
-
 2. Create a StreamingLocator that is configured to stream an encrypted asset. 
 
   For example, you can set StreamingLocator.StreamingPolicyName to the "Predefined_MultiDrmCencStreaming" policy. This policy indicates that you want for two content keys (envelope and CENC) to get generated and set on the locator. Thus, the envelope, PlayReady, and Widevine encryptions are applied (the key is delivered to the playback client based on the configured DRM licenses). If you also want to encrypt your stream with CBCS (FairPlay), use "Predefined_MultiDrmStreaming".
-
 3. Create a test token.
 
   The **GetTokenAsync** method shows how to create a test token.
-  
 4. Build the streaming URL.
 
   The **GetDASHStreamingUrlAsync** method shows how to build the streaming URL. In this case, the URL streams the **DASH** content.
 
-### Question
-
-How and where to get JWT token before using it to request license or key?
-
-### Answer
+### How and where to get JWT token before using it to request license or key?
 
 1. For production, you need to have a Secure Token Services (STS) (web service) which issues JWT token upon a HTTPS request. For test, you could use the code shown in **GetTokenAsync** method defined in [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
 2. Player will need to make a request, after a user is authenticated, to the STS for such a token and assign it as the value of the token. You can use the [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/).
@@ -170,11 +159,7 @@ How and where to get JWT token before using it to request license or key?
 * For an example of running STS, with either symmetric and asymmetric key, please see [http://aka.ms/jwt](https://aka.ms/jwt). 
 * For an example of a player based on Azure Media Player using such JWT token, see [http://aka.ms/amtest](https://aka.ms/amtest) (expand "player_settings" link to see the token input).
 
-### Question
-
-How do you authorize requests to stream videos with AES encryption?
-
-### Answer
+### How do you authorize requests to stream videos with AES encryption?
 
 The correct approach is to leverage STS (Secure Token Service):
 
