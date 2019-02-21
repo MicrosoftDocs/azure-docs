@@ -49,11 +49,11 @@ A common problem-solving process to solve customer churn is depicted in Figures 
 2. An intervention model allows you to consider how the level of intervention could affect the probability of churn and the amount of customer lifetime value (CLV).
 3. This analysis lends itself to a qualitative analysis that is escalated to a proactive marketing campaign that targets customer segments to deliver the optimal offer.  
 
-![][1]
+![Diagram showing how risk tolerance plus decision models yields actionable insights](./media/azure-ml-customer-churn-scenario/churn-1.png)
 
 This forward looking approach is the best way to treat churn, but it comes with complexity: we have to develop a multi-model archetype and trace dependencies between the models. The interaction among models can be encapsulated as shown in the following diagram:  
 
-![][2]
+![Churn model interaction diagram](./media/azure-ml-customer-churn-scenario/churn-2.png)
 
 *Figure 4: Unified multi-model archetype*  
 
@@ -66,24 +66,24 @@ An interesting addition here is big data analytics. Today's telecommunication an
  
 
 ## Implementing the modeling archetype in Machine Learning Studio
-Given the problem just described, what is the best way to implement an integrated modeling and scoring approach? In this section, we will demonstrate how we accomplished this by using Azure Machine Learning Studio.  
+Given the problem described, what is the best way to implement an integrated modeling and scoring approach? In this section, we will demonstrate how we accomplished this by using Azure Machine Learning Studio.  
 
 The multi-model approach is a must when designing a global archetype for churn. Even the scoring (predictive) part of the approach should be multi-model.  
 
 The following diagram shows the prototype we created, which employs four scoring algorithms in Machine Learning Studio to predict churn. The reason for using a multi-model approach is not only to create an ensemble classifier to increase accuracy, but also to protect against over-fitting and to improve prescriptive feature selection.  
 
-![][3]
+![Screenshot depicting a complex Studio workspace with many interconnected modules](./media/azure-ml-customer-churn-scenario/churn-3.png)
 
 *Figure 5: Prototype of a churn modeling approach*  
 
 The following sections provide more details about the prototype scoring model that we implemented by using Machine Learning Studio.  
 
 ### Data selection and preparation
-The data used to build the models and score customers was obtained from a CRM vertical solution, with the data obfuscated to protect customer privacy. The data contains information about 8,000 subscriptions in the U.S., and it combines three sources: provisioning data (subscription metadata), activity data (usage of the system), and customer support data. The data does not include any business related information about the customers; for example, it does not include loyalty metadata or credit scores.  
+The data used to build the models and score customers was obtained from a CRM vertical solution, with the data obfuscated to protect customer privacy. The data contains information about 8,000 subscriptions in the U.S., and it combines three sources: provisioning data (subscription metadata), activity data (usage of the system), and customer support data. The data does not include any business-related information about the customers; for example, it does not include loyalty metadata or credit scores.  
 
-For simplicity, ETL and data cleansing processes are out of scope because we assume that data preparation has already been done elsewhere.   
+For simplicity, ETL and data cleansing processes are out of scope because we assume that data preparation has already been done elsewhere.
 
-Feature selection for modeling is based on preliminary significance scoring of the set of predictors, included in the process that uses the random forest module. For the implementation in Machine Learning Studio, we calculated the mean, median, and ranges for representative features. For example, we added aggregates for the qualitative data, such as minimum and maximum values for user activity.    
+Feature selection for modeling is based on preliminary significance scoring of the set of predictors, included in the process that uses the random forest module. For the implementation in Machine Learning Studio, we calculated the mean, median, and ranges for representative features. For example, we added aggregates for the qualitative data, such as minimum and maximum values for user activity.
 
 We also captured temporal information for the most recent six months. We analyzed data for one year and we established that even if there were statistically significant trends, the effect on churn is greatly diminished after six months.  
 
@@ -91,11 +91,11 @@ The most important point is that the entire process, including ETL, feature sele
 
 The following diagrams illustrate the data that was used.  
 
-![][4]
+![Screenshot showing a sample of the data used with raw values](./media/azure-ml-customer-churn-scenario/churn-4.png)
 
 *Figure 6: Excerpt of data source (obfuscated)*  
 
-![][5]
+![Screenshot showing statistical features extracted from data source](./media/azure-ml-customer-churn-scenario/churn-5.png)
 
 *Figure 7: Features extracted from data source*
  
@@ -118,7 +118,7 @@ We used the following four machine learning algorithms to build the prototype (n
 
 The following diagram illustrates a portion of the experiment design surface, which indicates the sequence in which the models were created:  
 
-![][6]  
+![Screenshot of a small section of the studio experiment canvas](./media/azure-ml-customer-churn-scenario/churn-6.png)  
 
 *Figure 8: Creating models in Machine Learning Studio*  
 
@@ -135,14 +135,14 @@ Generally, the implementation in Azure Machine Learning Studio is behind SAS in 
 
 However, the most important metric in churn is the misclassification rate: that is, of the top N churners as predicted by the classifier, which of them actually did **not** churn, and yet received special treatment? The following diagram compares this misclassification rate for all the models:  
 
-![][7]
+![Area under the curve graph comparing the performance of 4 algorithms](./media/azure-ml-customer-churn-scenario/churn-7.png)
 
 *Figure 9: Passau prototype area under curve*
 
 ### Using AUC to compare results
 Area Under Curve (AUC) is a metric that represents a global measure of *separability* between the distributions of scores for positive and negative populations. It is similar to the traditional Receiver Operator Characteristic (ROC) graph, but one important difference is that the AUC metric does not require you to choose a threshold value. Instead, it summarizes the results over **all** possible choices. In contrast, the traditional ROC graph shows the positive rate on the vertical axis and the false positive rate on the horizontal axis, and the classification threshold varies.   
 
-AUC is generally used as a measure of worth for different algorithms (or different systems) because it allows models to be compared by means of their AUC values. This is a popular approach in industries such as meteorology and biosciences. Thus, AUC represents a popular tool for assessing classifier performance.  
+AUC is used as a measure of worth for different algorithms (or different systems) because it allows models to be compared by means of their AUC values. This is a popular approach in industries such as meteorology and biosciences. Thus, AUC represents a popular tool for assessing classifier performance.  
 
 ### Comparing misclassification rates
 We compared the misclassification rates on the dataset in question by using the CRM data of approximately 8,000 subscriptions.  
@@ -156,14 +156,14 @@ By the same token, accuracy is more important than precision because we are most
 
 The following diagram from Wikipedia depicts the relationship in a lively, easy-to-understand graphic:  
 
-![][8]
+![Two targets. One target shows hit marks loosely grouped but near the bulls-eye marked "Low accuracy: good trueness, poor precision. Another target tightly grouped but far from the bulls-eye marked "Low accuracy: poor trueness, good precision"](./media/azure-ml-customer-churn-scenario/churn-8.png)
 
 *Figure 10: Tradeoff between accuracy and precision*
 
 ### Accuracy and precision results for boosted decision tree model
 The following chart displays the raw results from scoring using the Machine Learning prototype for the boosted decision tree model, which happens to be the most accurate among the four models:  
 
-![][9]
+![Table snippet showing Accuracy, Precision, Recall, F-Score, AUC, Average Log Loss, and Training Log Loss for four algorithms](./media/azure-ml-customer-churn-scenario/churn-9.png)
 
 *Figure 11: Boosted decision tree model characteristics*
 
@@ -219,17 +219,6 @@ This paper describes a sensible approach to tackling the common problem of custo
  
 
 ## Appendix
-![][10]
+![Snapshot of a presentation on churn prototype](./media/azure-ml-customer-churn-scenario/churn-10.png)
 
 *Figure 12: Snapshot of a presentation on churn prototype*
-
-[1]: ./media/azure-ml-customer-churn-scenario/churn-1.png
-[2]: ./media/azure-ml-customer-churn-scenario/churn-2.png
-[3]: ./media/azure-ml-customer-churn-scenario/churn-3.png
-[4]: ./media/azure-ml-customer-churn-scenario/churn-4.png
-[5]: ./media/azure-ml-customer-churn-scenario/churn-5.png
-[6]: ./media/azure-ml-customer-churn-scenario/churn-6.png
-[7]: ./media/azure-ml-customer-churn-scenario/churn-7.png
-[8]: ./media/azure-ml-customer-churn-scenario/churn-8.png
-[9]: ./media/azure-ml-customer-churn-scenario/churn-9.png
-[10]: ./media/azure-ml-customer-churn-scenario/churn-10.png
