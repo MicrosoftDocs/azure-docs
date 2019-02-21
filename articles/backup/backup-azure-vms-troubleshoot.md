@@ -65,9 +65,8 @@ You can troubleshoot errors encountered while using Azure Backup with the inform
 | The Backup service doesn't have authorization to access resources in your subscription. |To resolve this error, first restore disks by using the steps in [Restore backed-up disks](backup-azure-arm-restore-vms.md#create-new-restore-disks). Then use the PowerShell steps in [Create a VM from restored disks](backup-azure-vms-automation.md#restore-an-azure-vm). |
 
 ## Backup or restore takes time
-If your backup takes more than 12 hours, or restore takes more than 6 hours:
-* Understand [factors that contribute to backup time](backup-azure-vms-introduction.md#time-considerations) and [factors that contribute to restore time](backup-azure-vms-introduction.md#restore-considerations).
-* Make sure that you follow [backup best practices](backup-azure-vms-introduction.md#best-practices).
+If your backup takes more than 12 hours, or restore takes more than 6 hours, review [best practices](backup-azure-vms-introduction.md#best-practices) and 
+[performance considerations](backup-azure-vms-introduction.md#backup-performance)
 
 ## VM Agent
 ### Set up the VM Agent

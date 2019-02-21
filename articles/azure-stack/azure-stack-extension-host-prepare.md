@@ -5,7 +5,7 @@ services: azure-stack
 keywords: 
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 01/25/2019
+ms.date: 02/07/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
@@ -136,7 +136,7 @@ The article, [Azure Stack datacenter integration - Publish endpoints](azure-stac
 
 ### Publish new endpoints
 
-There are two new endpoints required to be published through your firewall. The allocated IPs from the public VIP pool can be retrieved using the following code which must be run via your Azure Stack [environment's privileged endpoint](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-privileged-endpoint).
+There are two new endpoints required to be published through your firewall. The allocated IPs from the public VIP pool can be retrieved using the following code which must be run via your Azure Stack [environment's privileged endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 
 ```PowerShell
 # Create a PEP Session
@@ -182,7 +182,7 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 
 | Endpoint (VIP) | Protocol | Ports |
 |----------------|----------|-------|
-| AdminHosting | HTTPS | 443 |
+| Admin Hosting | HTTPS | 443 |
 | Hosting | HTTPS | 443 |
 
 ### Update existing publishing Rules (Post enablement of extension host)

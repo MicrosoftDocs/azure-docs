@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2019
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -79,12 +79,14 @@ Follow these steps to elevate access for a Global Administrator using the Azure 
 
 ## Azure PowerShell
 
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
 ### List role assignment at the root scope (/)
 
-To list the User Access Administrator role assignment for a user at the root scope (`/`), use the [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) command.
+To list the User Access Administrator role assignment for a user at the root scope (`/`), use the [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) command.
 
 ```azurepowershell
-Get-AzureRmRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
+Get-AzRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
   -and $_.SignInName -eq "<username@example.com>" -and $_.Scope -eq "/"}
 ```
 
@@ -107,10 +109,10 @@ To remove a User Access Administrator role assignment for a user at the root sco
 1. Sign in as a user that can remove elevated access. This can be the same user that was used to elevate access or another Global Administrator with elevated access at the root scope.
 
 
-1. Use the [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) command to remove the User Access Administrator role assignment.
+1. Use the [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) command to remove the User Access Administrator role assignment.
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
+    Remove-AzRoleAssignment -SignInName <username@example.com> `
       -RoleDefinitionName "User Access Administrator" -Scope "/"
     ```
 
@@ -258,5 +260,5 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 
 ## Next steps
 
-- [Understand the different roles](rbac-and-directory-admin-roles.md)
-- [Role-based access control with REST](role-assignments-rest.md)
+- [Understand the different roles in Azure](rbac-and-directory-admin-roles.md)
+- [Manage access to Azure resources using RBAC and the REST API](role-assignments-rest.md)

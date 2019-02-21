@@ -104,7 +104,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 	-DomainNameLabel <replace-with-your-unique-name> `
 	-AllocationMethod Static
 		
-	#Create an IP configuration with a static private IP address and assign the public IP ddress to it
+	#Create an IP configuration with a static private IP address and assign the public IP address to it
 	$IpConfigName1 = "IPConfig-1"
 	$IpConfig1     = New-AzNetworkInterfaceIpConfig `
 	-Name $IpConfigName1 `
@@ -130,7 +130,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 	-Location $Location `
 	-AllocationMethod Static
 		
-	#Create an IP configuration with a static private IP address and assign the public IP ddress to it
+	#Create an IP configuration with a static private IP address and assign the public IP address to it
 	$IpConfigName2 = "IPConfig-2"
 	$IpConfig2     = New-AzNetworkInterfaceIpConfig `
 	-Name $IpConfigName2 `
@@ -164,7 +164,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 
 	```powershell
 	
-	# Define a credential object. When you run these commands, you're prompted to enter a sername and password for the VM you're reating.
+	# Define a credential object. When you run these commands, you're prompted to enter a username and password for the VM you're creating.
 	$cred = Get-Credential
 	
 	# Create a virtual machine configuration

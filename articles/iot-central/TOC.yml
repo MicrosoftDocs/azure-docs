@@ -1,6 +1,6 @@
 - name: Azure IoT Fundamentals 
   href: /azure/iot-fundamentals
-- name: Azure IoT Central Documentation 
+- name: Azure IoT Central Documentation
   href: index.yml
 - name: Overview
   items:

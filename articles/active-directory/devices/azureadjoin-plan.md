@@ -18,6 +18,7 @@ ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Plan your Azure AD join implementation
@@ -123,6 +124,8 @@ Azure AD join:
 - Is only applicable to Windows 10 devices. 
 
 - Is not applicable to previous versions of Windows or other operating systems. If you have Windows 7/8.1 devices, you must upgrade to Windows 10 to deploy Azure AD join.
+
+- Is not supported on devices with TPM in FIPS mode.
  
 **Recommendation:** Always use the latest Windows 10 release to take advantage of updated features.
 

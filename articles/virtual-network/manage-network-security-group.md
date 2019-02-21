@@ -89,7 +89,7 @@ To associate a network security group to, or dissociate a network security group
 
 ### Delete a network security group
 
-If a network security group is associated to any subnets or network interfaces, it cannot be deleted. [Dissociate](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource) a network security group from all subnets and network interfaces before attempting to delete it.
+If a network security group is associated to any subnets or network interfaces, it cannot be deleted. Dissociate a network security group from all subnets and network interfaces before attempting to delete it.
 
 1. In the search box at the top of the portal, enter *network security groups* in the search box. When **network security groups** appear in the search results, select it.
 2. Select the network security group you want to delete from the list.

@@ -118,7 +118,7 @@
         href: virtual-nodes-portal.md
     - name: Use Virtual Kubelet
       href: virtual-kubelet.md
-    - name: Use Cluster Autoscaler
+    - name: Use Cluster Autoscaler (preview)
       href: cluster-autoscaler.md
     - name: Deploy AKS with Terraform
       href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
@@ -136,7 +136,11 @@
   - name: Configure networking
     items:
     - name: Create or use existing virtual network
-      href: configure-advanced-networking.md
+      items:
+      - name: Use kubenet
+        href: configure-kubenet.md
+      - name: Use Azure-CNI
+        href: configure-azure-cni.md
     - name: Create an internal load balancer
       href: internal-lb.md
     - name: Use a static IP addresses
@@ -164,6 +168,8 @@
       href: kubernetes-service-principal.md
     - name: Limit access to cluster configuration file
       href: control-kubeconfig-access.md
+    - name: Secure pod traffic with network policies (preview)
+      href: use-network-policies.md
     - name: Update cluster service principal credentials
       href: update-credentials.md
     - name: Authenticate with ACR

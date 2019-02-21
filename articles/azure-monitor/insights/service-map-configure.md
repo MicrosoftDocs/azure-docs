@@ -128,8 +128,8 @@ Service Map gets its data from the Microsoft Dependency agent. The Dependency ag
 
 | Connected source | Supported | Description |
 |:--|:--|:--|
-| Windows agents | Yes | Service Map analyzes and collects data from Windows computers. <br><br>In addition to the [Log Analytics agent for Windows](../../azure-monitor/platform/log-analytics-agent.md), Windows agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
-| Linux agents | Yes | Service Map analyzes and collects data from Linux computers. <br><br>In addition to the [Log Analytics agent for Linux](../../azure-monitor/platform/log-analytics-agent.md), Linux agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
+| Windows agents | Yes | Service Map analyzes and collects data from Windows computers. <br><br>In addition to the [Log Analytics agent for Windows](../../azure-monitor/platform/log-analytics-agent.md), Windows agents require the Microsoft Dependency agent. See the supported operating systems for a complete list of operating system versions. |
+| Linux agents | Yes | Service Map analyzes and collects data from Linux computers. <br><br>In addition to the [Log Analytics agent for Linux](../../azure-monitor/platform/log-analytics-agent.md), Linux agents require the Microsoft Dependency agent. See the supported operating systems for a complete list of operating system versions. |
 | System Center Operations Manager management group | Yes | Service Map analyzes and collects data from Windows and Linux agents in a connected [System Center Operations Manager management group](../../azure-monitor/platform/om-agents.md). <br><br>A direct connection from the System Center Operations Manager agent computer to Log Analytics is required. |
 | Azure storage account | No | Service Map collects data from agent computers, so there is no data from it to collect from Azure Storage. |
 
@@ -379,7 +379,7 @@ If your Dependency agent installation succeeded, but you don't see your server i
 **Windows**: Look for the service named "Microsoft Dependency agent."<br>
 **Linux**: Look for the running process "microsoft-dependency-agent."
 
-* Are you on the [Free pricing tier of Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? The Free plan allows for up to five unique Service Map servers. Any subsequent servers won't show up in Service Map, even if the prior five are no longer sending data.
+* Are you on the [Free pricing tier of Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)? The Free plan allows for up to five unique Service Map servers. Any subsequent servers won't show up in Service Map, even if the prior five are no longer sending data.
 
 * Is your server sending log and perf data to Log Analytics? Go to Log Search and run the following query for your computer: 
 

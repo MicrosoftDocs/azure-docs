@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Create a simple Windows app that uses the Cognitive Services Face API to detect features of faces in an image.
 services: cognitive-services
 author: ghogen
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: face-api

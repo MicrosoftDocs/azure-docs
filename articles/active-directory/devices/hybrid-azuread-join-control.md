@@ -18,6 +18,7 @@ ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
+ms.collection: M365-identity-device-management
 ---
 # Control the hybrid Azure AD join of your devices
 

@@ -1,6 +1,6 @@
 ---
-title: Advanced aggregations in Azure Log Analytics queries| Microsoft Docs
-description: Describes some of the more advanced aggregation options available to Log Analytics queries.
+title: Advanced aggregations in Azure Monitor log queries| Microsoft Docs
+description: Describes some of the more advanced aggregation options available to Azure Monitor log queries.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,14 +15,14 @@ ms.date: 08/16/2018
 ms.author: bwren
 ---
 
-# Advanced aggregations in Log Analytics queries
+# Advanced aggregations in Azure Monitor log queries
 
 > [!NOTE]
-> You should complete [Aggregations in Log Analytics queries](./aggregations.md) before completing this lesson.
+> You should complete [Aggregations in Azure Monitor queries](./aggregations.md) before completing this lesson.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-This article describes some of the more advanced aggregation options available to Log Analytics queries.
+This article describes some of the more advanced aggregation options available to Azure Monitor queries.
 
 ## Generating lists and sets
 You can use `makelist` to pivot data by the order of values in a particular column. For example, you may want to explore the most common order events take place on your machines. You can essentially pivot the data by the order of EventIDs on each machine. 
@@ -176,7 +176,7 @@ WindowsFirewall
 
 ## Next steps
 
-See other lessons for using the Log Analytics query language:
+See other lessons for using the [Kusto query language](/azure/kusto/query/) with Azure Monitor log data:
 
 - [String operations](string-operations.md)
 - [Date and time operations](datetime-operations.md)
