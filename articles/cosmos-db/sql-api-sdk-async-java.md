@@ -40,7 +40,7 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 ## Release notes
 
 ### <a name="2.4.1"/>2.4.1
-* Fixed some bugs for Direct mode.
+* Fixed some bugs in Direct mode.
 * Improved logging in Direct mode.
 * Improved connection management.
 
