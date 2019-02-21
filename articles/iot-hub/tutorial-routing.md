@@ -295,7 +295,7 @@ The data is written to blob storage in the Avro format by default.
    > 
    > For example, using the default blob file name format, if the hub name is ContosoTestHub, and the date/time is October 30, 2018 at 10:56 a.m., the blob name will look like this: `ContosoTestHub/0/2018/10/30/10/56`.
    > 
-   > The blobs are written in the Avro format by default. You can choose to write files in JSON format. See [guidance on routing to blob storage] (iot-hub-devguide-messages-d2c.md#azure-blob-storage).
+   > The blobs are written in the Avro format by default. You can choose to write files in JSON format. The capability to encode JSON format is in preview. See [guidance on routing to blob storage] (iot-hub-devguide-messages-d2c.md#azure-blob-storage).
    > 
    > When routing to blob storage, we recommend enlisting the blobs and then iterating over them, to ensure all containers are read without making any assumptions of partition. The partition range could potentially change during a [Microsoft-initiated failover](iot-hub-ha-dr.md#microsoft-initiated-failover) or IoT Hub [manual failover](iot-hub-ha-dr.md#manual-failover-preview). To learn how to enumerate the list of blobs see [routing to blob storage](iot-hub-devguide-messages-d2c.md#azure-blob-storage)
    >
