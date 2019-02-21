@@ -31,6 +31,8 @@
       href: logs-and-metrics.md
     - name: Rule processing logic
       href: rule-processing.md
+    - name: Service tags
+      href: service-tags.md
 - name: How-to guides
   items:
     - name: Deploy using a template

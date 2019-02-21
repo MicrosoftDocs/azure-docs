@@ -4,7 +4,7 @@ description: Availability and performance tradeoffs for various consistency leve
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/20/2018
+ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 ---
@@ -39,22 +39,23 @@ The exact RTT latency is a function of speed-of-light distance and the Azure net
 
 - For a given type of write operation, such as insert, replace, upsert, and delete, the write throughput for request units is identical for all consistency levels.
 
-## Consistency levels and data durability
+## <a id="rto"></a>Consistency levels and data durability
 
-Within a globally distributed database environment there is a direct relationship between the consistency level and data durability in the presence of a region-wide outage. The table defines the relationship between relationship between Consistency model and data durability in the presence of region wide outage. It is important to note that in a distributed system, even with strong consistency, it is impossible to have a distributed database with and RPO and RTO of zero due to the CAP Theorem. To learn more on why, see [Consistency levels in Azure Cosmos DB](consistency-levels.md).
+Within a globally distributed database environment there is a direct relationship between the consistency level and data durability in the presence of a region-wide outage. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after a disruptive event. The time required for an application to fully recover is known as recovery time objective (RTO). You also need to understand the maximum period of recent data updates the application can tolerate losing when recovering after a disruptive event. The time period of updates that you might afford to lose is known as recovery point objective (RPO).
 
-|**Region(s)**|**Replication Mode**|**Consistency Level**|**RPO**|**RTO**|
+The table defines the relationship between relationship between Consistency model and data durability in the presence of region wide outage. It is important to note that in a distributed system, even with strong consistency, it is impossible to have a distributed database with an RPO and RTO of zero due to the CAP Theorem. To learn more on why, see [Consistency levels in Azure Cosmos DB](consistency-levels.md).
+
+|**Region(s)**|**Replication mode**|**Consistency level**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|Single or Multi-Master|Any Consistency Level|< 240 Minutes|<1 Week|
 |>1|Single Master|Session, Consistent Prefix, Eventual|< 15 minutes|< 15 minutes|
-|>1|Single Master|Bounded Staleness|K & T*|< 15 minutes|
+|>1|Single Master|Bounded Staleness|K & T|< 15 minutes|
 |>1|Multi-Master|Session, Consistent Prefix, Eventual|< 15 minutes|0|
-|>1|Multi-Master|Bounded Staleness|K & T*|0|
+|>1|Multi-Master|Bounded Staleness|K & T|0|
 |>1|Single or Multi-Master|Strong|0|< 15 minutes|
 
-* K & T = The number of "K" versions (updates) of an item. Or "T" time interval.
-
-
+K = The number of "K" versions (updates) of an item.
+T = Time "T" time interval since last update.
 
 ## Next steps
 

@@ -6,7 +6,7 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 02/18/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -55,14 +55,15 @@ All Azure services support role-based access controls (RBAC) for setting levels 
 ## Service access and authentication
 
 While Azure Search inherits the security safeguards of the Azure platform, it also provides its own key-based authentication. An api-key is a string composed of randomly generated numbers and letters. The type of key (admin or query) determines the level of access. Submission of a valid key is considered proof the request originates from a trusted entity. 
-Two types of keys are used to access your search service:
 
-* Admin (valid for any read-write operation against the service)
-* Query (valid for read-only operations such as queries against an index)
+There are two levels of access to your search service, enabled by two types of keys:
 
-Admin keys are created when the service is provisioned. There are two admin keys, designated as *primary* and *secondary* to keep them straight, but in fact they are interchangeable. Each service has two admin keys so that you can roll one over without losing access to your service. You can regenerate either admin key, but you cannot add to the total admin key count. There is a maximum of two admin keys per search service.
+* Admin access (valid for any read-write operation against the service)
+* Query access (valid for read-only operations such as queries against an index)
 
-Query keys are created as-needed and are designed for client applications that call Search directly. You can create up to 50 query keys. In application code, you specify the search URL and a query api-key to allow read-only access to the service. Your application code also specifies the index used by your application. Together, the endpoint, an api-key for read-only access, and a target index define the scope and access level of the connection from your client application.
+*Admin keys* are created when the service is provisioned. There are two admin keys, designated as *primary* and *secondary* to keep them straight, but in fact they are interchangeable. Each service has two admin keys so that you can roll one over without losing access to your service. You can regenerate either admin key, but you cannot add to the total admin key count. There is a maximum of two admin keys per search service.
+
+*Query keys* are created as-needed and are designed for client applications that call Search directly. You can create up to 50 query keys. In application code, you specify the search URL and a query api-key to allow read-only access to the service. Your application code also specifies the index used by your application. Together, the endpoint, an api-key for read-only access, and a target index define the scope and access level of the connection from your client application.
 
 Authentication is required on each request, where each request is composed of a mandatory key, an operation, and an object. When chained together, the two permission levels (full or read-only) plus the context (for example, a query operation on an index) are sufficient for providing full-spectrum security on service operations. For more information about keys, see [Create and manage api-keys](search-security-api-keys.md).
 
@@ -88,7 +89,9 @@ For information about structuring a request in Azure Search, see [Azure Search S
 
 ## User access to index content
 
-Per-user access to the contents of an index is implemented through security filters on your queries, returning documents associated with a given security identity. Instead of predefined roles and role assignments, identity-based access control is implemented as a filter that trims search results of documents and content based on identities. The following table describes two approaches for trimming search results of unauthorized content.
+By default, user access to an index is determined by the access key on the query request. Most developers create and assign [*query keys*](search-security-api-keys.md) for client-side search requests. A query key grants read access to all content within the index.
+
+If you require granular, per-user control over content, you can build security filters on your queries, returning documents associated with a given security identity. Instead of predefined roles and role assignments, identity-based access control is implemented as a *filter* that trims search results of documents and content based on identities. The following table describes two approaches for trimming search results of unauthorized content.
 
 | Approach | Description |
 |----------|-------------|
