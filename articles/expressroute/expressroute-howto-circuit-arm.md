@@ -34,25 +34,8 @@ Before you begin, review the [prerequisites](expressroute-prerequisites.md) and 
 
 ## <a name="create"></a>Create and provision an ExpressRoute circuit
 ### 1. Sign in to your Azure account and select your subscription
-To begin your configuration, sign in to your Azure account. Use the following examples to help you connect:
 
-If you are using Azure CloudShell, you don't need to run Connect-AzAccount, as you will connect automatically.
-
-```azurepowershell
-Connect-AzAccount
-```
-
-Check the subscriptions for the account:
-
-```azurepowershell-interactive
-Get-AzSubscription
-```
-
-Select the subscription that you want to create an ExpressRoute circuit for:
-
-```azurepowershell-interactive
-Select-AzSubscription -SubscriptionId "<subscription ID>"
-```
+[!INCLUDE [sign in](../../includes/expressroute-cloud-shell-ps-login.md)]
 
 ### 2. Get the list of supported providers, locations, and bandwidths
 Before you create an ExpressRoute circuit, you need the list of supported connectivity providers, locations, and bandwidth options.
@@ -69,7 +52,7 @@ Check to see if your connectivity provider is listed there. Make a note of the f
 * PeeringLocations
 * BandwidthsOffered
 
-You're now ready to create an ExpressRoute circuit.   
+You're now ready to create an ExpressRoute circuit.
 
 ### 3. Create an ExpressRoute circuit
 If you don't already have a resource group, you must create one before you create your ExpressRoute circuit. You can do so by running the following command:
