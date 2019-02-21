@@ -12,9 +12,9 @@ keywords:
 
 # Mainframe workloads supported on Azure
 
-Microsoft Azure provides a proven, highly available and scalable infrastructure for systems that currently run on mainframes. Some workloads can be migrated with relative ease. Other workloads that depend on CICS, IMS, and other legacy system software can be rehosted using partner solutions and migrated to Azure over time.
+The solutions listed here can help you migrate your mainframe workload to Microsoft Azure. Some workloads can be migrated with relative ease. Other workloads that depend on legacy system software can be rehosted. 
 
-For a list of officially recognized partner solutions for mainframe emulation and services on Azure, refer to the [Azure Mainframe Migration center](https://azure.microsoft.com/migration/mainframe/).
+For more help with mainframe emulation and services, refer to the [Azure Mainframe Migration center](https://azure.microsoft.com/migration/mainframe/).
 
 ## Migrate mainframe closer to Azure
 
@@ -33,7 +33,7 @@ For a list of officially recognized partner solutions for mainframe emulation an
 ## Deploy an emulation environment for online and batch processing
 
 - [Micro Focus Enterprise Server](https://www.microfocus.com/products/enterprise-suite/enterprise-server/) mainframe integration platform.
-- [NTT DATA Mainframe Re-hosting Development Environment](https://us.nttdata.com/en/-/media/assets/white-paper/apps-mainframe-re-hosting-development-environment-whitepaper.pdf) for a native transaction processing environment that can run rehosted CICS transactions, IMS applications, IDMS DC programs, and other resources.
+- [NTT DATA Mainframe Rehosting Development Environment](https://us.nttdata.com/en/-/media/assets/white-paper/apps-mainframe-re-hosting-development-environment-whitepaper.pdf) native transaction processing environment.
 - [NTT DATA Batch Processing Environment](https://us.nttdata.com/en/-/media/assets/white-paper/apps-mainframe-re-hosting-development-environment-whitepaper.pdf) (BPE) including JCL transaction capabilities.
 - [Raincode CICS](https://www.raincode.com/technical-landscape/cics/) emulator for .NET and Azure platforms.
 - [Raincode JCL](https://www.raincode.com/products/jcl/) plug-compatible JCL interpreter.
@@ -47,6 +47,6 @@ For a list of officially recognized partner solutions for mainframe emulation an
 
 ## Modernization services
 
-Microsoft partners with global system integrators (GSIs) who can help large organizations design, build, and manage solutions. For example, Accenture, Gemini, Cognizant, DXC, Fujitsu, HPE, Infosys, TCS, and Wipro all provide platform modernization services.
+Microsoft partners with global system integrators (GSIs) who can help large organizations design, build, and manage solutions. 
 
 - [Azure Mainframe Migration center](https://azure.microsoft.com/migration/mainframe/)
