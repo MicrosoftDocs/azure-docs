@@ -150,6 +150,7 @@ ms.topic: hub-page
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-objectivec-ios">Using Objective-C</a></p>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-js-browser">Using JavaScript</a></p>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-cpp-windows">Using C++</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service/quickstart-python">Using Python</a></p>
                     </div>
                 </div>
             </div>
@@ -209,7 +210,7 @@ ms.topic: hub-page
                         <p><a href="/azure/cognitive-services/bing-web-search/quickstarts/csharp">Using C#</a></p>
                         <p><a href="/azure/cognitive-services/bing-web-search/quickstarts/java">Using Java</a></p>
                         <p><a href="/azure/cognitive-services/bing-web-search/quickstarts/nodejs">Using Node.js</a></p>
-                        <p><a href="/azure/cognitive-services/bing-web-search/quickstarts/python">Using Python</a></p>
+                        <p><a href="/azure/cognitive-services/bing-web-search/web-sdk-python-quickstart">Using Python</a></p>
                     </div>
                 </div>
             </div>
@@ -229,7 +230,7 @@ ms.topic: hub-page
                         <p><a href="/azure/cognitive-services/bing-image-search/quickstarts/csharp">Using C#</a></p>
                         <p><a href="/azure/cognitive-services/bing-image-search/quickstarts/java">Using Java</a></p>
                         <p><a href="/azure/cognitive-services/bing-image-search/quickstarts/nodejs">Using Node.js</a></p>
-                        <p><a href="/azure/cognitive-services/bing-image-search/quickstarts/python">Using Python</a></p>
+                        <p><a href="/azure/cognitive-services/bing-image-search/image-sdk-python-quickstart">Using Python</a></p>
                     </div>
                 </div>
             </div>
