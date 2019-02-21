@@ -53,7 +53,7 @@ Please consider the following requirements when using Azure Automation State Con
 
 ### Operating System Requirements
 
-For nodes running Windows, the following versions are supported.
+For nodes running Windows, the following versions are supported:
 
 - Windows Server 2019
 - Windows Server 2016
@@ -64,7 +64,7 @@ For nodes running Windows, the following versions are supported.
 - Windows 8.1
 - Windows 7
 
-For nodes running Linux, the following distros/versions are supported.
+For nodes running Linux, the following distros/versions are supported:
 
 The DSC Linux extension supports all the Linux distributions
 [endorsed on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)
@@ -134,7 +134,7 @@ State Configuration was first announced.
 > Configuration has progressed a lot since this video was recorded. It is now generally available,
 > has a much more extensive UI in the Azure portal, and supports many additional capabilities.
 
-![VIDEO](https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player)
+[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
 
 ## Next steps
 
