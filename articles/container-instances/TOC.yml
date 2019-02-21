@@ -62,16 +62,16 @@
       href: container-instances-managed-identity.md
     - name: Use GPU resources (preview)
       href: container-instances-gpu.md
-    - name: Mount data volumes
-      items:
-      - name: Azure Files
-        href: container-instances-volume-azure-files.md
-      - name: emptyDir
-        href: container-instances-volume-emptydir.md
-      - name: gitRepo
-        href: container-instances-volume-gitrepo.md
-      - name: secret
-        href: container-instances-volume-secret.md
+  - name: Mount data volumes
+    items:
+    - name: Azure file share
+      href: container-instances-volume-azure-files.md
+    - name: Empty directory
+      href: container-instances-volume-emptydir.md
+    - name: Volume cloned from Git repo
+      href: container-instances-volume-gitrepo.md
+    - name: Secrets volume
+      href: container-instances-volume-secret.md
   - name: Manage
     items:
     - name: Configure liveness probes
