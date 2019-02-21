@@ -24,9 +24,13 @@ This article helps you add, resize, and remove a virtual network (VNet) gateway 
 
 ## Before beginning
 
+### Working with PowerShell
+
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [working with cloud shell](../../includes/expressroute-cloud-shell-powershell-about.md)]
+
+### Configuration reference list
 
 [!INCLUDE [expressroute-gateway-rm-ps](../../includes/expressroute-gateway-rm-ps-include.md)]
 

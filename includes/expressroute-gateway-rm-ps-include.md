@@ -9,9 +9,8 @@
  ms.author: cherylmc
  ms.custom: include file
 ---
-The steps for this task use a VNet based on the values in the following configuration reference list. Additional settings and names are also outlined in this list. We don't use this list directly in any of the steps, although we do add variables based on the values in this list. You can copy the list to use as a reference, replacing the values with your own.
 
-**Configuration reference list**
+The steps for this task use a VNet based on the values in the following configuration reference list. Additional settings and names are also outlined in this list. We don't use this list directly in any of the steps, although we do add variables based on the values in this list. You can copy the list to use as a reference, replacing the values with your own.
 
 * Virtual Network Name = "TestVNet"
 * Virtual Network address space = 192.168.0.0/16
