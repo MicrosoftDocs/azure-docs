@@ -49,7 +49,7 @@ DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
 
 SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with your HDInsight cluster. The following steps assume that you have already installed SQuirreL SQL.
 
-1. Create a directory to contain certain files to be copied from your cluster. For example, `mkdir C:\HD\hivedriver`.
+1. Create a directory to contain certain files to be copied from your cluster.
 
 2. In the following script, replace `sshuser` with the SSH user account name for the cluster.  Replace `CLUSTERNAME` with the HDInsight cluster name.  From a command line, enter the following command to copy files from an HDInsight cluster:
 
