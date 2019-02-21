@@ -77,7 +77,7 @@ Perform the following steps in the [Azure portal](https://aka.ms/azuredataboxfro
     |Destination Azure region| Select a region for your storage account.<br> Currently, storage accounts in all regions in US, West and North Europe, Canada, and Australia are supported. |
     |Estimated data size in TB| Enter an estimate in TB. <br>Based on the data size, Microsoft sends you an appropriate number of 8 TB SSDs (7 TB usable capacity). <br>The maximum usable capacity of 5 disks is up to 35 TB. |
     |Disk passkey| Supply the disk passkey if you check **Use custom key instead of Azure generated passkey**. <br> Provide a 12 to 32 character alphanumeric key that has at least one numeric and one special character. The allowed special characters are `@?_+`. <br> You can choose to skip this option and use the Azure generated passkey to unlock your disks.|
-    |Storage destination     | Choose from storage account or managed disks or both. <br> Based on the specified Azure region, select one or more storage accounts from the filtered list of an existing storage account. Data Box can be linked with up to 10 storage accounts. <br> You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**. <br>Storage accounts with virtual networks are supported. To allow Data Box service to work with secured storage accounts, enable the trusted services within the storage account network firewall settings.|
+    |Storage destination     | Choose from storage account or managed disks or both. <br> Based on the specified Azure region, select one or more storage accounts from the filtered list of an existing storage account. Data Box can be linked with up to 10 storage accounts. <br> You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**. <br>You cannot use storage accounts that have rules configured. The storage accounts must **allow access from all networks** in the firewalls and virtual networks section.|
 
     If using storage account as the storage destination, you see the following screenshot:
 
@@ -87,11 +87,11 @@ Perform the following steps in the [Azure portal](https://aka.ms/azuredataboxfro
 
     |Setting  |Value  |
     |---------|---------|
-    |Resource group     | Create a new resource group if you intend to create managed disks from on-premises VHDs. You can use an existing resource group only if the resource group was created previously when creating a Data Box Disk order for managed disk by Data Box service. <br> Only one resource group is supported.|
+    |Resource group     | Create a new resource group if you intend to create managed disks from on-premises VHDs. Use an existing resource group only if it was created as a Data Box Disk order for managed disk by Data Box service. <br> Only one resource group is supported.|
 
     ![Data Box Disk order for managed disk](media/data-box-disk-deploy-ordered/order-for-managed-disks.png)
 
-    The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting it into managed disks and moving it to the resource groups. For more information, see [Verify data upload to Azure](data-box-disk-deploy-picked-up.md#verify-data-upload-to-azure).
+    The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs to the staging storage account and then converts those into managed disks and moves to the resource groups. For more information, see [Verify data upload to Azure](data-box-disk-deploy-picked-up.md#verify-data-upload-to-azure).
 
 13. Click **Next**. 
 
@@ -111,7 +111,7 @@ Perform the following steps in the [Azure portal](https://aka.ms/azuredataboxfro
  
 ## Track the order
 
-After you have placed the order, you can track the status of the order from Azure portal. Go to your order and then go to **Overview** to view the status. The portal shows the job in **Ordered** state. 
+After you have placed the order, you can track the status of the order from Azure portal. Go to your order and then go to **Overview** to view the status. The portal shows the job in **Ordered** state.
 
 ![Data Box Disk status ordered](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
 
@@ -127,9 +127,9 @@ Microsoft then prepares and dispatches your disks via a regional carrier. You re
 
 ## Cancel the order
 
-To cancel this order, in the Azure portal, go to **Overview** and click **Cancel** from the command bar. 
+To cancel this order, in the Azure portal, go to **Overview** and click **Cancel** from the command bar.
 
-You can only cancel when the disks are ordered and the order is being processed for shipment. Once the order is processed, you can no longer cancel the order. 
+You can only cancel when the disks are ordered and the order is being processed for shipment. Once the order is processed, you can no longer cancel the order.
 
 ![Cancel order](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
@@ -149,5 +149,3 @@ Advance to the next tutorial to learn how to set up your Data Box Disk.
 
 > [!div class="nextstepaction"]
 > [Set up your Azure Data Box Disk](./data-box-disk-deploy-set-up.md)
-
-

@@ -34,7 +34,7 @@ Before you begin, make sure that:
 - Make sure that the subscription you use for Data Box service is one of the following types:
     - Microsoft Enterprise Agreement (EA). Read more about [EA subscriptions](https://azure.microsoft.com/pricing/enterprise-agreement/).
     - Cloud Solution Provider (CSP). Learn more about [Azure CSP program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Microsoft Azure Sponsorship. Learn more about [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/). 
+    - Microsoft Azure Sponsorship. Learn more about [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/).
 
 - Ensure that you have owner or contributor access to the subscription to create a Data Box order.
 
@@ -75,7 +75,7 @@ Perform the following steps in the Azure portal to order a device.
     |Name     |  Provide a friendly name to track the order. <br> The name can have between 3 and 24 characters that can be letters, numbers, and hyphens. <br> The name must start and end with a letter or a number.      |
     |Resource group     |	Use an existing or create a new one. <br> A resource group is a logical container for the resources that can be managed or deployed together.         |
     |Destination Azure region     | Select a region for your storage account. <br> For more information, go to [region availability](data-box-overview.md#region-availability).        |
-    |Storage account(s)     | Based on the specified Azure region, select one or more storage accounts from the filtered list of an existing storage account. Data Box can be linked with up to 10 storage accounts. <br> You can also create a new **General purpose v1**, **General purpose v2**, or **Blob storage account**. You cannot use storage accounts that have rules configured. The storage accounts must **allow access from all networks** in the firewalls and virtual networks section.|
+    |Storage account(s)     | Based on the specified Azure region, select one or more storage accounts from the filtered list of an existing storage account. Data Box can be linked with up to 10 storage accounts. <br> You can also create a new **General purpose v1**, **General purpose v2**, or **Blob storage account**. <br> Storage accounts with virtual networks are supported. To allow Data Box service to work with secured storage accounts, enable the trusted services within the storage account network firewall settings.|
     
 7. In the **Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Click **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect. Click **Next**.
 

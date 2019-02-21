@@ -32,10 +32,29 @@ Before you begin, make sure that:
 
 ## Copy data to disks
 
+Review the following considerations before you copy the data to the disks:
+
+- It is your responsibility to ensure that you copy the data to folders that correspond to the appropriate data format. For instance, copy the block blob data to the folder for block blobs. If the data format does not match the appropriate folder (storage type), then at a later step, the data upload to Azure fails.
+- While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box Disk limits](data-box-disk-limits.md).
+- If data, which is being uploaded by Data Box Disk, is concurrently uploaded by other applications outside of Data Box Disk, then this could result in upload job failures and data corruption.
+
+If you specified managed disks in the order, review the following additional considerations:
+
+- Always copy the VHDs to one of the precreated folders. If you copy the VHDs outside of these folders or in a folder that you created, the VHDs are uploaded to Azure Storage account as page blobs and not managed disks.
+- Only the fixed VHDs can be uploaded to create managed disks. Dynamic VHDs, differencing VHDs or VHDX files are not supported.
+- You can only have one managed disk with a given name in a resource group across all the precreated folders and across all the Data Box Disk. This implies that the VHDs uploaded to the precreated folders should have unique names. Make sure that the given name does not match an already existing managed disk in a resource group.
+- Review [Managed disk limits in Azure object size limits](data-box-disk-limits.md#azure-object-size-limits).
+
 Perform the following steps to connect and copy data from your computer to the Data Box Disk.
 
-1. View the contents of the unlocked drive.
+1. View the contents of the unlocked drive. The list of the folders and subfolders in the drive is different depending upon the options selected when placing the Data Box Disk order.
 
+    - If you chose the storage account as storage destination in the order, and specified a GPv1 or GPv2 storage account, you will see the *BlockBlob*, *PageBloB*, and *AzureFile* folders.
+    - If you chose the storage account as storage destination in the order, and specified a Blob storage account, you will see the *BlockBlob* folder.
+    - If you chose the managed disks as storage destination in the order, you will see the *ManagedDisks* folder which has *PremiumSSD*, *StandardSSD*, *StandardHDD* subfolders. 
+    - If you chose both the storage account and managed disks as storage destination, you will see folders and subfolders from both the cases.
+
+    A screenshot when a GPv2 storage account is used is shown below.
     ![View drive content](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
  
 2. Copy the data that needs to be imported as block blobs in to *BlockBlob* folder. Similarly, copy data such as VHD/VHDX to *PageBlob* folder and data in to *AzureFile* folder.
@@ -55,7 +74,7 @@ Perform the following steps to connect and copy data from your computer to the D
     > [!IMPORTANT] 
     > All the containers and blobs should conform to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). If these rules are not followed, the data upload to Azure will fail.
 
-3. When copying files, ensure that files do not exceed ~4.7 TiB for block blobs and ~8 TiB for page blobs. 
+3. When copying files, ensure that files do not exceed ~4.7 TiB for block blobs, ~8 TiB for page blobs, and ~1 TiB for Azure Files. 
 4. You can use drag and drop with File Explorer to copy the data. You can also use any SMB compatible file copy tool such as Robocopy to copy your data. Multiple copy jobs can be initiated using the following Robocopy command:
 
     `Robocopy <source> <destination>  * /MT:64 /E /R:1 /W:1 /NFL /NDL /FFT /Log:c:\RobocopyLog.txt` 
@@ -158,11 +177,6 @@ Perform the following steps to connect and copy data from your computer to the D
 
 6. Open the target folder to view and verify the copied files. If you have any errors during the copy process, download the log files for troubleshooting. The log files are located as specified in the robocopy command.
  
-> [!IMPORTANT]
-> - It is your responsibility to ensure that you copy the data to folders that correspond to the appropriate data format. For instance, copy the block blob data to the folder for block blobs. If the data format does not match the appropriate folder (storage type), then at a later step, the data upload to Azure fails.
-> -  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box Disk limits](data-box-disk-limits.md).
-> - If data, which is being uploaded by Data Box Disk, is concurrently uploaded by other applications outside of Data Box Disk, then this could result in upload job failures and data corruption.
-
 ### Split and copy data to disks
 
 This optional procedure may be used when you are using multiple disks and have a large dataset that needs to be split and copied across all the disks. The Data Box Split Copy tool helps split and copy the data on a Windows computer.
