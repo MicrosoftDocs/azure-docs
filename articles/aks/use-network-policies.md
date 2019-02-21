@@ -23,21 +23,7 @@ This article shows you how to use network policies to control the flow of traffi
 
 You need the Azure CLI version 2.0.56 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-## Overview of network policy
-
-By default, all pods in an AKS cluster can send and receive traffic without limitations. To improve security, you can define rules that control the flow of traffic. For example, backend applications are often only exposed to required frontend services, or database components are only accessible to the application tiers that connect to them.
-
-Network policies are Kubernetes resources that let you control the traffic flow between pods. You can choose to allow or deny traffic based on settings such as assigned labels, namespace, or traffic port. Network policies are defined as a YAML manifests, and can be included as part of a wider manifest that also creates a deployment or service.
-
-To see network policies in action, let's create and then expand on a policy that defines traffic flow as follows:
-
-* Deny all traffic to pod.
-* Allow traffic based on pod labels.
-* Allow traffic based on namespace.
-
-## Create an AKS cluster and enable network policy
-
-Network policy can only be enabled when the cluster is created. You can't enable network policy on an existing AKS cluster. To create an AKS with network policy, first enable a feature flag on your subscription. To register the *EnableNetworkPolicy* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
+To create an AKS with network policy, first enable a feature flag on your subscription. To register the *EnableNetworkPolicy* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
 
 ```azurecli-interactive
 az feature register --name EnableNetworkPolicy --namespace Microsoft.ContainerService
@@ -55,7 +41,25 @@ When ready, refresh the registration of the *Microsoft.ContainerService* resourc
 az provider register --namespace Microsoft.ContainerService
 ```
 
-To use network policy with an AKS cluster, you must use the [Azure CNI plugin][azure-cni] and define your own virtual network and subnets. For more detailed information on how to plan out the required subnet ranges, see [configure advanced networking][use-advanced-networking]. The following example script:
+## Overview of network policy
+
+By default, all pods in an AKS cluster can send and receive traffic without limitations. To improve security, you can define rules that control the flow of traffic. For example, backend applications are often only exposed to required frontend services, or database components are only accessible to the application tiers that connect to them.
+
+Network policies are Kubernetes resources that let you control the traffic flow between pods. You can choose to allow or deny traffic based on settings such as assigned labels, namespace, or traffic port. Network policies are defined as a YAML manifests, and can be included as part of a wider manifest that also creates a deployment or service.
+
+To see network policies in action, let's create and then expand on a policy that defines traffic flow as follows:
+
+* Deny all traffic to pod.
+* Allow traffic based on pod labels.
+* Allow traffic based on namespace.
+
+## Create an AKS cluster and enable network policy
+
+Network policy can only be enabled when the cluster is created. You can't enable network policy on an existing AKS cluster. 
+
+To use network policy with an AKS cluster, you must use the [Azure CNI plugin][azure-cni] and define your own virtual network and subnets. For more detailed information on how to plan out the required subnet ranges, see [configure advanced networking][use-advanced-networking].
+
+The following example script:
 
 * Creates a virtual network and subnet.
 * Creates an Azure Active Directory (AD) service principal for use with the AKS cluster.
@@ -82,7 +86,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 
 # Create a service principal and read in the application ID
-read SP_ID <<< $(az ad sp create-for-rbac --password $SP_PASSWORD --skip-assignment --query [appId] -o tsv)
+SP_ID=$(az ad sp create-for-rbac --password $SP_PASSWORD --skip-assignment --query [appId] -o tsv)
 
 # Wait 15 seconds to make sure that service principal has propagated
 echo "Waiting for service principal to propagate..."
@@ -232,11 +236,14 @@ spec:
   ingress:
   - from:
     - namespaceSelector: {}
-    - podSelector:
+      podSelector:
         matchLabels:
           app: webapp
           role: frontend
 ```
+
+> [!NOTE]
+> This network policy uses a *namespaceSelector* and a *podSelector* element for the ingress rule. The YAML syntax is important for the ingress rules to be additive or not. In this example, both elements must match for the ingress rule to be applied. Kubernetes versions prior to *1.12* may not interpret these elements correctly and restrict the network traffic as you expect. For more information, see [Behavior of to and from selectors][policy-rules].
 
 Apply the updated network policy using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 
@@ -353,7 +360,7 @@ spec:
     - namespaceSelector:
         matchLabels:
           purpose: development
-    - podSelector:
+      podSelector:
         matchLabels:
           app: webapp
           role: frontend
@@ -438,6 +445,7 @@ To learn more about using policies, see [Kubernetes network policies][kubernetes
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

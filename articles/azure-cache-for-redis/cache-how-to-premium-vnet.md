@@ -81,7 +81,7 @@ The following list contains answers to commonly asked questions about the Azure 
 
 * What are some common misconfiguration issues with Azure Cache for Redis and VNets?
 * [How can I verify that my cache is working in a VNET?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
-* [When trying to connect to my Azure Cache for Redis in a VNET, why am I getting an error stating the remote certificate is invalid?](#when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid)
+* When trying to connect to my Azure Cache for Redis in a VNET, why am I getting an error stating the remote certificate is invalid?
 * [Can I use VNets with a standard or basic cache?](#can-i-use-vnets-with-a-standard-or-basic-cache)
 * Why does creating an Azure Cache for Redis fail in some subnets but not others?
 * [What are the subnet address space requirements?](#what-are-the-subnet-address-space-requirements)

@@ -1,7 +1,7 @@
 ---
 title: How a machine learning model becomes a web service
 titleSuffix: Azure Machine Learning Studio
-description: An overview of the mechanics of how your Azure Machine Learning model progresses from a development experiment to an operationalized Web service.
+description: An overview of the mechanics of how your Azure Machine Learning Studio model progresses from a development experiment to an operationalized Web service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -42,7 +42,7 @@ Here are the stages that a typical solution follows as you develop and deploy it
 *Figure 1 - Stages of a typical predictive analysis model*
 
 ### The training experiment
-The ***training experiment*** is the initial phase of developing your Web service in Machine Learning Studio. The purpose of the training experiment is to give you a place to develop, test, iterate, and eventually train a machine learning model. You can even train multiple models simultaneously as you look for the best solution, but once you’re done experimenting you’ll select a single trained model and eliminate the rest from the experiment. For an example of developing a predictive analysis experiment, see [Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning](tutorial-part1-credit-risk.md).
+The ***training experiment*** is the initial phase of developing your Web service in Machine Learning Studio. The purpose of the training experiment is to give you a place to develop, test, iterate, and eventually train a machine learning model. You can even train multiple models simultaneously as you look for the best solution, but once you’re done experimenting you’ll select a single trained model and eliminate the rest from the experiment. For an example of developing a predictive analysis experiment, see [Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning Studio](tutorial-part1-credit-risk.md).
 
 ### The predictive experiment
 Once you have a trained model in your training experiment, click **Set Up Web Service** and select **Predictive Web Service** in Machine Learning Studio to initiate the process of converting your training experiment to a ***predictive experiment***. The purpose of the predictive experiment is to use your trained model to score new data, with the goal of eventually becoming operationalized as an Azure Web service.
