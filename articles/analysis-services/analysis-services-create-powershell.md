@@ -19,14 +19,14 @@ This quickstart describes using PowerShell from the command line to create an Az
 
 - **Azure subscription**: Visit [Azure Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) to create an account.
 - **Azure Active Directory**: Your subscription must be associated with an Azure Active Directory tenant and you must have an account in that directory. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
-- **Azure PowerShell module version 4.0 or later**. To find the version, run ` Get-Module -ListAvailable AzureRM`. To install or upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-Az-ps).
+- **Azure PowerShell**. To find the installed version, run `Get-Module -ListAvailable Az`. To install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
 
-## Import AzureRm.AnalysisServices module
+## Import Az.AnalysisServices module
 
-To create a server in your subscription, you use the [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)  component module. Load the AzureRm.AnalysisServices module into your PowerShell session.
+To create a server in your subscription, you use the [Az.AnalysisServices](/powershell/module/az.analysisservices) module. Load the Az.AnalysisServices module into your PowerShell session.
 
 ```powershell
-Import-Module AzureRM.AnalysisServices
+Import-Module Az.AnalysisServices
 ```
 
 ## Sign in to Azure

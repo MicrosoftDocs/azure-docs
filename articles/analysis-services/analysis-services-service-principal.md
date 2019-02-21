@@ -41,7 +41,7 @@ Service principal appID and password or certificate can be used in connection st
 
 ### PowerShell
 
-When using a service principal for resource management operations with the [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)  module, use `Login-AzAccount` cmdlet. When using a service principal for server operations with the [SQLServer](https://www.powershellgallery.com/packages/SqlServer) module, use `Add-AzAnalysisServicesAccount` cmdlet. 
+When using a service principal for resource management operations with the [Az.AnalysisServices](/powershell/module/az.analysisservices)  module, use `Login-AzAccount` cmdlet. When using a service principal for server operations with the [SQLServer](https://www.powershellgallery.com/packages/SqlServer) module, use `Add-AzAnalysisServicesAccount` cmdlet. 
 
 In the following example, appID and a password are used to perform a model database refresh operation:
 

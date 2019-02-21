@@ -82,7 +82,7 @@ Use the **sync** operation.
 
 ### PowerShell
 
-Before using PowerShell, [install or update the latest AzureRM module](https://github.com/Azure/azure-powershell/releases). 
+Before using PowerShell, [install or update the latest Azure PowerShell module](https://github.com/Azure/azure-powershell/releases). 
 
 To set the number of query replicas, use [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Specify the optional `-ReadonlyReplicaCount` parameter.
 
