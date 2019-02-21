@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 02/21/2019
 ms.author: jeedes
 
 ---
@@ -96,7 +96,7 @@ To configure Azure AD single sign-on with MaxxPoint, perform the following steps
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
+4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
     ![MaxxPoint Domain and URLs single sign-on information](common/preintegrated.png)
 
