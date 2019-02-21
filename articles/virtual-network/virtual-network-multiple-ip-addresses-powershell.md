@@ -68,82 +68,82 @@ The steps that follow explain how to create an example VM with multiple IP addre
 
 5. Create a network security group (NSG) and a rule. The NSG secures the VM using inbound and outbound rules. In this case, an inbound rule is created for port 3389, which allows incoming remote desktop connections.
 
-   ```powershell
+	```powershell
+	
+	# Create an inbound network security group rule for port 3389
 
-   # Create an inbound network security group rule for port 3389
+	$NSGRule = New-AzNetworkSecurityRuleConfig `
+	-Name MyNsgRuleRDP `
+	-Protocol Tcp `
+	-Direction Inbound `
+	-Priority 1000 `
+	-SourceAddressPrefix * `
+	-SourcePortRange * `
+	-DestinationAddressPrefix * `
+	-DestinationPortRange 3389 -Access Allow
+	
+	# Create a network security group
+	$NSG = New-AzNetworkSecurityGroup `
+	-ResourceGroupName $RgName `
+	-Location $Location `
+	-Name MyNetworkSecurityGroup `
+	-SecurityRules $NSGRule
+	```
 
-   $NSGRule = New-AzNetworkSecurityRuleConfig `
-   -Name MyNsgRuleRDP `
-   -Protocol Tcp `
-   -Direction Inbound `
-   -Priority 1000 `
-   -SourceAddressPrefix * `
-   -SourcePortRange * `
-   -DestinationAddressPrefix * `
-   -DestinationPortRange 3389 -Access Allow
+6. Define the primary IP configuration for the NIC. Change 10.0.0.4 to a valid address in the subnet you created, if you didn't use the value defined previously. Before assigning a static IP address, it's recommended that you first confirm it's not already in use. Enter the command `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. If the address is available, the output returns *True*. If it's not available, the output returns *False* and a list of addresses that are available. 
 
-   # Create a network security group
-   $NSG = New-AzNetworkSecurityGroup `
-   -ResourceGroupName $RgName `
-   -Location $Location `
-   -Name MyNetworkSecurityGroup `
-   -SecurityRules $NSGRule
-   ```
+	In the following commands, **Replace <replace-with-your-unique-name> with the unique DNS name to use.** The name must be unique across all public IP addresses within an Azure region. This is an optional parameter. It can be removed if you only want to connect to the VM using the public IP address.
 
-6. Define the primary IP configuration for the NIC. Change 10.0.0.4 to a valid address in the subnet you created, if you didn't use the value defined previously. Before assigning a static IP address, it's recommended that you first confirm it's not already in use. Enter the command `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. If the address is available, the output returns *True*. If it's not available, the output returns *False* and a list of addresses that are available.
+	```powershell
+	
+	# Create a public IP address
+	$PublicIP1 = New-AzPublicIpAddress `
+	-Name "MyPublicIP1" `
+	-ResourceGroupName $RgName `
+	-Location $Location `
+	-DomainNameLabel <replace-with-your-unique-name> `
+	-AllocationMethod Static
+		
+	#Create an IP configuration with a static private IP address and assign the public IP address to it
+	$IpConfigName1 = "IPConfig-1"
+	$IpConfig1     = New-AzNetworkInterfaceIpConfig `
+	-Name $IpConfigName1 `
+	-Subnet $Subnet `
+	-PrivateIpAddress 10.0.0.4 `
+	-PublicIpAddress $PublicIP1 `
+	-Primary
+	```
 
-   In the following commands, **Replace <replace-with-your-unique-name> with the unique DNS name to use.** The name must be unique across all public IP addresses within an Azure region. This is an optional parameter. It can be removed if you only want to connect to the VM using the public IP address.
+	When you assign multiple IP configurations to a NIC, one configuration must be assigned as the *-Primary*.
 
-   ```powershell
-
-   # Create a public IP address
-   $PublicIP1 = New-AzPublicIpAddress `
-   -Name "MyPublicIP1" `
-   -ResourceGroupName $RgName `
-   -Location $Location `
-   -DomainNameLabel <replace-with-your-unique-name> `
-   -AllocationMethod Static
-
-   #Create an IP configuration with a static private IP address and assign the public IP address to it.
-   $IpConfigName1 = "IPConfig-1"
-   $IpConfig1     = New-AzNetworkInterfaceIpConfig `
-   -Name $IpConfigName1 `
-   -Subnet $Subnet `
-   -PrivateIpAddress 10.0.0.4 `
-   -PublicIpAddress $PublicIP1 `
-   -Primary
-   ```
-
-   When you assign multiple IP configurations to a NIC, one configuration must be assigned as the *-Primary*.
-
-   > [!NOTE]
-   > Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
+	> [!NOTE]
+	> Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
 
 7. Define the secondary IP configurations for the NIC. You can add or remove configurations as necessary. Each IP configuration must have a private IP address assigned. Each configuration can optionally have one public IP address assigned.
 
-   ```powershell
-
-   # Create a public IP address
-   $PublicIP2 = New-AzPublicIpAddress `
-   -Name "MyPublicIP2" `
-   -ResourceGroupName $RgName `
-   -Location $Location `
-   -AllocationMethod Static
-
-   #Create an IP configuration with a static private IP address and assign the public IP address to it.
-   $IpConfigName2 = "IPConfig-2"
-   $IpConfig2     = New-AzNetworkInterfaceIpConfig `
-   -Name $IpConfigName2 `
-   -Subnet $Subnet `
-   -PrivateIpAddress 10.0.0.5 `
-   -PublicIpAddress $PublicIP2
-
-   $IpConfigName3 = "IpConfig-3"
-   $IpConfig3 = New-AzNetworkInterfaceIpConfig `
-   -Name $IPConfigName3 `
-   -Subnet $Subnet `
-   -PrivateIpAddress 10.0.0.6
-   ```
+	```powershell
+	
+	# Create a public IP address
+	$PublicIP2 = New-AzPublicIpAddress `
+	-Name "MyPublicIP2" `
+	-ResourceGroupName $RgName `
+	-Location $Location `
+	-AllocationMethod Static
+		
+	#Create an IP configuration with a static private IP address and assign the public IP address to it
+	$IpConfigName2 = "IPConfig-2"
+	$IpConfig2     = New-AzNetworkInterfaceIpConfig `
+	-Name $IpConfigName2 `
+	-Subnet $Subnet `
+	-PrivateIpAddress 10.0.0.5 `
+	-PublicIpAddress $PublicIP2
+		
+	$IpConfigName3 = "IpConfig-3"
+	$IpConfig3 = New-AzNetworkInterfaceIpConfig `
+	-Name $IPConfigName3 `
+	-Subnet $Subnet `
+	-PrivateIpAddress 10.0.0.6
+	```
 
 8. Create the NIC and associate the three IP configurations to it:
 
@@ -161,32 +161,32 @@ The steps that follow explain how to create an example VM with multiple IP addre
 
 9. Create the VM by entering the following commands:
 
-   ```powershell
-
-   # Define a credential object. When you run these commands, you're prompted to enter a username and password for the VM you're creating.
-   $cred = Get-Credential
-
-   # Create a virtual machine configuration
-   $VmConfig = New-AzVMConfig `
-   -VMName MyVM `
-   -VMSize Standard_DS1_v2 | `
-   Set-AzVMOperatingSystem -Windows `
-   -ComputerName MyVM `
-   -Credential $cred | `
-   Set-AzVMSourceImage `
-   -PublisherName MicrosoftWindowsServer `
-   -Offer WindowsServer `
-   -Skus 2016-Datacenter `
-   -Version latest | `
-   Add-AzVMNetworkInterface `
-   -Id $NIC.Id
-
-   # Create the VM
-   New-AzVM `
-   -ResourceGroupName $RgName `
-   -Location $Location `
-   -VM $VmConfig
-   ```
+	```powershell
+	
+	# Define a credential object. When you run these commands, you're prompted to enter a username and password for the VM you're creating.
+	$cred = Get-Credential
+	
+	# Create a virtual machine configuration
+	$VmConfig = New-AzVMConfig `
+	-VMName MyVM `
+	-VMSize Standard_DS1_v2 | `
+	Set-AzVMOperatingSystem -Windows `
+	-ComputerName MyVM `
+	-Credential $cred | `
+	Set-AzVMSourceImage `
+	-PublisherName MicrosoftWindowsServer `
+	-Offer WindowsServer `
+	-Skus 2016-Datacenter `
+	-Version latest | `
+	Add-AzVMNetworkInterface `
+	-Id $NIC.Id
+	
+	# Create the VM
+	New-AzVM `
+	-ResourceGroupName $RgName `
+	-Location $Location `
+	-VM $VmConfig
+	```
 
 10. Add the private IP addresses to the VM operating system by completing the steps for your operating system in the [Add IP addresses to a VM operating system](#os-config) section of this article. Do not add the public IP addresses to the operating system.
 

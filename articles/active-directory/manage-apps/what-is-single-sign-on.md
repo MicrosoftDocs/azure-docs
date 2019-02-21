@@ -2,16 +2,17 @@
 title: Single sign-on to applications - Azure Active Directory | Microsoft Docs
 description: Learn how to choose a single sign-on method when configuring applications in Azure Active Directory (Azure AD). Use single sign-on so users don't need to remember passwords for every application, and to simplify the administration of account management.
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: arvindh
 
+ms.collection: M365-identity-device-management
 ---
 
 # Single sign-on to applications in Azure Active Directory
@@ -23,7 +24,7 @@ Single sign-on (SSO) adds security and convenience when users sign-on to applica
 
 ## Choosing a single sign-on method
 
-There are several ways to configure an application for single sign-on. Choosing a single sign method depends on how the application is configured for authentication. 
+There are several ways to configure an application for single sign-on. Choosing a single sign-on method depends on how the application is configured for authentication. 
 
 - Cloud applications can use OpenID Connect, OAuth, SAML, password-based, linked, or disabled methods for single sign-on. 
 - On-premises applications can use password-based, Integrated Windows Authentication, header-based, linked, or disabled methods for single sign-on. The on-premises choices work when applications are configured for Application Proxy.
@@ -45,9 +46,7 @@ The following table summarizes the single sign-on methods, and links to more det
 | [Header-based](#header-based-sso) | on-premises only | Use header-based single sign-on when the application uses headers for authentication. Header-based single sign-on requires PingAccess for Azure AD. Application Proxy uses Azure AD to authenticate the user and then passes traffic through the connector service.  | 
 
 ## OpenID Connect and OAuth
-With OpenID Connect and OAuth, you enable a single sign-on experience that simplifies the process of adding an enterprise application to Azure AD. The application administrator doesn't need to configure single sign-on. Instead, Azure AD adds the application when the administrator [grants user consent](configure-user-consent.md). 
-
-The [SDKs](../develop/reference-v2-libraries.md) for OpenID Connect and OAuth are easy to adopt, and your application will be ready to use MS Graph. 
+When developing new applications, use modern protocols like OpenID Connect and OAuth to achieve the best single sign-on experience for your app across multiple device platforms. OAuth enables users or admins to [grant consent](configure-user-consent.md) for protected resources like [MS Graph](/graph/overview). We provide easy to adopt [SDKs](../develop/reference-v2-libraries.md) for your app, and additionally, your app will be ready to use [MS Graph](/graph/overview).
 
 For more information, see:
 
@@ -56,7 +55,7 @@ For more information, see:
 - [Azure Active Directory developer’s guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
 ## SAML SSO
-With **SAML single sign-on**, Azure AD authenticates to the application by using the user's Azure AD account. Azure AD communicates the sign-on information to the application through a connection protocol. With SAML-based single sign-on, you can map users to specific application roles based on rules you define in your SAML claims
+With **SAML single sign-on**, Azure AD authenticates to the application by using the user's Azure AD account. Azure AD communicates the sign-on information to the application through a connection protocol. With SAML-based single sign-on, you can map users to specific application roles based on rules you define in your SAML claims.
 
 Choose SAML-based single sign-on when the application supports it.
 
@@ -83,7 +82,7 @@ Choose password-based single sign-on when:
 Password-based single sign-on is supported for any cloud-based application that has an HTML-based sign-in page. The user can use any of the following browsers:
 
 - Internet Explorer 11 on Windows 7 or later
-- Microsoft Edge on Windows 10 Anniversary Edition or later 
+- Microsoft Edge on Windows 10 Anniversary Edition or later
 - Chrome on Windows 7 or later, and on MacOS X or later
 - Firefox 26.0 or later on Windows XP SP2 or later, and on Mac OS X 10.6 or later
 

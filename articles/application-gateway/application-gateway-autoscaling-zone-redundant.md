@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/31/2019
+ms.date: 2/5/2019
 ms.author: victorh
 ---
 
@@ -29,7 +29,7 @@ Application Gateway and Web Application Firewall (WAF) are now available in Publ
 
 ## Supported regions
 
-The autoscaling SKU is available in the following regions: eastus2, westus2, westeurope, southeastasia, centralus, francecentral, eastus, japaneast, northeurope, southcentralus, ukwest, northcentralus, westus, eastus, centralus, japanwest.
+The autoscaling SKU is available in the following regions: North Central US, South Central US, West US, West US 2, East US, East US 2, Central US, North Europe, West Europe, Southeast Asia, France Central, UK West, Japan East, Japan West.
 
 ## Pricing
 
@@ -40,7 +40,7 @@ During preview, there is no charge. You are billed for resources other than appl
 |Issue|Details|
 |--|--|
 |Authentication certificate|Not supported.<br>For more information, see [Overview of end to end SSL with Application Gateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
-|Mixing Standard_v2 and Standard Application Gateway on the same subnet|Not supported.<br>Additionally, if autoscaling is enabled, one subnet can have only one application gateway.|
+|Mixing Standard_v2 and Standard Application Gateway on the same subnet|Not supported|
 |User Defined Route (UDR) on Application Gateway subnet|Not supported|
 |NSG for Inbound port range| - 65200 to 65535 for Standard_v2 SKU<br>- 65503 to 65534 for Standard SKU.<br>For more information, see the [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Performance logs in Azure diagnostics|Not supported.<br>Azure metrics should be used.|

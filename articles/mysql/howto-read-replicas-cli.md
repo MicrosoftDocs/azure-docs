@@ -62,7 +62,7 @@ The `az mysql server replica stop` command requires the following parameters:
 
 ## Delete a replica server
 
-Deleting a read replica server can be done by running the **[az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete)** command.
+Deleting a read replica server can be done by running the **[az mysql server delete](/cli/azure/mysql/server)** command.
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoreplicaserver
@@ -73,7 +73,7 @@ az mysql server delete --resource-group myresourcegroup --name mydemoreplicaserv
 > [!IMPORTANT]
 > Deleting a master server stops replication to all replica servers and deletes the master server itself. Replica servers become standalone servers that now support both read and writes.
 
-To delete a master server, you can run the **[az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete)** command.
+To delete a master server, you can run the **[az mysql server delete](/cli/azure/mysql/server)** command.
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver

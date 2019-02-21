@@ -21,6 +21,8 @@ environment settings, and more.
 > [!IMPORTANT]
 > Currently, only **built-in** policies are supported with Guest Configuration.
 
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+
 ## Extension and client
 
 To audit settings inside a virtual machine, a [virtual machine

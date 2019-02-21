@@ -8,7 +8,9 @@ metadata:
   services: sql-database
   author: jovanpop-msft
   manager: craigg
+  requires-business-manager-approval: false
   ms.service: sql-database
+  ms.subservice: managed-instance
   ms.tgt_pltfrm: na
   ms.devlang:
   ms.topic: overview
@@ -68,7 +70,7 @@ sections:
     style: unordered
     items:
     - html: <a href="sql-database-managed-instance#business-critical-service-tier">Business Critical service tier</a> is now in <a href="https://azure.microsoft.com/blog/migrate-mission-critical-sql-workloads-to-the-most-economical-cloud-destination/">General Availability (GA)</a>.
-    - html: (Preview) Create <a href="https://aka.ms/managed-instance-aadlogins">Instance-level Azure AD logins</a> using <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> .
+    - html: (Preview) Create <a href="https://aka.ms/managed-instance-aadlogins">Instance-level Azure AD server principals (logins)</a> using <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> .
     - html: (Preview) Create instances with <a href="https://aka.ms/managed-instance-collation">server-level collation of your choice</a>.
     - html: <a href="https://aka.ms/managed-instance-configurable-backup-retention">Configure backup retention up to 35 days</a> for Point-in-time restore. Note that Long-term backup retention (up to 10 years) is still not enabled so you can use <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">Copy-only backups</a> as an alternative.
     - html: (Preview) Use <a href="https://aka.ms/managed-instance-failover-groups">Geo-distributed failover groups</a> to keep a copy of the instance in the another region and ensure that your data will be available even in the regional disaster scenario.

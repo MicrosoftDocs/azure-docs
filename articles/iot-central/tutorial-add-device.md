@@ -104,7 +104,9 @@ The following steps show how to prepare the [Node.js](https://nodejs.org/) sampl
 
    Learn more about the [command line tool here](https://www.npmjs.com/package/dps-keygen).
 
-1. Download and unzip (Windows) the dps_cstr tool from [GitHub](https://github.com/Azure/dps-keygen/tree/master/bin)
+1. Download and unzip (Windows) the dps_cstr tool from [GitHub](https://github.com/Azure/dps-keygen/archive/master.zip
+
+)
 
     Make sure you choose the one that matches your platform. For example, on Windows the dps_cstr.exe and the dll files should be now available in your folder. 
 

@@ -128,7 +128,7 @@ In this example, you create two virtual machines to be used as backend servers f
 
 ## Create a storage account
 
-In this tutorial, the application gateway uses a storage account to store data for detection and prevention purposes. You could also use Log Analytics or Event Hub to record data.
+In this tutorial, the application gateway uses a storage account to store data for detection and prevention purposes. You could also use Azure Monitor logs or Event Hub to record data.
 
 1. Click **New** found on the upper left-hand corner of the Azure portal.
 2. Select **Storage**, and then select **Storage account - blob, file, table, queue**.
