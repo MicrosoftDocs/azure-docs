@@ -15,9 +15,9 @@ ms.date: 11/1/2018
 ---
 # Copy files from multiple containers with Azure Data Factory
 
-The solution template described in this article helps you to copy files from multiple files, containers, or buckets between file stores. For example, maybe you want to migrate your data lake from AWS S3 to Azure Data Lake Store. Or maybe you want to replicate everything from one Azure Blob Storage account to another Azure Blob Storage account. This template is designed for these use cases.
+This article describes a solution template to help you  copy files from multiple files, containers, or buckets between file stores. For example, maybe you want to migrate your data lake from AWS S3 to Azure Data Lake Store. Or maybe you want to replicate everything from one Azure Blob Storage account to another Azure Blob Storage account. This template is designed for these such uses.
 
-If you want to copy files from a single container or bucket, it's more efficient to use the **Copy Data Tool** to create a pipeline with a single Copy activity. This template is more than you need for this simple use case.
+> [!NOTE] If you want to copy files from a single container or bucket, it's more efficient to use the **Copy Data Tool** to create a pipeline with a single Copy activity. This template is more than you need for this simple use case.
 
 ## About this solution template
 
