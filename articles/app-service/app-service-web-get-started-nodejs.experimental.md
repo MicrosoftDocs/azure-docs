@@ -109,7 +109,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 
 Browse to your newly created web app. Replace `<app_name>` with a unique app name.
 
-```bash
+```
 http://<app_name>.azurewebsites.net
 ```
 
@@ -146,6 +146,9 @@ The Node.js sample code is running in an Azure App Service web app.
 
 ![Sample app running in Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
+> [!NOTE]
+> In Azure App Service, the app is run in IIS using [iisnode](https://github.com/Azure/iisnode). To enable the app to run with iisnode, the root app directory contains a web.config file. The file is readable by IIS, and the iisnode-related settings are documented in [the iisnode GitHub repository](https://github.com/Azure/iisnode/blob/master/src/samples/configuration/web.config).
+
 **Congratulations!** You've deployed your first Node.js app to App Service.
 
 ## Update and redeploy the code
@@ -162,7 +165,7 @@ response.end("Hello Azure!");
 
 Save your changes and exit the editor. Use the command `^S` to save and `^Q` to exit.
 
-In the Cloud Shell, navigate to your application's root directory. Create a ZIP file and deploy it using the [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) command. 
+Create a ZIP file and deploy it using the [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) command.  
 
 ```azurecli-interactive
 # Bash
