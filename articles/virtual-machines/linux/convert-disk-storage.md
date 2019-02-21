@@ -135,7 +135,7 @@ az vm start --ids $vmId
 You can also convert a managed disks from standard to premium in Azure Protal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
-2. Select the VM from **Virtual machines" in the portal
+2. Select the VM from the list of **Virtual machines** in the portal
 3. If the VM is not stopped, click **Stop** button on the top of VM Overview blade and wait for the VM to stop
 3. In the blade for the VM, select **Disks** from the menu
 4. Select the disk you want to convert
