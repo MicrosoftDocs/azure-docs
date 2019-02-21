@@ -21,11 +21,7 @@ ms.author: anroth
 As Custom Vision Service is now in [Azure Preview](https://azure.microsoft.com/en-us/services/preview/), support for Limited Trial projects outside of Azure is ending. This document will teach you how to use the [Custom Vision website](https://customvision.ai) to move your Limited Trial project to be associated with an Azure resource. 
 
 > [!NOTE]
-> When you move your Custom Vision projects to an Azure resource, they the inherit underlying [permissions]( https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) of that Azure resource. If other users in your organization are Owners of the Azure resource your project is in, they will be able to access your project on the [Custom Vision website](https://customvision.ai). Similarly, deleting your resources will delete your projects. 
-
-
-> [!NOTE]
-> When you move your Custom Vision projects to an Azure resource, if you delete the Azure resource your project is in, your project will also be deleted. 
+> When you move your Custom Vision projects to an Azure resource, they the inherit underlying [permissions]( https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) of that Azure resource. If other users in your organization are Owners of the Azure resource your project is in, they will be able to access your project on the [Custom Vision website](https://customvision.ai). Similarly, deleting your resources will delete your projects.  
 
 
 For an introduction to the Azure concepts of subscriptions and resources, refer to the [Azure developer guide.](https://docs.microsoft.com/en-us/azure/guides/developer/azure-developer-guide#manage-your-subscriptions)
