@@ -52,6 +52,7 @@
         - name: Xamarin
           href: mobile-apps-with-xamarin.md
     - name: 2 - Migrate data
+      displayName: import 
       href: import-data.md
     - name: 3 - Query data
       href: tutorial-query-sql-api.md
@@ -75,15 +76,16 @@
       href: cli-samples.md
   - name: Concepts
     items:
-    - name: Model document data
-      href: modeling-data.md
     - name: Global distribution
       items:
       - name: Overview
+        displayName: replication, replicate, geo distribution 
         href: distribute-data-globally.md
       - name: Consistency levels
+        displayName: session, consistency prefix, strong, eventual, bounded staleness
         href: consistency-levels.md
       - name: Choose the right consistency level
+        displayName: session, consistency prefix, strong, eventual, bounded staleness
         href: consistency-levels-choosing.md
       - name: Consistency levels and Azure Cosmos DB APIs
         href: consistency-levels-across-apis.md
@@ -92,8 +94,10 @@
       - name: High availability
         href: high-availability.md
       - name: Globally scale provisioned throughput
+        displayName: request units, RUs, RU
         href: scaling-throughput.md
       - name: Conflict types and resolution policies
+        displayName: last write wins, custom
         href: conflict-resolution-policies.md
       - name: Global distribution - under the hood
         href: global-dist-under-the-hood.md
@@ -110,27 +114,36 @@
     - name: Provisioned throughput
       items:
       - name: Request units
+        displayName: RUs, RU
         href: request-units.md
       - name: Provision throughput on containers and databases
+        displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
         href: set-throughput.md
     - name: Work with Azure Cosmos account
       href: account-overview.md
     - name: Containers and items
       items:
       - name: Work with databases, containers, and items
-        displayName: collection
+        displayName: collection, document
         href: databases-containers-items.md
       - name: SQL language reference 
+        displayName: collection, document 
         href: sql-api-query-reference.md
       - name: SQL query examples
+        displayName: collection, document, order by, where, top, value, aggregate, between, scalar, join, count, contains
         href: how-to-sql-query.md
+      - name: Model document data
+        displayName: document
+        href: modeling-data.md
       - name: Indexing
         items:
         - name: Overview
           href: index-overview.md
         - name: Index policy
+          displayName: consistent, none
           href: index-policy.md
         - name: Index types
+          displayName: hash, range, spatial
           href: index-types.md
         - name: Index paths
           href: index-paths.md
@@ -146,7 +159,7 @@
           displayName: change feed
           href: change-feed-functions.md
       - name: Time to live
-        displayName: delete, delete data
+        displayName: delete, delete data, ttl
         href: time-to-live.md
       - name: Unique key constraints
         href: unique-keys.md
@@ -167,6 +180,7 @@
         - name: Understand your bill 
           href: understand-your-bill.md          
         - name: Optimize provisioned throughput cost
+          displayName: request units, RUs, RU
           href: optimize-cost-throughput.md
         - name: Optimize query cost
           href: optimize-cost-queries.md
@@ -187,6 +201,7 @@
         - name: Data encryption
           href: database-encryption-at-rest.md
         - name: Secure access to data
+          displayName: master key, resource token, users, roles
           href: secure-access-to-data.md
         - name: IP firewall
           href: firewall-support.md
@@ -244,6 +259,7 @@
           - name: Node.js and React app
             href: tutorial-develop-mongodb-react.md
         - name: 2 - Migrate data
+          displayName: import 
           href: https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json
         - name: 3 - Query data
           href: tutorial-query-mongodb.md
@@ -260,6 +276,7 @@
         - name: Connect using Mongoose
           href: mongodb-mongoose.md
         - name: Distribute reads globally
+          displayName: read preference
           href: mongodb-readpreference.md
         - name: Time to live - MongoDB
           href: mongodb-time-to-live.md
@@ -327,6 +344,7 @@
         - name: 3 - Query data
           href: cassandra-api-query-data.md
         - name: 4 - Migrate data
+          displayName: import 
           href: cassandra-import-data.md
       - name: How-to guides
         items:
@@ -374,6 +392,7 @@
         - name: 1 - Create account
           href: tutorial-develop-table-dotnet.md
         - name: 2 - Migrate data
+          displayName: import 
           href: table-import.md
         - name: 3 - Query data
           href: tutorial-query-table.md
@@ -426,6 +445,7 @@
       - name: Configure multi-master
         href: how-to-multi-master.md
       - name: Manage consistency levels
+        displayName: session, consistency prefix, strong, eventual, bounded staleness
         href: how-to-manage-consistency.md
       - name: Implement custom synchronization
         href: how-to-custom-synchronization.md
@@ -434,8 +454,10 @@
     - name: Provisioned throughput
       items:
       - name: Provision throughput on a container
+        displayName: request units, RUs, RU, collection level
         href: how-to-provision-container-throughput.md
       - name: Provision throughput on a database
+        displayName: request units, RUs, RU, shared throughput, database level 
         href: how-to-provision-database-throughput.md
     - name: Working with containers and items
       items:
@@ -444,7 +466,7 @@
       - name: Query a container
         href: how-to-query-container.md
       - name: Configure time to live
-        displayName: delete, delete data
+        displayName: delete, delete data, ttl
         href: how-to-time-to-live.md
       - name: Work with data using Azure Storage Explorer
         href: storage-explorer.md
