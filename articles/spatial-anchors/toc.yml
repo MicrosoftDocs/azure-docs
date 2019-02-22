@@ -54,7 +54,7 @@
   - name: Anchor relationships
     href: concepts/anchor-relationships-way-finding.md
   - name: Guidelines for effective anchor experiences
-    href: guidelines-creating-locating-anchors.md
+    href: concepts/guidelines-effective-anchor-experiences.md
 - name: References
   items:
   - name: SDK for Unity
