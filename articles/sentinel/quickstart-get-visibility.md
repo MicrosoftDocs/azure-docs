@@ -26,7 +26,7 @@ This quickstart helps you quickly be able to view and monitor what's happening a
 
 To visualize and get analysis of what's happening on your network, first, take a look at the overview dashboard to get an idea of the security posture of your organization. You can click on each element of these tiles to drill down to the raw data from which they are created. To help you reduce noise and minimize the number of alerts you have to review and investigate, Azure Sentinel uses a fusion technique to correlate alerts into cases. **Cases** are groups of related alerts that together create an actionable incident that you can investigate and resolve.
 
-1. In the Azure portal, select Azure Sentinel and then select the workspace you want to monitor.
+- In the Azure portal, select Azure Sentinel and then select the workspace you want to monitor.
 
   ![Azure Sentinel overview](./media/qs-get-visibility/overview.png)
 

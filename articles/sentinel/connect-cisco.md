@@ -84,11 +84,11 @@ If you aren't using Azure, you can manually set up the Azure Sentinel agent to r
        - If you selected rsyslog:
           1. Tell the Syslog daemon to send the Syslog messages to the Azure Sentinel agent using port 25226. `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
           2. Download and install the [security_events config file](https://aka.ms/asi-syslog-config-file-linux) that configures the Syslog agent to listen on port 25226. `wget -P /etc/opt/microsoft/omsagent/802d39e1-9d70-404d-832c-2de5e2478eda/conf/omsagent.d/ "https://aka.ms/asi-syslog-config-file-linux"`
-           3. Restart the syslog daemon `sudo service rsyslog restart`
+          3. Restart the syslog daemon `sudo service rsyslog restart`
        - If you selected syslog-ng:
            1. Tell the Syslog daemon to send the Syslog messages to the Azure Sentinel agent using port 25226. `wget -P /etc/opt/microsoft/omsagent/802d39e1-9d70-404d-832c-2de5e2478eda/conf/omsagent.d/ "https://aka.ms/asi-syslog-config-file-linux"`
            2. Download and install the [security_events config file](https://aka.ms/asi-syslog-config-file-linux) that configures the Syslog agent to listen on port 25226. `wget -P /etc/opt/microsoft/omsagent/802d39e1-9d70-404d-832c-2de5e2478eda/conf/omsagent.d/ "https://aka.ms/asi-syslog-config-file-linux"`
-            3. Restart the syslog daemon `sudo service syslog-ng restart`
+            3. Restart the Syslog daemon `sudo service syslog-ng restart`
     5. Restart the Syslog agent using this command: `sudo /opt/microsoft/omsagent/bin/service_control restart [802d39e1-9d70-404d-832c-2de5e2478eda]`
     6. Confirm that there are no errors in the agent log by running this command: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
  
@@ -117,6 +117,6 @@ It may take upwards of 20 minutes until your logs start to appear in Log Analyti
 
 ## Next steps
 In this document, you learned how to connect Cisco ASA appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](qs-get-visibility.md).
+- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
 

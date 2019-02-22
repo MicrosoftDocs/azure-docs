@@ -19,7 +19,7 @@ ms.author: rkarlin
 ---
 # Collect data from Office 365 Logs
 
-You can stream audit logs from [Office 365](https://docs.microsoft.com/en-us/office365/admin/admin-home?view=o365-worldwide) into Azure Sentinel with a single click. You can stream audit logs from multiple tenants to a single workspace in Azure Sentinel. The Office 365 activity log connector provides insight into ongoing user activities. You will get information about various user, admin, system, and policy actions and events from Office 365. By connecting Office 365 logs into Azure Security Insights you can use this data to view dashboards, create custom alerts, and improve your investigation process.
+You can stream audit logs from [Office 365](https://docs.microsoft.com/office365/admin/admin-home?view=o365-worldwide) into Azure Sentinel with a single click. You can stream audit logs from multiple tenants to a single workspace in Azure Sentinel. The Office 365 activity log connector provides insight into ongoing user activities. You will get information about various user, admin, system, and policy actions and events from Office 365. By connecting Office 365 logs into Azure Security Insights you can use this data to view dashboards, create custom alerts, and improve your investigation process.
 
 
 ## Prerequisites
@@ -43,6 +43,6 @@ You can stream audit logs from [Office 365](https://docs.microsoft.com/en-us/off
 
 ## Next steps
 In this document, you learned how to connect Office 365 to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](qs-get-visibility.md).
+- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
 

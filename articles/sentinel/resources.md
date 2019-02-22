@@ -21,11 +21,7 @@ ms.author: rkarlin
 
 This article lists resources that can help you get more information about working with Azure Sentinel.
 
-1.  Tech community site (coming soon)
-
-2.  Azure Gear up (Internal MS only)
-
-3.  Azure Logic Apps connectors: <https://docs.microsoft.com/en-us/connectors/>
+Azure Logic Apps connectors: <https://docs.microsoft.com/connectors/>
 
 ## Vendor documentation
 

@@ -53,7 +53,7 @@ Azure Sentinel enables:
     - Linux servers
     - Windows Event Forwarding
     - DNS Logs
-**Integration with on-prem security solutions supporting Syslog, CEF, and REST API**
+**Integration with any solution supporting Syslog, CEF, and REST API**
     - Firewalls
     - Proxy servers
     - DLP solutions
@@ -78,7 +78,7 @@ Azure Sentinel provides interactive visualization using advanced analytics to he
 
 ## Automate & orchestrate responses
 
-Automate your common tasks and simplify security orchestration with playbooks that integrate with Azure services as well as your existing tools. Built on the foundation of Azure Logic Apps, the Azure Sentinel's automation and orchestration solution provides a highly-extensible architecture that enables scalable automation as new technologies and threats emerge. To build solutions with Azure Logic Apps, you can choose from a growing gallery with [200+ connectors](https://docs.microsoft.com/en-us/azure/connectors/apis-list), that include services such as Azure Service Bus, Functions, and Storage, SQL, Office 365, Dynamics, Salesforce, BizTalk, SAP, Oracle DB, and file shares. 
+Automate your common tasks and simplify security orchestration with playbooks that integrate with Azure services as well as your existing tools. Built on the foundation of Azure Logic Apps, the Azure Sentinel's automation and orchestration solution provides a highly-extensible architecture that enables scalable automation as new technologies and threats emerge. To build solutions with Azure Logic Apps, you can choose from a growing gallery with [200+ connectors](https://docs.microsoft.com/azure/connectors/apis-list), that include services such as Azure Service Bus, Functions, and Storage, SQL, Office 365, Dynamics, Salesforce, BizTalk, SAP, Oracle DB, and file shares. 
 
 For example, if you use ServiceNow, you can use the tools provided to use Azure Logic Apps to automate your workflows and open a ticket in ServiceNow each time a particular event is detected.
 
@@ -102,4 +102,4 @@ The Azure Sentinel community is a powerful resource for threat detection and aut
 ## Next steps
 
 - To get started with Azure Sentinel, you need a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
-- Learn how to [onboard your data to Azure Sentinel](qs-onboard.md), and [get visibility into your data, and potential threats](qs-get-visibility.md).
+- Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md), and [get visibility into your data, and potential threats](quickstart-get-visibility.md).

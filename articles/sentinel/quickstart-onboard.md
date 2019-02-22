@@ -37,9 +37,9 @@ Azure Sentinel enables seamless data collection from services in the Microsoft e
 4. Click **+Add**.
 5. Select which workspace you want to use or create a new one. You can run Azure Sentinel on more than one workspace, but the data will be isolated to a single workspace.
 
->[!NOTE] 
-> - **Workspace location**  It's important to understand that all the data that you stream to Azure Sentinel will be stored in the geographic location of the workspace you selected.  
-> - You won't see the ASC default workspaces here, you can't run Azure Sentinel on them.
+  >[!NOTE] 
+  > - **Workspace location**  It's important to understand that all the data that you stream to Azure Sentinel will be stored in the geographic location of the workspace you selected.  
+  > - You won't see the ASC default workspaces here, you can't run Azure Sentinel on them.
 
 6. Click **Add security insights**.
 
@@ -51,15 +51,15 @@ Azure Sentinel creates the connection to services and apps by connecting to the 
 1. Click **Data collection**.
 2. The **Sources** tab provides a list of what you can connect.<br>
 For example, click **Azure Active Directory**. If you connect this data source, you stream all the logs from Azure AD into Azure Sentinel. Follow the installation instructions or refer to the relevant connection guide for more information. You can select what type of logs you wan to get - Sign-in logs and or Audit logs. For Azure AD, it gives you information about what type of licenses you need for this to work. 
-At the bottom, Azure Sentinel provides recommendations for which dashboards you should install for each connector, and which alert rules you should add so that you already [view dashboards](qs-get-visibility.md) and [get alerts](tutorial-detect-threats.md) on the data from this connection.
+At the bottom, Azure Sentinel provides recommendations for which dashboards you should install for each connector, and which alert rules you should add so that you already [view dashboards](quickstart-get-visibility.md) and [get alerts](tutorial-detect-threats.md) on the data from this connection.
 
 8. Use the sample query data if you want to start building queries in Log Analytics that run on this data. The samples help by providing you with basic queries including the correct parameter names for data of this type.
 
 
-For information about machines, services, and apps that are natively connected to Azure Sentinel, see [X](connect-aad.md).
-For information about other on-premises machines, services, and apps that can be connected to Azure Sentinel, see [X](connect-cef.md).
+For information about machines, services, and apps that are natively connected to Azure Sentinel, see [Connect Microsoft services](connect-azure-active-directory.md).
+For information about other on-premises machines, services, and apps that can be connected to Azure Sentinel, see [Connect your on-premises appliance to Azure Sentinel using Common Event Format](connect-common-error-format.md).
 
-Azure Sentinel also collects [Syslog](connect-syslog.md) and [CEF over Syslog](connect-cef.md) formatted events. If your solution supports CEF, it is recommended that you save your log events as CEF because of Azure Sentinel's integration with Log Analytics, which parses and normalizes the data best from CEF. In addition, CEF data analyzed with Azure Sentinel includes Threat Intelligence enrichment from Microsoft Threat Intelligence feeds.
+Azure Sentinel also collects [Syslog](connect-syslog.md) and [CEF over Syslog](connect-common-error-format.md) formatted events. If your solution supports CEF, it is recommended that you save your log events as CEF because of Azure Sentinel's integration with Log Analytics, which parses and normalizes the data best from CEF. In addition, CEF data analyzed with Azure Sentinel includes Threat Intelligence enrichment from Microsoft Threat Intelligence feeds.
 
 
 
@@ -70,6 +70,6 @@ Azure Sentinel also collects [Syslog](connect-syslog.md) and [CEF over Syslog](c
 
 ## Next steps
 In this document, you learned about connecting data sources to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](qs-get-visibility.md).
+- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
-- Stream data from [Common Error Format appliances](connect-cef.md) into Azure Sentinel.
+- Stream data from [Common Error Format appliances](connect-common-error-format.md) into Azure Sentinel.

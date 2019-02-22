@@ -6,9 +6,9 @@
   expanded: true
   items:
   - name: Onboarding Azure Sentinel
-    href: qs-onboard.md
+    href: quickstart-onboard.md
   - name: Get visibility into alerts
-    href: qs-get-visibility.md
+    href: quickstart-get-visibility.md
   
 - name: Tutorials
   items:
@@ -25,40 +25,40 @@
     - name: Connect Microsoft services
       items:
       - name: Connect Azure AD
-        href: connect-aad.md
+        href: connect-azure-active-directory.md
       - name: Connect Office 365
-        href: connect-o365.md
+        href: connect-office-365.md
       - name: Connect Cloud App Security
-        href: connect-mcas.md
+        href: connect-cloud-app-security.md
       - name: Connect Azure Activity Log
         href: connect-azure-activity.md
       - name: Connect Azure Information Protection
-        href: connect-aip.md
+        href: connect-azure-information-protection.md
       - name: Connect Azure ATP
-        href: connect-aatp.md
+        href: connect-azrue-atp.md
       - name: Connect Azure Security Center
-        href: connect-asc.md
+        href: connect-azure-security-center.md
 
-    - name: Connect on-premises appliances
+    - name: Connect on-premises
       items:
-      - name: Connect common security format appliances
+      - name: Connect common security format
         items:  
-        - name: Connect generic CEF appliances
-          href: connect-cef.md
-        - name: Connect Barracuda appliances
+        - name: Connect generic CEF
+          href: connect-common-error-format.md
+        - name: Connect Barracuda
           href: connect-barracuda.md
-        - name: Connect Check Point appliances
+        - name: Connect Check Point
           href: connect-checkpoint.md
-        - name: Connect Palo Alto appliances
+        - name: Connect Palo Alto
           href: connect-paloalto.md
-        - name: Connect Fortinet appliances
+        - name: Connect Fortinet
           href: connect-fortinet.md
-        - name: Connect F5 appliances
+        - name: Connect F5 
           href: connect-f5.md
         
-    - name: Connect Syslog appliances
+    - name: Connect Syslog
       href: connect-syslog.md
-    - name: Connect Cisco appliances
+    - name: Connect Cisco
       href: connect-cisco.md
     - name: Connect other clouds
       items:

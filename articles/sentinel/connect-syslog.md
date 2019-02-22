@@ -22,11 +22,13 @@ ms.author: rkarlin
 You can connect any on-premises appliance that supports Syslog to Azure Sentinel. This is done by using an agent based on a Linux machine between the appliance and Azure Sentinel. If your Linux machine is in Azure, you can stream the logs from your appliance or application to a dedicated workspace you create in Azure and connect it. If your Linux machine is not in Azure, you can stream the logs from your appliance to a dedicated on-prem VM or machine onto which you install the Agent for Linux. 
 
 > [!NOTE]
-> If your appliance supports Syslog CEF, the connection is more complete and you should choose this option and follow the instructions in [Collecting data from CEF](connect-cef.md).
+> If your appliance supports Syslog CEF, the connection is more complete and you should choose this option and follow the instructions in [Collecting data from CEF](connect-common-error-format.md).
 
+## How it works
 
 Syslog collection is accomplished using an agent for Linux. By default, the agent for Linux receives events from the Syslog daemon over UDP, but in cases where a Linux machine is expected to collect a high volume of Syslog events, such as when a Linux agent is receiving events from other devices, the configuration is modified to use TCP transport between the Syslog daemon and the agent.
 
+## Connect your Syslog appliance
 
 1. In the Azure Sentinel portal, select **Data collection** and choose the **Syslog** tile.
 2. If your Linux machine is not within Azure, download and install the Azure Sentinel **Agent for Linux** on your appliance. 
@@ -44,5 +46,5 @@ Syslog collection is accomplished using an agent for Linux. By default, the agen
 
 ## Next steps
 In this document, you learned how to connect Syslog on-premises appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](qs-get-visibility.md).
+- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).

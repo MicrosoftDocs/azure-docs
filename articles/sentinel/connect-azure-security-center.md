@@ -26,7 +26,7 @@ Azure Sentinel enables you to collect alerts from [Azure Security Center](../sec
 
 - If you want to export alerts from Azure Security Center, you must be a contributor on the subscription whose logs you stream.
 
-- You must have the [Azure Security Center Standard tier](../security-center/security-center-pricing.md) running on the subscription. If not, [upgrade your subscription to standard](https://azure.microsoft.com/en-us/pricing/details/security-center/).
+- You must have the [Azure Security Center Standard tier](../security-center/security-center-pricing.md) running on the subscription. If not, [upgrade your subscription to standard](https://azure.microsoft.com/pricing/details/security-center/).
 
 
 ## Connect to Azure Security Center
@@ -37,5 +37,5 @@ Azure Sentinel enables you to collect alerts from [Azure Security Center](../sec
 
 ## Next steps
 In this document, you learned how to connect Azure Security Center to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](qs-get-visibility.md).
+- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
