@@ -22,7 +22,7 @@ Azure Lab Services enables you to quickly set up an environment for your team (f
 > [!IMPORTANT]
 > **Azure DevTest Labs** is being expanded with new types of labs (Azure Lab Services)!
 >  
-> Azure Lab Services lets you create managed lab types, such as classroom labs. The service itself handles all the infrastructure management for a managed lab, from spinning up VMs to handling errors, and scaling the infrastructure. For now, [DevTest Labs](https://azure.microsoft.com/services/devtest-lab/) and [Azure Lab Services](https://azure.microsoft.com/services/lab-services/) will continue to be separate services in the Azure Portal. 
+> Azure Lab Services lets you create managed lab types, such as classroom labs. The service itself handles all the infrastructure management for a managed lab, from spinning up VMs to handling errors, and scaling the infrastructure. For now, [DevTest Labs](https://azure.microsoft.com/services/devtest-lab/) and [Azure Lab Services](https://azure.microsoft.com/services/lab-services/) will continue to be separate services in the Azure Portal. The managed labs are currently in preview. 
 
 ## Key capabilities
 
