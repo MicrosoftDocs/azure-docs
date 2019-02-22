@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
 
---- 
+---
 
 
 # Handling planned maintenance notifications for Linux virtual machines
