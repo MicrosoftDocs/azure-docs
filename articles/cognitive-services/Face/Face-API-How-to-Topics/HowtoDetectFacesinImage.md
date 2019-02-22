@@ -1,72 +1,44 @@
 ---
-title: "Example: Detect faces in images - Face API"
+title: "Detect faces in an image - Face API"
 titleSuffix: Azure Cognitive Services
-description: Use the Face API to detect faces in images.
+description: Learn how to use the various data returned by the face detection feature.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: face-api
-ms.topic: sample
-ms.date: 03/01/2018
+ms.topic: conceptual
+ms.date: 02/20/2019
 ms.author: sbowles
 ---
 
-# Example: How to Detect Faces in Image
+# Get face detection data
 
-This guide will demonstrate how to detect faces from an image, with face attributes like gender, age, or pose extracted. The samples are written in C# using the Face API client library. 
+This guide will demonstrate how to use face detection to extract attributes like gender, age, or pose from a given image. The code snippets in this guide are written in C# using the Face API client library.
 
-## Concepts
+This guide will show you how to:
 
-If you are not familiar with any of the following concepts in this guide, please refer to the definitions in our [Glossary](../Glossary.md) at any time: 
+- Get the locations and dimensions of faces in an image.
+- Get the locations of various face landmarks (pupils, nose, mouth, and so on) in an image.
+- Analyze the head pose of a detected face.
+- Guess the gender, age, and emotion of a detected face.
 
-- Face detection
-- Face landmarks
-- Head pose
-- Face attributes
+## next
 
-## Preparation
+This guide assumes you have already constructed a **[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** object, `faceClient`, with a Face subscription key and endpoint URL. From there, you can use the face detection feature by calling either **[DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet)** or **[DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet)**. See the [Detect Faces quickstart for C#](../quickstarts/csharp-detect-sdk.md) for instructions on how to set this up. This guide will focus on the specifics of that method call&mdash;which arguments you can pass and what you can do with the returned data.
 
-In this sample, we will demonstrate the following features: 
 
-- Detecting faces from an image, and marking them using rectangular framing
-- Analyzing the locations of pupils, the nose or mouth, and then marking them in the image
-- Analyzing the head pose, gender and age of the face
+TBD 
+## Upload image to the service and execute face detection
 
-In order to execute these features, you will need to prepare an image with at least one clear face. 
+```csharp
+var faces = await faceClient.Face.DetectWithStreamAsync(imageFileStream, true, false, faceAttributes);
 
-## Step 1: Authorize the API call
-
-Every call to the Face API requires a subscription key. This key needs to be either passed through a query string parameter, or specified in the request header. To pass the subscription key through query string, please refer to the request URL for the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) as an example:
-
-```
-https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes]
-&subscription-key=<Subscription Key>
-```
-
-As an alternative, the subscription key can also be specified in the HTTP request header: **ocp-apim-subscription-key: &lt;Subscription Key&gt;**
-When using a client library, the subscription key is passed in through the constructor of the FaceServiceClient class. For example:
-```CSharp
-faceServiceClient = new FaceServiceClient("<Subscription Key>");
-```
-
-## Step 2: Upload an image to the service and execute face detection
-
-The most basic way to perform face detection is by uploading an image directly. This is done by sending a "POST" request with application/octet-stream content type, with the data read from a JPEG image. The maximum size of the image is 4 MB.
-
-Using the client library, face detection by means of uploading is done by passing in a Stream object. See the example below:
-
-```CSharp
-using (Stream s = File.OpenRead(@"D:\MyPictures\image1.jpg"))
+foreach (var face in faces)
 {
-    var faces = await faceServiceClient.DetectAsync(s, true, true);
- 
-    foreach (var face in faces)
-    {
-        var rect = face.FaceRectangle;
-        var landmarks = face.FaceLandmarks;
-    }
+    var rect = face.FaceRectangle;
+    var landmarks = face.FaceLandmarks;
 }
 ```
 
@@ -75,15 +47,14 @@ If the image is already on the web and has a URL, face detection can be executed
 Using the client library, face detection by means of a URL can be executed easily using another overload of the DetectAsync method.
 
 ```CSharp
-string imageUrl = "http://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceServiceClient.DetectAsync(imageUrl, true, true);
+var faces = await faceServiceClient.DetectWithUrlAsync(imageUrl, true, true);
  
 foreach (var face in faces)
 {
     var rect = face.FaceRectangle;
     var landmarks = face.FaceLandmarks;
 }
-``` 
+```
 
 The FaceRectangle property that is returned with detected faces is essentially locations on the face in pixels. Usually, this rectangle contains the eyes, eyebrows, the nose, and the mouth –the top of head, ears, and the chin are not included. If you crop a complete head or mid-shot portrait (a photo ID type image), you may want to expand the area of the rectangular face frame because the area of the face may be too small for some applications. To locate a face more precisely, using face landmarks (locate face features or face direction mechanisms) described in the next section will prove to be useful.
 
@@ -114,7 +85,7 @@ foreach (var face in faces)
     double rightPupilX = landmarks.PupilRight.X;
     double rightPupilY = landmarks.PupilRight.Y;
 }
-``` 
+```
 
 In addition to marking face features in an image, face landmarks can also be used to accurately calculate the direction of the face. For example, we can define the direction of the face as a vector from the center of the mouth to the center of the eyes. The code below explains this in detail:
 
@@ -150,7 +121,9 @@ Besides face landmarks, Face – Detect API can also analyze several other attri
 - Gender
 - Smile intensity
 - Facial hair
+- Glasses
 - A 3D head pose
+- Emotion
 
 These attributes are predicted by using statistical algorithms and may not always be 100% precise. However, they are still helpful when you want to classify faces by these attributes. For more information about each of the attributes, please refer to the [Glossary](../Glossary.md).
 
