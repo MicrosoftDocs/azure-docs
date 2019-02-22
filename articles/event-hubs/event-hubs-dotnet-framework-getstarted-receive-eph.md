@@ -62,6 +62,7 @@ In Visual Studio, create a new Visual C# Desktop App project using the **Console
       ```csharp
       using Microsoft.ServiceBus.Messaging;
       using System.Diagnostics;
+      using System.Threading.Tasks;
       ```
     
 3. Substitute the following code for the body of the class:
