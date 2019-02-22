@@ -19,7 +19,7 @@ Speech translation from Azure Speech Services, enables real-time, multi-language
 
 Microsoft's translation engine is powered by two different approaches: statistical machine translation (SMT) and neural machine translation (NMT). SMT uses advanced statistical analysis to estimate the best possible translations given the context of a few words. With NMT, neural networks are used to provide more accurate, fluent and natural-sounding translations by using the full context of sentences to translate words.
 
-Today, Microsoft uses NMT for most popular languages. All [languages available for speech-to-speech translation](language-support.md#speech-translation) are powered by NMT. Speech-to-text translation may use SMT or NMT depending on the language pair. If the target language is supported by NMT, the full translation is NMT-powered. If the target language isn't supported by NMT, the translation is a hybrid of NMT and SMT, using English as a "pivot" between the two languages.
+Today, Microsoft uses NMT for translation to most popular languages. All [languages available for speech-to-speech translation](language-support.md#speech-translation) are powered by NMT. Speech-to-text translation may use SMT or NMT depending on the language pair. If the target language is supported by NMT, the full translation is NMT-powered. If the target language isn't supported by NMT, the translation is a hybrid of NMT and SMT, using English as a "pivot" between the two languages.
 
 ## Core features
 
@@ -34,13 +34,18 @@ We offer quickstarts designed to have you running code in less than 10 minutes. 
 
 | Quickstart | Platform | API reference |
 |------------|----------|---------------|
+| [C#, .NET Core](quickstart-translate-speech-dotnetcore-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, .NET Framework](quickstart-translate-speech-dotnetframework-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](quickstart-translate-speech-uwp.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C++](quickstart-translate-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref)|
+| [Java](quickstart-translate-speech-java-jre.md) | Windows | [Browse](https://aka.ms/csspeech/javaref) |
 
 ## Sample code
 
 ## Migration guides
 
 > [!WARNING]
-> Bing Speech will be decommissioned on October 15, 2019.
+> Translator Speech will be decommissioned on October 15, 2019.
 
 If your applications, tools, or products are using Translator Speech, we've created guides to help you migrate to Speech Services.
 
