@@ -38,27 +38,21 @@ For more information about NSGs, see [Network security groups](../virtual-netw
 >[!NOTE]
 > Before you continue with this step, install the on-premises server agent and the Azure server agent, and run the EnableRules.ps1 PowerShell script. 
 
- ### Discover ExpressRoute circuits and peerings 
  
-Select subscriptions that contain ER resources and click **Discover ExpressRoute resources** to discover all the ExpressRoute circuits and peerings that are present in the subscription .
+### Discover ExpressRoute peering connections 
+ 
+1. Select the **ExpressRoute Peerings** view.
+2. Select **Discover Now** to discover all the ExpressRoute private peerings that are connected to the virtual networks in the Azure subscription linked with this Azure Log Analytics workspace.
 
-![ExpressRoute monitoring configuration](media/log-analytics-network-performance-monitor/erm-multisub-discovery.png)
+    >[!NOTE]
+    > The solution currently discovers only ExpressRoute private peerings. 
 
-After the discovery is complete, the discovered circuits and peerings are listed in a table in **ExpressRoute Resources** tab. The monitoring for these peerings is initially in a disabled state. 
+    >[!NOTE]
+    > Only private peerings connected to the virtual networks associated with the subscription linked with this Log Analytics workspace are discovered. If ExpressRoute is connected to virtual networks outside of the subscription linked to this workspace, create a Log Analytics workspace in those subscriptions. Then use Network Performance Monitor to monitor those peerings. 
 
-![ExpressRoute monitoring listing](media/log-analytics-network-performance-monitor/erm-multisub-erres.png)
-
-Click **Monitoring** tab to setup monitoring for circuits and peerings.
-
-### Enable monitoring of the ExpressRoute circuits 
-1. Select the circuit you want to monitor
-2. In the pane on the right, select the **Monitor this circuit** check box. 
-3. If you intend to create health events for this connection, select **Enable Health Monitoring for this circuit**. 
-4. Choose monitoring conditions. You can set custom thresholds for health event generation by entering threshold values. Whenever the value of the condition goes above its selected threshold for the peering connection, a health event is generated. 
-5. .[Create alerts](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/network-performance-monitor#alerts) to generate alerts on health events. 
-
-![ExpressRoute monitoring circuits](media/log-analytics-network-performance-monitor/erm-multisub-monitoring-circuit.png)
-
+    ![ExpressRoute Monitor configuration](media/log-analytics-network-performance-monitor/expressroute-configure.png)
+ 
+ After the discovery is complete, the discovered private peering connections are listed in a table. The monitoring for these peerings is initially in a disabled state. 
 
 ### Enable monitoring of the ExpressRoute peerings 
 
@@ -69,7 +63,7 @@ Click **Monitoring** tab to setup monitoring for circuits and peerings.
 5. Select **Add Agents** to choose the monitoring agents you intend to use for monitoring this peering connection. Make sure that you add agents on both ends of the connection for private peerings. You need at least one agent in the virtual network connected to this peering. You also need at least one on-premises agent connected to this peering. 
 6. Select **Save** to save the configuration. 
 
-![ExpressRoute monitoring circuits](media/log-analytics-network-performance-monitor/erm-multisub-monitoring-peerings.png)
+   ![ExpressRoute monitoring configuration](media/log-analytics-network-performance-monitor/expressroute-configure-discovery.png)
 
 
 After you enable the rules and select values and agents, wait 30 to 60 minutes for the values to populate and the **ExpressRoute Monitoring** tiles to appear. When you see the monitoring tiles, your ExpressRoute circuits and connection resources are now monitored by Network Performance Monitor. 
