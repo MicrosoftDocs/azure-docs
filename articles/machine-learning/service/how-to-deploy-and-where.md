@@ -282,6 +282,8 @@ concurrentRequests = targetRps * reqTime / targetUtilization
 replicas = ceil(concurrentRequests / maxReqPerContainer)
 ```
 
+For more information on setting `target_utilization`, `max_replicas`, and `min_replicas` for AKS web services, see the [aks](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.aks?view=azure-ml-py) module reference.
+
 #### Create a new cluster
 
 To create a new Azure Kubernetes Service cluster, use the following code:
