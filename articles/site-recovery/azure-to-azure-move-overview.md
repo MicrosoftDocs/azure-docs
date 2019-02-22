@@ -65,7 +65,7 @@ Below section walks through the most common deployment architectures customers a
 
 
 
- ## Move VMs as is to a target region
+## Move VMs as is to a target region
 
 Based on the above mentioned [architectures](#typical-architectures-for-a-multi-tier-deployment), heres how the deployments will look like once you perform the move as is to the target region.
 
