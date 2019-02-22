@@ -29,7 +29,7 @@ The following diagram shows an example pipeline:
 
 ![Machine learning pipelines in Azure Machine Learning service](./media/concept-ml-pipelines/pipelines.png)
 
-### What about other Azure pipelines?
+### Which Azure pipeline technology should I use?
 
 The Azure cloud provides several other pipelines, each with a different purpose. The following table lists the different pipelines and what they are used for:
 
