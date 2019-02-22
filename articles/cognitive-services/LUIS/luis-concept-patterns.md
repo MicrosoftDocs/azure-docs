@@ -60,8 +60,8 @@ Pattern syntax supports the following syntax:
 |--|--|--|--|
 |entity| {} - curly brackets|2|Where is form {entity-name}?|
 |optional|[] - square brackets|2|The question mark is optional [?]|
-|grouping|() - parentheses|2|is (a <code>&#124;</code> b)|
-|or|<code>&#124;</code> - vertical bar (pipe)|-|Example: Where is form ({form-name}<code>&#124;</code>{form-number})<br>Example: (a<code>&#124;</code> b<code>&#124;</code> c<code>&#124;</code> d<code>&#124;</code> e)| 
+|grouping|() - parentheses|2|is (a \| b)|
+|or| \| - vertical bar (pipe)|-|Example: Where is form ({form-name}<code>&#124;</code>{form-number})<br>Example: (a<code>&#124;</code> b<code>&#124;</code> c<code>&#124;</code> d<code>&#124;</code> e)| 
 |beginning and/or end of utterance|^ - carrot|-|Example: ^begin the utterance<br>Example: the utterance is done^<br>Example: ^strict literal match of entire utterance with {number} entity^|
 
 ### Nesting syntax
