@@ -222,6 +222,17 @@ if ($summary.Type -eq "Error")
 }
 ```
 
+## Abort patch deployment
+
+If your pre script returns an error, you may want to abort your deployment. To do this, you must [throw](/powershell/module/microsoft.powershell.core/about/about_throw) an error in your script for any logic that would constitute a failure.
+
+```powershell
+if (<My custom error logic>)
+{
+    #Throw an error to fail the patch deployment.  
+    throw "There was an error, abort deployment"
+}
+```
 ## Known issues
 
 * You can't pass objects or arrays to parameters when using pre and post scripts. The runbook will fail.
