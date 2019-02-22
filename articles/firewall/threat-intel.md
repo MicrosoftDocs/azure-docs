@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 2/22/2019
+ms.date: 2/28/2019
 ms.author: victorh
 ---
 
@@ -18,7 +18,7 @@ Threat intelligence-based filtering can be enabled for your firewall to alert an
 > [!IMPORTANT]
 > Threat intelligence based filtering is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities.  See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 >
->The currently supported regions are X,Y, and Z.
+>Threat intelligence filtering is being added to regions incrementally, and will be available in all regions in the near future.
 
 If threat intelligence-based filtering is enabled, the associated rules are processed before any of the NAT rules, network rules, or application rules. During the preview, only highest confidence records are included.
 
