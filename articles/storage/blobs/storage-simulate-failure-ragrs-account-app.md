@@ -9,7 +9,7 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: tamram 
----  
+---
 
 # Tutorial: Simulate a failure in accessing read-access redundant storage
 

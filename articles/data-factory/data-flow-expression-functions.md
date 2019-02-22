@@ -7,7 +7,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
---- 
+---
 
 # Mapping Data Flow Expression Functions
 
