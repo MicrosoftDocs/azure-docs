@@ -16,9 +16,10 @@ ms.date: 12/14/2018
 ---
 # Bulk copy from database with control table
 
-When you want to copy data from your data warehouse like Oracle server, Netezza server, Teradata server, or SQL Server to Azure, you have to load huge amount of data from multiple tables in data sources. In most cases, data has to be further partitioned in each table so that you can load rows with multiple threads in parallel from single table. The present template is designed for that case. 
+When you want to copy data from your Oracle Server, Netezza, Teradata, or SQL Server data warehouse to Azure SQL Data Warehouse, you have to load huge amounts of data from multiple tables in data sources. In most cases, data has to be further partitioned in each table so that you can load rows with multiple threads in parallel from a single table. This article describes a template that you can use i these scenarios.
 
-If you want to copy data from a small number of tables with small size of data, it's more efficient for you to go to “copy data tool” to have one single copy activity, or foreach activity + copy activity in your pipeline. This template is more than you need for this simple use case.
+>!NOTE
+> If you want to copy data from a small number of tables with small data volume to SQL Data Warehouse, it's more efficient to use the [**Copy Data tool**](../copy-data-tool.md). The template that's described in this article more than you need for that scenario.
 
 ## About this solution template
 
