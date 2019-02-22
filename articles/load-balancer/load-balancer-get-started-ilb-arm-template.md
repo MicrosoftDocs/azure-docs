@@ -42,7 +42,7 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
 3. Edit the file and save it.
 4. Run the **New-AzResourceGroupDeployment** cmdlet to create a resource group using the template.
 
-    ```powershell
+    ```azurepowershell-interactive
     New-AzResourceGroupDeployment -Name TestRG -Location westus `
         -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json' `
         -TemplateParameterFile 'C:\temp\azuredeploy.parameters.json'
@@ -55,7 +55,7 @@ To deploy the template by using the Azure CLI, follow the steps below.
 1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
 
-    ```azurecli
+    ```azurecli-interactive
     azure config mode arm
     ```
 
