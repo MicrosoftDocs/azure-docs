@@ -29,7 +29,7 @@ If your organization has signed a Microsoft Customer Agreement to renew your Ent
 
 ## Set up your billing account in the Azure portal
 
-To complete the setup, you need access to both the new billing account and the Enterprise Agreement enrollment. For more information, see [Access required to complete the set up of your billing account](#permissions-required-to-complete-the-setup)
+To complete the setup, you need access to both the new billing account and the Enterprise Agreement enrollment. For more information, see [Access required to complete the set up of your billing account](#permissions-required-to-complete-the-setup).
 
 1. Sign in to the Azure portal using the link in the email that was sent to you when you signed the Microsoft Customer Agreement.
 
@@ -85,8 +85,8 @@ Your new billing account simplifies billing for your organization while providin
 
 ![Image of ea-mca-post-transition-hierarchy](./media/billing-mca-setup-account/mca-post-transition-hierarchy.svg)
 
-1. You use billing account to manage billing for your Microsoft customer agreement. To learn more about billing account, see [Understand billing account].(billing-mca-overview.md#understand-billing-account).
-2. You use billing profile to manage billing for your organization, similar to your Enterprise Agreement enrollment. Enterprise administrators become owners of the billing profile. To learn more about billing profiles, see [Understand billing profiles](billing-mca-overview.md#understand-billing-profiles).
+1. You use the billing account to manage billing for your Microsoft customer agreement. To learn more about billing account, see [Understand billing account].(billing-mca-overview.md#understand-billing-account).
+2. You use the billing profile to manage billing for your organization, similar to your Enterprise Agreement enrollment. Enterprise administrators become owners of the billing profile. To learn more about billing profiles, see [Understand billing profiles](billing-mca-overview.md#understand-billing-profiles).
 3. You use an invoice section to organize your costs based on your needs, similar to departments in your Enterprise Agreement enrollment. Department becomes invoice sections and department administrators become owners of the respective invoice sections. To learn more about invoice sections, see [Understand invoice sections](billing-mca-overview.md#understand-invoice-sections).
 4. The accounts that were created in your Enterprise Agreement aren’t supported in the new billing account. The account's subscriptions belong to the respective invoice section for their department. Account owners can create and manage subscriptions for their invoice sections.
 
@@ -114,12 +114,12 @@ When you invite the billing administrators, they are added to the tenant as gues
 
 The billing of your Azure subscriptions and the access of your billing administrators are transitioned in the following order:
 
-1. First, all enterprise administrators on your Enterprise Administrators enrollment are provided access to the billing profile created for your enrollment. Any enterprise administrator, who is added to your enrollment after this step do not get access to the billing profile.
+1. First, all enterprise administrators on your Enterprise Administrators enrollment are provided access to the billing profile created for your enrollment. Enterprise administrators added to your enrollment after this step do not get access to the billing profile.
 
 1. Each department is selected one at a time.
      - An invoice section is created for the department.
      - Enterprise administrators, department administrators, and account owners are provided access to the invoice section.
-     - If the department has spending quota, we create a corresponding budget for the invoice section.
+     - If the department has a spending quota, a corresponding budget is created for the invoice section.
      - Billing of Azure subscriptions is transitioned from the department to the invoice section. Billing for Azure subscriptions that are created after this step does not transition to the new billing account. Charges for these subscriptions show on your Enterprise Agreement enrollment.
 
 1. Azure subscriptions and Enterprise Agreement accounts that don't belong to a department are selected
@@ -127,9 +127,9 @@ The billing of your Azure subscriptions and the access of your billing administr
     - Enterprise administrators and account owners are provided access to the invoice section.
     - Billing of Azure subscriptions is transitioned to the invoice section. Billing for Azure subscriptions that are created after this step does not transition to the new billing account. Charges for these subscriptions show on your Enterprise Agreement enrollment.
 
-1. When the billing for Azure subscriptions is transitioned, we move your Azure Reservations to the new billing account. Your Azure subscriptions get reservations discount throughout the transition. Azure Reservations that are purchased after this step don't move to the new billing account. Azure subscriptions in your new billing account don't get discount through these Reservations.
+1. When the billing for Azure subscriptions is transitioned, your Azure Reservations are moved to the new billing account. Your Azure subscriptions get reservation discounts throughout the transition. Azure Reservations that are purchased after this step don't move to the new billing account. Azure subscriptions in your new billing account don't get discounted through these Reservations.
 
-Azure subscriptions and Reservations that are added to the Enterprise Agreement enrollment after the transition, can be manually moved to the new billing account. For more information, see [Get billing ownership of Azure subscriptions from other users](#billing-mca-request-billing-ownership.md).
+Azure subscriptions and Reservations that are added to the Enterprise Agreement enrollment after the transition can be manually moved to the new billing account. For more information, see [Get billing ownership of Azure subscriptions from other users](#billing-mca-request-billing-ownership.md).
 
 ## Validate the billing account is set up properly
 
@@ -148,7 +148,7 @@ Azure subscriptions and Reservations that are added to the Enterprise Agreement 
 
 4. Select **Azure subscriptions** from the left side.
 
-All Azure subscriptions that are transitioned from your Enterprise Agreement enrollment to the new billing account are displayed on the Azure subscriptions page. If any subscription is missing, you can transition the billing of the subscription manually in the Azure portal. For more information, see [Get billing ownership of Azure subscriptions from other users](#billing-mca-request-billing-ownership.md).
+All Azure subscriptions that are transitioned from your Enterprise Agreement enrollment to the new billing account are displayed on the Azure subscriptions page. If any subscriptions are missing, you can transition the billing of the subscription manually in the Azure portal. For more information, see [Get billing ownership of Azure subscriptions from other users](#billing-mca-request-billing-ownership.md).
 
 ### Azure Reservations
 
@@ -165,7 +165,7 @@ All Azure subscriptions that are transitioned from your Enterprise Agreement enr
 
 5. Search on **Reserved**.
 
-Azure Reservations are displayed on the All products page. Repeat the steps for all the invoice sections to verify that all Azure Reservations are moved from your Enterprise Agreement enrollment. If any Azure Reservation is missing, you can move the Reservation manually to the new billing account in the Azure portal. For more information, see [Get billing ownership of Azure subscriptions from other users](#billing-mca-request-billing-ownership.md).
+Azure Reservations are displayed on the All products page. Repeat the steps for all the invoice sections to verify that all Azure Reservations are moved from your Enterprise Agreement enrollment. If any Azure Reservations are missing, you can move the Reservation manually to the new billing account in the Azure portal. For more information, see [Get billing ownership of Azure subscriptions from other users](#billing-mca-request-billing-ownership.md).
 
 ### Access of enterprise administrators from your Enterprise Agreement enrollment
 
@@ -222,11 +222,11 @@ Cost center that were set on the Azure subscriptions in your Enterprise Agreemen
 
 ## Helpful information
 
-The following section provides helpful information about setting up your billing account.
+The following sections provide helpful information about setting up your billing account.
 
 ### Service downtime
 
-There won't be any impact to service running in Azure subscriptions in your Enterprise Agreement enrollment. They will keep on running without any disruption during the transition.
+There is no impact to service running in Azure subscriptions in your Enterprise Agreement enrollment. They will keep on running without any disruption during the transition.
 
 ### User access to services
 
