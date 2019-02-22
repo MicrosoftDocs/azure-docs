@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 02/21/2019
 ms.author: jdial;anavin
 ---
 
@@ -110,10 +110,9 @@ If you want virtual networks to communicate sometimes, but not always, rather th
 ## Requirements and constraints
 
 - <a name="cross-region"></a>You can peer virtual networks in the same region, or different regions. Peering virtual networks in different regions is also referred to as *global peering*.
-- When creating a global peering, the peered virtual networks can exist in any Azure public cloud region or China cloud regions, but not in Government cloud regions. You can only peer virtual networks in the same region in Azure Government cloud regions.
 - Resources in one virtual network cannot communicate with the front-end IP address of an Azure internal load balancer in a globally peered virtual network. The load balancer and the resources that communicate with it must be in a virtual network in the same region. If the peered virtual networks are in the same region however, resources in either virtual network can communicate with the front-end IP address of an Azure internal load balancer in either virtual network in the peering.
 - You cannot use remote gateways or allow gateway transit in globally peered virtual networks. To use remote gateways or allow gateway transit, the peered virtual networks must be in the same region.
-- The virtual networks can be in the same, or different subscriptions. When you peer virtual networks in different subscriptions, both subscriptions can be associated to the same or different Azure Active Directory tenant. If you don't already have an AD tenant, you can quickly [create one](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). Support for peering across virtual networks from subscriptions associated to different Azure Active Directory tenants is not available in Portal. You can use CLI, PowerShell, or Templates.
+- The virtual networks can be in the same, or different subscriptions. When you peer virtual networks in different subscriptions, both subscriptions can be associated to the same or different Azure Active Directory tenant. If you don't already have an AD tenant, you can  [create one](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). 
 - The virtual networks you peer must have non-overlapping IP address spaces.
 - You can't add address ranges to, or delete address ranges from a virtual network's address space once a virtual network is peered with another virtual network. To add or remove address ranges, delete the peering, add or remove the address ranges, then re-create the peering. To add address ranges to, or remove address ranges from virtual networks, see [Manage virtual networks](manage-virtual-network.md).
 - You can peer two virtual networks deployed through Resource Manager or a virtual network deployed through Resource Manager with a virtual network deployed through the classic deployment model. You cannot peer two virtual networks created through the classic deployment model. If you're not familiar with Azure deployment models, read the [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article. You can use a [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) to connect two virtual networks created through the classic deployment model.
