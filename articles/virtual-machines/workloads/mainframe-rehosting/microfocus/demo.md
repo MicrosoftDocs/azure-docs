@@ -133,13 +133,13 @@ The query should run with no errors. When it is complete, you have the sample da
 
 4. Right-click the **BankDemo2** Project and select **Set as Startup Project**.
 
-> [!NOTE]
-> The BankDemo Project makes use of HCOSS (Host Compatibility Option for SQL Server), which is not used for this demo.
+	> [!NOTE]
+	> The BankDemo Project makes use of HCOSS (Host Compatibility Option for SQL Server), which is not used for this demo.
 
 5. In **Solution Explorer**, right-click the **BankDemo2** Project and select **Build**.
 
-> [!NOTE]
-> Building at the solution level results in errors, as HCOSS has not been configured.
+	> [!NOTE]
+	> Building at the solution level results in errors, as HCOSS has not been configured.
 
 6. When the Project is built, examine the **Output** window. It should look like the image below.
 
@@ -153,9 +153,9 @@ The query should run with no errors. When it is complete, you have the sample da
 
 3. At the command prompt, execute **bankdemodbdeploy** and include the parameter for the database to deploy to, for example:
 
-```
+	```
     bankdemodbdeploy (local)/sqlexpress
-```
+	```
 
 > [!NOTE]
 > Make sure to use a forward slash (/) not a backward slash(\\). This script runs for a while.

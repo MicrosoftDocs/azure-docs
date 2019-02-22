@@ -18,7 +18,7 @@ Micro Focus has partnered with Microsoft to offer compelling mainframe migration
 
 Micro Focus offers development rehosting and test rehosting solutions that extend existing COBOL and PL/I business applications to Azure.
 
-## Next steps
+**Next steps**
 
 - [Install Micro Focus Enterprise Server 4.0 and Enterprise Developer 4.0 on Azure](./set-up-micro-focus-on-azure.md)
 - [Set up Micro Focus CICS BankDemo for Micro Focus Enterprise Developer 4.0 in Azure](./demo.md)

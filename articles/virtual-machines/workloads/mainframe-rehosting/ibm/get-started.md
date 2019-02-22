@@ -25,7 +25,7 @@ In addition, IBM software, including WebSphere and MQ, is now in the Azure Marke
 
 An extensive partner ecosystem is available to help you migrate IBM mainframe systems to Azure. Most follow a pragmatic approach of reuse wherever possible before embarking on a phased deployment of rewriting or replacing applications. Get more guidance and help from partners at the [Azure Mainframe Migration center](https://azure.microsoft.com/migration/mainframe/).
 
-## Next steps
+**Next steps**
 
 - [Mainframe migration: myths and facts](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
 - [Install IBM zD&T dev/test environment on Azure](./install-ibm-z-environment.md)

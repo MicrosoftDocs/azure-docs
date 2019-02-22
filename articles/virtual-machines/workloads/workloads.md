@@ -27,6 +27,6 @@ Virtual machines in Azure can support many workloads. Each workload can have spe
 
 
 
-## Next steps
+**Next steps**
 
 Get to know Azure VMs with the Azure VM quickstart guides for [Linux](../linux/quick-create-cli-nodejs.md) and [Windows](../windows/quick-create-powershell.md).
