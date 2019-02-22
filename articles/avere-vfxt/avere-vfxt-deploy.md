@@ -99,8 +99,7 @@ The second page of the deployment template allows you to set the cluster size, n
 
 * **Avere vFXT cluster name** - Give the cluster a unique name. 
 
-* **Size** - Specify the VM type to use when creating the cluster nodes. (There is only one option.)
-  <!-- is this a no-op now that there's only one? -->
+* **Size** - This section shows the VM type that will be used for the cluster nodes. Although there is only one recommended option, the **Change size** link opens a table with details about this instance type and a link to a pricing calculator.  <!-- old: Specify the VM type to use when creating the cluster nodes.  -->
 
 * **Cache size per node** - The cluster cache is spread across the cluster nodes, so the total cache size on your Avere vFXT cluster will be the cache size per node multiplied by the number of nodes. 
 
@@ -120,11 +119,13 @@ The second page of the deployment template allows you to set the cluster size, n
 
 * **Subnet** - Choose a subnet from your existing virtual network, or create a new one. 
 
-* **Use blob storage** - Choose **true** to create a new Azure Blob container and configure it as back-end storage for the new Avere vFXT cluster. This option also creates a new storage account within the same resource group as the cluster. 
+* **Create and use blob storage** - Choose **true** to create a new Azure Blob container and configure it as back-end storage for the new Avere vFXT cluster. This option also creates a new storage account within the same resource group as the cluster and a Microsoft storage service endpoint inside the cluster subnet. 
+  
+  If you supply an existing virtual network, it must have a storage service endpoint before you create the cluster. (For more information, read [Plan your Avere vFXT system](avere-vfxt-deploy-plan.md).)
 
   Set this field to **false** if you do not want to create a new container. In this case, you must attach and configure storage after creating the cluster. Read [Configure storage](avere-vfxt-add-storage.md) for instructions. 
 
-* **Storage account** - If creating a new Azure Blob container, enter a name for the new storage account. 
+* **(New) Storage account** - If creating a new Azure Blob container, enter a name for the new storage account. 
 
 ## Validation and purchase
 
