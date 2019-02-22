@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 02/22/2019
 ms.author: juliako
 
 ---
@@ -68,7 +68,7 @@ Use this property with **Asset Filters**. It is not recommended to set the prope
 |**liveBackoffDuration**|Applies to Live Streaming only.<br/> This value defines the latest live position that a client can seek to.<br/>Using this property, you can delay live playback position and create a server-side buffer for players.<br/>The unit for this property is timescale (see below).<br/>The maximum live back off duration is 300 seconds (3000000000).<br/>For example, a value of 2000000000 means that the latest available content is 20 seconds delayed from the real live edge.|
 |**presentationWindowDuration**|Applies to Live Streaming only.<br/>Use presentationWindowDuration to apply a sliding window of fragments to include in a playlist.<br/>The unit for this property is timescale (see below).<br/>For example, set presentationWindowDuration=1200000000 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.|
 |**startTimestamp**|Applies to Video on Demand (VoD) or Live Streaming.<br/>This is a long value that represents an absolute start point of the stream. The value gets rounded to the closest next GOP start. The unit is the timescale, so a startTimestamp of 150000000 would be for 15 seconds.<br/>Use startTimestamp and endTimestampp to trim the fragments that will be in the playlist (manifest).<br/>For example, startTimestamp=40000000 and endTimestamp=100000000 using the default timescale will generate a playlist that contains fragments from between 4 seconds and 10 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest|
-|**timescale**|Applies to all timestamps and durations in a PresentationTimeRange.<br/>Default is 10000000 HNS (one hundred nanoseconds).<br/>For example, if you want to set a startTimestamp at 30 seconds, the value would be 300000000.|
+|**timescale**|Applies to all timestamps and durations in a Presentation Time Range, specified as the number of increments in one second.<br/>Default is 10000000 -  ten million increments in one second, where each increment would be 100 nanoseconds long.<br/>For example, if you want to set a startTimestamp at 30 seconds, you would use a value of 300,000,000 when using the default timescale.||
 
 ### Tracks
 
