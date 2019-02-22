@@ -4,7 +4,7 @@ description: This article provides an overview of web application firewall (WAF)
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 11/16/2018
+ms.date: 2/22/2019
 ms.author: amsriva
 ---
 
@@ -53,19 +53,8 @@ The following are the core benefits that Application Gateway and web application
 - Protection against HTTP protocol anomalies such as missing host user-agent and accept headers
 - Prevention against bots, crawlers, and scanners
 - Detection of common application misconfigurations (for example, Apache, IIS, and so on)
-
-### Public preview features
-
-The current WAF public preview SKU includes the following features:
-
-- **Request size limits** - Web Application Firewall allows users to configure request size limits within lower and upper bounds.
-- **Exclusion lists** - WAF exclusion lists allow users to omit certain request attributes from a WAF evaluation. A common example is Active Directory inserted tokens that are used for authentication or password fields.
-
-For more information about the WAF public preview, see [Web application firewall request size limits and exclusion lists (Public Preview)](application-gateway-waf-configuration.md).
-
-
-
-
+- Request size limits - Web Application Firewall allows users to configure request size limits within lower and upper bounds.
+- Exclusion lists - WAF exclusion lists allow users to omit certain request attributes from a WAF evaluation. A common example is Active Directory inserted tokens that are used for authentication or password fields.
 
 ### Core rule sets
 
@@ -82,7 +71,6 @@ Web application firewall comes preconfigured with CRS 3.0 by default or you can 
 - Detection of common application misconfigurations (for example, Apache, IIS, etc.)
 
 For a more detailed list of rules and their protections, see [Core rule sets](#core-rule-sets).
-
 
 #### OWASP_3.0
 

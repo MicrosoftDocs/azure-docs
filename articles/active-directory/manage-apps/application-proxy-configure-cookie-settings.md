@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 01/16/2019
 ms.author: celested
 ms.reviewer: japere

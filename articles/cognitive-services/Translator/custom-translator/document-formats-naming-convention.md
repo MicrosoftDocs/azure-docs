@@ -6,7 +6,7 @@ author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to format and name my documents.
