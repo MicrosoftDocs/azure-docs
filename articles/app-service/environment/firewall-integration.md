@@ -71,18 +71,18 @@ This use of the Application Gateway is just one example of how to configure your
 
 ## Logging 
 
-Azure Firewall can send logs to Azure Storage, Event Hub, or Log Analytics. To integrate your app with any supported destination, go to the Azure Firewall portal > Diagnostic Logs and enable the logs for your desired destination. If you integrate with Log Analytics, then you can see logging for any traffic sent to Azure Firewall. To see the traffic that is being denied, open your Log Analytics portal > Logs and enter a query like 
+Azure Firewall can send logs to Azure Storage, Event Hub, or Azure Monitor logs. To integrate your app with any supported destination, go to the Azure Firewall portal > Diagnostic Logs and enable the logs for your desired destination. If you integrate with Azure Monitor logs, then you can see logging for any traffic sent to Azure Firewall. To see the traffic that is being denied, open your Log Analytics workspace portal > Logs and enter a query like 
 
     AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
  
-Integrating your Azure Firewall with Log Analytics is very useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Log Analytics from [Analyze Log Analytics data in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
+Integrating your Azure Firewall with Azure Monitor logs is very useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
  
 ## Dependencies
 
 The following information is only required if you wish to configure a firewall appliance other than Azure Firewall. 
 
 - Service Endpoint capable services should be configured with service endpoints.
-- IP Address dependencies are for non-HTTP/S traffic
+- IP Address dependencies are for non-HTTP/S traffic (both TCP and UDP traffic)
 - FQDN HTTP/HTTPS endpoints can be placed in your firewall device.
 - Wildcard HTTP/HTTPS endpoints are dependencies that can vary with your ASE based on a number of qualifiers. 
 - Linux dependencies are only a concern if you are deploying Linux apps into your ASE. If you are not deploying Linux apps into your ASE, then these addresses do not need to be added to your firewall. 
