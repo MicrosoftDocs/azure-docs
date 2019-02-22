@@ -39,12 +39,15 @@ The following administrator roles are available:
 
 * **[Application Developer](#application-developer)**: Users in this role can create application registrations when the "Users can register applications" setting is set to No. This role also allows members to consent on their own behalf when the "Users can consent to apps accessing company data on their behalf" setting is set to No. Members of this role are added as owners when creating new application registrations or enterprise applications.
 
-* **[Authentication Administrator](#authentication-administrator)**: Users with this role can set or reset non-password credentials. Authentication Administrators can force users to re-register against existing non-password credential (e.g. MFA, FIDO) and revoke ‘remember MFA on the device’, prompting for MFA on the next login of other users who are non-administrators or members of the following roles only:
+* **[Authentication Administrator](#authentication-administrator)**: Users with this role can set or reset non-password credentials. Authentication Administrators can require users to re-register against existing non-password credential (for example, MFA or FIDO) and revoke **remember MFA on the device**, pwhich rompts for MFA on the next sign-in of users who are non-administrators or members of the following roles only:
   * Authentication Administrator
   * Directory Readers
   * Guest Inviter
   * Message Center Reader
   * Reports Reader
+
+The Authentication administrator role is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
   
   <b>Important</b>: Users with this role can change credentials for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the credentials of a user may mean the ability to assume that user's identity and permissions. For example:
   * Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Azure AD and elsewhere not granted to Authentication Administrators. Through this path a Authentication Administrator may be able to assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
@@ -295,11 +298,6 @@ Can create application registrations independent of the ‘Users can register ap
 
 ### Authentication Administrator
 Allowed to view, set, and reset authentication method information for any non-admin user.
-
-> [!IMPORTANT]
-> The Authentication administrator role is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 | **Actions** | **Description** |
 | --- | --- |
