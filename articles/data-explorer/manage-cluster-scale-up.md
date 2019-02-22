@@ -18,11 +18,11 @@ A better approach is to *scale* a cluster, adding and removing capacity and CPU 
 
 1. Go to your cluster. Under **Settings**, select **Scale up**.
 
-    You're shown a list of available SKUs. For example, in the figure below, there's only one available SKU: D14_V2.
+    You're shown a list of available SKUs. For example, in the following figure, there's only one available SKU: D14_V2.
 
     ![Scale up](media/manage-cluster-scale-up/scale-up.png)
 
-    D13_V2 is disabled since it's the current SKU of the cluster. L8 and L16 are disabled because they aren't available in the region where the cluster is located.
+    D13_V2 is disabled because it's the current SKU of the cluster. L8 and L16 are disabled because they aren't available in the region where the cluster is located.
 
 1. To change your SKU, select the SKU you want and choose the **Select** button.
 

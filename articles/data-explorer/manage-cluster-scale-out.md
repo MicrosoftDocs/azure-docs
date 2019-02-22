@@ -16,7 +16,7 @@ Sizing a cluster appropriately is critical to the performance of Azure Data Expl
 
 A better approach is to *scale* a cluster, adding and removing capacity with changing demand. There are two workflows for scaling: scale-up and scale-out. This article explains the scale-out workflow.
 
-This article shows how to manage cluster scale-out, also known as autoscale. Autoscaling allows you to scale out the instance count automatically based on predefined rules and schedules. Specify your autoscale settings for your cluster in the Azure portal, as described below.
+This article shows how to manage cluster scale-out, also known as autoscale. Autoscaling allows you to scale out the instance count automatically based on predefined rules and schedules. Specify your autoscale settings for your cluster in the Azure portal, as described in this article.
 
 Go to your cluster. Under **Settings**, select **Scale out**. Under **Configure**, select **Enable autoscale**.
 
