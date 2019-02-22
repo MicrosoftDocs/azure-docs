@@ -42,30 +42,32 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Application Gateway](#application-gateway-limits)
 * [Application Insights](#application-insights-limits)
 * [Automation](#automation-limits)
+* [Azure Cache for Redis](#azure-cache-for-redis-limits)
+* [Azure Cloud Services](#azure-cloud-services-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Database for MySQL](#azure-database-for-mysql)
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
-* [Event Grid](#event-grid-limits)
+* [Azure DNS](#azure-dns-limits)
+* [Azure Firewall](#azure-firewall-limits)
+* [Azure Kubernetes Service](#azure-kubernetes-service-limits)
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
-* [Azure Cache for Redis](#azure-cache-for-redis-limits)
+* [Azure Search](#azure-search-limits)
+* [Azure SignalR Service](#azure-signalr-service-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
 * [BizTalk Services](#biztalk-services-limits)
-* [Content Delivery Network](#content-delivery-network-limits)
-* [Azure Cloud Services](#azure-cloud-services-limits)
 * [Container Instances](#container-instances-limits)
 * [Container Registry](#container-registry-limits)
-* [Azure Kubernetes Service](#azure-kubernetes-service-limits)
+* [Content Delivery Network](#content-delivery-network-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
 * [Database Migration Service](#database-migration-service-limits)
-* [Azure DNS](#azure-dns-limits)
+* [Event Grid](#event-grid-limits)
 * [Event Hubs](#event-hubs-limits)
-* [Azure Firewall](#azure-firewall-limits)
-* [Front Door](#azure-front-door-service-limits)
+* [Front Door Service](#azure-front-door-service-limits)
 * [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
@@ -80,9 +82,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Resource group](#resource-group-limits)
 * [Role-based access control](#role-based-access-control-limits)
 * [Scheduler](#scheduler-limits)
-* [Azure Search](#azure-search-limits)
 * [Service Bus](#service-bus-limits)
-* [Azure SignalR Service](#azure-signalr-service-limits)
 * [Site Recovery](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
 * [SQL Data Warehouse](#sql-data-warehouse-limits)
@@ -326,7 +326,7 @@ To learn more about limits on a more granular level, such as document size, quer
 ### Key Vault limits
 [!INCLUDE [key-vault-limits](../includes/key-vault-limits.md)]
 
-### Multi-Factor Authentication
+### Multi-Factor Authentication limits
 [!INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
 ### Automation limits
@@ -339,10 +339,10 @@ To learn more about limits on a more granular level, such as document size, quer
 [!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
 
 ### SQL Database limits
-For SQL Database limits, see [SQL Database Resource Limits for single databases](sql-database/sql-database-vcore-resource-limits-single-databases.md) and [SQL Database Resource Limits for elastic pools and pooled databases](sql-database/sql-database-vcore-resource-limits-elastic-pools.md).
+For SQL Database limits, see [SQL Database resource limits for single databases](sql-database/sql-database-vcore-resource-limits-single-databases.md) and [SQL Database resource limits for elastic pools and pooled databases](sql-database/sql-database-vcore-resource-limits-elastic-pools.md).
 
 ### SQL Data Warehouse limits
-For SQL Data Warehouse limits, see [SQL Data Warehouse Resource Limits](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
+For SQL Data Warehouse limits, see [SQL Data Warehouse resource limits](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
 ## See also
 - [Understand Azure limits and increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
