@@ -37,4 +37,4 @@ Use the Create Resource "plus sign" button in the ADF UI to create Data Flows
 
 ## Next steps
 
-Begin building your data transformation with a [source transformation](https://docs.microsoft.com/en-us/azure/data-factory/data-flow-source).
+Begin building your data transformation with a [source transformation](data-flow-source.md).
