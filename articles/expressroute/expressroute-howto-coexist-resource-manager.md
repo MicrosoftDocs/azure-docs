@@ -83,7 +83,7 @@ This procedure walks you through creating a VNet and Site-to-Site and ExpressRou
 
 1. Sign in and select your subscription.
 
-  [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-ps-login.md)]
+  [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
 2. Set variables.
 
   ```azurepowershell-interactive

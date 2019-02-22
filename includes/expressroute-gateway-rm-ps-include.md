@@ -29,7 +29,7 @@ The steps for this task use a VNet based on the values in the following configur
 ## Add a gateway
 1. Connect to your Azure Subscription.
 
-  [!INCLUDE [Sign in](expressroute-cloud-shell-ps-login.md)]
+  [!INCLUDE [Sign in](expressroute-cloud-shell-connect.md)]
 2. Declare your variables for this exercise. Be sure to edit the sample to reflect the settings that you want to use.
 
   ```azurepowershell-interactive 

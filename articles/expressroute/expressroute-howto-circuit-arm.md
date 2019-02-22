@@ -35,7 +35,7 @@ Before you begin, review the [prerequisites](expressroute-prerequisites.md) and 
 ## <a name="create"></a>Create and provision an ExpressRoute circuit
 ### 1. Sign in to your Azure account and select your subscription
 
-[!INCLUDE [sign in](../../includes/expressroute-cloud-shell-ps-login.md)]
+[!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
 
 ### 2. Get the list of supported providers, locations, and bandwidths
 Before you create an ExpressRoute circuit, you need the list of supported connectivity providers, locations, and bandwidth options.
