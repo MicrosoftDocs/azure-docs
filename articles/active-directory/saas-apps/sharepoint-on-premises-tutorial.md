@@ -73,13 +73,10 @@ To configure and test Azure AD single sign-on with SharePoint on-premises, you n
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Configure SharePoint on-premises Single Sign-On](#configure-sharepoint-on-premises-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Create an Azure AD Security Group in the Azure Portal](#create-an-azure-ad-security-group-in-the-azure-portal)** - to enable a new security group in Azure AD for single sign-on.
-5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-6. **[Assign the Azure AD Security Group in the Azure Portal](#assign-the-azure-ad-security-group-in-the-azure-portal)** - to assign the particular group to Azure AD for authentication.
-7. **[Grant access to SharePoint on-premises test user](#grant-access-to-sharepoint-on-premises-test-user)** - to have a counterpart of Britta Simon in SharePoint on-premises that is linked to the Azure AD representation of user.
-8. **[Grant access to SharePoint on-premises Security Group](#grant-access-to-sharepoint-on-premises-security-group)** - grant access for particular group to Azure AD.
-9. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+3. **[Create an Azure AD Security Group in the Azure Portal](#create-an-azure-ad-security-group-in-the-azure-portal)** - to enable a new security group in Azure AD for single sign-on.
+4. **[Grant access to SharePoint on-premises Security Group](#grant-access-to-sharepoint-on-premises-security-group)** - grant access for particular group to Azure AD.
+5. **[Assign the Azure AD Security Group in the Azure Portal](#assign-the-azure-ad-security-group-in-the-azure-portal)** - to assign the particular group to Azure AD for authentication.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -122,7 +119,7 @@ To configure Azure AD single sign-on with SharePoint on-premises, perform the fo
     > [!Note]
 	> Please note down the file path to which you have downloaded the certificate file, as you need to use it later in the PowerShell script for configuration.
 
-6. On the **Set up SharePoint on-premises** section, copy the appropriate URL(s) as per your requirement. For **Single Sign-On Service URL**, use a value of the following pattern: `https://login.microsoftonline.com/_my_directory_id_/wsfed` 
+6. On the **Set up SharePoint on-premises** section, copy the appropriate URL(s) as per your requirement. For **Single Sign-On Service URL**, use a value of the following pattern: `https://login.microsoftonline.com/_my_directory_id_/wsfed`
 
     > [!Note]
     > _my_directory_id_ is the tenant id of Azure Ad subscription.
@@ -147,7 +144,7 @@ To configure Azure AD single sign-on with SharePoint on-premises, perform the fo
 	Sign into the SharePoint Server 2016 server and open the SharePoint 2016 Management Shell. Fill in the values of $realm (Identifier value from the SharePoint on-premises Domain and URLs section in the Azure portal), $wsfedurl (Single Sign-On Service URL), and $filepath (file path to which you have downloaded the certificate file) from Azure portal and run the following commands to configure a new trusted identity provider.
 
 	> [!TIP]
-	> If you're new to using PowerShell or want to learn more about how PowerShell works, see [SharePoint PowerShell](https://docs.microsoft.com/powershell/sharepoint/overview?view=sharepoint-ps). 
+	> If you're new to using PowerShell or want to learn more about how PowerShell works, see [SharePoint PowerShell](https://docs.microsoft.com/powershell/sharepoint/overview?view=sharepoint-ps).
 
 	```
 	$realm = "<Identifier value from the SharePoint on-premises Domain and URLs section in the Azure portal>"
@@ -180,31 +177,6 @@ To configure Azure AD single sign-on with SharePoint on-premises, perform the fo
 	> [!NOTE]
 	> Some of the external users will not able to use this single sign-on integration as their UPN will have mangled value something like `MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com`. Soon we will allow customers app config on how to handle the UPN depending on the user type. After that all your guest users should be able to use SSO seamlessly as the organization employees.
 
-### Create an Azure AD test user
-
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
-
-    ![The "Users and groups" and "All users" links](common/users.png)
-
-2. Select **New user** at the top of the screen.
-
-    ![New user Button](common/new-user.png)
-
-3. In the User properties, perform the following steps.
-
-    ![The User dialog box](common/user-properties.png)
-
-    a. In the **Name** field enter **BrittaSimon**.
-  
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
-
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
-
-    d. Click **Create**.
-
 ### Create an Azure AD Security Group in the Azure Portal
 
 1. Click on **Azure Active Directory > All Groups**.
@@ -221,34 +193,6 @@ The objective of this section is to create a test user in the Azure portal calle
 
 	> [!NOTE]
 	> In order to assign Azure Active Directory Security Groups to SharePoint on-premise, it will be necessary to install and configure [AzureCP](https://yvand.github.io/AzureCP/) in the on-premise SharePoint farm OR develop and configure an alternative custom claims provider for SharePoint.  See the more information section at the end of the document for creating your own custom claims provider, if you don’t use AzureCP.
-
-### Grant access to SharePoint on-premises test user
-
-The users who will log into Azure AD and access SharePoint must be granted access to the application  Use the following steps to set the permissions to access the web application.
-
-1. In Central Administration, click **Application Management**.
-
-2. On the **Application Management** page, in the **Web Applications** section, click **Manage web applications**.
-
-3. Click the appropriate web application, and then click **User Policy**.
-
-4. In Policy for Web Application, click **Add Users**.
-
-	![Searching for a user by their name claim](./media/sharepoint-on-premises-tutorial/fig11-searchbynameclaim.png)
-
-5. In the **Add Users** dialog box, click the appropriate zone in **Zones**, and then click **Next**.
-
-6. In the **Policy for Web Application** dialog box, in the **Choose Users** section, click the **Browse** icon.
-
-7. In the **Find** textbox, type the **user principal name(UPN)** value for which you have configured the SharePoint on-premises application in the Azure AD and click **Search**. </br>Example: *brittasimon@contoso.com*.
-
-8. Under the AzureAD heading in the list view, select the name property and click **Add** then click **OK** to close the dialog.
-
-9. In Permissions, click **Full Control**.
-
-	![Granting full control to a claims user](./media/sharepoint-on-premises-tutorial/fig12-grantfullcontrol.png)
-
-10. Click **Finish**, and then click **OK**.
 
 ### Grant access to SharePoint on-premises Security Group
 
@@ -356,32 +300,6 @@ Users can now log into SharePoint 2016 using identities from Azure AD, but there
 There is no validation on the values you search for, which can lead to misspellings or users accidentally choosing the wrong claim type to assign such as the **SurName** claim. This can prevent users from successfully accessing resources.
 
 To assist with this scenario, there is an open-source solution called [AzureCP](https://yvand.github.io/AzureCP/) that provides a custom claims provider for SharePoint 2016. It will use the Azure AD Graph to resolve what users enter and perform validation. Learn more at [AzureCP](https://yvand.github.io/AzureCP/).
-
-### Assign the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to SharePoint on-premises.
-
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **SharePoint on-premises**.
-
-	![Enterprise applications blade](common/enterprise-applications.png)
-
-2. In the applications list, type and select **SharePoint on-premises**.
-
-	![The SharePoint on-premises link in the Applications list](common/all-applications.png)
-
-3. In the menu on the left, select **Users and groups**.
-
-    ![The "Users and groups" link](common/users-groups-blade.png)
-
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
-
-    ![The Add Assignment pane](common/add-assign-user.png)
-
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
-
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
-
-7. In the **Add Assignment** dialog click the **Assign** button.
 
 ### Assign the Azure AD Security Group in the Azure Portal
 
