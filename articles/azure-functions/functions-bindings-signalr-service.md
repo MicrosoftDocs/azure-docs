@@ -26,10 +26,7 @@ This article explains how to authenticate and send real-time messages to clients
 
 ## Packages - Functions 2.x
 
-The SignalR Service bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.SignalRService](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) NuGet package, version 1.0.0-preview1-*. Source code for the package is in the [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension) GitHub repository.
-
-> [!NOTE]
-> Azure SignalR Service is generally available. However, SignalR Service bindings for Azure Functions are currently in preview.
+The SignalR Service bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.SignalRService](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) NuGet package, version 1.*. Source code for the package is in the [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension) GitHub repository.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2-manual-portal.md)]
 
@@ -170,7 +167,7 @@ public ConnectionInfo negotiate(
         @SignalRConnectionInfoInput(
             name = "connectionInfo",
             hubName = "chat",
-            userId = "x-ms-client-principal-id") ConnectionInfo connectionInfo) {
+            userId = "{x-ms-client-principal-id}") ConnectionInfo connectionInfo) {
     return connectionInfo;
 }
 ```
@@ -535,7 +532,7 @@ The following example adds a user to a group.
 
 ```java
 @FunctionName("addToGroup")
-@SignalR(hubName = "chat")
+@SignalROutput(hubName = "chat")
 public SignalRGroupAction addToGroup(
         @HttpTrigger(
             name = "req",
@@ -557,7 +554,7 @@ The following example removes a user from a group.
 
 ```java
 @FunctionName("removeFromGroup")
-@SignalR(hubName = "chat")
+@SignalROutput(hubName = "chat")
 public SignalRGroupAction removeFromGroup(
         @HttpTrigger(
             name = "req",
