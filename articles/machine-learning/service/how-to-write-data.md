@@ -42,7 +42,7 @@ For your convenience, a sentinel file named SUCCESS is generated once a write is
 
 ## Example write code
 
-For this example, start by loading data into a data flow. You reuse this data with different formats.
+For this example, start by loading data into a data flow using `auto_read_file()`. You reuse this data with different formats.
 
 ```python
 import azureml.dataprep as dprep
