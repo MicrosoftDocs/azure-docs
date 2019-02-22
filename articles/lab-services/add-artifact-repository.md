@@ -23,6 +23,8 @@ The [public artifact repository](https://github.com/Azure/azure-devtestlab/tree/
 
 This article provides information on how to add your custom artifact repository by using Azure portal, Azure Resource Management templates, and Azure PowerShell. You can automate adding an artifact repository to a lab by writing PowerShell or CLI scripts. 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Prerequisites
 To add a repository to your lab, first, get key information from your repository. The following sections describe how to get the required information for repositories that are hosted on **GitHub** or **Azure DevOps**.
 
@@ -166,25 +168,25 @@ There are a few ways to deploy the template to Azure and have the resource creat
 - [Deploy resources with Resource Manager templates and Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
 - [Deploy resources with Resource Manager templates and Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
-Let’s go ahead and see how to deploy the template in PowerShell. Cmdlets used to deploy the template are context-specific, so current tenant and current subscription are used. Use [Set-AzureRMContext](/powershell/module/azurerm.profile/set-azurermcontext?view=azurermps-6.13.0) before deploying the template, if needed, to change context.
+Let’s go ahead and see how to deploy the template in PowerShell. Cmdlets used to deploy the template are context-specific, so current tenant and current subscription are used. Use [Set-AzContext](/powershell/module/az.profile/set-azcontext) before deploying the template, if needed, to change context.
 
-First, create a resource group using [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.13.0). If the resource group you want to use already exists, skip this step.
+First, create a resource group using [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). If the resource group you want to use already exists, skip this step.
 
 ```powershell
-New-AzureRmResourceGroup -Name MyLabResourceGroup1 -Location westus
+New-AzResourceGroup -Name MyLabResourceGroup1 -Location westus
 ```
 
-Next, create a deployment to the resource group using [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment?view=azurermps-6.13.0). This cmdlet applies the resource changes to Azure. Several resource deployments can be made to any given resource group. If you are deploying several times to the same resource group, make sure the name of each deployment is unique.
+Next, create a deployment to the resource group using [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). This cmdlet applies the resource changes to Azure. Several resource deployments can be made to any given resource group. If you are deploying several times to the same resource group, make sure the name of each deployment is unique.
 
 ```powershell
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
     -Name MyLabResourceGroup-Deployment1 `
     -ResourceGroupName MyLabResourceGroup1 `
     -TemplateFile azuredeploy.json `
     -TemplateParameterFile azuredeploy.parameters.json
 ```
 
-After New-AzureRmResourceGroupDeployment run successfully, the command outputs important information like the provisioning state (should be succeeded) and any outputs for the template.
+After New-AzResourceGroupDeployment run successfully, the command outputs important information like the provisioning state (should be succeeded) and any outputs for the template.
  
 ## Use Azure PowerShell 
 This section provides you a sample PowerShell script that can be used to add an artifact repository to a lab. If you don't have Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) for detailed instructions to install it.
@@ -232,11 +234,11 @@ See https://azure.microsoft.com/en-us/documentation/articles/devtest-lab-add-art
 Whether artifact is VSOGit or GitHub repository.
 
 .EXAMPLE
-Set-AzureRMContext -SubscriptionId 11111111-1111-1111-1111-111111111111
+Set-AzContext -SubscriptionId 11111111-1111-1111-1111-111111111111
 .\New-DevTestLabArtifactRepository.ps1 -LabName "mydevtestlab" -LabResourceGroupName "mydtlrg" -ArtifactRepositoryName "MyTeam Repository" -RepositoryUri "https://github.com/<myteam>/<nameofrepo>.git" -PersonalAccessToken "1111...." -SourceType "GitHub"
 
 .NOTES
-Script uses the current AzureRm context. To set the context, use the Set-AzureRMContext cmdlet
+Script uses the current Az context. To set the context, use the Set-AzContext cmdlet
 
 #>
 
@@ -274,11 +276,11 @@ if ($ArtifactRepositoryName -eq $null){
 }
 
 # Sign in to Azure
-Connect-AzureRmAccount
+Connect-AzAccount
 
 
 #Get Lab Resource
-$LabResource = Get-AzureRmResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceName $LabName -ResourceGroupName $LabResourceGroupName
+$LabResource = Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceName $LabName -ResourceGroupName $LabResourceGroupName
 
 Write-Verbose "Lab Name: $($LabResource.Name)"
 Write-Verbose "Lab Resource Group Name: $($LabResource.ResourceGroupName)"
@@ -286,7 +288,7 @@ Write-Verbose "Lab Resource Location: $($LabResource.Location)"
 
 Write-Verbose "Artifact Repository Internal Name: $ArtifactRepositoryName"
 
-#Prepare properties object for call to New-AzureRMResource
+#Prepare properties object for call to New-AzResource
 $propertiesObject = @{
     uri = $RepositoryUri;
     folderPath = $FolderPath;
@@ -297,24 +299,24 @@ $propertiesObject = @{
     status = 'Enabled'
 }
 
-Write-Verbose @"Properties to be passed to New-AzureRMResource:$($propertiesObject | Out-String)"@
+Write-Verbose @"Properties to be passed to New-AzResource:$($propertiesObject | Out-String)"@
 
 #Resource will be added to current subscription.
 $resourcetype = 'Microsoft.DevTestLab/labs/artifactSources'
 $resourceName = $LabName + '/' + $ArtifactRepositoryName
-Write-Verbose "AzureRM ResourceType: $resourcetype"
-Write-Verbose "AzureRM ResourceName: $resourceName"
+Write-Verbose "Az ResourceType: $resourcetype"
+Write-Verbose "Az ResourceName: $resourceName"
  
 Write-Verbose "Creating artifact repository '$ArtifactRepositoryDisplayName'..."
-$result = New-AzureRmResource -Location $LabResource.Location -ResourceGroupName $LabResource.ResourceGroupName -properties $propertiesObject -ResourceType $resourcetype -ResourceName $resourceName -ApiVersion 2016-05-15 -Force
+$result = New-AzResource -Location $LabResource.Location -ResourceGroupName $LabResource.ResourceGroupName -properties $propertiesObject -ResourceType $resourcetype -ResourceName $resourceName -ApiVersion 2016-05-15 -Force
 
 
 #Alternate implementation:
 # Use resourceId rather than resourcetype and resourcename parameters.
 # Using resourceId allows you to specify the $SubscriptionId rather than using the
-# subscription id of Get-AzureRmContext.
+# subscription id of Get-AzContext.
 #$resourceId = "/subscriptions/$SubscriptionId/resourceGroups/$($LabResource.ResourceGroupName)/providers/Microsoft.DevTestLab/labs/$LabName/artifactSources/$ArtifactRepositoryName"
-#$result = New-AzureRmResource -properties $propertiesObject -ResourceId $resourceId -ApiVersion 2016-05-15 -Force
+#$result = New-AzResource -properties $propertiesObject -ResourceId $resourceId -ApiVersion 2016-05-15 -Force
 
 
 # Check the result
@@ -333,7 +335,7 @@ return $result
 The following example shows you how to run the script: 
 
 ```powershell
-Set-AzureRMContext -SubscriptionId <Your Azure subscription ID>
+Set-AzContext -SubscriptionId <Your Azure subscription ID>
 
 .\New-DevTestLabArtifactRepository.ps1 -LabName "mydevtestlab" -LabResourceGroupName "mydtlrg" -ArtifactRepositoryName "MyTeam Repository" -RepositoryUri "https://github.com/<myteam>/<nameofrepo>.git" -PersonalAccessToken "1111...." -SourceType "GitHub"
 ```
@@ -353,7 +355,7 @@ The sample PowerShell script in this article takes the following parameters:
 | PersonalAccessToken | Security token for accessing the GitHub or VSOGit repository. See the prerequisites section for instructions to get personal access token |
 | SourceType | Whether artifact is VSOGit or GitHub repository. |
 
-The repository itself need an internal name for identification, which is different that the display name that is seen in the Azure portal. You do not see the internal name using the Azure portal, but you see it when using Azure REST APIs or AzureRM PowerShell Cmdlets. The script provides a name, if one is not specified by the user of our script.
+The repository itself need an internal name for identification, which is different that the display name that is seen in the Azure portal. You do not see the internal name using the Azure portal, but you see it when using Azure REST APIs or Azure PowerShell. The script provides a name, if one is not specified by the user of our script.
 
 ```powershell
 #Set artifact repository name, if not set by user
@@ -366,10 +368,10 @@ if ($ArtifactRepositoryName -eq $null){
 
 | PowerShell command | Notes |
 | ------------------ | ----- |
-| [Get-AzureRMResource](/powershell/module/azurerm.resources/get-azurermresource?view=azurermps-6.13.0) | This command is used to get details about the lab such as its location. |
-| [New-AzureRMResource](/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-6.13.0) | There is no specific command for adding artifact repositories. The generic [New-AzureRMResource](/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-5.7.0) cmdlet does the job. This cmdlet needs either the **ResourceId** or the **ResourceName** and **ResourceType** pair to know the type of resource to create. This sample script uses the resource name and resource type pair. <br/><br/>Notice that you are creating the artifact repository source in the same location and under the same resource group as the lab.|
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | This command is used to get details about the lab such as its location. |
+| [New-AzResource](/powershell/module/az.resources/new-azresource) | There is no specific command for adding artifact repositories. The generic [New-AzResource](/powershell/module/az.resources/new-azresource) cmdlet does the job. This cmdlet needs either the **ResourceId** or the **ResourceName** and **ResourceType** pair to know the type of resource to create. This sample script uses the resource name and resource type pair. <br/><br/>Notice that you are creating the artifact repository source in the same location and under the same resource group as the lab.|
 
-The script adds a new resource to the current subscription. Use [Get-AzureRMContext](/powershell/module/azurerm.profile/get-azurermcontext?view=azurermps-6.13.0) to see this information. Use [Set-AzureRMContext](/powershell/module/azurerm.profile/set-azurermcontext?view=azurermps-6.13.0) to set the current tenant and subscription.
+The script adds a new resource to the current subscription. Use [Get-AzContext](/powershell/module/az.profile/get-azcontext) to see this information. Use [Set-AzContext](/powershell/module/az.profile/set-azcontext) to set the current tenant and subscription.
 
 The best way to discover the resource name and resource type information is to use the [Test Drive Azure REST APIs](https://azure.github.io/projects/apis/) website. Check out the [DevTest Labs – 2016-05-15](http://aka.ms/dtlrestapis) provider to see the available REST APIs for the DevTest Labs provider. The script users the following resource ID. 
 

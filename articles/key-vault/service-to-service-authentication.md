@@ -9,9 +9,7 @@ services: key-vault
 ms.author: bryanla
 ms.date: 01/04/2019
 ms.topic: conceptual
-ms.prod:
 ms.service: key-vault
-ms.technology:
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
 
 ---
