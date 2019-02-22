@@ -9,7 +9,7 @@ editor:
 
 ---
 
-# Traffic Analytics
+# Schema and Data Aggregation in Traffic Analytics
 
 Traffic Analytics is a cloud-based solution that provides visibility into user and application activity in cloud networks. Traffic Analytics analyzes Network Watcher network security group (NSG) flow logs to provide insights into traffic flow in your Azure cloud. With traffic analytics, you can:
 
