@@ -115,7 +115,6 @@ There are several ways to get started. Begin with whichever works best for you. 
 Get started at runtime with:
 
 * [IIS server](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Java EE server](../../azure-monitor/app/java-get-started.md)
 
 Get started at development time with:
 
