@@ -37,6 +37,10 @@ The following is a common Media Services streaming workflow where Dynamic Packag
 3. Publish the asset that contains the adaptive bitrate MP4 set.
 4. Build the streaming URLs to access and stream your content.
 
+## Video codecs supported by dynamic packaging
+
+Dynamic Packaging supports MP4 files, which contain video encoded with [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC or AVC1), [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 or hvc1).
+
 ## Audio codecs supported by dynamic packaging
 
 Dynamic Packaging supports MP4 files, which contain audio encoded with [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (Enhanced AC-3 or E-AC3), or [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express, DTS LBR, DTS HD, DTS HD Lossless).
