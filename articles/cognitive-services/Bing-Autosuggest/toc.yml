@@ -55,8 +55,6 @@
     maintainContext: true
 - name: Resources
   items:
-  - name: FAQ
-    href: bing-autosuggest-resource-faq.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/autosuggest-api/
   - name: UserVoice

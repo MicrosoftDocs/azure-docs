@@ -13,7 +13,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/15/2019
+  ms.date: 02/20/2019
   ms.author: aahi
 abstract:
   description: Bing Autosuggest API lets you send a partial search query term to Bing and get back a list of suggested queries that other users have searched on.  For example, as users type each character of their search term, you can call this API to populate the search box's drop-down list with suggestions. Learn how to use Autosuggest API with our quickstarts, tutorials, and samples.

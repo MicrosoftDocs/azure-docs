@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 02/19/2019
+ms.date: 02/20/2019
 ms.author: aahi
 ---
 

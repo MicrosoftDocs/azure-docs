@@ -26884,6 +26884,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/bing-autosuggest-resource-faq.md",
+      "redirect_url": "/azure/cognitive-services/bing-autosuggest/tutorials/sending-requests",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-understanding-resource-access.md",
       "redirect_url": "/azure/role-based-access-control/rbac-and-directory-admin-roles",
       "redirect_document_id": true

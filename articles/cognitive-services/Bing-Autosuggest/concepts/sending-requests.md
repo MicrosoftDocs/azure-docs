@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 02/19/2019
+ms.date: 02/20/2019
 ms.author: scottwhi
 ---
 
@@ -56,6 +56,25 @@ The request must specify the [Ocp-Apim-Subscription-Key](https://docs.microsoft.
 The client IP and location headers are important for returning location aware content.
 
 For a list of all request and response headers, see [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#headers).
+
+> [!NOTE]
+> When you call the Bing Autosuggest API from JavaScript, your browser's built-in security features might prevent you from accessing the values of these headers.
+
+To resolve this, you can make the Bing Autosuggest API request through a CORS proxy. The response from such a proxy has a `Access-Control-Expose-Headers` header that whitelists response headers and makes them available to JavaScript.
+
+It's easy to install a CORS proxy to allow our [tutorial app](tutorials/autosuggest.md) to access the optional client headers. First, if you don't already have it, [install Node.js](https://nodejs.org/en/download/). Then enter the following command at a command prompt.
+
+    npm install -g cors-proxy-server
+
+Next, change the Bing Autosuggest API endpoint in the HTML file to:
+
+    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
+
+Finally, start the CORS proxy with the following command:
+
+    cors-proxy-server
+
+Leave the command window open while you use the tutorial app; closing the window stops the proxy. In the expandable HTTP Headers section below the search results, you can now see the `X-MSEdge-ClientID` header (among others) and verify that it is the same for each request.
 
 Requests should include all suggested query parameters and headers. 
 
