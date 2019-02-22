@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/01/2019
+ms.date: 02/21/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
@@ -372,7 +372,7 @@ this trigger.
 
 ## Notification message reference
 
-Depending on the **OperationName**, the notification messages have one of the following message types.
+Depending on the **messageName**, the notification messages have one of the following message types.
 
 ### Block message
 
