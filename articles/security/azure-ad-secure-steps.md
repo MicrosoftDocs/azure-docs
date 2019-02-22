@@ -193,4 +193,3 @@ We appreciate how seriously you take Identity Security and hope this document is
 
 ## Next steps
 If you need assistance to plan and deploy the recommendations, refer to the [Azure AD project deployment plans](https://aka.ms/deploymentplans) for help.
->>>>>>> 36734c3baea82b224c38757365c2984c3a0f9afc

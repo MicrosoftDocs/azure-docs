@@ -138,11 +138,16 @@ Once you have elevated access, open or refresh Azure Security Center to verify y
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. Make sure you select all the subscriptions in the subscription selector that you would like to view in Security Center.
+
     ![Subscription selector screenshot](./media/security-center-management-groups/subscription-selector.png)
+
 1. Select **All services** under the Azure main menu then select **Security Center**.
-2. In the **Overview**, there's a subscription coverage chart. 
+2. In the **Overview**, there's a subscription coverage chart.
+
     ![Subscription coverage chart screenshot](./media/security-center-management-groups/security-center-subscription-coverage.png)
+
 3. Click on **Coverage** to see the list of subscriptions covered. 
+
     ![Subscription coverage list screenshot](./media/security-center-management-groups/security-center-coverage.png)
 
 ### Remove elevated access 
