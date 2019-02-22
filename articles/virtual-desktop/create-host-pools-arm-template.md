@@ -1,5 +1,5 @@
 ---
-title: Create a Windows Virtual Desktop host pool with an Azure Resource Manager template (test) - Azure
+title: Create a host pool with an Azure Resource Manager template - Azure
 description: How to create a host pool in Windows Virtual Desktop with an Azure Resource Manager template.
 services: virtual-desktop
 author: Heidilohr
@@ -47,10 +47,12 @@ For guidance about which parameters you should enter for your scenario, see the 
 
 After the GitHub Azure Resource Manager template completes, assign user access before you start testing the full session desktops on your virtual machines.
 
+First, [download and import the Windows Virtual Desktop PowerShell module](powershell-get-started.md) to use in your PowerShell session if you haven't already.
+
 To assign users to the desktop application group, open a PowerShell window and run this cmdlet to sign in to the Windows Virtual Desktop environment:
 
 ```powershell
-Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
 Next, set the context to the tenant group specified in the Azure Resource Manager template with this cmdlet:
@@ -62,7 +64,7 @@ Set-RdsContext -TenantGroupName <Tenant Group name>
 After that, add users to the desktop application group with this cmdlet:
 
 ```powershell
-Add-RdsAppGroupUser <tenantname> <hostpoolname> “Desktop Application Group” -UserPrincipalName <userupn>
+Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
 The user’s UPN should match the user’s identity in Azure Active Directory (for example, user1@contoso.com). If you want to add multiple users, you must run this cmdlet for each user.

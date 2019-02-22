@@ -34,7 +34,6 @@ sections:
     - html: <a href="/azure/virtual-desktop/manage-app-groups">Manage app groups for Windows Virtual Desktop</a>
     - html: <a href="/azure/virtual-desktop/manage-user-storage">Manage user storage for Windows Virtual Desktop</a>
     - html: <a href="/azure/virtual-desktop/create-service-principal-role-powershell">Create service principals and role assignments with PowerShell</a>
-    - html: <a href="/azure/virtual-desktop/connect">Connect to Windows Virtual Desktop</a>
 - title: Reference
   items: 
   - type: list

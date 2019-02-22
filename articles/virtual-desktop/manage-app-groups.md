@@ -19,18 +19,14 @@ In this tutorial, learn how to:
 > * Create a RemoteApp group.
 > * Grant access to RemoteApps.
 
-You need the Windows Virtual Desktop PowerShell module to follow the instructions in this article. Install the Windows Virtual Desktop PowerShell module from the PowerShell Gallery by running this cmdlet:
-
-```powershell
-PS C:\> Install-Module WindowsVirtualDesktop
-```
+Before you begin, [download and import the Windows Virtual Desktop PowerShell module](powershell-get-started.md) the Windows Virtual Desktop module to use in your PowerShell session if you haven't already.
 
 ## Create a RemoteApp group
 
 1. Run the following PowerShell cmdlet to create a new empty RemoteApp group.
 
  ```powershell
- New-RdsAppGroup <tenantname> <hostpoolname> <appgroupname> -ResourceType “RemoteApp”
+ New-RdsAppGroup <tenantname> <hostpoolname> <appgroupname> -ResourceType "RemoteApp"
  ```
 
 2. (Optional) To verify the application group was created, you can run the following cmdlet to see a list of all application groups for the host pool.
@@ -72,7 +68,7 @@ PS C:\> Install-Module WindowsVirtualDesktop
 
 ## Next steps
 
-Once you've created your app groups, you should set up a file share for your users. To learn how to convert a virtual machine into a file share, see the tutorial for how to manage user storage in Windows Virtual Desktop.
+Once you've created your app groups, you should set up a file share for your users. To learn how to convert a virtual machine into a file share, see the tutorial for how to set up a user profile in Windows Virtual Desktop.
 
 > [!div class="nextstepaction"]
-> [Manage user storage tutorial](./manage-user-storage.md)
+> [Set up user profiles for a host pool](create-host-pools-user-profile-disk.md)

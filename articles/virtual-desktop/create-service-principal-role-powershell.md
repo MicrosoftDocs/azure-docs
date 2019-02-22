@@ -1,5 +1,5 @@
 ---
-title: Create service principals and assign roles with PowerShell in Windows Virtual Desktop - Azure
+title: Create service principals and assign roles with PowerShell - Azure
 description: How to create service principals and assign roles with PowerShell in Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -36,9 +36,9 @@ Before you can create service principals and role assignments, you’ll need to 
 2. Run the following cmdlets with the values in quotes replaced by the values relevant to your session.
 
     ```powershell
-    $myTenantGroupName = “<my-tenant-group-name>”
-    $myTenantName = “<my-tenant-name>”
-    $powerShellLocation = “<windows-virtual-desktop-powershell-location>”
+    $myTenantGroupName = "<my-tenant-group-name>"
+    $myTenantName = "<my-tenant-name>"
+    $powerShellLocation = "<windows-virtual-desktop-powershell-location>"
     ```
 
 3. Follow all instructions in this article in the same PowerShell session. It might not work if you close the window and return to it later.
@@ -58,10 +58,11 @@ $svcPrincipalCreds = New-AzureADApplicationPasswordCredential -ObjectId $svcPrin
 
 Now that you’ve created a service principal, you can use it to sign in to Windows Virtual Desktop. Make sure to sign in with an account that has permissions to create the role assignment.
 
+First, [download and import the Windows Virtual Desktop PowerShell module](powershell-get-started.md) to use in your PowerShell session if you haven't already.
+
 Run the following PowerShell cmdlets to connect to Windows Virtual Desktop and create a role assignment for the service principal.
 
 ```powershell
-Import-Module $powerShellLocation
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 Set-RdsContext -TenantGroupName $myTenantGroupName
 New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantGroupName $myTenantGroupName -TenantName $myTenantName
@@ -104,7 +105,8 @@ Here are the three credentials you should write down and the cmdlets you need to
 
 ## Next steps
 
-In this tutorial, you learned how to create a service principal and sign in to Windows Virtual Desktop with it. To learn more about how to sign in to Windows Virtual Desktop, continue to the Connect to Windows Virtual Desktop tutorial.
+In this tutorial, you learned how to create a service principal and sign in to Windows Virtual Desktop with it. To learn more about how to sign in to Windows Virtual Desktop, continue to the Connect to Windows Virtual Desktop How-tos.
 
-> [!div class="nextstepaction"]
-> [Connect to Windows Virtual Desktop](connect.md)
+- [Connect to the Remote Desktop client on Windows 7 and Windows 10](connect-windows-7-and-10.md)
+- [Connect to Microsoft Remote Desktop on macOS](connect-macos.md)
+- [Connect to the Windows Virtual Desktop web client](connect-web.md)

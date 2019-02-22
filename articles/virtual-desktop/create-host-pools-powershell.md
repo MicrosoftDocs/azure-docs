@@ -1,5 +1,5 @@
 ---
-title: Create a Windows Virtual Desktop host pool with PowerShell - Azure
+title: Create a host pool with PowerShell - Azure
 description: How to create a host pool in Windows Virtual Desktop with PowerShell cmdlets.
 services: virtual-desktop
 author: Heidilohr
@@ -15,8 +15,10 @@ Host pools are a collection of one or more identical virtual machines within Win
 
 ## Use your PowerShell client to create a host pool
 
+First, [download and import the Windows Virtual Desktop PowerShell module](powershell-get-started.md) to use in your PowerShell session if you haven't already.
+
 Run the following cmdlet to sign in to the Windows Virtual Desktop environment
-    
+
 ```powershell
 Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
 ```
@@ -42,7 +44,7 @@ New-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname> -E
 After that, run this cmdlet to add Azure Active Directory users to the default desktop app group for the host pool.
 
 ```powershell
-Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName “Desktop Application Group” -UserPrincipalName <userupn>
+Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
 The **Add-RdsAppGroupUser** cmdlet doesn't support adding security groups and only adds one user at a time to the app group. If you want to add multiple users to the app group, rerun the cmdlet with the appropriate user principal names.
@@ -82,22 +84,28 @@ To successfully domain-join, do the following things on each virtual machine:
 
 Registering the virtual machines to a Windows Virtual Desktop host pool is as simple as installing the Windows Virtual Desktop agents.
 
-To download the Windows Virtual Desktop agents, do the following on each virtual machine:
+To register the Windows Virtual Desktop agents, do the following on each virtual machine:
 
 1. [Connect to the virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
-2. Launch an internet browser and navigate to the following [link]() to download the Windows Virtual Desktop agents.
-
-To install the Windows Virtual Desktop agents, do the following on each virtual machine:
-
-1. Run the **RDInfraAgentInstall** msi from the downloaded files and progress through the installation. When asked for the registration token, enter the value you obtained from the **Export-RdsRegistrationInfo** command.
-2. Run the **RDAgentBootLoaderInstall** msi from the downloaded files and complete the installation.
-3. Install or activate the Side-by-Side stack. The steps will be different depending on which OS version the virtual machine uses.
+2. Download and install the Windows Virtual Desktop Agent.
+  - Download the [Windows Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
+  - Right-click the downloaded installer, select **Properties**, select **Unblock**, then select **OK**. This will allow your system to trust the installer.
+  - Run the installer. When the installer asks you for the registration token, enter the value you got from the **Export-RdsRegistrationInfo** cmdlet.
+3. Download and install the Windows Virtual Desktop Agent Bootloader.
+  - Download the [Windows Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
+  - Right-click the downloaded installer, select **Properties**, select **Unblock**, then select **OK**. This will allow your system to trust the installer.
+  - Run the installer.
+4. Install or activate the Windows Virtual Desktop side-by-side stack. The steps will be different depending on which OS version the virtual machine uses.
    - If your virtual machine's OS is Windows Server 2016:
-     - From the **Start** menu, search for Windows PowerShell ISE, right-click it, then select **Run as administrator**.
-     - Select **File**, then **Open…**, find the enablesxsstackrc.ps1 PowerShell script from the downloaded files and open it.
-     - Select the green play button to run the script.
+     - Download the [Windows Virtual Desktop side-by-side stack](https://rdmipreview.blob.core.windows.net/preview/Microsoft.RDInfra.StackSxS.Installer-x64.msi?st=2019-02-20T22%3A57%3A33Z&se=2019-03-31T20%3A58%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=zKnZjQhu4CKCmXLbkIqcK%2FXNliAbmhxt89LRUjUA9bE%3D).
+     - Right-click the downloaded installer, select **Properties**, select **Unblock**, then select **OK**. This will allow your system to trust the installer.
+     - Run the installer.
    - If your virtual machine's OS is Windows 10 1809 or later or Windows Server 2019 or later:
-     - Run the **RDInfraSxSStackInstall** msi from the downloaded files and complete the installation.
+     - Download the [script](https://rdmipreview.blob.core.windows.net/preview/enablesxsstackrc.ps1?st=2019-02-20T22%3A13%3A33Z&se=2019-04-01T06%3A13%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=b1io9a32CsqWXY6LlZBPnZ9VEqzJcPI4ZZx%2Ftq9TcY8%3D) to activate the side-by-side stack.
+     - Right-click the downloaded script, select **Properties**, select **Unblock**, then select **OK**. This will allow your system to trust the script.
+     - From the **Start** menu, search for Windows PowerShell ISE, right-click it, then select **Run as administrator**.
+     - Select **File**, then **Open…**, and then find the PowerShell script from the downloaded files and open it.
+     - Select the green play button to run the script.
 
 ## Next steps
 

@@ -38,9 +38,10 @@ Once their accounts are set up, users can connect to a Windows Virtual Desktop d
 
 Learn more about infrastructure roles and how to assign roles to users at [Delegated Access in Windows Virtual Desktop](delegated-access-virtual-desktop.md).
 
-To learn how to set up a tenant environment, see one of the following tutorials:
+To learn how to set up a tenant environment, see [Set up Windows Virtual Desktop tenants in Azure Active Directory](tenant-setup-azure-active-directory.md).
 
-* [Set up Windows Virtual Desktop tenants in Azure Active Directory](tenant-setup-azure-active-directory.md)
-* [Connect to an existing Remote Desktop environment](tenant-setup-remote-desktop.md)
+To learn how to connect to Windows Virtual Desktop, see one of the following articles:
 
-To learn how to connect to Windows Virtual Desktop, see the [Connect to Windows Virtual Desktop](connect.md) tutorial.
+* [Connect to the Remote Desktop client on Windows 7 and Windows 10](connect-windows-7-and-10.md)
+* [Connect to Microsoft Remote Desktop on macOS](connect-macos.md)
+* [Connect to the Windows Virtual Desktop web client](connect-web.md)
