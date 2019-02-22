@@ -294,7 +294,12 @@ Can create application registrations independent of the ‘Users can register ap
 | microsoft.aad.directory/servicePrincipals/createAsOwner | Create servicePrincipals in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
 
 ### Authentication Administrator
-Allowed to view, set and reset authentication method information for any non-admin user.
+Allowed to view, set, and reset authentication method information for any non-admin user.
+
+> [!IMPORTANT]
+> The Authentication administrator role is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 | **Actions** | **Description** |
 | --- | --- |
@@ -305,6 +310,7 @@ Allowed to view, set and reset authentication method information for any non-adm
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+
 
 ### Billing Administrator
 Can perform common billing related tasks like updating payment information.
