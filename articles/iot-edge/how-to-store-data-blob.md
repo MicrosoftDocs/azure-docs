@@ -117,7 +117,8 @@ The Azure Marketplace provides IoT Edge modules that can be deployed directly to
 
       ![Update module container create options - portal](./media/how-to-store-data-blob/edit-module.png)
 
-   4. Select **Save**.
+   4. **Set module twin's desired properties** to enable [auto-tiering and auto-clean](#configure-auto-tiering-and-auto-clean-via-azure-portal)
+   5. Select **Save**. 
 
 4. Select **Next** to continue to the next step of the wizard.
 5. In the **Specify Routes** step of the wizard, select **Next**.
@@ -190,18 +191,11 @@ Use the following steps to create a new IoT Edge solution with a blob storage mo
 
 9. Save the **.env** file. 
 
-10. Right-click **deployment.template.json** and select **Generate IoT Edge deployment manifest**. 
+10. Configure [auto-tiering and auto-clean](#configure-auto-tiering-and-auto-clean-via-vscode) 
 
-11. Visual Studio Code takes the information that you provided in deployment.template.json and .env and uses it to create a new deployment manifest file. The deployment manifest is created in a new **config** folder in your solution workspace. Once you have that file, you can follow the steps in [Deploy Azure IoT Edge modules from Visual Studio Code](how-to-deploy-modules-vscode.md) or [Deploy Azure IoT Edge modules with Azure CLI 2.0](how-to-deploy-modules-cli.md).
+11. Right-click **deployment.template.json** and select **Generate IoT Edge deployment manifest**. 
 
-## Connect to your blob storage module
-
-You can use the account name and account key that you configured for your module to access the blob storage on your IoT Edge device. 
-
-Specify your IoT Edge device as the blob endpoint for any storage requests that you make to it. You can [Create a connection string for an explicit storage endpoint](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) using the IoT Edge device information and the account name that you configured. 
-
-1. For modules, which are deployed on the same edge device where "Azure Blob Storage on IoT Edge" is running, the blob endpoint is: `http://<module name>:11002/<account name>`. 
-2. For modules, which are deployed on different edge device, than the edge device where "Azure Blob Storage on IoT Edge" is running, then depending upon your setup the blob endpoint is: `http://<device IP >:11002/<account name>` or `http://<IoT Edge device hostname>:11002/<account name>` or `http://<FQDN>:11002/<account name>`
+12. Visual Studio Code takes the information that you provided in deployment.template.json and .env and uses it to create a new deployment manifest file. The deployment manifest is created in a new **config** folder in your solution workspace. Once you have that file, you can follow the steps in [Deploy Azure IoT Edge modules from Visual Studio Code](how-to-deploy-modules-vscode.md) or [Deploy Azure IoT Edge modules with Azure CLI 2.0](how-to-deploy-modules-cli.md).
 
 ## Auto-tiering
 This is a configurable functionality, which allows you to automatically copy the data from your local blob storage to Azure with intermittent internet connectivity support. It allows you to:
@@ -221,9 +215,42 @@ This is a configurable auto-clean functionality where this module automatically 
 1. Turn ON/OFF the auto-clean feature: `"ttlOn": {false,true}`
 2. Specify the TTL in minutes: `"timeToLiveInMinutes": <minutes>`
 
-## Configure Auto-tiering and Auto-clean
+## Configure Auto-tiering and Auto-clean via Azure Portal
 
-Set the desired properties for this module
+**Set module twin's desired properties** to enable auto-tiering and auto-clean, set this value:
+1. During the initial deployment
+2. After the module is deployed via "Set modules" feature
+
+Add the below JSON in **Set module twin's desired properties** box, configure it with appropriate values, save it and continue with the deployment.
+
+```json
+{
+      "properties.desired": {
+          "ttlSettings": {
+            "ttlOn": <true, false>, 
+            "timeToLiveInMinutes": <timeToLiveInMinutes> 
+          },
+          "tieringSettings": {
+              "tieringOn": <true, false>,
+              "backlogPolicy": "<NewestFirst, OldestFirst>",
+              "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+              "tieredContainers": {
+                  "<source container name1>": {
+                      "target": "<target container name>"
+                  },
+                  "<source container name2>": {
+                    "target": "<target container name2>"
+                  },
+                  "<source container name3>": {}
+              }
+          }
+      }
+  }
+```
+
+## Configure Auto-tiering and Auto-clean via VSCode
+
+Add the below JSON in your deployment.template.json, configure it with appropriate values and save it.
 
 ```json
 "<your azureblobstorageoniotedge module name>":{
@@ -251,6 +278,15 @@ Set the desired properties for this module
 ```
 Here is an example of desired properties for this module:
  ![set desired properties for azureblobstorageoniotedge - VS Code](./media/how-to-store-data-blob/tiering_ttl.png)
+
+## Connect to your blob storage module
+
+You can use the account name and account key that you configured for your module to access the blob storage on your IoT Edge device. 
+
+Specify your IoT Edge device as the blob endpoint for any storage requests that you make to it. You can [Create a connection string for an explicit storage endpoint](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) using the IoT Edge device information and the account name that you configured. 
+
+1. For modules, which are deployed on the same edge device where "Azure Blob Storage on IoT Edge" is running, the blob endpoint is: `http://<module name>:11002/<account name>`. 
+2. For modules, which are deployed on different edge device, than the edge device where "Azure Blob Storage on IoT Edge" is running, then depending upon your setup the blob endpoint is: `http://<device IP >:11002/<account name>` or `http://<IoT Edge device hostname>:11002/<account name>` or `http://<FQDN>:11002/<account name>`
 
 ## Logs
 
