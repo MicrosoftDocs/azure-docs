@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the simple entity.  
---- 
+---
 
 # Tutorial: Extract names with simple entity and a phrase list
 
