@@ -1,0 +1,45 @@
+---
+title: Collect Azure AD data in Azure Sentinel | Microsoft Docs
+description: Learn how to collect Azure Active Directory data in Azure Sentinel.
+services: sentinel
+documentationcenter: na
+author: rkarlin
+manager: MBaldwin
+editor: ''
+
+ms.assetid: 0a8f4a58-e96a-4883-adf3-6b8b49208e6a
+ms.service: sentinel
+ms.devlang: na
+ms.topic: conceptual
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 1/30/2019
+ms.author: rkarlin
+
+---
+# Collect data from Azure Active Directory
+
+Azure Sentinel enables you to collect data from [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) and stream it into Azure Sentinel. You can choose to stream both [sign-in logs](../active-directory/reports-monitoring/concept-sign-ins.md) and [audit logs](../active-directory/reports-monitoring/concept-audit-logs.md) .
+
+## Prerequisites
+
+- If you want to export sign-in data from Active Directory, you must have an Azure AD P1 or P2 license.
+
+- User with global admin or security admin permissions on the tenant you want to stream the logs from.
+
+
+## Connect to Azure AD
+
+1. In Azure Sentinel, select **Data collection** and then click the **Azure Active Directory** tile.
+
+2. Next to the logs you want to stream into Azure Sentinel, click **Connect**.
+
+
+
+
+
+
+## Next steps
+In this document, you learned how to connect Azure AD to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
