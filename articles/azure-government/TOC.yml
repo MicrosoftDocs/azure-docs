@@ -58,7 +58,8 @@
     href: documentation-government-aad-auth-qs.md
   - name: Use DISA CAP
     href: documentation-government-ase-disa-cap.md
-        
+  - name: Configure Impact Level 5 Workloads
+    href: documentation-government-impact-level-5.md
 - name: Reference
   items:
   - name: Marketplace
