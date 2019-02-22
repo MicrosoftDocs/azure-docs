@@ -72,6 +72,10 @@
         href: tutorial-incremental-copy-change-tracking-feature-portal.md
       - name: Azure PowerShell
         href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+    - name: 4 - Copy new files by lastmodifieddate
+      items:
+      - name: Copy Data tool
+        href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
   - name: Transform data in cloud
     items:
     - name: HDInsight Spark
@@ -465,7 +469,7 @@
       href: store-credentials-in-key-vault.md
     - name: Encrypt credentials for self-hosted integration runtime
       href: encrypt-credentials-self-hosted-integration-runtime.md
-    - name: Data factory service identity
+    - name: Managed identity for Data Factory
       href: data-factory-service-identity.md
   - name: Monitor and manage
     items:

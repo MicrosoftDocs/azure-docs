@@ -70,7 +70,15 @@
       href: content-protection-overview.md  
       items:
       - name: Multi-DRM system with access control
-        href: design-multi-drm-system-with-access-control.md        
+        href: design-multi-drm-system-with-access-control.md  
+      - name: DRM licenses
+        items:
+        - name: PlayReady license template
+          href: playready-license-template-overview.md
+        - name: Widevine license template
+          href: widevine-license-template-overview.md
+        - name: FairPlay license requirements
+          href: fairplay-license-overview.md      
     - name: Streaming Endpoints
       displayName: Origins
       href: streaming-endpoint-concept.md
@@ -99,7 +107,9 @@
   - name: Monitoring
     items:
     - name: Events with Event Grid
-      href: reacting-to-media-services-events.md   
+      href: reacting-to-media-services-events.md  
+    - name: Event Grid schemas
+      href: media-services-event-schemas.md      
   - name: Player clients
     items:
     - name: Azure Media Player
@@ -142,10 +152,7 @@
       href: job-input-from-http-how-to.md
     - name: Local file as Job input - .NET
       displayName: encode, encoding
-      href: job-input-from-local-file-how-to.md  
-    - name: Local file as Job input - REST
-      displayName: encode
-      href: upload-files-rest-how-to.md    
+      href: job-input-from-local-file-how-to.md    
     - name: Use a custom Transform - .NET
       displayName: encode, encoding, tranform
       href: customize-encoder-presets-how-to.md
@@ -199,16 +206,6 @@
       href: https://aka.ms/ams-v3-go-ref
   - name: Resource Manager template
     href: /azure/templates/microsoft.media/allversions
-  - name: Event Grid schemas
-    href: media-services-event-schemas.md
-  - name: DRM licenses
-    items:
-    - name: PlayReady license template
-      href: playready-license-template-overview.md
-    - name: Widevine license template
-      href: widevine-license-template-overview.md
-    - name: FairPlay license requirements
-      href: fairplay-license-overview.md
 - name: Resources
   items:
   - name: Azure Roadmap

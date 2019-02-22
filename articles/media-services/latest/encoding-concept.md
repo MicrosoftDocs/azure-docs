@@ -21,7 +21,7 @@ ms.custom: seodec18
 
 Azure Media Services enables you to encode your high-quality digital media files into formats that can be played on a wide variety of browsers and devices. For example, you might want to stream your content in Apple's HLS or MPEG DASH formats. This topic gives you guidance on how to encode your content with Media Services v3.
 
-To encode with Media Services v3, you need to create a [Transform](https://docs.microsoft.com/rest/api/media/transforms) and a [Job](https://docs.microsoft.com/rest/api/media/jobs). A transform defines the recipe for your encoding settings and outputs, and the job is an instance of the recipe. For more information, see [Transforms and Jobs](transform-concept.md)
+To encode with Media Services v3, you need to create a [Transform](https://docs.microsoft.com/rest/api/media/transforms) and a [Job](https://docs.microsoft.com/rest/api/media/jobs). A transform defines the recipe for your encoding settings and outputs, and the job is an instance of the recipe. For more information, see [Transforms and Jobs](transforms-jobs-concept.md)
 
 When encoding with Media Services, you use presets to tell the encoder how the input media files should be processed. For example, you can specify the video resolution and/or the number of audio channels you want in the encoded content. 
 
@@ -62,26 +62,5 @@ Currently, customers have to use the Azure portal or Media Services v2 APIs to s
 
 ## Next steps
 
-### Tutorials
-
-The following tutorial shows how to encode your content with Media Services:
-
+* [Transforms and Jobs](transforms-jobs-concept.md)
 * [Upload, encode, and stream using Media Services](stream-files-tutorial-with-api.md)
-
-### Code samples
-
-The following code samples contain code that shows how to encode with Media Services:
-
-* [.NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore)
-* [Azure CLI](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)
-
-### SDKs
-
-You can use any of the following supported Media Services v3 SDKs to encode your content.
-
-* [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
-* [REST](https://docs.microsoft.com/rest/api/media/transforms)
-* [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
-* [Java](https://docs.microsoft.com/java/api/overview/azure/mediaservices)
-* [Python](https://docs.microsoft.com/python/api/overview/azure/media-services?view=azure-python)
-

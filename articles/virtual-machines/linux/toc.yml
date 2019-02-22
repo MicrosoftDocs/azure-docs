@@ -444,7 +444,7 @@
       href: using-managed-disks-template-deployments.md
     - name: Using write accelerator
       href: how-to-enable-write-accelerator.md
-    - name: Enable ultra disks
+    - name: Enable ultra SSDs
       href: disks-enable-ultra-ssd.md
     - name: Optimize performance
       href: optimization.md

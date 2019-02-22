@@ -24,6 +24,10 @@ The following code shows how to create a job with an HTTPS URL input.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-quickstarts/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs#SubmitJob)]
 
+## Job error codes
+
+See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+
 ## Next steps
 
 [Create a job input from a local file](job-input-from-local-file-how-to.md).

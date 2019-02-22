@@ -19,6 +19,8 @@ ms.author: apimpm
 # Azure API Management FAQs
 Get the answers to common questions, patterns, and best practices for Azure API Management.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Contact us
 * [How can I ask the Microsoft Azure API Management team a question?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 
@@ -84,9 +86,9 @@ Here's how you can add a user to the Administrators group:
 
 Now the newly added contributor can use Azure PowerShell [cmdlets](https://docs.microsoft.com/powershell/azure/overview). Here's how to sign in as an administrator:
 
-1. Use the `Connect-AzureRmAccount` cmdlet to sign in.
-2. Set the context to the subscription that has the service by using `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`.
-3. Get a single sign-on URL by using `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
+1. Use the `Connect-AzAccount` cmdlet to sign in.
+2. Set the context to the subscription that has the service by using `Set-AzContext -SubscriptionID <subscriptionGUID>`.
+3. Get a single sign-on URL by using `Get-AzApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
 4. Use the URL to access the admin portal.
 
 ### Why is the policy that I want to add unavailable in the policy editor?
@@ -127,11 +129,11 @@ Yes. See the [Azure API Management Service](https://aka.ms/apimtemplate) QuickSt
 Yes. This can be done through PowerShell or by directly submitting to the API. This will disable certificate chain validation and will allow you to use self-signed or privately-signed certificates when communicating from API Management to the back end services.
 
 #### Powershell method ####
-Use the [`New-AzureRmApiManagementBackend`](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (for new back end) or [`Set-AzureRmApiManagementBackend`](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (for existing back end) PowerShell cmdlets and set the `-SkipCertificateChainValidation` parameter to `True`. 
+Use the [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (for new back end) or [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (for existing back end) PowerShell cmdlets and set the `-SkipCertificateChainValidation` parameter to `True`. 
 
 ```powershell
-$context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
-New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
+$context = New-AApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
 
 #### Direct API update method ####

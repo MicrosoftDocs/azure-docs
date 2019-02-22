@@ -76,7 +76,7 @@ To grant access to specific file and folders, see these articles.
 
 * [Access control lists on files and directories](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories)
 
-To learn about setting up other aspects of security, see [Azure Data Lake Storage Gen2 security guide](https://review.docs.microsoft.com/en-us/azure/storage/common/storage-data-lake-storage-security-guide?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+To learn about setting up other aspects of security, see [Azure Data Lake Storage Gen2 security guide](https://review.docs.microsoft.com/azure/storage/common/storage-data-lake-storage-security-guide?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## Ingest the data
 

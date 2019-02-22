@@ -11,7 +11,7 @@ services: iot-edge
 ms.custom: "mvc, seodec18"
 ---
 
-# Quickstart: Deploy your first IoT Edge module to a Linux x64 device
+# Quickstart: Deploy your first IoT Edge module to a Linux device
 
 Azure IoT Edge moves the power of the cloud to your Internet of Things devices. In this quickstart, learn how to use the cloud interface to deploy prebuilt code remotely to an IoT Edge device.
 
@@ -24,7 +24,7 @@ In this quickstart you learn how to:
 
 ![Diagram - Quickstart architecture for device and cloud](./media/quickstart-linux/install-edge-full.png)
 
-This quickstart turns your Linux computer or virtual machine into an IoT Edge device. Then you can deploy a module from the Azure portal to your device. The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights.
+This quickstart walks you through creating an Azure virtual machine that's configured to be IoT Edge device. Then you can deploy a module from the Azure portal to your device. The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights.
 
 If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
@@ -57,12 +57,12 @@ IoT Edge device:
    ```
 
    It may take a few minutes to create and start the new virtual machine. 
+   
+   You may get a `MarketplacePurchaseEligibilityFailed` error at this point. If this happens, you need to accept the terms by going to [Azure IoT Edge on Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) and clicking `Get It Now`. Sign in and accept the terms there before retrying the command.
 
    When you create a new virtual machine, make a note of the **publicIpAddress**, which is provided as part of the create command output. You will use this public IP address to connect to the virtual machine later in the quickstart.
 
-* If you prefer to run the Azure IoT Edge runtime on your local system follow instructions at [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md).
-
-* If you'd like to use an ARM32 based device, such as Raspberry Pi, follow the instructions at [Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
+* If you prefer to run the Azure IoT Edge runtime on your own device, follow instructions at [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md) or [Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
 
 ## Create an IoT hub
 
