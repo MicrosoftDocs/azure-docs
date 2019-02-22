@@ -28,7 +28,7 @@ The following graphic shows the flow of the next several steps. More details are
 
 1. In the **Autoscale setting name** box, provide a name, such as *Scale-out: cache utilization*.
 
-1. For **Scale mode**, select **Scale based on a metric**. This mode provides dynamic scaling; you can also select **Scale to a specific instance count**.
+1. For **Scale mode**, select **Scale based on a metric**. This mode provides dynamic scaling. You can also select **Scale to a specific instance count**.
 
 1. Select **+ Add a rule**.
 
