@@ -140,14 +140,16 @@ When you're using a local computer (which might also be a remote virtual machine
 
 1. Open an Anaconda prompt and create an environment with the following commands:
 
+    Run the following command to create the environment.
+
     ```shell
     conda create -n myenv python=3.6.5
+    ```
 
-    # activate the Conda environment
+    Then activate the environment.
+
+    ```shell
     conda activate myenv
-
-    # On macOS run
-    source activate myenv
     ```
 
     This example creates an environment using python 3.6.5, but any specific subversions can be chosen. SDK compatibility may not be guaranteed with certain major versions (3.5+ is recommended), and it's recommended to try a different version/subversion in your Anaconda environment if you run into errors. It will take several minutes to create the environment while components and packages are downloaded.
