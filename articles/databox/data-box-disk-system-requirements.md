@@ -57,6 +57,7 @@ Here is a list of the supported storage types for the Data Box Disk.
 | --- | --- |
 | Classic | Standard |
 | General Purpose  |Standard; both V1 and V2 are supported. Both hot and cool tiers are supported. |
+| Blob storage account | |
 
 >[!NOTE]
 > Azure Data Lake Storage Gen 2 accounts are not supported.
