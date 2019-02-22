@@ -17,7 +17,7 @@ ms.author: jdial
 
 # Associate a public IP address to a virtual machine
 
-In this article, you learn how to associate a public IP address to an existing virtual machine (VM). If you want to connect to a VM from the internet, the VM must have a public IP address associated to it. If you want to create a new VM with a public IP address, you can do so using the [Azure portal](virtual-network-deploy-static-pip-arm-portal.md), the [Azure command-line interface (CLI)](virtual-network-deploy-static-pip-arm-cli.md), or [PowerShell](virtual-network-deploy-static-pip-arm-powershell.md). Public IP addresses have a nominal fee. For details, see [pricing](https://azure.microsoft.com/pricing/details/ip-addresses/). There is a limit to the number of public IP addresses that you can use per subscription. For details, see [limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits-1).
+In this article, you learn how to associate a public IP address to an existing virtual machine (VM). If you want to connect to a VM from the internet, the VM must have a public IP address associated to it. If you want to create a new VM with a public IP address, you can do so using the [Azure portal](virtual-network-deploy-static-pip-arm-portal.md), the [Azure command-line interface (CLI)](virtual-network-deploy-static-pip-arm-cli.md), or [PowerShell](virtual-network-deploy-static-pip-arm-ps.md). Public IP addresses have a nominal fee. For details, see [pricing](https://azure.microsoft.com/pricing/details/ip-addresses/). There is a limit to the number of public IP addresses that you can use per subscription. For details, see [limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits-1).
 
 You can use the [Azure portal](#azure-portal), the Azure [command-line interface](#azure-cli) (CLI), or [PowerShell](#powershell) to associate a public IP address to a VM.
 
@@ -164,18 +164,18 @@ Install [PowerShell](/powershell/azure/install-az-ps), or use the Azure Cloud Sh
      "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVMVNET/subnets/myVMSubnet",
      ```
 
-- If you don't know the name of an IP configuration for a network interface, use the [Get-AzNetworkInterface](/powershell/module/Az.Network/Get-AzNetworkInterface) command to retrieve them. For example, the following command lists the names of the IP configurations for a network interface named *myVMVMNic* in a resource group named *myResourceGroup*:
+  - If you don't know the name of an IP configuration for a network interface, use the [Get-AzNetworkInterface](/powershell/module/Az.Network/Get-AzNetworkInterface) command to retrieve them. For example, the following command lists the names of the IP configurations for a network interface named *myVMVMNic* in a resource group named *myResourceGroup*:
 
-  ```azurepowershell-interactive
-  $nic = Get-AzNetworkInterface -Name myVMVMNic -ResourceGroupName myResourceGroup
-  $nic.IPConfigurations
-  ```
+    ```azurepowershell-interactive
+    $nic = Get-AzNetworkInterface -Name myVMVMNic -ResourceGroupName myResourceGroup
+    $nic.IPConfigurations
+    ```
 
-  The output includes one or more lines that are similar to the example that follows. In the example output, *ipconfigmyVM* is the name of an IP configuration.
+    The output includes one or more lines that are similar to the example that follows. In the example output, *ipconfigmyVM* is the name of an IP configuration.
   
-  ```
-  Id     : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic/ipConfigurations/ipconfigmyVM
-  ```
+    ```
+    Id     : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic/ipConfigurations/ipconfigmyVM
+    ```
 
 3. View the public IP address assigned to the IP configuration with the [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) command. The following example shows the address assigned to a public IP address named *myVMPublicIP* in a resource group named *myResourceGroup*.
 
@@ -205,29 +205,7 @@ Install [PowerShell](/powershell/azure/install-az-ps), or use the Azure Cloud Sh
 
 ## Allow network traffic to the VM
 
-Before you can connect to the public IP address from the internet, ensure that you have the necessary ports open in any network security group that you might have associated to the network interface, the subnet the network interface is in, or both. Though security groups filter traffic to the private IP address of the network interface, once inbound internet traffic arrives at the public IP address, Azure translates the public address to the private IP address, so if a network security group prevents the traffic flow, the communication with the public IP address fails. You can quickly test whether communication to a VM will succeed by using the IP flow verify capability of Azure Network Watcher ([Portal](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json#test-network-communication), [CLI](../network-watcher/diagnose-vm-network-traffic-filtering-problem-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#test-network-communication), or [PowerShell](../network-watcher/diagnose-vm-network-traffic-filtering-problem-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json#test-network-communication)). You can also see all security rules for a network interface by viewing the effective security rules for a network interface using the [Portal](diagnose-network-traffic-filter-problem.md#diagnose-using-azure-portal), [CLI](diagnose-network-traffic-filter-problem#diagnose-using-azure-cli), or [PowerShell](diagnose-network-traffic-filter-problem#diagnose-using-powershell).
-
-## Delete resources
-
-When you've finished this article, you might want to delete the resources you created, so you don't incur usage charges. Deleting a resource group also deletes all resources that are in the resource group.
-
-### <a name="delete-portal"></a>Azure portal
-
-1. In the portal search box, enter **myResourceGroup**. In the search results, select **myResourceGroup**.
-2. Select **Delete**.
-3. To confirm the deletion, in the **TYPE THE RESOURCE GROUP NAME** box, enter **myResourceGroup**, and then select **Delete**.
-
-### <a name="delete-cli"></a>Azure CLI
-
-```azurecli-interactive
-az group delete --name myResourceGroup --yes
-```
-
-### <a name="delete-powershell"></a>PowerShell
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup -force
-```
+Before you can connect to the public IP address from the internet, ensure that you have the necessary ports open in any network security group that you might have associated to the network interface, the subnet the network interface is in, or both. Though security groups filter traffic to the private IP address of the network interface, once inbound internet traffic arrives at the public IP address, Azure translates the public address to the private IP address, so if a network security group prevents the traffic flow, the communication with the public IP address fails. You can view the effective security rules for a network interface and its subnet using the [Portal](diagnose-network-traffic-filter-problem.md#diagnose-using-azure-portal), [CLI](diagnose-network-traffic-filter-problem.md#diagnose-using-azure-cli), or [PowerShell](diagnose-network-traffic-filter-problem.md#diagnose-using-powershell).
 
 ## Next steps
 
