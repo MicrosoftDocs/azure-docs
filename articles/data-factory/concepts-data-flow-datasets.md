@@ -38,7 +38,7 @@ When creating a new Dataset, there is a checkbox labeled "Data Flow Compatible" 
 
 When importing the schema of Data Flow datasets, you will see an Import Schema button. Clicking that button will present you with two options: Import from the source or import from a local file. In most cases, you will import the schema directly from the source. However, if you have an existing schema file (Parquet file or CSV with headers), you can point to that local file and Data Factory will define the schema based upon that schema file.
 
-## Next Steps
+## Next steps
 
-Start by [creating a new Data Flow](https://docs.microsoft.com/en-us/azure/data-factory/data-flow-create) and add a Source Transformation. Then configure the dataset for your Source.
+Start by [creating a new Data Flow](https://docs.microsoft.com/azure/data-factory/data-flow-create) and add a Source Transformation. Then configure the dataset for your Source.
 
