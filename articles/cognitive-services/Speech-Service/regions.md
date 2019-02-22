@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Reference for regions of the Speech Service.
 services: cognitive-services
 author: mahilleb-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mahilleb
@@ -22,7 +22,7 @@ Make sure that you use the endpoint that matches the region for your subscriptio
 
 ## Speech SDK
 
-In the [Speech Service SDK](speech-sdk.md), regions are specified as a string
+In the [Speech SDK](speech-sdk.md), regions are specified as a string
 (for example, as a parameter to `SpeechConfig.FromSubscription` in the Speech SDK for C#).
 
 ### Speech recognition and translation
@@ -68,12 +68,12 @@ The Speech service also exposes REST endpoints for speech-to-text and text-to-sp
 
 ### Speech-to-text
 
-For speech-to-text reference documentation, see [REST APIs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#speech-to-text).
+For speech-to-text reference documentation, see [REST APIs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 ### Text-to-speech
 
-For text-to-speech reference documentation, see [REST APIs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#speech-to-text).
+For text-to-speech reference documentation, see [REST APIs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]

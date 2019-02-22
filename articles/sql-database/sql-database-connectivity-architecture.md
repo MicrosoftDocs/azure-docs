@@ -11,7 +11,7 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/03/2019
+ms.date: 02/06/2019
 ---
 # Azure SQL Connectivity Architecture
 
@@ -19,8 +19,7 @@ This article explains the Azure SQL Database and SQL Data Warehouse connectivity
 
 > [!IMPORTANT]
 > **[Upcoming change] For service endpoint connections to Azure SQL servers, a `Default` connectivity behavior changes to `Redirect`.**
->
-> Change is effective for all regions on or before January 2nd, 2019.
+> Customers are advised to create new servers and set existing ones with connection type explicitly set to Redirect (preferable) or Proxy depending on their connectivity architecture.
 >
 > To prevent connectivity through a service endpoint from breaking in existing environments as a result of this change, we use telemetry do the following:
 > - For servers that we detect that were accessed through service endpoints before the change, we switch the connection type to `Proxy`.
@@ -28,11 +27,11 @@ This article explains the Azure SQL Database and SQL Data Warehouse connectivity
 >
 > Service endpoint users might still be affected in the following scenarios:
 > - Application connects to an existing server infrequently so our telemetry didn't capture the information about those applications
-> - Automated deployment logic creates a logical server assuming that the default behavior for service endpoint connections is `Proxy`
+> - Automated deployment logic creates a SQL Database server assuming that the default behavior for service endpoint connections is `Proxy`
 >
 > If service endpoint connections could not be established to Azure SQL server, and you are suspecting that you are affected by this change, please verify that connection type is explicitly set to `Redirect`. If this is the case, you have to open VM firewall rules and Network Security Groups (NSG) to all Azure IP addresses in the region that belong to Sql [service tag](../virtual-network/security-overview.md#service-tags) for ports 11000-12000. If this is not an option for you, switch server explicitly to `Proxy`.
 > [!NOTE]
-> This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
+> This topic applies to Azure SQL Database servers hosting single databases and elastic pools and SQL Data Warehouse databases. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
 
 ## Connectivity architecture
 
@@ -123,7 +122,7 @@ To change the Azure SQL Database connection policy for an Azure SQL Database ser
 ## Script to change connection settings via PowerShell
 
 > [!IMPORTANT]
-> This script requires the [Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+> This script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
 
 The following PowerShell script shows how to change the connection policy.
 

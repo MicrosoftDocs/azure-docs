@@ -5,7 +5,7 @@ description: Custom Translator offers similar capabilities to what Microsoft Tra
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: overview
@@ -18,7 +18,7 @@ ms.topic: overview
 
 Translation systems built with [Custom Translator](https://portal.customtranslator.azure.ai) are available through the same cloud-based, [secure](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality), high performance, highly scalable Microsoft Translator [Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl), that powers billions of translations  every day. 
 
-Custom Translator supports more than three dozen languages, and maps directly to the languages available for NMT. For a complete list, see  [Microsoft Translator Languages]( https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Custom Translator supports more than three dozen languages, and maps directly to the languages available for NMT. For a complete list, see  [Microsoft Translator Languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 
 ## Features
 

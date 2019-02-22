@@ -24,7 +24,7 @@ The following table describes default limits for Azure Storage. The *ingress* li
 | Max egress for general-purpose v1 storage accounts (US regions) | 20 Gbps if RA-GRS/GRS enabled, 30 Gbps for LRS/ZRS <sup>2</sup> |
 | Max egress for general-purpose v1 storage accounts (Non-US regions) | 10 Gbps if RA-GRS/GRS enabled, 15 Gbps for LRS/ZRS <sup>2</sup> |
 
-<sup>1</sup> Azure storage accounts support higher limits for ingress and IOPS by request. To request an increase in account limits, please contact [Azure Support](https://azure.microsoft.com/support/faq/).
+<sup>1</sup> Azure standard storage accounts support higher limits for ingress by request. To request an increase in account limits for ingress, contact [Azure Support](https://azure.microsoft.com/support/faq/).
 
 <sup>2</sup> [Azure Storage replication](https://docs.microsoft.com/azure/storage/common/storage-redundancy) options include:
 * **RA-GRS**: Read-access geo-redundant storage. If RA-GRS is enabled, egress targets for the secondary location are identical to those for the primary location.

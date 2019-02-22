@@ -4,7 +4,7 @@ description: Azure Policy evaluations and effects determine compliance. Learn ho
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -32,6 +32,8 @@ updated and the frequency and events that trigger an evaluation cycle.
 > If compliance state is being reported as **Not registered**, verify that the **Microsoft.PolicyInsights**
 > Resource Provider is registered and that the user has the appropriate role-based access control
 > (RBAC) permissions as described [here](../overview.md#rbac-permissions-in-azure-policy).
+
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## Evaluation triggers
 
@@ -61,6 +63,9 @@ minutes later. This event doesn't cause an evaluation of other resources.
 reevaluated. A large policy or initiative of many resources can take time, so there's no
 pre-defined expectation of when the evaluation cycle will complete. Once it completes, updated
 compliance results are available in the portal and SDKs.
+
+- The [Guest Configuration](../concepts/guest-configuration.md) resource provider is updated with
+compliance details by a managed resource.
 
 - On-demand scan
 
@@ -191,6 +196,30 @@ those events.
 
 ![Policy Compliance Activity Log](../media/getting-compliance-data/compliance-activitylog.png)
 
+### Change history (Preview)
+
+As part of a new **public preview**, the last fourteen days of change history are available for a
+non-compliant resource. Change history provides details about when a change was detected and a
+_visual diff_ for each change. A change detection is triggered when the Resource Manager properties
+of a non-compliant resource are added, removed, or altered.
+
+1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching for and selecting **Policy**.
+
+1. On the **Overview** or **Compliance** page, select a policy that is _Non-Compliant_.
+
+1. Under the **Resource compliance** tab of the **Policy compliance** page, select a resource this is _Non-Compliant_.
+
+1. Select the **Change History (preview)** tab on the **Resource Compliance** page. A list of detected changes, if any exist, are displayed.
+
+   ![Policy Change History - Tab](../media/getting-compliance-data/change-history-tab.png)
+
+1. Select one of the detected changes. The _visual diff_ for the non-compliant resource is presented on the **Change history** page.
+
+   ![Policy Change History - Visual Diff](../media/getting-compliance-data/change-history-visual-diff.png)
+
+The _visual diff_ aides in identifying changes to a resource. The changes detected may not be
+related to what caused the resource to be non-compliant to the selected policy.
+
 ## Command line
 
 The same information available in the portal can be retrieved with the REST API (including with
@@ -204,9 +233,9 @@ example code. Then replace the $restUri with the string in the examples to retri
 that can then be parsed.
 
 ```azurepowershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+# Login first with Connect-AzAccount if not using Cloud Shell
 
-$azContext = Get-AzureRmContext
+$azContext = Get-AzContext
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
 $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
@@ -360,32 +389,36 @@ For more information about querying policy events, see the [Policy Events](/rest
 ### Azure PowerShell
 
 The Azure PowerShell module for Policy is available on the PowerShell Gallery as
-[AzureRM.PolicyInsights](https://www.powershellgallery.com/packages/AzureRM.PolicyInsights). Using
-PowerShellGet, you can install the module using `Install-Module -Name AzureRM.PolicyInsights` (make sure you have the latest [Azure
-PowerShell](/powershell/azure/install-azurerm-ps) installed):
+[Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights). Using
+PowerShellGet, you can install the module using `Install-Module -Name Az.PolicyInsights` (make sure you have the latest [Azure
+PowerShell](/powershell/azure/install-az-ps) installed):
 
 ```azurepowershell-interactive
 # Install from PowerShell Gallery via PowerShellGet
-Install-Module -Name AzureRM.PolicyInsights
+Install-Module -Name Az.PolicyInsights
 
 # Import the downloaded module
-Import-Module AzureRM.PolicyInsights
+Import-Module Az.PolicyInsights
 
-# Login with Connect-AzureRmAccount if not using Cloud Shell
-Connect-AzureRmAccount
+# Login with Connect-AzAccount if not using Cloud Shell
+Connect-AzAccount
 ```
 
-The module has three cmdlets:
+The module has the following cmdlets:
 
-- `Get-AzureRmPolicyStateSummary`
-- `Get-AzureRmPolicyState`
-- `Get-AzureRmPolicyEvent`
+- `Get-AzPolicyStateSummary`
+- `Get-AzPolicyState`
+- `Get-AzPolicyEvent`
+- `Get-AzPolicyRemediation`
+- `Remove-AzPolicyRemediation`
+- `Start-AzPolicyRemediation`
+- `Stop-AzPolicyRemediation`
 
 Example: Getting the state summary for the topmost assigned policy with the highest number of
 non-compliant resources.
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyStateSummary -Top 1
+PS> Get-AzPolicyStateSummary -Top 1
 
 NonCompliantResources : 15
 NonCompliantPolicies  : 1
@@ -397,7 +430,7 @@ Example: Getting the state record for the most recently evaluated resource (defa
 in descending order).
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyState -Top 1
+PS> Get-AzPolicyState -Top 1
 
 Timestamp                  : 5/22/2018 3:47:34 PM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -423,7 +456,7 @@ PolicyDefinitionCategory   : tbd
 Example: Getting the details for all non-compliant virtual network resources.
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyState -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'"
+PS> Get-AzPolicyState -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'"
 
 Timestamp                  : 5/22/2018 4:02:20 PM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -450,7 +483,7 @@ Example: Getting events related to non-compliant virtual network resources that 
 specific date.
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'
+PS> Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'
 
 Timestamp                  : 5/19/2018 5:18:53 AM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -476,22 +509,24 @@ PrincipalOid               : {principalOid}
 ```
 
 The **PrincipalOid** field can be used to get a specific user with the Azure PowerShell cmdlet
-`Get-AzureRmADUser`. Replace **{principalOid}** with the response you get from the previous
+`Get-AzADUser`. Replace **{principalOid}** with the response you get from the previous
 example.
 
 ```azurepowershell-interactive
-PS> (Get-AzureRmADUser -ObjectId {principalOid}).DisplayName
+PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName
 Trent Baker
 ```
 
-## Log Analytics
+## Azure Monitor logs
 
-If you have a [Log Analytics](../../../log-analytics/log-analytics-overview.md) workspace with the
-`AzureActivity` solution tied to your subscription, you can also view non-compliance results from
-the evaluation cycle using simple Kusto queries and the `AzureActivity` table. With details in Log
-Analytics, alerts can be configured to watch for non-compliance.
+If you have a [Log Analytics workspace](../../../log-analytics/log-analytics-overview.md) with
+`AzureActivity` from the [Activity Log Analytics
+solution](../../../azure-monitor/platform/collect-activity-logs.md) tied to your subscription, you
+can also view non-compliance results from the evaluation cycle using simple Kusto queries and the
+`AzureActivity` table. With details in Azure Monitor logs, alerts can be configured to watch for
+non-compliance.
 
-![Policy Compliance using Log Analytics](../media/getting-compliance-data/compliance-loganalytics.png)
+![Policy Compliance using Azure Monitor logs](../media/getting-compliance-data/compliance-loganalytics.png)
 
 ## Next steps
 

@@ -12,7 +12,7 @@ manager: philmea
 
 # Connect a generic client application to your Azure IoT Central application (Node.js)
 
-This article describes how, as a device developer, to connect a generic Node.js application representing a physical device to your Microsoft Azure IoT Central application.
+This article describes how, as a device developer, to connect a generic Node.js application representing a real device to your Microsoft Azure IoT Central application.
 
 ## Before you begin
 
@@ -92,7 +92,7 @@ In your Azure IoT Central application, add a real device from the device templat
 
 ### Create a Node.js application
 
-The following steps show how to create a client application that implements the real device you added to the application. Here the Node.js application represents the real physical device. 
+The following steps show how to create a client application that implements the real device you added to the application. Here the Node.js application represents the real device. 
 
 1. Create a folder called `connected-air-conditioner-adv` on your machine. Navigate to that folder in your command-line environment.
 

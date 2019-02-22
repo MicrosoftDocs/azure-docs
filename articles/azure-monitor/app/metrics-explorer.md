@@ -10,11 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/08/2017
+ms.date: 01/22/2019
 ms.author: mbullwin
 ---
 # Exploring Metrics in Application Insights
 Metrics in [Application Insights][start] are measured values and counts of events that are sent in telemetry from your application. They help you detect performance issues and watch trends in how your application is being used. There's a wide range of standard metrics, and you can also create your own custom metrics and events.
+
+> [!NOTE]
+> This article describes the classic metrics explorer experience which is currently deprecated and will eventually be retired. We recommend checking out the new experience which is described in [this article](../platform/metrics-charts.md).
 
 Metrics and event counts are displayed in charts of aggregated values such as sums, averages, or counts.
 

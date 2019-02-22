@@ -7,7 +7,7 @@ ms.author: csand
 ms.date: 01/15/2019
 ms.topic: quickstart
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 ms.custom: mvc
 ---
 
@@ -34,7 +34,7 @@ Sign in to Azure at https://portal.azure.com
     > [!NOTE]
     > For an updated list of locations that you can deploy an Automation Account to see, [Products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=automation&regions=all).
 
-1. When the deployment has completed, click ** **All Services**, select **Automation Accounts** and select the Automation Account you created.
+1. When the deployment has completed, click **All Services**, select **Automation Accounts** and select the Automation Account you created.
 
     ![Automation account overview](./media/automation-quickstart-create-account/automation-account-overview.png)
 
@@ -66,3 +66,4 @@ In this quickstart, you’ve deployed an Automation account, started a runbook j
 
 > [!div class="nextstepaction"]
 > [Automation Quickstart - Create Runbook](./automation-quickstart-create-runbook.md)
+

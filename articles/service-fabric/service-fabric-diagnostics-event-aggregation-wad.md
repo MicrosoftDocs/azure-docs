@@ -184,7 +184,7 @@ After you modify the template.json file as described, republish the Resource Man
 
 ### Update storage quota
 
-Since the tables populated by the extension grows until the quota is hit, you may want to consider decreasing the quota size. The default value is 50 GB and is configurable in the template under the `overallQuotainMB` field under `DiagnosticMonitorConfiguration`
+Since the tables populated by the extension grows until the quota is hit, you may want to consider decreasing the quota size. The default value is 50 GB and is configurable in the template under the `overallQuotaInMB` field under `DiagnosticMonitorConfiguration`
 
 ```json
 "overallQuotaInMB": "50000",

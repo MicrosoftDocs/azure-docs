@@ -3,18 +3,19 @@ title: How to manage a user-assigned managed identity using the Azure portal
 description: Step by step instructions on how to create, list, delete and assign a role to a user-assigned managed identity.
 services: active-directory
 documentationcenter: 
-author: daveba
-manager: mtillman
+author: priyamohanram
+manager: daveba
 editor: 
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
-ms.author: daveba
+ms.author: priyamo
+ms.collection: M365-identity-device-management
 ---
 
 # Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal

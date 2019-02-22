@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 072724b9-d1c8-4c22-9571-d1d0d7eb5ea2
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with AuditBoard
 

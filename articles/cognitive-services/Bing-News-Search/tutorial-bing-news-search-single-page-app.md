@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Use this tutorial to build a single-page web application that can send search queries to the Bing News API, and display the results within the webpage.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-news-search
+ms.subservice: bing-news-search
 ms.topic: tutorial
 ms.date: 01/10/2019
 ms.author: v-gedod

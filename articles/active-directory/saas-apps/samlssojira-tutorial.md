@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 20e18819-e330-4e40-bd8d-2ff3b98e035f
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with SAML SSO for Jira by resolution GmbH
 

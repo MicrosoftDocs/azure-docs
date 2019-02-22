@@ -1,11 +1,11 @@
 ---
 title: Azure Batch service for Machine Learning Studio jobs
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
 description: Overview of Azure Batch services for Machine Learning jobs. Batch Pool processing allows you to create pools on which you can submit batch jobs.
-services: machine-learning
-ms.service: machine-learning
-ms.component: studio
-ms.topic: article
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
 
 author: ericlicoding
 ms.author: amlstudiodocs
@@ -18,6 +18,9 @@ Machine Learning Batch Pool processing provides customer-managed scale for the A
 
 Batch Pool processing allows you to create pools on which you can submit batch jobs. You control the size of the pool, and to which pool the job is submitted. Your BES job runs in its own processing space providing predictable processing performance and the ability to create resource pools that
 correspond to the processing load that you submit.
+
+> [!NOTE]
+> You must have a New Resource Manager based Machine Learning web service to create a pool. Once created, you can run any BES web service, both New Resource Manager based and classic, on the pool.
 
 ## How to use Batch Pool processing
 
@@ -32,7 +35,7 @@ After your account is created, you use the Pool Service URL and authorization ke
 
 ![Batch pool service architecture.](./media/dedicated-capacity-for-bes-jobs/pool-architecture.png)
 
-You create pools by calling the Create Pool operation on the pool service URL that CSS provided to you. When you create a pool, specify the number of VMs and the URL of the swagger.json of a New Resource Manager based Machine Learning web service. This web service is provided to establish the billing association. The Batch Pool service uses the swagger.json to associate the pool with a billing plan. You can run any BES web service, both New Resource Manager based and classic, you choose on the pool.
+You create pools by calling the Create Pool operation on the pool service URL that CSS provided to you. When you create a pool, specify the number of VMs and the URL of the swagger.json of a New Resource Manager based Machine Learning web service. This web service is provided to establish the billing association. The Batch Pool service uses the swagger.json to associate the pool with a billing plan. You can run any BES web service, both New Resource Manager based and classic, on the pool.
 
 You can use any New Resource Manager based web service, but be aware that the billing for the jobs are charged against the billing plan associated with that service. You may want to create a web service and new billing plan specifically for running Batch Pool jobs.
 

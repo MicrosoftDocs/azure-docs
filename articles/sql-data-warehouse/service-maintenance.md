@@ -6,7 +6,7 @@ author: antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/19/2018
 ms.author: anvang
 ms.reviewer: igorstan

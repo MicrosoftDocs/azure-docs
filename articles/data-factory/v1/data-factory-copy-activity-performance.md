@@ -106,7 +106,7 @@ A **cloud data movement unit (DMU)** is a measure that represents the power (a c
 To override this default, specify a value for the **cloudDataMovementUnits** property as follows. The **allowed values** for the **cloudDataMovementUnits** property are 2, 4, 8, 16, 32. The **actual number of cloud DMUs** that the copy operation uses at run time is equal to or less than the configured value, depending on your data pattern. For information about the level of performance gain you might get when you configure more units for a specific copy source and sink, see the [performance reference](#performance-reference).
 
 ```json
-"activities":[  
+"activities":[
     {
         "name": "Sample copy activity",
         "description": "",
@@ -133,7 +133,7 @@ To override this default, specify a value for the **cloudDataMovementUnits** pro
 ### parallelCopies
 You can use the **parallelCopies** property to indicate the parallelism that you want Copy Activity to use. You can think of this property as the maximum number of threads within Copy Activity that can read from your source or write to your sink data stores in parallel.
 
-For each Copy Activity run, Data Factory determines the number of parallel copies to use to copy data from the source data store and to the destination data store. The default number of parallel copies that it uses depends on the type of source and sink that you are using.  
+For each Copy Activity run, Data Factory determines the number of parallel copies to use to copy data from the source data store and to the destination data store. The default number of parallel copies that it uses depends on the type of source and sink that you are using.
 
 | Source and sink | Default parallel copy count determined by service |
 | --- | --- |
@@ -144,7 +144,7 @@ For each Copy Activity run, Data Factory determines the number of parallel copie
 Usually, the default behavior should give you the best throughput. However, to control the load on machines that host your data stores, or to tune copy performance, you may choose to override the default value and specify a value for the **parallelCopies** property. The value must be between 1 and 32 (both inclusive). At run time, for the best performance, Copy Activity uses a value that is less than or equal to the value that you set.
 
 ```json
-"activities":[  
+"activities":[
     {
         "name": "Sample copy activity",
         "description": "",
@@ -174,7 +174,7 @@ Points to note:
 >
 >
 
-To better use these two properties, and to enhance your data movement throughput, see the [sample use cases](#case-study-use-parallel-copy). You don't need to configure **parallelCopies** to take advantage of the default behavior. If you do configure and **parallelCopies** is too small, multiple cloud DMUs might not be fully utilized.  
+To better use these two properties, and to enhance your data movement throughput, see the sample use cases. You don't need to configure **parallelCopies** to take advantage of the default behavior. If you do configure and **parallelCopies** is too small, multiple cloud DMUs might not be fully utilized.
 
 ### Billing impact
 It's **important** to remember that you are charged based on the total time of the copy operation. If a copy job used to take one hour with one cloud unit and now it takes 15 minutes with four cloud units, the overall bill remains almost the same. For example, you use four cloud units. The first cloud unit spends 10 minutes, the second one, 10 minutes, the third one, 5 minutes, and the fourth one, 5 minutes, all in one Copy Activity run. You are charged for the total copy (data movement) time, which is 10 + 10 + 5 + 5 = 30 minutes. Using **parallelCopies** does not affect billing.
@@ -214,7 +214,7 @@ Configure the **enableStaging** setting in Copy Activity to specify whether you 
 Here's a sample definition of Copy Activity with the properties that are described in the preceding table:
 
 ```json
-"activities":[  
+"activities":[
 {
     "name": "Sample copy activity",
     "type": "Copy",
@@ -271,9 +271,9 @@ We suggest that you take these steps to tune the performance of your Data Factor
 3. **Expand the configuration to your entire data set**. When you're satisfied with the execution results and performance, you can expand the definition and pipeline active period to cover your entire data set.
 
 ## Considerations for Data Management Gateway
-**Gateway setup**: We recommend that you use a dedicated machine to host Data Management Gateway. See [Considerations for using Data Management Gateway](data-factory-data-management-gateway.md#considerations-for-using-gateway).  
+**Gateway setup**: We recommend that you use a dedicated machine to host Data Management Gateway. See [Considerations for using Data Management Gateway](data-factory-data-management-gateway.md#considerations-for-using-gateway).
 
-**Gateway monitoring and scale-up/out**: A single logical gateway with one or more gateway nodes can serve multiple Copy Activity runs at the same time concurrently. You can view near-real time snapshot of resource utilization (CPU, memory, network(in/out), etc.) on a gateway machine as well as the number of concurrent jobs running versus limit in the Azure portal, see [Monitor gateway in the portal](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). If you have heavy need on hybrid data movement either with large number of concurrent copy activity runs or with large volume of data to copy, consider to [scale up or scale out gateway](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) so as to better utilize your resource or to provision more resource to empower copy. 
+**Gateway monitoring and scale-up/out**: A single logical gateway with one or more gateway nodes can serve multiple Copy Activity runs at the same time concurrently. You can view near-real time snapshot of resource utilization (CPU, memory, network(in/out), etc.) on a gateway machine as well as the number of concurrent jobs running versus limit in the Azure portal, see [Monitor gateway in the portal](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). If you have heavy need on hybrid data movement either with large number of concurrent copy activity runs or with large volume of data to copy, consider to [scale up or scale out gateway](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) so as to better utilize your resource or to provision more resource to empower copy.
 
 ## Considerations for the source
 ### General
@@ -295,7 +295,7 @@ If you copy data from Blob storage to SQL Data Warehouse, consider using **PolyB
 
 * **Data pattern**: Your table schema affects copy throughput. A large row size gives you a better performance than small row size, to copy the same amount of data. The reason is that the database can more efficiently retrieve fewer batches of data that contain fewer rows.
 * **Query or stored procedure**: Optimize the logic of the query or stored procedure you specify in the Copy Activity source to fetch data more efficiently.
-* For **on-premises relational databases**, such as SQL Server and Oracle, which require the use of **Data Management Gateway**, see the [Considerations for Data Management Gateway](#considerations-on-data-management-gateway) section.
+* For **on-premises relational databases**, such as SQL Server and Oracle, which require the use of **Data Management Gateway**, see the Considerations for Data Management Gateway section.
 
 ## Considerations for the sink
 ### General
@@ -403,7 +403,7 @@ In this case, bzip2 data compression might be slowing down the entire pipeline. 
 
 **Scenario II**: Copy 20 blobs of 500 MB each from Blob storage to Data Lake Store Analytics, and then tune performance.
 
-**Analysis and performance tuning**: In this scenario, Data Factory copies the data from Blob storage to Data Lake Store by using single-copy (**parallelCopies** set to 1) and single-cloud data movement units. The throughput you observe will be close to that described in the [performance reference section](#performance-reference).   
+**Analysis and performance tuning**: In this scenario, Data Factory copies the data from Blob storage to Data Lake Store by using single-copy (**parallelCopies** set to 1) and single-cloud data movement units. The throughput you observe will be close to that described in the [performance reference section](#performance-reference).
 
 ![Scenario 2](./media/data-factory-copy-activity-performance/scenario-2.png)
 

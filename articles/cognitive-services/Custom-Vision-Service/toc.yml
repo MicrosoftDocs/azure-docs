@@ -24,6 +24,10 @@
       href: java-tutorial.md
     - name: Object detection
       href: java-tutorial-od.md
+- name: Tutorials
+  items:
+  - name: Logo detector for mobile
+    href: logo-detector-mobile.md
 - name: How-to guides
   items:
   - name: Build a classifier
@@ -44,6 +48,8 @@
     href: rest-api-tutorial.md
   - name: Export or delete account data
     href: ./export-delete-data.md
+  - name: Move your Limited Trial project to Azure
+    href: ./move-your-project-to-azure.md
 - name: Reference
   items:
   - name: Custom Vision Training API  

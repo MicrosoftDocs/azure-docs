@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database Managed Instance Auditing | Microsoft Docs
-description: Learn how to get started with Azure SQL Database Managed Instance Auditing using T-SQL
+title: Azure SQL Database managed instance auditing | Microsoft Docs
+description: Learn how to get started with Azure SQL Database managed instance auditing using T-SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,108 +10,135 @@ ms.topic: conceptual
 f1_keywords: 
   - "mi.azure.sqlaudit.general.f1"
 author: vainolo
-ms.author: vainolo
+ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/12/2019
+ms.date: 02/07/2019
 ---
-# Get started with Azure SQL Database Managed Instance Auditing
+# Get started with Azure SQL Database managed instance auditing
 
-[Azure SQL Database Managed Instance](sql-database-managed-instance.md) Auditing tracks database events and writes them to an audit log in your Azure storage account. Auditing also:
+[Managed instance](sql-database-managed-instance.md) auditing tracks database events and writes them to an audit log in your Azure storage account. Auditing also:
 
 - Helps you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
 - Enables and facilitates adherence to compliance standards, although it doesn't guarantee compliance. For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
 
-## Set up auditing for your server to Azure Storage 
+## Set up auditing for your server to Azure storage
 
-The following section describes the configuration of auditing on your Managed Instance.
+The following section describes the configuration of auditing on your managed instance.
 
 1. Go to the [Azure portal](https://portal.azure.com).
-2. The following steps create an Azure Storage **container** where audit logs are stored.
+1. Create an Azure Storage **container** where audit logs are stored.
 
-   - Navigate to the Azure Storage where you would like to store your audit logs.
+   1. Navigate to the Azure Storage where you would like to store your audit logs.
 
-     > [!IMPORTANT]
-     > Use a storage account in the same region as the Managed Instance server to avoid cross-region reads/writes.
+      > [!IMPORTANT]
+      > Use a storage account in the same region as the managed instance to avoid cross-region reads/writes.
 
-   - In the storage account, go to **Overview** and click **Blobs**.
+   1. In the storage account, go to **Overview** and click **Blobs**.
 
-     ![Navigation pane][1]
+      ![Azure Blob widget](./media/sql-managed-instance-auditing/1_blobs_widget.png)
 
-   - In the top menu, click **+ Container** to create a new container.
+   1. In the top menu, click **+ Container** to create a new container.
 
-     ![Navigation pane][2]
+      ![Create blob container icon](./media/sql-managed-instance-auditing/2_create_container_button.png)
 
-   - Provide a container **Name**, set Public access level to **Private**, and then click **OK**.
+   1. Provide a container **Name**, set Public access level to **Private**, and then click **OK**.
 
-     ![Navigation pane][3]
+     ![Create blob container configuration](./media/sql-managed-instance-auditing/3_create_container_config.png)
 
-   - In the containers list, click the newly created container and then click **Container properties**.
+1. After creating the container for the Audit logs there are two ways to configure it as the target for the audit logs: [using T-SQL](#blobtsql) or [using the SQL Server Management Studio (SSMS) UI](#blobssms):
 
-     ![Navigation pane][4]
+   - <a id="blobtsql"></a>Configure blog storage for audit logs using T-SQL:
 
-   - Copy the container URL by clicking the copy icon and save the URL (for example, in Notepad) for future use. The container URL format should be `https://<StorageName>.blob.core.windows.net/<ContainerName>`
+     1. In the containers list, click the newly created container and then click **Container properties**.
 
-     ![Navigation pane][5]
+        ![Blob container properties button](./media/sql-managed-instance-auditing/4_container_properties_button.png)
 
-3. The following steps generate an Azure Storage **SAS Token** used to grant Managed Instance Auditing access rights to the storage account.
+     1. Copy the container URL by clicking the copy icon and save the URL (for example, in Notepad) for future use. The container URL format should be `https://<StorageName>.blob.core.windows.net/<ContainerName>`
 
-   - Navigate to the Azure Storage account where you created the container in the previous step.
+        ![Blob container copy URL](./media/sql-managed-instance-auditing/5_container_copy_name.png)
 
-   - Click on **Shared access signature** in the Storage Settings menu.
+     1. Generate an Azure Storage **SAS Token** to grant managed instance auditing access rights to the storage account:
 
-     ![Navigation pane][6]
+        - Navigate to the Azure Storage account where you created the container in the previous step.
 
-   - Configure the SAS as follows:
-     - **Allowed services**: Blob
-     - **Start date**: to avoid time zone-related issues, it is recommended to use yesterday’s date.
-     - **End date**: choose the date on which this SAS Token expires. 
+        - Click on **Shared access signature** in the Storage Settings menu.
 
-       > [!NOTE]
-       > Renew the token upon expiry to avoid audit failures.
+          ![Shared access signature icon in storage settings menu](./media/sql-managed-instance-auditing/6_storage_settings_menu.png)
 
-     - Click **Generate SAS**.
+        - Configure the SAS as follows:
 
-       ![Navigation pane][7]
+          - **Allowed services**: Blob
 
-   - After clicking on Generate SAS, the SAS Token appears at the bottom. Copy the token by clicking on the copy icon, and save it (for example, in Notepad) for future use.
+          - **Start date**: to avoid time zone-related issues, it is recommended to use yesterday’s date
 
-     > [!IMPORTANT]
-     > Remove the question mark (“?”) character from the beginning of the token.
+          - **End date**: choose the date on which this SAS Token expires
 
-     ![Navigation pane][8]
+            > [!NOTE]
+            > Renew the token upon expiry to avoid audit failures.
 
-4. Connect to your Managed Instance via SQL Server Management Studio (SSMS).
+          - Click **Generate SAS**.
+            
+            ![SAS configuration](./media/sql-managed-instance-auditing/7_sas_configure.png)
 
-5. Execute the following T-SQL statement to **create a new Credential** using the Container URL and SAS Token that you created in the previous steps:
+        - After clicking on Generate SAS, the SAS Token appears at the bottom. Copy the token by clicking on the copy icon, and save it (for example, in Notepad) for future use.
 
-    ```SQL
-    CREATE CREDENTIAL [<container_url>]
-    WITH IDENTITY='SHARED ACCESS SIGNATURE',
-    SECRET = '<SAS KEY>'
-    GO
-    ```
+          ![Copy SAS token](./media/sql-managed-instance-auditing/8_sas_copy.png)
 
-6. Execute the following T-SQL statement to create a new Server Audit (choose your own audit name, use the Container URL that you created in the previous steps):
+          > [!IMPORTANT]
+          > Remove the question mark (“?”) character from the beginning of the token.
 
-    ```SQL
-    CREATE SERVER AUDIT [<your_audit_name>]
-    TO URL ( PATH ='<container_url>' [, RETENTION_DAYS =  integer ])
-    GO
-    ```
+     1. Connect to your managed instance via SQL Server Management Studio (SSMS) or any other supported tool.
 
-    If not specified, `RETENTION_DAYS` default is 0 (unlimited retention).
+     1. Execute the following T-SQL statement to **create a new Credential** using the Container URL and SAS Token that you created in the previous steps:
 
-    For additional information:
-    - [Auditing differences between Managed Instance, Azure SQL DB and SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
-    - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
-    - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
+        ```SQL
+        CREATE CREDENTIAL [<container_url>]
+        WITH IDENTITY='SHARED ACCESS SIGNATURE',
+        SECRET = '<SAS KEY>'
+        GO
+        ```
 
-7. Create a Server Audit Specification or Database Audit Specification as you would for SQL Server:
-    - [Create Server audit specification T-SQL guide](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
-    - [Create Database audit specification T-SQL guide](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+     1. Execute the following T-SQL statement to create a new Server Audit (choose your own audit name, use the Container URL that you created in the previous steps). If not specified, `RETENTION_DAYS` default is 0 (unlimited retention):
 
-8. Enable the server audit that you created in step 6:
+        ```SQL
+        CREATE SERVER AUDIT [<your_audit_name>]
+        TO URL ( PATH ='<container_url>' [, RETENTION_DAYS =  integer ])
+        GO
+        ```
+
+      1. Continue by [creating a Server Audit Specification or Database Audit Specification](#createspec)
+
+   - <a id="blobssms"></a>Configure blob storage for audit logs using the SQL Server Management Studio (SSMS) 18 (Preview):
+
+     1. Connect to the managed instance using SQL Server Management Studio (SSMS) UI.
+
+     1. Expand the root note of the Object Explorer.
+
+     1. Expand the **Security** node, right-click on the **Audits** node, and click on "New Audit":
+
+        ![Expand security and audit node](./media/sql-managed-instance-auditing/10_mi_SSMS_new_audit.png)
+
+     1. Make sure "URL" is selected in **Audit destination** and click on **Browse**:
+
+        ![Browse Azure Storage](./media/sql-managed-instance-auditing/11_mi_SSMS_audit_browse.png)
+
+     1. (Optional) Sign in to your Azure account:
+
+        ![Sign in to Azure](./media/sql-managed-instance-auditing/12_mi_SSMS_sign_in_to_azure.png)
+
+     1. Select a subscription, storage account, and Blob container from the dropdowns, or create your own container by clicking on **Create**. Once you have finished click **OK**:
+
+        ![Select Azure subscription, storage account, and blobl container](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
+
+     1. Click **OK** in the "Create Audit" dialog.
+
+1. <a id="createspec"></a>After configuring the Blob container as target for the audit logs, create a Server Audit Specification or Database Audit Specification as you would for SQL Server:
+
+   - [Create Server audit specification T-SQL guide](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+   - [Create Database audit specification T-SQL guide](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+
+1. Enable the server audit that you created in step 6:
 
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>]
@@ -119,11 +146,17 @@ The following section describes the configuration of auditing on your Managed In
     GO
     ```
 
+For additional information:
+
+- [Auditing differences between single databases, elastic pool,s, and managed instances in Azure SQL Database and databases in SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
+- [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
+- [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
+
 ## Set up auditing for your server to Event Hub or Log Analytics
 
-Audit logs from a Managed Instance can be  sent to Even Hubs or Log Analytics using Azure Monitor. This section describes how to configure this:
+Audit logs from a managed instance can be  sent to Even Hubs or Log Analytics using Azure Monitor. This section describes how to configure this:
 
-1. Navigate in the [Azure Portal](https://portal.azure.com/) to the SQL Managed Instance.
+1. Navigate in the [Azure Portal](https://portal.azure.com/) to the managed instance.
 
 2. Click on **Diagnostic settings**.
 
@@ -135,9 +168,9 @@ Audit logs from a Managed Instance can be  sent to Even Hubs or Log Analytics us
 
 6. Click **Save**.
 
-  ![Navigation pane][9]
+    ![Configure diagnostic settings](./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png)
 
-7. Connect to the Managed Instance using **SQL Server Management Studio (SSMS)** or any other supported client.
+7. Connect to the managed instance using **SQL Server Management Studio (SSMS)** or any other supported client.
 
 8. Execute the following T-SQL statement to create a server audit:
 
@@ -166,12 +199,9 @@ There are several methods you can use to view blob auditing logs.
 
 - Use the system function `sys.fn_get_audit_file` (T-SQL) to return the audit log data in tabular format. For more information on using this function, see the [sys.fn_get_audit_file documentation](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
-- You can explore audit logs by using a tool such as [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/). In Azure storage, auditing logs are saved as a collection of blob files within a container named sqldbauditlogs. For further details about the hierarchy of the storage folder, naming conventions, and log format, see the [Blob Audit Log Format Reference](https://go.microsoft.com/fwlink/?linkid=829599).
+- You can explore audit logs by using a tool such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). In Azure storage, auditing logs are saved as a collection of blob files within a container that was defined to store the audit logs. For further details about the hierarchy of the storage folder, naming conventions, and log format, see the [Blob Audit Log Format Reference](https://go.microsoft.com/fwlink/?linkid=829599).
 
-- For a full list of audit log consumption methods, refer to the [Get started with SQL database auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
-
-> [!IMPORTANT]
-> Viewing audit records from the Azure portal (‘Audit records’ pane) is currently unavailable for Managed Instance.
+- For a full list of audit log consumption methods, refer to the [Get started with SQL database auditing](sql-database-auditing.md).
 
 ### Consume logs stored in Event Hub
 
@@ -183,36 +213,36 @@ If audit logs are written to Log Analytics, they are available in the Log Analyt
 
 Log Analytics gives you real-time operational insights using integrated search and custom dashboards to readily analyze millions of records across all your workloads and servers. For additional useful information about Log Analytics search language and commands, see [Log Analytics search reference](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
-## Auditing differences between Managed Instance, Azure SQL Database, and SQL Server
+## Auditing differences between databases in Azure SQL Database and databases in SQL Server
 
-The key differences between SQL Audit in Managed Instance, Azure SQL Database, and SQL Server on-premises are:
+The key differences between auditing in databases in Azure SQL Database and databases in SQL Server are:
 
-- In Managed Instance, SQL Audit works at the server level and stores `.xel` log files on Azure blob storage account.
-- In Azure SQL Database, SQL Audit works at the database level.
-- In SQL Server on-premises / virtual machines, SQL Audit works at the server level, but stores events on files system/windows event logs.
+- With the managed instance deployment option in Azure SQL Database, auditing works at the server level and stores `.xel` log files in Azure Blob storage.
+- With the single database and elastic pool deployment options in Azure SQL Database, auditing works at the database level.
+- In SQL Server on-premises / virtual machines, audit works at the server level, but stores events on files system/windows event logs.
 
-XEvent auditing in Managed Instance supports Azure blob storage targets. File and windows logs are **not supported**.
+XEvent auditing in managed instance supports Azure Blob storage targets. File and windows logs are **not supported**.
 
-The key differences in the `CREATE AUDIT` syntax for Auditing to Azure blob storage are:
+The key differences in the `CREATE AUDIT` syntax for auditing to Azure Blob storage are:
 
 - A new syntax `TO URL` is provided and enables you to specify URL of the Azure blob Storage container where the `.xel` files are placed.
 - A new syntax `TO EXTERNAL MONITOR` is provided to enable Even Hub and Log Analytics targets.
-- The syntax `TO FILE` is **not supported** because Managed Instance cannot access Windows file shares.
+- The syntax `TO FILE` is **not supported** because SQL Database cannot access Windows file shares.
 - Shutdown option is **not supported**.
 - `queue_delay` of 0 is **not supported**.
 
 ## Next steps
 
-- For a full list of audit log consumption methods, refer to the [Get started with SQL database auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
+- For a full list of audit log consumption methods, refer to the [Get started with SQL database auditing](sql-database-auditing.md).
 - For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
 
 <!--Image references-->
-[1]: ./media/sql-managed-instance-auditing/1_blobs_widget.png
-[2]: ./media/sql-managed-instance-auditing/2_create_container_button.png
-[3]: ./media/sql-managed-instance-auditing/3_create_container_config.png
-[4]: ./media/sql-managed-instance-auditing/4_container_properties_button.png
-[5]: ./media/sql-managed-instance-auditing/5_container_copy_name.png
-[6]: ./media/sql-managed-instance-auditing/6_storage_settings_menu.png
-[7]: ./media/sql-managed-instance-auditing/7_sas_configure.png
-[8]: ./media/sql-managed-instance-auditing/8_sas_copy.png
-[9]: ./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png
+
+
+
+
+
+
+
+
+

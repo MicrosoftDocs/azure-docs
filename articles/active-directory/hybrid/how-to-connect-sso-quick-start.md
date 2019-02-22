@@ -5,16 +5,17 @@ services: active-directory
 keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2019
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory Seamless Single Sign-On: Quick start
@@ -159,14 +160,6 @@ There are two ways to modify users' Intranet zone settings:
     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso16.png)
  
     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso17.png)
-
-6. Browse to **User Configuration** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page** > **Intranet Zone**. Then select **Allow updates to status bar via script**.
-
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso11.png)
-
-7. Enable the policy setting, and then select **OK**.
-
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### Browser considerations
 

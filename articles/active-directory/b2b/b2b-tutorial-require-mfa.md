@@ -1,18 +1,19 @@
 ---
-title: 'Tutorial: Enforce multi-factor authentication for Azure AD B2B guest users'
+title: 'Tutorial: Multi-factor authentication for B2B - Azure Active Directory | Microsoft Docs'
 description: Learn how to require multi-factor authentication (MFA) when you use Azure AD B2B to collaborate with external users and partner organizations.
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: tutorial
 ms.date: 06/25/2018
 
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
 
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Enforce multi-factor authentication for B2B guest users

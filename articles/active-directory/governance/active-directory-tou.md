@@ -11,10 +11,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance
-ms.date: 01/10/2019
+ms.subservice: compliance
+ms.date: 02/09/2019
 ms.author: rolyon
 
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory Terms of use feature
@@ -262,7 +263,7 @@ Per-device Terms of use has the following constraints:
 
 - A device can only be joined to one tenant.
 - A user must have permissions to join their device.
-- The Intune enrollment app is not supported.
+- The Intune Enrollment app is not supported.
 
 If the user's device is not joined, they will receive a message that they need to join their device. Their experience will be dependent on the platform and software.
 
@@ -330,10 +331,13 @@ You can configure a conditional access policy for the Microsoft Intune Enrollmen
 
 ![Microsoft Intune cloud app](./media/active-directory-tou/cloud-app-intune.png)
 
+> [!NOTE]
+> The Intune Enrollment app is not supported for [Per-device Terms of use](#per-device-terms-of-use).
+
 ## Frequently asked questions
 
 **Q: How do I see when/if a user has accepted a Terms of use?**<br />
-A: On the Terms of use blade, click the number under **Accepted**. You can also view or search the accept activity in the Azure AD audit logs. For more information, see [View report of who has accepted and declined](#view-who-has-accepted-and-declined) and [View Azure AD audit logs](#view-azure-ad-audit-logs).
+A: On the Terms of use blade, click the number under **Accepted**. You can also view or search the accept activity in the Azure AD audit logs. For more information, see View report of who has accepted and declined and [View Azure AD audit logs](#view-azure-ad-audit-logs).
 
 **Q: How long is information stored?**<br />
 A: The user counts in the Terms of use report and who accepted/declined are stored for the life of the Terms of use. The Azure AD audit logs are stored for 30 days.

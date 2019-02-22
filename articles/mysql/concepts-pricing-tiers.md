@@ -5,7 +5,7 @@ author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 02/01/2019
 ---
 
 # Azure Database for MySQL pricing tiers
@@ -37,6 +37,9 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 
 > [!IMPORTANT]
 > Beginning December 12, 2018, new customers will not be able to provision compute generation 4 servers in Brazil South, Canada Central, Canada East, East Asia, East US 2, Central India, West India, Japan West, North Central US, West US. Previously created compute generation 4 servers will be migrated to compute generation 5 starting February 1, 2019 in these regions.
+>
+> [!IMPORTANT]
+> Beginning February 15, 2019, new customers will not be able to provision compute generation 4 servers in Central US, East US, Japan East, North Europe, South Central US, South East Asia, West Europe. Previously created compute generation 4 servers will be migrated to compute generation 5 starting April 1, 2019 in these regions.
 
 | **Azure region** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
@@ -121,5 +124,5 @@ For the most up-to-date pricing information, see the service [pricing page](http
 ## Next steps
 
 - Learn how to [create a MySQL server in the portal](howto-create-manage-server-portal.md).
-- Learn how to [monitor and scale an Azure Database for MySQL server by using Azure CLI](scripts/sample-scale-server.md).
-- Learn about the [service limitations](concepts-limits.md).
+- Learn about [service limits](concepts-limits.md).
+- Learn how to [scale out with read replicas](howto-read-replicas-portal.md).

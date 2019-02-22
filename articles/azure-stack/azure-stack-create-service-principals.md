@@ -13,6 +13,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/18/2018
 ms.author: sethm
+ms.lastreviewed: 12/18/2018
 
 ---
 # Provide applications access to Azure Stack
@@ -33,10 +34,10 @@ Service principals are preferable to running the app under your own credentials 
 
 Depending on how you have deployed Azure Stack, you start by creating a service principal. This document describes creating a service principal for:
 
-- [Azure Active Directory (Azure AD)](#create-service-principal-for-azure-ad). Azure AD is a multi-tenant, cloud-based directory, and identity management service. You can use Azure AD with a connected Azure Stack.
-- [Active Directory Federation Services (AD FS)](#create-service-principal-for-ad-fs). AD FS provides simplified, secured identity federation, and Web single sign-on (SSO) capabilities. You can use AD FS with both connected and disconnected Azure Stack instances.
+- Azure Active Directory (Azure AD). Azure AD is a multi-tenant, cloud-based directory, and identity management service. You can use Azure AD with a connected Azure Stack.
+- Active Directory Federation Services (AD FS). AD FS provides simplified, secured identity federation, and Web single sign-on (SSO) capabilities. You can use AD FS with both connected and disconnected Azure Stack instances.
 
-Once you've created the service principal, a set of steps common to both AD FS and Azure Active Directory are used to [delegate permissions](#assign-role-to-service-principal) to the role.
+Once you've created the service principal, a set of steps common to both AD FS and Azure Active Directory are used to delegate permissions to the role.
 
 ## Manage service principal for Azure AD
 
@@ -58,18 +59,18 @@ When programmatically logging in, you use the ID for your application, and for a
 
 1. From **App registrations** in Active Directory, select your application.
 
-2. Copy the **Application ID** and store it in your application code. The applications in the [sample applications](#sample-applications) section refer to this value as the client ID.
+2. Copy the **Application ID** and store it in your application code. The applications in the sample applications section refer to this value as the client ID.
 
-     ![client id](./media/azure-stack-create-service-principal/image12.png)
+     ![Client id](./media/azure-stack-create-service-principal/image12.png)
 3. To generate an authentication key for a Web app / API, select **Settings** > **Keys**. 
 
 4. Provide a description of the key, and a duration for the key. When done, select **Save**.
 
 After saving the key, the value of the key is displayed. Copy this value to Notepad or some other temporary location, because you cannot retrieve the key later. You provide the key value with the application ID to sign as the application. Store the key value in a place where your application can retrieve it.
 
-![saved key](./media/azure-stack-create-service-principal/image15.png)
+![Saved key](./media/azure-stack-create-service-principal/image15.png)
 
-Once complete, you can [assign your application a role](#assign-role-to-service-principal).
+Once complete, you can assign your application a role.
 
 ## Manage service principal for AD FS
 
@@ -121,19 +122,19 @@ The following information is required as input for the automation parameters:
 
    ```PowerShell  
     # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
-    $creds = Get-Credential
+    $Creds = Get-Credential
 
     # Creating a PSSession to the ERCS PrivilegedEndpoint
-    $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+    $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
     # If you have a managed certificate use the Get-Item command to retrieve your certificate from your certificate location.
     # If you don't want to use a managed certificate, you can produce a self signed cert for testing purposes: 
-    # $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
-    $cert = Get-Item "<yourcertificatelocation>"
+    # $Cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<YourAppName>" -KeySpec KeyExchange
+    $Cert = Get-Item "<YourCertificateLocation>"
     
-    $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -ClientCertificates $using:cert}
-    $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }
-    $session|remove-pssession
+    $ServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name '<YourAppName>' -ClientCertificates $using:cert}
+    $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
+    $Session | Remove-PSSession
 
     # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. This is read from the AzureStackStampInformation output of the ERCS VM.
     $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
@@ -155,7 +156,7 @@ The following information is required as input for the automation parameters:
     -GraphAudience $GraphAudience `
     -EnableAdfsAuthentication:$true
 
-    Add-AzureRmAccount -EnvironmentName "azurestackuser" `
+    Add-AzureRmAccount -EnvironmentName "AzureStackUser" `
     -ServicePrincipal `
     -CertificateThumbprint $ServicePrincipal.Thumbprint `
     -ApplicationId $ServicePrincipal.ClientId `
@@ -169,7 +170,7 @@ The following information is required as input for the automation parameters:
    > For validation purposes a self-signed certificate can be created using the below example:
 
    ```PowerShell  
-   $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
+   $Cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
    ```
 
 
@@ -210,14 +211,14 @@ The example creates a self-signed certificate. When you run the cmdlets in a pro
 
      ```powershell
           # Creating a PSSession to the ERCS PrivilegedEndpoint
-          $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+          $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
           # This produces a self signed cert for testing purposes. It is preferred to use a managed certificate for this.
-          $Newcert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
+          $NewCert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<YourAppName>" -KeySpec KeyExchange
 
-          $RemoveServicePrincipal = Invoke-Command -Session $session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier  S-1-5-21-1634563105-1224503876-2692824315-2120 -ClientCertificates $Newcert}
+          $RemoveServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier  S-1-5-21-1634563105-1224503876-2692824315-2120 -ClientCertificates $NewCert}
 
-          $session|remove-pssession
+          $Session | Remove-PSSession
      ```
 
 2. After the automation finishes, it displays the updated thumbprint value required for SPN authentication.
@@ -251,15 +252,15 @@ The following information is required as input for the automation parameters:
 
      ```PowerShell  
       # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
-     $creds = Get-Credential
+     $Creds = Get-Credential
 
      # Creating a PSSession to the ERCS PrivilegedEndpoint
-     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+     $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
      # Creating a SPN with a secre
-     $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -GenerateClientSecret}
-     $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }
-     $session|remove-pssession
+     $ServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name '<YourAppName>' -GenerateClientSecret}
+     $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
+     $Session | Remove-PSSession
 
      # Output the SPN details
      $ServicePrincipal
@@ -295,20 +296,20 @@ The following information is required as input for the automation parameters:
 
 ##### Example of updating a client secret for AD FS
 
-The example uses the **resetclientsecret** parameter, which does immediately change the client secret.
+The example uses the **ResetClientSecret** parameter, which immediately changes the client secret.
 
 1. Open an elevated Windows PowerShell session, and run the following cmdlets:
 
      ```PowerShell  
           # Creating a PSSession to the ERCS PrivilegedEndpoint
-          $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+          $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
           # This produces a self signed cert for testing purposes. It is preferred to use a managed certificate for this.
-          $Newcert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
+          $NewCert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<YourAppName>" -KeySpec KeyExchange
 
-          $UpdateServicePrincipal = Invoke-Command -Session $session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier  S-1-5-21-1634563105-1224503876-2692824315-2120 -ResetClientSecret}
+          $UpdateServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier  S-1-5-21-1634563105-1224503876-2692824315-2120 -ResetClientSecret}
 
-          $session|remove-pssession
+          $Session | Remove-PSSession
      ```
 
 2. After the automation finishes, it displays the newly generated secret required for SPN authentication. Make sure you store the new client secret.
@@ -344,14 +345,14 @@ The following information is required as input for the automation parameters:
 
 ```powershell  
      Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
-     $creds = Get-Credential
+     $Creds = Get-Credential
 
      # Creating a PSSession to the ERCS PrivilegedEndpoint
-     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+     $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
-     $UpdateServicePrincipal = Invoke-Command -Session $session -ScriptBlock { Remove-GraphApplication -ApplicationIdentifier S-1-5-21-1634563105-1224503876-2692824315-2119}
+     $UpdateServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {Remove-GraphApplication -ApplicationIdentifier S-1-5-21-1634563105-1224503876-2692824315-2119}
 
-     $session|remove-pssession
+     $Session | Remove-PSSession
 ```
 
 ## Assign a role
@@ -364,11 +365,11 @@ You can set the scope at the level of the subscription, resource group, or resou
 
 2. Select the particular subscription (resource group or resource) to assign the application to.
 
-     ![select subscription for assignment](./media/azure-stack-create-service-principal/image16.png)
+     ![Select subscription for assignment](./media/azure-stack-create-service-principal/image16.png)
 
 3. Select **Access Control (IAM)**.
 
-     ![select access](./media/azure-stack-create-service-principal/image17.png)
+     ![Select access](./media/azure-stack-create-service-principal/image17.png)
 
 4. Select **Add role assignment**.
 

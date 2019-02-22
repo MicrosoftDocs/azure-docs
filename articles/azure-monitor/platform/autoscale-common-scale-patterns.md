@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
-ms.component: autoscale
+ms.subservice: autoscale
 ---
 # Overview of common autoscale patterns
 This article describes some of the common patterns to scale your resource in Azure.
@@ -60,3 +60,4 @@ You have a web front end and a API tier that communicates with the backend.
 [3]: ./media/autoscale-common-scale-patterns/weekday-weekend-scale.png
 [4]: ./media/autoscale-common-scale-patterns/holidays-scale.png
 [5]: ./media/autoscale-common-scale-patterns/custom-metric-scale.png
+

@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 10/05/2018
+ms.date: 01/25/2019
 ---
 
 # Dynamically scale database resources with minimal downtime
@@ -49,9 +49,9 @@ You can change [DTU service tiers](sql-database-service-tiers-dtu.md) or [vCore 
 
 All three flavors of Azure SQL Database offer some ability to dynamically scale your databases:
 
-- In [Azure SQL Single Database](sql-database-single-database-scale.md), you can use either [DTU](sql-database-dtu-resource-limits-single-databases.md) or [vCore](sql-database-vcore-resource-limits-single-databases.md) models to define maximum amount of resources that will be assigned to each database.
-- [Azure SQL Managed Instance](sql-database-managed-instance.md) uses [vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) mode and enables you to define maximum CPU cores and maximum of storage allocated to your instance. All databases within the instance will share the resources allocated to the instance.
-- [Azure SQL Elastic Pools](sql-database-elastic-pool-scale.md) enable you to define maximum resource limit per group of databases in the pool.
+- With a [single database](sql-database-single-database-scale.md), you can use either [DTU](sql-database-dtu-resource-limits-single-databases.md) or [vCore](sql-database-vcore-resource-limits-single-databases.md) models to define maximum amount of resources that will be assigned to each database.
+- A [Managed Instance](sql-database-managed-instance.md) uses [vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) mode and enables you to define maximum CPU cores and maximum of storage allocated to your instance. All databases within the instance will share the resources allocated to the instance.
+- [Elastic pools](sql-database-elastic-pool-scale.md) enable you to define maximum resource limit per group of databases in the pool.
 
 ## Alternative scale methods
 

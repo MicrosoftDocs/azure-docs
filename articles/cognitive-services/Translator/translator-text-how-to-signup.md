@@ -4,9 +4,9 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to sign up for the Translator Text API and get a subscription key.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf

@@ -4,12 +4,12 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: The LUIS container loads your trained or published app into a docker container and provides access to the query predictions from the container's API endpoints. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/21/2019
 ms.author: diberry
 ---
 
@@ -35,11 +35,7 @@ In order to run the LUIS container, you must have the following:
 
 ### The host computer
 
-The **host** is the computer that runs the docker container. It can be a computer on your premises or a docker hosting service in Azure including:
-
-* [Azure Kubernetes Service](../../aks/index.yml)
-* [Azure Container Instances](../../container-instances/index.yml)
-* [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](../../azure-stack/index.yml). For more information, see [Deploy Kubernetes to Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
 
 ### Container requirements and recommendations
 
@@ -47,9 +43,11 @@ This container supports minimum and recommended values for the settings:
 
 |Setting| Minimum | Recommended |
 |-----------|---------|-------------|
-|Cores<BR>`--cpus`|1 core<BR>at least 2.6 gigahertz (GHz) or faster|1 core|
+|Cores<BR>`--cpus`|1 core|1 core|
 |Memory<BR>`--memory`|2 GB|4 GB|
 |Transactions per second<BR>(TPS)|20 TPS|40 TPS|
+
+Each core must be at least 2.6 gigahertz (GHz) or faster.
 
 The `--cpus` and `--memory` settings are used as part of the `docker run` command.
 
@@ -57,21 +55,16 @@ The `--cpus` and `--memory` settings are used as part of the `docker run` comman
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the `mcr.microsoft.com/azure-cognitive-services/luis` repository:
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
+Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
+
 For a full description of available tags, such as `latest` used in the preceding command, see [LUIS](https://go.microsoft.com/fwlink/?linkid=2043204) on Docker Hub.
 
-> [!TIP]
-> You can use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to list your downloaded container images. For example, the following command lists the ID, repository, and tag of each downloaded container image, formatted as a table:
->
->  ```Docker
->  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
->
->  IMAGE ID            REPOSITORY                                                                TAG
->  ebbee78a6baa        mcr.microsoft.com/azure-cognitive-services/luis                           latest
->  ``` 
+[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
+
 
 ## How to use the container
 
@@ -108,7 +101,8 @@ The input mount directory can contain the **Production**, **Staging**, and **Tra
 |Staging|Get, Post|Azure and container|`{APPLICATION_ID}_STAGING.gz`|
 |Production|Get, Post|Azure and container|`{APPLICATION_ID}_PRODUCTION.gz`|
 
->**Important:** Do not rename, alter, or decompress the LUIS package files.
+> [!IMPORTANT]
+> Do not rename, alter, or decompress the LUIS package files.
 
 ### Packaging prerequisites
 
@@ -250,11 +244,13 @@ More [examples](luis-container-configuration.md#example-docker-run-commands) of 
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 > The ApiKey value is the **Key** from the Keys and Endpoints page in the LUIS portal and is also available on the Azure Language Understanding Resource keys page.  
 
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
 ## Query the container's prediction endpoint
 
 The container provides REST-based query prediction endpoint APIs. Endpoints for published (staging or production) apps have a _different_ route than endpoints for trained apps. 
 
-Use the host, https://localhost:5000, for container APIs. 
+Use the host, `https://localhost:5000`, for container APIs. 
 
 |Package type|Method|Route|Query parameters|
 |--|--|--|--|
@@ -320,31 +316,13 @@ If you run the container with an output [mount](luis-container-configuration.md#
 
 ## Container's API documentation
 
-The container provides a full set of documentation for the endpoints as well as a `Try it now` feature. This feature allows you to enter your settings into a web-based HTML form and make the query without having to write any code. Once the query returns, an example CURL command is provided to demonstrate the HTTP headers and body format required. 
-
-> [!TIP]
-> Read the [OpenAPI specification](https://swagger.io/docs/specification/about/), describing the API operations supported by the container, from the `/swagger` relative URI. For example:
->
->  ```http
->  http://localhost:5000/swagger
->  ```
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Billing
 
 The LUIS container sends billing information to Azure, using a _Language Understanding_ resource on your Azure account. 
 
-Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (the utterance) to Microsoft. 
-
-The `docker run` uses the following arguments for billing purposes:
-
-| Option | Description |
-|--------|-------------|
-| `ApiKey` | The API key of the _Language Understanding_ resource used to track billing information.<br/>The value of this option must be set to an API key for the provisioned LUIS Azure resource specified in `Billing`. |
-| `Billing` | The endpoint of the _Language Understanding_ resource used to track billing information.<br/>The value of this option must be set to the endpoint URI of a provisioned LUIS Azure resource.|
-| `Eula` | Indicates that you've accepted the license for the container.<br/>The value of this option must be set to `accept`. |
-
-> [!IMPORTANT]
-> All three options must be specified with valid values, or the container won't start.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](luis-container-configuration.md).
 
@@ -366,16 +344,17 @@ Unsupported app configurations|Details|
 
 In this article, you learned concepts and workflow for downloading, installing, and running Language Understanding (LUIS) containers. In summary:
 
-* Language Understanding (LUIS) provides one Linux containers for Docker providing endpoint query predictions of utterances.
+* Language Understanding (LUIS) provides one Linux container for Docker providing endpoint query predictions of utterances.
 * Container images are downloaded from the Microsoft Container Registry (MCR).
 * Container images run in Docker.
 * You can use REST API to query the container endpoints by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
 
 > [!IMPORTANT]
-> Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (e.g., the image or text that is being analyzed) to Microsoft.
+> Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (for example, the image or text that is being analyzed) to Microsoft.
 
 ## Next steps
 
 * Review [Configure containers](luis-container-configuration.md) for configuration settings
-* Refer to [Frequently asked questions (FAQ)](luis-resources-faq.md) to resolve issues related to LUIS functionality.
+* Refer to [Troubleshooting](troubleshooting.md) to resolve issues related to LUIS functionality.
+* Use more [Cognitive Services Containers](../cognitive-services-container-support.md)

@@ -1052,7 +1052,7 @@ Set the maximum size of a console redirection output file.  Must be a positive i
 
 <a id="ContainerEntryPointElementxs:stringComplexTypeDefinedInDebugParametersTypecomplexType"></a>
 ## ContainerEntryPoint element
-Overidden entrypoint for containers so debugger can be launched.
+Overridden entrypoint for containers so debugger can be launched.
 
 |Attribute|Value|
 |---|---|
@@ -1067,7 +1067,7 @@ Overidden entrypoint for containers so debugger can be launched.
 ```xml
 <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerEntryPoint" type="xs:string" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
-          <xs:documentation>Overidden entrypoint for containers so debugger can be launched.</xs:documentation>
+          <xs:documentation>Overridden entrypoint for containers so debugger can be launched.</xs:documentation>
         </xs:annotation>
       </xs:element>
       

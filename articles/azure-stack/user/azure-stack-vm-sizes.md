@@ -14,6 +14,7 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
+ms.lastreviewed: 01/11/2019
 
 ---
 
@@ -131,14 +132,14 @@ General-purpose VM sizes provide a balanced CPU-to-memory ratio. They are used f
 ### Fsv2-series
 *Requires Azure Stack version 1804 or later* 
 
-|Size     |vCPU     |Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS) | Max temp storage throughput (IOPS) | Max data disks / throughput (IOPS) | Max NICs / expected network bandwidth (Mbps) |
-|---------------------|----|----|-----|-----|-------|--------------|---------|
-|**Standard_F2s_v2**  |2   |4   |16   |1000 |4000   |4 / 4x2300    |Moderate |
-|**Standard_F4s_v2**  |4   |8   |32   |1000 |8000   |8 / 8x2300    |Moderate |
-|**Standard_F8s_v2**  |8   |16  |64   |1000 |16000  |16 / 16x2300  |High     |
-|**Standard_F16s_v2** |16  |32  |128  |1000 |32000  |32 / 32x2300  |High     |
-|**Standard_F32s_v2** |32  |64  |256  |1000 |64000  |32 / 32x2300  |High  |
-|**Standard_F64s_v2** |64  |128 |512  |1000 |128000 |32 / 32x2300  |Extremely High  |
+|Size     |vCPU     |Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS) | Max temp storage throughput (IOPS) | Max data disks / throughput (IOPS) |
+|---------------------|----|----|-----|-----|-------|--------------|
+|**Standard_F2s_v2**  |2   |4   |16   |1000 |4000   |4 / 4x2300    |
+|**Standard_F4s_v2**  |4   |8   |32   |1000 |8000   |8 / 8x2300    |
+|**Standard_F8s_v2**  |8   |16  |64   |1000 |16000  |16 / 16x2300  |
+|**Standard_F16s_v2** |16  |32  |128  |1000 |32000  |32 / 32x2300  |
+|**Standard_F32s_v2** |32  |64  |256  |1000 |64000  |32 / 32x2300  |
+|**Standard_F64s_v2** |64  |128 |512  |1000 |128000 |32 / 32x2300  |
 
 
 ## Memory optimized
@@ -173,10 +174,10 @@ Memory optimized VM sizes provide a high memory-to-CPU ratio that is designed fo
 ### <a name="mo-dsv2"></a>DSv2-series
 |Size     |vCPU     |Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS) | Max temp storage throughput (IOPS) | Max data disks / throughput (IOPS) | Max NICs |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
-|**Standard_DS11_v2** |2   |14  |28   |1000 |8000   |8 / 8x2300    |2 |
-|**Standard_DS12_v2** |4   |28  |56   |1000 |16000  |16 / 16x2300  |4 |
-|**Standard_DS13_v2** |8   |56  |112  |1000 |32000  |32 / 32x2300  |8 |
-|**Standard_DS14_v2** |16  |112 |224  |1000 |64000  |64 / 64x2300  |8 |
+|**Standard_DS11_v2** |2   |14  |28   |1000 |8000   |4 / 4x2300    |2 |
+|**Standard_DS12_v2** |4   |28  |56   |1000 |16000  |8 / 8x2300    |4 |
+|**Standard_DS13_v2** |8   |56  |112  |1000 |32000  |16 / 16x2300  |8 |
+|**Standard_DS14_v2** |16  |112 |224  |1000 |64000  |32 / 32x2300  |8 |
 
 
 ## Next steps

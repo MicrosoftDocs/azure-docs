@@ -54,10 +54,10 @@ version | **10.2** | The MariaDB major engine version.
 admin-user | **myadmin** | The user name for the administrator login. The **admin-user** parameter can't be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
 admin-password | *your password* | The password of the administrator user. Your password must contain between 8 and 128 characters. It must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
 
-The **sku-name** parameter value follows the convention *pricing tier*\_*compute generation*\_*vCores* as shown in the following examples:
-+ `--sku-name B_Gen5_4` maps to the Basic pricing tier, the Gen 5 compute generation, and 4 vCores.
-+ `--sku-name GP_Gen5_32` maps to the General Purpose pricing tier, the Gen 5 compute generation, and 32 vCores.
-+ `--sku-name MO_Gen5_2` maps to the Memory Optimized pricing tier, the Gen 5 compute generation, and 2 vCores.
+The sku-name parameter value follows the convention {pricing tier}\_{compute generation}\_{vCores} as in the examples below:
++ `--sku-name B_Gen5_1` maps to Basic, Gen 5, and 1 vCore. This option is the smallest SKU available.
++ `--sku-name GP_Gen5_32` maps to General Purpose, Gen 5, and 32 vCores.
++ `--sku-name MO_Gen5_2` maps to Memory Optimized, Gen 5, and 2 vCores.
 
 For information about valid values by region and for tiers, see [Pricing tiers](./concepts-pricing-tiers.md).
 

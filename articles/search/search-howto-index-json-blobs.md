@@ -21,6 +21,9 @@ You can use the [portal](#json-indexer-portal), [REST APIs](#json-indexer-rest),
 
 JSON blobs in Azure Blob storage are typically either a single JSON document or a JSON array. The blob indexer in Azure Search can parse either construction, depending on how you set the **parsingMode** parameter on the request.
 
+> [!IMPORTANT]
+> JSON blob indexing is generally available, but JsonArray parsing is in public preview and should not be used in production environments. For more information, see [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md). 
+
 <a name="json-indexer-portal"></a>
 
 ## Use the portal

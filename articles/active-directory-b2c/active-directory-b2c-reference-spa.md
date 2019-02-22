@@ -3,14 +3,14 @@ title: Single-page apps using implicit flow in Azure Active Directory B2C | Micr
 description: Learn how to build single-page apps directly by using OAuth 2.0 implicit flow with Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Azure AD B2C: Single-page app sign-in by using OAuth 2.0 implicit flow
@@ -26,7 +26,7 @@ To support these applications, Azure Active Directory B2C (Azure AD B2C) uses th
 Azure AD B2C extends the standard OAuth 2.0 implicit flow to more than simple authentication and authorization. Azure AD B2C introduces the [policy parameter](active-directory-b2c-reference-policies.md). With the policy parameter, you can use OAuth 2.0 to add policies to your app, such as sign-up, sign-in, and profile management user flows. In this article, we show you how to use the implicit flow and Azure AD to implement each of these experiences in your single-page applications. To help you get started, take a look at our [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) and [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) samples.
 
 In the example HTTP requests in this article, we use our sample Azure AD B2C directory, **fabrikamb2c.onmicrosoft.com**. We also use our own sample application and user flows. You can try the requests yourself by using these values, or you can replace them with your own values.
-Learn how to [get your own Azure AD B2C directory, application, and user flows](#use-your-own-b2c-tenant).
+Learn how to [get your own Azure AD B2C directory, application, and user flows](#use-your-own-azure-ad-b2c-tenant).
 
 
 ## Protocol diagram

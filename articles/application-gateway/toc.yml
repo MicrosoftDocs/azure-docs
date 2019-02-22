@@ -39,8 +39,10 @@
     href: cli-samples.md
 - name: Concepts
   items:
-  - name: End to end SSL
-    href: ssl-overview.md
+  - name: How Application Gateway works
+    href: how-application-gateway-works.md
+  - name: Application Gateway components
+    href: application-gateway-components.md
   - name: SSL policy overview
     href: application-gateway-ssl-policy-overview.md
   - name: Web application firewall
@@ -63,6 +65,8 @@
     href: application-gateway-probe-overview.md
   - name: WebSocket support
     href: application-gateway-websocket.md
+  - name: FAQ
+    href: application-gateway-faq.md
 - name: How-to guides
   items:
   - name: Manage web traffic
@@ -197,5 +201,3 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-  - name: FAQ
-    href: application-gateway-faq.md

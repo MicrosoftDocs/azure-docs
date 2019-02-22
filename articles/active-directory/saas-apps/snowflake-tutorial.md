@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 3488ac27-0417-4ad9-b9a3-08325fe8ea0d
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Snowflake
 

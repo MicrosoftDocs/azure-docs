@@ -22,9 +22,20 @@ Azure App Service on Linux lets Java developers to quickly build, deploy, and sc
 
 This guide provides key concepts and instructions for Java developers using in App Service for Linux. If you've never used Azure App Service for Linux, you should read through the [Java quickstart](quickstart-java.md) first. General questions about using App Service for Linux that aren't specific to the Java development are answered in the [App Service Linux FAQ](app-service-linux-faq.md).
 
+## Deploying your app
+
+You can use the Maven plugin to deploy both .jar and .war files. Please see [this documentation](https://docs.microsoft.com/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable) for more information on the Maven plugin. 
+
+If you are not using Maven, your deployment method will depend on your archive type:
+
+- To deploy .war files to Tomcat, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, please see [this documentation](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
+- To deploy .jar files on the Java SE images, use the `/api/zipdeploy/` endpoint of the Kudu site. For more information on this API, please see [this documentation](https://docs.microsoft.com/azure/app-service/deploy-zip#rest).
+
+Do not deploy your .war or .jar using FTP. The FTP tool is designed to upload startup scripts, dependencies, or other runtime files. It is not the optimal choice for deploying web apps.
+
 ## Logging and debugging apps
 
-Performance reports, traffic visualizations, and health checkups are available for eeach app through the Azure portal. See the [Azure App Service diagnostics overview](/azure/app-service/overview-diagnostics) for more information on how to access and use these diagnostic tools.
+Performance reports, traffic visualizations, and health checkups are available for each app through the Azure portal. See the [Azure App Service diagnostics overview](/azure/app-service/overview-diagnostics) for more information on how to access and use these diagnostic tools.
 
 ## Application performance monitoring
 
@@ -135,7 +146,7 @@ Set up app authentication in the Azure Portal with the  **Authentication and Aut
 
 If you need to enable multiple sign-in providers, follow the instructions in the [customize App Service authentication](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to) article.
 
- Spring Boot developers can use the [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) to secure applications using familiar Spring Security annotations and APIs.
+Spring Boot developers can use the [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) to secure applications using familiar Spring Security annotations and APIs. Be sure to increase the maximum header size in your `application.properties` file. We suggest a value of `16384`. 
 
 ### Configure TLS/SSL
 

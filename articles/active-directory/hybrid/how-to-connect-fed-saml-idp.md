@@ -3,16 +3,17 @@ title: 'Azure AD Connect: Use a SAML 2.0 Identity Provider for Single Sign On | 
 description: This document describes using a SAML 2.0 compliant Idp for single sign on.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.custom: it-pro
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 #  Use a SAML 2.0 Identity Provider (IdP) for Single Sign On

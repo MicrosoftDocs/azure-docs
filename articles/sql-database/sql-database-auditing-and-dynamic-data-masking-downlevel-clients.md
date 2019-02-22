@@ -11,7 +11,7 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 01/14/2019
 ---
 # SQL Database -  Downlevel clients support and IP endpoint changes for Table Auditing
 

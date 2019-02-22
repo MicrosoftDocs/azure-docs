@@ -37,6 +37,8 @@
     href: resource-manager-tutorial-secure-artifacts.md
   - name: Use safe deployment practices
     href: deployment-manager-tutorial.md
+  - name: Troubleshoot template deployment
+    href: resource-manager-tutorial-troubleshoot.md
 - name: Samples
   items:
   - name: Resource Manager templates
@@ -139,9 +141,6 @@
       href: cli-azure-resource-manager.md
     - name: Move resources
       href: resource-group-move-resources.md
-      items:
-      - name: Move support per resource type
-        href: move-support-resources.md
     - name: Organize resources by using tags
       href: resource-group-using-tags.md
     - name: Lock resources
@@ -215,8 +214,14 @@
       href: resource-group-template-functions-resource.md
     - name: String functions
       href: resource-group-template-functions-string.md
-  - name: Tag support
-    href: tag-support.md
+  - name: Resource capabilities
+    items:
+    - name: Complete mode deletion
+      href: complete-mode-deletion.md
+    - name: Move support
+      href: move-support-resources.md
+    - name: Tag support
+      href: tag-support.md
   - name: REST - Resource Manager
     href: /rest/api/resources/
   - name: REST - Deployment Manager

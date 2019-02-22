@@ -4,12 +4,12 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Use Language Understanding (LUIS) to add app features that can improve the detection or prediction of intents and entities that categories and patterns
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 01/16/2019
 ms.author: diberry
 ---
 
@@ -22,6 +22,8 @@ A [phrase list](luis-concept-feature.md) includes a group of values (words or ph
 A phrase list adds to the vocabulary of the app domain as a second signal to LUIS about those words.
 
 ## Add phrase list
+
+LUIS allows up to 10 phrase lists per app. 
 
 1. Open your app by clicking its name on **My Apps** page, and then click **Build**, then click **Phrase lists** in your app's left panel. 
 

@@ -4,15 +4,15 @@ titleSuffix: Azure Cognitive Services
 description: Extract consistently-formatted data from an utterance using the Regular Expression entity. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the regular expression entity. 
---- 
+---
 
 # Tutorial: Get well-formatted data from the utterance
 In this tutorial, create an app to extract consistently-formatted data from an utterance using the **Regular Expression** entity.

@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 12/27/2018
 ms.author: sethm
+ms.lastreviewed: 12/27/2018
 
 ---
 # Key considerations: Using services or building apps for Azure Stack

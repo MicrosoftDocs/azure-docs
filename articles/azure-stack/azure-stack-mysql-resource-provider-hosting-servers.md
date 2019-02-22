@@ -11,18 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
+ms.lastreviewed: 10/16/2018
 
 ---
 
 # Add hosting servers for the MySQL resource provider
 
-You can host a MySQL instance on a virtual machine (VM) in [Azure Stack](azure-stack-poc.md), or on a VM outside your Azure Stack environment, as long as the MySQL resource provider can connect to the instance.
+You can host a MySQL hosting server instance on a virtual machine (VM) in [Azure Stack](azure-stack-poc.md), or on a VM outside your Azure Stack environment, as long as the MySQL resource provider can connect to the instance.
 
 > [!NOTE]
-> MySQL databases should be created on the MySQL resource provider server. The MySQL resource provider should be created in the default provider subscription while MySQL hosting servers should be created in a billable, user subscription. The resource provider server should not be used to host user databases.
+> The MySQL resource provider should be created in the default provider subscription while MySQL hosting servers should be created in billable, user subscriptions. The resource provider server should not be used to host user databases.
 
 MySQL versions 5.6, 5.7 and 8.0 may be used for your hosting servers. The MySQL RP does not support caching_sha2_password authentication; that will be added in the next release. MySQL 8.0 servers must be configured to use mysql_native_password. MariaDB is also supported.
 

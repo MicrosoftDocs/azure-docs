@@ -10,7 +10,7 @@ ms.date: 05/30/2018
 ms.author: masoucou
 
 ---
-# Azure Cosmos DB: Build a todo app with Xamarin
+# Quickstart: Build a todo app with Xamarin using Azure Cosmos DB SQL API account
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
@@ -195,7 +195,7 @@ Now let's take a quick review of how the app communicates with Azure Cosmos DB.
     }
     ```
 
-    Again note the unique doument URI being created and passed to the `DocumentClient.DeleteDocumentAsync` function.
+    Again note the unique document URI being created and passed to the `DocumentClient.DeleteDocumentAsync` function.
 
 ## Run the app
 

@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
 ---
-# Azure Cosmos DB: Create, query, and traverse a graph in the Gremlin console
+# Quickstart: Create, query, and traverse a Azure Cosmos DB graph database using the Gremlin console
 
 > [!div class="op_single_selector"]
 > * [Gremlin console](create-graph-gremlin-console.md)
@@ -74,6 +74,8 @@ connectionPool: {
 }
 serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0, config: { serializeResultToString: true }}
 ```
+
+make sure to wrap the value of hosts parameter within brackets []. 
 
 3. In your terminal, run `bin/gremlin.bat` or `bin/gremlin.sh` to start the [Gremlin Console](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
 4. In your terminal, run `:remote connect tinkerpop.server conf/remote-secure.yaml` to connect to your app service.

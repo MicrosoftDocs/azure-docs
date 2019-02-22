@@ -330,7 +330,7 @@ If you don't need these resources for another tutorial (see [Next steps](#next))
   
 ```bash
 az group delete --name your-azure-group-name
-``` 
+```
 
 <a name="next"></a>
 

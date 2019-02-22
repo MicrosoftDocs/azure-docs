@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.custom: seodec18
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2018
+ms.date: 02/06/2019
 ms.author: shvija
 
 ---
@@ -34,6 +34,9 @@ When you create an event hub, you can enable Capture by clicking the **On** butt
 The default time window is 5 minutes. The minimum value is 1, the maximum 15. The **Size** window has a range of 10-500 MB.
 
 ![Time window for capture][1]
+
+> [!NOTE]
+> You can enable or disable emitting empty files when no events occur during the Capture window. 
 
 ## Capture data to an Azure Data Lake Store account
 
