@@ -4,7 +4,7 @@ description: How to find and delete unattached Azure managed and unmanaged (VHDs
 services: virtual-machines-windows
 documentationcenter: ''
 author: ramankumarlive
-manager: jeconnoc
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 
