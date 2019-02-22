@@ -66,3 +66,20 @@ Make sure that the default network security group (NSG) isn't modified and that 
 ## I'm trying to upgrade or scale and am getting a "message: Changing property 'imageReference' is not allowed" error.  How do I fix this problem?
 
 You might be getting this error because you've modified the tags in the agent nodes inside the AKS cluster. Modifying and deleting tags and other properties of resources in the MC_* resource group can lead to unexpected results. Modifying the resources under the MC_* group in the AKS cluster breaks the service-level objective (SLO).
+
+## I'm receiving errors that my cluster is in failed state and upgrading or scaling will not work until it is fixed (directed from https://aka.ms/aks-cluster-failed).
+
+This error occurs when clusters enter a failed state for multiple reasons. Begin by resolving the cause for the upgrade failure before attempting to reset your cluster failed state by following the below steps.
+
+1. Until the cluster is out of `failed` state, `upgrade` and `scale` operations will not succeed. Common scenarios and resolutions include:
+    * Scaling with **insufficient compute (CRP) quota**. To resolve follow these [steps to request a compute quota increase](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+    * Scaling a cluster with advanced networking and **insufficient subnet (networking) resources**. To resolve follow [these steps to request a resource quota increase](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors#solution).
+2. Once the underlying cause for upgrade failure is resolved, re-run the same upgrade command. This will bring the cluster to a succeeded state
+which will unblock subsequent upgrade or scaling operations.
+
+## I'm receiving errors when trying to upgrade or scale that state my cluster is being currently being upgraded or has failed upgrade (directed from https://aka.ms/aks-pending-upgrade).
+
+Cluster operations are limited when active upgrade operations are occurring or an upgrade was attempted, but subsequently failed. To diagnose the issue run `az aks show -n clustername -g clusterrg -o table` to retrieve detailed status on your cluster. Based on the result:
+
+* If cluster is actively upgrading, wait until the operation terminates. If it succeeded, try the previously failed operation again.
+* If cluster has failed upgrade, follow steps outlined [above](#I'm-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed-(directed-from-https://aka.ms/aks-cluster-failed).).
