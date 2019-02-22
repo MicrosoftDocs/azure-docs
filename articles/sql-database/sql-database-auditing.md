@@ -8,7 +8,7 @@ ms.custom:
 ms.devlang: 
 ms.topic: conceptual
 author: vainolo
-ms.author: vainolo
+ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
@@ -37,8 +37,11 @@ You can use SQL database auditing to:
 > [!IMPORTANT]
 > Audit logs are written to **Append Blobs** in Azure Blob storage on your Azure subscription.
 >
-> - **Premium storage** is currently **not supported** by Append Blobs.
+> - All storage kinds (v1, v2, blob) are supported.
+> - All storage replication configurations are supported.
+> - **Premium storage** is currently **not supported**.
 > - **Storage in VNet** is currently **not supported**.
+> - **Storage behind a Firewall** is currently **not supported**
 
 ## <a id="subheading-8"></a>Define server-level vs. database-level auditing policy
 
@@ -120,7 +123,7 @@ If you chose to write audit logs to Log Analytics:
 If you chose to write audit logs to Event Hub:
 
 - To consume audit logs data from Event Hub, you will need to set up a stream to consume events and write them to a target. For more information, see [Azure Event Hubs Documentation](https://docs.microsoft.com/azure/event-hubs/).
-- Audit logs in Event Hub are captured in the body of [Apache Avro](http://avro.apache.org/) events and stored using JSON formatting with UTF-8 encoding. To read the audit logs, you can use [Avro Tools](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) or similar tools that process this format.
+- Audit logs in Event Hub are captured in the body of [Apache Avro](http://avro.apache.org/) events and stored using JSON formatting with UTF-8 encoding. To read the audit logs, you can use [Avro Tools](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) or similar tools that process this format.
 
 If you chose to write audit logs to an Azure storage account, there are several methods you can use to view the logs:
 

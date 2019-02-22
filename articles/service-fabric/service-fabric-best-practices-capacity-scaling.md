@@ -28,7 +28,7 @@ Scaling operations should be performed via Azure Resource template deployment, b
 * You only need to horizontally scale 1 virtual machine scale set node at a time.
   * To scaling out by 3 or more nodes at a time, you should [scale a Service Fabric cluster out by adding a Virtual Machine Scale Set](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out), and it is safest to scale in and out Virtual Machine Scale Sets horizontally 1 node at a time.
 * You have at Silver Reliability or higher for your Service Fabric Cluster, and Silver Durability or higher on any scale Set you configure Autoscaling rules.
-  * Autoscaling rules capacity[minimum] must be equal to or greater than 5 virtual machine instances, and must be equal to or greater than your Reliability Tier minimum for your Primary Node type.
+  * Autoscaling rules capacity [minimum] must be equal to or greater than 5 virtual machine instances, and must be equal to or greater than your Reliability Tier minimum for your Primary Node type.
 
 > [!NOTE]
 > Azure Service Fabric stateful service fabric:/System/InfastructureService/<NODE_TYPE_NAME>, runs on every Node Type that has Silver or Higher Durability, which is the only System Service that is supported to run in Azure on any of your clusters Node Types. 

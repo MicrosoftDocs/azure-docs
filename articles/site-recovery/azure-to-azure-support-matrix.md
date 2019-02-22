@@ -78,6 +78,7 @@ Site Recovery supports replication of Azure VMs running the operating systems li
 
 **Operating system** | **Details**
 --- | ---
+Windows Server 2019 |
 Windows Server 2016  | Server Core, Server with Desktop Experience
 Windows Server 2012 R2 |
 Windows Server 2012 |
@@ -172,8 +173,8 @@ This table summarized support for the Azure VM OS disk, data disk, and temporary
 
 **Component** | **Support** | **Details**
 --- | --- | ---
-OS disk maximum size | 2048 GB | [Learn more](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms) about VM disks.
-Temporary disk | Not supported | The temporary disk is always excluded from replication.<br/><br/> Don't any persistent data on the temporary disk. [Learn more](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk).
+OS disk maximum size | 2048 GB | [Learn more](../virtual-machines/windows/managed-disks-overview.md) about VM disks.
+Temporary disk | Not supported | The temporary disk is always excluded from replication.<br/><br/> Don't store any persistent data on the temporary disk. [Learn more](../virtual-machines/windows/managed-disks-overview.md).
 Data disk maximum size | 4095 GB |
 Data disk maximum number | Up to 64, in accordance with support for a specific Azure VM size | [Learn more](../virtual-machines/windows/sizes.md) about VM sizes.
 Data disk change rate | Maximum of 10 MBps per disk for premium storage. Maximum of 2 MBps per disk for Standard storage. | If the average data change rate on the disk is continuously higher than the maximum, replication won't catch up.<br/><br/>  However, if the maximum is exceeded sporadically, replication can catch up, but you might see slightly delayed recovery points.
@@ -189,7 +190,7 @@ Encryption at rest (SSE) | Supported | SSE is the default setting on storage acc
 Azure Disk Encryption (ADE) for Windows OS | VMs enabled for [encryption with Azure AD app](https://aka.ms/ade-aad-app) are supported |
 Azure Disk Encryption (ADE) for Linux OS | Not supported |
 Hot add/remove disk	| Not supported | If you add or remove data disk on the VM, you need to disable replication and enable replication again for the VM.
-Exclude disk | Not supported|	Temporary disk is excluded by default.
+Exclude disk | [supported through powershell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine) |	Temporary disk is excluded by default.
 Storage Spaces Direct  | Supported for crash consistent recovery points. Application consistent recovery points are not supported. |
 Scale-out File Server  | Supported for crash consistent recovery points. Application consistent recovery points are not supported. |
 LRS | Supported |

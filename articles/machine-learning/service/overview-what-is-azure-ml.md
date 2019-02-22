@@ -26,13 +26,13 @@ Forecasts or predictions from machine learning can make apps and devices smarter
 
 ## What is Azure Machine Learning service?
 
-Azure Machine Learning service provides a cloud-based environment you can use to develop, train, test, deploy, manage, and track machine learning models.
+Azure Machine Learning service provides a cloud-based environment you can use to prep data, train, test, deploy, manage, and track machine learning models.
 
 [ ![Azure Machine Learning service workflow](./media/overview-what-is-azure-ml/aml.png)]
 (./media/overview-what-is-azure-ml/aml.png#lightbox)
 
-Azure Machine Learning service fully supports open-source technologies. So you can use tens of thousands of open-source Python packages with machine learning components. Examples are TensorFlow and scikit-learn.
-Support for rich tools makes it easy to interactively explore data, transform it, and then develop and test models. Examples are [Jupyter notebooks](http://jupyter.org) or the [Azure Machine Learning for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) extension.
+Azure Machine Learning service fully supports open-source technologies. So you can use tens of thousands of open-source Python packages with machine learning components. Examples are PyTorch, TensorFlow, and scikit-learn.
+Support for rich tools makes it easy to interactively explore and prepare data and then develop and test models. Examples are [Jupyter notebooks](http://jupyter.org) or the [Azure Machine Learning for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) extension.
 Azure Machine Learning service also includes features that [automate model generation and tuning](tutorial-auto-train-models.md) to help you create models with ease, efficiency, and accuracy.
 
 By using Azure Machine Learning service, you can start training on your local machine and then scale out to the cloud. With many available [compute targets](how-to-set-up-training-targets.md), like Azure Machine Learning Compute and [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster by using the power of the cloud.
@@ -46,10 +46,7 @@ And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can
 
 ## What can I do with Azure Machine Learning service?
 
-Azure Machine Learning service can autotrain a model and autotune it for you.
-For an example, see [Train a regression model with automated machine learning](tutorial-auto-train-models.md).
-
-By using the Azure Machine Learning <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> for Python, along with open-source Python packages, you can build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning service Workspace.
+Using the <a href="https://aka.ms/aml-sdk" target="_blank">main Python SDK</a> and the <a href="https://aka.ms/data-prep-sdk" target="_blank">Data Prep SDK</a> for Azure Machine Learning as well as open-source Python packages, you can build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning service Workspace.
 You can choose from many machine learning components available in open-source Python packages, such as the following examples:
 
 - <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
@@ -57,6 +54,9 @@ You can choose from many machine learning components available in open-source Py
 - <a href="https://pytorch.org" target="_blank">PyTorch</a>
 - <a href="https://www.microsoft.com/en-us/cognitive-toolkit/" target="_blank">CNTK</a>
 - <a href="http://mxnet.io" target="_blank">MXNet</a>
+
+Azure Machine Learning service can also autotrain a model and autotune it for you.
+For an example, see [Train a regression model with automated machine learning](tutorial-auto-train-models.md).
 
 After you have a model, you use it to create a container, such as Docker, that can be deployed locally for testing. After testing is done, you can deploy the model as a production web service in either Azure Container Instances or Azure Kubernetes Service. For more information, see the article on [how to deploy and where](how-to-deploy-and-where.md).
 
@@ -84,12 +84,12 @@ You get credits to spend on Azure services. After they're used up, you can keep 
 
 ## Next steps
 
-- Create a Machine Learning service workspace to get started [by using the Azure portal](quickstart-get-started.md) or [in Python](quickstart-create-workspace-with-python.md).
+- Create a Machine Learning service workspace to get started [by using the Azure portal](quickstart-get-started.md) (no-install approach) or [in Python](quickstart-create-workspace-with-python.md) (SDK install approach).
 
-- Follow the full-length tutorial, [Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).
-
-- [Use Azure Machine Learning to autogenerate and autotune a model](tutorial-auto-train-models.md).
-
+- Follow the full-length tutorials: 
+  + [Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md) 
+  + [Prepare data and use automated machine learning to auto-train a regression model](tutorial-data-prep.md)
+  
 - Use the [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) to prepare your data.
 
 - Learn about [machine learning pipelines](/azure/machine-learning/service/concept-ml-pipelines) to build, optimize, and manage your machine learning scenarios.
@@ -97,18 +97,3 @@ You get credits to spend on Azure services. After they're used up, you can keep 
 - Read the in-depth [Azure Machine Learning service architecture and concepts](concept-azure-machine-learning-architecture.md) article.
 
 - For more information, see [other machine learning products from Microsoft](./overview-more-machine-learning.md).
-
-
-<!-- 
-
-An intro to AML or an end-to-end quickstart video could go here.
-
-In this 9-minute video, learn how you can benefit your app. You'll learn about key features and what a typical workflow looks like. 
-
->[!VIDEO https://channel9.msdn.com/Events/Connect/2016/138/player]
- 
-+ 0-3 minutes covers key features and use-cases.
-+ 3-4 minutes covers service provisioning. 
-+ 4-6 minutes covers Import Data wizard used to create an index using the built-in real estate dataset.
-
--->
