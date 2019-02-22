@@ -53,6 +53,8 @@
     href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Create a serverless web app
     href: https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database 
+  - name: Azure for Students Starter
+    href: functions-create-student-starter.md
   - name: Functions on Linux
     items: 
     - name: Custom image
