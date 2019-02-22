@@ -16,30 +16,30 @@ ms.date: 12/14/2018
 ---
 # Bulk copy from database with control table
 
-To copy data from your Oracle Server, Netezza, Teradata, or SQL Server data warehouse to Azure SQL Data Warehouse, you have to load huge amounts of data from multiple tables. Usually, the data has to be partitioned in each table so that you can load rows with multiple threads in parallel from a single table. This article describes a template that's available to use in such scenarios.
+To copy data from a data warehouse in Oracle Server, Netezza, Teradata, or SQL Server to Azure SQL Data Warehouse, you have to load huge amounts of data from multiple tables. Usually, the data has to be partitioned in each table so that you can load rows with multiple threads in parallel from a single table. This article describes a template that's available to use in such scenarios.
 
 >!NOTE
-> If you want to copy data from a small number of tables with relatively small data volume to SQL Data Warehouse, it's more efficient to use the [**Data Factory Copy Data tool**](../copy-data-tool.md). The template that's described in this article is more than you need for that scenario.
+> If you want to copy data from a small number of tables with relatively small data volume to SQL Data Warehouse, it's more efficient to use the [**Data Factory Copy Data tool**](copy-data-tool.md). The template that's described in this article is more than you need for that scenario.
 
 ## About this solution template
 
 This template retrieves a list of source database partitions to copy from an external control table. Then it iterates over each partition in the source database and copies the data to the destination.
 
 The template contains the following three activities:
-- **Lookup** retrieves the list of soure database partitions from an external control table.
+- **Lookup** retrieves the list of sure database partitions from an external control table.
 - **ForEach** gets the partition list from the Lookup activity and iterates each partition to the Copy activity.
 - **Copy** copies each partition from the source database store to the destination store.
 
 The template defines these five parameters:
-- *Control_Table_Name* is the name of your external control table, which stores the partition list for the source database.
-- *Control_Table_Schema_PartitionID* is the column name in your external control table that stores each Partition ID. Make sure that the Partition ID is unique for each partition in the source database.
-- *Control_Table_Schema_SourceTableName* is the name of your external control table that stores each table name from the source database.
+- *Control_Table_Name* is your external control table, which stores the partition list for the source database.
+- *Control_Table_Schema_PartitionID* is the name of the column name in your external control table that stores each partition ID. Make sure that the partition ID is unique for each partition in the source database.
+- *Control_Table_Schema_SourceTableName* is your external control table that stores each table name from the source database.
 - *Control_Table_Schema_FilterQuery* is the name of the column in your external control table that stores the filter query to get the data from each partition in the source database. For example, if you partitioned the data by year, the query that's stored in each row might be similar to ‘select * from datasource where LastModifytime >= ''2015-01-01 00:00:00'' and LastModifytime <= ''2015-12-31 23:59:59.999'''.
 - *Data_Destination_Folder_Path* is the path where the data is copied into your destination store. This parameter is only visible if the destination that you choose is file-based storage. If you choose SQL Data Warehouse as the destination store, this parameter is not required. But the table names and the schema in SQL Data Warehouse must be the same as the ones in the source database.
 
 ## How to use this solution template
 
-1. Create a control table in a SQL Server or Azure SQL Database to store the source database partition list for bulk copy. In the example below, there are five partitions in the source database: three partitions are for one table, *datasource_table*, and two are for another table, *project_table*. The column *LastModifytime* is used to partition the data in table *datasource_table* from the source database. The query that's used to read the first partition is 'select * from datasource_table where LastModifytime >= ''2015-01-01 00:00:00'' and LastModifytime <= ''2015-12-31 23:59:59.999'''. You can use a similar query to read data from other partitions.
+1. Create a control table in a SQL Server or Azure SQL Database to store the source database partition list for bulk copy. In the following example, there are five partitions in the source database: three partitions are for one table, *datasource_table*, and two are for another table, *project_table*. The column *LastModifytime* is used to partition the data in table *datasource_table* from the source database. The query that's used to read the first partition is 'select * from datasource_table where LastModifytime >= ''2015-01-01 00:00:00'' and LastModifytime <= ''2015-12-31 23:59:59.999'''. You can use a similar query to read data from other partitions.
 
 	 ```sql
 			Create table ControlTableForTemplate
