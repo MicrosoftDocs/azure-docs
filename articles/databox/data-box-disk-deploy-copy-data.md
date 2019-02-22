@@ -40,9 +40,9 @@ Review the following considerations before you copy the data to the disks:
 
 If you specified managed disks in the order, review the following additional considerations:
 
+- You can only have one managed disk with a given name in a resource group across all the precreated folders and across all the Data Box Disk. This implies that the VHDs uploaded to the precreated folders should have unique names. Make sure that the given name does not match an already existing managed disk in a resource group.
 - Always copy the VHDs to one of the precreated folders. If you copy the VHDs outside of these folders or in a folder that you created, the VHDs are uploaded to Azure Storage account as page blobs and not managed disks.
 - Only the fixed VHDs can be uploaded to create managed disks. Dynamic VHDs, differencing VHDs or VHDX files are not supported.
-- You can only have one managed disk with a given name in a resource group across all the precreated folders and across all the Data Box Disk. This implies that the VHDs uploaded to the precreated folders should have unique names. Make sure that the given name does not match an already existing managed disk in a resource group.
 - Review [Managed disk limits in Azure object size limits](data-box-disk-limits.md#azure-object-size-limits).
 
 Perform the following steps to connect and copy data from your computer to the Data Box Disk.
@@ -61,18 +61,12 @@ Perform the following steps to connect and copy data from your computer to the D
 
     A container is created in the Azure storage account for each subfolder under BlockBlob and PageBlob folders. All files under BlockBlob and PageBlob folders are copied into a default container `$root` under the Azure Storage account. Any files in the `$root` container are always uploaded as block blobs.
 
+   Copy files to a folder within *AzureFile* folder. A sub-folder within *AzureFile* folder creates a fileshare. Files copied directly to *AzureFile* folder fail and are uploaded as block blobs.
+
     If files and folders exist in the root directory, then you must move those to a different folder before you begin data copy.
 
-    Follow the Azure naming requirements for container and blob names.
-
-    #### Azure naming conventions for container and blob names
-    |Entity   |Conventions  |
-    |---------|---------|
-    |Container names block blob and page blob     |Must start with a letter or number, and can contain only lowercase letters, numbers, and the hyphen (-). Every hyphen (-) must be immediately preceded and followed by a letter or number. Consecutive hyphens are not permitted in names. <br>Must be a valid DNS name, which is 3 to 63 characters long.          |
-    |Blob names for block blob and page blob    |Blob names are case-sensitive and can contain any combination of characters. <br>A blob name must be between 1 to 1,024 characters long.<br>Reserved URL characters must be properly escaped.<br>The number of path segments comprising the blob name cannot exceed 254. A path segment is the string between consecutive delimiter characters (for example, the forward slash '/') that correspond to the name of a virtual directory.         |
-
-    > [!IMPORTANT] 
-    > All the containers and blobs should conform to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). If these rules are not followed, the data upload to Azure will fail.
+    > [!IMPORTANT]
+    > All the containers, blobs, and filenames should conform to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). If these rules are not followed, the data upload to Azure will fail.
 
 3. When copying files, ensure that files do not exceed ~4.7 TiB for block blobs, ~8 TiB for page blobs, and ~1 TiB for Azure Files. 
 4. You can use drag and drop with File Explorer to copy the data. You can also use any SMB compatible file copy tool such as Robocopy to copy your data. Multiple copy jobs can be initiated using the following Robocopy command:
@@ -94,7 +88,7 @@ Perform the following steps to connect and copy data from your computer to the D
     |/FFT                | Assumes FAT file times (two-second precision).        |
     |/Log:<Log File>     | Writes the status output to the log file (overwrites the existing log file).         |
 
-    Multiple disks can be used in parallel with multiple jobs running on each disk. 
+    Multiple disks can be used in parallel with multiple jobs running on each disk.
 
 6. Check the copy status when the job is in progress. The following sample shows the output of the robocopy command to copy files to the Data Box Disk.
 

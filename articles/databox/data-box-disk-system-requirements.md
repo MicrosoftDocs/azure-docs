@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 02/22/2019
 ms.author: alkohli
 ---
 # Azure Data Box Disk system requirements
@@ -62,15 +62,16 @@ Here is a list of the supported storage types for the Data Box Disk.
 > Azure Data Lake Storage Gen 2 accounts are not supported.
 
 
-## Supported storage types
+## Supported storage types for upload
 
-Here is a list of the supported storage types for the Data Box Disk.
+Here is a list of the storage types supported for uploaded to Azure using Data Box Disk.
 
 | **File format** | **Notes** |
 | --- | --- |
 | Azure block blob | |
 | Azure page blob  | |
 | Azure Files  | |
+| Managed Disks | |
 
 
 ## Next step

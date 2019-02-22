@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 02/22/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -77,7 +77,7 @@ Perform the following steps in the [Azure portal](https://aka.ms/azuredataboxfro
     |Destination Azure region| Select a region for your storage account.<br> Currently, storage accounts in all regions in US, West and North Europe, Canada, and Australia are supported. |
     |Estimated data size in TB| Enter an estimate in TB. <br>Based on the data size, Microsoft sends you an appropriate number of 8 TB SSDs (7 TB usable capacity). <br>The maximum usable capacity of 5 disks is up to 35 TB. |
     |Disk passkey| Supply the disk passkey if you check **Use custom key instead of Azure generated passkey**. <br> Provide a 12 to 32 character alphanumeric key that has at least one numeric and one special character. The allowed special characters are `@?_+`. <br> You can choose to skip this option and use the Azure generated passkey to unlock your disks.|
-    |Storage destination     | Choose from storage account or managed disks or both. <br> Based on the specified Azure region, select one or more storage accounts from the filtered list of an existing storage account. Data Box can be linked with up to 10 storage accounts. <br> You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**. <br>You cannot use storage accounts that have rules configured. The storage accounts must **allow access from all networks** in the firewalls and virtual networks section.|
+    |Storage destination     | Choose from storage account or managed disks or both. <br> Based on the specified Azure region, select a storage account from the filtered list of an existing storage account. Data Box can be linked with up to 10 storage accounts. <br> You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**. <br>You cannot use storage accounts that have rules configured. The storage accounts must **allow access from all networks** in the firewalls and virtual networks section.|
 
     If using storage account as the storage destination, you see the following screenshot:
 
@@ -87,13 +87,13 @@ Perform the following steps in the [Azure portal](https://aka.ms/azuredataboxfro
 
     |Setting  |Value  |
     |---------|---------|
-    |Resource group     | Create a new resource group if you intend to create managed disks from on-premises VHDs. Use an existing resource group only if it was created as a Data Box Disk order for managed disk by Data Box service. <br> Only one resource group is supported.|
+    |Resource group     | Create a new resource group if you intend to create managed disks from on-premises VHDs. Use an existing resource group only if it was created for Data Box Disk order for managed disk by Data Box service. <br> Only one resource group is supported.|
 
     ![Data Box Disk order for managed disk](media/data-box-disk-deploy-ordered/order-for-managed-disks.png)
 
     The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs to the staging storage account and then converts those into managed disks and moves to the resource groups. For more information, see [Verify data upload to Azure](data-box-disk-deploy-picked-up.md#verify-data-upload-to-azure).
 
-13. Click **Next**. 
+13. Click **Next**.
 
     ![Supply order details](media/data-box-disk-deploy-ordered/data-box-order-details.png)
 
