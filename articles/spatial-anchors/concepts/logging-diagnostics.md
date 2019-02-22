@@ -12,13 +12,13 @@ ms.service: azure-spatial-anchors
 ---
 # Logging and diagnostics in Azure Spatial Anchors
 
-Azure Spatial Anchors provides a standard logging mechanism useful for app development. Additionally, there is a diagnostics logging mode useful when even more information is required for debugging. Diagnostics logging includes storing images of the environment.
+Azure Spatial Anchors provides a standard logging mechanism useful for app development. Additionally, there's a diagnostics logging mode useful when even more information is required for debugging. Diagnostics logging includes storing images of the environment.
 
 ## Standard logging in Azure Spatial Anchors
-The Azure Spatial Anchors API provides a logging mechanism that applications can subscribe to for receiving useful logs for application development and debugging. The standard logging APIs do not persist pictures of the environment to the device disk. The SDK provides these logs as event callbacks. It's up to you to integrate these logs into the application's logging mechanism.
+The Azure Spatial Anchors API provides a logging mechanism that applications can subscribe to for receiving useful logs for application development and debugging. The standard logging APIs don't persist pictures of the environment to the device disk. The SDK provides these logs as event callbacks. It's up to you to integrate these logs into the application's logging mechanism.
 
 ### How to configure the log messages
-There are two callbacks of interest for the user. In the sample bellow you can see how to configure the session.
+There are two callbacks of interest for the user. In the sample below, you can see how to configure the session.
 
 ```csharp
     cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
@@ -43,15 +43,15 @@ Event callbacks provided to process logs and errors from the session.
 
 ## Diagnostics logging in Azure Spatial Anchors
 
-In addition to the standard mode of operation for logging discussed above, Azure Spatial Anchors also has a diagnostics mode that developers can opt into. Diagnostics captures images of the environment and logs them to the disk. This is useful for debugging certain kinds of issues like when you are not able to predictably locate an anchor. You should only enable diagnostics logging to reproduce a specific issue and then disable it. You should not run your apps normally with diagnostics enabled.
+In addition to the standard mode of operation for logging discussed above, Azure Spatial Anchors also has a diagnostics mode that developers can opt into. Diagnostics captures images of the environment and logs them to the disk. This mode is useful for debugging certain kinds of issues like when you aren't able to predictably locate an anchor. Only enable diagnostics logging to reproduce a specific issue and then disable it. Do not run your apps normally with diagnostics enabled.
 
-During a support interaction with Microsoft, a Microsoft representative MAY ask if you are willing to submit a diagnostics bundle to Microsoft for further investigation. In this case, you may decide to enable diagnostics, reproduce the issue, and submit the diagnostic bundle to Microsoft for further investigation. Diagnostics logs that are submitted to Microsoft without prior acknowledgement by a Microsoft representative will go unanswered.
+During a support interaction with Microsoft, a Microsoft representative MAY ask if you're willing to submit a diagnostics bundle to Microsoft for further investigation. In this case, you may decide to enable diagnostics, reproduce the issue, and submit the diagnostic bundle to Microsoft for further investigation. Diagnostics logs that are submitted to Microsoft without prior acknowledgement by a Microsoft representative will go unanswered.
 
 The following code snippets show you how to enable diagnostics mode and also how you can submit diagnostics logs to Microsoft.
 
 ### Enabling diagnostics logging
 
-While a session is enabled for diagnostics logging, all operations on the session will have corresponding diagnostics logging on the local file system. This includes saving images of the environment to disk.
+While a session is enabled for diagnostics logging, all operations on the session will have corresponding diagnostics logging on the local file system. Logging includes saving images of the environment to disk.
 
 ```csharp
 private void ConfigureSession()
@@ -81,7 +81,7 @@ private void ConfigureSession()
 
 ### Submitting the diagnostic bundle
 
-The following shows how to submit a diagnostics bundle to Microsoft. Please note, this will includes images of the environment captured by the session after enabling diagnostics. Additionally, diagnostics bundles that are submitted to Microsoft without prior acknowledgement by a Microsoft representative will go unanswered.
+The following code snippet shows how to submit a diagnostics bundle to Microsoft. Note, this will includes images of the environment captured by the session after enabling diagnostics. Additionally, diagnostics bundles submitted to Microsoft without prior acknowledgement by a Microsoft representative will go unanswered.
 
 ```csharp
 // method to handle the diagnostics bundle submission
