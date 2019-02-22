@@ -36,7 +36,6 @@ To complete this tutorial and use Data Lake Tools for Visual Studio, you need th
 <a name="install-or-update-data-lake-tools-for-visual-studio"></a>
 
 * Visual Studio 2017  
-
   During installation, ensure you include at least Workloads **Azure development** or **Data storage and processing**.  
 
   For existing installations, from the menu bar, navigate to **Tools** > **Get Tools and Features...** to open Visual Studio Installer.  Then select at least Workloads **Azure development** or **Data storage and processing**.
@@ -174,8 +173,7 @@ To create, and run ad-hoc queries:
 
       Ensure **Interactive** is selected and then select **Execute**.
 
-      ![Screenshot of query and execute](./media/apache-hadoop-visual-studio-tools-get-started/execute.png)
-
+      ![Screenshot of query and execute](./media/apache-hadoop-visual-studio-tools-get-started/execute.png)  
 
     * **Batch**  
 
@@ -209,11 +207,11 @@ The job summary varies slightly between **Batch** and **Interactive** mode.
 
 Use the **Refresh** button to update the status until the job status changes to **Finished**.  
 
-For the job details from **Batch** mode, select the links at the bottom to see **Job Query**, **Job Output**, **Job log**, or **Yarn log**.
+* For the job details from **Batch** mode, select the links at the bottom to see **Job Query**, **Job Output**, **Job log**, or **Yarn log**.
 
-For the job details from **Interactive** mode, see tabs **Output** and **HiveServer2 Output**.
+* For the job details from **Interactive** mode, see tabs **Output** and **HiveServer2 Output**.
 
-![job details](./media/apache-hadoop-visual-studio-tools-get-started/tabs.png "Hive job details")
+  ![job details](./media/apache-hadoop-visual-studio-tools-get-started/tabs.png "Hive job details")
 
 ### View job graph
 
