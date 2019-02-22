@@ -25,7 +25,7 @@ Creating good anchors is one of the most impactful aspects of working with Azure
 - From the desired perspectives within the space
 - Etc.
 
-Below are considerations and guidelines to help you design your anchor creation and location experience.  
+Below are considerations and guidelines to help you design your anchor creation and location experience.
 
 ## Static and dynamic locations
 

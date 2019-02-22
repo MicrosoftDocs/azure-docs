@@ -14,7 +14,14 @@ ms.service: azure-spatial-anchors
 ---
 # Tutorial: Share Azure Spatial Anchor identifiers between devices in Unity with a back-end service and Azure Cosmos DB
 
-This tutorial shows how to enhance your experience by using Azure Cosmos DB to share anchor identifiers and additional data across other devices. [Spatial Anchors](../overview.md) is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an app that can be deployed to two or more devices. Azure Spatial Anchors created by one instance will share their identifiers to the others using Cosmos DB.
+This tutorial will show you how to use [Azure Spatial Anchors](../overview.md) to:
+
+1. Create anchors in one session and then locate them later in another session; for example, on a different day.
+2. Create anchors that can be located by multiple devices in the same place at the same time.
+
+![Persistence](./media/persistence.gif)
+
+[Azure Spatial Anchors](../overview.md) is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an app that can be deployed to two or more devices. Azure Spatial Anchors created by one instance will share their identifiers to the others using Cosmos DB.
 
 You'll learn how to:
 
@@ -24,8 +31,6 @@ You'll learn how to:
 > * Deploy and run to one or more devices.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-![Persistence](./media/persistence.gif)
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-share-sample-prereqs.md)]
 
