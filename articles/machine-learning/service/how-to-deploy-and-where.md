@@ -257,9 +257,9 @@ Azure Kubernetes Service provides the following capabilities:
 
 #### Autoscaling
 
-Autoscaling can be controled by setting `target_utilization`, `min_replicas`, and `max_replicas` for the AKS web service.
+Autoscaling can be controled by setting `autoscale_target_utilization`, `autoscale_min_replicas`, and `autoscale_max_replicas` for the AKS web service.
 
-Decisions to scale up/down is based off of utilization of the current container replicas. The number of replicas that are busy (processing a request) divided by the total number of current replicas is the current utilization. If this number exceeds the target_utilization, then more replicas are created. If it is lower, then replicas are reduced. By default, `target_utilization` is 70%.
+Decisions to scale up/down is based off of utilization of the current container replicas. The number of replicas that are busy (processing a request) divided by the total number of current replicas is the current utilization. If this number exceeds the target utilization, then more replicas are created. If it is lower, then replicas are reduced. By default, thee target utilization is 70%.
 
 Decisions to add replicas are eager and fast (around 1 second). Decisions to remove replicas are conservative (around 1 minute).
 
@@ -282,7 +282,7 @@ concurrentRequests = targetRps * reqTime / targetUtilization
 replicas = ceil(concurrentRequests / maxReqPerContainer)
 ```
 
-For more information on setting `target_utilization`, `max_replicas`, and `min_replicas` for AKS web services, see the [aks](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.aks?view=azure-ml-py) module reference.
+For more information on setting `autoscale_target_utilization`, `autoscale_max_replicas`, and `autoscale_min_replicas`, see the [AksWebservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) module reference.
 
 #### Create a new cluster
 

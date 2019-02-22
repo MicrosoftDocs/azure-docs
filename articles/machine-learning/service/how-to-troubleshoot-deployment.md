@@ -222,11 +222,11 @@ def run(input_data):
 
 Azure Kubernetes Service deployments support autoscaling, which allows nodes to be added to support additional load. However, clients may receive an HTTP status code 503 even when autoscaling is enabled. This happens when you receive large spikes in requests per second and autoscaling does not scale out quicly enough.
 
-By default, autoscaling is set to 70%, which means that the service can handle spikes in requests per second (RPS) of up to 30%. You can adjust this by setting the `target_utilization` to a lower value. This setting allows more buffer space for the spikes. You may also need to increase the `max_replicas` value to increase the maximum number of cantainers that autoscaling can create.
+By default, autoscaling is set to 70%, which means that the service can handle spikes in requests per second (RPS) of up to 30%. You can adjust this by setting the `autoscale_target_utilization` to a lower value. This setting allows more buffer space for the spikes. You may also need to increase the `autoscale_max_replicas` value to increase the maximum number of cantainers that autoscaling can create.
 
-You can also set `min_replicas` to a higher value, which increase the number of running containers.
+You can also set `autoscale_min_replicas` to a higher value, which increase the number of running containers.
 
-For more information on setting `target_utilization`, `max_replicas`, and `min_replicas` for AKS web services, see the [aks](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.aks?view=azure-ml-py) module reference.
+For more information on setting `autoscale_target_utilization`, `autoscale_max_replicas`, and `autoscale_min_replicas` for, see the [AksWebservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) module reference.
 
 
 ## Next steps
