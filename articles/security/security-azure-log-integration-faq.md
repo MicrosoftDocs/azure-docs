@@ -4,7 +4,7 @@ description: This article answers questions about Azure Log Integration.
 services: security
 documentationcenter: na
 author: TomShinder
-manager: barbkess
+manager: MBaldwin
 editor: TerryLanfear
 
 ms.assetid: d06d1ac5-5c3b-49de-800e-4d54b3064c64
