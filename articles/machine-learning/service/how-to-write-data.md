@@ -15,7 +15,7 @@ ms.custom: seodec18
 ---
 # Write data using the Azure Machine Learning Data Prep SDK
 
-In this article, you learn different methods to write data using the [Azure Machine Learning Data Prep python SDK](https://aka.ms/data-prep-sdk). Output data can be written at any point in a dataflow, and writes are added as steps to the resulting data flow and are run every time the data flow is. Data is written to multiple partition files to allow parallel writes.
+In this article, you learn different methods to write data using the [Azure Machine Learning Data Prep Python SDK](https://aka.ms/data-prep-sdk). Output data can be written at any point in a dataflow, and writes are added as steps to the resulting data flow and are run every time the data flow is. Data is written to multiple partition files to allow parallel writes.
 
 Since there are no limitations to how many write steps there are in a pipeline, you can easily add additional write steps to get intermediate results for troubleshooting or for other pipelines.
 
@@ -27,7 +27,7 @@ The following file formats are supported
 -	Delimited files (CSV, TSV, etc.)
 -	Parquet files
 
-Using the Azure Machine Learning Data Prep python SDK, you can write data to:
+Using the Azure Machine Learning Data Prep Python SDK, you can write data to:
 + a local file system
 + Azure Blob Storage
 + Azure Data Lake Storage
