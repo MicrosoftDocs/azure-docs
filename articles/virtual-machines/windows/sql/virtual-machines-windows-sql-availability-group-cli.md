@@ -1,5 +1,5 @@
 ---
-title: Use Azure SQL VM CLI to configure Always On availability group for SQL Server on Azure VM 
+title: Use Azure SQL VM CLI to configure Always On availability group for SQL Server on an Azure VM 
 description: "Use Azure CLI to create the Windows Failover Cluster, the availability group listener, and the Internal Load Balancer on a SQL Server VM in Azure. "
 services: virtual-machines-windows
 documentationcenter: na
@@ -16,7 +16,7 @@ ms.author: mathoma
 ms.reviewer: jroth
 
 ---
-# Use Azure SQL VM CLI to configure Always On availability group for SQL Server on Azure VM
+# Use Azure SQL VM CLI to configure Always On availability group for SQL Server on an Azure VM
 This article describes how to use [Azure SQL VM CLI](https://docs.microsoft.com/mt-mt/cli/azure/ext/sqlvm-preview/sqlvm?view=azure-cli-2018-03-01-hybrid) to deploy a Windows Failover Cluster (WSFC), and add SQL Server VMs to the cluster, as well as create the Internal Load Balancer and listener for an Always On availability group.  The actual deployment  of the Always On availability group is still done manually through SQL Server Management Studio (SSMS). 
 
 ## Prerequisites
