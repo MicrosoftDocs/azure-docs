@@ -38,7 +38,6 @@
   items:
   - name: Create and locate anchors
     href: create-locate-anchors-overview.md
-    expanded: true
     items:
     - name: In Unity
       href: concepts/create-locate-anchors-unity.md
@@ -52,6 +51,8 @@
       href: concepts/create-locate-anchors-cpp-ndk.md
     - name: In C++/WinRT
       href: concepts/create-locate-anchors-cpp-winrt.md
+  - name: Guidelines for effective anchor experiences
+    href: guidelines-creating-locating-anchors.md
 - name: References
   items:
   - name: SDK for Unity

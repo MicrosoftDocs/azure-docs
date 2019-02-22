@@ -17,7 +17,7 @@ This article provides guidelines and considerations for creating and locating an
 
 ## Creating anchors 
 
-Creating good anchors is one of the most impactful aspects of working with Azure Spatial Anchors. It’s important to invest the time in either educating or guiding users in your UX how to create good anchors. By investing in this up front, you enable end users to reliably locate anchors:  
+Creating good anchors is one of the most impactful aspects of working with Azure Spatial Anchors. It’s important to invest the time in either educating or guiding users in your UX how to create good anchors. By investing in anchor creation up front, you enable end users to reliably locate anchors:  
 
 - Across different devices 
 - At various times  
@@ -31,7 +31,7 @@ Below are considerations and guidelines to help you design your anchor creation 
 
 Part of designing the anchor experience will be choosing the locations that participate. Will the locations be static and defined by an administrator of the space? Or will they be dynamic and user-defined?  
 
-A retail store manager may want a static in-store experience to entice users to visit. Whereas, the developer of a mixed reality board game likely wants to let users choose where to play.  
+A retail store manager may want a static in-store experience to entice users to visit. Whereas the developer of a mixed reality board game likely wants to let users choose where to play.  
 
 For static locations, you can educate administrators to spend time curating the space with good anchors.  
 
@@ -41,7 +41,7 @@ For dynamic locations, you should think about how you educate or guide users in 
 
 Visual tracking systems used in mixed reality and augmented reality devices rely on visual features of the environment. To get the most reliable experience:  
 
-- DO create anchors in locations with stable visual features (ie. features that don’t change often).  
+- DO create anchors in locations with stable visual features (that is, features that don’t change often).  
 
 - DON’T create anchors on large blank surfaces with no distinguishing characteristics. 
 
@@ -55,7 +55,7 @@ Visual tracking systems used in mixed reality and augmented reality devices rely
 
 When creating an anchor, think about the people that will visit later to locate the anchor.  
 
-Consider for example, an anchor in the middle of a room with two doors. You likely want to allow users that enter the room from either door to locate the anchor. When creating the anchor, you will need to scan its position from both doorways. This captures environment data around the anchor from both perspectives so that users can locate the anchor from either door.  
+Consider, for example, an anchor in the middle of a room with two doors. You likely want to allow users that enter the room from either door to locate the anchor. When creating the anchor, you will need to scan its position from both doorways. This captures environment data around the anchor from both perspectives so that users can locate the anchor from either door.  
 
 In general, when creating an anchor, it should be scanned from the different places or perspectives you expect people to be standing when attempting to locate it.  
 
