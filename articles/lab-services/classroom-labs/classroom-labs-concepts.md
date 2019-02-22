@@ -1,5 +1,5 @@
 ---
-title: Lab Services concepts | Microsoft Docs
+title: Classroom Labs concepts | Microsoft Docs
 description: Learn the basic concepts of Lab Services, and how it can make it easy to create and manage labs. 
 services: lab-services
 documentationcenter: na
@@ -16,7 +16,7 @@ ms.date: 02/22/2019
 ms.author: spelluru
 
 ---
-# DevTest Labs concepts
+# Classroom Labs concepts
 The following list contains key Lab Services concepts and definitions:
 
 ## User profiles
