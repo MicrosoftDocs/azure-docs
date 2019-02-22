@@ -35,7 +35,7 @@ After you've added the solution and an assessment is performed, summary informat
 
 ## Installing and configuring the solution
 
-The solution works with Microsoft System Operations Manager 2012 Service Pack (SP) 1 and 2012 R2.
+The solution works with Microsoft System Center 2012 Operations Manager Service Pack 1, Microsoft System Center 2012 R2 Operations Manager, Microsoft System Center 2016 Operations Manager, Microsoft System Center 2016 Operations Manager and Microsoft System Center Operations Manager 1807
 
 Use the following information to install and configure the solution.
 
@@ -52,9 +52,9 @@ Use the following information to install and configure the solution.
 1. [Set the Run As account for System Center Operations Manager Health Check](#operations-manager-run-as-accounts-for-log-analytics)  
 2. Configure the System Center Operations Manager Health Check rule
 
-## System Center Operations Manager assessment data collection details
+## System Center Operations Manager Health Check data collection details
 
-The System Center Operations Manager assessment collects data from the following sources:
+The System Center Operations Manager Health Check solution collects data from the following sources:
 
 * Registry
 * Windows Management Instrumentation (WMI)
@@ -92,7 +92,7 @@ Now that the Run As account is created, it needs to target management servers in
 2. On the **Distribution** tab, click **Add** for the **Selected computers** box and add the management server to distribute the account to.  Click **OK** twice to save your changes.
 3. Under **Run As Configuration**, click **Profiles**.
 4. Search for the *SCOM Assessment Profile*.
-5. The profile name should be: *Microsoft System Center Advisor SCOM Assessment Run As Profile*.
+5. The profile name should be: *Microsoft System Center Operations Manager Health Check Run As Profile*.
 6. Right-click and update its properties and add the recently created Run As Account you created earlier.
 
 ### SQL script to grant granular permissions to the Run As account
@@ -147,13 +147,13 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 ### Configure the health check rule
 
-The System Center Operations Manager Health Check solution’s management pack includes a rule named *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule*. This rule is responsible for running the health check. To enable the rule and configure the frequency, use the procedures below.
+The System Center Operations Manager Health Check solution’s management pack includes a rule named *Microsoft System Center Operations Manager Run Health Check Rule*. This rule is responsible for running the health check. To enable the rule and configure the frequency, use the procedures below.
 
-By default, the Microsoft System Center Advisor SCOM Assessment Run Assessment Rule is disabled. To run the health check, you must enable the rule on a management server. Use the following steps.
+By default, the Microsoft System Center Operations Manager Run Health Check Rule is disabled. To run the health check, you must enable the rule on a management server. Use the following steps.
 
 #### Enable the rule for a specific management server
 
-1. In the **Authoring** workspace of the Operations Manager Operations console, search for the rule *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule* in the **Rules** pane.
+1. In the **Authoring** workspace of the Operations Manager Operations console, search for the rule *Microsoft System Center Operations Manager Run Health Check Rule* in the **Rules** pane.
 2. In the search results, select the one that includes the text *Type: Management Server*.
 3. Right-click the rule and then click **Overrides** > **For a specific object of class: Management Server**.
 4.	In the available management servers list, select the management server where the rule should run.  This should be the same management server you configured earlier to associate the Run As account with.
@@ -165,7 +165,7 @@ By default, the Microsoft System Center Advisor SCOM Assessment Run Assessment R
 
 The assessment is configured to run every 10,080 minutes (or seven days) by default. You can override the value to a minimum value of 1440 minutes (or one day). The value represents the minimum time gap required between successive assessment runs. To override the interval, use the steps below.
 
-1. In the **Authoring** workspace of the Operations Manager console, search for the rule *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule* in the **Rules** section.
+1. In the **Authoring** workspace of the Operations Manager console, search for the rule *Microsoft System Center Operations Manager Run Health Check Rule* in the **Rules** section.
 2. In the search results, select the one that includes the text *Type: Management Server*.
 3. Right-click the rule and then click **Override the Rule** > **For all objects of class: Management Server**.
 4. Change the **Interval** parameter value to your desired interval value. In the example below, the value is set to 1440 minutes (one day).<br><br> ![interval parameter](./media/scom-assessment/interval.png)<br>  
@@ -272,7 +272,7 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 *Is there a way to configure how often the check runs?* Yes. See [Configure the run frequency](#configure-the-run-frequency).
 
-*If another server is discovered after I’ve added the System Center Operations Manager Assessment solution, will it be checked?* Yes, after discovery it is checked from then on, by default every seven days.
+*If another server is discovered after I’ve added the System Center Operations Manager Health Check solution, will it be checked?* Yes, after discovery it is checked from then on, by default every seven days.
 
 *What is the name of the process that does the data collection?* AdvisorAssessment.exe
 

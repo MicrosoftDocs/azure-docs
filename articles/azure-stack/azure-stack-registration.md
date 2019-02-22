@@ -74,7 +74,7 @@ Ensure the output returns **FullLanguageMode**. If any other language mode is re
 
 Use the latest PowerShell for Azure Stack to register with Azure.
 
-If not the latest version is not already installed, see [install PowerShell for Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
+If the latest version is not already installed, see [install PowerShell for Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
 
 ### Download the Azure Stack tools
 
@@ -106,7 +106,7 @@ To determine the Cloud ID for your Azure Stack deployment, open PowerShell as an
 
 ```powershell
 Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
-Run: get-azurestackstampinformation 
+Run: Get-AzureStackStampInformation 
 ```
 
 ## Register connected with pay-as-you-go billing
@@ -123,7 +123,7 @@ Connected environments can access the internet and Azure. For these environments
 2. Add the Azure account that you use to register Azure Stack. To add the account, run the **Add-AzureRmAccount** cmdlet. You are prompted to enter your Azure account credentials and you may have to use 2-factor authentication based on your account’s configuration.
 
    ```PowerShell
-      Add-AzureRmAccount -EnvironmentName "<environment name>"
+   Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
    | Parameter | Description |  
@@ -133,7 +133,7 @@ Connected environments can access the internet and Azure. For these environments
 3. If you have multiple subscriptions, run the following command to select the one you want to use:  
 
    ```PowerShell  
-      Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
+   Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
 4. Run the following command to register the Azure Stack resource provider in your Azure subscription:
@@ -151,7 +151,7 @@ Connected environments can access the internet and Azure. For these environments
 6. Next, in the same PowerShell session, ensure you are logged in to the correct Azure PowerShell Context. This is the Azure account that was used to register the Azure Stack resource provider previously. Powershell to run:
 
    ```PowerShell  
-      Add-AzureRmAccount -EnvironmentName "<environment name>"
+   Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
    | Parameter | Description |  
@@ -187,7 +187,7 @@ Connected environments can access the internet and Azure. For these environments
 2. Add the Azure account that you use to register Azure Stack. To add the account, run the **Add-AzureRmAccount** cmdlet. You are prompted to enter your Azure account credentials and you may have to use 2-factor authentication based on your account’s configuration.
 
    ```PowerShell  
-      Add-AzureRmAccount -EnvironmentName "<environment name>"
+   Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
    | Parameter | Description |  
@@ -197,7 +197,7 @@ Connected environments can access the internet and Azure. For these environments
 3. If you have multiple subscriptions, run the following command to select the one you want to use:  
 
    ```PowerShell  
-      Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
+   Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
 4. Run the following command to register the Azure Stack resource provider in your Azure subscription:
@@ -253,16 +253,16 @@ If you are registering Azure Stack in a disconnected environment (with no intern
 On the computer that is connected to the Internet, perform the same steps to import the RegisterWithAzure.psm1 module and sign in to the correct Azure Powershell context. Then call Register-AzsEnvironment. Specify the registration token to register with Azure. If you are registering more than one instance of Azure Stack using the same Azure Subscription ID, specify a unique registration name. Run the following cmdlet:
 
   ```PowerShell  
-  $registrationToken = "<Your Registration Token>"
+  $RegistrationToken = "<Your Registration Token>"
   $RegistrationName = "<unique-registration-name>"
-  Register-AzsEnvironment -RegistrationToken $registrationToken  -RegistrationName $RegistrationName
+  Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
   ```
 
 Optionally, you can use the Get-Content cmdlet to point to a file that contains your registration token:
 
   ```PowerShell  
-  $registrationToken = Get-Content -Path '<Path>\<Registration Token File>'
-  Register-AzsEnvironment -RegistrationToken $registrationToken -RegistrationName $RegistrationName
+  $RegistrationToken = Get-Content -Path '<Path>\<Registration Token File>'
+  Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
   ```
 
   > [!Note]  
@@ -285,7 +285,7 @@ To get the activation key, run the following PowerShell cmdlets:
 
 ### Create an Activation Resource in Azure Stack
 
-Return to the Azure Stack environment with the file or text from the activation key created from Get-AzsActivationKey. Next you create an activation resource in Azure Stack using that activation key. To create an activation resource, run the following PowerShell cmdlets:  
+Return to the Azure Stack environment with the file or text from the activation key created from Get-AzsActivationKey. Next you create an activation resource in Azure Stack using that activation key. To create an activation resource, run the following PowerShell cmdlets: 
 
   ```Powershell
   $ActivationKey = "<activation key>"
@@ -379,15 +379,15 @@ Next, to remove the registration resource in Azure, ensure you are on an Azure c
 You can use the registration token used to create the resource:  
 
   ```Powershell
-  $registrationToken = "<registration token>"
-  Unregister-AzsEnvironment -RegistrationToken $registrationToken
+  $RegistrationToken = "<registration token>"
+  Unregister-AzsEnvironment -RegistrationToken $RegistrationToken
   ```
 
 Or you can use the registration name:
 
   ```Powershell
-  $registrationName = "AzureStack-<unique-registration-name>"
-  Unregister-AzsEnvironment -RegistrationName $registrationName
+  $RegistrationName = "AzureStack-<unique-registration-name>"
+  Unregister-AzsEnvironment -RegistrationName $RegistrationName
   ```
 
 ### Re-register using disconnected steps
@@ -439,11 +439,11 @@ To run the cmdlet, you need:
 - You must also be logged in to Azure PowerShell with an account that is an owner or contributor to that subscription.
 
 ```PowerShell
-    Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String> [[-AzureContext]
+Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String> [[-AzureContext]
     <PSObject>] [[-ResourceGroupName] <String>] [[-ResourceGroupLocation] <String>] [[-BillingModel] <String>]
     [-MarketplaceSyndicationEnabled] [-UsageReportingEnabled] [[-AgreementNumber] <String>] [[-RegistrationName]
     <String>] [<CommonParameters>]
-   ```
+```
 
 | Parameter | Type | Description |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -463,7 +463,7 @@ To run the cmdlet, you need:
 Get-AzsRegistrationToken generates a registration token from the input parameters.
 
 ```PowerShell  
-    Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String>
+Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String>
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
