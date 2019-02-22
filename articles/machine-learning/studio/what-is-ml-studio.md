@@ -36,8 +36,7 @@ There is no programming required, just visually connecting datasets and modules 
 Download the **Microsoft Azure Machine Learning Studio Capabilities Overview** diagram and get a high-level view of the capabilities of Machine Learning Studio. To keep it nearby, you can print the diagram in tabloid size (11 x 17 in.).
 
 **Download the diagram here: [Microsoft Azure Machine Learning Studio Capabilities Overview](http://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
-
-![Microsoft Azure Machine Learning Studio Capabilities Overview][studio-overview]
+![Microsoft Azure Machine Learning Studio Capabilities Overview](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
 ## Get started with Machine Learning Studio
 When you first enter [Machine Learning Studio](https://studio.azureml.net) you see the **Home** page. From here you can view documentation, videos, webinars, and find other valuable resources.
@@ -104,7 +103,6 @@ For some help navigating through the large library of machine learning algorithm
 ## Deploying a predictive analytics web service
 Once your predictive analytics model is ready, you can deploy it as a web service right from Machine Learning Studio. For more details on this process, see [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md).
 
-[ml-studio-overview]:./media/what-is-ml-studio/azure-ml-studio-diagram.jpg
 
 ## How is Machine Learning Studio different from Azure Machine Learning service?
 
@@ -124,7 +122,6 @@ Use Machine Learning service if you work in a Python environment, you want more 
 
 ## Next steps
 You can learn the basics of predictive analytics and machine learning using a [step-by-step quickstart](create-experiment.md) and by [building on samples](sample-experiments.md).
-
 
 <!-- Module References -->
 [convert-to-arff]: https://msdn.microsoft.com/library/azure/62d2cece-d832-4a7a-a0bd-f01f03af0960/
