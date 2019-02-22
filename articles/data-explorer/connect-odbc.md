@@ -54,7 +54,9 @@ Follow these steps to configure an ODBC data source using the ODBC driver for SQ
 
     ![Active Directory Integrated](media/connect-odbc/active-directory-integrated.png)
 
-1. On the next screen, leave all options as defaults then select **Next**.
+1. Select the database with the sample data, then select **Next**.
+
+    ![Change default database](media/connect-odbc/change-default-database.png)
 
 1. On the next screen, leave all options as defaults then select **Finish**.
 
