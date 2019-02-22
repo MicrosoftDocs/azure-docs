@@ -143,7 +143,7 @@ Azure Backup supports "offline seeding" to transfer initial backup data to Azure
 
 ## Support for restore
 
-- The new [instant restore](/backup-instant-restore-capability.md) release of Azure Backup allows you to restore data before it's been copied to the vault.<br/><br/> To use this feature the machine being backed up must be running .NET Framework 4.5.2 or higher.
+- The new [instant restore](backup-instant-restore-capability.md) release of Azure Backup allows you to restore data before it's been copied to the vault.<br/><br/> To use this feature the machine being backed up must be running .NET Framework 4.5.2 or higher.
 - Backups can't be restored to a target machine running an earlier version of the operating system. For example, a backup taken from a Windows 7 computer can be restored on Windows 8 or later. However, a backup taken from a Windows 8 computer can't be restored to a Windows 7 computer.
 
 
