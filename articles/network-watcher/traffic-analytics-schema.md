@@ -19,7 +19,7 @@ Traffic Analytics is a cloud-based solution that provides visibility into user a
 - Pinpoint network misconfigurations leading to failed connections in your network.
 - Know network usage in bytes, packets or flows.
 
-### Data Aggreagation
+### Data Aggregation
 
 1. All  flow logs at an NSG between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t” are captured at 1 minute intervals in the storage account as blobs before being processed by Traffic Analytics. 
 2. Default processing interval of Traffic Analytics is 60 minutes . This means that every 60 mins Traffic Analytics picks blobs from storage for aggregation.
@@ -99,17 +99,17 @@ Listed below are the fields in the schema and what they signify
     
 ### Notes
     
-1. In case of AzurePublic and ExternalPublic flows, the customer owned Azure VM IP is populated in VMIP_s field, while the Public IP addresses are being populated in the PublicIPs_s field. For these two flow types, we should use VMIP_s and PublicIPs_s instead of SrcIP_s and DestIP_s fields. For AzurePublic and ExternalPublicIP addresses, we aggregate further, so that the number of records ingested to customer log analytics workspace is minimal.(This field will be deprecated soon and we should be using SrcIP_ and DestIP_s depending on whether azure VM was the source or the destination in the flow)
+1. In case of AzurePublic and ExternalPublic flows, the customer owned Azure VM IP is populated in VMIP_s field, while the Public IP addresses are being populated in the PublicIPs_s field. For these two flow types, we should use VMIP_s and PublicIPs_s instead of SrcIP_s and DestIP_s fields. For AzurePublic and ExternalPublicIP addresses, we aggregate further, so that the number of records ingested to customer log analytics workspace is minimal.(This field will be deprecated soon and we should be using SrcIP_ and DestIP_s depending on whether azure VM was the source or the destination in the flow) <br>
 2. Details for flow types : Based on the IP addresses involved in the flow, we categorize the flows in to the following flow types : <br>
- •	IntraVNet – Both the IP addresses in the flow reside in the same Azure virtual network. <br>
- •	InterVNet - Both the IP addresses in the flow reside in the two different azure virtual networks. <br>
-•	S2S – (Site To Site) One of the IP addresses belong to azure virtual network while the other IP address belongs to customer network (Site) connected to the azure virtual network through VPN gateway or express route. <br>
-•	P2S - (Point To Site) One of the IP addresses belong to azure virtual network while the other IP address belongs to customer network (Site) connected to the azure virtual network through VPN gateway.<br>
-•	AzurePublic - One of the IP addresses belong to azure virtual network while the other IP address belongs to azure internal Public IP addresses owned by Microsoft. Customer owned Public IP addresses won’t be part of this flow type. For instance, any customer owned VM sending traffic to an azure service (Storage endpoint) would be categorized under this flow type. <br>
-•	ExternalPublic - One of the IP addresses belong to azure virtual network while the other IP address is a public IP that is not in azure and the public IP is not reported as malicious in the security feeds  that traffic analytics consume for the processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”. <br>
-•	MaliciousFlow - One of the IP addresses belong to azure virtual network while the other IP address is a public IP that is not in azure and the public IP is reported as malicious in the security feeds that traffic analytics consume for the processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”. <br>
-•	UnknownPrivate - One of the IP addresses belong to azure virtual network while the other IP address belongs to private IP range as refined in RFC 1918 and could not be mapped by network watcher traffic analytics service to a customer owned site or azure virtual network.<br>
-•	Unknown – Unable to map the either of the IP addresses in the flows with the customer topology in azure as well as onpremise (site) <br>
+ •	IntraVNet – Both the IP addresses in the flow reside in the same Azure Virtual Network. <br><br>
+ •	InterVNet - IP addresses in the flow reside in the two different Azure Virtual Networks. <br><rb>
+•	S2S – (Site To Site) One of the IP addresses belong to Azure Virtual Network while the other IP address belongs to customer network (Site) connected to the Azure Virtual Network through VPN gateway or Express Route. <br><br>
+•	P2S - (Point To Site) One of the IP addresses belong to Azure Virtual Network while the other IP address belongs to customer network (Site) connected to the Azure Virtual Network through VPN gateway.<br><br>
+•	AzurePublic - One of the IP addresses belongs to Azure Virtual Network while the other IP address belongs to Azure Internal Public IP addresses owned by Microsoft. Customer owned Public IP addresses won’t be part of this flow type. For instance, any customer owned VM sending traffic to an Azure Service (Storage endpoint) would be categorized under this flow type. <br><br>
+•	ExternalPublic - One of the IP addresses belongs to Azure Virtual Network while the other IP address is a public IP that is not in Azure and is not reported as malicious in the ASC feeds  that Traffic Analytics consumea for the processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”. <br><br>
+•	MaliciousFlow - One of the IP addresses belong to azure virtual network while the other IP address is a public IP that is not in azure and the public IP is reported as malicious in the ASC feeds that Traffic analytics consume for the processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”. <br><br>
+•	UnknownPrivate - One of the IP addresses belong to azure virtual network while the other IP address belongs to private IP range as refined in RFC 1918 and could not be mapped by network watcher traffic analytics service to a customer owned site or azure virtual network.<br><br>
+•	Unknown – Unable to map the either of the IP addresses in the flows with the customer topology in azure as well as onpremise (site).
 
     
 
