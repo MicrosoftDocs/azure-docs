@@ -89,7 +89,7 @@ If you create a third trigger that is scheduled to run daily at midnight and ass
   
     2. For **Method**, select **POST**. 
     3. For **Body**, enter `{"message":"Start my IR"}`. 
-    4. For **Authentication**, select **MSI** to use the managed identity for your ADF, see [Azure Data Factory service identity](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) article for more info.
+    4. For **Authentication**, select **MSI** to use the managed identity for your ADF, see [Managed identiy for Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) article for more info.
     5. For **Resource**, enter `https://management.azure.com/`.
     
        ![ADF Web Activity Schedule SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)

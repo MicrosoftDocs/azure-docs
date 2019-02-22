@@ -1,4 +1,4 @@
----  
+---
 title: Azure partner and customer usage attribution
 description: Overview of how to track customer usage for Azure Marketplace solutions
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
 
----  
+---
 # Azure partner customer usage attribution
 
 As a software partner for Azure, your solutions require Azure components or they need to be deployed directly on the Azure infrastructure. Customers who deploy a partner solution and provision their own Azure resources can find it difficult to gain visibility into the status of the deployment, and get optics into the impact on Azure growth. When you add a higher level of visibility, you align with the Microsoft sales teams and gain credit for Microsoft partner programs. 
