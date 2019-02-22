@@ -35985,6 +35985,11 @@
       "source_path": "articles/azure-stack/azure-stack-app-service-fault-domain-update.md",
       "redirect_url": "/azure/azure-stack/azure-stack-app-service-before-you-get-started#high-availability",
       "redirect_document_id": false
+    },
+	  {
+      "source_path": "articles/azure-monitor/app/java-live.md",
+      "redirect_url": "/azure/azure-monitor/app/java-get-started",
+      "redirect_document_id": false
     }
   ]
 }

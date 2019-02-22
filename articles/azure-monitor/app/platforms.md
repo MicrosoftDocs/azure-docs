@@ -46,7 +46,6 @@ These items are implementations of [Application Insights](../../azure-monitor/ap
 * [Ionic](https://github.com/SoftwarePioniere/ionic-application-insights)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (App Center)
 * [Java EE](../../azure-monitor/app/java-get-started.md)
-* [Java EE - for apps that are already live](../../azure-monitor/app/java-live.md)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 * [SAFE Stack](https://safe-stack.github.io/docs/template-azure-ai/)
