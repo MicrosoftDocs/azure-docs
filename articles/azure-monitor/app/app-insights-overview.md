@@ -101,7 +101,6 @@ There are several ways to get started. Begin with whichever works best for you. 
 * **At run time: instrument your web app on the server.** Avoids any update to the code. You need admin access to your server.
   * [**IIS on-premises or on a VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
   * [**Azure web app or VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-  * [**Java EE**](../../azure-monitor/app/java-agent.md)
 * **At development time: add Application Insights to your code.** Allows you to write custom telemetry and to instrument back-end and desktop apps.
   * [Visual Studio](../../azure-monitor/app/asp-net.md) 2013 update 2 or later.
   * [Java](../../azure-monitor/app/java-get-started.md)
