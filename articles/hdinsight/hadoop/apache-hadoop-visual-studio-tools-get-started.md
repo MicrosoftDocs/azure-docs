@@ -33,6 +33,7 @@ To complete this tutorial and use Data Lake Tools for Visual Studio, you need th
   > Data Lake Tools is no longer supported for Visual Studio 2013. 
 
 ## Install Data Lake Tools for Visual Studio  
+<a name="install-or-update-data-lake-tools-for-visual-studio"></a>
 
 * Visual Studio 2017  
 
@@ -216,7 +217,7 @@ For the job details from **Interactive** mode, see tabs **Output** and **HiveSer
 
 ### View job graph
 
-Currently, job graphs are only shown for Hive jobs that use Tez as the execution engine.  For information about enabling Tez, see [Use Apache Hive in HDInsight](hdinsight-use-hive.md).  See also, [Use Apache Tez instead of Map Reduce](../hdinsight-hadoop-optimize-hive-query#use-apache-tez-instead-of-map-reduce.md).  
+Currently, job graphs are only shown for Hive jobs that use Tez as the execution engine.  For information about enabling Tez, see [Use Apache Hive in HDInsight](hdinsight-use-hive.md).  See also, [Use Apache Tez instead of Map Reduce](../hdinsight-hadoop-optimize-hive-query.md#use-apache-tez-instead-of-map-reduce).  
 
 To view all the operators inside the vertex, double-click on the vertices of the job graph. You can also point to a specific operator to see more details about the operator.
 
