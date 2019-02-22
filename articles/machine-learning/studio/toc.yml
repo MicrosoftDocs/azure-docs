@@ -8,6 +8,7 @@
     href: what-is-ml-studio.md
   - name: Compare our ML products
     href: ../service/overview-more-machine-learning.md       
+    maintainContext: true
 - name: Tutorials
   items:
   - name: Create your first experiment

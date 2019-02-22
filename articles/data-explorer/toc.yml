@@ -84,6 +84,8 @@
       href: kqlmagic.md
     - name: Visualize data in Grafana
       href: grafana.md
+    - name: Connect with ODBC
+      href: connect-odbc.md
   - name: Troubleshoot
     items:
     - name: Creating a cluster
