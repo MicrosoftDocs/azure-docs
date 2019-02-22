@@ -20,7 +20,7 @@ abstract:
   aside:
     image:
       alt: 
-      height: 110
+      height: 130
       src: media/index/video.png
       width: 250  
     title: Watch video (9:58)
