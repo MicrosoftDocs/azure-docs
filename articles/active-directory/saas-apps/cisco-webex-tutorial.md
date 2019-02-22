@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/21/2019
+ms.date: 02/22/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -118,11 +118,7 @@ To configure Azure AD single sign-on with Cisco Webex Meetings, perform the foll
 
 	![Cisco Webex Meetings Domain and URLs single sign-on information](common/sp-identifier-reply.png)
 
-	In the **Sign-on URL** text box, type a URL:
-    `https://signin.webex.com/collabs/auth`
-
-	> [!Note]
-	> The Sign on URL value is same as the auto populated Reply URL value and you need to copy the **Reply URL** and paste in the sign-on URL textbox from the above uploaded Federation metadata file.
+	In the **Sign on URL** textbox, paste the value of **Reply URL** which gets auto-filled by SP metadata file upload.
 
 5. Cisco Webex Meetings application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click on **Edit** icon to add the attributes.
 
