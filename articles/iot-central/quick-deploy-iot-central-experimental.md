@@ -41,7 +41,7 @@ To create a new Azure IoT Central application:
 
 1. If you are creating a **Pay-As-You-Go** application, you need to select your *Directory*, *Azure Subscription*, and *Region*. 
 
-    - *Directory* is the Azure Active Directory to create your application. It contains user identities, credentials, and other organizational information. If you don’t have an AAD, one is created for you when you create an Azure subscription.
+    - *Directory* is the Azure Active Directory to create your application. It contains user identities, credentials, and other organizational information. If you don’t have an Azure AD, one is created for you when you create an Azure subscription.
 
     - An *Azure Subscription* enables you to create instances of Azure services. IoT Central will provision resources in your subscription. If you don’t have an Azure subscription, you can create one on the [Azure sign-up page](https://aka.ms/createazuresubscription). After you create the Azure subscription, navigate back to the **Create Application** page. Your new subscription appears in the **Azure Subscription** drop-down.
 
