@@ -1,3 +1,15 @@
+---
+title: Get started with Windows Virtual Desktop Windows PowerShell cmdlets - Azure
+description: How to download and import the Windows Virtual Desktop PowerShell module to your PowerShell session.
+services: virtual-desktop
+author: Heidilohr
+
+ms.service: virtual-desktop
+ms.topic: reference
+ms.date: 02/20/2019
+ms.author: helohr
+---
+
 # Get started with Windows Virtual Desktop Windows PowerShell cmdlets
 
 Here you will find the resources for PowerShell modules targeting Windows Virtual Desktop.

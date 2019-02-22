@@ -13,9 +13,7 @@ ms.author: helohr
 
 You can use the Microsoft Remote Desktop client to access published resources on Windows Virtual Desktop. To get started, go to the Mac App Store and install [Microsoft Remote Desktop](https://aka.ms/rdmac).
 
-## Install the client and subscribe to a feed
-
-Now that you've installed the client, get the list of resources available to you by subscribing to the feed provided by your admin.
+After installing the client, get the list of resources available to you by subscribing to the feed provided by your admin.
 
 1. Start the **Microsoft Remote Desktop** client on the MacOS device.
 2. Switch to the **Feeds** tab.

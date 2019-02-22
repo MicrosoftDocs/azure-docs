@@ -15,10 +15,7 @@ Host pools are a collection of one or more identical virtual machines within Win
 
 ## Use your PowerShell client to create a host pool
 
-First, [download and import the Windows Virtual Desktop PowerShell module](powershell-get-started.md)
-​
-[4:28 PM] Heidi Lohr
-Okay, fixed it.) to use in your PowerShell session if you haven't already.
+First, [download and import the Windows Virtual Desktop PowerShell module](powershell-get-started.md) to use in your PowerShell session if you haven't already.
 
 Run the following cmdlet to sign in to the Windows Virtual Desktop environment
 
@@ -85,7 +82,8 @@ To successfully domain-join, do the following things on each virtual machine:
 
 ## Register the virtual machines to the Windows Virtual Desktop host pool
 
-Registering the virtual machines to a Windows Virtual Desktop host pool is as simple as installing the Windows Virtual Desktop agents. 
+Registering the virtual machines to a Windows Virtual Desktop host pool is as simple as installing the Windows Virtual Desktop agents.
+
 To register the Windows Virtual Desktop agents, do the following on each virtual machine:
 
 1. [Connect to the virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
