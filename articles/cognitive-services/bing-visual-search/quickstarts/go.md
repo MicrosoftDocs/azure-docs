@@ -116,8 +116,13 @@ func main() {
     // Initialize the http client.
     client := &http.Client{}
 
+    //set a new guid for the Post batch
+	batchNumber := "d7ecc447-912f-413e-961d-a83021f1775f" 
+    // The file to Post 
+	fileName := "ElectricBike.JPG"
+
     // Open the file to upload to Visual Search.
-	file, err := os.Open("ElectricBike.jpg")
+	file, err := os.Open(fileName)
 	if err != nil {
 		panic(err)
 	}
@@ -128,6 +133,25 @@ func main() {
 
 ```
 
+## Define functions to set Post body boundaries
+
+The Post data requires leading and trailing boundaries that include a batch number and the name of the image file to Post.  
+
+```
+func BuildFormDataStart(batNum string, fileName string) string{
+
+	startBoundary := "--batch_" + batNum + "\r\n"
+	requestBoundary := startBoundary + "\r\n" + "Content-Disposition: form-data; name=\"image\"; filename=" + fileName + "\r\n\r\n"
+	return requestBoundary
+}
+
+func BuildFormDataEnd(batNum string) string{
+
+	return "\r\n" + "\r\n" + "--batch_" + batNum + "\r\n"
+
+}
+
+```
 ## Create buffer to hold image bytes and add to form data
 
 Get the image from path and filename.  Read the bytes into a buffer. Copy the bytes to the request form.
@@ -135,11 +159,20 @@ Get the image from path and filename.  Read the bytes into a buffer. Copy the by
 ```
 	body := &bytes.Buffer{}
 	writer := multipart.NewWriter(body)
+
+    // Set the leading boundary
+    writer.SetBoundary(BuildFormDataStart(batchNumber, fileName))
+
+    // Write the image data from the file to the Post body
 	part, err := writer.CreateFormFile("image", filepath.Base(file.Name()))
 	if err != nil {
 		panic(err)
 	}
 	io.Copy(part, file)
+
+    // Set the trailing boundary
+    writer.WriteField("lastpart", BuildFormDataEnd(batchNumber))
+
 	writer.Close()
 
 ```
@@ -198,7 +231,7 @@ The `Unmarshall` function extracts information from the JSON text returned by th
 
 ## Results
 
-The most useful results contain images similar to the image contained in the Post body.
+The most useful results contain images similar to the image contained in the Post body.  The useful fields are `WebSearchUrl` and `Name`.
 
 ```
     Value: ([]struct { WebSearchUrl string "json:\"webSearchUrl\""; Name string "json:\"name\"" }) (len=66 cap=94) {
