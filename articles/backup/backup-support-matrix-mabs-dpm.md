@@ -215,4 +215,4 @@ The following table summarizes what can be backed up to DPM from on-premises mac
 - [Learn more](backup-architecture.md#architecture-back-up-to-dpmmabs) about MABS architecture.
 - [Review](backup-support-matrix-mars-agent.md) what's supported for the MARS agent.
 - [Set up](backup-azure-microsoft-azure-backup.md) a MABS server.
-- [Set up](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-180)
+- [Set up DPM](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-180)
