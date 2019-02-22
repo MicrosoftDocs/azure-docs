@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 02/22/2019
 ms.author: magoedte
 ---
 
@@ -19,7 +19,7 @@ ms.author: magoedte
 Azure Monitor for VMs includes a set of performance charts that target several key performance indicators (KPIs) to help you determine how well a virtual machine is performing. The charts show resource utilization over a period of time so you can identify bottlenecks, anomalies, or switch to a perspective listing each machine to view resource utilization based on the metric selected. While there are numerous elements to consider when dealing with performance, Azure Monitor for VMs is focused on the operating system as manifested through the processor, memory, network adapters, and disks. Performance complements the health monitoring feature and helps expose issues that indicate a possible system component failure, support tuning and optimization to achieve efficiency, or support capacity planning.  
 
 ## Multi-VM perspective from Azure Monitor
-From Azure Monitor, the Performance feature provides a multi-virtual machine view of all monitored VMs deployed across resource groups in your subscriptions or in your environment.  To access from Azure Monitor, perform the following steps. 
+From Azure Monitor, the Performance feature provides a view of all monitored VMs deployed across workgroups in your subscriptions or in your environment. To access from Azure Monitor, perform the following steps. 
 
 1. In the Azure portal, select **Monitor**. 
 2. Choose **Virtual Machines (preview)** in the **Solutions** section.
@@ -39,7 +39,9 @@ The five capacity utilization charts shown on the page are:
 * Bytes Sent Rate - shows the top five machines with highest average of bytes sent 
 * Bytes Receive Rate - shows the top five machines with highest average of bytes sent 
 
-Clicking on the upper right-hand corner of any one of the five charts will open **Top N List** view.  Here you see the resource utilization for that performance metric by individual VM in a list view and which machine is trending highest.  
+Clicking on the pin icon at the upper right-hand corner of any one of the five charts will pin the selected chart to the last Azure Dashboard you viewed.  From the dashboard you may resize and reposition the chart. Selecting the chart from the dashboard will navigate you into Azure Monitor for VMs and load the correct scope and view.  
+
+Clicking on the icon located to the left of the pin icon on any one of the five charts opens the **Top N List** view.  Here you see the resource utilization for that performance metric by individual VM in a list view and which machine is trending highest.  
 
 ![Top N List view for a selected performance metric](./media/vminsights-performance/vminsights-performance-topnlist-01.png)
 
@@ -95,10 +97,12 @@ The following capacity utilization charts are provided:
 * Bytes Sent Rate - defaults showing average bytes sent 
 * Bytes Receive Rate - defaults showing average bytes received
 
+Clicking on the pin icon at the upper right-hand corner of any one of the charts pins the selected chart to the last Azure dashboard you viewed. From the dashboard you can resize and reposition the chart. Selecting the chart from the dashboard redirects you to Azure Monitor for VMs and loads the performance detail view for the VM.  
+
 ![VM insights Performance directly from VM view](./media/vminsights-performance/vminsights-performance-directvm-01.png)
 
-## Alerts 
-Performance metrics enabled as part of Azure Monitor for VMs do not include pre-configured alert rules. While there are [health alerts](vminsights-health.md#alerts) corresponding to performance issues detected on your Azure VM, such as high CPU utilization, low memory available, disk I/O, low disk space, etc., these health alerts are only applied to all the VMs connected to the same Log Analytics workspace enabled for Azure Monitor for VMs. 
+## Alerting and alert management 
+Performance metrics enabled as part of Azure Monitor for VMs do not include pre-configured alert rules. While there are [health alerts](vminsights-health.md#alerting-and-alert-management) corresponding to performance issues detected on your Azure VM, such as high CPU utilization, low memory available, disk I/O, low disk space, etc., these health alerts are only applied to all the VMs connected to the same Log Analytics workspace enabled for Azure Monitor for VMs. 
 
 However, we may only collect and store a subset of the performance metrics you require in the Log Analytics workspace. If your monitoring strategy requires analysis or alerting that includes other performance metrics in order to effectively evaluate capacity or health of the virtual machine, or you need the flexibility to specify your own alerting criteria or logic, you can configure [collection of those performance counters](../../azure-monitor/platform/data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json) in Log Analytics and define [log alerts](../../azure-monitor/platform/alerts-log.md?toc=/azure/azure-monitor/toc.json). While Log Analytics allows you to perform complex analysis with other data types, and provide longer retention to support trend analysis, metrics on the other hand, are lightweight and capable of supporting near real-time scenarios. They are collected by the [Azure Diagnostic agent](../../virtual-machines/windows/monitor.md) and stored in the Azure Monitor metrics store, allowing you to create alerts with lower latency and at a lower cost.
 
