@@ -35,7 +35,7 @@ The following video from an Ignite session demonstrates the benefits of using Az
 
 In this article, you learn how to integrate Azure Active Directory (Azure AD) logs with Azure Monitor.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../includes/azure-monitor-log-analytics-rebrand.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Supported reports
 

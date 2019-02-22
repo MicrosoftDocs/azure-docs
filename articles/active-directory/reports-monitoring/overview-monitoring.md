@@ -35,7 +35,7 @@ Currently, you can route the logs to:
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../includes/azure-monitor-log-analytics-rebrand.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Diagnostic settings configuration
 
