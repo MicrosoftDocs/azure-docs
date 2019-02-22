@@ -212,7 +212,9 @@ This is a configurable functionality, which allows you to automatically copy the
 
 This module supports block level tiering, when your blob consists of blocks. Here are some of the common scenarios:
  1. Your application updates some blocks of a previously uploaded blob, this module will upload only the updated blocks and not the whole blob.
- 2. This module is in the process of uploading your blob and internet connection goes away, when the connectivity is back again this module will upload only the remaining blocks and not the whole blob.
+ 2. The module is uploading blob and internet connection goes away, when the connectivity is back again it will upload only the remaining blocks and not the whole blob.
+
+On sudden crash or power failure, when the module comes online again, it will again tier the blobs with unfinished upload.
 
 ## Auto-Clean
 This is a configurable auto-clean functionality where this module automatically deletes your blobs when TTL(Time to Live) expires. It is measured in minutes. It allows you to:
