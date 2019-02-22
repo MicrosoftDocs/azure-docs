@@ -6,12 +6,6 @@
     href: overview.md
 - name: Quickstarts
   items:
-  - name: Create HoloLens app
-    href: quickstarts/get-started-hololens.md
-  - name: Create Android app
-    href: quickstarts/get-started-android.md
-  - name: Create iOS app
-    href: quickstarts/get-started-ios.md
   - name: Create Unity app
     href: unity-overview.md
     expanded: true
@@ -22,6 +16,12 @@
       href: quickstarts/get-started-unity-android.md
     - name: iOS
       href: quickstarts/get-started-unity-ios.md
+  - name: Create iOS app
+    href: quickstarts/get-started-ios.md
+  - name: Create Android app
+    href: quickstarts/get-started-android.md
+  - name: Create HoloLens app
+    href: quickstarts/get-started-hololens.md
 - name: Tutorials
   items:
   - name: Sharing in Unity
@@ -57,7 +57,7 @@
 - name: References
   items:
   - name: SDK for Unity
-    href: https://docs.microsoft.com/dotnet/api/spatial-anchors/
+    href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.SpatialAnchors/
   - name: SDK for iOS Objective-C
     href: https://docs.microsoft.com/objectivec/api/spatial-anchors/
   - name: SDK for Android Java
