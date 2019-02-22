@@ -22,6 +22,8 @@ ms.service: azure-spatial-anchors
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
+Azure Spatial Anchors allow you to share anchors in the world between different devices. It has been tuned to work well with your choice of development environment. In this article, we'll dive into how to do it in Swift.
+
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
 ```swift
@@ -270,3 +272,5 @@ ms.service: azure-spatial-anchors
 ```swift
     _cloudSession = nil
 ```
+
+[!INCLUDE [Next Steps](../../../includes/spatial-anchors-create-locate-anchors-next-steps.md)]

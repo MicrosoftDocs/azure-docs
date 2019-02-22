@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/10/2019
+ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -26,7 +26,7 @@ This article describes how to add or change the Co-Administrator and Service Adm
 ## Add a Co-Administrator
 
 > [!TIP]
-> You only need to add a Co-Administrator if the user needs to manage Azure classic deployments. We recommend using RBAC for all other purposes.
+> You only need to add a Co-Administrator if the user needs to manage Azure classic deployments by using [Azure Service Management PowerShell Module](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure). If the user only uses the Azure portal to manage the classic resources, you won’t need to add the classic administrator for the user.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a Service Administrator.
 

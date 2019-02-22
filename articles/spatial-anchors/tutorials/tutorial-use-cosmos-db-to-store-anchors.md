@@ -25,9 +25,11 @@ You'll learn how to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+![Persistence](./media/persistence.gif)
+
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-share-sample-prereqs.md)]
 
-It's worth noticing that, although you'll be using Unity and Azure Cosmos DB in this Tutorial, it is only to show an example on how to share Azure Spatial Anchor identifiers across other devices. You can user other languages and back-end technologies to achieve the same goal.
+It's worth noticing that, although you'll be using Unity and Azure Cosmos DB in this Tutorial, it is only to show an example on how to share Azure Spatial Anchor identifiers across other devices. You can user other languages and back-end technologies to achieve the same goal. Also, the ASP.NET Core Web App used in this Tutorial has a dependency on .NET Core 2.2 SDK. It runs fine on regular Azure Web Apps (for Windows), but will currently not work on Azure Web Apps for Linux.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
