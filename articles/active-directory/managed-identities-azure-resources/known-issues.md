@@ -134,8 +134,8 @@ Managed identities do not get updated when a subscription is moved/transferred t
 
 Workaround for managed identities in a subscription that has been moved to another directory:
 
-    - For system assigned managed identities: disable and re-enable. 
-    - For user assigned managed identities: delete, re-create and attach them again to the necessary resources (e.g. virtual machines)
+ - For system assigned managed identities: disable and re-enable. 
+ - For user assigned managed identities: delete, re-create and attach them again to the necessary resources (e.g. virtual machines)
 
 ### Moving a user-assigned managed identity to a different resource group/subscription
 
