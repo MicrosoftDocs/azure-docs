@@ -17,32 +17,32 @@ ms.custom: seodec18
 
 # Manage users and roles in an Azure Machine Learning workspace
 
-In this article, you learn how to add users to an Azure Machine Learning workspace, and assign them with different roles. You also learn how to create custom roles.
+In this article you learn how to add users to an Azure Machine Learning workspace, assign users different roles, and create custom roles.
 
 ## Built-in roles
-Azure Machine Learning workspace is an Azure resource. And like any Azure resource, when a new Azure Machine Learning workspace is created, it comes with three default roles. You can add users to the workspace and assign them to one of these built-in roles.
+Azure Machine Learning workspace is an Azure resource. Like other Azure resources, when a new Azure Machine Learning workspace is created, it comes with three default roles. You can add users to the workspace and assign them to one of these built-in roles.
 
 - **Reader**
     
-    This role allows read-only actions in the workspace. With this role, you can list and view assets in a workspace, such as experiments, runs, compute, models, web services, published pipelines and so on. But you are not allowed to create or update these assets.
+    This role allows read-only actions in the workspace. Readers can list and view assets in a workspace but are not allowed to create or update these assets.
 
 - **Contributor**
     
-    This role allows users to view, create, edit, or delete (where applicable) assets in a workspace. For example, with this role you can create an experiment, create or attach a compute cluster, submit a run, register a model and deploy a web service.
+    This role allows users to view, create, edit, or delete (where applicable) assets in a workspace. For example, contributors can create an experiment, create or attach a compute cluster, submit a run, register a model, and deploy a web service.
 
 - **Owner**
     
-    This role gives you full access to the workspace, allowing you to view, create, edit, or delete (where applicable) assets in a workspace. Additionally, you can also add or remove users, and change their role assignments.
+    This role gives you full access to the workspace, allowing you to view, create, edit, or delete (where applicable) assets in a workspace. Additionally, you can add or remove users, and change role assignments.
 
 ## Add or remove users
-If you are an Owner of a workspace, you can add users to or remove users from the workspace by choosing any one of the following methods to perform this action:
+The owner of a workspace can add users to or remove users from the workspace by choosing one of the following methods:
 - [Azure portal UI](/azure/role-based-access-control/role-assignments-portal)
 - [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [Azure CLI](/azure/role-based-access-control/role-assignments-cli)
 - [REST API](/azure/role-based-access-control/role-assignments-rest)
 - [Azure Resource Management templates](/azure/role-based-access-control/role-assignments-template).
 
-Alternatively, if you have installed [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md), you can also use a convenient CLI command to add user to the workspace.
+Alternatively, if you have installed [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md), you can use a CLI command to add users to the workspace.
 
 ```azurecli-interactive 
 az ml workspace share -n <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
@@ -55,12 +55,12 @@ az ml workspace share -n my_workspace -g my_resource_group --role Contributor --
 ```
 
 ## Create custom role
-If the built-in roles are insufficient for your needs, you can also create custom roles. The custom roles may have read, write, or delete permissions on the workspace and the compute resource in that workspace. And you can make the role available at a specific workspace level, a specific resource group level, or a specific subscription level. 
+If the built-in roles are insufficient, owners can create custom roles. The custom roles may have read, write, or delete permissions on the workspace and the compute resource in that workspace. You can make the role available at a specific workspace level, a specific resource group level, or a specific subscription level. 
 
 > [!NOTE]
-> You must be an owner of the resource at that level in order to create custom roles within that resource.
+> You must be an owner of the resource at that level to create custom roles within that resource.
 
-To create a custom role, first construct a role definition JSON file specifying the permission and scope you want for the role. For example, below is a role definition file for a custom role named "Data Scientist" scoped at a particular workspace level.
+To create a custom role, first construct a role definition JSON file specifying the permission and scope you want for the role. For example, below is a role definition file for a custom role named "Data Scientist" scoped at a specific workspace level.
 
 `data_scientist_role.json` :
 ```json
@@ -81,7 +81,7 @@ To create a custom role, first construct a role definition JSON file specifying 
 }
 ```
 
-This role allows you to do everything in the workspace except for the following actions:
+This role allows the user to do everything in the workspace except for the following actions:
 - It cannot create or update a compute resource.
 - It cannot delete a compute resource.
 - It cannot add, delete user, or alter any user's role assignments.
@@ -101,7 +101,7 @@ az ml workspace share -n my_workspace -g my_resource_group --role "Data Scientis
 
 You can also change the `AssignableScopes` field to set the scope of this custom role at the subscription level, the resource group level, or at a specific workspace level (as shown).
 
-For more information of how custom roles work in Azure, please refer to [this document](/azure/role-based-access-control/custom-roles).
+For more information on how custom roles work in Azure, please refer to [this document](/azure/role-based-access-control/custom-roles).
 
 ## Next steps
 
