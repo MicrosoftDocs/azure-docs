@@ -42,7 +42,7 @@ For more information about setting these values during create, see the [Azure Da
 The backup retention period of a server can be changed as follows:
 
 ```azurecli-interactive
-az postgres server update --name mydemoserver --resource-group myresourcegroup --backup-retention-days 10
+az postgres server update --name mydemoserver --resource-group myresourcegroup --backup-retention 10
 ```
 
 The preceding example changes the backup retention period of mydemoserver to 10 days.
