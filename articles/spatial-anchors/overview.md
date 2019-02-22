@@ -19,17 +19,17 @@ Android-based devices supporting ARCore. Azure Spatial Anchors enables developer
 perceive spaces, designate precise points of interest, and to recall those points of interest from supported devices.
 These precise points of interest are referred to as Spatial Anchors.
 
-![Cross Platform](./media/CrossPlatform.png)
+![Cross Platform](./media/cross-platform.png)
 
 ## Examples
 
 Some example use cases enabled by Spatial Anchors include:
 
-1. [Multi-user experiences](tutorials/tutorial-share-anchors-across-devices.md). Spatial Anchors makes it easy for people in the same place to participate in multi-user mixed reality applications. For example, two people can start a game of mixed reality chess by placing a virtual chess board on a table. Then, by pointing their device at the table, they can view and interact with the virtual chess board together.
+- [Multi-user experiences](tutorials/tutorial-share-anchors-across-devices.md). Spatial Anchors makes it easy for people in the same place to participate in multi-user mixed reality applications. For example, two people can start a game of mixed reality chess by placing a virtual chess board on a table. Then, by pointing their device at the table, they can view and interact with the virtual chess board together.
 
-2. [Way-finding](concepts/anchor-relationships-way-finding.md). Developers can also connect Spatial Anchors together creating relationships between them. For example, an app may include an experience that has two or more points of interest that a user must interact with to complete a task. Those points of interest can be created in a connected fashion. Later, when the user is completing the multi-step task, the app can ask for anchors that are nearby the current one to direct the user towards the next step in the task.
+- [Way-finding](concepts/anchor-relationships-way-finding.md). Developers can also connect Spatial Anchors together creating relationships between them. For example, an app may include an experience that has two or more points of interest that a user must interact with to complete a task. Those points of interest can be created in a connected fashion. Later, when the user is completing the multi-step task, the app can ask for anchors that are nearby the current one to direct the user towards the next step in the task.
 
-3. [Persisting virtual content in the real-world](concepts/create-locate-anchors-unity.md#creating-a-cloud-spatial-anchor). An app can let a user place a virtual calendar on a conference room wall, that people can see using a phone app or a HoloLens device. In an industrial setting, a user could receive contextual information about a machine by pointing a supported device camera at it.
+- [Persisting virtual content in the real-world](concepts/create-locate-anchors-unity.md#creating-a-cloud-spatial-anchor). An app can let a user place a virtual calendar on a conference room wall, that people can see using a phone app or a HoloLens device. In an industrial setting, a user could receive contextual information about a machine by pointing a supported device camera at it.
 
 Azure Spatial Anchors is composed of a managed service and client SDKs for supported device platforms. The following
 sections provide information about getting started with building apps using Azure Spatial Anchors.

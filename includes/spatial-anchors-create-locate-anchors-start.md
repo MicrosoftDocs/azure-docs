@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 02/21/2019
 ms.author: rgarcia
 ---
-![Cross Platform](./media/spatial-anchors-azure-concepts/PlaceAnchor.gif)
+![Cross Platform](./media/spatial-anchors-azure-concepts/place-anchor.gif)
 
 ## Initializing the session
 

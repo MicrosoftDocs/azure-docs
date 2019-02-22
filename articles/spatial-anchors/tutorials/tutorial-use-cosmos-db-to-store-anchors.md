@@ -25,7 +25,7 @@ You'll learn how to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-![Persistence](./media/Persistence.gif)
+![Persistence](./media/persistence.gif)
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-share-sample-prereqs.md)]
 
