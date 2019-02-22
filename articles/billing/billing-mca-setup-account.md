@@ -246,7 +246,7 @@ Support benefits don't transfer as part of the transition. Purchase a new suppor
 
 ### Past charges and balance
 
-Charges and credits balance prior to transfer can be viewed in your Enterprise Agreement enrollment through the Azure portal. <!--Todo - Add a link for this-->
+Charges and credits balance prior to transition can be viewed in your Enterprise Agreement enrollment through the Azure portal. <!--Todo - Add a link for this-->
 
 ### When should the setup be completed
 
