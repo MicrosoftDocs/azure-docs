@@ -31,8 +31,8 @@ The following are key differences in version 3.x of the WebJobs SDK compared to 
 
 When possible, examples are provides for both version 3.x and version 2.x.
 
-[!NOTE]
-> [Azure Functions](../azure-functions/functions-overview.md) is built on the WebJobs SDK, and this article links to Azure Functions documentation for some topics. Note the following differences between Functions and the WebJobs SDK:
+> [!NOTE]
+> [Azure Functions](../azure-functions/functions-overview.md) is built on the WebJobs SDK, and this article links to Azure Functions documentation for some topics. The following are differences between Functions and the WebJobs SDK:
 > * Azure Functions version 2.x corresponds to WebJobs SDK version 3.x, and Azure Functions 1.x corresponds to WebJobs SDK 2.x. Source code repositories follow the WebJobs SDK numbering.
 > * Sample code for Azure Functions C# class libraries is like WebJobs SDK code except you don't need a `FunctionName` attribute in a WebJobs SDK project.
 > * Some binding types are only supported in Functions, such as HTTP, webhook, and Event Grid (which is based on HTTP).

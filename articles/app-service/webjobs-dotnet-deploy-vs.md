@@ -26,7 +26,7 @@ You can publish multiple WebJobs to a single web app. Make sure that each WebJob
 
 Version 3.x of the [Azure WebJobs SDK](webjobs-sdk-how-to.md) lets you develop WebJobs that run as .NET Core apps, while version 2.x supports only the .NET Framework. The way that you deploy a WebJobs project is different .NET Core projects versus .NET Framework ones.
 
-## WebJobs as .NET Core Console apps
+## WebJobs as .NET Core console apps
 
 When using version 3.x of the WebJobs, you can create and publish WebJobs as .NET Core console apps. For step-by-step instructions to create and publish a .NET Core console application to Azure as a WebJob, see [Get started with the Azure WebJobs SDK for event-driven background processing](webjobs-sdk-get-started.md).
 
@@ -37,13 +37,13 @@ When using version 3.x of the WebJobs, you can create and publish WebJobs as .NE
 
 Publishing a .NET Core WebJob to App Service from Visual Studio uses the same tooling as publishing an ASP.NET Core app.
 
-[!INCLUDE [webjobs-publish-netcore](../../includes/webjobs-publish-netcore.md)] 
+[!INCLUDE [webjobs-publish-net-core](../../includes/webjobs-publish-net-core.md)] 
 
 ### WebJob types
 
 By default, a WebJob published from a .NET Core console project runs only when triggered or on demand. You can also update the project to [run on a schedule](#scheduled-execution) or run continuously.
 
-[!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-alwayson-note.md)]
+[!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-always-on-note.md)]
 
 #### Scheduled execution
 
@@ -65,7 +65,7 @@ You can use Visual Studio to change the WebJob to run continuously when Always O
 
 1. Select **Publish** to republish the WebJob with the updated settings.
 
-## WebJobs as .NET Framework Console apps  
+## WebJobs as .NET Framework console apps  
 
 When Visual Studio deploys a WebJobs-enabled .NET Framework Console Application project, it performs two tasks:
 
@@ -224,7 +224,7 @@ This file must be located at the root of the WebJobs folder, along side your Web
 
 When you [create a WebJob from the Azure portal](webjobs-create.md), the settings.job file is created for you.
 
-[!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-alwayson-note.md)]
+[!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-always-on-note.md)]
 
 ### CRON expressions
 
@@ -241,7 +241,7 @@ The following settings are supported by WebJobs:
 | `schedule` | Triggered | Run the WebJob on a CRON-based schedule. TO learn more, see the [timer trigger reference article](../azure-functions/functions-bindings-timer.md#cron-expressions). |
 | `stopping_wait_time`| All | Allows control of the shutdown behavior. To learn more, see [Graceful shutdown](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Learn more about the WebJobs SDK](webjobs-sdk-how-to.md)

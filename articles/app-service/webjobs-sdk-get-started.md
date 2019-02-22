@@ -438,7 +438,7 @@ In this section, you run locally again to verify that logging data is now going 
 
 During deployment, you create an app service instance in which to run your functions. When you publish a .NET Core console app to App Service in Azure, it automatically gets run as a WebJob. To learn more about publishing, see [Develop and deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
 
-[!INCLUDE [webjobs-publish-netcore](../../includes/webjobs-publish-netcore.md)]
+[!INCLUDE [webjobs-publish-net-core](../../includes/webjobs-publish-net-core.md)]
 
 ## Trigger the function in Azure
 

@@ -45,7 +45,7 @@ The following table describes the differences between *continuous* and *triggere
 | Runs on all instances that the web app runs on. You can optionally restrict the WebJob to a single instance. |Runs on a single instance that Azure selects for load balancing.|
 | Supports remote debugging. | Doesn't support remote debugging.|
 
-[!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-alwayson-note.md)]
+[!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
 ## <a name="acceptablefiles"></a>Supported file types for scripts or programs
 
