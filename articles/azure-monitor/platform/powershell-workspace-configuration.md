@@ -237,7 +237,7 @@ Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Ena
 You can also use the preceding cmdlet to collect logs from resources that are in different subscriptions. The cmdlet is able to work across subscriptions since you are providing the id of both the resource creating logs and the workspace the logs are sent to.
 
 
-## Configuring Log Analytics to collect Azure diagnostics extension from storage
+## Configuring Log Analytics to collect Azure diagnostics from storage
 To collect log data from within a running instance of a classic cloud service or a service fabric cluster, you need to first write the data to Azure storage. Log Analytics is then configured to collect the logs from the storage account. Supported resources include:
 
 * Classic cloud services (web and worker roles)
