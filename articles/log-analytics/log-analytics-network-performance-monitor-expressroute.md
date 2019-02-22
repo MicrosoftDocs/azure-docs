@@ -54,13 +54,13 @@ For more information about NSGs, see [Network security groups](../virtual-netw
  
  After the discovery is complete, the discovered private peering connections are listed in a table. The monitoring for these peerings is initially in a disabled state. 
 
-### Enable monitoring of the ExpressRoute peerings 
+### Enable monitoring of the ExpressRoute peering connections 
 
-1. Select the peering connection you want to monitor.
+1. Select the private peering connection you want to monitor.
 2. In the pane on the right, select the **Monitor this Peering** check box. 
 3. If you intend to create health events for this connection, select **Enable Health Monitoring for this peering**. 
 4. Choose monitoring conditions. You can set custom thresholds for health event generation by entering threshold values. Whenever the value of the condition goes above its selected threshold for the peering connection, a health event is generated. 
-5. Select **Add Agents** to choose the monitoring agents you intend to use for monitoring this peering connection. Make sure that you add agents on both ends of the connection for private peerings. You need at least one agent in the virtual network connected to this peering. You also need at least one on-premises agent connected to this peering. 
+5. Select **Add Agents** to choose the monitoring agents you intend to use for monitoring this peering connection. Make sure that you add agents on both ends of the connection. You need at least one agent in the virtual network connected to this peering. You also need at least one on-premises agent connected to this peering. 
 6. Select **Save** to save the configuration. 
 
    ![ExpressRoute monitoring configuration](media/log-analytics-network-performance-monitor/expressroute-configure-discovery.png)
