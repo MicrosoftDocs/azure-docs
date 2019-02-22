@@ -96,6 +96,8 @@ If you don't see updated endpoint hits in the Dashboard, sign in to the Azure po
 
 ### Is there a PowerShell command get to the endpoint quota?
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 You can use a PowerShell command to see the endpoint quota:
 
 ```powershell
