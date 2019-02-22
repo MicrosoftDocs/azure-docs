@@ -33,11 +33,11 @@ The following diagram shows an example pipeline:
 
 The Azure cloud provides several other pipelines, each with a different purpose. The following table lists the different pipelines and what they are used for:
 
-| Pipeline | Use case | Primary audience | Canonical pipe |
-| ---- | ---- | ---- | ---- |
-| Azure Machine Learning pipelines | Machine learning model orchestration | Data scientist | Data -> model |
-| [Azure Data Factory pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Data orchestration | Data engineer | Data -> data |
-| [Azure pipelines](https://azure.microsoft.com/services/devops/pipelines/) | Continuous delivery of your application to any platform/any cloud | DevOps/App developer | Code -> app/service |
+| Pipeline | What it does | Canonical pipe |
+| ---- | ---- | ---- |
+| Azure Machine Learning pipelines | Defines reusable machine learning workflows that can be used as a template for your machine learning scenarios. | Data -> model |
+| [Azure Data Factory pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Groups data movement, transformation, and control activities needed to perform a task.  | Data -> data |
+| [Azure pipelines](https://azure.microsoft.com/services/devops/pipelines/) | Continuous integration and delivery of your application to any platform/any cloud  | Code -> app/service |
 
 ## Why build pipelines with Azure Machine Learning?
 
