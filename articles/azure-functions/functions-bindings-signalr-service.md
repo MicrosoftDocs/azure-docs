@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/23/2018
+ms.date: 02/22/2019
 ms.author: cshoe
 ---
 
@@ -554,7 +554,7 @@ The following example removes a user from a group.
 
 ```java
 @FunctionName("removeFromGroup")
-@SignalROutput(hubName = "chat")
+@SignalROutput(name = "$return", hubName = "chat")
 public SignalRGroupAction removeFromGroup(
         @HttpTrigger(
             name = "req",
