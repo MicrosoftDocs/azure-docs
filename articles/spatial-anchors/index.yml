@@ -15,7 +15,7 @@ metadata:
   ms.date: 12/13/2018
   ms.author: crtreasu
 abstract:
-  description: Spatial Anchors is a cross-platform developer service that allows you to create Mixed Reality experiences using objects that persist their location across devices over time.
+  description: Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time.
 sections:
 - title: 5-Minute Quickstarts
   items:
