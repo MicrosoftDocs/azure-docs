@@ -63,7 +63,7 @@ The following is a snippet of Service Fabric Virtual Machine extension:
            "x509StoreName": "[parameters('certificateStoreValue')]"
          }
        },
-       "typeHandlerVersion": "1.0"
+       "typeHandlerVersion": "1.1"
      }
    },
 ```
