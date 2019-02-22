@@ -27,7 +27,7 @@ Triggers and bindings let you avoid hardcoding access to other services. Your fu
 
 Consider the following examples of how you could implement different functions.
 
-| Example Scenario | Trigger | Input Binding | Output Binding |
+| Example scenario | Trigger | Input binding | Output binding |
 |-------------|---------|---------------|----------------|
 | A new queue message arrives which runs a function to write to another queue. | Queue<sup>*</sup> | *None* | Queue<sup>*</sup> |
 |A scheduled job reads Blob Storage contents and creates a new Cosmos DB document. | Timer | Blob Storage | Cosmos DB |
