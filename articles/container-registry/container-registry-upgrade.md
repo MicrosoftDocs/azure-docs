@@ -6,52 +6,39 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/28/2018
+ms.date: 02/22/2019
 ms.author: danlep
 ---
 
 # Upgrade a Classic container registry
 
-Azure Container Registry (ACR) is available in several service tiers, [known as SKUs](container-registry-skus.md). The initial release of ACR offered a single SKU, Classic, that lacks several features inherent to the Basic, Standard, and Premium SKUs (collectively known as *managed* registries).
+Azure Container Registry (ACR) is available in several service tiers, [known as SKUs](container-registry-skus.md). The initial release of ACR offered a single SKU, Classic, that lacks several features inherent to the Basic, Standard, and Premium SKUs (collectively known as *managed* registries). This article details how to migrate your unmanaged Classic registry to one of the managed SKUs.
 
-The Classic SKU is being deprecated, and will be unavailable after March 2019. This article details how to migrate your unmanaged Classic registry to one of the managed SKUs so that you can take advantage of their enhanced feature set.
+> [!IMPORTANT]
+> The Classic SKU is **deprecated** as of **March 2019**. You should upgrade any Classic registry in current use to a managed SKU. Use Basic, Standard, or Premium for all new container registries. 
+> 
 
-## Why upgrade?
+## Upgrade options
 
-The Classic registry SKU is being **deprecated**, and will be unavailable from **March 2019**. All existing Classic registries should be upgraded prior to March 2019.
+See [Azure Container Registry SKUs](container-registry-skus.md) for details about the storage limits and features of the Basic, Standard, and Premium SKUs. The managed SKUs all provide the same programmatic capabilities. They also all benefit from [image storage](container-registry-storage.md) managed entirely by Azure. 
 
-Because of the planned deprecation and limited capabilities of Classic unmanaged registries, all Classic registries be upgraded to Basic, Standard, or Premium managed registries. These higher-level SKUs more deeply integrate the registry into the capabilities of Azure.
-
-Managed registries provide:
-
-* Azure Active Directory integration for [individual login](container-registry-authentication.md#individual-login-with-azure-ad)
-* Image and tag deletion support
-* [Geo-replication](container-registry-geo-replication.md)
-* [Webhooks](container-registry-webhook.md)
-
-The Classic registry depends on the storage account that Azure automatically provisions in your Azure subscription when you create the registry. By contrast, the Basic, Standard, and Premium SKUs take advantage of Azure's [advanced storage features](container-registry-storage.md) by transparently handling the storage of your images for you. A separate storage account is not created in your own subscription.
-
-Managed registry storage provides the following benefits:
-
-* Container images are [encrypted at rest](container-registry-storage.md#encryption-at-rest).
-* Images are stored using [geo-redundant storage](container-registry-storage.md#geo-redundant-storage), assuring backup of your images with multi-region replication.
-* Ability to freely [move between SKUs](container-registry-skus.md#changing-skus), enabling higher throughput when you choose a higher-level SKU. With each SKU, ACR can meet your throughput requirements as your needs increase.
-* Unified security model for the registry and its storage provides simplified rights management. You manage permissions only for the container registry, without having to also manage permissions for a separate storage account.
-
-For additional details on image storage in ACR, see [Container image storage in Azure Container Registry](container-registry-storage.md).
-
-## Migration considerations
-
-When you change a Classic registry to a managed registry, Azure must copy all existing container images from the ACR-created storage account in your subscription to a storage account managed by Azure. Depending on the size of your registry, this process can take a few minutes to several hours.
-
-During the conversion process, all `docker push` operations are blocked, while `docker pull` continues to function.
-
-Do not delete or modify the contents of the storage account backing your Classic registry during the conversion process. Doing so can result in the corruption of your container images.
-
-Once the migration is complete, the storage account in your subscription that originally backed your Classic registry is no longer used by ACR. After you've verified that the migration was successful, consider deleting the storage account to help minimize cost.
+When you upgrade a registry, the storage limit of the target SKU must be greater than the current size of the registry. If you use the Azure CLI to upgrade, you can select any SKU with sufficient capacity. If you use the Azure portal to upgrade, the lowest-level SKU that can accommodate your images is automatically selected.
 
 >[!IMPORTANT]
 > Upgrading from Classic to one of the managed SKUs is a **one-way process**. Once you've converted a Classic registry to Basic, Standard, or Premium, you cannot revert to Classic. You can, however, freely move between managed SKUs with sufficient capacity for your registry.
+
+
+## Before you upgrade
+
+Be aware of the following before you upgrade a Classic registry:
+
+* Azure must copy all existing container images from the ACR-created storage account in your subscription to a storage account managed by Azure. Depending on the registry's size, this process can take a few minutes to several hours.
+
+* During the conversion process, all `docker push` operations are blocked, while `docker pull` continues to function.
+
+* Do not delete or modify the contents of the storage account backing your Classic registry during the conversion process. Doing so can result in the corruption of your container images.
+
+* Once the migration is complete, the storage account in your subscription that originally backed your Classic registry is no longer used by ACR. After you've verified that the migration was successful, consider deleting the storage account to help minimize cost.
 
 ## How to upgrade
 
