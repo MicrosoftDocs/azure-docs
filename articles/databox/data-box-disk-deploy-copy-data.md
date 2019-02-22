@@ -57,6 +57,9 @@ Perform the following steps to connect and copy data from your computer to the D
     |Storage account <br> Managed disks     |GPv1 or GPv2 | GPv1 or GPv2         |BlockBlob <br> PageBlob <br> AzureFile <br> ManagedDisks<ul> <li> PremiumSSD </li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
     |Storage account <br> Managed disks    |Blob storage account | GPv1 or GPv2         |BlockBlob <br> ManagedDisks<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
 
+    An example screenshot of an order where a GPv2 storage account was specified is shown below:
+
+    ![Contents of the disk drive](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
  
 2. Copy the data that needs to be imported as block blobs in to *BlockBlob* folder. Similarly, copy data such as VHD/VHDX to *PageBlob* folder and data in to *AzureFile* folder.
 
