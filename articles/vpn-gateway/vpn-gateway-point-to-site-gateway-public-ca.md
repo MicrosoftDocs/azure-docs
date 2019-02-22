@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 02/20/2019
 ms.author: cherylmc
 
 ---
@@ -24,18 +24,22 @@ Previously, a self-signed certificate for the gateway (issued behind the scenes 
 
 Only older gateways are affected by this change. If your gateway certificate needs to be transitioned, you will receive communication or toast in the Azure portal. You can check to see if your gateway is affected by using the steps in this article.
 
->[!IMPORTANT]
->The transition is scheduled for March 12,2019 starting at 18:00 UTC. You can create a support case if you prefer a different time window. Make and finalize your request at least 24 hours in advance.  You can request one of the following windows:
+> [!IMPORTANT]
+> The transition is scheduled for March 12, 2019 starting at 18:00 UTC. You can create a support case if you prefer a different time window. Make and finalize your request at least 24 hours in advance.  You can request one of the following windows:
 >
->* 06:00 UTC on 25 Feb
->* 18:00 UTC on 25 Feb
->* 06:00 UTC on 1 Mar
->* 18:00 UTC on 1 Mar
+> * 06:00 UTC on February 25
+> * 18:00 UTC on February 25
+> * 06:00 UTC on March 1
+> * 18:00 UTC on March 1
 >
->**All remaining gateways will transition on March 12, 2019 starting at 18:00 UTC**.
+> **All remaining gateways will transition on March 12, 2019 starting at 18:00 UTC**.
 >
+> The gateway transition process will take up to 2 hours to complete. Customers will receive an email when their gateway completes the transition process.
+> 
 
 ## 1. Verify your certificate
+
+### Resource Manager
 
 1. Check to see if you are affected by this update. Download your current VPN client configuration using the steps in [this article](point-to-site-vpn-client-configuration-azure-cert.md).
 
@@ -44,7 +48,12 @@ Only older gateways are affected by this change. If your gateway certificate nee
 
   * `<ServerCertRootCn>DigiCert Global Root CA</ServerCertRootCn>`
   * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
-4. If *ServerCertRotCn* and *ServerCertIssuerCn* are “DigiCert Global Root CA”, you are not affected by this update and you don't need to proceed with steps in this article. However, if they show something else, your gateway certificate is part of the update and will be transitioned.
+4. If *ServerCertRotCn* and *ServerCertIssuerCn* are "DigiCert Global Root CA", you are not affected by this update and you don't need to proceed with steps in this article. However, if they show something else, your gateway certificate is part of the update and will be transitioned.
+
+### Classic
+
+1. On a client computer, navigate to path %appdata%/Microsoft/Network/Connections/Cm/<gatewayID>. In the Gateway ID folder, you can view the certificate.
+2. On the General tab for the certificate, verify that the issuing authority is "DigiCert Global Root CA". If you have anything other than this issuing authority, your gateway certificate is part of the update and will be transitioned.
 
 ## 2. Check certificate transition schedule
 

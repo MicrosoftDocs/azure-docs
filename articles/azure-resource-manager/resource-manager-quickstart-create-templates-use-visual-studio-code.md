@@ -131,7 +131,7 @@ There are many methods for deploying templates.  In this quickstart, you use the
     read resourceGroupName &&
     echo "Enter the location (i.e. centralus):" &&
     read location &&
-    az group create --name $resourceGroupName --location $location &&
+    az group create --name $resourceGroupName --location "$location" &&
     az group deployment create --resource-group $resourceGroupName --template-file "azuredeploy.json"
     ```
    
@@ -141,7 +141,7 @@ There are many methods for deploying templates.  In this quickstart, you use the
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     
-    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
     New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "azuredeploy.json"
     ```
     

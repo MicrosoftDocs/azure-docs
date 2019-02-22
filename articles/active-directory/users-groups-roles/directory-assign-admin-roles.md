@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 02/16/19
+ms.date: 02/16/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -39,7 +39,7 @@ The following administrator roles are available:
 
 * **[Application Developer](#application-developer)**: Users in this role can create application registrations when the "Users can register applications" setting is set to No. This role also allows members to consent on their own behalf when the "Users can consent to apps accessing company data on their behalf" setting is set to No. Members of this role are added as owners when creating new application registrations or enterprise applications.
 
-* **[Authentication Administrator](#authentication-administrator)**: Users with this role can view the current authentication method information and set or reset non-password credentials. Authentication Administrators can force users to re-register against existing non-password credential (e.g. MFA, FIDO) and revoke ‘remember MFA on the device’, prompting for MFA on the next login of other users who are non-administrators or members of the following roles only:
+* **[Authentication Administrator](#authentication-administrator)**: Users with this role can set or reset non-password credentials. Authentication Administrators can force users to re-register against existing non-password credential (e.g. MFA, FIDO) and revoke ‘remember MFA on the device’, prompting for MFA on the next login of other users who are non-administrators or members of the following roles only:
   * Authentication Administrator
   * Directory Readers
   * Guest Inviter

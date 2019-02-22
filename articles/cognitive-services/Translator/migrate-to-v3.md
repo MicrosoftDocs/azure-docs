@@ -17,6 +17,8 @@ ms.author: v-jansko
 > [!NOTE]
 > V2 was deprecated on April 30, 2018 and will be discontinued on April 30, 2019.
 
+> The Microsoft Translator Hub will be retired on April 30, 2019. [View important migration information and dates](https://www.microsoft.com/translator/business/hub/).  
+
 The Microsoft Translator team has released Version 3 (V3) of the Translator Text API. This release includes new features, deprecated methods and a new format for sending to, and receiving data from the Microsoft Translator Service. This document provides information for changing applications to use V3. 
 
 The end of this document contains helpful links for you to learn more.
@@ -44,8 +46,8 @@ The following list of V2 and V3 methods identifies the V3 methods and APIs that 
 | `Speak`     | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
 | `Detect`     | [Detect](reference/v3-0-detect.md)         |
 | `DetectArray`     | [Detect](reference/v3-0-detect.md)         |
-| `AddTranslation`     | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
-| `AddTranslationArray`    | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
+| `AddTranslation`     | Feature is no longer supported       |
+| `AddTranslationArray`    | Feature is no longer supported          |
 | `BreakSentences`      | [BreakSentence](reference/v3-0-break-sentence.md)       |
 | `GetTranslations`      | Feature is no longer supported         |
 | `GetTranslationsArray`      | Feature is no longer supported         |
@@ -100,6 +102,10 @@ Global
 [`Dictionary/example`](reference/v3-0-dictionary-examples.md)
 
 ## Compatibility and customization
+
+> [!NOTE] 
+
+> The Microsoft Translator Hub will be retired on April 30, 2019. [View important migration information and dates](https://www.microsoft.com/translator/business/hub/).   
 
 Microsoft Translator V3 uses neural machine translation by default. As such, it cannot be used with the Microsoft Translator Hub. The Translator Hub only supports legacy statistical machine translation. Customization for neural translation is now available using the Custom Translator. [Learn more about customizing neural machine translation](custom-translator/overview.md)
 
