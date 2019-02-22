@@ -13,7 +13,7 @@ ms.date: 02/18/2019
 ms.author: cshoe
 ---
 
-# Azure Functions Binding expression patterns
+# Azure Functions binding expression patterns
 
 One of the most powerful features of [triggers and bindings](./functions-triggers-bindings.md) is *binding expressions*. In the *function.json* file and in function parameters and code, you can use expressions that resolve to values from various sources.
 
