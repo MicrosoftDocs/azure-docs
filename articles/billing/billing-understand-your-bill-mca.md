@@ -115,7 +115,7 @@ The month-to-date charges are the pending charges for the current month and will
 
 ### View pending transactions
 
-Once you identify pending charges, you can view individual transactions that are contributing to the charges in the All transactions page. At this point, pending usage charges are not displayed on the All transaction page. You can view the pending usage charges on the Azure subscriptions page. For more information, see [View pending usage charges](view-pending-usage-charges)
+Once you identify pending charges, you can view individual transactions that are contributing to the charges in the All transactions page. At this point, pending usage charges are not displayed on the All transaction page. You can view the pending usage charges on the Azure subscriptions page. For more information, see [View pending usage charges](#view-pending-usage-charges)
 
 1. Sign in to the [Azure portal](https://www.azure.com).
 
@@ -143,11 +143,11 @@ Once you identify pending charges, you can view individual transactions that are
 
 4. Select **All subscriptions** from the left side of the screen.
 
-5. Azure subscriptions page displays current and last month's charges for each subscription in the billing profile. If an invoice is not generated, last month's charges are still pending.
+5. The Azure subscriptions page displays current and last month's charges for each subscription in the billing profile. If an invoice is not generated, last month's charges are still pending.
 
 ![Screenshot that shows the Azure subscriptions list for billing profile](./media/billing-understand-your-bill-mca/mca-billing-profile-subscriptions-list.png)
 
-You can view the detailed usage-based charges using Azure usage and charges file. To download the file, see, see [Get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md).
+You can view the detailed usage-based charges using the Azure usage and charges file. To download the file, see [Get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md).
 
 ## <a name="payment"></a>Pay your bill
 
