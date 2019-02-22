@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with Azure Automation shared resou
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/3/2018
+ms.date: 02/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -32,6 +32,24 @@ To resolve this issue, you must remove the module that is stuck in the **Importi
 ```azurepowershell-interactive
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
+
+### <a name="update-azure-modules-importing"></a>Scenario: AzureRM modules are stuck importing after trying to update them
+
+#### Issue
+
+A banner with the following message stays in your account after trying to update your AzureRM modules:
+
+```
+Azure modules are being updated
+```
+
+#### Cause
+
+There is a known issue with updating the AzureRM modules in an Automation Account that is in a resource group with a numeric name that starts with 0.
+
+#### Resolution
+
+To update your Azure modules in your Automation Account, it must be in a resource group that has a alphanumeric name. Resource groups with numeric names starting with 0 are unable to update AzureRM modules at this time.
 
 ### <a name="module-fails-to-import"></a>Scenario: Module fails to import or cmdlets can't be executed after importing
 
