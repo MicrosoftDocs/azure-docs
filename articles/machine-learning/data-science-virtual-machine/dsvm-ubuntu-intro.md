@@ -115,6 +115,8 @@ You can access the Ubuntu DSVM using three methods:
 1. X2Go for graphical sessions
 1. JupyterHub and JupyterLab for Jupyter notebooks
 
+You can also attach a Data Science VM to Azure Notebooks to run Jupyter notebooks on the VM and bypass the limitations of the free service tier. For more information, see [Manage and configure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+
 ### SSH
 
 After the VM is created, you can sign in to it by using SSH. Use the account credentials that you created in the **Basics** section of step 3 for the text shell interface. On Windows, you can download an SSH client tool like [Putty](http://www.putty.org). If you prefer a graphical desktop (X Windows System), you can use X11 forwarding on Putty or install the X2Go client.
