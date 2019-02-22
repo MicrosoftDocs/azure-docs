@@ -39,7 +39,7 @@ The five capacity utilization charts shown on the page are:
 * Bytes Sent Rate - shows the top five machines with highest average of bytes sent 
 * Bytes Receive Rate - shows the top five machines with highest average of bytes sent 
 
-Clicking on the pin icon at the upper right-hand corner of any one of the five charts will pin the selected chart to the last Azure Dashboard you viewed.  From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard will navigate you into Azure Monitor for VMs and load the correct scope and view.  
+Clicking on the pin icon at the upper right-hand corner of any one of the five charts will pin the selected chart to the last Azure dashboard you last viewed.  From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard will redirect you to Azure Monitor for VMs and load the correct scope and view.  
 
 Clicking on the icon located to the left of the pin icon on any one of the five charts opens the **Top N List** view.  Here you see the resource utilization for that performance metric by individual VM in a list view and which machine is trending highest.  
 
