@@ -71,14 +71,16 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
 
 ## <a id="Connect"></a>Step 3: Connect to an Azure Cosmos DB account
 1. First, replace the references at the beginning of your C# application, in the **Program.cs** file with these references:
-    ```csharp
-    using System;
-    using System.Threading.Tasks;
-    using System.Configuration;
-    using Microsoft.Azure.Cosmos;
-    using System.Collections.Generic;
-    using System.Net;
-    ```
+
+   ```csharp
+   using System;
+   using System.Threading.Tasks;
+   using System.Configuration;
+   using Microsoft.Azure.Cosmos;
+   using System.Collections.Generic;
+   using System.Net;
+   ```
+
 1. Now, add these constants and variables into your public class ``Program``.
     ```csharp
     public class Program
