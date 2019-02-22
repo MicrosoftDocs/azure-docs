@@ -15,7 +15,7 @@ ms.author: rosh
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and Go
 
-This quickstart uses the Go programming language to call the Bing Visual Search API and displays results. A Post request uploads an image to the API endpoint. The results display URLs and descriptive information about images similar to the uploaded image.
+This quickstart uses the Go programming language to call the Bing Visual Search API and display results. A Post request uploads an image to the API endpoint. The results include URLs and descriptive information about images similar to the uploaded image.
 
 ## Prerequisites
 * Install the [Go binaries](https://golang.org/dl/)
@@ -26,7 +26,7 @@ This quickstart uses the Go programming language to call the Bing Visual Search 
 
 ## Create a project and import libraries
 
-Create a new Go project in your IDE or editor. Then import `net/http` for requests, `ioutil` to read the response, and `encoding/json` to handle the JSON text of results. The `go-spew` library is a library used to parse JSON results. 
+Create a new Go project in your IDE or editor. Then import `net/http` for requests, `ioutil` to read the response, and `encoding/json` to handle the JSON text of results. The `go-spew` library is used to parse JSON results. 
 
 ```
 package main
@@ -117,7 +117,7 @@ func main() {
     client := &http.Client{}
 
     //set a new guid for the Post batch
-	batchNumber := "d7ecc447-912f-413e-961d-a83021f1775f" 
+	batchNumber := "d7ecz947-942f-4f3e-961d-a82031f1775f" 
     // The file to Post. Include the path if needed.
 	fileName := "ElectricBike.JPG"
 
@@ -133,7 +133,7 @@ func main() {
 
 ```
 
-## Define functions to set Post body boundaries
+## Define functions to set boundaries of the Post body
 
 A Post request to the Visual Search endpoint requires leading and trailing boundaries enclosing the Post data.  The leading boundary includes a batch number, the content type identifier `Content-Disposition: form-data; name="image"; filename=`, plus the filename of the image to Post.  The trailing boundary is simply the batch number.  These functions are not included in the `main` block.
 
@@ -154,7 +154,7 @@ func BuildFormDataEnd(batNum string) string{
 ```
 ## Create buffer to hold image bytes and add to form data
 
-The following code segment instantiates a buffer and multipart form `writer`.  It sets the leading boundary, then assigns the image data to a `part` of the form file.   It reads the bytes into a buffer and copys the bytes to the request form.  Finally it sets the trailing boundary.
+The following code segment instantiates a buffer and multipart form `writer`.  It sets the leading boundary, then assigns the image data to a `part` of the form.   It reads the bytes into a buffer and copys the bytes to the request form.  Finally it sets the trailing boundary.
 
 ```
 	body := &bytes.Buffer{}
@@ -179,7 +179,7 @@ The following code segment instantiates a buffer and multipart form `writer`.  I
 
 ## Create Post request and add image bytes to Post body
 
-This code segment creates the Post request that contains image data in the Post body.  It sets the headers.
+This code segment creates the Post request that contains image data.  It sets the headers.
 
 ```
 	req, err := http.NewRequest("POST", endpoint, body)
@@ -230,7 +230,7 @@ The `Unmarshall` function extracts information from the JSON text returned by th
 
 ## Results
 
-The results contain images similar to the image contained in the Post body.  The useful fields are `WebSearchUrl` and `Name`.
+The results identify images similar to the image contained in the Post body.  The useful fields are `WebSearchUrl` and `Name`.
 
 ```
     Value: ([]struct { WebSearchUrl string "json:\"webSearchUrl\""; Name string "json:\"name\"" }) (len=66 cap=94) {
