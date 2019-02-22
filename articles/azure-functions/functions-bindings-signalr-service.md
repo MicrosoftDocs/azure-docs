@@ -39,13 +39,13 @@ Before a client can connect to Azure SignalR Service, it must retrieve the servi
 
 See the language-specific example:
 
-* [2.x C#](#2x-c-input-example)
-* [2.x JavaScript](#2x-javascript-input-example)
-* [2.x Java](#2x-java-input-example)
+* [2.x C#](#2x-c-input-examples)
+* [2.x JavaScript](#2x-javascript-input-examples)
+* [2.x Java](#2x-java-input-examples)
 
 For more information on how this binding is used to create a "negotiate" function that can be consumed by a SignalR client SDK, see the [Azure Functions development and configuration article](../azure-signalr/signalr-concept-serverless-development-config.md) in the SignalR Service concepts documentation.
 
-### 2.x C# input example
+### 2.x C# input examples
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that acquires SignalR connection information using the input binding and returns it over HTTP.
 
@@ -79,7 +79,7 @@ public static SignalRConnectionInfo Negotiate(
 }
 ```
 
-### 2.x JavaScript input example
+### 2.x JavaScript input examples
 
 The following example shows a SignalR connection info input binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding to return the connection information.
 
@@ -135,7 +135,7 @@ module.exports = async function (context, req, connectionInfo) {
 };
 ```
 
-### 2.x Java input example
+### 2.x Java input examples
 
 The following example shows a [Java function](functions-reference-java.md) that acquires SignalR connection information using the input binding and returns it over HTTP.
 
@@ -183,9 +183,9 @@ You can also use it to manage the groups that a user belongs to.
 
 See the language-specific example:
 
-* [2.x C#](#2x-c-send-message-output-example)
-* [2.x JavaScript](#2x-javascript-send-message-output-example)
-* [2.x Java](#2x-java-send-message-output-example)
+* [2.x C#](#2x-c-send-message-output-examples)
+* [2.x JavaScript](#2x-javascript-send-message-output-examples)
+* [2.x Java](#2x-java-send-message-output-examples)
 
 ### 2.x C# send message output examples
 
