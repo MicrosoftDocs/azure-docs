@@ -27,6 +27,9 @@ Here are the features available via the Speech SDK and REST APIs:
 
 | Use case | SDK | REST |
 |----------|-----|------|
+| Speech-to-text translation with recognition results. | Yes | No |
+| Speech-to-speech translation. | Yes | No |
+| Interim recognition and translation results. | Yes | No |
 
 ## Get started with speech translation
 
@@ -41,6 +44,10 @@ We offer quickstarts designed to have you running code in less than 10 minutes. 
 | [Java](quickstart-translate-speech-java-jre.md) | Windows | [Browse](https://aka.ms/csspeech/javaref) |
 
 ## Sample code
+
+Sample code for the Speech SDK is available on GitHub. These samples cover common scenarios like reading audio from a file or stream, continuous and single-shot recognition/translation, and working with custom models.
+
+* [Speech recognition samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 
 ## Migration guides
 
