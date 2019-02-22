@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech 
 ms.topic: conceptual
-ms.date: 05/18/18
+ms.date: 05/18/2018
 ms.author: v-jansko
 ---
 
