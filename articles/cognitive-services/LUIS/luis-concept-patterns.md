@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 02/22/2019
 ms.author: diberry
 ---
 # Patterns improve prediction accuracy
