@@ -10,7 +10,7 @@ Customer intent: I want to create a Standard Load balancer so that I can load ba
 ms.assetid: 
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: qucikstart
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/22/2018
