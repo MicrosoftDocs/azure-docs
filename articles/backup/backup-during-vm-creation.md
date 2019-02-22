@@ -9,7 +9,7 @@ ms.service: backup, virtual-machines
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: trinadhk
---- 
+---
 
 
 # Enable backup during Azure virtual machine creation 
