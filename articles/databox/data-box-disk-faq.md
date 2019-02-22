@@ -137,10 +137,10 @@ The toolset is available both for Windows and Linux. You can download the toolse
 A.  Once the order status for Data Copy shows as complete, you should be able to access your data right away.
 
 ### Q. Where is my data located in Azure after the upload?
-A.  When you copy the data under *BlockBlob* and *PageBlob* folders on your disk, a container is created in the Azure storage account for each subfolder under the *BlockBlob* and *PageBlob* folder. If you copied the files under *BlockBlob* and *PageBlob* folders directly, then these are in a default container *$root* under the Azure Storage account.
+A.  When you copy the data under *BlockBlob* and *PageBlob* folders on your disk, a container is created in the Azure storage account for each subfolder under the *BlockBlob* and *PageBlob* folder. If you copied the files under *BlockBlob* and *PageBlob* folders directly, then these are in a default container *$root* under the Azure Storage account. When you copy the data into a folder under *AzureFile* folder, a fileshare is created.
 
 ### Q. I just noticed that I did not follow the Azure naming requirements for my containers. Will my data fail to upload to Azure?
-A. If the container names have uppercase letter, then those are automatically converted to lowercase. If the names are not compliant in other ways (special characters, other languages and so on), the upload will fail. For more information, go to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions).
+A. If the container names have uppercase letter, then those are automatically converted to lowercase. If the names are not compliant in other ways (special characters, other languages and so on), the upload will fail. For more information, go to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions).
 
 ### Q. How do I verify the data I copied onto multiple Data Box Disks?
 A.  After the data copy is complete, you can run `DataBoxDiskValidation.cmd` provided in the *DataBoxDiskImport* folder to generate checksums for validation. If you have multiple disks, you need to open a command window per disk and run this command. Keep in mind that this operation can take a long time (~hours) depending upon the size of your data.
@@ -155,7 +155,7 @@ A.  The Data Box Disks are encrypted with AES-128 Microsoft BitLocker encryption
 A. Yes. If you decide to validate your data (we recommend you do!), you need to rerun validation if you added more data to the disks.
 
 ### Q. I used all my disks to transfer data and need to order more disks. Is there a way to quickly place the order?
-A. You can clone your previous order. Cloning creates the same order as before and allow you to edit order details only without the need to type in address, contact, and notification details. 
+A. You can clone your previous order. Cloning creates the same order as before and allow you to edit order details only without the need to type in address, contact, and notification details.
 
 ## Next steps
 

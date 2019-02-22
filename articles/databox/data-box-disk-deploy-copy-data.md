@@ -27,7 +27,7 @@ Before you begin, make sure that:
 - You have completed the [Tutorial: Install and configure your Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - Your disks are unlocked and connected to a client computer.
 - Your client computer that is used to copy data to the disks must run a [Supported operating system](data-box-disk-system-requirements.md##supported-operating-systems-for-clients).
-- Make sure that the intended storage type for your data matches [Supported storage types](data-box-disk-system-requirements.md#supported-storage-types).
+- Make sure that the intended storage type for your data matches [Supported storage types](data-box-disk-system-requirements.md#supported-storage-types-for-upload).
 
 
 ## Copy data to disks
@@ -47,15 +47,16 @@ If you specified managed disks in the order, review the following additional con
 
 Perform the following steps to connect and copy data from your computer to the Data Box Disk.
 
-1. View the contents of the unlocked drive. The list of the folders and subfolders in the drive is different depending upon the options selected when placing the Data Box Disk order.
+1. View the contents of the unlocked drive. The list of the precreated folders and subfolders in the drive is different depending upon the options selected when placing the Data Box Disk order.
 
-    - If you chose the storage account as storage destination in the order, and specified a GPv1 or GPv2 storage account, you will see the *BlockBlob*, *PageBloB*, and *AzureFile* folders.
-    - If you chose the storage account as storage destination in the order, and specified a Blob storage account, you will see the *BlockBlob* folder.
-    - If you chose the managed disks as storage destination in the order, you will see the *ManagedDisks* folder which has *PremiumSSD*, *StandardSSD*, *StandardHDD* subfolders. 
-    - If you chose both the storage account and managed disks as storage destination, you will see folders and subfolders from both the cases.
+    |Selected storage destination  |Storage account type|Staging storage account type |Folders and sub-folders  |
+    |---------|---------|---------|------------------|
+    |Storage account     |GPv1 or GPv2                 | NA | BlockBlob <br> PageBlob <br> AzureFile        |
+    |Storage account     |Blob storage account         | NA | BlockBlob        |
+    |Managed disks     |NA | GPv1 or GPv2         | ManagedDisks<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>        |
+    |Storage account <br> Managed disks     |GPv1 or GPv2 | GPv1 or GPv2         |BlockBlob <br> PageBlob <br> AzureFile <br> ManagedDisks<ul> <li> PremiumSSD </li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
+    |Storage account <br> Managed disks    |Blob storage account | GPv1 or GPv2         |BlockBlob <br> ManagedDisks<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
 
-    A screenshot when a GPv2 storage account is used is shown below.
-    ![View drive content](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
  
 2. Copy the data that needs to be imported as block blobs in to *BlockBlob* folder. Similarly, copy data such as VHD/VHDX to *PageBlob* folder and data in to *AzureFile* folder.
 
