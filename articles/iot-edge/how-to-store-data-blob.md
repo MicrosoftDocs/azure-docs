@@ -16,9 +16,26 @@ ms.custom: seodec18
 
 Azure Blob Storage on IoT Edge provides a [block blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) storage solution at the edge. A blob storage module on your IoT Edge device behaves like an Azure block blob service, but the block blobs are stored locally on your IoT Edge device. You can access your blobs using the same Azure storage SDK methods or block blob API calls that you're already used to. 
 
-This module allows you to configure it to automatically tier the data from edge to Azure, and provides support for intermittent internet connectivity. It also allows you to configure it to automatically clean up the data on edge.
+This module comes with **Auto-tiering** and **Auto-clean** features.
+
 > [!NOTE]
 > Currently auto-tiering and auto-clean functionality are only available in Linux AMD64.
+
+**Auto-tiering** is a configurable functionality, which allows you to automatically copy the data from your local blob storage to Azure with intermittent internet connectivity support. It allows you to:
+1. Turn ON/OFF the tiering feature
+2. Choose the order in which the data will copied to Azure like NewestFirst or OldestFirst
+3. Specify the Azure Storage account to which you want your data uploaded.
+4. Specify the containers you want to copy to Azure. This module allows you to specify both source and target container names.
+
+This module supports block level tiering, when your blob consists of blocks. Here are some of the common scenarios:
+ 1. Your application updates some blocks of a previously uploaded blob, this module will upload only the updated blocks and not the whole blob.
+ 2. The module is uploading blob and internet connection goes away, when the connectivity is back again it will upload only the remaining blocks and not the whole blob.
+
+If an unexpected process termination (like power failure) happens during a blob upload, all blocks that were due for the upload will be uploaded again, when the module comes back online. This behavior doesn't happen during graceful termination, like module update or restart.
+
+**Auto-Clean** is a configurable auto-clean functionality where this module automatically deletes your blobs when TTL(Time to Live) expires. It is measured in minutes. It allows you to:
+1. Turn ON/OFF the auto-clean feature
+2. Specify the TTL in minutes
 
 Scenarios where data like videos, images, finance data, hospital data, or any data that needs to be stored locally, later that could be processed locally or transferred to the cloud are good examples to use this module.
 
@@ -117,7 +134,8 @@ The Azure Marketplace provides IoT Edge modules that can be deployed directly to
 
       ![Update module container create options - portal](./media/how-to-store-data-blob/edit-module.png)
 
-   4. **Set module twin's desired properties** to enable [auto-tiering and auto-clean](#configure-auto-tiering-and-auto-clean-via-azure-portal)
+   4. Set [auto-tiering and auto-clean](#configure-auto-tiering-and-auto-clean-via-azure-portal) in desired properties. List of [auto-tiering](#auto-tiering-properties) and [auto-clean](#auto-clean-properties) properties and their possible values. 
+
    5. Select **Save**. 
 
 4. Select **Next** to continue to the next step of the wizard.
@@ -174,58 +192,52 @@ Use the following steps to create a new IoT Edge solution with a blob storage mo
    > [!IMPORTANT]
    > Do not change the second half of the storage directory bind value, which points to a specific location in the module. The storage directory bind should always end with **:/blobroot** for Linux containers and **:C:/BlobRoot** for Windows containers.
 
-5. Save the **deployment.template.json** file.
+5. Configure [auto-tiering and auto-clean](#configure-auto-tiering-and-auto-clean-via-vscode)
 
-6. Open the **.env** file in your solution workspace. 
+6. Save the **deployment.template.json** file.
 
-7. The .env file is set up to receive container registry credentials, but you don't need that for the blob storage image since it's publicly available. Instead, replace the file with two new environment variables: 
+7. Open the **.env** file in your solution workspace. 
+
+8. The .env file is set up to receive container registry credentials, but you don't need that for the blob storage image since it's publicly available. Instead, replace the file with two new environment variables: 
 
    ```env
    STORAGE_ACCOUNT_NAME=
    STORAGE_ACCOUNT_KEY=
    ```
 
-8. Provide a value for `STORAGE_ACCOUNT_NAME`, account names should be three to twenty-four characters long, with lowercase letters and numbers. Provide a 64-byte base64 key for the `STORAGE_ACCOUNT_KEY`. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). You'll use these credentials to access the blob storage from other modules. 
+9. Provide a value for `STORAGE_ACCOUNT_NAME`, account names should be three to twenty-four characters long, with lowercase letters and numbers. Provide a 64-byte base64 key for the `STORAGE_ACCOUNT_KEY`. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). You'll use these credentials to access the blob storage from other modules. 
 
    Don't include spaces or quotation marks around the values you provide. 
 
-9. Save the **.env** file. 
-
-10. Configure [auto-tiering and auto-clean](#configure-auto-tiering-and-auto-clean-via-vscode) 
+10. Save the **.env** file. 
 
 11. Right-click **deployment.template.json** and select **Generate IoT Edge deployment manifest**. 
 
 12. Visual Studio Code takes the information that you provided in deployment.template.json and .env and uses it to create a new deployment manifest file. The deployment manifest is created in a new **config** folder in your solution workspace. Once you have that file, you can follow the steps in [Deploy Azure IoT Edge modules from Visual Studio Code](how-to-deploy-modules-vscode.md) or [Deploy Azure IoT Edge modules with Azure CLI 2.0](how-to-deploy-modules-cli.md).
 
-## Auto-tiering
-This is a configurable functionality, which allows you to automatically copy the data from your local blob storage to Azure with intermittent internet connectivity support. It allows you to:
-1. Turn ON/OFF the tiering feature: `"tieringOn": {false,true}`
-2. Choose the order in which the data will copied to Azure: `"backlogPolicy": "{NewestFirst, OldestFirst}"`
-3. Specify the Azure Storage account to which you want your data tiered: `"remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`. Choose EndpointSuffix according to where you are tiering your data, it varies for Public Azure, Government Azure and Microsoft Azure Stack.
-4. Specify the container names you want to copy to Azure. This module allows you to specify both source and target container names. If you don't specify the target container name, it will automatically allocate it one as `<IoTHubName>-<IotEdgeDeviceName>-<ModuleName>-<ContainerName>`. Maximum size of the container name is 63 characters, while automatically allocating the target container name if the size of `<IoTHubName>-<IotEdgeDeviceName>-<ModuleName>-<ContainerName>` exceeds 63 characters we will trim each section (IoTHubName, IotEdgeDeviceName, ModuleName, ContainerName) to 15 characters.
+## Auto-tiering and Auto-clean Properties and Configuration
 
-This module supports block level tiering, when your blob consists of blocks. Here are some of the common scenarios:
- 1. Your application updates some blocks of a previously uploaded blob, this module will upload only the updated blocks and not the whole blob.
- 2. The module is uploading blob and internet connection goes away, when the connectivity is back again it will upload only the remaining blocks and not the whole blob.
+### Auto-tiering properties 
+The name of this setting is `tieringSettings`
+| Field | Possible Values | Explanation |
+| ----- | ----- | ---- |
+| tieringOn | true, false | By default it is set to `false`, if you want to turn it On set it to `true`|
+| backlogPolicy | NewestFirst, OldestFirst | Allows you to choose the order in which the data will copied to Azure. By default it is set to `OldestFirst` |
+| remoteStorageConnectionString | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` | Allows you to specify the Azure Storage account to which you want your data tiered. Specify `Azure Storage Account Name`, `Azure Storage Account Key`, `End point suffix`. Choose EndpointSuffix according to where you are tiering your data, it varies for Public Azure, Government Azure and Microsoft Azure Stack. |
+| tieredContainers | `"<source container name1>": {"target": "<target container name>"}` | Allows you to Specify the container names you want to copy to Azure. This module allows you to specify both source and target container names. If you don't specify the target container name, it will automatically allocate it one as `<IoTHubName>-<IotEdgeDeviceName>-<ModuleName>-<ContainerName>`. Maximum size of the container name is 63 characters, while automatically allocating the target container name if the size of container exceeds 63 characters it will trim each section (IoTHubName, IotEdgeDeviceName, ModuleName, ContainerName) to 15 characters  |
 
-On sudden crash or power failure, when the module comes online again, it will again tier the blobs with unfinished upload.
+### Auto-clean properties
+The name of this setting is `ttlSettings`
+| Field | Possible Values | Explanation |
+| ----- | ----- | ---- |
+| ttlOn | true, false | By default it is set to `false`, if you want to turn it On set it to `true`|
+| timeToLiveInMinutes | `<minutes>` | Specify the TTL in minutes. The module will automatically delete your blobs when TTL(Time to Live) expires |
 
-## Auto-Clean
-This is a configurable auto-clean functionality where this module automatically deletes your blobs when TTL(Time to Live) expires. It is measured in minutes. It allows you to:
-1. Turn ON/OFF the auto-clean feature: `"ttlOn": {false,true}`
-2. Specify the TTL in minutes: `"timeToLiveInMinutes": <minutes>`
+### Configure Auto-tiering and Auto-clean via Azure portal
 
-## Configure Auto-tiering and Auto-clean via Azure Portal
-
-**Set module twin's desired properties** to enable auto-tiering and auto-clean, set this value:
-1. During the initial deployment
-2. After the module is deployed via "Set modules" feature
-
-Add the below JSON in **Set module twin's desired properties** box, configure it with appropriate values, save it and continue with the deployment.
+Below is the Json for auto-tiering and auto-clean
 
 ```json
-{
-      "properties.desired": {
           "ttlSettings": {
             "ttlOn": <true, false>, 
             "timeToLiveInMinutes": <timeToLiveInMinutes> 
@@ -236,21 +248,22 @@ Add the below JSON in **Set module twin's desired properties** box, configure it
               "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
               "tieredContainers": {
                   "<source container name1>": {
-                      "target": "<target container name>"
-                  },
-                  "<source container name2>": {
-                    "target": "<target container name2>"
-                  },
-                  "<source container name3>": {}
+                      "target": "<target container name1>"
+                  }
               }
           }
-      }
-  }
 ```
 
-## Configure Auto-tiering and Auto-clean via VSCode
+Set the desired properties to enable auto-tiering and auto-clean, you can set these values:
+1. During the initial deployment. Copy the JSON in **Set module twin's desired properties** box, inside `"properties.desired"`. configure each property with appropriate value, save it and continue with the deployment.
+ ![tiering+ttl iotedge_custom_module](./media/how-to-store-data-blob/iotedge_custom_module.png)
 
-Add the below JSON in your deployment.template.json, configure it with appropriate values and save it.
+2. After the module is deployed via "Module Identity Twin" feature. Go to "Module Identity Twin" of this module, copy the JSON under properties desired, configure each property with appropriate value and save.
+![tiering+ttl module_identity_twin](./media/how-to-store-data-blob/module_identity_twin.png) 
+
+### Configure Auto-tiering and Auto-clean via VSCode
+
+Add the below JSON in your deployment.template.json, configure each property with appropriate value and save it.
 
 ```json
 "<your azureblobstorageoniotedge module name>":{
@@ -266,11 +279,7 @@ Add the below JSON in your deployment.template.json, configure it with appropria
               "tieredContainers": {
                   "<source container name1>": {
                       "target": "<target container name>"
-                  },
-                  "<source container name2>": {
-                    "target": "<target container name2>"
-                  },
-                  "<source container name3>": {}
+                  }
               }
           }
       }
@@ -295,7 +304,7 @@ You can find the logs inside the container, under:
 
 ## Deploy multiple instances
 
-If you want to deploy multiple instances of Azure Blob Storage on IoT Edge, you only need to change the HostPort that the module binds to. The blob storage modules always expose port 11002 in the container, but you can declare which port it's bound to on the host. 
+If you want to deploy multiple instances of Azure Blob Storage on IoT Edge, you need to provide different storage path and change the HostPort that the module binds to. The blob storage modules always expose port 11002 in the container, but you can declare which port it's bound to on the host. 
 
 Edit the module create options to change the HostPort value:
 
@@ -316,16 +325,20 @@ The following quickstarts use languages that are also supported by IoT Edge, so 
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
 * [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md) 
 
-You can also try [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to your local blob store. We have tested with previous version 1.5.0 of Azure Explorer.
+You can also try [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to your local blob store. We have tried working with previous version 1.5.0 of Azure Explorer.
+> [!CAUTION]
+> You might encounter errors while performing below steps, ignore and refresh. 
+
 1. Download and install Azure Storage Explorer
 2. Connect to Azure Storage using a connection string
 3. Provide connection string: `DefaultEndpointsProtocol=http;BlobEndpoint=http://<host device name>:11002/<your local account name>;AccountName=<your local account name>;AccountKey=<your local account key>;`
 4. Go through the steps to connect.
-5. Start uploading files as Block blobs.
+5. Create container inside your local storage account
+6. Start uploading files as Block blobs.
 > [!CAUTION]
-> If you are trying to upload .vhd or .vhdx files, uncheck the checkbox to upload it as page blobs. This module does not support page blobs
+> uncheck the checkbox to upload it as page blobs. This module does not support page blobs. you will get this prompt while uploading files like .iso, .vhd or .vhdx files.
 
-6. You can choose to connect your Azure storage accounts where you are tiering. It gives you a single view for both your local storage account and Azure storage account
+7. You can choose to connect your Azure storage accounts where you are tiering. It gives you a single view for both your local storage account and Azure storage account
 
 ## Supported storage operations
 
