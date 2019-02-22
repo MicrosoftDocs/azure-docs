@@ -25,8 +25,20 @@ Azure Functions lets you execute your code in a [serverless](https://azure.micro
 
 ## Capibilities of Functions in Azure for Students Starter
 
-In this offering Azure Functions run in a limited mode, with access to 
+In this offering you have access to most of the features of the Azure Functions runtime, with several key limitations:
 
+* The HTTP trigger is the only trigger type supported.
+    * However, all input and all output bindings are supported! [See the full list here](functions-triggers-bindings.md)
+* Languages Supported: 
+    * C# (.NET Core 2)
+    * Javascript (Node.js 8 & 10)
+    * F# (.NET Core 2)
+    * [See languages supported in higher plans here](supported-languages.md)
+* Scale is restricted to [one free tier instance](azure.microsoft.com/pricing/details/app-service/windows/) running for up to 60 minutes each day. You will serverlessly scale from 0 to 1 instances automatically as HTTP traffic is recieved, but no further.
+* [The 2.x runtime](functions-versions) is the only supported runtime.
+* All developer tooling is supported for editing and publishing functions: VS code, Visual studio, the Azure CLI, and the portal. However, only the portal can create a new Function app to behave as a publishing target in all tools.
+
+## Create an HTTP triggered helo world Function
 
  In this topic, learn how to use Functions to create a "hello world" function in the Azure portal.
 
