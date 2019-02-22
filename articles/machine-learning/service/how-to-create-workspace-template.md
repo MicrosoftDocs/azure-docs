@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Learn how to use an Azure Resource Manager template to create a new Azure Machine Learning service workspace.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 
 ms.reviewer: larryfr
