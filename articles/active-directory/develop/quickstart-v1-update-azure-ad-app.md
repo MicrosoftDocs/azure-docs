@@ -18,6 +18,7 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 #Customer intent: As an application developer, I need to know how to update my applications in Azure Active Directory.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Update an application in Azure Active Directory
@@ -141,7 +142,7 @@ For more info on application manifest concepts in general, see [Azure AD app man
 
 As mentioned earlier, in addition to exposing/accessing APIs for your own applications, you can register your client application to access APIs exposed by Microsoft resources. The Microsoft Graph API, referred to as “Microsoft Graph” in the portal's resource/API list, is available to all applications that are registered with Azure AD. If you are registering your client application in a tenant containing accounts that have signed up for an Office 365 subscription, you can also access the scopes exposed by the various Office 365 resources.
 
-For a complete discussion on scopes exposed by Microsoft Graph API, see the [Microsoft Graph permissions reference](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference) article.
+For a complete discussion on scopes exposed by Microsoft Graph API, see the [Microsoft Graph permissions reference](https://docs.microsoft.com/graph/permissions-reference) article.
 
 > [!NOTE]
 > Due to a current limitation, native client applications can only call into the Azure AD Graph API if they use the “Access your organization's directory” permission. This restriction does not apply for web applications.

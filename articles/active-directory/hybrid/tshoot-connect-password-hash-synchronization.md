@@ -17,6 +17,7 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Troubleshoot password hash synchronization with Azure AD Connect sync
 This topic provides steps for how to troubleshoot issues with password hash synchronization. If passwords are not synchronizing as expected, it can be either for a subset of users or for all users.

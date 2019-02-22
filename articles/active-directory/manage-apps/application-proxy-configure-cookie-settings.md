@@ -11,6 +11,7 @@ ms.topic: concept
 ms.date: 01/16/2019
 ms.author: celested
 ms.reviewer: japere
+ms.collection: M365-identity-device-management
 ---
 
 # Cookie settings for accessing on-premises applications in Azure Active Directory
@@ -36,8 +37,6 @@ To set the cookie settings using the Azure portal:
 4. Click **Application Proxy**.
 5. Under **Additional Settings**, set the cookie setting to **Yes** or **No**.
 6. Click **Save** to apply your changes. 
-
-<!---
 
 ## View current cookie settings - PowerShell
 
@@ -71,5 +70,3 @@ Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsSecureCookieEnabl
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsPersistentCookieEnabled $true 
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsPersistentCookieEnabled $false 
 ```
-
--->

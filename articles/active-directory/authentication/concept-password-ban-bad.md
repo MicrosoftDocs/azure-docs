@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 
+ms.collection: M365-identity-device-management
 ---
 # Eliminate bad passwords in your organization
 

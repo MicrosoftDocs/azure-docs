@@ -365,11 +365,11 @@ When you enable the debug flag while initializing the NotificationHub, you see d
 You see detailed Notification Hub result for example.
 
 - when the message is successfully sent to the Push Notification Service.
-    ```text
+    ```xml
     <Outcome>The Notification was successfully sent to the Push Notification System</Outcome>
     ```
 - If there were no targets found for any push notification, then you are likely going to see the following output as the response (which indicates that there were no registrations found to deliver the notification probably because the registrations had some mismatched tags)
-    ```text
+    ```xml
     '<NotificationOutcome xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Success>0</Success><Failure>0</Failure><Results i:nil="true"/></NotificationOutcome>'
     ```
 

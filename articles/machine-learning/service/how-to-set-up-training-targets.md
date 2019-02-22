@@ -41,6 +41,11 @@ Azure Machine Learning service has varying support across different compute targ
 |[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
+**All compute targets can be reused for multiple training jobs**. For example, once you attach a remote VM to your workspace, you can reuse it for multiple jobs.
+
+> [!NOTE]
+> Azure Machine Learning Compute can be created as a persistent resource or created dynamically when you request a run. Run-based creation removes the compute target after the training run is complete, so you cannot reuse compute targets created this way.
+
 ## What's a run configuration?
 
 When training, it is common to start on your local computer, and later run that training script on a different compute target. With Azure Machine Learning service, you can run your script on various compute targets without having to change your script. 
@@ -59,7 +64,7 @@ Use a system-managed environment when you want [Conda](https://conda.io/docs/) t
 
 All you need to do is specify each package dependency using the [CondaDependency class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) Then Conda creates a file named **conda_dependencies.yml** in the **aml_config** directory in your workspace with your list of package dependencies and sets up your Python environment when you submit your training experiment. 
 
-The initial set up of a new environment can take several minutes depending on the size of the required dependencies. As long as the list of packages remains unchanged, the set up time happens only once.
+The initial setup of a new environment can take several minutes depending on the size of the required dependencies. As long as the list of packages remains unchanged, the setup time happens only once.
   
 The following code shows an example for a system-managed environment requiring scikit-learn:
     
@@ -67,7 +72,7 @@ The following code shows an example for a system-managed environment requiring s
 
 #### User-managed environment
 
-For a user-managed environments, you're responsible for setting up your environment and installing every package your training script needs on the compute target. If your training environment is already configured (such as on your local machine), you can skip the set up step by setting `user_managed_dependencies` to True. Conda will not check your environment or install anything for you.
+For a user-managed environment, you're responsible for setting up your environment and installing every package your training script needs on the compute target. If your training environment is already configured (such as on your local machine), you can skip the setup step by setting `user_managed_dependencies` to True. Conda will not check your environment or install anything for you.
 
 The following code shows an example of configuring training runs for a user-managed environment:
 
@@ -166,7 +171,7 @@ Use the Azure Data Science Virtual Machine (DSVM)  as the Azure VM of choice for
                                                     username='<username>',
                                                     password="<password>")
 
- # If you use SSH instead of a password, use this code:
+ # If you authenticate with SSH keys instead, use this code:
  #                                                  ssh_port=22,
  #                                                  username='<username>',
  #                                                  password=None,
@@ -236,7 +241,7 @@ You can access the compute targets that are associated with your workspace in th
 
 * [View  compute targets](#portal-view) attached to your workspace
 * [Create a compute target](#portal-create) in your workspace
-* [Reuse existing compute targets](#portal-reuse)
+* [Attach a compute target](#portal-reuse) that was created outside the workspace
 
 After a target is created and attached to your workspace, you will use it in your run configuration with a `ComputeTarget` object: 
 
@@ -287,9 +292,11 @@ Follow the previous steps to view the list of compute targets. Then use these st
 
 
 
-### <a id="portal-reuse"></a>Reuse existing compute targets
+### <a id="portal-reuse"></a>Attach compute targets
 
-Follow the steps described earlier to view the list of compute targets. Then use these steps to reuse a compute target: 
+To use compute targets created outside the Azure Machine Learning service workspace, you must attach them. Attaching a compute target makes it available to your workspace.
+
+Follow the steps described earlier to view the list of compute targets. Then use the following steps to attach a compute target: 
 
 1. Select the plus sign (+) to add a compute target. 
 1. Enter a name for the compute target. 

@@ -1,6 +1,6 @@
 ---
 title: Sample - Apply tag and its default value
-description: This sample policy appends a specified tag name and value, if that tag is not provided.
+description: This sample policy definition appends a specified tag name and value, if that tag is not provided.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
 ---
-# Apply tag and its default value
+# Sample - Apply tag and its default value
 
 This policy appends a specified tag name and value, if that tag is not provided. You specify the tag name and value to apply.
 
@@ -79,7 +79,7 @@ defined.
 
 ## Azure PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ### Deploy with Azure PowerShell
 

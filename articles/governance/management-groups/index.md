@@ -1,6 +1,6 @@
 ---
-title: Organize your resources with Azure management groups
-description: Learn about the management groups and how to use them. 
+title: Organize your resources with Azure management groups - Azure Governance
+description: Learn about the management groups, how their permissions work, and how to use them. 
 author: rthorn17
 manager: rithorn
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
@@ -144,7 +144,7 @@ To track management groups via this API, use the [Tenant Activity Log API](/rest
 1. As a tenant admin of the Azure AD tenant, [elevate access](../../role-based-access-control/elevate-access-global-admin.md) then assign a Reader role to the auditing user over the scope `/providers/microsoft.insights/eventtypes/management`.
 1. As the auditing user, call the [Tenant Activity Log API](/rest/api/monitor/tenantactivitylogs) to see management group activities. You'll want to filter by Resource Provider **Microsoft.Management** for all management group activity.  Example:
 
-```
+```http
 GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
 ```
 
