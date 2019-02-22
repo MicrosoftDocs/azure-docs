@@ -29,7 +29,7 @@ You must also have the [endpoint and access key](../How-tos/text-analytics-how-t
 
 ## Detect language
 
-The Language Detection API detects the language of a text document, using the [Detect Language method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
+The Language Detection API detects the language of a text document, using the [Detect Language method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/56f30ceeeda5650db055a3c7).
 
 1. Create a new Ruby project in your favorite IDE.
 2. Add the code provided below.
@@ -132,7 +132,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Analyze sentiment
 
-The Sentiment Analysis API detexts the sentiment of a set of text records, using the [Sentiment method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). The following example scores two documents, one in English and another in Spanish.
+The Sentiment Analysis API detexts the sentiment of a set of text records, using the [Sentiment method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/56f30ceeeda5650db055a3c9). The following example scores two documents, one in English and another in Spanish.
 
 1. Create a new Ruby project in your favorite IDE.
 2. Add the code provided below.
@@ -208,7 +208,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Extract key phrases
 
-The Key Phrase Extraction API extracts key-phrases from a text document, using the [Key Phrases method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). The following example extracts key phrases for both English and Spanish documents.
+The Key Phrase Extraction API extracts key-phrases from a text document, using the [Key Phrases method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/56f30ceeeda5650db055a3c6). The following example extracts key phrases for both English and Spanish documents.
 
 1. Create a new Ruby project in your favorite IDE.
 2. Add the code provided below.
