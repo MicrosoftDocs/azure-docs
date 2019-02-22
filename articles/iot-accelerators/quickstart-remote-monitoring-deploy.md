@@ -133,7 +133,7 @@ If you no longer need the solution accelerator, delete it from the [Provisioned 
 ![Delete solution](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 
 
-![Delete solution](media/quickstart-remote-monitoring-deploy/deletesolution-provision.png)
+![Delete solution](media/quickstart-remote-monitoring-deploy/deletesolution-page.png)
 
 ## Next steps
 
