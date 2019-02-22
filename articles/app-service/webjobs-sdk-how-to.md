@@ -209,7 +209,7 @@ static void Main(string[] args)
 
 Input bindings provide a declarative way to make data from Azure or third-party services available to your code. Output bindings provide a way to update data. The [Get started article](webjobs-sdk-get-started.md) shows an example of each.
 
-You can use a method return value for an output binding, by applying the attribute to the method return value. See the example in the Azure Functions [Triggers and bindings](../azure-functions/functions-triggers-bindings.md#using-the-function-return-value) article.
+You can use a method return value for an output binding, by applying the attribute to the method return value. See the example in the Azure Functions [Triggers and bindings](../azure-functions/functions-bindings-return-value.md) article.
 
 ## Binding types
 
@@ -442,7 +442,7 @@ public static void CreateThumbnail(
 }
 ```
 
-For more information about binding expressions, see [Binding expressions and patterns](../azure-functions/functions-triggers-bindings.md#binding-expressions-and-patterns) in the Azure Functions documentation.
+For more information about binding expressions, see [Binding expressions and patterns](../azure-functions/functions-bindings-expressions-patterns.md) in the Azure Functions documentation.
 
 ### Custom binding expressions
 

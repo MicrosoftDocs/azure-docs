@@ -172,6 +172,8 @@
         href: devtest-lab-mandatory-artifacts.md
       - name: Create custom artifacts
         href: devtest-lab-artifact-author.md
+      - name: Add an artifact repository to a lab
+        href: add-artifact-repository.md
       - name: Diagnose artifact failures
         href: devtest-lab-troubleshoot-artifact-failure.md
     - name: Manage virtual networks
@@ -197,7 +199,7 @@
   - name: CLI
     href: /cli/azure/lab
   - name: PowerShell
-    href: /powershell/module/azurerm.devtestlabs/#devtest_labs
+    href: /powershell/module/az.devtestlabs/#devtest_labs
   - name: REST API
     href: https://docs.microsoft.com/rest/api/dtl/
   - name: Resource Manager template

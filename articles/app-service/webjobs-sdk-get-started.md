@@ -653,7 +653,7 @@ Input bindings simplify code that reads data. For this example, the queue messag
    }
    ```
 
-   In this code, `queueTrigger` is a [binding expression](../azure-functions/functions-triggers-bindings.md#binding-expressions-and-patterns), which means it resolves to a different value at runtime.  At runtime, it has the contents of the queue message.
+   In this code, `queueTrigger` is a [binding expression](../azure-functions/functions-bindings-expressions-patterns.md), which means it resolves to a different value at runtime.  At runtime, it has the contents of the queue message.
 
 1. Add a `using`:
 
