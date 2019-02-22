@@ -18,7 +18,7 @@ ms.author: naziml
 ms.custom: seodec18
 
 ---
-# Configure TLS mutual uuthentication for Azure App Service
+# Configure TLS mutual authentication for Azure App Service
 
 You can restrict access to your Azure App Service app by enabling different types of authentication for it. One way to do it is to request a client certificate when the client request is over TLS/SSL and validate the certificate. This mechanism is called TLS mutual authentication or client certificate authentication. This article shows how to set up your app to use client certificate authentication.
 
