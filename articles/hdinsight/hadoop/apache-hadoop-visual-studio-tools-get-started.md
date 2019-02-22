@@ -179,8 +179,7 @@ To create, and run ad-hoc queries:
 
       Ensure **Batch** is selected and then select **Submit**.  If you select the advanced submit option, configure **Job Name**, **Arguments**, **Additional Configurations**, and **Status Directory** for the script.
 
-      ![Screenshot of query and batch](./media/apache-hadoop-visual-studio-tools-get-started/batch.png)
-
+      ![Screenshot of query and batch](./media/apache-hadoop-visual-studio-tools-get-started/batch.png)  
 
       ![Screenshot of an HDInsight Hadoop Hive query](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.submit.jobs.advanced.png "Submit queries")
 
