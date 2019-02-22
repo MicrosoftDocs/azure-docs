@@ -1,5 +1,5 @@
 ---
-title: Use Classroom Labs for trainings | Microsoft Docs
+title: Use Classroom Labs for trainings - Azure Lab Services| Microsoft Docs
 description: Learn how to use Azure DevTest Labs for training scenarios.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na

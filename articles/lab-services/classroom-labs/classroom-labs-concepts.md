@@ -1,5 +1,5 @@
 ---
-title: Classroom Labs concepts | Microsoft Docs
+title: Classroom Labs concepts - Azure Lab Services | Microsoft Docs
 description: Learn the basic concepts of Lab Services, and how it can make it easy to create and manage labs. 
 services: lab-services
 documentationcenter: na
