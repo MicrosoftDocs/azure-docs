@@ -7,7 +7,7 @@ Customer intent: As someone with a basic network background, but is new to Azure
 
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 10/19/2018
+ms.date: 02/22/2019
 ms.author: cherylmc
 
 ---
@@ -149,7 +149,6 @@ For frequently asked questions about VPN gateway, see the [VPN Gateway FAQ](vpn-
 
 ## Next steps
 
-- Plan your VPN gateway configuration. See [VPN Gateway Planning and Design](vpn-gateway-plan-design.md).
 - View the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) for additional information.
 - View the [Subscription and service limits](../azure-subscription-service-limits.md#networking-limits).
 - Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure.
