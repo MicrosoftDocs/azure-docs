@@ -11,7 +11,7 @@ ms.service: azure-spatial-anchors
 #Customer intent: Guidance for best practices when creating and locating Azure Spatial Anchors targeting mixed reality developers.
 ---
 
-# Guidelines for effective anchor experiences in Azure Spatial Anchors
+# Guidelines for an effective anchor experience with Azure Spatial Anchors
 
 This article provides guidelines and considerations for creating and locating anchors effectively with Azure Spatial Anchors.
 

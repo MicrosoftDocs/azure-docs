@@ -27,8 +27,8 @@ To open a technical support ticket within the Azure Portal for Azure Spatial Anc
 
 3. When completing the support ticket fields: 
 
-    - Issue type: Technical
-    - Service: Spatial Anchors
+- Issue type: Technical
+- Service: Spatial Anchors
 
 ![Azure portal support ticket fields](./media/spatial-anchor-support3.png)
 
