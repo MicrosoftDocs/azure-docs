@@ -22,6 +22,8 @@ Azure API Management allows installing CA certificates on the machine inside the
 
 The article shows how to manage CA certificates of an Azure API Management service instance in the Azure portal.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="step1"> </a>Upload a CA certificate
@@ -47,7 +49,7 @@ Follow the steps below to upload a new CA certificate. If you have not created a
     ![Add CA certificates](media/api-management-howto-ca-certificates/03.png)  
 
 > [!NOTE]
-> You can upload a CA certificate using the `New-AzureRmApiManagementSystemCertificate` Powershell command.
+> You can upload a CA certificate using the `New-AzApiManagementSystemCertificate` Powershell command.
 
 ## <a name="step1a"> </a>Delete a client certificate
 
