@@ -20,7 +20,7 @@ Once approved, run one of the following commands to determine which zone in East
 
 PowerShell: `Get-AzComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
 
-CLI: `az vm list-skus --resource-type disks --query “[?name==’UltraSSD_LRS’]”`
+CLI: `az vm list-skus --resource-type disks --query “[?name==UltraSSD_LRS]”`
 
 The response will be similar to the form below, where X is the Zone to use for deploying in East US 2. X could be either 1, 2, or 3.
 
@@ -32,7 +32,7 @@ If there was no response from the command, that means your registration to the f
 
 Now that you know which zone to deploy to, follow the deployment steps in this article to get your first VMs deployed with ultra SSD.
 
-## Deploying an ultra SSD
+## Deploying an ultra SSD using ARM
 
 First, determine the VM Size to deploy. As part of this preview, only DsV3 and EsV3 VM families are supported. Refer to the second table on this [blog](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) for additional details about these VM sizes.
 Also refer to the sample [Create a VM with multiple ultra SSD](https://aka.ms/UltraSSDTemplate), which shows how to create a VM with multiple ultra SSD.
@@ -72,6 +72,50 @@ Add an additional capability on the properties of the VM to indicate its ultra e
 ```
 
 Once the VM is provisioned, you can partition and format the data disks and configure them for your workloads.
+
+## Deploying an ultra SSD using CLI
+
+### Deploying an ultra SSD enabled VM with a disk attached using CLI
+
+```cli
+az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled --zone $zone --authentication-type password --admin-password xxxx --admin-username ultrauser --attach-data-disks $diskname --size Standard_D4s_v3 --location $location
+```
+
+### Creating an ultra SSD using CLI
+
+```cli
+location="eastus2"
+subscription="xxx"
+rgname="ultraRG"
+diskname="ssd1"
+vmname="ultravm1"
+zone=123
+
+#create an Ultra SSD disk
+az disk create --subscription $subscription -n $diskname -g $rgname --size-gb 4 --location $location --zone $zone --sku UltraSSD_LRS --disk-iops-read-write 1000 --disk-mbps-read-write 50
+```
+
+### Adjust the performance of an ultra SSD using CLI
+
+```cli
+az disk update --subscription $sub --resource-group $resourceGroup --name $diskName --set diskIopsReadWrite=80000 --set diskMbpsReadWrite=800
+```
+
+## Deploying an ultra SSD using PowerShell
+
+### Create an ultra SSD using PowerShell
+
+```powershell
+New-AzDiskConfig -Location 'EastUS2euap' -DiskSizeGB 8 -DiskIOPSReadWrite 1000 -DiskMBpsReadWrite 100 -AccountType UltraSSD_LRS -CreateOption Empty -zone 3;
+New-AzDisk -ResourceGroupName $resourceGroup -DiskName 'Disk02' -Disk $diskconfig;
+```
+
+### Adjust the performance of an ultra SSD using PowerShell
+
+```powershell
+$diskupdateconfig = New-AzDiskUpdateConfig -DiskMBpsReadWrite 2000
+Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate $diskupdateconfig
+```
 
 ## Additional ultra SSD scenarios
 
