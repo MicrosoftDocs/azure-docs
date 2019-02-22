@@ -5,7 +5,7 @@ author: mattwojo
 manager: jken
 services: azure-spatial-anchors
 ms.author: mattwoj
-ms.date: 02/22/2019
+ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 #Customer intent: Guidance for best practices when creating and locating Azure Spatial Anchors targeting mixed reality developers.
