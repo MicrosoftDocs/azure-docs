@@ -54,7 +54,7 @@ Follow these steps to configure an ODBC data source using the ODBC driver for SQ
 
     ![Active Directory Integrated](media/connect-odbc/active-directory-integrated.png)
 
-1. Select the database with the sample data, then select **Next**.
+1. Select the database with the sample data then **Next**.
 
     ![Change default database](media/connect-odbc/change-default-database.png)
 
@@ -78,11 +78,11 @@ Now you've finished configuring ODBC, you can bring sample data into Tableau.
 
 1. For **DSN**, select the data source you created for ODBC, then select **Sign In**.
 
-    ![](media/connect-odbc/odbc-sign-in.png)
+    ![ODBC sign-in](media/connect-odbc/odbc-sign-in.png)
 
-1. For **Database**, select the database on your sample cluster, such as *TestDatabase*. For **Table**, select the *StormEvents* sample table.
+1. For **Database**, select the database on your sample cluster, such as *TestDatabase*. For **Schema**, select *dbo*, and for **Table**, select the *StormEvents* sample table.
 
-    ![](media/connect-odbc/select-database-table.png)
+    ![Select database and table](media/connect-odbc/select-database-table.png)
 
 1. Tableau now shows the schema for the sample data. Select **Update Now** to bring the data into Tableau.
 
