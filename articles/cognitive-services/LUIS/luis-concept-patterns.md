@@ -54,6 +54,36 @@ Pattern syntax is a template for an utterance. The template should contain words
 
 Entities in patterns are surrounded by curly brackets, `{}`. Patterns can include entities, and entities with roles. Pattern.any is an entity only used in patterns. The syntax is explained in the following sections.
 
+Pattern syntax supports the following syntax:
+
+|Function|Syntax|[Nesting level](#nesting-syntax)|Example|
+|--|--|--|--|
+|entity| `{}` - curly brackets|2|`Where is form {entity-name}?`|
+|optional|`[]` - square brackets|2|`The question mark is optional [?]`|
+|grouping|`()` - parentheses|2|`is (a | b)`|
+|or|`|` - vertical bar (pipe)|-|Example: `Where is form ({form-name}|{form-number})`<br>Example: `(a|b|c|d|e)`| 
+|beginning and/or end of utterance|`^` - carrot|-|Example: `^begin the utterance`<br>Example: `the utterance is done^`<br>Example: `^strict literal match of entire utterance with {number} entity^`|
+
+### Nesting syntax
+
+The **optional** syntax, with square brackets, can be nested two levels. For example: `[[this]is] a new form`. This example allows for the following utterances: 
+
+|Nested optional utterance example|Explanation|
+|--|--|
+|this is a new form|matches all words in pattern|
+|is a new form|matches outer optional word and non-optional words in pattern|
+|a new form|matches inner optional word, outer optional word and all non-optional words in pattern|
+
+The **grouping** syntax, with parentheses, can be nested two levels. For example: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. This allows any of the three entities to be matched. 
+
+If Entity1 is a Location with roles such as origin (Seattle) and destination (Cairo) and Entity 2 is a known building name from a list entity (RedWest-C), the following utterances would map to this pattern:
+
+|Nested grouping utterance example|Explanation|
+|--|--|
+|RedWest-C|matches outer grouping entity|
+|Seattle|matches one of the inner grouping entities|
+|Cairo|matches one of the inner grouping entities|
+
 ### Syntax to add an entity to a pattern template
 To add an entity into the pattern template, surround the entity name with curly braces, such as `Who does {Employee} manage?`. 
 
