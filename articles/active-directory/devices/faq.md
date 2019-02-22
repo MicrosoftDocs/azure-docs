@@ -33,7 +33,7 @@ Only the following devices are listed under **USER devices**:
 - All non-Windows 10 or Windows Server 2016 devices.
 - All non-Windows devices. 
 
---- 
+---
 
 **Q: How do I know what the device registration state of the client is?**
 
@@ -84,6 +84,12 @@ For down-level Windows OS versions that are on-premises Active Directory domain 
 -	For down-level Windows OS versions that are on-premises Azure Directory domain joined, automatic registration creates a new device record with the same device name for each domain user who signs in to the device. 
 
 -	An Azure AD joined machine that's wiped, reinstalled, and rejoined with the same name shows up as another record with the same device name.
+
+---
+
+**Q: Does Windows 10 device registration in Azure AD support TPMs in FIPS mode?**
+
+**A:** No, currently device registration on Windows 10 for all device states - Hybrid Azure AD join, Azure AD join and Azure AD registered - does not support TPMs in FIPS mode. To successfully join or register to Azure AD, FIPS mode needs to be turned off for the TPMs on those devices
 
 ---
 
