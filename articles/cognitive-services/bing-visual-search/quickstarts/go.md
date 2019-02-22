@@ -15,7 +15,7 @@ ms.author: rosh
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and Go
 
-Use this quickstart to call to the Bing Visual Search API and view results. This Go application uses a Post request to upload an image to the API. Then it displays results including URLs to similar images and descriptive information about the images.
+This quickstart uses the Go programming language to call the Bing Visual Search API and displays results. A Post request uploads an image to the API endpoint. The results display URLs and descriptive information about images similar to the uploaded image.
 
 ## Prerequisites
 * Install the [Go binaries](https://golang.org/dl/)
@@ -26,7 +26,7 @@ Use this quickstart to call to the Bing Visual Search API and view results. This
 
 ## Create a project and import libraries
 
-Create a new Go project in your IDE or editor. Then import `net/http` for requests, `ioutil` to read the response, and `encoding/json` to handle the JSON text of results.  
+Create a new Go project in your IDE or editor. Then import `net/http` for requests, `ioutil` to read the response, and `encoding/json` to handle the JSON text of results. The `go-spew` library is a library used to parse JSON results. 
 
 ```
 package main
@@ -41,14 +41,14 @@ import (
 	"os"
 	"path/filepath"
 	"encoding/json"
+    "github.com/davecgh/go-spew/spew"
 )
-import "github.com/davecgh/go-spew/spew"
 
 ```
 
 ## Create a struct to format the search results
 
-The `BingAnswer` struct formats the data provided in the response. The response JSON is multilevel and quite complex.  The following implementation covers some of the essentials.
+The `BingAnswer` struct formats data returned in the JSON response, which is multilevel and quite complex.  The following implementation covers some of the essentials.
 
 ```
 type BingAnswer struct {
@@ -105,7 +105,7 @@ type BingAnswer struct {
 
 ## Declare the main function and define variables  
 
-The following code declares the main function and assigns required variables. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account.
+The following code declares the main function and assigns required variables. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account.  The batchNumber is a guid required for leading and trailing boundaries of the Post data.  The `fileName` variable identifies the image file for the Post body.
 
 ```
 func main() {
@@ -118,7 +118,7 @@ func main() {
 
     //set a new guid for the Post batch
 	batchNumber := "d7ecc447-912f-413e-961d-a83021f1775f" 
-    // The file to Post 
+    // The file to Post. Include the path if needed.
 	fileName := "ElectricBike.JPG"
 
     // Open the file to upload to Visual Search.
@@ -135,7 +135,7 @@ func main() {
 
 ## Define functions to set Post body boundaries
 
-The Post data requires leading and trailing boundaries that include a batch number and the name of the image file to Post.  
+A Post request to the Visual Search endpoint requires leading and trailing boundaries enclosing the Post data.  The leading boundary includes a batch number, the content type identifier `Content-Disposition: form-data; name="image"; filename=`, plus the filename of the image to Post.  The trailing boundary is simply the batch number.
 
 ```
 func BuildFormDataStart(batNum string, fileName string) string{
@@ -154,7 +154,7 @@ func BuildFormDataEnd(batNum string) string{
 ```
 ## Create buffer to hold image bytes and add to form data
 
-Get the image from path and filename.  Read the bytes into a buffer. Copy the bytes to the request form.
+The following code segment instantiates a buffer and multipart form `writer`.  It sets the leading boundary, then assigns the image data to a `part` of the form file.   It reads the bytes into a buffer and copys the bytes to the request form.
 
 ```
 	body := &bytes.Buffer{}
@@ -179,19 +179,18 @@ Get the image from path and filename.  Read the bytes into a buffer. Copy the by
 
 ## Create Post request and add image bytes to Post body
 
-Create the Post request that contains image data in the Post body.  Set the headers.
+This code segment creates the Post request that contains image data in the Post body.  It sets the headers.
 
 ```
 	req, err := http.NewRequest("POST", endpoint, body)
 	req.Header.Add("Content-Type", writer.FormDataContentType())
-	req.Header.Set("X-BingApis-SDK", "true")
 	req.Header.Set("Ocp-Apim-Subscription-Key", token)
 
 ```
 
 ## Send the request
 
-Send the request and read results using `ioutil`.
+The following code sends the request and reads results.
 
 ```
 resp, err := client.Do(req)
@@ -210,7 +209,7 @@ resp, err := client.Do(req)
 
 ## Handle the response
 
-The `Unmarshall` function extracts information from the JSON text returned by the Visual Search API.  Then you can display nodes from the results using the `go-spew` pretty printer.
+The `Unmarshall` function extracts information from the JSON text returned by the Visual Search API.  The `go-spew` pretty printer displays results.
 
 ```
 	// Create a new answer.  
@@ -231,7 +230,7 @@ The `Unmarshall` function extracts information from the JSON text returned by th
 
 ## Results
 
-The most useful results contain images similar to the image contained in the Post body.  The useful fields are `WebSearchUrl` and `Name`.
+The results contain images similar to the image contained in the Post body.  The useful fields are `WebSearchUrl` and `Name`.
 
 ```
     Value: ([]struct { WebSearchUrl string "json:\"webSearchUrl\""; Name string "json:\"name\"" }) (len=66 cap=94) {
