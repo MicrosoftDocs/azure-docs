@@ -8,7 +8,7 @@
  ms.date: 07/02/2018
  ms.author: shants
  ms.custom: include file
---- 
+---
 
 ## View VMs scheduled for maintenance in the portal
 
