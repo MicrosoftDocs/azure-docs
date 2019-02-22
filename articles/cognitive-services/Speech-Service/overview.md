@@ -32,7 +32,7 @@ These features make up the Azure Speech Services. Use the links in this table to
 
 Learn what's new with the Azure Speech Services.
 
-* February 2019 - Released Speech SDK 1.3.0 with support for Unity (beta). Added support for the `AudioInput` class, which enables you to choose the streaming source for audio. For a complete list of enhancements and known issues, see [Release notes](releasenotes.md).
+* February 2019 - Released Speech SDK 1.3.0 with support for [Unity (beta)](quickstart-csharp-unity.md). Added support for the `AudioInput` class, which enables you to choose the streaming source for audio. For a complete list of enhancements and known issues, see [Release notes](releasenotes.md).
 * December 2018 - Released Speech SDK 1.2.0 with support for [Python](quickstart-python.md) and [Node.js](quickstart-js-node.md), as well as Ubuntu 18.04 LTS. For more information, see [Release notes](releasenotes.md).Speech synthesis quickstarts added for [.NET Core](quickstart-dotnet-text-to-speech.md), [Python](quickstart-python-text-to-speech.md), [Node.js](quickstart-nodejs-text-to-speech.md). Additional samples are available on [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http).
 * November 2018 - Released Speech SDK 1.1.0 with support for Android x86/64. It also adds improved error messaging. For a complete list of enhancements and known issues, see [Release notes](https://docs.microsoft.com/azure/cognitive-services/speech-service/releasenotes#speech-sdk-110).
 
