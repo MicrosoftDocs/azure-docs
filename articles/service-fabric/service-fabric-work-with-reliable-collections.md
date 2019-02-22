@@ -8,7 +8,7 @@ manager: jeanpaul.connock
 editor: ''
 
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA

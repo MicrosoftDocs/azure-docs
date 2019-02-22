@@ -4,7 +4,7 @@ description: Learn how to use the open-source Azure Cosmos DB data migration too
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 02/22/2019
 ms.author: dech
 
 ---
@@ -53,7 +53,7 @@ While the import tool includes a graphical user interface (dtui.exe), it can als
 
 ## <a id="Install"></a>Installation
 
-The migration tool source code is available on GitHub in [this repository](https://github.com/azure/azure-documentdb-datamigrationtool). You can download and compile the solution locally, or [download a pre-compiled binary](https://cosmosdbtools.blob.core.windows.net/datamigrationtool/2019.02.19-1.8.2/dt-1.8.2.zip), then run either:
+The migration tool source code is available on GitHub in [this repository](https://github.com/azure/azure-documentdb-datamigrationtool). You can download and compile the solution locally, or [download a pre-compiled binary](http://aka.ms/csdmtool), then run either:
 
 * **Dtui.exe**: Graphical interface version of the tool
 * **Dt.exe**: Command-line version of the tool
