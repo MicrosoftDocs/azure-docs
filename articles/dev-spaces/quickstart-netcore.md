@@ -27,11 +27,11 @@ In this guide, you will learn how to:
 - An Azure subscription. If you don't have one, you can create a [free account](https://azure.microsoft.com/free).
 - [Visual Studio Code](https://code.visualstudio.com/download).
 - [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.43 or higher.
-- A Kubernetes cluster running Kubernetes 1.9.6 or later, in the EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral, or CanadaEast region, with **Http Application Routing** enabled.
+- A Kubernetes cluster running Kubernetes 1.9.6 or later, in the EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral, or CanadaEast region.
 
     ```cmd
     az group create --name MyResourceGroup --location <region>
-    az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.9 --enable-addons http_application_routing --generate-ssh-keys
+    az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.9 --generate-ssh-keys
     ```
 
 ## Set up Azure Dev Spaces
