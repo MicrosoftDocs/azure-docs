@@ -54,6 +54,8 @@
       href: concepts/create-locate-anchors-cpp-winrt.md
   - name: Anchor relationships
     href: concepts/anchor-relationships-way-finding.md
+  - name: Logging and diagnostics
+    href: concepts/logging-diagnostics.md
 - name: References
   items:
   - name: SDK for Unity

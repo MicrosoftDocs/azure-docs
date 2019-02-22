@@ -14,7 +14,7 @@ ms.service: azure-spatial-anchors
 ---
 # Create and locate anchors using Azure Spatial Anchors
 
-Azure Spatial Anchors allow you share anchors in the world between different devices.
+Azure Spatial Anchors allow you to share anchors in the world between different devices.
 
 It has been tuned to work well with your choice of development environment.
 

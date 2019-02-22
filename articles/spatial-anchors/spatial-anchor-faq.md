@@ -27,9 +27,13 @@ For more information, see [Azure Spatial Anchors overview](overview.md).
 
 **A:** Azure Spatial Anchors currently requires a network connection to the internet. We welcome your comments on our [feedback site](https://feedback.azure.com/forums/919252-azure-spatial-anchors).
 
+**Q: What are the connectivity requirements for Azure Spatial Anchors?**
+
+**A:** Azure Spatial Anchors works with Wi-Fi and mobile broadband connections.
+
 **Q: How accurately can Azure Spatial Anchors locate anchors?**
 
-**A:** Many factors affect the accuracy of locating anchors--lighting conditions, the objects in the environment, and even the surface on which the anchor is placed. To determine if the accuracy will meet your needs, try the anchors in environments representative of where you plan to use them. If you encounter environments where accuracy isn't meeting your needs, see [Submitting Diagnostics in Azure Spatial Anchors]().
+**A:** Many factors affect the accuracy of locating anchors--lighting conditions, the objects in the environment, and even the surface on which the anchor is placed. To determine if the accuracy will meet your needs, try the anchors in environments representative of where you plan to use them. If you encounter environments where accuracy isn't meeting your needs, see [Logging and diagnostics in Azure Spatial Anchors](./concepts/logging-diagnostics.md).
 
 **Q: How long does it take to create and locate anchors?**
 
@@ -55,7 +59,7 @@ Azure Spatial Anchors adheres to the [Azure Service Agreement Terms](https://go.
 
 **Q: Is there a way I can send diagnostics information to Microsoft?**
 
-**A**: Yes. Azure Spatial Anchors has a diagnostics mode that developers can choose to opt into through the Azure Spatial Anchors API. This is useful, for example, if you encounter an environment where you are unable to create and locate anchors predictably. We may ask if you can submit a diagnostics report containing information that helps us debug. For more information see [Submitting Diagnostics in Azure Spatial Anchors]().
+**A**: Yes. Azure Spatial Anchors has a diagnostics mode that developers can choose to opt into through the Azure Spatial Anchors API. This is useful, for example, if you encounter an environment where you are unable to create and locate anchors predictably. We may ask if you can submit a diagnostics report containing information that helps us debug. For more information see [Logging and diagnostics in Azure Spatial Anchors](./concepts/logging-diagnostics.md).
 
 ## Availability and Pricing FAQs
 
