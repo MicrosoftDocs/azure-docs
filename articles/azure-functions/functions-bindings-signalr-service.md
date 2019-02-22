@@ -466,7 +466,7 @@ The following example shows a [Java function](functions-reference-java.md) that 
 
 ```java
 @FunctionName("sendMessage")
-@SignalROutput(hubName = "chat")
+@SignalROutput(name = "$return", hubName = "chat")
 public SignalRMessage sendMessage(
         @HttpTrigger(
             name = "req",
@@ -486,7 +486,7 @@ You can send a message only to connections that have been authenticated to a use
 
 ```java
 @FunctionName("sendMessage")
-@SignalROutput(hubName = "chat")
+@SignalROutput(name = "$return", hubName = "chat")
 public SignalRMessage sendMessage(
         @HttpTrigger(
             name = "req",
@@ -507,7 +507,7 @@ You can send a message only to connections that have been added to a group by se
 
 ```java
 @FunctionName("sendMessage")
-@SignalROutput(hubName = "chat")
+@SignalROutput(name = "$return", hubName = "chat")
 public SignalRMessage sendMessage(
         @HttpTrigger(
             name = "req",
@@ -532,7 +532,7 @@ The following example adds a user to a group.
 
 ```java
 @FunctionName("addToGroup")
-@SignalROutput(hubName = "chat")
+@SignalROutput(name = "$return", hubName = "chat")
 public SignalRGroupAction addToGroup(
         @HttpTrigger(
             name = "req",
