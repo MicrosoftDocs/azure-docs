@@ -29,10 +29,11 @@ You can manage backups using the dashboard, and by drilling down to individual V
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list filters based on your input. Click **Recovery Services vault**. 
+
     ![Create Recovery Services Vault step 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 
 3. For ease of use, right-click the vault in the vaults list > **Pin to dashboard**.
-3. Open the vault dashboard. 
+4. Open the vault dashboard. 
     ![Open vault dashboard and Settings blade](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
 4. On the **Backup Items** tile, click **Azure Virtual Machines**.
@@ -90,11 +91,15 @@ There are two ways to stop protecting VMs:
 - Stop all future backup jobs and delete all recovery points. You won't be able to restore the VM in this case.
 - Stop all future backup jobs but leave the recovery points. There's a cost associated with leaving the recovery points in storage. However, the benefit of leaving the recovery points is you can restore the VM if needed. [Learn more](https://azure.microsoft.com/pricing/details/backup/) about pricing details.
 
+Note that: 
+If you leave the recovery points, the points will be cleaned up in accordance with backup policy. You incur charges for the protected instance and the consumed storage, until all recovery points are cleaned up. [Learn more](https://azure.microsoft.com/pricing/details/backup/) about pricing.
+- When you leave recovery points intact, although they expire as per the retention policy, Azure Backup always keeps one last recovery point until you explicitly delete backup data.
+- If you delete a data source without stopping backup, new backups will start failing. Again, old recovery points will expire according to policy, but one last recovery point will always be retained until you stop backup and delete the data.
+
+
 To stop protection for a virtual machine:
 
 1. On the [vault item dashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), click **Stop backup**.
-
-    ![Stop backup button](./media/backup-azure-manage-vms/stop-backup-button.png
 2. Choose whether to retain or delete the backup data, and confirm as needed. Confirm as required and optionally provide a comment. If you aren't sure of the item name, hover over the exclamation mark to view the name.
 
     ![Stop protection](./media/backup-azure-manage-vms/retain-or-delete-option.png)
