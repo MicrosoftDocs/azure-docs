@@ -34,7 +34,7 @@ The **Web application firewall settings** blade provides the capability to filte
 
 ## Disable rule groups and rules
 
-When your are disabling rules, you can disable an entire rule group or specific rules under one or more rule groups. 
+When you're disabling rules, you can disable an entire rule group or specific rules under one or more rule groups. 
 
 **To disable rule groups or specific rules**
 
