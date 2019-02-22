@@ -157,7 +157,7 @@ You can find the managed identity information from Azure portal -> your data fac
 - SERVICE IDENTITY TENANT
 - **SERVICE IDENTITY APPLICATION ID** > copy this value
 
-![Retrieve managed identity](media/data-factory-service-identity/retrieve-managed-identity-portal.png)
+![Retrieve managed identity](media/data-factory-service-identity/retrieve-service-identity-portal.png)
 
 ### Retrieve managed identity using PowerShell
 
