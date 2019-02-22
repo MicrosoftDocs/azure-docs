@@ -167,7 +167,7 @@ public ConnectionInfo negotiate(
         @SignalRConnectionInfoInput(
             name = "connectionInfo",
             hubName = "chat",
-            userId = "{x-ms-client-principal-id}") ConnectionInfo connectionInfo) {
+            userId = "{headers.x-ms-client-principal-id}") ConnectionInfo connectionInfo) {
     return connectionInfo;
 }
 ```
