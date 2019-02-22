@@ -8,7 +8,7 @@ manager:
 editor: ''
 tags: azure resource manager
 
-ms.service: application gateway
+ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
