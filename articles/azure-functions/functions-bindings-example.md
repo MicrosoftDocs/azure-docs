@@ -51,6 +51,8 @@ To view and edit the contents of *function.json* in the Azure portal, click the 
 > [!NOTE]
 > The value of `connection` is the name of an app setting that contains the connection string, not the connection string itself. Bindings use connection strings stored in app settings to enforce the best practice that *function.json* does not contain service secrets.
 
+## C# script example
+
 Here's C# script code that works with this trigger and binding. Notice that the name of the parameter that provides the queue message content is `order`; this name is required because the `name` property value in *function.json* is `order` 
 
 ```cs
@@ -79,6 +81,8 @@ public class Person
 }
 ```
 
+## JavaScript example
+
 The same *function.json* file can be used with a JavaScript function:
 
 ```javascript
@@ -96,6 +100,8 @@ function generateRandomId() {
         Math.random().toString(36).substring(2, 15);
 }
 ```
+
+## Class library example
 
 In a class library, the same trigger and binding information &mdash; queue and table names, storage accounts, function parameters for input and output &mdash; is provided by attributes instead of a function.json file. Here's an example:
 
