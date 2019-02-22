@@ -220,9 +220,9 @@ def run(input_data):
 
 ## HTTP status code 503
 
-Azure Kubernetes Service deployments support autoscaling, which allows nodes to be added to support additional load. However, clients may receive an HTTP status code 503 even when autoscaling is enabled. This happens when you receive large spikes in requests per second and autoscaling does not scale out quicly enough.
+Azure Kubernetes Service deployments support autoscaling, which allows nodes to be added to support additional load. However, clients may receive an HTTP status code 503 even when autoscaling is enabled. This happens when you receive large spikes in requests per second and autoscaling does not scale out quickly enough.
 
-By default, autoscaling is set to 70%, which means that the service can handle spikes in requests per second (RPS) of up to 30%. You can adjust this by setting the `autoscale_target_utilization` to a lower value. This setting allows more buffer space for the spikes. You may also need to increase the `autoscale_max_replicas` value to increase the maximum number of cantainers that autoscaling can create.
+By default, autoscaling is set to 70%, which means that the service can handle spikes in requests per second (RPS) of up to 30%. You can adjust this by setting the `autoscale_target_utilization` to a lower value. This setting allows more buffer space for the spikes. You may also need to increase the `autoscale_max_replicas` value to increase the maximum number of containers that autoscaling can create.
 
 You can also set `autoscale_min_replicas` to a higher value, which increase the number of running containers.
 

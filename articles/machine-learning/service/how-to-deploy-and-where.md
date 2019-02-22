@@ -257,7 +257,7 @@ Azure Kubernetes Service provides the following capabilities:
 
 #### Autoscaling
 
-Autoscaling can be controled by setting `autoscale_target_utilization`, `autoscale_min_replicas`, and `autoscale_max_replicas` for the AKS web service.
+Autoscaling can be controlled by setting `autoscale_target_utilization`, `autoscale_min_replicas`, and `autoscale_max_replicas` for the AKS web service.
 
 Decisions to scale up/down is based off of utilization of the current container replicas. The number of replicas that are busy (processing a request) divided by the total number of current replicas is the current utilization. If this number exceeds the target utilization, then more replicas are created. If it is lower, then replicas are reduced. By default, thee target utilization is 70%.
 
