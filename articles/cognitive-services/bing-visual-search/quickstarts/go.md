@@ -105,7 +105,7 @@ type BingAnswer struct {
 
 ## Declare the main function and define variables  
 
-The following code declares the main function and assigns required variables. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account.  The batchNumber is a guid required for leading and trailing boundaries of the Post data.  The `fileName` variable identifies the image file for the Post body.
+The following code declares the main function and assigns required variables. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account.  The `batchNumber` is a guid required for leading and trailing boundaries of the Post data.  The `fileName` variable identifies the image file for the Post.
 
 ```
 func main() {
@@ -135,7 +135,7 @@ func main() {
 
 ## Define functions to set Post body boundaries
 
-A Post request to the Visual Search endpoint requires leading and trailing boundaries enclosing the Post data.  The leading boundary includes a batch number, the content type identifier `Content-Disposition: form-data; name="image"; filename=`, plus the filename of the image to Post.  The trailing boundary is simply the batch number.
+A Post request to the Visual Search endpoint requires leading and trailing boundaries enclosing the Post data.  The leading boundary includes a batch number, the content type identifier `Content-Disposition: form-data; name="image"; filename=`, plus the filename of the image to Post.  The trailing boundary is simply the batch number.  These functions are not included in the `main` block.
 
 ```
 func BuildFormDataStart(batNum string, fileName string) string{
@@ -154,7 +154,7 @@ func BuildFormDataEnd(batNum string) string{
 ```
 ## Create buffer to hold image bytes and add to form data
 
-The following code segment instantiates a buffer and multipart form `writer`.  It sets the leading boundary, then assigns the image data to a `part` of the form file.   It reads the bytes into a buffer and copys the bytes to the request form.
+The following code segment instantiates a buffer and multipart form `writer`.  It sets the leading boundary, then assigns the image data to a `part` of the form file.   It reads the bytes into a buffer and copys the bytes to the request form.  Finally it sets the trailing boundary.
 
 ```
 	body := &bytes.Buffer{}
