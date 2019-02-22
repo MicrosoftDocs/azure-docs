@@ -311,7 +311,6 @@ Allowed to view, set, and reset authentication method information for any non-ad
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
-
 ### Billing Administrator
 Can perform common billing related tasks like updating payment information.
 
