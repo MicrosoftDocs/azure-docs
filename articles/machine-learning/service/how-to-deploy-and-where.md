@@ -255,6 +255,33 @@ Azure Kubernetes Service provides the following capabilities:
 * Model data collection
 * Fast response times for your web services
 
+#### Autoscaling
+
+Autoscaling can be controled by setting `target_utilization`, `min_replicas`, and `max_replicas` for the AKS web service.
+
+Decisions to scale up/down is based off of utilization of the current container replicas. The number of replicas that are busy (processing a request) divided by the total number of current replicas is the current utilization. If this number exceeds the target_utilization, then more replicas are created. If it is lower, then replicas are reduced. By default, `target_utilization` is 70%.
+
+Decisions to add replicas are eager and fast (around 1 second). Decisions to remove replicas are conservative (around 1 minute).
+
+You can calculate the required containers by using the following code:
+
+```python
+from math import ceil
+# target requests per second
+targetRps = 20
+# time to process the request (in seconds)
+reqTime = 10
+# Maximum requests per container
+maxReqPerContainer = 1
+# target_utilization. 70% in this example
+targetUtilization = .7
+
+concurrentRequests = targetRps * reqTime / targetUtilization
+
+# Number of container replicas
+replicas = ceil(concurrentRequests / maxReqPerContainer)
+```
+
 #### Create a new cluster
 
 To create a new Azure Kubernetes Service cluster, use the following code:

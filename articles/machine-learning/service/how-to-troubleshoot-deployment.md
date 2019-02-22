@@ -218,6 +218,16 @@ def run(input_data):
 ```
 **Note**: Returning error messages from the `run(input_data)` call should be done for debugging purpose only. It might not be a good idea to do this in a production environment for security reasons.
 
+## HTTP status code 503
+
+Azure Kubernetes Service deployments support autoscaling, which allows nodes to be added to support additional load. However, clients may receive an HTTP status code 503 even when autoscaling is enabled. This happens when you receive large spikes in requests per second and autoscaling does not scale out quicly enough.
+
+By default, autoscaling is set to 70%, which means that the service can handle spikes in requests per second (RPS) of up to 30%. You can adjust this by setting the `target_utilization` to a lower value. This setting allows more buffer space for the spikes. You may also need to increase the `max_replicas` value to increase the maximum number of cantainers that autoscaling can create.
+
+You can also set `min_replicas` to a higher value, which increase the number of running containers.
+
+For more information on setting `target_utilization`, `max_replicas`, and `min_replicas` for AKS web services, see the [aks](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.aks?view=azure-ml-py) module reference.
+
 
 ## Next steps
 
