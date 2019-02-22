@@ -73,7 +73,19 @@
   - name: Scale and hosting
     href: functions-scale.md
   - name: Triggers and bindings
-    href: functions-triggers-bindings.md
+    items:
+    - name: About triggers and bindings
+      href: functions-triggers-bindings.md
+    - name: Binding example
+      href: functions-bindings-example.md
+    - name: Register binding extensions
+      href: functions-bindings-register.md
+    - name: Binding expression patterns
+      href: functions-bindings-expressions-patterns.md
+    - name: Use binding return values
+      href: functions-bindings-return-value.md
+    - name: Handle binding errors
+      href: functions-bindings-errors.md
   - name: Languages
     items:
     - name: Supported languages 
