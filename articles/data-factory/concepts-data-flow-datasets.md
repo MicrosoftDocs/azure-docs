@@ -40,5 +40,5 @@ When importing the schema of Data Flow datasets, you will see an Import Schema b
 
 ## Next steps
 
-Start by [creating a new Data Flow](https://docs.microsoft.com/azure/data-factory/data-flow-create) and add a Source Transformation. Then configure the dataset for your Source.
+Start by [creating a new Data Flow](data-flow-create.md) and add a Source Transformation. Then configure the dataset for your Source.
 
