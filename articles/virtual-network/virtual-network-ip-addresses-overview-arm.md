@@ -116,7 +116,7 @@ An [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2faz
 
 ### Application gateways
 
-You can associate a public IP address with an Azure [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json), by assigning it to the gateway's **frontend** configuration. This public IP address serves as a load-balanced VIP. You can only assign a *dynamic* basic public IP address to an application gateway frontend configuration.
+You can associate a public IP address with an Azure [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json), by assigning it to the gateway's **frontend** configuration. This public IP address serves as a load-balanced VIP. You can only assign a *dynamic* basic public IP address to an application gateway V1 front-end configuration, but you can assign either a dynamic or static, basic, or standard SKU address to a V2 front-end configuration.
 
 ### At-a-glance
 The following table shows the specific property through which a public IP address can be associated to a top-level resource, and the possible allocation methods (dynamic or static) that can be used.
@@ -126,7 +126,7 @@ The following table shows the specific property through which a public IP addres
 | Virtual machine |Network interface |Yes |Yes |
 | Internet-facing Load balancer |Front-end configuration |Yes |Yes |
 | VPN gateway |Gateway IP configuration |Yes |Yes |
-| Application gateway |Front-end configuration |Yes |Yes |
+| Application gateway |Front-end configuration |Yes |Yes (V2 only) |
 
 ## Private IP addresses
 Private IP addresses allow Azure resources to communicate with other resources in a [virtual network](virtual-networks-overview.md) or an on-premises network through a VPN gateway or ExpressRoute circuit, without using an Internet-reachable IP address.
