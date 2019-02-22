@@ -37,7 +37,8 @@ More details about the various levels of customization based on available data c
 
 ## Microsoft Translator Hub
 
-The legacy Microsoft Translator Hub can be used to translate statistical machine translation. [Learn more](https://www.microsoft.com/en-us/translator/hub.aspx)
+> [!NOTE]
+> The legacy Microsoft Translator Hub will be retired on April 30, 2019. [View important migration information and dates](https://www.microsoft.com/translator/business/hub/).  
 
 ## Custom Translator versus Hub
 

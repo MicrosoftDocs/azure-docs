@@ -120,7 +120,7 @@ If you can't find an acceptable delta between the network latency within one zon
 
 The basic layout of the architecture looks like this:
 
-![Active/Passive zone deployment](./media/sap-ha-availability-zones/active_active_zones_deployment.png)
+![Active/Passive zone deployment](./media/sap-ha-availability-zones/active_passive_zones_deployment.png)
 
 The following considerations apply for this configuration:
 

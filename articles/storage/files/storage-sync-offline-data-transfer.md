@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: fauhse
-ms.component: files
+ms.subservice: files
 ---
 
 # Migrate to Azure File Sync
