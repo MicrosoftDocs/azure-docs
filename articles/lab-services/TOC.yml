@@ -41,7 +41,7 @@
   - name: Classroom Labs
     items: 
     - name: Classroom Labs concepts
-      href: classroom-labs-concepts.md    
+      href: class-room-labs/classroom-labs-concepts.md    
     - name: Scenarios
       items:  
       - name: Use labs for conducting classes

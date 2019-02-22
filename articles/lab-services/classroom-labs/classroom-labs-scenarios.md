@@ -19,7 +19,7 @@ ms.author: spelluru
 # Use Classroom Labs for trainings
 You can set up a lab for trainings. Classroom Labs of Azure Lab Services allow you to create a lab for your training where each trainee uses identical and isolated environments for training. You can apply policies to ensure that training environments are available to each trainee only when they need them and contain enough resources - such as virtual machines - required for the training. 
 
-![Classroom lab](./media/classroom-labs-scenarios/classroom.png)
+![Classroom lab](../media/classroom-labs-scenarios/classroom.png)
 
 Classroom Labs meets the following requirements that are required to conduct training in any virtual environment: 
 
