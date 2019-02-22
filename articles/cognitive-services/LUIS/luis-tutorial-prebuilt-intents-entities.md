@@ -11,7 +11,7 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
---- 
+---
 
 # Tutorial: Identify common intents and entities
 
