@@ -16,6 +16,11 @@ ms.custom: seodec18
 
 Azure Blob Storage on IoT Edge provides a [block blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) storage solution at the edge. A blob storage module on your IoT Edge device behaves like an Azure block blob service, but the block blobs are stored locally on your IoT Edge device. You can access your blobs using the same Azure storage SDK methods or block blob API calls that you're already used to. 
 
+> [!NOTE]
+> Currently tiering and auto-clean functionality are only available in Linux AMD64.
+
+This module allows you to configure it to automatically tier the data from edge to Azure, and provides support for intermittent internet connectivity. It also allows you to configure it to automatically clean up the data on edge.
+
 Scenarios where data like videos, images, finance data, hospital data, or any data that needs to be stored locally, later which could be processed locally or transferred to the cloud are good examples to use this module.
 
 This article provides instructions for deploying an Azure Blob Storage on IoT Edge container that runs a blob service on your IoT Edge device. 
@@ -199,6 +204,50 @@ Specify your IoT Edge device as the blob endpoint for any storage requests that 
 1. For modules which are deployed on the same edge device where "Azure Blob Storage on IoT Edge" is running, the blob endpoint is: `http://<module name>:11002/<account name>`. 
 2. For modules which are deployed on different edge device, than the edge device where "Azure Blob Storage on IoT Edge" is running, then depending upon your setup the blob endpoint is: `http://<device IP >:11002/<account name>` or `http://<IoT Edge device hostname>:11002/<account name>` or `http://<FQDN>:11002/<account name>`
 
+## Auto-tiering
+This is a configurable functionality which allows you to automatically copy the data from your local blob storage to Azure with intermittent internet connectivity support. It allows you to:
+1. Turn ON/OFF the tiering feature: `"tieringOn": {false,true}`
+2. Choose the order in which the data will copied to Azure: `"backlogPolicy": "{NewestFirst, OldestFirst}"`
+3. Specify the container names you want to copy to Azure. This module allows you to specify both source and target container names. If you don't specify the target container name it will automatically allocate it one as `<IoTHubName>-<IotEdgeDeviceName>-<ModuleName>-<ContainerName>`.
+
+This module supports block level tiering, when your blob consists of blocks. Here are some of the common scenarios:
+ 1. Your application updates some blocks of a previously uploaded blob, this module will upload only the updated blocks and not the whole blob.
+ 2. This module is in the process of uploading your blob and internet connection goes away, when the connectivity is back again this module will upload only the remaining blocks and not the whole blob.
+
+## Auto-Clean
+This is a configurable auto-clean functionality where this module automatically deletes your blobs when TTL(Time to Live) expires. It is measured in minutes. It allows you to:
+1. Turn ON/OFF the auto-clean feature: `"ttlOn": {false,true}`
+2. Specify the TTL in minutes: `"timeToLiveInMinutes": <minutes>`
+
+## Configure Auto-tiering and Auto-clean
+
+Set the desired properties for this module
+
+```json
+{
+      "properties.desired": {
+          "ttlSettings": {
+            "ttlOn": <true, false>, 
+            "timeToLiveInMinutes": <timeToLiveInMinutes> 
+          },
+          "tieringSettings": {
+              "tieringOn": <true, false>,
+              "backlogPolicy": "<NewestFirst, OldestFirst>",
+              "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+              "tieredContainers": {
+                  "<source container name1>": {
+                      "target": "<target container name>"
+                  },
+                  "<source container name2>": {
+                    "target": "<target container name2>"
+                  },
+                  "<source container name3>": {}
+              }
+          }
+      }
+  }
+```
+
 ## Logs
 
 You can find the logs inside the container, under: 
@@ -225,13 +274,24 @@ The following quickstarts use languages that are also supported by IoT Edge, so 
 * [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Java](../storage/blobs/storage-quickstart-blobs-java.md)
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
-* [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md)
+* [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md) 
+
+You can also try [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to your local blob store. We have tested with previous version 1.5.0 of Azure Explorer.
+1. Download and install Azure Storage Explorer
+2. Connect to Azure Storage using a connection string
+3. Provide connection string: `DefaultEndpointsProtocol=http;BlobEndpoint=http://<host device name>:11002/<your local account name>;AccountName=<your local account name>;AccountKey=<your local account key>;`
+4. Go through the steps to connect.
+5. Start uploading files as Block blobs.
+> [!CAUTION]
+> If you are trying to upload .vhd or .vhdx files, uncheck the checkbox to upload it as page blobs. This module does not support page blobs
+
+6. You can choose to connect your Azure storage accounts where you are tiering. It gives you a single view for both your local storage account and Azure storage account
 
 ## Supported storage operations
 
-Blob storage modules on IoT Edge use the same Azure Storage SDKs, and are consistent with the 2018-03-28 version of the Azure Storage API for block blob endpoints. Later releases are dependent on customer needs. 
+Blob storage modules on IoT Edge use the same Azure Storage SDKs, and are consistent with the 2017-04-17 version of the Azure Storage API for block blob endpoints. Later releases are dependent on customer needs.
 
-Not all Azure Blob Storage operations are supported by Azure Blob Storage on IoT Edge. The following sections detail which operations are an are not supported. 
+Not all Azure Blob Storage operations are supported by Azure Blob Storage on IoT Edge. The following section lists the supported and unsupported operations.
 
 ### Account
 
@@ -250,9 +310,9 @@ Supported:
 * Create and delete container
 * Get container properties and metadata
 * List blobs
-
-Unsupported: 
 * Get and set container ACL
+
+Unsupported:
 * Lease container
 * Set container metadata
 
@@ -273,7 +333,7 @@ Unsupported:
 ### Block blobs
 
 Supported: 
-* Put block :- The block must be less than or equal to 4 MB in size
+* Put block
 * Put and get block list
 
 Unsupported:
