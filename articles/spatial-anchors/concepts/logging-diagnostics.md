@@ -43,9 +43,9 @@ Event callbacks provided to process logs and errors from the session.
 
 ## Diagnostics logging in Azure Spatial Anchors
 
-In addition to the standard mode of operation for logging discussed above, Azure Spatial Anchors also has a diagnostics mode that developers can opt into. Diagnostics captures images of the environment and logs them to the disk. This mode is useful for debugging certain kinds of issues like when you aren't able to predictably locate an anchor. Only enable diagnostics logging to reproduce a specific issue and then disable it. Do not run your apps normally with diagnostics enabled.
+In addition to the standard mode of operation for logging discussed above, Azure Spatial Anchors also has a diagnostics mode that developers can opt into. Diagnostics captures images of the environment and logs them to the disk. This mode is useful for debugging certain kinds of issues like when you aren't able to predictably locate an anchor. Only enable diagnostics logging to reproduce a specific issue and then disable it. Don't run your apps normally with diagnostics enabled.
 
-During a support interaction with Microsoft, a Microsoft representative MAY ask if you're willing to submit a diagnostics bundle to Microsoft for further investigation. In this case, you may decide to enable diagnostics, reproduce the issue, and submit the diagnostic bundle to Microsoft for further investigation. Diagnostics logs that are submitted to Microsoft without prior acknowledgement by a Microsoft representative will go unanswered.
+During a support interaction with Microsoft, a Microsoft representative MAY ask if you're willing to submit a diagnostics bundle to Microsoft for further investigation. In this case, you may decide to enable diagnostics, reproduce the issue, and submit the diagnostic bundle to Microsoft for further investigation. Diagnostics logs submitted to Microsoft without prior acknowledgement by a Microsoft representative will go unanswered.
 
 The following code snippets show you how to enable diagnostics mode and also how you can submit diagnostics logs to Microsoft.
 
