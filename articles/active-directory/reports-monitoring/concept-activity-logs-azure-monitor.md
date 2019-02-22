@@ -32,6 +32,8 @@ You can now route Azure Active Directory (Azure AD) activity logs to several end
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## Supported reports
 
 You can route Azure AD audit logs and sign-in logs to your Azure storage account, event hub, Azure Monitor logs or custom solution by using this feature. 
