@@ -1,4 +1,4 @@
----   
+---
 title: SSL policy overview for Azure Application Gateway | Microsoft Docs
 description: Learn about how Azure Application Gateway allows you to configure SSL policy
 services: application gateway
@@ -8,7 +8,7 @@ manager:
 editor: ''
 tags: azure resource manager
 
-ms.service: application gateway
+ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
