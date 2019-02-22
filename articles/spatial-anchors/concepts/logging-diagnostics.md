@@ -37,9 +37,9 @@ There are two callbacks of interest for the user. In the sample below, you can s
 
 Event callbacks provided to process logs and errors from the session.
 
-- [LogLevel](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel): Specifies the level of detail for the events to receive from the runtime.
-- [OnLogDebug](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug): This event callback provides standard debug log events.
-- [Error](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error): This event callback provides log events considered errors by the runtime.
+- [LogLevel](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel): Specifies the level of detail for the events to receive from the runtime.
+- [OnLogDebug](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug): This event callback provides standard debug log events.
+- [Error](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error): This event callback provides log events considered errors by the runtime.
 
 ## Diagnostics logging in Azure Spatial Anchors
 
