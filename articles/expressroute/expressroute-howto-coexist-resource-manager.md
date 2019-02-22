@@ -6,7 +6,7 @@ author: charwen
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 02/21/2019
 ms.author: charwen
 ms.custom: seodec18
 
@@ -17,7 +17,6 @@ ms.custom: seodec18
 > * [PowerShell - Classic](expressroute-howto-coexist-classic.md)
 > 
 > 
-
 
 This article helps you configure ExpressRoute and Site-to-Site VPN connections that coexist. Having the ability to configure Site-to-Site VPN and ExpressRoute has several advantages. You can configure Site-to-Site VPN as a secure failover path for ExpressRoute, or use Site-to-Site VPNs to connect to sites that are not connected through ExpressRoute. We will cover the steps to configure both scenarios in this article. This article applies to the Resource Manager deployment model.
 
@@ -31,8 +30,6 @@ The steps to configure both scenarios are covered in this article. This article 
 >[!NOTE]
 >If you want to create a Site-to-Site VPN over an ExpressRoute circuit, please see [this article](site-to-site-vpn-over-microsoft-peering.md).
 >
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Limits and limitations
 * **Transit routing is not supported.** You cannot route (via Azure) between your local network connected via Site-to-Site VPN and your local network connected via ExpressRoute.
@@ -74,16 +71,22 @@ There are two different sets of procedures to choose from. The configuration pro
   
     If you delete and recreate your gateway, you will have downtime for your cross-premises connections. However, your VMs and services will still be able to communicate out through the load balancer while you configure your gateway if they are configured to do so.
 
+## Before you begin
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+[!INCLUDE [working with cloud shell](../../includes/expressroute-cloudshell-powershell-about.md)]
+
+
 ## <a name="new"></a>To create a new virtual network and coexisting connections
-This procedure walks you through creating a VNet and Site-to-Site and ExpressRoute connections that will coexist.
+This procedure walks you through creating a VNet and Site-to-Site and ExpressRoute connections that will coexist. The cmdlets that you use for this configuration may be slightly different than what you might be familiar with. Be sure to use the cmdlets specified in these instructions.
 
-1. Install the latest version of the Azure PowerShell cmdlets. For information about installing the cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/azurerm/overview). The cmdlets that you use for this configuration may be slightly different than what you might be familiar with. Be sure to use the cmdlets specified in these instructions.
+1. Sign in and select your subscription.
 
-1. Sign in to your account and set up the environment.
+  [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
+2. Set variables.
 
-  ```powershell
-  Connect-AzAccount
-  Select-AzSubscription -SubscriptionName 'yoursubscription'
+  ```azurepowershell-interactive
   $location = "Central US"
   $resgrp = New-AzResourceGroup -Name "ErVpnCoex" -Location $location
   $VNetASN = 65515
@@ -97,25 +100,25 @@ This procedure walks you through creating a VNet and Site-to-Site and ExpressRou
    
     Create a new VNet.
 
-  ```powershell
+  ```azurepowershell-interactive
   $vnet = New-AzVirtualNetwork -Name "CoexVnet" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AddressPrefix "10.200.0.0/16"
   ```
    
     Add subnets.
 
-  ```powershell
+  ```azurepowershell-interactive
   Add-AzVirtualNetworkSubnetConfig -Name "App" -VirtualNetwork $vnet -AddressPrefix "10.200.1.0/24"
   Add-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.0/24"
   ```
    
     Save the VNet configuration.
 
-  ```powershell
+  ```azurepowershell-interactive
   $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
   ```
 4. <a name="vpngw"></a>Next, create your Site-to-Site VPN gateway. For more information about the VPN gateway configuration, see [Configure a VNet with a Site-to-Site connection](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md). The GatewaySku is only supported for *VpnGw1*, *VpnGw2*, *VpnGw3*, *Standard*, and *HighPerformance* VPN gateways. ExpressRoute-VPN Gateway coexist configurations are not supported on the Basic SKU. The VpnType must be *RouteBased*.
 
-  ```powershell
+  ```azurepowershell-interactive
   $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
   $gwIP = New-AzPublicIpAddress -Name "VPNGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
   $gwConfig = New-AzVirtualNetworkGatewayIpConfig -Name "VPNGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
@@ -124,7 +127,7 @@ This procedure walks you through creating a VNet and Site-to-Site and ExpressRou
    
     Azure VPN gateway supports BGP routing protocol. You can specify ASN (AS Number) for that Virtual Network by adding the -Asn switch in the following command. Not specifying that parameter will default to AS number 65515.
 
-  ```powershell
+  ```azurepowershell-interactive
   $azureVpn = New-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "VpnGw1" -Asn $VNetASN
   ```
    
@@ -133,14 +136,14 @@ This procedure walks you through creating a VNet and Site-to-Site and ExpressRou
    
     If your local VPN device only supports static routing, you can configure the static routes in the following way:
 
-  ```powershell
+  ```azurepowershell-interactive
   $MyLocalNetworkAddress = @("10.100.0.0/16","10.101.0.0/16","10.102.0.0/16")
   $localVpn = New-AzLocalNetworkGateway -Name "LocalVPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -GatewayIpAddress *<Public IP>* -AddressPrefix $MyLocalNetworkAddress
   ```
    
     If your local VPN device supports the BGP and you want to enable dynamic routing, you need to know the BGP peering IP and the AS number that your local VPN device uses.
 
-  ```powershell
+  ```azurepowershell-interactive
   $localVPNPublicIP = "<Public IP>"
   $localBGPPeeringIP = "<Private IP for the BGP session>"
   $localBGPASN = "<ASN>"
@@ -151,7 +154,7 @@ This procedure walks you through creating a VNet and Site-to-Site and ExpressRou
 
 7. Link the Site-to-Site VPN gateway on Azure to the local gateway.
 
-  ```powershell
+  ```azurepowershell-interactive
   $azureVpn = Get-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
   New-AzVirtualNetworkGatewayConnection -Name "VPNConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $azureVpn -LocalNetworkGateway2 $localVpn -ConnectionType IPsec -SharedKey <yourkey>
   ```
@@ -164,7 +167,7 @@ This procedure walks you through creating a VNet and Site-to-Site and ExpressRou
 
 10. <a name="gw"></a>Create an ExpressRoute gateway. For more information about the ExpressRoute gateway configuration, see [ExpressRoute gateway configuration](expressroute-howto-add-gateway-resource-manager.md). The GatewaySKU must be *Standard*, *HighPerformance*, or *UltraPerformance*.
 
-  ```powershell
+  ```azurepowershell-interactive
   $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
   $gwIP = New-AzPublicIpAddress -Name "ERGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
   $gwConfig = New-AzVirtualNetworkGatewayIpConfig -Name "ERGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
@@ -172,7 +175,7 @@ This procedure walks you through creating a VNet and Site-to-Site and ExpressRou
   ```
 11. Link the ExpressRoute gateway to the ExpressRoute circuit. After this step has been completed, the connection between your on-premises network and Azure, through ExpressRoute, is established. For more information about the link operation, see [Link VNets to ExpressRoute](expressroute-howto-linkvnet-arm.md).
 
-  ```powershell
+  ```azurepowershell-interactive
   $ckt = Get-AzExpressRouteCircuit -Name "YourCircuit" -ResourceGroupName "YourCircuitResourceGroup"
   New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $gw -PeerId $ckt.Id -ConnectionType ExpressRoute
   ```
@@ -180,46 +183,48 @@ This procedure walks you through creating a VNet and Site-to-Site and ExpressRou
 ## <a name="add"></a>To configure coexisting connections for an already existing VNet
 If you have a virtual network that has only one virtual network gateway (let's say, Site-to-Site VPN gateway) and you want to add another gateway of a different type (let's say, ExpressRoute gateway), check the gateway subnet size. If the gateway subnet is /27 or larger, you can skip the steps below and follow the steps in the previous section to add either a Site-to-Site VPN gateway or an ExpressRoute gateway. If the gateway subnet is /28 or /29, you have to first delete the virtual network gateway and increase the gateway subnet size. The steps in this section show you how to do that.
 
-1. You'll need to install the latest version of the Azure PowerShell cmdlets. For more information about installing cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview). The cmdlets that you use for this configuration may be slightly different than what you might be familiar with. Be sure to use the cmdlets specified in these instructions. 
-2. Delete the existing ExpressRoute or Site-to-Site VPN gateway.
+The cmdlets that you use for this configuration may be slightly different than what you might be familiar with. Be sure to use the cmdlets specified in these instructions.
 
-  ```powershell 
+1. Delete the existing ExpressRoute or Site-to-Site VPN gateway.
+
+  ```azurepowershell-interactive 
   Remove-AzVirtualNetworkGateway -Name <yourgatewayname> -ResourceGroupName <yourresourcegroup>
   ```
-3. Delete Gateway Subnet.
+2. Delete Gateway Subnet.
 
-  ```powershell
+  ```azurepowershell-interactive
   $vnet = Get-AzVirtualNetwork -Name <yourvnetname> -ResourceGroupName <yourresourcegroup> Remove-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet
   ```
-4. Add a Gateway Subnet that is /27 or larger.
+3. Add a Gateway Subnet that is /27 or larger.
    
    > [!NOTE]
    > If you don't have enough IP addresses left in your virtual network to increase the gateway subnet size, you need to add more IP address space.
    > 
    > 
 
-  ```powershell
+  ```azurepowershell-interactive
   $vnet = Get-AzVirtualNetwork -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
   Add-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.0/24"
   ```
    
     Save the VNet configuration.
 
-  ```powershell
+  ```azurepowershell-interactive
   $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
   ```
-5. At this point, you have a virtual network with no gateways. To create new gateways and set up the connections, follow the steps in the previous section.
+4. At this point, you have a virtual network with no gateways. To create new gateways and set up the connections, follow the steps in the previous section.
 
 ## To add point-to-site configuration to the VPN gateway
-You can follow the steps below to add Point-to-Site configuration to your VPN gateway in a coexistence setup.
+
+You can follow the steps below to add Point-to-Site configuration to your VPN gateway in a coexistence setup. To upload the VPN root certificate, you must either install PowerShell locally to your computer, or use the Azure portal.
 
 1. Add VPN Client address pool.
 
-  ```powershell
+  ```azurepowershell-interactive
   $azureVpn = Get-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
   Set-AzVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $azureVpn -VpnClientAddressPool "10.251.251.0/24"
   ```
-2. Upload the VPN root certificate to Azure for your VPN gateway. In this example, it's assumed that the root certificate is stored in the local machine where the following PowerShell cmdlets are run.
+2. Upload the VPN root certificate to Azure for your VPN gateway. In this example, it's assumed that the root certificate is stored in the local machine where the following PowerShell cmdlets are run and that you are running PowerShell locally. You can also upload the certificate using the Azure portal.
 
   ```powershell
   $p2sCertFullName = "RootErVpnCoexP2S.cer" 

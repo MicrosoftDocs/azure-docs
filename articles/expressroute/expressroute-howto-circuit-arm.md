@@ -2,11 +2,11 @@
 title: 'Create and modify an ExpressRoute circuit - PowerShell: Azure | Microsoft Docs'
 description: Create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
 services: expressroute
-author: ganesr
+author: cherylmc
 
 ms.service: expressroute
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 02/20/2019
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
 
@@ -34,25 +34,8 @@ Before you begin, review the [prerequisites](expressroute-prerequisites.md) and 
 
 ## <a name="create"></a>Create and provision an ExpressRoute circuit
 ### 1. Sign in to your Azure account and select your subscription
-To begin your configuration, sign in to your Azure account. Use the following examples to help you connect:
 
-If you are using Azure CloudShell, you don't need to run Connect-AzAccount, as you will connect automatically.
-
-```azurepowershell
-Connect-AzAccount
-```
-
-Check the subscriptions for the account:
-
-```azurepowershell-interactive
-Get-AzSubscription
-```
-
-Select the subscription that you want to create an ExpressRoute circuit for:
-
-```azurepowershell-interactive
-Select-AzSubscription -SubscriptionId "<subscription ID>"
-```
+[!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
 
 ### 2. Get the list of supported providers, locations, and bandwidths
 Before you create an ExpressRoute circuit, you need the list of supported connectivity providers, locations, and bandwidth options.
@@ -69,7 +52,7 @@ Check to see if your connectivity provider is listed there. Make a note of the f
 * PeeringLocations
 * BandwidthsOffered
 
-You're now ready to create an ExpressRoute circuit.   
+You're now ready to create an ExpressRoute circuit.
 
 ### 3. Create an ExpressRoute circuit
 If you don't already have a resource group, you must create one before you create your ExpressRoute circuit. You can do so by running the following command:
@@ -77,7 +60,6 @@ If you don't already have a resource group, you must create one before you creat
 ```azurepowershell-interactive
 New-AzResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
 ```
-
 
 The following example shows how to create a 200-Mbps ExpressRoute circuit through Equinix in Silicon Valley. If you're using a different provider and different settings, substitute that information when you make your request. Use the following example to request a new service key:
 
@@ -164,12 +146,6 @@ The response looks similar to the following example:
     ServiceKey                       : **************************************
     Peerings                         : []
 
-
-You can get detailed descriptions of all the parameters by running the following command:
-
-```azurepowershell-interactive
-get-help Get-AzExpressRouteCircuit -detailed
-```
 
 ### 5. Send the service key to your connectivity provider for provisioning
 *ServiceProviderProvisioningState* provides information about the current state of provisioning on the service-provider side. Status provides the state on the Microsoft side. For more information about circuit provisioning states, see [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states).
