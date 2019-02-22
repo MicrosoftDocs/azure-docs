@@ -106,7 +106,7 @@ foreach($storageAccount in $storageAccounts){
 
                         Write-Host "Deleting unattached VHD with Uri: $($_.ICloudBlob.Uri.AbsoluteUri)"
 
-                        $_ | Remove-AzureStorageBlob -Force
+                        $_ | Remove-AzStorageBlob -Force
 
                         Write-Host "Deleted unattached VHD with Uri: $($_.ICloudBlob.Uri.AbsoluteUri)"
                   }
