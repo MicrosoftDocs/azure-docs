@@ -465,7 +465,7 @@
       href: store-credentials-in-key-vault.md
     - name: Encrypt credentials for self-hosted integration runtime
       href: encrypt-credentials-self-hosted-integration-runtime.md
-    - name: Data factory service identity
+    - name: Managed identity for Data Factory
       href: data-factory-service-identity.md
   - name: Monitor and manage
     items:
