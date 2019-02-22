@@ -57,19 +57,15 @@ This article applies to a billing account for a Microsoft Customer Agreement. Ch
 
 Invoice sections let you organize the charges on a billing profile's invoice. For more information, see [Understand invoice section](billing-mca-overview.md#understand-invoice-sections). When an invoice is generated, charges for all sections associated with the billing profile show up on the invoice.
 
-The following image shows the invoice section charges on a sample invoice.
+The following image shows the charges for IT Department invoice section on a sample invoice.
 
 ![Example image showing the details by invoice section information](./media/billing-understand-your-bill-mca/invoicesection-details.png)
-
- | Invoice PDF value | Usage CSV key|
- | --- | --- |
- |IT Department |invoiceSectionName |
 
 Once you have identified the charges for an invoice section, you can view the transactions in the Azure portal to reconcile the charges.
 
 1. Go to the All transactions page in the Azure portal to view transactions for an invoice. For more information, see [View transactions for an invoice in the Azure portal](#view-transactions-for-an-invoice-in-the-azure-portal).
 
-1. Select an invoice section in the invoice section filter to view transactions for the invoice section.
+2. Select an invoice section in the invoice section filter to view transactions for the invoice section.
 
 ## Analyze your Azure usage charges
 
