@@ -1,5 +1,5 @@
 ---
-title: Manage storage infrastructure | Microsoft Docs
+title: Manage storage infrastructure for Azure Stack | Microsoft Docs
 description: Manage storage infrastructure for Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: 
-ms.date: 01/16/2019
+ms.date: 02/22/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 
-# Intent: As a cloud operator, I want to understand where to find information about operation status of storage resources and resolve issues in order to maintain continuity of service for my the users that I support.
+# Intent: As a cloud operator, I want to understand where to find information about operation status of storage resources and resolve issues in order to maintain continuity of service for the users that I support.
 # Google Keywords: ‘storage infrastructure Azure Stack’, ‘troubleshoot storage for Azure Stack’
 
 ---
@@ -37,17 +37,17 @@ Azure Stack integrated system partners offer numerous solution variations, inclu
 
 Storage Spaces Direct features a cache to maximize storage performance. In Azure Stack appliance with single or multiple types of drives, Storage Spaces Direct automatically use all drives of the "fastest" (NVMe &gt; SSD &gt; HDD) type for caching. The remaining drives are used for capacity. The drives could be grouped into either an "all-flash" or "hybrid" deployment:
 
-![Alt Text](media/azure-stack-storage-infrastructure-overview/image1.png)
+![Azure Stack storage infrastructure](media/azure-stack-storage-infrastructure-overview/image1.png)
 
 All-flash deployments aim to maximize storage performance and do not include rotational hard disk drives (HDD).
 
-![Alt Text](media/azure-stack-storage-infrastructure-overview/image2.png)
+![Azure Stack storage infrastructure](media/azure-stack-storage-infrastructure-overview/image2.png)
 
 Hybrid deployments aim to balance performance and capacity or to maximize capacity and do include rotational hard disk drives (HDD).
 
 The behavior of the cache is determined automatically based on the type(s) of drives that are being cached for. When caching for solid-state drives (such as NVMe caching for SSDs), only writes are cached. This reduces wear on the capacity drives, reducing the cumulative traffic to the capacity drives and extending their lifetime. In the meantime, because reads do not significantly affect the lifespan of flash, and because solid-state drives universally offer low read latency, reads are not cached. When caching for hard disk drives (such as SSDs caching for HDDs), both reads and writes are cached, to provide flash-like latency (often /~10x better) for both.
 
-![Alt text](media/azure-stack-storage-infrastructure-overview/image3.png)
+![Azure Stack storage infrastructure](media/azure-stack-storage-infrastructure-overview/image3.png)
 
 For the available configuration of storage, you can check Azure Stack OEM partner (https://azure.microsoft.com/overview/azure-stack/partners/) for detailed specification.
 
@@ -58,9 +58,9 @@ For the available configuration of storage, you can check Azure Stack OEM partne
 
 The *storage service* partitions the available storage into separate volumes that are allocated to hold system and tenant data. Volumes combine the drives in the storage pool to introduce the fault tolerance, scalability, and performance benefits of Storage Spaces Direct.
 
-![Alt Text](media/azure-stack-storage-infrastructure-overview/image4.png)
+![Azure Stack storage infrastructure](media/azure-stack-storage-infrastructure-overview/image4.png)
 
-There're three types of volumes created on Azure Stack storage pool:
+There are three types of volumes created on Azure Stack storage pool:
 
 -   Infrastructure: host files used by Azure Stack infrastructure VMs and core services.
 
@@ -80,7 +80,7 @@ In a multi-node deployment, you would see three infrastructure volumes, while th
 
 Volumes in Storage Spaces Direct provide resiliency to protect against hardware problems, such as drive or server failures, and to enable continuous availability throughout server maintenance, such as software updates. Azure Stack deployment is using three-way mirroring to ensure data resilience. Three copies of tenant data are written to different servers, where they land in cache:
 
-![Alt Text](media/azure-stack-storage-infrastructure-overview/image5.png)
+![Azure Stack storage infrastructure](media/azure-stack-storage-infrastructure-overview/image5.png)
 
 Mirroring provides fault tolerance by keeping multiple copies of all data. How that data is striped and placed is non-trivial (see this blog to learn more), but it is absolutely true to say that any data stored using mirroring is written, in its entirety, multiple times. Each copy is written to different physical hardware (different drives in different servers) that are assumed to fail independently. Three-way mirroring can safely tolerate at least two hardware problems (drive or server) at a time. For example, if you're rebooting one server when suddenly another drive or server fails, all data remains safe and continuously accessible.
 
@@ -217,6 +217,6 @@ Some drives just aren't ready to be in Azure Stack storage pool. You can find ou
 | Verification failed | The Health Service couldn't check to see if the drive or firmware on the drive is approved for use.<br> <br>**Action:** Please contact Support. Before you do, start the log file collection process using the guidance from https://aka.ms/azurestacklogfiles. |
 | Offline | The drive is offline. <br> <br>**Action:** Please contact Support. Before you do, start the log file collection process using the guidance from https://aka.ms/azurestacklogfiles. |
 
-## Next Step
+## Next step
 
 [Manage storage capacity](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-storage-shares) 
