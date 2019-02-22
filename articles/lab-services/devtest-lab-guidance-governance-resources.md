@@ -3,9 +3,8 @@ title: Governance of Azure DevTest Labs infrastructure
 description: This article provides guidance for governance of Azure DevTest Labs infrastructure. 
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: christianreddington
+author: spelluru
 manager: femila
-editor: spelluru
 
 ms.service: lab-services
 ms.workload: na
@@ -13,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/11/2019
-ms.author: chredd
-ms.reviewer: anthdela,juselph
+ms.author: spelluru
+ms.reviewer: christianreddington,anthdela,juselph
 
 ---
 
@@ -54,7 +53,7 @@ How do I maintain a naming convention across my DevTest Labs environment?
 ### Answer
 You may want to extend current enterprise naming conventions to Azure operations and make them consistent across the DevTest Labs environment.
 
-When deploying DevTest Labs, we recommend that you have specific starting policies. You deploy these policies by a central script and JSON templates to enforce consistency. Naming policies can be implemented through Azure policies applied at the subscription level. For JSON samples for Azure Policy, see [Azure Policy samples](../azure-policy/json-samples.md).
+When deploying DevTest Labs, we recommend that you have specific starting policies. You deploy these policies by a central script and JSON templates to enforce consistency. Naming policies can be implemented through Azure policies applied at the subscription level. For JSON samples for Azure Policy, see [Azure Policy samples](../governance/policy/samples/index.md).
 
 ## Number of users per lab and labs per organization
 
