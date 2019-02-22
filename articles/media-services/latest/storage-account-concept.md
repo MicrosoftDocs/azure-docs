@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/21/2019
 ms.author: juliako
 ---
 
@@ -27,6 +27,8 @@ You must have one **Primary** storage account and you can have any number of **S
 > Blob only accounts are not allowed as **Primary**. 
 
 We recommend that you use GPv2, so you can take advantage of choosing between hot and cool storage tiers. To learn more about storage accounts, see [Azure Storage account overview](../../storage/common/storage-account-overview.md). 
+
+There are different SKUs you can choose for your storage account. For more information, see [storage accounts](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). If you want to experiment with storage accounts, use `--sku Standard_LRS`. However, when picking a SKU for production you should consider, `--sku Standard_RAGRS`, which provides geographic replication for business continuity. 
 
 ## Assets in a storage account
 
