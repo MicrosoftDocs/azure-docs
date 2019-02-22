@@ -15,26 +15,26 @@ ms.date: 11/1/2018
 ---
 # Copy files from multiple containers with Azure Data Factory
 
-This article describes a solution template that you can use to copy files from multiple containers between file stores. For example, you could use it to migrate your data lake from Amazon Simple Storage Service to Azure Data Lake Store. Or you could use the template to replicate everything from one Azure Blob storage account to another.
+This article describes a solution template that you can use to copy files from multiple containers between file stores. For example, you could use it to migrate your data lake from Amazon Simple Storage Service to Azure Data Lake Store. Or, you could use the template to replicate everything from one Azure Blob storage account to another.
 
-> [!NOTE] If you want to copy files from a single container, it's more efficient to use the [**Copy Data Tool**](../copy-data-tool.md) to create a pipeline with a single copy activity. The template in this article is more than you need for that simple scenario.
+> [!NOTE] If you want to copy files from a single container, it's more efficient to use the [**Copy Data Tool**](copy-data-tool.md) to create a pipeline with a single copy activity. The template in this article is more than you need for that simple scenario.
 
 ## About this solution template
 
 This template enumerates the containers from your source storage store. It then copies those containers to the destination store.
 
-The template contains three activities:
+The template contains the following three activities:
 - **GetMetadata** scans your source storage store and gets the container list.
 - **ForEach** gets the container list from the **GetMetadata** activity and then iterates over the list and passes each container to the Copy activity.
 - **Copy** copies each container from the source storage store to the destination store.
 
-The template defines two parameters:
+The template defines the following two parameters:
 - *SourceFilePath* is the path of your data source store, where you can get a list of the containers. In most cases, the path is the root directory, which contains multiple container folders. The default value of this parameter is `/`.
-- *DestinationFilePath* is the path where the files will be copied in your destination store. The default value of this parameter is `/`.
+- *DestinationFilePath* is the path where the files will be copied to in your destination store. The default value of this parameter is `/`.
 
 ## How to use this solution template
 
-1. Go to the template **Copy multiple files containers between File Stores**, and create a **New** connection to your source storage store. The source storage store is where you want to copy files from multiple containers or buckets from.
+1. Go to the **Copy multiple files containers between File Stores** template. Create a **New** connection to your source storage store. The source storage store is where you want to copy files from multiple containers from.
 
     ![Create a new connection to the source](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image1.png)
 
@@ -46,11 +46,11 @@ The template defines two parameters:
 
     ![Use this template](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
 	
-4. You will see the pipeline available in the panel, as shown in the following example:
+4. You'll see the pipeline, as in the following example:
 
     ![Show the pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
 
-5. Select **Debug**, enter **Parameters**, and then select **Finish**.
+5. Select **Debug**, enter the **Parameters**, and then select **Finish**.
 
     ![Run the pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png)
 
@@ -60,4 +60,5 @@ The template defines two parameters:
 
 ## Next steps
 
+- [Introduction to Azure Data Factory](introduction.md)
 - [Introduction to Azure Data Factory](introduction.md)
