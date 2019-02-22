@@ -5,7 +5,6 @@ services: active-directory
 author: eross-msft
 manager: daveba
 ms.reviewer: sahenry
-
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
