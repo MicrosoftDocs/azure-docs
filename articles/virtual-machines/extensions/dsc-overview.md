@@ -21,9 +21,15 @@ ms.author: robreed
 
 The Azure VM Agent and associated extensions are part of Microsoft Azure infrastructure services. VM extensions are software components that extend VM functionality and simplify various VM management operations.
 
-The primary use case for the Azure Desired State Configuration (DSC) extension is to bootstrap a VM to the [Azure Automation DSC service](../../automation/automation-dsc-overview.md). Bootstrapping a VM provides [benefits](/powershell/dsc/metaconfig#pull-service) that include ongoing management of the VM configuration and integration with other operational tools, such as Azure Monitoring.
+The primary use case for the Azure Desired State Configuration (DSC) extension is to bootstrap a VM to the
+[Azure Automation State Configuration (DSC) service](../../automation/automation-dsc-overview.md).
+The service provides [benefits](/powershell/dsc/metaconfig#pull-service)
+that include ongoing management of the VM configuration and integration with other operational tools, such as Azure Monitoring.
+Using the extension to register VM's to the service provides a flexible solution that even works across Azure subscriptions.
 
-You can use the DSC extension independently of the Automation DSC service. However, this involves a singular action that occurs during deployment. No ongoing reporting or configuration management is available, other than locally in the VM.
+You can use the DSC extension independently of the Automation DSC service.
+However, this will only push a configuration to the VM.
+No ongoing reporting is available, other than locally in the VM.
 
 This article provides information about both scenarios: using the DSC extension for Automation onboarding, and using the DSC extension as a tool for assigning configurations to VMs by using the Azure SDK.
 
@@ -114,6 +120,34 @@ $storageName = 'demostorage'
 Publish-AzVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
 #Set the VM to run the DSC configuration
 Set-AzVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName 'iisInstall.ps1.zip' -AutoUpdate $true -ConfigurationName 'IISInstall'
+```
+
+## Azure CLI deployment
+
+The Azure CLI can be used to deploy the DSC extension to an existing virtual machine.
+
+For a virtual machine running Windows:
+
+```azurecli
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name Microsoft.Powershell.DSC \
+  --publisher Microsoft.Powershell \
+  --version 2.77 --protected-settings '{}' \
+  --settings '{}'
+```
+
+For a virtual mchine running Linux:
+
+```azurecli
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name DSCForLinux \
+  --publisher Microsoft.OSTCExtensions \
+  --version 2.7 --protected-settings '{}' \
+  --settings '{}'
 ```
 
 ## Azure portal functionality

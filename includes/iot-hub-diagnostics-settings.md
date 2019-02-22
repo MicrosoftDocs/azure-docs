@@ -5,14 +5,14 @@
  author: dominicbetts
  ms.service: iot-hub
  ms.topic: include
- ms.date: 05/17/2018
+ ms.date: 02/20/2019
  ms.author: dobett
  ms.custom: include file
 ---
 
 ### Enable logging with diagnostics settings
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT Hub.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
 
 2. Select **Diagnostics settings**.
 
@@ -41,6 +41,10 @@
    * Twin operations
    * Job operations
    * Direct methods  
+   * Distributed tracing (preview)
+   * Configurations
+   * Device streams
+   * Device metrics
 
 6. Save the new settings. 
 

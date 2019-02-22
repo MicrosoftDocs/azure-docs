@@ -21,7 +21,7 @@ ms.subservice: disks
 
 # Update the storage type of a managed disk
 
-Azure Managed Disks offers three storage type options: [Premium SSD](../windows/premium-storage.md), [Standard SSD](../windows/disks-standard-ssd.md), and [Standard HDD](../windows/standard-storage.md). You can switch a managed disk between storage types with minimal downtime, based on your performance needs. Switching between storage types is not supported for an unmanaged disk; however, you can easily [convert an unmanaged disk to a managed disk](convert-unmanaged-to-managed-disks.md).
+Azure managed disks offers four storage type options: Ultra solid state drives (SSD), Premium SSD, Standard SSD, and Standard hard disk drives (HDD). You can switch a managed disk between storage types with minimal downtime, based on your performance needs. Switching between storage types is not supported for an unmanaged disk; however, you can easily [convert an unmanaged disk to a managed disk](convert-unmanaged-to-managed-disks.md).
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
@@ -31,6 +31,7 @@ Azure Managed Disks offers three storage type options: [Premium SSD](../windows/
 * If you're using an unmanaged disk, first [convert it to a managed disk](convert-unmanaged-to-managed-disks.md) to allow you to switch it between the storage types. 
 * The examples in this article require the Azure PowerShell module version 6.0.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). Run [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) to create a connection with Azure.
 
+* The examples in this article require the Azure PowerShell module version 6.0.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). Run [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) to create a connection with Azure.
 
 ## Convert all the managed disks of a VM from standard to premium
 
@@ -113,6 +114,21 @@ Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
 
 Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```
+
+## Convert managed disks from standard to premium in Azure portal
+
+You can convert a managed disk from standard to premium in the Azure portal.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select the VM from the list of **Virtual machines** in the portal.
+3. If the VM is not stopped, click **Stop** on the top of VM Overview blade and wait for the VM to stop.
+3. In the blade for the VM, select **Disks** from the menu.
+4. Select the disk you want to convert.
+5. Select **Configuration** from the menu.
+6. Change the **Account type** from **Standard HDD** to **Premium SSD**.
+7. Click **Save** and close the disk blade.
+
+The update of disk type is effective instantaneous. You can restart your VM after the conversion.
 
 ## Convert a managed disk from standard HDD to standard SSD
 
