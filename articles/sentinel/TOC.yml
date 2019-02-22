@@ -35,7 +35,7 @@
       - name: Connect Azure Information Protection
         href: connect-azure-information-protection.md
       - name: Connect Azure ATP
-        href: connect-azrue-atp.md
+        href: connect-azure-atp.md
       - name: Connect Azure Security Center
         href: connect-azure-security-center.md
 

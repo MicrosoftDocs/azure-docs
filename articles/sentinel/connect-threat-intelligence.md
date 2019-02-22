@@ -42,4 +42,4 @@ You can stream logs from Threat intelligence providers into Azure Sentinel with 
 In this document, you learned how to connect your Threat Intelligence provider to Azure Sentinel. To learn more about Azure Sentinel, see the following articles.
 
 - To get started with Azure Sentinel, you need a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
-- Learn how to [onboard your data to Azure Sentinel](qsuickstart-onboard.md), and [get visibility into your data, and potential threats](quickstart-get-visibility.md).
+- Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md), and [get visibility into your data, and potential threats](quickstart-get-visibility.md).
