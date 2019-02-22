@@ -16,12 +16,11 @@ ms.custom: seodec18
 
 Azure Blob Storage on IoT Edge provides a [block blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) storage solution at the edge. A blob storage module on your IoT Edge device behaves like an Azure block blob service, but the block blobs are stored locally on your IoT Edge device. You can access your blobs using the same Azure storage SDK methods or block blob API calls that you're already used to. 
 
-> [!NOTE]
-> Currently tiering and auto-clean functionality are only available in Linux AMD64.
-
 This module allows you to configure it to automatically tier the data from edge to Azure, and provides support for intermittent internet connectivity. It also allows you to configure it to automatically clean up the data on edge.
+> [!NOTE]
+> Currently auto-tiering and auto-clean functionality are only available in Linux AMD64.
 
-Scenarios where data like videos, images, finance data, hospital data, or any data that needs to be stored locally, later which could be processed locally or transferred to the cloud are good examples to use this module.
+Scenarios where data like videos, images, finance data, hospital data, or any data that needs to be stored locally, later that could be processed locally or transferred to the cloud are good examples to use this module.
 
 This article provides instructions for deploying an Azure Blob Storage on IoT Edge container that runs a blob service on your IoT Edge device. 
 
@@ -201,14 +200,15 @@ You can use the account name and account key that you configured for your module
 
 Specify your IoT Edge device as the blob endpoint for any storage requests that you make to it. You can [Create a connection string for an explicit storage endpoint](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) using the IoT Edge device information and the account name that you configured. 
 
-1. For modules which are deployed on the same edge device where "Azure Blob Storage on IoT Edge" is running, the blob endpoint is: `http://<module name>:11002/<account name>`. 
-2. For modules which are deployed on different edge device, than the edge device where "Azure Blob Storage on IoT Edge" is running, then depending upon your setup the blob endpoint is: `http://<device IP >:11002/<account name>` or `http://<IoT Edge device hostname>:11002/<account name>` or `http://<FQDN>:11002/<account name>`
+1. For modules, which are deployed on the same edge device where "Azure Blob Storage on IoT Edge" is running, the blob endpoint is: `http://<module name>:11002/<account name>`. 
+2. For modules, which are deployed on different edge device, than the edge device where "Azure Blob Storage on IoT Edge" is running, then depending upon your setup the blob endpoint is: `http://<device IP >:11002/<account name>` or `http://<IoT Edge device hostname>:11002/<account name>` or `http://<FQDN>:11002/<account name>`
 
 ## Auto-tiering
-This is a configurable functionality which allows you to automatically copy the data from your local blob storage to Azure with intermittent internet connectivity support. It allows you to:
+This is a configurable functionality, which allows you to automatically copy the data from your local blob storage to Azure with intermittent internet connectivity support. It allows you to:
 1. Turn ON/OFF the tiering feature: `"tieringOn": {false,true}`
 2. Choose the order in which the data will copied to Azure: `"backlogPolicy": "{NewestFirst, OldestFirst}"`
-3. Specify the container names you want to copy to Azure. This module allows you to specify both source and target container names. If you don't specify the target container name it will automatically allocate it one as `<IoTHubName>-<IotEdgeDeviceName>-<ModuleName>-<ContainerName>`.
+3. Specify the Azure Storage account to which you want your data tiered: `"remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`. Choose EndpointSuffix according to where you are tiering your data, it varies for Public Azure, Government Azure and Microsoft Azure Stack.
+4. Specify the container names you want to copy to Azure. This module allows you to specify both source and target container names. If you don't specify the target container name, it will automatically allocate it one as `<IoTHubName>-<IotEdgeDeviceName>-<ModuleName>-<ContainerName>`. Maximum size of the container name is 63 characters, while automatically allocating the target container name if the size of `<IoTHubName>-<IotEdgeDeviceName>-<ModuleName>-<ContainerName>` exceeds 63 characters we will trim each section (IoTHubName, IotEdgeDeviceName, ModuleName, ContainerName) to 15 characters.
 
 This module supports block level tiering, when your blob consists of blocks. Here are some of the common scenarios:
  1. Your application updates some blocks of a previously uploaded blob, this module will upload only the updated blocks and not the whole blob.
@@ -224,7 +224,7 @@ This is a configurable auto-clean functionality where this module automatically 
 Set the desired properties for this module
 
 ```json
-{
+"<your azureblobstorageoniotedge module name>":{
       "properties.desired": {
           "ttlSettings": {
             "ttlOn": <true, false>, 
@@ -247,6 +247,8 @@ Set the desired properties for this module
       }
   }
 ```
+Here is an example of desired properties for this module:
+ ![set desired properties for azureblobstorageoniotedge - VS Code](./media/how-to-store-data-blob/tiering_ttl.png)
 
 ## Logs
 
