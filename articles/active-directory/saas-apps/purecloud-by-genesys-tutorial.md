@@ -142,7 +142,6 @@ To configure Azure AD single sign-on with PureCloud by Genesys, perform the foll
 	| Email | user.userprinicipalname |
 	| OrganizationName | `Your organization name` |
 
-
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
 	![image](common/new-save-attribute.png)
@@ -171,7 +170,7 @@ To configure Azure AD single sign-on with PureCloud by Genesys, perform the foll
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Azure AD Identifier
 
 	c. Logout URL
 
@@ -189,7 +188,7 @@ To configure Azure AD single sign-on with PureCloud by Genesys, perform the foll
 
 	a. Click **Browse** to upload the base-64 encoded certificate that you have downloaded from the Azure portal, into the **ADFS Certificate**.
 
-	b. In the **ADFS Issuer URI** textbox, paste the value of **Azure Ad Identifier** which you have copied from the Azure portal.
+	b. In the **ADFS Issuer URI** textbox, paste the value of **Azure AD Identifier** which you have copied from the Azure portal.
 
 	c. In the **Target URI** textbox, paste the value of **Login URL** which you have copied from the Azure portal.
 
