@@ -5,11 +5,11 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom:
+ms.custom: seodec18
 ---
 
 # Connect a Google Cloud Platform account
@@ -25,7 +25,7 @@ You start by gathering information about your project.
 
 1. Sign in to the Google Cloud Platform console at [https://console.cloud.google.com](https://console.cloud.google.com).
 2. Review the project information that you want to onboard to Cloudyn and note the **Project name** and the **Project ID**. Keep the information handy for later steps.  
-    ![Google Cloud Platform console](./media/connect-google-account/gcp-console01.png)
+    ![Project name and Project ID shown in the Google Cloud Platform console](./media/connect-google-account/gcp-console01.png)
 3. If billing is not enabled and linked to your project, create a billing account. For more information, see [Create a new billing account](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create/_a/_new/_billing/_account).
 
 ## Enable storage bucket billing export
@@ -36,7 +36,7 @@ Using Google Cloud Storage to store usage reports incurs minimal fees. For more 
 
 1. If you have not enabled billing export to a file, follow the instructions at [How to enable billing export to a file](https://cloud.google.com/billing/docs/how-to/export-data-file#how_to_enable_billing_export_to_a_file). You can use either JSON or CSV billing export format.
 2. Otherwise, in the Google Cloud Platform console, navigate to **Billing** > **Billing export**. Note your billing **Bucket name** and **Report prefix**.  
-    ![Billing export](./media/connect-google-account/billing-export.png)
+    ![Billing export information shown on the Billing export page](./media/connect-google-account/billing-export.png)
 
 ## Enable Google Cloud Platform APIs
 
@@ -64,7 +64,7 @@ To collect usage and asset information, Cloudyn needs the following Google Cloud
 4. In **Google Account Name**, enter the email address for the billing account then click **Next**.
 5. In the Google authentication dialog, select or enter a Google account and then **ALLOW** cloudyn.com access to your account.
 6. Add the request project information that you had previous noted. They include **Project ID**, **Project** name, **billing** bucket name, and **billing file** Report prefix then click **Save**.  
-    ![Add Google project](./media/connect-google-account/add-project.png)
+    ![Add Google project to Cloudyn account](./media/connect-google-account/add-project.png)
 
 Your Google account appears in the list of accounts and it should say **Authenticated**. Under it, your Google project name and ID should appear and have a green check mark symbol. Account Status should say **Completed**.
 

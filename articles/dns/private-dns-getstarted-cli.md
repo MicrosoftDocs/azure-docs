@@ -54,7 +54,7 @@ az network vnet create \
   --location eastus \
   --address-prefix 10.2.0.0/16 \
   --subnet-name backendSubnet \
-  --subnet-prefix 10.2.0.0/24
+  --subnet-prefixes 10.2.0.0/24
 
 az network dns zone create -g MyAzureResourceGroup \
    -n contoso.local \

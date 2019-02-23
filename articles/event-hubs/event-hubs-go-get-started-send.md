@@ -1,6 +1,6 @@
 ---
-title: Send events to Azure Event Hubs using Go | Microsoft Docs
-description: Get started sending events to Event Hubs using Go
+title: Send events using Go - Azure Event Hubs | Microsoft Docs
+description: This article provides a walkthrough for creating a Go application that sends events from Azure Event Hubs. 
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
@@ -8,7 +8,8 @@ manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 10/18/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---
@@ -107,7 +108,7 @@ for {
 
 // 2. send messages within program
 ctx = context.Background()
-hub.Send(ctx, eventhubs.NewEventFromString("hello Azure!")
+hub.Send(ctx, eventhubs.NewEventFromString("hello Azure!"))
 ```
 
 ## Extras
@@ -119,7 +120,7 @@ info, err := hub.GetRuntimeInformation(ctx)
 if err != nil {
 	log.Fatalf("failed to get runtime info: %s\n", err)
 }
-log.Printf("got partition IDs: %s\n, info.PartitionIDs)
+log.Printf("got partition IDs: %s\n", info.PartitionIDs)
 ```
 
 Run the application to send events to the event hub. 

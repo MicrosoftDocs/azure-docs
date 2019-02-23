@@ -1,14 +1,16 @@
 ---
-title: Data science with the Deep Learning Data Science Virtual Machine on Azure | Microsoft Docs
+title: Learn how to use Deep Learning Data Science Virtual Machine
+titleSuffix: Azure
 description: How to perform several common data science tasks with the Deep Learning  Data Science VM.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

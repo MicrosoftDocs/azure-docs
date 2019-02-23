@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: Get answers to the most popular questions about the Text to Speech service.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
@@ -25,7 +25,7 @@ If you can't find answers to your questions in this FAQ, check out [other suppor
 
 **Q: Where do I start if I want to use a standard voice model?**
 
-**A**: More than 80 standard voice models in over 45 languages are available through HTTP requests. First, get a [subscription key](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). To make REST calls to the predeployed voice models, see the [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+**A**: More than 80 standard voice models in over 45 languages are available through HTTP requests. First, get a [subscription key](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). To make REST calls to the predeployed voice models, see the [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 **Q: If I want to use a customized voice model, is the API the same as the one that's used for standard voices?**
 

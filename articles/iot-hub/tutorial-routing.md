@@ -33,6 +33,8 @@ In this tutorial, you perform the following tasks:
 
 ## Prerequisites
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 - Install [Visual Studio](https://www.visualstudio.com/). 
@@ -52,6 +54,10 @@ The following sections describe how to do these required steps. Follow the CLI *
 1. Create a [resource group](../azure-resource-manager/resource-group-overview.md). 
 
 2. Create an IoT hub in the S1 tier. Add a consumer group to your IoT hub. The consumer group is used by the Azure Stream Analytics when retrieving data.
+
+   > [!NOTE]
+   > You must use an Iot hub in a paid tier to complete this tutorial. The free tier only allows you to set up one endpoint, and this tutorial requires multiple endpoints.
+   > 
 
 3. Create a standard V1 storage account with Standard_LRS replication.
 
@@ -163,7 +169,7 @@ The variables that must be globally unique have `$(Get-Random)` concatenated to 
 
 ```azurepowershell-interactive
 # Log into Azure account.
-Login-AzureRMAccount
+Login-AzAccount
 
 # Set the values for the resource names that don't have to be globally unique.
 # The resources that have to have unique names are named in the script below
@@ -177,21 +183,21 @@ $iotDeviceName = "Contoso-Test-Device"
 
 # Create the resource group to be used 
 #   for all resources for this tutorial.
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location
 
 # The IoT hub name must be globally unique, so add a random number to the end.
 $iotHubName = "ContosoTestHub$(Get-Random)"
 Write-Host "IoT hub name is " $iotHubName
 
 # Create the IoT hub.
-New-AzureRmIotHub -ResourceGroupName $resourceGroup `
+New-AzIotHub -ResourceGroupName $resourceGroup `
     -Name $iotHubName `
     -SkuName "S1" `
     -Location $location `
     -Units 1
 
 # Add a consumer group to the IoT hub for the 'events' endpoint.
-Add-AzureRmIotHubEventHubConsumerGroup -ResourceGroupName $resourceGroup `
+Add-AzIotHubEventHubConsumerGroup -ResourceGroupName $resourceGroup `
   -Name $iotHubName `
   -EventHubConsumerGroupName $iotHubConsumerGroup `
   -EventHubEndpointName "events"
@@ -203,7 +209,7 @@ Write-Host "storage account name is " $storageAccountName
 # Create the storage account to be used as a routing destination.
 # Save the context for the storage account 
 #   to be used when creating a container.
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
     -Name $storageAccountName `
     -Location $location `
     -SkuName Standard_LRS `
@@ -211,7 +217,7 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 $storageContext = $storageAccount.Context 
 
 # Create the container in the storage account.
-New-AzureStorageContainer -Name $containerName `
+New-AzStorageContainer -Name $containerName `
     -Context $storageContext
 
 # The Service Bus namespace must be globally unique,
@@ -220,7 +226,7 @@ $serviceBusNamespace = "ContosoSBNamespace$(Get-Random)"
 Write-Host "Service Bus namespace is " $serviceBusNamespace
 
 # Create the Service Bus namespace.
-New-AzureRmServiceBusNamespace -ResourceGroupName $resourceGroup `
+New-AzServiceBusNamespace -ResourceGroupName $resourceGroup `
     -Location $location `
     -Name $serviceBusNamespace 
 
@@ -230,7 +236,7 @@ $serviceBusQueueName  = "ContosoSBQueue$(Get-Random)"
 Write-Host "Service Bus queue name is " $serviceBusQueueName 
 
 # Create the Service Bus queue to be used as a routing destination.
-New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
+New-AzServiceBusQueue -ResourceGroupName $resourceGroup `
     -Namespace $serviceBusNamespace `
     -Name $serviceBusQueueName 
 
@@ -597,10 +603,10 @@ az group delete --name $resourceGroup
 ```
 ### Clean up resources using PowerShell
 
-To remove the resource group, use the [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) command. $resourceGroup was set to **ContosoIoTRG1** back at the beginning of this tutorial.
+To remove the resource group, use the [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) command. $resourceGroup was set to **ContosoIoTRG1** back at the beginning of this tutorial.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## Next steps
@@ -621,4 +627,4 @@ In this tutorial, you learned how to use message routing to route IoT Hub messag
 Advance to the next tutorial to learn how to manage the state of an IoT device. 
 
 > [!div class="nextstepaction"]
-[Configure your devices from a back-end service](tutorial-device-twins.md)
+[Set up and use metrics and diagnostics with an IoT Hub](tutorial-use-metrics-and-diags.md)

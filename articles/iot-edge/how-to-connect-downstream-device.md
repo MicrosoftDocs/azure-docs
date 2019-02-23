@@ -1,5 +1,5 @@
 ---
-title: Configure downstream devices with Azure IoT Edge | Microsoft Docs
+title: Connect downstream devices - Azure IoT Edge | Microsoft Docs
 description: How to configure downstream or leaf devices to connect through Azure IoT Edge gateway devices. 
 author: kgremban
 manager: philmea
@@ -8,6 +8,7 @@ ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
 # Connect a downstream device to an Azure IoT Edge gateway
@@ -127,7 +128,7 @@ This section provides a sample application to connect an Azure IoT NodeJS device
 
 To understand the sample that you're running, the following code snippet is how the client SDK reads the certificate file and uses it to establish a secure TLS connection: 
 
-```nodejs
+```javascript
 // Provide the Azure IoT device client via setOptions with the X509
 // Edge root CA certificate that was used to setup the Edge runtime
 var options = {

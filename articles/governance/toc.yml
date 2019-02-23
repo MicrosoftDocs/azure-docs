@@ -9,8 +9,9 @@
   expanded: true
   items:
   - name: Management Groups
-    href: management-groups/overview.md
     items:
+    - name: Overview
+      href: management-groups/index.md
     - name: Create
       href: management-groups/create.md
     - name: Manage
@@ -50,3 +51,5 @@
     href: https://feedback.azure.com/forums/915958-azure-governance
   - name: Governance Video
     href: https://www.youtube.com/watch?v=MhGbKjlmuRs
+  - name: Governance YouTube Channel
+    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ

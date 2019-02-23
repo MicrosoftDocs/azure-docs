@@ -44,7 +44,7 @@ Azure Storage offers [soft delete for blob objects](../../storage/blobs/storage-
 You can create [blob snapshots](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob). A snapshot is a read-only version of a blob that's taken at a point in time and it provides a way to back up a blob. Once a snapshot has been created, it can be read, copied, or deleted, but not modified.
 
 > [!Note]
-> For older version of on-premises on-premises Hadoop Distributions that does not have the "wasbs" certificate, it needs to be imported to the Java trust store.
+> For older versions of on-premises Hadoop Distributions that don't have the "wasbs" certificate, they need to be imported to the Java trust store.
 
 The following methods can be used to import certificates into the Java trust store:
 
@@ -93,7 +93,7 @@ A fundamental feature of Data Lake Storage Gen2 is the addition of a [hierarchi
 
 In the past, cloud-based analytics had to compromise in areas of performance, management, and security. The Key features of Azure Data Lake Storage (ADLS) Gen2 are as follows:
 
-- **Hadoop compatible access**: Azure Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](../../storage/data-lake-storage/abfs-driver.md) is available within all Apache Hadoop environments that are included in [Azure HDInsight](../index.yml). This driver allows you to access data stored in Data Lake Storage Gen2.
+- **Hadoop compatible access**: Azure Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](../../storage/data-lake-storage/abfs-driver.md) is available within all Apache Hadoop environments that are included in [Azure HDInsight](../index.yml). This driver allows you to access data stored in Data Lake Storage Gen2.
 
 - **A superset of POSIX permissions**: The security model for Data Lake Gen2 fully supports ACL and POSIX permissions along with some extra granularity specific to Data Lake Storage Gen2. Settings may be configured through admin tools or through frameworks like Hive and Spark.
 
@@ -111,6 +111,7 @@ For more information, see the following articles:
 
 - [Introduction to Azure Data Lake Storage Gen2 Preview](../../storage/data-lake-storage/introduction.md)
 - [The Azure Blob Filesystem driver (ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
+- [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
 ## Secure Azure Storage keys within on-premises Hadoop cluster configuration
 

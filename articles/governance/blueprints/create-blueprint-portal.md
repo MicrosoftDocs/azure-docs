@@ -1,16 +1,17 @@
 ---
-title: Create an Azure Blueprint in the portal
-description: Use Azure Blueprints to create, define, and deploy artifacts.
+title: Create a blueprint in the portal
+description: Use Azure Blueprints to create, define, and deploy artifacts through the Azure Portal.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 02/01/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
+ms.custom: seodec18
 ---
-# Define and Assign an Azure Blueprint in the portal
+# Define and assign an Azure Blueprint in the portal
 
 Learning how to create and assign blueprints enables the definition of common patterns to develop
 reusable and rapidly deployable configurations based on Resource Manager templates, policy,
@@ -42,10 +43,7 @@ Manager template and role assignment on the new resource group.
 
    ![Create blueprint](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Provide a **Blueprint Name** such as 'MyBlueprint' (letters and numbers -- up to 48 characters, but no spaces or special characters) for the blueprint, but leave **Blueprint Description** blank for now.  In the **Definition Location** box, click the ellipsis on the right, select the [management group](../management-groups/overview.md) where you want to save the blueprint and click **Select**.
-
-   > [!NOTE]
-   > Blueprint definitions can only be saved to management groups. To create your first management group, follow [these steps](../management-groups/create.md).
+1. Provide a **Blueprint Name** such as 'MyBlueprint' (letters and numbers -- up to 48 characters, but no spaces or special characters) for the blueprint, but leave **Blueprint Description** blank for now.  In the **Definition Location** box, click the ellipsis on the right, select the [management group](../management-groups/overview.md) or subscription where you want to save the blueprint and click **Select**.
 
 1. Verify the information is correct (the **Blueprint Name** and **Definition Location** fields can't be changed later) and click **Next : Artifacts** at the bottom of the page or the **Artifacts** tab at the top of the page.
 
@@ -157,8 +155,9 @@ Publishing makes it available to be assigned to a subscription.
 
 ## Assign a blueprint
 
-Once a blueprint has been published, it can be assigned to a subscription. Assign the blueprint you
-created to one of the subscriptions in your management group hierarchy.
+Once a blueprint has been published, it can be assigned to a subscription. Assign the
+blueprint you created to one of the subscriptions under your management group hierarchy. If the
+blueprint is saved to a subscription, it can only be assigned to that subscription.
 
 1. Select **Blueprint Definitions** from the page on the left.
 

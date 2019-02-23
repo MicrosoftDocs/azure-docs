@@ -20,7 +20,7 @@ A fault domain is a logical grouping of underlying hardware in an Azure data cen
 
 Each Azure region has a specific number of fault domains. For a list of domains and the number of fault domains they contain, see the [Availability sets](../../virtual-machines/windows/regions-and-availability.md#availability-sets) documentation.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Kafka is not aware of fault domains. When you create a topic in Kafka, it may store all partition replicas in the same fault domain. To solve this problem, HDInsight provides the [Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools).
 
 ## When to rebalance partition replicas
@@ -33,7 +33,7 @@ To ensure the highest availability of your Kafka data, you should rebalance the 
 
 ## Replication factor
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > We recommend using an Azure region that contains three fault domains, and using a replication factor of 3.
 
 If you must use a region that contains only two fault domains, use a replication factor of 4 to spread the replicas evenly across the two fault domains.

@@ -1,14 +1,11 @@
 ---
 title: Overview of business continuity with Azure Database for MySQL
 description: Overview of business continuity with Azure Database for MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
-ms.date: 02/28/2018
+ms.topic: conceptual
+ms.date: 02/01/2019
 ---
 
 # Overview of business continuity with Azure Database for MySQL
@@ -44,10 +41,10 @@ One option is to wait for your server to come back online when the data center o
 The other option is to use the Azure Database for MySQL's geo-restore feature that restores the server using geo-redundant backups. These backups are accessible even when the region your server is hosted in is offline. You can restore from these backups to any other region and bring your server back online.
 
 > [!IMPORTANT]
-> Geo-restore is only possible if you provisioned the server with geo-redundant backup storage. If you wish to switch from locally redundant to geo-redundant backups for an existing server, you must take a dump using pg_dump of your existing server and restore it to a newly created server configured with geo-redundant backups.
+> Geo-restore is only possible if you provisioned the server with geo-redundant backup storage. If you wish to switch from locally redundant to geo-redundant backups for an existing server, you must take a dump using mysqldump of your existing server and restore it to a newly created server configured with geo-redundant backups.
 
 ## Next steps
 
-- To learn more about the automated backups, see [Backups in Azure Database for MySQL](concepts-backup.md).
-- To restore to a point in time using the Azure portal, see [restore database to a point in time using the Azure portal](howto-restore-server-portal.md).
-- To restore to a point in time using Azure CLI, see [restore database to a point in time using CLI](howto-restore-server-cli.md).
+- Learn more about the [automated backups in Azure Database for MySQL](concepts-backup.md).
+- Learn how to restore using [the Azure portal](howto-restore-server-portal.md) or [the Azure CLI](howto-restore-server-cli.md).
+- Learn about [read replicas in Azure Database for MySQL](concepts-read-replicas.md).

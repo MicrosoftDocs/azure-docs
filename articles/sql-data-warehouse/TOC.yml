@@ -19,20 +19,28 @@
 - name: Release Notes
   href: release-notes.md
   items:
-    - name: October 2018 
-      href: release-notes-october-2018.md
-    - name: September 2018 
-      href: release-notes-september-2018.md
-    - name: August 2018 
-      href: release-notes-august-2018.md
-    - name: July 2018 
-      href: release-notes-july-2018.md
-    - name: June 2018 
-      href: release-notes-june-2018.md
-    - name: May 2018
-      href: release-notes-may-2018.md
-    - name: April 2018
-      href: release-notes-april-2018.md
+    - name: Recent Release
+      href: release-notes-10-0-10106-0.md  
+    - name: Gen2 region migration schedule
+      href: gen2-migration-schedule.md
+    - name: Archived Release Notes
+      items:   
+      - name: December 2018 
+        href: release-notes-december-2018.md  
+      - name: October 2018 
+        href: release-notes-october-2018.md
+      - name: September 2018 
+        href: release-notes-september-2018.md
+      - name: August 2018 
+        href: release-notes-august-2018.md
+      - name: July 2018 
+        href: release-notes-july-2018.md
+      - name: June 2018 
+        href: release-notes-june-2018.md
+      - name: May 2018
+        href: release-notes-may-2018.md
+      - name: April 2018
+        href: release-notes-april-2018.md
 - name: Quickstarts
   expanded: true
   items:
@@ -77,7 +85,7 @@
     - name: Multi-factor auth
       href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Auditing
-      href: sql-data-warehouse-auditing-overview.md
+      href: ../sql-database/sql-database-auditing.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Column-level security
       href: column-level-security.md
     - name: Row-level security
@@ -238,8 +246,6 @@
       href: sql-data-warehouse-how-to-monitor-cache.md
     - name: Restore your data warehouse
       href: sql-data-warehouse-restore.md
-    - name: Automate performance levels
-      href: manage-compute-with-azure-functions.md
   - name: Integrate
     items:
     - name: Use machine learning

@@ -66,7 +66,7 @@ packages:
   - npm
 write_files:
   - owner: www-data:www-data
-  - path: /etc/nginx/sites-available/default
+    path: /etc/nginx/sites-available/default
     content: |
       server {
         listen 80;
@@ -80,7 +80,7 @@ write_files:
         }
       }
   - owner: azureuser:azureuser
-  - path: /home/azureuser/myapp/index.js
+    path: /home/azureuser/myapp/index.js
     content: |
       var express = require('express')
       var app = express()
@@ -169,7 +169,7 @@ az keyvault certificate create \
 
 
 ### Prepare certificate for use with VM
-To use the certificate during the VM create process, obtain the ID of your certificate with [az keyvault secret list-versions](/cli/azure/keyvault/secret#az-keyvault-secret-list-versions). The VM needs the certificate in a certain format to inject it on boot, so convert the certificate with [az vm secret format](/cli/azure/vm#az-vm-secret-format). The following example assigns the output of these commands to variables for ease of use in the next steps:
+To use the certificate during the VM create process, obtain the ID of your certificate with [az keyvault secret list-versions](/cli/azure/keyvault/secret#az-keyvault-secret-list-versions). The VM needs the certificate in a certain format to inject it on boot, so convert the certificate with [az vm secret format](/cli/azure/vm). The following example assigns the output of these commands to variables for ease of use in the next steps:
 
 ```azurecli-interactive
 secret=$(az keyvault secret list-versions \
@@ -194,7 +194,7 @@ packages:
   - npm
 write_files:
   - owner: www-data:www-data
-  - path: /etc/nginx/sites-available/default
+    path: /etc/nginx/sites-available/default
     content: |
       server {
         listen 80;
@@ -211,7 +211,7 @@ write_files:
         }
       }
   - owner: azureuser:azureuser
-  - path: /home/azureuser/myapp/index.js
+    path: /home/azureuser/myapp/index.js
     content: |
       var express = require('express')
       var app = express()

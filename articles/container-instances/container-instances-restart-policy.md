@@ -1,12 +1,12 @@
 ---
-title: Run containerized tasks in Azure Container Instances with restart policies
+title: Use restart policies with containerized tasks in Azure Container Instances 
 description: Learn how to use Azure Container Instances to execute tasks that run to completion, such as in build, test, or image rendering jobs.
 services: container-instances
 author: dlepow
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 12/10/2018
 ms.author: danlep
 ---
 
@@ -20,7 +20,7 @@ The examples presented in this article use the Azure CLI. You must have Azure CL
 
 ## Container restart policy
 
-When you create a container in Azure Container Instances, you can specify one of three restart policy settings.
+When you create a [container group](container-instances-container-groups.md) in Azure Container Instances, you can specify one of three restart policy settings.
 
 | Restart policy   | Description |
 | ---------------- | :---------- |
@@ -89,6 +89,24 @@ Output:
 
 This example shows the output that the script sent to STDOUT. Your containerized tasks, however, might instead write their output to persistent storage for later retrieval. For example, to an [Azure file share](container-instances-mounting-azure-files-volume.md).
 
+## Manually stop and start a container group
+
+Regardless of the restart policy configured for a [container group](container-instances-container-groups.md), you might want to manually stop or start a container group.
+
+* **Stop** - You can manually stop a running container group at any time - for example, by using the [az container stop][az-container-stop] command. For certain container workloads, you might want to stop a container group after a defined period to save on costs. 
+
+  Stopping a container group terminates and recycles the containers in the group; it does not preserve container state. 
+
+* **Start** - When a container group is stopped - either because the containers terminated on their own or you manually stopped the group - you can use the [container start API](/rest/api/container-instances/containergroups/start) or Azure portal to manually start the containers in the group. If the container image for any container is updated, a new image is pulled. 
+
+  Starting a container group begins a new deployment with the same container configuration. This action can help you quickly reuse a known container group configuration that works as you expect. You don't have to create a new container group to run the same workload.
+
+* **Restart** - You can restart a container group while it is running - for example, using the [az container restart][az-container-restart] command. This action restarts all containers in the container group. If the container image for any container is updated, a new image is pulled. 
+
+  Restarting a container group is helpful when you want to troubleshoot a deployment problem. For example, if a temporary resource limitation prevents your containers from running successfully, restarting the group might solve the problem.
+
+After you manually start or restart a container group, the container group runs according to the configured restart policy.
+
 ## Configure containers at runtime
 
 When you create a container instance, you can set its **environment variables**, as well as specify a custom **command line** to execute when the container is started. You can use these settings in your batch jobs to prepare each container with task-specific configuration.
@@ -127,6 +145,8 @@ Output:
  ('ROSENCRANTZ', 69),
  ('GUILDENSTERN', 54)]
 ```
+
+
 
 ## Command line override
 
@@ -170,5 +190,7 @@ For details on how to persist the output of your containers that run to completi
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
+[az-container-restart]: /cli/azure/container?view=azure-cli-latest#az-container-restart
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
+[az-container-stop]: /cli/azure/container?view=azure-cli-latest#az-container-stop
 [azure-cli-install]: /cli/azure/install-azure-cli

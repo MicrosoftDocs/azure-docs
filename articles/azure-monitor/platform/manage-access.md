@@ -1,6 +1,6 @@
 ---
-title: Manage workspaces in Azure Log Analytics and the OMS portal | Microsoft Docs
-description: You can manage workspaces in Azure Log Analytics and the OMS portal using a variety of administrative tasks on users, accounts, workspaces, and Azure accounts.
+title: Manage Log Analytics workspaces in Azure Monitor | Microsoft Docs
+description: You can manage Log Analytics workspaces in Azure Monitor using a variety of administrative tasks on users, accounts, workspaces, and Azure accounts.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,14 +11,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/07/2019
 ms.author: magoedte
-ms.component: 
 ---
 
-# Manage workspaces
-
-To manage access to Log Analytics, you perform various administrative tasks related to workspaces. This article provides advice and procedures to manage workspaces. A workspace is essentially a container that includes account information and simple configuration information for the account. You or other members of your organization might use multiple workspaces to manage different sets of data that is collected from all or portions of your IT infrastructure.
+# Manage Log Analytics workspaces in Azure Monitor
+Azure Monitor stores log data in a Log Analytics workspace, which is essentially a container that includes data and configuration information. To manage access to log data, you perform various administrative tasks related to workspaces. You or other members of your organization might use multiple workspaces to manage different sets of data that is collected from all or portions of your IT infrastructure.
 
 To create a workspace, you need to:
 
@@ -28,19 +26,19 @@ To create a workspace, you need to:
 4. Choose a geographical location.
 
 ## Determine the number of workspaces you need
-A workspace is an Azure resource and is a container where data is collected, aggregated, analyzed, and presented in the Azure portal.
+A Log Analytics workspace is an Azure resource and is a container where data is collected, aggregated, analyzed, and presented in Azure Monitor.
 
-You can have multiple workspaces per Azure subscription and you can have access to more than one workspace, with the ability to easily query across them. This section describes when it can be helpful to create more than one workspace.
+You can have multiple workspaces per Azure subscription, and you can have access to more than one workspace, with the ability to easily query across them. This section describes when it can be helpful to create more than one workspace.
 
-Today, a workspace provides:
+A Log Analytics workspace provides:
 
 * A geographic location for data storage
 * Data isolation to define different user access rights
-* Scope for configuration of settings like retention and data capping
+* Scope for configuration of settings like [pricing tier](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [retention](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) and [data capping](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap) 
 
 From consumption point of view, we recommend you create as few workspaces as possible. It makes administration and query experience easier and quicker. But, based on the preceding characteristics, you may want to create multiple workspaces if:
 
-* You are a global company and you need data stored in specific regions for data sovereignty or compliance reasons.
+* You are a global company and you need log data stored in specific regions for data sovereignty or compliance reasons.
 * You are using Azure and you want to avoid outbound data transfer charges by having a workspace in the same region as the Azure resources it manages.
 * You want to allocate charges to different departments or business groups based on their usage by creating a workspace for each department or business group in its own Azure subscription.
 * You are a managed service provider and need to keep the Log Analytics data for each customer you manage isolated from other customer’s data.
@@ -51,16 +49,14 @@ When using Windows agents to collect data, you can [configure each agent to repo
 If you are using System Center Operations Manager, each Operations Manager management group can be connected with only one workspace. You can install the Microsoft Monitoring Agent on computers managed by Operations Manager and have the agent report to both Operations Manager and a different Log Analytics workspace.
 
 ## Workspace information
+While you analyze data in the Log Analytics workspace in the **Azure Monitor** menu in the Azure portal, you create and manage workspaces in the **Log Analytics workspaces** menu.
+ 
 
-You can view details about your workspace in the Azure portal. 
-
-1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com).
-
-2. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.  
+1. Sign in to the [Azure portal](https://portal.azure.com) and click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**  workspaces.  
 
     ![Azure portal](media/manage-access/azure-portal-01.png)  
 
-3. On the Log Analytics subscriptions pane, select a workspace.
+3. Select your workspace from the list.
 
 4. The workspace page displays details about the getting started, configuration, and links for additional information.  
 
@@ -80,10 +76,10 @@ The following activities also require Azure permissions:
 | Creating a workspace in the Azure portal                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
 
 
-### Managing access to Log Analytics using Azure permissions
+### Managing access to Log Analytics workspace using Azure permissions
 To grant access to the Log Analytics workspace using Azure permissions, follow the steps in [use role assignments to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 
-Azure has two built-in user roles for Log Analytics:
+Azure has two built-in user roles for Log Analytics workspaces:
 - Log Analytics Reader
 - Log Analytics Contributor
 
@@ -142,98 +138,7 @@ Use these roles to give users access at different scopes:
 
 We recommend you perform assignments at the resource level (workspace) to assure accurate access control.  Use [custom roles](../../role-based-access-control/custom-roles.md) to create roles with the specific permissions needed.
 
-## Link an existing workspace to an Azure subscription
-All workspaces created after September 26, 2016 must be linked to an Azure subscription at creation time. Workspaces created before this date must be linked to a workspace when you sign in. When you create the workspace from the Azure portal, or when you link your workspace to an Azure subscription, your Azure Active Directory is linked as your organizational account.
-
-### To link a workspace to an Azure subscription in the Azure portal
-1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.  
-
-2. On the Log Analytics subscriptions pane, click **Add**.  
-
-    ![list of workspaces](./media/manage-access/workspace-link-existing-01.png)
-
-3. From the **Log Analytics workspace** pane, click **Link existing**.  
-
-4. Click **Configure required settings**.  
-
-5. You see the list of workspaces that are not yet linked to your Azure account. Select the workspace.  
-   
-6. If needed, you can change values for the following items:
-   * Subscription
-   * Resource group
-   * Location
-   * Pricing tier  
-
-7. Click **OK**. The workspace is now linked to your Azure account.
-
-> [!NOTE]
-> If you do not see the workspace you'd like to link, then your Azure subscription does not have access to the workspace that you created using the OMS portal.  To grant access to this account from the OMS portal, see [Add a user to an existing workspace](#add-a-user-to-an-existing-workspace).
->
->
-
-## Upgrade a workspace to a paid plan
-There are three workspace plan types for OMS: **Free**, **Standalone**, and **OMS**.  If you are on the *Free* plan, there is a limit of 500 MB of data per day sent to Log Analytics.  If you exceed this amount, you need to change your workspace to a paid plan to avoid not collecting data beyond this limit. You can change your plan type at any time.  For more information on OMS pricing, see [Pricing Details](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-pricing).
-
-### Using entitlements from an OMS subscription
-To use the entitlements that come from purchasing OMS E1, OMS E2 OMS or OMS Add-On for System Center, choose the *OMS* plan of OMS Log Analytics.
-
-When you purchase an OMS subscription, the entitlements are added to your Enterprise Agreement. Any Azure subscription that is created under this agreement can use the entitlements. All workspaces on these subscriptions use the OMS entitlements.
-
-To ensure that usage of a workspace is applied to your entitlements from the OMS subscription, you need to:
-
-1. Create your workspace in an Azure subscription that is part of the Enterprise Agreement that includes the OMS subscription
-
-2. Select the *OMS* plan for the workspace
-
-> [!NOTE]
-> If your workspace was created before September 26, 2016 and your Log Analytics pricing plan is *Premium*, then this workspace uses entitlements from the OMS Add-On for System Center. You can also use your entitlements by changing to the *OMS* pricing tier.
->
->
-
-The OMS subscription entitlements are not visible in the Azure portal. You can see entitlements and usage in the Enterprise Portal.  
-
-If you need to change the Azure subscription that your workspace is linked to, you can use the Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.
-
-### Using Azure Commitment from an Enterprise Agreement
-If you do not have an OMS subscription, you pay for each component of OMS separately and the usage appears on your Azure bill.
-
-If you have Azure monetary commitment on the enterprise enrollment to which your Azure subscriptions are linked, usage of Log Analytics will automatically debit against the remaining monetary commit.
-
-If you need to change the Azure subscription that the workspace is linked to, you can use the Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.  
-
-### Change a workspace to a paid pricing tier in the Azure portal
-1. In the Azure portal, from the Log Analytics subscriptions pane, select a workspace.
-
-2. From the workspace pane, under **General**, select **Pricing tier**.  
-
-3. Under **Pricing tier**, select a pricing tier and then click **Select**.  
-    ![Selected pricing plan](./media/manage-access/workspace-pricing-tier-info.png)
-
-> [!NOTE]
-> If your workspace is linked to an Automation account, before you can select the *Standalone (Per GB)* pricing tier you must delete any **Automation and Control** solutions and unlink the Automation account. In the workspace blade, under **General**, click **Solutions** to see and delete solutions. To unlink the Automation account, click the name of the Automation account on the **Pricing tier** blade.
->
->
-
-### Change a workspace to a paid pricing tier in the OMS portal
-
-To change the pricing tier using the OMS portal, you must have an Azure subscription.
-
-1. In the OMS portal, click the **Settings** tile.
-
-2. Click the **Accounts** tab and then click the **Azure Subscription & Data Plan** tab.
-
-3. Click the pricing tier you want to use.
-
-4. Click **Save**.  
-
-    ![subscription and data plans](./media/manage-access/subscription-tab.png)
-
-Your new data plan is displayed in the OMS portal ribbon at the top of your web page.
-
-![OMS ribbon](./media/manage-access/data-plan-changed.png)
-
 ## Next steps
 * See [Log Analytics agent overview](../../azure-monitor/platform/log-analytics-agent.md) to gather data from computers in your datacenter or other cloud environment.
-* See [Collect data about Azure Virtual Machines](../../log-analytics/log-analytics-quick-collect-azurevm.md) to configure data collection from Azure VMs.  
-* [Add Log Analytics solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md) to add functionality and gather data.
+* See [Collect data about Azure Virtual Machines](../../azure-monitor/learn/quick-collect-azurevm.md) to configure data collection from Azure VMs.  
 

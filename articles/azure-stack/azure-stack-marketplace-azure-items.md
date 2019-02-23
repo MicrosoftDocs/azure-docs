@@ -13,16 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 01/29/2019
 ms.author: sethm
-ms.reviewer: ''
+ms.reviewer: unknown
+ms.lastreviewed: 01/29/2019
 
 ---
 # Azure Marketplace items available for Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit.*
 
-## Virtual Machine Extensions
+## Virtual Machine extensions
 
 Whenever there are updates to virtual machine (VM) extensions you use, you should download them. Extensions shipped in the product do not update in the normal patch and update process; so check for updates frequently. Other extensions are only available through Marketplace Management.
 
@@ -42,7 +43,7 @@ Whenever there are updates to virtual machine (VM) extensions you use, you shoul
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky Hybrid Cloud Security Agent for Windows](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.ksws-windows-arm?tab=Overview) | With Kaspersky Hybrid Cloud Security, you can provision cybersecurity capabilities right inside your cloud workloads via Azure Extensions. | Kaspersky Lab | Windows |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky Hybrid Cloud Security Agent for Linux](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.kesl-linux-arm?tab=Overview) | With Kaspersky Hybrid Cloud Security, you can provision cybersecurity capabilities right inside your cloud workloads via Azure Extensions. | Kaspersky Lab | Linux |
 
-## Microsoft Virtual Machine Images and Solution Templates
+## Microsoft Virtual Machine images and solution templates
 
 Microsoft Azure Stack supports the following Azure Marketplace virtual machines and solution templates. Download any dependencies separately, as noted. Applications such as SQL Server and Machine Learning Server require proper licensing, except where marked as Free or Trial.
 
@@ -76,7 +77,7 @@ Microsoft Azure Stack supports the following Azure Marketplace virtual machines 
 | ![Microsoft Machine Learning Server 9.3.0 on Ubuntu 16.04](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.3.0 on Ubuntu 16.04](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onUbuntu1604) | Microsoft Machine Learning Server 9.3.0 on Ubuntu 16.04. | Microsoft + Canonical |
 | ![Microsoft Machine Learning Server 9.3.0 on CentOS Linux 7.2](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.3.0 on CentOS Linux 7.2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onCentOSLinux72) | Microsoft Machine Learning Server 9.3.0 on CentOS Linux 7.2. | Microsoft + Rogue Wave |
 
-## Linux Distributions
+## Linux distributions
 
 |  | Item name | Description | Publisher |
 | --- | --- | --- | --- |
@@ -84,19 +85,20 @@ Microsoft Azure Stack supports the following Azure Marketplace virtual machines 
 | ![Container Linux by CoreOS](media/azure-stack-marketplace-azure-items/coreos.png) | [Container Linux by CoreOS](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Container Linux is a modern and minimal Linux distribution, providing an easy way to run containers, manage clusters and seamlessly update your servers - all components that enable warehouse-scale compute. | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server is the world's most popular Linux for cloud environments. | Canonical |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux is one of the most popular Linux distributions. | credativ |
-| ![CentOS-based 6.9](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 6.9](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic)  |
+| ![CentOS-based 6.8](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 6.8](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased68HPC) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic)  |
 | ![CentOS-based 6.10](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 6.10](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic)  |
-| ![CentOS-based 7.3](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7.3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic) |
+| ![CentOS-based 7.3](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7.3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic) |
 | ![CentOS-based 7.5](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7.5](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic) |
 | ![CentOS-based 7.5-LVM](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7.5-LVM](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic) |
 | ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 11 SP4. | SUSE |
 | ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
 | ![SLES 15 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 15 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 15. | SUSE |
 
-## Third-Party BYOL, Free, and Trial images and Solution Templates
+## Third-Party BYOL, free, trial images, and solution templates
 
 |  | Item name | Description | Publisher |
 | --- | --- | --- | --- |
+| ![A10 vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | The A10 Networks vThunder Application Delivery Controller for Microsoft Azure is purpose-built for high performance, flexibility, and easy-to-deploy application delivery and server load balancing and optimized to run natively within the Azure cloud. | A10 Networks |
 | ![Arista vEOS Router](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS Router](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | The Arista vEOS Router is a feature-rich, multi-cloud, and multi-hypervisor virtual router that empowers enterprises and cloud providers to build consistent, highly secure, and scalable hybrid networks. | Arista Networks |
 | ![Barracuda Application Security Control Center](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Application Security Control Center](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-app-sec-control-center) | Centrally manage multiple Barracuda Web Application Firewalls (WAF). | Barracuda Networks, Inc. |
 | ![Barracuda Email Security Gateway](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Email Security Gateway](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-email-security-gateway) | Email security gateway to protect against inbound email-borne threats. | Barracuda Networks, Inc. |
@@ -230,14 +232,16 @@ Microsoft Azure Stack supports the following Azure Marketplace virtual machines 
 | ![Commvault](media/azure-stack-marketplace-azure-items/commvault.png) | [Commvault](https://azuremarketplace.microsoft.com/marketplace/apps/commvault.commvault) | A comprehensive solution for backup and recovery, application and VM migration to Azure Stack, and disaster recovery for Azure Stack environments in a single solution. | Commvault |
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Control, monitor, and encrypt VMs with ease and confidence. **Download all CloudLink SecureVM items.** | Dell EMC |
 | ![EventTracker SIEM](media/azure-stack-marketplace-azure-items/eventtracker.png) | [EventTracker SIEM](https://azuremarketplace.microsoft.com/marketplace/apps/eventtracker.eventtracker-siem)  | EventTracker SIEM is a comprehensive security platform that delivers advanced security tools with audit-ready compliance capabilities. | EventTracker |
+| ![Exivity - Hybrid Cloud Billing Solution](media/azure-stack-marketplace-azure-items/exivity.png) | [Exivity - Hybrid Cloud Billing Solution](https://azuremarketplace.microsoft.com/marketplace/apps/exivity.exivity-vm)  | A billing tool capable of satisfying the requirements of virtually any IT service delivery model, whether deployed within on-premises, public cloud, or hybrid environments. | Exivity |
 | ![f5](media/azure-stack-marketplace-azure-items/f5.png) | [f5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | Advanced Load Balancing, GSLB, Network Firewall, DNS, WAF, and App Access. | F5 Networks |
+| ![FortiGate Next-Generation Firewall](media/azure-stack-marketplace-azure-items/fortinetsquare.png) | [FortiGate Next-Generation Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-fortigate-singlevm) | Firewall technology that delivers complete content and network protection with a comprehensive suite of powerful security features. Application control, antivirus, IPS, web filtering and VPN along with advanced features such as vulnerability management work in concert to identify and mitigate the latest complex security threats. | Fortinet |
 | ![Hortonworks Data Platform (HDP) Sandbox](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) Sandbox](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Powered by HDP 2.5 100% open-source platform for Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky Hybrid Cloud Security](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | The Kaspersky Hybrid Cloud Security enables a seamlessly orchestrated and adaptive cybersecurity ecosystem. | Kaspersky Lab |
 | ![KEMP LoadMaster Load Balancer ADC Content Switch](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Layer 4-7 Application Delivery Controller (ADC) Load Balancer, Content Switch, and Traffic Manager. | KEMP Technologies Inc. |
 | ![Kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md) | This solution deploys a Kubernetes cluster running as a standalone cluster with templates generated using ACS-Engine.<br>**This solution template also requires Ubuntu Server 16.04 LTS and Custom Script for Linux 2.0.**| Microsoft |
 | ![Service Fabric Cluster](media/azure-stack-marketplace-azure-items/servicefrabric.png) | [Service Fabric Cluster](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceFabricCluster?tab=Overview) | This solution deploys Service Fabric running as an standalone cluster on a Virtual Machine Scale Set. <br>**This solution template requires you to also download the Windows Server 2016 Datacenter**| Microsoft |
 | ![NRI mPLAT Suite - Multi-Cloud Conductor](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite - Multi-Cloud Conductor](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | A Single Pane of Glass to monitor, configure, provision, automate, and govern any workload or cloud. | NRI |
-| ![NooBaa Hybrid AWS S3 compatible - Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybrid AWS S3 compatibe - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | S3-compatible storage service that spans public and on-premises capacity resources. | NooBaa |
+| ![NooBaa Hybrid AWS S3 compatible - Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybrid AWS S3 compatible - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | S3-compatible storage service that spans public and on-premises capacity resources. | NooBaa |
 | ![NetFoundry Gateway for Multipoint, Zero Trust Azure Stack Connections](media/azure-stack-marketplace-azure-items/netfoundry.png) | [NetFoundry Gateway for Multipoint, Zero Trust Azure Stack Connections](https://azuremarketplace.microsoft.com/marketplace/apps/tata_communications.netfoundry_cloud_gateway) | Software-only, multi-point connectivity between Azure Stack and anywhere, over any network connection, with industry leading Zero Trust security, 5x the throughput of VPN, and unlimited concurrent users. | NetFoundry |
 | ![Palo Alto VM-Series Next Generation Firewall](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM-Series Next Generation Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | The VM-Series next-generation firewall allows customers to securely migrate their applications and data to Azure Stack, protecting them from known and unknown threats with application whitelisting and threat prevention policies. **This image requires a template to deploy; see this [article](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack) for important information.**| Palo Alto Networks, Inc. |
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall detects known & unknown vulnerabilities and prevents attacks on web apps. **Download both PT Marketplace items.** | Positive Technologies |

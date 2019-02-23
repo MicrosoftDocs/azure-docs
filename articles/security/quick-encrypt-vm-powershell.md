@@ -1,31 +1,32 @@
 ---
 title: Quickstart - Encrypt a Windows IaaS VM with Azure PowerShell | Microsoft Docs
-description:  In this quickstart, you learn how to use Azure PowerShell to encrypt a Windows virtual machine.
+description:  In this quickstart, learn how to use Azure PowerShell to encrypt a Windows IaaS VM in Azure.
 services: security
 documentationcenter: na
 author: mestew
-manager: MBaldwin
+manager: barbkess
 ms.assetid: c8abd340-5ed4-42ec-b83f-4d679b61494d
 ms.service: security
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na 
 ms.workload: na
-ms.date: 08/29/2018
+ms.date: 01/14/2019
 ms.author: mstewart
+ms.custom: seodec18
 ---
 # Quickstart: Encrypt a Windows IaaS VM with Azure PowerShell
 
-Azure Disk Encryption helps you encrypt your Windows and Linux IaaS virtual machine disks. The solution is integrated with Azure Key Vault to help you control and manage the disk-encryption keys and secrets. By using Azure Disk encryption, you can ensure that your VMs are secured at rest using industry-standard encryption technology. In this quickstart, you'll create a Windows Server 2016 VM and encrypt the OS disk. 
+Azure Disk Encryption helps you encrypt your Windows and Linux IaaS virtual machine disks. The solution is integrated with Azure Key Vault to help you control and manage the disk-encryption keys and secrets. By using Azure Disk encryption, you can ensure that your VMs are secured at rest using industry-standard encryption technology. In this quickstart, you'll create a Windows Server 2016 VM and encrypt the OS disk.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
 - Windows PowerShell ISE
-- Install or update to the [latest version of Azure PowerShell](/powershell/azure/install-azurerm-ps)
+- Install or update to the [latest version of the AzureRM PowerShell module](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0)
     - The AzureRM module version needs to be 6.0.0 or higher. `Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path`
-- A copy of the [Azure Disk Encryption prerequisites script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
+- A copy of the [Azure Disk Encryption prerequisites script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
     - If you have this script already, download a new copy as it has recently changed. 
     - Use **CTRL-A** to select all the text then use **CTRL-C** to copy all the text into Notepad.
     - Save the file as **ADEPrereqScript.ps1**

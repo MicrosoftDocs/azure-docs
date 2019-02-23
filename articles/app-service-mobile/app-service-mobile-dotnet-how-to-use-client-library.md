@@ -115,7 +115,7 @@ topics are covered:
 * [Look up a record by Id](#lookingup)
 * [Dealing with untyped queries](#untypedqueries)
 * [Inserting data](#inserting)
-* [Updating data](#updating)
+* Updating data
 * [Deleting data](#deleting)
 * [Conflict Resolution and Optimistic Concurrency](#optimisticconcurrency)
 * [Binding to a Windows User Interface](#binding)
@@ -693,7 +693,7 @@ including reading and setting HTTP message headers and defining a message body f
 You call a custom API by calling one of the [InvokeApiAsync] methods on the client. For example, the following
 line of code sends a POST request to the **completeAll** API on the backend:
 
-```
+```javascript
 var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Net.Http.HttpMethod.Post, null);
 ```
 
@@ -753,7 +753,7 @@ using Azure Active Directory authentication.
 1. Configure your mobile app backend for AAD sign-on by following the [How to configure App Service for Active
    Directory login] tutorial. Make sure to complete the optional step of registering a native client application.
 2. In Visual Studio or Xamarin Studio, open your project and add a reference to the
-   `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet package. When searching, include pre-release versions.
+   `Microsoft.IdentityModel.Clients.ActiveDirectory` NuGet package. When searching, include pre-release versions.
 3. Add the following code to your application, according to the platform you are using. In each, make the following
    replacements:
 
@@ -1028,7 +1028,7 @@ on Windows apps, including how to register for template registrations, see [Add 
 
 Requesting tags from the client is not supported.  Tag Requests are silently dropped from registration.
 If you wish to register your device with tags, create a Custom API that uses the Notification Hubs API to perform
-the registration on your behalf.  [Call the Custom API](#customapi) instead of the `RegisterNativeAsync()` method.
+the registration on your behalf.  Call the Custom API instead of the `RegisterNativeAsync()` method.
 
 ### <a name="package-sid"></a>How to: Obtain a Microsoft Store package SID
 A package SID is needed for enabling push notifications in Microsoft Store apps.  To receive a package SID, register your
@@ -1177,8 +1177,8 @@ public class MyHandler : DelegatingHandler
 [Add authentication to your app]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Offline Data Sync in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 [Add push notifications to your app]: app-service-mobile-windows-store-dotnet-get-started-push.md
-[Register your app to use a Microsoft account login]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
-[How to configure App Service for Active Directory login]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[Register your app to use a Microsoft account login]: ../app-service/configure-authentication-provider-microsoft.md
+[How to configure App Service for Active Directory login]: ../app-service/configure-authentication-provider-aad.md
 
 <!-- Microsoft URLs. -->
 [MobileServiceCollection]: https://msdn.microsoft.com/library/azure/dn250636(v=azure.10).aspx

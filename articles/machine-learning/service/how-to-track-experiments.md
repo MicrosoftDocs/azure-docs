@@ -1,16 +1,18 @@
-
 ---
-title: Track experiments and training metrics - Azure Machine Learning | Microsoft Docs
+title: Track experiments & training metrics
+titleSuffix: Azure Machine Learning service
 description: With the Azure Machine Learning service, you can track your experiments and monitor metrics to enhance the model creation process. Learn how to add logging to your training script, how to submit the experiment, how to check the progress of a running job, and how to view the results of a run.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
 
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
+
+ms.custom: seodec18
 ---
 
 # Track experiments and training metrics in Azure Machine Learning
@@ -123,10 +125,10 @@ The script ends with ```run.complete()```, which marks the run as completed.  Th
 
 This example expands on the basic sklearn Ridge model from above. It does a simple parameter sweep to sweep over alpha values of the model to capture metrics and trained models in runs under the experiment. The example runs locally against a user-managed environment. 
 
-1. Create a training script. This code uses ```%%writefile%%``` to write the training code out to the script folder as ```train.py```.
+1. Create a training script `train.py`.
 
   ```python
-  %%writefile $project_folder/train.py
+  # train.py
 
   import os
   from sklearn.datasets import load_diabetes
@@ -177,10 +179,11 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
   
   ```
 
-2. The ```train.py``` script references ```mylib.py```. This file allows you to get the list of alpha values to use in the ridge model.
+2. The `train.py` script references `mylib.py` which allows you to get the list of alpha values to use in the ridge model.
 
   ```python
-  %%writefile $script_folder/mylib.py
+  # mylib.py
+  
   import numpy as np
 
   def get_alphas():
@@ -211,7 +214,37 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
   src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
   run = experiment.submit(src)
   ```
+
+## Cancel a run
+Ater a run is submitted, you can cancel it even if you have lost the object reference, as long as you know the experiment name and run id. 
+
+```python
+from azureml.core import Experiment
+exp = Experiment(ws, "my-experiment-name")
+
+# if you don't know the run id, you can list all runs under an experiment
+for r in exp.get_runs():  
+    print(r.id, r.get_status())
+
+# if you know the run id, you can "rehydrate" the run
+from azureml.core import get_run
+r = get_run(experiment=exp, run_id="my_run_id", rehydrate=True)
   
+# check the returned run type and status
+print(type(r), r.get_status())
+
+# you can cancel a run if it hasn't completed or failed
+if r.get_status() not in ['Complete', 'Failed']:
+    r.cancel()
+```
+Please note that currently only ScriptRun and PipelineRun types support cancel operation.
+
+Additionally, you can cancel a run through the CLI using the following command:
+```shell
+az ml run cancel -r <run_id> -p <project_path>
+```
+
+
 ## View run details
 
 ### Monitor run with Jupyter notebook widgets
@@ -229,7 +262,7 @@ When you use the **ScriptRunConfig** method to submit runs, you can watch the pr
 2. **[For automated machine learning runs]** To access the charts from a previous run. Please replace `<<experiment_name>>` with the appropriate experiment name:
 
    ``` 
-   from azureml.train.widgets import RunDetails
+   from azureml.widgets import RunDetails
    from azureml.core.run import Run
 
    experiment = Experiment (workspace, <<experiment_name>>)
@@ -238,7 +271,7 @@ When you use the **ScriptRunConfig** method to submit runs, you can watch the pr
    RunDetails(run).show()
    ```
 
-  ![Screenshot of Jupyter notebook widget](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
+  ![Jupyter notebook widget for Automated Machine Learning](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
 
 
 To view further details of a pipeline click on the Pipeline you would like to explore in the table, and the charts will render in a pop-up from the Azure portal.
@@ -261,7 +294,7 @@ When an experiment has finished running, you can browse to the recorded experime
 
 The link for the run brings you directly to the run details page in the Azure portal. Here you can see any properties, tracked metrics, images, and charts that are logged in the experiment. In this case, we logged MSE and the alpha values.
 
-  ![Screenshot of run details in the Azure portal](./media/how-to-track-experiments/run-details-page-web.PNG)
+  ![Run details in the Azure portal](./media/how-to-track-experiments/run-details-page-web.PNG)
 
 You can also view any outputs or logs for the run, or download the snapshot of the experiment you submitted so you can share the experiment folder with others.
 
@@ -287,7 +320,7 @@ Learn more about:
 + [Model explain ability](#model-explain-ability-and-feature-importance)
 
 
-### How to see run charts:
+### View the run charts
 
 1. Go to your workspace. 
 
@@ -297,15 +330,15 @@ Learn more about:
 
 1. Select the experiment you are interested in.
 
-  ![Screenshot of experiment menu](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_list.PNG)
+  ![Experiment list](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_list.PNG)
 
 1. In the table, select the Run Number.
 
-   ![Screenshot of experiment menu](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_run.PNG)
+   ![Experiment run](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_run.PNG)
 
 1.	In the table, select the Iteration Number for the model that you would like to explore further.
 
-   ![Screenshot of experiment menu](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_model.PNG)
+   ![Experiment model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_model.PNG)
 
 
 

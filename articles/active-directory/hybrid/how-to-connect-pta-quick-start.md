@@ -5,16 +5,17 @@ services: active-directory
 keywords: Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/27/2018
-ms.component: hybrid
+ms.topic: conceptual
+ms.date: 02/19/2019
+ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory Pass-through Authentication: Quick start
@@ -48,18 +49,18 @@ Ensure that the following prerequisites are in place.
 3. Identify one or more additional servers (running Windows Server 2012 R2 or later, with TLS 1.2 enabled) where you can run standalone Authentication Agents. These additional servers are needed to ensure the high availability of requests to sign in. Add the servers to the same Active Directory forest as the users whose passwords you need to validate.
 
     >[!IMPORTANT]
-    >In production environments, we recommend that you have a minimum of 3 Authentication Agents running on your tenant. There is a system limit of 12 Authentication Agents per tenant. And as best practice, treat all servers running Authentication Agents as Tier 0 systems (see [reference](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+    >In production environments, we recommend that you have a minimum of 3 Authentication Agents running on your tenant. There is a system limit of 40 Authentication Agents per tenant. And as best practice, treat all servers running Authentication Agents as Tier 0 systems (see [reference](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
 4. If there is a firewall between your servers and Azure AD, configure the following items:
    - Ensure that Authentication Agents can make *outbound* requests to Azure AD over the following ports:
 
-    | Port number | How it's used |
-    | --- | --- |
-    | **80** | Downloads the certificate revocation lists (CRLs) while validating the SSL certificate |
-    | **443** | Handles all outbound communication with the service |
-    | **8080** (optional) | Authentication Agents report their status every ten minutes over port 8080, if port 443 is unavailable. This status is displayed on the Azure AD portal. Port 8080 is _not_ used for user sign-ins. |
-
-    If your firewall enforces rules according to the originating users, open these ports for traffic from Windows services that run as a network service.
+     | Port number | How it's used |
+     | --- | --- |
+     | **80** | Downloads the certificate revocation lists (CRLs) while validating the SSL certificate |
+     | **443** | Handles all outbound communication with the service |
+     | **8080** (optional) | Authentication Agents report their status every ten minutes over port 8080, if port 443 is unavailable. This status is displayed on the Azure AD portal. Port 8080 is _not_ used for user sign-ins. |
+     
+     If your firewall enforces rules according to the originating users, open these ports for traffic from Windows services that run as a network service.
    - If your firewall or proxy allows DNS whitelisting, whitelist connections to **\*.msappproxy.net** and **\*.servicebus.windows.net**. If not, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
    - Your Authentication Agents need access to **login.windows.net** and **login.microsoftonline.com** for initial registration. Open your firewall for those URLs as well.
    - For certificate validation, unblock the following URLs: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, and **www.microsoft.com:80**. Since these URLs are used for certificate validation with other Microsoft products you may already have these URLs unblocked.
@@ -103,7 +104,8 @@ At this stage, users from all the managed domains in your tenant can sign in by 
 If you plan to deploy Pass-through Authentication in a production environment, you should install additional standalone Authentication Agents. Install these Authentication Agent(s) on server(s) _other_ than the one running Azure AD Connect. This setup provides you with high availability for user sign-in requests.
 
 >[!IMPORTANT]
->In production environments, we recommend that you have a minimum of 3 Authentication Agents running on your tenant. There is a system limit of 12 Authentication Agents per tenant. And as best practice, treat all servers running Authentication Agents as Tier 0 systems (see [reference](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+>In production environments, we recommend that you have a minimum of 3 Authentication Agents running on your tenant. There is a system limit of 40
+> Authentication Agents per tenant. And as best practice, treat all servers running Authentication Agents as Tier 0 systems (see [reference](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
 Follow these instructions to download the Authentication Agent software:
 

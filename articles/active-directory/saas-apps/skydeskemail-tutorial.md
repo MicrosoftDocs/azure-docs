@@ -4,11 +4,11 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 
 ms.assetid: a9d0bbcb-ddb5-473f-a4aa-028ae88ced1a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with SkyDesk Email
 
@@ -112,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://mail.skydesk.jp/portal/<companyname>`
 
 	> [!NOTE] 
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [SkyDesk Email Client support team](https://www.skydesk.sg/support/) to get the value. 
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [SkyDesk Email Client support team](https://www.skydesk.jp/apps/support/) to get the value. 
  
 1. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
@@ -217,7 +218,7 @@ In this section, you create a user called Britta Simon in SkyDesk Email.
     ![Configure Single Sign-On](./media/skydeskemail-tutorial/tutorial_skydeskemail_58.png)
 
 >[!NOTE] 
->If you need to create bulk users, you need to contact the [SkyDesk Email Client support team](https://www.skydesk.sg/support/).
+>If you need to create bulk users, you need to contact the [SkyDesk Email Client support team](https://www.skydesk.jp/apps/support/).
 
 
 ### Assigning the Azure AD test user

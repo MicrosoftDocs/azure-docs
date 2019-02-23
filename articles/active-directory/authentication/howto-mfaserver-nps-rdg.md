@@ -4,15 +4,16 @@ description: This is the Azure Multi-factor authentication page that will assist
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS
 
@@ -27,6 +28,9 @@ Install the Azure Multi-Factor Authentication Server on a separate server, which
 - A domain-joined Azure MFA Server. If you don't have one installed already, follow the steps in [Getting started with the Azure Multi-Factor Authentication Server](howto-mfaserver-deploy.md).
 - An existing configured NPS Server.
 - A Remote Desktop Gateway that authenticates with Network Policy Services.
+
+> [!NOTE]
+> This article should be used with MFA Server deployments only, not Azure MFA (Cloud-based).
 
 ## Configure the Remote Desktop Gateway
 Configure the RD Gateway to send RADIUS authentication to an Azure Multi-Factor Authentication Server. 

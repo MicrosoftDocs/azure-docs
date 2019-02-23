@@ -1,5 +1,5 @@
 ---
-title: Sign in to Azure Notebooks | Microsoft Docs
+title: Sign in to Azure Notebooks
 description: Quickly sign into Azure notebooks and set a user ID, which gives you the ability to access saved projects and share notebooks with others.
 services: app-service
 documentationcenter: ''

@@ -1,26 +1,28 @@
 ---
-title: How to choose machine learning algorithms - Azure Machine Learning Studio | Microsoft Docs
+title: How to choose algorithms
+titleSuffix: Azure Machine Learning Studio
 description: How to choose Azure Machine Learning Studio algorithms for supervised and unsupervised learning in clustering, classification, or regression experiments.
 services: machine-learning
-author: ericlicoding
-ms.custom: "(previous ms.author=pakalra, author=pakalra)"
-ms.author: amlstudiodocs
-manager: cgronlun
-editor: cgronlun
-tags: ''
-ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.topic: article
+
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
 ---
 # How to choose algorithms for Azure Machine Learning Studio
 
 The answer to the question "What machine learning algorithm should I use?" is always "It depends." It depends on the size, quality, and nature of the data. It depends on what you want to do with the answer. It depends on how the math of the algorithm was translated into instructions for the computer you are using. And it depends on how much time you have. Even the most experienced data scientists can't tell which algorithm will perform best before trying them.
 
+Machine Learning Studio provides state-of-the-art algorithms, such as Scalable Boosted Decision trees, Bayesian Recommendation systems, Deep Neural Networks, and Decision Jungles developed at Microsoft Research. Scalable open-source machine learning packages, like Vowpal Wabbit, are also included. Machine Learning Studio supports machine learning algorithms for multiclass and binary classification, regression, and clustering. See the complete list of [Machine Learning Modules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/index).
+The documentation provides some information about each algorithm and how to tune parameters to optimize the algorithm for your use.  
+
+
 ## The Machine Learning Algorithm Cheat Sheet
 
-The **Microsoft Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right machine learning algorithm for your predictive analytics solutions from the Azure Machine Learning Studio library of algorithms.
+The **Microsoft Azure Machine Learning Studio Algorithm Cheat Sheet** helps you choose the right machine learning algorithm for your predictive analytics solutions from the Azure Machine Learning Studio library of algorithms.
 This article walks you through how to use it.
 
 > [!NOTE]
@@ -28,7 +30,7 @@ This article walks you through how to use it.
 > 
 > 
 
-This cheat sheet has a very specific audience in mind: a beginning data scientist with undergraduate-level machine learning, trying to choose an algorithm to start with in Azure Machine Learning Studio. That means that it makes some generalizations and oversimplifications, but it points you in a safe direction. It also means that there are lots of algorithms not listed here. As Azure Machine Learning grows to encompass a more complete set of available methods, we'll add them.
+This cheat sheet has a very specific audience in mind: a beginning data scientist with undergraduate-level machine learning, trying to choose an algorithm to start with in Azure Machine Learning Studio. That means that it makes some generalizations and oversimplifications, but it points you in a safe direction. It also means that there are lots of algorithms not listed here. As Azure Machine Learning Studio grows to encompass a more complete set of available methods, we'll add them.
 
 These recommendations are compiled feedback and tips from many data scientists and machine learning experts. We didn't agree on everything, but I've tried to harmonize our opinions into a rough consensus. Most of the statements of disagreement begin with "It depends…"
 
@@ -42,15 +44,13 @@ rule-of-thumb recommendations, so don't worry about it being exact.
 Several data scientists I talked with said that the only sure way to
 find the very best algorithm is to try all of them.
 
-Here's an example from the [Azure AI Gallery](http://gallery.cortanaintelligence.com/) of an experiment that tries
+Here's an example from the [Azure AI Gallery](http://gallery.azure.ai/) of an experiment that tries
 several algorithms against the same data and compares the results:
 [Compare Multi-class Classifiers: Letter
-recognition](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+recognition](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
-> To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](studio-overview-diagram.md).
-> 
-> 
+> To download an easy-to-understand infographic overview of machine learning basics to learn about popular algorithms used to answer common machine learning questions, see [Machine learning basics with algorithm examples](basics-infographic-with-algorithm-examples.md).
 
 ## Flavors of machine learning
 
@@ -69,9 +69,9 @@ can, it uses that pattern to make predictions for unlabeled testing
 data—tomorrow's prices.
 
 Supervised learning is a popular and useful type of machine learning. With one
-exception, all the modules in Azure Machine Learning are supervised learning
+exception, all the modules in Azure Machine Learning Studio are supervised learning
 algorithms. There are several specific types of supervised learning that
-are represented within Azure Machine Learning: classification, regression, and anomaly
+are represented within Azure Machine Learning Studio: classification, regression, and anomaly
 detection.
 
 * **Classification**. When the data are being used to predict a
@@ -107,7 +107,7 @@ response to each data point. The learning algorithm also receives a
 reward signal a short time later, indicating how good the decision was.
 Based on this, the algorithm modifies its strategy in order to achieve
 the highest reward. Currently there are no reinforcement learning
-algorithm modules in Azure Machine Learning. Reinforcement learning is common in
+algorithm modules in Azure Machine Learning Studio. Reinforcement learning is common in
 robotics, where the set of sensor readings at one point in time is a
 data point, and the algorithm must choose the robot's next action. It is
 also a natural fit for Internet of Things applications.
@@ -137,17 +137,17 @@ when the data set is large.
 Lots of machine learning algorithms make use of linearity. Linear
 classification algorithms assume that classes can be separated by a
 straight line (or its higher-dimensional analog). These include logistic
-regression and support vector machines (as implemented in Azure Machine Learning).
+regression and support vector machines (as implemented in Azure Machine Learning Studio).
 Linear regression algorithms assume that data trends follow a straight
 line. These assumptions aren't bad for some problems, but on others they
 bring accuracy down.
 
-![Non-linear class boundary][1]
+![Non-linear class boundary](./media/algorithm-choice/image1.png)
 
 ***Non-linear class boundary*** *- relying on a linear classification
 algorithm would result in low accuracy*
 
-![Data with a nonlinear trend][2]
+![Data with a nonlinear trend](./media/algorithm-choice/image2.png)
 
 ***Data with a nonlinear trend*** *- using a linear regression method would
 generate much larger errors than necessary*
@@ -168,7 +168,7 @@ the most trial and error to find a good combination.
 
 Alternatively, there is a [parameter
 sweeping](algorithm-parameters-optimize.md)
-module block in Azure Machine Learning that automatically tries all parameter
+module block in Azure Machine Learning Studio that automatically tries all parameter
 combinations at whatever granularity you choose. While this is a great
 way to make sure you've spanned the parameter space, the time required
 to train a model increases exponentially with the number of parameters.
@@ -241,7 +241,7 @@ simple and fast, but it may be overly simplistic for some problems.
 Check here for a [linear regression
 tutorial](linear-regression-in-azure.md).
 
-![Data with a linear trend][3]
+![Data with a linear trend](./media/algorithm-choice/image3.png)
 
 ***Data with a linear trend***
 
@@ -258,7 +258,7 @@ dividing data into groups. Logistic regression gives linear class
 boundaries, so when you use it, make sure a linear approximation is
 something you can live with.
 
-![Logistic regression to two-class data with just one feature][4]
+![Logistic regression to two-class data with just one feature](./media/algorithm-choice/image4.png)
 
 ***A logistic regression to two-class data with just one feature*** *- the
 class boundary is the point at which the logistic curve is just as close to both classes*
@@ -284,7 +284,7 @@ same thing—subdivide the feature space into regions with mostly the same
 label. These can be regions of consistent category or of constant value,
 depending on whether you are doing classification or regression.
 
-![Decision tree subdivides a feature space][5]
+![Decision tree subdivides a feature space](./media/algorithm-choice/image5.png)
 
 ***A decision tree subdivides a feature space into regions of roughly
 uniform values***
@@ -320,7 +320,7 @@ Neural networks are brain-inspired learning algorithms covering
 and
 [regression](https://msdn.microsoft.com/library/azure/dn905924.aspx)
 problems. They come in an infinite variety, but the neural networks
-within Azure Machine Learning are all of the form of directed acyclic graphs. That
+within Azure Machine Learning Studio are all of the form of directed acyclic graphs. That
 means that input features are passed forward (never backward) through a
 sequence of layers before being turned into outputs. In each layer,
 inputs are weighted in various combinations, summed, and passed on to
@@ -337,7 +337,7 @@ And for those overachievers who wish to [specify their own network
 structure](https://go.microsoft.com/fwlink/?LinkId=402867), the
 possibilities are inexhaustible.
 
-![Boundaries learned by neural networks][6]
+![Boundaries learned by neural networks](./media/algorithm-choice/image6.png)
 ***The boundaries learned by neural networks can be complex and
 irregular***
 
@@ -353,7 +353,7 @@ robustly and is small enough to learn quickly.
 Support vector machines (SVMs) find the boundary that separates classes
 by as wide a margin as possible. When the two classes can't be clearly
 separated, the algorithms find the best boundary they can. As written in
-Azure Machine Learning, the [two-class
+Azure Machine Learning Studio, the [two-class
 SVM](https://msdn.microsoft.com/library/azure/dn905835.aspx) does
 this with a straight line only. (In SVM-speak, it uses a linear kernel.)
 Because it makes this linear approximation, it is able to run fairly
@@ -362,7 +362,7 @@ or genomic. In these cases SVMs are able to separate classes more
 quickly and with less overfitting than most other algorithms, in
 addition to requiring only a modest amount of memory.
 
-![Support vector machine class boundary][7]
+![Support vector machine class boundary](./media/algorithm-choice/image7.png)
 
 ***A typical support vector machine class boundary maximizes the margin
 separating two classes***
@@ -388,7 +388,7 @@ boundary are unusual enough to be noteworthy.
 Bayesian methods have a highly desirable quality: they avoid
 overfitting. They do this by making some assumptions beforehand about
 the likely distribution of the answer. Another byproduct of this
-approach is that they have very few parameters. Azure Machine Learning has both
+approach is that they have very few parameters. Azure Machine Learning Studio has both
 Bayesian algorithms for both classification ([Two-class Bayes' point
 machine](https://msdn.microsoft.com/library/azure/dn905930.aspx))
 and regression ([Bayesian linear
@@ -404,7 +404,7 @@ JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) and an
 Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
 
 ### Specialized algorithms
-If you have a very specific goal you may be in luck. Within the Azure Machine Learning
+If you have a very specific goal you may be in luck. Within the Azure Machine Learning Studio
 collection, there are algorithms that specialize in:
 
 - rank prediction ([ordinal
@@ -417,13 +417,13 @@ and one based on [support vector
 machines](https://msdn.microsoft.com/library/azure/dn913103.aspx))
 - clustering ([K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/))
 
-![PCA-based anomaly detection][8]
+![PCA-based anomaly detection](./media/algorithm-choice/image8.png)
 
 ***PCA-based anomaly detection*** *- the vast majority of the data falls
 into a stereotypical distribution; points deviating dramatically from
 that distribution are suspect*
 
-![Data set grouped using K-means][9]
+![Data set grouped using K-means](./media/algorithm-choice/image9.png)
 
 ***A data set is grouped into five clusters using K-means***
 
@@ -433,12 +433,12 @@ which breaks the N-class classification problem into N-1 two-class
 classification problems. The accuracy, training time, and linearity
 properties are determined by the two-class classifiers used.
 
-![Two-class classifiers combined to form a three-class classifier][10]
+![Two-class classifiers combined to form a three-class classifier](./media/algorithm-choice/image10.png)
 
 ***A pair of two-class classifiers combine to form a three-class
 classifier***
 
-Azure Machine Learning also includes access to a powerful machine learning framework
+Azure Machine Learning Studio also includes access to a powerful machine learning framework
 under the title of [Vowpal
 Wabbit](https://msdn.microsoft.com/library/azure/8383eb49-c0a3-45db-95c8-eb56a1fef5bf).
 VW defies categorization here, since it can learn both classification
@@ -456,23 +456,8 @@ several languages.
 
 ## Next Steps
 
-* For a downloadable infographic that describes algorithms and provides examples, see [Downloadable Infographic: Machine learning basics with algorithm examples](basics-infographic-with-algorithm-examples.md).
+* To download an easy-to-understand infographic overview of machine learning basics to learn about popular algorithms used to answer common machine learning questions, see [Machine learning basics with algorithm examples](basics-infographic-with-algorithm-examples.md).
 
 * For a list by category of all the machine learning algorithms available in Machine Learning Studio, see [Initialize Model](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model) in the Machine Learning Studio Algorithm and Module Help.
 
 * For a complete alphabetical list of algorithms and modules in Machine Learning Studio, see [A-Z list of Machine Learning Studio modules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list) in Machine Learning Studio Algorithm and Module Help.
-
-* To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](studio-overview-diagram.md).
-
-<!-- Media -->
-
-[1]: ./media/algorithm-choice/image1.png
-[2]: ./media/algorithm-choice/image2.png
-[3]: ./media/algorithm-choice/image3.png
-[4]: ./media/algorithm-choice/image4.png
-[5]: ./media/algorithm-choice/image5.png
-[6]: ./media/algorithm-choice/image6.png
-[7]: ./media/algorithm-choice/image7.png
-[8]: ./media/algorithm-choice/image8.png
-[9]: ./media/algorithm-choice/image9.png
-[10]: ./media/algorithm-choice/image10.png

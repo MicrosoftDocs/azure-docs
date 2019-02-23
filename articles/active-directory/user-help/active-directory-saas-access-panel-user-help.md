@@ -3,16 +3,17 @@ title: Get help with accessing and using the MyApps portal in Azure Active Direc
 description: Get help with signing in to and performing common tasks in the access panel.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
 
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
+ms.collection: M365-identity-device-management
 ---
 
 # Troubleshoot issues with accessing and using the MyApps portal
@@ -45,7 +46,7 @@ The MyApps portal requires a browser that supports JavaScript and has CSS enable
 
 Check to ensure that you are meeting the following browser requirements:
 
-- **Edge**: on Windows 10 Anniversary Edition or later.
+- **Microsoft Edge**: on Windows 10 Anniversary Edition or later.
 - **Chrome**: on Windows 7 or later, and on Mac OS X or later.
 - **Firefox 26.0 or later**: on Windows XP SP2 or later, and on Mac OS X 10.6 or later.
 - **Internet Explorer 11**: on Windows 7 or later (limited support).
@@ -86,7 +87,7 @@ If you have installed the extension and are still experiencing issues, try the f
        The last three apps you've used are displayed in the **Recently Used** shortcut list.
 
 > [!NOTE]
-> These options are available only for Edge, Chrome, and Firefox.
+> These options are available only for Microsoft Edge, Chrome, and Firefox.
 
 ## How do I add a new app?
 

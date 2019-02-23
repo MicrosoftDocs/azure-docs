@@ -5,13 +5,13 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: 
-ms.devlang: pwershell
+ms.devlang: powershell
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
 manager: craigg
-ms.date: 06/14/2018
+ms.date: 01/25/2019
 ---
 # Create and manage SQL Database elastic jobs using PowerShell (preview)
 
@@ -183,7 +183,7 @@ The following table lists out all the object types of **Elastic Database jobs** 
 </table>
 
 ## Supported Elastic Database jobs group types
-The job executes Transact-SQL (T-SQL) scripts or application of DACPACs across a group of databases. When a job is submitted to be executed across a group of databases, the job “expands” the into child jobs where each performs the requested execution against a single database in the group. 
+The job executes Transact-SQL (T-SQL) scripts or application of DACPACs across a group of databases. When a job is submitted to be executed across a group of databases, the job “expands” the into child jobs where each performs the requested execution against an individual database in the group. 
 
 There are two types of groups that you can create: 
 

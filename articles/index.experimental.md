@@ -1,4 +1,4 @@
---- 
+---
 layout: HubPage
 hide_bc: true
 experiment_id: "81ba5f65-59fb-4d"
@@ -316,9 +316,9 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/redis-cache/">
+                                            <a href="/azure/azure-cache-for-redis/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
-                                                <p>Redis Cache</p>
+                                                <p>Azure Cache for Redis</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1872,7 +1872,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/redis-cache/">
+                                <a href="/azure/azure-cache-for-redis/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1882,7 +1882,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Redis Cache</h3>
+                                                    <h3>Azure Cache for Redis</h3>
                                                     <p>High throughput, low latency data access to build fast/scalable applications</p>
                                                 </div>
                                             </div>
@@ -3317,7 +3317,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="/powershell/azure/get-started-azureps">Get Started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/powershell/azure/install-azurerm-ps">Download PowerShell</a>
+                                                    <a href="/powershell/azure/azurerm/install-azurerm-ps">Download PowerShell</a>
                                                 </p>
                                                 <p>
                                                     <a href="/powershell/azure/overview">Reference</a>

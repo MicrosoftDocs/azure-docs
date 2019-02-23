@@ -13,7 +13,6 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.component: 
 ---
 
 # Log Analytics FAQ
@@ -45,13 +44,13 @@ A: Custom Fields extraction are currently supported in the classic Logs experien
 
 A: List view is not available in the new Logs. There is an arrow to the left of each record in the results table. Click this arrow to open the details for a specific record. 
 
-### Q. After running a query, a list of suggested filters shows up, but it doesn’t include all filters. How can I see the rest? 
+### Q. After running a query, a list of suggested filters are available. How can I see filters? 
 
-A: What you currently see is a preview of the new Filters implementation. This is now based on your full result set instead of being limited by the 10,000 record limit of the UI. This is currently a list of the most popular filters and the 10 most common values for each filter. 
+A: Click ‘Filters’ on the left pane to see a preview of the new Filters implementation. This is now based on your full result set instead of being limited by the 10,000 record limit of the UI. This is currently a list of the most popular filters and the 10 most common values for each filter. 
 
 ### Q. Why am I getting the error: "Register resource provider 'Microsoft.Insights' for this subscription to enable this query" in Logs, after drilling-in from VM? 
 
-A: By default, many resource providers are automatically registered, however, you may need to manually register some resource providers. This configures your subscription to work with the resource provider. The scope for registration is always the subscription. See [Resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md#portal) for more information.
+A: By default, many resource providers are automatically registered, however, you may need to manually register some resource providers. This configures your subscription to work with the resource provider. The scope for registration is always the subscription. See [Resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal) for more information.
 
 ### Q. Why am I am getting no access error message when accessing Logs from a VM page? 
 
@@ -59,7 +58,7 @@ A: To view VM Logs, you need to be granted with read permission to the workspace
 
 ### Q. Why can I can access my workspace in OMS portal, but I get the error “You have no access” in the Azure portal?  
 
-A: To access a workspace in Azure, you must have Azure permissions assigned. There are some cases where you may not have appropriate access permissions. In these cases, your administrator must grant you with permissions in Azure.See [OMS portal moving to Azure](/../../azure-monitor/platform/oms-portal-transition.md) for more information.
+A: To access a workspace in Azure, you must have Azure permissions assigned. There are some cases where you may not have appropriate access permissions. In these cases, your administrator must grant you with permissions in Azure.See [OMS portal moving to Azure](oms-portal-transition.md) for more information.
 
 ### Q. Why can't I can’t see View Designer entry in Logs? 
 A: View Designer is only available in Logs for users assigned with Contributor permissions or higher.
@@ -131,7 +130,7 @@ Log Analytics uses UTC time and each day starts at midnight UTC. If the workspac
 
 ### Q. How can I be notified when data collection stops?
 
-A: Use the steps described in [create a new log alert](../../monitoring-and-diagnostics/alert-metric.md) to be notified when data collection stops.
+A: Use the steps described in [create a new log alert](../../azure-monitor/platform/alerts-metric.md) to be notified when data collection stops.
 
 When creating the alert for when data collection stops, set the:
 
@@ -145,7 +144,7 @@ When creating the alert for when data collection stops, set the:
    - **Name** to *Data collection stopped*
    - **Severity** to *Warning*
 
-Specify an existing or create a new [Action Group](../../monitoring-and-diagnostics/monitoring-action-groups.md) so that when the log alert matches criteria, you are notified if you have a heartbeat missing for more than 15 minutes.
+Specify an existing or create a new [Action Group](../../azure-monitor/platform/action-groups.md) so that when the log alert matches criteria, you are notified if you have a heartbeat missing for more than 15 minutes.
 
 ## Configuration
 ### Q. Can I change the name of the table/blob container used to read from Azure Diagnostics (WAD)?
@@ -215,9 +214,9 @@ A: You need to add 'etag' in the body of the API, or the Azure Resource Manager 
 ### Q. How much data can I send through the agent to Log Analytics? Is there a maximum amount of data per customer?
 A. The free plan sets a daily cap of 500 MB per workspace. The standard and premium plans have no limit on the amount of data that is uploaded. As a cloud service, Log Analytics is designed to automatically scale up to handle the volume coming from a customer – even if it is terabytes per day.
 
-The Log Analytics agent was designed to ensure it has a small footprint. The data volume varies based on the solutions you enable. You can find detailed information on the data volume and see the breakdown by solution in the [Usage](../../log-analytics/log-analytics-usage.md) page.
+The Log Analytics agent was designed to ensure it has a small footprint. The data volume varies based on the solutions you enable. You can find detailed information on the data volume and see the breakdown by solution in the [Usage](../../azure-monitor/platform/data-usage.md) page.
 
-For more information, you can read a [customer blog](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) showing their results after evaluating the resource utilization (footprint) of the OMS agent.
+For more information, you can read a [customer blog](https://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) showing their results after evaluating the resource utilization (footprint) of the OMS agent.
 
 ### Q. How much network bandwidth is used by the Microsoft Management Agent (MMA) when sending data to Log Analytics?
 
@@ -231,7 +230,7 @@ A. The amount of data sent per agent depends on:
 * The number of logs and performance counters being collected
 * The volume of data in the logs
 
-The free pricing tier is a good way to onboard several servers and gauge the typical data volume. Overall usage is shown on the [Usage](../../log-analytics/log-analytics-usage.md) page.
+The free pricing tier is a good way to onboard several servers and gauge the typical data volume. Overall usage is shown on the [Usage](../../azure-monitor/platform/data-usage.md) page.
 
 For computers that are able to run the WireData agent, use the following query to see how much data is being sent:
 

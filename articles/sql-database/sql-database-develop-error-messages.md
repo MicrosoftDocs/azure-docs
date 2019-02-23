@@ -12,16 +12,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer:
 manager: craigg
-ms.date: 10/31/2018
+ms.date: 02/08/2019
 ---
 # SQL error codes for SQL Database client applications: Database connection errors and other issues
 
 This article lists SQL error codes for SQL Database client applications, including database connection errors, transient errors (also called transient faults), resource governance errors, database copy issues, elastic pool, and other errors. Most categories are particular to Azure SQL Database, and do not apply to Microsoft SQL Server. See also [system error messages](https://technet.microsoft.com/library/cc645603(v=sql.105).aspx).
 
 ## Database connection errors, transient errors, and other temporary errors
+
 The following table covers the SQL error codes for connection loss errors, and other transient errors you might encounter when your application attempts to access SQL Database. For getting started tutorials on how to connect to Azure SQL Database, see [Connecting to Azure SQL Database](sql-database-libraries.md).
 
 ### Most common database connection errors and transient fault errors
+
 The Azure infrastructure has the ability to dynamically reconfigure servers when heavy workloads arise in the SQL Database service.  This dynamic behavior might cause your client program to lose its connection to SQL Database. This kind of error condition is called a *transient fault*.
 
 It is strongly recommended that your client program has retry logic so that it could reestablish a connection after giving the transient fault time to correct itself.  We recommend that you delay for 5 seconds before your first retry. Retrying after a delay shorter than 5 seconds risks overwhelming the cloud service. For each subsequent retry the delay should grow exponentially, up to a maximum of 60 seconds.
@@ -42,6 +44,7 @@ For code examples of retry logic, see:
 A discussion of the *blocking period* for clients that use ADO.NET is available in [SQL Server Connection Pooling (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 ### Transient fault error codes
+
 The following errors are transient, and should be retried in application logic: 
 
 | Error code | Severity | Description |
@@ -56,6 +59,7 @@ The following errors are transient, and should be retried in application logic:
 | 4221 |16 |Login to read-secondary failed due to long wait on 'HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING'. The replica is not available for login because row versions are missing for transactions that were in-flight when the replica was recycled. The issue can be resolved by rolling back or committing the active transactions on the primary replica. Occurrences of this condition can be minimized by avoiding long write transactions on the primary. |
 
 ## Database copy errors
+
 The following errors can be encountered while copying a database in Azure SQL Database. For more information, see [Copy an Azure SQL Database](sql-database-copy.md).
 
 | Error code | Severity | Description |
@@ -75,6 +79,7 @@ The following errors can be encountered while copying a database in Azure SQL Da
 | 40571 |16 |Database copy failed due to an internal error. Please drop target database and try again later. |
 
 ## Resource governance errors
+
 The following errors are caused by excessive use of resources while working with Azure SQL Database. For example:
 
 * A transaction has been open for too long.
@@ -88,8 +93,8 @@ Related topics:
 
 | Error code | Severity | Description |
 | ---:| ---:|:--- |
-| 10928 |20 |Resource ID: %d. The %s limit for the database is %d and has been reached. For more information, see [http://go.microsoft.com/fwlink/?LinkId=267637](https://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2.<br/><br/>For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database resource limits](sql-database-service-tiers-dtu.md). |
-| 10929 |20 |Resource ID: %d. The %s minimum guarantee is %d, maximum limit is %d, and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. For more information, see [http://go.microsoft.com/fwlink/?LinkId=267637](https://go.microsoft.com/fwlink/?LinkId=267637). Otherwise, please try again later.<br/><br/>The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2.<br/><br/>For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database resource limits](sql-database-service-tiers-dtu.md). |
+| 10928 |20 |Resource ID: %d. The %s limit for the database is %d and has been reached. For more information, see [SQL Database resource limits for single and pooled databases](sql-database-resource-limits-database-server.md).<br/><br/>The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2.<br/><br/>For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database resource limits](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |Resource ID: %d. The %s minimum guarantee is %d, maximum limit is %d, and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. For more information, see [SQL Database resource limits for single and pooled databases](sql-database-resource-limits-database-server.md). Otherwise, please try again later.<br/><br/>The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2.<br/><br/>For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database resource limits](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |The database has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions. |
 | 40549 |16 |Session is terminated because you have a long-running transaction. Try shortening your transaction. |
 | 40550 |16 |The session has been terminated because it has acquired too many locks. Try reading or modifying fewer rows in a single transaction. |
@@ -98,15 +103,16 @@ Related topics:
 | 40553 |16 |The session has been terminated because of excessive memory usage. Try modifying your query to process fewer rows.<br/><br/>Reducing the number of `ORDER BY` and `GROUP BY` operations in your Transact-SQL code reduces the memory requirements of your query. |
 
 ## Elastic pool errors
+
 The following errors are related to creating and using elastic pools:
 
 | Error code | Severity | Description | Corrective action |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |The elastic pool has reached its storage limit. The storage usage for the elastic pool cannot exceed (%d) MBs. Attempting to write data to a database when the storage limit of the elastic pool has been reached. |Consider increasing the DTUs of and/or adding storage to the elastic pool if possible in order to increase its storage limit, reduce the storage used by individual databases within the elastic pool, or remove databases from the elastic pool. |
-| 10929 | 16 |The %s minimum guarantee is %d, maximum limit is %d, and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. See [http://go.microsoft.com/fwlink/?LinkId=267637](https://go.microsoft.com/fwlink/?LinkId=267637) for assistance. Otherwise, please try again later. DTU / vCore min per database; DTU / vCore max per database. The total number of concurrent workers (requests) across all databases in the elastic pool attempted to exceed the pool limit. |Consider increasing the DTUs or vCores of the elastic pool if possible in order to increase its worker limit, or remove databases from the elastic pool. |
+| 10929 | 16 |The %s minimum guarantee is %d, maximum limit is %d, and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. See [SQL Database resource limits for single and pooled databases](sql-database-resource-limits-database-server.md) for assistance. Otherwise, please try again later. DTU / vCore min per database; DTU / vCore max per database. The total number of concurrent workers (requests) across all databases in the elastic pool attempted to exceed the pool limit. |Consider increasing the DTUs or vCores of the elastic pool if possible in order to increase its worker limit, or remove databases from the elastic pool. |
 | 40844 | 16 |Database '%ls' on Server '%ls' is a '%ls' edition database in an elastic pool and cannot have a continuous copy relationship.  |N/A |
 | 40857 | 16 |Elastic pool not found for server: '%ls', elastic pool name: '%ls'. Specified elastic pool does not exist in the specified server. | Provide a valid elastic pool name. |
-| 40858 | 16 |Elastic pool '%ls' already exists in server: '%ls'. Specified elastic pool already exists in the specified logical server. | Provide new elastic pool name. |
+| 40858 | 16 |Elastic pool '%ls' already exists in server: '%ls'. Specified elastic pool already exists in the specified SQL Database server. | Provide new elastic pool name. |
 | 40859 | 16 |Elastic pool does not support service tier '%ls'. Specified service tier is not supported for elastic pool provisioning. |Provide the correct edition or leave service tier blank to use the default service tier. |
 | 40860 | 16 |Elastic pool '%ls' and service objective '%ls' combination is invalid. Elastic pool and service tier can be specified together only if resource type is specified as 'ElasticPool'. |Specify correct combination of elastic pool and service tier. |
 | 40861 | 16 |The database edition '%.*ls' cannot be different than the elastic pool service tier which is '%.*ls'. The database edition is different than the elastic pool service tier. |Do not specify a database edition which is different than the elastic pool service tier.  Note that the database edition does not need to be specified. |
@@ -131,6 +137,7 @@ Related topics:
 * [Monitor and manage an elastic pool (PowerShell)](sql-database-elastic-pool-manage-powershell.md)
 
 ## General errors
+
 The following errors do not fall into any previous categories.
 
 | Error code | Severity | Description |
@@ -198,10 +205,11 @@ The following errors do not fall into any previous categories.
 | 40671 |17 |Communication failure between the gateway and the management service. Please retry later. |
 | 40852 |16 |Cannot open database '%.\*ls' on server '%.\*ls' requested by the login. Access to the database is only allowed using a security-enabled connection string. To access this database, modify your connection strings to contain ‘secure’ in the server FQDN  -  'server name'.database.windows.net should be modified to 'server name'.database.`secure`.windows.net. |
 | 40914 | 16 | Cannot open server '*[server-name]*' requested by the login. Client is not allowed to access the server.<br /><br />To fix, consider adding a [virtual network rule](sql-database-vnet-service-endpoint-rule-overview.md). |
-| 45168 |16 |The SQL Azure system is under load, and is placing an upper limit on concurrent DB CRUD operations for a single server (e.g., create database). The server specified in the error message has exceeded the maximum number of concurrent connections. Try again later. |
+| 45168 |16 |The SQL Azure system is under load, and is placing an upper limit on concurrent DB CRUD operations for a single SQL Database server (e.g., create database). The server specified in the error message has exceeded the maximum number of concurrent connections. Try again later. |
 | 45169 |16 |The SQL azure system is under load, and is placing an upper limit on the number of concurrent server CRUD operations for a single subscription (e.g., create server). The subscription specified in the error message has exceeded the maximum number of concurrent connections, and the request was denied. Try again later. |
 
 ## Next steps
+
 * Read about [Azure SQL Database features](sql-database-features.md).
 * Read about [DTU-based purchasing model](sql-database-service-tiers-dtu.md).
 * Read about [vCore-based purchasing model](sql-database-service-tiers-vcore.md).

@@ -1,18 +1,19 @@
 ---
-title: LUIS Bot with C# - Tutorial - Web app Bot - Bot Framework SDK 4.0
-titleSuffix: Azure Cognitive Services
+title: Bot - C# - v4 
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Using C#, build a chat bot integrated with language understanding (LUIS). This chat bot uses the Human Resources app to quickly implement a bot solution. The bot is built with the Bot Framework version 4 and the Azure Web app bot.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cjgronlund
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/25/2018
+ms.date: 01/09/2019
 ms.author: diberry
 ---
 
-# Tutorial: LUIS bot in C#
+# Tutorial: LUIS bot in C# with the Bot Framework 4.x and the Azure Web app bot
 Using C#, you can build a chat bot integrated with language understanding (LUIS). This bot uses the HomeAutomation app to implement a bot solution. The bot is built the Azure [Web app bot](https://docs.microsoft.com/azure/bot-service/) with [Bot Framework version](https://github.com/Microsoft/botbuilder-js) v4.
 
 **In this tutorial, you learn how to:**
@@ -295,6 +296,7 @@ Azure Bot service uses the Bot Framework SDK. Learn more about the SDK and bot f
 
 You created an Azure bot service, copied the bot secret and `.bot` file path, downloaded the zip file of the code. You added the prebuilt HomeAutomation domain to the LUIS app created as part of the new Azure bot service, then trained and published the app again. You extracted the code project, created an environment file (`.env`), and set the bot secret and the `.bot` file path. In the bot.js file, you added code to handle the two new intents. Then you tested the bot in the bot emulator to see the LUIS response for an utterance of one of the new intents. 
 
+See more [samples](https://github.com/Microsoft/AI) with conversational bots. 
 
 > [!div class="nextstepaction"]
 > [Build a custom domain in LUIS](luis-quickstart-intents-only.md)

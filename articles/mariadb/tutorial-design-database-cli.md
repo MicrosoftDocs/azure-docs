@@ -1,13 +1,10 @@
 ---
 title: 'Tutorial: Design an Azure Database for MariaDB using Azure CLI'
 description: This tutorial explains how to create and manage Azure Database for MariaDB server and database using Azure CLI from the command line.
-services: mariadb
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/10/2018
 ms.custom: mvc

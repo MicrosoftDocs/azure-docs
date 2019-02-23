@@ -28,12 +28,14 @@
     href: how-to-configure-student-usage.md
   - name: Access classroom labs
     href: how-to-use-classroom-lab.md
+  - name: Create and manage schedules
+    href: how-to-create-schedules.md 
 - name: Reference
   items:
   - name: CLI
     href: /cli/azure/lab
   - name: PowerShell
-    href: /powershell/module/azurerm.devtestlabs/#devtest_labs
+    href: /powershell/module/az.devtestlabs/#devtest_labs
   - name: REST API
     href: https://docs.microsoft.com/rest/api/dtl/
 - name: Resources

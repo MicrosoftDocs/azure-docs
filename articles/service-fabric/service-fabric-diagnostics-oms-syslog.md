@@ -32,7 +32,7 @@ Each Syslog event has 4 components
 * Message
 * Severity
 
-The SyslogConsumer writes all platform events using Facility `Local0`. You can update to any valid facility by changing the config  config. The Identity used is `ServicFabric`. The Message field contains the whole event serialized in JSON so that it can be queried and consumed by a variety of tools. 
+The SyslogConsumer writes all platform events using Facility `Local0`. You can update to any valid facility by changing the config  config. The Identity used is `ServiceFabric`. The Message field contains the whole event serialized in JSON so that it can be queried and consumed by a variety of tools. 
 
 ## Enable SyslogConsumer
 
@@ -81,7 +81,7 @@ To enable the SyslogConsumer, you need to perform an upgrade of your cluster. Th
 Here are the changes to call out
 1. In the Common section, there is a new parameter called `LinuxStructuredTracesEnabled`. **This is required to have Linux events structured and serialized when sent to Syslog.**
 2. In the Diagnostics section, a new ConsumerInstance: SyslogConsumer has been added. This tells the platform there is another consumer of the events. 
-3. The new section SyslogConsumer needs to have `IsEnabled` as `true`. It is configurd to use the Local0 facility automatically. You can override this by adding another parameter.
+3. The new section SyslogConsumer needs to have `IsEnabled` as `true`. It is configured to use the Local0 facility automatically. You can override this by adding another parameter.
 
 ```json
     {

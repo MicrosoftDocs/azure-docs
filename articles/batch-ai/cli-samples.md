@@ -18,8 +18,12 @@ ms.date: 07/27/2018
 ms.author: danlep
 ms.custom: mvc
 
+ROBOTS: NOINDEX
+
 ---
 # Azure CLI examples for Azure Batch AI
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 The following table includes links to Azure CLI examples for Azure Batch AI.
 

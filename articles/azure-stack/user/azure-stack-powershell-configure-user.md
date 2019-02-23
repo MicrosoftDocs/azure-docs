@@ -3,7 +3,7 @@ title: Connect to Azure Stack with PowerShell as a user | Microsoft Docs
 description: Steps to connect to the user's Azure Stack instance.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
 
@@ -12,9 +12,10 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2018
-ms.author: sethm
-ms.reviewer: Balsu.G
+ms.date: 02/11/2019
+ms.author: mabrigg
+ms.reviewer: thoroet
+ms.lastreviewed: 01/24/2019
 
 ---
 
@@ -46,45 +47,26 @@ Make sure you replace the following script variables with values from your Azure
 
 ## Connect with Azure AD
 
-  ```PowerShell
-  $AADTenantName = "yourdirectory.onmicrosoft.com"
-  $ArmEndpoint = "https://management.local.azurestack.external"
+```PowerShell  
+    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
+    # Set your tenant name
+    $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
+    $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com"
+    $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
 
-  # Register an Azure Resource Manager environment that targets your Azure Stack instance
-  Add-AzureRMEnvironment `
-    -Name "AzureStackUser" `
-    -ArmEndpoint $ArmEndpoint
-
-  $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
-  $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
-
-  # Sign in to your environment
-  Login-AzureRmAccount `
-    -EnvironmentName "AzureStackUser" `
-    -TenantId $TenantId
-   ```
+    # After signing in to your environment, Azure Stack cmdlets
+    # can be easily targeted at your Azure Stack instance.
+    Add-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId $TenantId
+```
 
 ## Connect with AD FS
 
   ```PowerShell  
-  $ArmEndpoint = "https://management.local.azurestack.external"
-
   # Register an Azure Resource Manager environment that targets your Azure Stack instance
-  Add-AzureRMEnvironment `
-    -Name "AzureStackUser" `
-    -ArmEndpoint $ArmEndpoint
-
-  $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
-  $tenantId = (invoke-restmethod "$($AuthEndpoint)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
+  Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
 
   # Sign in to your environment
-
-  $cred = get-credential
-
-  Login-AzureRmAccount `
-    -EnvironmentName "AzureStackUser" `
-    -TenantId $tenantId `
-     $cred = get-credential
+  Login-AzureRmAccount -EnvironmentName "AzureStackUser"
   ```
 
 ## Register resource providers

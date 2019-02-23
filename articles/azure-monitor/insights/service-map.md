@@ -1,21 +1,18 @@
 ---
 title: Using Service Map solution in Azure | Microsoft Docs
 description: Service Map is a solution in Azure that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details for deploying Service Map in your environment and using it in a variety of scenarios.
-services:  monitoring
+services: monitoring
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-
 ---
 
 # Using Service Map solution in Azure
@@ -268,7 +265,7 @@ The **Machine Security** pane shows data from the Security and Audit solution fo
 ![Machine Security pane](media/service-map/machine-security.png)
 
 ## Updates integration
-Service Map integration with Update Management is automatic when both solutions are enabled and configured in your Log Anlaytics workspace.
+Service Map integration with Update Management is automatic when both solutions are enabled and configured in your Log Analytics workspace.
 
 The **Machine Updates** pane displays data from the Update Management solution for the selected server. The pane lists a summary of any missing updates for the server during the selected time range.
 

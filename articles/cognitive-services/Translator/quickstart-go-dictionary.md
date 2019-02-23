@@ -1,18 +1,18 @@
 ---
-title: "Quickstart: Find alternate translations, Go - Translator Text API"
+title: "Quickstart: Look up words with bilingual dictionary, Go - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you find alternate translations and examples of terms in context using the Translator Text API with Go.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/05/2018
+ms.date: 02/21/2019
 ms.author: erhopf
 ---
 
-# Quickstart: Use the Translator Text API to get alternate translations using Go
+# Quickstart: Look up words with bilingual dictionary using Go
 
 In this quickstart, you'll learn how to find alternate translations and usage examples for a specified text using Go and the Translator Text REST API.
 

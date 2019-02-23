@@ -24,7 +24,7 @@ The steps to enable Log Analytics for HDInsight are the same for all HDInsight c
 
 3. Configure the Kafka cluster to use Log Analytics. For more information, see the [Use Log Analytics to monitor HDInsight](../hdinsight-hadoop-oms-log-analytics-tutorial.md) document.
 
-    > [!NOTE]
+    > [!NOTE]  
     > You can also configure the cluster to use Log Analytics by using the `Enable-AzureRmHDInsightOperationsManagementSuite` cmdlet. This cmdlet requires the following information:
     >
     > * The HDInsight cluster name.
@@ -32,7 +32,7 @@ The steps to enable Log Analytics for HDInsight are the same for all HDInsight c
     > * The primary key for the Log Analytics connection. To find the primary key, open the workspace in the Azure portal, select __Advanced settings__ from the left menu. From Advanced settings, select  __Connected Sources__>__Linux Servers__.
 
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > It may take around 20 minutes before data is available for Log Analytics.
 
 ## Query logs
@@ -51,7 +51,7 @@ The steps to enable Log Analytics for HDInsight are the same for all HDInsight c
 
     * Outgoing bytes per second: `metrics_kafka_CL | where ClusterName_s == "your_kafka_cluster_name" and InstanceName_s == "kafka-BrokerTopicMetrics-BytesOutPerSec-Count" | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) by bin(TimeGenerated, 1h)`
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Replace the query values with your cluster specific information. For example, `ClusterName_s` must be set to the name of your cluster. `HostName_s` must be set to the domain name of a worker node in the cluster.
 
     You can also enter `*` to search all types logged. Currently the following logs are available for queries:
@@ -64,7 +64,7 @@ The steps to enable Log Analytics for HDInsight are the same for all HDInsight c
 
     ![Image of the CPU usage search](./media/apache-kafka-log-analytics-operations-management/kafka-cpu-usage.png)
  
- ## Next steps
+## Next steps
 
 For more information on Log Analytics, see the [Get started with a Log Analytics workspace](../../log-analytics/log-analytics-get-started.md) document.
 

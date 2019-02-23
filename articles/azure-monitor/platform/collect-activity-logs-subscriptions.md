@@ -1,7 +1,7 @@
 ---
-title: Collect Azure Activity Logs into Log Analytics across subscriptions | Microsoft Docs 
+title: Collect Azure Activity Logs into Log Analytics across subscriptions | Microsoft Docs
 description: Use Event Hubs and Logic Apps to collect data from the Azure Activity Log and send it to an Azure Log Analytics workspace in a different tenant.
-services: log-analytics, logic-apps, event-hubs 
+services: log-analytics, logic-apps, event-hubs
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
@@ -9,16 +9,13 @@ editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.component: 
-
 ---
-# Collect Azure Activity Logs into Log Analytics across subscriptions
+# Collect Azure Activity Logs into Log Analytics across subscriptions in different Azure Active Directory tenants
 
-This article steps through a method to collect Azure Activity Logs into a Log Analytics workspace using the Azure Log Analytics Data Collector connector for Logic Apps. Use the process in this article when you need to send logs to a workspace in a different Azure Active Directory. For example, if you are a managed service provider, you may want to collect activity logs from a customer's subscription and store them in a Log Analytics workspace in your own subscription.
+This article steps through a method to collect Azure Activity Logs into a Log Analytics workspace using the Azure Log Analytics Data Collector connector for Logic Apps. Use the process in this article when you need to send logs to a workspace in a different Azure Active Directory tenant. For example, if you are a managed service provider, you may want to collect activity logs from a customer's subscription and store them in a Log Analytics workspace in your own subscription.
 
 If the Log Analytics workspace is in the same Azure subscription, or in a different subscription but in the same Azure Active Directory, use the steps in the [Azure activity log solution](collect-activity-logs.md) to collect Azure activity logs.
 
@@ -89,7 +86,7 @@ You can use an event hub namespace that is not in the same subscription as the s
 
 11. Click **OK** and then **Save** to save these settings. The settings are immediately be applied to your subscription.
 
-<!-- Follow the steps in [stream the Azure Activity Log to Event Hubs](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md) to configure a log profile that writes activity logs to an event hub. -->
+<!-- Follow the steps in [stream the Azure Activity Log to Event Hubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md) to configure a log profile that writes activity logs to an event hub. -->
 
 ## Step 3 - Create Logic App
 

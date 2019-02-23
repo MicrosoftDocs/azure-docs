@@ -4,16 +4,17 @@ description: This page will provide you guidance on where to go to see the vario
 keywords: user authentication, sign-in experience, sign-in with mobile phone, sign-in with office phone
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
 
 ms.workload: identity
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
+ms.collection: M365-identity-device-management
 ---
 
 # The sign-in experience with Azure Multi-Factor Authentication
@@ -27,8 +28,8 @@ Your sign-in experience differs depending on what you choose to use as your seco
 | --- |
 | [With a phone call to my mobile or office phone](#signing-in-with-a-phone-call) |
 | [With a text to my mobile phone](#signing-in-with-a-text-message)
-| [With notifications from the Microsoft Authenticator app](#signing-in-with-the-microsoft-authenticator-app-using-notification) |
-| [With verification codes from the Microsoft Authenticator app](#signing-in-with-the-microsoft-authenticator-app-using-verification-code) |
+| With notifications from the Microsoft Authenticator app |
+| With verification codes from the Microsoft Authenticator app |
 | [With an alternate method, because I can't use my preferred method right now](#signing-in-with-an-alternate-method) |
 
 ## Signing in with a phone call
@@ -83,4 +84,4 @@ If you have problems signing in with two-step verification, get more information
 
 Learn how to [Manage your two-step verification settings](multi-factor-authentication-end-user-manage-settings.md).
 
-Find out how to [Get started with the Microsoft Authenticator app](microsoft-authenticator-app-how-to.md) so that you can use notifications to sign in, instead of texts and phone calls.
+Find out how to [Get started with the Microsoft Authenticator app](user-help-auth-app-download-install.md) so that you can use notifications to sign in, instead of texts and phone calls.

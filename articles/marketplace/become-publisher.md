@@ -42,7 +42,7 @@ After registering, record the Microsoft Partner Network ID for your organization
 *	Learn about the benefits of the [Microsoft Partner Network](https://partner.microsoft.com/commercial)
 *	If your organization has an existing membership, then you will join your organization during registration. If you use [Partner Center](https://partnercenter.microsoft.com/partner/home), you will be able to see the ID in your Partner Center account. If you use [Partner Membership Center (PMC)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx), you will be able to see it in your Partner Membership Center account. 
 
----  
+---
 
 ## 2. Create a Microsoft Account  
 | 15 min |  
@@ -58,7 +58,7 @@ A Microsoft account, e.g. *@outlook.com or @live.com*, is used to access many Mi
 *	For help creating or managing your Microsoft account, visit the [Microsoft account help support pages](https://support.microsoft.com/products/microsoft-account?category=manage-account).
 
 
----  
+---
 
 ## 3. Submit the marketplace registration form  
 | 15 min |  
@@ -69,7 +69,7 @@ You will be asked to include the following information:
 *	A brief description of your initial app or consulting services offer that you intend to publish, including the Microsoft product or service to which your offer most closely aligns
 *	The target audience for your app or service 
 
----  
+---
 ## 4. Sign into Cloud Partner Portal
 | 1-3 days | <br>
 Our Marketplace Onboarding Team will validate the marketplace registration details provided in step 3. Once approved, you will receive a welcome email with account credentials and guidance on signing-in to the [Cloud Partner Portal](https://cloudpartner.azure.com).
@@ -94,15 +94,15 @@ The individual registering in [Dev Center](https://developer.microsoft.com/store
 Once you have completed the [Dev Center](https://developer.microsoft.com/store/register) registration, link your Cloud Partner Profile with your [Dev Center](https://developer.microsoft.com/store/register) account (see detailed steps here). This step must be completed before publishing your transact offer. 
 
 >[!Note]
->To waive the $99 Developer Center registration fee, complete the [marketplace registration form](https://azuremarketplace.microsoft.com/en-us/sell/signup) and you will receive an email containing your promotional code. 
+>To waive the $99 Developer Center registration fee, complete the [marketplace registration form](https://azuremarketplace.microsoft.com/sell/signup) and you will receive an email containing your promotional code. 
 
 >[!Important]
 >Before you create a Microsoft Dev Center account, please verify that your organization does not already have a Dev Center account to avoid duplicate accounts. For more information, visit the [Register in Dev Center](https://docs.microsoft.com/azure/marketplace/register-dev-center) section.
 
 
 ## Next steps
-* Learn about the marketplace storefronts: [Comparing AppSource and the Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
-*	[Determine the listing type for your solution](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
+* Learn about the marketplace storefronts: [Comparing AppSource and the Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
+*	[Determine the listing type for your solution](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
 
  
----  
+---

@@ -191,6 +191,7 @@ featureFlags:
                                                 <h4>Relational Databases</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/sql-database/">SQL database as a service</a></li>
+                                                    <li><a class="barLink" href="/azure/virtual-machines/windows/sql/">SQL Server on an Azure VM</a></li>
                                                     <li><a class="barLink" href="/azure/sql-data-warehouse/">SQL Data Warehouse as a service</a></li>
                                                     <li><a class="barLink" href="/azure/postgresql/">PostgreSQL database as a service</a></li>
                                                     <li><a class="barLink" href="/azure/mysql/">MySQL database as a service</a></li>
@@ -207,6 +208,7 @@ featureFlags:
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/machine-learning/">Machine Learning </a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/">Cognitive Services</a></li>
+                                                    <li><a class="barLink" href="/azure/notebooks/">Azure Notebooks</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -392,12 +394,6 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/batch-ai/">
-                                                <img src="media/index/Azure_batch_ai.svg" alt="" />
-                                                <p>Azure Batch AI</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/service-fabric/">
                                                 <img src="media/index/Fabric.svg" alt="" />
                                                 <p>Service Fabric</p>
@@ -467,9 +463,9 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/redis-cache/">
+                                            <a href="/azure/azure-cache-for-redis/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
-                                                <p>Redis Cache</p>
+                                                <p>Azure Cache for Redis</p>
                                             </a>
                                         </li>
                                         <li>
@@ -589,12 +585,6 @@ featureFlags:
                                             <a href="/azure/event-grid/">
                                                 <img src="media/index/azure_event_grid.svg" alt="" />
                                                 <p>Event Grid</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/biztalk-services/">
-                                                <img src="media/index/BizTalkServices.svg" alt="" />
-                                                <p>Biztalk Services</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -771,12 +761,6 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/batch-ai/">
-                                                <img src="media/index/Azure_batch_ai.svg" alt="" />
-                                                <p>Azure Batch AI</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="https://docs.microsoft.com/bot-framework/bot-service-overview-introduction">
                                                 <img src="media/index/bot-service.svg" alt="" />
                                                 <p>Azure Bot Service</p>
@@ -807,6 +791,11 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/notebooks">
+                                                <img src="media/index/notebooks.svg" alt="" />
+                                                <p>Azure Notebooks</p>
+                                            </a>
+                                        </li>                                        <li>
                                             <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
                                                 <p>Azure Search</p>
@@ -1033,7 +1022,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/cost-management/">
-                                                <img src="media/index/billing.svg" alt="" />
+                                                <img src="media/index/cost-management.svg" alt="" />
                                                 <p>Cost Management</p>
                                             </a>
                                         </li>
@@ -1087,7 +1076,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/virtual-machines/windows/about-disks-and-vhds">
+                                            <a href="/azure/virtual-machines/windows/managed-disks-overview">
                                                 <img src="media/index/Disks-color.svg" alt="" />
                                                 <p>Disk Storage</p>
                                             </a>
@@ -1451,6 +1440,12 @@ featureFlags:
                                                 <p>API Management</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure-sphere/">
+                                                <img src="media/index/azure_sphere.svg" alt="" />
+                                                <p>Azure Sphere</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="group">
@@ -1727,7 +1722,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://azure.microsoft.com/">
+                                            <a href="https://docs.microsoft.com/azure/azure-portal/">
                                                 <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="" />
                                                 <p>Microsoft Azure Portal</p>
                                             </a>
@@ -1770,7 +1765,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/cost-management/">
-                                                <img src="media/index/billing.svg" alt="" />
+                                                <img src="media/index/cost-management.svg" alt="" />
                                                 <p>Cost Management</p>
                                             </a>
                                         </li>
@@ -1908,25 +1903,6 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Container Instances</h3>
                                                     <p>Easily run containers with a single command</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/batch-ai/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/batch-ai.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Batch AI</h3>
-                                                    <p>Easily experiment and train your deep learning and AI models in parallel at scale</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2438,7 +2414,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-machines/windows/about-disks-and-vhds">
+                                <a href="/azure/virtual-machines/windows/managed-disks-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3104,7 +3080,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/redis-cache/">
+                                <a href="/azure/azure-cache-for-redis/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3114,7 +3090,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Redis Cache</h3>
+                                                    <h3>Azure Cache for Redis</h3>
                                                     <p>Power applications with high-throughput, low-latency data access</p>
                                                 </div>
                                             </div>
@@ -3608,7 +3584,7 @@ featureFlags:
                         <a href="#ai">AI + Machine Learning</a>
                         <ul id="ai" class="cardsA">
                             <li class="fullSpan">
-                                <h2>Artificial Intelligence</h2>
+                                <h2>Artificial Intelligence + Machine Learning</h2>
                             </li>
                             <li>
                                 <a href="/azure/azure-databricks/">
@@ -3623,25 +3599,6 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Azure Databricks</h3>
                                                     <p>Create an Azure Databricks workspace with Spark clusters</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/batch-ai/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Azure_batch_ai.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Batch AI</h3>
-                                                    <p>Easily experiment and train your deep learning and AI models in parallel at scale</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3737,6 +3694,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Cognitive Services</h3>
                                                     <p>Infuse apps, websites, and bots with intelligence to see, hear, speak, and understand</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/notebooks/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/notebooks.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Notebooks</h3>
+                                                    <p>Host and run Jupyter notebooks in a pre-configured cloud environment</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4322,6 +4298,25 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure-sphere/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure_sphere.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Sphere</h3>
+                                                    <p>Create highly secured, connected MCU-powered devices</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -4397,25 +4392,6 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Event Grid</h3>
                                                     <p>Get reliable event delivery at massive scale</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/biztalk-services/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/BizTalkServices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Biztalk Services</h3>
-                                                    <p>Seamlessly integrate the enterprise and the cloud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5322,7 +5298,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-resource-manager/resource-group-overview">
+                                <a href="/azure/azure-resource-manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -5442,7 +5418,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/billing.svg" alt="" />
+                                                        <img src="media/index/cost-management.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -5680,7 +5656,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/billing.svg" alt="" />
+                                                        <img src="media/index/cost-management.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
