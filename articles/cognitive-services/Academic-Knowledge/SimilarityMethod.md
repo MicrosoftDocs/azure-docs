@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use the Similarity method to calculate the academic similarity of two strings.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: academic-knowledge

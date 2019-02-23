@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 01/09/2019
+ms.date: 02/14/2019
 ms.author: alkohli
 ---
 # What is Azure Data Box Disk?
@@ -126,6 +126,9 @@ A. The toolset available with the Data Box Disk contains three tools:
 The toolset is available both for Windows and Linux. You can download the toolset here:
  - [Download Data Box Disk toolset for Windows](https://aka.ms/databoxdisktoolswin) 
  - [Download Data Box Disk toolset for Linux](https://aka.ms/databoxdisktoolslinux)
+ 
+### Q. Can I use Data Box Disk to transfer data to Azure Files and then use the data with Azure File Sync? 
+A. Azure Files are not supported with Data Box Disk. Metadata is also not retained if the file data is later used with Azure File Sync.
 
 
 ## Verify and upload

@@ -1,5 +1,5 @@
 ---
-title: Self-service sign-up portal for Azure Active Directory B2B collaboration | Microsoft Docs
+title: Self-service sign-up portal for B2B collaboration - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B collaboration supports your cross-company relationships by enabling business partners to selectively access your corporate applications
 
 services: active-directory
@@ -13,6 +13,7 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 
+ms.collection: M365-identity-device-management
 ---
 
 # Self-service portal for Azure AD B2B collaboration sign-up

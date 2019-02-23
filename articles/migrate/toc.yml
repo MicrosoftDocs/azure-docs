@@ -70,6 +70,8 @@
     href: how-to-modify-assessment.md
   - name: Migrate machines after assessment
     href: how-to-get-migration-tool.md
+  - name: Automate migration of large number of VMs
+    href: how-to-migrate-at-scale.md
   - name: Troubleshoot Azure Migrate
     href: troubleshooting-general.md
 - name: Resources

@@ -59,7 +59,7 @@ This script uses the following commands to create a resource group, virtual mach
 | [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob) | Creates a blob in the container by uploading the VHD. |
 | [az vm list](https://docs.microsoft.com/cli/azure/vm) | Used with `--query` check whether the VM name is in use. | 
 | [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Creates the virtual machines. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm-ip-addresses) | Gets the IP address of the VM that was created. |
+| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az-vm-list-ip-addresses) | Gets the IP address of the VM that was created. |
 
 ## Next steps
 

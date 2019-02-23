@@ -11,6 +11,7 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial:  Integrate a single AD forest using pass-through authentication (PTA)

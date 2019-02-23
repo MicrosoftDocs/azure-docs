@@ -36,7 +36,7 @@ Azure Migrate helps you to:
     Azure Government | US Gov Virginia
     Asia | Southeast Asia
     Europe | North Europe or West Europe
-    Unites States | East US or West Central US
+    United States | East US or West Central US
 
     The geography associated with the migration project is used to store the metadata discovered from the on-premises environment. Metadata is stored in one of the regions based on the geography specified for the migration project. If you use dependency visualization by creating a new Log Analytics workspace, the workspace is created in the same region as the project.
 - The dependency visualization functionality is not available in Azure Government.

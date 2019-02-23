@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2B collaboration FAQs | Microsoft Docs
+title: B2B collaboration FAQs - Azure Active Directory | Microsoft Docs
 description: Get answers to frequently asked questions about Azure Active Directory B2B collaboration.
 
 services: active-directory
@@ -13,6 +13,7 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory B2B collaboration FAQs

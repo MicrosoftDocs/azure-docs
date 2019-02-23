@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use this quickstart to search for entities with the Bing Entity Search SDK for Java
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
@@ -140,6 +140,7 @@ Install the Bing Entity Search SDK dependencies by using Maven, Gradle, or anoth
             }
         }
     }
+    ```
 
 ## Next steps
 

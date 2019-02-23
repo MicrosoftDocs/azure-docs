@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use and display requirements for the Project URL Preview API endpoint.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: url-preview

@@ -1,6 +1,6 @@
 ---
-title: Secure a standalone or pooled database in Azure SQL Database | Microsoft Docs
-description: Learn about techniques and features to secure a standalone or pooled database in Azure SQL Database.
+title: Secure a single or pooled database in Azure SQL Database | Microsoft Docs
+description: Learn about techniques and features to secure a single or pooled database in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,11 +9,11 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/30/2019
+ms.date: 02/08/2019
 ---
-# Tutorial: Secure a standalone or pooled database
+# Tutorial: Secure a single or pooled database
 
-Azure SQL Database secures data in a standalone or pooled database by allowing you to:
+Azure SQL Database secures data in a single or pooled database by allowing you to:
 
 - Limit access using firewall rules
 - Use authentication mechanisms that require identity
