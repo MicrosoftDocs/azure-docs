@@ -1,6 +1,6 @@
 ---
 title: Sample - Enforce tag and its value
-description: This sample policy requires a specified tag name and value.
+description: This sample policy definition requires a tag name and value, each set as a parameter.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ---
-# Enforce tag and its value
+# Sample - Enforce tag and its value
 
 This policy requires a specified tag name and value. You specify the tag name and value to enforce.
 

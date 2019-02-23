@@ -19,7 +19,7 @@ ms.author: bwren
 # Joins in Azure Monitor log queries
 
 > [!NOTE]
-> You should complete [Get started with Azure Monitor log analytics](get-started-portal.md) and [Azure Monitor log queries](get-started-queries.md) before completing this lesson.
+> You should complete [Get started with Azure Monitor Log Analytics](get-started-portal.md) and [Azure Monitor log queries](get-started-queries.md) before completing this lesson.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 

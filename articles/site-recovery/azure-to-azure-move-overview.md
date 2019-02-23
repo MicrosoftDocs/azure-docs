@@ -46,7 +46,7 @@ Moving VMs involves the following steps:
 > Currently Azure Site Recovery supports moving VMs from on region to another and doesn't support moving within a region. 
 
 > [!NOTE]
-> Detailed guidance on these steps are provided in the documentation for each of the scenario as mentioned here
+> Detailed guidance on these steps are provided in the documentation for each of the scenario as mentioned [here](#next-steps)
 
 ## Typical architectures for a multi-tier deployment
 Below section walks through the most common deployment architectures customers adopt, for a multi-tier application in Azure. The example we are taking here is of a three tiered application with a public IP. Each of the tiers – Web, Application & Database have 2 VMs each, & are connected by a Load Balancer to the other tiers. The Database tier has SQL Always ON replication between the VMs for High Availability (HA).
@@ -65,7 +65,7 @@ Below section walks through the most common deployment architectures customers a
 
 
 
- ## Move VMs as is to a target region
+## Move VMs as is to a target region
 
 Based on the above mentioned [architectures](#typical-architectures-for-a-multi-tier-deployment), heres how the deployments will look like once you perform the move as is to the target region.
 

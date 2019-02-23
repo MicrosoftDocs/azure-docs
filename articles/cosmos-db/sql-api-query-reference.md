@@ -4,7 +4,7 @@ description: This article explains the SQL query language syntax used in Azure C
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18

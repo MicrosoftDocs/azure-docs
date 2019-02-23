@@ -255,9 +255,6 @@
     - name: Custom Vision Service
       tocHref: /azure/cognitive-services/custom-vision-service/
       topicHref: /azure/cognitive-services/custom-vision-service/
-    - name: Emotion
-      tocHref: /azure/cognitive-services/emotion/
-      topicHref: /azure/cognitive-services/emotion/home
     - name: Entity Linking
       tocHref: /azure/cognitive-services/entitylinking/
       topicHref: /azure/cognitive-services/entitylinking/home
@@ -639,11 +636,17 @@
     items:
       - name: Workloads
         tocHref: /azure/virtual-machines/workloads/
-        topicHref: /azure/virtual-machines/workloads/sap/get-started
+        topicHref: /azure/virtual-machines/workloads/workloads
         items:
           - name: SAP
             tocHref: /azure/virtual-machines/workloads/sap/
             topicHref: /azure/virtual-machines/workloads/sap/get-started
+          - name: Oracle
+            tocHref: /azure/virtual-machines/workloads/oracle/
+            topicHref: /azure/virtual-machines/workloads/oracle/oracle-considerations
+          - name: Mainframe rehosting
+            tocHref: /azure/virtual-machines/workloads/mainframe-rehosting/
+            topicHref: /azure/virtual-machines/workloads/mainframe-rehosting/overview
       - name: Linux
         tocHref: /azure/virtual-machines/linux/
         topicHref: /azure/virtual-machines/linux/
