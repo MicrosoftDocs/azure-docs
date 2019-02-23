@@ -60,5 +60,6 @@ The template defines the following two parameters:
 
 ## Next steps
 
-- [Introduction to Azure Data Factory](introduction.md)
-- [Introduction to Azure Data Factory](introduction.md)
+- [Bulk copy from a database by using a control table with Azure Data Factory](solution-template-bulk-copy-with-control-table.md)
+
+- [Copy files from multiple containers with Azure Data Factory](solution-template-copy-files-multiple-containers.md)
