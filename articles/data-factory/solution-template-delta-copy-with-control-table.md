@@ -138,4 +138,5 @@ The template defines five parameters:
 	
 ## Next steps
 
-- [Introduction to Azure Data Factory](introduction.md)
+- [Copy files from multiple containers with Azure Data Factor](solution-template-copy-files-multiple-container.md)
+- [Bulk copy from a database by using a control table with Azure Data Factory](solution-template-bulk-copy-with-control-table.md)
