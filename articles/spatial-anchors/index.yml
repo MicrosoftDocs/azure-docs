@@ -26,26 +26,32 @@ sections:
     items:
     - image:
         src: /media/logos/logo_android.svg
+        alt:
       text: Android
       href: quickstarts/get-started-android.md
     - image:
         src: /media/logos/logo_Windows.svg
+        alt:
       text: HoloLens
       href: quickstarts/get-started-hololens.md
     - image:
         src: /media/logos/logo_ios.svg
+        alt:
       text: iOS
       href: quickstarts/get-started-ios.md
     - image:
         src: /media/logos/logo_android.svg
+        alt:
       text: Unity Android
       href: quickstarts/get-started-unity-android.md
     - image:
         src: /media/logos/logo_Windows.svg
+        alt:
       text: Unity HoloLens
       href: quickstarts/get-started-unity-hololens.md
     - image:
         src: /media/logos/logo_ios.svg
+        alt:
       text: Unity iOS
       href: quickstarts/get-started-unity-ios.md
 - title: Step-by-Step Tutorials

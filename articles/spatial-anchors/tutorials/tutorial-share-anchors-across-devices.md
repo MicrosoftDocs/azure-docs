@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Share Azure Spatial Anchor identifiers between devices in Unity with a back-end service  | Microsoft Docs
+title: Tutorial - Sharing across sessions and devices with Azure Spatial Anchors | Microsoft Docs
 description: In this tutorial, you learn how to share Azure Spatial Anchor identifiers between devices in Unity with a back-end service.
 author: ramonarguelles
 manager: vicenterivera
@@ -12,7 +12,8 @@ ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
 #Customer intent: As a Mixed Reality developer, I want to learn how to share Azure Spatial Anchor identifiers between devices in Unity with a back-end service.
 ---
-# Tutorial: Share Azure Spatial Anchor identifiers between devices in Unity with a back-end service
+
+# Tutorial: Sharing across sessions and devices with Azure Spatial Anchors
 
 This tutorial will show you how to use [Azure Spatial Anchors](../overview.md) to:
 
