@@ -5,7 +5,7 @@ author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
 ms.author: ramonarguelles
-ms.date: 02/19/2019
+ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
 #Customer intent: Address frequently asked questions regarding Azure Spatial Anchors.

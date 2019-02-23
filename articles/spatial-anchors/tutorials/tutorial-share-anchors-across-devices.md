@@ -1,20 +1,28 @@
 ---
-title: Tutorial - Share Azure Spatial Anchor identifiers between devices in Unity with a back-end service  | Microsoft Docs
+title: Tutorial - Sharing across sessions and devices with Azure Spatial Anchors | Microsoft Docs
 description: In this tutorial, you learn how to share Azure Spatial Anchor identifiers between devices in Unity with a back-end service.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
 
 ms.author: rgarcia
-ms.date: 1/29/2019
+ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
 #Customer intent: As a Mixed Reality developer, I want to learn how to share Azure Spatial Anchor identifiers between devices in Unity with a back-end service.
 ---
-# Tutorial: Share Azure Spatial Anchor identifiers between devices in Unity with a back-end service
 
-This tutorial covers how to share [Azure Spatial Anchors](../overview.md) that you have created across other devices. Azure Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an app that can be deployed to two or more devices. Azure Spatial Anchors created by one instance can be shared to the others.
+# Tutorial: Sharing across sessions and devices with Azure Spatial Anchors
+
+This tutorial will show you how to use [Azure Spatial Anchors](../overview.md) to:
+
+1. Create anchors in one session and then locate them in another session on the same or different device. For example, on a different day.
+2. Create anchors that can be located by multiple devices in the same place at the same time.
+
+![Persistence](./media/persistence.gif)
+
+Azure Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an app that can be deployed to two or more devices. Azure Spatial Anchors created by one instance can be shared to the others.
 
 You'll learn how to:
 
@@ -24,8 +32,6 @@ You'll learn how to:
 > * Deploy and run to one or more devices.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-![Persistence](./media/persistence.gif)
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-share-sample-prereqs.md)]
 

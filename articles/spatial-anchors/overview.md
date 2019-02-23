@@ -6,14 +6,14 @@ manager: aliemami
 services: azure-spatial-anchors
 
 ms.author: crtreasu
-ms.date: 12/13/2018
+ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
 ---
 # Azure Spatial Anchors overview
 
-Welcome to Azure Spatial Anchors. Spatial Anchors empowers developers with essential capabilities to build spatially aware
+Welcome to Azure Spatial Anchors. Azure Spatial Anchors empowers developers with essential capabilities to build spatially aware
 mixed reality applications. These applications may support Microsoft HoloLens, iOS-based devices supporting ARKit, and
 Android-based devices supporting ARCore. Azure Spatial Anchors enables developers to work with mixed reality platforms to
 perceive spaces, designate precise points of interest, and to recall those points of interest from supported devices.
@@ -39,7 +39,7 @@ sections provide information about getting started with building apps using Azur
 Create your first app with Spatial Anchors.
 
 > [!div class="nextstepaction"]
-> [Unity](unity-overview.md)
+> [Unity](unity-overview.yml)
 
 > [!div class="nextstepaction"]
 > [iOS](quickstarts/get-started-ios.md)

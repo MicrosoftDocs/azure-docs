@@ -7,7 +7,7 @@
 - name: Quickstarts
   items:
   - name: Create Unity app
-    href: unity-overview.md
+    href: unity-overview.yml
     expanded: true
     items:
     - name: HoloLens
@@ -30,15 +30,12 @@
     href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
 - name: Samples
   items:
-  - name: Azure Spatial Anchor Samples (GitHub)
+  - name: Azure Spatial Anchors samples (GitHub)
     href: https://github.com/Azure/azure-spatial-anchors-samples
-  - name: MR+IOT--SmartHotel 360
-    href: https://github.com/Microsoft/SmartHotel360-MixedReality
 - name: Concepts
   items:
   - name: Create and locate anchors
     href: create-locate-anchors-overview.md
-    expanded: true
     items:
     - name: In Unity
       href: concepts/create-locate-anchors-unity.md
@@ -54,6 +51,8 @@
       href: concepts/create-locate-anchors-cpp-winrt.md
   - name: Anchor relationships
     href: concepts/anchor-relationships-way-finding.md
+  - name: Experience guidelines
+    href: concepts/guidelines-effective-anchor-experiences.md
   - name: Logging and diagnostics
     href: concepts/logging-diagnostics.md
 - name: References
