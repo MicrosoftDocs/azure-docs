@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 2/22/2018
 ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
@@ -103,24 +103,24 @@ If you are building an application that supports a SCIM 2.0 user management API,
 
 Within the [SCIM 2.0 protocol specification](http://www.simplecloud.info/#Specification), your application must meet these requirements:
 
-* Supports creating users and/or groups, as per section 3.3 of the SCIM protocol.  
-* Supports modifying users and/or groups with PATCH requests as per section 3.5.2 of the SCIM protocol.  
-* Supports retrieving a known resource as per section 3.4.1 of the SCIM protocol.  
-* Supports querying users and/or groups, as per section 3.4.2 of the SCIM protocol.  By default, users are queried by username and groups are queried by displayName.  
+* Supports creating users, and optionally also groups, as per section [3.3 of the SCIM protocol](https://tools.ietf.org/html/rfc7644#section-3.3).  
+* Supports modifying users and/or groups with PATCH requests as per [section 3.5.2 of the SCIM protocol](https://tools.ietf.org/html/rfc7644#section-3.5.2).  
+* Supports retrieving a known resource for a user or group created earlier, as per [section 3.4.1 of the SCIM protocol](https://tools.ietf.org/html/rfc7644#section-3.4.1).  
+* Supports querying users and/or groups, as per section [3.4.2 of the SCIM protocol](https://tools.ietf.org/html/rfc7644#section-3.4.2).  By default, users are retrieved by their `id` and queried by their `username` and `externalid`, and groups are queried by `displayName`.  
 * Supports querying user by ID and by manager as per section 3.4.2 of the SCIM protocol.  
 * Supports querying groups by ID and by member as per section 3.4.2 of the SCIM protocol.  
-* Accepts a single bearer token for authorization.
+* Accepts a single bearer token for authentication and authorization of Azure AD to your application.
 
 In addition, follow these general guidelines when implementing a SCIM endpoint to ensure compatibility with Azure AD:
 
-* `id` is a required property for all the resources; except for `ListResponse` with zero members.
+* `id` is a required property for all the resources; every response that returns a resource should ensure each resource has this property, except for `ListResponse` with zero members.
 * Response to a query/filter request should always be a `ListResponse`.
 * Groups are optional, but only supported if the SCIM implementation supports PATCH requests.
 * It is not necessary to include the entire resource in the PATCH response.
 * Microsoft Azure AD only uses the following operators  
      - `eq`
      - `and`
-* Do not do a case-sensitive match on PATCH `op` operation values, as defined in https://tools.ietf.org/html/rfc7644#section-3.5.2. The emitted values are `Add`, `Replace`, and `Remove`.
+* Do not require a case-sensitive match on structural elements in SCIM, in particular PATCH `op` operation values, as defined in https://tools.ietf.org/html/rfc7644#section-3.5.2. Azure AD emits the values of 'op' as `Add`, `Replace`, and `Remove`.
 * Microsoft Azure AD makes requests to fetch a random user and group to ensure that the endpoint and the credentials are valid. It is also done as a part of **Test Connection** flow in the [Azure portal](https://portal.azure.com). 
 * The attribute that the resources can be queried on should be set as a matching attribute on the application in the [Azure portal](https://portal.azure.com). For more information, see [Customizing User Provisioning Attribute Mappings](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
 
@@ -232,8 +232,8 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client,
 	"externalId": "0a21f0f2-8d2a-4f8e-bf98-7363c4aed4ef",
 	"meta": {
 		"resourceType": "User",
-		"created": 1522180232479,
-		"lastModified": 1522180232481,
+		"created": "2018-03-27T19:59:26.000Z",
+		"lastModified": "2018-03-27T19:59:26.000Z"
 	},
 	"userName": "Test_User_ab6490ee-1e48-479e-a20b-2d77186b5dd1",
 	"name": {
@@ -265,8 +265,8 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client,
 	"externalId": "58342554-38d6-4ec8-948c-50044d0a33fd",
 	"meta": {
 		"resourceType": "User",
-		"created": 1522180660000,
-		"lastModified": 1522180660000,
+		"created": "2018-03-27T19:59:26.000Z",
+		"lastModified": "2018-03-27T19:59:26.000Z"
 	},
 	"userName": "Test_User_feed3ace-693c-4e5a-82e2-694be1b39934",
 	"name": {
@@ -300,7 +300,7 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client,
 		"meta": {
 			"resourceType": "User",
 			"created": "2018-03-27T19:59:26.000Z",
-			"lastModified": "2018-03-27T19:59:26.000Z",
+			"lastModified": "2018-03-27T19:59:26.000Z"
 			
 		},
 		"userName": "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081",
@@ -313,8 +313,7 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client,
 			"value": "Test_User_91b67701-697b-46de-b864-bd0bbe4f99c1@testuser.com",
 			"type": "work",
 			"primary": true
-		}],
-		"groups": []
+		}]
 	}],
 	"startIndex": 1,
 	"itemsPerPage": 20
@@ -371,8 +370,8 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client,
 	"externalId": "6c75de36-30fa-4d2d-a196-6bdcdb6b6539",
 	"meta": {
 		"resourceType": "User",
-		"created": 1522180894000,
-		"lastModified": 1522180894000
+		"created": "2018-03-27T19:59:26.000Z",
+		"lastModified": "2018-03-27T19:59:26.000Z"
 	},
 	"userName": "Test_User_fbb9dda4-fcde-4f98-a68b-6c5599e17c27",
 	"name": {
@@ -413,8 +412,8 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client,
 	"externalId": "aa1eca08-7179-4eeb-a0be-a519f7e5cd1a",
 	"meta": {
 		"resourceType": "User",
-		"created": 1522181044000,
-		"lastModified": 1522181044000,
+		"created": "2018-03-27T19:59:26.000Z",
+		"lastModified": "2018-03-27T19:59:26.000Z"
 		
 	},
 	"userName": "5b50642d-79fc-4410-9e90-4c077cdd1a59@testuser.com",
@@ -473,8 +472,8 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client,
 	"externalId": "8aa1a0c0-c4c3-4bc0-b4a5-2ef676900159",
 	"meta": {
 		"resourceType": "Group",
-		"created": 1522188145230,
-		"lastModified": 1522188145230,
+		"created": "2018-03-27T19:59:26.000Z",
+		"lastModified": "2018-03-27T19:59:26.000Z"
 		
 	},
 	"displayName": "displayName",
@@ -496,8 +495,8 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client,
 	"externalId": "60f1bb27-2e1e-402d-bcc4-ec999564a194",
 	"meta": {
 		"resourceType": "Group",
-		"created": 1522188140000,
-		"lastModified": 1522188140000
+		"created": "2018-03-27T19:59:26.000Z",
+		"lastModified": "2018-03-27T19:59:26.000Z"
 	},
 	"displayName": "displayName",
 }
@@ -803,7 +802,7 @@ To host the service within Internet Information Services, a developer would buil
     }
 
 ### Handling endpoint authentication
-Requests from Azure Active Directory include an OAuth 2.0 bearer token.   Any service receiving the request should authenticate the issuer as being Azure Active Directory on behalf of the expected Azure Active Directory tenant, for access to the Azure Active Directory Graph web service.  In the token, the issuer is identified by an iss claim, like, "iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  In this example, the base address of the claim value, https://sts.windows.net, identifies Azure Active Directory as the issuer, while the relative address segment, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, is a unique identifier of the Azure Active Directory tenant on behalf of which the token was issued.  If the token was issued for accessing the Azure Active Directory Graph web service, then the identifier of that service, 00000002-0000-0000-c000-000000000000, should be in the value of the token’s aud claim.  
+Requests from Azure Active Directory include an OAuth 2.0 bearer token.   Any service receiving the request should authenticate the issuer as being Azure Active Directory on behalf of the expected Azure Active Directory tenant, for access to the Azure Active Directory Graph web service.  In the token, the issuer is identified by an iss claim, like, "iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  In this example, the base address of the claim value, https://sts.windows.net, identifies Azure Active Directory as the issuer, while the relative address segment, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, is a unique identifier of the Azure Active Directory tenant on behalf of which the token was issued.  If the token was issued for accessing the Azure Active Directory Graph web service, then the identifier of that service, 00000002-0000-0000-c000-000000000000, should be in the value of the token’s aud claim.  Note that each of the applications that are registered in a single tenant may receive the same `iss` claim with SCIM requests.
 
 Developers using the CLI libraries provided by Microsoft for building a SCIM service can authenticate requests from Azure Active Directory using the Microsoft.Owin.Security.ActiveDirectory package by following these steps: 
 
@@ -860,7 +859,7 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
 
 ### Handling provisioning and deprovisioning of users
 
-1. In the code sample, Azure Active Directory queries the service for a user with an externalId attribute value matching the mailNickname attribute value of a user in Azure AD. The query is expressed as a Hypertext Transfer Protocol (HTTP) request such as this example, wherein jyoung is a sample of a mailNickname of a user in Azure Active Directory: 
+1. In the code sample, Azure Active Directory queries the service for a user with an externalId attribute value matching the mailNickname attribute value of a user in Azure AD. (Note this is an example only, not all users will have a mailNickname attribute and the value a user has may not be unique in the directory.) The query is expressed as a Hypertext Transfer Protocol (HTTP) request such as this example, wherein jyoung is a sample of a mailNickname of a user in Azure Active Directory: 
   ````
     GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
     Authorization: Bearer ...
@@ -1289,7 +1288,7 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
 ## User and group schema reference
 Azure Active Directory can provision two types of resources to SCIM web services.  Those types of resources are users and groups.  
 
-User resources are identified by the schema identifier, `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`, which is included in this protocol specification: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  The default mapping of the attributes of users in Azure Active Directory to the attributes of user resources is provided in table 1 below.  
+User resources are identified by the schema identifier, `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`, which is included in this protocol specification: https://tools.ietf.org/html/rfc7643.  The default mapping of the attributes of users in Azure Active Directory to the attributes of user resources is provided in table 1 below.  
 
 Group resources are identified by the schema identifier, `urn:ietf:params:scim:schemas:core:2.0:Group`.  Table 2 below shows the default mapping of the attributes of groups in Azure Active Directory to the attributes of group resources.  
 
