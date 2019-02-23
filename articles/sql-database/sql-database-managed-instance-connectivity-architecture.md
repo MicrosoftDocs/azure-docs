@@ -18,7 +18,7 @@ ms.date: 02/18/2019
 
 This article explains communication in an Azure SQL Database managed instance. It also describes connectivity architecture and how the components direct traffic to the managed instance.  
 
-The SQL Database managed instance is placed inside Azure Virtual Network and the subnet that's dedicated to managed instances. This deployment provides:
+The SQL Database managed instance is placed inside the Azure virtual network and the subnet that's dedicated to managed instances. This deployment provides:
 
 - A secure private IP address.
 - The ability to connect an on-premises network to a managed instance.
@@ -33,7 +33,7 @@ The following diagram shows entities that connect to a managed instance. It also
 
 A managed instance is a platform as a service (PaaS) offering. Microsoft uses automated agents (management, deployment, and maintenance) to manage this service based on telemetry data streams. Because Microsoft is responsible for management, customers can't access the managed instance virtual cluster machines through Remote Desktop Protocol (RDP).
 
-You might need a managed instance when users or applications start a SQL Server operation that needs to interact with the platform. For example, when you create a managed instance database, you expose it through the Azure portal, PowerShell, Azure CLI, and the REST API.
+You might need a managed instance when users or applications start a SQL Server operation that needs to interact with the platform. For example, when you create a managed instance database, you expose it through the Azure portal, PowerShell, the Azure CLI, and the REST API.
 
 Managed instances depend on Azure services such as Azure Storage for backups, Azure Service Bus for telemetry, Azure Active Directory for authentication, and Azure Key Vault for Transparent Data Encryption (TDE). The managed instances make connections to these services.
 
@@ -49,7 +49,7 @@ Customer applications can connect to managed instances and can query and update 
 
 ![Connectivity architecture diagram](./media/managed-instance-connectivity-architecture/connectivityarch002.png)
 
-Microsoft management and deployment services run outside of the virtual network. A managed instance and Microsoft services connect over the endpoints that have public IP addresses. When a managed instance creates an outbound connection, on receiving end Network Address Translation (NAT) makes the connection look like it’s coming from this public IP address.
+Microsoft management and deployment services run outside the virtual network. A managed instance and Microsoft services connect over the endpoints that have public IP addresses. When a managed instance creates an outbound connection, on receiving end Network Address Translation (NAT) makes the connection look like it’s coming from this public IP address.
 
 Management traffic flows through the customer's virtual network. That means that elements of the virtual network's infrastructure can harm management traffic by making the instance fail and become unavailable.
 
@@ -58,19 +58,19 @@ Management traffic flows through the customer's virtual network. That means that
 
 ## Virtual cluster connectivity architecture
 
-Let’s take a deeper dive into managed instance connectivity architecture. The following diagram shows the conceptual layout of the virtual cluster.
+Let’s take a deeper dive into connectivity architecture for managed instances. The following diagram shows the conceptual layout of the virtual cluster.
 
 ![Connectivity architecture of the virtual cluster](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-Clients connect to a managed instance by using a host name that has the form `<mi_name>.<dns_zone>.database.windows.net`. This host name resolves to a private IP address although it's registered in a public Domain Name System (DNS) zone and is publicly resolvable. The `zone-id` is automatically generated when you create the cluster. If a newly created cluster hosts a secondary managed instance, it shares its zone ID with the primary cluster. For more information, see [Use autofailover groups to enable transparent and coordinated failover of multiple databases](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)
+Clients connect to a managed instance by using a host name that has the form `<mi_name>.<dns_zone>.database.windows.net`. This host name resolves to a private IP address although it's registered in a public Domain Name System (DNS) zone and is publicly resolvable. The `zone-id` is automatically generated when you create the cluster. If a newly created cluster hosts a secondary managed instance, it shares its zone ID with the primary cluster. For more information, see [Use autofailover groups to enable transparent and coordinated failover of multiple databases](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
 
-This private IP address belongs to the managed instance's internal Azure Load Balancer. The Load Balancer directs traffic to the managed instance's gateway. Because multiple managed instances can run inside the same cluster, the gateway uses the managed instance's host name to redirect traffic to the correct SQL engine service.
+This private IP address belongs to the managed instance's internal load balancer. The load balancer directs traffic to the managed instance's gateway. Because multiple managed instances can run inside the same cluster, the gateway uses the managed instance's host name to redirect traffic to the correct SQL engine service.
 
-Management and deployment services connect to a managed instance by using a [management endpoint](#management-endpoint) that maps to an external Load Balancer. Traffic is routed to the nodes only if it's received on a predefined set of ports that only the managed instance's management components use. A built-in firewall on the nodes is set up to allow traffic only from Microsoft IP ranges. Certificates mutually authenticate all communication between management components and the management plane.
+Management and deployment services connect to a managed instance by using a [management endpoint](#management-endpoint) that maps to an external load balancer. Traffic is routed to the nodes only if it's received on a predefined set of ports that only the managed instance's management components use. A built-in firewall on the nodes is set up to allow traffic only from Microsoft IP ranges. Certificates mutually authenticate all communication between management components and the management plane.
 
 ## Management endpoint
 
-Microsoft manages the managed instance by using a management endpoint. This endpoint is inside the instance's virtual cluster. The management endpoint is protected by a built-in firewall on the network level. On the application level it's protected by mutual certificate verification. To find the endpoint's IP address, see [Determine the management endpoint's IP address](sql-database-managed-instance-find-management-endpoint-ip-address.md).
+Microsoft manages the managed instance by using a management endpoint. This endpoint is inside the instance's virtual cluster. The management endpoint is protected by a built-in firewall on the network level. On the application level, it's protected by mutual certificate verification. To find the endpoint's IP address, see [Determine the management endpoint's IP address](sql-database-managed-instance-find-management-endpoint-ip-address.md).
 
 When connections start inside the managed instance (as with backups and audit logs), traffic appears to start from the management endpoint's public IP address. You can limit access to public services from a managed instance by setting firewall rules to allow only the managed instance's IP address. For more information, see [Verify the managed instance's built-in firewall](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
@@ -79,20 +79,18 @@ When connections start inside the managed instance (as with backups and audit lo
 
 ## Network requirements
 
-Deploy a managed instance in a dedicated subnet inside the virtual network. The subnet must meet these requirements:
+Deploy a managed instance in a dedicated subnet inside the virtual network. The subnet must have these characteristics:
 
 - **Dedicated subnet:** The managed instance's subnet can't contain any other cloud service that's associated with it, and it can't be a gateway subnet. The subnet can't contain any resource but the managed instance, and you can't later add resources in the subnet.
-- **Network Security Group (NSG):** An NSG that's associated with the virtual network must  define [inbound security rules](#mandatory-inbound-security-rules) and [outbound security rules](#mandatory-outbound-security-rules) before any other rules. You can use an NSG to control access to the managed instance's data endpoint by filtering traffic on port 1433.
+- **Network security group (NSG):** An NSG that's associated with the virtual network must  define [inbound security rules](#mandatory-inbound-security-rules) and [outbound security rules](#mandatory-outbound-security-rules) before any other rules. You can use an NSG to control access to the managed instance's data endpoint by filtering traffic on port 1433.
 - **User defined route (UDR) table:** A UDR table that's associated with the virtual network must include specific [entries](#user-defined-routes).
 - **No service endpoints:** No service endpoint should be associated with the managed instance's subnet. Make sure that the service endpoints option is disabled when you create the virtual network.
-- **Sufficient IP addresses:** The managed instance subnet must have at least 16 IP addresses. The recommended minimum is 32 IP addresses. For more information, see [determine the size of the subnet for managed instances](sql-database-managed-instance-determine-size-vnet-subnet.md). You can deploy managed instances in [the existing network](sql-database-managed-instance-configure-vnet-subnet.md) after you configure it to satisfy [the networking requirements for managed instances](#network-requirements). Otherwise, create a [new network and subnet](sql-database-managed-instance-create-vnet-subnet.md).
+- **Sufficient IP addresses:** The managed instance subnet must have at least 16 IP addresses. The recommended minimum is 32 IP addresses. For more information, see [Determine the size of the subnet for managed instances](sql-database-managed-instance-determine-size-vnet-subnet.md). You can deploy managed instances in [the existing network](sql-database-managed-instance-configure-vnet-subnet.md) after you configure it to satisfy [the networking requirements for managed instances](#network-requirements). Otherwise, create a [new network and subnet](sql-database-managed-instance-create-vnet-subnet.md).
 
 > [!IMPORTANT]
-> You can't deploy a new managed instance if the destination subnet fails to meet these requirements. When you create a managed instance, a network intent policy is applied on the subnet to prevent noncompliant changes to networking setup. After the last instance is removed from the subnet, the network intent policy is also removed.
+> You can't deploy a new managed instance if the destination subnet lacks these characteristics. When you create a managed instance, a network intent policy is applied on the subnet to prevent noncompliant changes to networking setup. After the last instance is removed from the subnet, the network intent policy is also removed.
 
-### Inbound security rules
-
-This table defines the rules required for inbound security:
+### Mandatory inbound security rules
 
 | Name       |Port                        |Protocol|Source           |Destination|Action|
 |------------|----------------------------|--------|-----------------|-----------|------|
@@ -100,9 +98,7 @@ This table defines the rules required for inbound security:
 |mi_subnet   |Any                         |Any     |MI SUBNET        |Any        |Allow |
 |health_probe|Any                         |Any     |AzureLoadBalancer|Any        |Allow |
 
-### Outbound security rules
-
-This table defines the rules required for outbound security:
+### Mandatory outbound security rules
 
 | Name       |Port          |Protocol|Source           |Destination|Action|
 |------------|--------------|--------|-----------------|-----------|------|
@@ -112,14 +108,12 @@ This table defines the rules required for outbound security:
 \* MI SUBNET refers to the IP address range for the subnet in the form 10.x.x.x/y. You can find this information in the Azure portal, in subnet properties.
 
 > [!IMPORTANT]
-> Although required inbound security rules allow traffic from _Any_ source on ports 9000, 9003, 1438, 1440, and 1452 these ports are protected by a built-in firewall. For more information, see [Determine the management endpoint address](sql-database-managed-instance-find-management-endpoint-ip-address.md).
+> Although required inbound security rules allow traffic from _any_ source on ports 9000, 9003, 1438, 1440, and 1452, these ports are protected by a built-in firewall. For more information, see [Determine the management endpoint address](sql-database-managed-instance-find-management-endpoint-ip-address.md).
 
 > [!NOTE]
 > If you use transactional replication in a managed instance, and if you use any instance database as a publisher or a distributor, open port 445 (TCP outbound) in the subnet's security rules. This port will allow access to the Azure file share.
 
 ### User defined routes
-
-A user defined routes (UDR) table must include the following entries:
 
 |Name|Address prefix|Net Hop|
 |----|--------------|-------|
@@ -164,7 +158,7 @@ If the virtual network includes a custom DNS, add an entry for the Azure recursi
 ## Next steps
 
 - For an overview, see [SQL Database advanced data security](sql-database-managed-instance.md).
-- Learn how to [set up a new Azure Virtual Network](sql-database-managed-instance-create-vnet-subnet.md) or an [existing Azure Virtual Network](sql-database-managed-instance-configure-vnet-subnet.md) where you can deploy managed instances.
+- Learn how to [set up a new Azure virtual network](sql-database-managed-instance-create-vnet-subnet.md) or an [existing Azure virtual network](sql-database-managed-instance-configure-vnet-subnet.md) where you can deploy managed instances.
 - [Calculate the size of the subnet](sql-database-managed-instance-determine-size-vnet-subnet.md) where you want to deploy the managed instances.
 - Learn how to create a managed instance:
   - From the [Azure portal](sql-database-managed-instance-get-started.md).
