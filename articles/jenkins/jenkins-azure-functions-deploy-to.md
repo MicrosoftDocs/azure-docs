@@ -26,19 +26,19 @@ The following steps show how to create an Azure Function app using Azure CLI:
     az group create --name <resource-group-name> --location eastus
     ```
 
-1. Create an Azure storage account, inserting your storage name and resource group name for the &lt;storage_name> and &lt;resource-group-name> placeholders, respectively.
+1. Create an Azure storage account, replacing the placeholders with the appropriate values.
  
     ```cli
     az storage account create --name <storage-name> --location eastus --resource-group <resource-group-name> --sku Standard_LRS    
     ```
 
-1. Create the test Azure Function app, inserting your resource group name, app name, and storage name for the &lt;resource-group>, &lt;app-name>, &lt;storage-name> placeholders, respectively.
+1. Create the test Azure Function app, replacing the placeholders with the appropriate values.
 
     ```cli
     az functionapp create --resource-group <resource-group-name> --consumption-plan-location eastus --name <app-name> --storage-account <storage-name>
     ```
     
-1. Update to version 2.x runtime, inserting your function app name and resource group name for the &lt;function-app> and &lt;resource-group> placeholders, respectively.
+1. Update to version 2.x runtime, replacing the placeholders with the appropriate values.
 
     ```cli
     az functionapp config appsettings set --name <function-app> --resource-group <resource-group-name> --settings FUNCTIONS_EXTENSION_VERSION=~2
