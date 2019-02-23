@@ -13,11 +13,13 @@ ms.date: 09/14/2018
 ms.author: routlaw
 ---
 
+
+
 # Azure Functions Java developer guide
 
-[!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
+The Azure Functions runtime supports [Java SE 8 LTS (zulu8.31.0.2-jre8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/).
 
-## Programming model 
+## Programming model
 
 The concepts of [triggers and bindings](functions-triggers-bindings.md) are fundamental to Azure Functions. Triggers start the execution of your code. Bindings give you a way to pass data to and return data from a function, without having to write custom data access code.
 
