@@ -102,7 +102,7 @@ It's now time to run the Jenkins job.
 
 1. First, obtain the authorization key via the instructions in the [Azure Functions HTTP triggers and bindings][/azure/azure-functions/functions-bindings-http-webhook#authorization-keys] article.
 
-1. In your browser, enter the app's URL. In addition to replacing the placeholders with the appropriate values, specify a numeric 
+1. In your browser, enter the app's URL. Replace the placeholders with the appropriate values and specify a numeric value for `<input-number>` as input for the Java function.
 
     ```
     https://<app-name>.azurewebsites.net/api/HttpTrigger-Java?code=<authorization-key>&number=<input-number>
