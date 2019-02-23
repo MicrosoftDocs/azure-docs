@@ -141,7 +141,7 @@ The following list provides a general summary of Azure services that can't be mo
 * Lab Services - move to new resource group in same subscription is enabled, but cross subscription move isn't enabled.
 * Managed Applications
 * Microsoft Genomics
-* NetApp
+* Azure NetApp Files
 * SAP HANA on Azure
 * Security
 * Site Recovery
