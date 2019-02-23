@@ -39,7 +39,7 @@ sections provide information about getting started with building apps using Azur
 Create your first app with Spatial Anchors.
 
 > [!div class="nextstepaction"]
-> [Unity](unity-overview.md)
+> [Unity](unity-overview.yml)
 
 > [!div class="nextstepaction"]
 > [iOS](quickstarts/get-started-ios.md)
