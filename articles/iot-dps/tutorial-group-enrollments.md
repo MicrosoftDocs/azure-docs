@@ -72,11 +72,11 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
     1. Add the `[Provisioning Connection String]` for your provisioning service, from the portal as following:
 
-        1. Navigate to your provisioning service in the [Azure portal](https://portal.azure.com). 
+        1. Navigate to your provisioning service in the [Azure portal](https://portal.azure.com).
 
         1. Open the **Shared access policies**, and select a policy which has the *EnrollmentWrite* permission.
-    
-        1. Copy the **Primary key connection string**. 
+
+        1. Copy the **Primary key connection string**.
 
             ![Get the provisioning connection string from portal](./media/tutorial-group-enrollments/provisioning-string.png)  
 
@@ -86,7 +86,9 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
             private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
             ```
 
-    1. Open the **_RootCA.pem_** file in a text editor. Assign the value of the **Root Cert** to the parameter **PUBLIC_KEY_CERTIFICATE_STRING** as shown below:
+    1. Open the your intermediate signing certificate file in a text editor. Update the `PUBLIC_KEY_CERTIFICATE_STRING` value with the value of Your intermediate signing certificate.
+
+        If you generated your device certificates with Bash shell, ./certs/azure-iot-test-only.intermediate.cert.pem contains the intermediate certificate key. If your certs were generated with PowerShell, ./Intermediate1.pem will be your intermediate certificate file.
 
         ```java
         private static final String PUBLIC_KEY_CERTIFICATE_STRING =
@@ -103,7 +105,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
                 "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
                 "-----END CERTIFICATE-----\n";
         ```
- 
+
     1. Navigate to the IoT hub linked to your provisioning service in the [Azure portal](https://portal.azure.com). Open the **Overview** tab for the hub, and copy the **Hostname**. Assign this **Hostname** to the *IOTHUB_HOST_NAME* parameter.
 
         ```java
@@ -118,7 +120,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
         provisioningServiceClient.deleteEnrollmentGroup(enrollmentGroupId);
         ```
 
-    1. Save the file _ServiceEnrollmentGroupSample.java_. 
+    1. Save the file _ServiceEnrollmentGroupSample.java_.
 
 1. Open a command window, and navigate to the folder **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**.
 
@@ -139,7 +141,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
     ![Successful enrollment](./media/tutorial-group-enrollments/enrollment.png) 
 
-1. Navigate to your provisioning service in the Azure portal. Click **Manage enrollments**. Notice that your group of X.509 devices appears under the **Enrollment Groups** tab, with an auto-generated *GROUP NAME*. 
+1. Navigate to your provisioning service in the Azure portal. Click **Manage enrollments**. Notice that your group of X.509 devices appears under the **Enrollment Groups** tab, with an auto-generated *GROUP NAME*.
 
 ## Simulate the device
 
