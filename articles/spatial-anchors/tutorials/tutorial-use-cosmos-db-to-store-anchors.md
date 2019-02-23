@@ -16,7 +16,7 @@ ms.service: azure-spatial-anchors
 
 This tutorial will show you how to use [Azure Spatial Anchors](../overview.md) to:
 
-1. Create anchors in one session and then locate them later in another session; for example, on a different day.
+1. Create anchors in one session and then locate them in another session on the same or different device. For example, on a different day.
 2. Create anchors that can be located by multiple devices in the same place at the same time.
 
 ![Persistence](./media/persistence.gif)
