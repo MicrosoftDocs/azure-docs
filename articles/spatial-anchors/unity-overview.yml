@@ -5,10 +5,10 @@ metadata:
   document_id: 
   title: Azure Spatial Anchors Unity overview | Microsoft Docs
   meta.description: Learn how Azure Spatial Anchors can be used within Unity Apps.
-  services: spatial-anchors
+  services: azure-spatial-anchors
   author: rgarcia
   manager: vicenterivera
-  ms.service: spatial-anchors
+  ms.service: azure-spatial-anchors
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
