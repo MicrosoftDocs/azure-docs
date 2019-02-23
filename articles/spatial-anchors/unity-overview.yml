@@ -24,7 +24,7 @@ sections:
     items: 
     - image: 
         src: https://docs.microsoft.com/media/logos/logo_Windows.svg
-      text: Windows HoloLens
+      text: HoloLens
       href: https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-hololens
     - image: 
         src: https://docs.microsoft.com/media/logos/logo_android.svg
