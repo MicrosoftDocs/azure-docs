@@ -4,7 +4,7 @@ description: Migrate data from an on-premises Hadoop cluster to Azure Data Lake 
 services: storage
 author: normesta
 ms.service: storage
-ms.date: 02/21/2019
+ms.date: 02/22/2019
 ms.author: normesta
 ms.component: data-lake-storage-gen2
 ---
@@ -61,7 +61,7 @@ Follow these steps to copy data to your Data Box via the REST.
 
      !["Access storage account and upload data" dialog]()
 
-3. Add the endpoint and the Data Box IP address to /etc/hosts on each node. 
+3. Add the endpoint and the Data Box IP address to `/etc/hosts` on each node. 
 
     ```    
     10.128.5.42  mystorageaccount.blob.mydataboxno.microsoftdatabox.com
@@ -85,8 +85,9 @@ Follow these steps to copy data to your Data Box via the REST.
     [source_directory] \
            wasb://[container_name]@[blob_service_endpoint]/[destination_folder]       
     ```
-
-   For example:
+   The -libjars option is used to make the `hadoop-azure*.jar` and the dependent `azure-storage*.jar` files available to `distcp`. This    may already occur for some clusters.
+   
+   The following example shows how the `distcp` command is used to copy data.
    
    ```
    # hadoop distcp \
@@ -97,7 +98,11 @@ Follow these steps to copy data to your Data Box via the REST.
     /data/testfiles \
     wasb://hdfscontainer@mystorageaccount.blob.mydataboxno.microsoftdatabox.com/testfiles
    ```
-         
+  
+To improve the copy speed:
+- Try changing the number of mappers. (The above example uses `m` = 4 mappers.)
+- Try running mutliple `distcp` in parallel.
+- Remember that large files perform better than small files.       
     
 ## Ship the Data Box to Microsoft
 
