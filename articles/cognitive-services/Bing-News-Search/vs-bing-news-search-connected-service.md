@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
 ---
-# Tutorial: Connect to Bing News Search API with Connected Services in Visual Studio and C#
+# Tutorial: Connect to Bing News Search API with Connected Services in Visual Studio and C\#
 
 By using Bing News Search, you can enable apps and services to harness the power of an ad-free search engine scoped to the web. Bing News Search is one of the search services available with Cognitive Services.
 

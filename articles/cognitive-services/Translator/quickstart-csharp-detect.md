@@ -12,7 +12,7 @@ ms.date: 02/21/2019
 ms.author: erhopf
 ---
 
-# Quickstart: Use the Translator Text API to detect text language using C#
+# Quickstart: Use the Translator Text API to detect text language using C\#
 
 In this quickstart, you'll learn how to detect the language of provided text using .NET Core and the Translator Text REST API.
 

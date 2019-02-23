@@ -12,7 +12,7 @@ ms.date: 02/21/2019
 ms.author: erhopf
 ---
 
-# Quickstart: Look up words with bilingual dictionary using C#
+# Quickstart: Look up words with bilingual dictionary using C\#
 
 In this quickstart, you'll learn how to get alternate translations for a term, and also usage examples of those alternate translations, using .NET Core and the Translator Text API.
 

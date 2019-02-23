@@ -79,20 +79,20 @@ From the SysRq Admin Guide above:
 |``z``  |    Dump the ftrace buffer
 |``0``-``9`` | Sets the console log level, controlling which kernel messages will be printed to your console. (``0``, for example would make it so that only emergency messages like PANICs or OOPSes would make it to your console.)
 
-### Distribution-specific documentation ###
+### Distribution-specific documentation
 For distribution-specific documentation on SysRq and steps to configure Linux to create a crash dump when it receives a SysRq "Crash" command, see the links below:
 
-#### Ubuntu ####
+#### Ubuntu
  - [Kernel Crash Dump](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
 
-#### Red Hat ####
+#### Red Hat
 - [What is the SysRq Facility and how do I use it?](https://access.redhat.com/articles/231663)
 - [How to use the SysRq facility to collect information from a RHEL server](https://access.redhat.com/solutions/2023)
 
-#### SUSE ####
+#### SUSE
 - [Configure kernel core dump capture](https://www.suse.com/support/kb/doc/?id=3374462)
 
-#### CoreOS ####
+#### CoreOS
 - [Collecting crash logs](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## Non-Maskable Interrupt (NMI) 

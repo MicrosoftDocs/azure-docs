@@ -46,7 +46,7 @@ E		|Extended metadata (see table below) 				|String 	|none
 		
 
 
-## Extended Metadata Attributes ##
+## Extended Metadata Attributes
 
 Name    | Description               
 --------|---------------------------	

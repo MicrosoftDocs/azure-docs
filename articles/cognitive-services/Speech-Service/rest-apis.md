@@ -155,7 +155,7 @@ Connection: Keep-Alive
 </voice></speak>
 ```
 
-### How to renew an access token using C#
+### How to renew an access token using C\#
 
 This C# code is a drop-in replacement for the class presented earlier. The `Authentication` class automatically gets a new access token every nine minutes by using a timer. This approach ensures that a valid token is always available while your program is running.
 

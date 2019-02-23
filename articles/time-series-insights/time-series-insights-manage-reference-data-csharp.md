@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.custom: seodec18
 ---
-# Manage reference data for an Azure Time Series Insights environment by using C#
+# Manage reference data for an Azure Time Series Insights environment by using C\#
 
 This article describes an example C# project you can compile to manage reference data for an Azure Time Series Insights environment.
 

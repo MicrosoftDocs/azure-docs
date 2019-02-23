@@ -16,7 +16,7 @@ ms.date: 03/03/2018
 ms.author: ccompy
 ms.custom: seodec18
 ---
-# Integrate your ILB App Service Environment with the Azure Application Gateway #
+# Integrate your ILB App Service Environment with the Azure Application Gateway
 
 The [App Service Environment](./intro.md) is a deployment of Azure App Service in the subnet of a customer's Azure virtual network. It can be deployed with a public or private endpoint for app access. The deployment of the App Service Environment with a private endpoint (that is, an internal load balancer) is called an ILB App Service Environment.  
 
@@ -56,7 +56,7 @@ You should use a subnet that is not the one named GatewaySubnet. If you put the 
 
 You also cannot put the gateway in the subnet that your ILB App Service Environment uses. The App Service Environment is the only thing that can be in this subnet.
 
-## Configuration steps ##
+## Configuration steps
 
 1. In the Azure portal, go to **New** > **Network** > **Application Gateway**.
 

@@ -132,7 +132,7 @@ private static TemplateNotification GetTemplateNotification(string message)
 }
 ```
 
-### F# template example
+### F\# template example
 
 This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `location` and `message`.
 

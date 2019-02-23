@@ -319,7 +319,7 @@ namespace ADInteractive5
 
 &nbsp;
 
-#### Actual test output from C#
+#### Actual test output from C\#
 
 ```
 [C:\Test\VSProj\ADInteractive5\ADInteractive5\bin\Debug\]

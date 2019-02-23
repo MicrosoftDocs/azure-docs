@@ -13,7 +13,7 @@ ms.date: 02/01/2019
 ms.author: aahi
 ---
 
-# Quickstart: Send a search request to the Bing Entity Search REST API using C#
+# Quickstart: Send a search request to the Bing Entity Search REST API using C\#
 
 Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple C# application sends a news search query to the API, and displays the response. The source code for this application is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingEntitySearchv7.cs).
 

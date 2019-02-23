@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
 ---
-# Quickstart: Bing Spell Check SDK with C#
+# Quickstart: Bing Spell Check SDK with C\#
 
 The Bing Spell Check SDK contains the functionality of the REST API for spell check.
 

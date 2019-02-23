@@ -14,7 +14,7 @@ ms.custom: seodec2018
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using C#.
 ---
 
-# Quickstart: Search the web using the Bing Web Search REST API and C#
+# Quickstart: Search the web using the Bing Web Search REST API and C\#
 
 
 Use this quickstart to make your first call to the Bing Web Search API and receive the JSON response. This C# application sends a search request to the API, and displays the response. While this application is written in C#, the API is a RESTful Web service compatible with most programming languages.

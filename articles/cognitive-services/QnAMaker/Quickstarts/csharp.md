@@ -13,7 +13,7 @@ ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
-# How to use the QnA Maker REST API with C# 
+# How to use the QnA Maker REST API with C\#
 <a name="HOLTop"></a>
 
 This article shows you how to use the [Microsoft QnA Maker API](../Overview/overview.md) with C# to do the following.

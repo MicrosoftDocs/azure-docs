@@ -33,7 +33,7 @@ When `ContinueAsNew` is called, the instance enqueues a message to itself before
 
 One use case for eternal orchestrations is code that needs to do periodic work indefinitely.
 
-### C#
+### C\#
 
 ```csharp
 [FunctionName("Periodic_Cleanup_Loop")]

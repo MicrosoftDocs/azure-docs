@@ -72,11 +72,11 @@ To achieve the target volume, some of the generated telemetry is discarded. But 
 
 Metric counts such as request rate and exception rate are adjusted to compensate for the sampling rate, so that they show approximately correct values in Metric Explorer.
 
-### Update NuGet packages ###
+### Update NuGet packages
 
 Update your project's NuGet packages to the latest *pre-release* version of Application Insights. In Visual Studio, right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
 
-### Configuring adaptive sampling ###
+### Configuring adaptive sampling
 
 In [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), you can adjust several parameters in the `AdaptiveSamplingTelemetryProcessor` node. The figures shown are the default values:
 
@@ -255,7 +255,7 @@ The sampling algorithm retains related items. For each HTTP request event, the r
 
 In Metrics Explorer, rates such as request and exception counts are multiplied by a factor to compensate for the sampling rate, so that they are approximately correct.
 
-### Configuring fixed-rate sampling in ASP.NET ###
+### Configuring fixed-rate sampling in ASP.NET
 
 1. **Update your project's NuGet packages** to the latest *pre-release* version of Application Insights. In Visual Studio, right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
 2. **Disable adaptive sampling**: In [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), remove or comment out the `AdaptiveSamplingTelemetryProcessor` node.
@@ -287,7 +287,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
    
     ```
 
-### Configuring fixed-rate sampling in JAVA ###
+### Configuring fixed-rate sampling in JAVA
 
 1. Download and configure your web application with latest [application insights java SDK](../../azure-monitor/app/java-get-started.md)
 

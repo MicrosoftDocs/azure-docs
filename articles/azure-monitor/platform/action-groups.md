@@ -10,7 +10,7 @@ ms.author: dukek
 ms.subservice: alerts
 ---
 # Create and manage action groups in the Azure portal
-## Overview ##
+## Overview
 An action group is a collection of notification preferences defined by the owner of an Azure subscription. Azure Monitor and Service Health alerts use action groups to notify users that an alert has been triggered. Various alerts may use the same action group or different action groups depending on the user's requirements. You may configure up to 2,000 action groups in a subscription.
 
 You configure an action to notify a person by email or SMS, they receive a confirmation indicating they have been added to the action group.
@@ -25,7 +25,7 @@ Each action is made up of the following properties:
 
 For information on how to use Azure Resource Manager templates to configure action groups, see [Action group Resource Manager templates](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
-## Create an action group by using the Azure portal ##
+## Create an action group by using the Azure portal
 1. In the [portal](https://portal.azure.com), select **Monitor**. The **Monitor** pane consolidates all your monitoring settings and data in one view.
 
     ![The "Monitor" service](./media/action-groups/home-monitor.png)
@@ -53,7 +53,7 @@ For information on how to use Azure Resource Manager templates to configure acti
 
 1. Select **OK** to create the action group.
 
-## Manage your action groups ##
+## Manage your action groups
 After you create an action group, it's visible in the **Action groups** section of the **Monitor** pane. Select the action group you want to manage to:
 
 * Add, edit, or remove actions.
@@ -99,7 +99,7 @@ Source IP address ranges
 To receive updates about changes to these IP addresses we recommend you configure a [Service Health alert, which monitors for Informational notifications about the Action Groups service.
 
 
-## Next steps ##
+## Next steps
 
 * Learn more about [SMS alert behavior](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Gain an [understanding of the activity log alert webhook schema](../../azure-monitor/platform/activity-log-alerts-webhook.md).  

@@ -11,7 +11,7 @@ ms.author: heidist
 ms.custom: seodec2018
 #Customer intent: As a developer, I want to understand synonym implementation, benefits, and tradeoffs.
 ---
-# Tutorial: Add synonyms for Azure Search in C#
+# Tutorial: Add synonyms for Azure Search in C\#
 
 Synonyms expand a query by matching on terms considered semantically equivalent to the input term. For example, you might want "car" to match documents containing the terms "automobile" or "vehicle". 
 

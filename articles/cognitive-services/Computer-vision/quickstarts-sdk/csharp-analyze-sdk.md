@@ -13,7 +13,7 @@ ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
-# Quickstart: Analyze an image using the Computer Vision SDK and C#
+# Quickstart: Analyze an image using the Computer Vision SDK and C\#
 
 In this quickstart, you will analyze both a local and a remote image to extract visual features using the Computer Vision client library for C#. If you wish, you can download the code in this guide as a complete sample app from the [Cognitive Services Csharp Vision](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) repo on GitHub.
 

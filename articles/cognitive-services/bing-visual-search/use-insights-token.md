@@ -60,7 +60,7 @@ For examples that use the insights token, see [C#](#using-csharp) | [Java](#usin
 
 <a name="using-csharp" />
 
-## Using C#
+## Using C\#
 
 ### Prerequisites
 

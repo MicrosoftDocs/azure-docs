@@ -12,7 +12,7 @@ ms.date: 3/5/2018
 ms.author: v-jerkin
 ROBOTS: NOINDEX,NOFOLLOW
 ---
-# Tutorial: Translator Speech application in C#
+# Tutorial: Translator Speech application in C\#
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 

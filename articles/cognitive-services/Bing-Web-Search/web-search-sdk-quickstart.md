@@ -12,7 +12,7 @@ ms.date: 08/16/2018
 ms.author: aahi
 ---
 
-# Quickstart: Use the Bing Web Search SDK for C#
+# Quickstart: Use the Bing Web Search SDK for C\#
 
 The Bing Web Search SDK makes it easy to integrate Bing Web Search into your C# application. In this quickstart, you'll learn how to instantiate a client, send a request, and print the response.
 

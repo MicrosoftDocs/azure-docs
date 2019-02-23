@@ -60,7 +60,7 @@ These endpoint differences must be taken into account when you connect to storag
     ![storage4](./media/documentation-government-get-started-connect-with-storage-img4.png)
 2. Copy/paste the storage account connection string.
 
-#### C# 
+#### C\# 
 1. Open up Visual Studio and create a new project. Add a reference to the [WindowsAzure.Storage NuGet package](https://www.nuget.org/packages/WindowsAzure.Storage/). This NuGet package contains classes we will need to connect to your storage account.
 
 2. Add these two lines of C# code to connect:

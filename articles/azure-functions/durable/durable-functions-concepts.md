@@ -166,7 +166,7 @@ Because the state is managed by the Durable Functions runtime, you don't have to
 
 Even though the Durable Functions extension has built-in webhooks for managing long-running orchestrations, you can implement this pattern yourself using your own function triggers (such as HTTP, queue, or Event Hub) and the `orchestrationClient` binding. For example, you could use a queue message to trigger termination.  Or you could use an HTTP trigger protected by an Azure Active Directory authentication policy instead of the built-in webhooks that use a generated key for authentication.
 
-#### C#
+#### C\#
 
 ```cs
 // HTTP-triggered function to start a new orchestrator function instance.

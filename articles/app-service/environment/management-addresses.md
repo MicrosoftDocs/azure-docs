@@ -26,7 +26,7 @@ You can use the Service Tag named AppServiceManagement in your Network Security 
 
 The addresses noted below can be configured in a route table. This is important when operating your ASE in a force tunneled VNet where you might otherwise have an asymmetric routing problem. For details on how to configure your ASE to operate in an environment where outbound traffic is sent on premises, read [Configure your ASE with forced tunneling][forcedtunnel]
 
-## List of management addresses ##
+## List of management addresses
 
 | Region | Addresses |
 |--------|-----------|
@@ -87,7 +87,7 @@ The management addresses can be placed in a route table with a next hop of inter
 
 After your route table is created, you need to set it on your ASE subnet.  
 
-## Get your management addresses from API ##
+## Get your management addresses from API
 
 You can list the management addresses that match to your ASE with the following API call.
 

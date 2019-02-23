@@ -12,7 +12,7 @@ ms.date: 02/07/2019
 ms.author: erhopf
 ---
 
-# Quickstart: Use the Translator Text API to get a list of supported languages using C#
+# Quickstart: Use the Translator Text API to get a list of supported languages using C\#
 
 In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup using the Translator Text API.
 

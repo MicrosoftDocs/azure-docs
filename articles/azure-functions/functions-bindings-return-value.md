@@ -93,7 +93,7 @@ public static Task<string> Run(WorkItem input, ILogger log)
 }
 ```
 
-## F# example
+## F\# example
 
 Here's the output binding in the *function.json* file:
 

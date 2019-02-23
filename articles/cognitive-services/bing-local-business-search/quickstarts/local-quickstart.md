@@ -12,7 +12,7 @@ ms.date: 11/01/2018
 ms.author: rosh, v-gedod
 ---
 
-# Quickstart: Send a query to the Bing Local Business Search API in C#
+# Quickstart: Send a query to the Bing Local Business Search API in C\#
 
 Use this quickstart to begin sending requests to the Bing Local Business Search API, which is an Azure Cognitive Service. While this simple application is written in C#, the API is a RESTful Web service compatible with any programming language capable of making HTTP requests and parsing JSON.
 

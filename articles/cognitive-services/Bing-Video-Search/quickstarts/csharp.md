@@ -13,7 +13,7 @@ ms.date: 01/31/2019
 ms.author: aahi
 ---
 
-# Quickstart: Search for videos using the Bing Video Search REST API and C#
+# Quickstart: Search for videos using the Bing Video Search REST API and C\#
 
 Use this quickstart to make your first call to the Bing Video Search API and view a search result from the JSON response. This simple C# application sends an HTTP video search query to the API, and displays the response. While this application is written in C#, the API is a RESTful Web service compatible with most programming languages.
 

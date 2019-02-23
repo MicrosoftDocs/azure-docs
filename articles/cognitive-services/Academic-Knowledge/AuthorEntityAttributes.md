@@ -28,7 +28,7 @@ ECC		|Author total estimated citation count	|Int32		|none
 E		|Extended metadata (see "Extended Meta Attributes" table ) 	|String 	|none  
 
 
-## Extended Metadata Attributes ##
+## Extended Metadata Attributes
 
 Name    | Description               
 --------|---------------------------	

@@ -16,9 +16,9 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ---
-# Use an App Service environment #
+# Use an App Service environment
 
-## Overview ##
+## Overview
 
 Azure App Service Environment is a deployment of Azure App Service into a subnet in a customer’s Azure virtual network. It consists of:
 
@@ -34,7 +34,7 @@ Azure App Service Environment is a deployment of Azure App Service into a subnet
 
 You can deploy an ASE (ASEv1 and ASEv2) with an external or internal VIP for app access. The deployment with an external VIP is commonly called an External ASE. The internal version is called the ILB ASE because it uses an internal load balancer (ILB). To learn more about the ILB ASE, see [Create and use an ILB ASE][MakeILBASE].
 
-## Create an app in an ASE ##
+## Create an app in an ASE
 
 To create an app in an ASE, you use the same process as when you create it normally, but with a few small differences. When you create a new App Service plan:
 
@@ -80,7 +80,7 @@ To create an app in an ASE:
 
 2. Select **Create**.
 
-## How scale works ##
+## How scale works
 
 Every App Service app runs in an App Service plan. The container model is environments hold App Service plans, and App Service plans hold apps. When you scale an app, you scale the App Service plan and thus scale all the apps in the same plan.
 
@@ -90,13 +90,13 @@ In the multitenant App Service, scaling is usually immediate because a pool of r
 
 In an ASE, you can scale up to 100 instances. Those 100 instances can be all in one single App Service plan or distributed across multiple App Service plans.
 
-## IP addresses ##
+## IP addresses
 
 App Service has the ability to allocate a dedicated IP address to an app. This capability is available after you configure an IP-based SSL, as described in [Bind an existing custom SSL certificate to Azure App Service][ConfigureSSL]. However, in an ASE, there is a notable exception. You can't add additional IP addresses to be used for an IP-based SSL in an ILB ASE.
 
 In ASEv1, you need to allocate the IP addresses as resources before you can use them. In ASEv2, you use them from your app just as you do in the multitenant App Service. There is always one spare address in ASEv2 up to 30 IP addresses. Each time you use one, another is added so that an address is always readily available for use. A time delay is required to allocate another IP address, which prevents adding IP addresses in quick succession.
 
-## Front-end scaling ##
+## Front-end scaling
 
 In ASEv2, when you scale out your App Service plans, workers are automatically added to support them. Every ASE is created with two front ends. In addition, the front ends automatically scale out at a rate of one front end for every 15 instances in your App Service plans. For example, if you have 15 instances, then you have three front ends. If you scale to 30 instances, then you have four front ends, and so on.
 
@@ -104,7 +104,7 @@ This number of front ends should be more than enough for most scenarios. However
 
 Front-end resources are the HTTP/HTTPS endpoint for the ASE. With the default front-end configuration, memory usage per front end is consistently around 60 percent. Customer workloads don't run on a front end. The key factor for a front end with respect to scale is the CPU, which is driven primarily by HTTPS traffic.
 
-## App access ##
+## App access
 
 In an External ASE, the domain that's used when you create apps is different from the multitenant App Service. It includes the name of the ASE. For more information on how to create an External ASE, see [Create an App Service environment][MakeExternalASE]. The domain name in an External ASE looks like *.&lt;asename&gt;.p.azurewebsites.net*. For example, if your ASE is named _external-ase_ and you host an app called _contoso_ in that ASE, you reach it at the following URLs:
 
@@ -118,7 +118,7 @@ In an ILB ASE, you determine the domain at deployment time. For more information
 - contoso.ilb-ase.info
 - contoso.scm.ilb-ase.info
 
-## Publishing ##
+## Publishing
 
 As with the multitenant App Service, in an ASE you can publish with:
 
@@ -136,7 +136,7 @@ Internet-based CI systems, such as GitHub and Azure DevOps, don't work with an I
 
 The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE was created with. You can see it in the app's publishing profile and in the app's portal blade (in **Overview** > **Essentials** and also in **Properties**). 
 
-## Pricing ##
+## Pricing
 
 The pricing SKU called **Isolated** was created for use only with ASEv2. All App Service plans that are hosted in ASEv2 are in the Isolated pricing SKU. Isolated App Service plan rates can vary per region. 
 
@@ -150,7 +150,7 @@ If you adjusted the size of the front-ends to 2 cores but do not adjust the rati
 
 For more information, see [Azure App Service pricing][Pricing].
 
-## Delete an ASE ##
+## Delete an ASE
 
 To delete an ASE: 
 

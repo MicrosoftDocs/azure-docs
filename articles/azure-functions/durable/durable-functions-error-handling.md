@@ -22,7 +22,7 @@ Any exception that is thrown in an activity function is marshalled back to the o
 
 For example, consider the following orchestrator function that transfers funds from one account to another:
 
-### C#
+### C\#
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -103,7 +103,7 @@ If the call to the **CreditAccount** function fails for the destination account,
 
 When you call activity functions or sub-orchestration functions, you can specify an automatic retry policy. The following example attempts to call a function up to three times and waits 5 seconds between each retry:
 
-### C#
+### C\#
 
 ```csharp
 public static async Task Run(DurableOrchestrationContext context)
@@ -147,7 +147,7 @@ There are several options for customizing the automatic retry policy. They inclu
 
 You might want to abandon a function call within an orchestrator function if it is taking too long to complete. The proper way to do this today is by creating a [durable timer](durable-functions-timers.md) using `context.CreateTimer` (.NET) or `context.df.createTimer` (JavaScript) in conjunction with `Task.WhenAny` (.NET) or `context.df.Task.any` (JavaScript), as in the following example:
 
-### C#
+### C\#
 
 ```csharp
 public static async Task<bool> Run(DurableOrchestrationContext context)

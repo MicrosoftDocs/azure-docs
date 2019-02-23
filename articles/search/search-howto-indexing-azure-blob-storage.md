@@ -61,7 +61,8 @@ To create a data source:
 For more on the Create Datasource API, see [Create Datasource](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
 
 <a name="Credentials"></a>
-#### How to specify credentials ####
+
+#### How to specify credentials
 
 You can provide the credentials for the blob container in one of these ways:
 

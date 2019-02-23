@@ -14,7 +14,7 @@ ms.author: v-gedod
 ms.custom: seodec2018
 ---
 
-# Quickstart: Perform a news search with the Bing News Search SDK for C#
+# Quickstart: Perform a news search with the Bing News Search SDK for C\#
 
 Use this quickstart to begin searching for news with the Bing News Search SDK for C#. While Bing News Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch).
 

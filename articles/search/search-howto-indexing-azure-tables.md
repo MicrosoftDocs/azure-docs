@@ -59,7 +59,8 @@ To create a datasource:
 For more information on the Create Datasource API, see [Create Datasource](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
 
 <a name="Credentials"></a>
-#### Ways to specify credentials ####
+
+#### Ways to specify credentials
 
 You can provide the credentials for the table in one of these ways: 
 

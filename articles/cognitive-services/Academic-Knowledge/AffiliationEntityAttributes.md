@@ -27,7 +27,7 @@ DAfN	|Affiliation display name		|String		|none
 CC		|Affiliation total citation count			|Int32		|none  
 ECC		|Affiliation total estimated citation count	|Int32		|none
 
-## Extended Metadata Attributes ##
+## Extended Metadata Attributes
 
 Name    | Description               
 --------|---------------------------	

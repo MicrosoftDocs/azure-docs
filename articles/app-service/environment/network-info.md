@@ -16,9 +16,9 @@ ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
 ---
-# Networking considerations for an App Service Environment #
+# Networking considerations for an App Service Environment
 
-## Overview ##
+## Overview
 
  Azure [App Service Environment][Intro] is a deployment of Azure App Service into a subnet in your Azure virtual network (VNet). There are two deployment types for an App Service environment (ASE):
 
@@ -52,7 +52,7 @@ The normal app access ports are:
 
 This is true if you're on an External ASE or on an ILB ASE. If you're on an External ASE, you hit those ports on the public VIP. If you're on an ILB ASE, you hit those ports on the ILB. If you lock down port 443, there can be an effect on some features exposed in the portal. For more information, see [Portal dependencies](#portaldep).
 
-## ASE subnet size ##
+## ASE subnet size
 
 The size of the subnet used to host an ASE cannot be altered after the ASE is deployed.  The ASE uses an address for each infrastructure role as well as for each Isolated App Service plan instance.  Additionally, there are 5 addresses used by Azure Networking for every subnet that is created.  An ASE with no App Service plans at all will use 12 addresses before you create an app.  If it is an ILB ASE then it will use 13 addresses before you create an app in that ASE. As you scale out your ASE, infrastructure roles are added every multiple of 15 and 20 of your App Service plan instances.
 
@@ -61,9 +61,9 @@ The size of the subnet used to host an ASE cannot be altered after the ASE is de
 
 When you scale up or down, new roles of the appropriate size are added and then your workloads are migrated from the current size to the target size. Only after your apps are migrated are the original VMs removed. This means that if you had an ASE with 100 ASP instances there would be a period where you need double the number of VMs.  It is for this reason that we recommend the use of a '/24' to accommodate any changes you might require.  
 
-## ASE dependencies ##
+## ASE dependencies
 
-### ASE inbound dependencies ###
+### ASE inbound dependencies
 
 The ASE inbound access dependencies are:
 
@@ -84,13 +84,13 @@ If you are using app assigned IP addresses you need to allow traffic from the IP
 
 The TCP traffic that comes in on ports 454 and 455 must go back out from the same VIP or you will have an asymmetric routing problem. 
 
-### ASE outbound dependencies ###
+### ASE outbound dependencies
 
 For outbound access, an ASE depends on multiple external systems. Many of those system dependencies are defined with DNS names and don't map to a fixed set of IP addresses. Thus, the ASE requires outbound access from the ASE subnet to all external IPs across a variety of ports. 
 
 The complete list of outbound dependencies are listed in the document that describes [Locking down App Service Environment outbound traffic](./firewall-integration.md). If the ASE loses access to its dependencies, it stops working. When that happens long enough, the ASE is suspended. 
 
-### Customer DNS ###
+### Customer DNS
 
 If the VNet is configured with a customer-defined DNS server, the tenant workloads use it. The ASE still needs to communicate with Azure DNS for management purposes. 
 
@@ -102,7 +102,7 @@ If you change the DNS setting of the VNet that your ASE is in, you will need to 
 
 <a name="portaldep"></a>
 
-## Portal dependencies ##
+## Portal dependencies
 
 In addition to the ASE functional dependencies, there are a few extra items related to the portal experience. Some of the capabilities in the Azure portal depend on direct access to _SCM site_. For every app in Azure App Service, there are two URLs. The first URL is to access your app. The second URL is to access the SCM site, which is also called the _Kudu console_. Features that use the SCM site include:
 
@@ -124,11 +124,11 @@ Many of those capabilities that depend upon the SCM site are also available dire
 
 If your ILB ASE is the domain name *contoso.net* and your app name is *testapp*, the app is reached at *testapp.contoso.net*. The SCM site that goes with it is reached at *testapp.scm.contoso.net*.
 
-## Functions and Web jobs ##
+## Functions and Web jobs
 
 Both Functions and Web jobs depend on the SCM site but are supported for use in the portal, even if your apps are in an ILB ASE, so long as your browser can reach the SCM site.  If you are using a self-signed certificate with your ILB ASE, you will need to enable your browser to trust that certificate.  For IE and Microsoft Edge that means the certificate has to be in the computer trust store.  If you are using Chrome then that means you accepted the certificate in the browser earlier by presumably hitting the scm site directly.  The best solution is to use a commercial certificate that is in the browser chain of trust.  
 
-## ASE IP addresses ##
+## ASE IP addresses
 
 An ASE has a few IP addresses to be aware of. They are:
 
@@ -144,13 +144,13 @@ All these IP addresses are easily visible in an ASEv2 in the Azure portal from t
 
 ![IP addresses][3]
 
-### App-assigned IP addresses ###
+### App-assigned IP addresses
 
 With an External ASE, you can assign IP addresses to individual apps. You can't do that with an ILB ASE. For more information on how to configure your app to have its own IP address, see [Bind an existing custom SSL certificate to Azure App Service](../app-service-web-tutorial-custom-ssl.md).
 
 When an app has its own IP-based SSL address, the ASE reserves two ports to map to that IP address. One port is for HTTP traffic, and the other port is for HTTPS. Those ports are listed in the ASE UI in the IP addresses section. Traffic must be able to reach those ports from the VIP or the apps are inaccessible. This requirement is important to remember when you configure Network Security Groups (NSGs).
 
-## Network Security Groups ##
+## Network Security Groups
 
 [Network Security Groups][NSGs] provide the ability to control network access within a VNet. When you use the portal, there's an implicit deny rule at the lowest priority to deny everything. What you build are your allow rules.
 
@@ -174,7 +174,7 @@ All the items shown in the following outbound rules are needed, except for the l
 
 After your NSGs are defined, assign them to the subnet that your ASE is on. If you don’t remember the ASE VNet or subnet, you can see it from the ASE portal page. To assign the NSG to your subnet, go to the subnet UI and select the NSG.
 
-## Routes ##
+## Routes
 
 Forced tunneling is when you set routes in your VNet so the outbound traffic doesn't go directly to the internet but somewhere else like an ExpressRoute gateway or a virtual appliance.  If you need to configure your ASE in such a manner then read the document on [Configuring your App Service Environment with Forced Tunneling][forcedtunnel].  This document will tell you the options available to work with ExpressRoute and forced tunneling.
 
@@ -197,7 +197,7 @@ To create the same routes manually, follow these steps:
 
     ![NSGs and routes][7]
 
-## Service Endpoints ##
+## Service Endpoints
 
 Service Endpoints enable you to restrict access to multi-tenant services to a set of Azure virtual networks and subnets. You can read more about Service Endpoints in the [Virtual Network Service Endpoints][serviceendpoints] documentation. 
 

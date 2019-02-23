@@ -13,7 +13,7 @@ ms.date: 05/16/2018
 ms.author: v-gedod
 ---
 
-# Quickstart: Get image insights using the Bing Visual Search SDK for C#
+# Quickstart: Get image insights using the Bing Visual Search SDK for C\#
 
 Use this quickstart to begin getting image insights from the Bing Visual Search service, using the C# SDK. While Bing Visual Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVisualSearch).
 

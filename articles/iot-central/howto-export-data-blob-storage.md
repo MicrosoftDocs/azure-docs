@@ -304,7 +304,7 @@ def parse(filePath):
     print(transformed)
 ```
 
-### Read Avro files by using C#
+### Read Avro files by using C\#
 
 #### Install the Microsoft.Hadoop.Avro package
 

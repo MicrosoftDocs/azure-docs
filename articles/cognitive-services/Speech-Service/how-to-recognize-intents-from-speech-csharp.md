@@ -15,7 +15,7 @@ ms.author: wolfma
 # Customer intent: As a C# programmer, I want to learn how to derive speaker intent from their utterances so that I can create a conversational UI for my application.
 ---
 
-# Tutorial: Recognize intents from speech using the Speech SDK for C#
+# Tutorial: Recognize intents from speech using the Speech SDK for C\#
 
 [!INCLUDE [Article selector](../../../includes/cognitive-services-speech-service-how-to-recognize-intents-from-speech-selector.md)]
 

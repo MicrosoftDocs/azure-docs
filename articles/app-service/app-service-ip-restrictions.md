@@ -18,7 +18,7 @@ ms.author: ccompy
 ms.custom: seodec18
 
 ---
-# Azure App Service Static IP Restrictions #
+# Azure App Service Static IP Restrictions
 
 IP Restrictions allow you to define a priority ordered allow/deny list of IP addresses that are allowed to access your app. The allow list can include IPv4 and IPv6 addresses. When there are one or more entries, there is then an implicit deny all that exists at the end of the list. 
 
@@ -32,7 +32,7 @@ The IP Restrictions capability is implemented in the App Service front-end roles
 
 For a time, the IP Restrictions capability in the portal was a layer on top of the ipSecurity capability in IIS. The current IP Restrictions capability is different. You can still configure ipSecurity within your application web.config but the front-end based IP Restrictions rules will be applied before any traffic reaches IIS.
 
-## Adding and editing IP Restriction rules in the portal ##
+## Adding and editing IP Restriction rules in the portal
 
 To add an IP restriction rule to your app, use the menu to open **Network**>**IP Restrictions** and click on **Configure IP Restrictions**
 
@@ -58,7 +58,7 @@ To delete a rule, click the **...** on your rule and then click **remove**.
 
 ![delete IP restriction rule](media/app-service-ip-restrictions/ip-restrictions-delete.png)
 
-## Programmatic manipulation of IP restriction rules ##
+## Programmatic manipulation of IP restriction rules
 
 There currently is no CLI or PowerShell for the new IP Restrictions capability but the values can be set manually with a PUT operation on the app configuration in Resource Manager. As an example, you can use resources.azure.com and edit the ipSecurityRestrictions block to add the required JSON. 
 

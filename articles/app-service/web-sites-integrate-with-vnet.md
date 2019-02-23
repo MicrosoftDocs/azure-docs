@@ -62,7 +62,7 @@ Here are some things to keep in mind before connecting your web app to a virtual
 
 There is a new version of the VNet Integration feature that is in preview. It doesn't depend on point-to-site VPN and also supports accessing resources across ExpressRoute or Service Endpoints. To learn more about the new preview capability, go to the end of this document. 
 
-### Set up a gateway in your VNet ###
+### Set up a gateway in your VNet
 
 If you already have a gateway configured with point-to-site addresses, you can skip to configuring VNet Integration with your app.  
 To create a gateway:
@@ -79,7 +79,7 @@ To create a gateway:
 
 If your are just creating the gateway for use with App Service VNet Integration, then you do not need to upload a certificate. Creating the gateway can take 30 minutes. You will not be able to integrate your app with your VNet until the gateway is provisioned. 
 
-### Configure VNet Integration with your app ###
+### Configure VNet Integration with your app
 
 To enable VNet Integration on your app: 
 
@@ -220,7 +220,7 @@ Additional debug steps include:
 
 * bring up an application on a VM and test access to that host and port from the console from your app
 
-#### On-premises resources ####
+#### On-premises resources
 
 If your app cannot reach a resource on-premises, then check if you can reach the resource from your VNet. Use the **test-netconnection** PowerShell command to check for TCP access. If your VM can't reach your on-premises resource, then make sure your Site to Site VPN connection is working. If it is working, then check the same things noted earlier as well as the on-premises gateway configuration and status. 
 
@@ -256,7 +256,7 @@ When your VNet is already connected to your on-premises network, then using VNet
 
 Beyond the functional differences, there are also pricing differences. The App Service Environment feature is a Premium service offering but offers the most network configuration possibilities in addition to other great features. VNet Integration can be used with Standard or Premium ASPs and is perfect for securely consuming resources in your VNet from the multi-tenant App Service. Hybrid Connections currently depends on a BizTalk account, which has pricing levels that start free and then get progressively more expensive based on the amount you need. When it comes to working across many networks though, there is no other feature like Hybrid Connections, which can enable you to access resources in well over 100 separate networks. 
 
-## New VNet Integration ##
+## New VNet Integration
 
 There is a new version of the VNet Integration capability that doesn't depend on Point-to-Site VPN technology. Unlike the pre-existing feature, the new Preview feature will work with ExpressRoute and Service Endpoints. 
 

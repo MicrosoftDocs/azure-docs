@@ -154,7 +154,7 @@ The result is a list of instance IDs and their current runtime status.
 
 It's important to keep the orchestrator replay behavior in mind when writing logs directly from an orchestrator function. For example, consider the following orchestrator function:
 
-### C#
+### C\#
 
 ```cs
 public static async Task Run(
@@ -207,7 +207,7 @@ Done!
 
 If you want to only log on non-replay execution, you can write a conditional expression to log only if `IsReplaying` is `false`. Consider the example above, but this time with replay checks.
 
-#### C#
+#### C\#
 
 ```cs
 public static async Task Run(
@@ -253,7 +253,7 @@ Done!
 
 Custom orchestration status lets you set a custom status value for your orchestrator function. This status is provided via the HTTP status query API or the `DurableOrchestrationClient.GetStatusAsync` API. The custom orchestration status enables richer monitoring for orchestrator functions. For example, the orchestrator function code can include `DurableOrchestrationContext.SetCustomStatus` calls to update the progress for a long-running operation. A client, such as a web page or other external system, could then periodically query the HTTP status query APIs for richer progress information. A sample using `DurableOrchestrationContext.SetCustomStatus` is provided below:
 
-### C#
+### C\#
 
 ```csharp
 public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext context)

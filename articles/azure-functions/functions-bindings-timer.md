@@ -90,7 +90,7 @@ public static void Run(TimerInfo myTimer, ILogger log)
 }
 ```
 
-### F# example
+### F\# example
 
 The following example shows a timer trigger binding in a *function.json* file and an [F# script function](functions-reference-fsharp.md) that uses the binding. The function writes a log indicating whether this function invocation is due to a missed schedule occurrence.
 

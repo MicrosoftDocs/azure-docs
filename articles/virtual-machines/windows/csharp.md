@@ -18,7 +18,7 @@ ms.date: 07/17/2017
 ms.author: cynthn
 
 ---
-# Create and manage Windows VMs in Azure using C# #
+# Create and manage Windows VMs in Azure using C\#
 
 An [Azure Virtual Machine](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) needs several supporting Azure resources. This article covers creating, managing, and deleting VM resources using C#. You learn how to:
 

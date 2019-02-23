@@ -79,7 +79,7 @@ While a durable orchestration generally lives within a context of a single funct
 
 Examples of a cross-function app orchestration in C# and JavaScript are provided below.  One activity will start the external orchestration. Another activity will then retrieve and return the status.  The orchestrator will wait for the status to be complete before continuing.
 
-#### C#
+#### C\#
 
 ```csharp
 [FunctionName("OrchestratorA")]

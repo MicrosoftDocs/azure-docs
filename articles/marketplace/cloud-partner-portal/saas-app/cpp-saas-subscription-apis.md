@@ -105,8 +105,8 @@ To register a new application using the Azure portal, perform the following step
     to allow only users from the same tenant to sign in to your
     application.
 
-API Methods and Endpoints
--------------------------
+## API Methods and Endpoints
+
 
 The following sections describe the API methods and endpoints available
 for enabling subscriptions for a SaaS offer.

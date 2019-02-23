@@ -23,7 +23,7 @@ Orchestrator functions have the ability to wait and listen for external events. 
 
 The [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) method allows an orchestrator function to asynchronously wait and listen for an external event. The listening orchestrator function declares the *name* of the event and the *shape of the data* it expects to receive.
 
-### C#
+### C\#
 
 ```csharp
 [FunctionName("BudgetApproval")]
@@ -61,7 +61,7 @@ The preceding example listens for a specific single event and takes action when 
 
 You can listen for multiple events concurrently, like in the following example, which waits for one of three possible event notifications.
 
-#### C#
+#### C\#
 
 ```csharp
 [FunctionName("Select")]
@@ -111,7 +111,7 @@ module.exports = df.orchestrator(function*(context) {
 
 The previous example listens for *any* of multiple events. It's also possible to wait for *all* events.
 
-#### C#
+#### C\#
 
 ```csharp
 [FunctionName("NewBuildingPermit")]
@@ -163,7 +163,7 @@ The [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/
 
 Below is an example queue-triggered function that sends an "Approval" event to an orchestrator function instance. The orchestration instance ID comes from the body of the queue message.
 
-### C#
+### C\#
 
 ```csharp
 [FunctionName("ApprovalQueueProcessor")]

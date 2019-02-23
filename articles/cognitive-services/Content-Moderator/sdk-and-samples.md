@@ -53,7 +53,7 @@ The following list includes links to the code samples built using the Azure Cont
 
 See all .NET samples at the [Content Moderator .NET samples on GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator).
 
-## REST API samples in C#
+## REST API samples in C\#
 
 - [Image moderation](https://github.com/MicrosoftContentModerator/ContentModerator-API-Samples/tree/master/ImageModeration)
 - [Text moderation](https://github.com/MicrosoftContentModerator/ContentModerator-API-Samples/tree/master/TextModeration)

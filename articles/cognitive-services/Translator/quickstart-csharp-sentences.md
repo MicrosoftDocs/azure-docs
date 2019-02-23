@@ -12,7 +12,7 @@ ms.date: 02/21/2019
 ms.author: erhopf
 ---
 
-# Quickstart: Use the Translator Text API to determine sentence length using C#
+# Quickstart: Use the Translator Text API to determine sentence length using C\#
 
 In this quickstart, you'll learn how to determine sentence lengths using .NET Core and the Translator Text API.
 

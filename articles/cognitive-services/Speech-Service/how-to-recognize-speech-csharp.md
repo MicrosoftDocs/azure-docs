@@ -13,7 +13,7 @@ ms.date: 09/24/2018
 ms.author: wolfma
 ---
 
-# Recognize speech by using the Speech SDK for C#
+# Recognize speech by using the Speech SDK for C\#
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-how-to-recognize-speech-selector.md)]
 

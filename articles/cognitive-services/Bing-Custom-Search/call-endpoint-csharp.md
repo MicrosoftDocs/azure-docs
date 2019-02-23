@@ -13,7 +13,7 @@ ms.date: 05/07/2018
 ms.author: maheshb
 ---
 
-# Quickstart: Call your Bing Custom Search endpoint using C# 
+# Quickstart: Call your Bing Custom Search endpoint using C\# 
 
 Use this quickstart to begin requesting search results from your Bing Custom Search instance. While this application is written in C#, the Bing Custom Search API is a RESTful web service compatible with most programming languages. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingCustomSearchv7.cs).
 

@@ -24,7 +24,7 @@ Sub-orchestrator functions behave just like activity functions from the caller's
 
 The following example illustrates an IoT ("Internet of Things") scenario where there are multiple devices that need to be provisioned. There is a particular orchestration that needs to happen for each of the devices, which might look something like the following:
 
-### C#
+### C\#
 
 ```csharp
 public static async Task DeviceProvisioningOrchestration(
@@ -70,7 +70,7 @@ This orchestrator function can be used as-is for one-off device provisioning or 
 
 Here is an example that shows how to run multiple orchestrator functions in parallel.
 
-### C#
+### C\#
 
 ```csharp
 [FunctionName("ProvisionNewDevices")]

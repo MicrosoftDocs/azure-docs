@@ -14,7 +14,7 @@ ms.author: sajagtap
 #As a C# developer of content-providing software, I want to check images against a custom list of inappropriate images so that I can handle them more efficiently.
 ---
 
-# Quickstart: Moderate with custom image lists in C#
+# Quickstart: Moderate with custom image lists in C\#
 
 This article provides information and code samples to help you get started using 
 the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:

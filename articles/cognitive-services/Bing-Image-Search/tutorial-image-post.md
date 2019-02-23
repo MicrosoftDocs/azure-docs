@@ -12,7 +12,7 @@ ms.date: 9/14/2018
 ms.author: aahi
 ---
 
-# Tutorial: Extract image details using the Bing Image Search API and C#
+# Tutorial: Extract image details using the Bing Image Search API and C\#
 
 There are multiple [endpoints](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-endpoint) available through the Bing Image Search API. The `/details` endpoint accepts a POST request with an image, and can return a variety of details about the image. This C# application sends an image using this API, and displays the details returned by Bing, which are JSON objects, such as the following:
 

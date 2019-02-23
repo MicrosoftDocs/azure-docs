@@ -13,7 +13,7 @@ ms.date: 02/01/2019
 ms.author: v-gedod
 ---
 
-# Send a search request with the Bing Entity Search SDK for C#
+# Send a search request with the Bing Entity Search SDK for C\#
 
 Use this quickstart to begin searching for entities with the Bing Entity Search SDK for C#. While Bing Entity Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingEntitySearch).
 

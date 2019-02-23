@@ -57,7 +57,7 @@ If the network is already routing traffic on premises, then you need to create t
 
 ![Direct internet access][1]
 
-## Configure your ASE subnet to ignore BGP routes ## 
+## Configure your ASE subnet to ignore BGP routes 
 
 You can configure your ASE subnet to ignore all BGP routes.  When configured to ignore BGP routes, the ASE will be able to access its dependencies without any problems.  You will need to create UDRs however to enable your apps to access on premises resources.
 
@@ -69,7 +69,7 @@ To configure your ASE subnet to ignore BGP routes:
 After you configure the ASE subnet to ignore all BGP routes, your apps will no longer be able to reach on premises. To enable your apps to access resources on-premises, edit the UDR assigned to your ASE subnet and add routes for your on premises address ranges. The Next hop type should be set to Virtual network gateway. 
 
 
-## Configure your ASE with Service Endpoints ##
+## Configure your ASE with Service Endpoints
 
 To route all outbound traffic from your ASE, except that which goes to Azure SQL and Azure Storage, perform the following steps:
 
@@ -89,7 +89,7 @@ If you configure forced tunneling with a network filter appliance, then remember
 
 ![Forced tunnel with service endpoints][2]
 
-## Add your own IPs to the ASE Azure SQL firewall ##
+## Add your own IPs to the ASE Azure SQL firewall
 
 To tunnel all outbound traffic from your ASE, except that which goes to Azure Storage, perform the following steps:
 
@@ -133,7 +133,7 @@ These changes send traffic to Azure Storage directly from the ASE and allow acce
 
    ![Forced tunnel with SQL whitelist][3]
 
-## Preventing issues ##
+## Preventing issues
 
 If communication between the ASE and its dependencies is broken, the ASE will go unhealthy.  If it remains unhealthy too long, then the ASE will become suspended. To unsuspend the ASE, follow the instructions in your ASE portal.
 

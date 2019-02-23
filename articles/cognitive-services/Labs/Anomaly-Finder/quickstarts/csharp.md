@@ -12,7 +12,7 @@ ms.date: 05/01/2018
 ms.author: chliang
 ---
 
-# Use the Anomaly Finder API with C#
+# Use the Anomaly Finder API with C\#
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
@@ -22,7 +22,7 @@ This article provides information and code samples to help you quickly get start
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## Getting anomaly points with Anomaly Finder API using C#
+## Getting anomaly points with Anomaly Finder API using C\#
 
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 

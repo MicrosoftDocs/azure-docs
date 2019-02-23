@@ -13,7 +13,7 @@ ms.author: pafarley
 ms.custom: seodec18
 ---
 
-# Sample: Explore an image processing app with C#
+# Sample: Explore an image processing app with C\#
 
 Explore a basic Windows application that uses Computer Vision to perform optical character recognition (OCR), create smart-cropped thumbnails, plus detect, categorize, tag and describe visual features, including faces, in an image. The below example lets you submit an image URL or a locally stored file. You can use this open source example as a template for building your own app for Windows using the Computer Vision API and Windows Presentation Foundation (WPF), a part of .NET Framework.
 

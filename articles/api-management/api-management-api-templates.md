@@ -712,7 +712,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 }  
 ```  
   
-###  <a name="CSharp"></a> C#  
+###  <a name="CSharp"></a> C\#  
  The **DocumentationSamplesCsharp** template allows you to customize that code sample in the code samples section of the operation page.  
   
 #### Default template  

@@ -14,7 +14,7 @@ ms.author: rosh
 
 ---
 
-# Quickstart: Project Answer Search query in C#
+# Quickstart: Project Answer Search query in C\#
 
 The following C# example creates and sends a query for information about the third law of calculus.
 

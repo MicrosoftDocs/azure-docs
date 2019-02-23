@@ -46,7 +46,7 @@ The `E2_BackupSiteContent` function uses the standard *function.json* for orches
 
 Here is the code that implements the orchestrator function:
 
-### C#
+### C\#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_BackupSiteContent/run.csx)]
 
@@ -77,7 +77,7 @@ The helper activity functions, as with other samples, are just regular functions
 
 And here is the implementation:
 
-### C#
+### C\#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/run.csx)]
 
@@ -96,7 +96,7 @@ The *function.json* file for `E2_CopyFileToBlob` is similarly simple:
 
 The C# implementation is also pretty straightforward. It happens to use some advanced features of Azure Functions bindings (that is, the use of the `Binder` parameter), but you don't need to worry about those details for the purpose of this walkthrough.
 
-### C#
+### C\#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
 
