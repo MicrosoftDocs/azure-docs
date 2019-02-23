@@ -1,6 +1,6 @@
 ---
-title: Deploy to Azure Functions using the Jenkins Azure Function plugin
-description: Learn how to deploy to Azure Functions using the Jenkins Azure Function plugin
+title: Deploy to Azure Functions using the Jenkins Azure Functions plugin
+description: Learn how to deploy to Azure Functions using the Jenkins Azure Functions plugin
 ms.service: jenkins
 keywords: jenkins, azure, devops, java, azure functions
 author: tomarchermsft
@@ -10,15 +10,15 @@ ms.topic: tutorial
 ms.date: 02/23/2019
 ---
 
-# Deploy to Azure Functions using the Jenkins Azure Function plugin
+# Deploy to Azure Functions using the Jenkins Azure Functions plugin
 
-[Azure Functions](/azure/azure-functions/) is a serverless compute service. Using Azure Functions, you can run code on-demand without provisioning or managing infrastructure. This tutorial shows how to deploy a Java function to Azure Function using the Azure Function plugin.
+[Azure Functions](/azure/azure-functions/) is a serverless compute service. Using Azure Functions, you can run code on-demand without provisioning or managing infrastructure. This tutorial shows how to deploy a Java function to Azure Functions using the Azure Functions plugin.
 
-## Create an Azure Function
+## Create a Java function
 
-The Azure Function plugin doesn't provision the function app if it doesn't already exist. To create an Azure Function with the Java runtime stack, use either the [Azure portal][https://portal.azure.com] or [Azure CLI](/cli/azure/?view=azure-cli-latest).
+To create a Java function with the Java runtime stack, use either the [Azure portal][https://portal.azure.com] or the [Azure CLI](/cli/azure/?view=azure-cli-latest).
 
-The following steps show how to create an Azure Function app using Azure CLI:
+The following steps show how to create a Java function using the Azure CLI:
 
 1. Create a resource group, inserting your resource group name for the &lt;resource-group-name> placeholder.
 
@@ -32,7 +32,7 @@ The following steps show how to create an Azure Function app using Azure CLI:
     az storage account create --name <storage-name> --location eastus --resource-group <resource-group-name> --sku Standard_LRS    
     ```
 
-1. Create the test Azure Function app, replacing the placeholders with the appropriate values.
+1. Create the test function app, replacing the placeholders with the appropriate values.
 
     ```cli
     az functionapp create --resource-group <resource-group-name> --consumption-plan-location eastus --name <app-name> --storage-account <storage-name>
@@ -69,7 +69,7 @@ The following steps explain how to prepare the Jenkins server:
 
 1. In the Jenkins dashboard, install the following plugins:
 
-    - Azure Function Plugin
+    - Azure Functions Plugin
     - EnvInject Plugin
 
 1. Jenkins needs an Azure service principal to authenticate and access Azure resources. Refer to the [Deploy to Azure App Service][./tutorial-jenkins-deploy-web-app-azure-app-service#create-service-principal.md] for step-by-step instructions.
@@ -100,7 +100,7 @@ In this section, you create the [Jenkins Pipeline][<https://jenkins.io/doc/book/
 
 It's now time to run the Jenkins job.
 
-1. First, obtain the authorization key via the instructions in the [Azure Function HTTP triggers and bindings][/azure/azure-functions/functions-bindings-http-webhook#authorization-keys] article.
+1. First, obtain the authorization key via the instructions in the [Azure Functions HTTP triggers and bindings][/azure/azure-functions/functions-bindings-http-webhook#authorization-keys] article.
 
 1. In your browser, enter the following URL, replacing the placeholders with the appropriate values: 
 
