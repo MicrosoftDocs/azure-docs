@@ -42,7 +42,7 @@ If one or more Operations Manager Gateway servers are deployed to monitor untrus
 
 To provide high availability for directly connected or Operations Management groups that communicate with Log Analytics through the gateway, use network load balancing (NLB) to redirect and distribute traffic across multiple gateway servers. That way, if one gateway server goes down, the traffic is redirected to another available node.  
 
-The computer that runs the Log Analytics gateway needs information from the Log Analytics Windows agent. The agent needs to identify the service endpoints that the gateway needs to communicate with. The agent also needs to direct the gateway to report to the same workspaces that the agents or Operations Manager management group behind the gateway are configured with. This configuration allows the gateway and the agent to communicate with their assigned workspace. 
+The computer that runs the Log Analytics gateway requires the Log Analytics Windows agent to identify the service endpoints that the gateway needs to communicate with. The agent also needs to direct the gateway to report to the same workspaces that the agents or Operations Manager management group behind the gateway are configured with. This configuration allows the gateway and the agent to communicate with their assigned workspace.
 
 A gateway can be multihomed to up to four workspaces. This is the total number of workspaces a Windows agent supports.  
 
