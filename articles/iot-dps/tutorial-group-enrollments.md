@@ -27,21 +27,21 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
 1. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 
-1. Use the following [Certifcate Overview](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) to create your test certificates.
+1. Use the following [Certificate Overview](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) to create your test certificates.
 
     > [!NOTE]
-    > This step requires [OpenSSL](https://www.openssl.org/), which can either be built and installed from source or downloaded and installed from a [3rd party](https://wiki.openssl.org/index.php/Binaries) such as [this](https://sourceforge.net/projects/openssl/). If you have already created your _root_, _intermediate_ and _device_ certificates you may skip this step.
+    > This step requires [OpenSSL](https://www.openssl.org/), which can either be built and installed from source or downloaded and installed from a [3rd-party](https://wiki.openssl.org/index.php/Binaries) such as [this](https://sourceforge.net/projects/openssl/). If you have already created your _root_, _intermediate_ and _device_ certificates you may skip this step.
     >
 
     1. Run through the first two steps to create your _root_ and _intermediate_ certificates.
 
-    1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your provisioning service.
+    1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your provisioning service.
 
         1. On the Device Provisioning Service summary blade, select **Certificates** and click the **Add** button at the top.
 
         1. Under the **Add Certificate**, enter the following information:
             - Enter a unique certificate name.
-            - Select the **_RootCA.pem_** file you just created.
+            - Select the **_RootCA.pem_** file you created.
             - Once complete, click the **Save** button.
 
            ![Add certificate](./media/tutorial-group-enrollments/add-certificate.png)
@@ -74,7 +74,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
         1. Navigate to your provisioning service in the [Azure portal](https://portal.azure.com).
 
-        1. Open the **Shared access policies**, and select a policy which has the *EnrollmentWrite* permission.
+        1. Open the **Shared access policies**, and select a policy that has the *EnrollmentWrite* permission.
 
         1. Copy the **Primary key connection string**.
 
@@ -86,7 +86,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
             private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
             ```
 
-    1. Open the your intermediate signing certificate file in a text editor. Update the `PUBLIC_KEY_CERTIFICATE_STRING` value with the value of your intermediate signing certificate.
+    1. Open your intermediate signing certificate file in a text editor. Update the `PUBLIC_KEY_CERTIFICATE_STRING` value with the value of your intermediate signing certificate.
 
         If you generated your device certificates with Bash shell, *./certs/azure-iot-test-only.intermediate.cert.pem* contains the intermediate certificate key. If your certs were generated with PowerShell, *./Intermediate1.pem* will be your intermediate certificate file.
 
@@ -112,7 +112,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
         private static final String IOTHUB_HOST_NAME = "[Host name].azure-devices.net";
         ```
 
-    1. Study the sample code. It creates, updates, queries and deletes a group enrollment for X.509 devices. To verify successful enrollment in portal, temporarily comment out the following lines of code at the end of the _ServiceEnrollmentGroupSample.java_ file:
+    1. Study the sample code. It creates, updates, queries, and deletes a group enrollment for X.509 devices. To verify successful enrollment in portal, temporarily comment out the following lines of code at the end of the _ServiceEnrollmentGroupSample.java_ file:
 
         ```java
         // ************************************** Delete info of enrollmentGroup ***************************************
@@ -145,7 +145,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
 ## Simulate the device
 
-1. On the Device Provisioning Service summary blade, select **Overview** and note your _Id Scope_ and _Provisioning Service Global Endpoint_.
+1. On the Device Provisioning Service summary blade, select **Overview** and note your _ID Scope_ and _Provisioning Service Global Endpoint_.
 
     ![Service information](./media/tutorial-group-enrollments/extract-dps-endpoints.png)
 
@@ -155,7 +155,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
     cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-X509-sample
     ```
 
-1. Edit `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` to include your _Id Scope_ and _Provisioning Service Global Endpoint_ that you noted previously.
+1. Edit `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` to include your _ID Scope_ and _Provisioning Service Global Endpoint_ that you noted previously.
 
     ```java
     private static final String idScope = "[Your ID scope here]";
