@@ -1,5 +1,5 @@
 ---
-title: Bulk copy from database with control table with Azure Data Factory | Microsoft Docs
+title: Bulk copy from a database by using a control table with Azure Data Factory | Microsoft Docs
 description: Learn how to use a solution template to fully copy data in bulk from a database using an external control table to store partition list of source tables with Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -18,8 +18,8 @@ ms.date: 12/14/2018
 
 To copy data from a data warehouse in Oracle Server, Netezza, Teradata, or SQL Server to Azure SQL Data Warehouse, you have to load huge amounts of data from multiple tables. Usually, the data has to be partitioned in each table so that you can load rows with multiple threads in parallel from a single table. This article describes a template that's available to use in such scenarios.
 
->!NOTE
-> If you want to copy data from a small number of tables with relatively small data volume to SQL Data Warehouse, it's more efficient to use the [**Data Factory Copy Data tool**](copy-data-tool.md). The template that's described in this article is more than you need for that scenario.
+ >!NOTE 
+ > If you want to copy data from a small number of tables with relatively small data volume to SQL Data Warehouse, it's more efficient to use the [**Data Factory Copy Data tool**](copy-data-tool.md). The template that's described in this article is more than you need for that scenario.
 
 ## About this solution template
 
