@@ -179,6 +179,8 @@
           href: learn/quick-create-workspace-posh.md
       - name: Delete a workspace
         href: platform/delete-workspace.md
+      - name: Manage a workspace
+        href: platform/manage-access.md
       - name: Design for service providers
         href: platform/service-providers.md
   - name: Collect data

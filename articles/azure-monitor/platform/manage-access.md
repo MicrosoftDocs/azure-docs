@@ -20,68 +20,6 @@ Azure Monitor stores log data in a Log Analytics workspace, which is essentially
 
 This article explains how to manage access to logs and to administer the workspaces that contains them. 
 
-
-
-## Access mode
-Log Analytics workspaces have two access models:
-
-**Workspace centric**: This is the traditional model of workspaces where the access control permissions are managed by the workspace. A user can view the logs if they have read access to the workspace. This model is relevant for both log queries and administration of the qorkspace. When queries are used in this mode, they are scoped to all logs in the workspace.
-
-**Resource centric**: This is a new model that is available for querying logs of a specific resource. This allows users of particular Azure resources to access their logs regardless of the workspace that stores them. It also provides granular role-based access control (RBAC) in these scenarios consistent with [Azure RBAC](../role-based-access-control/overview.md).  
-
-The following table summarizes the access modes:
-
-| | Workspace centric | Resource centric |
-|:---|:---|
-| Who is each model intended for? | Administrators who need to configure of data collection and users who need access to wide variety of resources. Also currently required for users who have to access logs for resources outside of Azure. | Administrators of Azure resources being monitored. |
-| What does a user require to view logs? | Permissions to the workspace. | Read access to the resource. Permissions can be inherited (such as from the containing resource group) or directly assigned to the resource. Permission to the logs for the resource will be automatically assigned. |
-| What is the scope of permissions? | Workspace. Users with access to the workspace can query all logs in that workspace. | Azure resource. User can query logs for resources they have access to from any workspace but can't query logs for other resources. |
-| How can user access logs? | Start **Logs** from **Azure Monitor** menu or **Log Analytics workspaces** menu in the Azure portal. Most insights currently use workspace centric. | Start **Logs** from the menu for the Azure resource. |
-
-
-## Define access mode
-
-### Azure portal
-You can view the current workspace access setting on the **Overview** page for the workspace in the **Log Analytics workspace** menu. 
-
-![View workspace access mode](media/manage-access/view-access-mode.md)
-
-You can change this setting on the **Properties** page for the workspace. Changing the setting will be disabled if you don't have permissions to configure the workspace.
-
-![Change workspace access mode](media/manage-access/change-access-mode.md)
-
-### Resource Manager template
-To configure the access mode in an Azure Resource Manager template, set the **enableLogAccessUsingOnlyResourcePermissions** feature flag on the workspace to one of the following values.
-
-- **false**: Set the workspace to workspace-centric permissions. This is the default setting if the flag isn't set.
-- **true**: Set the workspace to resource-centric permissions.
-
-## Determine the number of workspaces you need
-A Log Analytics workspace is an Azure resource and is a container where data is collected, aggregated, analyzed, and presented in Azure Monitor.
-
-You can have multiple workspaces per Azure subscription, and you can have access to more than one workspace, with the ability to easily query across them. This section describes when it can be helpful to create more than one workspace.
-
-A Log Analytics workspace provides:
-
-* A geographic location for data storage.
-* Data isolation to define different user access rights in workspace-centric access. Not relevant when working in resource-centric mode.
-* Scope for configuration of settings like [pricing tier](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [retention](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) and [data capping](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap).
-* Charges related to data ingestion and retention are made on the workspace resource.
-
-From consumption point of view, we recommend you create as few workspaces as possible. It makes administration and query experience easier and quicker. But, based on the preceding characteristics, you may want to create multiple workspaces if:
-
-* You are a global company and you need log data stored in specific regions for data sovereignty or compliance reasons.
-* You are using Azure and you want to avoid outbound data transfer charges by having a workspace in the same region as the Azure resources it manages.
-* You want to allocate charges to different departments or business groups based on their usage by creating a workspace for each department or business group in its own Azure subscription.
-* You are a managed service provider and need to keep the Log Analytics data for each customer you manage isolated from other customer’s data.
-* You manage multiple customers and you want each customer / department / business group to see their own data, but not data from others.
-
-When using Windows agents to collect data, you can [configure each agent to report to one or more workspaces](../../azure-monitor/platform/agent-windows.md).
-
-If you are using System Center Operations Manager, each Operations Manager management group can be connected with only one workspace. You can install the Microsoft Monitoring Agent on computers managed by Operations Manager and have the agent report to both Operations Manager and a different Log Analytics workspace.
-
-Once the workspace architecture is defined, you should enforce this policy on Azure resources with [Azure Policy](../governance/policy/overview.md). This can provide a built-in definition that would automatically apply to all Azure resources. For example, you could set a policy to ensure that all your Azure resources in a particular region sent all their diagnostic logs to a particular workspace.
-
 ## Workspace information
 While you analyze data in the Log Analytics workspace in the **Azure Monitor** menu in the Azure portal, you create and manage workspaces in the **Log Analytics workspaces** menu.
  
@@ -98,14 +36,38 @@ While you analyze data in the Log Analytics workspace in the **Azure Monitor** m
 
 
 
-## Create a workspace
+## Access modes
+Log Analytics workspaces have two access modes:
 
-To create a workspace, you need to:
+**Workspace centric**: This is the traditional model of workspaces where the access control permissions are managed by the workspace. A user can view the logs if they have read access to the workspace. This model is relevant for both log queries and administration of the qorkspace. When queries are used in this mode, they are scoped to all logs in the workspace.
 
-1. Have an Azure subscription.
-2. Choose a workspace name.
-3. Associate the workspace with one of your subscriptions and resource groups.
-4. Choose a geographical location.
+**Resource centric**: This is a new model that is available for querying logs of a specific resource. This allows users of particular Azure resources to access their logs regardless of the workspace that stores them. It also provides granular role-based access control (RBAC) in these scenarios consistent with [Azure RBAC](../../role-based-access-control/overview.md).  
+
+The following table summarizes the access modes:
+
+| | Workspace centric | Resource centric |
+|:---|:---|:---|
+| Who is each model intended for? | Administrators who need to configure of data collection and users who need access to wide variety of resources. Also currently required for users who have to access logs for resources outside of Azure. | Administrators of Azure resources being monitored. |
+| What does a user require to view logs? | Permissions to the workspace. | Read access to the resource. Permissions can be inherited (such as from the containing resource group) or directly assigned to the resource. Permission to the logs for the resource will be automatically assigned. |
+| What is the scope of permissions? | Workspace. Users with access to the workspace can query all logs in that workspace. | Azure resource. User can query logs for resources they have access to from any workspace but can't query logs for other resources. |
+| How can user access logs? | Start **Logs** from **Azure Monitor** menu or **Log Analytics workspaces** menu in the Azure portal. Most insights currently use workspace centric. | Start **Logs** from the menu for the Azure resource. |
+
+
+### Define access mode in Azure portal
+You can view the current workspace access setting on the **Overview** page for the workspace in the **Log Analytics workspace** menu. 
+
+![View workspace access mode](media/manage-access/view-access-mode.png)
+
+You can change this setting on the **Properties** page for the workspace. Changing the setting will be disabled if you don't have permissions to configure the workspace.
+
+![Change workspace access mode](media/manage-access/change-access-mode.png)
+
+### Define access mode in Resource Manager template
+To configure the access mode in an Azure Resource Manager template, set the **enableLogAccessUsingOnlyResourcePermissions** feature flag on the workspace to one of the following values.
+
+- **false**: Set the workspace to workspace-centric permissions. This is the default setting if the flag isn't set.
+- **true**: Set the workspace to resource-centric permissions.
+
 
 
 ## Manage accounts and users
@@ -116,7 +78,7 @@ When users query logs from a workspace using resource-centric access, they'll ha
 ```
 microsoft.insights/logs/<tableName>/read
 ```
-This permission is usually granted from a role that includes _\*/read or_ _\*_ permissions such as the built-in [Reader](../role-based-access-control/built-in-roles.md#reader) and [Contributor](../role-based-access-control/built-in-roles.md#contributor) roles. Note that custom roles that includes specific actions or dedicated built-in roles might not include this permission.
+This permission is usually granted from a role that includes _\*/read or_ _\*_ permissions such as the built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) and [Contributor](../../role-based-access-control/built-in-roles.md#contributor) roles. Note that custom roles that includes specific actions or dedicated built-in roles might not include this permission.
 
 See [Defining per-table access control](#defining-per-table-access-control) below if you want to create different access control for different tables or data types.
 
@@ -137,7 +99,7 @@ The following activities also require Azure permissions:
 | Creating a workspace in the Azure portal                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
 
 
-### Managing access to Log Analytics Workspace using Azure permissions 
+### Manage access to Log Analytics Workspace using Azure permissions 
 To grant access to the Log Analytics workspace using Azure permissions, follow the steps in [use role assignments to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 
 Azure has two built-in user roles for Log Analytics workspaces:
@@ -199,7 +161,7 @@ Use these roles to give users access at different scopes:
 
 We recommend you perform assignments at the resource level (workspace) to assure accurate access control.  Use [custom roles](../../role-based-access-control/custom-roles.md) to create roles with the specific permissions needed.
 
-## Defining per-table access control 
+## Define per-table access control 
 Your organization may require more granular control than workspace and resource. You can create [Azure custom roles](../../role-based-access-control/custom-roles.md) to give users access to specific [tables](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized). These roles can be applied to workspaces with both workspace-centric and resource-centric access. They allow you to define specific data types that are accessible only to a specific set of users.
 
 ### Standard logs
@@ -247,6 +209,33 @@ To create a role with access to all custom logs, create a custom role using the 
 - Administrators for the subscription will have access to all data types regardless of any other permission settings.
 - Workspace owners are treated like any other user for per-table access control.
 - You should assign roles to security groups instead of individual users to reduce the number of assignments. This will also help you use existing group management tools to configure and verify access.
+
+## Determine the number of workspaces you need
+A Log Analytics workspace is an Azure resource and is a container where data is collected, aggregated, analyzed, and presented in Azure Monitor.
+
+You can have multiple workspaces per Azure subscription, and you can have access to more than one workspace, with the ability to easily query across them. This section describes when it can be helpful to create more than one workspace.
+
+A Log Analytics workspace provides:
+
+* A geographic location for data storage.
+* Data isolation to define different user access rights in workspace-centric access. Not relevant when working in resource-centric mode.
+* Scope for configuration of settings like [pricing tier](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [retention](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) and [data capping](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap).
+* Charges related to data ingestion and retention are made on the workspace resource.
+
+From consumption point of view, we recommend you create as few workspaces as possible. It makes administration and query experience easier and quicker. But, based on the preceding characteristics, you may want to create multiple workspaces if:
+
+* You are a global company and you need log data stored in specific regions for data sovereignty or compliance reasons.
+* You are using Azure and you want to avoid outbound data transfer charges by having a workspace in the same region as the Azure resources it manages.
+* You want to allocate charges to different departments or business groups based on their usage by creating a workspace for each department or business group in its own Azure subscription.
+* You are a managed service provider and need to keep the Log Analytics data for each customer you manage isolated from other customer’s data.
+* You manage multiple customers and you want each customer / department / business group to see their own data, but not data from others.
+
+When using Windows agents to collect data, you can [configure each agent to report to one or more workspaces](../../azure-monitor/platform/agent-windows.md).
+
+If you are using System Center Operations Manager, each Operations Manager management group can be connected with only one workspace. You can install the Microsoft Monitoring Agent on computers managed by Operations Manager and have the agent report to both Operations Manager and a different Log Analytics workspace.
+
+Once the workspace architecture is defined, you should enforce this policy on Azure resources with [Azure Policy](../../governance/policy/overview.md). This can provide a built-in definition that would automatically apply to all Azure resources. For example, you could set a policy to ensure that all your Azure resources in a particular region sent all their diagnostic logs to a particular workspace.
+
 
 ## Next steps
 * See [Log Analytics agent overview](../../azure-monitor/platform/log-analytics-agent.md) to gather data from computers in your datacenter or other cloud environment.
