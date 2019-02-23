@@ -2,12 +2,12 @@
 title: Deploy to Azure Functions using the Jenkins Azure Function plugin
 description: Learn how to deploy to Azure Functions using the Jenkins Azure Function plugin
 ms.service: jenkins
-keywords: jenkins, azure, devops, azure functions
+keywords: jenkins, azure, devops, java, azure functions
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 02/22/2019
+ms.date: 02/23/2019
 ---
 
 # Deploy to Azure Functions using the Jenkins Azure Function plugin
@@ -20,28 +20,28 @@ The Azure Function plugin does not provision the function app if it doesn't alre
 
 The following steps show how to create a an Azure Function app using Azure CLI:
 
-1. Create a resource group, inserting your resource group name for the &lt;resource-group> placeholder.
+1. Create a resource group, inserting your resource group name for the &lt;resource-group-name> placeholder.
 
     ```cli
-    az group create --name <resource-group> --location eastus
+    az group create --name <resource-group-name> --location eastus
     ```
 
-1. Create an Azure storage account, inserting your storage name and resource group name for the &lt;storage_name> and &lt;resource-group> placeholders, respectively.
+1. Create an Azure storage account, inserting your storage name and resource group name for the &lt;storage_name> and &lt;resource-group-name> placeholders, respectively.
  
     ```cli
-    az storage account create --name <storage-name> --location eastus --resource-group <resource-group> --sku Standard_LRS    
+    az storage account create --name <storage-name> --location eastus --resource-group <resource-group-name> --sku Standard_LRS    
     ```
 
 1. Create the test Azure Function app, inserting your resource group name, app name, and storage name for the &lt;resource-group>, &lt;app-name>, &lt;storage-name> placeholders, respectively.
 
     ```cli
-    az functionapp create --resource-group <resource-group> --consumption-plan-location eastus --name <app-name> --storage-account <storage-name>
+    az functionapp create --resource-group <resource-group-name> --consumption-plan-location eastus --name <app-name> --storage-account <storage-name>
     ```
     
 1. Update to version 2.x runtime, inserting your function app name and resource group name for the &lt;function-app> and &lt;resource-group> placeholders, respectively.
 
     ```cli
-    az functionapp config appsettings set --name <function-app> --resource-group <resource-group> --settings FUNCTIONS_EXTENSION_VERSION=~2
+    az functionapp config appsettings set --name <function-app> --resource-group <resource-group-name> --settings FUNCTIONS_EXTENSION_VERSION=~2
     ```
 
 ## Prepare Jenkins server
@@ -67,34 +67,55 @@ The following steps explain how to prepare the Jenkins server:
     sudo apt-get install azure-functions-core-tools
     ```
 
-1. In the Jenkins dashboard, install the plugins. Click 'Manage Jenkins' -> 'Manage Plugins' -> 'Available', then search and install the following plugins if not already installed: Azure Function Plugin, EnvInject Plugin.
+1. In the Jenkins dashboard, install the following plugins:
 
-Jenkins needs an Azure service principal for autheticating and accessing Azure resources. Refer to the Crease service principal section in the Deploy to Azure App Service tutorial.
+    - Azure Function Plugin
+    - EnvInject Plugin
 
-Then using the Azure service principal, add a "Microsoft Azure Service Principal" credential type in Jenkins. Refer to the Add Service principal section in the Deploy to Azure App Service tutorial. This is the [your crendential id of service principal] mentioned in Step 2 under "Create Job"
+1. Jenkins needs an Azure service principal to authenticate and access Azure resources. Refer to the [Deploy to Azure App Service][./tutorial-jenkins-deploy-web-app-azure-app-service#create-service-principal.md] for step-by-step instructions.
 
-Create job
-Add a new job in type "Pipeline".
+1. Using the Azure service principal, add a "Microsoft Azure Service Principal" credential type in Jenkins. Refer to the [Deploy to Azure App Service][./tutorial-jenkins-deploy-web-app-azure-app-service#add-service-principal-to-jenkins.md] tutorial.
 
-Enable "Prepare an environment for the run", and add the following environment variables in "Properties Content":
+## Create a Jenkins Pipeline
 
-AZURE_CRED_ID=[your credential id of service principal]
-RES_GROUP=[your resource group of the function app]
-FUNCTION_NAME=[the name of the function]
-For [the name of the function], make sure you use the same name when you used to create the function app in Azure.
+In this section, you create the [Jenkins Pipeline][<https://jenkins.io/doc/book/pipeline/>].
 
-Choose "Pipeline script from SCM" in "Pipeline" -> "Definition".
+1. In the Jenkins dashboard, create a Pipeline.
 
-Fill in the SCM repo url and script path. (Script Example)
+1. Enable **Prepare an environment for the run**.
 
-Build and Deploy Java Function to Azure Function
-Run jenkins job.
+1. Add the following environment variables in **Properties Content**, replacing the placeholders with the appropriate values for your environment:
 
-Open your favorite browser and input https://<function_name>.azurewebsites.net/api/HttpTrigger-Java?code=<key>&number=<input_number> to trigger the function. You will get the output like The number 365 is Odd..
+    ```
+    AZURE_CRED_ID=<service-principal-credential-id>
+    RES_GROUP=<resource-group-name>
+    FUNCTION_NAME=<app-name>
+    ```
+    
+1. In the **Pipeline->Definition** section, select **Pipeline script from SCM**.
 
-Please refer to Azure Function HTTP triggers and bindings to get the authorization key.
+1. Enter the SCM repo URL and script path using the provided [script example][<https://github.com/VSChina/odd-or-even-function/blob/master/doc/resources/jenkins/JenkinsFile>].
 
-Clean Up Resources
-Delete the Azure resources you just created by running below command:
+## Build and deploy the Java Function to Azure Functions
 
-az group delete -y --no-wait -n <your-resource-group-name>
+It is now time to run the Jenkins job.
+
+1. First, obtain the authorization key via the instructions in the [Azure Function HTTP triggers and bindings][/azure/azure-functions/functions-bindings-http-webhook#authorization-keys] article.
+
+1. In your browser, enter the following URL, replacing the placeholders with the appropriate values: 
+
+    ```
+    https://<app-name>.azurewebsites.net/api/HttpTrigger-Java?code=<authorization-key>&number=<input-number>
+    ```
+1. You should see output similar to the following (depending on your `input-number`:
+
+    ```
+    The number 365 is Odd.
+    ```
+## Clean Up Resources
+
+Delete the Azure resources created in this tutorial by running the following command:
+
+    ```
+    az group delete -y --no-wait -n <resource-group-name>
+    ```
