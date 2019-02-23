@@ -32,7 +32,7 @@ There is also an ecosystem of tools for visualizing and accelerating ONNX models
 
 [ONNX models can be deployed](#deploy) to the cloud using Azure Machine Learning and ONNX Runtime. They can also be deployed to Windows 10 devices using [Windows ML](https://docs.microsoft.com/windows/ai/). They can even be deployed to other platforms using converters that are available from the ONNX community. 
 
-[ ![ONNX flow diagram showing training, converters, and deployment](media/concept-onnx/onnx.png) ]
+[![ONNX flow diagram showing training, converters, and deployment](media/concept-onnx/onnx.png) ]
 (./media/concept-onnx/onnx.png#lightbox)
 
 ## Get ONNX models

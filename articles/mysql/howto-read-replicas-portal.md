@@ -35,18 +35,18 @@ A read replica server can be created using the following steps:
 
 4. Select **Add Replica**.
 
-   ![Azure Database for MySQL - Replication ](./media/howto-read-replica-portal/add-replica.png)
+   ![Azure Database for MySQL - Replication](./media/howto-read-replica-portal/add-replica.png)
 
 5. Enter a name for the replica server and click **OK** to confirm the creation of the replica.
 
-   ![Azure Database for MySQL - Create replica ](./media/howto-read-replica-portal/create-replica.png)
+   ![Azure Database for MySQL - Create replica](./media/howto-read-replica-portal/create-replica.png)
 
 > [!NOTE]
 > Read replicas are created with the same server configuration as the master. The replica server configuration can be changed after it has been created. It is recommended that the replica server's configuration should be kept at equal or greater values than the master to ensure the replica is able to keep up with the master.
 
 Once the replica server has been created, it can be viewed from the **Replication** blade.
 
-   ![Azure Database for MySQL - List replicas ](./media/howto-read-replica-portal/list-replica.png)
+   ![Azure Database for MySQL - List replicas](./media/howto-read-replica-portal/list-replica.png)
 
 ## Stop replication to a replica server
 
@@ -61,15 +61,15 @@ To stop replication between a master and a replica server from the Azure portal,
 
 3. Select the replica server you wish to stop replication for.
 
-   ![Azure Database for MySQL - Stop replication select server ](./media/howto-read-replica-portal/stop-replication-select.png)
+   ![Azure Database for MySQL - Stop replication select server](./media/howto-read-replica-portal/stop-replication-select.png)
 
 4. Select **Stop replication**.
 
-   ![Azure Database for MySQL - Stop replication ](./media/howto-read-replica-portal/stop-replication.png)
+   ![Azure Database for MySQL - Stop replication](./media/howto-read-replica-portal/stop-replication.png)
 
 5. Confirm you want to stop replication by clicking **OK**.
 
-   ![Azure Database for MySQL - Stop replication confirm ](./media/howto-read-replica-portal/stop-replication-confirm.png)
+   ![Azure Database for MySQL - Stop replication confirm](./media/howto-read-replica-portal/stop-replication-confirm.png)
 
 ## Delete a replica server
 
@@ -81,15 +81,15 @@ To delete a read replica server from the Azure portal, use the following steps:
 
 3. Select the replica server you wish to delete.
 
-   ![Azure Database for MySQL - Delete replica select server ](./media/howto-read-replica-portal/delete-replica-select.png)
+   ![Azure Database for MySQL - Delete replica select server](./media/howto-read-replica-portal/delete-replica-select.png)
 
 4. Select **Delete replica**
 
-   ![Azure Database for MySQL - Delete replica ](./media/howto-read-replica-portal/delete-replica.png)
+   ![Azure Database for MySQL - Delete replica](./media/howto-read-replica-portal/delete-replica.png)
 
 5. Type the name of the replica and click **Delete** to confirm deletion of the replica.  
 
-   ![Azure Database for MySQL - Delete replica confirm ](./media/howto-read-replica-portal/delete-replica-confirm.png)
+   ![Azure Database for MySQL - Delete replica confirm](./media/howto-read-replica-portal/delete-replica-confirm.png)
 
 ## Delete a master server
 
@@ -102,11 +102,11 @@ To delete a master server from the Azure portal, use the following steps:
 
 2. From the **Overview**, select **Delete**.
 
-   ![Azure Database for MySQL - Delete master ](./media/howto-read-replica-portal/delete-master-overview.png)
+   ![Azure Database for MySQL - Delete master](./media/howto-read-replica-portal/delete-master-overview.png)
 
 3. Type the name of the master server and click **Delete** to confirm deletion of the master server.  
 
-   ![Azure Database for MySQL - Delete master ](./media/howto-read-replica-portal/delete-master-confirm.png)
+   ![Azure Database for MySQL - Delete master](./media/howto-read-replica-portal/delete-master-confirm.png)
 
 ## Monitor replication
 
@@ -116,15 +116,15 @@ To delete a master server from the Azure portal, use the following steps:
 
 3. Select **Replication lag in seconds** from the dropdown list of available metrics. 
 
-   ![Select Replication lag ](./media/howto-read-replica-portal/monitor-select-replication-lag.png)
+   ![Select Replication lag](./media/howto-read-replica-portal/monitor-select-replication-lag.png)
 
 4. Select the time range you wish to view. The image below selects a 30 minute time range.
 
-   ![Select time range ](./media/howto-read-replica-portal/monitor-replication-lag-time-range.png)
+   ![Select time range](./media/howto-read-replica-portal/monitor-replication-lag-time-range.png)
 
 5. View the replication lag for the selected time range. The image below displays the last 30 minutes.
 
-   ![Select time range ](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
+   ![Select time range](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
 
 ## Next steps
 

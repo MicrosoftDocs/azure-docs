@@ -70,7 +70,7 @@ There are two different ways to view an existing quota:
 3.	In the blade that opens, select **Services and quotas**.
 4.	Select the quota you would like to see by clicking it in the **Name** column.
 
-    [ ![Quotas](media/azure-stack-quota-types/quotas1sm.png "View quotas") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Quotas](media/azure-stack-quota-types/quotas1sm.png "View quotas")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 ### Resource providers
 
@@ -88,7 +88,7 @@ There are two different ways to edit a quota:
 2.	Select the plan for which you would like to edit a quota, by clicking on its name.
 3.	In the blade that opens, select **Services and quotas**.
 4.	Select the quota you would like to edit by clicking it in the **Name** column.
-    [ ![Quotas](media/azure-stack-quota-types/quotas1sm.png "View quotas") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Quotas](media/azure-stack-quota-types/quotas1sm.png "View quotas")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 5.	In the blade that opens, select **Edit in Compute**, **Edit in Network**, or **Edit in Storage**.
     ![Quotas](media/azure-stack-quota-types/quotas3.png "View quotas")    

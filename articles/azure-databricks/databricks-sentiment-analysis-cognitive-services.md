@@ -591,4 +591,4 @@ In this tutorial, you learned how to use Azure Databricks to stream data into Az
 Advance to the next tutorial to learn about performing machine learning tasks using Azure Databricks.
 
 > [!div class="nextstepaction"]
->[Machine Learning using Azure Databricks ](https://docs.azuredatabricks.net/spark/latest/mllib/decision-trees.html)
+>[Machine Learning using Azure Databricks](https://docs.azuredatabricks.net/spark/latest/mllib/decision-trees.html)

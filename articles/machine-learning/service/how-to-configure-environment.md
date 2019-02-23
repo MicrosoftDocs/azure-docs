@@ -314,10 +314,10 @@ To prepare your Databricks cluster and get sample notebooks:
     When you're done, the library is attached as shown in the following images. Be aware of these [common Databricks issues](resource-known-issues.md#databricks).
 
     * If you installed Azure Machine Learning SDK _without_ automated machine learning
-   ![SDK without automated machine learning installed on Databricks ](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
+   ![SDK without automated machine learning installed on Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
     * If you installed Azure Machine Learning SDK _with_ automated machine learning
-   ![SDK with automated machine learning installed on Databricks ](./media/how-to-configure-environment/automlonadb.jpg)
+   ![SDK with automated machine learning installed on Databricks](./media/how-to-configure-environment/automlonadb.jpg)
 
    If this step fails, restart your cluster by doing the following:
 

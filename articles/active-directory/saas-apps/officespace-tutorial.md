@@ -130,7 +130,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
-	![Configure Add ](./media/officespace-tutorial/tutorial_attribute_04.png)
+	![Configure Add](./media/officespace-tutorial/tutorial_attribute_04.png)
 
 	![Configure attribute](./media/officespace-tutorial/tutorial_attribute_05.png)
 	

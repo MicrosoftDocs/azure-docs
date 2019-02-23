@@ -228,7 +228,7 @@ To execute the following commands, get and use the [Azure AD PowerShell module](
 
 ### <a name="bkmk_ADappCLI"></a> Set up an Azure AD app and service principal with Azure CLI
 
-You can manage your service principals with Azure CLI using the [az ad sp](/cli/azure/ad/sp) commands. For more information, see [Create an Azure service principal ](/cli/azure/create-an-azure-service-principal-azure-cli).
+You can manage your service principals with Azure CLI using the [az ad sp](/cli/azure/ad/sp) commands. For more information, see [Create an Azure service principal](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 1. If needed, [connect to your Azure subscription](azure-security-disk-encryption-appendix.md#bkmk_ConnectCLI).
 2. Create a new service principal.
@@ -289,7 +289,7 @@ Use [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) to set 
 
 ![Azure Key Vault cryptographic operations - Wrap Key](./media/azure-security-disk-encryption/keyvault-portal-fig3.png)
 
-![Azure Key Vault Secret permissions - Set ](./media/azure-security-disk-encryption/keyvault-portal-fig3b.png)
+![Azure Key Vault Secret permissions - Set](./media/azure-security-disk-encryption/keyvault-portal-fig3b.png)
 
 ## <a name="bkmk_KVper"></a> Set key vault advanced access policies
 The Azure platform needs access to the encryption keys or secrets in your key vault to make them available to the VM for booting and decrypting the volumes. Enable disk encryption on the key vault or deployments will fail.  

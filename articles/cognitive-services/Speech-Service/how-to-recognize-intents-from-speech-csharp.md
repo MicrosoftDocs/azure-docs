@@ -75,7 +75,7 @@ In a moment, the new subscription appears in the table at the bottom of the page
 
 ## Create a speech project in Visual Studio
 
-[!INCLUDE [Create project ](../../../includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
+[!INCLUDE [Create project](../../../includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
 
 ## Add the code
 

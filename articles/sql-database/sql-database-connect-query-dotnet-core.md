@@ -193,5 +193,5 @@ namespace sqltest
 
 - [Getting started with .NET Core on Windows/Linux/macOS using the command line](/dotnet/core/tutorials/using-with-xplat-cli).
 - Learn how to [connect and query an Azure SQL database using the .NET Framework and Visual Studio](sql-database-connect-query-dotnet-visual-studio.md).  
-- Learn how to [Design your first Azure SQL database using SSMS](sql-database-design-first-database.md) or [ Design an Azure SQL database and connect with C# and ADO.NET](sql-database-design-first-database-csharp.md).
+- Learn how to [Design your first Azure SQL database using SSMS](sql-database-design-first-database.md) or [Design an Azure SQL database and connect with C# and ADO.NET](sql-database-design-first-database-csharp.md).
 - For more information about .NET, see [.NET documentation](https://docs.microsoft.com/dotnet/).

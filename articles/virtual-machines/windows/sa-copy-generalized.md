@@ -38,7 +38,7 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 > 
 > 
 
-You can also generalize a Linux VM using `sudo waagent -deprovision+user` and then use PowerShell to capture the VM. For information about using the CLI to capture a VM, see [How to generalize and capture a Linux virtual machine using the Azure CLI ](../linux/capture-image.md).
+You can also generalize a Linux VM using `sudo waagent -deprovision+user` and then use PowerShell to capture the VM. For information about using the CLI to capture a VM, see [How to generalize and capture a Linux virtual machine using the Azure CLI](../linux/capture-image.md).
 
 
 1. Sign in to the Windows virtual machine.

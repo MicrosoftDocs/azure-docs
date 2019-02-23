@@ -26,7 +26,7 @@ You can run indexers on demand or on a recurring data refresh schedule that runs
 
 You can create and manage indexers using these approaches:
 
-* [Portal > Import Data Wizard ](search-import-data-portal.md)
+* [Portal > Import Data Wizard](search-import-data-portal.md)
 * [Service REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
 * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexersoperations)
 

@@ -35,7 +35,7 @@ Azure Batch provides more than one way to persist task output. Using the Batch s
 - You want to persist output to an Azure Storage container named according to the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
 
 > [!NOTE]
-> The Batch service API does not support persisting data from tasks running in pools created with the cloud service configuration. For information about persisting task output from pools running the cloud services configuration, see [Persist job and task data to Azure Storage with the Batch File Conventions library for .NET to persist ](batch-task-output-file-conventions.md).
+> The Batch service API does not support persisting data from tasks running in pools created with the cloud service configuration. For information about persisting task output from pools running the cloud services configuration, see [Persist job and task data to Azure Storage with the Batch File Conventions library for .NET to persist](batch-task-output-file-conventions.md).
 
 If your scenario differs from those listed above, you may need to consider a different approach. For example, the Batch service API does not currently support streaming output to Azure Storage while the task is running. To stream output, consider using the Batch File Conventions library, available for .NET. For other languages, you'll need to implement your own solution. For more information on other options for persisting task output, see [Persist job and task output to Azure Storage](batch-task-output.md).
 

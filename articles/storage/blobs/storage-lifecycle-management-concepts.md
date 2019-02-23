@@ -332,4 +332,4 @@ The platform runs the lifecycle policy once a day. Once you set a new policy, it
 
 Learn how to recover data after accidental deletion:
 
-- [Soft delete for Azure Storage blobs ](../blobs/storage-blob-soft-delete.md)
+- [Soft delete for Azure Storage blobs](../blobs/storage-blob-soft-delete.md)

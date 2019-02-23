@@ -47,7 +47,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Add **Chit-chat** to your KB. Choose to add chit-chat support for your bot, by choosing from one of the 3  personalities. 
 
-    ![Add chit-chat to KB ](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
+    ![Add chit-chat to KB](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
 
 1. Select **Create your KB**.
 

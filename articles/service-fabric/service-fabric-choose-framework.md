@@ -61,7 +61,7 @@ Because Reliable Actors is an application framework built on Reliable Services, 
 
 [Reliable Actors overview](service-fabric-reliable-actors-introduction.md)
 
-[Service Fabric and ASP.NET Core ](service-fabric-reliable-services-communication-aspnetcore.md)
+[Service Fabric and ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
 
 
