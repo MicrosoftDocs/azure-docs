@@ -223,8 +223,8 @@ The name of this setting is `tieringSettings`
 | ----- | ----- | ---- |
 | tieringOn | true, false | By default it is set to `false`, if you want to turn it On set it to `true`|
 | backlogPolicy | NewestFirst, OldestFirst | Allows you to choose the order in which the data will copied to Azure. By default it is set to `OldestFirst` |
-| remoteStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` is a connection string which allows you to specify the Azure Storage account to which you want your data tiered. Specify `Azure Storage Account Name`, `Azure Storage Account Key`, `End point suffix`. Choose EndpointSuffix according to where you are tiering your data, it varies for Public Azure, Government Azure and Microsoft Azure Stack. |
-| tieredContainers | `"<source container name1>": {"target": "<target container name>"}` | Allows you to Specify the container names you want to copy to Azure. This module allows you to specify both source and target container names. If you don't specify the target container name, it will automatically allocate it one as `<IoTHubName>-<IotEdgeDeviceName>-<ModuleName>-<ContainerName>`. Maximum size of the container name is 63 characters, while automatically allocating the target container name if the size of container exceeds 63 characters it will trim each section (IoTHubName, IotEdgeDeviceName, ModuleName, ContainerName) to 15 characters  |
+| remoteStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` is a connection string that allows you to specify the Azure Storage account to which you want your data tiered. Specify `Azure Storage Account Name`, `Azure Storage Account Key`, `End point suffix`. Add appropriate EndpointSuffix of Azure where data will be uploaded, it varies for Global Azure, Government Azure, and Microsoft Azure Stack. |
+| tieredContainers | `"<source container name1>": {"target": "<target container name>"}` | Allows you to Specify the container names you want to copy to Azure. This module allows you to specify both source and target container names. If you don't specify the target container name, it will automatically assign the container name as `<IoTHubName>-<IotEdgeDeviceName>-<ModuleName>-<ContainerName>`. Maximum size of the container name is 63 characters, while automatically assigning the target container name if the size of container exceeds 63 characters it will trim each section (IoTHubName, IotEdgeDeviceName, ModuleName, ContainerName) to 15 characters  |
 
 ### Auto-clean properties
 The name of this setting is `ttlSettings`
@@ -258,7 +258,7 @@ Set the desired properties to enable auto-tiering and auto-clean, you can set th
 1. During the initial deployment. Copy the JSON in **Set module twin's desired properties** box, inside `"properties.desired"`. configure each property with appropriate value, save it and continue with the deployment.
  ![tiering+ttl iotedge_custom_module](./media/how-to-store-data-blob/iotedge_custom_module.png)
 
-2. After the module is deployed via "Module Identity Twin" feature. Go to "Module Identity Twin" of this module, copy the JSON under properties desired, configure each property with appropriate value and save.
+2. After the module is deployed via "Module Identity Twin" feature. Go to "Module Identity Twin" of this module, copy the JSON under properties desired, configure each property with appropriate value, and save.
 ![tiering+ttl module_identity_twin](./media/how-to-store-data-blob/module_identity_twin.png) 
 
 ### Configure Auto-tiering and Auto-clean via VSCode
