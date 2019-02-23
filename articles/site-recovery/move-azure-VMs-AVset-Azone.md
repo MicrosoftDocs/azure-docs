@@ -11,7 +11,7 @@ ms.custom: MVC
 ---
 
 # Move Azure VMs into Availability Zones
-Availability Zones in Azure protect your applications and data from datacenter failures. Each Availability Zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there’s a minimum of three separate zones in all enabled regions. The physical separation of Availability Zones within a region protects applications and data from datacenter failures. With Availability Zones, Azure offers 99.99% virtual machine (VM) uptime service-level agreement (SLA). Availability Zones are supported in select regions as mentioned in [What are Availability Zones in Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones)
+Availability Zones in Azure protect your applications and data from datacenter failures. Each Availability Zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there’s a minimum of three separate zones in all enabled regions. The physical separation of Availability Zones within a region protects applications and data from datacenter failures. With Availability Zones, Azure offers 99.99% virtual machine (VM) uptime service-level agreement (SLA). Availability Zones are supported in select regions as mentioned in [What are Availability Zones in Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones).
 
 In a scenario where your VMs are deployed as *single instance* into a specific region, and you want to improve your availability by moving these VMs into an Availability Zone, you can do so by using Azure Site Recovery. This action can further be categorized into:
 
@@ -90,10 +90,10 @@ The following steps will guide you when using Azure Site Recovery to enable repl
 5. Choose the appropriate values for the target subscription, target VM resource group, and virtual network.
 6. In the **Availability** section, choose the Availability Zone into which you want to move the VM. 
 
->     [!NOTE]
-> If you don’t see the option for availability set or Availability Zone, ensure that the [prerequisites](#prepare-the-source-vms) are met and the [preparation](#prepare-the-source-vms) of source VMs is complete.
+    > [!NOTE]
+    > If you don’t see the option for availability set or Availability Zone, ensure that the [prerequisites](#prepare-the-source-vms) are met and the [preparation](#prepare-the-source-vms) of source VMs is complete.
 
-       ![enable-rep-2.PNG](media/azure-vms-to-zones/enable-rep-2.PNG)
+    ![enable-rep-2.PNG](media/azure-vms-to-zones/enable-rep-2.PNG)
 
 7. Select **Enable Replication**. This action starts a job to enable replication for the VM.
 
