@@ -218,7 +218,7 @@ A configuration pane appears. For details about the configuration settings, see 
 
 You can configure a GitHub Enterprise repository with a data factory through two methods.
 
- #### Configuration method 1 (Enterprise repo): Let's get started page
+#### Configuration method 1 (Enterprise repo): Let's get started page
 
 In Azure Data Factory, go to the **Let's get started** page. Select **Configure Code Repository**:
 
