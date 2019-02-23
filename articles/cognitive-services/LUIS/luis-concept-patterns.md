@@ -62,7 +62,7 @@ Pattern syntax supports the following syntax:
 |optional|[] - square brackets|2|The question mark is optional [?]|
 |grouping|() - parentheses|2|is (a \| b)|
 |or| \| - vertical bar (pipe)|-|Where is form ({form-name} &#x7c; {form-number})<br>(a &#x7c; b &#x7c; c &#x7c; d &#x7c;  e)| 
-|beginning and/or end of utterance|^ - carrot|-|^begin the utterance<br>Example: the utterance is done^<br>^strict literal match of entire utterance with {number} entity^|
+|beginning and/or end of utterance|^ - carrot|-|^begin the utterance<br>the utterance is done^<br>^strict literal match of entire utterance with {number} entity^|
 
 ### Nesting syntax
 
