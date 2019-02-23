@@ -548,17 +548,36 @@ module.exports = myObj;
 
 In this example, it is important to note that although an object is being exported, there are no guarantess around preserving state between executions.
 
-## Considerations for JavaScript functions
+## TypeScript
+Azure Functions users can develop using TypeScript with some convenient out of the box tooling. Selecting TypeScript in either VS Code or the Azure Functions Core Tools opts you into default `package.json` and `.tsconfig` files, and some slightly different behaviors for existing commands if you're using VS Code. These changes help users fit TypeScript Functions right into their typical development flow:
+1. If you're using VS Code, pressing F5 will automatically perform all necessary steps to run the functions host
+2. If you're using the CLI, running `npm start` will automatically perform all necessary steps to run the functions host
+
+To accomplish this, we made a few main changes to the default experience:
+1. We automatically transpile your TypeScript code into JavaScript code when you start the functions host in VS Code or via npm
+2. We place all of the resultant JavaScript files into the `dist` output directory (based on the `outDir` parameter in `.tsconfig`)
+3. All TypeScript templates have a default value for the `scriptFile` parameter in `function.json` pointing to the location of their corresponding .js file in the `dist` folder. Learn more about the `scriptFile` setting above.
+
+### VS Code
+To use TypeScript in the VS Code extension for Azure Functions, simply choose 'TypeScript' in the langauge stack selection pane of function app creation. 
+
+### Azure Functions Core Tools
+To use TypeScript in the Azure Functions Core Tools, you can do one of a few things:
+1. After running `func init`, select `node` as your langauge stack, and then select `typescript`
+2. Run `func init --worker-runtime typescript`
+3. Run `func init --worker-runtime node --language typescript`
+Then, to run your code, invoke `npm start`. This will perform all necessary steps for the functions host to run, including `npm run build`, `func extensions install`, `tsc`, and finally `func start`. 
+
+> [!NOTE]
+> In Azure Functions 1.x, there was experimental support for TypeScript which transpiled .ts files into .js files at the time of invocation. This was removed from Azure Functions 2.x, in favor of the tooling based support detailed above, where .ts files are transpiled to .js files prior to deployment.
+
+## Other considerations for JavaScript functions
 
 When you work with JavaScript functions, be aware of the considerations in the following sections.
 
 ### Choose single-vCPU App Service plans
 
 When you create a function app that uses the App Service plan, we recommend that you select a single-vCPU plan rather than a plan with multiple vCPUs. Today, Functions runs JavaScript functions more efficiently on single-vCPU VMs, and using larger VMs does not produce the expected performance improvements. When necessary, you can manually scale out by adding more single-vCPU VM instances, or you can enable auto-scale. For more information, see [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
-
-### TypeScript and CoffeeScript support
-
-Because direct support does not yet exist for auto-compiling TypeScript or CoffeeScript via the runtime, such support needs to be handled outside the runtime, at deployment time. 
 
 ### Cold Start
 
