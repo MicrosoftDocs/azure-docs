@@ -16,7 +16,7 @@ ms.date: 02/23/2019
 
 ## Create an Azure Function
 
-The Azure Function plugin does not provision the function app if it doesn't already exist. To create an Azure Function with the Java runtime stack, use either the [Azure portal][https://portal.azure.com] or [Azure CLI](/cli/azure/?view=azure-cli-latest).
+The Azure Function plugin doesn't provision the function app if it doesn't already exist. To create an Azure Function with the Java runtime stack, use either the [Azure portal][https://portal.azure.com] or [Azure CLI](/cli/azure/?view=azure-cli-latest).
 
 The following steps show how to create an Azure Function app using Azure CLI:
 
@@ -98,7 +98,7 @@ In this section, you create the [Jenkins Pipeline][<https://jenkins.io/doc/book/
 
 ## Build and deploy the Java Function to Azure Functions
 
-It is now time to run the Jenkins job.
+It's now time to run the Jenkins job.
 
 1. First, obtain the authorization key via the instructions in the [Azure Function HTTP triggers and bindings][/azure/azure-functions/functions-bindings-http-webhook#authorization-keys] article.
 
