@@ -1,5 +1,5 @@
 ---
-title: Manage access to Azure resoruces using RBAC and the Azure portal | Microsoft Docs
+title: Manage access to Azure resources using RBAC and the Azure portal | Microsoft Docs
 description: Learn how to manage access to Azure resources for users, groups, service principals, and managed identities using role-based access control (RBAC) and the Azure portal. This includes how to list access, grant access, and remove access.
 services: active-directory
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 02/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -23,7 +23,7 @@ ms.reviewer: bagovind
 
 ## Open Access control (IAM)
 
-The **Access control (IAM)** blade, also known as identity and access management, appears throughout the portal. To view or manage access in the portal, the first thing you typically do is open the Access control (IAM) blade at the scope where you want to view or make a change.
+The **Access control (IAM)** blade, also known as identity and access management, appears throughout the portal. The first thing you typically do is open the Access control (IAM) blade for the resource you want to manage.
 
 1. In the Azure portal, click **All services** and then select the scope or resource you want to view or manage. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
 
@@ -97,9 +97,11 @@ In RBAC, to grant access, you assign a role to a user, group, service principal,
 
 1. Click the **Role assignments** tab to view all the role assignments at this scope.
 
-1. Click **Add role assignment** to open the Add role assignment pane.
+1. Click **Add** > **Add role assignment** to open the Add role assignment pane.
 
    If you don't have permissions to assign roles, the Add role assignment option will be disabled.
+
+   ![Add menu](./media/role-assignments-portal/add-menu.png)
 
    ![Add role assignment pane](./media/role-assignments-portal/add-role-assignment.png)
 
@@ -123,9 +125,11 @@ To make a user an administrator of an Azure subscription, assign them the [Owner
 
 1. Click the **Role assignments** tab to view all the role assignments for this subscription.
 
-1. Click **Add role assignment** to open the Add role assignment pane.
+1. Click **Add** > **Add role assignment** to open the Add role assignment pane.
 
    If you don't have permissions to assign roles, the Add role assignment option will be disabled.
+
+   ![Add menu](./media/role-assignments-portal/add-menu.png)
 
    ![Add role assignment pane](./media/role-assignments-portal/add-role-assignment.png)
 
