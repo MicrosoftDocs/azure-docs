@@ -220,7 +220,9 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
         {
             ProvisioningStatus provisioningStatus = new ProvisioningStatus();
 
-            //signerCertificates.add(intermediateKey);
+            // Add intermediate certificate as part of the certificate key chain.
+            signerCertificates.add(intermediateKey);
+
             SecurityProvider securityProviderX509 = new SecurityProviderX509Cert(leafPublicPem, leafPrivateKey, signerCertificates);
     ```
 
