@@ -60,9 +60,9 @@ To create an HDInsight cluster that uses Data Lake Storage Gen2 for storage, fol
         
             ![Identity settings for using Data Lake Storage Gen2 with Azure HDInsight](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
 
-### Use an Azure Resource Manager template deployed with Azure CLI
+### Use an Azure Resource Manager template deployed with the Azure CLI
 
-You can download a [sample template file here](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) and a [sample parameters file here](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Before using the template, replace the string `<SUBSCRIPTION_ID>` with your actual Azure subscription ID. Also, replace the string `<PASSWORD>` with your chosen password to set both the password that you'll use to log in to your cluster and the SSH password.
+You can [download a sample template file](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) and [download a sample parameters file](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Before using the template, replace the string `<SUBSCRIPTION_ID>` with your actual Azure subscription ID. Also, replace the string `<PASSWORD>` with your chosen password to set both the password that you'll use to log in to your cluster and the SSH password.
 
 The code snippet below does the following initial steps:
 
@@ -70,7 +70,7 @@ The code snippet below does the following initial steps:
 1. Sets the active subscription where the create operations will be done.
 1. Creates a new resource group for the new deployment activities named `hdinsight-deployment-rg`.
 1. Creates a user-assigned managed identity named `test-hdinsight-msi`.
-1. Adds an extension to Azure CLI to use features for Data Lake Storage Gen2.
+1. Adds an extension to the Azure CLI to use features for Data Lake Storage Gen2.
 1. Creates a new Data Lake Storage Gen2 account named `hdinsightadlsgen2`, by using the `--hierarchical-namespace true` flag.
 
 ```azurecli
@@ -91,9 +91,9 @@ az storage account create --name hdinsightadlsgen2 \
     --kind StorageV2 --hierarchical-namespace true
 ```
 
-Next, log in to the portal. Add the new user-assigned managed identity to the **Storage Blob Data Contributor (Preview)** role on the storage account, as described in step 3 above under [Using the Azure portal](hdinsight-hadoop-use-data-lake-storage-gen2.md#using-the-azure-portal).
+Next, log in to the portal. Add the new user-assigned managed identity to the **Storage Blob Data Contributor (Preview)** role on the storage account, as described in step 3 under [Using the Azure portal](hdinsight-hadoop-use-data-lake-storage-gen2.md#using-the-azure-portal).
 
-After you've assigned the role for the user-assigned managed identity, deploy the template by using the code snippet below.
+After you've assigned the role for the user-assigned managed identity, deploy the template by using the following code snippet.
 
 ```azurecli
 az group deployment create --name HDInsightADLSGen2Deployment \
@@ -108,7 +108,7 @@ az group deployment create --name HDInsightADLSGen2Deployment \
 
 Data Lake Storage Gen2 uses an access control model that supports both role-based access control (RBAC) and POSIX-like access control lists (ACLs). Data Lake Storage Gen1 supports access control lists only for controlling access to data.
 
-RBAC uses role assignments to effectively apply sets of permissions to users, groups, and service principals for Azure resources. Typically, those Azure resources are constrained to top-level resources (for example, Azure Storage accounts). For Azure Storage, and also Data Lake Storage Gen2, this mechanism has been extended to the file system resource.
+RBAC uses role assignments to effectively apply sets of permissions to users, groups, and service principals for Azure resources. Typically, those Azure resources are constrained to top-level resources (for example, Azure storage accounts). For Azure Storage, and also Data Lake Storage Gen2, this mechanism has been extended to the file system resource.
 
  For more information about file permissions with RBAC, see [Azure role-based access control (RBAC)](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac).
 
@@ -124,7 +124,7 @@ The lifecycle of a user-assigned identity is managed separately from the lifecyc
 
 ### How do I set permissions for Azure AD users to query data in Data Lake Storage Gen2 by using Hive or other services?
 
-To set permissions for users to query data, use Azure AD security groups as the assigned principal in ACLs. Don't directly assign file-access permissions to individual users or service principals. When you use Azure AD security groups to control the flow of permissions, you can add and remove users or service principals without reapplying ACLs to an entire directory structure. You only have to add or remove the users from the appropriate Azure AD security group. ACLs aren't inherited, and so reapplying ACLs requires updating the ACL on every file and subdirectory.
+To set permissions for users to query data, use Azure AD security groups as the assigned principal in ACLs. Don't directly assign file-access permissions to individual users or service principals. When you use Azure AD security groups to control the flow of permissions, you can add and remove users or service principals without reapplying ACLs to an entire directory structure. You only have to add or remove the users from the appropriate Azure AD security group. ACLs aren't inherited, so reapplying ACLs requires updating the ACL on every file and subdirectory.
 
 ## Next steps
 
