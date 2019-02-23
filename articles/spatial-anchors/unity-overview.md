@@ -15,4 +15,4 @@ ms.service: azure-spatial-anchors
 
 Developers can choose Unity for creating and deploying mixed reality applications that use Azure Spatial Anchors. The following platforms are supported:
 
-[<img width="40" alt="Windows HoloLens" src="/media/logos/logo_Windows.svg" />](quickstarts/get-started-unity-hololens.md) [<img width="40" alt="Android" src="/media/logos/logo_android.svg" />](quickstarts/get-started-unity-android.md) [<img width="40" alt="iOS" src="/media/logos/logo_ios.svg" />](quickstarts/get-started-unity-ios.md)
+[<img width="40" alt="Windows HoloLens" src="/media/logos/logo_Windows.svg" />](quickstarts/get-started-unity-hololens.md) &nbsp;[<img width="40" alt="Android" src="/media/logos/logo_android.svg" />](quickstarts/get-started-unity-android.md) &nbsp; [<img width="40" alt="iOS" src="/media/logos/logo_ios.svg" />](quickstarts/get-started-unity-ios.md)

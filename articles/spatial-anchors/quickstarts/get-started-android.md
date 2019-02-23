@@ -12,7 +12,8 @@ ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
 #Customer intent: As a Mixed Reality developer, I want to learn how to use Azure Spatial Anchors in my Android app (in either Java or C++/NDK) that can place and locate a 3D object that persists across devices and platforms.
 ---
-# Quickstart: Create an Android app with Azure Spatial Anchors, in either Java or C++/NDK
+
+# Quickstart: Create an Android app with Azure Spatial Anchors
 
 This quickstart covers how to create an Android app using [Azure Spatial Anchors](../overview.md) in either Java or C++/NDK. Azure Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an ARCore Android app that can save and recall a spatial anchor.
 

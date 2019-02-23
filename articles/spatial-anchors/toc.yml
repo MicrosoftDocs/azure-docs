@@ -32,8 +32,6 @@
   items:
   - name: Azure Spatial Anchor Samples (GitHub)
     href: https://github.com/Azure/azure-spatial-anchors-samples
-  - name: MR+IOT--SmartHotel 360
-    href: https://github.com/Microsoft/SmartHotel360-MixedReality
 - name: Concepts
   items:
   - name: Create and locate anchors
