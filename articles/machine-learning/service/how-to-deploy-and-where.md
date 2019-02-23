@@ -223,6 +223,9 @@ When you get to deployment, the process is slightly different depending on the c
 
 ### <a id="aci"></a> Deploy to Azure Container Instances (DEVTEST)
 
+> [!NOTE]
+> It is not possible to enable GPU while deploying Azure Machine Learning models to Azure Container Instances
+
 Use Azure Container Instances for deploying your models as a web service if one or more of the following conditions is true:
 
 - You need to quickly deploy and validate your model. ACI deployment is finished in less than 5 minutes.
