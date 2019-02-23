@@ -17,7 +17,7 @@ Microsoft Azure IoT Central and Azure IoT offer several options for building an 
 
 * [Azure IoT Central](overview-iot-central-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) is a software as a service (SaaS) solution that uses a model-based approach to help you to build enterprise-grade IoT solutions without requiring expertise in cloud-solution development.
 
-* [Azure IoT solution accelerators](https://docs.microsoft.com/azure/iot-accelerators/) is an enterprise-grade collection of [solution accelerators](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) built on Azure platform as a service (PaaS) that help you accelerate the development of custom IoT solutions.
+* [Azure IoT solution accelerators](https://docs.microsoft.com/azure/iot-accelerators/) are an enterprise-grade collection of [solution accelerators](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) built on Azure platform as a service (PaaS) that help you accelerate the development of custom IoT solutions.
 
 ## Azure IoT Hub
 
@@ -43,11 +43,11 @@ The following table summarizes the key differences between IoT solution accelera
 | Getting started experience             | Application templates and device templates provide prebuilt models. Can be deployed in minutes.                                                                                                  | Preconfigured solutions implement common IoT scenarios. Can be deployed in minutes.                                                                                                                            |
 | Pricing                            | Simple, predictable pricing structure.                                                                                                                           | You can fine-tune the services to control the cost.                                                                                                                                                            |
 
-The decision of which product to use to build your IoT solution is ultimately determined by:
+Which product to use to build your IoT solution depends on:
 
-* Your business requirements
-* The type of solution you want to build
-* Your organization's skill set for building and maintaining the solution in the long term
+* Your business requirements.
+* The type of solution you want to build.
+* Your organization's skill set for building and maintaining the solution in the long term.
 
 ## Next steps
 

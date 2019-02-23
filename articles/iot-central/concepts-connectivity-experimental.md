@@ -11,17 +11,19 @@ manager: timlt
 ---
 # Device connectivity in Azure IoT Central
 
-This article introduces key concepts relating to device connectivity in Microsoft Azure IoT Central.
+This article introduces key concepts that relate to device connectivity in Microsoft Azure IoT Central.
 
 Azure IoT Central uses [Azure IoT Hub Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/about-iot-dps) to register and connect devices at scale.
 
+With Device Provisioning Service:
+
 - Customers can now generate device credentials and configure devices offline without having to first register the devices in Azure IoT Central.
 - Azure IoT Central supports device connection with X.509 certificates, while continuing to support and improve connectivity with shared access signatures.
-- Azure IoT Central customers can now use their own device IDs to register devices in Azure IoT Central, enabling simple integration with existing back-office systems.
+- Azure IoT Central customers can now use their own device IDs to register devices in Azure IoT Central, which enables simple integration with existing back-office systems.
 - There's one consistent way to connect devices to Azure IoT Central.
 
 >[!NOTE]
->Azure IoT Central uses IoT Hub Device Provisioning Service for all device registration and connection. [Learn more](https://docs.microsoft.com/azure/iot-dps/about-iot-dps)
+>Azure IoT Central uses IoT Hub Device Provisioning Service for all device registration and connection. [Learn more](https://docs.microsoft.com/azure/iot-dps/about-iot-dps).
 
 Based on your use case, follow the appropriate instructions to connect devices to Azure IoT Central:
 
@@ -35,7 +37,7 @@ Based on your use case, follow the appropriate instructions to connect devices t
 
 ## Connect a single device
 
-Connecting a single device to Azure IoT Central by using shared access signatures takes only a few steps:
+To connect a single device to Azure IoT Central by using shared access signatures:
 
 1. Add a **real device** from device explorer. Select **+New** > **Real** to add a real device.
     - Enter the **Device ID** (should be lowercase) or use the suggested device ID.
@@ -51,11 +53,11 @@ Connecting a single device to Azure IoT Central by using shared access signature
  
     ![Connection details](media/concepts-connectivity/device-connect.png)
 
-1. Use the connection details **Device Identity**, **Device Name**, and the device's **Primary Key** in your device code to provision and connect your device and start seeing the data flow through instantaneously. If you're using a MXChip IoT DevKit (DevKit) device, follow [the step-by-step instructions here](howto-connect-devkit-experimental.md#add-a-real-device), starting from the section **Prepare the DevKit device**.
+1. Use the connection details **Device Identity**, **Device Name**, and the device's **Primary Key** in your device code to provision and connect your device and start seeing the data flow through instantaneously. If you're using a MXChip IoT DevKit (DevKit) device, follow [the step-by-step instructions](howto-connect-devkit-experimental.md#add-a-real-device), starting from the section "Prepare the DevKit device."
 
-    Below are the references for other languages you might want to use.
+    Here are the references for other languages you might want to use.
 
-    - **C language:** If you're using C, follow [this C sample device client](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) to connect a sample device. Use the following settings in the sample:
+    - **C language:** Follow [this C sample device client](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) to connect a sample device. Use the following settings in the sample:
 
          ```c
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
@@ -64,7 +66,7 @@ Connecting a single device to Azure IoT Central by using shared access signature
          prov_dev_set_symmetric_key_info("<Device Id>", "<Enter Primary Symmetric key here>");
         ```
 
-    - **Node.js:**  If you're using Node.js, follow [the step-by-step instructions here](tutorial-add-device-experimental.md#prepare-the-client-code), starting from the section **Prepare the client code**.
+    - **Node.js:**  Follow [the step-by-step instructions](tutorial-add-device-experimental.md#prepare-the-client-code), starting from the section "Prepare the client code."
 
 ## Connect devices at scale by using shared access signatures
 
@@ -82,7 +84,7 @@ To connect a large number of devices to your application, Azure IoT Central supp
 
 1. Import devices to register them in your application:
 
-   1. Select **Explorer** on the left navigation menu.
+   1. Select **Explorer** on the left menu.
    1. On the left panel, select the device template for which you want to bulk create the devices. 
    1. Select **Import**, and then select the CSV file that has the list of Device IDs to be imported. The CSV file should have the following columns (and headers):
 
@@ -95,7 +97,7 @@ To connect a large number of devices to your application, Azure IoT Central supp
 
    The **Export** action creates a CSV file with the device ID, the device name, and the device keys. Use these details to connect the device to Azure IoT Central. To bulk-export devices from your application:
 
-   1. Select **Explorer** on the left navigation menu.
+   1. Select **Explorer** on the left menu.
    1. Select the devices that you want to export, and then select the **Export** action.
    1. After the export is finished, a success message is shown along with a link to download the generated file.
    1. Click the success message to download the file to a local folder on the disk.
@@ -112,11 +114,11 @@ To connect a large number of devices to your application, Azure IoT Central supp
 
  To provision and connect your device, use the connection details **Device Identity (IOTC_DEVICEID)**, **Device Primary Key (IOTC_SASKEY_PRIMARY)**, and **Scope ID** in your device code. If you haven't already done so, get the **Scope ID** from your Azure IoT Central app by selecting **Administration** > **Device Connection** > **Scope ID**.
 
-If you're connecting a MxChip device, follow [the step-by-step instructions here](howto-connect-devkit-experimental.md#add-a-real-device), starting from the section **Prepare the DevKit device**.
+If you're connecting a MxChip device, follow [the step-by-step instructions](howto-connect-devkit-experimental.md#add-a-real-device), starting from the section "Prepare the DevKit device."
 
-Below are the references for other languages you might want to use.
+Here are the references for other languages you might want to use.
 
-- **C language:** If you're using C, follow [this C sample device client](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) to connect a sample device. Use the following settings in the sample:
+- **C language:** Follow [this C sample device client](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) to connect a sample device. Use the following settings in the sample:
 
      ```c
      hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
@@ -125,7 +127,7 @@ Below are the references for other languages you might want to use.
      prov_dev_set_symmetric_key_info("<Device Id>", "<Enter Primary Symmetric key here>");
     ```
 
-- **Node.js:** If you're using Node.js, follow [the step-by-step instructions here](tutorial-add-device-experimental.md#prepare-the-client-code), starting from the section **Prepare the client code**.
+- **Node.js:** Follow [the step-by-step instructions](tutorial-add-device-experimental.md#prepare-the-client-code), starting from the section "Prepare the client code."
 
 ## Connect devices by using X.509 certificates
 
@@ -149,9 +151,9 @@ To connect devices to Azure IoT Central by using X.509 certificates, there are t
 
     - **Add a secondary certificate.** During the lifecycle of your IoT solution, you'll need to roll certificates. Two of the main reasons for rolling certificates are security breaches and certificate expirations. Secondary certificates reduce downtime for devices that are attempting to provision while you're updating the primary certificate.
 
-      **FOR TESTING PURPOSES ONLY**
+      **For testing purposes only:**
     
-      Below are some utility command-line tools you can use to generate CA certificates and device certificates.
+      Here are some utility command-line tools you can use to generate CA certificates and device certificates.
 
       - If you're using a MxChip device, here is a [command-line tool](https://aka.ms/iotcentral-docs-dicetool) to generate CA certificates. Add it to your Azure IoT Central app and verify the certificates. 
 
@@ -163,11 +165,11 @@ To connect devices to Azure IoT Central by using X.509 certificates, there are t
 
 1. **Register devices** by importing them into Azure IoT Central via a CSV file.
 
-1. **Device setup**: Generate the leaf certificates by using the uploaded root certificate. Make sure you use the **Device ID** as the CNAME in the leaf certificates and make sure it is in lowercase. Here is a [command-line tool](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) to generate leaf/device certificates for **TESTING PURPOSES ONLY**.
+1. **Device setup**: Generate the leaf certificates by using the uploaded root certificate. Make sure you use the device ID as the CNAME in the leaf certificates and make sure it is in lowercase. Here is a [command-line tool](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) to generate leaf/device certificates for **testing purposes only**.
 
 1. **Program the device with provisioning service information**, enabling it to get its connection details and its Azure IoT Central app assignment when it's switched on.
 
-    **Further references**
+    For more information, see these articles:
 
     - [Sample implementation for Raspberry Pi](https://aka.ms/iotcentral-docs-Raspi-releases)  
 
@@ -177,7 +179,7 @@ To connect devices to Azure IoT Central by using X.509 certificates, there are t
 
 One of the key scenarios Azure IoT Central supports is for OEMs to mass-manufacture devices, generate credentials, and configure the devices in the factory without having to first register the devices in Azure IoT Central. After the devices are turned on and they attempt to connect to Azure IoT Central, the operator approves the devices to connect to the Azure IoT Central app.
 
-Below is the flow to connect devices with this feature:
+Here is the flow to connect devices with this feature:
 
 ![Connection settings](media/concepts-connectivity/device-connection-flow.png)
 
@@ -192,16 +194,16 @@ Follow the steps based on your choice of device-authentication scheme (X.509 cer
 
 1. **Generate the device credentials:**
 
-    - **X.509 certificates:** Generate the leaf certificates for your devices by using the root or intermediate certificate you've added to this app. Make sure you use the **Device ID** as a CNAME in the leaf certificates and make sure it's lowercase. Here is a [command-line tool](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) to generate leaf/device certificates for testing.
-    - **Shared access signatures:** To generate device shared access signatures keys, use this [command-line tool](https://www.npmjs.com/package/dps-keygen). Use the primary shared access signatures key (group shared access signatures key) from the previous step. Make sure the Device ID is in lowercase.
+    - **X.509 certificates:** Generate the leaf certificates for your devices by using the root or intermediate certificate you've added to this app. Make sure you use the device ID as a CNAME in the leaf certificates and make sure it's lowercase. Here is a [command-line tool](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) to generate leaf/device certificates for testing.
+    - **Shared access signatures:** To generate device shared access signatures keys, use this [command-line tool](https://www.npmjs.com/package/dps-keygen). Use the primary shared access signatures key (group shared access signatures key) from the previous step. Make sure the device ID is in lowercase.
 
-        Use the below instructions to generate a device shared access signatures key:
+        Use the following command to get the device's connection string: 
 
         ```
         npm i -g dps-keygen
         ```
     
-        **Usage**
+        Use the following command to generate a device shared access signatures key:
                         
         ```
         dps-keygen <Primary_Key(GroupSAS)> <device_id>
@@ -217,19 +219,19 @@ Follow the steps based on your choice of device-authentication scheme (X.509 cer
 
 When a real device is connected to Azure IoT Central, the following steps occur:
 
-1. **Registered**: The device is first registered, meaning the device is created in Azure IoT Central, and it has the Device ID for the device. A device is registered when:
+1. **Registered**: The device is first registered, meaning the device is created in Azure IoT Central, and it has the device ID for the device. A device is registered when:
 
     * A new real device is added in device explorer
     * A set of devices is added by using **Import** in device explorer
     * A device that hasn't been registered connects with valid credentials and is visible under **Un-Associated devices**
 
-    In all of the above cases, the **Provisioning status** is **Registered**.
+    In all the above cases, the **Provisioning status** is **Registered**.
 
 1. **Provisioned**: When the device connects with valid credentials, Azure IoT Central completes the provisioning step (by creating the device in IoT Hub). Azure IoT Central then returns the connection string to the device so it can connect and start sending data. The device's **Provisioning status** turns from **Registered** to **Provisioned**.
 
 1. **Blocked**: The operator can block a device. After a device is blocked, it can't send data to Azure IoT Central and it will have to be reset. Devices that are blocked have the **Provisioning status** of **Blocked**. The operator can also unblock the device. After it's unblocked, the device's **Provisioning status** returns to its previous status (**Registered** or **Provisioned**). 
 
-## Getting the device connection string
+## Get the device connection string
 
 You can get the Iot Hub device connection string to Azure IoT Hub by using the following steps:
 
@@ -237,14 +239,11 @@ You can get the Iot Hub device connection string to Azure IoT Hub by using the f
 
     ![Connection details](media/concepts-connectivity/device-connect.png)
 
-1. Get the device's connection string by using the command-line tool below.
-    Use the following command to get the device's connection string:  
+1. Get the device's connection string by using the dps-keygen command-line tool. Use the following command to get the device's connection string:  
 
     ```cmd/sh
     npm i -g dps-keygen
     ```
-
-    **Usage**
 
     To create a connection string, find the binary under the *bin/* folder:
 
@@ -252,7 +251,7 @@ You can get the Iot Hub device connection string to Azure IoT Hub by using the f
     dps_cstr <scope_id> <device_id> <Primary Key(for device)>
     ```
 
-    Learn more about the [dps-keygen tool here](https://www.npmjs.com/package/dps-keygen).
+    [Learn more about the dps-keygen tool](https://www.npmjs.com/package/dps-keygen).
 
 ## SDK support
 
