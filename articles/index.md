@@ -3947,8 +3947,8 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure IoT</h3>
-                                                    <p>New to Azure IoT? Start here to learn which service meets your needs</p>
+                                                    <h3>New to Azure IoT?</h3>
+                                                    <p>Start here to learn which service meets your needs</p>
                                                 </div>
                                             </div>
                                         </div>
