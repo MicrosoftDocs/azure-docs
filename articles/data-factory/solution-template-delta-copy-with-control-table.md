@@ -1,5 +1,5 @@
 ---
-title: Delta copy from database with control table with Azure Data Factory | Microsoft Docs
+title: Delta copy from a database using a control table with Azure Data Factory | Microsoft Docs
 description: Learn how to use a solution template to incrementally copy new or updated rows only from a database with Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -139,4 +139,5 @@ You'll see that only new rows were copied to the destination.
 	
 ## Next steps
 
-- [Introduction to Azure Data Factory](introduction.md)
+- [Bulk copy from a database by using a control table with Azure Data Factory](solution-template-bulk-copy-with-control-table.md)
+- [Copy files from multiple containers with Azure Data Factory](solution-template-copy-files-multiple-containers.md)
