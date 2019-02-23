@@ -157,3 +157,4 @@ sections:
       html: <p><a href="https://stackoverflow.com/questions/tagged/azure-sql-managed-instance">Stack Overflow</a></p>
     - title: Training materials
       html: <p><a href="https://www.microsoft.com/handsonlabs/selfpacedlabs">Hands-on labs</a></p><p><a href="https://www.microsoft.com/handsonlabs/instructorledlabs">Instruction led labs</a></p>
+
