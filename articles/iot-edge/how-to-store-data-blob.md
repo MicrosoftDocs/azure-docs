@@ -255,15 +255,17 @@ Below is the Json for auto-tiering and auto-clean
 ```
 
 Set the desired properties to enable auto-tiering and auto-clean, you can set these values:
-1. During the initial deployment. Copy the JSON in **Set module twin's desired properties** box, inside `"properties.desired"`. configure each property with appropriate value, save it and continue with the deployment.
+1. **During the initial deployment**: Copy the JSON in **Set module twin's desired properties** box, inside `"properties.desired"`. Configure each property with appropriate value, save it and continue with the deployment.
+
  ![tiering+ttl iotedge_custom_module](./media/how-to-store-data-blob/iotedge_custom_module.png)
 
-2. After the module is deployed via "Module Identity Twin" feature. Go to "Module Identity Twin" of this module, copy the JSON under properties desired, configure each property with appropriate value, and save.
+2. **After the module is deployed via "Module Identity Twin" feature**: Go to "Module Identity Twin" of this module, copy the JSON under properties desired, configure each property with appropriate value, and save.
+
 ![tiering+ttl module_identity_twin](./media/how-to-store-data-blob/module_identity_twin.png) 
 
 ### Configure Auto-tiering and Auto-clean via VSCode
 
-Add the below JSON in your deployment.template.json, configure each property with appropriate value and save it.
+Add the below JSON in your deployment.template.json to define the desired properties for this module. Configure each property with appropriate value and save it.
 
 ```json
 "<your azureblobstorageoniotedge module name>":{
