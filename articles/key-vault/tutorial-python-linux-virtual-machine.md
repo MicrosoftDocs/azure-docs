@@ -25,7 +25,7 @@ In this tutorial, you set up an Azure web application to read information from A
 > [!div class="checklist"]
 > * Create a key vault
 > * Store a secret in your key vault
-> * Create an Azure Linux Virtual Machine
+> * Create a Linux virtual machine
 > * Enable a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for the virtual machine
 > * Grant the required permissions for the console application to read data from the key vault
 > * Retrieve a secret from your key vault
