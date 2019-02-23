@@ -63,7 +63,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 ## Create a device enrollment entry
 
 1. Open a command prompt. Clone the GitHub repo for Java SDK code samples:
-    
+
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
@@ -86,9 +86,9 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
             private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
             ```
 
-    1. Open the your intermediate signing certificate file in a text editor. Update the `PUBLIC_KEY_CERTIFICATE_STRING` value with the value of Your intermediate signing certificate.
+    1. Open the your intermediate signing certificate file in a text editor. Update the `PUBLIC_KEY_CERTIFICATE_STRING` value with the value of your intermediate signing certificate.
 
-        If you generated your device certificates with Bash shell, ./certs/azure-iot-test-only.intermediate.cert.pem contains the intermediate certificate key. If your certs were generated with PowerShell, ./Intermediate1.pem will be your intermediate certificate file.
+        If you generated your device certificates with Bash shell, *./certs/azure-iot-test-only.intermediate.cert.pem* contains the intermediate certificate key. If your certs were generated with PowerShell, *./Intermediate1.pem* will be your intermediate certificate file.
 
         ```java
         private static final String PUBLIC_KEY_CERTIFICATE_STRING =
@@ -197,7 +197,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
 1. Add a new variable just below `leafPrivateKey` for your intermediate certificate. Name this new variable `intermediateKey`. Give it the value of your intermediate signing certificate.
 
-    If you generated your device certificates with Bash shell, ./certs/azure-iot-test-only.intermediate.cert.pem contains the intermediate certificate key. If your certs were generated with PowerShell, ./Intermediate1.pem will be your intermediate certificate file.
+    If you generated your device certificates with Bash shell, *./certs/azure-iot-test-only.intermediate.cert.pem* contains the intermediate certificate key. If your certs were generated with PowerShell, *./Intermediate1.pem* will be your intermediate certificate file.
 
     ```java
     private static final String intermediateKey = "-----BEGIN CERTIFICATE-----\n" +
