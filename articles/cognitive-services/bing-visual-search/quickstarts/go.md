@@ -229,7 +229,7 @@ The `Unmarshall` function extracts information from the JSON text returned by th
 ```
 > [!NOTE]
 > Francesco Giordano contributed code to this example.
->
+
 ## Results
 
 The results identify images similar to the image contained in the Post body.  The useful fields are `WebSearchUrl` and `Name`.
