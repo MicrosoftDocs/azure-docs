@@ -163,6 +163,6 @@ In addition, you can add entries to the route table routes traffic that has on-p
 - [Calculate out the size of the subnet](sql-database-managed-instance-determine-size-vnet-subnet.md) where you will deploy the managed instances.
 - For quickstarts, see how to create managed instance:
   - From the [Azure portal](sql-database-managed-instance-get-started.md)
-  - Using [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/)
+  - Using [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/)
   - using [Azure Resource Manager template](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/)
   - using [Azure Resource Manager template (jumpbox with SSMS included)](https://portal.azure.com/)

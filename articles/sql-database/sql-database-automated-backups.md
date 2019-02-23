@@ -120,12 +120,11 @@ To change the PITR backup retention period using the Azure portal, navigate to t
 
 ### Change PITR backup retention period using PowerShell
 
-```powershell
-Set-AzureRmSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
-```
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-> [!IMPORTANT]
-> This API is included in AzureRM.Sql PowerShell Module starting from version [4.7.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.7.0-preview).
+```powershell
+Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
+```
 
 ### Change PITR retention period using REST API
 

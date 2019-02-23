@@ -96,6 +96,7 @@ To enable streaming of diagnostics telemetry for single, pooled, or instance dat
 
 > [!NOTE]
 > Security audit logs can't be enabled from the database diagnostics settings. To enable audit log streaming, see [Set up auditing for your database](sql-database-auditing.md#subheading-2), and [auditing logs in Azure Log Analytics and Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+
 > [!TIP]
 > Repeat these steps for each Azure SQL Database you want to monitor.
 
@@ -187,12 +188,14 @@ To enable streaming of diagnostics telemetry for a managed instance resource, fo
 
 ### PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 You can enable metrics and diagnostics logging by using PowerShell.
 
 - To enable storage of diagnostics logs in a storage account, use this command:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
    ```
 
    The storage account ID is the resource ID for the destination storage account.
@@ -200,7 +203,7 @@ You can enable metrics and diagnostics logging by using PowerShell.
 - To enable streaming of diagnostics logs to an event hub, use this command:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
    ```
 
    The Azure Service Bus rule ID is a string with this format:
@@ -212,20 +215,20 @@ You can enable metrics and diagnostics logging by using PowerShell.
 - To enable sending diagnostics logs to a Log Analytics workspace, use this command:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
    ```
 
 - You can obtain the resource ID of your Log Analytics workspace by using the following command:
 
    ```powershell
-   (Get-AzureRmOperationalInsightsWorkspace).ResourceId
+   (Get-AzOperationalInsightsWorkspace).ResourceId
    ```
 
 You can combine these parameters to enable multiple output options.
 
 ### To configure multiple Azure resources
 
-To support multiple subscriptions, use the PowerShell script from [Enable Azure resource metrics logging using PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/).
+To support multiple subscriptions, use the PowerShell script from [Enable Azure resource metrics logging using PowerShell](https://blogs.technet.microsoft.com/msoms/20../../enable-azure-resource-metrics-logging-using-powershell/).
 
 Provide the workspace resource ID \<$WSID\> as a parameter when executing the script `Enable-AzureRMDiagnostics.ps1` to send diagnostic data from multiple resources to the workspace.
 

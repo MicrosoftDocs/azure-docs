@@ -35,7 +35,7 @@ The basic steps for implementing a PolyBase ELT for SQL Data Warehouse are:
 
 For a loading tutorial, see [Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
 
-For more information, see [Loading patterns blog](https://blogs.msdn.microsoft.com/sqlcat/2017/05/17/azure-sql-data-warehouse-loading-patterns-and-strategies/). 
+For more information, see [Loading patterns blog](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/). 
 
 
 ## 1. Extract the source data into text files

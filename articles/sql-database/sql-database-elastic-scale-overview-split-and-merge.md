@@ -210,12 +210,14 @@ The split-merge service uses Azure Diagnostics based on Azure SDK 2.5 for monito
 
 ## Deploy Diagnostics
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To enable monitoring and diagnostics using the diagnostic configuration for the web and worker roles provided by the NuGet package, run the following commands using Azure PowerShell:
 
 ```powershell
     $storage_name = "<YourAzureStorageAccount>"
     $key = "<YourAzureStorageAccountKey"
-    $storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key  
+    $storageContext = New-AzStorageContext -StorageAccountName $storage_name -StorageAccountKey $key  
     $config_path = "<YourFilePath>\SplitMergeWebContent.diagnostics.xml"
     $service_name = "<YourCloudServiceName>"
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWeb"

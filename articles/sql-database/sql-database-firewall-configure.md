@@ -143,17 +143,19 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 
 ## Manage server-level IP firewall rules using Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 | Cmdlet | Level | Description |
 | --- | --- | --- |
-| [Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule) |Server |Returns the current server-level IP firewall rules |
-| [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) |Server |Creates a new server-level IP firewall rule |
-| [Set-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule) |Server |Updates the properties of an existing server-level IP firewall rule |
-| [Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule) |Server |Removes server-level IP firewall rules |
+| [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |Server |Returns the current server-level firewall rules |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |Server |Creates a new server-level firewall rule |
+| [Set-AzSqlServerFirewallRule](/powershell/module/az.sql/set-azsqlserverfirewallrule) |Server |Updates the properties of an existing server-level firewall rule |
+| [Remove-AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule) |Server |Removes server-level firewall rules |
 
 The following example sets a server-level IP firewall rule using PowerShell:
 
 ```powershell
-New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
+New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
     -ServerName $servername `
     -FirewallRuleName "AllowSome" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.0"
 ```

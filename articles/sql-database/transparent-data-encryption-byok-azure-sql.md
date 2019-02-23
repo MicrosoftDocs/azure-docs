@@ -33,6 +33,8 @@ TDE with Azure Key Vault integration provides the following benefits:
 
 ## How does TDE with Azure Key Vault integration support work
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ![Authentication of the Server to the Key Vault](./media/transparent-data-encryption-byok-azure-sql/tde-byok-server-authentication-flow.PNG)
 
 When TDE is first configured to use a TDE protector from Key Vault, the server sends the DEK of each TDE-enabled database to Key Vault for a wrap key request. Key Vault returns the encrypted database encryption key, which is stored in the user database.  
@@ -81,11 +83,11 @@ When TDE is first configured to use a TDE protector from Key Vault, the server s
 
 - Use a key without an expiration date – and don't set an expiration date on a key already in use: **once the key expires, the encrypted databases lose access to their TDE Protector and are inaccessible within 24 hours**.
 - Ensure the key is enabled and has permissions to perform *get*, *wrap key*, and *unwrap key* operations.
-- Create an Azure Key Vault key backup before using the key in Azure Key Vault for the first time. Learn more about the [Backup-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) command.
+- Create an Azure Key Vault key backup before using the key in Azure Key Vault for the first time. Learn more about the [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) command.
 - Create a new backup whenever any changes are made to the key (for example, add ACLs, add tags, add key attributes).
 - **Keep previous versions** of the key in the key vault when rotating keys, so older database backups can be restored. When the TDE Protector is changed for a database, old backups of the database **are not updated** to use the latest TDE Protector.  Each backup needs the TDE Protector it was created with at restore time. Key rotations can be performed following the instructions at [Rotate the Transparent Data Encryption Protector Using PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md).
 - Keep all previously used keys in Azure Key Vault after changing back to service-managed keys.  This ensures database backups can be restored with the TDE protectors stored in Azure Key Vault.  TDE protectors created with Azure Key Vault have to be maintained until all stored backups have been created with service-managed keys.  
-- Make recoverable backup copies of these keys using [Backup-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1).
+- Make recoverable backup copies of these keys using [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1).
 - To remove a potentially compromised key during a security incident without the risk of data loss, follow the steps at [Remove a potentially compromised key](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md).
 
 ## High Availability, Geo-Replication, and Backup / Restore
@@ -94,7 +96,7 @@ When TDE is first configured to use a TDE protector from Key Vault, the server s
 
 How to configure high availability with Azure Key Vault depends on the configuration of your database and SQL Database server, and here are the recommended configurations for two distinct cases.  The first case is a stand-alone database or SQL Database server with no configured geo redundancy.  The second case is a database or SQL Database server configured with failover groups or geo-redundancy, where it must be ensured that each geo-redundant copy has a local Azure Key Vault within the failover group to ensure geo-failovers work.
 
-In the first case, if you require high availability of a database and SQL Database server with no configured geo-redundancy, it is highly recommended to configure the server to use two different key vaults in two different regions with the same key material. This can be accomplished by creating a TDE protector using the primary Key Vault co-located in the same region as the SQL Database server and cloning the key into a key vault in a different Azure region, so that the server has access to a second key vault should the primary key vault experience an outage while the database is up and running. Use the Backup-AzureKeyVaultKey cmdlet to retrieve the key in encrypted format from the primary key vault and then use the Restore-AzureKeyVaultKey cmdlet and specify a key vault in the second region.
+In the first case, if you require high availability of a database and SQL Database server with no configured geo-redundancy, it is highly recommended to configure the server to use two different key vaults in two different regions with the same key material. This can be accomplished by creating a TDE protector using the primary Key Vault co-located in the same region as the SQL Database server and cloning the key into a key vault in a different Azure region, so that the server has access to a second key vault should the primary key vault experience an outage while the database is up and running. Use the Backup-AzKeyVaultKey cmdlet to retrieve the key in encrypted format from the primary key vault and then use the Restore-AzKeyVaultKey cmdlet and specify a key vault in the second region.
 
 ![Single-Server HA and no geo-dr](./media/transparent-data-encryption-byok-azure-sql/SingleServer_HA_Config.PNG)
 
@@ -112,14 +114,14 @@ The following section will go over the setup and configuration steps in more det
 
 ### Azure Key Vault Configuration Steps
 
-- Install [PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-5.6.0)
+- Install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
 - Create two Azure Key Vaults in two different regions using [PowerShell to enable the “soft-delete” property](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) on the key vaults (this option is not available from the AKV Portal yet – but required by SQL).
 - Both Azure Key Vaults must be located in the two regions available in the same Azure Geo in order for backup and restore of keys to work.  If you need the two key vaults to be located in different geos to meet SQL Geo-DR requirements, follow the [BYOK Process](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) that allows keys to be imported from an on-premises HSM.
 - Create a new key in the first key vault:  
   - RSA/RSA-HSA 2048 key
   - No expiration dates
   - Key is enabled and has permissions to perform get, wrap key, and unwrap key operations
-- Back up the primary key and restore the key to the second key vault.  See [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) and [Restore-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-5.5.0).
+- Back up the primary key and restore the key to the second key vault.  See [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) and [Restore-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-5.5.0).
 
 ### Azure SQL Database Configuration Steps
 
@@ -168,10 +170,10 @@ To restore a backup encrypted with a TDE Protector from Key Vault, make sure tha
 If a key that might be needed for restoring a backup is no longer in its original key vault, the following error message  is returned:
 "Target server `<Servername>` does not have access to all AKV Uris created between <Timestamp #1> and <Timestamp #2>. Please retry operation after restoring all AKV Uris."
 
-To mitigate this, run the [Get-AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/get-azurermsqlserverkeyvaultkey) cmdlet to return the list of keys from Key Vault that were added to the server (unless they were deleted by a user). To ensure all backups can be restored, make sure the target server for the backup has access to all of these keys.
+To mitigate this, run the [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet to return the list of keys from Key Vault that were added to the server (unless they were deleted by a user). To ensure all backups can be restored, make sure the target server for the backup has access to all of these keys.
 
 ```powershell
-Get-AzureRmSqlServerKeyVaultKey `
+Get-AzSqlServerKeyVaultKey `
   -ServerName <LogicalServerName> `
   -ResourceGroup <SQLDatabaseResourceGroupName>
 ```

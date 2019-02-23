@@ -42,10 +42,12 @@ To copy a database by using the Azure portal, open the page for your database, a
 
 ## Copy a database by using PowerShell
 
-To copy a database by using PowerShell, use the [New-AzureRmSqlDatabaseCopy](/powershell/module/azurerm.sql/new-azurermsqldatabasecopy) cmdlet. 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+To copy a database by using PowerShell, use the [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) cmdlet. 
 
 ```PowerShell
-New-AzureRmSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
+New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
     -ServerName $sourceserver `
     -DatabaseName "MySampleDatabase" `
     -CopyResourceGroupName "myResourceGroup" `

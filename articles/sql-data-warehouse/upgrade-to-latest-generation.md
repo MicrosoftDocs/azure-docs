@@ -44,10 +44,15 @@ This upgrade applies to Compute Optimized Gen1 tier data warehouses in [supporte
    |           DW2000            |           DW2000c           |
    |           DW3000            |           DW3000c           |
    |           DW6000            |           DW6000c           |
->[!Note]
->Suggested performance levels are not a direct conversion. For example, we recommend going from DW600 to DW500c.
+
+> [!Note]
+> Suggested performance levels are not a direct conversion. For example, we recommend going from DW600 to DW500c.
 
 ## Upgrade in a supported region using the Azure portal
+
+## Before you begin
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!NOTE]
 > Migration from GEN1 to GEN2 through the Azure portal is permanent. There is not a process for returning to GEN1.  
@@ -68,13 +73,13 @@ Sign in to the [Azure portal](https://portal.azure.com/).
    Original Gen1 PowerShell command:
 
    ```powershell
-   Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
+   Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
    ```
 
    Modified to:
 
    ```powershell
-   Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
+   Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
    ```
 
    > [!NOTE] 
