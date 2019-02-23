@@ -3,8 +3,8 @@ title: Learn about Azure Service Fabric cluster versions | Microsoft Docs
 description: Supported Azure Service Fabric cluster versions
 services: service-fabric
 documentationcenter: .net
-author: twhitney
-manager: jpconnock
+author:aljo-microsoft
+manager:chakdan
 editor: 
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/24/2018
-ms.author: TylerMSFT
+ms.author: aljo
 
 ---
 # Supported Service Fabric versions
