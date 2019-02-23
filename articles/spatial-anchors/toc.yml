@@ -30,7 +30,7 @@
     href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
 - name: Samples
   items:
-  - name: Azure Spatial Anchor Samples (GitHub)
+  - name: Azure Spatial Anchors samples (GitHub)
     href: https://github.com/Azure/azure-spatial-anchors-samples
 - name: Concepts
   items:
