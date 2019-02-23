@@ -17,7 +17,7 @@ ms.author: mbullwin
 ---
 # Deep diagnostics for web apps and services with Application Insights
 ## Why do I need Application Insights?
-Application Insights monitors your running web app. It tells you about failures and performance issues, and helps you analyze how customers use your app. It works for apps running on many platforms (ASP.NET, J2EE, Node.js, ...) and is hosted either in the Cloud or on-premises. 
+Application Insights monitors your running web app. It tells you about failures and performance issues, and helps you analyze how customers use your app. It works for apps running on many platforms (ASP.NET, Java EE, Node.js, ...) and is hosted either in the Cloud or on-premises. 
 
 ![Aspects of the complexity of delivering web apps](./media/devops/010.png)
 
@@ -162,7 +162,7 @@ When an alert is raised, Application Insights can automatically create a work it
 ## Next steps
 Getting started with Application Insights is easy. The main options are:
 
-* Instrument an already-running web app. This gives you all the built-in performance telemetry. It's available for [Java](../../azure-monitor/app/java-live.md) and [IIS servers](../../azure-monitor/app/monitor-performance-live-website-now.md), and also for [Azure App Service](../../azure-monitor/app/app-insights-overview.md).
+* [IIS servers](../../azure-monitor/app/monitor-performance-live-website-now.md), and also for [Azure App Service](../../azure-monitor/app/app-insights-overview.md).
 * Instrument your project during development. You can do this for [ASP.NET](../../azure-monitor/app/asp-net.md) or [Java](../../azure-monitor/app/java-get-started.md) apps, as well as [Node.js](../../azure-monitor/app/nodejs.md) and a host of [other types](../../azure-monitor/app/platforms.md). 
 * Instrument [any web page](../../azure-monitor/app/javascript.md) by adding a short code snippet.
 

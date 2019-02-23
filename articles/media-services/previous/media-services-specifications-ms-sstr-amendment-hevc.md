@@ -4,7 +4,7 @@ description: This specification describes the protocol and format for fragmented
 services: media-services
 documentationcenter: ''
 author: cenkdin
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: f27d85de-2cb8-4269-8eed-2efb566ca2c6
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 02/08/2019
 ms.author: johndeu;
 
 ---
-# Smooth Streaming Protocol (MS-SSTR) Amendment for HEVC
+# Smooth Streaming Protocol (MS-SSTR) Amendment for HEVC 
 
 ## 1 Introduction 
 

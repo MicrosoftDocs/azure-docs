@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Create a virtual machine scale set with the Azure CLI | Microsoft Docs
-description: Learn how to quickly create a virtual machine scale with Azure PowerShell
+description: Learn how to quickly create a virtual machine scale with Azure CLI.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/27/18
+ms.date: 03/27/2018
 ms.author: cynthn
 ---
 

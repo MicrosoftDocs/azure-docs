@@ -18,6 +18,7 @@ ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
 
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure Slack for automatic user provisioning

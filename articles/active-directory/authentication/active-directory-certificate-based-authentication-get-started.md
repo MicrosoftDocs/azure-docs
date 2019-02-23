@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 
+ms.collection: M365-identity-device-management
 ---
 # Get started with certificate-based authentication in Azure Active Directory
 

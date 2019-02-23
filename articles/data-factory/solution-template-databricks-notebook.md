@@ -84,13 +84,13 @@ To keep this template simple, the template doesn't create a scheduled trigger. Y
 
     1.  **Sink** – for copying data into.
 
-        Select a storage created in the [prerequisite 1](#prerequisite), in the sink linked service.
+        Select a storage created in the prerequisite 1, in the sink linked service.
 
         ![7](media/solution-template-Databricks-notebook/Databricks-tutorial-image07.png)
 
     1.  **Databricks** – for connecting to Databricks cluster
 
-        Create a Databricks linked service using access key generated in [prerequisite 2.c](#prerequisite). If you have an *interactive cluster*, you may select that. (This example uses the *New job cluster* option.)
+        Create a Databricks linked service using access key generated in prerequisite 2.c. If you have an *interactive cluster*, you may select that. (This example uses the *New job cluster* option.)
 
         ![8](media/solution-template-Databricks-notebook/Databricks-tutorial-image08.png)
 
