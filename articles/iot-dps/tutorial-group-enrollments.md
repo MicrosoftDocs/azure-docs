@@ -160,7 +160,8 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
     ```java
     private static final String idScope = "[Your ID scope here]";
     private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
-    ProvisioningDeviceClientTransportProtocol.HTTPS;
+    private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
+    private static final int MAX_TIME_TO_WAIT_FOR_REGISTRATION = 10000; // in milli seconds
     private static final String leafPublicPem = "<Your Public PEM Certificate here>";
     private static final String leafPrivateKey = "<Your Private PEM Key here>";
     ```
