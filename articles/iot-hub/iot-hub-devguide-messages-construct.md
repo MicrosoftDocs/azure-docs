@@ -26,7 +26,7 @@ An IoT Hub message consists of:
 
 * An opaque binary body.
 
-Property names and values can only contain ASCII alphanumeric characters, plus `{'!', '#', '$', '%, '&', ''', '*', '+', '-', '.', '^', '_', '`', '|', '~'}` when you send device-to-cloud messages using the HTTPS protocol or send cloud-to-device messages.
+Property names and values can only contain ASCII alphanumeric characters, plus ``{'!', '#', '$', '%, '&', ''', '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` when you send device-to-cloud messages using the HTTPS protocol or send cloud-to-device messages.
 
 Device-to-cloud messaging with IoT Hub has the following characteristics:
 
