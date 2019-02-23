@@ -18,7 +18,7 @@ ms.custom: seodec18
 
 In this article, you learn how to configure a development environment to work with Azure Machine Learning service. Machine Learning service is platform agnostic.
 
-The only requirements for your development environment are Python 3, Conda (for isolated environments), and a configuration file that contains your Azure Machine Learning workspace information.
+The only requirements for your development environment are Python 3, Anaconda (for isolated environments), and a configuration file that contains your Azure Machine Learning workspace information.
 
 This article focuses on the following environments and tools:
 
@@ -134,20 +134,22 @@ For more information, see [Data Science Virtual Machines](https://azure.microsof
 
 ## <a id="local"></a>Local computer
 
-When you're using a local computer (which might also be a remote virtual machine), create a Conda environment and install the SDK by doing the following:
+When you're using a local computer (which might also be a remote virtual machine), create an Anaconda environment and install the SDK by doing the following:
 
 1. Download and install [Anaconda](https://www.anaconda.com/distribution/#download-section) (Python 3.7 version)  if you don't already have it.
 
 1. Open an Anaconda prompt and create an environment with the following commands:
 
+    Run the following command to create the environment.
+
     ```shell
     conda create -n myenv python=3.6.5
+    ```
 
-    # activate the Conda environment
+    Then activate the environment.
+
+    ```shell
     conda activate myenv
-
-    # On macOS run
-    source activate myenv
     ```
 
     This example creates an environment using python 3.6.5, but any specific subversions can be chosen. SDK compatibility may not be guaranteed with certain major versions (3.5+ is recommended), and it's recommended to try a different version/subversion in your Anaconda environment if you run into errors. It will take several minutes to create the environment while components and packages are downloaded.
@@ -183,7 +185,7 @@ When you're using a local computer (which might also be a remote virtual machine
    >
    > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
 
-   It will take several minutes to install the SDK.
+   It will take several minutes to install the SDK. See the [install guide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) for more information on installation options.
 
 1. Install other packages for your machine learning experimentation.
 
@@ -281,7 +283,7 @@ To prepare your Databricks cluster and get sample notebooks:
     | Worker node VM types | Memory optimized VM preferred |
     | Enable Autoscaling | Uncheck |
 
-    The number of worker nodes in your Databricks cluster determines the max number of concurrent iterations in Automated ML settings.
+    The number of worker nodes in your Databricks cluster determines the max number of concurrent iterations in automated machine learning configuration.
 
     It will take few minutes to create the cluster. Wait until the cluster is running before proceeding further.
 

@@ -305,7 +305,7 @@ After the server finishes the configuration changes, restart the server.
 
 In the Azure portal, under virtual network, change the DNS Server to include the IP address of the secondary domain controller. This setting allows the DNS service redundancy.
 
-### <a name=DomainAccounts></a> Configure the domain accounts
+### <a name="DomainAccounts"></a> Configure the domain accounts
 
 In the next steps, you configure the Active Directory accounts. The following table shows the accounts:
 
