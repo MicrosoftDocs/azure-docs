@@ -37,7 +37,7 @@ Sign in to the Azure portal at http://portal.azure.com.
 
 ## Create a resource group
 
-1. In the navigation list, clic **Resource groups**.
+1. In the navigation list, click **Resource groups**.
 
 1. Click **Add** to open the **Resource group** blade.
 
