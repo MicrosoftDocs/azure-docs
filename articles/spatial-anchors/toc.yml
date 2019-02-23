@@ -51,7 +51,7 @@
       href: concepts/create-locate-anchors-cpp-winrt.md
   - name: Anchor relationships
     href: concepts/anchor-relationships-way-finding.md
-  - name: Experience Guidelines
+  - name: Experience guidelines
     href: concepts/guidelines-effective-anchor-experiences.md
   - name: Logging and diagnostics
     href: concepts/logging-diagnostics.md
