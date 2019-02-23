@@ -34,7 +34,7 @@ You can verify the current version of C# on your development machine using the f
 dotnet --version
 ```
 
-Download the sample C# project from https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip and extract the ZIP archive. You will need it on both.
+Download the sample C# project from https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip and extract the ZIP archive. You will need it on both device and service side.
 
 ## Create an IoT hub
 
