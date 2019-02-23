@@ -12,13 +12,13 @@ ms.date: 02/23/2019
 
 # Deploy to Azure Functions using the Jenkins Azure Function plugin
 
-[Azure Functions](/azure/azure-functions/) is a serverless compute service that enables you to run code on-demand without having to explicitly provision or manage infrastructure. This tutorial shows how to deploy a Java function to Azure Function using the Azure Function plugin.
+[Azure Functions](/azure/azure-functions/) is a serverless compute service. Using Azure Functions, you can run code on-demand without provisioning or managing infrastructure. This tutorial shows how to deploy a Java function to Azure Function using the Azure Function plugin.
 
 ## Create an Azure Function
 
 The Azure Function plugin does not provision the function app if it doesn't already exist. To create an Azure Function with the Java runtime stack, use either the [Azure portal][https://portal.azure.com] or [Azure CLI](/cli/azure/?view=azure-cli-latest).
 
-The following steps show how to create a an Azure Function app using Azure CLI:
+The following steps show how to create an Azure Function app using Azure CLI:
 
 1. Create a resource group, inserting your resource group name for the &lt;resource-group-name> placeholder.
 
