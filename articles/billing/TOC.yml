@@ -9,6 +9,8 @@
     href: billing-understand-your-bill-ea.md
   - name: Get invoice and usage data
     href: billing-download-azure-invoice-daily-usage-date.md
+  - name: View and download tax documents for your billing profile
+    href: billing-download-tax-document-mca.md
   - name: Third-party service charges
     href: billing-understand-your-azure-marketplace-charges.md
   - name: Usage terms explained
