@@ -10,17 +10,28 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 2/22/2019
 ms.custom: seodec18
 ---
 
 # Load and read data with Azure Machine Learning
 
-In this article, you learn different methods of loading data using the [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk). The SDK supports multiple data ingestion features, including:
+In this article, you learn different methods of loading data using the Azure Machine Learning Data Prep SDK. To see reference documentation for the SDK, see the [overview](https://aka.ms/data-prep-sdk). The SDK supports multiple data ingestion features, including:
 
 * Load from many file types with parsing parameter inference (encoding, separator, headers)
 * Type-conversion using inference during file loading
 * Connection support for MS SQL Server and Azure Data Lake Storage
+
+The following table shows a selection of functions used for loading data from common file types.
+
+| File type | Function | Reference link |
+|-------|-------|-------|
+|Any|`auto_read_file()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#auto-read-file-path--filepath--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
+|Text|`read_lines()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-lines-path--filepath--header--azureml-dataprep-api-engineapi-typedefinitions-promoteheadersmode----promoteheadersmode-none--0---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---skip-rows--int---0--skip-mode--azureml-dataprep-api-engineapi-typedefinitions-skipmode----skipmode-none--0---comment--str---none--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
+|CSV|`read_csv()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-csv-path--filepath--separator--str--------header--azureml-dataprep-api-engineapi-typedefinitions-promoteheadersmode----promoteheadersmode-constantgrouped--3---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---quoting--bool---false--inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--skip-mode--azureml-dataprep-api-engineapi-typedefinitions-skipmode----skipmode-none--0---comment--str---none--include-path--bool---false--archive-options--azureml-dataprep-api--archiveoption-archiveoptions---none-----azureml-dataprep-api-dataflow-dataflow)|
+|Excel|`read_excel()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-excel-path--filepath--sheet-name--str---none--use-column-headers--bool---false--inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
+|Fixed-width|`read_fwf()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-fwf-path--filepath--offsets--typing-list-int---header--azureml-dataprep-api-engineapi-typedefinitions-promoteheadersmode----promoteheadersmode-constantgrouped--3---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--skip-mode--azureml-dataprep-api-engineapi-typedefinitions-skipmode----skipmode-none--0---include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
+|JSON|`read_json()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-json-path--filepath--encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---flatten-nested-arrays--bool---false--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
 
 ## Load data automatically
 
@@ -38,7 +49,7 @@ This function is useful for automatically detecting file type, encoding, and oth
 * Skipping empty records at the top of the file
 * Inferring and setting the header row
 
-Alternatively, if you know the file type ahead of time and want to explicitly control the way it is parsed, continue following this article to see the specialized functions the SDK offers.
+Alternatively, if you know the file type ahead of time and want to explicitly control the way it is parsed, use the file-specific functions.
 
 ## Load text line data
 
@@ -54,8 +65,7 @@ dataflow.head(5)
 |0|Date \|\|  Minimum temperature \|\|  Maximum temperature|
 |1|2015-07-1 \|\|  -4.1 \|\|  10.0|
 |2|2015-07-2 \|\|  -0.8 \|\|  10.8|
-|3|2015-07-3 \|\|  -7.0 \|\|  10.5|
-|4|2015-07-4 \|\|  -5.5 \|\|  9.3|
+
 
 After the data is ingested, run the following code to convert the dataflow object into a Pandas dataframe.
 
@@ -68,7 +78,6 @@ pandas_df = dataflow.to_pandas_dataframe()
 When reading delimited files, the underlying runtime can infer the parsing parameters (separator, encoding, whether to use headers, etc.). Run the following code to attempt to read a CSV file by specifying only its location.
 
 ```python
-# SAS expires June 16th, 2019
 dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv?st=2018-06-15T23%3A01%3A42Z&se=2019-06-16T23%3A01%3A00Z&sp=r&sv=2017-04-17&sr=b&sig=ugQQCmeC2eBamm6ynM7wnI%2BI3TTDTM6z9RPKj4a%2FU6g%3D')
 dataflow.head(5)
 ```
@@ -78,8 +87,7 @@ dataflow.head(5)
 |0||stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |1|ALABAMA|1|101710|Hale County|10171002158| |
 |2|ALABAMA|1|101710|Hale County|10171002162| |
-|3|ALABAMA|1|101710|Hale County|10171002156| |
-|4|ALABAMA|1|101710|Hale County|10171000588|2|
+
 
 To exclude lines during loading, define the `skip_rows` parameter. This parameter will skip loading rows descending in the CSV file (using a one-based index).
 
@@ -93,24 +101,22 @@ dataflow.head(5)
 |-----|-------|---------| -------|------|-----|------|-----|
 |0|ALABAMA|1|101710|Hale County|10171002158|29|
 |1|ALABAMA|1|101710|Hale County|10171002162|40 |
-|2|ALABAMA|1|101710|Hale County|10171002156| 43|
-|3|ALABAMA|1|101710|Hale County|10171000588|2|
-|4|ALABAMA|1|101710|Hale County|10171000589|23 |
 
 Run the following code to display the column data types.
 
 ```python
 dataflow.head(1).dtypes
-
-stnam                     object
-fipst                     object
-leaid                     object
-leanm10                   object
-ncessch                   object
-schnam10                  object
-MAM_MTH00numvalid_1011    object
-dtype: object
 ```
+Output:
+
+    stnam                     object
+    fipst                     object
+    leaid                     object
+    leanm10                   object
+    ncessch                   object
+    schnam10                  object
+    MAM_MTH00numvalid_1011    object
+    dtype: object
 
 By default, the Azure Machine Learning Data Prep SDK does not change your data type. The data source you're reading from is a text file, so the SDK reads all values as strings. For this example, numeric columns should be parsed as numbers. Set the `inference_arguments` parameter to `InferenceArguments.current_culture()` to automatically infer and convert the column types during the file read.
 
@@ -119,16 +125,18 @@ dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/tes
                           skip_rows=1,
                           inference_arguments=dprep.InferenceArguments.current_culture())
 dataflow.head(1).dtypes
-
-stnam                      object
-fipst                     float64
-leaid                     float64
-leanm10                    object
-ncessch                   float64
-schnam10                   object
-ALL_MTH00numvalid_1011    float64
-dtype: object
 ```
+Output:
+
+    stnam                      object
+    fipst                     float64
+    leaid                     float64
+    leanm10                    object
+    ncessch                   float64
+    schnam10                   object
+    ALL_MTH00numvalid_1011    float64
+    dtype: object
+
 
 Several of the columns were correctly detected as numeric and their type is set to `float64`.
 
@@ -159,9 +167,6 @@ dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_c
 |------|------|------|-----|------|-----|-------|----|-----|-----|
 |0|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009^|
 |1|2|Titanic|Par.|2186.8|658.7|0.301|1528.1|0.699|1997^|
-|2|3|Marvel's The Avengers|BV|1518.6|623.4|0.41|895.2|0.59|2012|
-|3|4|Harry Potter and the Deathly Hallows Part 2|WB|1341.5|381|0.284|960.5|0.716|2011|
-|4|5|Frozen|BV|1274.2|400.7|0.314|873.5|0.686|2013|
 
 ## Load fixed-width data files
 
@@ -176,9 +181,7 @@ dataflow.head(5)
 |------|------|------|-----|------|-----|-------|----|-----|----|
 |0|010003|99999|BOGUS NORWAY|NO|NO|ENSO||||
 |1|010010|99999|JAN MAYEN|NO|JN|ENJA|+70933|-008667|+00090|
-|2|010013|99999|ROST|NO|NO|||||
-|3|010014|99999|SOERSTOKKEN|NO|NO|ENSO|+59783|+005350|+00500|
-|4|010015|99999|BRINGELAND|NO|NO|ENBL|+61383|+005867|+03270|
+
 
 To avoid header detection and parse the correct data, pass `PromoteHeadersMode.NONE` to the `header` parameter.
 
@@ -192,14 +195,11 @@ dataflow = dprep.read_fwf('./data/fixed_width_file.txt',
 |------|------|------|-----|------|-----|-------|----|-----|----|
 |0|010000|99999|BOGUS NORWAY|NO|NO_1|ENRS|Column7|Column8|Column9|
 |1|010003|99999|BOGUS NORWAY|NO|NO|ENSO||||
-|2|010010|99999|JAN MAYEN|NO|JN|ENJA|+70933|-008667|+00090|
-|3|010013|99999|ROST|NO|NO|||||
-|4|010014|99999|SOERSTOKKEN|NO|NO|ENSO|+59783|+005350|+00500|
-|5|010015|99999|BRINGELAND|NO|NO|ENBL|+61383|+005867|+03270|
+
 
 ## Load SQL data
 
-The SDK can also load data from a SQL source. Currently, only Microsoft SQL Server is supported. To read data from a SQL server, create a `MSSQLDataSource` object that contains the connection parameters. The password parameter of `MSSQLDataSource` accepts a `Secret` object. You can build a secret object in two ways:
+The SDK can also load data from a SQL source. Currently, only Microsoft SQL Server is supported. To read data from a SQL server, create a [`MSSQLDataSource`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.mssqldatasource?view=azure-dataprep-py) object that contains the connection parameters. The password parameter of `MSSQLDataSource` accepts a [`Secret`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#register-secret-value--str--id--str---none-----azureml-dataprep-api-engineapi-typedefinitions-secret) object. You can build a secret object in two ways:
 
 * Register the secret and its value with the execution engine.
 * Create the secret with only an `id` (if the secret value is already registered in the execution environment) using `dprep.create_secret("[SECRET-ID]")`.
@@ -225,8 +225,7 @@ dataflow.head(5)
 |0|680|HL Road Frame - Black, 58|FR-R92B-58|Black|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00+00:00|None|None|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|43dd68d6-14a4-461f-9069-55309d90ea7e|2008-03-11 |0:01:36.827000+00:00|
 |1|706|HL Road Frame - Red, 58|FR-R92R-58|Red|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00+00:00|None|None|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|9540ff17-2712-4c90-a3d1-8ce5568b2462|2008-03-11 |10:01:36.827000+00:00|
 |2|707|Sport-100 Helmet, Red|HL-U509-R|Red|13.0863|34.99|None|None|35|33|2005-07-01 00:00:00+00:00|None|None|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|2e1ef41a-c08a-4ff6-8ada-bde58b64a712|2008-03-11 |10:01:36.827000+00:00|
-|3|708|Sport-100 Helmet, Black|HL-U509|Black|13.0863|34.99|None|None|35|33|2005-07-01 00:00:00+00:00|None|None|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|a25a44fb-c2de-4268-958f-110b8d7621e2|2008-03-11 |10:01:36.827000+00:00|
-|4|709|Mountain Bike Socks, M|SO-B909-M|White|3.3963|9.50|M|None|27|18|2005-07-01 00:00:00+00:00|2006-06-30 00:00:00+00:00|None|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|18f95f47-1540-4e02-8f1f-cc1bcb6828d0|2008-03-11 |10:01:36.827000+00:00|
+
 
 ## Use Azure Data Lake Storage
 
@@ -306,3 +305,8 @@ dataflow.to_pandas_dataframe().head()
 |2|1011878|100 Mile Market|http://www.pfcmarkets.com |507 Harrison St|Kalamazoo|Kalamazoo|
 |3|1009364|106 S. Main Street Farmers Market|http://thetownofsixmile.wordpress.com/ |106 S. Main Street|Six Mile|||
 |4|1010691|10th Street Community Farmers Market|https://agrimissouri.com/... |10th Street and Poplar|Lamar|Barton|
+
+## Next steps
+
+* See the SDK [overview](https://aka.ms/data-prep-sdk) for design patterns and usage examples
+* See the Azure Machine Learning Data Prep SDK [tutorial](tutorial-data-prep.md) for an example of solving a specific scenario
