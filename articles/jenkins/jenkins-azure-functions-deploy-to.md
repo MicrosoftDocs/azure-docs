@@ -109,7 +109,7 @@ It's now time to run the Jenkins job.
     ```
 1. You should see output similar to the following (depending on your `input-number`):
 
-    ```
+    ```output
     The number 365 is Odd.
     ```
 
@@ -117,6 +117,6 @@ It's now time to run the Jenkins job.
 
 Delete the Azure resources created in this tutorial by running the following command:
 
-    ```
-    az group delete -y --no-wait -n <resource-group-name>
-    ```
+```cli
+az group delete -y --no-wait -n <resource-group-name>
+```
