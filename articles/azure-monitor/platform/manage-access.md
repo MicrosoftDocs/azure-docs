@@ -39,9 +39,18 @@ While you analyze data in the Log Analytics workspace in the **Azure Monitor** m
 ## Access modes
 The _access mode_ defines how a user accesses a Log Analytics workspace and defines the scope of data they can access. 
 
-**Workspace-centric**: A user can view all logs if they have read access to the workspace. When queries are used in this mode, they are scoped to all data in all tables in the workspace. This is the access mode used when a user accesses **Logs** through the **Azure Monitor** menu in the Azure portal, through most monitoring solutions, and through the API.
+**Workspace-centric**: A user can view all logs if they have read access to the workspace. When queries are used in this mode, they are scoped to all data in all tables in the workspace. This is the access mode currently used when a user accesses logs with the following methods:
 
-**Resource-centric**: A user can view logs for only a particular resource. When queries are used in this mode, they are scoped to only data associated with that resource. This is the access mode used when a user accesses **Logs** through a resource menu in the Azure portal. This mode also enables granular role-based access control (RBAC) consistent with [Azure RBAC](../../role-based-access-control/overview.md).  
+- Selecting **Logs** from the **Azure Monitor** menu in the Azure portal.
+- Monitoring solutions.
+- Insights such as Azure Monitor for containers and Azure Monitor for VMs.
+- Log alerts.
+
+**Resource-centric**: A user can view logs for only a particular resource. When queries are used in this mode, they are scoped to only data associated with that resource. This mode also enables granular role-based access control (RBAC) consistent with [Azure RBAC](../../role-based-access-control/overview.md). This is the access mode used when a user accesses **Logs** through a resource menu in the Azure portal. 
+
+This is the access mode currently used when a user accesses logs with the following methods:   
+
+- Selecting **Logs** from a resource menu in the Azure portal.
 
 > [!NOTE]
 > Logs are available for resource-centric queries only if they were properly associated with the relevant resource. Currently, the following resources have limitations: 
@@ -63,9 +72,7 @@ The following table summarizes the access modes:
 
 
 ## Access control mode
-Each workspace has an access control mode setting that defines the 
-
-The workspace access control is defined using the regular Azure access control. For resource centric requests, the admin of every workspace may define which permissions shall be validated:
+Each workspace has an access control mode setting that defines how permissions are determined for the workspace.
 
 **Require workspace permissions**:  This control mode does not allow granular RBAC. For a user to access the workspace, they must be granted permissions to the workspace or to specific tables. If a user accesses the workspace in workspace-centric mode, they will have access to all data any tables that they've been granted access to. If a user accesses the workspace in resource-centric mode, they will have access to only data for that resource in any tables that they've been granted access to.
 
