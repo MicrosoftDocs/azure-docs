@@ -16,7 +16,7 @@ ms.date: 02/23/2019
 
 ## Create a Java function
 
-To create a Java function with the Java runtime stack, use either the [Azure portal][https://portal.azure.com] or the [Azure CLI](/cli/azure/?view=azure-cli-latest).
+To create a Java function with the Java runtime stack, use either the [Azure portal](https://portal.azure.com) or the [Azure CLI](/cli/azure/?view=azure-cli-latest).
 
 The following steps show how to create a Java function using the Azure CLI:
 
@@ -48,7 +48,7 @@ The following steps show how to create a Java function using the Azure CLI:
 
 The following steps explain how to prepare the Jenkins server:
 
-1. Deploy a [Jenkins server][https://aka.ms/jenkins-on-azure] on Azure. If you don't already have an instance of Jenkins server installed, the article, [Create a Jenkins server on Azure][jenkins/install-jenkins-solution-template] guides you through the process.
+1. Deploy a [Jenkins server](https://aka.ms/jenkins-on-azure) on Azure. If you don't already have an instance of Jenkins server installed, the article, [Create a Jenkins server on Azure](./jenkins/install-jenkins-solution-template.md) guides you through the process.
 
 1. Sign in to the Jenkins instance with SSH.
 
@@ -58,7 +58,7 @@ The following steps explain how to prepare the Jenkins server:
     sudo apt install -y maven
     ```
 
-1. On the Jenkins instance, install the [Azure Functions Core Tools][azure/azure-functions/functions-run-local] by issuing the following commands at a terminal prompt:
+1. On the Jenkins instance, install the [Azure Functions Core Tools](/azure/azure-functions/functions-run-local) by issuing the following commands at a terminal prompt:
 
     ```terminal
     wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
@@ -72,13 +72,13 @@ The following steps explain how to prepare the Jenkins server:
     - Azure Functions Plugin
     - EnvInject Plugin
 
-1. Jenkins needs an Azure service principal to authenticate and access Azure resources. Refer to the [Deploy to Azure App Service][./tutorial-jenkins-deploy-web-app-azure-app-service#create-service-principal.md] for step-by-step instructions.
+1. Jenkins needs an Azure service principal to authenticate and access Azure resources. Refer to the [Deploy to Azure App Service](./tutorial-jenkins-deploy-web-app-azure-app-service#create-service-principal.md) for step-by-step instructions.
 
-1. Using the Azure service principal, add a "Microsoft Azure Service Principal" credential type in Jenkins. Refer to the [Deploy to Azure App Service][./tutorial-jenkins-deploy-web-app-azure-app-service#add-service-principal-to-jenkins.md] tutorial.
+1. Using the Azure service principal, add a "Microsoft Azure Service Principal" credential type in Jenkins. Refer to the [Deploy to Azure App Service](./tutorial-jenkins-deploy-web-app-azure-app-service#add-service-principal-to-jenkins.md) tutorial.
 
 ## Create a Jenkins Pipeline
 
-In this section, you create the [Jenkins Pipeline][<https://jenkins.io/doc/book/pipeline/>].
+In this section, you create the [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/).
 
 1. In the Jenkins dashboard, create a Pipeline.
 
@@ -94,13 +94,13 @@ In this section, you create the [Jenkins Pipeline][<https://jenkins.io/doc/book/
     
 1. In the **Pipeline->Definition** section, select **Pipeline script from SCM**.
 
-1. Enter the SCM repo URL and script path using the provided [script example][<https://github.com/VSChina/odd-or-even-function/blob/master/doc/resources/jenkins/JenkinsFile>].
+1. Enter the SCM repo URL and script path using the provided [script example](https://github.com/VSChina/odd-or-even-function/blob/master/doc/resources/jenkins/JenkinsFile).
 
 ## Build and deploy the Java Function to Azure Functions
 
 It's now time to run the Jenkins job.
 
-1. First, obtain the authorization key via the instructions in the [Azure Functions HTTP triggers and bindings][/azure/azure-functions/functions-bindings-http-webhook#authorization-keys] article.
+1. First, obtain the authorization key via the instructions in the [Azure Functions HTTP triggers and bindings](/azure/azure-functions/functions-bindings-http-webhook#authorization-keys) article.
 
 1. In your browser, enter the app's URL. Replace the placeholders with the appropriate values and specify a numeric value for `<input-number>` as input for the Java function.
 
