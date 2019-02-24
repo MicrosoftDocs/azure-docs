@@ -14,6 +14,13 @@ ms.date: 02/23/2019
 
 [Azure Functions](/azure/azure-functions/) is a serverless compute service. Using Azure Functions, you can run code on-demand without provisioning or managing infrastructure. This tutorial shows how to deploy a Java function to Azure Functions using the Azure Functions plugin.
 
+## Prerequisites
+
+- **Azure subscription** : If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+- **Jenkins server** : If you don't have a Jenkins server installed, refer to the article, [Create a Jenkins server on Azure](./install-jenkins-solution-template.md).
+
+
+
 ## Create a Java function
 
 To create a Java function with the Java runtime stack, use either the [Azure portal](https://portal.azure.com) or the [Azure CLI](/cli/azure/?view=azure-cli-latest).
@@ -107,16 +114,23 @@ It's now time to run the Jenkins job.
     ```
     https://<app-name>.azurewebsites.net/api/HttpTrigger-Java?code=<authorization-key>&number=<input-number>
     ```
-1. You should see output similar to the following (depending on your `input-number`):
+1. Depending on you specified an even or odd number for `input-number`, you will see results similar to the following:
 
     ```output
     The number 365 is Odd.
     ```
 
-## Clean Up Resources
+## Clean up resources
 
-Delete the Azure resources created in this tutorial by running the following command:
+If you're not going to continue to use this application, delete
+the resources you created with the following step:
 
 ```cli
 az group delete -y --no-wait -n <resource-group>
 ```
+
+## Next steps
+
+To learn more about Azure Functions, see the following resource:
+> [!div class="nextstepaction"]
+> [Next steps button](/azure/azure-functions/)
