@@ -139,9 +139,8 @@ parameters and the output parameters.
    has the method definitions to use for creating and running an action for 
    the HIS 3270 connector.
 
-   When you're done, 
-   [add your HIDX file as a map to your integration account](../logic-apps/logic-apps-enterprise-integration-maps.md) by using the Azure portal. 
-
+When you're done, 
+[add your HIDX file as a map to your integration account](../logic-apps/logic-apps-enterprise-integration-maps.md) by using the Azure portal. 
 In a later section on this page, you learn how to add an HIS 3270 
 action to your logic app. When you add this action for the first time, 
 you're prompted to create a connection and provide connection 
