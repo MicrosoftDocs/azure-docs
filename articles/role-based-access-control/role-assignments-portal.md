@@ -23,7 +23,33 @@ ms.reviewer: bagovind
 
 ## Prerequisites
 
-Before you can successfully manage access to Azure, you'll need to answer three questions:
+To view role assignments, you must have:
+
+- `Microsoft.Authorization/roleAssignments/read` permissions, such as [Reader](built-in-roles.md#reader) and several other roles
+
+To add and remove role assignments, you must have:
+
+- `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
+
+## Overview of Access control (IAM)
+
+The **Access control (IAM)** blade is the blade that you use to manage access to Azure resources. It's also known as identity and access management and appears throughout the portal. **Access control (IAM)** enables you to perform several tasks related to RBAC. The following shows an example of the Access control (IAM) blade for a subscription.
+
+![Access control (IAM) blade for a subscription](./media/role-assignments-portal/access-control-subscription.png)
+
+The following table describes what you use some of the elements for on the **Access control (IAM)** blade.
+
+| Element | What you use it for |
+| --- | --- |
+| **Add** button | Assign roles. |
+| **Remove** button | Remove role assignments. |
+| **Check access** tab | View the role assignments for a single user. |
+| **Role assignments** tab | View the role assignments at the current scope. |
+| **Deny assignments** tab | View the deny assignments at the current scope. Currently read-only and can only be set by Microsoft.  |
+| **Classic administrators** tab | View the classic subscription administrators. |
+| **Roles** tab | View all the built-in or custom roles. |
+
+To successfully use the **Access control (IAM)** blade, you should know the following:
 
 1. **Who needs access?**
 
@@ -37,35 +63,17 @@ Before you can successfully manage access to Azure, you'll need to answer three 
 
     Where refers to the set of resources that the access applies to. Where can be a management group, subscription, resource group, or a single resource. This is called the *scope*.
 
-## Overview of Access control (IAM)
-
-The **Access control (IAM)** blade is the blade that you use to manage access to Azure resources. It's also known as identity and access management and appears throughout the portal. **Access control (IAM)** enables you to perform several tasks related to RBAC. The following shows an example of the Access control (IAM) blade for a subscription.
-
-![Access control (IAM) blade for a subscription](./media/role-assignments-portal/access-control-subscription.png)
-
-The following table describes some of the elements of the **Access control (IAM)** blade.
-
-| Element | What you use it for |
-| --- | --- |
-| **Add** button | Assign roles. |
-| **Remove** button | Remove role assignments. |
-| **Check access** tab | View the role assignments for a single user. |
-| **Role assignments** tab | View the role assignments at the current scope. |
-| **Deny assignments** tab | View the deny assignments at the current scope. Currently read-only and can only be set by Microsoft.  |
-| **Classic administrators** tab | View the classic subscription administrators. |
-| **Roles** tab | View all the built-in or custom roles. |
-
 ## Open Access control (IAM)
 
-The first thing you need to decide is where to open the **Access control (IAM)** blade. It depends on what resources you want to view or manage access for. Do you want to view or manage access for everything in a management group, everything in a subscription, everything in a resource group, or a single resource?
+The first thing you need to decide is where to open the **Access control (IAM)** blade. It depends on what resources you want to view or manage access for. Do you want to manage access for everything in a management group, everything in a subscription, everything in a resource group, or a single resource?
 
-1. In the Azure portal, click **All services** and then select the scope you want to view or manage. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
+1. In the Azure portal, click **All services** and then select the scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
 
-1. Click the specific resource you want to view or manage.
+1. Click the specific resource.
 
 1. Click **Access control (IAM)**.
 
-    The following shows an example of the Access control (IAM) blade for a subscription.
+    The following shows an example of the Access control (IAM) blade for a subscription. If you made any access control changes here, they would apply to the entire subscription.
 
     ![Access control (IAM) blade for a subscription](./media/role-assignments-portal/access-control-subscription.png)
 
@@ -73,11 +81,11 @@ The first thing you need to decide is where to open the **Access control (IAM)**
 
 A role definition is a collection of permissions that you use for role assignments. Azure has over 70 [built-in roles for Azure resources](built-in-roles.md). Follow these steps to view the available roles and permissions.
 
-1. Open **Access control (IAM)**.
+1. Open **Access control (IAM)** at any scope.
 
 1. Click the **Roles** tab to see a list of all the built-in and custom roles.
 
-   You can see the number of users and groups that are assigned to each role at this scope.
+   You can see the number of users and groups that are assigned to each role at current scope.
 
    ![Roles list](./media/role-assignments-portal/roles-list.png)
 
@@ -115,7 +123,7 @@ Follow these steps to view the access for a single user, group, service principa
 
 1. Open **Access control (IAM)** at a scope, such as management group, subscription, resource group, or resource, where you want to view access.
 
-1. Click the **Role assignments** tab (or click the **View** button on the View role assignments tile) to view all the role assignments at this scope.
+1. Click the **Role assignments** tab to view all the role assignments at this scope.
 
    ![Access control - Role assignments tab](./media/role-assignments-portal/access-control-role-assignments.png)
 
