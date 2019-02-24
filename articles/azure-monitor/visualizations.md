@@ -27,7 +27,7 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 ![Dashboard](media/visualizations/dashboard.png)
 
 ### Advantages
-- Deep integration into Azure. Visualizations can be pinned to dashboards from multiple Azure pages including metrics explorer, log analytics, and Application Insights.
+- Deep integration into Azure. Visualizations can be pinned to dashboards from multiple Azure pages including Metrics Explorer, Log Analytics, and Application Insights.
 - Supports both metrics and logs.
 - Combine data from multiple sources including output from [metrics explorer](platform/metrics-charts.md), [Log queries](log-query/log-query-overview.md), and [maps](app/app-map.md) and availability in Application Insights.
 - Option for personal or shared dashboards. Integrated with Azure [role based authentication (RBAC)](../role-based-access-control/overview.md).
