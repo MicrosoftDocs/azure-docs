@@ -5,7 +5,7 @@ services: functions
 keywords: 
 author: ggailey777
 ms.author: glenga
-ms.date: 11/28/2018
+ms.date: 02/22/2019
 ms.topic: conceptual
 ms.service: azure-functions
 ms.custom: mvc
@@ -13,13 +13,13 @@ ms.devlang: azure-cli
 manager: jeconnoc
 ---
 
-# Create a function app on Linux in an Azure App Service plan (preview)
+# Create a function app on Linux in an Azure App Service plan
 
-Azure Functions lets you host your functions on Linux in a default Azure App Service container. This article walks you through how to use the Azure CLI to create a Linux-hosted function app in Azure that runs in an [App Service plan](functions-scale.md#app-service-plan). You can also [bring your own custom container](functions-create-function-linux-custom-image.md). Linux hosting is currently in preview.
+Azure Functions lets you host your functions on Linux in a default Azure App Service container. This article walks you through how to use the Azure CLI to create a Linux-hosted function app in Azure that runs in an [App Service plan](functions-scale.md#app-service-plan). You can also [bring your own custom container](functions-create-function-linux-custom-image.md).
 
-In an App Service plan, you are responsible for scaling your function app. To take advantage of the serverless capabilities of Azure Functions, you can also host your functions on Linux in a [Consumption plan](functions-scale.md#consumption-plan).
+In an [App Service plan](functions-scale.md#app-service-plan), you are responsible for scaling your function app. To take advantage of the serverless capabilities of Azure Functions, you can also host your functions on Linux in a [Consumption plan](functions-scale.md#consumption-plan).
 
-You can follow the steps below using a Mac, Windows, or Linux computer.
+You can follow the steps below using a Mac, Windows, or Linux computer. 
 
 ## Prerequisites
 
@@ -51,6 +51,8 @@ In the following command, substitute a unique function app name where you see th
 az functionapp create --resource-group myResourceGroup --plan myAppServicePlan \
 --name <app_name> --storage-account  <storage_name> --runtime <language>
 ```
+
+[!INCLUDE functions-python-preview-note]
 
 After the function app has been created and deployed, the Azure CLI shows information similar to the following example:
 
