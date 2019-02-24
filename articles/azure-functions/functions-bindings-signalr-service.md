@@ -33,7 +33,7 @@ The SignalR Service bindings are provided in the [Microsoft.Azure.WebJobs.Extens
 
 ### Java annotations
 
-To use the SignalR Service annotations for Java, you need to add a dependency to the *azure-functions-java-library-signalr* artifact, version 1.0 or higher, to your pom.xml.
+To use the SignalR Service annotations in Java functions, you need to add a dependency to the *azure-functions-java-library-signalr* artifact (version 1.0 or higher) to your pom.xml.
 
 ```xml
 <dependency>
