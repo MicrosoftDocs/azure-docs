@@ -25,7 +25,7 @@ ms.reviewer: bagovind
 
 To view role assignments, you must have:
 
-- `Microsoft.Authorization/roleAssignments/read` permissions, such as [Reader](built-in-roles.md#reader) and several other roles
+- `Microsoft.Authorization/roleAssignments/read` permissions, such as [Reader](built-in-roles.md#reader) or several other roles
 
 To add and remove role assignments, you must have:
 
@@ -33,13 +33,13 @@ To add and remove role assignments, you must have:
 
 ## Overview of Access control (IAM)
 
-**Access control (IAM)** is the blade that you use to manage access to Azure resources. It's also known as identity and access management and appears throughout the portal. Access control (IAM) enables you to perform several tasks related to RBAC. The following shows an example of the Access control (IAM) blade for a subscription.
+**Access control (IAM)** is the blade that you use to manage access to Azure resources. It's also known as identity and access management and appears in several locations in the Azure portal. The following shows an example of the Access control (IAM) blade for a subscription.
 
 ![Access control (IAM) blade for a subscription](./media/role-assignments-portal/access-control-numbers.png)
 
-The following table describes what some of the elements are use for.
+The following table describes what some of the elements are use for:
 
-| Number | Element | What you use it for |
+| # | Element | What you use it for |
 | --- | --- | --- |
 | 1 | Resources | Identify scope (subscription in this example) |
 | 2 | **Add** button | Add role assignments |
@@ -55,7 +55,7 @@ To be the most effective with the Access control (IAM) blade, it helps if you ca
 
 1. **What permissions do they need?**
 
-    Permissions are grouped together into roles. You can select from a list of built-in roles.
+    Permissions are grouped together into roles. You can select from a list of several built-in roles.
 
 1. **Where do they need access?**
 
@@ -63,7 +63,7 @@ To be the most effective with the Access control (IAM) blade, it helps if you ca
 
 ## Open Access control (IAM)
 
-The first thing you need to decide is where to open the Access control (IAM) blade. It depends on what resources you want to view or manage access for. Do you want to manage access for everything in a management group, everything in a subscription, everything in a resource group, or a single resource?
+The first thing you need to decide is where to open the Access control (IAM) blade. It depends on what resources you want to manage access for. Do you want to manage access for everything in a management group, everything in a subscription, everything in a resource group, or a single resource?
 
 1. In the Azure portal, click **All services** and then select the scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
 
@@ -83,7 +83,7 @@ A role definition is a collection of permissions that you use for role assignmen
 
 1. Click the **Roles** tab to see a list of all the built-in and custom roles.
 
-   You can see the number of users and groups that are assigned to each role at current scope.
+   You can see the number of users and groups that are assigned to each role at the current scope.
 
    ![Roles list](./media/role-assignments-portal/roles-list.png)
 
