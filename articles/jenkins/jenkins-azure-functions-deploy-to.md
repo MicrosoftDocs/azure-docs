@@ -28,7 +28,7 @@ To create a Java function with the Java runtime stack, use either the [Azure por
 
 The following steps show how to create a Java function using the Azure CLI:
 
-1. Create a resource group, replacing the **&lt;resource_group>** placeholder with your desired resource group name.
+1. Create a resource group, replacing the **&lt;resource_group>** placeholder with your resource group name.
 
     ```cli
     az group create --name <resource_group> --location eastus
