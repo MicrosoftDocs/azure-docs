@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/22/2019
+ms.date: 02/23/2019
 ms.author: cshoe
 ---
 
@@ -29,6 +29,23 @@ This article explains how to authenticate and send real-time messages to clients
 The SignalR Service bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.SignalRService](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) NuGet package, version 1.*. Source code for the package is in the [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension) GitHub repository.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2-manual-portal.md)]
+
+
+### Java annotations
+
+To use the SignalR Service annotations for Java, you need to add a dependency to the *azure-functions-java-library-signalr* artifact, version 1.0 or higher, to your pom.xml.
+
+```xml
+<dependency>
+    <groupId>com.microsoft.azure.functions</groupId>
+    <artifactId>azure-functions-java-library-signalr</artifactId>
+    <version>1.0</version>
+</dependency>
+```
+
+## Using SignalR Service with Azure Functions
+
+For details on how to configure and use SignalR Service and Azure Functions together, refer to [Azure Functions development and configuration with Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md).
 
 ## SignalR connection info input binding
 
@@ -538,7 +555,7 @@ public SignalRGroupAction addToGroup(
             name = "req",
             methods = { HttpMethod.POST },
             authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Object> req,
-        String userId) {
+        @BindingName("userId") String userId) {
 
     SignalRGroupAction groupAction = new SignalRGroupAction();
     groupAction.action = "add";
@@ -560,7 +577,7 @@ public SignalRGroupAction removeFromGroup(
             name = "req",
             methods = { HttpMethod.POST },
             authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Object> req,
-        String userId) {
+        @BindingName("userId") String userId) {
 
     SignalRGroupAction groupAction = new SignalRGroupAction();
     groupAction.action = "remove";
@@ -604,3 +621,5 @@ The following table explains the binding configuration properties that you set i
 > [!div class="nextstepaction"]
 > [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
 
+> [!div class="nextstepaction"]
+> [Azure Functions development and configuration with Azure SignalR Servic](../azure-signalr/signalr-concept-serverless-development-config.md)

@@ -4,15 +4,23 @@ description: Details on how to develop and configure serverless real-time applic
 author: anthonychu
 ms.service: signalr
 ms.topic: concept
-ms.date: 02/19/2019
+ms.date: 02/23/2019
 ms.author: antchu
 ---
 
 # Azure Functions development and configuration with Azure SignalR Service
 
-Azure Functions applications can leverage the Azure SignalR Service bindings add real-time capabilities. Client applications use a SignalR client SDK to connect to Azure SignalR Service and receive real-time messages.
+Azure Functions applications can leverage the [Azure SignalR Service bindings](../azure-functions/functions-bindings-signalr-service.md) to add real-time capabilities. Client applications use client SDKs available in several languages to connect to Azure SignalR Service and receive real-time messages.
 
 This article describes the concepts for developing and configuring an Azure Function app that is integrated with SignalR Service.
+
+## SignalR Service configuration
+
+Azure SignalR Service can be configured in different modes. When used with Azure Functions, the service must be configured in *Serverless* mode.
+
+In the Azure portal, locate the *Settings* page of your SignalR Service resource. Set the *Service mode* to *Serverless*.
+
+![SignalR Service Service Mode](media/signalr-concept-azure-functions/signalr-service-mode.png)
 
 ## Azure Functions development
 
