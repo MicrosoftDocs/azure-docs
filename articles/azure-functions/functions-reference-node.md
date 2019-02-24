@@ -19,9 +19,9 @@ ms.author: glenga
 
 This guide contains information about the intricacies of writing Azure Functions with JavaScript.
 
-A JavaScript function is an exported `function` that executes when triggered ([triggers are configured in function.json](functions-triggers-bindings.md)). The first argument every function is passed is a `context` object which is used for receiving and sending binding data, logging, and communicating with the runtime.
+A JavaScript function is an exported `function` that executes when triggered ([triggers are configured in function.json](functions-triggers-bindings.md)). The first argument passed to every function is a `context` object, which is used for receiving and sending binding data, logging, and communicating with the runtime.
 
-This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). You should also complete the Functions quickstart to create your first function, using [Visual Studio Code](functions-create-first-function-vs-code.md) or [in the portal](functions-create-first-azure-function.md).
+This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). Complete the Functions quickstart to create your first function, using [Visual Studio Code](functions-create-first-function-vs-code.md) or [in the portal](functions-create-first-azure-function.md).
 
 This article also supports [TypeScript app development](#typescript).
 
@@ -107,7 +107,7 @@ In JavaScript, [bindings](functions-triggers-bindings.md) are configured and def
 
 ### Inputs
 Input are divided into two categories in Azure Functions: one is the trigger input and the other is the additional input. Trigger and other input bindings (bindings of `direction === "in"`) can be read by a function in three ways:
- - **_[Recommended]_ As parameters passed to your function.** They are passed to the function in the same order that they are defined in *function.json*. Note that the `name` property defined in *function.json* does not need to match the name of your parameter, although it should.
+ - **_[Recommended]_ As parameters passed to your function.** They are passed to the function in the same order that they are defined in *function.json*. The `name` property defined in *function.json* does not need to match the name of your parameter, although it should.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
@@ -136,7 +136,8 @@ Input are divided into two categories in Azure Functions: one is the trigger inp
 ### Outputs
 Outputs (bindings of `direction === "out"`) can be written to by a function in a number of ways. In all cases, the `name` property of the binding as defined in *function.json* corresponds to the name of the object member written to in your function. 
 
-You can assign data to output bindings in one of the following ways. You should not combine these methods.
+You can assign data to output bindings in one of the following ways (don't combine these methods):
+
 - **_[Recommended for multiple outputs]_ Returning an object.** If you are using a async/Promise returning function, you can return an object with assigned output data. In the example below, the output bindings are named "httpResponse" and "queueOutput" in *function.json*.
 
   ```javascript
@@ -150,7 +151,7 @@ You can assign data to output bindings in one of the following ways. You should 
       };
   };
   ```
-  
+
   If you are using a synchronous function, you can return this object using [`context.done`](#contextdone-method) (see example).
 - **_[Recommended for single output]_ Returning a value directly and using the $return binding name.** This only works for async/Promise returning functions. See example in [exporting an async function](#exporting-an-async-function). 
 - **Assigning values to `context.bindings`** You can assign values directly to context.bindings.
@@ -165,7 +166,7 @@ You can assign data to output bindings in one of the following ways. You should 
       return;
   };
   ```
- 
+
 ### Bindings data type
 
 To define the data type for an input binding, use the `dataType` property in the binding definition. For example, to read the content of an HTTP request in binary format, use the type `binary`:
@@ -182,7 +183,7 @@ To define the data type for an input binding, use the `dataType` property in the
 Options for `dataType` are: `binary`, `stream`, and `string`.
 
 ## context object
-The runtime uses a `context` object to pass data to and from your function and to let you communicate with the runtime. The context object can be used for reading and setting data from bindings, writing logs, and using the `context.done` callback when your exported function is synchronous.
+The runtime uses a `context` object to pass data to and from your function and to let you communicate with the runtime. The context object can be used for reading and setting data from bindings, writing logs, and using the `context.done` call back when your exported function is synchronous.
 
 The `context` object is always the first parameter to a function. It should be included because it has important methods such as `context.done` and `context.log`. You can name the object whatever you would like (for example, `ctx` or `c`).
 
@@ -594,7 +595,7 @@ When you work with JavaScript functions, be aware of the considerations in the f
 
 ### Choose single-vCPU App Service plans
 
-When you create a function app that uses the App Service plan, we recommend that you select a single-vCPU plan rather than a plan with multiple vCPUs. Today, Functions runs JavaScript functions more efficiently on single-vCPU VMs, and using larger VMs does not produce the expected performance improvements. When necessary, you can manually scale out by adding more single-vCPU VM instances, or you can enable auto-scale. For more information, see [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json).
+When you create a function app that uses the App Service plan, we recommend that you select a single-vCPU plan rather than a plan with multiple vCPUs. Today, Functions runs JavaScript functions more efficiently on single-vCPU VMs, and using larger VMs does not produce the expected performance improvements. When necessary, you can manually scale out by adding more single-vCPU VM instances, or you can enable autoscale. For more information, see [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json).
 
 ### Cold Start
 
