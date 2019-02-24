@@ -83,7 +83,7 @@ General Availability (GA) dates will be announced soon.
 
 **Q: Do you charge for Azure Spatial Anchors? Will you ever charge?**
 
-**A:** You can find details about pricing during Preview on our [pricing page](http://azure.microsoft.com/pricing/details/azure-spatial-anchors).
+**A:** You can find details about pricing during Preview on our [pricing page](https://azure.microsoft.com/pricing/details/spatial-anchors/).
 
 ## Technical FAQs
 
