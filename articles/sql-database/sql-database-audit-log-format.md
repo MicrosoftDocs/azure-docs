@@ -38,7 +38,7 @@ Audit events are written to Log Analytics workspace defined during auditing conf
 ## <a id="subheading-1"></a>Audit Log Fields
 
 | Name (Blob) | Name (Event Hubs/Log Analytics) | Description | Blob Type | Event Hubs/Log Analytics Type |
-|---------------------------------------------------------------|
+|-------------|---------------------------------|-------------|-----------|-------------------------------|
 | action_id | action_id_s | ID of the action | varchar(4) | string |
 | action_name | action_name_s | Name of the action | N/A | string |
 | additional_information | additional_information_s | Any additional information about the event, stored as XML | nvarchar(4000) | string |
