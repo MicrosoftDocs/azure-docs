@@ -115,7 +115,7 @@ It's now time to run the Jenkins job.
     ```
     https://<app-name>.azurewebsites.net/api/HttpTrigger-Java?code=<authorization-key>&number=<input-number>
     ```
-1. Depending on you specified an even or odd number for `input-number`, you will see results similar to the following:
+1. Depending on you specified an even or odd number for `input-number`, you'll see results similar to the following:
 
     ```output
     The number 365 is Odd.
