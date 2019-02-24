@@ -33,11 +33,11 @@ Audit events are written to the namespace and event hub that was defined during 
 
 ### Log Analytics
 
-Audit events are written to Log Analytics workspace defined during auditing configuration, to the `AzureDiagnostics` table with the category `SQLSecurityAuditEvents`. For additional useful information about Log Analytics search language and commands, see [Log Analytics search reference](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search).
+Audit events are written to Log Analytics workspace defined during auditing configuration, to the `AzureDiagnostics` table with the category `SQLSecurityAuditEvents`. For additional useful information about Log Analytics search language and commands, see [Log Analytics search reference](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search).
 
 ## <a id="subheading-1"></a>Audit Log Fields
 
-| Name (Blob) | Name (Event Hubs/Log Analytics) Description | Blob Type | Event Hubs/Log Analytics Type |
+| Name (Blob) | Name (Event Hubs/Log Analytics) | Description | Blob Type | Event Hubs/Log Analytics Type |
 |---------------------------------------------------------------|
 | action_id | action_id_s | ID of the action | varchar(4) | string |
 | action_name | action_name_s | Name of the action | N/A | string |
@@ -82,3 +82,7 @@ Audit events are written to Log Analytics workspace defined during auditing conf
 | transaction_id | transaction_id_d | SQL Server only (starting with 2016) - 0 for Azure SQL DB | bigint | int |
 | user_defined_event_id | user_defined_event_id_d | User defined event id passed as an argument to sp_audit_write. NULL for system events (default) and non-zero for user-defined event. For more information, see [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | smallint | int |
 | user_defined_information | user_defined_information_s | User defined information passed as an argument to sp_audit_write. NULL for system events (default) and non-zero for user-defined event. For more information, see [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar(4000) | string |
+
+## Next Steps
+
+Learn more about [Azure SQL Database auditing](sql-database-auditing.md).
