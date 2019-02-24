@@ -622,4 +622,4 @@ The following table explains the binding configuration properties that you set i
 > [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Azure Functions development and configuration with Azure SignalR Servic](../azure-signalr/signalr-concept-serverless-development-config.md)
+> [Azure Functions development and configuration with Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md)
