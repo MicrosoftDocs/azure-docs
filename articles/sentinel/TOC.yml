@@ -39,35 +39,30 @@
       - name: Connect Azure Security Center
         href: connect-azure-security-center.md
 
-    - name: Connect on-premises
+    - name: Connect external solutions
       items:
-      - name: Connect common security format
-        items:  
-        - name: Connect generic CEF
-          href: connect-common-error-format.md
-        - name: Connect Barracuda
-          href: connect-barracuda.md
-        - name: Connect Check Point
-          href: connect-checkpoint.md
-        - name: Connect Palo Alto
-          href: connect-paloalto.md
-        - name: Connect Fortinet
-          href: connect-fortinet.md
-        - name: Connect F5 
-          href: connect-f5.md
-        
-    - name: Connect Syslog
-      href: connect-syslog.md
-    - name: Connect Cisco
-      href: connect-cisco.md
+      - name: Connect generic CEF
+        href: connect-common-error-format.md
+      - name: Connect Barracuda
+        href: connect-barracuda.md
+      - name: Connect Check Point
+        href: connect-checkpoint.md
+      - name: Connect Palo Alto
+        href: connect-paloalto.md
+      - name: Connect Fortinet
+        href: connect-fortinet.md
+      - name: Connect F5 
+        href: connect-f5.md  
+      - name: Connect Syslog
+        href: connect-syslog.md
+      - name: Connect Cisco
+        href: connect-cisco.md
     - name: Connect other clouds
-      items:
-      - name: Connect AWS
-        href: connect-aws.md
-    
+      href: connect-aws.md
     - name: Connect threat intelligence
       href: connect-threat-intelligence.md
-
+  - name: User analytics
+    href: user-analytics.md
   - name: Hunting
     href: hunting.md
     items:
