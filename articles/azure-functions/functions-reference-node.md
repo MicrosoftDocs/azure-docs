@@ -552,9 +552,9 @@ In this example, it is important to note that although an object is being export
 
 ## TypeScript
 
-When you target version 2.x of the Functions runtime, both Visual Studio Code and the Azure Functions Core Tools let you develop functions using TypeScript. These tools let you create function app that support TypeScript. The tools generate a special `package.json` file and a `.tsconfig` file for a TypeScript function app project.  
+When you target version 2.x of the Functions runtime, both Visual Studio Code and the Azure Functions Core Tools let you develop functions using TypeScript. These tools let you create function app that support TypeScript. The tools generate `package.json`, `tsconfig.json`, and `.funcignore` files that enable you to run your TypeScript project using the v2.x Functions host (func.exe).  
 
-In a TypeScript project, the TypeScript code files (.ts) are transpiled to JavaScript code files (.js). This transpilation is done both when the local Functions host (func.exe) is initialized and when the TypeScript project is deployed to Azure. By default, the JavaScript files are generated in the `dist` output directory. You can change this location using the `outDir` parameter in the `.tsconfig` file.
+In a TypeScript project, the TypeScript code files (.ts) are transpiled to JavaScript code files (.js). This transpilation is done both when the local Functions host is initialized and when the TypeScript project is deployed to Azure. By default, the JavaScript files are generated in the `dist` output directory. You can change this location using the `outDir` parameter in the `tsconfig.json` file.
 
 All TypeScript templates have a default value for the [`scriptFile` parameter](#using-scriptfile) in `function.json`. This value points to the location of the corresponding .js file in the `dist` folder.
 
@@ -588,7 +588,7 @@ To create a TypeScript function app in Visual Studio Code, you simply choose `Ty
 
 When you press **F5** to run the app locally, transpilation is done before the host (func.exe) is started. This same transpilation is also done when you publish your TypeScript functions to Azure.
 
-## Other considerations for JavaScript functions
+## Considerations for JavaScript functions
 
 When you work with JavaScript functions, be aware of the considerations in the following sections.
 
