@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: reference
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 01/25/2019
+ms.date: 02/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -64,6 +64,7 @@ The following table provides a brief description of each built-in role. Click th
 | [Classic Storage Account Key Operator Service Role](#classic-storage-account-key-operator-service-role) | Classic Storage Account Key Operators are allowed to list and regenerate keys on Classic Storage Accounts |
 | [Classic Virtual Machine Contributor](#classic-virtual-machine-contributor) | Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they’re connected to. |
 | [Cognitive Services Contributor](#cognitive-services-contributor) | Lets you create, read, update, delete and manage keys of Cognitive Services. |
+| [Cognitive Services Data Reader (Preview)](#cognitive-services-data-reader-preview) | Lets you read Cognitive Services data. |
 | [Cognitive Services User](#cognitive-services-user) | Lets you read and list keys of Cognitive Services. |
 | [Cosmos DB Account Reader Role](#cosmos-db-account-reader-role) | Can read Azure Cosmos DB account data. See [DocumentDB Account Contributor](#documentdb-account-contributor) for managing Azure Cosmos DB accounts. |
 | [CosmosBackupOperator](#cosmosbackupoperator) | Can submit restore request for a Cosmos DB database or a container for an account |
@@ -109,6 +110,9 @@ The following table provides a brief description of each built-in role. Click th
 | [Site Recovery Contributor](#site-recovery-contributor) | Lets you manage Site Recovery service except vault creation and role assignment |
 | [Site Recovery Operator](#site-recovery-operator) | Lets you failover and failback but not perform other Site Recovery management operations |
 | [Site Recovery Reader](#site-recovery-reader) | Lets you view Site Recovery status but not perform other management operations |
+| [Spatial Anchors Account Contributor](#spatial-anchors-account-contributor) | Lets you manage spatial anchors in your account, but not delete them |
+| [Spatial Anchors Account Owner](#spatial-anchors-account-owner) | Lets you manage spatial anchors in your account, including deleting them |
+| [Spatial Anchors Account Reader](#spatial-anchors-account-reader) | Lets you locate and read properties of spatial anchors in your account |
 | [SQL DB Contributor](#sql-db-contributor) | Lets you manage SQL databases, but not access to them. Also, you can't manage their security-related policies or their parent SQL servers. |
 | [SQL Security Manager](#sql-security-manager) | Lets you manage the security-related policies of SQL servers and databases, but not access to them. |
 | [SQL Server Contributor](#sql-server-contributor) | Lets you manage SQL servers and databases, but not access to them, and not their security -related policies. |
@@ -118,6 +122,8 @@ The following table provides a brief description of each built-in role. Click th
 | [Storage Blob Data Owner (Preview)](#storage-blob-data-owner-preview) | Allows for full access to Azure Storage blob containers and data, including assigning POSIX access control. |
 | [Storage Blob Data Reader (Preview)](#storage-blob-data-reader-preview) | Allows for read access to Azure Storage blob containers and data |
 | [Storage Queue Data Contributor (Preview)](#storage-queue-data-contributor-preview) | Allows for read, write, and delete access to Azure Storage queues and queue messages |
+| [Storage Queue Data Message Processor (Preview)](#storage-queue-data-message-processor-preview) | Allows for peek, receive, and delete access to Azure Storage queue messages |
+| [Storage Queue Data Message Sender (Preview)](#storage-queue-data-message-sender-preview) | Allows for sending of Azure Storage queue messages |
 | [Storage Queue Data Reader (Preview)](#storage-queue-data-reader-preview) | Allows for read access to Azure Storage queues and queue messages |
 | [Support Request Contributor](#support-request-contributor) | Lets you create and manage Support requests |
 | [Traffic Manager Contributor](#traffic-manager-contributor) | Lets you manage Traffic Manager profiles, but does not let you control who has access to them. |
@@ -930,6 +936,21 @@ The following table provides a brief description of each built-in role. Click th
 > | **NotDataActions** |  |
 > | *none* |  |
 
+## Cognitive Services Data Reader (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Lets you read Cognitive Services data. |
+> | **Id** | b59867f0-fa02-499b-be73-45a86b5b3e1c |
+> | **Actions** |  |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.CognitiveServices/*/read |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
 ## Cognitive Services User
 > [!div class="mx-tableFixed"]
 > | | |
@@ -939,11 +960,11 @@ The following table provides a brief description of each built-in role. Click th
 > | **Actions** |  |
 > | Microsoft.CognitiveServices/*/read |  |
 > | Microsoft.CognitiveServices/accounts/listkeys/action | List Keys |
-> | Microsoft.Insights/metricdefinitions/read | Read metric definitions |
-> | Microsoft.Insights/metrics/read | Read metrics |
 > | Microsoft.Insights/alertRules/read | Read a classic metric alert |
 > | Microsoft.Insights/diagnosticSettings/read | Read a resource diagnostic setting |
 > | Microsoft.Insights/logDefinitions/read | Read log definitions |
+> | Microsoft.Insights/metricdefinitions/read | Read metric definitions |
+> | Microsoft.Insights/metrics/read | Read metrics |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | Microsoft.Resources/deployments/operations/read | Gets or lists deployment operations. |
 > | Microsoft.Resources/subscriptions/operationresults/read | Get the subscription operation results. |
@@ -953,7 +974,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | *none* |  |
+> | Microsoft.CognitiveServices/* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -1173,16 +1194,16 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Evaluates lab policy. |
 > | Microsoft.DevTestLab/labs/virtualMachines/claim/action | Take ownership of an existing virtual machine |
 > | Microsoft.DevTestLab/labs/virtualmachines/listApplicableSchedules/action | Lists the applicable start/stop schedules, if any. |
-> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joins a load balancer backend address pool |
-> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Joins a load balancer inbound nat rule |
+> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joins a load balancer backend address pool. Not Alertable. |
+> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Joins a load balancer inbound nat rule. Not Alertable. |
 > | Microsoft.Network/networkInterfaces/*/read | Read the properties of a network interface (for example, all the load balancers that the network interface is a part of) |
-> | Microsoft.Network/networkInterfaces/join/action | Joins a Virtual Machine to a network interface |
+> | Microsoft.Network/networkInterfaces/join/action | Joins a Virtual Machine to a network interface. Not Alertable. |
 > | Microsoft.Network/networkInterfaces/read | Gets a network interface definition.  |
 > | Microsoft.Network/networkInterfaces/write | Creates a network interface or updates an existing network interface.  |
 > | Microsoft.Network/publicIPAddresses/*/read | Read the properties of a public IP address |
-> | Microsoft.Network/publicIPAddresses/join/action | Joins a public ip address |
+> | Microsoft.Network/publicIPAddresses/join/action | Joins a public ip address. Not Alertable. |
 > | Microsoft.Network/publicIPAddresses/read | Gets a public ip address definition. |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network. Not Alertable. |
 > | Microsoft.Resources/deployments/operations/read | Gets or lists deployment operations. |
 > | Microsoft.Resources/deployments/read | Gets or lists deployments. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
@@ -2029,6 +2050,65 @@ The following table provides a brief description of each built-in role. Click th
 > | **NotDataActions** |  |
 > | *none* |  |
 
+## Spatial Anchors Account Contributor
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Lets you manage spatial anchors in your account, but not delete them |
+> | **Id** | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
+> | **Actions** |  |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Create spatial anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Discover nearby spatial anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Get properties of spatial anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Locate spatial anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Submit diagnostics data to help improve the quality of the Azure Spatial Anchors service |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Update spatial anchors properties |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## Spatial Anchors Account Owner
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Lets you manage spatial anchors in your account, including deleting them |
+> | **Id** | 70bbe301-9835-447d-afdd-19eb3167307c |
+> | **Actions** |  |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Create spatial anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/delete | Delete spatial anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Discover nearby spatial anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Get properties of spatial anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Locate spatial anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Submit diagnostics data to help improve the quality of the Azure Spatial Anchors service |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Update spatial anchors properties |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## Spatial Anchors Account Reader
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Lets you locate and read properties of spatial anchors in your account |
+> | **Id** | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
+> | **Actions** |  |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Discover nearby spatial anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Get properties of spatial anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Locate spatial anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Submit diagnostics data to help improve the quality of the Azure Spatial Anchors service |
+> | **NotDataActions** |  |
+> | *none* |  |
+
 ## SQL DB Contributor
 > [!div class="mx-tableFixed"]
 > | | |
@@ -2078,7 +2158,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read Microsoft authorization |
 > | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
-> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joins resource such as storage account or SQL database to a subnet. |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joins resource such as storage account or SQL database to a subnet. Not alertable. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
@@ -2169,7 +2249,7 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.Authorization/*/read | Read all authorization |
 > | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
 > | Microsoft.Insights/diagnosticSettings/* | Manage diagnostic settings |
-> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joins resource such as storage account or SQL database to a subnet. |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joins resource such as storage account or SQL database to a subnet. Not alertable. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
@@ -2263,6 +2343,37 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Returns the result of deleting a message |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Returns a message |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Returns the result of writing a message |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## Storage Queue Data Message Processor (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Allows for peek, receive, and delete access to Azure Storage queue messages |
+> | **Id** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
+> | **Actions** |  |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Returns a message |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | Returns the result of processing a message |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## Storage Queue Data Message Sender (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Allows for sending of Azure Storage queue messages |
+> | **Id** | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
+> | **Actions** |  |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Returns the result of adding a message |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -2370,20 +2481,20 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.Compute/virtualMachineScaleSets/* | Create and manage virtual machine scale sets |
 > | Microsoft.DevTestLab/schedules/* |  |
 > | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
-> | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Joins an application gateway backend address pool |
-> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joins a load balancer backend address pool |
-> | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Joins a load balancer inbound nat pool |
-> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Joins a load balancer inbound nat rule |
-> | Microsoft.Network/loadBalancers/probes/join/action | Allows using probes of a load balancer. For example, with this permission healthProbe property of VM scale set can reference the probe. |
+> | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Joins an application gateway backend address pool. Not Alertable. |
+> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joins a load balancer backend address pool. Not Alertable. |
+> | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Joins a load balancer inbound NAT pool. Not alertable. |
+> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Joins a load balancer inbound nat rule. Not Alertable. |
+> | Microsoft.Network/loadBalancers/probes/join/action | Allows using probes of a load balancer. For example, with this permission healthProbe property of VM scale set can reference the probe. Not alertable. |
 > | Microsoft.Network/loadBalancers/read | Gets a load balancer definition |
 > | Microsoft.Network/locations/* | Create and manage network locations |
 > | Microsoft.Network/networkInterfaces/* | Create and manage network interfaces |
-> | Microsoft.Network/networkSecurityGroups/join/action | Joins a network security group |
+> | Microsoft.Network/networkSecurityGroups/join/action | Joins a network security group. Not Alertable. |
 > | Microsoft.Network/networkSecurityGroups/read | Gets a network security group definition |
-> | Microsoft.Network/publicIPAddresses/join/action | Joins a public ip address |
+> | Microsoft.Network/publicIPAddresses/join/action | Joins a public ip address. Not Alertable. |
 > | Microsoft.Network/publicIPAddresses/read | Gets a public ip address definition. |
 > | Microsoft.Network/virtualNetworks/read | Get the virtual network definition |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network. Not Alertable. |
 > | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Create a backup Protection Intent |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read |  |
