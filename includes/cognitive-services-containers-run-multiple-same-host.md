@@ -26,7 +26,7 @@ Run the second container on port 5001.
 
 
 ```bash 
-docker run --rm -it -p 5001:5001 --memory 4g --cpus 1 \
+docker run --rm -it -p 5001:5000 --memory 4g --cpus 1 \
 <container-registry>/microsoft/<container-name> \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
