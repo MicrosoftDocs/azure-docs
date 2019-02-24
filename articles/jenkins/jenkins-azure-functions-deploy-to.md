@@ -56,7 +56,7 @@ The following steps show how to create a Java function using the Azure CLI:
 
 The following steps explain how to prepare the Jenkins server:
 
-1. Deploy a [Jenkins server](https://aka.ms/jenkins-on-azure) on Azure. If you don't already have an instance of Jenkins server installed, the article, [Create a Jenkins server on Azure](./jenkins/install-jenkins-solution-template.md) guides you through the process.
+1. Deploy a [Jenkins server](https://aka.ms/jenkins-on-azure) on Azure. If you don't already have an instance of Jenkins server installed, the article, [Create a Jenkins server on Azure](./install-jenkins-solution-template.md) guides you through the process.
 
 1. Sign in to the Jenkins instance with SSH.
 
@@ -80,9 +80,9 @@ The following steps explain how to prepare the Jenkins server:
     - Azure Functions Plugin
     - EnvInject Plugin
 
-1. Jenkins needs an Azure service principal to authenticate and access Azure resources. Refer to the [Deploy to Azure App Service](./tutorial-jenkins-deploy-web-app-azure-app-service#create-service-principal.md) for step-by-step instructions.
+1. Jenkins needs an Azure service principal to authenticate and access Azure resources. Refer to the [Deploy to Azure App Service](./tutorial-jenkins-deploy-web-app-azure-app-service.md) for step-by-step instructions.
 
-1. Using the Azure service principal, add a "Microsoft Azure Service Principal" credential type in Jenkins. Refer to the [Deploy to Azure App Service](./tutorial-jenkins-deploy-web-app-azure-app-service#add-service-principal-to-jenkins.md) tutorial.
+1. Using the Azure service principal, add a "Microsoft Azure Service Principal" credential type in Jenkins. Refer to the [Deploy to Azure App Service](./tutorial-jenkins-deploy-web-app-azure-app-service.md#add-service-principal-to-jenkins) tutorial.
 
 ## Create a Jenkins Pipeline
 
