@@ -20,28 +20,28 @@ To create a Java function with the Java runtime stack, use either the [Azure por
 
 The following steps show how to create a Java function using the Azure CLI:
 
-1. Create a resource group, inserting your resource group name for the &lt;resource-group-name> placeholder.
+1. Create a resource group, inserting your resource group name for the &lt;resource-group> placeholder.
 
     ```cli
-    az group create --name <resource-group-name> --location eastus
+    az group create --name <resource-group> --location eastus
     ```
 
 1. Create an Azure storage account, replacing the placeholders with the appropriate values.
  
     ```cli
-    az storage account create --name <storage-name> --location eastus --resource-group <resource-group-name> --sku Standard_LRS    
+    az storage account create --name <storage-name> --location eastus --resource-group <resource-group> --sku Standard_LRS    
     ```
 
 1. Create the test function app, replacing the placeholders with the appropriate values.
 
     ```cli
-    az functionapp create --resource-group <resource-group-name> --consumption-plan-location eastus --name <app-name> --storage-account <storage-name>
+    az functionapp create --resource-group <resource-group> --consumption-plan-location eastus --name <app-name> --storage-account <storage-name>
     ```
     
 1. Update to version 2.x runtime, replacing the placeholders with the appropriate values.
 
     ```cli
-    az functionapp config appsettings set --name <function-app> --resource-group <resource-group-name> --settings FUNCTIONS_EXTENSION_VERSION=~2
+    az functionapp config appsettings set --name <function-app> --resource-group <resource-group> --settings FUNCTIONS_EXTENSION_VERSION=~2
     ```
 
 ## Prepare Jenkins server
@@ -88,7 +88,7 @@ In this section, you create the [Jenkins Pipeline](https://jenkins.io/doc/book/p
 
     ```
     AZURE_CRED_ID=<service-principal-credential-id>
-    RES_GROUP=<resource-group-name>
+    RES_GROUP=<resource-group>
     FUNCTION_NAME=<app-name>
     ```
     
@@ -118,5 +118,5 @@ It's now time to run the Jenkins job.
 Delete the Azure resources created in this tutorial by running the following command:
 
 ```cli
-az group delete -y --no-wait -n <resource-group-name>
+az group delete -y --no-wait -n <resource-group>
 ```
