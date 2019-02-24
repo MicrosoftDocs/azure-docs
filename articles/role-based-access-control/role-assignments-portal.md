@@ -33,23 +33,21 @@ To add and remove role assignments, you must have:
 
 ## Overview of Access control (IAM)
 
-The **Access control (IAM)** blade is the blade that you use to manage access to Azure resources. It's also known as identity and access management and appears throughout the portal. **Access control (IAM)** enables you to perform several tasks related to RBAC. The following shows an example of the Access control (IAM) blade for a subscription.
+**Access control (IAM)** is the blade that you use to manage access to Azure resources. It's also known as identity and access management and appears throughout the portal. Access control (IAM) enables you to perform several tasks related to RBAC. The following shows an example of the Access control (IAM) blade for a subscription.
 
-![Access control (IAM) blade for a subscription](./media/role-assignments-portal/access-control-subscription.png)
+![Access control (IAM) blade for a subscription](./media/role-assignments-portal/access-control-numbers.png)
 
-The following table describes what you use some of the elements for on the **Access control (IAM)** blade.
+The following table describes what some of the elements are use for.
 
-| Element | What you use it for |
-| --- | --- |
-| **Add** button | Assign roles. |
-| **Remove** button | Remove role assignments. |
-| **Check access** tab | View the role assignments for a single user. |
-| **Role assignments** tab | View the role assignments at the current scope. |
-| **Deny assignments** tab | View the deny assignments at the current scope. Currently read-only and can only be set by Microsoft.  |
-| **Classic administrators** tab | View the classic subscription administrators. |
-| **Roles** tab | View all the built-in or custom roles. |
+| Number | Element | What you use it for |
+| --- | --- | --- |
+| 1 | Resources | Identify scope (subscription in this example) |
+| 2 | **Add** button | Add role assignments |
+| 3 | **Check access** tab | View the role assignments for a single user |
+| 4 | **Role assignments** tab | View the role assignments at the current scope |
+| 5 | **Roles** tab | View all roles and permissions |
 
-To successfully use the **Access control (IAM)** blade, you should know the following:
+To be the most effective with the Access control (IAM) blade, it helps if you can answer the following three questions when you are trying to manage access:
 
 1. **Who needs access?**
 
@@ -57,7 +55,7 @@ To successfully use the **Access control (IAM)** blade, you should know the foll
 
 1. **What permissions do they need?**
 
-    Permissions are grouped together into roles. For a list of the available roles, see [built-in roles for Azure resources](built-in-roles.md).
+    Permissions are grouped together into roles. You can select from a list of built-in roles.
 
 1. **Where do they need access?**
 
@@ -65,7 +63,7 @@ To successfully use the **Access control (IAM)** blade, you should know the foll
 
 ## Open Access control (IAM)
 
-The first thing you need to decide is where to open the **Access control (IAM)** blade. It depends on what resources you want to view or manage access for. Do you want to manage access for everything in a management group, everything in a subscription, everything in a resource group, or a single resource?
+The first thing you need to decide is where to open the Access control (IAM) blade. It depends on what resources you want to view or manage access for. Do you want to manage access for everything in a management group, everything in a subscription, everything in a resource group, or a single resource?
 
 1. In the Azure portal, click **All services** and then select the scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
 
@@ -73,7 +71,7 @@ The first thing you need to decide is where to open the **Access control (IAM)**
 
 1. Click **Access control (IAM)**.
 
-    The following shows an example of the Access control (IAM) blade for a subscription. If you made any access control changes here, they would apply to the entire subscription.
+    The following shows an example of the Access control (IAM) blade for a subscription. If you make any access control changes here, they would apply to the entire subscription.
 
     ![Access control (IAM) blade for a subscription](./media/role-assignments-portal/access-control-subscription.png)
 
