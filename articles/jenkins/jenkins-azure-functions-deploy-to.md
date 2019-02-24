@@ -28,28 +28,28 @@ To create a Java function with the Java runtime stack, use either the [Azure por
 
 The following steps show how to create a Java function using the Azure CLI:
 
-1. Create a resource group, inserting your resource group name for the &lt;resource-group> placeholder.
+1. Create a resource group, replacing the **&lt;resource_group>** placeholder with your desired resource group name.
 
     ```cli
-    az group create --name <resource-group> --location eastus
+    az group create --name <resource_group> --location eastus
     ```
 
 1. Create an Azure storage account, replacing the placeholders with the appropriate values.
  
     ```cli
-    az storage account create --name <storage-name> --location eastus --resource-group <resource-group> --sku Standard_LRS    
+    az storage account create --name <storage_account> --location eastus --resource-group <resource_group> --sku Standard_LRS    
     ```
 
 1. Create the test function app, replacing the placeholders with the appropriate values.
 
     ```cli
-    az functionapp create --resource-group <resource-group> --consumption-plan-location eastus --name <app-name> --storage-account <storage-name>
+    az functionapp create --resource-group <resource_group> --consumption-plan-location eastus --name <function_app> --storage-account <storage_account>
     ```
     
 1. Update to version 2.x runtime, replacing the placeholders with the appropriate values.
 
     ```cli
-    az functionapp config appsettings set --name <function-app> --resource-group <resource-group> --settings FUNCTIONS_EXTENSION_VERSION=~2
+    az functionapp config appsettings set --name <function_app> --resource-group <resource_group> --settings FUNCTIONS_EXTENSION_VERSION=~2
     ```
 
 ## Prepare Jenkins server
@@ -95,9 +95,9 @@ In this section, you create the [Jenkins Pipeline](https://jenkins.io/doc/book/p
 1. Add the following environment variables in **Properties Content**, replacing the placeholders with the appropriate values for your environment:
 
     ```
-    AZURE_CRED_ID=<service-principal-credential-id>
-    RES_GROUP=<resource-group>
-    FUNCTION_NAME=<app-name>
+    AZURE_CRED_ID=<service_principal_credential_id>
+    RES_GROUP=<resource_group>
+    FUNCTION_NAME=<function_name>
     ```
     
 1. In the **Pipeline->Definition** section, select **Pipeline script from SCM**.
@@ -110,12 +110,12 @@ It's now time to run the Jenkins job.
 
 1. First, obtain the authorization key via the instructions in the [Azure Functions HTTP triggers and bindings](/azure/azure-functions/functions-bindings-http-webhook#authorization-keys) article.
 
-1. In your browser, enter the app's URL. Replace the placeholders with the appropriate values and specify a numeric value for `<input-number>` as input for the Java function.
+1. In your browser, enter the app's URL. Replace the placeholders with the appropriate values and specify a numeric value for **&lt;input_number>** as input for the Java function.
 
     ```
-    https://<app-name>.azurewebsites.net/api/HttpTrigger-Java?code=<authorization-key>&number=<input-number>
+    https://<function_app>.azurewebsites.net/api/HttpTrigger-Java?code=<authorization-key>&number=<input_number>
     ```
-1. Depending on you specified an even or odd number for `input-number`, you'll see results similar to the following:
+1. Depending on whether you specified an even or odd number for **input_number**, you'll see results similar to the following:
 
     ```output
     The number 365 is Odd.
@@ -127,7 +127,7 @@ If you're not going to continue to use this application, delete
 the resources you created with the following step:
 
 ```cli
-az group delete -y --no-wait -n <resource-group>
+az group delete -y --no-wait -n <resource_group>
 ```
 
 ## Next steps
