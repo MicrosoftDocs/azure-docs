@@ -80,7 +80,7 @@ The data that a user has access to are determined by multiple factors that are l
 |:---|:---|
 | [Access mode](#access-modes) | Method that the user uses to accesses the workspace.  Defines the scope of the data available and the access control mode that's applied. |
 | [Access control mode](#access-control-mode) | Setting on the workspace that defines whether permissions are applied at the workspace or resource level. |
-| [Permissions](manage-accounts-and-users) | Permissions applied to individual or groups of users for the workspace or resource. Defines what data the user will have access to. |
+| [Permissions](#manage-accounts-and-users) | Permissions applied to individual or groups of users for the workspace or resource. Defines what data the user will have access to. |
 | [Table access control](#table-access-control) | Optional granular permissions that applies to all users regardless of their access mode or access control mode. Defines which data types a user can access. |
 
 
