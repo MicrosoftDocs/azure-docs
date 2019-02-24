@@ -113,7 +113,7 @@ It's now time to run the Jenkins job.
 1. In your browser, enter the app's URL. Replace the placeholders with the appropriate values and specify a numeric value for **&lt;input_number>** as input for the Java function.
 
     ```
-    https://<function_app>.azurewebsites.net/api/HttpTrigger-Java?code=<authorization-key>&number=<input_number>
+    https://<function_app>.azurewebsites.net/api/HttpTrigger-Java?code=<authorization_key>&number=<input_number>
     ```
 1. Depending on whether you specified an even or odd number for the **input_number** placeholder, you'll see results similar to the following example output:
 
@@ -134,4 +134,4 @@ az group delete -y --no-wait -n <resource_group>
 
 To learn more about Azure Functions, see the following resource:
 > [!div class="nextstepaction"]
-> [Next steps button](/azure/azure-functions/)
+> [Azure Functions documentation](/azure/azure-functions/)
