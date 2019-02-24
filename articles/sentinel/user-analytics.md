@@ -18,22 +18,31 @@ ms.author: rkarlin
 ---
 # Investigate users with user analytics
 
-You need an Azure Advanced Threat Protection license to on board this feature. 
-You need global admin permissions on the tenant in which you installed Azure Sentinel to enable this\
-For each Azure ATP tenant, you can connect one Sentinel instance.
+Azure Sentinel seamlessly integrates with Azure Advanced Threat Protection to analyze user behavior and prioritize which users you should investigate first, based on their alerts, and suspicious activity patterns across Azure Sentinel and Microsoft 365.
+
+Azure Sentinel enriches your user data with analytics from Azure ATP to enable comprehensive user analytics and risk analysis for all users in Azure Active Directory.
+
+## How it works
+
+1. Based on the custom alert rules you created across your third-party data, Azure Sentinel sends alerts to Azure ATP.
+1. Azure ATP checks which user entities are connected to the alerts, and raises the investigation priority for those users.
+3. Azure ATP recalculates the score of the users enriched with this data and sends it to Azure Sentinel.
 
 
-we send sentinel alerts to Azure ATP and Azure ATP check which user entities are connected to the alerts, and Azure ATP raises the investigation priority for those users.
-Azure ATP recalculates the score of the users enriched with this data.
+## Prerequisites
 
-This is based on a custom alert rule the customer wrote based on third-party data.
+- An Azure Advanced Threat Protection license 
+- To enable the feature, you need global admin permissions on the tenant in which you installed Azure Sentinel
 
-Today this only works for AAD users. 
+> [!NOTES]
+> - For each Azure ATP tenant, you can connect one Azure Sentinel instance.
+> - User analytics is currently available only for Azure Active Directory users. 
 
-How to get started:
+## Enable user analytics
 
-1. you must enable the feature in Azure Sentinel. Go to the User profiles page, and click enable. When we click enable here, it sends information about the workspace to Azure ATP.
-1. Then, it takes you to Azure ATP under Security Extensions and the Microsoft Azure Sentinel tab, click tje plus to add and then select the workspace and click connect.
+1. To enable user analytics in Azure Sentinel, in the portal go to the **User analytics** page, and click **Enable**. This sends information about the workspace to Azure ATP.
+
+1. Then, it takes you to Azure ATP under Security Extensions and the Microsoft Azure Sentinel tab, click the plus to add and then select the workspace and click connect.
 
 Look in the Sentinel menu under User analytics
 this is a list of users according to their investigation priority. the score is based on Azure ATP alerts, Sentinel alerts and Microsoft Cloud App Security alerts if you have Microsoft Cloud App Security.
@@ -47,7 +56,7 @@ I order for this to work well, you have to properly set up the custom alert rule
 Windows events map Account to the SID
 Azure AD data (which can be found in many logs including Azure Activity) or Office 365 data, you must map the Account to the GUID or the UPN. 
 
-  ![Query](query-window.png)
+  ![Query](./media/user-analytics/query-window.png)
 
 > [!NOTE]
 > In activity logs of Azure Activity, the caller entity includes the UPN.

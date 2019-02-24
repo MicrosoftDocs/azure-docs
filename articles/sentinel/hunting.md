@@ -22,7 +22,7 @@ ms.author: rkarlin
 
 If you're an investigator who wants to be proactive about looking for security threats, Azure Sentinel powerful hunting search and query tools to hunt for security threats across your organization’s data sources. But your systems and security appliances generate mountains of data that can be difficult to parse and filter into meaningful events. To help security analysts look proactively for new anomalies that weren't detected by your security apps, Azure Sentinel' built-in hunting queries guide you into asking the right questions to find issues in the data you already have on your network. 
 
-For example, one built-in query provides data about the most uncommon processes run in your org - you wouldn't want an alert about each time they are run, they could be entirely innocent, but you might want to take a look at the query on occasion to see if there's anything unusual. 
+For example, one built-in query provides data about the most uncommon processes running on your infrastructure - you wouldn't want an alert about each time they are run, they could be entirely innocent, but you might want to take a look at the query on occasion to see if there's anything unusual. 
 
 
 
@@ -34,7 +34,7 @@ With Azure Sentinel hunting, you can take advantage of the following capabilitie
 
 - Create your own bookmarks: During the hunting process, you may come across matches or findings, dashboards, or activities that look unusual or suspicious. In order to mark those items so you can come back to them in the future, use the bookmark functionality. Bookmarks let you save items for later, to be used to create a case for investigation. For more information about bookmarks, see Use [bookmarks in hunting].
 
-- Use notebooks to automate investigation: Notebooks are like step-by-step guides that you can build to walk through the steps of an investigation. 
+- Use notebooks to automate investigation: Notebooks are like step-by-step playbooks that you can build to walk through the steps of an investigation and hunt.  Notebooks encapsulate all the hunting steps in a reusable playbook that can be shared with others in your organization. 
 - Query the stored data: The data is accessible in tables for you to query. For example, you can query process creation, DNS events, and many other event types.
 
 - Links to community: Leverage the power of the greater community to find additional queries and data sources.
@@ -44,19 +44,20 @@ With Azure Sentinel hunting, you can take advantage of the following capabilitie
 1. In the Azure Sentinel portal, click **Hunting**.
   ![Azure Sentinel starts hunting](media/tutorial-hunting/hunting-start.png)
 
-2. When you open the page, all the queries in the table are automatically run. The table lists all the queries written by Microsoft's team of security analysts as well as any additional query you created or modified. Each query provides a definition of what it hunts for, and what kind of data it runs on. These templates are grouped by their various techniques - the icons on the right categorize by the type of threat, such as exfiltration. You can filter the hunting templates using any of the fields. You can save any query to your favorites. You can create your own hunting query or customize an existing template. 
-1. Review the list of queries to see if there are any matches that were detected when the query was run. Check out which stage in the kill chain the match is associated with.
-1. Click on the query to drill down into it and then click **Show results** to open the query in Log  Analytics. At the bottom, review the hits for the query.
-
-   ![Log Analytics query explorer](media/tutorial-hunting/log-analytics-query-explorer.png) 
+2. When you open the **Hunting** page, all the hunting queries are displayed in a single table. The table lists all the queries written by Microsoft's team of security analysts as well as any additional query you created or modified. Each query provides a description of what it hunts for, and what kind of data it runs on. These templates are grouped by their various tactics - the icons on the right categorize the type of threat, such as initial access, persistence, and exfiltration. You can filter these hunting query templates using any of the fields. You can save any query to your favorites. By saving a query to your favorites, the query automatically runs each time the **Hunting** page is accessed. You can create your own hunting query or clone and customize an existing hunting query template. 
  
+2. Click **Run query** in the hunting query details page to run any query without leaving the hunting page.  The number of matches is displayed within the table. Review the list of hunting queries and their matches. Check out which stage in the kill chain the match is associated with.
 
-5. Click on the row and add bookmark to add the rows to be investigated - you can do this for anything that looks suspicious. 
+3. Perform a quick review of the underlying query in the query details pane or click **View query result** to open the query in Log Analytics. At the bottom, review the matches for the query.
 
-6. Then, go back to the main hunting page and click the **Bookmark** tab to see all the suspicious activities. 
+4.	Click on the row and select **Add bookmark** to add the rows to be investigated - you can do this for anything that looks suspicious. 
 
-7. Click on a bookmark and then click **Investigate** to open the investigation experience.
-You can filter the bookmarks, for example, if you're investigating a campaign, you can create a tag for the campaign and then filter all the bookmarks based on the campaign.1. After you discovered which hunting query provides high value insights into possible attacks, you can also create custom detection rules based on your query and surface those insights as alerts to your security incident responders.
+5. Then, go back to the main **Hunting** page and click the **Bookmarks** tab to see all the suspicious activities. 
+
+6. Select a bookmark and then click **Investigate** to open the investigation experience. You can filter the bookmarks. For example, if you're investigating a campaign, you can create a tag for the campaign and then filter all the bookmarks based on the campaign.
+
+1. After you discovered which hunting query provides high value insights into possible attacks, you can also create custom detection rules based on your query and surface those insights as alerts to your security incident responders.
+
  
 
 ## Query language 
@@ -112,12 +113,26 @@ The query language is powerful and has many available operators, some useful ope
 
 You can create or modify a query and save it as your own query or share it with users who are in the same tenant.
 
-1. Click the **Save query** drop-down button and select **Save**.
+   ![Save query](./media/tutorial-hunting/save-query.png)
 
-   ![Save query](media/tutorial-hunting/save-query.png)
+Create a new hunting query:
 
-2. Enter a name for the query. Save as “Query” and choose a category and click on **Save**.
+1. Click **New query** and select **Save**.
+2. Fill in all the blank fields and select **Save**.
 
+ ![New query](./media/tutorial-hunting/new-query.png)
+
+Clone and modify an existing hunting query:
+
+1. Select the hunting query in the table you want to modify.
+2. Click the three dots in the line of the query you want to modify, and select **Clone query**.
+
+ ![clone query](./media/tutorial-hunting/clone-query.png)
+ 
+
+3.	Modify the query and select **Create**.
+
+ ![custom query](./media/tutorial-hunting/custom-query.png)
 
 ## Next steps
 In this article, you learned how to run a hunting investigation with Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
