@@ -23,10 +23,6 @@ ms.reviewer: bagovind
 
 ## Prerequisites
 
-To view role assignments, you must have:
-
-- `Microsoft.Authorization/roleAssignments/read` permissions, such as [Reader](built-in-roles.md#reader) or several other roles
-
 To add and remove role assignments, you must have:
 
 - `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
