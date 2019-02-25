@@ -73,7 +73,7 @@ If you are using parameterized datasets, be sure to set the parameter values.
 
 ![Execute Data Flow Parameters](media/data-flow/params.png "Parameters")
 
-### Debuggin parameterized data flows
+### Debugging parameterized data flows
 
 You can only debug data flows with parameterized datasets from the Pipeline Debug run using the execute data flow activity. Currently, interactive debug sessions in ADF Data Flow do not work with parameterized data sets. Pipeline executions and debug runs will work with parameters.
 
