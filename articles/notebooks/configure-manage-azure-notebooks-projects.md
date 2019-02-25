@@ -55,6 +55,15 @@ When you select a DSVM instance, Azure Notebooks may prompt you for the specific
 
 To create a new DSVM instance, follow the instructions on [Create an Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Use the **Data Science Virtual Machine for Linux (Ubuntu)** image if you want the DSVM to appear in the drop-down list in Azure Notebooks.  If for other reasons you need to use the Windows or CentOS image, you can use the **Direct Compute** option to connect to the DSVM manually.
 
+> [!IMPORTANT]
+> When using different virtual machines, the notebooks you run on them must be entirely self-contained. At present, Azure Notebooks copies only the *.ipynb* file to the VM but doesn't copy any other files in the project. As a result, notebooks running on other VMs fail to find other project files.
+>
+> You can work around this behavior in two ways:
+>
+> 1. Copy project files manually to the VM.
+>
+> 2. Embed the files within a setup notebook that you run first before the primary notebook. In the setup notebook, create a code cell for each file where the cell contains the file contents. Then at the top of each cell, insert the command `%writefile <filename>`, where `<filename>` is the name of the file to receive the contents. When you run the notebook, it creates all those files on the VM. For an example, see the [setup.ipynb file in the Microsoft Pet Detector demo](https://github.com/microsoft/connect-petdetector) (GitHub).
+
 ## Edit project metadata
 
 On the project dashboard, select **Project Settings**, then select the **Information** tab, which contains the project's metadata as described in the following table. You can change project metadata at any time.
