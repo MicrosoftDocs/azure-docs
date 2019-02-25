@@ -37,9 +37,9 @@ Once the backend server processes the request and sends an HTTP response with th
 
 You can use the Application Gateway as an internal application load balancer or an Internet-facing application load balancer. An Internet-facing Application Gateway has public IP addresses. The DNS name of an Internet-facing Application Gateway is publicly resolvable to its public IP address. Therefore, Internet-facing Application Gateways can route requests from clients over the Internet.
 
-An internal Application Gateway  has only private IP address. The DNS name of an internal Application Gateway is publicly resolvable to its private IP address. Therefore, internal load balancers can only route requests from clients with access to the VNET for the Application Gateway.
+An internal Application Gateway has only private IP address. The DNS name of an internal Application Gateway is internally resolvable to its private IP address. Therefore, internal load balancers can only route requests from clients with access to the VNET for the Application Gateway.
 
-Note that both Internet-facing and internal Application Gateways route requests to your backend servers using private IP addresses. Therefore, your backend servers do not need public IP addresses to receive requests from an internal or an Internet-facing Application Gateway.
+Note that both Internet-facing and internal Application Gateways route requests to your backend servers using private IP addresses in case your backend pool resource contains a private IP address, VM NIC configuration or an internally resolvable address, and if your backend pool is a public endpoint, Application Gateway will use its frontend public IP to reach the server. In case you haven't provisioned a frontend public IP address, one will be assigned for the outbound external connectivity.
 
 ## Next steps
 
