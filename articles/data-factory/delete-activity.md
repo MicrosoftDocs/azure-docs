@@ -32,21 +32,17 @@ Here are some recommendations for using the Delete activity:
 
 -   Make sure you are not deleting files that are being written at the same time. 
 
--   If you want to delete files or folder from an on-premise system, make sure you are using a self-hosted integration runtime with a version greater than 3.13.
+-   If you want to delete files or folder from an on-premise system, make sure you are using a self-hosted integration runtime with a version greater than 3.14.
 
 ## Supported data stores
 
-### Azure data stores
-
 -   [Azure Blob storage](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
--   [Azure Data Lake Storage Gen2 (Preview)](connector-azure-data-lake-storage.md)
-
-### File system data stores
-
+-   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
 -   [File System](connector-file-system.md)
 -   [FTP](connector-ftp.md)
--   [HDFS](connector-hdfs.md)
+-   [SFTP](connector-sftp.md)
+-   [Amazon S3](connector-amazon-simple-storage-service.md)
 
 ## Syntax
 
@@ -56,7 +52,7 @@ Here are some recommendations for using the Delete activity:
     "type": "Delete",
     "typeProperties": {
         "dataset": {
-            "referenceName": "<dataset name to be deleted>",
+            "referenceName": "<dataset name>",
             "type": "DatasetReference"
         },
         "recursive": true/false,
@@ -82,7 +78,7 @@ Here are some recommendations for using the Delete activity:
 | maxConcurrentConnections | The number of the connections to connect to storage store concurrently for deleting folder or files.   |  No. The default is `1`. |
 | enablelogging | Indicates whether you need to record the folder or file names that have been deleted. If true, you need to further provide a storage account to save the log file, so that you can track the behaviors of the Delete activity by reading the log file. | No |
 | logStorageSettings | Only applicable when enablelogging = true.<br/><br/>A group of storage properties that can be specified where you want to save the log file containing the folder or file names that have been deleted by the Delete activity. | No |
-| linkedServiceName | Only applicable when enablelogging = true.<br/><br/>The linked service of [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) to store the log file that contains the folder or file names that have been deleted by the Delete activity. | No |
+| linkedServiceName | Only applicable when enablelogging = true.<br/><br/>The linked service of [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties) or [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) to store the log file that contains the folder or file names that have been deleted by the Delete activity. | No |
 | path | Only applicable when enablelogging = true.<br/><br/>The path to save the log file in your storage account. If you do not provide a path, the service creates a container for you. | No |
 
 ## Monitoring
@@ -95,13 +91,15 @@ There are two places where you can see and monitor the results of the Delete act
 
 ```json
 { 
-  "isWildcardUsed": false, 
-  "wildcard": null,
-  "type": "AzureBlobStorage",
+  "datasetName": "AmazonS3",
+  "type": "AmazonS3Object",
+  "prefix": "test",
+  "bucketName": "adf",
   "recursive": true,
-  "maxConcurrentConnections": 10,
-  "filesDeleted": 1,
-  "logPath": "https://sample.blob.core.windows.net/mycontainer/5c698705-a6e2-40bf-911e-e0a927de3f07/5c698705-a6e2-40bf-911e-e0a927de3f07.json",
+  "isWildcardUsed": false,
+  "maxConcurrentConnections": 2,  
+  "filesDeleted": 4,
+  "logPath": "https://sample.blob.core.windows.net/mycontainer/5c698705-a6e2-40bf-911e-e0a927de3f07",
   "effectiveIntegrationRuntime": "MyAzureIR (West Central US)",
   "executionDuration": 650
 }
@@ -109,22 +107,12 @@ There are two places where you can see and monitor the results of the Delete act
 
 ### Sample log file of the Delete activity
 
-```json
-{
-  "customerInput": {
-    "type": "AzureBlob",
-    "fileName": "",
-    "folderPath": "folder/filename_to_be_deleted",
-    "recursive": false,
-    "enableFileFilter": false
-  },
-  "deletedFileList": [
-    "folder/filename_to_be_deleted"
-  ],
-  "deletedFolderList": null,
-  "error":"the reason why files are failed to be deleted"
-}
-```
+| Name | Category | Status | Error |
+|:--- |:--- |:--- |:--- |
+| test1/yyy.json | File | Deleted |  |
+| test2/hello789.txt | File | Deleted |  |
+| test2/test3/hello000.txt | File | Deleted |  |
+| test2/test3/zzz.json | File | Deleted |  |
 
 ## Examples of using the Delete activity
 
