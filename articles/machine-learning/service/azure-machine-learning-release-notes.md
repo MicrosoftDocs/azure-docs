@@ -19,6 +19,15 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 + The Azure Machine Learning's  [**main SDK for Python**](https://aka.ms/aml-sdk)
 + The Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
 
+## 2019-02-25
+
+### Azure portal
++ **New features**
+	+ New drag and drop table editor experience for reports. Users can drag a column from the well to the table area where a preview of the table will be displayed. The columns can be rearranged.
+	+ New Run button for runs submitted with ScriptRunConfig. Users can re-run an existing run on a remote compute cluster of their choice.
+	+ New Logs file viewer
+	+ Links to experiment runs, compute, models, images and deployments from the activities tab
+
 ## 2019-02-11
 
 ### Azure Machine Learning SDK for Python v1.0.15
