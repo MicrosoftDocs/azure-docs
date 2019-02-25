@@ -92,7 +92,9 @@
     - name: Azure compute units (ACU)
       href: acu.md 
     - name: Benchmark scores
-      href: compute-benchmark-scores.md       
+      href: compute-benchmark-scores.md
+    - name: vCPU quotas
+      href: quotas.md
   - name: Maintenance and updates
     href: maintenance-and-updates.md
   - name: Disk storage
@@ -123,12 +125,8 @@
     href: backup-recovery.md
   - name: High performance computing
     href: high-performance-computing.md
-  - name: Deployment considerations
-    items:
-    - name: Infrastructure guidelines
+  - name: Infrastructure example
       href: infrastructure-example.md
-    - name: vCPU quotas
-      href: quotas.md
 - name: How-to guides
   items:
   - name: Create VMs
