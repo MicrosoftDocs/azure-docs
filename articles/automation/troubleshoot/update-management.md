@@ -72,11 +72,11 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-### <a name="nologs"></a>Scenario: Update Management data not showing in Log Analytics for a machine
+### <a name="nologs"></a>Scenario: Update Management data not showing in Azure Monitor logs for a machine
 
 #### Issue
 
-You have machines that show as **Not Assessed** under **Compliance**, but you see heartbeat data in Log Analytics for the Hybrid Runbook Worker but not Update Management.
+You have machines that show as **Not Assessed** under **Compliance**, but you see heartbeat data in Azure Monitor logs for the Hybrid Runbook Worker but not Update Management.
 
 #### Cause
 

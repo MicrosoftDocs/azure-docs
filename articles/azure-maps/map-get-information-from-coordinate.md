@@ -28,7 +28,7 @@ The line in the second block of code instantiates a client service.
 
 The third block of code updates the style of mouse cursor to a pointer and [popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open) object. You can see [add a popup on the map](./map-add-popup.md) for instructions.
 
-The fourth block of code adds an [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) for mouse clicks. Upon a mouse click, it creates a search query with the coordinates of the clicked point. It then uses the map's [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest) endpoint to query the address for the coordinates.
+The fourth block of code adds an [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) for mouse clicks. Upon a mouse click, it creates a search query with the coordinates of the clicked point. It then uses the map's [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.searchgetsearchaddressreverseresponse?view=azure-iot-typescript-latest) endpoint to query the address for the coordinates.
 
 For a successful response, it collects the address for the clicked location, and defines the popup content and position via [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) function of the popup class.
 

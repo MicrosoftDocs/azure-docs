@@ -65,10 +65,8 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
 
     ![Configure template page after it's done](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. On the **Configure template** page, do the following steps: These steps are **optional** for the tutorial.
-    1. Start the template VM by selecting **Start**.
     2. Connect to the template VM by selecting **Connect**. 
-    3. Install and configure software on your template VM. 
-    4. **Stop** the VM.  
+    3. Install and configure software on your template VM.     
     5. Enter a **description** for the template
 9. Select **Next** on the template page. 
 10. On **Publish the template** page, do the following actions. 

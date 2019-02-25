@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ---
 
 # Backup and restore in Azure SQL Data Warehouse
-Learn how backup and restore works in Azure SQL Data Warehouse. Use data warehouse snapshots to recovery or copy your data warehouse to a previous restore point in the primary region. Use data warehouse geo-redundant backups to restore to a different geographical region. 
+Learn how backup and restore works in Azure SQL Data Warehouse. Use data warehouse restore points to recover or copy your data warehouse to a previous state in the primary region. Use data warehouse geo-redundant backups to restore to a different geographical region. 
 
 ## What is a data warehouse snapshot?
 A *data warehouse snapshot* creates a restore point you can leverage to recover or copy your data warehouse to a previous state.  Since SQL Data Warehouse is a distributed system, a data warehouse snapshot consists of many files that are located in Azure storage. Snapshots capture incremental changes from the data stored in your data warehouse.

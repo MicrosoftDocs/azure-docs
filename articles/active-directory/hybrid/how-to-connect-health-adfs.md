@@ -197,7 +197,7 @@ Private IP addresses (<i>10.x.x.x, 172.x.x.x & 192.168.x.x</i>) and Exchange IP 
 If you are seeing load balancer IP addresses, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server. Please configure your load balancer correctly to pass forward client IP address. 
 
 3. What do I do to block the IP address?  <br />
-You should add identified malicious IP address to the firewall or block in Exchange.   <br />
+You should add identified malicious IP address to the firewall or block in Exchange. For ADFS 2016, you can block the IP address directly from banned IP properties. [Read more](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection#banned-ip-addresses)   <br />
 
 4. Why am I not seeing any items in this report? <br />
    - Failed sign-in activities are not exceeding the threshold settings. 

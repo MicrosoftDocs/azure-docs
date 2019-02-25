@@ -19,12 +19,20 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 + The Azure Machine Learning's  [**main SDK for Python**](https://aka.ms/aml-sdk)
 + The Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
 
+## 2019-02-25
+
+### Azure Machine Learning SDK for Python v1.0.17
+
++ **New features**
+
+  + Azure Machine Learning SDK now supports a [`Chainer`](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) estimator class to streamline the process of training and deploying a model using custom Chainer code.
+
 ## 2019-02-11
 
 ### Azure Machine Learning SDK for Python v1.0.15
 
 + **New features**
-  + Azure Machine Learning Pipelines added AzureBatchStep ([notebook](https://aka.ms/pl-azbatch)), HyperDriveStep ([notebook](https://aka.ms/pl-hyperdrive)) and time-based scheduling fuctionality ([notebook](https://aka.ms/pl-schedule)).
+  + Azure Machine Learning Pipelines added AzureBatchStep ([notebook](https://aka.ms/pl-azbatch)), HyperDriveStep ([notebook](https://aka.ms/pl-hyperdrive)) and time-based scheduling functionality ([notebook](https://aka.ms/pl-schedule)).
   +  DataTranferStep updated to work with Azure SQL Server and Azure database for PostgreSQL ([notebook](https://aka.ms/pl-data-trans)).
 
 + **Changes**

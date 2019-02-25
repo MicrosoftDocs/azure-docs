@@ -294,7 +294,7 @@ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/
 Once signature validation is configured, you can use the following command to sign a runbook:
 
 ```bash
-gpg –clear-sign <runbook name>
+gpg –-clear-sign <runbook name>
 ```
 
 The signed runbook will have the name `<runbook name>.asc`.

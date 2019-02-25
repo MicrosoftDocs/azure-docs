@@ -165,7 +165,7 @@ If you need to repair or rebuild a VM, you can restore the VM from any of the ba
 
 For more information, see the instructions to [use the Azure portal to restore virtual machines](../articles/backup/backup-azure-arm-restore-vms.md). This document also explains the specific steps for restoring backed-up VMs to a paired datacenter by using your geo-redundant backup vault if there is a disaster at the primary datacenter. In that case, Azure Backup uses the Compute service from the secondary region to create the restored virtual machine.
 
-You can also use PowerShell for [restoring a VM](../articles/backup/backup-azure-arm-restore-vms.md#restore-a-vm-during-an-azure-datacenter-disaster) or for [creating a new VM from restored disks](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+You can also use PowerShell for [creating a new VM from restored disks](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
 ## Alternative solution: Consistent snapshots
 

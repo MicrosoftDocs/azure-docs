@@ -44,7 +44,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     |Connection mode  |Supported protocol  |Supported SDKs  |API/Service port  |
     |---------|---------|---------|---------|
     |Gateway  |   HTTPS    |  All SDKS    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(443), Graph(443)    |
-    |Direct    |    HTTPS     |  .Net and Java SDK    |    SQL(443)   |
+    |Direct    |    HTTPS     |  .Net and Java SDK    |   Ports within 10,000-20,000 range    |
     |Direct    |     TCP    |  .Net SDK    | Ports within 10,000-20,000 range |
 
     Azure Cosmos DB offers a simple and open RESTful programming model over HTTPS. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and is available through the .NET client SDK. Both Direct TCP and HTTPS use SSL for initial authentication and encrypting traffic. For best performance, use the TCP protocol when possible.

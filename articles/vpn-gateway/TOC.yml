@@ -16,8 +16,6 @@
     href: powershell-samples.md
 - name: Concepts
   items:
-  - name: Planning and design for VPN Gateway
-    href: vpn-gateway-plan-design.md
   - name: About VPN Gateway settings
     href: vpn-gateway-about-vpn-gateway-settings.md
   - name: About VPN devices
@@ -224,7 +222,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn
+    href: /powershell/module/az.network#vpn
   - name: Azure PowerShell (classic)
     href: /powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure
   - name: REST

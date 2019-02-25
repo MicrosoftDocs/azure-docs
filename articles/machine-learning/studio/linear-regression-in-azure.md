@@ -5,7 +5,7 @@ description: A comparison of linear regression models in Excel and in Azure Mach
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs
@@ -97,11 +97,11 @@ Our solution was to operationalize our Machine Learning regression model by crea
 
 The *Web Services Dashboard* section includes a downloadable Excel workbook. The workbook comes pre-formatted with the web service API and schema information embedded. When you click *Download Excel Workbook*, the workbook opens and you can save it to your local computer. 
 
-![][1]
+![](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png)
 
 With the workbook open, copy your predefined parameters into the blue Parameter section as shown below. Once the parameters are entered, Excel calls out to the Machine Learning web service and the predicted scored labels will display in the green Predicted Values section. The workbook will continue to create predictions for parameters based on your trained model for all row items entered under Parameters. For more information on how to use this feature, see [Consuming an Azure Machine Learning Web Service from Excel](consuming-from-excel.md). 
 
-![][2]
+![](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png)
 
 ### Optimization and further experiments
 Now that we had a baseline with our Excel model, we moved ahead to optimize our Machine Learning Linear Regression Model. We used the module [Filter-Based Feature Selection][filter-based-feature-selection] to improve on our selection of initial data elements and it helped us achieve a performance improvement of 4.6% Mean Absolute Error. For future projects we will use this feature which could save us weeks in iterating through data attributes to find the right set of features to use for modelling. 

@@ -216,7 +216,7 @@ Check the following if an issue occurs:
       # create key vault, key and grant permission
        az keyvault create --name <kvname> --resource-group <rgname> --location <location> --enable-soft-delete true
        az keyvault key create --name <keyname> --vault-name <kvname> --protection software
-       az keyvault set-policy --name <kvname>  --object-id 60daa1f2-2776-4dcd-9f2f-d265aa0625c8  --resource-group <rgname> --key-permissions wrapKey unwrapKey get 
+       az keyvault set-policy --name <kvname>  --object-id <objectid> --resource-group <rgname> --key-permissions wrapKey unwrapKey get 
 
 
 >[!Tip]

@@ -102,6 +102,7 @@
     items: 
     - name: Use metadata with GenerateAnswer API
       href: How-To/metadata-generateanswer-usage.md  
+      displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters
     - name: With a bot  
       href: Tutorials/integrate-qnamaker-luis.md
   - name: Manage service
