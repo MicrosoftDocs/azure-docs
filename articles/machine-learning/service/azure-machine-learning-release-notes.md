@@ -21,6 +21,12 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 
 ## 2019-02-25
 
+### Azure Machine Learning SDK for Python v1.0.17
+
++ **New features**
+
+  + Azure Machine Learning SDK now supports a [`Chainer`](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) estimator class to streamline the process of training and deploying a model using custom Chainer code.
+
 ### Azure portal
 + **New features**
 	+ New drag and drop table editor experience for reports. Users can drag a column from the well to the table area where a preview of the table will be displayed. The columns can be rearranged.
