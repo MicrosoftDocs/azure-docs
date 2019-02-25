@@ -56,11 +56,10 @@ Apart from Active Directory, a RADIUS server can also integrate with other exter
 
 ## <a name="before"></a>Before beginning
 
-Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
+* Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
+* [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
-[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
-
-### Sign in
+## <a name="signin"></a>Sign in
 
 [!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
@@ -83,7 +82,7 @@ You can use the example values to create a test environment, or refer to these v
 * **DNS Server: IP address** of the DNS server that you want to use for name resolution for your VNet. (optional)
 * **GW Name: Vnet1GW**
 * **Public IP name: VNet1GWPIP**
-* **VpnType: RouteBased** 
+* **VpnType: RouteBased**
 
 ## 1. <a name="vnet"></a>Create the resource group, VNet, and Public IP address
 
