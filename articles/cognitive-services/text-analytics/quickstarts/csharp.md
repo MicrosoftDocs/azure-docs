@@ -156,7 +156,7 @@ namespace ConsoleApp1
                     new MultiLanguageBatchInput(
                         new List<MultiLanguageInput>()
                         {
-                          new MultiLanguageInput("en", "0", "The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.")
+                          new MultiLanguageInput("en", "0", "Microsoft is an It company")
                         })).Result;
 
             // Printing entities results
@@ -168,7 +168,7 @@ namespace ConsoleApp1
 
                 foreach (EntityRecordV2dot1 entity in document.Entities)
                 {
-                    Console.WriteLine($"\t\t{entity.Name}\t\t{entity.WikipediaUrl}\t\t{entity.Type}\t\t{entity.SubType}");
+                    Console.WriteLine($"\t\t{entity.Name}\t\t{entity.WikipediaUrl}");
                 }
             }
 
@@ -210,6 +210,7 @@ Document ID: 0 , Sentiment Score: 0.87
 Document ID: 1 , Sentiment Score: 0.11
 Document ID: 2 , Sentiment Score: 0.44
 Document ID: 3 , Sentiment Score: 1.00
+
 ```
 
 ## Next steps
