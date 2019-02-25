@@ -68,7 +68,7 @@ Before you begin, [download and import the Windows Virtual Desktop PowerShell mo
 
 ## Next steps
 
-Once you've created your app groups, you should set up a file share for your users. To learn how to convert a virtual machine into a file share, see the tutorial for how to set up a user profile in Windows Virtual Desktop.
+Once you've created your app groups, you create service principals and assign roles to your users your users. To learn how to do this, see the tutorial for how to create service principals and role assignments with PowerShell.
 
 > [!div class="nextstepaction"]
-> [Set up user profiles for a host pool](create-host-pools-user-profile-disk.md)
+> [Create service principals and role assignments with PowerShell](create-service-principal-role-powershell.md)
