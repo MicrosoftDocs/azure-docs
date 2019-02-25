@@ -14,7 +14,7 @@ ms.custom: mvc
 
 Azure Migrate discovers, assesses, and migrates machines and workloads to the Microsoft Azure cloud.
 
-There are currently two versions of Azure Migrate available:
+There are currently two versions of Azure Migrate:
 
 - **Current version (in public preview)**: Using the current version of Azure Migrate, you can assess on-premises VMware VMs and Hyper-V VMs for migration to Azure, and migrate VMware VMs. [Learn more](migrate-overview.md#azure-migrate-public-preview).
 - **Classic version**: Using the classic version of Azure Migrate, you can assess on-premises VMware VMs for migration to Azure.
