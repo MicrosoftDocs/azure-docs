@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # Deploy models with the Azure Machine Learning service
 
-The Azure Machine Learning service provides several ways you can deploy your trained model using the SDK. In this document, learn how to deploy your model as a web service in the Azure cloud, or to IoT edge devices.
+The Azure Machine Learning service provides several ways you can deploy your trained model using the SDK. In this document, learn how to deploy your model as a web service in the Azure cloud, or to IoT Edge devices.
 
 > [!IMPORTANT]
 > Cross-origin resource sharing (CORS) is not currently supported when deploying a model as a web service.
@@ -24,10 +24,11 @@ You can deploy models to the following compute targets:
 
 | Compute target | Deployment type | Description |
 | ----- | ----- | ----- |
-| [Azure Container Instances (ACI)](#aci) | Web service | Fast deployment. Good for development or testing. |
-| [Azure Kubernetes Service (AKS)](#aks) | Web service | Good for high-scale production deployments. Provides autoscaling, and fast response times. |
-| [Azure IoT Edge](#iotedge) | IoT module | Deploy models on IoT devices. Inferencing happens on the device. |
-| [Field-programmable gate array (FPGA)](#fpga) | Web service | Ultra-low latency for real-time inferencing. |
+| [Azure Kubernetes Service (AKS)](#aks) | Real-time inference | Good for high-scale production deployments. Provides autoscaling, and fast response times. |
+| [Azure ML Compute](#amlcompute) | Batch inference | Run batch prediction on serverless compute. Supports normal and low priority VMs. |
+| [Azure Container Instances (ACI)](#aci) | Testing | Good for development or testing. **Not suitable for production workloads.** |
+| [Azure IoT Edge](#iotedge) | (Preview) IoT module | Deploy models on IoT devices. Inferencing happens on the device. |
+| [Field-programmable gate array (FPGA)](#fpga) | (Preview) Web service | Ultra-low latency for real-time inferencing. |
 
 The process of deploying a model is similar for all compute targets:
 
@@ -114,7 +115,7 @@ The execution script receives data submitted to a deployed image, and passes it 
 
 #### Working with JSON data
 
-The following is an example script that accepts and returns JSON data. The `run` function transforms the data from JSON into a format that the model expects, and then transforms the response to JSON before returning it:
+The following example script accepts and returns JSON data. The `run` function transforms the data from JSON into a format that the model expects, and then transforms the response to JSON before returning it:
 
 ```python
 # import things required by this script
@@ -144,7 +145,7 @@ def run(raw_data):
 
 #### Working with Binary data
 
-If your model accepts __binary data__, use `AMLRequest`, `AMLResponse`, and `rawhttp`. The following is an example of a script that accepts binary data and returns the reversed bytes for POST requests. For GET requests, it returns the full URL in the response body:
+If your model accepts __binary data__, use `AMLRequest`, `AMLResponse`, and `rawhttp`. The following example script accepts binary data and returns the reversed bytes for POST requests. For GET requests, it returns the full URL in the response body:
 
 ```python
 from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
@@ -220,7 +221,7 @@ When you get to deployment, the process is slightly different depending on the c
 >
 > The examples in this document use `deploy_from_image`.
 
-### <a id="aci"></a> Deploy to Azure Container Instances
+### <a id="aci"></a> Deploy to Azure Container Instances (DEVTEST)
 
 Use Azure Container Instances for deploying your models as a web service if one or more of the following conditions is true:
 
@@ -239,12 +240,9 @@ To deploy to Azure Container Instances, use the following steps:
 
     **Time estimate**: Approximately 3 minutes.
 
-    > [!TIP]
-    > If there are errors during deployment, use `service.get_logs()` to view the service logs. The logged information may indicate the cause of the error.
-
 For more information, see the reference documentation for the [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) classes.
 
-### <a id="aks"></a> Deploy to Azure Kubernetes Service
+### <a id="aks"></a> Deploy to Azure Kubernetes Service (PRODUCTION)
 
 To deploy your model as a high-scale production web service, use Azure Kubernetes Service (AKS). You can use an existing AKS cluster or create a new one using the Azure Machine Learning SDK, CLI, or the Azure portal.
 
@@ -329,10 +327,14 @@ print(service.state)
 
 **Time estimate**: Approximately 3 minutes.
 
-> [!TIP]
-> If there are errors during deployment, use `service.get_logs()` to view the service logs. The logged information may indicate the cause of the error.
-
 For more information, see the reference documentation for the [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) classes.
+
+### <a id="fpga"></a> Inference with Azure ML Compute
+
+Azure ML compute targets are created and managed by the Azure Machine Learning service. They can be used for batch prediction from Azure ML Pipelines.
+
+For a walkthrough of batch inference with Azure ML Compute, read the [How to Run Batch Predictions](how-to-run-batch-predictions.md) document.
+
 
 ### <a id="fpga"></a> Deploy to field-programmable gate arrays (FPGA)
 
@@ -366,7 +368,7 @@ sudo ./createNregister <The Azure subscriptionID you want to use> <Resourcegroup
 
 Save the resulting connection string after "cs":"{copy this string}".
 
-Initialize your device by downloading [this script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge) into an UbuntuX64 IoT edge node or DSVM to run the following commands:
+Initialize your device by downloading [this script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge) into an UbuntuX64 IoT Edge node or DSVM to run the following commands:
 
 ```bash
 ssh <yourusername>@<yourdeviceip>
@@ -377,7 +379,7 @@ sudo ./installIoTEdge
 
 The IoT Edge node is ready to receive the connection string for your IoT Hub. Look for the line ```device_connection_string:``` and paste the connection string from above in between the quotes.
 
-You can also learn how to register your device and install the IoT runtime step by step by following the [Quickstart: Deploy your first IoT Edge module to a Linux x64 device](../../iot-edge/quickstart-linux.md) document.
+You can also learn how to register your device and install the IoT runtime by following the [Quickstart: Deploy your first IoT Edge module to a Linux x64 device](../../iot-edge/quickstart-linux.md) document.
 
 
 #### Get the container registry credentials
@@ -385,7 +387,7 @@ To deploy an IoT Edge module to your device, Azure IoT needs the credentials for
 
 You can easily retrieve the necessary container registry credentials in two ways:
 
-+ **In the Azure Portal**:
++ **In the Azure portal**:
 
   1. Sign in to the [Azure portal](https://portal.azure.com/signin/index).
 
@@ -465,7 +467,7 @@ The webservice is a REST API, so you can create client applications in a variety
 
 ## <a id="update"></a> Update the web service
 
-To update the web service, use the `update` method. The following code demonstrates how to update the web service to use a new image:
+When you create a new image, you must manually update each service that you want to use the new image. To update the web service, use the `update` method. The following code demonstrates how to update the web service to use a new image:
 
 ```python
 from azureml.core.webservice import Webservice
@@ -483,9 +485,6 @@ service.update(image = new_image)
 print(service.state)
 ```
 
-> [!NOTE]
-> When you update an image, the web service is not automatically updated. You must manually update each service that you want to use the new image.
-
 For more information, see the reference documentation for the [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) class.
 
 ## Clean up
@@ -498,6 +497,19 @@ To delete a registered model, use `model.delete()`.
 
 For more information, see the reference documentation for [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--), and [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
+## Troubleshooting
+
+* __If there are errors during deployment__, use `service.get_logs()` to view the service logs. The logged information may indicate the cause of the error.
+
+* The logs may contain an error that instructs you to __set logging level to DEBUG__. To set the logging level, add the following lines to your scoring script, create the image, and then create a service using the image:
+
+    ```python
+    import logging
+    logging.basicConfig(level=logging.DEBUG)
+    ```
+
+    This change enables additional logging, and may return more information on why the error is occurring.
+
 ## Next steps
 
 * [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
@@ -507,3 +519,5 @@ For more information, see the reference documentation for [WebService.delete()](
 * [Collect data for models in production](how-to-enable-data-collection.md)
 * [Azure Machine Learning service SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 * [Use Azure Machine Learning service with Azure Virtual Networks](how-to-enable-virtual-network.md)
+* [Best practices for building recommendation systems](https://github.com/Microsoft/Recommenders)
+* [Build a real-time recommendation API on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

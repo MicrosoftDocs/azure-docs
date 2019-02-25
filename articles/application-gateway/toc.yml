@@ -39,8 +39,10 @@
     href: cli-samples.md
 - name: Concepts
   items:
-  - name: End to end SSL
-    href: ssl-overview.md
+  - name: How Application Gateway works
+    href: how-application-gateway-works.md
+  - name: Application Gateway components
+    href: application-gateway-components.md
   - name: SSL policy overview
     href: application-gateway-ssl-policy-overview.md
   - name: Web application firewall

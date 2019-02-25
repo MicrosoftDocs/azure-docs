@@ -85,7 +85,7 @@ Before you install the SDK, we recommend that you create an isolated Python envi
 1. Install a Jupyter Notebook server in the conda environment.
 
   ```shell
-    conda install nb_conda
+    conda install -y nb_conda
     ```
 
 1. To use this environment for the Azure Machine Learning tutorials, install these packages.

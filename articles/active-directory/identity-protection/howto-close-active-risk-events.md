@@ -18,6 +18,7 @@ ms.date: 09/24/2018
 ms.author: markvi
 ms.reviewer: raluthra
 
+ms.collection: M365-identity-device-management
 ---
 
 # How To: Close active risk events

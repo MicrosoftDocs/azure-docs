@@ -19,6 +19,7 @@ ms.date: 01/24/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD audit activity reference
 

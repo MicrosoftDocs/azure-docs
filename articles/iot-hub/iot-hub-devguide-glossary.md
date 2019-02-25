@@ -77,7 +77,7 @@ You use connection strings in your app code to encapsulate the information requi
 You can create custom [endpoints](iot-hub-devguide-endpoints.md) on an IoT hub to deliver messages dispatched by a [routing rule](#routing-rules). Custom endpoints connect directly to an Event hub, a Service Bus queue, or a Service Bus topic.
 
 ## Custom gateway
-A gateway enables connectivity for devices that cannot connect directly to [IoT Hub](#iot-hub). You can use [Azure IoT Edge](#azure-iot-edge) to build custom gateways that implement custom logic to handle messages, custom protocol conversions, and other processing on the edge.
+A gateway enables connectivity for devices that cannot connect directly to [IoT Hub](#iot-hub). You can use Azure IoT Edge to build custom gateways that implement custom logic to handle messages, custom protocol conversions, and other processing on the edge.
 
 ## Data-point message
 A data-point message is a [device-to-cloud](#device-to-cloud) message that contains [telemetry](#telemetry) data such as wind speed or temperature.
@@ -219,7 +219,7 @@ You use a retry policy to handle [transient errors](/azure/architecture/best-pra
 You configure [routing rules](iot-hub-devguide-messages-read-custom.md) in your IoT hub to route device-to-cloud messages to a [built-in endpoint](#built-in-endpoints) or to [custom endpoints](#custom-endpoints) for processing by your solution back end.
 
 ## SASL PLAIN
-SASL PLAIN is a protocol that the [AMQP](#advanced-message-queue-protocol) protocol uses to transfer security tokens.
+SASL PLAIN is a protocol that the AMQP protocol uses to transfer security tokens.
 
 ## Service REST API
 You can use the [Service REST API](https://docs.microsoft.com/rest/api/iothub/service) from the solution back end to manage your devices. The API enables you to retrieve and update [device twin](#device-twin) properties, invoke [direct methods](#direct-method), and schedule [jobs](#job). Typically, you should use one of the higher-level [service SDKs](#azure-iot-service-sdks) as shown in the IoT Hub tutorials.
@@ -246,7 +246,7 @@ In the context of a [device twin](iot-hub-devguide-device-twins.md), system prop
 In the context of a [device twin](iot-hub-devguide-device-twins.md), tags are device metadata stored and retrieved by the solution back end in the form of a JSON document. Tags are not visible to apps on a device.
 
 ## Telemetry
-Devices collect telemetry data, such as wind speed or temperature, and use [data-point messages](#data-point-messages) to send the telemetry to an IoT hub.
+Devices collect telemetry data, such as wind speed or temperature, and use data-point messages to send the telemetry to an IoT hub.
 
 ## Token service
 You can use a token service to implement an authentication mechanism for your devices. It uses an IoT Hub [shared access policy](#shared-access-policy) with **DeviceConnect** permissions to create *device-scoped* tokens. These tokens enable a device to connect to your IoT hub. A device uses a custom authentication mechanism to authenticate with the token service. IF the device authenticates successfully, the token service issues a SAS token for the device to use to access your IoT hub.

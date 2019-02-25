@@ -33,7 +33,7 @@ Metrics are:
 
 * Enabled by default in each Batch account without additional configuration
 * Generated every 1 minute
-* Not persisted automatically, but have a 30-day rolling history. You can persist activity metrics as part of [diagnostic logging](#work-with-diagnostic-logs).
+* Not persisted automatically, but have a 30-day rolling history. You can persist activity metrics as part of diagnostic logging.
 
 ### View metrics
 

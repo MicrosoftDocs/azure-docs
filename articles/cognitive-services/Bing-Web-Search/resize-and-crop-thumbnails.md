@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to resize and crop thumbnails provided by the Bing Web Search API.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.assetid: 05A08B01-89FF-4781-AFE7-08DA92F25047
 ms.service: cognitive-services
 ms.subservice: bing-web-search

@@ -2,20 +2,12 @@
 title: 'Planning and design for cross-premises connections: Azure VPN Gateway| Microsoft Docs'
 description: Learn about VPN Gateway planning and design for cross-premises, hybrid, and VNet-to-VNet connections
 services: vpn-gateway
-documentationcenter: na
-author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-service-management,azure-resource-manager
+author: yushwang
 
-ms.assetid: d5aaab83-4e74-4484-8bf0-cc465811e757
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 07/27/2017
-ms.author: cherylmc
+ms.author: yushwang
 
 ---
 # Planning and design for VPN Gateway

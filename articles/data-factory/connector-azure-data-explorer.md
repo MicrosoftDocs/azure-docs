@@ -45,7 +45,7 @@ The following properties are supported for Azure Data Explorer linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureDataExplorer** | Yes |
-| endpoint | Endpoint URL of the Azure Data Explorer cluster, with the format as `https://<clusterName>.kusto.windows.net`. | Yes |
+| endpoint | Endpoint URL of the Azure Data Explorer cluster, with the format as `https://<clusterName>.<regionName>.kusto.windows.net `. | Yes |
 | database | Name of database. | Yes |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering with the mouse in the top-right corner of the Azure portal. | Yes |
 | servicePrincipalId | Specify the application's client ID. | Yes |
@@ -59,7 +59,7 @@ The following properties are supported for Azure Data Explorer linked service:
     "properties": {
         "type": "AzureDataExplorer",
         "typeProperties": {
-            "endpoint": "https://<clusterName>.kusto.windows.net",
+            "endpoint": "https://<clusterName>.<regionName>.kusto.windows.net ",
             "database": "<database name>",
             "tenant": "<tenant name/id e.g. microsoft.onmicrosoft.com>",
             "servicePrincipalId": "<service principal id>",
@@ -114,8 +114,8 @@ To copy data from Azure Data Explorer, set the **type** property in the Copy act
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the copy activity source must be set to: **AzureDataExplorerSource** | Yes |
-| query | Use the custom KQL query to read data. | Yes |
-| queryTimeout | Specify the wait time before the query request times out. Default value is 10 min (00:10:00); allowed max value is 1 hour (01:00:00). | No |
+| query | A read-only request given in a [KQL format](/azure/kusto/query/). Use the custom KQL query as a reference. | Yes |
+| queryTimeout | The wait time before the query request times out. Default value is 10 min (00:10:00); allowed max value is 1 hour (01:00:00). | No |
 
 **Example:**
 
@@ -157,7 +157,7 @@ To copy data to Azure Data Explorer, set the type property in the copy activity 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the copy activity sink must be set to: **AzureDataExplorerSink** | Yes |
-| ingestionMappingName | Name of [csv mapping](/azure/kusto/management/mappings#csv-mapping) on table. To map the columns from source to Azure Data Explore, you can also use the Copy activity [column mapping](copy-activity-schema-and-type-mapping.md). | No |
+| ingestionMappingName | Name of a pre-created [csv mapping](/azure/kusto/management/mappings#csv-mapping) on a Kusto table. To map the columns from source to Azure Data Explore, you can also use the Copy activity [column mapping](copy-activity-schema-and-type-mapping.md). | No |
 
 **Example:**
 

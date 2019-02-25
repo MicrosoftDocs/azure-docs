@@ -4,7 +4,7 @@ description: Learn how to use the security alert map and threat intelligence cap
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: a771a3a1-2925-46ca-8e27-6f6a0746f58b

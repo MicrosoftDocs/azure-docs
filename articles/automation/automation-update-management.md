@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/28/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -182,6 +182,8 @@ A scan is performed twice per day for each managed Windows computer. Every 15 mi
 A scan is performed every 3 hours for each managed Linux computer.
 
 It can take between 30 minutes and 6 hours for the dashboard to display updated data from managed computers.
+
+The average Log Analytics data usage for a machine using Update Management is approximately 25MB per month. This value is only an approximation and is subject to change based on your environment. It's recommended that you monitor your environment to see the exact usage that you have.
 
 ## <a name="viewing-update-assessments"></a>View update assessments
 
@@ -594,6 +596,13 @@ However, Update Management might still report that machine as being non-complian
 
 Deploying updates by update classification doesn't work on CentOS out of the box. To properly deploy updates for CentOS, select all classifications to ensure updates are applied. For SUSE, selecting *only* 'Other updates' as the classification may result in some security updates also being installed if security updates related to zypper (package manager) or its dependencies are required first. This behavior is a limitation of zypper. In some cases, you may be required to rerun the update deployment. To verify, check the update log.
 
+## Remove a VM for Update Management
+
+To remove a VM from Update Management:
+
+* In your Log Analytics workspace, remove the VM from the saved search for the Scope Configuration `MicrosoftDefaultScopeConfig-Updates`. Saved searches can be found under **General** in your workspace.
+* Remove the [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) or the [Log Analytics agent for Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+  
 ## Troubleshoot
 
 To learn how to troubleshoot your Update Management, see [Troubleshooting Update Management](troubleshoot/update-management.md)

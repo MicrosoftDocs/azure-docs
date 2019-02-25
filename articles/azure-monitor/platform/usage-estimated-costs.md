@@ -67,7 +67,7 @@ There's another change to data ingested into Log Analytics or Application Insigh
 
 ## New pricing model and Operations Management Suite subscription entitlements
 
-Customers who purchased Microsoft Operations Management Suite E1 and E2 are eligible for per-node data ingestion entitlements for [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) and [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing#the-price-plans). To receive these entitlements for Log Analytics workspaces or Application Insights resources in a given subscription: 
+Customers who purchased Microsoft Operations Management Suite E1 and E2 are eligible for per-node data ingestion entitlements for [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) and [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing). To receive these entitlements for Log Analytics workspaces or Application Insights resources in a given subscription: 
 
 - The subscription's pricing model must remain in the pre-April 2018 model.
 - Log Analytics workspaces should use the "Per-node (OMS)" pricing tier.

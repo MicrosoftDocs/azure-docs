@@ -188,17 +188,17 @@ $storageAccount = New-AzStorageAccount `
 $context = $storageAccount.Context
 
 # Create a container
-New-AzureStorageContainer -Name $containerName -Context $context
+New-AzStorageContainer -Name $containerName -Context $context
 
 # Upload the linked template
-Set-AzureStorageBlobContent `
+Set-AzStorageBlobContent `
     -Container $containerName `
     -File "$home/$fileName" `
     -Blob $fileName `
     -Context $context
 
 # Generate a SAS token
-$templateURI = New-AzureStorageBlobSASToken `
+$templateURI = New-AzStorageBlobSASToken `
     -Context $context `
     -Container $containerName `
     -Blob $fileName `

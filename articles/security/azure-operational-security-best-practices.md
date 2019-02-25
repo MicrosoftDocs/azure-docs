@@ -5,7 +5,7 @@ description: This article provides a set of best practices for Azure Operational
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 
 ms.assetid:

@@ -3,7 +3,7 @@ title: Get intent, Java
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: In this Java quickstart, use an available public LUIS app to determine a user's intention from conversational text.    
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding

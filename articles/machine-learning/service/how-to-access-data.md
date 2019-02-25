@@ -1,7 +1,7 @@
 ---
-title: Access data in datastores for training
+title: Access data in datastores / blobs for training
 titleSuffix: Azure Machine Learning service
-description: Learn how to use datastores to access data storage during training with Azure Machine Learning service
+description: Learn how to use datastores to access blob data storage during training with Azure Machine Learning service
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/10/2019
 ms.author: juliako
 
 ---
-# Azure Media Services concepts
+# Azure Media Services concepts 
+
 This topic gives an overview of the most important Media Services concepts.
 
 ## <a id="assets"/>Assets and Storage

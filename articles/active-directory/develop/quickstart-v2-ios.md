@@ -18,6 +18,7 @@ ms.date: 09/23/2018
 ms.author: andret
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to learn how to sign in users and call Microsoft Graph from my iOS application.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Sign in users and call the Microsoft Graph API from an iOS native app

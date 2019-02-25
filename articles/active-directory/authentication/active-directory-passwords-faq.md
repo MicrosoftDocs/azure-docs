@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 
+ms.collection: M365-identity-device-management
 ---
 # Password management frequently asked questions
 

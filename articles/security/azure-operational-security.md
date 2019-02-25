@@ -4,7 +4,7 @@ description: Learn about Microsoft Azure Log Analytics, its services, and how it
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 

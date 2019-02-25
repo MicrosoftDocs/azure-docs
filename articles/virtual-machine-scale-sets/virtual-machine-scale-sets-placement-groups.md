@@ -57,7 +57,7 @@ The _vmss create_ command defaults certain configuration values if you do not sp
 az vmss create --help
 ```
 
-If you are creating a large scale set by composing an Azure Resource Manager template, make sure the template creates a scale set based on Azure Managed Disks. You can set the _singlePlacementGroup_ property to _false_ in the _properties_ section of the _Microsoft.Compute/virtualMAchineScaleSets_ resource. The following JSON fragment shows the beginning of a scale set template, including the 1,000 VM capacity and the _"singlePlacementGroup" : false_ setting:
+If you are creating a large scale set by composing an Azure Resource Manager template, make sure the template creates a scale set based on Azure Managed Disks. You can set the _singlePlacementGroup_ property to _false_ in the _properties_ section of the _Microsoft.Compute/virtualMachineScaleSets_ resource. The following JSON fragment shows the beginning of a scale set template, including the 1,000 VM capacity and the _"singlePlacementGroup" : false_ setting:
 ```json
 {
   "type": "Microsoft.Compute/virtualMachineScaleSets",

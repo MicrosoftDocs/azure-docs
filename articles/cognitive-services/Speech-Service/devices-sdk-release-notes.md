@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Release notes - what has changed in the most recent releases
 services: cognitive-services
 author: wsturman
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service

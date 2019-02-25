@@ -5,7 +5,7 @@ description: LUIS includes a set of prebuilt entities for recognizing common typ
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article

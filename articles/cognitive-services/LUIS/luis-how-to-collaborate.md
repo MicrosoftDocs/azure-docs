@@ -4,12 +4,12 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: An app owner can add collaborators to the app. These collaborators can modify the model, train, and publish the app. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/12/2019
 ms.author: diberry
 ---
 
@@ -39,14 +39,13 @@ While LUIS doesn't currently support transfer of ownership, you can export your 
 
 ## Azure Active Directory resources
 
-If you use Azure Active Directory (Azure AD) in your organization, LUIS needs permission to the access information about your users when they want to use LUIS. The resources that LUIS requires are minimal. 
+If you use [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) in your organization, Language Understanding (LUIS) needs permission to the information about your users' access when they want to use LUIS. The resources that LUIS requires are minimal. 
 
 You see the detailed description when you attempt to sign up with an account that has admin consent or does not require admin consent, such as administrator consent:
 
-* Allows you to sign in to the app with your organizational account and let the app read your profile. It also allows the app to read basic company information.
-* Allows the app to see and update your data, even when you are not currently using the app.
+* Allows you to sign in to the app with your organizational account and let the app read your profile. It also allows the app to read basic company information. This gives LUIS permission to read basic profile data, such as user ID, email, name
+* Allows the app to see and update your data, even when you are not currently using the app. The permission is required to refresh the access token of the user.
 
-The first permission gives LUIS permission to read basic profile data, such as user ID, email, name. The second permission is required to refresh the access token of the user.
 
 ## Azure Active Directory tenant user
 
@@ -54,11 +53,8 @@ LUIS uses standard Azure Active Directory (Azure AD) consent flow.
 
 The tenant admin should work directly with the user who needs access granted to use LUIS in the Azure AD. 
 
-First, the user signs into LUIS, and sees the pop-up dialog needing admin approval. The user contacts the tenant admin before continuing. 
-
-Second, the tenant admin signs into LUIS, and sees a consent flow pop-up dialog. This is the dialog the admin needs to give permission for the user. Once the admin accepts the permission, the user is able to continue with LUIS.
-
-If the tenant admin will not sign in to LUIS, the admin can access [consent](https://account.activedirectory.windowsazure.com/r#/applications) for LUIS. 
+* First, the user signs into LUIS, and sees the pop-up dialog needing admin approval. The user contacts the tenant admin before continuing. 
+* Second, the tenant admin signs into LUIS, and sees a consent flow pop-up dialog. This is the dialog the admin needs to give permission for the user. Once the admin accepts the permission, the user is able to continue with LUIS. If the tenant admin will not sign in to LUIS, the admin can access [consent](https://account.activedirectory.windowsazure.com/r#/applications) for LUIS, shown in the following screenshot. Notice the list is filtered to items that include the name `LUIS`.
 
 ![Azure active directory permission by app website](./media/luis-how-to-collaborate/tenant-permissions.png)
 

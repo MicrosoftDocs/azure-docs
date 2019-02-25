@@ -95,7 +95,7 @@ As you add more data, the picture becomes clearer and you can make more detailed
 
 With data that's relevant, connected, accurate, and enough, you have all the ingredients needed to do some high-quality data science.
 
-Be sure to check out the other four videos in *Data Science for Beginners* from Microsoft Azure Machine Learning.
+Be sure to check out the other four videos in *Data Science for Beginners* from Microsoft Azure Machine Learning Studio.
 
 ## Next steps
 * [Try a first data science experiment with Machine Learning Studio](create-experiment.md)

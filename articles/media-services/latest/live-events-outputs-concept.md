@@ -21,8 +21,8 @@ ms.author: juliako
 Azure Media Services enables you to deliver live events to your customers on the Azure cloud. To configure your live streaming events in Media Services v3, you need to understand concepts discussed in this article:
 
 * [Live Events](#live-events)
-* [Live Event types](#live-vent-types)
-* [Live Event types comparison](#live-event-types-comparison)
+* Live Event types
+* Live Event types comparison
 * [Live Event creation options](#live-event-creation-options)
 * [Live Event ingest URLs](#live-event-ingest-urls)
 * [Live Event preview URL](#live-event-preview-url)

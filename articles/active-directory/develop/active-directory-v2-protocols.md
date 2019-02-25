@@ -18,6 +18,7 @@ ms.date: 12/01/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # v2.0 Protocols - OAuth 2.0 and OpenID Connect

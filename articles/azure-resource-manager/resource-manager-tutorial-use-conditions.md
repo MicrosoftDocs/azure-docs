@@ -32,8 +32,6 @@ This tutorial covers the following tasks:
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## Prerequisites
 
 To complete this article, you need:
@@ -125,12 +123,13 @@ Here is the procedure to make the changes:
 
 ## Deploy the template
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Follow the instructions in [Deploy the template](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) to deploy the template.
 
 When you deploy the template using Azure PowerShell, you need to specify one additional parameter. To increase security, use a generated password for the virtual machine administrator account. See [Prerequisites](#prerequisites).
 
 ```azurepowershell
-$deploymentName = Read-Host -Prompt "Enter the name for this deployment"
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
 $storageAccountName = Read-Host -Prompt "Enter the storage account name"
 $newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
@@ -140,7 +139,7 @@ $vmPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
 $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -Name $deploymentName `
+New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -adminUsername $vmAdmin `
     -adminPassword $vmPassword `
@@ -149,6 +148,9 @@ New-AzResourceGroupDeployment -Name $deploymentName `
     -newOrExisting $newOrExisting `
     -TemplateFile azuredeploy.json
 ```
+
+> [!NOTE]
+> There is a file IO issue with using Azure PowerShell in the Cloud shell.  The error message is *Cannot retrieve the dynamic parameters for the cmdlet. Cannot find path 'Azure:/azuredeploy.json' because it does not exist.*  A temporary workaround is not to include the **-TemplateFile** switch in the `New-AzResourceGroupDeploy` command. The command will prompt you to enter the file name.
 
 > [!NOTE]
 > The deployment fails if **newOrExisting** is **new**, but the storage account with the storage account name specified already exists.

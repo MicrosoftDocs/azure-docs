@@ -28,7 +28,7 @@ For information about securing access to the back-end service of an API using cl
 
 Below policies can be configured to check if the certificate is expired:
 
-```
+```xml
 <choose>
     <when condition="@(context.Request.Certificate == null || context.Request.Certificate.NotAfter < DateTime.Now)" >
         <return-response>
@@ -42,9 +42,9 @@ Below policies can be configured to check if the certificate is expired:
 
 Below policies can be configured to check the issuer and subject of a client certificate:
 
-```
+```xml
 <choose>
-    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Issuer != "trusted-issuer" || context.Request.Certificate.SubjectName != "expected-subject-name")" >
+    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Issuer != 'trusted-issuer' || context.Request.Certificate.SubjectName != 'expected-subject-name')" >
         <return-response>
             <set-status code="403" reason="Invalid client certificate" />
         </return-response>
@@ -56,9 +56,9 @@ Below policies can be configured to check the issuer and subject of a client cer
 
 Below policies can be configured to check the thumbprint of a client certificate:
 
-```
+```xml
 <choose>
-    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Thumbprint != "desired-thumbprint")" >
+    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Thumbprint != 'desired-thumbprint')" >
         <return-response>
             <set-status code="403" reason="Invalid client certificate" />
         </return-response>
@@ -70,7 +70,7 @@ Below policies can be configured to check the thumbprint of a client certificate
 
 The following example shows how to check the thumbprint of a client certificate against certificates uploaded to API Management: 
 
-```
+```xml
 <choose>
     <when condition="@(context.Request.Certificate == null || !context.Deployment.Certificates.Any(c => c.Value.Thumbprint == context.Request.Certificate.Thumbprint))" >
         <return-response>

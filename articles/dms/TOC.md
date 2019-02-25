@@ -11,9 +11,11 @@
 ## [Migrate SQL Server to Azure SQL DB online](tutorial-sql-server-azure-sql-online.md)
 ## [Migrate SQL Server to Azure SQL DB Managed Instance offline](tutorial-sql-server-to-managed-instance.md)
 ## [Migrate SQL Server to Azure SQL DB Managed Instance online](tutorial-sql-server-managed-instance-online.md)
+## [Migrate RDS SQL Server to Azure SQL DB or Azure SQL DB Managed Instance online](tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md)
 ## [Migrate MySQL to Azure DB for MySQL online](tutorial-mysql-azure-mysql-online.md)
 ## [Migrate PostgreSQL to Azure DB for PostgreSQL online](tutorial-postgresql-azure-postgresql-online.md)
 ## [Migrate MongoDB to Azure Cosmos DB Mongo API offline](tutorial-mongodb-cosmos-db.md)
+## [Migrate MongoDB to Azure Cosmos DB Mongo API online](tutorial-mongodb-cosmos-db-online.md)
 
 # How-to guides
 ## [Use PowerShell to migrate SQL Server to Azure SQL DB](howto-sql-server-to-azure-sql-powershell.md)

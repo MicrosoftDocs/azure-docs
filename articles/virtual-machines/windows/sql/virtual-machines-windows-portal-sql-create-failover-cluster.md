@@ -176,7 +176,7 @@ With these prerequisites in place, you can proceed with building your failover c
    | SQL Server | 1433 | Normal port for default instances of SQL Server. If you used an image from the gallery, this port is automatically opened.
    | Health probe | 59999 | Any open TCP port. In a later step, configure the load balancer [health probe](#probe) and the cluster to use this port.  
 
-1. Add storage to the virtual machine. For detailed information, see [add storage](../premium-storage.md).
+1. Add storage to the virtual machine. For detailed information, see [add storage](../disks-types.md).
 
    Both virtual machines need at least two data disks.
 
@@ -184,7 +184,7 @@ With these prerequisites in place, you can proceed with building your failover c
       >[!NOTE]
       >If you attach NTFS-formatted disks, you can only enable S2D with no disk eligibility check.  
 
-   Attach a minimum of two Premium Storage (SSD disks) to each VM. We recommend at least P30 (1 TB) disks.
+   Attach a minimum of two premium SSDs to each VM. We recommend at least P30 (1 TB) disks.
 
    Set host caching to **Read-only**.
 

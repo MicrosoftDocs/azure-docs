@@ -18,6 +18,7 @@ ms.date: 11/20/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
+ms.collection: M365-identity-device-management
 ---
 # How SSO to on-premises resources works on Azure AD joined devices
 

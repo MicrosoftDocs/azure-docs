@@ -29,7 +29,7 @@ ms.subservice: files
 * **URL format**: For requests to an Azure file share made with the File REST protocol, files are addressable using the following URL format:
 
     ```
-    https://<storage account>.file.core.windows.net/<share>/<directory>/directories>/<file>
+    https://<storage account>.file.core.windows.net/<share>/<directory>/<file>
     ```
 
 ## Data access method
@@ -90,6 +90,9 @@ Azure Files supports three data redundancy options: locally redundant storage (L
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### Geo-redundant storage
+> [!Warning]  
+> If you are using your Azure file share as a cloud endpoint in a GRS storage account, you shouldn't initiate storage account failover. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files. In the case of loss of an Azure region, Microsoft will trigger the storage account failover in a way that is compatible with Azure File Sync.
+
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## Data growth pattern

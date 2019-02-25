@@ -4,11 +4,11 @@ titlesuffix: Azure Cognitive Services
 description: How to use the dynamic dictionary feature of the Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 12/14/2017
+ms.date: 02/21/2019
 ms.author: v-jansko
 ---
 

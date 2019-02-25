@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 1/30/2019
+ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -203,7 +203,7 @@ The following table lists the variables created in your Automation account. Only
 |External_AutoStop_TimeAggregationOperator | The time aggregation operator, which is applied to the selected window size to evaluate the condition. Acceptable values are **Average**, **Minimum**, **Maximum**, **Total**, and **Last**.|
 |External_AutoStop_TimeWindow | The window size during which Azure analyzes selected metrics for triggering an alert. This parameter accepts input in timespan format. Possible values are from 5 minutes to 6 hours.|
 |External_EnableClassicVMs| Specifies whether Classic VMs are targeted by the solution. The default value is True. This should be set to False for CSP subscriptions.|
-|External_ExcludeVMNames | Enter VM names to be excluded, separating names by using a comma with no spaces.|
+|External_ExcludeVMNames | Enter VM names to be excluded, separating names by using a comma with no spaces. This is limited to 140 VMs. If you add more than 140 VMs are added VMs meant to be excluded may be started or shutdown inadvertently|
 |External_Start_ResourceGroupNames | Specifies one or more resource groups, separating values by using a comma, targeted for start actions.|
 |External_Stop_ResourceGroupNames | Specifies one or more resource groups, separating values by using a comma, targeted for stop actions.|
 |Internal_AutomationAccountName | Specifies the name of the Automation account.|
@@ -327,7 +327,7 @@ There are a couple options that you can use to make sure that a VM is included i
 
 ### Exclude a VM
 
-To exclude a VM from the solution, you can add it to the **External_ExcludeVMNames** variable. This variable is a comma separated list of specific VMs to exclude from the Start/Stop solution.
+To exclude a VM from the solution, you can add it to the **External_ExcludeVMNames** variable. This variable is a comma separated list of specific VMs to exclude from the Start/Stop solution. This list is limited to 140 VMs. If you add more than 140 VMs to this comma separated list, VMs that are set to be excluded may be inadvertently started or stopped.
 
 ## Modify the startup and shutdown schedules
 

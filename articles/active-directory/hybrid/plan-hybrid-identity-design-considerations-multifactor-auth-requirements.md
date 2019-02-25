@@ -17,6 +17,7 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
+ms.collection: M365-identity-device-management
 ---
 # Determine multi-factor authentication requirements for your hybrid identity solution
 In this world of mobility, with users accessing data and applications in the cloud and from any device, securing this information has become paramount.  Every day there is a new headline about a security breach.  Although, there is no guarantee against such breaches, multi-factor authentication, provides an additional layer of security to help prevent these breaches.

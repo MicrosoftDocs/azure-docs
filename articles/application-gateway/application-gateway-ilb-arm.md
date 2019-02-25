@@ -184,7 +184,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 This step configures the instance size of the application gateway.
 
 > [!NOTE]
-> The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. You can choose between Standard_Small, Standard_Medium, and Standard_Large.
+> The default value for Capacity is 2. For Sku Name, you can choose between Standard_Small, Standard_Medium, and Standard_Large.
 
 ## Create an application gateway by using New-AzureApplicationGateway
 

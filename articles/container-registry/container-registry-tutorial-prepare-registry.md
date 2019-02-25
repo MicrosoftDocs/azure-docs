@@ -114,7 +114,7 @@ The Dockerfile included in the sample shows how the container is built. It start
 
 The [Dockerfile][dockerfile] is located at `./AcrHelloworld/Dockerfile` in the cloned source.
 
-```dockerfile
+```Dockerfile
 FROM microsoft/aspnetcore:2.0 AS base
 # Update <acrName> with the name of your registry
 # Example: uniqueregistryname.azurecr.io
@@ -158,7 +158,7 @@ uniqueregistryname.azurecr.io
 
 Next, update the `ENV DOCKER_REGISTRY` line with the FQDN of your registry's login server. This example reflects the example registry name, *uniqueregistryname*:
 
-```dockerfile
+```Dockerfile
 ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io
 ```
 

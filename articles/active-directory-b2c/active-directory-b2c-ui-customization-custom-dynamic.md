@@ -243,16 +243,18 @@ Change the background based on query string parameter named _campaignId_. Your R
 Add the `ContentDefinitionParameters` element by doing the following:
 1. Open the *SignUpOrSignin* file of your policy (for example, *SignUpOrSignin.xml*).
 
-2. Search for the `<DefaultUserJourney>` node. 
-
-3. In the `<DefaultUserJourney>` node, add the following XML snippet:  
+2. Under the `<DefaultUserJourney>` node, add the `UserJourneyBehaviors` node:  
 
     ```XML
-    <UserJourneyBehaviors>
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+      <UserJourneyBehaviors>
         <ContentDefinitionParameters>
-            <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
+          <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
         </ContentDefinitionParameters>
-    </UserJourneyBehaviors>
+      </UserJourneyBehaviors>
+      ...
+    </RelyingParty>
     ```
 
 ### Step 8.2: Change your code to accept a query string parameter, and replace the background image

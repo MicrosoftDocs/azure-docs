@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Which version of Azure MFA is right for my organization?
 

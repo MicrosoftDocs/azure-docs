@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Amazon Web Services (AWS)
 
@@ -438,6 +439,12 @@ The objective of this section is to create a user called Britta Simon in Amazon 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Amazon Web Services (AWS) tile in the Access Panel, you should be automatically signed in to the Amazon Web Services (AWS) for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## Known issues
+
+ * In the **Provisioning** section, the **Mappings** sub-section will show a "Loading..." message and never display the attribute mappings. The only provisioning workflow supported today is the import of roles from AWS into Azure AD for selection during user/group assignment. The attribute mappings for this are predetermined and not configurable.
+ 
+ * The **Provisioning** section only supports entering one set of credentials for one AWS tenant at a time. All imported roles are written to the appRoles property of the Azure AD [servicePrincipal object](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) for the AWS tenant. Multiple AWS tenants (represented by servicePrincipals) can be added to Azure AD from the gallery for provisioning, however there is a known issue with not being able to automatically write all of the imported roles from the multiple AWS servicePrincipals used for provisioning into the single servicePrincipal used for single sign-on. As a workaround, the [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) can be used to extract all of the appRoles imported into each AWS servicePrincipal where provisioning is configured. These role strings can be subsequently added to the AWS servicePrincipal where single sign-on is configured.
 
 ## Additional resources
 

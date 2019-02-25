@@ -93,13 +93,7 @@ Rich features like Kubernetes debugging are available for .NET Core and Node.js 
 In this section, you'll create a ASP.NET Core web app and get it running in a container in Kubernetes.
 
 ### Create an ASP.NET Core web app
-If you have [.NET Core](https://www.microsoft.com/net) installed, you can quickly create an ASP.NET Core Web App in a folder named `webfrontend`.
-    
-```cmd
-dotnet new mvc --name webfrontend
-```
-
-Or, **download sample code from GitHub** by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/dotnetcore/getting-started/webfrontend`.
+Clone or download the [Azure Dev Spaces sample application](https://github.com/Azure/dev-spaces). This article uses the code in the *samples/dotnetcore/getting-started/webfrontend* directory.
 
 ## Preparing code for Docker and Kubernetes development
 So far, you have a basic web app that can run locally. You'll now containerize it by creating assets that define the app's container and how it will deploy to Kubernetes. This task is easy to do with Azure Dev Spaces: 

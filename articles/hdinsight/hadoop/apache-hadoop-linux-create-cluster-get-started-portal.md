@@ -60,7 +60,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
     |Property  |Description  |
     |---------|---------|
     |**Cluster type**     | Select **Hadoop** |
-    |**Operating system**     |  Select your Azure subscription. |
+    |**Operating system**     | Select **Linux** |
     |**Version**     | Select **Hadoop 2.7.3 (HDI 3.6)**|
 
     Click **Select** and then click **Next**.

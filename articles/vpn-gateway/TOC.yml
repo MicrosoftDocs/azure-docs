@@ -180,6 +180,8 @@
       href: vpn-gateway-3rdparty-device-config-overview.md
     - name: 'Sample: Cisco ASA device (IKEv2/no BGP)'
       href: vpn-gateway-3rdparty-device-config-cisco-asa.md
+  - name: Transition to a public CA gateway certificate for P2S
+    href: vpn-gateway-point-to-site-gateway-public-ca.md
   - name: Troubleshoot
     href: vpn-gateway-troubleshoot.md
     items:
@@ -222,7 +224,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn
+    href: /powershell/module/az.network#vpn
   - name: Azure PowerShell (classic)
     href: /powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure
   - name: REST

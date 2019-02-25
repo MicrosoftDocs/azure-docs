@@ -32,8 +32,6 @@ This tutorial covers the following tasks:
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## Prepare the resources
 
 A template has been created and placed to a [shared storage account](https://armtutorials.blob.core.windows.net/moveresources/azuredeploy.json). The template defines two resource groups and one storage account. When deploying the template, you need to provide a project name. The project name is used to generate unique resource names.  The following JSON is extracted from the template:
@@ -92,6 +90,8 @@ The validate move operation lets you test your move scenario without actually mo
 ## Move the resource
 
 The storage account is inside the source resource group (rg1), run the following PowerShell script move the resource to the destination resource group (rg2). Make sure to use the same project name as you used when you deploy the resources.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ```azurepowershell-interactive
 $projectName = Read-Host -prompt "Enter a project name"

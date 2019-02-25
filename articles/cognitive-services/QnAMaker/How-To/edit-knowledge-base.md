@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience. 
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article

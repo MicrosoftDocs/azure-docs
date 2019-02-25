@@ -17,6 +17,7 @@ ms.date: 01/25/2018
 ms.author: markvi
 ms.reviewer: raluthra
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Identity Protection risk events reference
 

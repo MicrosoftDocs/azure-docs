@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Wizergos Productivity Software
 
