@@ -81,7 +81,7 @@ Azure Stream Analytics guarantees exactly once event processing and at-least-onc
 As a managed service, Stream Analytics guarantees event processing with a 99.9% availability. For more information, see  the [Stream Analytics SLA](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/) page for more details. 
 
 ### Security
-In term of security, Azure Stream Analytics encrypts all incoming and outcoming communications with TLS 1.2. Built-in checkpoints are also encrypted. Stream Analytics doesn't store the incoming data since all processing is made in-memory. 
+In term of security, Azure Stream Analytics encrypts all incoming and outgoing communications with TLS 1.2. Built-in checkpoints are also encrypted. Stream Analytics doesn't store the incoming data since all processing is made in-memory. 
 
 ### Compliance
 Azure Stream Analytics  follows multiple compliance certifications as described in the [overview of Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
