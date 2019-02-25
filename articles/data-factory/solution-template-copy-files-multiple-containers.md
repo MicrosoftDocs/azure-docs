@@ -17,7 +17,8 @@ ms.date: 11/1/2018
 
 This article describes a solution template that you can use to copy files from multiple containers between file stores. For example, you could use it to migrate your data lake from Amazon Simple Storage Service to Azure Data Lake Store. Or, you could use the template to replicate everything from one Azure Blob storage account to another.
 
-> [!NOTE] If you want to copy files from a single container, it's more efficient to use the [**Copy Data Tool**](copy-data-tool.md) to create a pipeline with a single copy activity. The template in this article is more than you need for that simple scenario.
+> [!NOTE]
+> If you want to copy files from a single container, it's more efficient to use the [**Copy Data Tool**](copy-data-tool.md) to create a pipeline with a single copy activity. The template in this article is more than you need for that simple scenario.
 
 ## About this solution template
 
