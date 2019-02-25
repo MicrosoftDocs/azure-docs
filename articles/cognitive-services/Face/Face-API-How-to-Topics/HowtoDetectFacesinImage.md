@@ -128,7 +128,8 @@ var requiredFaceAttributes = new FaceAttributeType[] {
     FaceAttributeType.Smile,
     FaceAttributeType.FacialHair,
     FaceAttributeType.HeadPose,
-    FaceAttributeType.Glasses
+    FaceAttributeType.Glasses,
+    FaceAttributeType.Emotion
 };
 var faces = await faceClient.DetectWithUrlAsync(imageUrl, true, false, requiredFaceAttributes);
 ```
@@ -145,6 +146,7 @@ foreach (var face in faces)
     var facialHair = attributes.FacialHair;
     var headPose = attributes.HeadPose;
     var glasses = attributes.Glasses;
+    var emotion = attributes.Emotion;
 }
 ```
 
