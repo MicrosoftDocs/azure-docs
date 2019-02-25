@@ -73,7 +73,7 @@ On the project dashboard, select **Project Settings**, then select the **Informa
 | Setting | Description |
 | --- | --- |
 | Project name | A friendly name for your project that Azure Notebooks uses for display purposes. For example, "Hello World in Python". |
-| Project ID | A custom identifier that becomes part of the URL you use to share a project (the form is `https://notebooks.azure.com/<user_id>/projects/<project_id>`). This ID can use only letters, numbers, and hyphens, and is limited to 30 characters. If you're unsure what to use, a common convention is to use a lowercase version of your project name where spaces are turned into hyphens, for example, "My Project Name" turns into "my-project-name". |
+| Project ID | A custom identifier that becomes part of the URL you use to share a project. This ID can use only letters, numbers, and hyphens, is limited to 30 characters, and cannot be a [reserved project ID](create-clone-jupyter-notebooks.md#reserved-project-ids). If you're unsure what to use, a common convention is to use a lowercase version of your project name where spaces are turned into hyphens, such as "my-notebook-project" (truncated if necessary to fit the length limit). |
 | Public project | If set, allows anyone with the link to access the project. When creating a private project, clear this option. |
 | Hide clones | If set, other users can't see a list of clones that have been made for this project. Hiding clones is useful for projects that are shared with many people who are not part of the same organization, such as when using a notebook for teaching a class. |
 
