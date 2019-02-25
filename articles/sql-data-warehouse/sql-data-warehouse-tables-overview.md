@@ -56,7 +56,7 @@ CREATE TABLE MyTable (col1 int, col2 int );
 ```
 
 ### Temporary table
-A temporary table only exists for the duration of the session. You can use a temporary table to prevent other uses from seeing temporary results and also to reduce the need for cleanup.  Since temporary tables also utilize local storage, they can offer faster performance for some operations.  For more information, see  [Temporary tables](sql-data-warehouse-tables-temporary.md).
+A temporary table only exists for the duration of the session. You can use a temporary table to prevent other users from seeing temporary results and also to reduce the need for cleanup.  Since temporary tables also utilize local storage, they can offer faster performance for some operations.  For more information, see  [Temporary tables](sql-data-warehouse-tables-temporary.md).
 
 ### External table
 An external table points to data located in Azure Storage blob or Azure Data Lake Store. When used in conjunction with the CREATE TABLE AS SELECT statement, selecting from an external table imports data into SQL Data Warehouse. External tables are therefore useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure blob storage](load-data-from-azure-blob-storage-using-polybase.md).
@@ -90,7 +90,7 @@ The table category often determines which option to choose for distributing the 
 |:---------------|:--------------------|
 | Fact           | Use hash-distribution with clustered columnstore index. Performance improves when two hash tables are joined on the same distribution column. |
 | Dimension      | Use replicated for smaller tables. If tables are too large to store on each Compute node, use hash-distributed. |
-| Staging        | Use round-robin for the staging table. The load with CTAS is fast. Once the data is in the staging table, use INSERT...SELECT to move the data to a production tables. |
+| Staging        | Use round-robin for the staging table. The load with CTAS is fast. Once the data is in the staging table, use INSERT...SELECT to move the data to production tables. |
 
 ## Table partitions
 A partitioned table stores and performs operations on the table rows according to data ranges. For example, a table could be partitioned by day, month, or year. You can improve query performance through partition elimination, which limits a query scan to data within a partition. You can also maintain the data through partition switching. Since the data in SQL Data Warehouse is already distributed, too many partitions can slow query performance. For more information, see [Partitioning guidance](sql-data-warehouse-tables-partition.md).

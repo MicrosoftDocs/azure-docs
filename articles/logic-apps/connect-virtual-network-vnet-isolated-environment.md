@@ -8,15 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 02/24/2019
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
 
 > [!NOTE]
-> This capability is in *private preview*. 
-> To join the private preview, 
-> [create your request here](https://aka.ms/iseprivatepreview).
+> This capability is in *public preview*. 
 
 For scenarios where your logic apps and integration accounts need access to an 
 [Azure virtual network](../virtual-network/virtual-networks-overview.md), create an 

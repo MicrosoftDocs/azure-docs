@@ -30,7 +30,7 @@ App Service provides diagnostic functionality for logging information from both 
 ### Web server diagnostics
 You can enable or disable the following kinds of logs:
 
-* **Detailed Error Logging** - Detailed error information for HTTP status codes that indicate a failure (status code 400 or greater). It may contain information that can help determine why the server returned the error code.
+* **Detailed Error Logging** - Detailed information for any request that results in HTTP status code 400 or greater. It may contain information that can help determine why the server returned the error code. One HTML file is generated for each error (in *D:\LogFiles\DetailedErrors* by default), and up to 50 errors (files) are retained. When the number of HTML files exceed 50, the oldest 26 files are automatically deleted.
 * **Failed Request Tracing** - Detailed information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component. It's useful if you want to improve site performance or isolate a specific HTTP error.
 * **Web Server Logging** - Information about HTTP transactions using the [W3C extended log file format](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). It's useful when determining overall site metrics such as the number of requests handled or how many requests are from a specific IP address.
 
