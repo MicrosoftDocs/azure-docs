@@ -265,7 +265,7 @@ Azure Databricks is an  Apache Spark-based environment in the Azure cloud. It pr
 
 How Azure Databricks works with Azure Machine Learning service:
 + You can train a model using Spark MLlib and deploy the model to ACI/AKS from within Azure Databricks. 
-+ You can also use automated machine learning](concept-automated-ml.md) capabilities in a special Azure ML SDK with Azure Databricks.
++ You can also use [automated machine learning](concept-automated-ml.md) capabilities in a special Azure ML SDK with Azure Databricks.
 + You can use Azure Databricks as a compute target from an [Azure Machine Learning pipeline](concept-ml-pipelines.md). 
 
 ### Set up your Databricks cluster
