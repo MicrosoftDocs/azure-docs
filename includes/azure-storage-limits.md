@@ -14,17 +14,17 @@ The following table describes default limits for Azure Storage. The *ingress* li
 
 | Resource | Default limit |
 | --- | --- |
-| Number of storage accounts per region per subscription, which includes standard and premium accounts | 250 |
+| Number of storage accounts per region per subscription, which includes Standard and Premium accounts | 250 |
 | Maximum storage account capacity | 2 PB for US and Europe, 500 TB for all other regions, which includes the UK |
 | Maximum number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account | No limit |
 | Maximum request rate<sup>1</sup> per storage account | 20,000 requests per second |
 | Maximum ingress<sup>1</sup> per storage account (US regions) | 10 Gbps if RA-GRS/GRS is enabled, 20 Gbps for LRS/ZRS<sup>2</sup> |
 | Maximum ingress<sup>1</sup> per storage account (non-US regions) | 5 Gbps if RA-GRS/GRS is enabled, 10 Gbps for LRS/ZRS<sup>2</sup> |
-| Maximum egress for general-purpose v2 and Blob storage accounts (all regions) | 50 Gbps |
-| Maximum egress for general-purpose v1 storage accounts (US regions) | 20 Gbps if RA-GRS/GRS is enabled, 30 Gbps for LRS/ZRS<sup>2</sup> |
-| Maximum egress for general-purpose v1 storage accounts (non-US regions) | 10 Gbps if RA-GRS/GRS is enabled, 15 Gbps for LRS/ZRS<sup>2</sup> |
+| Maximum egress for General Purpose v2 and Blob storage accounts (all regions) | 50 Gbps |
+| Maximum egress for General Purpose v1 storage accounts (US regions) | 20 Gbps if RA-GRS/GRS is enabled, 30 Gbps for LRS/ZRS<sup>2</sup> |
+| Maximum egress for General Purpose v1 storage accounts (non-US regions) | 10 Gbps if RA-GRS/GRS is enabled, 15 Gbps for LRS/ZRS<sup>2</sup> |
 
-<sup>1</sup>Azure standard storage accounts support higher limits for ingress by request. To request an increase in account limits for ingress, contact [Azure Support](https://azure.microsoft.com/support/faq/).
+<sup>1</sup>Azure Standard Storage accounts support higher limits for ingress by request. To request an increase in account limits for ingress, contact [Azure Support](https://azure.microsoft.com/support/faq/).
 
 <sup>2</sup> [Azure Storage replication](https://docs.microsoft.com/azure/storage/common/storage-redundancy) options include:
 * **RA-GRS**: Read-access geo-redundant storage. If RA-GRS is enabled, egress targets for the secondary location are identical to those for the primary location.
@@ -33,7 +33,7 @@ The following table describes default limits for Azure Storage. The *ingress* li
 * **LRS**: Locally redundant storage. 
 
 > [!NOTE]
-> We recommend that you use a general-purpose v2 storage account for most scenarios. You can easily upgrade a general-purpose v1 or an Azure Blob storage account to a general-purpose v2 account with no downtime and without the need to copy data.
+> We recommend that you use a General Purpose v2 storage account for most scenarios. You can easily upgrade a General Purpose v1 or an Azure Blob storage account to a General Purpose v2 account with no downtime and without the need to copy data.
 >
 > For more information on Azure Storage accounts, see [Storage account overview](../articles/storage/common/storage-account-overview.md). 
 
