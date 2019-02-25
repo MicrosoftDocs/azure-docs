@@ -353,7 +353,7 @@ See the language-specific example:
 * [C# script (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
-* Java
+* [Java](#output---java-example)
 
 ### Output - C# example
 
