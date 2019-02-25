@@ -52,7 +52,7 @@ A pattern is matched based on detecting the entities inside the pattern first, t
 ## Pattern syntax
 Pattern syntax is a template for an utterance. The template should contain words and entities you want to match as well as words and punctuation you want to ignore. It is **not** a regular expression. 
 
-Entities in patterns are surrounded by curly brackets, `{}`. Patterns can include entities, and entities with roles. Pattern.any is an entity only used in patterns. The syntax is explained in the following sections.
+Entities in patterns are surrounded by curly brackets, `{}`. Patterns can include entities, and entities with roles. [Pattern.any](luis-concept-entity-types.md#patternany-entity) is an entity only used in patterns. 
 
 Pattern syntax supports the following syntax:
 
@@ -61,7 +61,7 @@ Pattern syntax supports the following syntax:
 |entity| {} - curly brackets|2|Where is form {entity-name}?|
 |optional|[] - square brackets|2|The question mark is optional [?]|
 |grouping|() - parentheses|2|is (a \| b)|
-|or| \| - vertical bar (pipe)|-|Where is form ({form-name} &#x7c; {form-number})<br>(a &#x7c; b &#x7c; c &#x7c; d &#x7c;  e)| 
+|or| \| - vertical bar (pipe)|-|Where is form ({form-name-short} &#x7c; {form-name-long} &#x7c; {form-number})| 
 |beginning and/or end of utterance|^ - carrot|-|^begin the utterance<br>the utterance is done^<br>^strict literal match of entire utterance with {number} entity^|
 
 ### Nesting syntax
@@ -72,7 +72,7 @@ The **optional** syntax, with square brackets, can be nested two levels. For exa
 |--|--|
 |this is a new form|matches all words in pattern|
 |is a new form|matches outer optional word and non-optional words in pattern|
-|a new form|matches inner optional word, outer optional word and all non-optional words in pattern|
+|a new form|matches required words only|
 
 The **grouping** syntax, with parentheses, can be nested two levels. For example: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. This allows any of the three entities to be matched. 
 

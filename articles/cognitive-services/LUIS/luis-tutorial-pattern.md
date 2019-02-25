@@ -375,7 +375,7 @@ The use of the optional syntax of square brackets, `[]`, makes this optional tex
 
 **Question: Why isn't prebuilt number part of the template utterance if March 3 is predicted both as number `3` and date `March 3`?** The template utterance contextually is using a date, either literally as in `March 3` or abstracted as `in a month`. A date can contain a number but a number may not necessarily be seen as a date. Always use the entity that best represents the type you want returned in the prediction JSON results.  
 
-**Question: What about poorly phrased utterances such as `Who will {Employee}['s] manager be on March 3?`.** Grammatically different verb tenses such as this where the `will` and `be` are separated need to be a new template utterance. The existing template utterance will not match it. While the intent of the utterance hasn't changed, the word placement in the utterance has changed. This change impacts the prediction in LUIS.
+**Question: What about poorly phrased utterances such as `Who will {Employee}['s] manager be on March 3?`.** Grammatically different verb tenses such as this where the `will` and `be` are separated need to be a new template utterance. The existing template utterance will not match it. While the intent of the utterance hasn't changed, the word placement in the utterance has changed. This change impacts the prediction in LUIS. You can [group and or](#use-the-or-operator-and-groups) the verb-tenses to combine these utterances. 
 
 **Remember: entities are found first, then the pattern is matched.**
 
@@ -427,18 +427,25 @@ The following 2 patterns can combine into a single pattern using the group `()` 
 |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
 |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
 
-New template utterance: `who will be {Employee}['s] manager [([in]|[on]){datetimeV2}?]`. This uses a **group** around the optional `in` and `on` with an **or** pipe between them. 
+New template utterance: `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`. This uses a **group** around the required verb tense and the optional `in` and `on` with an **or** pipe between them. 
 
-1. Delete the template utterance that uses `in`: `who will be {Employee}['s] manager [[in]{datetimeV2}?]`.
+1. Keep one version of the template utterance (to edit in next step) and delete the other variations. 
 
-1. Edit the template utterance that uses `on` to use groups and or-ing: `who will be {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
+1. Edit the template utterance: 
 
-1. Use the Test pane to test out both versions of the utterance:
+    `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
 
-|Utterances to enter in Test pane|
-|--|
-|`Who will be Jill Jones manager in a month`|
-|`Who will be Jill Jones manager on July 5th`|
+1. Use the Test pane to test out versions of the utterance:
+
+    |Utterances to enter in Test pane|
+    |--|
+    |`Who is be Jill Jones manager in a month`|
+    |`Who is be Jill Jones manager on July 5th`|
+    |`Who was be Jill Jones manager in a month`|
+    |`Who was be Jill Jones manager on July 5th`|    
+    |`Who will be Jill Jones manager in a month`|
+    |`Who will be Jill Jones manager on July 5th`|
+
 
 ## Use the utterance beginning and ending anchors
 
