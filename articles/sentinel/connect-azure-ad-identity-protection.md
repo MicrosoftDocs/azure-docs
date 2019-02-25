@@ -29,7 +29,7 @@ You can stream logs from [Azure AD Identity Protection](https://docs.microsoft.c
 
 ## Prerequisites
 
-- You must have an [Azure Active Directory Premium P1 or P2 license](https://azure.microsoft.com/pricing/details/active-directory/0
+- You must have an [Azure Active Directory Premium P1 or P2 license](https://azure.microsoft.com/pricing/details/active-directory/)
 - User with global administrator or security administrator permissions
 
 

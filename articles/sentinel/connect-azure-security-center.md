@@ -25,6 +25,11 @@ ms.author: rkarlin
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
+
+connect subscriptions ,make sure you have ASC standard tier on the subscription 
+
+
+
 Azure Sentinel enables you to collect alerts from [Azure Security Center](../security-center/security-center-intro.md) and stream them into Azure Sentinel. 
 
 ## Prerequisites
@@ -32,6 +37,8 @@ Azure Sentinel enables you to collect alerts from [Azure Security Center](../sec
 - If you want to export alerts from Azure Security Center, you must be a contributor on the subscription whose logs you stream.
 
 - You must have the [Azure Security Center Standard tier](../security-center/security-center-pricing.md) running on the subscription. If not, [upgrade your subscription to standard](https://azure.microsoft.com/pricing/details/security-center/).
+
+- - User with global administrator, security administrator
 
 
 ## Connect to Azure Security Center
