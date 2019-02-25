@@ -12,6 +12,8 @@ ms.author: adigan
 # Azure Monitor logs data model for Azure Backup data
 Use the Azure Monitor logs data model to create reports. With the data model, you can create custom queries and dashboards, or customize Azure Backup data, however you like.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## Using Azure Backup data model
 You can use the following fields provided as part of the data model to create visuals, custom queries, and dashboard as per your requirements.
 
