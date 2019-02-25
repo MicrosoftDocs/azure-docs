@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 02/25/2019
 ms.author: jingwang
 
 ---
@@ -24,7 +24,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 
 [SAP BW Open Hub Service](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) is an efficient way to extract data from SAP BW. The following diagram shows one of the typical flows customers have in their SAP system, in which case data flows from SAP ECC -> PSA -> DSO -> Cube.
 
-SAP BW Open Hub Destination (OHD) defines the target to which the SAP data is relayed. Any objects supported by SAP Data Transfer Process (DTP) can be used as open hub data sources, for example, DSO, InfoCube, MultiProvider, DataSource, etc. Open Hub Destination type - where the relayed data is stored - can be database tables (local or remote) and flat files. This SAP BW Open Hub connector support copying data from OHD local table in BW. In case you are using other types, you can directly connect to the database or file system using other connectors.
+SAP BW Open Hub Destination (OHD) defines the target to which the SAP data is relayed. Any objects supported by SAP Data Transfer Process (DTP) can be used as open hub data sources, for example, DSO, InfoCube, DataSource, etc. Open Hub Destination type - where the relayed data is stored - can be database tables (local or remote) and flat files. This SAP BW Open Hub connector support copying data from OHD local table in BW. In case you are using other types, you can directly connect to the database or file system using other connectors.
 
 ![SAP BW Open Hub](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
 
@@ -34,7 +34,7 @@ You can copy data from SAP Business Warehouse via Open Hub to any supported sink
 
 Specifically, this SAP Business Warehouse Open Hub connector supports:
 
-- SAP Business Warehouse **version 7.30 or higher (in a recent SAP Support Package Stack released after the year 2015)**.
+- SAP Business Warehouse **version 7.01 or higher (in a recent SAP Support Package Stack released after the year 2015)**.
 - Copying data via Open Hub Destination local table which underneath can be DSO, InfoCube, MultiProvider, DataSource, etc.
 - Copying data using basic authentication.
 - Connecting to Application Server.
