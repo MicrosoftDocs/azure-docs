@@ -44,7 +44,9 @@ You can enable ExpressRoute Global Reach between any two ExpressRoute circuits a
 
 If the two circuits are in different Azure subscriptions, you need authorization from one Azure subscription. Then you pass in the authorization key when you run the configuration command in the other Azure subscription.
 
-## Enable connectivity between your on-premises networks
+## Enable connectivity
+
+Enable connectivity between your on-premises networks. There are separate sets of instructions for circuits that are in the same Azure subscription, and circuits that are different subscriptions.
 
 ### ExpressRoute circuits in the same Azure subscription
 
@@ -58,14 +60,14 @@ If the two circuits are in different Azure subscriptions, you need authorization
 
   * The private peering ID looks similar to the following example: 
 
-  ```
-  /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/AzurePrivatePeering
-  ```
+    ```
+    /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/AzurePrivatePeering
+    ```
   * *-AddressPrefix* must be a /29 IPv4 subnet, for example, "10.0.0.0/29". We use IP addresses in this subnet to establish connectivity between the two ExpressRoute circuits. You shouldn’t use the addresses in this subnet in your Azure virtual networks, or in your on-premises network.
 
-  ```azurepowershell-interactive
-  Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering $ckt_2.Peerings[0].Id -AddressPrefix '__.__.__.__/29'
-  ```
+    ```azurepowershell-interactive
+    Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering $ckt_2.Peerings[0].Id -AddressPrefix '__.__.__.__/29'
+    ```
 3. Save the configuration on circuit 1 as follows:
 
   ```azurepowershell-interactive
@@ -100,7 +102,7 @@ If the two circuits are not in the same Azure subscription, you need authorizati
 
 When the previous operation completes, you will have connectivity between your on-premises networks on both sides through your two ExpressRoute circuits.
 
-## Get and verify the configuration
+## Verify the configuration
 
 Use the following command to verify the configuration on the circuit where the configuration was made (for example, circuit 1 in the previous example).
 ```azurepowershell-interactive
@@ -109,9 +111,9 @@ $ckt1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName
 
 If you simply run *$ckt1* in PowerShell, you see *CircuitConnectionStatus* in the output. It tells you whether the connectivity is established, "Connected", or "Disconnected". 
 
-## Disable connectivity between your on-premises networks
+## Disable connectivity
 
-To disable connectivity, run the commands against the circuit where the configuration was made (for example, circuit 1 in the previous example).
+To disable connectivity between your on-premises networks, run the commands against the circuit where the configuration was made (for example, circuit 1 in the previous example).
 
 ```azurepowershell-interactive
 $ckt1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
