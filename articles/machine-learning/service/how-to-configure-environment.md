@@ -268,62 +268,65 @@ How Azure Databricks works with Azure Machine Learning service:
 + You can also use automated machine learning](concept-automated-ml.md) capabilities in a special Azure ML SDK with Azure Databricks.
 + You can use Azure Databricks as a compute target from an [Azure Machine Learning pipeline](concept-ml-pipelines.md). 
 
+### Set up your Databricks cluster
 
-To prepare your Databricks cluster and get started:
+Create a [Databricks cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). Some settings apply only if you install the SDK for automated machine learning on Databricks.
 
-1. Create a [Databricks cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). Some settings apply only if you install the SDK for automated machine learning on Databricks.
+It will take few minutes to create the cluster. 
 
-   It will take few minutes to create the cluster. 
+Use these settings:
 
-   Use these settings:
+| Setting |Applies to| Value |
+|----|---|---|
+| Cluster name |always| yourclustername |
+| Databricks Runtime |always| Any non ML runtime (non ML 4.x, 5.x) |
+| Python version |always| 3 |
+| Workers |always| 2 or higher |
+| Worker node VM types <br>(determines max # of concurrent iterations) |Automated ML| Memory optimized VM preferred |
+| Enable Autoscaling |Automated ML| Uncheck |
 
-    | Setting |Applies to| Value |
-    |----|---|---|
-    | Cluster name |always| yourclustername |
-    | Databricks Runtime |always| Any non ML runtime (non ML 4.x, 5.x) |
-    | Python version |always| 3 |
-    | Workers |always| 2 or higher |
-    | Worker node VM types <br>(determines max # of concurrent iterations) |Automated ML| Memory optimized VM preferred |
-    | Enable Autoscaling |Automated ML| Uncheck |
+Wait until the cluster is running before proceeding further.
 
-     Wait until the cluster is running before proceeding further.
+### Install the correct SDK into a Databricks library
+Once the cluster is running, [create a library](https://docs.databricks.com/user-guide/libraries.html#create-a-library) to attach the appropriate Azure Machine Learning SDK package to your cluster. 
 
-1. Once the cluster is running, [create a library](https://docs.databricks.com/user-guide/libraries.html#create-a-library) to attach the appropriate Azure Machine Learning SDK package to your cluster. 
+1. **Choose only one option (no other SDK installation are supported)
 
-  1. **Choose only one option (no other options or combinations are supported):**
+   |SDK&nbsp;package&nbsp;extras|Source|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |----|---|---|
+   |For Databricks| Upload Python Egg or PyPI | azureml-sdk[databricks]|
+   |For Databricks -with-<br> automated ML capabilities| Upload Python Egg or PyPI | azureml-sdk[automl_databricks]|
 
-      |SDK&nbsp;package&nbsp;extras|Source|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
-      |----|---|---|
-      |For Databricks| Upload Python Egg or PyPI | azureml-sdk[databricks]|
-      |For Databricks -with-<br> automated ML capabilities| Upload Python Egg or PyPI | azureml-sdk[automl_databricks]|
+   * No other SDK extras can be installed. Choose only one of the preceding options [databricks] or [automl_databricks].
+   * Do not select **Attach automatically to all clusters**.
+   * Select  **Attach** next to your cluster name.
 
-      * No other SDK extras can be installed. Choose only one of the preceding options [databricks] or [automl_databricks].
-      * Do not select **Attach automatically to all clusters**.
-      * Select  **Attach** next to your cluster name.
-
-  1. Monitor for errors until status changes to **Attached**, which may take several minutes. 
+1. Monitor for errors until status changes to **Attached**, which may take several minutes. 
    
-      If this step fails, restart your cluster by doing the following:
-      1. In the left pane, select **Clusters**.
-      1. In the table, select your cluster name.
-      1. On the **Libraries** tab, select **Restart**.
+   + If this step fails, restart your cluster by:
+    1. In the left pane, select **Clusters**.
+    1. In the table, select your cluster name.
+    1. On the **Libraries** tab, select **Restart**.
       
-      Also, consider:
-      + Some packages, such as `psutil`, can cause Databricks conflicts during installation. To avoid such errors, install packages by freezing lib version, such as `pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0`. 
-      + Or, if you have an old SDK version, deselect it from cluster’s installed libs and move to trash. Install the new SDK version and restart the cluster. If there is an issue after this, detach and reattach your cluster.
+   + If restarting didn't work, also consider:
+    + Some packages, such as `psutil`, can cause Databricks conflicts during installation. To avoid such errors, install packages by freezing lib version, such as `pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0`. 
+    + Or, if you have an old SDK version, deselect it from cluster’s installed libs and move to trash. Install the new SDK version and restart the cluster. If there is an issue after this, detach and reattach your cluster.
 
-  1. Verify the library is attached as shown: 
-
-     Azure Machine Learning SDK for Databricks **_without_ automated machine learning**
+   If install was successful, the imported library should look like one of these:
+   
+   SDK for Databricks **_without_** automated machine learning
    ![Azure Machine Learning SDK for Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-     Azure Machine Learning SDK for Databricks **_WITH_ automated machine learning**
+   SDK for Databricks **_WITH_** automated machine learning
    ![SDK with automated machine learning installed on Databricks ](./media/how-to-configure-environment/automlonadb.jpg)
 
-1. Try it out:
-   + Download the [notebook archive file](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc) for Azure Databricks/Azure Machine Learning SDK and import the archive file](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) into your Databricks cluster.  
-     While many sample notebooks are available, **only [these sample notebooks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) work with Azure Databricks.**
-   + Learn how to [create a pipeline with Databricks as the training compute](how-to-create-your-first-pipeline.md).
+### Start exploring
+
+Try it out:
++ Download the [notebook archive file](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc) for Azure Databricks/Azure Machine Learning SDK and import the archive file](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) into your Databricks cluster.  
+  While many sample notebooks are available, **only [these sample notebooks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) work with Azure Databricks.**
+  
++ Learn how to [create a pipeline with Databricks as the training compute](how-to-create-your-first-pipeline.md).
 
 ## <a id="workspace"></a>Create a workspace configuration file
 
