@@ -46,17 +46,18 @@ You will not be able to deploy models on FPGAs until you have requested and been
 
 Databricks and Azure Machine Learning issues.
 
-1. Azure Machine Learning SDK installation failures on Databricks when more packages are installed.
-
-   Some packages, such as `psutil`, can cause conflicts. To avoid installation errors,  install packages by freezing lib version. This issue is related to Databricks and not the Azure Machine Learning service SDK - you may face it with other libs too. Example:
+### Failure when installing packages
+Azure Machine Learning SDK installation failures on Databricks when more packages are installed. Some packages, such as `psutil`, can cause conflicts. To avoid installation errors,  install packages by freezing lib version. This issue is related to Databricks and not the Azure Machine Learning service SDK - you may face it with other libs too. Example:
    ```python
    pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
    ```
-   Alternatively, you can use init scripts if you keep facing install issues with Python libs. This approach is not an officially supported approach. You can refer to [this doc](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
+Alternatively, you can use init scripts if you keep facing install issues with Python libs. This approach is not an officially supported approach. You can refer to [this doc](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-2. When using Automated Machine Learning on Databricks, if you want to cancel a run and start a new experiment run, restart your Azure Databricks cluster.
+### Cancel an automated ML run
+When using automated machine learning capabilities on Databricks, if you want to cancel a run and start a new experiment run, restart your Azure Databricks cluster.
 
-3. In Automated ml settings, if you have more than 10 iterations, set `show_output` to `False` when you submit the run.
+### >10 iterations for automated ML
+In automated ml settings, if you have more than 10 iterations, set `show_output` to `False` when you submit the run.
 
 
 ## Azure portal
