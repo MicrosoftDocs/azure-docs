@@ -9,7 +9,7 @@ ms.date: 02/22/2019
 ms.author: absha
 ---
 
-# Troubleshooting Application Gateway with App Service – Redirection to App Service’s URL
+# Troubleshoot Application Gateway with App Service – Redirection to App Service’s URL
 
  Learn how to diagnose and resolve redirection issues with Application Gateway where the App Service’s URL is getting exposed.
 
@@ -24,7 +24,7 @@ This issue may happen due to the following main reasons:
 - You have enabled “Pick Host Name from Backend Address” switch in the HTTP settings of Application Gateway.
 - You don’t have your custom domain registered with your App Service.
 
-## Sample Configuration
+## Sample configuration
 
 - HTTP Listener: Basic or Multi-site
 - Backend Address Pool: App Service
@@ -71,9 +71,7 @@ Once we do that, App Service will do the redirection (if any) on the same origin
 
 To achieve this, you must own a custom domain and follow the process mentioned below.
 
-- Register the domain to the custom domain list of the App Service. For this, you must have a CNAME in your custom domain pointing to App Service’s FQDN. For more information, see [Map an existing custom DNS name to Azure App Service](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).
-
-![appservice-2](.\media\how-to-troubleshoot-application-gateway-with-appservice-redirection-to-appservice-url\appservice-2.png)
+- Register the domain to the custom domain list of the App Service. For this, you must have a CNAME in your custom domain pointing to App Service’s FQDN. For more information, see [Map an existing custom DNS name to Azure App Service](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).![appservice-2](.\media\how-to-troubleshoot-application-gateway-with-appservice-redirection-to-appservice-url\appservice-2.png)
 
 - Once that is done, your App Service is ready to accept the hostname “www.contoso.com”. Now change your CNAME entry in DNS to point it back to Application Gateway’s FQDN. For example, “appgw.eastus.cloudapp.azure.com”.
 
@@ -110,6 +108,6 @@ To achieve this, you must own a custom domain and follow the process mentioned b
 
   X-Powered-By: ASP.NET
 
-## Need help? Contact support
+## Next steps
 
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If the preceding steps do not resolve the issue, open a [support ticket](https://azure.microsoft.com/support/options/).
