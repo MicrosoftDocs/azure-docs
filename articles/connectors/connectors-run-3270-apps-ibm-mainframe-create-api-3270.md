@@ -57,9 +57,10 @@ navigation flow through your mainframe app for that tasks, and define
 the methods with input and output parameters for that task. The design 
 tool converts that information into metadata that the 3270 connector uses 
 when calling an action that represents that task from your logic app. 
-After you generate this metadata file from the design tool, you add this 
-file to an integration account in Azure. That way, your logic app can access 
-the metadata about your app when you add a 3270 connector action. The connector 
+
+After you generate the metadata file from the design tool, you add the file 
+to an integration account in Azure. That way, your logic app can access the 
+metadata about your app when you add a 3270 connector action. The connector 
 reads the metdata file from your integration account and dynamically presents 
 the parameters for the 3270 action.
 
@@ -89,9 +90,8 @@ You can then add 3270 connector actions. To get started,
 [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 If you use an ISE, select that ISE as your logic app's location.
 
-* The standalone 3270 Design Tool, which you can 
-[download and install from this location]() 
-and use for generating a Host Integration Designer 
+* Download and install the [standalone 3270 Design Tool](), 
+which you use for generating a Host Integration Designer 
 XML (HIDX) file. This metadata file identifies the screens, 
 navigation path, method, and parameters for the task you 
 want use when you add and run a 3270 connector action.
@@ -135,7 +135,7 @@ screen that become the method's input and output parameters.
 
 The design tool doesn't support these elements:
 
-* Partial BMS maps: If you import a BMS map, 
+* Partial BMS maps: If you import an IBM Basic Mapping Support (BMS) map, 
 the design tool ignores partial screen definitions.
 * In/Out parameters: You can't define In/Out parameters.
 * Menu processing: Not supported during preview
@@ -157,7 +157,7 @@ with connecting to your session and ends with disconnecting from your session.
 
 1. From the first screen, step through your app for the specific task.
 
-1. After you finish the task, log off from your session as you usually do.
+1. After you finish the task, sign out from your session as you usually do.
 
 1. In the design tool, choose **Stop**. Disconnect from the host. 
 
@@ -180,10 +180,40 @@ with connecting to your session and ends with disconnecting from your session.
 After you finish selecting the identification fields, 
 move to the next mode.
 
+#### Conditions for identifying repeated screens
+
+For the connector to navigate and differentiate between screens, 
+you usually find unique text on a screen that you can use as an 
+identifier among the captured screens. For repeated screens, 
+you might need more identification methods. For example, suppose 
+you have two screens that look the same except one screen returns 
+a valid value, while the other screen returns an error message.
+
+In the design tool, you can add *recognition attributes*, 
+for example, a screen title such as "Get Account Balance", 
+by using the Screen Recognition editor. In the case where 
+you have a forked path that returns the same screen with 
+different results, you need other identification attributes. 
+At run time, the connector uses these attributes for 
+determining the current branch and fork. Here are the 
+conditions you can use:
+
+* Specific value: This value matches the specified string 
+at the specified location.
+* <NOT> a specific value: This value doesn't match the 
+specified string at the specified location.
+* <NOT> empty: This field isn't empty.
+* Empty: This field is empty.
+
+To learn more, see the [Example navigation plan](#example-plan) 
+later in this topic.
+
+<a name="define-navigation"></a>
+
 ### Define navigation
 
 In this mode, you define the flow or steps for navigating 
-through your mainframe app's screens for the specific task. 
+through your mainframe app's screens for your specific task. 
 For example, sometimes, you might have more than one path that 
 your app can take where one path produces the correct result, 
 while the other path produces an error. For each screen, specify the 
@@ -195,28 +225,30 @@ keystrokes necessary for moving to the next screen, such as `CICSPROD <enter>`.
 > Disconnect plan types. After you define these types, you can add 
 > them to the start and end for your navigation plan.
 
-Here are some guidelines when creating plans:
+#### Guidelines for creating plans
 
 * Include all screens, starting from connecting 
 and ending with disconnecting.
 
 * You can create a standalone plan or use the 
 Connect and Disconnect plans, which let you reuse 
-a series of screens common to all your transactions. 
+a series of screens common to all your transactions.
 
   * The last screen in your Connect plan must be the 
   same screen as the first screen in your navigation plan.
+
   * The first screen in your Disconnect plan must be 
   same screen as the last screen in your navigation plan.
 
-* Your plan and other plans might contain many repeated screens, 
-for example:
+* Your captured screens might contain many repeated screens, 
+so select and use only one instance of any repeated screens 
+in your plan. Here are some examples of repeated screens:
 
-  * The logon, or `msg-10`, screen
+  * The sign in screen, for example, the **MSG-10** screen
   * The welcome screen for the Customer Information Control System (CICS)
   * The "Clear" or **Empty** screen
 
-  Select and use only one instance of a repeated screen in your plan.
+<a name="create-plan"></a>
 
 #### Create plan
 
@@ -227,20 +259,86 @@ for example:
    To represent the blank screen where you enter 
    the transaction name, use the "Empty" screen.
 
-1. Arrange the screens following the order that describes the task you're defining.
+1. Arrange the screens in the order that describes the task you're defining.
 
 1. After arranging the screens, draw arrows between the screens by using the Flow tool. 
-
-   These arrows define the flow, including forks and joins, through the screens.
+The arrows define the flow, including forks and joins, through the screens.
 
 1. For each screen, specify the Automatic Initiate Descriptor (AID) 
 key and the static text that moves the flow to the next screen.
 You might have just the AID key, or both the AID key and text. 
 
-
-
 After you finish your navigation plan, 
-you can define methods in the next mode.
+you can [define methods in the next mode](#define-method).
+
+<a name="example-plan"></a>
+
+#### Example
+
+In this example, suppose you run a CICS 
+transaction named "WBGB" that has these steps: 
+
+* On the 1st screen, you enter a name and an account.
+* On the 2nd screen, you get the account balance.
+* You exit to the "Empty" screen.
+* You sign out from CICS to the "MSG-10" screen.
+
+Also suppose that you repeat these steps, but you enter incorrect 
+data so you can capture the screen that shows the error. Here are 
+the screens you capture:
+
+* MSG-10
+* CICS Welcome
+* Empty
+* WBGB_1 (input)
+* WBGB_1 (error)
+* Empty_1
+* MSG-10_1
+
+Although many screens here get unique names, some screens are the same screen, 
+for example, "MSG-10" and "Empty". For a repeated screen, use only one instance 
+for that screen in your plan. Here are examples that show how a standalone plan, 
+Connect plan, Disconnect plan, and a combined plan might look:
+
+* Standalone plan
+
+  ![Standalone navigation plan](./media/connectors-create-api-3270/standalone-plan.png)
+
+* Connect plan
+
+  ![Connect plan](./media/connectors-create-api-3270/connect-plan.png)
+
+* Disconnect plan
+
+  ![Disconnect plan](./media/connectors-create-api-3270/disconnect-plan.png)
+
+* Combined plan
+
+  ![Combined plan](./media/connectors-create-api-3270/combined-plan.png)
+
+##### Identify repeated screens
+
+For the connector to navigate and differentiate between screens, 
+you usually find unique text on a screen that you can use as an 
+identifier among the captured screens. For repeated screens, 
+you might need more identification methods. The example plan has a 
+fork where you can get screens that look similar. One screen returns 
+an account balance, while the other screen returns an error message.
+
+In the design tool, you can add *recognition attributes*, 
+such as the screen title, "Get Account Balance", by using 
+the Screen Recognition editor. In the case with similar screens, 
+you need other attributes. At run time, the connector uses 
+these attributes for determining the branch and fork.
+
+* In the branch that returns valid input, which is the 
+screen with the account balance, you can add an attribute 
+that has a "Not Empty" condition.
+
+* In the branch that returns with an error, you can add 
+an attribute that has an "Empty" condition.
+
+<a name="define-method"></a>
 
 ### Define method
 
@@ -335,11 +433,11 @@ and choose **Create**.
    |----------|----------|-------|-------------|
    | **Connection Name** | Yes | <*connection-name*> | The name for your connection |
    | **Integration Account ID** | Yes | <*integration-account-name*> | Your integration account's name |
-   | **Integration Account SAS URL** | Yes | <*integration-account-SAS-URL*> | Your integration account's Shared Access Signature (SAS) URL |
-   | **Server** | Yes | <*TN3270-server-name*> | The host name for your TN3270 server |
-   | **Port** | No | <*TN3270-server-port*> | The port used by your TN3270 server |
-   | **Device Type** | No | <*IBM-terminal-model*> | The model name or number for the IBM terminal to emulate |
-   | **Code Page** | No | <*code-page-number*> | The code page number for the host |
+   | **Integration Account SAS URL** | Yes | <*integration-account-SAS-URL*> | Your integration account's Shared Access Signature (SAS) URL, which you can generate from your integration account's settings in the Azure portal. <p>1. On your integration account menu, under **Settings**, select **Callback URL**. <br>2. In the right-hand pane, copy the **Generated Callback URL** value. |
+   | **Server** | Yes | <*TN3270-server-name*> | The server name for your TN3270 service |
+   | **Port** | No | <*TN3270-server-port*> | The port used by your TN3270 server. If left blank, the connector uses default values. |
+   | **Device Type** | No | <*IBM-terminal-model*> | The model name or number for the IBM terminal to emulate. If left blank, the connector uses default values. |
+   | **Code Page** | No | <*code-page-number*> | The code page number for the host. If left blank, the connector uses default values. |
    | **Logical Unit Name** | No | <*logical-unit-name*> | The specific logical unit name to request from the host |
    | **Enable SSL?** | No | On or off | Turn on or turn off SSL encryption. |
    | **Validate host ssl certificate?** | No | On or off | Turn on or turn off validation for the server's certificate. |
