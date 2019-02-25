@@ -56,7 +56,7 @@ One assignment on the management group can enable users to have access to everyt
 Each directory is given a single top-level management group called the "Root" management group.
 This root management group is built into the hierarchy to have all management groups and
 subscriptions fold up to it. This Root management group allows for global policies and RBAC
-assignments to be applied at the directory level. The [AAD Global Administrator needs to elevate
+assignments to be applied at the directory level. The [Azure AD Global Administrator needs to elevate
 themselves](../../role-based-access-control/elevate-access-global-admin.md) to be the owner of this
 root group initially. Once the administrator is the owner of the group, they can assign any RBAC
 role to other directory users or groups to manage the hierarchy.
@@ -72,7 +72,7 @@ role to other directory users or groups to manage the hierarchy.
   - New subscriptions are automatically defaulted to the root management group when created.
 - All Azure customers can see the root management group, but not all customers have access to manage that root management group.
   - Everyone who has access to a subscription can see the context of where that subscription is in the hierarchy.  
-  - No one is given default access to the root management group. AAD Global Administrators are the only users that can elevate themselves to gain access.  Once they have access, the global administrators can assign any RBAC role to other users to manage.  
+  - No one is given default access to the root management group. Azure AD Global Administrators are the only users that can elevate themselves to gain access.  Once they have access, the global administrators can assign any RBAC role to other users to manage.  
 
 > [!IMPORTANT]
 > Any assignment of user access or policy assignment on the root management group **applies to all resources within the directory**.
@@ -88,7 +88,7 @@ group. The reason for this process is to make sure there's only one management g
 within a directory. The single hierarchy within the directory allows administrative customers to
 apply global access and policies that other customers within the directory can't bypass. Anything
 assigned on the root will apply to the entire hierarchy, which includes all management groups, subscriptions, resource groups, and
-resources within that AAD Tenant.
+resources within that Azure AD Tenant.
 
 ## Trouble seeing all subscriptions
 
@@ -139,7 +139,7 @@ feedback forum](https://aka.ms/mgfeedback) to view the status of this item.
 
 Management groups are supported within [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md). You can search all events that happen to a management group in the same central location as other Azure resources.  For example, you can see all Role Assignments or Policy Assignment changes made to a particular management group.
 
-![Activity Logs with Management Groups](media/AL-MG.png)
+![Activity Logs with Management Groups](media/al-mg.png)
 
 When looking to query on Management Groups outside of the Azure portal, the target scope for management groups looks like **"/providers/Microsoft.Management/managementGroups/{yourMgID}"**.
 

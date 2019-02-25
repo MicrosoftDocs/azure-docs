@@ -78,8 +78,8 @@ To delete a management group, the following requirements must be met:
 
 1. Select **Delete**
 
-> [!TIP]
-> If the icon is disabled, hovering your mouse selector over the icon shows you the reason.
+    > [!TIP]
+    > If the icon is disabled, hovering your mouse selector over the icon shows you the reason.
 
    ![Delete group option](./media/delete.png)
 
@@ -316,7 +316,7 @@ az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
 
 Management groups are supported within [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md). You can query all events that happen to a management group in the same central location as other Azure resources.  For example, you can see all Role Assignments or Policy Assignment changes made to a particular management group.
 
-![Activity Logs with Management Groups](media/AL-MG.png)
+![Activity Logs with Management Groups](media/al-mg.png)
 
 When looking to query on Management Groups outside of the Azure portal, the target scope for management groups looks like **"/providers/Microsoft.Management/managementGroups/{yourMgID}"**.
 
