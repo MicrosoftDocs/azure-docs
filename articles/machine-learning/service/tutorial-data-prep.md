@@ -10,7 +10,7 @@ ms.topic: tutorial
 author: cforbe
 ms.author: cforbe
 ms.reviewer: trbye
-ms.date: 02/04/2018
+ms.date: 02/04/2019
 ms.custom: seodec18
 # As a Pro Data Scientist, I want to prepare data for regression modeling.
 ---
