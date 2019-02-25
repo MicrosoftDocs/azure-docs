@@ -694,11 +694,7 @@
       - name: Windows Cluster Diagnostics
         href: service-fabric-diagnostics-event-aggregation-wad.md
       - name: Linux Cluster Diagnostics
-        href: service-fabric-diagnostics-oms-syslog.md 
-      - name: Set up Log Analytics
-        href: service-fabric-diagnostics-oms-setup.md
-      - name: Monitor with Log Analytics
-        href: service-fabric-diagnostics-event-analysis-oms.md  
+        href: service-fabric-diagnostics-oms-syslog.md       
     - name: Monitor infrastructure
       items:
       - name: Collect performance counters with the Log Analytics Agent

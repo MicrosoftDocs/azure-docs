@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/13/2019
+ms.date: 02/22/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -88,7 +88,7 @@ Windows agents must be configured to communicate with a WSUS server or they must
 
 For Linux, the machine must have access to an update repository. The update repository can be private or public. TLS 1.1 or TLS 1.2 is required to interact with Update Management. A Log Analytics Agent for Linux that's configured to report to more than one Log Analytics workspaces isn't supported with this solution.
 
-For information about how to install the Log Analytics Agent for Linux and to download the latest version, see [Operations Management Suite Agent for Linux](https://github.com/microsoft/oms-agent-for-linux). For information about how to install the Log Analytics Agent for Windows, see [Operations Management Suite Agent for Windows](../log-analytics/log-analytics-windows-agent.md).
+For information about how to install the Log Analytics Agent for Linux and to download the latest version, see [Log Analytics Agent for Linux](https://github.com/microsoft/oms-agent-for-linux). For information about how to install the Log Analytics Agent for Windows, see [Microsoft Monitoring Agent for Windows](../log-analytics/log-analytics-windows-agent.md).
 
 ## Permissions
 
@@ -117,7 +117,7 @@ If your System Center Operations Manager management group is connected to a Log 
 For more information about how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../azure-monitor/platform/om-agents.md).
 
 > [!NOTE]
-> For systems with the Operations Manger Agent, to be able to be fully managed by Update Management, the agent needs to be updated to the Microsoft Monitoring Agent. To learn how to update the agent, see [How to upgrade an Operations Manager agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents).
+> For systems with the Operations Manger Agent, to be able to be fully managed by Update Management, the agent needs to be updated to the Microsoft Monitoring Agent. To learn how to update the agent, see [How to upgrade an Operations Manager agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents). For environments using Operations Manager, it is required that you are running System Center Operations Manager 2012 R2 UR 14 or later.
 
 ## <a name="onboard"></a>Enable Update Management
 
@@ -182,6 +182,8 @@ A scan is performed twice per day for each managed Windows computer. Every 15 mi
 A scan is performed every 3 hours for each managed Linux computer.
 
 It can take between 30 minutes and 6 hours for the dashboard to display updated data from managed computers.
+
+The average Log Analytics data usage for a machine using Update Management is approximately 25MB per month. This value is only an approximation and is subject to change based on your environment. It's recommended that you monitor your environment to see the exact usage that you have.
 
 ## <a name="viewing-update-assessments"></a>View update assessments
 

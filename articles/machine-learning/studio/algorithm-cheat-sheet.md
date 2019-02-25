@@ -14,7 +14,7 @@ ms.date: 12/18/2017
 ---
 # Machine learning algorithm cheat sheet for Azure Machine Learning Studio
 
-The **Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right algorithm for a predictive analytics model.
+The **Azure Machine Learning Studio Algorithm Cheat Sheet** helps you choose the right algorithm for a predictive analytics model.
 
 [Azure Machine Learning Studio](https://studio.azureml.net/) has a large library of algorithms from the ***regression***, ***classification***, ***clustering***, and ***anomaly detection*** families. Each is designed to address a different type of machine learning problem.
 
@@ -22,14 +22,12 @@ The **Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right 
 
 **Download the cheat sheet here: [Machine Learning Algorithm Cheat Sheet (11x17 in.)](https://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
 
-![Machine learning algorithm cheat sheet: Learn how to choose a Machine Learning algorithm.][cheat-sheet]
-
-[cheat-sheet]: ./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
+![Machine learning algorithm cheat sheet: Learn how to choose a Machine Learning algorithm.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png)
 
 Download and print the Machine Learning Studio Algorithm Cheat Sheet in tabloid size to keep it handy and get help choosing an algorithm.
 
 > [!NOTE]
-> For help in using this cheat sheet for choosing the right algorithm, plus a deeper discussion of the different types of machine learning algorithms and how they're used, see [How to choose algorithms for Microsoft Azure Machine Learning](algorithm-choice.md).
+> For help in using this cheat sheet for choosing the right algorithm, plus a deeper discussion of the different types of machine learning algorithms and how they're used, see [How to choose algorithms for Microsoft Azure Machine Learning Studio](algorithm-choice.md).
 
 ## Notes and terminology definitions for the Machine Learning Studio algorithm cheat sheet
 
@@ -39,7 +37,7 @@ Download and print the Machine Learning Studio Algorithm Cheat Sheet in tabloid 
 
 * There are three main categories of machine learning: **supervised learning**, **unsupervised learning**, and **reinforcement learning**.
 
-  * In **supervised learning**, each data point is labeled or associated with a category or value of interest.  An example of a categorical label is assigning an image as either a ‘cat’ or a ‘dog’.  An example of a value label is the sale price associated with a used car. The goal of supervised learning is to study many labeled examples like these, and then to be able to make predictions about future data points. For example, identifying new photos with the correct animal or assigning accurate sale prices to other used cars. This is a popular and useful type of machine learning. All of the modules in Azure Machine Learning are supervised learning algorithms except for [K-Means Clustering][k-means-clustering].
+  * In **supervised learning**, each data point is labeled or associated with a category or value of interest.  An example of a categorical label is assigning an image as either a ‘cat’ or a ‘dog’.  An example of a value label is the sale price associated with a used car. The goal of supervised learning is to study many labeled examples like these, and then to be able to make predictions about future data points. For example, identifying new photos with the correct animal or assigning accurate sale prices to other used cars. This is a popular and useful type of machine learning. All of the modules in Azure Machine Learning Studio are supervised learning algorithms except for [K-Means Clustering][k-means-clustering].
 
   * In **unsupervised learning**, data points have no labels associated with them. Instead, the goal of an unsupervised learning algorithm is to organize the data in some way or to describe its structure. This can mean grouping it into clusters, as K-means does, or finding different ways of looking at complex data so that it appears simpler.
 

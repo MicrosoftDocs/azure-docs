@@ -130,7 +130,7 @@
       href: deploy-container-networking.md
     - name: Virtual machines
       items:
-      - name: Create a VM with a static public IP address
+      - name: Create VM - Static public IP address
         items:
         - name: Azure portal
           href: virtual-network-deploy-static-pip-arm-portal.md
@@ -138,6 +138,8 @@
           href: virtual-network-deploy-static-pip-arm-ps.md
         - name: Azure CLI
           href: virtual-network-deploy-static-pip-arm-cli.md
+      - name: Add public IP address to existing VM
+        href: associate-public-ip-address-vm.md
       - name: Create VM - Static private IP address
         items:
         - name: Azure portal

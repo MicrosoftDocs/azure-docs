@@ -53,7 +53,7 @@ The following sections describe each of these steps in more detail.
 
 Before you assign a role to a security principal, be sure to consider the scope of the permissions you are granting. Review the [Determine resource scope](#determine-resource-scope) section to decide the appropriate scope.
 
-The procedure shown here assigns a role scoped to a container, but you can follow the same steps to assign a role scoped to a queue.: 
+The procedure shown here assigns a role scoped to a container, but you can follow the same steps to assign a role scoped to a queue: 
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your storage account and display the **Overview** for the account.
 1. Under Services, select **Blobs**. 

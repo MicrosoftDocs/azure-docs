@@ -19,7 +19,7 @@ This article introduces the core concepts that help you scale applications in AK
 - [Manually scale](#manually-scale-pods-or-nodes)
 - [Horizontal pod autoscaler (HPA)](#horizontal-pod-autoscaler)
 - [Cluster autoscaler](#cluster-autoscaler)
-- Azure Container Instance (ACI) integration with AKS
+- [Azure Container Instance (ACI) integration with AKS](#burst-to-azure-container-instances)
 
 ## Manually scale pods or nodes
 

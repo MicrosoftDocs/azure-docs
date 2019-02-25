@@ -34,7 +34,7 @@ If the user does not have the correct permissions to access resources in the Azu
 
 *Web Service deployment failed. This account does not have sufficient access to the Azure subscription that contains the Workspace. In order to deploy a Web Service to Azure, the same account must be invited to the Workspace and be given access to the Azure subscription that contains the Workspace.*
 
-For more information on creating a workspace, see [Create and share an Azure Machine Learning workspace](create-workspace.md).
+For more information on creating a workspace, see [Create and share an Azure Machine Learning Studio workspace](create-workspace.md).
 
 For more information on setting access permissions, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
@@ -103,7 +103,7 @@ The plan dashboard provides the following information:
 
 ## Manage Classic Web Services
 > [!NOTE]
-> The procedures in this section are relevant to managing Classic web services through the Azure Machine Learning Web Services portal. For information on managing Classic Web services through the Machine Learning Studio and the Azure portal, see [Manage an Azure Machine Learning workspace](manage-workspace.md).
+> The procedures in this section are relevant to managing Classic web services through the Azure Machine Learning Web Services portal. For information on managing Classic Web services through the Machine Learning Studio and the Azure portal, see [Manage an Azure Machine Learning Studio workspace](manage-workspace.md).
 > 
 > 
 

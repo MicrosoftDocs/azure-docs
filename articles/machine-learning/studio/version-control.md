@@ -37,7 +37,7 @@ The run history snapshots keep an immutable version of the experiment in Azure M
 The JSON file is a textual representation of the experiment graph, which might include a reference to assets in the workspace such as a dataset or a trained model. It doesn't contain a serialized version of the asset. If you attempt to import the JSON document back into the workspace, the referenced assets must already exist with the same asset IDs that are referenced in the experiment. Otherwise you cannot access the imported experiment.
 
 ## Versioning trained model
-A trained model in Azure Machine Learning is serialized into a format known as an iLearner file (`.iLearner`), and is stored in the Azure Blob storage account associated with the workspace. One way to get a copy of the iLearner file is through the retraining API. [This article](retrain-models-programmatically.md) explains how the retraining API works. The high-level steps:
+A trained model in Azure Machine Learning Studio is serialized into a format known as an iLearner file (`.iLearner`), and is stored in the Azure Blob storage account associated with the workspace. One way to get a copy of the iLearner file is through the retraining API. [This article](retrain-models-programmatically.md) explains how the retraining API works. The high-level steps:
 
 1. Set up your training experiment.
 2. Add a web service output port to the Train Model module, or the module that produces the trained model, such as Tune Model Hyperparameter or Create R Model.
@@ -52,7 +52,7 @@ After you have the iLearner file containing the trained model, you can then empl
 The saved iLearner file can then be used for scoring through deployed web services.
 
 ## Versioning web service
-You can deploy two types of web services from an Azure Machine Learning experiment. The classic web service is tightly coupled with the experiment as well as the workspace. The new web service uses the Azure Resource Manager framework, and it is no longer coupled with the original experiment or the workspace.
+You can deploy two types of web services from an Azure Machine Learning Studio experiment. The classic web service is tightly coupled with the experiment as well as the workspace. The new web service uses the Azure Resource Manager framework, and it is no longer coupled with the original experiment or the workspace.
 
 ### Classic web service
 To version a classic web service, you can take advantage of the web service endpoint construct. Here is a typical flow:
@@ -74,7 +74,7 @@ If you create a new Azure Resource Manager-based web service, the endpoint const
 After you have the exported WSD file and version control it, you can also deploy the WSD as a new web service in a different web service plan in a different Azure region. Just make sure you supply the proper storage account configuration as well as the new web service plan ID. To patch in different iLearner files, you can modify the WSD file and update the location reference of the trained model, and deploy it as a new web service.
 
 ## Automate experiment execution and deployment
-An important aspect of ALM is to be able to automate the execution and deployment process of the application. In Azure Machine Learning, you can accomplish this by using the [PowerShell module](https://aka.ms/amlps). Here is an example of end-to-end steps that are relevant to a standard ALM automated execution/deployment process by using the [Azure Machine Learning Studio PowerShell module](https://aka.ms/amlps). Each step is linked to one or more PowerShell commandlets that you can use to accomplish that step.
+An important aspect of ALM is to be able to automate the execution and deployment process of the application. In Azure Machine Learning Studio, you can accomplish this by using the [PowerShell module](https://aka.ms/amlps). Here is an example of end-to-end steps that are relevant to a standard ALM automated execution/deployment process by using the [Azure Machine Learning Studio PowerShell module](https://aka.ms/amlps). Each step is linked to one or more PowerShell commandlets that you can use to accomplish that step.
 
 1. [Upload a dataset](https://github.com/hning86/azuremlps#upload-amldataset).
 2. Copy a training experiment into the workspace from a [workspace](https://github.com/hning86/azuremlps#copy-amlexperiment) or from [Gallery](https://github.com/hning86/azuremlps#copy-amlexperimentfromgallery), or [import](https://github.com/hning86/azuremlps#import-amlexperimentgraph) an [exported](https://github.com/hning86/azuremlps#export-amlexperimentgraph) experiment from local disk.

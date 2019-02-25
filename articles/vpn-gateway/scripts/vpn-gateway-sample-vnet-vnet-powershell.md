@@ -141,7 +141,7 @@ Remove-AzResourceGroup -Name TestRG2
 ```
  
  
- ## Script explanation
+## Script explanation
 
 This script uses the following commands to create the deployment. Each item in the table links to command specific documentation.
 
