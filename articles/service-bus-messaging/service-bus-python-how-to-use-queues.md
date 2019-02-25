@@ -62,7 +62,7 @@ queue_options.default_message_time_to_live = 'PT1M'
 sb_client.create_queue("taskqueue", queue_options)
 ```
 
-For more information, see [Azure Service Bus Python documenation](/python/api/overview/azure/servicebus?view=azure-python).
+For more information, see [Azure Service Bus Python documentation](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## Send messages to a queue
 To send a message to a Service Bus queue, your application calls the `send_queue_message` method on the **ServiceBusService** object.
@@ -83,7 +83,7 @@ queue_client.send(Message("Message"))
 Service Bus queues support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
 a maximum size of 64 KB. There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue. This queue size is defined at creation time, with an upper limit of 5 GB. For more information about quotas, see [Service Bus quotas][Service Bus quotas].
 
-For more information, see [Azure Service Bus Python documenation](/python/api/overview/azure/servicebus?view=azure-python).
+For more information, see [Azure Service Bus Python documentation](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## Receive messages from a queue
 Messages are received from a queue using the `receive_queue_message` method on the **ServiceBusService** object:
@@ -99,7 +99,7 @@ msg = Message(b'Test Message')
 queue_client.send(Message("Message"))
 ```
 
-For more information, see [Azure Service Bus Python documenation](/python/api/overview/azure/servicebus?view=azure-python).
+For more information, see [Azure Service Bus Python documentation](/python/api/overview/azure/servicebus?view=azure-python).
 
 
 Messages are deleted from the queue as they are read when the parameter `peek_lock` is set to **False**. You can read (peek) and lock the message without deleting it from the queue by setting the parameter `peek_lock` to **True**.
@@ -115,9 +115,9 @@ msg.delete()
 ## How to handle application crashes and unreadable messages
 Service Bus provides functionality to help you gracefully recover from errors in your application or difficulties processing a message. If a receiver application is unable to process the message for some reason, then it can call the **unlock** method on the **Message** object. This will cause Service Bus to unlock the message within the queue and make it available to be received again, either by the same consuming application or by another consuming application.
 
-There is also a timeout associated with a message locked within the queue, and if the application fails to process the message before the lock timeout expires (e.g., if the application crashes), then Service Bus will unlock the message automatically and make it available to be received again.
+There is also a timeout associated with a message locked within the queue, and if the application fails to process the message before the lock timeout expires (for example, if the application crashes), then Service Bus will unlock the message automatically and make it available to be received again.
 
-In the event that the application crashes after processing the message but before the **delete** method is called, then the message will be redelivered to the application when it restarts. This is often called **At Least Once Processing**, that is, each message will be processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. This is often achieved using the **MessageId** property of the message, which will remain constant across delivery attempts.
+In the event that the application crashes after processing the message but before the **delete** method is called, then the message will be redelivered to the application when it restarts. This is often called **at least once processing**, that is, each message will be processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. This is often achieved using the **MessageId** property of the message, which will remain constant across delivery attempts.
 
 ## Next steps
 Now that you have learned the basics of Service Bus queues, see these articles to learn more.
