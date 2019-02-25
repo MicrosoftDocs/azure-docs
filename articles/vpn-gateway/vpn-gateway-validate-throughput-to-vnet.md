@@ -45,7 +45,7 @@ The following diagram shows the logical connectivity of an on-premises network t
 ## Calculate the maximum expected ingress/egress
 
 1.	Determine your application's baseline throughput requirements.
-2.	Determine your Azure VPN gateway throughput limits. For help, see the "Aggregate throughput by SKU and VPN type" section of [Planning and design for VPN Gateway](vpn-gateway-plan-design.md).
+2.	Determine your Azure VPN gateway throughput limits. For help, see the "Gateway SKUs" section of [About VPN Gateway](vpn-gateway-about-vpngateways.md#gwsku).
 3.	Determine the [Azure VM throughput guidance](../virtual-machines/virtual-machines-windows-sizes.md) for your VM size.
 4.	Determine your Internet Service Provider (ISP) bandwidth.
 5.	Calculate your expected throughput - Least bandwidth of (VM, Gateway, ISP) * 0.8.
