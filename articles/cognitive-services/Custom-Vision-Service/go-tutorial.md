@@ -9,7 +9,7 @@ manager: daauld
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: quickstart
-ms.date: 12/12/2018
+ms.date: 2/25/2018
 ms.author: areddish
 ---
 
@@ -139,6 +139,7 @@ This code creates the first iteration in the project and marks it as the default
     }
     fmt.Println("Training status: " + *iteration.Status)
 
+    *iteration.IsDefault = true
     trainer.UpdateIteration(ctx, *project.ID, *iteration.ID, iteration)
 ```
 
@@ -154,7 +155,7 @@ To send an image to the prediction endpoint and retrieve the prediction, add the
     results, _ := predictor.PredictImage(ctx, *project.ID, ioutil.NopCloser(bytes.NewReader(testImageData)), iteration.ID, "")
 
     for _, prediction := range *results.Predictions	{
-        fmt.Printf("\t%s: %.2f%%", *prediction.Tag, *prediction.Probability * 100)
+        fmt.Printf("\t%s: %.2f%%", *prediction.TagName, *prediction.Probability * 100)
         fmt.Println("")
     }
 }
@@ -165,7 +166,6 @@ To send an image to the prediction endpoint and retrieve the prediction, add the
 Run *sample.go*.
 
 ```PowerShell
-go build sample.go
 go run sample.go
 ```
 

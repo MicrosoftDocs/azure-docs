@@ -34,6 +34,8 @@
     items:
     - name: Image classification
       href: go-tutorial.md
+    - name: Object detection
+      href: go-tutorial-object-detection.md
 - name: Tutorials
   items:
   - name: Logo detector for mobile
