@@ -31,7 +31,7 @@ There are currently two versions of Azure Migrate available:
 
 
 
-## Why use the public preview?
+## Azure Migrate services public preview
 
 The public preview provides a number of new features.
 
@@ -44,7 +44,9 @@ The public preview provides a number of new features.
     - **Unified Azure Migrate appliance**: A single appliance running on a VMware VM handles discovery, assessment, and migration. You don't need additional Azure Migrate components.
 
 
-## VMware architecture (public preview)
+## VMware architecture 
+
+This section describes the architecture for VMware assessment and migration using the new public preview version of Azure Migrate.
 
 ![Assessment architecture VMware](./media/migrate-overview/sas-architecture-vmware.png)
 
@@ -69,7 +71,9 @@ Azure Migrate appliance | Azure Migrate service | Target-TCP 443 | Send metadata
 Azure Migrate appliance | vCenter Server | Target-TCP 443 | Connect to vCenter Server for metadata and performance data. 443 is default but can be modified with vCenter listens on a different port. 
 RDP client | Azure Migrate appliance | Target-TCP3389 | RDP connection to trigger discovery from the appliance.
 
-## Hyper-V architecture (public preview)
+## Hyper-V architecture
+
+This section describes the architecture for Hyper-V assessment using the new public preview version of Azure Migrate.
 
 ![Assessment architecture Hyper-V](./media/migrate-overview/sas-architecture-hyper-v.png)
 
