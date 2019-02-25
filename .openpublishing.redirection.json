@@ -14467,6 +14467,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/vpn-gateway/vpn-gateway-plan-design.md",
+      "redirect_url": "/azure/vpn-gateway/vpn-gateway-about-vpngateways",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md",
       "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
       "redirect_document_id": true
