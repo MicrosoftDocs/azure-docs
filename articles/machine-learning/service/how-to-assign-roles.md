@@ -24,18 +24,18 @@ Azure Machine Learning workspace is an Azure resource. Like other Azure resource
 
 - **Reader**
     
-    This role allows read-only actions in the workspace. Readers can list and view assets in a workspace but are not allowed to create or update these assets.
+    This role allows read-only actions in the workspace. Readers can list and view assets in a workspace, but can't create or update these assets.
 
 - **Contributor**
     
-    This role allows users to view, create, edit, or delete (where applicable) assets in a workspace. For example, contributors can create an experiment, create or attach a compute cluster, submit a run, register a model, and deploy a web service.
+    This role allows users to view, create, edit, or delete (where applicable) assets in a workspace. For example, contributors can create an experiment, create or attach a compute cluster, submit a run, and deploy a web service.
 
 - **Owner**
     
     This role gives users full access to the workspace, including the ability to view, create, edit, or delete (where applicable) assets in a workspace. Additionally, you can add or remove users, and change role assignments.
 
 ## Add or remove users
-If you are an owner of a workspace, you can add users to or remove users from the workspace by choosing one of the following methods:
+If you're an owner of a workspace, you can add and remove users from the workspace by choosing one of the following methods:
 - [Azure portal UI](/azure/role-based-access-control/role-assignments-portal)
 - [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [Azure CLI](/azure/role-based-access-control/role-assignments-cli)
@@ -101,7 +101,7 @@ az ml workspace share -n my_workspace -g my_resource_group --role "Data Scientis
 ```
 
 
-For more information about custom roles in Azure, refer to [this document](/azure/role-based-access-control/custom-roles).
+For more information about custom roles in Azure, see [this document](/azure/role-based-access-control/custom-roles).
 
 ## Next steps
 
