@@ -54,7 +54,7 @@ A common pitfall of automated machine learning is an inability to see the end-to
 1. Awareness of the machine learning pipeline and all the steps involved including data preprocessing/featurization, and hyperparameter values.
 1. Understanding the relationship between input variables (also known as “features”) and model output.  Knowing both the magnitude and direction of the impact of each feature on the predicted value helps better understand and explain the model. This is known as feature importance.
 
-You can enable global feature importance on-demand post training for the pipeline of your choice, or enable it for all pipelines as part of automated ML training. In heavily regulated industries like healthcare and banking, this is critical to comply with regulation and best practices.  Here are few real-world scenarios to illustrate:
+You can enable global feature importance on-demand post training for the pipeline of your choice, or enable it for all pipelines as part of automated machine learning training. In heavily regulated industries like healthcare and banking, this is critical to comply with regulations and best practices.  Here are a few real-world scenarios to illustrate:
 
 1. A manufacturing company using machine learning to predict future instrument failure, so they can proactively perform maintenance activity. Once you know an instrument is about to fail, what’s the most likely cause going to be so preventive maintenance can be performed quickly?
 1. A financial institution using machine learning to process loan or credit card applications. How do you know if the model is doing the right thing, and if a customer asks for more details on why their application was rejected, how will you respond to them?
