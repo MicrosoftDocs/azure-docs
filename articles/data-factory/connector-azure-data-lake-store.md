@@ -72,7 +72,7 @@ To use service principal authentication, register an application entity in Azure
 >To list folders starting from the root, you must set the permission of the service principal being granted to **at root level with "Execute" permission**. This is true when you use the:
 >- **Copy Data Tool** to author copy pipeline.
 >- **Data Factory UI** to test connection and navigating folders during authoring.
->If you have concern on granting permission at root level, you can skip test connection and input path manually during authoring. Copy activity will still work as long as the service identity is granted with proper permission at the files to be copied.
+>If you have concern on granting permission at root level, you can skip test connection and input path manually during authoring. Copy activity will still work as long as the service principal is granted with proper permission at the files to be copied.
 
 The following properties are supported:
 
