@@ -24,8 +24,8 @@ This article is for Publishers who have their offer on the Azure
 Marketplace, or who are on AppSource but want to build their Test Drive
 with only Azure resources.
 
-An Azure Resource Manager (Azure Resource Manager) template is a coded container of Azure
-resources that you design to best represent your solution. If you are unfamiliar with what a Resource Manager template is, read up on [understanding ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) and [authoring ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) to make sure you know how to build and test your own templates.
+An Azure Resource Manager (Resource Manager) template is a coded container of Azure
+resources that you design to best represent your solution. If you are unfamiliar with what a Resource Manager template is, read up on [understanding Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) and [authoring Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) to make sure you know how to build and test your own templates.
 
 What Test Drive does is that it takes the provided Resource Manager template and makes a deployment of all the resources required from that Resource Manager template into a resource group.
 
@@ -77,8 +77,8 @@ It is also important to note that **all parameters are optional**, so if you don
 ### Accepted Parameter Metadata Types
 
 | Metadata Type   | Parameter Type  | Description     | Sample Value    |
-|---|---|---|---|---|
-| **baseuri**     | string          | Base URI of your deployment package| `https://\<\..\>.blob.core.windows.net/\<\..\>` |
+|---|---|---|---|
+| **baseuri**     | string          | Base URI of your deployment package| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
 | **username**    | string          | New random user name.| admin68876      |
 | **password**    | secure string    | New random password | Lp!ACS\^2kh     |
 | **session id**   | string          | Unique Test Drive session ID (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
@@ -297,9 +297,9 @@ During the publishing certification, Test Drive unzips your deployment package a
 
 | package.zip                       | Test Drive blob container         |
 |---|---|
-| main-template.json                | `https://\<\...\>.blob.core.windows.net/\<\...\>/main-template.json`  |
-| templates/solution.json           | `https://\<\...\>.blob.core.windows.net/\<\...\>/templates/solution.json` |
-| scripts/warmup.ps1                | `https://\<\...\>.blob.core.windows.net/\<\...\>/scripts/warmup.ps1`  |
+| main-template.json                | https:\//\<\...\>.blob.core.windows.net/\<\...\>/main-template.json  |
+| templates/solution.json           | https:\//\<\...\>.blob.core.windows.net/\<\...\>/templates/solution.json |
+| scripts/warmup.ps1                | https:\//\<\...\>.blob.core.windows.net/\<\...\>/scripts/warmup.ps1  |
 
 
 We call a Uri of this blob container Base Uri. Every revision of your Lab has its own blob container, and, therefore, every revision of your Lab has its own Base Uri. Test Drive can pass a Base Uri of your unzipped deployment package into your template through template parameters.
