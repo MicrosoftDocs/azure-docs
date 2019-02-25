@@ -104,7 +104,7 @@ In this section, you create the [Jenkins Pipeline](https://jenkins.io/doc/book/p
 
 1. Enter the SCM repo URL and script path using the provided [script example](https://github.com/VSChina/odd-or-even-function/blob/master/doc/resources/jenkins/JenkinsFile).
 
-## Build and deploy the Java Function to Azure Functions
+## Build and deploy
 
 It's now time to run the Jenkins job.
 
