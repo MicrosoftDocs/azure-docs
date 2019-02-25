@@ -55,8 +55,8 @@ works with the standalone 3270 Design Tool, which you use to identify,
 or "capture", the host screens used for a specific task, define the 
 navigation flow through your mainframe app for that tasks, and define 
 the methods with input and output parameters for that task. The design 
-tool converts that information into metadata that the 3270 connector 
-uses when calling an action that represents that task from your logic app. 
+tool converts that information into metadata that the 3270 connector uses 
+when calling an action that represents that task from your logic app. 
 After you generate this metadata file from the design tool, you add this 
 file to an integration account in Azure. That way, your logic app can access 
 the metadata about your app when you add a 3270 connector action. The connector 
@@ -131,10 +131,13 @@ to navigate through your mainframe app's screens for the specific task.
 that describes the screen navigation path. You also choose the fields on each 
 screen that become the method's input and output parameters.
 
+### Unsupported elements
+
 The design tool doesn't support these elements:
 
-* Partial BMS maps: If you import a BMS map, the design tool ignores partial screen definitions.
-* In and out parameters: You can't define parameters as In or Out parameters.
+* Partial BMS maps: If you import a BMS map, 
+the design tool ignores partial screen definitions.
+* In/Out parameters: You can't define In/Out parameters.
 * Menu processing: Not supported during preview
 * Array processing: Not supported during preview
 
@@ -183,18 +186,39 @@ In this mode, you define the flow or steps for navigating
 through your mainframe app's screens for the specific task. 
 For example, sometimes, you might have more than one path that 
 your app can take where one path produces the correct result, 
-while the other path produces an error. For each screen, 
-specify the keystrokes necessary for moving to the next screen, 
-such as `CICSPROD <enter>`. 
+while the other path produces an error. For each screen, specify the 
+keystrokes necessary for moving to the next screen, such as `CICSPROD <enter>`.
 
-#### Guidelines for creating plans
+> [!TIP]
+> If you're automating several tasks that use the same connect and 
+> disconnect screens, the design tool provides special Connect and 
+> Disconnect plan types. After you define these types, you can add 
+> them to the start and end for your navigation plan.
 
-Your plan and other plans will have repeated screens, 
+Here are some guidelines when creating plans:
+
+* Include all screens, starting from connecting 
+and ending with disconnecting.
+
+* You can create a standalone plan or use the 
+Connect and Disconnect plans, which let you reuse 
+a series of screens common to all your transactions. 
+
+  * The last screen in your Connect plan must be the 
+  same screen as the first screen in your navigation plan.
+  * The first screen in your Disconnect plan must be 
+  same screen as the last screen in your navigation plan.
+
+* Your plan and other plans might contain many repeated screens, 
 for example:
 
-* The logon, or `msg-10`, screen
-* The welcome screen for the Customer Information Control System (CICS)
-* The "Clear" or **Empty** screen
+  * The logon, or `msg-10`, screen
+  * The welcome screen for the Customer Information Control System (CICS)
+  * The "Clear" or **Empty** screen
+
+  Select and use only one instance of a repeated screen in your plan.
+
+#### Create plan
 
 1. In the design tool, to start your plan, choose **New Plan**.
 
@@ -213,11 +237,7 @@ for example:
 key and the static text that moves the flow to the next screen.
 You might have just the AID key, or both the AID key and text. 
 
-> [!TIP]
-> If you're automating several tasks that use the same connect and 
-> disconnect screens, the design tool provides special Connect and 
-> Disconnect plan types. After you define these types, you can add 
-> them to the start and end in your navigation plan.
+
 
 After you finish your navigation plan, 
 you can define methods in the next mode.
