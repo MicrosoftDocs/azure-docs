@@ -14,7 +14,7 @@ ms.subservice: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/12/2017
 ---
 # Use Azure Machine Learning Studio web service parameters

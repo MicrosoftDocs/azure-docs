@@ -5,7 +5,7 @@ description: Share and discover analytics resources and more in the Azure AI Gal
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs

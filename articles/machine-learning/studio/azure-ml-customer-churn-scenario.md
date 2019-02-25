@@ -5,7 +5,7 @@ description: Case study of developing an integrated model for analyzing and scor
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs

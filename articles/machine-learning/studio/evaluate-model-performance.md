@@ -5,7 +5,7 @@ description: This article demonstrates how to evaluate the performance of a mode
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs

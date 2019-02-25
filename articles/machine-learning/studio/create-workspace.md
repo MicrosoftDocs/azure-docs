@@ -5,7 +5,7 @@ description: To use Azure Machine Learning Studio, you need to have a Machine Le
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs

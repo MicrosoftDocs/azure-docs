@@ -5,7 +5,7 @@ description: How to choose Azure Machine Learning Studio algorithms for supervis
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs

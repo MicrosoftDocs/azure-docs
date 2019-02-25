@@ -5,7 +5,7 @@ description: This topic describes how to author and deploy a custom R module in 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs

@@ -5,7 +5,7 @@ description: How to import your data into Azure Machine Learning Studio from var
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs

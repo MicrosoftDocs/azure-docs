@@ -5,7 +5,7 @@ description: How to debug errors produced by Train Model and Score Model modules
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs

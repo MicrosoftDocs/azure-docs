@@ -5,7 +5,7 @@ description: An easy-to-understand overview of machine learning basics includes 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: garyericson
 ms.author: garye

@@ -5,7 +5,7 @@ description: You can use Azure Machine Learning Studio to deploy machine learnin
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs

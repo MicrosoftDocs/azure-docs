@@ -5,7 +5,7 @@ description: An overview of the mechanics of how your Azure Machine Learning Stu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs
