@@ -23,6 +23,10 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 
 ### Azure Machine Learning SDK for Python v1.0.17
 
++ **New features**
+
+  + Azure Machine Learning SDK now supports a [`Chainer`](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) estimator class to streamline the process of training and deploying a model using custom Chainer code.
+
 ## 2019-02-11
 
 ### Azure Machine Learning SDK for Python v1.0.15
