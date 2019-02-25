@@ -13,7 +13,7 @@ ms.author: v-doglov
 
 This article helps you to troubleshoot issues that occur because of VMware vCenter discovery failures.
 
-## vCenter disconnected due non-numeric values in the  snapshot.maxSnapShots property
+## Non-numeric values in the maxSnapShots property
 
 On versions prior to 9.20, vCenter disconnects when it retrieves a non-numeric value for the property  `snapshot.maxSnapShots` property on a VM.
 
@@ -72,6 +72,6 @@ For DRA proxy configuration:
 
 4. Restart the DRA provider service.
 
-Next steps
+## Next steps
 
-[Manage the configuration server for VMware VM disaster recovery](https://docs.microsoft.com/en-us/azure/site-recovery/vmware-azure-manage-configuration-server#refresh-configuration-server) 
+[Manage the configuration server for VMware VM disaster recovery](https://docs.microsoft.com/azure/site-recovery/vmware-azure-manage-configuration-server#refresh-configuration-server) 
