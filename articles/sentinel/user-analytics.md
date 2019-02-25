@@ -1,13 +1,13 @@
 ---
-title: Collect threat intelligence data in Azure Sentinel| Microsoft Docs
-description: Learn about how to connect threat intelligence data to Azure Sentinel.
+title: Investigate users with user analytics in Azure Sentinel| Microsoft Docs
+description: Learn about how to investigate users with user analytics in Azure Sentinel.
 documentationcenter: na
 author: rkarlin
 manager: MBaldwin
 editor: ''
 
-ms.assetid: 56412543-5664-44c1-b026-2dbaf78a9a50
-ms.service: security-center
+ms.assetid: 5b06aef0-16be-4ca0-83e4-a33795a82353
+ms.service: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -42,27 +42,28 @@ Azure Sentinel enriches your user data with analytics from Azure ATP to enable c
 
 1. To enable user analytics in Azure Sentinel, in the portal go to the **User analytics** page, and click **Enable**. This sends information about the workspace to Azure ATP.
 
-1. Then, it takes you to Azure ATP under Security Extensions and the Microsoft Azure Sentinel tab, click the plus to add and then select the workspace and click connect.
+1. Then, it takes you to Azure ATP. Under **Security extensions** in the **Microsoft Azure Sentinel** tab, click the **+plus** to add and then select the workspace. 
+1. Click **Connect**.
 
-Look in the Sentinel menu under User analytics
-this is a list of users according to their investigation priority. the score is based on Azure ATP alerts, Sentinel alerts and Microsoft Cloud App Security alerts if you have Microsoft Cloud App Security.
+# Investigate a user
 
-You can search for as user, click on the user - you get to the user page. you get a user page like in Azure ATP - you cans see the investigation priority, over time, and the alert activities over time on the timeline. You can see all activities from Microsoft 365 + Sentinel. 
+1. In the Azure Sentinel menu under **User analytics**, review the list of users according to their investigation priority. The score is based on Azure ATP alerts, Azure Sentinel alerts and Microsoft Cloud App Security alerts, if you have Microsoft Cloud App Security.
 
-You can also reach the user page by drilling down into the entities in a case.
+2. Search for a user that you want to investigate. Click on the user to get to the user page. Review the user's activities and alerts, over time, on the timeline. You can see all activities from Microsoft 365 and Azure Sentinel. You can also reach the user page by drilling down into the entities in a case.
 
-I order for this to work well, you have to properly set up the custom alert rule to map the right entities so that we can work with Azure ATP.
+3. For this to work well, you have to properly set up the [custom alert rule](tutorial-detect-threats.md) to map the right entities from Azure AD and Windows so that Azure Sentinel ingests the user data properly.
 
-Windows events map Account to the SID
-Azure AD data (which can be found in many logs including Azure Activity) or Office 365 data, you must map the Account to the GUID or the UPN. 
+    - For Windows events, map **Account** to the **SID**
+    - Azure AD data (which can be found in many logs including Azure Activity) or Office 365 data, map **Account** to the **GUID** or the **UPN**. 
 
   ![Query](./media/user-analytics/query-window.png)
 
 > [!NOTE]
 > In activity logs of Azure Activity, the caller entity includes the UPN.
+
 For example: 
 
-If you're looking for creation of an anomalous number of resources - looks for anomalous number of resources creation or deployment activities in azure activity log.
+If your query searches for creation of an anomalous number of resources or deployment activities in Azure Activity Log.
 
         AzureActivity      
         | where TimeGenerated >= startofday(ago(7d))        

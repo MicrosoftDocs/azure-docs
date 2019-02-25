@@ -59,30 +59,7 @@ To investigate cases, you first have to create detection rules based on the type
 
 9. Click **Create** to initialize your alert rule. After the alert is created, a case is created that contains the alert. You can see the defined detection rules as rows in the **Security Analytics** tab. You can also see the number of matches for each rule - the alerts triggered. From this list you can enable, disable, or delete each rule. You can also right-click on the three dots at the end of the row for each alert to edit, disable, clone, show matches, or delete a rule. The **Security analytics** page is a gallery of all your active alert rules, including templates you enable and alert rules you create based on templates.
 
-1. The results of the alert rules can be seen in the **Cases** page, where you can triage, investigate, and remediate the threats.
-
-## Investigate cases
-
-A case can include multiple alerts. It's an aggregation of all the relevant evidence for a specific investigation. A case is created based alerts you defined in the **Security analytics** page. The properties related to the alerts, such as severity and status are set at the case level. 
-After you let Azure Sentinel know what kinds of threats you're looking for and how to find them, you can monitor threats that are detected. 
-
-1. Select **Cases**. The **Cases** page lets you know how many cases you have, how many are open, how many you've set to **In progress** and how many are closed. For each case, you can see the time it occurred, and the status of the case. Look at the severity to decide what to handle first. In the **Cases** page, click the **Alerts** tab to see all the alerts that are related to a case. Entities that you mapped earlier as part of the case can be viewed in the **Entities** tab.  You can filter the cases as needed, for example by status or severity. When you look at the **Cases** tab, you'll see open cases that contain alerts triggered by your detection rules defined in **Security analytics**. Across the top you'll see your active cases, new cases and in progress cases. You can also see an overview of all your cases by severity.
-
-  ![Alert dashboard](./media/tutorial-detect-threats/alert-dashboard.png)
-
-2. To begin an investigation, click on a specific case. On the right, you can see detailed information for the case including its severity, summary of the number of entities involved (based on your mapping). Each case has a unique ID. The severity of the case is determined according to the most severe alert included in the case.  
-
-1. To view more details about the alerts and entities in the case, click on **View full details** in the case page and review the relevant tabs that summarize the case information.  The full case view consolidates all the evidence in the alert, the associated alerts, and entities.
-
-1. In the **Alerts** tab, review the alert itself - when it was triggered and by how much it exceeded the thresholds you set. You can see all relevant information about the alert – the query that triggered the alert, the number of results returned per query, and the ability to run playbooks on the alerts. To drill down even further into the case, click on the number of hits. This opens the query that generated the results adn the results that triggered the alert in Log Analytics.
-
-3. In the **Entities** tab, you can see all the entities that you mapped as part of the alert rule definition. 
-
-4. If you're actively investigating a case, it's a good idea to set the case status to **In progress** until you close it. You can also close the case, where closed resolved  is the status for cases that indicate an incident tha was handled, while **closed dismissed**  is the status for cases that don't require handling. You have to give an explanation for what your reasoning is to close a case.
-
-5. Cases can be assigned to a user. They all start unassigned and you can set as **Assign to me**.  You can go into the cases and filter by your name to see all the cases that are assigned to you.
-
-5. Click **Investigate** to view the investigation map and scope of the breach with remediation steps. 
+1. The results of the alert rules can be seen in the **Cases** page, where you can triage, [investigate cases](tutorial-investigate-cases.md), and remediate the threats.
 
 
 

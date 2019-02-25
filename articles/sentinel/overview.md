@@ -83,14 +83,14 @@ To help you reduce noise and minimize the number of alerts you have to review an
 
 ![Cases](./media/overview/cases.png)
 
-## Investigation
+## User analytics
 
-Azure Sentinel deep investigation tools include helps you to understand the scope and find the root cause of a potential security threat. You  can choose an entity on the interactive graph that allows you to ask interesting questions for a specific entity and drill down into tha entity and its connections to get to the root cause of the threat. 
+With **native integration of machine learning (ML), and user analytics**, Azure Sentinel can help detect threats quickly. Azure Sentinel seamlessly integrates with Azure Advanced Threat Protection to analyze user behavior and prioritize which users you should investigate first, based on their alerts, and suspicious activity patterns across Azure Sentinel and Microsoft 365.
 
-![Investigation](./media/overview/investigation.png)
+![User analytics](./media/overview/user-analytics.png)
 
 
-## Automate & orchestrate responses
+## Security automation & orchestration
 
 Automate your common tasks and simplify security orchestration with playbooks that integrate with Azure services as well as your existing tools. Built on the foundation of Azure Logic Apps, the Azure Sentinel's automation and orchestration solution provides a highly-extensible architecture that enables scalable automation as new technologies and threats emerge. To build playbooks with Azure Logic Apps, you can choose from a growing gallery with [200+ connectors](https://docs.microsoft.com/azure/connectors/apis-list), that include services such as Azure functions that allows you to apply any custom logic in code, ServiceNow, Jira, Zendesk, HTTP requests, Microsoft Teams, Slack, Windows Defender ATP, and Cloud App Security.
 
@@ -98,11 +98,14 @@ For example, if you use the ServiceNow ticketing system, you can use the tools p
 
 ![Playbooks](./media/overview/playbooks.png)
 
-## User analytics
 
-With **native integration of machine learning (ML), and user analytics**, Azure Sentinel can help detect threats quickly. Azure Sentinel seamlessly integrates with Azure Advanced Threat Protection to analyze user behavior and prioritize which users you should investigate first, based on their alerts, and suspicious activity patterns across Azure Sentinel and Microsoft 365.
 
-![User analytics](./media/overview/user-analytics.png)
+## Investigation
+
+Azure Sentinel deep investigation tools include helps you to understand the scope and find the root cause of a potential security threat. You  can choose an entity on the interactive graph that allows you to ask interesting questions for a specific entity and drill down into tha entity and its connections to get to the root cause of the threat. 
+
+![Investigation](./media/overview/investigation.png)
+
 
 ## Hunting
 

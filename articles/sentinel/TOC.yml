@@ -14,6 +14,8 @@
   items:
   - name: Detect suspicious threats
     href: tutorial-detect-threats.md
+  - name: Investigate cases
+    href: tutorial-investigate-cases.md 
   - name: Respond to threats
     href: tutorial-respond-threats-playbook.md  
 
