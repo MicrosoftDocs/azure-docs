@@ -19,7 +19,7 @@ You can use the [Azure Migrate service](migrate-overview.md) to assess and migra
 
 There are two versions of the Azure Migrate service:
 
-- **Current version (in public preview)**: Using the current version of Azure Migrate, you can assess on-premises VMware VMs and Hyper-V VMs for migration to Azure, and migrate VMware VMs. [Learn more](migrate-overview.md#azure-migrate-public-preview).
+- **Current version (in public preview)**: Using the current version of Azure Migrate, you can assess on-premises VMware VMs and Hyper-V VMs for migration to Azure, and migrate VMware VMs. [Learn more](migrate-overview.md#azure-migrate-services-public-preview).
 - **Classic version**: Using the classic version of Azure Migrate, you can assess on-premises VMware VMs for migration to Azure.
 
 This article calls out differences in support and limitations as required.
