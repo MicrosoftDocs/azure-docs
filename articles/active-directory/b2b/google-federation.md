@@ -1,6 +1,6 @@
 ---
 
-title: Add Google as an identity provider for Azure Active Directory B2B | Microsoft Docs
+title: Add Google as an identity provider for B2B - Azure Active Directory | Microsoft Docs
 description: Federate with Google to enable guest users to sign in to your Azure AD apps with their own Gmail account
 
 services: active-directory

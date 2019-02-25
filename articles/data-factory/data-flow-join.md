@@ -7,7 +7,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
---- 
+---
 
 # Azure Data Factory Data Flow Join Transformation
 

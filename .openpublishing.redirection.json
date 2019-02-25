@@ -11623,6 +11623,11 @@
       "redirect_document_id": false
     }, 
     {
+      "source_path": "articles/lab-services/compare-lab-types.md",
+      "redirect_url": "/azure/lab-services/lab-services-overview#types-of-labs",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/lab-services/how-to-manage-classroom-labs.md",
       "redirect_url": "/azure/lab-services/classroom-labs/how-to-manage-classroom-labs",
       "redirect_document_id": false
@@ -36010,7 +36015,16 @@
       "source_path": "articles/storage/blobs/data-lake-storage-integrate-with-other-services.md",
       "redirect_url": "/azure/storage/blobs/data-lake-storage-data-scenarios",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/azure-stack-app-service-fault-domain-update.md",
+      "redirect_url": "/azure/azure-stack/azure-stack-app-service-before-you-get-started#high-availability",
+      "redirect_document_id": false
+    },
+	  {
+      "source_path": "articles/azure-monitor/app/java-live.md",
+      "redirect_url": "/azure/azure-monitor/app/java-get-started",
+      "redirect_document_id": false
     }
-    
   ]
 }

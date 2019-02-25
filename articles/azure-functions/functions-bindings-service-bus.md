@@ -313,7 +313,7 @@ The `maxAutoRenewDuration` is configurable in *host.json*, which maps to [OnMess
 
 ## Trigger - message metadata
 
-The Service Bus trigger provides several [metadata properties](functions-triggers-bindings.md#binding-expressions---trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. These are properties of the [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) class.
+The Service Bus trigger provides several [metadata properties](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. These are properties of the [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) class.
 
 |Property|Type|Description|
 |--------|----|-----------|
@@ -353,7 +353,7 @@ See the language-specific example:
 * [C# script (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
-* Java
+* [Java](#output---java-example)
 
 ### Output - C# example
 
