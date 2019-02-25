@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Use the Azure CLI to create a Service Bus queue | Microsoft Docs
-description: In this quickstart, you learn how to use the Azure CLI to creat a Service Bus queue. Then, you use a sample Java application to send messages to and receive messages from the queue.
+description: In this quickstart, you learn how to use the Azure CLI to create a Service Bus queue. Then, you use a sample Java application to send messages to and receive messages from the queue.
 services: service-bus-messaging
 author: spelluru
 manager: timlt
@@ -28,13 +28,13 @@ If you don't have an Azure subscription, you can create a [free account][] befor
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Log in to Azure
+## Sign in to Azure
 
 Click the Cloud Shell button on the menu in the upper-right corner of the Azure portal, and from the **Select environment** dropdown, select **Bash**. 
 
 ## Use the Azure CLI to create resources
 
-In Cloud Shell, from the Bash prompt issue the following commands to provision Service Bus resources. Be sure to replace all placeholders with the appropriate values:
+In Cloud Shell, from the Bash prompt issue the following commands to provision Service Bus resources. Be sure to replace all placeholders with the appropriate values: The Java sample program expects the queue name to be BasicQueue, so do not change it. 
 
 ```azurecli-interactive
 # Create a resource group
@@ -85,7 +85,7 @@ After you've created the namespace and queue, and you have the necessary credent
    java -jar ./target/queuesgettingstarted-1.0.0-jar-with-dependencies.jarr -c $connectionString 
    ```
 
-6. Observe 10 messages being sent to the queue. Note that ordering of messages is not guaranteed, but you can see the messages sent, then acknowledged and received, along with the payload data:
+6. Observe 10 messages being sent to the queue. Ordering of messages is not guaranteed, but you can see the messages sent, then acknowledged and received, along with the payload data:
 
     ```
     Message sending: Id = 0
