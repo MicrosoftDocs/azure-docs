@@ -290,7 +290,7 @@ Wait until the cluster is running before proceeding further.
 ### Install the correct SDK into a Databricks library
 Once the cluster is running, [create a library](https://docs.databricks.com/user-guide/libraries.html#create-a-library) to attach the appropriate Azure Machine Learning SDK package to your cluster. 
 
-1. **Choose only one option (no other SDK installation are supported)
+1. Choose **only one** option (no other SDK installation are supported)
 
    |SDK&nbsp;package&nbsp;extras|Source|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
@@ -303,22 +303,21 @@ Once the cluster is running, [create a library](https://docs.databricks.com/user
 
 1. Monitor for errors until status changes to **Attached**, which may take several minutes. 
    
-   + If this step fails, restart your cluster by:
-    1. In the left pane, select **Clusters**.
-    1. In the table, select your cluster name.
-    1. On the **Libraries** tab, select **Restart**.
+   If this step fails, restart your cluster by:
+   1. In the left pane, select **Clusters**.
+   1. In the table, select your cluster name.
+   1. On the **Libraries** tab, select **Restart**.
       
-   + If restarting didn't work, also consider:
-    + Some packages, such as `psutil`, can cause Databricks conflicts during installation. To avoid such errors, install packages by freezing lib version, such as `pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0`. 
-    + Or, if you have an old SDK version, deselect it from cluster’s installed libs and move to trash. Install the new SDK version and restart the cluster. If there is an issue after this, detach and reattach your cluster.
+   If restarting didn't work, also consider:
+   + Some packages, such as `psutil`, can cause Databricks conflicts during installation. To avoid such errors, install packages by freezing lib version, such as `pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0`. 
+   + Or, if you have an old SDK version, deselect it from cluster’s installed libs and move to trash. Install the new SDK version and restart the cluster. If there is an issue after this, detach and reattach your cluster.
 
-   If install was successful, the imported library should look like one of these:
+If install was successful, the imported library should look like one of these:
    
-   SDK for Databricks **_without_** automated machine learning
-   ![Azure Machine Learning SDK for Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
+SDK for Databricks **_without_** automated machine learning
+![Azure Machine Learning SDK for Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-   SDK for Databricks **_WITH_** automated machine learning
-   ![SDK with automated machine learning installed on Databricks ](./media/how-to-configure-environment/automlonadb.jpg)
+![SDK with automated machine learning installed on Databricks ](./media/how-to-configure-environment/automlonadb.jpg)
 
 ### Start exploring
 
