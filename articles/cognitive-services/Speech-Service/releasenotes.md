@@ -17,11 +17,11 @@ ms.custom: seodec18
 
 * Speech SDK 1.3.1: 2019-February refresh
 
-This is a bug fix release and only effecting the native/managed SDK. It is not affecting the JavaScript version of the SDK.
+This is a bug fix release and only affecting the native/managed SDK. It is not affecting the JavaScript version of the SDK.
 
 **Bug fix**
 
-* Fixed a memory leak when using microphone input. Stream based or file input is not effected.
+* Fixed a memory leak when using microphone input. Stream based or file input is not affected.
 
 ## Speech SDK 1.3.0: 2019-February release
 
