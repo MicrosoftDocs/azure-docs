@@ -102,7 +102,7 @@ The **Service** filter allows you to select from a dropdown of the following ser
 - Self-service Passord Management
 - Terms of Use
 
-The **Category** filter enables you to select one of the following filter:
+The **Category** filter enables you to select one of the following filters:
 
 - All
 - AdministrativeUnit
