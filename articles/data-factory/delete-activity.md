@@ -40,7 +40,7 @@ Here are some recommendations for using the Delete activity:
 
 -   [Azure Blob storage](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
--   [Azure Data Lake Storage Gen2 (Preview)](connector-azure-data-lake-storage.md)
+-   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
 
 ### File system data stores
 
