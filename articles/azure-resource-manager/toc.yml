@@ -104,22 +104,14 @@
       href: /azure/architecture/building-blocks/extending-templates/update-resource
   - name: Deploy templates
     items:
-    - name: Deploy by using the Azure portal
+    - name: Deploy - portal
       href: resource-group-template-deploy-portal.md
-    - name: Deploy by using Azure CLI
+    - name: Deploy - CLI
       href: resource-group-template-deploy-cli.md
-    - name: Deploy by using Azure PowerShell
+    - name: Deploy - PowerShell
       href: resource-group-template-deploy.md
     - name: Deploy by using REST API
       href: resource-group-template-deploy-rest.md
-    - name: Export templates
-      items:
-      - name: Using the portal
-        href: resource-manager-export-template.md
-      - name: Using Azure CLI
-        href: resource-manager-export-template-cli.md
-      - name: Using Azure PowerShell
-        href: resource-manager-export-template-powershell.md
     - name: Secure templates with SAS token
       items:
       - name: Using Azure CLI
@@ -133,12 +125,28 @@
       maintainContext: true
   - name: Manage resources
     items:
-    - name: Manage by using the Azure portal
-      href: resource-group-portal.md
-    - name: Manage by using Azure PowerShell
-      href: powershell-azure-resource-manager.md
-    - name: Manage by using Azure CLI
-      href: cli-azure-resource-manager.md
+    - name: Manage resource groups
+      items:
+      - name: Manage resource groups - portal
+        displayName: create,list,open,delete,deploy,move,lock,tag,export
+        href: manage-resource-groups-portal.md
+      - name: Manage resource groups - CLI
+        displayName: create,list,open,delete,deploy,move,lock,tag,export
+        href: manage-resource-groups-cli.md
+      - name: Manage resource groups - PowerShell
+        displayName: create,list,open,delete,deploy,move,lock,tag,export
+        href: manage-resource-groups-powershell.md
+    - name: Manage resources
+      items:
+      - name: Manage resources - portal
+        displayName: open,delete,deploy,move,lock,tag,monitor
+        href: manage-resources-portal.md
+      - name: Manage resources - CLI
+        displayName: open,delete,deploy,move,lock,tag
+        href: manage-resources-cli.md
+      - name: Manage resources - PowerShell
+        displayName: open,delete,deploy,move,lock,tag
+        href: manage-resources-powershell.md
     - name: Move resources
       href: resource-group-move-resources.md
     - name: Organize resources by using tags
