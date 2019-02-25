@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 02/25/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -129,7 +129,7 @@ To configure Azure AD single sign-on with Amazon Web Services (AWS), perform the
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
+4. On the **Basic SAML Configuration** section, the user does not have to enter any URLs as the app is already pre-integrated with Azure and user needs to save the configuration by clicking on **Save** button  .
 
     ![image](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_url.png)
 
