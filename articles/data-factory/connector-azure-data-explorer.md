@@ -40,6 +40,23 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
+The Azure Data Explorer connector uses service principal authentication. Follow these steps to get a service principal and grant permissions:
+
+1. Register an application entity in Azure Active Directory (Azure AD) by following [Register your application with an Azure AD tenant](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Make note of the following values, which you use to define the linked service:
+
+    - Application ID
+    - Application key
+    - Tenant ID
+
+2. Grant the service principal proper permission in Azure Data Explorer.
+
+    - **As source**, in Access control (IAM), grant at least **<<place-holder>>** role.
+    - **As sink**, in Access control (IAM), grant at least **<<place-holder>>** role.
+
+>[!NOTE]
+>When using ADF UI to author, to list databases on linked service or to list tables on dataset, you need 
+to grant the service principal with <<place-holder>> permission. If you have concern on granting such higher privileged permission, you can choose to manually input database name and table name. Copy activity will still work as long as the service principal is granted with proper permission to the data as mentioned above.
+
 The following properties are supported for Azure Data Explorer linked service:
 
 | Property | Description | Required |
