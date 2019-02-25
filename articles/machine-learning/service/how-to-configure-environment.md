@@ -281,8 +281,8 @@ Use these settings:
 | Databricks Runtime |always| Any non ML runtime (non ML 4.x, 5.x) |
 | Python version |always| 3 |
 | Workers |always| 2 or higher |
-| Worker node VM types <br>(determines max # of concurrent iterations) |Automated ML| Memory optimized VM preferred |
-| Enable Autoscaling |Automated ML| Uncheck |
+| Worker node VM types <br>(determines max # of concurrent iterations) |Automated ML<br>only| Memory optimized VM preferred |
+| Enable Autoscaling |Automated ML<br>only| Uncheck |
 
 Wait until the cluster is running before proceeding further.
 
@@ -300,7 +300,8 @@ Once the cluster is running, [create a library](https://docs.databricks.com/user
    * Do not select **Attach automatically to all clusters**.
    * Select  **Attach** next to your cluster name.
 
-1. Monitor for errors until status changes to **Attached**, which may take several minutes.  If this step fails, check the following:
+1. Monitor for errors until status changes to **Attached**, which may take several minutes.  If this step fails, check the following: 
+
    Try restarting your cluster by:
    1. In the left pane, select **Clusters**.
    1. In the table, select your cluster name.
@@ -321,7 +322,7 @@ SDK for Databricks **WITH** automated machine learning
 ### Start exploring
 
 Try it out:
-+ Download the [notebook archive file](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc) for Azure Databricks/Azure Machine Learning SDK and import the archive file](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) into your Databricks cluster.  
++ Download the [notebook archive file](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc) for Azure Databricks/Azure Machine Learning SDK and [import the archive file](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) into your Databricks cluster.  
   While many sample notebooks are available, **only [these sample notebooks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) work with Azure Databricks.**
   
 + Learn how to [create a pipeline with Databricks as the training compute](how-to-create-your-first-pipeline.md).
