@@ -21,17 +21,24 @@ In this quickstart, you create an app, create an intent, add an example utteranc
 
 If you don’t have a free LUIS portal account, you can create the free account the first time you visit the LUIS portal.  
 
-## Prerequisites
-
-* Sign in to the [LUIS portal](https://www.luis.ai).
-
-var resourceRegion = "westus";
-var culture = "en-us";
-var appName = "myEnglishApp";
-var description = "app made with .Net SDK";
-var versionId = "0.1";
-
 ## Create app 
+
+1. Open the LUIS portal in a browser and sign in. 
+
+1. Select **Create new app** in the contextual toolbar.
+
+    ![Create new app in LUIS portal](./media/get-started-portal-build-app/create-app-in-portal.png)
+
+1. In the pop-up window, use the following settings:
+
+    |Setting name| Value | Purpose|
+    |--|--|--|
+    |Name|`myEnglishApp`|Unique LUIS app name, required|
+    |Culture|**English**|Language of utterances from users, **en-us**, required|
+    |Description|`App made with LUIS Portal`|Description of app, optional|
+
+    ![Enter new app settings](./media/get-started-portal-build-app/create-new-app-settings.png)
+
 
 ## Create intent 
 FindForm
