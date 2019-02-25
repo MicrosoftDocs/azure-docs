@@ -12,7 +12,7 @@ ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: 
-ms.date: 02/15/2019
+ms.date: 02/19/2019
 ms.author: juliako
 #Customer intent: As a developer, I want to create a Media Services account so that I can store, encrypt, encode, manage, and stream media content in Azure.
 ---
@@ -40,10 +40,14 @@ The Media Services account and all associated storage accounts must be in the sa
 az group create -n amsResourceGroup -l westus2
 ```
 
-### Create an azure storage account, General Purpose v2, Standard RAGRS
+### Create an azure storage account
 
+In this example, we create a General Purpose v2, Standard LRS account.
+
+If you want to experiment with storage accounts, use `--sku Standard_LRS`. However, when picking a SKU for production you should consider, `--sku Standard_RAGRS`, which provides geographic replication for business continuity. For more information, see [storage accounts](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
+ 
 ```azurecli
-az storage account create -n amsstorageaccount --kind StorageV2 --sku Standard_RAGRS -l westus2 -g amsResourceGroup
+az storage account create -n amsstorageaccount --kind StorageV2 --sku Standard_LRS -l westus2 -g amsResourceGroup
 ```
 
 ### Create an azure media service account
@@ -51,6 +55,8 @@ az storage account create -n amsstorageaccount --kind StorageV2 --sku Standard_R
 ```azurecli
 az ams account create --n amsaccount -g amsResourceGroup --storage-account amsstorageaccount -l westus2
 ```
+
+You get a response similar to this:
 
 ```
 {
@@ -178,8 +184,8 @@ You get a response similar to this:
 
 In Media Services v3, when you submit Jobs to process your videos, you have to tell Media Services where to find the input video. One of the options is to specify an HTTPS URL as a job input (as shown in this example). 
 
-When you run `az ams job start`, you can set a label on the job's output. The label is used to identify what is this output asset for. This information could be useful in post "media processing" steps. 
- 
+When you run `az ams job start`, you can set a label on the job's output. The label can later be used to identify what this output asset is for. 
+
 - If you assign a value to the label, set ‘--output-assets’ to “assetname=label”
 - If you do not assign a value to the label, set ‘--output-assets’ to “assetname=”.
   Notice that you add "=" to the `output-assets`. 
@@ -318,7 +324,7 @@ Copy the `hostName` value. In this case: `amsaccount-usw22.streaming.media.azure
 
 `https://amsaccount-usw22.streaming.media.azure.net/7f19e783-927b-4e0a-a1c0-8a140c49856c/ignite.ism/manifest(format=m3u8-aapl)`
 
-## Play back with Azure Media Player
+## Test playback with Azure Media Player
 
 To test the stream, this article uses Azure Media Player. 
 
@@ -327,6 +333,8 @@ To test the stream, this article uses Azure Media Player.
 
 1. Open a web browser and navigate to [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
 2. In the **URL:** box, paste the URL that you built in the previous section. 
+
+  You can paste the URL in HLS, Dash, or Smooth format and Azure Media Player will switch to an appropriate streaming protocol for playback on your device automatically.
 3. Press **Update Player**.
 
 Azure Media Player can be used for testing but should not be used in a production environment. 
@@ -344,7 +352,6 @@ az group delete --name amsResourceGroup
 ## See also
 
 See [Job error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
-
 
 ## Next steps
 

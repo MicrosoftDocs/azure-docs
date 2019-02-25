@@ -16,7 +16,7 @@ author: billmath
 ms.custom: seohack1
 ms.author: billmath
 ms.collection: M365-identity-device-management
----    
+---
 
 # Update the SSL certificate for an Active Directory Federation Services (AD FS) farm
 
