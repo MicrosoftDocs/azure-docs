@@ -28,6 +28,33 @@ Once a package has been imported, it is listed on the **Python 2 packages** page
 
 ![Package list](media/python-packages/package-list.png)
 
+## Import packages with dependencies
+
+Azure automation does not resolve dependencies for python packages during the import process. There are two ways to import a package with all its dependencies. Only one of the following steps needs to be used to import the packages into your Automation Account.
+
+### Manually download
+
+On a Windows 64-bit machine with python2.7 and pipi installed, run the following command to download a package and all its dependencies:
+
+```
+C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>
+```
+
+Once the packages are downloaded you can import them into your automation account.
+
+### Runbook
+
+Import the python runbook [Import Python 2 packages from pypi into Azure Automation account](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) from the gallery into your Automation Account. Make sure the Run Settings are set to **Azure** and start the runbook with the parameters. The runbook requires a Run As Account for the Automation Account to work. For each parameter make sure you start it with the switch as seen in the following list and image:
+
+* -s \<subscriptionId\>
+* -g \<resourceGroup\>
+* -a \<automationAccount\>
+* -m \<modulePackage\>
+
+![Package list](media/python-packages/import-python-runbook.png)
+
+The runbook allows you to specify what package to download e.g. `Azure` (the 4th parameter) will download all Azure modules and all its dependencies, which is about 105.
+
 ## Use a package in a runbook
 
 Once you have imported a package, you can now use it in a runbook. The following example uses the [
