@@ -30,25 +30,9 @@ Before you start configuration, confirm the following:
 * That Azure private peering is configured on your ExpressRoute circuits.  
 
 ### Sign in to your Azure account
-To start the configuration, sign in to your Azure account. 
+To start the configuration, sign in to your Azure account and select the subscription that you want to use. 
 
-Open your PowerShell console with elevated privileges, and then connect to your account. The command prompts you for the sign-in credential for your Azure account.  
-
-```azurepowershell-interactive
-Connect-AzAccount
-```
-
-If you have multiple Azure subscriptions, check the subscriptions for the account.
-
-```azurepowershell-interactive
-Get-AzSubscription
-```
-
-Specify the subscription that you want to use.
-
-```azurepowershell-interactive
-Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
-```
+[!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
 
 ### Identify your ExpressRoute circuits for configuration
 You can enable ExpressRoute Global Reach between any two ExpressRoute circuits as long as they're located in the supported countries and were created at different peering locations. If your subscription owns both circuits, you can choose either circuit to run the configuration in the following sections. 
