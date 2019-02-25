@@ -169,6 +169,8 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 ## Azure Monitor logs
 Azure Monitor logs is generally available in Azure Government.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ### Variations
 
 * Solutions that are available in Azure Government include:
