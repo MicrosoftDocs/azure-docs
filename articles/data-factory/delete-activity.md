@@ -558,9 +558,6 @@ Dataset for data destination used by copy activity.
 
 ## Next steps
 
-Learn more about copying files in Azure Data Factory.
-
--   [Copy Activity in Azure Data Factory](copy-activity-overview.md)
+Learn more about moving files in Azure Data Factory.
 
 -   [Copy Data tool in Azure Data Factory](copy-data-tool.md)
-- 

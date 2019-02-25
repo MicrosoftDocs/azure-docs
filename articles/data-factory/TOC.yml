@@ -329,7 +329,7 @@
       href: connector-xero.md
     - name: Zoho
       href: connector-zoho.md
-  - name: Copy data
+  - name: Move data
     items:
     - name: Copy data using Copy Activity
       href: copy-activity-overview.md
