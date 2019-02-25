@@ -10,7 +10,7 @@
   - name: Get invoice and usage data
     href: billing-download-azure-invoice-daily-usage-date.md
   - name: View and download tax documents for your billing profile
-    href: billing-download-tax-document-mca.md
+    href: billing-mca-download-tax-document.md
   - name: Third-party service charges
     href: billing-understand-your-azure-marketplace-charges.md
   - name: Usage terms explained
@@ -18,9 +18,9 @@
   - name: Invoice terms explained
     href: billing-understand-your-invoice.md
   - name: Invoice terms explained - MCA only
-    href: billing-understand-your-invoice-mca.md
+    href: billing-mca-understand-your-invoice.md
   - name: Understand your bill - MCA only
-    href: billing-understand-your-bill-mca.md
+    href: billing-mca-understand-your-bill.md
   - name: Billing accounts for Microsoft Customer Agreement
     href: billing-mca-overview.md
 - name: Manage costs
