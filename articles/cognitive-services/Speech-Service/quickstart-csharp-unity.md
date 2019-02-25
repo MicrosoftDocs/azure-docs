@@ -69,7 +69,7 @@ We add a minimal UI to our scene, consisting of a button to trigger speech recog
 
 When you're done, the UI should look similar to this screenshot:
 
-[ ![Screenshot of the quickstart user interface in the Unity Editor](media/sdk/qs-csharp-unity-02-ui-inline.png) ](media/sdk/qs-csharp-unity-02-ui-expanded.png#lightbox)
+[![Screenshot of the quickstart user interface in the Unity Editor](media/sdk/qs-csharp-unity-02-ui-inline.png)](media/sdk/qs-csharp-unity-02-ui-expanded.png#lightbox)
 
 ## Add the sample code
 
@@ -108,7 +108,7 @@ When you're done, the UI should look similar to this screenshot:
 
 * After the app launches, click the button and speak an English phrase or sentence into your computer's microphone. Your speech is transmitted to the Speech service and transcribed to text, which appears in the window.
 
-  [ ![Screenshot of the running quickstart in the Unity Game Window](media/sdk/qs-csharp-unity-03-output-inline.png) ](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
+  [![Screenshot of the running quickstart in the Unity Game Window](media/sdk/qs-csharp-unity-03-output-inline.png)](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
 
 * Check the [Console Window](https://docs.unity3d.com/Manual/Console.html) for debug messages.
 
