@@ -163,7 +163,7 @@ http://<app_name>.azurewebsites.net
 
 ## Use managed identity in other languages
 
-App Configuration providers for .NET Framework and Java Spring also have built-in support for managed identity. In these cases, you simply use your app configuration store's URL endpoint instead of its full connection string when configuring a provider. For example, for the .NET Framework console app created in the quickstart, you specify the following:
+App Configuration providers for .NET Framework and Java Spring also have built-in support for managed identity. In these cases, you simply use your app configuration store's URL endpoint instead of its full connection string when configuring a provider. For example, for the .NET Framework console app created in the quickstart, you specify the following settings in the *App.config* file:
 
     ```xml
     <configSections>
