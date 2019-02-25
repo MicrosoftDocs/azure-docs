@@ -77,6 +77,8 @@ Perform the following steps to automate the installation and configuration of th
 
 Perform the first two steps once for your Automation environment, and then repeat the remaining steps for each worker computer.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 #### 1. Create a Log Analytics workspace
 
 If you don't already have a Log Analytics workspace, create one by using the instructions at [Manage your workspace](../azure-monitor/platform/manage-access.md). You can use an existing workspace if you already have one.

@@ -21,6 +21,8 @@ Automation can send runbook job status and job streams to your Log Analytics wor
 * Correlate jobs across Automation accounts.
 * Visualize your job history over time.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## Prerequisites and deployment considerations
 
 To start sending your Automation logs to Azure Monitor logs, you need:
