@@ -64,7 +64,7 @@ To create a new DSVM instance, follow the instructions on [Create an Ubuntu Data
 >
 > 2. Embed the files within a setup notebook that you run first before the primary notebook. In the setup notebook, create a code cell for each file where the cell contains the file contents. Then at the top of each cell, insert the command `%%writefile <filename>`, where `<filename>` is the name of the file to receive the contents. When you run the notebook, it creates all those files on the VM. For an example, see the [setup.ipynb file in the Microsoft Pet Detector demo](https://github.com/Microsoft/connect-petdetector/blob/master/setup.ipynb) (GitHub).
 >
->    ![Using a %%writefile command at the beginning of a code cell](media/setup-notebook-writefile-command.png)
+>     ![Using a %%writefile command at the beginning of a code cell](media/setup-notebook-writefile-command.png)
 
 ## Edit project metadata
 
