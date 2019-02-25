@@ -15,16 +15,20 @@ ms.author: aahi
 
 # Using the Bing Spell Check API
 
+Use this article to learn about using the Bing Spell Check API to perform contextual grammar and spell checking. While most spell-checkers rely on dictionary-based rule sets, the Bing spell-checker leverages machine learning and statistical machine translation to provide accurate and contextual corrections. 
+
 ## Spell check modes
 
 The API supports two proofing modes, `Proof` and `Spell`.  Try examples [here](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 
-### Proof - for documents scenario
+### Proof - for documents 
 
 The default mode is `Proof`. The `Proof` spelling mode provides the most comprehensive checks,  adding capitalization, basic punctuation, and other features to aid document creation. but it is available only in the en-US (English-United States), es-ES(Spanish), pt-BR(Portuguese) markets (Note: only in beta version for Spanish and Portuguese). For all other markets, set the mode query parameter to Spell. 
-<br /><br/>**NOTE:**   If the length of query text exceeds 4096, it will be truncated to 4096 characters, then get processed. 
 
-### Spell -  for web searches/queries scenario
+> [!NOTE]
+> If the length of query text exceeds 4096, it will be truncated to 4096 characters, then get processed. 
+
+### Spell -  for web searches/queries
 
 `Spell` is more aggressive in order to return better search results. The `Spell` mode finds most spelling mistakes but doesn't find some of the grammar errors that `Proof` catches, for example, capitalization and repeated words.
 
@@ -39,7 +43,7 @@ The default mode is `Proof`. The `Proof` spelling mode provides the most compreh
 A [market code](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference#market-codes) should be specified with the `mkt` query parameter in your request. The API will otherwise use a default market based on the request's IP address.
 
 
-## POST vs. GET
+## HTTP POST and GET support
 
 The API supports either HTTP POST or HTTP GET. Which you use depends on the length of text you plan to proof. If the strings are always less than 1,500 characters, you'd use a GET. But if you want to support strings up to 10,000 characters, you'd use POST. The text string may include any valid UTF-8 character.
 
@@ -108,37 +112,11 @@ The [flaggedTokens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-s
 
 If the `type` field is RepeatedToken, you'd still replace the token with `suggestion` but you'd also likely need to remove the trailing space.
 
-## Optional client headers
-
-The following headers are optional, but we recommend that you treat them as required. These headers help the Bing Spell Check API return more accurate results.
-
-- X-Search-Location
-- X-MSEdge-ClientID
-- X-MSEdge-ClientIP
-
-However, when you call the Bing Spell Check API from JavaScript, your browser's built-in security features might prevent you from accessing the values of these headers.
-
-To resolve this issue, you can make the Bing Spell Check API request through a CORS proxy. The response from such a proxy has a `Access-Control-Expose-Headers` header that whitelists response headers and makes them available to JavaScript.
-
-It's easy to install a CORS proxy to allow the [tutorial app](../tutorials/spellcheck.md) to access the optional client headers. First, if you don't already have it, [install Node.js](https://nodejs.org/en/download/). Then enter the following command at a command prompt.
-
-    npm install -g cors-proxy-server
-
-Next, change the Bing Spell Check API endpoint in the HTML file to:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/spellcheck/
-
-Finally, start the CORS proxy with the following command:
-
-    cors-proxy-server
-
-Leave the command window open while you use the tutorial app; closing the window stops the proxy. In the expandable HTTP Headers section below the search results, you can now see the `X-MSEdge-ClientID` header (among others) and verify that it's the same for each request.
-
 ## Throttling requests
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../../includes/cognitive-services-bing-throttling-requests.md)]
 
-# Next Steps
+## Next steps
 
 - [What is the Bing Spell Check API?](../overview.md)
 - [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

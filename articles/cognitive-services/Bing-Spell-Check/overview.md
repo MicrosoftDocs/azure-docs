@@ -37,7 +37,6 @@ The Bing Spell Check API is easy to call from any programming language that can 
 
 ## Next steps
 
-First, try the Bing Spell Check Search API [interactive demo](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/).
-This demo shows how you can quickly check a variety of text.
+First, try the Bing Spell Check Search API [interactive demo](https://azure.microsoft.com/services/cognitive-services/spell-check/) to see how you can quickly check a variety of texts.
 
 When you are ready to call the API, create a [Cognitive services API account](../../cognitive-services/cognitive-services-apis-create-account.md). If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) for free.

@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: What is the Bing Spell Check API?
-    href: proof-text.md
+    href: overview.md
   - name: Compare the Bing Search APIs
     href: ../Bing-Web-Search/bing-api-comparison.md
     maintainContext: true
