@@ -128,7 +128,7 @@ To achieve real business continuity, adding database redundancy between datacent
 ## Permissions
 
 ### Failover
-Managed instance failover is an action on the target-side failover gorup entity. As such, to failover, you need RBAC write access to the failover group resource path on the new primary server (ex: `subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/failoverGroups/{failoverGroupName}`) 
+Managed instance failover is an action on the target-side failover gorup entity. As such, to failover, you need RBAC write access to the failover group resource path on the new primary server (ex: `.../Microsoft.Sql/servers/{serverName}/failoverGroups/{failoverGroupName}`) 
 
 ## Best practices of using failover groups with single databases and elastic pools
 
