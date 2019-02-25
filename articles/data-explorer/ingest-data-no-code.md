@@ -31,7 +31,7 @@ In this tutorial, you'll learn how to:
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-* [An Azure Data Explorer cluster and database](create-cluster-database-portal.md). In this tutorial, the database name is *AzureMonitoring*.
+* [An Azure Data Explorer cluster and database](create-cluster-database-portal.md). In this tutorial, the database name is *TestDatabase*.
 
 ## Azure Monitor data provider: diagnostic and activity logs
 
@@ -120,7 +120,7 @@ Setting up an Azure Data Explorer pipeline involves several steps, such as [tabl
 
 ### Connect to the Azure Data Explorer Web UI
 
-In your Azure Data Explorer *AzureMonitoring* database, select **Query** to open the Azure Data Explorer Web UI.
+In your Azure Data Explorer *TestDatabase* database, select **Query** to open the Azure Data Explorer Web UI.
 
 ![Query page](media/ingest-data-no-code/query-database.png)
 
@@ -130,7 +130,7 @@ Use the Azure Data Explorer Web UI to create the target tables in the Azure Data
 
 #### The diagnostic logs table
 
-1. In the *AzureMonitoring* database, create a table named *DiagnosticLogsRecords* to store the diagnostic log records. Use the following `.create table` control command:
+1. In the *TestDatabase* database, create a table named *DiagnosticLogsRecords* to store the diagnostic log records. Use the following `.create table` control command:
 
     ```kusto
     .create table DiagnosticLogsRecords (Timestamp:datetime, ResourceId:string, MetricName:string, Count:int, Total:double, Minimum:double, Maximum:double, Average:double, TimeGrain:string)
@@ -144,13 +144,13 @@ Use the Azure Data Explorer Web UI to create the target tables in the Azure Data
 
 Because the structure of activity logs isn't tabular, you'll need to manipulate the data and expand each event to one or more records. The raw data will be ingested to an intermediate table named *ActivityLogsRawRecords*. At that time, the data will be manipulated and expanded. The expanded data will then be ingested into the *ActivityLogsRecords* table by using an update policy. This means that you'll need to create two separate tables for ingesting activity logs.
 
-1. Create a table named *ActivityLogsRecords* in the *AzureMonitoring* database to receive activity log records. To create the table, run the following Azure Data Explorer query:
+1. Create a table named *ActivityLogsRecords* in the *TestDatabase* database to receive activity log records. To create the table, run the following Azure Data Explorer query:
 
     ```kusto
     .create table ActivityLogsRecords (Timestamp:datetime, ResourceId:string, OperationName:string, Category:string, ResultType:string, ResultSignature:string, DurationMs:int, IdentityAuthorization:dynamic, IdentityClaims:dynamic, Location:string, Level:string)
     ```
 
-1. Create the intermediate data table named *ActivityLogsRawRecords* in the *AzureMonitoring* database for data manipulation:
+1. Create the intermediate data table named *ActivityLogsRawRecords* in the *TestDatabase* database for data manipulation:
 
     ```kusto
     .create table ActivityLogsRawRecords (Records:dynamic)
@@ -262,9 +262,7 @@ Select a resource from which to export metrics. Several resource types support e
     1. In the **Select event hub policy name** list, select **RootManagerSharedAccessKey**.
     1. Select **OK**.
 
-1. Select **Save**. The event hub namespace, name, and policy name will appear in the window.
-
-    ![Save diagnostic settings](media/ingest-data-no-code/save-diagnostic-settings.png)
+1. Select **Save**.
 
 ### Connect activity logs to your event hub
 
@@ -306,7 +304,7 @@ Now you need to create the data connections for your diagnostic logs and activit
 ### Create the data connection for diagnostic logs
 
 1. In your Azure Data Explorer cluster named *kustodocs*, select **Databases** in the left menu.
-1. In the **Databases** window, select your *AzureMonitoring* database.
+1. In the **Databases** window, select your *TestDatabase* database.
 1. In the left menu, select **Data ingestion**.
 1. In the **Data ingestion** window, click **+ Add Data Connection**.
 1. In the **Data connection** window, enter the following information:
@@ -329,9 +327,9 @@ Now you need to create the data connections for your diagnostic logs and activit
 
      **Setting** | **Suggested value** | **Field description**
     |---|---|---|
-    | **Table** | *DiagnosticLogsRecords* | The table you created in the *AzureMonitoring* database. |
+    | **Table** | *DiagnosticLogsRecords* | The table you created in the *TestDatabase* database. |
     | **Data format** | *JSON* | The format used in the table. |
-    | **Column mapping** | *DiagnosticLogsRecordsMapping* | The mapping you created in the *AzureMonitoring* database, which maps incoming JSON data to the column names and data types of the *DiagnosticLogsRecords* table.|
+    | **Column mapping** | *DiagnosticLogsRecordsMapping* | The mapping you created in the *TestDatabase* database, which maps incoming JSON data to the column names and data types of the *DiagnosticLogsRecords* table.|
     | | |
 
 1. Select **Create**.  
@@ -358,9 +356,9 @@ Repeat the steps in the [Create the data connection for diagnostic logs](#diagno
 
      **Setting** | **Suggested value** | **Field description**
     |---|---|---|
-    | **Table** | *ActivityLogsRawRecords* | The table you created in the *AzureMonitoring* database. |
+    | **Table** | *ActivityLogsRawRecords* | The table you created in the *TestDatabase* database. |
     | **Data format** | *JSON* | The format used in the table. |
-    | **Column mapping** | *ActivityLogsRawRecordsMapping* | The mapping you created in the *AzureMonitoring* database, which maps incoming JSON data to the column names and data types of the *ActivityLogsRawRecords* table.|
+    | **Column mapping** | *ActivityLogsRawRecordsMapping* | The mapping you created in the *TestDatabase* database, which maps incoming JSON data to the column names and data types of the *ActivityLogsRawRecords* table.|
     | | |
 
 1. Select **Create**.  
