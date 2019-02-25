@@ -70,7 +70,7 @@ After you've created the namespace and queue, and you have the necessary credent
 2. Change your current directory to the sample folder, using forward slashes as path separators:
 
    ```bash
-   cd azure-service-bus/samples/Java/azure-servicebus\QueuesGettingStarted
+   cd azure-service-bus/samples/Java/azure-servicebus/QueuesGettingStarted
    ```
 
 3. Issue the following command to build the application:
