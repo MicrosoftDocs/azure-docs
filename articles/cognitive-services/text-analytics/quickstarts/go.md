@@ -67,7 +67,7 @@ func main() {
     a free trial access key, you should not need to change this region.
     */
     const uriBase =    "https://westcentralus.api.cognitive.microsoft.com"
-    const uriPath = "/text/analytics/v2.1//languages"
+    const uriPath = "/text/analytics/v2.1/languages"
 
     const uri = uriBase + uriPath
 
@@ -210,7 +210,7 @@ func main() {
     a free trial access key, you should not need to change this region.
     */
     const uriBase =    "https://westcentralus.api.cognitive.microsoft.com"
-    const uriPath = "/text/analytics/v2.1//sentiment"
+    const uriPath = "/text/analytics/v2.1/sentiment"
 
     const uri = uriBase + uriPath
 
@@ -328,7 +328,7 @@ func main() {
     a free trial access key, you should not need to change this region.
     */
     const uriBase =    "https://westcentralus.api.cognitive.microsoft.com"
-    const uriPath = "/text/analytics/v2.1//keyPhrases"
+    const uriPath = "/text/analytics/v2.1/keyPhrases"
 
     const uri = uriBase + uriPath
 
@@ -466,7 +466,7 @@ func main() {
     a free trial access key, you should not need to change this region.
     */
     const uriBase =    "https://westus.api.cognitive.microsoft.com"
-    const uriPath = "/text/analytics/v2.1//entities"
+    const uriPath = "/text/analytics/v2.1/entities"
 
     const uri = uriBase + uriPath
 

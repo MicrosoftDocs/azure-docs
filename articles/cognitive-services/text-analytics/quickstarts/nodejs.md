@@ -180,7 +180,7 @@ let accessKey = 'enter key here';
 // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 // a free trial access key, you should not need to change this region.
 let uri = 'westus.api.cognitive.microsoft.com';
-let path = '/text/analytics/v2.1//sentiment';
+let path = '/text/analytics/v2.1/sentiment';
 
 let response_handler = function (response) {
     let body = '';
@@ -275,7 +275,7 @@ let accessKey = 'enter key here';
 // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 // a free trial access key, you should not need to change this region.
 let uri = 'westus.api.cognitive.microsoft.com';
-let path = '/text/analytics/v2.1//keyPhrases';
+let path = '/text/analytics/v2.1/keyPhrases';
 
 let response_handler = function (response) {
     let body = '';

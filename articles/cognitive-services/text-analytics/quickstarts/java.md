@@ -605,7 +605,7 @@ public class GetEntities {
 // a free trial access key, you should not need to change this region.
 	static String host = "https://westus.api.cognitive.microsoft.com";
 
-	static String path = "/text/analytics/v2.1//text/analytics/v2.1/ies";
+	static String path = "/text/analytics/v2.1/text/analytics/v2.1/ies";
     
 	public static String GetEntities (Documents documents) throws Exception {
 		String text = new Gson().toJson(documents);
