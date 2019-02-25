@@ -72,12 +72,13 @@ When you use the **+ New Project** command, Azure Notebooks displays a **Create 
 
 The following reserved words cannot be used by themselves as project IDs. These reserved words can, however, be used as part of longer project IDs.
 
+| | | | | | |
 | --- | --- | --- | --- | --- | --- |
 | about | account | administration | api | blog | classroom |
 | content | dashboard | explore | faq | help | html |
 | home | import | library | management | new | notebook |
 | notebooks | pdf | preview | pricing | profile | search |
-| status | support | test |
+| status | support | test | | | |
 
 If you attempt to use one of these words as a project ID, the **Create New Project** and **Project Settings** popups indicate, "Library id is a reserved identifier."
 
