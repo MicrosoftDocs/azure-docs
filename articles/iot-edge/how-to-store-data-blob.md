@@ -5,7 +5,7 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: arduppal
-ms.date: 01/04/2019
+ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -28,7 +28,7 @@ This module comes with **Auto-tiering** and **Auto-clean** features.
 4. Specify the containers you want to upload to Azure. This module allows you to specify both source and target container names.
 5. Do full blob tiering(using `Put Blob` operation) and block level tiering (using `Put Block` and `Put Block List` operations).
 
-This module supports block level tiering, when your blob consists of blocks. Here are some of the common scenarios:
+This module uses block level tiering, when your blob consists of blocks. Here are some of the common scenarios:
  1. Your application updates some blocks of a previously uploaded blob, this module will upload only the updated blocks and not the whole blob.
  2. The module is uploading blob and internet connection goes away, when the connectivity is back again it will upload only the remaining blocks and not the whole blob.
 
