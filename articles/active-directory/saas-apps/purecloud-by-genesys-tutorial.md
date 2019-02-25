@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/22/2019
+ms.date: 02/25/2019
 ms.author: jeedes
 
 ---
@@ -192,13 +192,9 @@ To configure Azure AD single sign-on with PureCloud by Genesys, perform the foll
 
 	c. In the **Target URI** textbox, paste the value of **Login URL** which you have copied from the Azure portal.
 
-	d. For **Relying Party Identifier** value perform the following step:
+	d. For **Relying Party Identifier** value, you need to go to the Azure portal, on the **PureCloud by Genesys** application integration page, click on **Properties** tab and copy the **Application ID** value. Paste it in the **Relying Party Identifier** textbox. 
 
-	* In the Azure portal, on the **PureCloud by Genesys** application integration page, click on **Properties** tab and copy the **Application ID** value.
-
-		![Configure Single Sign-On](./media/purecloud-by-genesys-tutorial/configure06.png)
-
-	* In the **Relying Party Identifier** textbox, Paste the **Application ID** value which you have copied from the Azure portal.
+	![Configure Single Sign-On](./media/purecloud-by-genesys-tutorial/configure06.png)
 
 	e. Click **Save**	
 
