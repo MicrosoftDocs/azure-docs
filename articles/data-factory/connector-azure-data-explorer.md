@@ -48,13 +48,13 @@ The Azure Data Explorer connector uses service principal authentication. Follow 
     - Application key
     - Tenant ID
 
-2. Grant the service principal proper permission in Azure Data Explorer.
+2. Grant the service principal proper permission in Azure Data Explorer. Refer to [Manage Azure Data Explorer database permissions](../data-explorer/manage-database-permissions.md) with detailed information on roles and permissions as well as walkthrough on managing permissions.
 
-    - **As source**, in Access control (IAM), grant at least **place-holder** role.
-    - **As sink**, in Access control (IAM), grant at least **place-holder** role.
+    - **As source**, grant at least **place-holder** role to your database.
+    - **As sink**, grant at least **place-holder** role to your database.
 
 >[!NOTE]
->When using ADF UI to author, to list databases on linked service or to list tables on dataset, you need to grant the service principal with **place-holder** permission. If you have concern on granting such higher privileged permission, you can choose to manually input database name and table name. Copy activity will still work as long as the service principal is granted with proper permission to the data as mentioned above.
+>When using ADF UI to author, to list databases on linked service or to list tables on dataset, you need to grant the service principal with **place-holder** permission. If you have concern on granting such higher privileged permission, you can choose to manually input database name and table name. Copy activity execution will work as long as the service principal is granted with proper permission to read/write the data as mentioned above.
 
 The following properties are supported for Azure Data Explorer linked service:
 
