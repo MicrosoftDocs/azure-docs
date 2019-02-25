@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/11/2018
+ms.date: 02/25/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -54,6 +54,8 @@ Import the python runbook [Import Python 2 packages from pypi into Azure Automat
 ![Package list](media/python-packages/import-python-runbook.png)
 
 The runbook allows you to specify what package to download, for example, `Azure` (the fourth parameter) will download all Azure modules and all its dependencies, which is about 105.
+
+Once the runbook has completed you can check the **Python 2 packages** page under **Shared Resources** in your Automation Account to verify that they package was imported correctly.
 
 ## Use a package in a runbook
 
