@@ -46,6 +46,8 @@ Use these steps to create a local Jupyter Notebook server on your computer.
 
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
+The quickstart instructions will install the packages you need to run the quickstart and tutorial notebooks.  Other sample notebooks may require installation of additional components.  For more information about these components, see [Install the Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
+
 <a name="automated-ml-setup"></a>
 
 ## Automated machine learning setup 
