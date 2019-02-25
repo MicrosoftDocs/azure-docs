@@ -30,7 +30,7 @@ To use datastores, you first need a [workspace](concept-azure-machine-learning-a
 
 ```Python
 import azureml.core
-from azureml.core import Workspace
+from azureml.core import Workspace, Datastore
 
 ws = Workspace.from_config()
 ```
@@ -47,7 +47,7 @@ ds = ws.get_default_datastore()
 If you have existing Azure Storage, you can register it as a datastore on your workspace. You can also register an Azure Blob Container or Azure File Share as a datastore. All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form `register_azure_*`.
 
 #### Azure Blob Container Datastore
-To register an Azure Blob Container datastore use [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-:)
+To register an Azure Blob Container datastore, use [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-:)
 
 ```Python
 ds = Datastore.register_azure_blob_container(workspace=ws, 
@@ -59,7 +59,7 @@ ds = Datastore.register_azure_blob_container(workspace=ws,
 ```
 
 #### Azure File Share Datastore
-To register an Azure File Share datastore use [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)
+To register an Azure File Share datastore, use [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)
 
 ```Python
 ds = Datastore.register_azure_file_share(workspace=ws, 
@@ -173,5 +173,5 @@ The above code will:
 ## Next steps
 
 * [Train a model](how-to-train-ml-models.md)
-* Deploy a model
+* [Deploy a model](how-to-deploy-and-where.md)
 
