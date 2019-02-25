@@ -24578,6 +24578,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "azure/security-center/security-center-alert-export.md",
+      "redirect_url": "/azure/security-center/security-center-detection-capabilities",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md",
       "redirect_url": "/azure/virtual-machines/linux/multiple-nics",
       "redirect_document_id": false
