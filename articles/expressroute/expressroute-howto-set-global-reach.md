@@ -23,10 +23,10 @@ This article helps you configure ExpressRoute Global Reach using PowerShell. For
 
 Before you start configuration, confirm the following:
 
-* That you've installed the latest version of Azure PowerShell if you want to run PowerShell locally.
-* That you understand ExpressRoute circuit provisioning [workflows](expressroute-workflows.md).
-* That your ExpressRoute circuits are in a provisioned state.
-* That Azure private peering is configured on your ExpressRoute circuits.
+* You understand ExpressRoute circuit provisioning [workflows](expressroute-workflows.md).
+* Your ExpressRoute circuits are in a provisioned state.
+* Azure private peering is configured on your ExpressRoute circuits.
+* If you want to run PowerShell locally, verify that the latest version of Azure PowerShell is installed on your computer.
 
 ### Working with Azure PowerShell
 
