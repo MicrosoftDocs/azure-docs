@@ -50,7 +50,7 @@ Language support is initially rolled out in preview, graduating to generally ava
 
 \* indicates language support in preview
 
-\*\* Entity extraction for Spanish is only available in [(version 2.1)](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)
+\*\* Entity extraction for Spanish is only available in [(version 2.1)](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
 ## See also
 

@@ -82,7 +82,7 @@ sections:
     className: cardsD
     items:
     - title: REST
-      html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/56f30ceeeda5650db055a3c7">API Reference</a></p>
+      html: <p><a href="https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7">API Reference</a></p>
     - title: SDKs
       html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet">.NET</a></p>
             <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/textanalytics?view=azure-node-latest">Node.js</a></p>

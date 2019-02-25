@@ -13,7 +13,7 @@ ms.author: aahi
 
 # Example: How to detect sentiment with Text Analytics
 
-The [Sentiment Analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/56f30ceeeda5650db055a3c9) evaluates text input and returns a sentiment score for each document, ranging from 0 (negative) to 1 (positive).
+The [Sentiment Analysis API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) evaluates text input and returns a sentiment score for each document, ranging from 0 (negative) to 1 (positive).
 
 This capability is useful for detecting positive and negative sentiment in social media, customer reviews, and discussion forums. Content is provided by you; models and training data are provided by the service.
 
@@ -72,7 +72,7 @@ Document size must be under 5,120 characters per document, and you can have up t
 
 Details on request definition can be found in [How to call the Text Analytics API](text-analytics-how-to-call-api.md). The following points are restated for convenience:
 
-+ Create a **POST** request. Review the API documentation for this request: [Sentiment Analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/56f30ceeeda5650db055a3c9)
++ Create a **POST** request. Review the API documentation for this request: [Sentiment Analysis API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
 + Set the HTTP endpoint for sentiment analysis, using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). It must include the `/sentiment` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
 
@@ -81,7 +81,7 @@ Details on request definition can be found in [How to call the Text Analytics AP
 + In the request body, provide the JSON documents collection you prepared for this analysis.
 
 > [!Tip]
-> Use [Postman](text-analytics-how-to-call-api.md) or open the **API testing console** in the [documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/56f30ceeeda5650db055a3c9) to structure the request and POST it to the service.
+> Use [Postman](text-analytics-how-to-call-api.md) or open the **API testing console** in the [documentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) to structure the request and POST it to the service.
 
 ## Step 2: Post the request
 
@@ -130,7 +130,7 @@ The following example shows the response for the document collection in this art
 
 In this article, you learned concepts and workflow for sentiment analysis using Text Analytics in Cognitive Services. In summary:
 
-+ [Sentiment analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/56f30ceeeda5650db055a3c9) is available for selected languages.
++ [Sentiment analysis API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) is available for selected languages.
 + JSON documents in the request body include an id, text, and language code.
 + POST request is to a `/sentiment` endpoint, using a personalized [access key and an endpoint](text-analytics-how-to-access-key.md) that is valid for your subscription.
 + Response output, which consists of a sentiment score for each document ID, can be streamed to any app that accepts JSON, including Excel and Power BI, to name a few.

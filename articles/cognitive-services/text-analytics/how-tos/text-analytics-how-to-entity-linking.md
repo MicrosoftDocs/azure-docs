@@ -15,7 +15,7 @@ ms.author: aahi
 
 # How to use Named Entity Recognition in Text Analytics
 
-The [Entity Recognition API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) takes unstructured text, and for each JSON document, returns a list of disambiguated entities with links to more information on the web (Wikipedia and Bing). 
+The [Entity Recognition API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) takes unstructured text, and for each JSON document, returns a list of disambiguated entities with links to more information on the web (Wikipedia and Bing). 
 
 ## Entity Linking and Named Entity Recognition
 
@@ -24,12 +24,12 @@ The Text Analytics' `entities` endpoint supports both named entity recognition (
 ### Entity Linking
 Entity linking is the ability to identify and disambiguate the identity of an entity found in text (for example, determining whether the "Mars" is being used as the planet or as the Roman god of war). This process requires the presence of a knowledge base to which recognized entities are linked - Wikipedia is used as the knowledge base for the `entities` endpoint Text Analytics.
 
-In Text Analytics [Version 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634), only entity linking is available.
+In Text Analytics [Version 2.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), only entity linking is available.
 
 ### Named Entity Recognition (NER)
 Named entity recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes. The supported classes of entities are listed below.
 
-In Text Analytics [Version 2.1](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634), both entity linking and named entity recognition (NER) are available.
+In Text Analytics [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), both entity linking and named entity recognition (NER) are available.
 
 ### Language support
 
@@ -90,7 +90,7 @@ Document size must be under 5,120 characters per document, and you can have up t
 
 Details on request definition can be found in [How to call the Text Analytics API](text-analytics-how-to-call-api.md). The following points are restated for convenience:
 
-+ Create a **POST** request. Review the API documentation for this request: [Entity Linking API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)
++ Create a **POST** request. Review the API documentation for this request: [Entity Linking API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
 + Set the HTTP endpoint for entity extraction. It must include the `/entities` resource: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1/entities`
 
@@ -99,7 +99,7 @@ Details on request definition can be found in [How to call the Text Analytics AP
 + In the request body, provide the JSON documents collection you prepared for this analysis
 
 > [!Tip]
-> Use [Postman](text-analytics-how-to-call-api.md) or open the **API testing console** in the [documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) to structure a request and POST it to the service.
+> Use [Postman](text-analytics-how-to-call-api.md) or open the **API testing console** in the [documentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) to structure a request and POST it to the service.
 
 ## Step 2: Post the request
 
@@ -276,7 +276,7 @@ An example of the output for entity linking is shown next:
 
 In this article, you learned concepts and workflow for entity linking using Text Analytics in Cognitive Services. In summary:
 
-+ [Entities API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) is available for selected languages.
++ [Entities API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) is available for selected languages.
 + JSON documents in the request body include an id, text, and language code.
 + POST request is to a `/entities` endpoint, using a personalized [access key and an endpoint](text-analytics-how-to-access-key.md) that is valid for your subscription.
 + Response output, which consists of linked entities (including confidence scores, offsets, and web links, for each document ID) can be used in any application
@@ -284,7 +284,7 @@ In this article, you learned concepts and workflow for entity linking using Text
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Text Analytics API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)
+> [Text Analytics API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
 * [Text Analytics overview](../overview.md)  
 * [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)</br>
