@@ -17,7 +17,7 @@ ms.custom: mvc, devcenter
 
 # Create your first function with Java and Maven
 
-This article will guide you through building an Azure Function in Java using the Maven command line tool. When you're done, your function will be running on the [Consumption Plan](functions-scale#consumption-plan) in Azure and can be triggered using an HTTP request.
+This article guides you through using the Maven command line tool to build and publish a Java function to Azure Functions. When you're done, your function code runs on the [Consumption Plan](functions-scale#consumption-plan) in Azure and can be triggered using an HTTP request.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
