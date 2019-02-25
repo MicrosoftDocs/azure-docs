@@ -107,6 +107,9 @@ The following table describes names and descriptions of properties that are spec
 
 &#42; The properties `resourceLinkedService` and `folderPath` must either both be specified or both be omitted.
 
+> [!NOTE]
+> If you are passing linked services as referenceObjects in Custom Activity, it is a good security practice to pass an Azure Key Vault enabled linked service (since it does not contain any secure strings) and fetch the credentials using secret name directly from Key Vault from the code. You can find an example [here](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) that references AKV enabled linked service, retrieves the credentials from Key Vault, and then accesses the storage in the code.  
+ 
 ## Custom activity permissions
 
 The custom activity sets the Azure Batch auto-user account to *Non-admin access with task scope* (the default auto-user specification). You can't change the permission level of the auto-user account. For more info, see [Run tasks under user accounts in Batch | Auto-user accounts](../batch/batch-user-accounts.md#auto-user-accounts).

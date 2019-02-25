@@ -32,7 +32,7 @@ The following links provide general Information about how to deploy a new web se
 * For specific examples that deploy a web service, see:
 
   * [Tutorial 3: Deploy credit risk model](tutorial-part3-credit-risk-deploy.md)
-  * [How to deploy a web service to multiple regions](how-to-deploy-to-multiple-regions.md)
+  * [How to deploy a web service to multiple regions](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
 
 ### With web services resource provider APIs (Azure Resource Manager APIs)
 

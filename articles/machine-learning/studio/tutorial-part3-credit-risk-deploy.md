@@ -229,7 +229,7 @@ The quickest and easiest way to access a Classic web service is through the [Azu
 
 These web app templates can build a custom web app that knows your web service's input data and what it will return. All you need to do is provide access to your web service and data, and the template does the rest.
 
-For more information on using the web app templates, see [Consume an Azure Machine Learning Web service with a web app template](consume-web-service-with-web-app-template.md).
+For more information on using the web app templates, see [Consume an Azure Machine Learning Web service with a web app template](/azure/machine-learning/studio/consume-web-services).
 
 
 

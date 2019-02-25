@@ -20,11 +20,11 @@ ms.author: juliako
 
 Microsoft Azure Media Services can be used to deliver many media source file formats, media streaming formats, and content protection formats to a variety of client technologies (for example, iOS and XBOX). These clients understand different protocols, for example iOS requires an HTTP Live Streaming (HLS) format and Xbox require Smooth Streaming. If you have a set of adaptive bitrate (multi-bitrate) MP4 (ISO Base Media 14496-12) files or a set of adaptive bitrate Smooth Streaming files that you want to serve to clients that understand HLS, MPEG DASH, or Smooth Streaming, you can take advantage of Dynamic Packaging. The packaging is agnostic to the video resolution, SD/HD/UHD-4K are supported.
 
-[Streaming Endpoints](streaming-endpoint-concept.md) is the service in Media Services used to deliver media content to client players.  Dynamic Packaging is a feature that comes standard on all Streaming Endpoints (Standard or Premium). There is no extra cost associated with this feature in Media Services v3. With Dynamic Packaging, all you need is an asset that contains a set of adaptive bitrate MP4 files with manifest file(s). Then, based on the specified format in the manifest or fragment request, you receive the stream in the protocol you have chosen. As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client.
+[Streaming Endpoints](streaming-endpoint-concept.md) is the dynamic packaging service in Media Services used to deliver media content to client players. Dynamic Packaging is a feature that comes standard on all Streaming Endpoints (Standard or Premium). There is no extra cost associated with this feature in Media Services v3. With Dynamic Packaging, all you need is an asset that contains a set of adaptive bitrate MP4 files with manifest file(s). Then, based on the specified format in the manifest or fragment request, you receive the stream in the protocol you have chosen. As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client.
 
-In Media Services, Dynamic Packaging is used whether you are streaming On-Demand or Live.
+In Media Services, Dynamic Packaging is used whether you are streaming on-demand or live.
 
-The following diagram shows the dynamic packaging workflow.
+The following diagram shows the on-demand streaming with dynamic packaging workflow.
 
 ![Dynamic Encoding](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
@@ -35,7 +35,11 @@ The following is a common Media Services streaming workflow where Dynamic Packag
 1. Upload an input file (called a mezzanine file). For example, H.264, MP4, or WMV (for the list of supported formats see [Formats Supported by the Media Encoder Standard](media-encoder-standard-formats.md).
 2. Encode your mezzanine file to H.264 MP4 adaptive bitrate sets.
 3. Publish the asset that contains the adaptive bitrate MP4 set.
-4. Build URLs that target different formats (HLS, Dash, and Smooth Streaming). The Streaming Endpoint would take care of serving the correct manifest and requests for all these different formats.
+4. Build URLs that target different formats (HLS, Dash, and Smooth Streaming). The Streaming Endpoint would take care of serving the correct manifest and requests for all these different formats. For example:
+
+ - HLS: `http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)`
+ - Dash: `http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)`
+ - Smooth: `http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest`
  
 ## Video codecs supported by dynamic packaging
 
