@@ -9,7 +9,7 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 12/20/2018
+ms.date: 2/25/2019
 ms.custom: seodec18
 ---
 
@@ -26,6 +26,13 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 + **New features**
 
   + Azure Machine Learning SDK now supports a [`Chainer`](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) estimator class to streamline the process of training and deploying a model using custom Chainer code.
+
+### Azure portal
++ **New features**
+	+ New drag and drop table editor experience for reports. Users can drag a column from the well to the table area where a preview of the table will be displayed. The columns can be rearranged.
+	+ New Run button for runs submitted with ScriptRunConfig. Users can re-run an existing run on a remote compute cluster of their choice.
+	+ New Logs file viewer
+	+ Links to experiment runs, compute, models, images and deployments from the activities tab
 
 ## 2019-02-11
 
