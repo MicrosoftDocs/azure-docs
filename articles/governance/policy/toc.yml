@@ -274,6 +274,8 @@
     items:
     - name: Policy
       href: /powershell/module/az.resources/#policies
+    - name: Policy Insights
+      href: /powershell/module/az.policyinsights#policy_insights
     - name: Guest Configuration (preview)
       href: https://www.powershellgallery.com/packages/AzureRM.GuestConfiguration
   - name: REST API
