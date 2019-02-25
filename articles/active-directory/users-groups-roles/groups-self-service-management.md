@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: get-started-article
-ms.date: 01/31/2019
+ms.date: 02/25/2019
 ms.author: curtand
 
 ms.reviewer: krbain
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 ---
 # Set up Azure Active Directory for self-service group management
 
-Your users can create and manage their own security groups or Office 365 groups in Azure Active Directory (Azure AD). Users can also request security group or Office 365 group memberships, and then the owner of the group can approve or deny membership. Day-to-day control of group membership can be delegated to the people who understand the business context for that membership. Self-service group management features are available only for security groups and Office 365 groups, but not for mail-enabled security groups or distribution lists.
+Your users can create and manage their own security groups or Office 365 groups in Azure Active Directory (Azure AD). The owner of the group can approve or deny membership requests for security groups or Office 365 groups. Day-to-day control of group membership can be delegated, but delegating ownership is not supported for sync with an on-premises Active Directory. Self-service group management features are available only for security groups and Office 365 groups, but not for mail-enabled security groups or distribution lists.
 
 Self-service group management services two scenarios: 
 
