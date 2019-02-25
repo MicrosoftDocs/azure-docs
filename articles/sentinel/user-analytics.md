@@ -39,7 +39,7 @@ Azure Sentinel enriches your user data with analytics from Azure ATP to enable c
 - An Azure Advanced Threat Protection license 
 - To enable the feature, you need global admin permissions on the tenant in which you installed Azure Sentinel
 
-> [!NOTES]
+> [!NOTE]
 > - For each Azure ATP tenant, you can connect one Azure Sentinel instance.
 > - User analytics is currently available only for Azure Active Directory users. 
 
