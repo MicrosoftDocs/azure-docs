@@ -55,7 +55,7 @@ az ml workspace share -n my_workspace -g my_resource_group --role Contributor --
 ```
 
 ## Create custom role
-If the built-in roles are insufficient, you can create custom roles. Custom roles may have read, write, delete and compute resource permissions in that workspace. You can make the role available at a specific workspace level, a specific resource group level, or a specific subscription level. 
+If the built-in roles are insufficient, you can create custom roles. Custom roles may have read, write, delete, and compute resource permissions in that workspace. You can make the role available at a specific workspace level, a specific resource group level, or a specific subscription level. 
 
 > [!NOTE]
 > You must be an owner of the resource at that level to create custom roles within that resource.
@@ -101,7 +101,7 @@ az ml workspace share -n my_workspace -g my_resource_group --role "Data Scientis
 ```
 
 
-For more information about custom roles in Azure, please refer to [this document](/azure/role-based-access-control/custom-roles).
+For more information about custom roles in Azure, refer to [this document](/azure/role-based-access-control/custom-roles).
 
 ## Next steps
 
