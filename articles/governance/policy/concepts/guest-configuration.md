@@ -111,16 +111,14 @@ To communicate with the Guest Configuration resource provider in Azure,
 virtual machines will require outbound access to Azure datacenters on port `443`.
 If you are using a private virtual network in Azure and do not allow outbound traffic,
 exceptions must be configured using
-[Network Security Group](https://docs.microsoft.com/en-us/azure/virtual-network/manage-network-security-group#create-a-security-rule) rules.
+[Network Security Group](../../../virtual-network-manage-network-security-group.md#create-a-security-rule) rules.
 At this time, a service tag does not exist for Azure Policy Guest Configuration.
 
 For IP address lists you can download [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This file is updated weekly, and has the currently deployed ranges and any upcoming changes to the IP ranges.  You will only need to allow outbound access to the IPs in the regions where your VMs are deployed.
 
 > [!NOTE]
 > The Azure Datacenter IP address XML file lists the IP address ranges that are used in the Microsoft Azure datacenters. The file includes compute, SQL, and storage ranges.
->
->An updated file is posted weekly. The file reflects the currently deployed ranges and any upcoming changes to the IP ranges. New ranges that appear in the file aren't used in the datacenters for at least one week.
->
+> An updated file is posted weekly. The file reflects the currently deployed ranges and any upcoming changes to the IP ranges. New ranges that appear in the file aren't used in the datacenters for at least one week.
 > It's a good idea to download the new XML file every week. Then, update your site to correctly identify services running in Azure. Azure ExpressRoute users should note that this file is used to update the Border Gateway Protocol (BGP) advertisement of Azure space in the first week of each month.
 
 ## Guest Configuration definition requirements
