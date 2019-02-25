@@ -47,7 +47,7 @@ To on-board Azure Sentinel, you first need to connect to your security sources. 
 
 Azure Sentinel enables:
 
-- **Seamless data collection from services in the Microsoft ecosystem, including native service-to-service integration of all Microsoft solutions and their raw data:**
+- **Effortless data collection from services in the Microsoft ecosystem, including native service-to-service integration of all Microsoft solutions and their raw data:**
     - Azure Information Protection
     - Azure Security Center
     - Azure Advanced Threat Protection
@@ -94,7 +94,7 @@ Azure Sentinel deep investigation tools include helps you to understand the scop
 
 Automate your common tasks and simplify security orchestration with playbooks that integrate with Azure services as well as your existing tools. Built on the foundation of Azure Logic Apps, the Azure Sentinel's automation and orchestration solution provides a highly-extensible architecture that enables scalable automation as new technologies and threats emerge. To build playbooks with Azure Logic Apps, you can choose from a growing gallery with [200+ connectors](https://docs.microsoft.com/azure/connectors/apis-list), that include services such as Azure functions that allows you to apply any custom logic in code, ServiceNow, Jira, Zendesk, HTTP requests, Microsoft Teams, Slack, Windows Defender ATP, and Cloud App Security.
 
-For example, if you use ServiceNow, you can use the tools provided to use Azure Logic Apps to automate your workflows and open a ticket in ServiceNow each time a particular event is detected.
+For example, if you use the ServiceNow ticketing system, you can use the tools provided to use Azure Logic Apps to automate your workflows and open a ticket in ServiceNow each time a particular event is detected.
 
 ![Playbooks](./media/overview/playbooks.png)
 
@@ -106,7 +106,7 @@ With **native integration of machine learning (ML), and user analytics**, Azure 
 
 ## Hunting
 
-Use Azure Sentinel's powerful hunting search-and-query tools, based on the MITRE framework, enable you to proactively hunt for security threats across your organization’s data sources, before an alert is triggered. After you discover which hunting query provides high value insights into possible attacks, you can also create custom detection rules based on your query and surface those insights as alerts to your security incident responders. While hunting, you can create bookmarks for interesting events, enabling you to return to them later, share them with others, and group them with other correlating events to create a compelling case for investigation.
+Use Azure Sentinel's powerful hunting search-and-query tools, based on the MITRE framework, which enable you to proactively hunt for security threats across your organization’s data sources, before an alert is triggered. After you discover which hunting query provides high value insights into possible attacks, you can also create custom detection rules based on your query and surface those insights as alerts to your security incident responders. While hunting, you can create bookmarks for interesting events, enabling you to return to them later, share them with others, and group them with other correlating events to create a compelling case for investigation.
 
 ![Hunting](./media/overview/hunting.png)
 
