@@ -183,7 +183,7 @@ To define the data type for an input binding, use the `dataType` property in the
 Options for `dataType` are: `binary`, `stream`, and `string`.
 
 ## context object
-The runtime uses a `context` object to pass data to and from your function and to let you communicate with the runtime. The context object can be used for reading and setting data from bindings, writing logs, and using the `context.done` call back when your exported function is synchronous.
+The runtime uses a `context` object to pass data to and from your function and to let you communicate with the runtime. The context object can be used for reading and setting data from bindings, writing logs, and using the `context.done` callback when your exported function is synchronous.
 
 The `context` object is always the first parameter to a function. It should be included because it has important methods such as `context.done` and `context.log`. You can name the object whatever you would like (for example, `ctx` or `c`).
 
@@ -553,16 +553,26 @@ In this example, it is important to note that although an object is being export
 
 ## TypeScript
 
-When you target version 2.x of the Functions runtime, both Visual Studio Code and the Azure Functions Core Tools let you develop functions using TypeScript. These tools let you create function app that support TypeScript. The tools generate `package.json`, `tsconfig.json`, and `.funcignore` files that enable you to run your TypeScript project using the v2.x Functions host (func.exe).  
+When you target version 2.x of the Functions runtime, both [Azure Functions for Visual Studio Code](functions-create-first-function-vs-code.md) and the [Azure Functions Core Tools](functions-run-local.md) let you create function apps using a template that support TypeScript function app projects. The template generates `package.json` and `tsconfig.json` project files that make it easier to transpile, run, and publish JavaScript functions from TypeScript code with these tools.
 
-In a TypeScript project, the TypeScript code files (.ts) are transpiled to JavaScript code files (.js). This transpilation is done both when the local Functions host is initialized and when the TypeScript project is deployed to Azure. By default, the JavaScript files are generated in the `dist` output directory. You can change this location using the `outDir` parameter in the `tsconfig.json` file.
+A generated `.funcignore` file is used to indicate which files are excluded when a project is published to Azure.  
 
-All TypeScript templates have a default value for the [`scriptFile` parameter](#using-scriptfile) in `function.json`. This value points to the location of the corresponding .js file in the `dist` folder.
+TypeScript files (.ts) are transpiled into JavaScript files (.js) in the `dist` output directory. TypeScript templates use the [`scriptFile` parameter](#using-scriptfile) in `function.json` to indicate the location of the corresponding .js file in the `dist` folder. The output location is set by the template by using `outDir` parameter in the `tsconfig.json` file. If you change this setting or the name of the folder, the runtime is not able to find the code to run.
 
 > [!NOTE]
-> Experimental support for TypeScript exists version 1.x of the Functions runtime. The experimental version transpiles TypeScript files into JavaScript files when the function is invoked. In version 2.x, this experimental support has been superceded by the tool-driven method that does transpilation during host initialization. The Azure portal doesn't support TypeScript development.
+> Experimental support for TypeScript exists version 1.x of the Functions runtime. The experimental version transpiles TypeScript files into JavaScript files when the function is invoked. In version 2.x, this experimental support has been superseded by the tool-driven method that does transpilation before the host is initialized and during the deployment process.
 
-The local TypeScript development experience depends your development tool.  
+The way that you locally develop and deploy from a TypeScript project depends on your development tool.
+
+### Visual Studio Code
+
+The [Azure Functions for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension lets you develop your functions using TypeScript. The Core Tools is a requirement of the Azure Functions extension.
+
+To create a TypeScript function app in Visual Studio Code, you simply choose `TypeScript` when you create a function app and are asked to choose the language.
+
+When you press **F5** to run the app locally, transpilation is done before the host (func.exe) is initialized. 
+
+When you deploy your function app to Azure using the **Deploy to function app...** button, the Azure Functions extension first generates a production-ready build of JavaScript files from the TypeScript source files.
 
 ### Azure Functions Core Tools
 
@@ -579,15 +589,7 @@ To run your function app code locally using Core Tools, use the `npm start` comm
 - `tsc`
 - `func start`
 
-These same commands are run when you publish your TypeScript functions to Azure.
-
-### Visual Studio Code
-
-Visual Studio Code lets you develop, run, and publish TypeScript function apps like you would a function app in any other supported language.
-
-To create a TypeScript function app in Visual Studio Code, you simply choose `TypeScript` when you create a function app and are asked to choose the language. 
-
-When you press **F5** to run the app locally, transpilation is done before the host (func.exe) is started. This same transpilation is also done when you publish your TypeScript functions to Azure.
+Before you use the [`func azure functionapp publish`] command to deploy to Azure, you must first run the `npm run build:production` command. This command creates a production-ready build of JavaScript files from the TypeScript source files that can be deployed using [`func azure functionapp publish`].
 
 ## Considerations for JavaScript functions
 
@@ -608,3 +610,5 @@ For more information, see the following resources:
 + [Best practices for Azure Functions](functions-best-practices.md)
 + [Azure Functions developer reference](functions-reference.md)
 + [Azure Functions triggers and bindings](functions-triggers-bindings.md)
+
+[`func azure functionapp publish`]: functions-run-local.md#project-file-deployment
