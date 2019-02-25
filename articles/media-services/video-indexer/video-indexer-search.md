@@ -19,12 +19,14 @@ This topic shows you the search options that enable you to find exact moments wi
 1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
 2. Search among all videos in your account.
 
-	In the following example, we searched for all videos created by Channel9 with Scott Hanselman.
+	In the following example, we search for all videos that talk about security and in which Satya appears,
 
 	![Search](./media/video-indexer-search/video-indexer-search01.png)
 3. Search the summarized insights of the video.
 
-	You can then search within a video by clicking **Play** on the video. Then, you can search within the video by selecting the **Search** tab. For example, we searched for all the places where the "identity protection" text is used. 
+	You can then search within a video by clicking **Play** on the video. Then, you can search within the video by selecting the **Search** tab. 
+
+    In the following example, we search for "secure" inside the selected video.
 
 	![Search](./media/video-indexer-search/video-indexer-search02.png)
 
