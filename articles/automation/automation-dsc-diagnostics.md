@@ -123,7 +123,7 @@ You can use this query to search for the status of your DSC node status over tim
 
 This will display a chart of the node status over time.
 
-## Azure Monitor log records
+## Azure Monitor logs records
 
 Diagnostics from Azure Automation creates two categories of records in Azure Monitor logs.
 
