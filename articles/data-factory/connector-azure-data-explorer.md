@@ -157,7 +157,7 @@ To copy data to Azure Data Explorer, set the type property in the copy activity 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the copy activity sink must be set to: **AzureDataExplorerSink** | Yes |
-| ingestionMappingName | Name of a pre-created [csv mapping](/azure/kusto/management/mappings#csv-mapping) on a Kusto table. To map the columns from source to Azure Data Explorer, you can also use the Copy activity [column mapping](copy-activity-schema-and-type-mapping.md) which co-works with Azure Data Explorer ingestion mappings. Copy activity maps data from source to sink based on column mapping settings, then map data again based on ingestion mapping configuration if exists. It applies to [all supported source stores and formats](copy-activity-overview.md#supported-data-stores-and-formats). | No |
+| ingestionMappingName | Name of a pre-created [CSV mapping](/azure/kusto/management/mappings#csv-mapping) on a Kusto table; JSON mapping and Avro mapping on Azure Data Explorer are not directly supported. To map the columns from source to Azure Data Explorer, you can use the Copy activity [column mapping](copy-activity-schema-and-type-mapping.md), which also co-works with Azure Data Explorer CSV mappings - copy activity maps/re-shapes data from source to sink based on column mapping settings, then maps data again based on ingestion mapping configuration if exists. It applies to [all supported source stores](copy-activity-overview.md#supported-data-stores-and-formats) including JSON and Avro formats. | No |
 
 **Example:**
 
