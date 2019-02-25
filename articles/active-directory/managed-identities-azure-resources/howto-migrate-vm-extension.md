@@ -47,7 +47,8 @@ There are several advantages to using Azure IMDS to request tokens.
 1. The service is external to the VM, therefore the credentials used by managed identities are no longer present on the VM. Instead, they are hosted and secured on the host machine of the Azure VM.   
 2. All Windows and Linux operating systems supported on Azure IaaS can use managed identities.
 3. Deployment is faster and easier, since the VM extension no longer needs to be provisioned.
-4. There is no significant change to the requests using IMDS as opposed to those using the VM extension, therefore it is fairly simple to port over existing deployments that currently use the VM extension.
+4. With the IMDS endpoint, up to 1000 user-assigned managed identities can be assigned to a single VM.
+5. There is no significant change to the requests using IMDS as opposed to those using the VM extension, therefore it is fairly simple to port over existing deployments that currently use the VM extension.
 
 For these reasons, the Azure IMDS service will be the defacto way to request tokens, once the VM extension is deprecated. 
 
