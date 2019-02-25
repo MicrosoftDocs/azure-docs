@@ -5,7 +5,7 @@ description: How to prepare your trained model for deployment as a web service b
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs

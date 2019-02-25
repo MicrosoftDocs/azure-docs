@@ -2700,6 +2700,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-resource-manager/resource-manager-export-template.md",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-export-template-cli.md",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-export-template-powershell.md",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-group-portal.md",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/powershell-azure-resource-manager.md",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/cli-azure-resource-manager.md",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-resource-manager/create-resource-group-in-template.md",
       "redirect_url": "/azure/azure-resource-manager/deploy-to-subscription",
       "redirect_document_id": false
@@ -2961,7 +2991,7 @@
     },
     {
       "source_path": "articles/powershell-azure-resource-manager.md",
-      "redirect_url": "/azure/azure-resource-manager/powershell-azure-resource-manager",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-powershell.md",
       "redirect_document_id": false
     },
     {
@@ -3411,12 +3441,12 @@
     },
     {
       "source_path": "articles/xplat-cli-azure-resource-manager.md",
-      "redirect_url": "/azure/azure-resource-manager/cli-azure-resource-manager",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-cli",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/xplat-cli-azure-resource-manager.md",
-      "redirect_url": "/azure/azure-resource-manager/cli-azure-resource-manager",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-cli",
       "redirect_document_id": false
     },
     {
@@ -11593,6 +11623,11 @@
       "redirect_document_id": false
     }, 
     {
+      "source_path": "articles/lab-services/compare-lab-types.md",
+      "redirect_url": "/azure/lab-services/lab-services-overview#types-of-labs",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/lab-services/how-to-manage-classroom-labs.md",
       "redirect_url": "/azure/lab-services/classroom-labs/how-to-manage-classroom-labs",
       "redirect_document_id": false
@@ -14459,6 +14494,11 @@
     {
       "source_path": "articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md",
       "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/vpn-gateway-plan-design.md",
+      "redirect_url": "/azure/vpn-gateway/vpn-gateway-about-vpngateways",
       "redirect_document_id": false
     },
     {

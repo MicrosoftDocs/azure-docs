@@ -275,4 +275,4 @@ For REST API operations, see [Azure Billing REST API Reference](/rest/api/billin
 ## Next steps
 
 * Not all resource types support tags. To determine if you can apply a tag to a resource type, see [Tag support for Azure resources](tag-support.md).
-* For an introduction to using the portal, see [Using the Azure portal to manage your Azure resources](resource-group-portal.md).  
+* For an introduction to using the portal, see [Using the Azure portal to manage your Azure resources](manage-resource-groups-portal.md).  
