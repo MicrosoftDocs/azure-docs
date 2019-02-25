@@ -397,8 +397,10 @@
       href: control-flow-append-variable-activity.md
     - name: Azure Function Activity
       href: control-flow-azure-function-activity.md
+    - name: Execute Data Flow Activity
+      href: control-flow-execute-data-flow-activity.md
     - name: Execute Pipeline Activity
-      href: control-flow-execute-pipeline-activity.md
+      href: control-flow-execute-pipeline-activity.md      
     - name: Filter Activity
       href: control-flow-filter-activity.md
     - name: For Each Activity
