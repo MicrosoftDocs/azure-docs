@@ -63,3 +63,4 @@ The template defines the following two parameters:
 - [Bulk copy from a database by using a control table with Azure Data Factory](solution-template-bulk-copy-with-control-table.md)
 
 - [Copy files from multiple containers with Azure Data Factory](solution-template-copy-files-multiple-containers.md)
+- 
