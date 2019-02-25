@@ -74,11 +74,17 @@ Azure Stream Analytics uses the same query language on both cloud and intelligen
 
 As a cloud service, Stream Analytics is optimized for cost. There are no upfront costs involved, you only pay for the [streaming units you consume](stream-analytics-streaming-unit-consumption.md), and the amount of data processed. There is no commitment or cluster provisioning required. You can scale the job up or down your steaming jobs based on your business needs. 
 
-## Reliability 
-
-Stream Analytics guarantees exactly once event processing and at-least-once delivery of events, so events are never lost. It has built-in recovery capabilities in case the delivery of an event fails. Also, Stream Analytics provides built-in checkpointing to maintain the state of your job and provides repeatable results.
+## Mission-critical ready
+### Reliability
+Azure Stream Analytics guarantees exactly once event processing and at-least-once delivery of events, so events are never lost. It has built-in recovery capabilities in case the delivery of an event fails. Also, Stream Analytics provides built-in checkpointing to maintain the state of your job and provides repeatable results.
 
 As a managed service, Stream Analytics guarantees event processing with a 99.9% availability. For more information, see  the [Stream Analytics SLA](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/) page for more details. 
+
+### Security
+In term of security, Azure Stream Analytics encrypts all incoming and outcoming communications with TLS 1.2. Built-in checkpoints are also encrypted. Stream Analytics doesn't store the incoming data since all processing is made in-memory. 
+
+### Compliance
+Azure Stream Analytics  follows multiple compliance certifications as described in the [overview of Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
 
 ## Performance
 
