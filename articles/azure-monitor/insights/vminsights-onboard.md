@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2019
+ms.date: 02/22/2019
 ms.author: magoedte
 ---
 
@@ -31,7 +31,7 @@ Before you start, make sure that you understand the information in the following
 
 ### Log Analytics
 
-A Log Analytics workspace is currently supported in the following regions:
+Azure Monitor for VMs supports a Log Analytics workspace in the following regions:
 
 - West Central US
 - East US
@@ -331,7 +331,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
         provisioningState       : Succeeded
 
 ### Enable by using Azure Policy
-To enable Azure Monitor for VMs at scale in a way that helps ensure consistent compliance and the automatic enabling of the newly provisioned VMs, we recommend [Azure Policy](../../azure-policy/azure-policy-introduction.md). These policies:
+To enable Azure Monitor for VMs at scale in a way that helps ensure consistent compliance and the automatic enabling of the newly provisioned VMs, we recommend [Azure Policy](../../governance/policy/overview.md). These policies:
 
 * Deploy the Log Analytics agent and the Dependency agent.
 * Report on compliance results.

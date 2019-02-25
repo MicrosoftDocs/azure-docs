@@ -12,9 +12,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 01/10/2019
+ms.date: 02/09/2019
 ms.author: rolyon
 
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory Terms of use feature
@@ -262,7 +263,7 @@ Per-device Terms of use has the following constraints:
 
 - A device can only be joined to one tenant.
 - A user must have permissions to join their device.
-- The Intune enrollment app is not supported.
+- The Intune Enrollment app is not supported.
 
 If the user's device is not joined, they will receive a message that they need to join their device. Their experience will be dependent on the platform and software.
 
@@ -329,6 +330,9 @@ You can configure a conditional access policy for the Azure Information Protecti
 You can configure a conditional access policy for the Microsoft Intune Enrollment app and require a Terms of use prior to the enrollment of a device in Intune. For more information, see the Read [Choosing the right Terms solution for your organization blog post](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 ![Microsoft Intune cloud app](./media/active-directory-tou/cloud-app-intune.png)
+
+> [!NOTE]
+> The Intune Enrollment app is not supported for [Per-device Terms of use](#per-device-terms-of-use).
 
 ## Frequently asked questions
 

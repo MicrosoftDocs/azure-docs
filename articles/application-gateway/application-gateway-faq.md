@@ -36,7 +36,7 @@ HTTP/2 protocol support is available to clients connecting to application gatewa
 
 By default, HTTP/2 support is disabled. The following Azure PowerShell code snippet example shows how you can enable it:
 
-```
+```powershell
 $gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
 $gw.EnableHttp2 = $true
 Set-AzureRmApplicationGateway -ApplicationGateway $gw
@@ -341,7 +341,7 @@ You can use the PowerShell cmdlet `Get-AzureRmApplicationGatewayBackendHealth` o
 
 ### What is the retention policy on the diagnostics logs?
 
-Diagnostic logs flow to the customers storage account and customers can set the retention policy based on their preference. Diagnostic logs can also be sent to an Event Hub or Log Analytics. See [Application Gateway Diagnostics](application-gateway-diagnostics.md) for more details.
+Diagnostic logs flow to the customers storage account and customers can set the retention policy based on their preference. Diagnostic logs can also be sent to an Event Hub or Azure Monitor logs. See [Application Gateway Diagnostics](application-gateway-diagnostics.md) for more details.
 
 ### How do I get audit logs for Application Gateway?
 
@@ -353,7 +353,7 @@ Yes, Application Gateway does support alerts. Alerts are configured on metrics. 
 
 ### How do I analyze traffic statistics for Application Gateway?
 
-You can view and analyze Access logs via several mechanisms such as Azure Log Analytics, Excel, Power BI etc.
+You can view and analyze Access logs via several mechanisms such as Azure Monitor logs, Excel, Power BI etc.
 
 We have also published a Resource Manager template that installs and runs the popular [GoAccess](https://goaccess.io/) log analyzer for Application Gateway Access Logs. GoAccess provides valuable HTTP traffic statistics such as Unique Visitors, Requested Files, Hosts, Operating Systems, Browsers, HTTP Status codes and more. For more details, please see the [Readme file in the Resource Manager template folder in GitHub](https://aka.ms/appgwgoaccessreadme).
 

@@ -4,7 +4,7 @@ description: Describes how to add new certificates, rollover certificate, and re
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chakdan
 editor: ''
 
 ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
-ms.author: aljo-microsoft
+ms.author: aljo
 
 ---
 # Add or remove certificates for a Service Fabric cluster in Azure

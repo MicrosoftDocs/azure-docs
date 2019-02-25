@@ -61,7 +61,7 @@ Content-type: application/x-www-form-urlencoded
 Content-Length: 0
 ```
 
-The body of the response contains the access token in Java Web Token (JWT) format.
+The body of the response contains the access token in JSON Web Token (JWT) format.
 
 #### PowerShell sample
 

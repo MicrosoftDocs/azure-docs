@@ -1,6 +1,6 @@
 ---
-title: Working with strings in Azure Log Analytics queries | Microsoft Docs
-description: This article provides a tutorial for using the Analytics portal to write queries in Log Analytics.
+title: Work with strings in Azure Monitor log queries | Microsoft Docs
+description: Describes how to edit, compare, search in and perform a variety of other operations on strings in Azure Monitor log queries. 
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,15 +15,15 @@ ms.date: 08/16/2018
 ms.author: bwren
 ---
 
-# Working with strings in Log Analytics queries
+# Work with strings in Azure Monitor log queries
 
 
 > [!NOTE]
-> You should complete [Get started with the Analytics portal](get-started-portal.md) and [Getting started with queries](get-started-queries.md) before completing this tutorial.
+> You should complete [Get started with Azure Monitor Log Analytics](get-started-portal.md) and [Getting started with Azure Monitor log queries](get-started-queries.md) before completing this tutorial.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-This article describes how to edit, compare, search in and perform a variety of other operations on strings. 
+This article describes how to edit, compare, search in and perform a variety of other operations on strings.
 
 Each character in a string has an index number, according to its location. The first character is at index 0, the next character is 1, and so one. Different string functions use index numbers as shown in the following sections. Many of the following examples use the **print** command for to demonstrate string manipulation without using a specific data source.
 

@@ -4,7 +4,7 @@ description: This document helps you to use security playbooks in Azure Security
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: a8c45ddf-5c4c-4393-b6e9-46ed1f91bf5f

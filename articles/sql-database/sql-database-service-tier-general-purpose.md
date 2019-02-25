@@ -16,7 +16,7 @@ ms.date: 02/07/2019
 # General purpose service tier - Azure SQL Database
 
 > [!NOTE]
-> The general purpose service tier in the vCore-based purchasing model is called the standard service tier in the DTU-based purchasing model. For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](sql-database-service-tiers.md).
+> The general purpose service tier in the vCore-based purchasing model is called the standard service tier in the DTU-based purchasing model. For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](sql-database-purchase-models.md).
 
 Azure SQL Database is based on SQL Server database engine architecture adapted for the cloud environment in order to ensure 99.99% availability even in the cases of infrastructure failures. There are three service tiers that are used in Azure SQL Database, each with different architectural models. These service tiers are:
 
