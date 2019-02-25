@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
 ---
@@ -15,11 +15,9 @@ ms.subservice: common
 
 Azure Active Directory (Azure AD) authorizes access rights to secured resources through [role-based access control (RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of built-in RBAC roles that encompass common sets of permissions used to access containers or queues. 
 
-When an RBAC role is assigned to an Azure AD security principal, that security principal is granted access to those resources, according to the specified scope. Access can be scoped to the level of the subscription, the resource group, the storage account, or an individual container or queue. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). For an overview of identity in Azure AD, see [Understand Azure identity solutions](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
+When an RBAC role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of the subscription, the resource group, the storage account, or an individual container or queue. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-This article describes how to use the Azure portal to assign RBAC roles. The Azure portal provides a simple interface for assigning RBAC roles and managing access to your storage resources.
-
-You can also assign RBAC roles for blob and queue resources using Azure command-line tools or the Azure Storage management APIs. For more information about RBAC roles for storage resources, see [Authenticate access to Azure blobs and queues using Azure Active Directory (Preview)](storage-auth-aad.md). 
+This article describes how to use the Azure portal to assign RBAC roles. The Azure portal provides a simple interface for assigning RBAC roles and managing access to your storage resources. You can also assign RBAC roles for blob and queue resources using Azure command-line tools or the Azure Storage management APIs. For more information about RBAC roles for storage resources, see [Authenticate access to Azure blobs and queues using Azure Active Directory (Preview)](storage-auth-aad.md). 
 
 ## RBAC roles for blobs and queues
 
@@ -33,9 +31,9 @@ The following list describes the levels at which you can scope access to Azure b
 
 - **An individual container.** At this scope, a security principal has access to all of the blobs in the container, as well as container properties and metadata.
 - **An individual queue.** At this scope, a security principal has access to messages in the queue, as well as queue properties and metadata.
-- **The storage account.** At this scope, a security principal has access to all containers and their blobs, and all queues and their messages.
-- **The resource group.** At this scope, a security principal has access to all of the containers and queues in all of the storage accounts in the resource group.
-- **The subscription.** At this scope, a security principal has access to all of the containers and queues in all of the storage accounts in all of the resource groups in the subscription.
+- **The storage account.** At this scope, a security principal has access to all containers and their blobs, or to all queues and their messages.
+- **The resource group.** At this scope, a security principal has access to all of the containers or queues in all of the storage accounts in the resource group.
+- **The subscription.** At this scope, a security principal has access to all of the containers or queues in all of the storage accounts in all of the resource groups in the subscription.
 
 When you have determined the desired scope for a role assignment, navigate to the appropriate resource in the Azure portal. Display the **Access Control (IAM)** settings for the resource, and follow the instructions in the subsequent sections to manage role assignments.
 
@@ -43,9 +41,9 @@ When you have determined the desired scope for a role assignment, navigate to th
 
 Granting access to blob and queue resources with Azure AD credentials involves the following steps: 
 
-- Assign the appropriate Azure Storage RBAC role to grant access to containers or queues. For read access, assign the **Blob Data Reader (Preview)** or **Queue Data Reader (Preview)** role. For read, write, and delete access, assign the **Blob Data Contributor (Preview)** or **Queue Data Contributor (Preview)** role. You can also assign a custom role.
+1. Assign the appropriate Azure Storage RBAC role to grant access to containers or queues. For read access, assign the **Blob Data Reader (Preview)** or **Queue Data Reader (Preview)** role. For read, write, and delete access, assign the **Blob Data Contributor (Preview)** or **Queue Data Contributor (Preview)** role. You can also assign a custom role.
 
-- Assign the Azure Resource Manager [Reader](../../role-based-access-control/built-in-roles.md#reader) role to users who want to access containers or queues via the Azure portal using their Azure AD credentials. 
+1. Assign the Azure Resource Manager [Reader](../../role-based-access-control/built-in-roles.md#reader) role to users who need to access containers or queues via the Azure portal using their Azure AD credentials. 
 
 The following sections describe each of these steps in more detail.
 
@@ -80,7 +78,7 @@ You can follow similar steps to assign a role scoped to the storage account, res
 
 ### Assign the Azure Resource Manager Reader role
 
-When you assign a built-in or custom role for Azure Storage to a security principal, you are granting permissions to that security principal to perform operations on data in your storage account. The built-in **Data Reader** roles provide read permissions for a resource or set of resources, while the built in Data Contributor roles provide read, write, and delete permissions. The permissions are scoped to the specified resource.  
+When you assign a built-in or custom role for Azure Storage to a security principal, you are granting permissions to that security principal to perform operations on data in your storage account. The built-in **Data Reader** roles provide read permissions for the data in a container or queue, while the built in **Data Contributor** roles provide read, write, and delete permissions to a container or queue. Permissions are scoped to the specified resource.  
 
 For example, if you assign the **Storage Blob Data Contributor (Preview)** role to user Mary at the level of a container named **sample-container**, then Mary is granted read, write, and delete access to all of the blobs in that container.
 
