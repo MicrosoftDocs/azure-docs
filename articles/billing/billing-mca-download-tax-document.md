@@ -41,4 +41,4 @@ You must be the Owner, Contributor, Reader, or Invoice Manager of the billing pr
 
 - [View your organization's Azure pricing](billing-ea-pricing.md)
 - [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md)
-- [Understand the charges on your billing profile's invoice](billing-understand-your-bill-mca.md).
+- [Understand the charges on your billing profile's invoice](billing-mca-understand-your-bill.md).
