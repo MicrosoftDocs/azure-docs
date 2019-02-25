@@ -87,6 +87,8 @@ The following tables provide information about each property that can be configu
 
 Inventory allows you to create and view machine groups in Azure Monitor logs. Machine groups are collections of machines defined by a query in Azure Monitor logs.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 To view your machine groups select the **Machine groups** tab on the Inventory page.
 
 ![View machine groups on the inventory page](./media/automation-vm-inventory/inventory-machine-groups.png)
@@ -110,7 +112,7 @@ To remove your virtual machine from inventory management:
 3. In the list, select the virtual machine that you want to disconnect. The virtual machine has a green check mark next to **This workspace** in the **OMS Connection** column.
 
    >[!NOTE]
-   >OMS is now referred to as Log Analytics.
+   >OMS is now referred to as Azure Monitor logs.
    
 4. At the top of the next page, select **Disconnect**.
 5. In the confirmation window, select **Yes**.

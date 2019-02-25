@@ -61,6 +61,8 @@ Enabling the solution can take up to 15 minutes. During this time, you shouldn't
 After the solution is enabled, information about installed software and changes on the VM flows to Azure Monitor logs.
 It can take between 30 minutes and 6 hours for the data to be available for analysis.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## Using Change tracking in Azure Monitor logs
 
 Change tracking generates log data that is sent to Azure Monitor logs.

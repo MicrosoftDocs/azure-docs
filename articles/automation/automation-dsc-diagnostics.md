@@ -22,6 +22,8 @@ for nodes and for individual DSC resources in node configurations. With Azure Mo
 - Correlate compliance status across Automation accounts
 - Visualize your node compliance history over time
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## Prerequisites
 
 To start sending your Automation State Configuration reports to Azure Monitor logs, you need:
