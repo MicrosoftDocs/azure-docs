@@ -63,6 +63,67 @@ Azure Stack Managed Disks supports the following API versions:
 - 2017-03-30
 - 2017-12-01
 
+## Convert to Managed disks
+
+You can use the below script with your own values to convert a currently provisioned VM from unmanaged to managed disks
+
+```powershell
+$subscriptionId = 'subid'
+
+#Provide the name of your resource group
+$resourceGroupName ='rgmgd'
+
+#Provide the name of the Managed Disk
+$diskName = 'unmgdvm'
+
+#Provide the size of the disks in GB. It should be greater than the VHD file size.
+$diskSize = '50'
+
+#Provide the URI of the VHD file that will be used to create Managed Disk. 
+# VHD file can be deleted as soon as Managed Disk is created.
+$vhdUri = 'https://rgmgddisks347.blob.local.azurestack.external/vhds/unmgdvm20181109013817.vhd' 
+
+#Provide the storage type for the Managed Disk. PremiumLRS or StandardLRS.
+$accountType = 'StandardLRS'
+
+#Provide the Azure Stack location where Managed Disk will be located. 
+#The location should be same as the location of the storage account where VHD file is stored.
+
+$location = 'local'
+$virtualMachineName = 'mgdvm'
+$virtualMachineSize = 'Standard_D1'
+$pipname = 'unmgdvm-ip'
+$virtualNetworkName = 'rgmgd-vnet'
+$nicname = 'unmgdvm295'
+
+#Set the context to the subscription Id where Managed Disk will be created
+Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+
+$diskConfig = New-AzureRmDiskConfig -AccountType $accountType  -Location $location -DiskSizeGB $diskSize -SourceUri $vhdUri -CreateOption Import
+
+#Create Managed disk
+New-AzureRmDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
+$disk = get-azurermdisk -DiskName $diskName -ResourceGroupName $resourceGroupName
+$VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
+
+#Use the Managed Disk Resource Id to attach it to the virtual machine. Please change the OS type to linux if OS disk has linux OS
+$VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -ManagedDiskId $disk.Id -CreateOption Attach -Linux
+
+#Create a public IP for the VM
+$publicIp = Get-AzureRmPublicIpAddress -Name $pipname -ResourceGroupName $resourceGroupName 
+
+#Get the virtual network where virtual machine will be hosted
+$vnet = Get-AzureRmVirtualNetwork -Name $virtualNetworkName -ResourceGroupName $resourceGroupName
+
+# Create NIC in the first subnet of the virtual network
+$nic = Get-AzureRmNetworkInterface -Name $nicname -ResourceGroupName $resourceGroupName
+
+$VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $nic.Id
+
+#Create the virtual machine with Managed Disk
+New-AzureRmVM -VM $VirtualMachine -ResourceGroupName $resourceGroupName -Location $location
+```
+
 ## Managed images
 
 Azure Stack supports *managed images*, which enable you to create a managed image object on a generalized VM (both unmanaged and managed) that can only create managed disk VMs going forward. Managed images enable the following two scenarios:

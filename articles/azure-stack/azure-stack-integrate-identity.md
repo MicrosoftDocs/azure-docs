@@ -6,10 +6,10 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 02/25/2019
 ms.author: patricka
 ms.reviewer: thoroet
-ms.lastreviewed: 02/21/2019
+ms.lastreviewed: 02/25/2019
 
 ---
 
@@ -29,7 +29,7 @@ Authentication is one part of identity. To manage Role Based Access Control (RBA
 
 The existing AD FS is the account security token service (STS) that sends claims to the Azure Stack AD FS (the resource STS). In Azure Stack, automation creates the claims provider trust with the metadata endpoint for the existing AD FS.
 
-At the existing AD FS, a relying party trust must be configured. This step is not done by the automation, and must be configured by the operator. The Azure Stack metadata endpoint is documented in the AzureStackStampDeploymentInfo.JSON file, or via the privileged endpoint by running the command `Get-AzureStackInfo`.
+At the existing AD FS, a relying party trust must be configured. This step is not done by the automation, and must be configured by the operator. The Azure Stack metadata endpoint is documented in the AzureStackStampInformation.json file, or via the privileged endpoint by running the command `Get-AzureStackStampInformation`.
 
 The relying party trust configuration also requires you to configure the claim transformation rules that are provided by Microsoft.
 

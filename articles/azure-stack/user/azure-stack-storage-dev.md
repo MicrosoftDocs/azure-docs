@@ -4,12 +4,11 @@ description: Guidance to get started with using Azure Stack storage development 
 services: azure-stack 
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 12/03/2018
+ms.date: 11/05/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.lastreviewed: 12/03/2018
 
 ---
 
@@ -26,9 +25,9 @@ Use this article as a guide to get started using Azure Stack storage development
 
 ## Azure client libraries
 
-For the storage client libraries, be aware of the version that is compatible with the REST API. You must also specify the Azure Stack endpoint in your code.
+The supported REST API versions for Azure Stack storage are 2017-04-17, 2016-05-31, 2015-12-11, 2015-07-08, 2015-04-05 for the 1802 update or newer versions, and 2015-04-05 for previous versions. The Azure Stack endpoints do not have full parity with the latest version of the Azure storage REST API. For the storage client libraries, you need to be aware of the version that is compatible with the REST API.
 
-### 1811 update or newer versions
+### 1802 update or newer versions
 
 | Client library | Azure Stack supported version | Link | Endpoint specification |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
@@ -42,22 +41,22 @@ For the storage client libraries, be aware of the version that is compatible wit
 
 #### Install PHP client via Composer - current
 
-To install via Composer: (take the blob as an example).
+To install via Composer: (take blob as example).
 
 1. Create a file named **composer.json** in the root of the project with following code:
 
-    ```json
+  ```php
     {
       "require": {
-      "Microsoft/azure-storage-blob":"1.2.0"
+      "Microsoft/azure-storage-blob":"1.0.0"
       }
     }
-    ```
+  ```
 
 2. Download [composer.phar](http://getcomposer.org/composer.phar) to the project root.
 3. Run: `php composer.phar install`.
 
-### Previous versions (1802 to 1809 update)
+### Previous versions
 
 |Client library|Azure Stack supported version|Link|Endpoint specification|
 |---------|---------|---------|---------|
@@ -71,19 +70,19 @@ To install via Composer: (take the blob as an example).
 
 #### Install PHP client via Composer - previous
 
-To install via Composer: (take blob as example).
+To install via Composer:
 
 1. Create a file named **composer.json** in the root of the project with following code:
 
-  ```json
+  ```php
     {
-      "require": {
-      "Microsoft/azure-storage-blob":"1.0.0"
-      }
+          "require":{
+          "Microsoft/azure-storage":"0.15.0"
+          }
     }
   ```
 
-2. Download [composer.phar](http://getcomposer.org/composer.phar) to the project root.
+2. Download [composer.phar](http://getcomposer.org/composer.phar) into the project root.
 3. Run: `php composer.phar install`.
 
 ## Endpoint declaration
@@ -98,7 +97,7 @@ Contact your cloud administrator if you’re not sure about your endpoint.
 
 For Azure Stack, the endpoint suffix is specified in the app.config file:
 
-```xml
+```
 <add key="StorageConnectionString"
 value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;
 EndpointSuffix=local.azurestack.external;" />
@@ -108,7 +107,7 @@ EndpointSuffix=local.azurestack.external;" />
 
 For Azure Stack, the endpoint suffix is specified in the setup of connection string:
 
-```java
+```
 public static final String storageConnectionString =
     "DefaultEndpointsProtocol=http;" +
     "AccountName=your_storage_account;" +
@@ -120,7 +119,7 @@ public static final String storageConnectionString =
 
 For Azure Stack, the endpoint suffix is specified in the declaration instance:
 
-```javascript
+```
 var blobSvc = azure.createBlobService('myaccount', 'mykey',
 'myaccount.blob.local.azurestack.external');
 ```
@@ -129,7 +128,7 @@ var blobSvc = azure.createBlobService('myaccount', 'mykey',
 
 For Azure Stack, the endpoint suffix is specified in the setup of connection string:
 
-```cpp
+```
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;
 AccountName=your_storage_account;
 AccountKey=your_storage_account_key;
@@ -140,7 +139,7 @@ EndpointSuffix=local.azurestack.external"));
 
 For Azure Stack, the endpoint suffix is specified in the setup of connection string:
 
-```php
+```
 $connectionString = 'BlobEndpoint=http://<storage account name>.blob.local.azurestack.external/;
 QueueEndpoint=http:// <storage account name>.queue.local.azurestack.external/;
 TableEndpoint=http:// <storage account name>.table.local.azurestack.external/;
@@ -151,7 +150,7 @@ AccountName=<storage account name>;AccountKey=<storage account key>'
 
 For Azure Stack, the endpoint suffix is specified in the declaration instance:
 
-```python
+```
 block_blob_service = BlockBlobService(account_name='myaccount',
 account_key='mykey',
 endpoint_suffix='local.azurestack.external')
@@ -161,7 +160,7 @@ endpoint_suffix='local.azurestack.external')
 
 For Azure Stack, the endpoint suffix is specified in the setup of connection string:
 
-```ruby
+```
 set
 AZURE_STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=https;
 AccountName=myaccount;

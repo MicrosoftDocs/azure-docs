@@ -13,7 +13,7 @@ ms.date: 12/21/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand what sentiment is conveyed in a user's utterances. 
 
---- 
+---
 
 # Tutorial:  Get sentiment of utterance
 

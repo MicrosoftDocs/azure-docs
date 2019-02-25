@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2019
+ms.date: 02/22/2019
 ms.author: magoedte
 ---
 
@@ -31,7 +31,7 @@ Before you start, make sure that you understand the information in the following
 
 ### Log Analytics
 
-A Log Analytics workspace is currently supported in the following regions:
+Azure Monitor for VMs supports a Log Analytics workspace in the following regions:
 
 - West Central US
 - East US

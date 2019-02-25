@@ -13,7 +13,7 @@ ms.date: 02/19/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand why and when to review endpoint utterances. 
 
---- 
+---
 
 # Tutorial: Fix unsure predictions by reviewing endpoint utterances
 In this tutorial, improve app predictions by verifying or correcting utterances received via the LUIS HTTPS endpoint that LUIS is unsure of. Some utterances may have to be verified for intent and others may need to be verified for entity. You should review endpoint utterances as a regular part of you scheduled LUIS maintenance. 
