@@ -39,10 +39,10 @@ mainframe apps from automated logic app workflows.
 To access apps on IBM mainframes, you typically use a 3270 
 terminal through a 3270 emulator, often called a "green screen". 
 This method is a time-hardened way but has many limitations. 
-Host Integration Server (HIS) lets you work directly with 
-these apps, but sometimes, separating the screen and business 
+Although Host Integration Server (HIS) lets you work directly 
+with these apps, sometimes, separating the screen and business 
 logic isn't possible. Or maybe you no longer have information 
-about how the host applications work. 
+about how the host applications work.
 
 For these scenarios, you can create .NET apps that programmatically 
 drive the 3270 screens without making changes to the host. To create 
@@ -50,56 +50,67 @@ these apps, you can use the Session Integrator tool, which is a .NET
 library for writing custom apps that can access 3270 screen-driven data, 
 also known as "screen scraping".
 
-To extend these scenarios, the HIS 3270 connector in Azure Logic 
-Apps works with the standalone 3270 Design Tool, which you use to 
-"capture" the host screens for a specific task and define methods 
-with input and output parameters. This tool converts that information 
-into metadata the connector uses when you add an 3270 action to your 
-logic app. The tool generates a metadata file that defines the navigation 
-through the 3270 screens, the methods that you can use as actions in your 
-logic app, along with the methods' input and output parameters, for driving 
-your IBM mainframe apps. 
+To extend these scenarios, the HIS 3270 connector in Azure Logic Apps 
+works with the standalone 3270 Design Tool, which you use to identify, 
+or "capture", the host screens used for a specific task, define the 
+navigation flow through your mainframe app for that tasks, and define 
+the methods with input and output parameters for that task. The design 
+tool converts that information into metadata that the 3270 connector 
+uses when calling an action that represents that task from your logic app. 
+After you generate this metadata file from the design tool, you add this 
+file to an integration account in Azure. That way, your logic app can access 
+the metadata about your app when you add a 3270 connector action. The connector 
+reads the metdata file from your integration account and dynamically presents 
+the parameters for the 3270 action.
 
 So, by handling navigation through the 3270 screens, entering data into the 
-host application, and returning the results to your logic app, you can integrate 
-your legacy apps with Azure, Microsoft, and other apps, services, and systems 
-that Azure Logic Apps supports.
+host application, and returning the results to your logic app, you can 
+integrate your legacy apps with Azure, Microsoft, and other apps, services, 
+and systems that Azure Logic Apps supports.
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
-* Access to a TN3270 Server
-
 * Basic knowledge about 
 [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * Recommended: An [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md), 
-which you use as the location for creating and running your 
-logic app. An ISE provides access from your logic app to 
+which you can use as the location for creating and running 
+your logic app. An ISE provides access from your logic app to 
 resources that are protected inside Azure virtual networks.
 
-* A logic app to use for automating and running your 3270 app. 
-The 3270 connector doesn't have triggers, so use another 
-trigger to start your logic app, such as the **Recurrence** 
-trigger. You can then add 3270 actions. To get started, 
+* The logic app to use for automating and running 
+your 3270 screen-driven app. The HIS 3270 connector 
+doesn't have triggers, so use another trigger to start 
+your logic app, such as the **Recurrence** trigger. 
+You can then add 3270 connector actions. To get started, 
 [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 If you use an ISE, select that ISE as your logic app's location.
 
-* A Host Integration Designer XML (HIDX) file, 
-which defines the methods you use for creating and 
-running a 3270 action. You can create this file by 
-using the standalone 3270 Design Tool.
+* The standalone 3270 Design Tool, which you can 
+[download and install from this location]() 
+and use for generating a Host Integration Designer 
+XML (HIDX) file. This metadata file identifies the screens, 
+navigation path, method, and parameters for the task you 
+want use when you add and run a 3270 connector action.
+
+  The Microsoft .NET Framework 4.6.1 is the 
+  only prerequisite for the 3270 Design Tool.
 
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
-where you can later add and store your HIDX file as a map so your 
-logic app can access the metadata and method definitions in that file. 
-Make sure your integration account is linked to the logic app you're using. 
-Also, if you use an ISE, make sure your integration account's 
-location is the same ISE that your logic app uses.
+where you store your HIDX file as a map so your logic app 
+can access the metadata and method definitions in that file. 
+Make sure your integration account is linked to the logic app 
+you're using. Also, if you use an ISE, make sure your integration 
+account's location is the same ISE that your logic app uses.
 
-## Create app metadata
+* Access to a TN3270 Server
+
+<a name="define-app-metadata"></a>
+
+## Create metadata for connector
 
 In a 3270 screen-driven app, the screens and data fields are unique 
 to your scenarios, so the 3270 connector needs this information about 
@@ -120,6 +131,13 @@ to navigate through your mainframe app's screens for the specific task.
 that describes the screen navigation path. You also choose the fields on each 
 screen that become the method's input and output parameters.
 
+The design tool doesn't support these elements:
+
+* Partial BMS maps: If you import a BMS map, the design tool ignores partial screen definitions.
+* In and out parameters: You can't define parameters as In or Out parameters.
+* Menu processing: Not supported during preview
+* Array processing: Not supported during preview
+
 ### Capture screens
 
 In this mode, you mark an item on each 3270 screen that uniquely identifies that screen. 
@@ -138,10 +156,18 @@ with connecting to your session and ends with disconnecting from your session.
 
 1. After you finish the task, log off from your session as you usually do.
 
-1. In the design tool, choose **Stop**. Disconnect from the host.
+1. In the design tool, choose **Stop**. Disconnect from the host. 
 
-1. After capturing all the screens for the task, now specify the 
-fields for identifying each screen.
+   After you capture the screens for a task, the designer tool 
+   shows thumbnails that represent those screens. Along with your 
+   captured screens, you also have a screen that's named "Empty". 
+   When you first connect to the Customer Information Control System (CICS), 
+   you must choose **Clear** before you can enter the name for the transaction 
+   you want to run. This "clear" screen doesn't have any attributes to recognize. 
+   So, by default, this screen is named "Empty". You can use the screen later 
+   for representing the screen where you enter the transaction name.
+
+1. Now specify the fields for identifying each screen.
 
    With the 3270 data stream, screens don't have default identifiers, 
    so you need to select unique text on each screen. For complex scenarios, 
@@ -159,23 +185,25 @@ For example, sometimes, you might have more than one path that
 your app can take where one path produces the correct result, 
 while the other path produces an error. For each screen, 
 specify the keystrokes necessary for moving to the next screen, 
-such as `CICSPROD <enter>`.
+such as `CICSPROD <enter>`. 
 
-After you capture the screens for a task, the designer tool 
-shows thumbnails that represent those screens. 
+#### Guidelines for creating plans
+
+Your plan and other plans will have repeated screens, 
+for example:
+
+* The logon, or `msg-10`, screen
+* The welcome screen for the Customer Information Control System (CICS)
+* The "Clear" or **Empty** screen
 
 1. In the design tool, to start your plan, choose **New Plan**.
 
 1. Drag those thumbnails to the navigation plan surface.
 
-   Along with these screens, you have a screen that's named "Empty". 
-   When you first connect to the Customer Information Control System (CICS), 
-   you must choose **Clear** before you can enter the name for the transaction 
-   you want to run. This "clear" screen doesn't have any attributes to recognize. 
-   So, by default, this screen is named "Empty". To represent the blank screen 
-   where you enter the transaction name, use this "Empty" screen.
+   To represent the blank screen where you enter 
+   the transaction name, use the "Empty" screen.
 
-1. Arrange the screens following the order required for the task you're defining.
+1. Arrange the screens following the order that describes the task you're defining.
 
 1. After arranging the screens, draw arrows between the screens by using the Flow tool. 
 
@@ -187,32 +215,69 @@ You might have just the AID key, or both the AID key and text.
 
 > [!TIP]
 > If you're automating several tasks that use the same connect and 
-> disconnect screens, the design tool provides special Connect 
-> and Disconnect plan types. After you define these plans, 
-> you can add them to start and end in your navigation plan.
+> disconnect screens, the design tool provides special Connect and 
+> Disconnect plan types. After you define these types, you can add 
+> them to the start and end in your navigation plan.
 
 After you finish your navigation plan, 
 you can define methods in the next mode.
 
 ### Define method
 
-For each parameter, you specify the data type, such as a string, integer, 
+In this mode, you define a method that's associated with your navigation plan. 
+For each method parameter, you specify the data type, such as a string, integer, 
 date or time, and so on. When you're done, you can test your method on the 
 live host and confirm that the method works as expected. You then generate 
 the metadata file, or Host Integration Designer XML (HIDX) file, which now 
 has the method definitions to use for creating and running an action for 
 the HIS 3270 connector.
 
+1. In the design tool, to start your method, choose **New**.
+
+1. On the navigation plan surface, select the screen that 
+has the input fields you want.
+
+1. To add the first input paramater for your method, 
+in the 3270 emulator screen, choose the field you 
+want as the first input, and then choose **Input**. 
+
+   To add more parameters, repeat this step for each parameter.
+
+1. To add the first output parameter for your method, 
+in the 3270 emulator screen, choose the field you want 
+as the first output, and then choose **Output**.
+
+1. After you add all your parameters for your method, 
+define the data type for each parameter.
+
+The design tool saves all this information to a file that has 
+an .rap extension. You can save to this file during any mode. 
+Before you can test your method, save to this file after 
+defining your method.
+
+### Test your method
+
+1. In the design tool, choose **Play** or press the F5 key, 
+which runs your method definition against the live host.
+
+1. Enter values for your parameters, and choose **OK**.
+
+1. To continue to the next screen, choose **Next**.
+
+1. When you're finished, choose **Done**, which displays 
+the value for your output parameter.
+
 ### Add metadata file to integration account
 
-When you're done, 
-[add your HIDX file as a map to your integration account](../logic-apps/logic-apps-enterprise-integration-maps.md) by using the Azure portal. 
-In a later section on this page, you learn how to add an HIS 3270 
-action to your logic app. When you add this action for the first time, 
-you're prompted to create a connection and provide connection 
-information, such as your integration account and host server. 
-After you create the connection, you can select your previously 
-added HIDX file, the method to run, and the parameters to use. 
+When you're done, [add your HIDX file as a map to your integration account](../logic-apps/logic-apps-enterprise-integration-maps.md) 
+by using the Azure portal. In a later section on this page, 
+you learn how to add an HIS 3270 action to your logic app. 
+When you add this action for the first time, you're prompted 
+to create a connection from your logic app to the host server, 
+and provide connection information, such as the names for your 
+integration account and host server. After you create the connection, 
+you can select your previously added HIDX file, the method to run, 
+and the parameters to use.
 
 After you finish all these steps, the action you created is 
 ready for connecting to your IBM mainframe, drive screens 
