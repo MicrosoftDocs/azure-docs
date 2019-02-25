@@ -9,6 +9,12 @@
   items:
   - name: Build prebuilt domain app
     href: luis-get-started-create-app.md
+  - name: Use LUIS portal
+    items: 
+    - name: Create app
+      href: get-started-portal-build-app.md
+    - name: Deploy app
+      href: get-started-portal-deploy-app.md
   - name: Use .NET SDK
     items: 
     - name: Query prediction endpoint
