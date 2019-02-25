@@ -153,6 +153,8 @@ To add a role to the assignment's managed identity, follow these steps:
 
 ## Create a remediation task
 
+### Create a remediation task through portal
+
 During evaluation, the policy assignment with **deployIfNotExists** effect determines if there are
 non-compliant resources. When non-compliant resources are found, the details are provided on the
 **Remediation** page. Along with the list of policies that have non-compliant resources is the
@@ -190,6 +192,37 @@ To create a **remediation task**, follow these steps:
    ![Remediate - resource task context menu](../media/remediate-resources/resource-task-context-menu.png)
 
 Resources deployed through a **remediation task** are added to the **Deployed Resources** tab on the policy compliance page.
+
+### Create a remediation task through Azure CLI
+
+To create a **remediation task** with Azure CLI, use the `az policy remediation` commands. Replace
+`{subscriptionId}` with your subscription ID and `{myAssignmentId}` with your **deployIfNotExists**
+policy assignment ID.
+
+```azurecli-interactive
+# Login first with az login if not using Cloud Shell
+
+# Create a remediation for a specific assignment
+az policy remediation create --name myRemediation --policy-assignment '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+```
+
+For other remediation commands and examples, see the [az policy
+remediation](/cli/azure/policy/remediation) commands.
+
+### Create a remediation task through Azure PowerShell
+
+To create a **remediation task** with Azure PowerShell, use the `Start-AzPolicyRemediation` commands. Replace
+`{subscriptionId}` with your subscription ID and `{myAssignmentId}` with your **deployIfNotExists**
+policy assignment ID.
+
+```azurepowershell-interactive
+# Login first with Connect-AzAccount if not using Cloud Shell
+
+# Create a remediation for a specific assignment
+Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+```
+
+For other remediation cmdlets and examples, see the [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights) module.
 
 ## Next steps
 
