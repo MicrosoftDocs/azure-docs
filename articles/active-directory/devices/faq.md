@@ -33,7 +33,7 @@ Only the following devices are listed under **USER devices**:
 - All non-Windows 10 or Windows Server 2016 devices.
 - All non-Windows devices. 
 
---- 
+---
 
 **Q: How do I know what the device registration state of the client is?**
 

@@ -9,7 +9,7 @@ ms.author: mstewart
 ms.date: 12/07/2018
 
 ms.custom: seodec18
---- 
+---
 
 # Azure Disk Encryption for IaaS VMs
 

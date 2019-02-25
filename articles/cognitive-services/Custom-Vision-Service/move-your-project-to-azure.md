@@ -74,7 +74,7 @@ Multiple projects can be associated to a single resource. More detail about [Pri
 
 2. Find the Resource ID of your Custom Vision Training resource. You can find this in the Azure portal by opening your Custom Vision Training resource and selecting “Properties” under the “Resource Management” section. Your Resource ID will be there. 
 
-    ![Find your Resource ID in in the Azure portal by opening your Custom Vision Training resource and selecting “Properties” under the “Resource Management” section.](./media/move-your-project-to-azure/resource_ID_azure_portal.jpg)
+    ![Find your Resource ID in the Azure portal by opening your Custom Vision Training resource and selecting “Properties” under the “Resource Management” section.](./media/move-your-project-to-azure/resource_ID_azure_portal.jpg)
 
 
 3. Alternatively, you can find the Resource ID of your Custom Vision Resource directly in the Custom Vision website [Settings page]( https://www.customvision.ai/projects#/settings). You will need to switch to the same directory your Azure resource is in.

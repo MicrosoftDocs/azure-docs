@@ -237,7 +237,7 @@ After enabling backup:
     -  However, the VM is backed up even if it's turned off and the extension can't be installed. This is known as *offline VM*. In this case, the recovery point will be *crash consistent*.
     Note that Azure Backup doesn't support automatic clock adjustment for daylight-saving changes for Azure VM backups. Modify backup policies manually as required.
   
- ## Run the initial backup
+## Run the initial backup
 
 The initial backup will run in accordance with the schedule unless you manually run it immediately. Run it manually as follows:
 
