@@ -101,7 +101,7 @@ PS Azure:\MySubscriptionName> dir AllResources
 
  You can go to the `ResourceGroups` directory and inside a specific resource group you can find virtual machines.
 
-```azureowershell-interactive
+```azurepowershell-interactive
 PS Azure:\MySubscriptionName> cd ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines
 
 PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines> dir
@@ -125,7 +125,7 @@ However, you can always use `dir -Force` to get fresh data.
 
 By entering into the `StorageAccounts` directory, you can easily navigate all your storage resources
 
-```azureowershell-interactive
+```azurepowershell-interactive
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
 
     Directory: Azure:\MySubscriptionNameStorageAccounts\MyStorageAccountName\Files
