@@ -25,7 +25,7 @@ You can follow the steps in this article to set up the Azure Command-Line Interf
 
 ## Prepare for Azure CLI
 
-You will need the CA root certificate for Azure Stack sto use Azure CLI on your development machine. You use the certificate to manage resources through the CLI.
+You will need the CA root certificate for Azure Stack to use Azure CLI on your development machine. You use the certificate to manage resources through the CLI.
 
  - **The Azure Stack CA root certificate** is required if you are using the CLI from a workstation outside the Azure Stack Development Kit.  
 
@@ -58,7 +58,7 @@ certutil -encode root.cer root.pem
 
 ### Set up the virtual machine aliases endpoint
 
-Azure Stack operators should set up a publicly accessible endpoint that hosts a virtual machine alias file. The virtual machine alias file is a JSON file that provides a common name for an image. You will use the name when you deploy a VM as an Azure CLI parameter.  
+You can set up a publicly accessible endpoint that hosts a virtual machine alias file. The virtual machine alias file is a JSON file that provides a common name for an image. You will use the name when you deploy a VM as an Azure CLI parameter.
 
 Before you add an entry to an alias file, make sure that you [download images from the Azure Marketplace](azure-stack-download-azure-marketplace-item.md) or have [published your own custom image](azure-stack-add-vm-image.md). If you publish a custom image, make note of the publisher, offer, SKU, and version information that you specified during publishing. If it's an image from the marketplace, you can view the information by using the ```Get-AzureVMImage``` cmdlet.  
 
@@ -78,9 +78,35 @@ az --version
 
 You should see the version of Azure CLI and other dependent libraries that are installed on your computer.
 
+### Install Python on Windows
+
+1. Install [Python 3 on your system](https://www.python.org/downloads/).
+
+2. Upgrade PIP. PIP is a package manager for Python. Open a cmd prompt or an elevated PowerShell prompt, and type the following command:
+
+    ```PowerShell  
+    python -m pip install --upgrade pip
+    ```
+
+3. Install the **certifi** module. [Certifi](https://pypi.org/project/certifi/) a module and a collection of Root Certificates for validating the trustworthiness of SSL certificates while verifying the identity of TLS hosts. Open a cmd prompt or an elevated PowerShell prompt, and type the following command:
+
+    ```PowerShell
+    pip install certifi
+    ```
+
 ## Windows (Azure AD)
 
 ### Trust the Azure Stack CA root certificate
+
+To trust the Azure Stack CA root certificate, append it to the existing Python certificate.
+
+1. Find the certificate location on your machine. The location may vary depending on where you have installed Python. Open a cmd prompt or an elevated PowerShell prompt, and type the following command:
+
+    ```PowerShell  
+      python -c "import certifi; print(certifi.where())"
+    ```
+
+    Make a note of the certificate location. For example, `~/lib/python3.5/site-packages/certifi/cacert.pem`. Your particular path will depend on your OS and the version of Python that you have installed.
 
 Trust the Azure Stack CA root certificate by appending it to the existing Python certificate.
 
