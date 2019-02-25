@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/25/2019
 ms.author: orspod
 ---
 
@@ -24,7 +24,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 You can copy data from any supported source data store to Azure Data Explorer. You can also copy data from Azure Data Explorer to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md) table.
 
 >[!NOTE]
->Currently, copying data to/from Azure Data Explorer from/to on-prem data store using Self-hosted Integration Runtime is not supported yet.
+>Copying data to/from Azure Data Explorer from/to on-prem data store using Self-hosted Integration Runtime is supported since version 3.14.
 
 The Azure Data Explorer connector allows you to do the following:
 
@@ -157,7 +157,7 @@ To copy data to Azure Data Explorer, set the type property in the copy activity 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the copy activity sink must be set to: **AzureDataExplorerSink** | Yes |
-| ingestionMappingName | Name of a pre-created [csv mapping](/azure/kusto/management/mappings#csv-mapping) on a Kusto table. To map the columns from source to Azure Data Explore, you can also use the Copy activity [column mapping](copy-activity-schema-and-type-mapping.md). | No |
+| ingestionMappingName | Name of a pre-created [csv mapping](/azure/kusto/management/mappings#csv-mapping) on a Kusto table. To map the columns from source to Azure Data Explorer, you can also use the Copy activity [column mapping](copy-activity-schema-and-type-mapping.md) which co-works with Azure Data Explorer ingestion mappings. Copy activity maps data from source to sink based on column mapping settings, then map data again based on ingestion mapping configuration if exists. It applies to [all supported source stores and formats](copy-activity-overview.md#supported-data-stores-and-formats). | No |
 
 **Example:**
 
