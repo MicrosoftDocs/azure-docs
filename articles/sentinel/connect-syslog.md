@@ -1,5 +1,5 @@
 ---
-title: Collect Syslog data in Azure Sentinel | Microsoft Docs
+title: Collect Syslog data in Azure Sentinel Preview| Microsoft Docs
 description: Learn how to collect Syslog data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -17,7 +17,12 @@ ms.date: 2/28/2019
 ms.author: rkarlin
 
 ---
-# Connect your on-premises appliance to Azure Sentinel (Syslog)
+# Connect your on-premises appliance (Syslog)
+
+> [!IMPORTANT]
+> Azure Sentinel is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 You can connect any on-premises appliance that supports Syslog to Azure Sentinel. This is done by using an agent based on a Linux machine between the appliance and Azure Sentinel. If your Linux machine is in Azure, you can stream the logs from your appliance or application to a dedicated workspace you create in Azure and connect it. If your Linux machine is not in Azure, you can stream the logs from your appliance to a dedicated on-prem VM or machine onto which you install the Agent for Linux. 
 

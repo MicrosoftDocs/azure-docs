@@ -1,5 +1,5 @@
 ---
-title: Collect Cisco data in Azure Sentinel | Microsoft Docs
+title: Collect Cisco data in Azure Sentinel Preview| Microsoft Docs
 description: Learn how to collect Cisco data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -17,7 +17,12 @@ ms.date: 2/28/2019
 ms.author: rkarlin
 
 ---
-# Connect your Cisco ASA appliance to Azure Sentinel
+# Connect your Cisco ASA appliance 
+
+> [!IMPORTANT]
+> Azure Sentinel is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 You can connect Azure Sentinel to any Cisco ASA appliance. Cisco ASA is natively integrated with Azure Sentinel for data ingestion, so that even though your Cisco appliance doesn't save logs as CEF, Azure Sentinel ingests them in the same way it handles CEF logs. The integration with Azure Sentinel enables you to easily run analytics and queries across the log file data from Cisco ASA. 
 

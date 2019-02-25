@@ -1,5 +1,5 @@
 ---
-title: Collect Check Point data in Azure Sentinel | Microsoft Docs
+title: Collect Check Point data in Azure Sentinel Preview| Microsoft Docs
 description: Learn how to collect Check Point data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -17,7 +17,12 @@ ms.date: 2/28/2019
 ms.author: rkarlin
 
 ---
-# Connect your Check Point appliance to Azure Sentinel 
+# Connect your Check Point appliance
+
+> [!IMPORTANT]
+> Azure Sentinel is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 You can connect Azure Sentinel to any Check Point appliance by saving the log files as Syslog CEF. The integration with Azure Sentinel enables you to easily run analytics and queries across the log file data from Check Point. For more information on how Azure Sentinel ingests CEF data, see [Connect CEF appliances](connect-common-error-format.md).
 
@@ -26,7 +31,7 @@ You can connect Azure Sentinel to any Check Point appliance by saving the log fi
 
 ## Step 1: Connect your Check Point appliance using an agent
 
-To connect your Check Point appliance to Azure Sentinel, you need to deploy an agent on a dedicated machine (VM or on-prem) to support the communication between the appliance and Azure Sentinel. You can deploly the agent automatically or manually. Automatic deployment is only available if your dedicated machine is a new VM you are creating in Azure. 
+To connect your Check Point appliance to Azure Sentinel, you need to deploy an agent on a dedicated machine (VM or on-prem) to support the communication between the appliance and Azure Sentinel. You can deploy the agent automatically or manually. Automatic deployment is only available if your dedicated machine is a new VM you are creating in Azure. 
 
 
 ![CEF in Azure](./media/connect-cef/cef-syslog-azure.png)
@@ -40,7 +45,7 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 1. In the Azure Sentinel portal, click **Data collection** and select your appliance type. 
 
 1. Under **Linux Syslog agent configuration**:
-   - Choose **Automatic deployment** if you want to create a new machine that is pre-installed with the Azure Sentinel agent, and includes all the configuration necessary, as described above. Select **Automatic deployment** and click **Automatic agent deployment**. This takes you to the purchase page for a dedicated VM that is automatically connected to your workspace, is . The VM is a **standard D2s v3 (2 vcpus, 8 GB memory)** and has a public IP address.
+   - Choose **Automatic deployment** if you want to create a new machine that is pre-installed with the Azure Sentinel agent, and includes all the configuration necessary, as described above. Select **Automatic deployment** and click **Automatic agent deployment**. This takes you to the purchase page for a dedicated VM that is automatically connected to your workspace. The VM is a **standard D2s v3 (2 vcpus, 8 GB memory)** and has a public IP address.
       1. In the **Custom deployment** page, provide your details and choose a username and a password and if you agree to the terms and conditions, purchase the VM.
       1. Configure your appliance to send logs using the settings listed in the connection page. For the Generic Common Event Format connector, use these settings:
          - Protocol = UDP
@@ -101,7 +106,6 @@ Configure your Check Point appliance to forward Syslog messages in CEF format to
         - Set the **Syslog port** to **514** or the port you set on the agent.
     - Replace the **name** and **target-server IP address** in the CLI with the Syslog agent name and IP address.
     - Set the format to **CEF**.
-    - Set the **facility number** to use the same facility you set in the agent (by default, the agent sets this to 4).
 3. If you are using version R77.30 or R80.10, scroll up to **Installations** and follow the instructions to install a Log Exporter for your version.
  
 ## Step 3: Validate connectivity

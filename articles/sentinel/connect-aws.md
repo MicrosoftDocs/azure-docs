@@ -1,5 +1,5 @@
 ---
-title: Collecting AWS data in Azure Sentinel | Microsoft Docs
+title: Collecting AWS data in Azure Sentinel Preview| Microsoft Docs
 description: Learn how to collect AWS data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -19,6 +19,10 @@ ms.author: rkarlin
 ---
 # Collect data from AWS
 
+> [!IMPORTANT]
+> Azure Sentinel is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This article provides instructions for connecting Azure Sentinel to your existing Amazon Web Services account using the connector. This connection streams your AWS CloudTrail logs into your Azure Sentinel workspace in just a few clicks. 
   

@@ -1,5 +1,5 @@
 ---
-title: Collect Palo Alto data in Azure Sentinel | Microsoft Docs
+title: Collect Palo Alto data in Azure Sentinel Preview| Microsoft Docs
 description: Learn how to collect Palo Alto data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -17,7 +17,12 @@ ms.date: 2/28/2019
 ms.author: rkarlin
 
 ---
-# Connect your Palo Alto Networks appliance to Azure Sentinel
+# Connect your Palo Alto Networks appliance
+
+> [!IMPORTANT]
+> Azure Sentinel is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 You can connect Azure Sentinel to any Palo Alto Networks appliance by saving the log files as Syslog CEF. The integration with Azure Sentinel enables you to easily run analytics and queries across the log file data from Palo Alto. For more information on how Azure Sentinel ingests CEF data, see [Connect CEF appliances](connect-common-error-format.md).
 

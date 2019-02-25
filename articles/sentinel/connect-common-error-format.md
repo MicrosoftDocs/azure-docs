@@ -1,5 +1,5 @@
 ---
-title: Collect CEF data in Azure Sentinel | Microsoft Docs
+title: Collect CEF data in Azure Sentinel Preview| Microsoft Docs
 description: Learn how to collect CEF data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -19,7 +19,12 @@ ms.author: rkarlin
 ---
 # Connect your on-premises appliance to Azure Sentinel using Common Event Format
 
-You can connect Azure Sentinel with any following on-premises appliance that enables you to save log files in Syslog. If your appliance enables you to save logs as Syslog Common Event Format (CEF), the integration with Azure Sentinel enables you to easily run analytics and queries across the data.
+> [!IMPORTANT]
+> Azure Sentinel is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+You can connect Azure Sentinel with any on-premises appliance that enables you to save log files in Syslog. If your appliance enables you to save logs as Syslog Common Event Format (CEF), the integration with Azure Sentinel enables you to easily run analytics and queries across the data.
 
 > [!NOTE]
 
@@ -34,22 +39,19 @@ The connection between Azure Sentinel and your CEF appliance takes place in thre
     - Port = 514
     - Facility = Local-4
     - Format = CEF
-2. On the Syslog agent, two processes run:
-    - the Syslog daemon knows how to take the logs and send them to the agent.
-    - the agent parses the logs into a format that can be understood by Log Analytics, and sends them to the Azure Sentinel workspace.
-3. The Agent knows the workspace's keys so that communication between them is secure. The Azure Sentinel workspace stores the data in Log Analytics so it can be queried as needed.
+2. The Syslog agent collects the data and sends it securely to Log Analytics, where it is parsed and enriched.
+3. The agent stores the data in a Log Analytics workspace so it can be queried as needed, using analytics, correlation rules, and dashboards.
 
 
 ## Step 1: Connect to your CEF appliance via dedicated Azure VM
 
-You need to deploy an agent on a dedicated machine (VM or on-prem) to support the communication between the appliance and Azure Sentinel. You can deploy the agent automatically or manually. Automatic deployment is only available if your dedicated machine is a new VM you are creating in Azure. 
+You need to deploy an agent on a dedicated Linux machine (VM or on-prem) to support the communication between the appliance and Azure Sentinel. You can deploy the agent automatically or manually. Automatic deployment is based on Resource Manager templates and can be used only if your dedicated Linux machine is a new VM you are creating in Azure.
 
+ ![CEF in Azure](./media/connect-cef/cef-syslog-azure.png)
 
-![CEF in Azure](./media/connect-cef/cef-syslog-azure.png)
+Alternatively, you can deploy the agent manually on an existing Azure VM, on a VM in another cloud, or on an on-premises machine. 
 
-Alternatively, you can deploy the agent manually on an existing Azure VM, on a VM in another cloud, or on an on-premises machine.
-
-![CEF on-prem](./media/connect-cef/cef-syslog-onprem.png)
+ ![CEF on-prem](./media/connect-cef/cef-syslog-onprem.png)
 
 ### Deploy the agent in Azure
 
@@ -57,7 +59,7 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 1. In the Azure Sentinel portal, click **Data collection** and select your appliance type. 
 
 1. Under **Linux Syslog agent configuration**:
-   - Choose **Automatic deployment** if you want to create a new machine that is pre-installed with the Azure Sentinel agent, and includes all the configuration necessary, as described above. Select **Automatic deployment** and click **Automatic agent deployment**. This takes you to the purchase page for a dedicated VM that is automatically connected to your workspace, is . The VM is a **standard D2s v3 (2 vcpus, 8 GB memory)** and has a public IP address.
+   - Choose **Automatic deployment** if you want to create a new machine that is pre-installed with the Azure Sentinel agent, and includes all the configuration necessary, as described above. Select **Automatic deployment** and click **Automatic agent deployment**. This takes you to the purchase page for a dedicated Linux VM that is automatically connected to your workspace, is . The VM is a **standard D2s v3 (2 vcpus, 8 GB memory)** and has a public IP address.
       1. In the **Custom deployment** page, provide your details and choose a username and a password and if you agree to the terms and conditions, purchase the VM.
       1. Configure your appliance to send logs using the settings listed in the connection page. For the Generic Common Event Format connector, use these settings:
          - Protocol = UDP

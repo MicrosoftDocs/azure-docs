@@ -1,5 +1,5 @@
 ---
-title: Collecting Azure Information Protection data in Azure Sentinel | Microsoft Docs
+title: Collecting Azure Information Protection data in Azure Sentinel Preview| Microsoft Docs
 description: Learn how to collect Azure Information Protection data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -18,6 +18,11 @@ ms.author: rkarlin
 
 ---
 # Collect data from Azure Information Protection
+
+> [!IMPORTANT]
+> Azure Sentinel is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 You can stream logs from [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) into Azure Sentinel with a single click. Azure Information Protection helps protect your data whether it’s stored in the cloud or in on-premises infrastructures and control and help secure email, documents, and sensitive data that you share outside your company. From easy classification to embedded labels and permissions, enhance data protection at all times with Azure Information Protection. When you connect Azure Information Protection to Azure Sentinel, you stream all the alerts from Azure Information Protection into Azure Sentinel.
 
