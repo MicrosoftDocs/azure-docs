@@ -21,9 +21,9 @@ ms.collection: M365-identity-device-management
 ---
 # Set up Azure Active Directory for self-service group management
 
-Your users can create and manage their own security groups or Office 365 groups in Azure Active Directory (Azure AD). The owner of the group can approve or deny membership requests for security groups or Office 365 groups. Day-to-day control of group membership can be delegated. Self-service groups created in the Azure portal are not available to join through the access panel of an on-premises Active Directory. Self-service group management features are available only for security groups and Office 365 groups, but not for mail-enabled security groups or distribution lists.
+You can enable users to create and manage their own security groups or Office 365 groups in Azure Active Directory (Azure AD). The owner of the group can approve or deny membership requests, and can delegate control of group membership. Self-service group management features are not available for mail-enabled security groups or distribution lists. Self-service groups created in the Azure portal are not available to join through the access panel of an on-premises Active Directory.
 
-Self-service group management services two scenarios: 
+Self-service group management comprises two scenarios:
 
 * **Delegated group management**
     An example is an administrator who is managing access to a SaaS application that the company is using. Managing these access rights is becoming cumbersome, so this administrator asks the business owner to create a new group. The administrator assigns access for the application to the new group, and adds to the group all people already accessing to the application. The business owner then can add more users, and those users are automatically provisioned to the application. The business owner doesn't need to wait for the administrator to manage access for users. If the administrator grants the same permission to a manager in a different business group, then that person can also manage access for their own users. Neither the business owner nor the manager can view or manage each other’s users. The administrator can still see all users who have access to the application and block access rights if needed.
