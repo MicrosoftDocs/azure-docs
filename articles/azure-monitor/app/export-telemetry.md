@@ -27,6 +27,16 @@ Before you set up continuous export, there are some alternatives you might want 
 
 After Continuous Export copies your data to storage (where it can stay for as long as you like), it's still available in Application Insights for the usual [retention period](../../azure-monitor/app/data-retention-privacy.md).
 
+## Continuous Export advanced storage configuration
+
+Continuous Export **does not support** the following Azure storage features/configurations:
+
+* Use of [VNET/Azure Storage firewalls](https://docs.microsoft.com/azure/storage/common/storage-network-security) in conjuntion with Azure Blob storage.
+
+* [Immutable storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) for Azure Blob storage.
+
+* [Azure Data Lake Storage Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction).
+
 ## <a name="setup"></a> Create a Continuous Export
 1. In the Application Insights resource for your app, open Continuous Export and choose **Add**:
 
