@@ -219,3 +219,4 @@ Learn how to [retrieve container logs and events](container-instances-get-logs.m
 
 <!-- LINKS - Internal -->
 [az-container-show]: /cli/azure/container#az-container-show
+[list-cached-images]: /rest/api/container-instances/listcachedimages
