@@ -98,5 +98,5 @@ If you have a Microsoft Customer Agreement, see:
 <!-- - [Understand roles for Microsoft customer Agreement](get link for Amber's doc) -->
 
 - [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md)
-- [View and download tax documents for your billing profile](billing-download-tax-document-mca.md)
-- [Understand the charges on your billing profile's invoice](billing-understand-your-bill-mca.md)
+- [View and download tax documents for your billing profile](billing-mca-download-tax-document.md)
+- [Understand the charges on your billing profile's invoice](billing-mca-understand-your-bill.md)
