@@ -6,7 +6,7 @@ author: mialdrid
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 02/25/2019
 ms.author: mialdrid
 ms.custom: seodec18
 
@@ -24,7 +24,7 @@ This article helps you configure ExpressRoute Global Reach using PowerShell. For
 
 Before you start configuration, confirm the following:
 
-* That you've installed the latest version of Azure PowerShell. For more information, see [Install and configure Azure PowerShell](/powershell/azure/azurerm/install-Az-ps).
+* That you've installed the latest version of Azure PowerShell if you want to run PowerShell locally.
 * That you understand ExpressRoute circuit provisioning [workflows](expressroute-workflows.md).
 * That your ExpressRoute circuits are in a provisioned state.
 * That Azure private peering is configured on your ExpressRoute circuits.  
@@ -34,19 +34,19 @@ To start the configuration, sign in to your Azure account.
 
 Open your PowerShell console with elevated privileges, and then connect to your account. The command prompts you for the sign-in credential for your Azure account.  
 
-```powershell
+```azurepowershell-interactive
 Connect-AzAccount
 ```
 
 If you have multiple Azure subscriptions, check the subscriptions for the account.
 
-```powershell
+```azurepowershell-interactive
 Get-AzSubscription
 ```
 
 Specify the subscription that you want to use.
 
-```powershell
+```azurepowershell-interactive
 Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
 ```
 
@@ -59,7 +59,7 @@ If the two circuits are in different Azure subscriptions, you need authorization
 
 Use the following commands to get circuit 1 and circuit 2. The two circuits are in the same subscription.
 
-```powershell
+```azurepowershell-interactive
 $ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
 $ckt_2 = Get-AzExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
 ```
@@ -73,12 +73,12 @@ Run the following command against circuit 1, and pass in the private peering ID 
   ```
 * *-AddressPrefix* must be a /29 IPv4 subnet, for example, "10.0.0.0/29". We use IP addresses in this subnet to establish connectivity between the two ExpressRoute circuits. You shouldn’t use the addresses in this subnet in your Azure virtual networks, or in your on-premises network.
 
-```powershell
+```azurepowershell-interactive
 Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering $ckt_2.Peerings[0].Id -AddressPrefix '__.__.__.__/29'
 ```
 
 Save the configuration on circuit 1 as follows:
-```powershell
+```azurepowershell-interactive
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
 ```
 
@@ -89,7 +89,7 @@ When the previous operation is complete, you should have connectivity between yo
 If the two circuits are not in the same Azure subscription, you need authorization. In the following configuration, authorization is generated in the circuit 2 subscription, and the authorization key is passed to circuit 1.
 
 Generate an authorization key. 
-```powershell
+```azurepowershell-interactive
 $ckt_2 = Get-AzExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
 Add-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $ckt_2 -Name "Name_for_auth_key"
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_2
@@ -97,12 +97,12 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_2
 Make a note of the private peering ID of circuit 2, as well as the authorization key.
 
 Run the following command against circuit 1. Pass in the private peering ID of circuit 2 and the authorization key.
-```powershell
+```azurepowershell-interactive
 Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering "circuit_2_private_peering_id" -AddressPrefix '__.__.__.__/29' -AuthorizationKey '########-####-####-####-############'
 ```
 
 Save the configuration on circuit 1.
-```powershell
+```azurepowershell-interactive
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
 ```
 
@@ -112,7 +112,7 @@ When the previous operation is complete, you should have connectivity between yo
 
 Use the following command to verify the configuration on the circuit where the configuration was made (for example, circuit 1 in the previous example).
 
-```powershell
+```azurepowershell-interactive
 $ckt1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
 ```
 
@@ -122,7 +122,7 @@ If you simply run *$ckt1* in PowerShell, you see *CircuitConnectionStatus* in th
 
 To disable connectivity, run the commands against the circuit where the configuration was made (for example, circuit 1 in the previous example).
 
-```powershell
+```azurepowershell-interactive
 $ckt1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
 Remove-AzExpressRouteCircuitConnectionConfig -Name "Your_connection_name" -ExpressRouteCircuit $ckt_1
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
