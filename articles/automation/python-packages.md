@@ -24,23 +24,23 @@ On the **Add Python 2 Package** page, select a local package to upload. The pack
 
 ![Add Python package](media/python-packages/upload-package.png)
 
-Once a package has been imported, it is listed on the **Python 2 packages** page in your Automation Account. If you need to remove a package, select the package and choose **Delete**  on the package page.
+Once a package has been imported, it's listed on the **Python 2 packages** page in your Automation Account. If you need to remove a package, select the package and choose **Delete**  on the package page.
 
 ![Package list](media/python-packages/package-list.png)
 
 ## Import packages with dependencies
 
-Azure automation does not resolve dependencies for python packages during the import process. There are two ways to import a package with all its dependencies. Only one of the following steps needs to be used to import the packages into your Automation Account.
+Azure automation doesn't resolve dependencies for python packages during the import process. There are two ways to import a package with all its dependencies. Only one of the following steps needs to be used to import the packages into your Automation Account.
 
 ### Manually download
 
-On a Windows 64-bit machine with python2.7 and pipi installed, run the following command to download a package and all its dependencies:
+On a Windows 64-bit machine with `python2.7` and `pip` installed, run the following command to download a package and all its dependencies:
 
 ```
 C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>
 ```
 
-Once the packages are downloaded you can import them into your automation account.
+Once the packages are downloaded, you can import them into your automation account.
 
 ### Runbook
 
@@ -53,11 +53,11 @@ Import the python runbook [Import Python 2 packages from pypi into Azure Automat
 
 ![Package list](media/python-packages/import-python-runbook.png)
 
-The runbook allows you to specify what package to download e.g. `Azure` (the 4th parameter) will download all Azure modules and all its dependencies, which is about 105.
+The runbook allows you to specify what package to download, for example, `Azure` (the fourth parameter) will download all Azure modules and all its dependencies, which is about 105.
 
 ## Use a package in a runbook
 
-Once you have imported a package, you can now use it in a runbook. The following example uses the [
+Once you've imported a package, you can now use it in a runbook. The following example uses the [
 Azure Automation utility package](https://github.com/azureautomation/azure_automation_utility). This package makes it easier to use Python with Azure Automation. To use the package, follow the instructions in the GitHub repository and add it to the runbook by using `from azure_automation_utility import get_automation_runas_credential` for example to import the function for retrieving the RunAs Account.
 
 ```python
