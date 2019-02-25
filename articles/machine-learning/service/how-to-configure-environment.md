@@ -262,11 +262,13 @@ To use Visual Studio Code for development, do the following:
 
 ## Azure Databricks
 
+Azure Databricks is an Apache Spark-based environment in the Azure cloud. It can be used as a compute target with an Azure Machine Learning pipeline and with [automated machine learning](concept-automated-ml.md). 
+
 You can use a custom version of the Azure Machine Learning SDK for Azure Databricks for end-to-end custom machine learning. Or you can train your model within Databricks and deploy it by using [Visual Studio Code](how-to-vscode-train-deploy.md#deploy-your-service-from-vs-code).
 
 To prepare your Databricks cluster and get sample notebooks:
 
-1. Create a [Databricks cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). Some settings apply only if you install the SDK for [automated machine learning](concept-automated-ml.md) on Databricks.
+1. Create a [Databricks cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). Some settings apply only if you install the SDK for automated machine learning on Databricks.
 
    It will take few minutes to create the cluster. 
 
@@ -315,13 +317,9 @@ To prepare your Databricks cluster and get sample notebooks:
      Azure Machine Learning SDK for Databricks **_WITH_ automated machine learning**
    ![SDK with automated machine learning installed on Databricks ](./media/how-to-configure-environment/automlonadb.jpg)
 
-1. Download the [Azure Databricks/Azure Machine Learning SDK notebook archive file](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc).
-
-   >[!Warning]
-   > Many sample notebooks are available for use with Azure Machine Learning service. Only [these sample notebooks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) work with Azure Databricks.
-
-1.  [Import the archive file](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) into your Databricks cluster and start exploring as described on the [Machine Learning Notebooks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) page.
-
+1. Try it out:
+   + Download the [notebook archive file](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc) for Azure Databricks/Azure Machine Learning SDK.  While many sample notebooks are available, **only [these sample notebooks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) work with Azure Databricks.**
+   + Learn how to [create a pipeline with Databricks as the training compute](how-to-create-your-first-pipeline).
 
 ## <a id="workspace"></a>Create a workspace configuration file
 
