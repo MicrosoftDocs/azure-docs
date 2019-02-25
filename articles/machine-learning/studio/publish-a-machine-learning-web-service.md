@@ -204,7 +204,7 @@ Because you've deployed this experiment before, you are asked if you want to ove
 > [!NOTE]
 > If you made configuration changes in the original web service, for example, entering a new display name or description, you will need to enter those values again.
 
-One option for updating your web service is to retrain the model programmatically. For more information, see [Retrain Machine Learning Studio models programmatically](retrain-models-programmatically.md).
+One option for updating your web service is to retrain the model programmatically. For more information, see [Retrain Machine Learning Studio models programmatically](/azure/machine-learning/studio/retrain-machine-learning-model).
 
 ## Next steps
 
