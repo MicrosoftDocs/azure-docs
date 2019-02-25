@@ -5,11 +5,9 @@ description: Learn how to use Azure Machine Learning Service to deploy, manage, 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.reviewer: jmartens
 author: chris-lauren
 ms.author:  clauren
-ms.date: 09/24/2018
+ms.date: 1/23/2019
 ms.custom: seodec18
 ---
 
