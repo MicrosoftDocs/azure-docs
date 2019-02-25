@@ -35,7 +35,7 @@ Continuous Export **does not support** the following Azure storage features/conf
 
 * [Immutable storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) for Azure Blob storage.
 
-* [Azure Data Lake Storage Gen2](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction).
+* [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
 
 ## <a name="setup"></a> Create a Continuous Export
 1. In the Application Insights resource for your app, open Continuous Export and choose **Add**:
