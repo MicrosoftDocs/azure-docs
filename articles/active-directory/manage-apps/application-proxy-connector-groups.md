@@ -2,19 +2,20 @@
 title: Publishing applications on separate networks and locations using connector groups in Azure AD App Proxy | Microsoft Docs
 description: Covers how to create and manage groups of connectors in Azure AD Application Proxy.
 services: active-directory
-author: barbkess
+author: CelesteDG
 manager: mtillman
 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: japere
 
+ms.collection: M365-identity-device-management
 ---
 
 # Publish applications on separate networks and locations using connector groups
@@ -70,11 +71,11 @@ For applications installed on IaaS for cloud access, connector groups provide a 
 
 Take as an example an organization that has several virtual machines connected to their own IaaS hosted virtual network. To allow employees to use these applications, these private networks are connected to the corporate network using site-to-site VPN. This provides a good experience for employees that are located on-premises. But, it may not be ideal for remote employees, because it requires additional on-premises infrastructure to route access, as you can see in the diagram below:
 
-![AzureAD Iaas Network](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
+![AzureAD IaaS Network](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
   
 With Azure AD Application Proxy connector groups, you can enable a common service to secure the access to all applications without creating additional dependency on your corporate network:
 
-![AzureAD Iaas Multiple Cloud Vendors](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
+![AzureAD IaaS Multiple Cloud Vendors](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
 
 ### Multi-forest – different connector groups for each forest
 

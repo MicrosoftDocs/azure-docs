@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
 
----  
+---
 
 # Publishing Checklist for Azure Marketplace    
 Review required components prior to starting the publishing process.  
@@ -41,4 +41,4 @@ The following artifacts are required to complete the Create Offer publishing wor
 ## Next steps
 *   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
  
----  
+---

@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/07/2018
+ms.date: 01/23/2019
 ms.author: magoedte
 ---
 
@@ -36,7 +36,7 @@ The features are organized into three perspectives:
 >[!NOTE]
 >Currently, the Health feature is offered only for Azure virtual machines and virtual machine scale sets. The Performance and Map features support both Azure VMs and virtual machines that are hosted in your environment or other cloud provider.
 
-Integration with Log Analytics delivers powerful aggregation and filtering, and it can analyze data trends over time. Such comprehensive workload monitoring can't be achieved with Azure Monitor, Service Map, or Log Analytics alone.  
+Integration with Azure Monitor logs delivers powerful aggregation and filtering, and it can analyze data trends over time. Such comprehensive workload monitoring can't be achieved with Azure Monitor or Service Map alone.  
 
 You can view this data in a single VM from the virtual machine directly, or you can use Azure Monitor to deliver an aggregated view of your VMs. This view is based on each feature's perspective:
 
@@ -45,7 +45,7 @@ You can view this data in a single VM from the virtual machine directly, or you 
 
 ![Virtual machine insights perspective in the Azure portal](./media/vminsights-overview/vminsights-azmon-directvm-01.png)
 
-Azure DevOps can deliver predictable performance and availability of vital applications. It identifies critical operating system events, performance bottlenecks, and network issues. Azure DevOps can also help you understand whether an issue is related to other dependencies.  
+Azure Monitor for VMs can deliver predictable performance and availability of vital applications. It identifies critical operating system events, performance bottlenecks, and network issues. Azure Monitor for VMs can also help you understand whether an issue is related to other dependencies.  
 
 ## Data usage 
 

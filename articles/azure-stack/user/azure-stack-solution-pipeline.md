@@ -12,9 +12,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/07/2018
+ms.date: 02/19/2019
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
+ms.reviewer: anajod
+ms.lastreviewed: 11/07/2018
 ---
 
 # Tutorial: Deploy apps to Azure and Azure Stack
@@ -358,7 +359,7 @@ Hybrid CI/CD can apply to both application code and infrastructure code. Use [Az
 
 1. Sign in to Azure DevOps Services with an organization that can create a build pipeline.
 
-2. Navigate to the **Build Web Applicaiton** page for the project.
+2. Navigate to the **Build Web Application** page for the project.
 
 3. In **Arguments**, add **-r win10-x64** code. This is required to trigger a self-contained deployment with .Net Core.
 

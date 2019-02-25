@@ -1,6 +1,6 @@
 ---
-title: List deny assignments using RBAC and the REST API - Azure | Microsoft Docs
-description: Learn how to list deny assignments for users, groups, and applications, using role-based access control (RBAC) and the REST API.
+title: List deny assignments for Azure resources using the REST API - Azure | Microsoft Docs
+description: Learn how to list deny assignments for users, groups, and applications, using role-based access control (RBAC) for Azure resources and the REST API.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -18,9 +18,9 @@ ms.author: rolyon
 ms.reviewer: bagovind
 
 ---
-# List deny assignments using RBAC and the REST API
+# List deny assignments for Azure resources using the REST API
 
-Currently, deny assignments are **read-only** and can only be set by Azure. Even though you can't create your own deny assignments, you can list deny assignments because they could impact your effective permissions. This article describes how you to list deny assignments using RBAC and the REST API.
+Currently, deny assignments are **read-only** and can only be set by Microsoft. Even though you can't create your own deny assignments, you can list deny assignments because they could impact your effective permissions. This article describes how you to list deny assignments using RBAC and the REST API.
 
 ## List a single deny assignment
 
@@ -91,6 +91,6 @@ Currently, deny assignments are **read-only** and can only be set by Azure. Even
 
 ## Next steps
 
-- [Understand deny assignments](deny-assignments.md)
+- [Understand deny assignments for Azure resources](deny-assignments.md)
 - [Elevate access for a Global Administrator in Azure Active Directory](elevate-access-global-admin.md)
 - [Azure REST API Reference](/rest/api/azure/)

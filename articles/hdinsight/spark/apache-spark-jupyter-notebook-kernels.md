@@ -29,7 +29,7 @@ In this article, you learn how to use these kernels and the benefits of using th
 
 ## Create a Jupyter notebook on Spark HDInsight
 
-1. From the [Azure portal](https://portal.azure.com/), open your cluster.  See [List and show clusters](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters) for the instructions. The cluster is opened in a new portal blade.
+1. From the [Azure portal](https://portal.azure.com/), open your cluster.  See [List and show clusters](../hdinsight-administer-use-portal-linux.md#showClusters) for the instructions. The cluster is opened in a new portal blade.
 
 2. From the **Quick links** section, click **Cluster dashboards** to open the **Cluster dashboards** blade.  If you don't see **Quick Links**, click **Overview** from the left menu on the blade.
 

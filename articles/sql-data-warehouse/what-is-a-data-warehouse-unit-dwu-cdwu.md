@@ -6,7 +6,7 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
@@ -32,7 +32,9 @@ Increasing DWUs:
 - Increases the maximum number of concurrent queries and concurrency slots.
 
 ## Service Level Objective
-The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for Gen2 are measured in compute data warehouse units (cDWU), for example DW2000c. Gen1 service levels are measured in DWUs, for example DW2000. 
+The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for Gen2 are measured in compute data warehouse units (cDWU), for example DW2000c. Gen1 service levels are measured in DWUs, for example DW2000.
+  > [!NOTE]
+  > Azure SQL Data Warehouse Gen2 recently added additional scale capabilities to support compute tiers as low as 100 cDWU. Existing data warehouses currently on Gen1 that require the lower compute tiers can now upgrade to Gen2 in the regions that are currently available for no additional cost.  If your region is not yet supported, you can still upgrade to a supported region. For more information see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 
 In T-SQL the SERVICE_OBJECTIVE setting determines the service level and the performance tier for your data warehouse.
 
@@ -57,7 +59,7 @@ WITH
 Each performance tier uses a slightly different unit of measure for their data warehouse units. This difference is reflected on the invoice as the unit of scale directly translates to billing.
 
 - Gen1 data warehouses are measured in Data Warehouse Units (DWUs).
-- Gen2 data warehousesr are measured in compute Data Warehouse Units (cDWUs). 
+- Gen2 data warehouses are measured in compute Data Warehouse Units (cDWUs). 
 
 Both DWUs and cDWUs support scaling compute up or down, and pausing compute when you don't need to use the data warehouse. These operations are all on-demand. Gen2 uses a local disk-based cache on the compute nodes to improve performance. When you scale or pause the system, the cache is invalidated and so a period of cache warming is required before optimal performance is achieved.  
 
@@ -85,6 +87,8 @@ SQL Data Warehouse is a scale-out system that can provision vast amounts of comp
 ## Permissions
 
 Changing the data warehouse units requires the permissions described in [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql). 
+
+Built-in roles for Azure resources such as SQL DB Contributor and SQL Server Contributor can change DWU settings. 
 
 ## View current DWU settings
 

@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
-ms.component: ""
+ms.subservice: ""
 ---
 # Stream Azure Diagnostic Logs to an event hub
 **[Azure diagnostic logs](diagnostic-logs-overview.md)** can be streamed in near real time to any application using the built-in “Export to Event Hubs” option in the Portal, or by enabling the Event Hub Authorization Rule ID in a diagnostic setting via the Azure PowerShell Cmdlets or Azure CLI.
@@ -192,3 +192,4 @@ You can also stream diagnostic logs from Compute resources using the Windows Azu
 * [Stream Azure Active Directory logs with Azure Monitor](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [Read more about Azure Diagnostic Logs](diagnostic-logs-overview.md)
 * [Get started with Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+

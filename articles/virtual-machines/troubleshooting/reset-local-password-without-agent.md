@@ -34,6 +34,19 @@ The core steps for performing a local password reset for a Windows VM in Azure w
 * Use a Resource Manager template to create a VM, using the original virtual disk.
 * When the new VM boots, the config files you create update the password of the required user.
 
+> [!NOTE]
+> You can automate the following processes:
+>
+> - Creating the troubleshooting VM
+> - Attaching the OS disk
+> - Re-creating the original VM
+> 
+> To do this, use the [Azure VM Recovery Scripts](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md). If you choose to use the Azure VM Recovery Scripts, you can use the following process in the "Detailed steps" section:
+> 1. Skip steps 1 and 2 by using the scripts to attach the OS disk of the affected VM to a recovery VM.
+> 2. Follow steps 3–6 to apply the mitigations.
+> 3. Skip steps 7–9 by using the scripts to rebuild the VM.
+> 4. Follow steps 10 and 11.
+
 ## Detailed steps
 
 > [!NOTE]

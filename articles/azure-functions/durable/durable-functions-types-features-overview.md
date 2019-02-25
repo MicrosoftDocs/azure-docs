@@ -10,6 +10,7 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
+#Customer intent: As a developer, I want to understand the core concepts and patterns that Azure Durable Functions supports so that I can learn how this technology can be used to solve my application development challenges.
 ---
 
 # Overview of function types and features for Durable Functions (Azure Functions)
@@ -32,7 +33,7 @@ More information and examples can be found in the [Durable Functions binding art
 
 ### Orchestrator functions
 
-Orchestrator functions are the heart of a durable function.  Orchestrator functions describe the way and order actions are executed.  Orchestrator functions describe the orchestration in code (C# or JavaScript) as shown in the [durable functions overview](durable-functions-overview.md).  An orchestration can have many different types of actions, like [activity functions](#activity-functions), [sub-orchestrations](#sub-orchestrations), [waiting for external events](#external-events), and [timers](#durable-timers).  
+Orchestrator functions are the heart of a durable function.  Orchestrator functions describe the way and order actions are executed.  Orchestrator functions describe the orchestration in code (C# or JavaScript) as shown in the [Durable Functions patterns and technical concepts](durable-functions-concepts.md).  An orchestration can have many different types of actions, like [activity Functions](#activity-functions), [sub-orchestrations](#sub-orchestrations), [waiting for external events](#external-events), and [timers](#durable-timers).  
 
 An orchestrator function must be triggered by an [orchestration trigger](durable-functions-bindings.md#orchestration-triggers).
 

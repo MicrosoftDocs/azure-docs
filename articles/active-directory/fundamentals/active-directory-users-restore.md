@@ -3,16 +3,17 @@ title: Restore or permanently remove a recently deleted user - Azure Active Dire
 description: How to view restorable users, restore a deleted user, or permanently delete a user with Azure Active Directory.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: lizross 
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
 # Restore or remove a recently deleted user using Azure Active Directory
@@ -55,9 +56,6 @@ While a user's account is suspended, all the related directory information is pr
 2. Select **Restore user**.
 
     ![Users - Deleted users page, with Restore user option highlighted](media/active-directory-users-restore/users-deleted-users-restore-user.png)
-
->[!NOTE]
->Previously when a user was removed from the on-premises synchronization scope, and deleted in the cloud, the DirSyncEnabled status of the account was erroneously set to "False". If afterwards, that user was manually restored from Azure AD Recycle Bin, it showed an incorrect state of “Cloud-Only” account. This has now been fixed and the value of the DirSyncEnabled status is always kept “True” when a user is removed from sync scope, then soft-deleted, and manually restored from Azure AD Recycle Bin.
 
 ## Permanently delete a user
 You can permanently delete a user from your directory without waiting the 30 days for automatic deletion. A permanently deleted user can't be restored by you, another administrator, nor by Microsoft customer support.

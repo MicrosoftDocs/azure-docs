@@ -4,7 +4,7 @@ description: Retention policies on report data in your Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
@@ -13,11 +13,12 @@ ms.devlang:
 ms.topic: reference
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory report retention policies
 
@@ -36,6 +37,18 @@ In this article, you learn about the data retention policies for the different a
 
 - **Immediately** - If you have already been working with reports in the Azure portal.
 - **Within 2 hours** - If you haven’t turned on reporting in the Azure portal.
+
+---
+
+### How soon can I see activities data after getting a premium license?
+
+If you already have activities data with your free license, then you can see it immediately on upgrade. If you don’t have any data, then it will take one or two days for the data to show up in the reports after you upgrade to a premium license.
+
+---
+
+### Can I see last month's data after getting an Azure AD premium license?
+
+If you recently switched to a premium version (including a trial version), you can see data up to 7 days initially. When data accumulates, you can see data for the past 30 days.
 
 ---
 

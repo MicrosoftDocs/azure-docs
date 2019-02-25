@@ -4,7 +4,7 @@ description: Tutorial about using Terraform with Azure provider deployment slots
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, virtual machine, Azure, deployment slots
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial

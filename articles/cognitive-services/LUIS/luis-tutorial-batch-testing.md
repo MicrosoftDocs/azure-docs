@@ -4,16 +4,16 @@ titleSuffix: Azure Cognitive Services
 description: This tutorial demonstrates how to use batch testing to find utterance prediction issues in your app and fix them.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
 ---
 
-# Tutorial 2: Batch test data sets
+# Tutorial: Batch test data sets
 
 This tutorial demonstrates how to use batch testing to find utterance prediction issues in your app and fix them.  
 
@@ -31,7 +31,7 @@ When using an app other than this tutorial, do *not* use the example utterances 
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Use existing tutorial app
+> * Import example app
 > * Create a batch test file 
 > * Run a batch test
 > * Review test results
@@ -40,11 +40,11 @@ When using an app other than this tutorial, do *not* use the example utterances 
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## Use existing app
+## Import example app
 
 Continue with the app created in the last tutorial, named **HumanResources**. 
 
-If you do not have the HumanResources app from the previous tutorial, use the following steps:
+Use the following steps:
 
 1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
 

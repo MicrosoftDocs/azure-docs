@@ -37,6 +37,8 @@
     href: resource-manager-tutorial-secure-artifacts.md
   - name: Use safe deployment practices
     href: deployment-manager-tutorial.md
+  - name: Troubleshoot template deployment
+    href: resource-manager-tutorial-troubleshoot.md
 - name: Samples
   items:
   - name: Resource Manager templates
@@ -129,7 +131,7 @@
     - name: Continuous integration with Azure DevOps Services
       href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
       maintainContext: true
-  - name: Manage templates
+  - name: Manage resources
     items:
     - name: Manage by using the Azure portal
       href: resource-group-portal.md
@@ -139,9 +141,6 @@
       href: cli-azure-resource-manager.md
     - name: Move resources
       href: resource-group-move-resources.md
-      items:
-      - name: Move support per resource type
-        href: move-support-resources.md
     - name: Organize resources by using tags
       href: resource-group-using-tags.md
     - name: Lock resources
@@ -152,6 +151,8 @@
       href: programmatically-create-subscription.md
     - name: Grant access to create EA subscriptions
       href: grant-access-to-create-subscription.md
+    - name: Authenticate across tenants
+      href: authenticate-multi-tenant.md
   - name: Audit deployments
     items:
     - name: View activity logs
@@ -213,8 +214,14 @@
       href: resource-group-template-functions-resource.md
     - name: String functions
       href: resource-group-template-functions-string.md
-  - name: Tag support
-    href: tag-support.md
+  - name: Resource capabilities
+    items:
+    - name: Complete mode deletion
+      href: complete-mode-deletion.md
+    - name: Move support
+      href: move-support-resources.md
+    - name: Tag support
+      href: tag-support.md
   - name: REST - Resource Manager
     href: /rest/api/resources/
   - name: REST - Deployment Manager
@@ -238,7 +245,7 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=azure-resource-manager
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-resource-manager
+    href: https://stackoverflow.com/questions/tagged/azure-resource-manager
   - name: Manage personal data
     href: resource-manager-personal-data.md
   - name: Videos

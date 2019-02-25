@@ -26,6 +26,8 @@ In this tutorial, you learn how to:
 > * Configure your default home page
 > * Preview the default home page as an operator
 
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
+
 ## Prerequisites
 
 Before you begin, you should complete the two previous tutorials:

@@ -56,7 +56,7 @@
           href: quickstart-python-detect.md
         - name: Ruby, REST
           href: quickstart-ruby-detect.md
-      - name: Get alternate translations
+      - name: Look up word translations
         items:
         - name: C#, REST
           href: quickstart-csharp-dictionary.md
@@ -229,7 +229,7 @@
   - name: Resources
     items:
     - name: Language Support
-      href: https://docs.microsoft.com/azure/cognitive-services/translator/language-support
+      href: https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization
     - name: Glossary
       href: custom-translator/glossary.md
     - name: FAQ

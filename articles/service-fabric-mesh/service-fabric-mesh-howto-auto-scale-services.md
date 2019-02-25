@@ -105,7 +105,9 @@ application:
             - name: AutoScaleWorkerRule
               trigger:
                 kind: AverageLoad
-                metricName: cpu
+                metric:
+                  kind: Resource
+                  name: cpu
                 lowerLoadThreshold: 0.2
                 upperLoadThreshold: 0.8
                 scaleIntervalInSeconds: 60

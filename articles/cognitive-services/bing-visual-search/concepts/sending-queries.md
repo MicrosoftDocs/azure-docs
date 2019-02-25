@@ -3,21 +3,21 @@ title: "Sending search queries to the Bing Visual Search API"
 titlesuffix: Azure Cognitive Services
 description: Learn about the REST API parameters used in the Bing Visual Search API.
 services: cognitive-services
-author: aahi
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 12/18/2018
-ms.author: aahill
+ms.author: aahi
 ---
 
 # Sending search queries to the Bing Visual Search API
 
 This article describes the parameters and attributes of requests sent to the Bing Visual Search API, as well as the response object.
 
-You can get get insights about an image in three ways: 
+You can get insights about an image in three ways: 
 
 - using an insights token that you get from an image in a previous call to one of the [Bing Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) endpoints.
 - Sending the URL of an image.
@@ -108,7 +108,7 @@ The following are the headers that your request should specify. The Content-Type
 Each request must include the Content-Type header. The header must be set to: multipart/form-data; boundary=\<boundary string\>, where \<boundary string\> is a unique, opaque string that identifies the boundary of the form data. For example, boundary=boundary_1234-abcd.
 
 
-If you send Visual Search an image token or URL, the following shows the form data you must include in the body of the POST. The form data must include the Content-Disposition header and its `name` parameter must be set to "knowledgeRequest." For details about the `imageInfo` object, see [The request](#the-request).
+If you send Visual Search an image token or URL, the following shows the form data you must include in the body of the POST. The form data must include the Content-Disposition header and its `name` parameter must be set to "knowledgeRequest." For details about the `imageInfo` object, see The request.
 
 
 ```

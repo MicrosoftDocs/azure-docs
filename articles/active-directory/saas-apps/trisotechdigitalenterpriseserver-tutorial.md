@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Trisotech Digital Enterprise Server | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Trisotech Digital Enterprise Server.
 services: active-directory
@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: 6d54d20c-eca1-4fa6-b56a-4c3ed0593db0
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Trisotech Digital Enterprise Server
 
@@ -146,7 +147,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	f. Click **Save**
 
- ### Create an Azure AD test user
+### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 

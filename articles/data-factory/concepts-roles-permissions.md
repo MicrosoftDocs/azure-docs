@@ -12,7 +12,7 @@ services: data-factory
 documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ---
 
 # Roles and permissions for Azure Data Factory
@@ -75,7 +75,7 @@ Here are a few examples that demonstrate what you can achieve with custom roles:
   This scenario requires two role assignments.
 
   1. Assign the built-in **contributor** role at the data factory level.
-  2. Create a custom role with the permission  *Microsoft.Resources/deployments/**. Assign this custom role to the user at resource group level.
+  2. Create a custom role with the permission  **Microsoft.Resources/deployments/**. Assign this custom role to the user at resource group level.
 
 - Let a user update a data factory from PowerShell or the SDK, but not in the Azure portal.
 

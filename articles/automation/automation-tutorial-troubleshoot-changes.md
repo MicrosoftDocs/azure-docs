@@ -3,7 +3,7 @@ title: Troubleshoot changes on an Azure virtual machine | Microsoft Docs
 description: Use Change Tracking to troubleshoot changes on an Azure virtual machine.
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 keywords: change, tracking, automation
 author: jennyhunter-msft
 ms.author: jehunte
@@ -224,3 +224,4 @@ Continue to the overview for the Change tracking and Inventory solution to learn
 
 > [!div class="nextstepaction"]
 > [Change management and Inventory solution](automation-change-tracking.md)
+

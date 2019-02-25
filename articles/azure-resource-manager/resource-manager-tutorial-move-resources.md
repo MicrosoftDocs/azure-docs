@@ -59,7 +59,7 @@ Select **Try it** to open the Cloud shell, and then execute the PowerShell scrip
 
 ```azurepowershell-interactive
 $projectName = Read-Host -prompt "Enter a project name"
-New-AzureRmDeployment `
+New-AzDeployment `
     -Name $projectname `
     -Location "centralus" `
     -TemplateUri "https://armtutorials.blob.core.windows.net/moveresources/azuredeploy.json" `
@@ -91,14 +91,16 @@ The validate move operation lets you test your move scenario without actually mo
 
 The storage account is inside the source resource group (rg1), run the following PowerShell script move the resource to the destination resource group (rg2). Make sure to use the same project name as you used when you deploy the resources.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ```azurepowershell-interactive
 $projectName = Read-Host -prompt "Enter a project name"
 $resourceGroupSource = $projectName + "rg1"
 $resourceGroupDestination = $projectName + "rg2"
 $storageAccountName = $projectName + "store"
 
-$storageAccount = Get-AzureRmResource -ResourceGroupName $resourceGroupSource -ResourceName $storageAccountName
-Move-AzureRmResource -DestinationResourceGroupName $resourceGroupDestination -ResourceId $storageAccount.ResourceId
+$storageAccount = Get-AzResource -ResourceGroupName $resourceGroupSource -ResourceName $storageAccountName
+Move-AzResource -DestinationResourceGroupName $resourceGroupDestination -ResourceId $storageAccount.ResourceId
 ```
 
 Open the [Azure portal](https://portal.azure.com), verify the storage account has been moved to the other resource group, and also verify the storage account location is still East US.

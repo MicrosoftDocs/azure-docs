@@ -9,27 +9,28 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
 ---
 
 #	Shaper cognitive skill
 
-The **Shaper** skill creates a complex type to support composite fields (also known as multipart fields). A complex type field has multiple parts but is treated as a single item in an Azure Search index. Examples of consolidated fields useful in search scenarios include combining a first and last name into a single field, city and state into a single field, or name and birthdate into a single field to establish unique identity.
+The **Shaper** skill consolidates several inputs into a complex type that can be referenced later in the enrichment pipeline. The **Shaper** skill allows you to essentially create a structure, define the name of the members of that structure, and assign values to each member. Examples of consolidated fields useful in search scenarios include combining a first and last name into a single structure, city and state into a single structure, or name and birthdate into a single structure to establish unique identity.
 
-The Shaper skill allows you to essentially create a structure, define the name of the members of that structure, and assign values to each member.
+By default, this technique supports objects that are one level deep. For more complex objects, you can chain several **Shaper** steps.
 
-By default, this technique supports objects that are one level deep. For more complex objects, you can chain several Shaper steps.
+In the response, the output name is always "output". Internally, the pipeline can map a different name, such as "analyzedText" in the examples below to "output", but the **Shaper** skill itself returns "output" in the response. This might be important if you are debugging enriched documents and notice the naming discrepancy, or if you build a custom skill and are structuring the response yourself.
 
-In the response, the output name is always "output". Internally, the pipeline can map a different name, such as "analyzedText" in the examples below to "output", but the Shaper skill itself returns "output" in the response. This might be important if you are debugging enriched documents and notice the naming discrepancy, or if you build a custom skill and are structuring the response yourself.
+> [!NOTE]
+> This skill is not bound to a Cognitive Services API and you are not charged for using it. You should still [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md), however, to override the **Free** resource option that limits you to a small number of daily enrichments per day.
 
 ## @odata.type  
 Microsoft.Skills.Util.ShaperSkill
 
 ## Sample 1: complex types
 
-Consider a scenario where you want to create a structure called *analyzedText* that has two members: *text* and *sentiment*, respectively. In Azure Search, a multi-part searchable field is called a *complex type*, and it's not yet supported out of the box. In this preview, a Shaper skill can be used to generate fields of a complex type in your index. 
+Consider a scenario where you want to create a structure called *analyzedText* that has two members: *text* and *sentiment*, respectively. In Azure Search, a multi-part searchable field is called a *complex type*, and it's not yet supported out of the box. In this preview, a **Shaper** skill can be used to generate fields of a complex type in your index. 
 
 The following example provides the member names as the input. The output structure (your complex field in Azure Search) is specified through *targetName*. 
 
@@ -51,14 +52,14 @@ The following example provides the member names as the input. The output structu
   "outputs": [
     {
       "name": "output",
-      "targetName": analyzedText"
+      "targetName": "analyzedText"
     }
   ]
 }
 ```
 
 ###	Sample input
-A JSON document providing usable input for this Shaper skill could be:
+A JSON document providing usable input for this **Shaper** skill could be:
 
 ```json
 {
@@ -76,7 +77,7 @@ A JSON document providing usable input for this Shaper skill could be:
 
 
 ###	Sample output
-The Shaper skill generates a new element called *analyzedText* with the combined elements of *text* and *sentiment*. 
+The **Shaper** skill generates a new element called *analyzedText* with the combined elements of *text* and *sentiment*. 
 
 ```json
 {
@@ -118,8 +119,8 @@ The Shaper skill definition for this scenario might look like the following exam
     ],
     "outputs": [
         {
-            "output": "titlesAndChapters",
-            "targetName": "analyzedText"
+            "name": "output",
+            "targetName": "titlesAndChapters"
         }
     ]
 }

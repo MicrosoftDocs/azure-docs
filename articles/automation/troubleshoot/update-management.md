@@ -37,7 +37,11 @@ This error can be caused by the following reasons:
 #### Resolution
 
 1. Visit, [Network planning](../automation-hybrid-runbook-worker.md#network-planning) to learn about which addresses and ports need to be allowed for Update Management to work.
-2. If using a cloned image, sysprep the image first and install the MMA agent after the fact.
+2. If using a cloned image:
+   1. In your Log Analytics workspace, remove the VM from the saved search for the Scope Configuration `MicrosoftDefaultScopeConfig-Updates`. Saved searches can be found under **General** in your workspace.
+   2. Run `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`
+   3. Run `Restart-Service HealthService` to restart the `HealthService`. This will recreate the key and generate a new UUID.
+   4. If this doesnt work, sysprep the image first and install the MMA agent after the fact.
 
 ### <a name="multi-tenant"></a>Scenario: You receive a linked subscription error when creating an update deployment for machines in another Azure tenant.
 
@@ -171,6 +175,11 @@ Double-click on the exception displayed in red to see the entire exception messa
 |`0x8024402C`     | If you are using a WSUS server, make sure the registry values for `WUServer` and `WUStatusServer` under the registry key `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` have the correct WSUS server.        |
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Make sure the Windows Update service (wuauserv) is running and is not disabled.        |
 |Any other generic exception     | Do a search the internet for the possible solutions and work with your local IT support.         |
+
+Additionally you can download and run the [Windows Update troubleshooter](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) to check if there are any issues with Windows Update on the machine.
+
+> [!NOTE]
+> The [Windows Update troubleshooter](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) states it is for Windows clients but it works on Windows Server as well.
 
 ## Linux
 

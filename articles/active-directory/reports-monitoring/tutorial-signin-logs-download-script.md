@@ -5,7 +5,7 @@ description: Learn how to download and use a PowerShell script to access signin 
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 4afe0c73-aee8-47f1-a6cb-2d71fd6719d1
@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk  
 
 # Customer intent: As an IT administrator, I want to learn how to set up a script to download sign-in activity logs periodically, so that I can indefinitely retain all the sign-ins data in my tenant without manual intervention.
 
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: How to download and use a script to access sign-in logs
@@ -33,9 +34,9 @@ In this tutorial, you learn how to generate a script to download all the sign-in
 
 You need
 
-* An Azure Active Directory tenant with a premium (P1/P2) license. 
+* An Azure Active Directory tenant with a premium (P1/P2) license. Note that if you did not have any activities data prior to the upgrade, it will take a couple of days for the data to show up in the reports after you upgrade to a premium license. 
 * A user, who is in the **global administrator**, **security administrator**, **security reader** or **report reader** role for the tenant. In addition, any user can access their own sign-ins. 
-* If you want to run the downloaded script on your Windows 10 machine, [set up the AzureRM module and set execution policy](concept-sign-ins.md#running-the-script-on-a-windows-10-machine).
+* If you want to run the downloaded script on your Windows 10 machine, [set up the Azure PowerShell module and set execution policy](concept-sign-ins.md#running-the-script-on-a-windows-10-machine).
 
 ## Tutorial
 

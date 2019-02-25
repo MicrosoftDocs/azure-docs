@@ -11,9 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 2/15/2018
 ms.author: mabrigg
-ms.reviewer: John.Haskin
+ms.reviewer: johnhas
+ms.lastreviewed: 11/26/2018
+
+
+
+ROBOTS: NOINDEX
 
 ---
 
@@ -28,8 +33,7 @@ The Azure Stack OEM Extension Package is the mechanism by which OEM specific con
 Once created and validated, the OEM extension package can be used in VaaS.  Before continuing, ensure that you have completed the steps for [creating an OEM package](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true). The package is then submitted to Microsoft along with VaaS test results for signing in the Package Validation workflow. The following steps detail how to bundle the generated files into a single zip file that VaaS can consume.
 
 1. Identify the following content for the package:
-    - An executable named `<Publisher>-<Model>-<Version>.exe`
-    - One or more files binary files named `<Publisher><Model>-<Version>-#.bin`, where # is a sequential number starting with 1. The number of binary files is dependent on the total size of the package content.
+    - A zip file containing the package contents
     - A manifest file named `oemMetadata.xml`, which should be identical in content to the metadata.xml file in the root of the package content.
 
 2. Select the content files and create a zip file from the contents:

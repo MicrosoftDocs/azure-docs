@@ -56,7 +56,7 @@ When you select a DSVM instance, Azure Notebooks may prompt you for the specific
 To create a new DSVM instance, follow the instructions on [Create an Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Use the **Data Science Virtual Machine for Linux (Ubuntu)** image if you want the DSVM to appear in the drop-down list in Azure Notebooks.  If for other reasons you need to use the Windows or CentOS image, you can use the **Direct Compute** option to connect to the DSVM manually.
 
 > [!IMPORTANT]
-> When using different virtual machines, the notebooks you run on them must be entirely self-contained. At present, Azure Notebooks copies only the *.ipynb* file to the VM but doesn't copy any other files in the project. As a result, notebooks running on other VMs fail to find other project files.
+> When using Direct Compute or Data Science virtual machines, the notebooks you run on them must be entirely self-contained. At present, Azure Notebooks copies only the *.ipynb* file to the VM but doesn't copy any other files in the project. As a result, notebooks running on other VMs fail to find other project files.
 >
 > You can work around this behavior in two ways:
 >

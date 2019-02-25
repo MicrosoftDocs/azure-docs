@@ -44,13 +44,13 @@ A: Custom Fields extraction are currently supported in the classic Logs experien
 
 A: List view is not available in the new Logs. There is an arrow to the left of each record in the results table. Click this arrow to open the details for a specific record. 
 
-### Q. After running a query, a list of suggested filters shows up, but it doesn’t include all filters. How can I see the rest? 
+### Q. After running a query, a list of suggested filters are available. How can I see filters? 
 
-A: What you currently see is a preview of the new Filters implementation. This is now based on your full result set instead of being limited by the 10,000 record limit of the UI. This is currently a list of the most popular filters and the 10 most common values for each filter. 
+A: Click ‘Filters’ on the left pane to see a preview of the new Filters implementation. This is now based on your full result set instead of being limited by the 10,000 record limit of the UI. This is currently a list of the most popular filters and the 10 most common values for each filter. 
 
 ### Q. Why am I getting the error: "Register resource provider 'Microsoft.Insights' for this subscription to enable this query" in Logs, after drilling-in from VM? 
 
-A: By default, many resource providers are automatically registered, however, you may need to manually register some resource providers. This configures your subscription to work with the resource provider. The scope for registration is always the subscription. See [Resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md#portal) for more information.
+A: By default, many resource providers are automatically registered, however, you may need to manually register some resource providers. This configures your subscription to work with the resource provider. The scope for registration is always the subscription. See [Resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal) for more information.
 
 ### Q. Why am I am getting no access error message when accessing Logs from a VM page? 
 
@@ -58,7 +58,7 @@ A: To view VM Logs, you need to be granted with read permission to the workspace
 
 ### Q. Why can I can access my workspace in OMS portal, but I get the error “You have no access” in the Azure portal?  
 
-A: To access a workspace in Azure, you must have Azure permissions assigned. There are some cases where you may not have appropriate access permissions. In these cases, your administrator must grant you with permissions in Azure.See [OMS portal moving to Azure](/../../azure-monitor/platform/oms-portal-transition.md) for more information.
+A: To access a workspace in Azure, you must have Azure permissions assigned. There are some cases where you may not have appropriate access permissions. In these cases, your administrator must grant you with permissions in Azure.See [OMS portal moving to Azure](oms-portal-transition.md) for more information.
 
 ### Q. Why can't I can’t see View Designer entry in Logs? 
 A: View Designer is only available in Logs for users assigned with Contributor permissions or higher.
@@ -216,7 +216,7 @@ A. The free plan sets a daily cap of 500 MB per workspace. The standard and prem
 
 The Log Analytics agent was designed to ensure it has a small footprint. The data volume varies based on the solutions you enable. You can find detailed information on the data volume and see the breakdown by solution in the [Usage](../../azure-monitor/platform/data-usage.md) page.
 
-For more information, you can read a [customer blog](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) showing their results after evaluating the resource utilization (footprint) of the OMS agent.
+For more information, you can read a [customer blog](https://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) showing their results after evaluating the resource utilization (footprint) of the OMS agent.
 
 ### Q. How much network bandwidth is used by the Microsoft Management Agent (MMA) when sending data to Log Analytics?
 

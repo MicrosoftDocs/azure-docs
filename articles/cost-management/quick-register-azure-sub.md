@@ -25,7 +25,7 @@ You use your Azure subscription to register with Cloudyn. Your registration prov
 
 1. In the Azure portal, click **Cost Management + Billing** in the list of services.
 2. Under **Overview**, click **Cloudyn**  
-    ![Cloudyn page shown in the Azure poral](./media/quick-register-azure-sub/cost-mgt-billing-service.png)
+    ![Cloudyn page shown in the Azure portal](./media/quick-register-azure-sub/cost-mgt-billing-service.png)
 3. On the **Cost Management** page, click **Go to Cloudyn** to open the Cloudyn registration page in a new window.
 4. On the Cloudyn portal trial registration page, type your company name and then select **Azure Individual Subscription Owner** and then click **Next**. Your account name and Tenant ID is automatically added to the form.  
     ![Trial registration page where you enter your registration information](./media/quick-register-azure-sub/trial-reg-ind.png)

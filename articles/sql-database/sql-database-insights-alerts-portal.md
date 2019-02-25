@@ -1,22 +1,25 @@
 ---
-title: Use Azure portal to create SQL Database alerts | Microsoft Docs
+title: Setup alerts and notifications using Azure portal | Microsoft Docs
 description: Use the Azure portal to create SQL Database alerts, which can trigger notifications or automation when the conditions you specify are met.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
 ms.custom: 
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: howto
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
 ---
-# Use Azure portal to create alerts for Azure SQL Database and Data Warehouse
+# Create alerts for Azure SQL Database and Data Warehouse using Azure portal
 
 ## Overview
-This article shows you how to set up Azure SQL Database and Data Warehouse alerts using the Azure portal. This article also provides best practices for setting alert periods.    
+This article shows you how to set up Azure SQL Database and Data Warehouse alerts using the Azure portal. Alerts can send you an email or call a web hook when some metric (for example database size or CPU usage) reaches the threshold. This article also provides best practices for setting alert periods.    
+
+> [!IMPORTANT]
+> This feature is not yet available in Managed Instance. As an alternative, you can use SQL Agent to send email alerts for some metrics based on [Dynamic Management Views](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
 You can receive an alert based on monitoring metrics for, or events on, your Azure services.
 
@@ -97,7 +100,6 @@ Once you have created an alert, you can select it and:
 |||||| 	 	 	 	 
 | SQL data warehouse | cpu_percent | CPU percentage | Average | 10 minutes |
 | SQL data warehouse | physical_data_read_percent | Data IO percentage | Average | 10 minutes |
-| SQL data warehouse | storage | Total database size | Maximum | 10 minutes |
 | SQL data warehouse | connection_successful | Successful Connections | Total | 10 minutes |
 | SQL data warehouse | connection_failed | Failed Connections | Total | 10 minutes |
 | SQL data warehouse | blocked_by_firewall | Blocked by Firewall | Total | 10 minutes |

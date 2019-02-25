@@ -437,21 +437,14 @@ ResourceGroupName=SignalRTestResources
 SignalRServiceResource=mySignalRresourcename
 WebAppName=myWebAppName
 
-# Get the SignalR Service resource hostName
-signalRhostname=$(az signalr show --name $SignalRServiceResource \
-    --resource-group $ResourceGroupName --query hostName -o tsv)
-
-# Get the SignalR primary key
-signalRprimarykey=$(az signalr key list --name $SignalRServiceResource \
-    --resource-group $ResourceGroupName --query primaryKey -o tsv)
-
-# Form the connection string to the service resource
-connstring="Endpoint=https://$signalRhostname;AccessKey=$signalRprimarykey;"
+# Get the SignalR primary connection string 
+primaryConnectionString=$(az signalr key list --name $SignalRServiceResource \
+  --resource-group $ResourceGroupName --query primaryConnectionString -o tsv)
 
 #Add an app setting to the web app for the SignalR connection
 az webapp config appsettings set --name $WebAppName \
     --resource-group $ResourceGroupName \
-    --settings "Azure__SignalR__ConnectionString=$connstring"
+    --settings "Azure__SignalR__ConnectionString=$primaryConnectionString"
 
 #Add the app settings to use with GitHub authentication
 az webapp config appsettings set --name $WebAppName \
@@ -541,7 +534,7 @@ To deploy your code, execute the following commands in a Git shell.
 
 The last thing you need to do is update the **Homepage URL** and **Authorization callback URL** of the GitHub OAuth app to point to the new hosted app.
 
-1. Open [http://github.com](http://github.com) in a browser and navigate to your account's **Settings** > **Developer settings** > **Oauth Apps**.
+1. Open [https://github.com](https://github.com) in a browser and navigate to your account's **Settings** > **Developer settings** > **Oauth Apps**.
 
 2. Click on your authentication app and update the **Homepage URL** and **Authorization callback URL** as shown below:
 
