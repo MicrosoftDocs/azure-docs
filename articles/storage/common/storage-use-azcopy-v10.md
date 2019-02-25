@@ -52,14 +52,16 @@ AzCopy v10 allows you to use the following options when authenticating with Azur
 - **SAS tokens [Supported for Blob and File services]**. Append the SAS token to the blob path on the command line to use it. You can generate SAS token using Azure Portal, [Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), or other tools of your choice. For more information, see [examples](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
 > [!IMPORTANT]
-> When submitting a support request to Microsoft Support (or troubleshooting the issue involving any 3rd party) please share the redacted version of the command you’re trying to execute to ensure the SAS is not accidentally shared with anybody. You can find the redacted version at the start of the log file. Review the Troubleshooting section later in this article for more details.
+> When submitting a support request to Microsoft Support (or troubleshooting the issue involving any 3rd party) please share the redacted version of the command you’re trying to execute to ensure the SAS is not accidentally shared with anybody. You can find the redacted version at the start of the log file created by AzCopy. Review the Troubleshooting section later in this article for more details.
 
 ## Getting started
 
 > [!TIP]
 > **Prefer a graphical user interface ?**
+>
 > Try [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/), a desktop client that simplifies managing Azure Storage data, and **now uses AzCopy** to accelerate data transfer to and out of Azure Storage.
-> Simply enable AzCopy feature in Storage Explorer using 'Preview' menu.
+>
+> Simply enable AzCopy feature in Storage Explorer under 'Preview' menu.
 
 AzCopy v10 has a simple self-documented syntax. The general syntax looks as follows when logged into the Azure Active Directory:
 
