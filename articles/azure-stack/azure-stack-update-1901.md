@@ -34,7 +34,6 @@ The Azure Stack 1901 update build number is **1.1901.0.95** or **1.1901.0.99** a
 
 > [!IMPORTANT]  
 > Microsoft has discovered an issue that can impact customers updating from 1811 (1.1811.0.101) to 1901, and we have released an updated 1901 package to address the issue: build 1.1901.0.99, updated from 1.1901.0.95. Customers that have already updated to 1.1901.0.95 do not need to take further action. Customers that are still on 1811 (1.1811.0.101), and are connected, will be presented with the new 1901 (1.1901.0.99) package in the Administrator portal, and should install it when ready.
-
 Customers with either version of 1901 will not be impacted when installing the next full or hotfix package.
 
 ## Hotfixes
