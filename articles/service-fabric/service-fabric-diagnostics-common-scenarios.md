@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/16/2018
+ms.date: 02/25/2019
 ms.author: srrengar
 
 ---
@@ -109,7 +109,6 @@ In the same view with all the graphs, you will see some tiles for the performanc
 
     * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
     * `Processor(_Total)\\% Processor Time`
-    * `Service Fabric Service(*)\\Average milliseconds per request`
 
     In the quickstart, VotingData and VotingWeb are the process names used, so tracking these counters would look like
 
@@ -126,7 +125,10 @@ In the same view with all the graphs, you will see some tiles for the performanc
 
 ## How do I track performance of my Reliable Services and Actors?
 
-For tracking performance of Reliable Services or Actors in your applications, you should add the Service Fabric Actor, Actor Method, Service, and Service Method counters as well. You can add these counters in a similar fashion as the scenario above, here are examples of reliable service and actor performance counters to add in Log Analytics:
+To track the performance of Reliable Services or Actors in your applications, you should collect the Service Fabric Actor, Actor Method, Service, and Service Method counters as well. Here are examples of reliable service and actor performance counters to collect
+
+>[!NOTE]
+>Service Fabric performance counters cannot be collected by the Log Analytics agent currently, but can be collected by [other diagnostic solutions](service-fabric-diagnostics-partners.md)
 
 * `Service Fabric Service(*)\\Average milliseconds per request`
 * `Service Fabric Service Method(*)\\Invocations/Sec`

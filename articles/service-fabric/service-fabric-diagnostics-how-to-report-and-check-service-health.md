@@ -3,7 +3,7 @@ title: Report and check health with Azure Service Fabric | Microsoft Docs
 description: Learn how to send health reports from your service code and how to check the health of your service by using the health monitoring tools that Azure Service Fabric provides.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: mfussell
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/2/2017
-ms.author: dekapur
+ms.date: 02/25/2019
+ms.author: srrengar
 
 ---
 # Report and check service health
