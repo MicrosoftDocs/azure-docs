@@ -1,5 +1,5 @@
 ---
-title: Hunting capabilities in Azure Sentinel | Microsoft Docs
+title: Hunting capabilities in Azure Sentinel Preview| Microsoft Docs
 description: This article describes how to use the Azure Sentinel hunting capabilities.
 services: sentinel
 documentationcenter: na
@@ -18,7 +18,12 @@ ms.date: 2/28/2019
 ms.author: rkarlin
 ---
 
-# Hunt for threats with in Azure Sentinel
+# Hunt for threats with in Azure Sentinel Preview
+
+> [!IMPORTANT]
+> Azure Sentinel is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 If you're an investigator who wants to be proactive about looking for security threats, Azure Sentinel powerful hunting search and query tools to hunt for security threats across your organization’s data sources. But your systems and security appliances generate mountains of data that can be difficult to parse and filter into meaningful events. To help security analysts look proactively for new anomalies that weren't detected by your security apps, Azure Sentinel' built-in hunting queries guide you into asking the right questions to find issues in the data you already have on your network. 
 

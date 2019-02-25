@@ -1,5 +1,5 @@
 ---
-title: Collect Fortinet data in Azure Sentinel | Microsoft Docs
+title: Collect Fortinet data in Azure Sentinel Preview| Microsoft Docs
 description: Learn how to collect Fortinet data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -17,8 +17,12 @@ ms.date: 2/28/2019
 ms.author: rkarlin
 
 ---
-# Connect your Fortinet appliance to Azure Sentinel
+# Connect your Fortinet appliance 
 
+> [!IMPORTANT]
+> Azure Sentinel is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 You can connect Azure Sentinel to any Fortinet appliance by saving the log files as Syslog CEF. The integration with Azure Sentinel enables you to easily run analytics and queries across the log file data from Fortinet. For more information on how Azure Sentinel ingests CEF data, see [Connect CEF appliances](connect-common-error-format.md).
 
@@ -97,7 +101,7 @@ If you aren't using Azure, you can manually set up the Azure Sentinel agent to r
 
 Configure Fortinet to forward Syslog messages in CEF format to your Azure workspace via the Syslog agent:
 
-Open the CLI on your Fortinet appliance and run the following commands:
+1. Open the CLI on your Fortinet appliance and run the following commands:
 
         config log syslogd setting
         set format cef
@@ -108,25 +112,25 @@ Open the CLI on your Fortinet appliance and run the following commands:
         set status enable
         end
 
-- Replace the server **ip address** with the IP address of the agent.
-- Set the **facility_name** to use the facility you configured in the agent. By default, the agent sets this to local4.
-- Set the **syslog port** to **514**, or the port set on the agent.
-- To enable CEF format in early FortiOS versions, you may need to run the command set **csv disable**.
+    - Replace the server **ip address** with the IP address of the agent.
+    - Set the **facility_name** to use the facility you configured in the agent. By default, the agent sets this to local4.
+    - Set the **syslog port** to **514**, or the port set on the agent.
+    - To enable CEF format in early FortiOS versions, you may need to run the command set **csv disable**.
  
-> [!NOTE] 
-> For more information, go to the [Fortinet Document Library](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary). Choose your version and use the **Handbook** and **Log Message Reference**.
+   > [!NOTE] 
+   > For more information, go to the [Fortinet Document Library](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary). Choose your version and use the **Handbook** and **Log Message Reference**.
+1. If your Fortinet logs aren't being received by the agent, run this command, depending on which type of Syslog daemon you are using, to set the facility and set the logs to search for the word Fortinet in the logs:
+   - rsyslog.d: `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Fortinet\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
+   - syslog-ng: `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };\n\nfilter f_msg_oms { match(\"Fortinet\" value(\"MESSAGE\")); };\n  destination security_msg_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_msg_oms); destination(security_msg_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
 
 ## Step 3: Validate connectivity
 
 It may take upwards of 20 minutes until your logs start to appear in Log Analytics. 
 
-1. If your Fortinet logs aren't being received by the agent, run this command, depending on which type of Syslog daemon you are using, to set the facility and set the logs to search for the word Fortinet in the logs:
-   - rsyslog.d: `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Fortinet\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
-   - syslog-ng: `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };\n\nfilter f_msg_oms { match(\"Fortinet\" value(\"MESSAGE\")); };\n  destination security_msg_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_msg_oms); destination(security_msg_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
 1. Make sure that your logs are getting to the right port in the Syslog agent. Run this command the new machine on which you installed the Syslog agent: `tcpdump -A -ni any  port 514 -vv` Make sure that logs are being received from the source appliance on the right port and right facility.
 2. Check that there is communication between the Syslog daemon and the agent. Run this command the new machine on which you installed the Syslog agent: `tcpdump -A -ni any  port 25226 -vv` Make sure that the logs are also being received on the agent.
 1. If both of those commands provided successful results, check Log Analytics to see if your logs are arriving. All events streamed from these appliances appear in raw form in Log Analytics under `CommonSecurityLog ` type.
-1. To check if there are errors or if the logs aren't arriving, look in `ail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
+1. To check if there are errors or if the logs aren't arriving, look in `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
 1. Make sure that your Syslog message default size is limited to 2048 bytes (2KB). If logs are too long, update the security_events.conf using this command: `message_length_limit 4096`
 
 

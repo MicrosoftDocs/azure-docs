@@ -1,5 +1,5 @@
 ---
-title: Hunting capabilities using notebooks in Azure Sentinel | Microsoft Docs
+title: Hunting capabilities using notebooks in Azure Sentinel Preview| Microsoft Docs
 description: This article describes how to use notebooks with the Azure Sentinel hunting capabilities.
 services: sentinel
 documentationcenter: na
@@ -19,6 +19,11 @@ ms.author: rkarlin
 ---
 
 # Use notebooks to hunt for anomalies
+
+> [!IMPORTANT]
+> Azure Sentinel is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Sentinel leverages the power of Jupyter interactive notebooks to provide insight and actions to investigate or hunt for security anomalies within your environment. Azure Sentinel comes preloaded with notebooks that were developed by Microsoft's security analysts. Each notebook is purpose built with a self-contained workflow for a specific use case. Visualizations are included in each notebook for faster data exploration and threat hunting.​ You customize the built-in notebooks to meet your needs, create new notebooks from scratch or import notebooks from the Azure Sentinel' GitHub community. Jupyter notebooks are imported as a project in the Azure Notebooks page – this enables user to access all of their Azure Sentinel notebooks in one place. Notebooks can be run with a click of a button or can be configured by user to match their environment.
 

@@ -34,6 +34,8 @@
         href: connect-cloud-app-security.md
       - name: Connect Azure Activity Log
         href: connect-azure-activity.md
+      - name: Connect Azure AD Identity Protection
+        href: connect-azure-ad-identity-protection.md
       - name: Connect Azure Information Protection
         href: connect-azure-information-protection.md
       - name: Connect Azure ATP

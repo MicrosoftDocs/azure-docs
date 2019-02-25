@@ -1,5 +1,5 @@
 ---
-title: Onboard in Azure Sentinel | Microsoft Docs
+title: Onboard in Azure Sentinel Preview| Microsoft Docs
 description: Learn how to collect data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -17,7 +17,12 @@ ms.date: 2/28/2019
 ms.author: rkarlin
 
 ---
-# On-board Azure Sentinel
+# On-board Azure Sentinel Preview
+
+> [!IMPORTANT]
+> Azure Sentinel is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To on-board Azure Sentinel, you first need to connect to your security sources. Azure Sentinel comes with a number of connectors for Microsoft solutions, available out of the box and providing real-time integration, including Microsoft Threat Protection solutions, Microsoft 365 sources, including Office 365, Azure AD, Azure ATP, and Microsoft Cloud App Security, and more. In addition, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can use common event format, Syslog or REST-API to connect your data sources with Azure Sentinel as well.  
 

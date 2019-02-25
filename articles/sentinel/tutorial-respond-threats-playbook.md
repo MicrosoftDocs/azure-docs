@@ -1,5 +1,5 @@
 ---
-title: Run a playbook in Azure Sentinel | Microsoft Docs
+title: Run a playbook in Azure Sentinel Preview| Microsoft Docs
 description: This article describes how to run a playbook in Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -18,7 +18,12 @@ ms.date: 2/28/2019
 ms.author: rkarlin
 ---
 
-# Tutorial: Set up automated threat responses in Azure Sentinel
+# Tutorial: Set up automated threat responses in Azure Sentinel Preview
+
+> [!IMPORTANT]
+> Azure Sentinel is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This document helps you to use security playbooks in Azure Sentinel to set automated threat responses to security-related issues detected by Azure Sentinel.
 

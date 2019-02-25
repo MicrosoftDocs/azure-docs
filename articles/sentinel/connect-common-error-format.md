@@ -1,5 +1,5 @@
 ---
-title: Collect CEF data in Azure Sentinel | Microsoft Docs
+title: Collect CEF data in Azure Sentinel Preview| Microsoft Docs
 description: Learn how to collect CEF data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -18,6 +18,11 @@ ms.author: rkarlin
 
 ---
 # Connect your on-premises appliance to Azure Sentinel using Common Event Format
+
+> [!IMPORTANT]
+> Azure Sentinel is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 You can connect Azure Sentinel with any on-premises appliance that enables you to save log files in Syslog. If your appliance enables you to save logs as Syslog Common Event Format (CEF), the integration with Azure Sentinel enables you to easily run analytics and queries across the data.
 

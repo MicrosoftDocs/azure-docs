@@ -1,5 +1,5 @@
 ---
-title: Collect Azure Activity data in Azure Sentinel | Microsoft Docs
+title: Collect Azure Activity data in Azure Sentinel Preview| Microsoft Docs
 description: Learn how to collect Azure Activity data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -18,6 +18,11 @@ ms.author: rkarlin
 
 ---
 # Collect data from Azure Activity log
+
+> [!IMPORTANT]
+> Azure Sentinel is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 You can stream logs from [Azure Activity log](../azure-monitor/platform/activity-logs-overview.md) into Azure Sentinel with a single click. The Activity log is a subscription log that provides insight into subscription-level events that occurred in Azure. This includes a range of data, from Azure Resource Manager operational data to updates on Service Health events. Using the Activity log, you can determine the ‘what, who, and when’ for any write operation (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties. The Activity log does not include read (GET) operations or operations for resources that use the Classic/"RDFE" model. 
 

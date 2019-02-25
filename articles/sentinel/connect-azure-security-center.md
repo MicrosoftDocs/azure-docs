@@ -1,5 +1,5 @@
 ---
-title: Collecting Azure Security Center data in Azure Sentinel | Microsoft Docs
+title: Collecting Azure Security Center data in Azure Sentinel Preview| Microsoft Docs
 description: Learn how to collect Azure Security Center data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -18,6 +18,11 @@ ms.author: rkarlin
 
 ---
 # Collect data from Azure Security Center
+
+> [!IMPORTANT]
+> Azure Sentinel is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 Azure Sentinel enables you to collect alerts from [Azure Security Center](../security-center/security-center-intro.md) and stream them into Azure Sentinel. 

@@ -1,5 +1,5 @@
 ---
-title: Collect Barracuda data in Azure Sentinel | Microsoft Docs
+title: Collect Barracuda data in Azure Sentinel Preview| Microsoft Docs
 description: Learn how to collect Barracuda data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -17,7 +17,12 @@ ms.date: 2/28/2019
 ms.author: rkarlin
 
 ---
-# Connect your Barracuda appliance to Azure Sentinel
+# Connect your Barracuda appliance 
+
+> [!IMPORTANT]
+> Azure Sentinel is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Barracuda Web Application Firewall (WAF) connector allows you to easily connect your Barracuda logs with your Azure Security Insights, to view dashboards, create custom alerts, and improve investigation. This gives you more insight into your organization’s network and improves your security operation capabilities. Azure Sentinel takes advantage of the native integration between **Barracuda** and Microsoft Azure OMS to provide seamless integration. 
 
@@ -31,7 +36,7 @@ Barracuda Web Application Firewall can integrate and export logs directly to [AS
 1. Go to [Barracuda WAF configuration flow](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/), and follow the instructions to set up the connection, using these parameters:
     - **Workspace ID**: copy the value of your workspace ID from the Azure Sentinel Barracuda connector page.
     - **Primary key**: copy the value of your primary key from the Azure Sentinel Barracuda connector page.
-2. In the Azure Sentinel dashboard, go to the workspace on which you deployed Azure Sentinel and click the three dots at the end of the row and select **Advanced settings**. 
+2. In the Azure Sentinel portal, go to the workspace on which you deployed Azure Sentinel and click the three dots at the end of the row and select **Advanced settings**. 
 1. Select **Data** and then **Syslog**.
 1. Make sure the facility you set in Barracuda exists and set the severity and click **Save**.
 
