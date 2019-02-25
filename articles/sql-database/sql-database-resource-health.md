@@ -48,9 +48,9 @@ A status of **Unavailable** means that Resource Health has detected consistent l
 
 ### Unknown
 
-The health status of **Unknown** indicates that Resource Health hasn't received information about this resource for more than 10 minutes. Although this status isn't a definitive indication of the state of the resource, it is an important data point in the troubleshooting process.
-If the resource is running as expected, the status of the resource will change to Available after a few minutes.
-If you're experiencing problems with the resource, the Unknown health status might suggest that an event in the platform is affecting the resource.
+The health status of **Unknown** indicates that Resource Health hasn't received information about this resource for more than 10 minutes. Although this status isn't a definitive indication of the state of the resource, it is an important data point in the troubleshooting process. If the resource is running as expected, the status of the resource will change to Available after a few minutes. If you're experiencing problems with the resource, the Unknown health status might suggest that an event in the platform is affecting the resource.
+
+![Unknown](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
 
 ## Historical information
 
@@ -67,6 +67,10 @@ The Azure infrastructure periodically performs planned maintenance – upgrade o
 #### Reconfiguration
 
 Reconfigurations are considered transient conditions, and are expected from time to time. These events can be triggered by load balancing or software/hardware failures. Any client production application that connects to a cloud database should implement a robust connection [retry logic](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors), as it would help mitigate these situations and should generally make the errors transparent to the end user.
+
+#### UpdateSLO
+
+
 
 ## Next steps
 
