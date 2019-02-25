@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/23/2019
+ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -37,7 +37,7 @@ The following table describes what some of the elements are use for:
 
 | # | Element | What you use it for |
 | --- | --- | --- |
-| 1 | Resources | Identify scope (subscription in this example) |
+| 1 | Resource where Access control (IAM) is opened | Identify scope (subscription in this example) |
 | 2 | **Add** button | Add role assignments |
 | 3 | **Check access** tab | View the role assignments for a single user |
 | 4 | **Role assignments** tab | View the role assignments at the current scope |
@@ -55,7 +55,7 @@ To be the most effective with the Access control (IAM) blade, it helps if you ca
 
 1. **Where do they need access?**
 
-    Where refers to the set of resources that the access applies to. Where can be a management group, subscription, resource group, or a single resource. This is called the *scope*.
+    Where refers to the set of resources that the access applies to. Where can be a management group, subscription, resource group, or a single resource such as a storage account. This is called the *scope*.
 
 ## Open Access control (IAM)
 
