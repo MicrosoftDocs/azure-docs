@@ -90,7 +90,7 @@ Navigate to `iot-hub/Quickstarts/device-streams-echo/service` in your unzipped p
 | Parameter name | Parameter value |
 |----------------|-----------------|
 | `ServiceConnectionString` | Provide the service connection string of your IoT Hub. |
-| `DeviceId` | Provide the ID of the device you created earlier, e.g. MyDevice. |
+| `DeviceId` | Provide the ID of the device you created earlier, for example, MyDevice. |
 
 Compile and run the code as follows:
 
@@ -108,7 +108,8 @@ dotnet run "<ServiceConnectionString>" "<MyDevice>"
 dotnet run <ServiceConnectionString> <MyDevice>
 ```
 
-*Note*: A timeout will occur if the device-side application does not respond in time.
+> [!NOTE]
+> A timeout occurs if the device-side application doesn't respond in time.
 
 ### Run the device-side application
 
