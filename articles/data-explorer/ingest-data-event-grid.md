@@ -55,7 +55,7 @@ Create a table in Azure Data Explorer, to which Event Hubs will send data. You c
 
 1. In the Azure portal, under your cluster, select **Query**.
 
-    ![Query application link](media/ingest-data-event-hub/query-explorer-link.png)
+    ![Query application link](media/ingest-data-event-grid/query-explorer-link.png)
 
 1. Copy the following command into the window and select **Run** to create the table (TestTable) which will receive the ingested data.
 
@@ -79,11 +79,11 @@ Now you connect to the Event Grid from Azure Data Explorer, so that data flowing
 
 1. Under the cluster you created, select **Databases** then **TestDatabase**.
 
-    ![Select test database](media/ingest-data-event-hub/select-test-database.png)
+    ![Select test database](media/ingest-data-event-grid/select-test-database.png)
 
 1. Select **Data ingestion** then **Add data connection**.
 
-    ![Data ingestion](media/ingest-data-event-hub/data-ingestion-create.png)
+    ![Data ingestion](media/ingest-data-event-grid/data-ingestion-create.png)
 
 1. Select connection type: **Blob Storage**.
 
@@ -182,9 +182,9 @@ If you don't plan to use your event grid again, clean up **test-hub-rg**, to avo
 
 1. In the Azure portal, select **Resource groups** on the far left, and then select the resource group you created.  
 
-    If the left menu is collapsed, select ![Expand button](media/ingest-data-event-hub/expand.png) to expand it.
+    If the left menu is collapsed, select ![Expand button](media/ingest-data-event-grid/expand.png) to expand it.
 
-   ![Select resource group to delete](media/ingest-data-event-hub/delete-resources-select.png)
+   ![Select resource group to delete](media/ingest-data-event-grid/delete-resources-select.png)
 
 1. Under **test-resource-group**, select **Delete resource group**.
 
