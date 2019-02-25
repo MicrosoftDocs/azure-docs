@@ -26,7 +26,7 @@ This module comes with **Auto-tiering** and **Auto-clean** features.
 2. Choose the order in which the data will copied to Azure like NewestFirst or OldestFirst
 3. Specify the Azure Storage account to which you want your data uploaded.
 4. Specify the containers you want to upload to Azure. This module allows you to specify both source and target container names.
-5. Do full blob tiering(using `Put Blob` operation) and block level tiering (using `Put Block` and `Put Block List` operations).
+5. Do full blob tiering (using `Put Blob` operation) and block level tiering (using `Put Block` and `Put Block List` operations).
 
 This module uses block level tiering, when your blob consists of blocks. Here are some of the common scenarios:
  1. Your application updates some blocks of a previously uploaded blob, this module will upload only the updated blocks and not the whole blob.
@@ -34,7 +34,7 @@ This module uses block level tiering, when your blob consists of blocks. Here ar
 
 If an unexpected process termination (like power failure) happens during a blob upload, all blocks that were due for the upload will be uploaded again, when the module comes back online.
 
-**Auto-Clean** is a configurable functionality where this module automatically deletes your blobs when TTL(Time to Live) expires. It is measured in minutes. It allows you to:
+**Auto-Clean** is a configurable functionality where this module automatically deletes your blobs when TTL (Time to Live) expires. It is measured in minutes. It allows you to:
 1. Turn ON/OFF the auto-clean feature
 2. Specify the TTL in minutes
 
@@ -339,7 +339,7 @@ You can also try [Azure Storage Explorer](https://azure.microsoft.com/features/s
 5. Create container inside your local storage account
 6. Start uploading files as Block blobs.
 > [!CAUTION]
-> uncheck the checkbox to upload it as page blobs. This module does not support page blobs. you will get this prompt while uploading files like .iso, .vhd or .vhdx files.
+> uncheck the checkbox to upload it as page blobs. This module does not support page blobs. You will get this prompt while uploading files like .iso, .vhd, .vhdx files or any big files.
 
 7. You can choose to connect your Azure storage accounts where you are uploading the data. It gives you a single view for both your local storage account and Azure storage account
 
@@ -394,6 +394,11 @@ Supported:
 
 Unsupported:
 * Put block from URL
+
+##Feedback:
+Your feedback is very important to us, to make this module and its features useful and easy to use. Please share your feedback and let us know how we can improve.
+
+You can reach out to us at absiotfeedback@microsoft.com 
 
 ## Next steps
 
