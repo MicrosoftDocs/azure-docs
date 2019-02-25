@@ -9,7 +9,7 @@ editor: ''
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 01/31/2019
 ms.author: curtand
@@ -17,6 +17,7 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 #As an Azure AD administrator, I want to reduce overusing the Global Administrator role by delegating app access management to lower-privilege roles.
 
+ms.collection: M365-identity-device-management
 ---
 
 # Delegate app administrator roles in Azure Active Directory

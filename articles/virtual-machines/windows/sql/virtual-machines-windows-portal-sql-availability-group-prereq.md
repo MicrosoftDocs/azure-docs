@@ -305,7 +305,7 @@ After the server finishes the configuration changes, restart the server.
 
 In the Azure portal, under virtual network, change the DNS Server to include the IP address of the secondary domain controller. This setting allows the DNS service redundancy.
 
-### <a name=DomainAccounts></a> Configure the domain accounts
+### <a name="DomainAccounts"></a> Configure the domain accounts
 
 In the next steps, you configure the Active Directory accounts. The following table shows the accounts:
 
@@ -410,7 +410,7 @@ After each virtual machine restarts as a member of the domain, add **CORP\Instal
 
 ### <a name="setServiceAccount"></a>Set the SQL Server service accounts
 
-On each SQL Server VM, set the SQL Server service account. Use the accounts that you created when you [configured the domain accounts](#DomainAccounts).
+On each SQL Server VM, set the SQL Server service account. Use the accounts that you created when you configured the domain accounts.
 
 1. Open **SQL Server Configuration Manager**.
 2. Right-click the SQL Server service, and then click **Properties**.

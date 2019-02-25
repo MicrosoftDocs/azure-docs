@@ -14,7 +14,7 @@
       href: tutorial-server-assessment-vmware.md
     - name: Migrate VMware VMs with Azure Migrate Server Assesssment (preview)
       href: tutorial-server-migration-vmware.md
-    - name: Assess VMware VMs with Azure Migrate GA
+    - name: Assess VMware VMs with Azure Migrate classic version
       href: tutorial-assessment-vmware.md
   - name: Hyper-V assessment
     items:
@@ -24,6 +24,8 @@
       href: tutorial-server-assessment-hyper-v.md
 - name: Concepts
   items:
+  - name: Azure Migrate support matrix
+    href: migrate-support-matrix.md
   - name: About the collector
     href: concepts-collector.md
   - name: Collector version upgrades
@@ -84,10 +86,8 @@
     href: how-to-modify-assessment.md
   - name: Migrate machines after assessment
     href: how-to-get-migration-tool.md
-  - name: Prepare VMware Linux VMs for migration
-    href: how-to-prepare-linux-for-migration.md
-- name: Troubleshooting
-  items:
+  - name: Automate migration of large number of VMs
+    href: how-to-migrate-at-scale.md
   - name: Troubleshoot Azure Migrate
     href: troubleshooting-general.md
 - name: Resources

@@ -16,6 +16,7 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure Workday for automatic user provisioning
 
@@ -256,7 +257,7 @@ In this step, you will create an unconstrained or constrained integration system
     * **Unconstrained:** All members of the security group can access all data instances secured by the security group.
     * **Constrained:** All security group members have contextual access to a subset of data instances (rows) that the security group can access.
   * Please check with your Workday integration partner to select the appropriate security group type for the integration.
-  * Once you know the group type, select **Integration System Security Group (Unconstrained)** or **Integration System Security Group (Unconstrained)** from the **Type of Tenanted Security Group** dropdown.
+  * Once you know the group type, select **Integration System Security Group (Unconstrained)** or **Integration System Security Group (Constrained)** from the **Type of Tenanted Security Group** dropdown.
 
     ![CreateSecurity Group](./media/workday-inbound-tutorial/wd_isu_04.png "CreateSecurity Group")
 
@@ -728,7 +729,7 @@ Once the Workday provisioning app configurations have been completed, you can tu
 
 3. This operation will start the initial sync, which can take a variable number of hours depending on how many users are in the Workday tenant. 
 
-4. At any time, check the **Audit logs** tab in the Azure portal to see what actions the provisioning service has performed. The audit logs lists all individual sync events performed by the provisioning service, such as which users are being read out of Workday and then subsequently added or updated to Active Directory. Refer to the [Troubleshooting](#troubleshooting-provisioning-issues) section for instructions on how to review the audit logs and fix provisioning errors.
+4. At any time, check the **Audit logs** tab in the Azure portal to see what actions the provisioning service has performed. The audit logs lists all individual sync events performed by the provisioning service, such as which users are being read out of Workday and then subsequently added or updated to Active Directory. Refer to the Troubleshooting section for instructions on how to review the audit logs and fix provisioning errors.
 
 5. Once the initial sync is completed, it will write an audit summary report in the **Provisioning** tab, as shown below.
 

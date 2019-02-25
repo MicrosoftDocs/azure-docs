@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
 
---- 
+---
 
 
 # Handling planned maintenance notifications for Linux virtual machines
@@ -72,7 +72,7 @@ It is best to use self-service maintenance in the following cases:
 
 ## Find VMs scheduled for maintenance using CLI
 
-Planned maintenance information can be seen using [azure vm get-instance-view](/cli/azure/vm?view=azure-cli-latest#az_vm_get_instance_view).
+Planned maintenance information can be seen using [azure vm get-instance-view](/cli/azure/vm?view=azure-cli-latest).
  
 Maintenance information is returned only if there is maintenance planned. If there is no maintenance scheduled that impacts the VM, the command does not return any maintenance information. 
 

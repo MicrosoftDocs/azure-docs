@@ -100,7 +100,7 @@ Once you have installed agents on all the machines of the group, you can visuali
 3. To view more granular dependencies, click the time range to modify it. By default, the range is an hour. You can modify the time range, or specify start and end dates, and duration.
 
     > [!NOTE]
-      Currently, the dependency visualization UI does not support selection of a time range longer than an hour. Use Log Analytics to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-a-group#query-dependency-data-from-log-analytics) over a longer duration.
+      Currently, the dependency visualization UI does not support selection of a time range longer than an hour. Use Log Analytics to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) over a longer duration.
 
 4. Verify the dependent machines, the process running inside each machine and identify the machines that should be added or removed from the group.
 5. Use Ctrl+Click to select machines on the map to add or remove them from the group.

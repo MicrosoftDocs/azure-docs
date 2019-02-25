@@ -72,6 +72,7 @@
     href: Concepts/development-lifecycle-knowledge-base.md
   - name: Best practices
     href: Concepts/best-practices.md
+    displayName: tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat
   - name: Confidence score
     displayName: DefaultAnswer, Default answer  
     href: Concepts/confidence-score.md
@@ -85,7 +86,7 @@
       href: Quickstarts/create-publish-knowledge-base.md
     - name: Add chit-chat to knowledge base
       href: How-to/chit-chat-knowledge-base.md
-    - name: Migrate a knowledge base from Preview
+    - name: Migrate a knowledge base
       href: Tutorials/migrate-knowledge-base.md
     - name: Edit a knowledge base
       href: How-To/edit-knowledge-base.md
@@ -101,6 +102,7 @@
     items: 
     - name: Use metadata with GenerateAnswer API
       href: How-To/metadata-generateanswer-usage.md  
+      displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters
     - name: With a bot  
       href: Tutorials/integrate-qnamaker-luis.md
   - name: Manage service

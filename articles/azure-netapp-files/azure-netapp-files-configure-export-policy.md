@@ -16,7 +16,7 @@ ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
 ---
-# Configure export policy for a volume (optional)
+# Configure export policy for a volume
 
 You can optionally configure export policy to control access to an Azure NetApp Files volume. 
 

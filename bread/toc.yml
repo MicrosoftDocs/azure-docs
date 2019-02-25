@@ -106,18 +106,9 @@
   - name: Azure Data Explorer
     tocHref: /azure/data-explorer/
     topicHref: /azure/data-explorer/
-  - name: Application Insights
+  - name: Azure Monitor
     tocHref: /azure/azure-monitor/
-    topicHref: /azure/application-insights/
-  - name: Log Analytics
-    tocHref: /azure/azure-monitor/
-    topicHref: /azure/log-analytics/
-  - name: Monitoring
-    tocHref: /azure/azure-monitor/
-    topicHref: /azure/monitoring/
-  - name: Monitoring and Diagnostics
-    tocHref: /azure/azure-monitor/
-    topicHref: /azure/monitoring-and-diagnostics/
+    topicHref: /azure/azure-monitor/
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
@@ -231,18 +222,12 @@
     - name: Custom Decision Service
       tocHref: /azure/cognitive-services/custom-decision-service/
       topicHref: /azure/cognitive-services/custom-decision-service/custom-decision-service-overview
-    - name: Custom Speech Service
-      tocHref: /azure/cognitive-services/custom-speech-service/
-      topicHref: /azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home
     - name: Speaker Recognition
       tocHref: /azure/cognitive-services/speaker-recognition/
       topicHref: /azure/cognitive-services/speaker-recognition/home
     - name: Custom Vision Service
       tocHref: /azure/cognitive-services/custom-vision-service/
       topicHref: /azure/cognitive-services/custom-vision-service/
-    - name: Emotion
-      tocHref: /azure/cognitive-services/emotion/
-      topicHref: /azure/cognitive-services/emotion/home
     - name: Entity Linking
       tocHref: /azure/cognitive-services/entitylinking/
       topicHref: /azure/cognitive-services/entitylinking/home
@@ -415,6 +400,9 @@
       - name: Storm
         tocHref: /azure/hdinsight/storm
         topicHref: /azure/hdinsight/storm/apache-storm-overview
+  - name: Azure API for FHIR
+    tocHref: /azure/healthcare-apis
+    topicHref: /azure/healthcare-apis
   - name: Internet of Things
     tocHref: /azure/iot-fundamentals/
     topicHref: /azure/iot-fundamentals/
@@ -621,11 +609,17 @@
     items:
       - name: Workloads
         tocHref: /azure/virtual-machines/workloads/
-        topicHref: /azure/virtual-machines/workloads/sap/get-started
+        topicHref: /azure/virtual-machines/workloads/workloads
         items:
           - name: SAP
             tocHref: /azure/virtual-machines/workloads/sap/
             topicHref: /azure/virtual-machines/workloads/sap/get-started
+          - name: Oracle
+            tocHref: /azure/virtual-machines/workloads/oracle/
+            topicHref: /azure/virtual-machines/workloads/oracle/oracle-considerations
+          - name: Mainframe rehosting
+            tocHref: /azure/virtual-machines/workloads/mainframe-rehosting/
+            topicHref: /azure/virtual-machines/workloads/mainframe-rehosting/overview
       - name: Linux
         tocHref: /azure/virtual-machines/linux/
         topicHref: /azure/virtual-machines/linux/

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/27/18
+ms.date: 03/27/2018
 ms.author: cynthn
 
 ---
@@ -134,7 +134,7 @@ You can deploy the [Python HTTP server on Linux](https://github.com/Azure/azure-
 
 [![Deploy template to Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
-You can also use the Azure CLI to install the Python HTTP server on Linux with [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) as follows:
+You can also use the Azure CLI to install the Python HTTP server on Linux with [az group deployment create](/cli/azure/group/deployment) as follows:
 
 ```azurecli-interactive
 # Create a resource group
@@ -150,7 +150,7 @@ Answer the prompts to provide a scale set name, instance count, and admin creden
 
 
 ## Test your scale set
-To see your scale set in action, access the sample web application in a web browser. Obtain the public IP address of the load balancer with [az network public-ip list](/cli/azure/network/public-ip#show) as follows:
+To see your scale set in action, access the sample web application in a web browser. Obtain the public IP address of the load balancer with [az network public-ip list](/cli/azure/network/public-ip) as follows:
 
 ```azurecli-interactive
 az network public-ip list \
@@ -164,7 +164,7 @@ Enter the public IP address of the load balancer in to a web browser in the form
 
 
 ## Clean up resources
-When no longer needed, you can use [az group delete](/cli/azure/group#az_group_delete) to remove the resource group, scale set, and all related resources as follows. The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
+When no longer needed, you can use [az group delete](/cli/azure/group) to remove the resource group, scale set, and all related resources as follows. The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

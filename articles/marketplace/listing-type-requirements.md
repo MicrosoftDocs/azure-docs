@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
 
----  
+---
 
 # Requirements by Listing Type  
 The technical and marketing content requirements vary by storefront, offer type, and listing type. Review the following specifications to verify your compliance.  
@@ -61,10 +61,10 @@ The List listing type includes the following Offer types on the storefronts in t
 
 | Offer type | Storefront | Details |  
 |:---        |:---        |:---     |  
-| Consulting Services | AppSource | [Requirements: AppSource: List: Consulting Services](#requirements-appsource-list-consulting-services) |  
-| Consulting Services | Azure Marketplace | [Requirements: Azure Marketplace: List: Consulting Services](#requirements-azure-marketplace-list-consulting-services) |  
+| Consulting Services | AppSource | Requirements: AppSource: List: Consulting Services |  
+| Consulting Services | Azure Marketplace | Requirements: Azure Marketplace: List: Consulting Services |  
 | Contact Me | AppSource | [](#) |  
-| Contact Me | Azure Marketplace | [Requirements: AppSource: List: Contact Me](#requirements-azure-marketplace-list-contact-me) |  
+| Contact Me | Azure Marketplace | Requirements: AppSource: List: Contact Me |  
 
 #### Requirements: AppSource: List: Consulting service  
 
@@ -82,17 +82,17 @@ The List listing type includes the following Offer types on the storefronts in t
 
 <!-- #### Requirements: Azure Marketplace: List: Contact Me -->
 
----   
+---
 
 ### Trial  
 
 | Offer type | Storefront | Details |  
 |:---        |:---        |:---     |  
-| Free / SaaS trial | AppSource | [Listing Type Requirements: Trial](#listing-type-requirements-trial) |  
-| Free / SaaS trial | Azure Marketplace | [Requirements: Azure Marketplace: Trial: Free trial / SaaS trial](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
-| Interactive demo | AppSource | [Listing Type Requirements: Trial](#listing-type-requirements-trial) |  
+| Free / SaaS trial | AppSource | Listing Type Requirements: Trial |  
+| Free / SaaS trial | Azure Marketplace | Requirements: Azure Marketplace: Trial: Free trial / SaaS trial |  
+| Interactive demo | AppSource | Listing Type Requirements: Trial |  
 | Interactive demo | Azure Marketplace | [Requirements: Azure Marketplace: Trial: Interactive demo](#requirements-azure-marketplace-trial-interactive-demo) |  
-| Test drive | AppSource | [Listing Type Requirements: Trial](#listing-type-requirements-trial) |  
+| Test drive | AppSource | Listing Type Requirements: Trial |  
 | Test drive | Azure Marketplace | [Requirements: Azure Marketplace: Trial: Test drive](#requirements-azure-marketplace-trial-test-drive) |  
 
 #### Requirements: Azure Marketplace: Trial  
@@ -130,8 +130,8 @@ The List listing type includes the following Offer types on the storefronts in t
 
 | Offer type | Storefront | Details |   
 |:---        |:---        | :--- |  
-| Azure apps: Managed app | Azure Marketplace | [Requirements: Azure Marketplace: Transact: Azure apps: Managed app](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
-| Azure apps: Solution template | Azure Marketplace | [Requirements: Azure Marketplace: Transact: Azure apps: Solution template](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
+| Azure apps: Managed app | Azure Marketplace | Requirements: Azure Marketplace: Transact: Azure apps: Managed app |  
+| Azure apps: Solution template | Azure Marketplace | Requirements: Azure Marketplace: Transact: Azure apps: Solution template |  
 | Containers | Azure Marketplace | [Requirements: Azure Marketplace: Transact: Container](#requirements-azure-marketplace-transact-container) |  
 | SaaS app  | Azure Marketplace | [Requirements: Azure Marketplace: Transact: SaaS app](#requirements-azure-marketplace-transact-saas-app) |  
 | Virtual machine | Azure Marketplace | [Requirements: Azure Marketplace: Transact: Virtual machine](#requirements-azure-marketplace-transact-virtual-machine) |  

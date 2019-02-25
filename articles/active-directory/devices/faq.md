@@ -13,10 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: jairoc
 
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory device management FAQ
@@ -32,7 +33,7 @@ Only the following devices are listed under **USER devices**:
 - All non-Windows 10 or Windows Server 2016 devices.
 - All non-Windows devices. 
 
---- 
+---
 
 **Q: How do I know what the device registration state of the client is?**
 
@@ -83,6 +84,12 @@ For down-level Windows OS versions that are on-premises Active Directory domain 
 -	For down-level Windows OS versions that are on-premises Azure Directory domain joined, automatic registration creates a new device record with the same device name for each domain user who signs in to the device. 
 
 -	An Azure AD joined machine that's wiped, reinstalled, and rejoined with the same name shows up as another record with the same device name.
+
+---
+
+**Q: Does Windows 10 device registration in Azure AD support TPMs in FIPS mode?**
+
+**A:** No, currently device registration on Windows 10 for all device states - Hybrid Azure AD join, Azure AD join and Azure AD registered - does not support TPMs in FIPS mode. To successfully join or register to Azure AD, FIPS mode needs to be turned off for the TPMs on those devices
 
 ---
 
@@ -155,7 +162,11 @@ Evaluate the conditional access policy rules. Make sure the device meets the cri
 
 **A:** A user might join or register a device with Azure AD by using Multi-Factor Authentication. Then the device itself becomes a trusted second factor for that user. Whenever the same user signs in to the device and accesses an application, Azure AD considers the device as a second factor. It enables that user to seamlessly access applications without additional Multi-Factor Authentication prompts. 
 
-This behavior isn't applicable to any other user who signs in to that device. So all other users who access that device get a Multi-Factor Authentication challenge. Then they can access applications that require Multi-Factor Authentication.
+This behavior:
+
+- Is applicable to Azure AD joined and Azure AD registered devices - but not for hybrid Azure AD joined devices.
+
+- Isn't applicable to any other user who signs in to that device. So all other users who access that device get a Multi-Factor Authentication challenge. Then they can access applications that require Multi-Factor Authentication.
 
 ---
 
@@ -221,6 +232,12 @@ Hybrid Azure AD join takes precedence over the Azure AD registered state. So you
 **Q: Why do my users have issues on Windows 10 hybrid Azure AD joined devices after changing their UPN?**
 
 **A:** Currently UPN changes are not fully supported with hybrid Azure AD joined devices. While users can sign in to the device and access their on-premises applications, authentication with Azure AD fails after a UPN change. As a result, users have SSO and Conditional Access issues on their devices. At this time, you need to unjoin the device from Azure AD (run "dsregcmd /leave" with elevated privileges) and re-join (happens automatically) to resolve the issue. We are currently working on addressing this issue. However, users signing in with Windows Hello for Business do not face this issue. 
+
+---
+
+**Q: Do Windows 10 hybrid Azure AD joined devices require line of sight to the domain controller to get access to cloud resources?**
+
+**A:** No. Ater Windows 10 hybrid Azure AD join is complete, and the user has signed in at least once, the device doesn't require line of sight to the domain controller to access cloud resources. Windows 10 can get single sign on to Azure AD applications from anywhere with an internet connection, except when a password is changed. If a password is changed outside the corporate network (for example, by using Azure AD SSPR), then the user needs to have line of sight to the domain controller before they're able to sign in to the device with their new password. Otherwise, they can only sign in with their old password, which is invalidated by Azure AD and prevents single sign on. However, this issue doesn't occur when you use Windows Hello for Business. Users who sign in with Windows Hello for Business continue to get single sign on to Azure AD applications after a password change, even if they don't have line of sight to their domain controller. 
 
 ---
 

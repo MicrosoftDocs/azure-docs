@@ -4,7 +4,7 @@ description: Addresses frequently asked questions about Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 02/19/2019
 ms.author: snehaa
 ---
 
@@ -50,7 +50,7 @@ Azure Migrate currently supports Europe, United States, and Azure Government as 
 Azure Government | US Gov Virginia
 Asia | Southeast Asia
 Europe | North Europe or West Europe
-Unites States | East US of West Central US
+Unites States | East US or West Central US
 
 ### How does the on-premises site connect to Azure Migrate?
 
@@ -113,6 +113,10 @@ The data collected by the collector appliance is stored in the Azure location th
 
 For dependency visualization, if you install agents on the VMs, the data collected by the dependency agents is stored in the US in a Log Analytics workspace created in user’s subscription. This data is deleted when you delete the Log Analytics workspace in your subscription. [Learn more](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
 
+### What is the volume of data which is uploaded by Azure Migrate in the case of continuous profiling?
+
+The volume of data which is sent to Azure Migrate would vary based on several parameters. To give an indicative number, a project having ten machines (each having one disk and one NIC), would send around 50 MB per day. This is an approximate value and would change based on the number of data points for the NICs and disks (the data sent would be non-linear if the number of machines, NICs or disks increase). 
+
 ### Is the data encrypted at rest and while in transit?
 
 Yes, the collected data is encrypted both at rest and while in transit. The metadata collected by the appliance is securely sent to the Azure Migrate service over internet via https. The collected metadata is stored in [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) and in [Azure blob storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) in a Microsoft subscription and is encrypted at rest.
@@ -125,7 +129,7 @@ The collector appliance connects to the vCenter Server (port 443) using the cred
 
 ### Can I connect the same collector appliance to multiple vCenter servers?
 
-Yes, a single collector appliance can be used to discover multiple vCenter Servers, but not concurrently. You need to run the discoveries one after another.
+Yes, a single collector appliance can be used to discover multiple vCenter Servers, but not concurrently. You need to run the discovery one after another.
 
 ### Is the OVA template used by Site Recovery integrated with the OVA used by Azure Migrate?
 

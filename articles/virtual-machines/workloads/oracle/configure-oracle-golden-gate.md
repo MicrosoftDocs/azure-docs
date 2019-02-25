@@ -47,7 +47,7 @@ The following is a summary of the environment configuration:
 
 ### Sign in to Azure 
 
-Sign in to your Azure subscription with the [az login](/cli/azure/reference-index#az_login) command. Then follow the on-screen directions.
+Sign in to your Azure subscription with the [az login](/cli/azure/reference-index) command. Then follow the on-screen directions.
 
 ```azurecli
 az login
@@ -77,7 +77,7 @@ az vm availability-set create \
 
 ### Create a virtual machine
 
-Create a VM with the [az vm create](/cli/azure/vm#az_vm_create) command. 
+Create a VM with the [az vm create](/cli/azure/vm) command. 
 
 The following example creates two VMs named `myVM1` and `myVM2`. Create SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.
 

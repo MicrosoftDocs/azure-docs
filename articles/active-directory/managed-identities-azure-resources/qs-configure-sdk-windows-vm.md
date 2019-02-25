@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/28/2017
 ms.author: priyamo
+ms.collection: M365-identity-device-management
 ---
 
 # Configure a VM with managed identities for Azure resources using an Azure SDK

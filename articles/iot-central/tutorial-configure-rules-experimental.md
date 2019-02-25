@@ -72,7 +72,7 @@ When you define a rule, you also define an action to run when the rule condition
     | Notes     | Air conditioner temperature exceeded the threshold. |
 
     > [!NOTE]
-    > To receive an email notification, the email address must be a [user ID in the application](howto-administer.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json), and that user must have signed in to the application at least once.
+    > To receive an email notification, the email address must be a [user ID in the application](howto-administer-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json), and that user must have signed in to the application at least once.
 
     ![Temperature action](media/tutorial-configure-rules-experimental/temperatureaction.png)
 
@@ -99,7 +99,7 @@ In this tutorial, you learned how to:
 Now that you've defined a threshold-based rule the suggested next step is to [Customize the operator's views](tutorial-customize-operator-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 To learn more about different types of rules in Azure IoT Central and how to parameterize the rule definition, see:
-* [Create a telemetry rule and set up notifications](howto-create-telemetry-rules.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
-* [Create an event rule and set up notifications](howto-create-event-rules.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+* [Create a telemetry rule and set up notifications](howto-create-telemetry-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+* [Create an event rule and set up notifications](howto-create-event-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 <!-- Next tutorials in the sequence -->

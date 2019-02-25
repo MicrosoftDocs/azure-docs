@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Learn the differences between Bing Speech and the Speech Service from a developer standpoint, and migrate your application to use the Speech Service.
 services: cognitive-services
 author: wsturman
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service
@@ -63,7 +63,7 @@ If you or your organization have applications in development or production that 
 
 The Speech Service [REST APIs](rest-apis.md) are compatible with the Bing Speech APIs. If you're currently using the Bing Speech REST APIs, you need only change the REST endpoint, and switch to a Speech Service subscription key.
 
-The Speech Service WebSockets protocols are also compatible with those used by Bing Speech. We recommend that for new development, you use the Speech Service SDK rather than WebSockets. It's a good idea to migrate existing code to the SDK as well. However, as with the REST APIs, existing code that uses Bing Speech via WebSockets requires only a change in endpoint and an updated key.
+The Speech Service WebSockets protocols are also compatible with those used by Bing Speech. We recommend that for new development, you use the Speech SDK rather than WebSockets. It's a good idea to migrate existing code to the SDK as well. However, as with the REST APIs, existing code that uses Bing Speech via WebSockets requires only a change in endpoint and an updated key.
 
 If you're using a Bing Speech client library for a specific programming language, migrating to the [Speech SDK](speech-sdk.md) requires changes to your application, because the API is different. The Speech SDK can make your code simpler, while also giving you access to new features.
 

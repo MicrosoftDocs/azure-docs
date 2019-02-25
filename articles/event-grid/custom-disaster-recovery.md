@@ -4,7 +4,7 @@ description: Survive regional outages to keep Azure Event Grid connected.
 services: event-grid
 author: banisadr
 
-ms.service: even-grid
+ms.service: event-grid
 ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: babanisa

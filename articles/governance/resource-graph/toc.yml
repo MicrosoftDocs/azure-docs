@@ -43,6 +43,8 @@
     href: /cli/azure/ext/resource-graph/graph
   - name: REST API
     href: /rest/api/azureresourcegraph/resources/resources
+  - name: OpenAPI (Swagger)
+    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview
 - name: Resources
   items:
   - name: Azure roadmap
