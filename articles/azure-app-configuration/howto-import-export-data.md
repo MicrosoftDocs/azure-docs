@@ -65,4 +65,4 @@ You can export data using either the [Azure portal](https://aka.ms/azconfig/port
 
 ## Next steps
 
-* [Quickstart: Create an ASP.NET web app](quickstart-aspnet-core-app.md)  
+* [Quickstart: Create an ASP.NET web app](./quickstart-aspnet-core-app.md)  
