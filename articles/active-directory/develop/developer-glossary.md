@@ -18,6 +18,7 @@ ms.date: 11/16/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory developer glossary

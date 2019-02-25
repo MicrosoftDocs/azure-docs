@@ -55,6 +55,10 @@
       href: container-registry-get-started-docker-cli.md
     - name: View repositories
       href: container-registry-repositories.md
+    - name: Import container images
+      href: container-registry-import-images.md
+    - name: Lock container images
+      href: container-registry-image-lock.md
     - name: Delete container images
       href: container-registry-delete.md
     - name: Content trust (preview)

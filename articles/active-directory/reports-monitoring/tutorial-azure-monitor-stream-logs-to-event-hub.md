@@ -19,6 +19,7 @@ ms.author: priyamo
 ms.reviewer: dhanyahk
 
 # Customer intent: As an IT administrator, I want to learn how to route Azure AD logs to an event hub so I can integrate it with my third party SIEM system.
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Stream Azure Active Directory logs to an Azure event hub (preview)

@@ -69,10 +69,13 @@ The following section describes the configuration of auditing using the Azure po
     ![Navigation pane][8]
 
     > [!IMPORTANT]
-    > Server-level audit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription.
+    > Audit logs are written to **Append Blobs** in Azure Blob storage on your Azure subscription.
     >
-    > * **Premium Storage** is currently **not supported** by Append Blobs.
-    > * **Storage in VNet** is currently **not supported**.
+    > - All storage kinds (v1, v2, blob) are supported.
+    > - All storage replication configurations are supported.
+    > - **Premium storage** is currently **not supported**.
+    > - **Storage in VNet** is currently **not supported**.
+    > - **Storage behind a Firewall** is currently **not supported**
 
 8. Click **Save**.
 

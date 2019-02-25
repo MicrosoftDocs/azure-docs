@@ -32,20 +32,35 @@ This guide discusses two options to rotate the TDE protector on the server.
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 - This how-to guide assumes that you are already using a key from Azure Key Vault as the TDE protector for an Azure SQL Database or Data Warehouse. See [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-azure-sql.md).
-- You must have Azure PowerShell installed and running. 
+- You must have Azure PowerShell installed and running.
 - [Recommended but optional] Create the key material for the TDE protector in a hardware security module (HSM) or local key store first, and import the key material to Azure Key Vault. Follow the [instructions for using a hardware security module (HSM) and Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started) to learn more.
 
-## Option 1: Auto rotation
+## Manual key rotation
 
-Generate a new version of the existing TDE protector key in Key Vault, under the same key name and key vault. The Azure SQL service starts using this new version within 24 hours. 
+Manual key rotation uses the [Add-AzKeyVaultKey](/powershell/module/az.keyvault/Add-AzKeyVaultKey), [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), and [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets to add a completely new key, which could be under a new key name or even another key vault. Using this approach supports adding the same key to different key vaults to support high-availability and geo-dr scenarios.
 
-To create a new version of the TDE protector using the [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azurekeyvaultkey) cmdlet:
+>[!NOTE]
+>The combined length for the key vault name and key name cannot exceed 94 characters.
 
    ```powershell
+   # Add a new key to Key Vault
    Add-AzKeyVaultKey `
    -VaultName <KeyVaultName> `
    -Name <KeyVaultKeyName> `
    -Destination <HardwareOrSoftware>
+
+   # Add the new key from Key Vault to the server
+   Add-AzSqlServerKeyVaultKey `
+   -KeyId <KeyVaultKeyId> `
+   -ServerName <LogicalServerName> `
+   -ResourceGroup <SQLDatabaseResourceGroupName>
+  
+   <# Set the key as the TDE protector for all resources under the server #>
+   Set-AzSqlServerTransparentDataEncryptionProtector `
+   -Type AzureKeyVault `
+   -KeyId <KeyVaultKeyId> `
+   -ServerName <LogicalServerName> `
+   -ResourceGroup <SQLDatabaseResourceGroupName>
    ```
 
 ## Option 2: Manual rotation
@@ -103,4 +118,4 @@ The option uses the [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azure
 
 - In case of a security risk, learn how to remove a potentially compromised TDE protector: [Remove a potentially compromised key](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md) 
 
-- Get started with Bring Your Own Key support for TDE: [Turn on TDE using your own key from Key Vault using PowerShell](transparent-data-encryption-byok-azure-sql-configure.md)
+- Get started with Azure Key Vault integration and Bring Your Own Key support for TDE: [Turn on TDE using your own key from Key Vault using PowerShell](transparent-data-encryption-byok-azure-sql-configure.md)

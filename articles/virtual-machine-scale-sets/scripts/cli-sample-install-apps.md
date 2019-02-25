@@ -43,7 +43,7 @@ This script uses the following commands to create a resource group, virtual mach
 | Command | Notes |
 |---|---|
 | [az group create](/cli/azure/ad/group) | Creates a resource group in which all resources are stored. |
-| [az vmss create](/cli/azure/vmss#az_vmss_create) | Creates the virtual machine scale set and connects it to the virtual network, subnet, and network security group. A load balancer is also created to distribute traffic to multiple VM instances. This command also specifies the VM image to be used and administrative credentials.  |
+| [az vmss create](/cli/azure/vmss) | Creates the virtual machine scale set and connects it to the virtual network, subnet, and network security group. A load balancer is also created to distribute traffic to multiple VM instances. This command also specifies the VM image to be used and administrative credentials.  |
 | [az vmss extension set](/cli/azure/vmss/extension) | Installs the Azure Custom Script Extension to run a script that prepares the data disks on each VM instance. |
 | [az network lb rule create](/cli/azure/network/lb/rule) | Creates a load balancer rule to distribute traffic on TCP port 80 to the VM instances in the scale set. |
 | [az network public-ip show](/cli/azure/network/public-ip) | Gets information on the public IP address assigned used by the load balancer. |

@@ -4,7 +4,7 @@ description: This article helps you to get started protecting your App Services 
 services: security-center
 documentationcenter: na
 author: monhaber
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: e8518710-fcf9-44a8-ae4b-8200dfcded1a

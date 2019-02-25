@@ -24,9 +24,10 @@ This document provides a view into what's next for Azure Marketplace, AppSource,
 
 We welcome your suggestions! Join the conversation in the [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/) to get the latest updates on new capabilities, programs, and events.
 
+## Roadmap
 ![](./media/marketplace-publishers-guide/roadmap.png)
 
-**Next steps**
+## Next steps
 
 Visit the [Azure Marketplace and AppSource Publisher Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) page.
 

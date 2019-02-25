@@ -3,7 +3,7 @@ title: Create, manage Azure SQL Database servers and single databases | Microsof
 description: Learn about creating and managing SQL Database servers and single databases.
 services: sql-database
 ms.service: sql-database
-ms.subservice: standalone-database
+ms.subservice: single-database
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/08/2019
 ---
 # Create and manage SQL Database servers and single databases in Azure SQL Database
 
@@ -47,13 +47,13 @@ To manage an existing database, navigate to the **SQL databases** page and click
 > [!IMPORTANT]
 > To configure performance properties for a database, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 > [!TIP]
-> For an Azure portal quickstart, see [Create an Azure SQL database in the Azure portal](sql-database-get-started-portal.md).
+> For an Azure portal quickstart, see [Create an Azure SQL database in the Azure portal](sql-database-single-database-get-started.md).
 
 ## PowerShell: Manage SQL Database servers and single databases
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-To create and manage Azure SQL Database servers, standalone and pooled databases, and SQL Database server firewalls with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+To create and manage Azure SQL Database servers, single and pooled databases, and SQL Database server firewalls with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
 > [!TIP]
 > For PowerShell example scripts, see [Use PowerShell to create an Azure SQL single database and configure a SQL Database server firewall rule](scripts/sql-database-create-and-configure-database-powershell.md) and [Monitor and scale a SQL single database using PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
@@ -156,5 +156,5 @@ To create and manage Azure SQL server, databases, and firewalls, use these REST 
 
 ## Next steps
 
-- To learn about migrating a SQL Server database to Azure, see [Migrate to Azure SQL Database](sql-database-cloud-migrate.md).
+- To learn about migrating a SQL Server database to Azure, see [Migrate to Azure SQL Database](sql-database-single-database-migrate.md).
 - For information about supported features, see [Features](sql-database-features.md).

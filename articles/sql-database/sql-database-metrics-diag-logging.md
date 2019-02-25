@@ -11,7 +11,7 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 02/04/2019
+ms.date: 02/07/2019
 ---
 
 # Azure SQL Database metrics and diagnostics logging
@@ -60,14 +60,14 @@ You can set up Azure SQL databases to collect the following diagnostics telemetr
 
 | Monitoring telemetry for databases | Single database and pooled database support | Managed instance support |
 | :------------------- | ------------------- | ------------------- |
-| [All metrics](sql-database-metrics-diag-logging.md#all-metrics): Contains DTU/CPU percentage, DTU/CPU limit, physical data read percentage, log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, and XTP storage percentage. | Yes | No |
-| [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): Contains information about the query runtime statistics such as CPU usage and query duration statistics. | Yes | Yes |
-| [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): Contains information about the query wait statistics (what your queries waited on) such as CPU, LOG, and LOCKING. | Yes | Yes |
-| [Errors](sql-database-metrics-diag-logging.md#errors-dataset): Contains information about SQL errors on the database. | Yes | Yes |
-| [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): Contains information about how much time the database spent waiting on different wait types. | Yes | No |
-| [Timeouts](sql-database-metrics-diag-logging.md#time-outs-dataset): Contains information about timeouts on the database. | Yes | No |
-| [Blocks](sql-database-metrics-diag-logging.md#blockings-dataset): Contains information about blocking events on the database. | Yes | No |
-| [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): Contains Intelligent Insights into performance. To learn more, see [Intelligent Insights](sql-database-intelligent-insights.md). | Yes | Yes |
+| [All metrics](#all-metrics): Contains DTU/CPU percentage, DTU/CPU limit, physical data read percentage, log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, and XTP storage percentage. | Yes | No |
+| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Contains information about the query runtime statistics such as CPU usage and query duration statistics. | Yes | Yes |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics): Contains information about the query wait statistics (what your queries waited on) such as CPU, LOG, and LOCKING. | Yes | Yes |
+| [Errors](#errors-dataset): Contains information about SQL errors on the database. | Yes | Yes |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Contains information about how much time the database spent waiting on different wait types. | Yes | No |
+| [Timeouts](#time-outs-dataset): Contains information about timeouts on the database. | Yes | No |
+| [Blocks](#blockings-dataset): Contains information about blocking events on the database. | Yes | No |
+| [SQLInsights](#intelligent-insights-dataset): Contains Intelligent Insights into performance. To learn more, see [Intelligent Insights](sql-database-intelligent-insights.md). | Yes | Yes |
 
 ### Azure portal
 
@@ -165,7 +165,7 @@ You can set up a managed instance resource to collect the following diagnostics 
 
 | Resource | Monitoring telemetry |
 | :------------------- | ------------------- |
-| **Managed instance** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#logs-for-managed-instance) contains vCores count, average CPU percentage, IO requests, bytes read/written, reserved storage space, and used storage space. |
+| **Managed instance** | [ResourceUsageStats](#logs-for-managed-instances) contains vCores count, average CPU percentage, IO requests, bytes read/written, reserved storage space, and used storage space. |
 
 To enable streaming of diagnostics telemetry for a managed instance resource, follow these steps:
 

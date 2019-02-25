@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/08/2019
 ---
 # Recover an Azure SQL database using automated database backups
 
@@ -77,7 +77,7 @@ You generally restore a database to an earlier point for recovery purposes. When
 
   If you plan to retrieve data from the restored database to recover from a user or application error, you need to write and execute the necessary data recovery scripts to extract data from the restored database to the original database. Although the restore operation may take a long time to complete, the restoring database is visible in the database list throughout the restore process. If you delete the database during the restore, the restore operation is canceled and you are not charged for the database that did not complete the restore.
 
-To recover a standalone, pooled, or instance database to a point in time using the Azure portal, open the page for your database and click **Restore** on the toolbar.
+To recover a single, pooled, or instance database to a point in time using the Azure portal, open the page for your database and click **Restore** on the toolbar.
 
 ![point-in-time-restore](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
@@ -151,7 +151,7 @@ As previously discussed, in addition to the Azure portal, database recovery can 
 
 ### REST API
 
-To restore a standalone or pooled database using the REST API:
+To restore a single or pooled database using the REST API:
 
 | API | Description |
 | --- | --- |
@@ -160,7 +160,7 @@ To restore a standalone or pooled database using the REST API:
 
 ### Azure CLI
 
-To restore a standalone or pooled database using Azure CLI, see [az sql db restore](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-restore).
+To restore a single or pooled database using Azure CLI, see [az sql db restore](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-restore).
 
 ## Summary
 

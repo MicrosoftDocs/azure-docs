@@ -1,10 +1,10 @@
 ---
 title: Create a blueprint with REST API
-description: Use Azure Blueprints to create, define, and deploy artifacts.
+description: Use Azure Blueprints to create, define, and deploy artifacts using the REST API.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
@@ -375,6 +375,12 @@ Body** specifies the blueprint to assign, provides name and location to any reso
 blueprint definition, and provides all parameters defined on the blueprint and used by one or more
 attached artifacts.
 
+In each REST API URI, there are variables that are used that you need to replace with your own values:
+
+- `{tenantId}` - Replace with your tenant ID
+- `{YourMG}` - Replace with the ID of your management group
+- `{subscriptionId}` - Replace with your subscription ID
+
 1. Provide the Azure Blueprint service principal the **Owner** role on the target subscription. The AppId is static (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), but the service principal ID various by tenant. Details can be requested for your tenant using the following REST API. It uses [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) which has different authorization.
 
    - REST API URI
@@ -433,6 +439,27 @@ attached artifacts.
          "location": "westus"
      }
      ```
+
+   - User-assigned managed identity
+
+     A blueprint assignment can also use a [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md). In this case, the **identity** portion of the request body changes as follows.  Replace `{yourRG}` and `{userIdentity}` with your resource group name and the name of your user-assigned managed identity, respectively.
+
+     ```json
+     "identity": {
+         "type": "userAssigned",
+         "tenantId": "{tenantId}",
+         "userAssignedIdentities": {
+             "/subscriptions/{subscriptionId}/resourceGroups/{yourRG}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userIdentity}": {}
+         }
+     },
+     ```
+
+     The **user-assigned managed identity** can be in any subscription and resource group the user
+     assigning the blueprint has permissions to.
+
+     > [!IMPORTANT]
+     > Blueprints doesn't manage the user-assigned managed identity. Users are responsible for assigning
+     > sufficient roles and permissions or the blueprint assignment will fail.
 
 ## Unassign a blueprint
 

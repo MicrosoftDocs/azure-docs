@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure Zendesk for automatic user provisioning
@@ -113,7 +114,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 	*   In the **Domain** field, populate the subdomain of your Zendesk tenant.
 	Example: For an account with a tenant URL of https://my-tenant.zendesk.com, your subdomain would be **my-tenant**.
 
-6. The **Secret Token** for your Zendesk account is located in **Admin > API > Settings**. 
+6. The **Secret Token** for your Zendesk account is located in **Admin > API > Settings**.
+   Ensure that **Token Access** is set to  **Enabled**.
 
 	![Zendesk Provisioning](./media/zendesk-provisioning-tutorial/ZenDesk4.png)
 	![Zendesk Provisioning](./media/zendesk-provisioning-tutorial/ZenDesk2.png)

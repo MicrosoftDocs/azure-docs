@@ -10,6 +10,7 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 
 # Quickstart: Use the Bing Speech recognition REST API
@@ -27,7 +28,7 @@ The Speech API is part of Cognitive Services (previously Project Oxford). You ca
 > [!IMPORTANT]
 >* Get a subscription key. Before you can access the REST API, you must have a [subscription key](https://azure.microsoft.com/try/cognitive-services/).
 >
->* Use your subscription key. In the following REST samples, replace YOUR_SUBSCRIPTION_KEY with your own subscription key. 
+>* Use your subscription key. In the following REST samples, replace YOUR_SUBSCRIPTION_KEY with your own subscription key.
 >
 >* Refer to the [authentication](../how-to/how-to-authentication.md) page for how to get a subscription key.
 
