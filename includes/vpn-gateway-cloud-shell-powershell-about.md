@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-This article uses PowerShell cmdlets. To run the cmdlets, you can use Azure Cloud Shell. Azure Cloud Shell is a free interactive shell that has common Azure tools preinstalled and  is configured to use with your account. Just click the **Copy** to copy the code, paste it into the Cloud Shell, and then press enter to run it. There are a few ways to launch the Cloud Shell:
+This article uses PowerShell cmdlets. To run the cmdlets, you can use Azure Cloud Shell. Azure Cloud Shell is a free interactive shell that has common Azure tools preinstalled and  is configured to use with your account. Just click **Copy** to copy the code, paste it into the Cloud Shell, and then press enter to run it. There are a few ways to launch the Cloud Shell:
 
 |  |   |
 |-----------------------------------------------|---|
