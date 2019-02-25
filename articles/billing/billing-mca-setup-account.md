@@ -85,7 +85,7 @@ Your new billing account simplifies billing for your organization while providin
 
 ![Image of ea-mca-post-transition-hierarchy](./media/billing-mca-setup-account/mca-post-transition-hierarchy.svg)
 
-1. You use the billing account to manage billing for your Microsoft customer agreement. To learn more about billing account, see [Understand billing account].(billing-mca-overview.md#understand-billing-account).
+1. You use the billing account to manage billing for your Microsoft customer agreement. To learn more about billing account, see [Understand billing account](billing-mca-overview.md#understand-billing-account).
 2. You use the billing profile to manage billing for your organization, similar to your Enterprise Agreement enrollment. Enterprise administrators become owners of the billing profile. To learn more about billing profiles, see [Understand billing profiles](billing-mca-overview.md#understand-billing-profiles).
 3. You use an invoice section to organize your costs based on your needs, similar to departments in your Enterprise Agreement enrollment. Department becomes invoice sections and department administrators become owners of the respective invoice sections. To learn more about invoice sections, see [Understand invoice sections](billing-mca-overview.md#understand-invoice-sections).
 4. The accounts that were created in your Enterprise Agreement aren’t supported in the new billing account. The account's subscriptions belong to the respective invoice section for their department. Account owners can create and manage subscriptions for their invoice sections.
@@ -100,9 +100,9 @@ Depending on their access, billing administrators on your Enterprise Agreement e
 |---------|---------|
 |Enterprise administrator (Read only = No)     |- Owner on the billing profile for the enrollment </br> - Owner on all the invoice sections |
 |Enterprise administrator | -  Reader on the billing profile for the enrollment </br> -  Reader on all the invoice sections |
-|Department administrator  (Read only = No)    | * Owner on the invoice section created for their respective department      |
-|Department administrator     | * Reader on the invoice section created for their respective department      |
-|Account owner     | * Azure subscription creator on the invoice section created for their respective department |
+|Department administrator  (Read only = No)    | - Owner on the invoice section created for their respective department      |
+|Department administrator     | - Reader on the invoice section created for their respective department      |
+|Account owner     | - Azure subscription creator on the invoice section created for their respective department |
 
 An Azure Active Directory tenant is selected for the new billing account at the time of signing the Microsoft Customer Agreement. If a tenant doesn't exist for your organization, a new tenant is created. The tenant represents your organization within Azure Active Directory. It is a dedicated instance of the Azure AD service that your organization receives and owns. Administrators in your organization use the tenant to manage access of applications and data in your organization.
 
@@ -220,7 +220,7 @@ Spending quotas that were set for departments in your Enterprise Agreement enrol
 
 Cost center that were set on the Azure subscriptions in your Enterprise Agreement enrollment are carried over in the new billing account. However, cost centers for departments and Enterprise Agreement accounts aren't supported. <!-- Todo add alternative -->
 
-## Helpful information
+## Additional information
 
 The following sections provide helpful information about setting up your billing account.
 
