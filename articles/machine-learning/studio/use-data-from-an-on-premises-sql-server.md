@@ -5,7 +5,7 @@ description: Use data from an on-premises SQL Server database to perform advance
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs
