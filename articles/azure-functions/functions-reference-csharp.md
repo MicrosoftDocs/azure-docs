@@ -53,7 +53,7 @@ FunctionsProject
 
 There's a shared [host.json](functions-host-json.md) file that can be used to configure the function app. Each function has its own code file (.csx) and binding configuration file (function.json).
 
-The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](functions-triggers-bindings.md#local-development-azure-functions-core-tools). When developing functions in the Azure portal, this registration is done for you.
+The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](./functions-bindings-register.md#local-development-azure-functions-core-tools). When developing functions in the Azure portal, this registration is done for you.
 
 ## Binding to arguments
 
@@ -220,7 +220,7 @@ The `#load` directive works only with *.csx* files, not with *.cs* files.
 
 ## Binding to method return value
 
-You can use a method return value for an output binding, by using the name `$return` in *function.json*. For examples, see [Triggers and bindings](functions-triggers-bindings.md#using-the-function-return-value).
+You can use a method return value for an output binding, by using the name `$return` in *function.json*. For examples, see [Triggers and bindings](./functions-bindings-return-value.md).
 
 Use the return value only if a successful function execution always results in a return value to pass to the output binding. Otherwise, use `ICollector` or `IAsyncCollector`, as shown in the following section.
 
