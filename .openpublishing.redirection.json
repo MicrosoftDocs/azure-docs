@@ -26875,17 +26875,17 @@
     },
     {
       "source_path": "articles/cognitive-services/Bing-Autosuggest/autosuggest-endpoint.md",
-      "redirect_url": "/azure/cognitive-services/bing-autosuggest/tutorials/sending-requests",
+      "redirect_url": "/azure/cognitive-services/bing-autosuggest/concepts/sending-requests",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/Bing-Autosuggest/quick-start.md",
-      "redirect_url": "/azure/cognitive-services/bing-autosuggest/tutorials/sending-requests",
+      "redirect_url": "/azure/cognitive-services/bing-autosuggest/concepts/sending-requests",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Bing-Autosuggest/bing-autosuggest-resource-faq.md",
-      "redirect_url": "/azure/cognitive-services/bing-autosuggest/tutorials/sending-requests",
+      "redirect_url": "/azure/cognitive-services/bing-autosuggest/concepts/sending-requests",
       "redirect_document_id": false
     },
     {
