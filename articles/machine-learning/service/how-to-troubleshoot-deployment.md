@@ -1,7 +1,7 @@
 ---
 title: Deployment troubleshooting guide
 titleSuffix: Azure Machine Learning service
-description: Learn how to workaround, solve, and troubleshoot the common Docker deployment errors with AKS and ACI using  Azure Machine Learning service.
+description: Learn how to work around, solve, and troubleshoot the common Docker deployment errors with AKS and ACI using  Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -38,7 +38,7 @@ Learn more about this process in the [Model Management](concept-model-management
 
 If you run into any issue, the first thing to do is to break down the deployment task (previous described) into individual steps to isolate the problem. 
 
-This is particularly helpful if you are using the `Webservice.deploy` API, or `Webservice.deploy_from_model` API, since those functions group together the aforementioned steps into a single action. Typically those APIs are quite convenient, but it helps to break up the steps when troubleshooting by replacing them with the below API calls.
+This is helpful if you are using the `Webservice.deploy` API, or `Webservice.deploy_from_model` API, since those functions group together the aforementioned steps into a single action. Typically those APIs are convenient, but it helps to break up the steps when troubleshooting by replacing them with the below API calls.
 
 1. Register the model. Here's some sample code:
 
@@ -98,7 +98,7 @@ The image log uri is a SAS URL pointing to a log file stored in your Azure blob 
 
 
 ## Service launch fails
-After the image is successfully built, the system attempts to start a container in either ACI or AKS depending on your deployment configuration. It is generally recommended to try an ACI deployment first, since it is a simpler single-container deployment. This way you can then rule out any AKS-specific problem.
+After the image is successfully built, the system attempts to start a container in either ACI or AKS depending on your deployment configuration. It is recommended to try an ACI deployment first, since it is a simpler single-container deployment. This way you can then rule out any AKS-specific problem.
 
 As part of container starting-up process, the `init()` function in your scoring script is invoked by the system. If there are uncaught exceptions in the `init()` function, you might see **CrashLoopBackOff** error in the error message. Below are some tips to help you troubleshoot the problem.
 
@@ -220,11 +220,42 @@ def run(input_data):
 
 ## HTTP status code 503
 
-Azure Kubernetes Service deployments support autoscaling, which allows nodes to be added to support additional load. However, clients may receive an HTTP status code 503 even when autoscaling is enabled. This happens when you receive large spikes in requests per second and autoscaling does not scale out quickly enough.
+Azure Kubernetes Service deployments support autoscaling, which allows replicas to be added to support additional load. However, the autoscaler is designed to handle **gradual** changes in load. If you receive large spikes in requests per second, clients may receive an HTTP status code 503.
 
-By default, autoscaling is set to 70%, which means that the service can handle spikes in requests per second (RPS) of up to 30%. You can adjust this by setting the `autoscale_target_utilization` to a lower value. This setting allows more buffer space for the spikes. You may also need to increase the `autoscale_max_replicas` value to increase the maximum number of containers that autoscaling can create.
+There are two things that can help prevent 503 status codes:
 
-You can also set `autoscale_min_replicas` to a higher value, which increase the number of running containers.
+* Change the utilization level at which autoscaling creates new replicas.
+    
+    By default, autoscaling target utilization is set to 70%, which means that the service can handle spikes in requests per second (RPS) of up to 30%. You can adjust the utilization target by setting the `autoscale_target_utilization` to a lower value.
+
+    > [!IMPORTANT]
+    > This change does not cause replicas to be created *faster*. Instead, they are created at a lower utilization threshold. Instead of waiting until the service is 70% utilized, changing the value to 30% causes replicas to be created when 30% utilization occurs.
+    
+    If the web service is already using the current max replicas and you are still seeing 503 status codes, increase the `autoscale_max_replicas` value to increase the maximum number of replicas.
+
+* Change the minimum number of replicas. Increasing the minimum replicas provides a larger pool to handle the incoming spikes.
+
+    To increase the minimum number of replicas, set `autoscale_min_replicas` to a higher value. You can calculate the required replicas by using the following code, replacing values with values specific to your project:
+
+    ```python
+    from math import ceil
+    # target requests per second
+    targetRps = 20
+    # time to process the request (in seconds)
+    reqTime = 10
+    # Maximum requests per container
+    maxReqPerContainer = 1
+    # target_utilization. 70% in this example
+    targetUtilization = .7
+
+    concurrentRequests = targetRps * reqTime / targetUtilization
+
+    # Number of container replicas
+    replicas = ceil(concurrentRequests / maxReqPerContainer)
+    ```
+
+    > [!NOTE]
+    > If you recieve request spikes larger than the new minimum replicas can handle, you may receive 503s again. For example, as traffic to your service increases, you may need to increase the minimum replicas.
 
 For more information on setting `autoscale_target_utilization`, `autoscale_max_replicas`, and `autoscale_min_replicas` for, see the [AksWebservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) module reference.
 
