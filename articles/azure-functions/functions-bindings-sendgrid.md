@@ -171,7 +171,7 @@ The following example uses the `@SendGridOutput` annotation from the [Java funct
                 name = "email", dataType = "String", apiKey = "SendGridConnection", to = "test@example.com", from = "test@example.com",
                 subject= "Sending with SendGrid", text = "Hello from Azure Functions"
                 ) OutputBinding<String> email
-            ) 
+            )
     {
         String name = request.getBody().orElse("World");
 
