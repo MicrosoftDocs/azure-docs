@@ -59,9 +59,7 @@ After the last command runs, copy and paste the connection string, and the queue
 
 After you've created the namespace and queue, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
-1. Make sure that Cloud Shell is open and displaying the Bash prompt.
-
-2. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/) by issuing the following command:
+2. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/) on your computer by issuing the following command:
 
    ```bash
    git clone https://github.com/Azure/azure-service-bus.git
@@ -79,10 +77,10 @@ After you've created the namespace and queue, and you have the necessary credent
    mvn clean package -DskipTests
    ```
 
-4. To run the program, issue the following command. As long as you did not restart the bash shell, the variable containing the connection string value is automatically replaced:
+4. To run the program, issue the following command after replacing the connection string with the value you copied earlier:
 
    ```bash
-   java -jar ./target/queuesgettingstarted-1.0.0-jar-with-dependencies.jarr -c $connectionString 
+   java -jar ./target/queuesgettingstarted-1.0.0-jar-with-dependencies.jar -c "<SERVICE BUS NAMESPACE CONNECTION STRING>" 
    ```
 
 6. Observe 10 messages being sent to the queue. Ordering of messages is not guaranteed, but you can see the messages sent, then acknowledged and received, along with the payload data:
@@ -191,7 +189,7 @@ After you've created the namespace and queue, and you have the necessary credent
 
 ## Clean up resources
 
-Run the following command to remove the resource group, namespace, and all related resources:
+In the Azure Cloud Shell, run the following command to remove the resource group, namespace, and all related resources:
 
 ```azurecli-interactive
 az group delete --resource-group myResourceGroup
