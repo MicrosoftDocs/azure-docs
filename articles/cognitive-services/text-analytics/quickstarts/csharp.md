@@ -211,6 +211,12 @@ Document ID: 1 , Sentiment Score: 0.11
 Document ID: 2 , Sentiment Score: 0.44
 Document ID: 3 , Sentiment Score: 1.00
 
+==== ENTITIES ====
+
+Document ID: 0
+Entities:
+Microsoft - https://en.wikipedia.org/wiki/Microsoft
+Technology company - https://en.wikipedia.org/wiki/Technology_company
 ```
 
 ## Next steps
