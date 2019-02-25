@@ -44,6 +44,7 @@ By default, snapshots are retained for two days. This feature allows restores op
 * Incremental snapshots are stored as page blobs. All the users using unmanaged disks are charged for the snapshots stored in their local storage account. Since the restore point collections used by Managed VM backups use blob snapshots at the underlying storage level, for managed disks you will see costs corresponding to blob snapshot pricing and they are incremental.
 * For premium storage accounts, the snapshots taken for instant recovery points count towards the 10-TB limit of allocated space.
 * You get an ability to configure the snapshot retention based on the restore needs. Depending on the requirement, you can set the snapshot retention to a minimum of one day in the backup policy blade as explained below. This can help you save cost for snapshot retention if you don’t perform restores frequently.
+* This is a one directional upgrade, once upgraded to Instant restore, you cannot go back.
 
 
 >[!NOTE]
@@ -72,7 +73,7 @@ Alternatively, you can go to **Properties** page of the vault to get the **Upgra
 
 
 ## Configure snapshot retention using Azure portal
-This option is currently available in West Central US, India South and Australia East.
+This option is currently available in **West Central US**, **India South** and **Australia East**.
 
 For the upgraded users, in the Azure portal you can see a field added in the **VM Backup Policy** blade under the **Instant Restore** section. You can change the snapshot retention duration from the **VM Backup Policy** blade for all the VMs associated with the specific backup policy.
 

@@ -166,6 +166,7 @@ For more information, see [How to: Monitor web endpoint status].
 * [Enable HTTPS for an app in Azure App Service]
 * [Scale an app in Azure App Service]
 * [Monitoring basics in Azure App Service]
+* [Change applicationHost.config settings with applicationHost.xdt](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples)
 
 <!-- URL List -->
 
