@@ -9,7 +9,7 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
 ---
@@ -63,7 +63,7 @@ Only _en_, _es_ support extraction of `"Quantity"`, `"Datetime"`, `"URL"`, `"Ema
 | dateTimes  | An array of strings where each string represents a DateTime (as it appears in the text) value. |
 | urls | An array of strings where each string represents a URL |
 | emails | An array of strings where each string represents an email |
-| namedEntities | An array of complex types that contains the following fields: <ul><li>category</li> <li>value (the actual entity name)</li><li>offset (The location where it was found in the text)</li><li>confidence (Unused for now. Will be set to a value of -1)</li></ul> |
+| namedEntities | An array of complex types that contains the following fields: <ul><li>category</li> <li>value (The actual entity name)</li><li>offset (The location where it was found in the text)</li><li>confidence (Unused for now. Will be set to a value of -1)</li></ul> |
 | entities | An array of complex types that contains rich information about the entities extracted from text, with the following fields <ul><li> name (the actual entity name. This represents a "normalized" form)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (a link to Wikipedia page for the entity)</li><li>bingId</li><li>type (the category of the entity recognized)</li><li>subType (available only for certain categories, this gives a more granular view of the entity type)</li><li> matches (a complex collection that contains)<ul><li>text (the raw text for the entity)</li><li>offset (the location where it was found)</li><li>length (the length of the raw entity text)</li></ul></li></ul> |
 
 ##	Sample definition

@@ -152,7 +152,7 @@ In version 2.x of the Azure Functions runtime, you have to explicitly register t
 
 [!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
 
-For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md#register-binding-extensions).
+For more information, see [Azure Functions triggers and bindings concepts](./functions-bindings-expressions-patterns.md).
 
 ## Local settings file
 
