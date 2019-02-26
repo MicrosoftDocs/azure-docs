@@ -25,7 +25,7 @@ This article describes how to use the Azure portal to assign RBAC roles. The Azu
 
 ## Determine resource scope 
 
-Before you assign an RBAC role to a security principal, determine the scope of access that that security principal should have. Best practices dictate that it's always best to grant only the narrowest possible scope.
+Before you assign an RBAC role to a security principal, determine the scope of access that the security principal should have. Best practices dictate that it's always best to grant only the narrowest possible scope.
 
 The following list describes the levels at which you can scope access to Azure blob and queue resources, starting with the narrowest scope:
 
