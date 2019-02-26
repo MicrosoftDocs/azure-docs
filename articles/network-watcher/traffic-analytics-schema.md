@@ -1,5 +1,5 @@
 ---
-title: Azure traffic analytics | Microsoft Docs
+title: Azure traffic analytics schema | Microsoft Docs
 description: Understand schema of Traffic Analytics to analyse Azure network security group flow logs .
 services: network-watcher
 documentationcenter: na
@@ -7,9 +7,17 @@ author: vinynigam
 manager: agummadi
 editor:
 
+ms.service: network-watcher
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload:  infrastructure-services
+ms.date: 02/26/2019
+ms.author: vinigam
+
 ---
 
-# Schema and Data Aggregation in Traffic Analytics
+# Schema and data aggregation in Traffic Analytics
 
 Traffic Analytics is a cloud-based solution that provides visibility into user and application activity in cloud networks. Traffic Analytics analyzes Network Watcher network security group (NSG) flow logs to provide insights into traffic flow in your Azure cloud. With traffic analytics, you can:
 
@@ -19,7 +27,7 @@ Traffic Analytics is a cloud-based solution that provides visibility into user a
 - Pinpoint network misconfigurations leading to failed connections in your network.
 - Know network usage in bytes, packets or flows.
 
-### Data Aggregation
+### Data aggregation
 
 1. All  flow logs at an NSG between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t” are captured at 1 minute intervals in the storage account as blobs before being processed by Traffic Analytics. 
 2. Default processing interval of Traffic Analytics is 60 minutes . This means that every 60 mins Traffic Analytics picks blobs from storage for aggregation.
@@ -29,7 +37,7 @@ Traffic Analytics is a cloud-based solution that provides visibility into user a
 6. For any resource in TA, the flows indicated in the UI are total flows seen by the NSG, but in Log Anlaytics user will see only the single , reduced record. To see all the flows, use the blob_id field,  which can be referenced from Storage. The total flow count for that record will match the individual flows seen in the blob.
 
 
-### Fields used in Traffic Analytics Schema
+### Fields used in Traffic Analytics schema
 
 Traffic Analytics is built on top of Log Analytics, so you can run custom queries on data decorated by Traffic Analytics and set alerts on the same.
 
@@ -45,19 +53,19 @@ Listed below are the fields in the schema and what they signify
 | FlowIntervalEndTime_t	| Date and Time in UTC | Ending time of the flow log processing interval |
 | FlowStartTime_t |	Date and Time in UTC |	First occurrence of the flow (which will get aggregated) in the flow log processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”. This flow gets aggregated based on aggregation logic |
 | FlowEndTime_t | Date and Time in UTC | Last occurrence of the flow (which will get aggregated) in the flow log processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”. In terms of flow log v2, this field contains the time when the last flow with the same four-tuple started (marked as “B” in the raw flow record) |
-| FlowType_s |  • IntraVNet <br> • InterVNet <br> • S2S <br> • P2S <br> • AzurePublic <br> • ExternalPublic <br> • MaliciousFlow <br> • Unknown Private <br> • Unknown | Definition in notes below the table |
+| FlowType_s |  * IntraVNet <br> * InterVNet <br> * S2S <br> * P2S <br> * AzurePublic <br> * ExternalPublic <br> * MaliciousFlow <br> * Unknown Private <br> * Unknown | Definition in notes below the table |
 | SrcIP_s |	Source IP address |	Will be blank in case of AzurePublic and ExternalPublic flows |
 | DestIP_s | Destination IP address	| Will be blank in case of AzurePublic and ExternalPublic flows |
 | VMIP_s | IP of the VM	| Used for AzurePublic and ExternalPublic flows |
 | PublicIP_S | Public IP addresses | Used for AzurePublic and ExternalPublic flows |
 | DestPort_d | |Destination Port| Port at which traffic is incoming | 
-| L4Protocol_s	| •	T <br> • U 	| Transport Protocol . T = TCP <br> U = UDP | 
+| L4Protocol_s	| *	T <br> * U 	| Transport Protocol . T = TCP <br> U = UDP | 
 | L7Protocol_s	| Protocol Name	| Derived from destination port |
-| FlowDirection_s | • I = Inbound<br> •	O = Outbound | Direction of the flow in/out of NSG as per flow log | 
-| FlowStatus_s	| •	A = Allowed by NSG Rule <br> •	D = Denied by NSG Rule	| Status of flow allowed/nblocked by NSG as per flow log |
+| FlowDirection_s | * I = Inbound<br> *	O = Outbound | Direction of the flow in/out of NSG as per flow log | 
+| FlowStatus_s	| *	A = Allowed by NSG Rule <br> *	D = Denied by NSG Rule	| Status of flow allowed/nblocked by NSG as per flow log |
 | NSGList_s | \<SUBSCRIPTIONID>\/<RESOURCEGROUP_NAME>\/<NSG_NAME> | Network Security Group (NSG) associated with the flow |
 | NSGRules_s | \<Index value 0)><NSG_RULENAME>\<Flow Direction>\<Flow Status>\<FlowCount ProcessedByRule> |  NSG rule that allowed or denied this flow |
-| NSGRuleType_s	| •	User Defined •	Default |	The type of NSG Rule used by the flow |
+| NSGRuleType_s	| *	User Defined *	Default |	The type of NSG Rule used by the flow |
 | MACAddress_s | MAC Address | MAC address of the NIC at which the flow was captured |
 | Subscription_s | Subscription of the Azure virtual network/ network interface/ virtual machine is populated in this field | Applicable only for FlowType = S2S, P2S, AzurePublic, ExternalPublic, MaliciousFlow and UnknownPrivate flow types (flow types where only one side is azure) |
 | Subscription1_s | Subscription ID | Subscription ID of virtual network/ network interface/ virtual machine to which the source IP in the flow belongs to |
@@ -99,18 +107,21 @@ Listed below are the fields in the schema and what they signify
     
 ### Notes
     
-1. In case of AzurePublic and ExternalPublic flows, the customer owned Azure VM IP is populated in VMIP_s field, while the Public IP addresses are being populated in the PublicIPs_s field. For these two flow types, we should use VMIP_s and PublicIPs_s instead of SrcIP_s and DestIP_s fields. For AzurePublic and ExternalPublicIP addresses, we aggregate further, so that the number of records ingested to customer log analytics workspace is minimal.(This field will be deprecated soon and we should be using SrcIP_ and DestIP_s depending on whether azure VM was the source or the destination in the flow) <br>
-2. Details for flow types : <br>Based on the IP addresses involved in the flow, we categorize the flows in to the following flow types : <br>
- •	IntraVNet – Both the IP addresses in the flow reside in the same Azure Virtual Network. <br><br>
- •	InterVNet - IP addresses in the flow reside in the two different Azure Virtual Networks. <br><br>
-•	S2S – (Site To Site) One of the IP addresses belongs to Azure Virtual Network while the other IP address belongs to customer network (Site) connected to the Azure Virtual Network through VPN gateway or Express Route. <br><br>
-•	P2S - (Point To Site) One of the IP addresses belongs to Azure Virtual Network while the other IP address belongs to customer network (Site) connected to the Azure Virtual Network through VPN gateway.<br><br>
-•	AzurePublic - One of the IP addresses belongs to Azure Virtual Network while the other IP address belongs to Azure Internal Public IP addresses owned by Microsoft. Customer owned Public IP addresses won’t be part of this flow type. For instance, any customer owned VM sending traffic to an Azure Service (Storage endpoint) would be categorized under this flow type. <br><br>
-•	ExternalPublic - One of the IP addresses belongs to Azure Virtual Network while the other IP address is a public IP that is not in Azure , is not reported as malicious in the ASC feeds that Traffic Analytics consumes for the processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”. <br><br>
-•	MaliciousFlow - One of the IP addresses belong to azure virtual network while the other IP address is a public IP that is not in Azure and  is reported as malicious in the ASC feeds that Traffic Analytics consumes for the processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”. <br><br>
-•	UnknownPrivate - One of the IP addresses belong to Azure Virtual Network while the other IP address belongs to private IP range as defined in RFC 1918 and could not be mapped by Traffic Analytics to a customer owned site or Azure Virtual Network.<br><br>
-•	Unknown – Unable to map the either of the IP addresses in the flows with the customer topology in Azure as well as on-premise (site).<br>
+1. In case of AzurePublic and ExternalPublic flows, the customer owned Azure VM IP is populated in VMIP_s field, while the Public IP addresses are being populated in the PublicIPs_s field. For these two flow types, we should use VMIP_s and PublicIPs_s instead of SrcIP_s and DestIP_s fields. For AzurePublic and ExternalPublicIP addresses, we aggregate further, so that the number of records ingested to customer log analytics workspace is minimal.(This field will be deprecated soon and we should be using SrcIP_ and DestIP_s depending on whether azure VM was the source or the destination in the flow) 
+2. Details for flow types : Based on the IP addresses involved in the flow, we categorize the flows in to the following flow types : 
+ *	IntraVNet – Both the IP addresses in the flow reside in the same Azure Virtual Network. 
+ *	InterVNet - IP addresses in the flow reside in the two different Azure Virtual Networks. 
+*	S2S – (Site To Site) One of the IP addresses belongs to Azure Virtual Network while the other IP address belongs to customer network (Site) connected to the Azure Virtual Network through VPN gateway or Express Route. 
+*	P2S - (Point To Site) One of the IP addresses belongs to Azure Virtual Network while the other IP address belongs to customer network (Site) connected to the Azure Virtual Network through VPN gateway.
+*	AzurePublic - One of the IP addresses belongs to Azure Virtual Network while the other IP address belongs to Azure Internal Public IP addresses owned by Microsoft. Customer owned Public IP addresses won’t be part of this flow type. For instance, any customer owned VM sending traffic to an Azure Service (Storage endpoint) would be categorized under this flow type. <br><br>
+*	ExternalPublic - One of the IP addresses belongs to Azure Virtual Network while the other IP address is a public IP that is not in Azure , is not reported as malicious in the ASC feeds that Traffic Analytics consumes for the processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”. 
+*	MaliciousFlow - One of the IP addresses belong to azure virtual network while the other IP address is a public IP that is not in Azure and  is reported as malicious in the ASC feeds that Traffic Analytics consumes for the processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”. 
+*	UnknownPrivate - One of the IP addresses belong to Azure Virtual Network while the other IP address belongs to private IP range as defined in RFC 1918 and could not be mapped by Traffic Analytics to a customer owned site or Azure Virtual Network.
+*	Unknown – Unable to map the either of the IP addresses in the flows with the customer topology in Azure as well as on-premise (site).
 
+### Next Steps
+To get answers to frequently asked questions, see [Traffic analytics FAQ](traffic-analytics-faq.md)
+To see details about functionality, see [Traffic analytics documentation](traffic-analytics.md)
     
 
 
