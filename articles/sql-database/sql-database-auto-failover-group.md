@@ -126,16 +126,16 @@ To achieve real business continuity, adding database redundancy between datacent
   > Managed Instance does not support multiple failover groups.
   
 ## Permissions
-Permissions for a failover grouped are managed via [role-based access control (RBAC)](../role-based-access-control/overview.md).
+Permissions for a failover group are managed via [role-based access control (RBAC)](../role-based-access-control/overview.md). The [SQL Server Contributor](../role-based-access-control/built-in-roles.md#sql-server-contributor) role has all the necessary permissions to manage failover groups. 
 
 ### Create failover group
-To create a failover group, you need RBAC write access to both the source and target server resource paths to all databases in the failover group (ex: `.../Microsoft.Sql/servers/{serverName}/failoverGroups/{failoverGroupName}`). For a managed instance, you need RBAC write access to both the source and targer server resource paths, but permissions on individual databases are not relevant since MI individual databases cannot be added to or removed from a failover group. 
+To create a failover group, you need RBAC write access to both the primary and secondary servers, and to all databases in the failover group. For a managed instance, you need RBAC write access to both the primary and secondary server, but permissions on individual databases are not relevant since individual managed instance databases cannot be added to or removed from a failover group. 
 
 ### Update a failover group
-To update a failover group, you need RBAC write access to the failover group resource path on the current primary server or managed instance (ex: `.../Microsoft.Sql/servers/{serverName}/failoverGroups/{failoverGroupName}`). 
+To update a failover group, you need RBAC write access to the failover group, and all databases on the current primary server or managed instance.  
 
 ### Fail over a failover group
-To fail over a failover group, you need RBAC write access to the failover group resource path on the new primary server or managed instance (ex: `.../Microsoft.Sql/servers/{serverName}/failoverGroups/{failoverGroupName}`). 
+To fail over a failover group, you need RBAC write access to the failover group on the new primary server or managed instance. 
 
 ## Best practices of using failover groups with single databases and elastic pools
 
