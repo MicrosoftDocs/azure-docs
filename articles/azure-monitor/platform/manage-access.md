@@ -245,7 +245,7 @@ See [Defining per-table access control](#defining-per-table-access-control) belo
 
 You implement table access control with [Azure custom roles](../../role-based-access-control/custom-roles.md) to either grant or deny access to specific [tables](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) in the workspace. These roles are applied to workspaces with either workspace-centric or resource-centric [access control modes](#access-control-modes) regardless of the user's [access mode](#access-mode).
 
-Create a [custom role](../../role-based-access-control/custom-roles.md) with the following actions to define access to standard logs.
+Create a [custom role](../../role-based-access-control/custom-roles.md) with the following actions to define access to table access control.
 
 - To grant access to a table, include it in the **Actions** section of the role definition.
 - To deny access to a table, include it in the **NotActions** section of the role definition.
