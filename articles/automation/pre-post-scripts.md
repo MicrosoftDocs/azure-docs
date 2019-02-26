@@ -16,7 +16,7 @@ Pre and post scripts let you run PowerShell runbooks in your Automation Account 
 
 ## Runbook requirements
 
-For a runbook to be used as a pre or post script, the runbook needs to be imported into your automation account and published. To learn more about this process, see [Publishing a runbook](automation-creating-importing-runbook.md#publishing-a-runbook).
+For a runbook to be used as a pre or post script, the runbook needs to be imported into your automation account and published. To learn more about this process, see [Publishing a runbook](manage-runbooks.md#publish-a-runbook).
 
 ## Using a pre/post script
 

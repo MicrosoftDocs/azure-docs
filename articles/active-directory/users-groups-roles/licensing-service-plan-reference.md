@@ -12,6 +12,7 @@ editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
+ms.subservice: users-groups-roles
 ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: sumitp

@@ -96,10 +96,12 @@ If you don't see updated endpoint hits in the Dashboard, sign in to the Azure po
 
 ### Is there a PowerShell command get to the endpoint quota?
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 You can use a PowerShell command to see the endpoint quota:
 
 ```powershell
-Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
+Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
 ``` 
 
 ### My LUIS app was working yesterday but today I'm getting 403 errors. I didn't change the app. How do I fix it?
@@ -242,7 +244,7 @@ If you are using the Azure Bot Service and the issue is that the **Test in Web C
 
 #### Resolve issue while debugging on local machine with Bot Framework. 
 
-To learn more about local debugging of a bot, see [Debug a bot](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
+To learn more about local debugging of a bot, see [Debug a bot](https://docs.microsoft.com/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
 
 ## Integrating LUIS
 

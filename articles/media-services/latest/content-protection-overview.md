@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/20/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -29,23 +29,36 @@ The following image illustrates the Media Services content protection workflow:
 
 This article explains concepts and terminology relevant to understanding content protection with Media Services. The article also has the [FAQ](#faq) section and provides links to articles that show how to protect content. 
 
-## Main components of the content protection system
+## Main components of a content protection system
 
 To successfully complete your "content protection" system/application design, you need to fully understanding the scope of the effort. The following list gives an overview of three parts you would need to implement. 
 
 1. Azure Media Services code
   
-  * Configure license templates for PlayReady, Widevine and/or FairPlay. The templates let you configure rights and permissions for each of the used DRMs.
-  * Define license delivery authorization, specifying the logic of authorization check based on claims in JWT.
-  * Configure DRM encryption by specifying content keys and streaming protocols that should be used.
+  The [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) sample shows you how to implement multi-DRM system with Media Services v3 and also use Media Services license/key delivery service. You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types), to see what makes sense to combine.
+  
+  The example shows how to:
 
-  > [!NOTE]
-  > You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types), to see what makes sense to combine.
-  
-  The following articles show steps for encrypting content with AES and/or DRM: 
-  
-  * [Protect with AES encryption](protect-with-aes128.md)
-  * [Protect with DRM](protect-with-drm.md)
+  1. Create and configure ContentKeyPolicies.
+
+    * Define license delivery authorization, specifying the logic of authorization check based on claims in JWT.
+    * Configure DRM encryption by specifying the content key.
+    * Configure [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), and [FairPlay](fairplay-license-overview.md) licenses. The templates let you configure rights and permissions for each of the used DRMs.
+
+        ```
+        ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
+        ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
+        ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
+        ```
+  2. Create a StreamingLocator that is configured to stream an encrypted asset. 
+
+    For example, you can set StreamingLocator.StreamingPolicyName to the "Predefined_MultiDrmCencStreaming" policy. This policy indicates that you want for two content keys (envelope and CENC) to get generated and set on the locator. Thus, the envelope, PlayReady, and Widevine encryptions are applied (the key is delivered to the playback client based on the configured DRM licenses). If you also want to encrypt your stream with CBCS (FairPlay), use "Predefined_MultiDrmStreaming".
+  3. Create a test token.
+
+    The **GetTokenAsync** method shows how to create a test token.
+  4. Build the streaming URL.
+
+    The **GetDASHStreamingUrlAsync** method shows how to build the streaming URL. In this case, the URL streams the **DASH** content.
 
 2. Player with AES or DRM client. A video player app based on a player SDK (either native or browser-based) needs to meet the following requirements:
   * The player SDK supports the needed DRM clients
@@ -124,71 +137,11 @@ With a token-restricted content key policy, the content key is sent only to a cl
 
 When you configure the token restricted policy, you must specify the primary verification key, issuer, and audience parameters. The primary verification key contains the key that the token was signed with. The issuer is the secure token service that issues the token. The audience, sometimes called scope, describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
 
-## <a id="faq"/>Frequently asked questions
-
-### Question
-
-How to implement multi-DRM (PlayReady, Widevine, and FairPlay) system using Azure Media Services (AMS) v3 and also use AMS license/key delivery service?
-
-### Answer
-
-For end-to-end scenario, see the [following code example](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs). 
-
-The example shows how to:
-
-1. Create and configure ContentKeyPolicies.
-
-  The sample contains functions that configure [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), and [FairPlay](fairplay-license-overview.md) licenses.
-
-    ```
-    ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
-    ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
-    ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
-    ```
-
-2. Create a StreamingLocator that is configured to stream an encrypted asset. 
-
-  For example, you can set StreamingLocator.StreamingPolicyName to the "Predefined_MultiDrmCencStreaming" policy. This policy indicates that you want for two content keys (envelope and CENC) to get generated and set on the locator. Thus, the envelope, PlayReady, and Widevine encryptions are applied (the key is delivered to the playback client based on the configured DRM licenses). If you also want to encrypt your stream with CBCS (FairPlay), use "Predefined_MultiDrmStreaming".
-
-3. Create a test token.
-
-  The **GetTokenAsync** method shows how to create a test token.
-  
-4. Build the streaming URL.
-
-  The **GetDASHStreamingUrlAsync** method shows how to build the streaming URL. In this case, the URL streams the **DASH** content.
-
-### Question
-
-How and where to get JWT token before using it to request license or key?
-
-### Answer
-
-1. For production, you need to have a Secure Token Services (STS) (web service) which issues JWT token upon a HTTPS request. For test, you could use the code shown in **GetTokenAsync** method defined in [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
-2. Player will need to make a request, after a user is authenticated, to the STS for such a token and assign it as the value of the token. You can use the [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/).
-
-* For an example of running STS, with either symmetric and asymmetric key, please see [http://aka.ms/jwt](https://aka.ms/jwt). 
-* For an example of a player based on Azure Media Player using such JWT token, see [http://aka.ms/amtest](https://aka.ms/amtest) (expand "player_settings" link to see the token input).
-
-### Question
-
-How do you authorize requests to stream videos with AES encryption?
-
-### Answer
-
-The correct approach is to leverage STS (Secure Token Service):
-
-In STS, depending on user profile, add different claims (such as "Premium User", "Basic User", "Free Trial User"). With different claims in a JWT, the user can see different contents. Of course, for different content/asset, the ContentKeyPolicyRestriction will have the corresponding RequiredClaims.
-
-Use Azure Media Services APIs for configuring license/key delivery and encrypting your assets (as shown in [this sample](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs).
-
 ## Next steps
 
-Check out the following articles:
-
-  * [Protect with AES encryption](protect-with-aes128.md)
-  * [Protect with DRM](protect-with-drm.md)
-
-Additional information can be found in [Design multi-drm content protection system with access control](design-multi-drm-system-with-access-control.md)
+* [Protect with AES encryption](protect-with-aes128.md)
+* [Protect with DRM](protect-with-drm.md)
+* [Design multi-drm content protection system with access control](design-multi-drm-system-with-access-control.md)
+* [Frequently asked questions](frequently-asked-questions.md)
 
 

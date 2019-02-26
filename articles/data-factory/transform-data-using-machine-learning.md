@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 02/20/2019
 ms.author: douglasl
 
 ---
@@ -44,7 +44,6 @@ You create an **Azure Machine Learning** linked service to link an Azure Machine
 {
     "type" : "linkedServices",
     "name": "AzureMLLinkedService",
-    "apiVersion" : "2017-09-01-preview",
     "properties": {
         "type": "AzureML",
         "typeProperties": {

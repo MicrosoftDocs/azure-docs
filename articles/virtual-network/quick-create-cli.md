@@ -85,6 +85,7 @@ The VMs take a few minutes to create. After Azure creates the VMs, the Azure CLI
   "privateIpAddress": "10.0.0.5",
   "publicIpAddress": "40.68.254.142",
   "resourceGroup": "myResourceGroup"
+  "zones": ""
 }
 ```
 
