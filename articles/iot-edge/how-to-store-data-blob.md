@@ -16,10 +16,10 @@ ms.custom: seodec18
 
 Azure Blob Storage on IoT Edge provides a [block blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) storage solution at the edge. A blob storage module on your IoT Edge device behaves like an Azure block blob service, but the block blobs are stored locally on your IoT Edge device. You can access your blobs using the same Azure storage SDK methods or block blob API calls that you're already used to. 
 
-This module comes with **Auto-tiering** and **Auto-clean** features.
+This module comes with **Auto-tiering** and **Auto-expiration** features.
 
 > [!NOTE]
-> Currently auto-tiering and auto-clean functionality are only available in Linux AMD64 and Linux ARM32.
+> Currently auto-tiering and auto-expiration functionality are only available in Linux AMD64 and Linux ARM32.
 
 **Auto-tiering** is a configurable functionality, which allows you to automatically upload the data from your local blob storage to Azure with intermittent internet connectivity support. It allows you to:
 1. Turn ON/OFF the tiering feature
@@ -34,8 +34,8 @@ This module uses block level tiering, when your blob consists of blocks. Here ar
 
 If an unexpected process termination (like power failure) happens during a blob upload, all blocks that were due for the upload will be uploaded again, when the module comes back online.
 
-**Auto-Clean** is a configurable functionality where this module automatically deletes your blobs when TTL (Time to Live) expires. It is measured in minutes. It allows you to:
-1. Turn ON/OFF the auto-clean feature
+**Auto-expiration** is a configurable functionality where this module automatically deletes your blobs from the local storage when TTL (Time to Live) expires. It is measured in minutes. It allows you to:
+1. Turn ON/OFF the auto-expiration feature
 2. Specify the TTL in minutes
 
 Scenarios where data like videos, images, finance data, hospital data, or any data that needs to be stored locally, later that could be processed locally or transferred to the cloud are good examples to use this module.
@@ -135,7 +135,7 @@ The Azure Marketplace provides IoT Edge modules that can be deployed directly to
 
       ![Update module container create options - portal](./media/how-to-store-data-blob/edit-module.png)
 
-   4. Set [auto-tiering and auto-clean](#configure-auto-tiering-and-auto-clean-via-azure-portal) in desired properties. List of [auto-tiering](#auto-tiering-properties) and [auto-clean](#auto-clean-properties) properties and their possible values. 
+   4. Set [auto-tiering and auto-expiration](#configure-auto-tiering-and-auto-expiration-via-azure-portal) in desired properties. List of [auto-tiering](#auto-tiering-properties) and [auto-expiration](#auto-expiration-properties) properties and their possible values. 
 
    5. Select **Save**. 
 
@@ -193,7 +193,7 @@ Use the following steps to create a new IoT Edge solution with a blob storage mo
    > [!IMPORTANT]
    > Do not change the second half of the storage directory bind value, which points to a specific location in the module. The storage directory bind should always end with **:/blobroot** for Linux containers and **:C:/BlobRoot** for Windows containers.
 
-5. Configure [auto-tiering and auto-clean](#configure-auto-tiering-and-auto-clean-via-vscode). List of [auto-tiering](#auto-tiering-properties) and [auto-clean](#auto-clean-properties) properties
+5. Configure [auto-tiering and auto-expiration](#configure-auto-tiering-and-auto-expiration-via-vscode). List of [auto-tiering](#auto-tiering-properties) and [auto-expiration](#auto-expiration-properties) properties
 
 6. Save the **deployment.template.json** file.
 
@@ -216,7 +216,7 @@ Use the following steps to create a new IoT Edge solution with a blob storage mo
 
 12. Visual Studio Code takes the information that you provided in deployment.template.json and .env and uses it to create a new deployment manifest file. The deployment manifest is created in a new **config** folder in your solution workspace. Once you have that file, you can follow the steps in [Deploy Azure IoT Edge modules from Visual Studio Code](how-to-deploy-modules-vscode.md) or [Deploy Azure IoT Edge modules with Azure CLI 2.0](how-to-deploy-modules-cli.md).
 
-## Auto-tiering and Auto-clean Properties and Configuration
+## Auto-tiering and Auto-expiration Properties and Configuration
 
 ### Auto-tiering properties 
 The name of this setting is `tieringSettings`
@@ -227,16 +227,16 @@ The name of this setting is `tieringSettings`
 | remoteStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` is a connection string that allows you to specify the Azure Storage account to which you want your data uploaded. Specify `Azure Storage Account Name`, `Azure Storage Account Key`, `End point suffix`. Add appropriate EndpointSuffix of Azure where data will be uploaded, it varies for Global Azure, Government Azure, and Microsoft Azure Stack. |
 | tieredContainers | `"<source container name1>": {"target": "<target container name>"}` | Allows you to Specify the container names you want to upload to Azure. This module allows you to specify both source and target container names. If you don't specify the target container name, it will automatically assign the container name as `<IoTHubName>-<IotEdgeDeviceName>-<ModuleName>-<ContainerName>`. Maximum size of the container name is 63 characters, while automatically assigning the target container name if the size of container exceeds 63 characters it will trim each section (IoTHubName, IotEdgeDeviceName, ModuleName, ContainerName) to 15 characters  |
 
-### Auto-clean properties
+### Auto-expiration properties
 The name of this setting is `ttlSettings`
 | Field | Possible Values | Explanation |
 | ----- | ----- | ---- |
 | ttlOn | true, false | By default it is set to `false`, if you want to turn it On set it to `true`|
-| timeToLiveInMinutes | `<minutes>` | Specify the TTL in minutes. The module will automatically delete your blobs when TTL(Time to Live) expires |
+| timeToLiveInMinutes | `<minutes>` | Specify the TTL in minutes. The module will automatically delete your blobs from local storage when TTL(Time to Live) expires |
 
-### Configure Auto-tiering and Auto-clean via Azure portal
+### Configure Auto-tiering and Auto-expiration via Azure portal
 
-Below is the Json for auto-tiering and auto-clean
+Below is the Json for auto-tiering and auto-expiration
 
 ```json
           "ttlSettings": {
@@ -255,7 +255,7 @@ Below is the Json for auto-tiering and auto-clean
           }
 ```
 
-Set the desired properties to enable auto-tiering and auto-clean, you can set these values:
+Set the desired properties to enable auto-tiering and auto-expiration, you can set these values:
 1. **During the initial deployment**: Copy the JSON in **Set module twin's desired properties** box, inside `"properties.desired"`. Configure each property with appropriate value, save it and continue with the deployment.
 
  ![tiering+ttl iotedge_custom_module](./media/how-to-store-data-blob/iotedge_custom_module.png)
@@ -264,7 +264,7 @@ Set the desired properties to enable auto-tiering and auto-clean, you can set th
 
 ![tiering+ttl module_identity_twin](./media/how-to-store-data-blob/module_identity_twin.png) 
 
-### Configure Auto-tiering and Auto-clean via VSCode
+### Configure Auto-tiering and Auto-expiration via VSCode
 
 Add the below JSON in your deployment.template.json to define the desired properties for this module. Configure each property with appropriate value and save it.
 
