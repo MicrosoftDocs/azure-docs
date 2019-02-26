@@ -117,9 +117,9 @@ To edit or delete an existing alert:
 
     ![HDInsight Azure Monitor logs alert delete edit](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
-For more information, see [Working with alert rules in Azure Monitor logs](../log-analytics/log-analytics-alerts-creating.md).
+For more information, see [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/platform/alerts-metric.md).
 
 ## See also
 
-* [Working with Azure Monitor logs](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
-* [Create alert rules in Azure Monitor logs](../log-analytics/log-analytics-alerts-creating.md)
+* [OMS Log Analytics: View Designer](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
+* [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/platform/alerts-metric.md)

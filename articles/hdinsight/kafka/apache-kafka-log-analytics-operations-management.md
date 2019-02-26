@@ -68,7 +68,7 @@ The steps to enable Azure Monitor logs for HDInsight are the same for all HDInsi
  
 ## Next steps
 
-For more information on Azure Monitor logs, see the [Get started with a Log Analytics workspace](../../log-analytics/log-analytics-get-started.md) document.
+For more information on Azure Monitor, see the [Azure Monitor overview](../../log-analytics/log-analytics-get-started.md) document.
 
 For more information on working with Apache Kafka, see the following documents:
 
