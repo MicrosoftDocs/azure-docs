@@ -19,7 +19,7 @@ ms.author: cfowler
 ms.custom: mvc
 ms.custom: seodec18
 ---
-# Create a ASP.NET Core app in App Service on Linux
+# Create an ASP.NET Core app in App Service on Linux
 
 > [!NOTE]
 > This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Create an ASP.NET Core app in Azure](../app-service-web-get-started-dotnet.md).
