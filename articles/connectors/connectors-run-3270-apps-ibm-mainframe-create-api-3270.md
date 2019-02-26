@@ -28,11 +28,12 @@ available in all Azure Logic Apps regions except for Azure
 Government and Azure China 21Vianet. If you're new to logic apps, review 
 [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-This article describes how the HIS 3270 connector helps you run 
-3270 screen-driven apps on IBM mainframes by using logic apps, 
-the prerequisites for the connector to work, and the steps for 
-adding the connector's actions to your logic apps so you can run 
-your mainframe apps from automated logic app workflows.
+This article describes these aspects for using the 3270 connector: 
+
+* How the HIS 3270 connector in Azure Logic Apps 
+helps you run 3270 screen-driven apps on IBM mainframes
+* The necessary setup for the 3270 connector to work
+* The steps for adding the connector's actions to your logic app
 
 ## Why use the HIS connector?
 
@@ -331,12 +332,12 @@ the Screen Recognition editor. In the case with similar screens,
 you need other attributes. At run time, the connector uses 
 these attributes for determining the branch and fork.
 
-* In the branch that returns valid input, which is the 
-screen with the account balance, you can add an attribute 
-that has a "Not Empty" condition.
+* In the branch that returns valid input, which is 
+the screen with the account balance, you can add an 
+attribute with a "not empty" condition.
 
-* In the branch that returns with an error, you can add 
-an attribute that has an "Empty" condition.
+* In the branch that returns with an error, you can 
+add an attribute with an "empty" condition.
 
 <a name="define-method"></a>
 
