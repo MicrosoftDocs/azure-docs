@@ -44,21 +44,20 @@ Depending on the policies set for your organization by the Enterprise Admin, onl
 
 You must be the Owner, Contributor, Reader, or Invoice manager of the billing profile to view and download pricing.
 
-<!-- Not available for GA ### Download price sheets for the current billing period
+### Download price sheets for the current billing period
 
 1. Search on **Cost Management + Billing**.
 2. Select a billing profile.
 3. In the **Overview** blade, find the download links beneath the month-to-date charges.
-4. If you want to see prices for the resources you're using this billing period, select **Invoice price sheet**.
-5. If you want to see prices for all Azure services this billing period, select **Azure price sheet**. -->
+4. Select **Azure price sheet**.
 
-<!--  ### Download price sheets for billed charges -->
+ ### Download price sheets for billed charges
 
 1. Search on **Cost Management + Billing**.
 2. Select a billing profile.
 3. Select **Invoices**.
 4. In the invoice grid, find the row of the invoice corresponding to the price sheet you want to download.
-5. Click on the ellipsis at the end of the row.
+5. Click on the ellipsis (...) at the end of the row.
 6. If you want to see prices for the services in the selected invoice, select **Invoice price sheet**.
 7. If you want to see prices for all Azure services for the given billing period, select **Azure price sheet**.
 
