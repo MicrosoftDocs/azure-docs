@@ -56,3 +56,5 @@ sections:
       html: <p><a href="/cli/azure/mysql">Azure CLI</a></p>
     - title: REST
       html: <p><a href="/rest/api/mysql">REST API</a></p>
+    - title: Azure Resource Manager
+      html: <p><a href="/azure/templates/microsoft.dbformysql/allversions">Resource Manager templates</a></p>  
