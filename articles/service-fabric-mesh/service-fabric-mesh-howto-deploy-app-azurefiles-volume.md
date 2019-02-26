@@ -4,7 +4,7 @@ description: Learn how to store state in an Azure Service Fabric Mesh applicatio
 services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
-manager: jeconnoc
+manager: chakdan
 editor: ''
 ms.assetid: 
 ms.service: service-fabric-mesh
