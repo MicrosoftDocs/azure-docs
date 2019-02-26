@@ -42,7 +42,7 @@ ds = ws.get_default_datastore()
 ```
 
 ### Register a datastore
-If you have existing Azure Storage, you can register it as a datastore on your workspace.  All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form register_azure_*. Below are examples for registering an Azure Blob Container and Azure File Share as a datastore.
+If you have existing Azure Storage, you can register it as a datastore on your workspace.  All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form register_azure_*. The following examples show you to register an Azure Blob Container and Azure File Share as a datastore.
 
 #### Azure Blob Container Datastore
 To register an Azure Blob Container datastore, use [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-:)
@@ -123,22 +123,22 @@ There are two supported ways to make your datastore available on the remote comp
 
     * [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), specifying this mount mode, the datastore gets mounted for you on the remote compute.
 
-```Python
-import azureml.data
-from azureml.data import DataReference
+    ```Python
+    import azureml.data
+    from azureml.data import DataReference
 
-ds.as_mount()
-```
+    ds.as_mount()
+    ```
 
 * **Download/upload**  
-    * [`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), downloads data from your datastore to the remote compute to the location specified by `path_on_compute`.
+    * [`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), downloads data from the location specified by `path_on_compute` on your datastore to the remote compute .
 
     * [`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), uploads data to the root of your datastore from the location specified by `path_on_compute`
 
-```Python
-ds.as_download(path_on_compute='your path on compute')
-ds.as_upload(path_on_compute='yourfilename'
-```   
+    ```Python
+    ds.as_download(path_on_compute='your path on compute')
+    ds.as_upload(path_on_compute='yourfilename')
+    ```   
 
 To reference a specific folder or file in your datastore, use the datastore's [`path()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#path-path-none--data-reference-name-none-) function.
 
@@ -173,13 +173,13 @@ est = Estimator(source_directory='your code directory',
                 inputs=[ds1.as_download(), ds2.path('./foo').as_download(), ds3.as_upload(path_on_compute='./bar.pkl')])
 ```
 
-The above code example will:
+The preceding code example:
 
-* download all the contents in datastore `ds1` to the remote compute before your training script `train.py` is run
+* Downloads all the contents in datastore `ds1` to the remote compute before your training script `train.py` is run
 
-* download the folder `'./foo'` in datastore `ds2` to the remote compute before `train.py` is run
+* Downloads the folder `'./foo'` in datastore `ds2` to the remote compute before `train.py` is run
 
-* upload the file `'./bar.pkl'` from the remote compute up to the datastore `d3` after your script has run
+* Uploads the file `'./bar.pkl'` from the remote compute up to the datastore `d3` after your script has run
 
 ## Next steps
 
