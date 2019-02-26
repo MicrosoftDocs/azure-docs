@@ -94,6 +94,7 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
     > Streaming Endpoints located in the same data center, cannot share the same custom host name.
 
     Currently, Media Services doesn’t support SSL with custom domains. 
+    
 - `maxCacheAge` -  Overrides the default max-age HTTP cache control header set by the streaming endpoint on media fragments and on-demand manifests. The value is set in seconds.
 - `resourceState` -
 
@@ -103,6 +104,7 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
     - Scaling - the scale units are being increased or decreased
     - Stopping - is transitioning to the stopped state
     - Deleting - is being deleted
+    
 - `scaleUnits ` - Provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. If you need to move to a **Premium** type, adjust `scaleUnits`.
 
 ## Next steps
