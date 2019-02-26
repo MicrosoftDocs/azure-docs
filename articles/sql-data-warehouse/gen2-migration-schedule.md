@@ -12,9 +12,9 @@ ms.topic: article
 ms.date: 02/09/2019
 ---
 # Upgrade your data warehouse to Gen2
-Microsoft is helping drive down the entry-level cost of running a data warehouse capable of handling demanding queries by adding lower compute tiers for Azure SQL Data Warehouse. Read the full announcement [Lower compute tier support for Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). The new offering is already available in the regions noted in the table below. For supported regions, existing Gen1 data warehouses can be upgraded to Gen2 through either:
-- **The automatic upgrade process:** Automatic upgrades do not start as soon as the service is available in a region.  When automatic upgrades start in a specific region, individual DW upgrades will take place during your selected maintenance schedule. 
-- [**Self-upgrade to Gen2:**](#Self-upgrade-to-Gen2) If you prefer to control when to upgrade, you can perform a self-upgrade to Gen2. If your region is not yet supported, you can migrate your DW to a region that is supported and then perform a self-upgrade to Gen 2.
+Microsoft is helping drive down the entry-level cost of running a data warehouse.  Lower compute tiers capable of handling demanding queries are now available for Azure SQL Data Warehouse. Read the full announcement [Lower compute tier support for Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). The new offering is available in the regions noted in the table below. For supported regions, existing Gen1 data warehouses can be upgraded to Gen2 through either:
+- **The automatic upgrade process:** Automatic upgrades don't start as soon as the service is available in a region.  When automatic upgrades start in a specific region, individual DW upgrades will take place during your selected maintenance schedule. 
+- [**Self-upgrade to Gen2:**](#Self-upgrade-to-Gen2) You can control when to upgrade by doing a self-upgrade to Gen2. If your region is not yet supported, you can restore from a restore point directly to a Gen2 instance in a supported region.
 
 ## Automated Schedule and Region Availability Table
 The following table summarizes by region when the Lower Gen2 compute tier will be available and when automatic upgrades start. The dates are subject to change. Check back to see when your region becomes available.
@@ -55,9 +55,9 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 
 ## Automatic upgrade process
 
-Starting March 16, 2019, we will begin scheduling automated upgrades for your Gen1 instances. To avoid any unexpected interruptions on the availability of the data warehouse, the automated upgrades will be scheduled during your maintenance schedule. For more information on schedules, see [View a maintenance schedule](viewing-maintenance-schedule.md)
+Beginning March 16, 2019, we'll be scheduling automated upgrades for your Gen1 instances. To avoid any unexpected interruptions on the availability of the data warehouse, the automated upgrades will be scheduled during your maintenance schedule. For more information on schedules, see [View a maintenance schedule](viewing-maintenance-schedule.md)
 
-The upgrade process will involve a brief drop in connectivity (approx. 5 min) as we restart your data warehouse.  Once your data warehouse has been restarted, it will be fully available for use however, you may experience a degradation in performance while the upgrade process continues to upgrade the data files in the background. The total time for the performance degradation will vary dependent on the size of your data files.
+The upgrade process will involve a brief drop in connectivity (approx. 5 min) as we restart your data warehouse.  Once your data warehouse has been restarted, it will be fully available for use. However, you may experience a degradation in performance while the upgrade process continues to upgrade the data files in the background. The total time for the performance degradation will vary dependent on the size of your data files.
 
 You can also expedite the data file upgrade process by running [Alter Index rebuild](sql-data-warehouse-tables-index.md) on all primary columnstore tables using a larger SLO and resource class after the restart.
 
@@ -66,7 +66,7 @@ You can also expedite the data file upgrade process by running [Alter Index rebu
 
 ## Self-upgrade to Gen2
 
-Optionally, if you want to upgrade now, you can choose to self-upgrade by following these steps on an existing Gen1 data warehouse. If you choose this option, you must complete the self-upgrade before the automatic upgrade process begins in that region. This ensures that you avoid any risk of the automatic upgrades causing a conflict.
+You can choose to self-upgrade by following these steps on an existing Gen1 data warehouse. If you choose to self-upgrade, you must complete it before the automatic upgrade process begins in your region. Doing so ensures that you avoid any risk of the automatic upgrades causing a conflict.
 
 There are two options when conducting a self-upgrade.  You can either upgrade your current data warehouse in-place or you can restore a Gen1 data warehouse into a Gen2 instance.
 
