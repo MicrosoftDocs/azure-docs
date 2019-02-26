@@ -89,8 +89,8 @@ Authorization: Bearer [Base64 access_token]
 See our quickstarts for language specific examples:
 
 * [.NET Core, C#](quickstart-dotnet-text-to-speech.md)
-* [Python](uickstart-python-text-to-speech.md)
-* [Node.js](uickstart-nodejs-text-to-speech.md)
+* [Python](quickstart-python-text-to-speech.md)
+* [Node.js](quickstart-nodejs-text-to-speech.md)
 
 ### HTTP status codes
 

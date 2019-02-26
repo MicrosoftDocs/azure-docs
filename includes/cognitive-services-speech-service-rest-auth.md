@@ -30,7 +30,7 @@ To get an access token, you'll need to make a request to the `issueToken` endpoi
 
 These regions and endpoints are supported:
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
+[!INCLUDE [](./cognitive-services-speech-service-endpoints-token-service.md)]
 
 Use these samples to create your access token request.
 
