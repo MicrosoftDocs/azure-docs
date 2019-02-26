@@ -62,6 +62,7 @@ AzCopy v10 allows you to use the following options when authenticating with Azur
 > Try [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/), a desktop client that simplifies managing Azure Storage data, and **now uses AzCopy** to accelerate data transfer to and out of Azure Storage.
 >
 > Simply enable AzCopy feature in Storage Explorer under 'Preview' menu.
+> ![Enable AzCopy as a transfer engine in Azure Storage Explorer](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
 
 AzCopy v10 has a simple self-documented syntax. The general syntax looks as follows when logged into the Azure Active Directory:
 
