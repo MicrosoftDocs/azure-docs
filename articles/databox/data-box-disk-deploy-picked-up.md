@@ -81,8 +81,7 @@ Verify that your data is in the storage account(s) before you delete it from the
 
         ![Resource group for managed disks](media/data-box-disk-deploy-picked-up/res-grp-attached-md.png)
 
-    - If you copied a VHDX, or a dynamic/differencing VHD, then the VHDX/VHD is uploaded to the staging storage account as a block blob. Go to your staging **Storage account > Blobs** and then select the appropriate container - Standard SSD, Standard HDD, Premium SSD, or Ultra SSD. The VHDX/VHDs are uploaded as block blobs in your staging storage account.
-
+    - If you copied a VHDX, or a dynamic/differencing VHD, then the VHDX/VHD is uploaded to the staging storage account as a block blob. Go to your staging **Storage account > Blobs** and then select the appropriate container - StandardSSD, StandardHDD, or PremiumSSD. The  VHDX/VHDs should show up as block blobs in your staging storage account.
 
  To verify that the data has uploaded into Azure, perform the following steps:
 
@@ -96,7 +95,7 @@ Verify that your data is in the storage account(s) before you delete it from the
 
 ## Erasure of data from Data Box Disk
 
-Once the copy is complete and you have verified that data is in the Azure storage account, disks are securely erased as per the NIST standard. 
+Once the copy is complete and you have verified that data is in the Azure storage account, disks are securely erased as per the NIST standard.
 
 ## Next steps
 

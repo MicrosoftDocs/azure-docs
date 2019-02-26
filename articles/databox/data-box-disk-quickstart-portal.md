@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 02/22/2019
+ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
 ---
@@ -38,7 +38,7 @@ This step takes roughly 5 minutes.
 3. Select **Data Box Disk**. The maximum solution capacity is 35 TB and you can create multiple disk orders for larger data sizes.  
 4. Enter the order details and shipping information. If the service is available in your region, provide notification email addresses, review the summary, and then create the order.
 
-Once the order is created, the disks are prepared for shipment. 
+Once the order is created, the disks are prepared for shipment.
 
 ## Unpack
 
@@ -47,7 +47,7 @@ This step takes roughly 5 minutes.
 The Data Box Disk are mailed in a UPS Express Box. Open the box and check that the box has:
 
 - 1 to 5 bubble-wrapped USB disks.
-- A connecting cable per disk. 
+- A connecting cable per disk.
 - A shipping label for return shipment.
 
 ## Connect and unlock
@@ -64,20 +64,20 @@ This step takes roughly 5 minutes.
 
 ## Copy data and validate
 
-The time to complete this operation depends upon your data size. 
+The time to complete this operation depends upon your data size.
 
-1. The drive contains *PageBlob*, *BlockBlob*, *AzureFile*, and *DataBoxDiskImport* folders. Drag and drop to copy the data that needs to be imported as block blobs in to *BlockBlob* folder. Similarly, drag and drop data such as VHD/VHDX to *PageBlob* folder, and appropriate data to *AzureFile*. Upload the VHDs to a folder under *ManagedDisk*.
+1. The drive contains *PageBlob*, *BlockBlob*, *AzureFile*, *ManagedDisk*, and *DataBoxDiskImport* folders. Drag and drop to copy the data that needs to be imported as block blobs in to *BlockBlob* folder. Similarly, drag and drop data such as VHD/VHDX to *PageBlob* folder, and appropriate data to *AzureFile*. Copy the VHDs that you want to upload as managed disks to a folder under *ManagedDisk*.
 
-    A container is created in the Azure storage account for each sub-folder under *BlockBlob* and *PageBlob* folder. A file share is created for a sub-folder under *AzureFile*. 
+    A container is created in the Azure storage account for each sub-folder under *BlockBlob* and *PageBlob* folder. A file share is created for a sub-folder under *AzureFile*.
 
     All files under *BlockBlob* and *PageBlob* folders are copied into a default container `$root` under the Azure Storage account. Copy files into a folder within *AzureFile*. Any files copied directly to the *AzureFile* folder fail and are uploaded as block blobs.
 
-    > [!NOTE] 
+    > [!NOTE]
     > - All the containers, blobs, and files should conform to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). If these rules are not followed, the data upload to Azure will fail.
     > - Ensure that files do not exceed ~4.75 TiB for block blobs, ~8 TiB for page blobs, and ~1 TiB for Azure Files.
 
-2. (Optional but recommended) After the copy is complete, we recommend that you run the `DataBoxDiskValidation.cmd` provided in the *DataBoxDiskImport* folder to generate checksums for validation. Depending upon the data size, this step may take time.
-3. Unplug the drive.
+2. **(Optional but recommended)** After the copy is complete, we stronlgy recommend that at a minimum you run the `DataBoxDiskValidation.cmd` provided in the *DataBoxDiskImport* folder and select option 1 to validate the files. We also recommend that time permitting, you use option 2 to also generate checksums for validation (may take time depending upon the data size). These steps minimize the chances of any failures when uploading the data to Azure.
+3. Safely remove the drive.
 
 ## Ship to Azure
 

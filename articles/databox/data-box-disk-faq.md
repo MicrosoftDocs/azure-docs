@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 02/26/2019
 ms.author: alkohli
 ---
 # What is Azure Data Box Disk?
@@ -46,7 +46,7 @@ A.  To get Azure Data Box Disks, log into Azure portal and create a Data Box ord
 A. For 5 disks each of 8 TB (7 TB usable capacity), the maximum usable capacity is 35 TB. Hence, you can transfer 35 TB of data in one instance. To transfer more data, you need to order more disks.
 
 ### Q. How can I check if Data Box Disks are available in my region? 
-A.  Data Box Disks are currently available in US, Canada, Australia, and all the countries in European Union.  
+A.  To see where the Data Box Disks are currently available, go to the [Region availability](data-box-disk-overview.md#).  
 
 ### Q. Which regions can I store data in with Data Box Disks?
 A. Data Box Disk is supported for all regions within US, Canada, Australia, and West Europe and North Europe. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
@@ -156,6 +156,12 @@ A. Yes. If you decide to validate your data (we recommend you do!), you need to 
 
 ### Q. I used all my disks to transfer data and need to order more disks. Is there a way to quickly place the order?
 A. You can clone your previous order. Cloning creates the same order as before and allow you to edit order details only without the need to type in address, contact, and notification details.
+
+### Q. I copied data to ManagedDisk folder. I don't see any managed disks with the resource group specified for managed disks. Was my data uploaded to Azure and how can I locate it?
+A. Yes. Your data was uploaded to Azure but if you don't see any managed disks with the specified resource groups, it is likely because the data was not valid. If the page blobs, block blobs, Azure Files, and managed disks were not valid, these would go to the following folders:
+ - Page blobs would to a block blob container starting with *databoxdisk-invalid-pb-*.
+ - Azure Files would go to a block blob container starting with *databoxdisk-invalid-af-*.
+ - Managed disks would go to a block blob container starting with *databoxdisk-invliad-md-*.
 
 ## Next steps
 

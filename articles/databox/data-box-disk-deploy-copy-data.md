@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -28,6 +28,7 @@ Before you begin, make sure that:
 - Your disks are unlocked and connected to a client computer.
 - Your client computer that is used to copy data to the disks must run a [Supported operating system](data-box-disk-system-requirements.md##supported-operating-systems-for-clients).
 - Make sure that the intended storage type for your data matches [Supported storage types](data-box-disk-system-requirements.md#supported-storage-types-for-upload).
+- Review [Managed disk limits in Azure object size limits](data-box-disk-limits.md#azure-object-size-limits).
 
 
 ## Copy data to disks
@@ -43,7 +44,7 @@ If you specified managed disks in the order, review the following additional con
 - You can only have one managed disk with a given name in a resource group across all the precreated folders and across all the Data Box Disk. This implies that the VHDs uploaded to the precreated folders should have unique names. Make sure that the given name does not match an already existing managed disk in a resource group. If VHDs have same names, then only one VHD is converted to managed disk with that name. The other VHDs are uploaded as page blobs into the staging storage account.
 - Always copy the VHDs to one of the precreated folders. If you copy the VHDs outside of these folders or in a folder that you created, the VHDs are uploaded to Azure Storage account as page blobs and not managed disks.
 - Only the fixed VHDs can be uploaded to create managed disks. Dynamic VHDs, differencing VHDs or VHDX files are not supported.
-- Review [Managed disk limits in Azure object size limits](data-box-disk-limits.md#azure-object-size-limits).
+
 
 Perform the following steps to connect and copy data from your computer to the Data Box Disk.
 
