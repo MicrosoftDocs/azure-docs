@@ -111,7 +111,7 @@ The following code declares the main function and assigns required variables. Co
 func main() {
 	// Verify the endpoint URI and replace the token string with a valid subscription key.se
 	endpoint := "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch"
-	token := "3d25ef338c9e45cf881c5db36cd8e463"  //"cab5e9fa4e1947e48ecbf95e213ebf3c"
+	token := "YOUR-ACCESS-KEY"
 	client := &http.Client{}
 	batchNumber := "d7ecc447-912f-413e-961d-a83021f1775f"
 	fileName := "ElectricBike.JPG"
