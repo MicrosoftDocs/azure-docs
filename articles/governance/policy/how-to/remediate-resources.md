@@ -203,7 +203,7 @@ policy assignment ID.
 # Login first with az login if not using Cloud Shell
 
 # Create a remediation for a specific assignment
-az policy remediation create --name myRemediation --policy-assignment '/subscriptions/{subscriptionId/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+az policy remediation create --name myRemediation --policy-assignment '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
 ```
 
 For other remediation commands and examples, see the [az policy
@@ -219,7 +219,7 @@ policy assignment ID.
 # Login first with Connect-AzAccount if not using Cloud Shell
 
 # Create a remediation for a specific assignment
-Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptions/{subscriptionId/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
 ```
 
 For other remediation cmdlets and examples, see the [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights) module.

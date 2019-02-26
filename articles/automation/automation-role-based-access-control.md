@@ -136,7 +136,7 @@ A Log Analytics Contributor can read all monitoring data and edit monitoring set
 |Microsoft.Compute/virtualMachines/extensions/*|Create and manage classic virtual machine extensions.|
 |Microsoft.Insights/alertRules/*|Read/write/delete alert rules.|
 |Microsoft.Insights/diagnosticSettings/*|Read/write/delete diagnostic settings.|
-|Microsoft.OperationalInsights/*|Manage Log Analytics.|
+|Microsoft.OperationalInsights/*|Manage Azure Monitor logs.|
 |Microsoft.OperationsManagement/*|Manage solutions in workspaces.|
 |Microsoft.Resources/deployments/*|Create and manage resource group deployments.|
 |Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Create and manage resource group deployments.|
@@ -150,8 +150,8 @@ A Log Analytics Reader can view and search all monitoring data as well as and vi
 |**Actions**  |**Description**  |
 |---------|---------|
 |*/read|Read resources of all types, except secrets.|
-|Microsoft.OperationalInsights/workspaces/analytics/query/action|Manage queries in Log Analytics.|
-|Microsoft.OperationalInsights/workspaces/search/action|Search Log Analytics data.|
+|Microsoft.OperationalInsights/workspaces/analytics/query/action|Manage queries in Azure Monitor logs.|
+|Microsoft.OperationalInsights/workspaces/search/action|Search Azure Monitor log data.|
 |Microsoft.Support/*|Create and manage support tickets.|
 |**Not Actions**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|Not able to read the shared access keys.|

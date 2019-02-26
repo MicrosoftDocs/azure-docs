@@ -68,7 +68,7 @@ This tutorial shows you how to move Azure VMs to another region using Azure Site
 
     - [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Load balancers](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [Public IP ](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [Public IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
     
     For any other networking components, refer to the networking [documentation.](https://docs.microsoft.com/azure/#pivot=products&panel=network) 
 

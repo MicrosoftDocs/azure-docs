@@ -5,7 +5,7 @@ description: Learn how to update a web service to use a newly trained machine le
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs
