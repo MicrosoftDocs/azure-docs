@@ -40,7 +40,7 @@ A Log Analytics workspace is an Azure resource and is a container where data is 
 A Log Analytics workspace provides:
 
 * A geographic location for data storage.
-* Data isolation to define different user access rights in workspace-centric access. Not relevant when working in resource-centric mode.
+* Data isolation to define different user access rights in workspace-centric mode. Not relevant when working in resource-centric mode.
 * Scope for configuration of settings like [pricing tier](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [retention](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) and [data capping](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap).
 * Charges related to data ingestion and retention are made on the workspace resource.
 
@@ -105,10 +105,10 @@ The _access mode_ refers to how a user accesses a Log Analytics workspace and de
 
 The following table summarizes the access modes:
 
-| | Workspace centric | Resource centric |
+| | Workspace-centric | Resource-centric |
 |:---|:---|:---|
 | Who is each model intended for? | Central administration. Administrators who need to configure data collection and users who need access to a wide variety of resources. Also currently required for users who have to access logs for resources outside of Azure. | Application teams. Administrators of Azure resources being monitored. |
-| What does a user require to view logs? | Permissions to the workspace. See **Workspace-centric permissions** in [Manage accounts and users](#manage-accounts-and-users). | Read access to the resource. See **Resource-centric permissions** in [Manage accounts and users](#manage-accounts-and-users). Permissions can be inherited (such as from the containing resource group) or directly assigned to the resource. Permission to the logs for the resource will be automatically assigned. |
+| What does a user require to view logs? | Permissions to the workspace. See **Workspace permissions** in [Manage accounts and users](#manage-accounts-and-users). | Read access to the resource. See **Resource permissions** in [Manage accounts and users](#manage-accounts-and-users). Permissions can be inherited (such as from the containing resource group) or directly assigned to the resource. Permission to the logs for the resource will be automatically assigned. |
 | What is the scope of permissions? | Workspace. Users with access to the workspace can query all logs in that workspace from tables that they have permissions to. See [Table access control](#table-access-control) | Azure resource. User can query logs for resources they have access to from any workspace but can't query logs for other resources. |
 | How can user access logs? | Start **Logs** from **Azure Monitor** menu or **Log Analytics workspaces**. | Start **Logs** from the menu for the Azure resource. |
 
@@ -227,7 +227,7 @@ Use these roles to give users access at different scopes:
 
 You should perform assignments at the resource level (workspace) to assure accurate access control.  Use [custom roles](../../role-based-access-control/custom-roles.md) to create roles with the specific permissions needed.
 
-### Resource-centric permissions 
+### Resource permissions 
 When users query logs from a workspace using resource-centric access, they'll have the following permissions on the resource:
 
 | Permission | Description |
