@@ -29,15 +29,17 @@ Apache Kafka performance has two orthogonal dimensions – throughput and latenc
 * High throughput, high latency - this scenario requires high throughput (~1.5 GBps) but can tolerate higher latency (< 250 ms). An example of this type of application is telemetry data ingestion for near real-time processes like security and intrusion detection applications.
 * Low throughput, low latency - this scenario requires low latency (< 10 ms) for real-time processing, but can tolerate lower throughput. An example of this type of application is online spelling and grammar checks.
 
-## Batch size
+## Producer Configurations
+
+### Batch size
 
 Apache Kafka producers assemble groups of messages (called batches) which are sent as a unit to be stored in a single storage partition. Batch size means the number of bytes that must be present before that group is transmitted. Increasing the `batch.size` parameter can increase throughput, because it reduces the processing overhead from network and IO requests. Under light load, increased batch size may increase Kafka send latency as the producer waits for a batch to be ready. Under heavy load, it's recommended to increase the batch size to improve throughput and latency.
 
-## Producer required acknowledgements
+### Producer required acknowledgements
 
 The producer required `acks` configuration determines the number of acknowledgments required by the partition leader before a write request is considered completed. This setting affects data reliability and it takes values `0`, `1`, or `-1`. `-1` means that an acknowledgement must be received from all replicas before the write is completed. Setting `acks = -1` provides stronger guarantees against data loss, but it also results in higher latency and lower throughput. If your application requirements demand higher throughput, try setting `acks = 0` or `acks = 1`.
 
-## Compression
+### Compression
 
 A Kafka producer can be configured to compress messages before sending them to brokers. The `compression.type` setting specifies the compression codec to be used. Supported compression codecs are “gzip,” “snappy,” and “lz4.” Compression is beneficial and should be considered if there's a limitation on disk capacity.
 
