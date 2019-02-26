@@ -126,7 +126,7 @@
   - name: High performance computing
     href: high-performance-computing.md
   - name: Infrastructure example
-      href: infrastructure-example.md
+    href: infrastructure-example.md
 - name: How-to guides
   items:
   - name: Create VMs
