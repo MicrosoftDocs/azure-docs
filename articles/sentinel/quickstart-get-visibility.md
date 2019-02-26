@@ -70,7 +70,7 @@ Built-in dashboards provide integrated data from your connected data sources to 
       ![Pal Alto dashboard](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-You can customize the dashboards either by editing the main query ![button](./media/qs-get-visibility/edit-query-button.png). You can click the button ![button](./media/qs-get-visibility/go-to-la-button.png) to go to [Log Analytics to edit the query there](../azure-monitor/log-query/get-started-portal.md), and you can click the three dots and select **Customize tile data**, which enables you to edit the main time filter, or remove the specific tiles from the dashboard.
+You can customize the dashboards either by editing the main query ![button](./media/qs-get-visibility/edit-query-button.png). You can click the button ![button](./media/qs-get-visibility/go-to-la-button.png) to go to [Log Analytics to edit the query there](../azure-monitor/log-query/get-started-portal.md), and you can select the ellipsis (...) and select **Customize tile data**, which enables you to edit the main time filter, or remove the specific tiles from the dashboard.
 
 For more information on working with queries, see [Tutorial: Visual data in Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 

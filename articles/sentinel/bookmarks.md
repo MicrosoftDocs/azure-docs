@@ -47,7 +47,7 @@ You can also visualize your bookmarked data, by clicking **Investigate**. This l
 
 1. In the Log Analytics query results list, expand the row containing the information that you find interesting.
 
-4. Click the three dots at the end of the row, and select **Add hunting bookmarks**.
+4. Select the ellipsis (...) at the end of the row, and select **Add hunting bookmarks**.
 5. On the right, in the **Details** page, update the name, and add tags, and notes to help you identify what was interesting about the item.
 6. Click **Save** to commit your changes. All bookmarked data is shared with other investigators, and is a first step toward a collaborative investigation experience.
 
@@ -85,7 +85,7 @@ The easiest way to view bookmarked queries, results, or history is by selecting 
 If you want to delete a bookmark do the following: 
 1.	Open th **Hunting bookmark** tab. 
 2.	Select the target bookmark.
-3.	Click on the three dots at the end of the row and select **Delete bookmark**.
+3.	Select the ellipsis (...) at the end of the row and select **Delete bookmark**.
 	
 Deleting the bookmark removes the bookmark from the list in the **Bookmark** tab.  The Log Analytics “HuntingBookmark” table will continue to contain previous bookmark entries, but the latest entry will change the **SoftDelete** value to true, making it easy to filter out old bookmarks.  Deleting a bookmark does not remove any entities from the investigation experience that are associated with other bookmarks or alerts. 
 

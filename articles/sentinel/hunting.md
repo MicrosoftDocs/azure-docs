@@ -130,7 +130,7 @@ Create a new hunting query:
 Clone and modify an existing hunting query:
 
 1. Select the hunting query in the table you want to modify.
-2. Click the three dots in the line of the query you want to modify, and select **Clone query**.
+2. Select the ellipsis (...) in the line of the query you want to modify, and select **Clone query**.
 
  ![clone query](./media/tutorial-hunting/clone-query.png)
  
