@@ -95,7 +95,7 @@ This section gives details about some of the StreamingEndpoint's properties. For
 
     Currently, Media Services doesn’t support SSL with custom domains. 
 - `maxCacheAge` -  Overrides the default max-age HTTP cache control header set by the streaming endpoint on media fragments and on-demand manifests. The value is set in seconds.
--`resourceState` -
+- `resourceState` -
 
     - Stopped-  the initial state of a Streaming Endpoint after creation
     - Starting - is transitioning to the running state
