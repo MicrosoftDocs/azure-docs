@@ -33,7 +33,7 @@ The following table compares the available service tiers of Event Hubs. The Even
 | Publisher policies | Yes | Yes |	 
 | Consumer groups | 20 | 20 |
 | Message replay | Yes | Yes |
-| Maximum throughput units | 20 (flexible to 100)	| 1 Capacity Unit (CU) ≈ 50 |
+| Maximum throughput units | 20 (flexible to 100)	| [1 Capacity Unit (CU)](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-faq#dedicated-clusters) |
 | Brokered connections | 1,000 included | 100 K included |
 | Additional Brokered connections | Yes | Yes |
 | Message Retention | 1 day included | Up to 7 days included |
