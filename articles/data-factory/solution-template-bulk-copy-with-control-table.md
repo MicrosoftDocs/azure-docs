@@ -1,6 +1,6 @@
 ---
 title: Bulk copy from a database by using a control table with Azure Data Factory | Microsoft Docs
-description: Learn how to use a solution template to fully copy data in bulk from a database using an external control table to store partition list of source tables with Azure Data Factory.
+description: Learn how to use a solution template to copy bulk data from a database by using an external control table to store a partition list of source tables by using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -16,10 +16,10 @@ ms.date: 12/14/2018
 ---
 # Bulk copy from database with control table
 
-To copy data from a data warehouse in Oracle Server, Netezza, Teradata, or SQL Server to Azure SQL Data Warehouse, you have to load huge amounts of data from multiple tables. Usually, the data has to be partitioned in each table so that you can load rows with multiple threads in parallel from a single table. This article describes a template that's available to use in such scenarios.
+To copy data from a data warehouse in Oracle Server, Netezza, Teradata, or SQL Server to Azure SQL Data Warehouse, you have to load huge amounts of data from multiple tables. Usually, the data has to be partitioned in each table so that you can load rows with multiple threads in parallel from a single table. This article describes a template to use in these scenarios.
 
  >!NOTE 
- > If you want to copy data from a small number of tables with relatively small data volume to SQL Data Warehouse, it's more efficient to use the [**Data Factory Copy Data tool**](copy-data-tool.md). The template that's described in this article is more than you need for that scenario.
+ > If you want to copy data from a small number of tables with relatively small data volume to SQL Data Warehouse, it's more efficient to use the [Azure Data Factory Copy Data tool](copy-data-tool.md). The template that's described in this article is more than you need for that scenario.
 
 ## About this solution template
 
@@ -39,7 +39,7 @@ The template defines these five parameters:
 
 ## How to use this solution template
 
-1. Create a control table in a SQL Server or Azure SQL Database to store the source database partition list for bulk copy. In the following example, there are five partitions in the source database: three partitions are for one table, *datasource_table*, and two are for another table, *project_table*. The column *LastModifytime* is used to partition the data in table *datasource_table* from the source database. The query that's used to read the first partition is 'select * from datasource_table where LastModifytime >= ''2015-01-01 00:00:00'' and LastModifytime <= ''2015-12-31 23:59:59.999'''. You can use a similar query to read data from other partitions.
+1. Create a control table in a SQL Server or Azure SQL Database to store the source database partition list for bulk copy. In the following example, there are five partitions in the source database. Three partitions are for the *datasource_table*, and two are for the *project_table*. The column *LastModifytime* is used to partition the data in table *datasource_table* from the source database. The query that's used to read the first partition is 'select * from datasource_table where LastModifytime >= ''2015-01-01 00:00:00'' and LastModifytime <= ''2015-12-31 23:59:59.999'''. You can use a similar query to read data from other partitions.
 
 	 ```sql
 			Create table ControlTableForTemplate
@@ -75,15 +75,15 @@ The template defines these five parameters:
 
     ![Use this template](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable5.png)
 	
-6. You'll see the pipeline, as shown in the following example:
+6. You see the pipeline, as shown in the following example:
 
     ![Review the pipeline](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable6.png)
 
 7. Select **Debug**, enter the **Parameters**, and then select **Finish**.
 
-    ![Click the Debug](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable7.png)
+    ![Click **Debug**](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable7.png)
 
-8. You'll see results that are similar to the following example:
+8. You see results that are similar to the following example:
 
     ![Review the result](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
