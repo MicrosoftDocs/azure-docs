@@ -30,12 +30,12 @@ Government and Azure China 21Vianet. If you're new to logic apps, review
 
 This article describes these aspects for using the 3270 connector: 
 
-* Why use the HIS 3270 connector in Azure Logic Apps and how the 
-connector helps you run 3270 screen-driven apps on IBM mainframes
+* Why use the HIS 3270 connector in Azure Logic Apps 
+and how the connector runs 3270 screen-driven apps
 
-* The necessary prerequisites and setup for using the 3270 connector
+* The prerequisites and setup for using the 3270 connector
 
-* The steps for adding the connector's actions to your logic app
+* The steps for adding 3270 connector actions to your logic app
 
 ## Why use this connector?
 
@@ -113,7 +113,7 @@ account's location is the same ISE that your logic app uses.
 
 <a name="define-app-metadata"></a>
 
-## Create metadata for connector
+## Create metadata overview
 
 In a 3270 screen-driven app, the screens and data fields are unique 
 to your scenarios, so the 3270 connector needs this information about 
@@ -146,7 +146,7 @@ the design tool ignores partial screen definitions.
 
 <a name="capture-screens"></a>
 
-## Capture the screens
+## Capture screens
 
 In this mode, you mark an item on each 3270 screen that uniquely identifies that screen. 
 For example, you might specify a line of text or a more complex set of conditions, 
@@ -413,7 +413,7 @@ app for integrating with other apps, services, and systems.
 
 <a name="run-action"></a>
 
-## Run an HIS 3270 action
+## Run HIS 3270 actions
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
