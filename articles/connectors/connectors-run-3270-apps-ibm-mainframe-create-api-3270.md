@@ -54,7 +54,7 @@ library for writing custom apps that can access 3270 screen-driven data,
 also known as "screen scraping".
 
 To extend these scenarios, the HIS 3270 connector in Azure Logic Apps 
-works with the standalone 3270 Design Tool, which you use to identify, 
+works with the standalone 3270 Design Tool, which you use to record, 
 or "capture", the host screens used for a specific task, define the 
 navigation flow through your mainframe app for that task, and define 
 the methods with input and output parameters for that task. The design 
@@ -124,7 +124,7 @@ and where to expect results. To specify and generate this metadata,
 you use the standalone 3270 Design Tool, which walks you through 
 these specific *modes*, or stages, as described later in more details:
 
-* **Capture**: In this mode, you identify the screens required for completing 
+* **Capture**: In this mode, you record the screens required for completing 
 a specific task with your mainframe app, for example, getting a bank balance.
 
 * **Navigation plan**: In this mode, you specify the plan or path for how 
