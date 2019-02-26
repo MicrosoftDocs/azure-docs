@@ -253,6 +253,8 @@ In order for a pattern to be matched to an utterance, the entities within the ut
 
 ## Query endpoint when patterns are used
 
+Now that the patterns are added to the app, train, publish and query the app at the prediction runtime endpoint.
+
 1. Train and publish the app again.
 
 1. Switch browser tabs back to the endpoint URL tab.
@@ -343,7 +345,7 @@ In order for a pattern to be matched to an utterance, the entities within the ut
     }
     ```
 
-The intent prediction is now significantly higher.
+The intent prediction is now significantly more confident.
 
 ## Working with optional text and prebuilt entities
 
@@ -383,7 +385,7 @@ The use of the optional syntax of square brackets, `[]`, makes this optional tex
 
 1. On the LUIS website, select **Build** in the top menu then select **Patterns** in the left menu. 
 
-1. Find the existing template utterance, `Who is {Employee}['s] manager[?]`, and select the ellipsis (***...***) to the right, then select **Edit** from the pop-up menu. 
+1. Search for the existing template utterance, `Who is {Employee}['s] manager[?]`, and select the ellipsis (***...***) to the right, then select **Edit** from the pop-up menu. 
 
 1. Change the template utterance to: `who is {Employee}['s] manager [[on]{datetimeV2}?]`
 
@@ -403,7 +405,7 @@ The use of the optional syntax of square brackets, `[]`, makes this optional tex
 
 4. Enter several test utterances to verify that the pattern is matched and the intent score is significantly high. 
 
-    After you enter the first utterance, select **Inspect** under the result so you can see all the prediction results.
+    After you enter the first utterance, select **Inspect** under the result so you can see all the prediction results. Each utterance should have the **OrgChart-Manager** intent and should extract the values for the entities of Employee and datetimeV2.
 
     |Utterance|
     |--|
@@ -418,7 +420,7 @@ All of these utterances found the entities inside, therefore they match the same
 
 ## Use the OR operator and groups
 
-Several of the previous template utterances are very close. Use the group and OR syntax to reduce the template utterances. 
+Several of the previous template utterances are very close. Use the **group** `()` and **OR** `|` syntax to reduce the template utterances. 
 
 The following 2 patterns can combine into a single pattern using the group `()` and OR `|` syntax.
 
@@ -427,22 +429,32 @@ The following 2 patterns can combine into a single pattern using the group `()` 
 |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
 |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
 
-New template utterance: `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`. This uses a **group** around the required verb tense and the optional `in` and `on` with an **or** pipe between them. 
+The new template utterance will be: 
+
+`who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`. 
+
+This uses a **group** around the required verb tense and the optional `in` and `on` with an **or** pipe between them. 
+
+1. On the **Patterns** page, select the **OrgChart-Manager** filter. Narrow the list by searching for `manager`. 
+
+    ![Search in OrgChart-Manager intent patterns for term 'manager'](./media/luis-tutorial-pattern/search-patterns.png)
 
 1. Keep one version of the template utterance (to edit in next step) and delete the other variations. 
 
-1. Edit the template utterance: 
+1. Change the template utterance to: 
 
     `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
 
-1. Use the Test pane to test out versions of the utterance:
+1. Train the app.
+
+1. Use the Test pane to test versions of the utterance:
 
     |Utterances to enter in Test pane|
     |--|
-    |`Who is be Jill Jones manager in a month`|
-    |`Who is be Jill Jones manager on July 5th`|
-    |`Who was be Jill Jones manager in a month`|
-    |`Who was be Jill Jones manager on July 5th`|    
+    |`Who is Jill Jones manager this month`|
+    |`Who is Jill Jones manager on July 5th`|
+    |`Who was Jill Jones manager last month`|
+    |`Who was Jill Jones manager on July 5th`|    
     |`Who will be Jill Jones manager in a month`|
     |`Who will be Jill Jones manager on July 5th`|
 
