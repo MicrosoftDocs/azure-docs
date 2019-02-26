@@ -1,7 +1,7 @@
 --- 
-title: What is Anomaly Detector? | Microsoft Docs 
+title: What is the Anomaly Detector API? | Microsoft Docs 
 titleSuffix: Azure Cognitive Services
-description: Use the Anomaly Detector's advanced algorithms to identify anomalies in your time series data. 
+description: Use the Anomaly Detector API's advanced algorithms to identify anomalies in your time series data. 
 services: cognitive-services 
 author: aahill
 ms.service: cognitive-services 
@@ -11,13 +11,22 @@ ms.date: 02/26/2019
 ms.author: aahi
 --- 
  
-# What is Anomaly Detector?
+# What is the Anomaly Detector API?
 
-Anomaly Finder enables you to monitor data over time and detect anomalies with machine learning that adapts to your unique data by automatically applying the right statistical model regardless of industry, scenario, or data volume. Use a time series as input, the Anomaly Finder API returns whether a data point is an anomaly, determines the expected value, and upper and lower bounds for visualization. 
+The Anomaly Detector API enables you to easily monitor and gain insights from your data over time. Using machine learning, the Anomaly Detector will automatically apply the correct statistical model for your data regardless of your data volume, industry, or scenario. By submitting a time series as input, the Anomaly Finder API determines which data points are anomalies, their expected values, and upper/lower bounds for data visualization.
 
-As a prebuilt AI service, Anomaly Finder does not require any machine learning expertise beyond understanding how to use a RESTful API. This means development simple and versatile, as it works with any time series data and can also be built into streaming data systems. Anomaly Finder encompasses a broad span of use cases – for instance, financial tools for managing fraud, theft, changing markets, and potential business incidents, or monitoring IoT device traffic while preserving anonymity. This solution can also be monetized as part of a service for end-customers to understand changes in data, spending, return on investment, or user activity.
-Try out the Anomaly Finder API and gain deeper understanding of your data. 
+Using the Anomaly Detector doesn't require any prior experience in machine learning. The RESTful API enables you to easily integrate the service into your applications and processes, and it accepts any data set taken at uniform intervals of time.
 
+## Features
+
+With the Anomaly Detector, you can automatically find anomalies throughout your time series data, or as they occur in real-time. 
+
+|Feature  |Description  |
+|---------|---------|
+|Detect anomaly status of the latest point in time series.    | The operation will generate a model using points before the latest one, In this method, only history points are used for determine whether the target point is an anomaly. Latest point detecting matches the scenario of real-time monitoring of business metrics.        |
+|Find anomalies for the entire series in batch.    | The operation will generate a model using the entire series, each point will be detected with the same model. In this method, points before and after a certain point will be used to determine whether it's an anomaly. The entire detection can give user an overall status of the time series.         |
+| Visualize the range of normal values for your data | Visualize your data, including expected values and anomaly boundaries. |
+| Adjust the sensitivity of anomaly detection for better results. | Increase or decrease the sensitivity of the |
 Anomaly Finder provides two APIs for two scenarios: batch and streaming modes.
  
 * If you would like to detect anomalies for a *batch* of data points over a given time range and get a response in one single API call, use batch API: **'/timeseries/entire/detect'**. It is commonly used in interactive mode, e.g., you are doing ad-hoc data analysis for time series data like DAU and want to understand if the data is out of historical pattern.
