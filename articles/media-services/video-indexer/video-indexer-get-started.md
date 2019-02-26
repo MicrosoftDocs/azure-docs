@@ -8,7 +8,7 @@ manager: femila
 
 ms.service: media-services
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 02/10/2019
 ms.author: juliako
 ---
 

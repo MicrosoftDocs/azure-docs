@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Setup for Spell Check SDK console application
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-spell-check

@@ -113,6 +113,10 @@ If you want to move your workspace into the current pricing tier, you need to [c
 > [!NOTE]
 > If your workspace is linked to an Automation account, before you can select the *Standalone (Per GB)* pricing tier you must delete any **Automation and Control** solutions and unlink the Automation account. In the workspace blade, under **General**, click **Solutions** to see and delete solutions. To unlink the Automation account, click the name of the Automation account on the **Pricing tier** blade.
 
+> [!NOTE]
+> You can learn more about [setting the pricing tier via ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace) and 
+> how to ensure that your ARM deployment will succeed regardless of whether the subscription is in the legacy or new pricing model. 
+
 
 ## Troubleshooting why Log Analytics is no longer collecting data
 If you are on the legacy Free pricing tier and have sent more than 500 MB of data in a day, data collection stops for the rest of the day. Reaching the daily limit is a common reason that Log Analytics stops collecting data, or data appears to be missing.  Log Analytics creates an event of type Operation when data collection starts and stops. Run the following query in search to check if you are reaching the daily limit and missing data: 
@@ -124,7 +128,7 @@ When data collection stops, the OperationStatus is Warning. When data collection
 |Reason collection stops| Solution| 
 |-----------------------|---------|
 |Daily limit of legacy Free pricing tier  reached |Wait until the following day for collection to automatically restart, or change to a paid pricing tier.|
-|Daily cap of your workspace was reached|Wait for collection to automatically restart, or increase the daily data volume limit described in [manage the maximum daily data volume](#manage-the-maximum-daily-volume). The daily cap reset time is shows on the **Data volume management** page. |
+|Daily cap of your workspace was reached|Wait for collection to automatically restart, or increase the daily data volume limit described in manage the maximum daily data volume. The daily cap reset time is shows on the **Data volume management** page. |
 |Azure subscription is in a suspended state due to:<br> Free trial ended<br> Azure pass expired<br> Monthly spending limit reached (for example on an MSDN or Visual Studio subscription)|Convert to a paid subscription<br> Remove limit, or wait until limit resets|
 
 To be notified when data collection stops, use the steps described in *Create daily data cap* alert to be notified when data collection stops and follow the steps Use the steps described in add actions to alert rules configure an e-mail, webhook, or runbook action for the alert rule. 

@@ -75,7 +75,7 @@ You can use the restore disk option if you want to:
   * Add configuration settings which weren't there at the time of backup
   * Control the naming convention for resources that are created.
   * Add the VM to an availability set.
-  * Add any other setting that must be configured using PowerShell or a template.  w
+  * Add any other setting that must be configured using PowerShell or a template.
 
 ### Can I restore backups of unmanaged VM disks after I upgrade to managed disks?
 Yes, you can use backups taken before disks were migrated from unmanaged to managed.

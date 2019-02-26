@@ -305,7 +305,7 @@ Once a pipeline is created/deployed, you can manage and monitor your pipelines b
 - [Monitor and manage pipelines by using Monitor and Manage App](data-factory-monitor-manage-app.md)
 
 ## Onetime pipeline
-You can create and schedule a pipeline to run periodically (for example: hourly or daily) within the start and end times you specify in the pipeline definition. See [Scheduling activities](#scheduling-and-execution) for details. You can also create a pipeline that runs only once. To do so, you set the **pipelineMode** property in the pipeline definition to **onetime** as shown in the following JSON sample. The default value for this property is **scheduled**.
+You can create and schedule a pipeline to run periodically (for example: hourly or daily) within the start and end times you specify in the pipeline definition. See Scheduling activities for details. You can also create a pipeline that runs only once. To do so, you set the **pipelineMode** property in the pipeline definition to **onetime** as shown in the following JSON sample. The default value for this property is **scheduled**.
 
 ```json
 {

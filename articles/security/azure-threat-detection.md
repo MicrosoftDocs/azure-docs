@@ -4,7 +4,7 @@ description: Learn about Azure AD Identity Protection and its capabilities.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 

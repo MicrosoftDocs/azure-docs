@@ -2,15 +2,16 @@
 title: End-user experiences for applications - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory (Azure AD) provides several customizable ways to deploy applications to end users in your organization.
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: arvindh
+ms.collection: M365-identity-device-management
 ---
 
 # End-user experiences for applications in Azure Active Directory

@@ -18,6 +18,7 @@ ms.date: 07/24/2018
 ms.author: celested
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Certificate credentials for application authentication

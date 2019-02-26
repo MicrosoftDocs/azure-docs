@@ -33,7 +33,7 @@ Metrics are:
 
 * Enabled by default in each Batch account without additional configuration
 * Generated every 1 minute
-* Not persisted automatically, but have a 30-day rolling history. You can persist activity metrics as part of [diagnostic logging](#work-with-diagnostic-logs).
+* Not persisted automatically, but have a 30-day rolling history. You can persist activity metrics as part of diagnostic logging.
 
 ### View metrics
 
@@ -87,7 +87,7 @@ Other optional destinations for diagnostic logs:
 
 * Stream Batch diagnostic log events to an [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs can ingest millions of events per second, which you can then transform and store using any real-time analytics provider. 
 
-* Send diagnostic logs to [Azure Log Analytics](../log-analytics/log-analytics-overview.md), where you can analyze them or export them for analysis in Power BI or Excel.
+* Send diagnostic logs to [Azure Monitor logs](../log-analytics/log-analytics-overview.md), where you can analyze them or export them for analysis in Power BI or Excel.
 
 > [!NOTE]
 > You may incur additional costs to store or process diagnostic log data with Azure services. 
@@ -97,7 +97,7 @@ Other optional destinations for diagnostic logs:
 
 1. In the portal, click **All services** > **Batch accounts**, and then click the name of your Batch account.
 2. Under **Monitoring**, click **Diagnostic logs** > **Turn on diagnostics**.
-3. In **Diagnostic settings**, enter a name for the setting, and choose a log destination (existing Storage account, Event Hub, or Log Analytics). Select either or both **ServiceLog** and **AllMetrics**.
+3. In **Diagnostic settings**, enter a name for the setting, and choose a log destination (existing Storage account, Event Hub, or Azure Monitor logs). Select either or both **ServiceLog** and **AllMetrics**.
 
     When you select a storage account, optionally set a retention policy. If you don't specify a number of days for retention, data is retained during the life of the storage account.
 

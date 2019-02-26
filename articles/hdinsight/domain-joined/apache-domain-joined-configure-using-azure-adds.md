@@ -90,6 +90,10 @@ You should make sure that all of the [required ports](https://docs.microsoft.com
 
 After setting up the previous steps correctly, the next step is to create the HDInsight cluster with ESP enabled. When you create an HDInsight cluster, you can enable Enterprise Security Package in the **custom** tab. If you prefer to use an Azure Resource Manager template for deployment, use the portal experience once and download the pre-filled template on the last "Summary" page for future reuse.
 
+> [!NOTE]  
+> The first six characters of the ESP cluster names must be unique in your environment. For example, if you have multiple ESP clusters in different VNETs, you should choose a naming convension that ensures the first six characters on the cluster names are unique.
+
+
 ![Azure HDInsight Enterprise security package domain validation](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate.png)
 
 Once you enable ESP, common misconfigurations related to Azure AD-DS will be automatically detected and validated. After fixing these errors you can proceed with the next step: 

@@ -10,6 +10,7 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
+#Customer intent: As a developer, I want to understand how to use the WebJobs SDK to create, publish, and manage Durable Functions as part of my Web Apps in Azure App Service and not as standalone Azure Functions.
 ---
 
 # How to run durable functions as WebJobs

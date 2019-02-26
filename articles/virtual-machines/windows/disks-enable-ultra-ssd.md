@@ -1,6 +1,6 @@
 ---
-title: Ultra SSD Managed Disks for Windows VMs | Microsoft Docs
-description: Learn about Ultra SSD Managed Disks for Azure VMs
+title: Ultra disks for Windows VMs - Azure Managed Disks | Microsoft Docs
+description: Learn about ultra SSD for Azure VMs
 services: virtual-machines-windows
 author: roygara
 

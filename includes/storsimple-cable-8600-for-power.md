@@ -5,8 +5,6 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ---
-<!--author=alkohli last changed: 9/16/15-->
-
 
 #### To cable your device for power
 > [!NOTE]

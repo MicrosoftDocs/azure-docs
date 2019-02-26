@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Setup Custom Search SDK C# console application.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart

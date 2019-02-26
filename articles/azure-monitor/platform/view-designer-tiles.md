@@ -31,7 +31,7 @@ The available View Designer tiles are described in the following table:
 | [Number](#number-tile) |The count of records from a query. |
 | [Two numbers](#two-numbers-tile) |The counts of records from two different queries. |
 | [Donut](#donut-tile) | A chart that's based on a query, with a summary value in the center. |
-| [Line chart and callout](#line-chart-amp-callout-tile) | A line chart that's based on a query, and a callout with a summary value. |
+| Line chart and callout | A line chart that's based on a query, and a callout with a summary value. |
 | [Line chart](#line-chart-tile) |A line chart that's based on a query. |
 | [Two timelines](#two-timelines-tile) | A column chart with two series, each based on a separate query. |
 

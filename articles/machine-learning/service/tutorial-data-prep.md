@@ -10,7 +10,7 @@ ms.topic: tutorial
 author: cforbe
 ms.author: cforbe
 ms.reviewer: trbye
-ms.date: 12/04/2018
+ms.date: 02/04/2019
 ms.custom: seodec18
 # As a Pro Data Scientist, I want to prepare data for regression modeling.
 ---
@@ -93,8 +93,8 @@ import azureml.dataprep as dprep
 
 Download two different NYC taxi data sets into dataflow objects. The datasets have slightly different fields. The `auto_read_file()` method automatically recognizes the input file type.
 
-
 ```python
+from IPython.display import display
 dataset_root = "https://dprepdata.blob.core.windows.net/demo"
 
 green_path = "/".join([dataset_root, "green-small/*"])

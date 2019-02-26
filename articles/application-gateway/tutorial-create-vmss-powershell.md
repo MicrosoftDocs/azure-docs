@@ -1,15 +1,11 @@
 ﻿---
-title: Create an application gateway with a virtual machine scale set - Azure PowerShell | Microsoft Docs
+title: Create an application gateway with a virtual machine scale set - Azure PowerShell
 description: Learn how to create an application gateway with a virtual machine scale set using Azure PowerShell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 01/25/2018
+ms.date: 2/5/2019
 ms.author: victorh
 
 ---
@@ -166,6 +162,7 @@ $vmssConfig = New-AzureRmVmssConfig `
   -SkuName Standard_DS2 `
   -UpgradePolicyMode Automatic
 Set-AzureRmVmssStorageProfile $vmssConfig `
+  -OsDiskCreateOption "FromImage" -OsDiskCaching "None"
   -ImageReferencePublisher MicrosoftWindowsServer `
   -ImageReferenceOffer WindowsServer `
   -ImageReferenceSku 2016-Datacenter `

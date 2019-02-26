@@ -16,6 +16,7 @@ ms.date: 05/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
+ms.collection: M365-identity-device-management
 ---
 # Define a hybrid identity adoption strategy
 In this task, you define the hybrid identity adoption strategy for your hybrid identity solution to meet the business requirements that were discussed in:

@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Use the Face API to perform near-real-time analysis on frames taken from a live video stream.
 services: cognitive-services
 author: SteveMSFT
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: face-api

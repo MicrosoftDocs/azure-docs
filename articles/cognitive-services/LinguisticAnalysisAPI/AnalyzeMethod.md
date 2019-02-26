@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: How to use the Analyze method in Linguistic Analysis API to analyze certain natural-language inputs.
 services: cognitive-services
 author: RichardSunMS
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: linguistic-analysis
 ms.topic: conceptual

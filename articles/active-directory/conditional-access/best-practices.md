@@ -19,6 +19,7 @@ ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: calebb
 
+ms.collection: M365-identity-device-management
 ---
 # Best practices for conditional access in Azure Active Directory
 

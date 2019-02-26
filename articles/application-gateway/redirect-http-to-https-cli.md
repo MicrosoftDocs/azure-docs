@@ -50,7 +50,7 @@ Enter the password for the certificate. In this example, *Azure123456!* is being
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group using [az group create](/cli/azure/group#create).
+A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group using [az group create](/cli/azure/group).
 
 The following example creates a resource group named *myResourceGroupAG* in the *eastus* location.
 
@@ -82,7 +82,7 @@ az network public-ip create \
 
 ## Create the application gateway
 
-You can use [az network application-gateway create](/cli/azure/network/application-gatewaywork_application_gateway_create) to create the application gateway named *myAppGateway*. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. 
+You can use [az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create) to create the application gateway named *myAppGateway*. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. 
 
 The application gateway is assigned to *myAGSubnet* and *myAGPublicIPAddress* that you previously created. In this example, you associate the certificate that you created and its password when you create the application gateway. 
 
@@ -117,7 +117,7 @@ az network application-gateway create \
 
 ### Add the HTTP port
 
-You can use [az network application-gateway frontend-port create](/cli/azure/network/application-gateway/frontend-portwork_application_gateway_frontend_port_create) to add the HTTP port to the application gateway.
+You can use [az network application-gateway frontend-port create](/cli/azure/network/application-gateway/frontend-port#az-network-application-gateway-frontend-port-create) to add the HTTP port to the application gateway.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \
@@ -129,7 +129,7 @@ az network application-gateway frontend-port create \
 
 ### Add the HTTP listener
 
-You can use [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listenerwork_application_gateway_http_listener_create) to add the listener named *myListener* to the application gateway.
+You can use [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create) to add the listener named *myListener* to the application gateway.
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -142,7 +142,7 @@ az network application-gateway http-listener create \
 
 ### Add the redirection configuration
 
-Add the HTTP to HTTPS redirection configuration to the application gateway using [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-configwork_application_gateway_redirect_config_create).
+Add the HTTP to HTTPS redirection configuration to the application gateway using [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -157,7 +157,7 @@ az network application-gateway redirect-config create \
 
 ### Add the routing rule
 
-Add the routing rule named *rule2* with the redirection configuration to the application gateway using [az network application-gateway rule create](/cli/azure/network/application-gateway/rulework_application_gateway_rule_create).
+Add the routing rule named *rule2* with the redirection configuration to the application gateway using [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
 
 ```azurecli-interactive
 az network application-gateway rule create \

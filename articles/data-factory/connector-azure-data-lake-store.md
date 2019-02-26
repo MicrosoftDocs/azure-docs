@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 02/22/2019
 ms.author: jingwang
 
 ---
@@ -72,6 +72,7 @@ To use service principal authentication, register an application entity in Azure
 >To list folders starting from the root, you must set the permission of the service principal being granted to **at root level with "Execute" permission**. This is true when you use the:
 >- **Copy Data Tool** to author copy pipeline.
 >- **Data Factory UI** to test connection and navigating folders during authoring.
+>If you have concern on granting permission at root level, you can skip test connection and input path manually during authoring. Copy activity will still work as long as the service principal is granted with proper permission at the files to be copied.
 
 The following properties are supported:
 
@@ -109,22 +110,23 @@ The following properties are supported:
 
 ### <a name="managed-identity"></a> Use managed identities for Azure resources authentication
 
-A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md), which represents this specific data factory. You can directly use this service identity for Data Lake Store authentication, similar to using your own service principal. It allows this designated factory to access and copy data to or from Data Lake Store.
+A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md), which represents this specific data factory. You can directly use this managed identity for Data Lake Store authentication, similar to using your own service principal. It allows this designated factory to access and copy data to or from Data Lake Store.
 
 To use managed identities for Azure resources authentication:
 
-1. [Retrieve the data factory service identity](data-factory-service-identity.md#retrieve-service-identity) by copying the value of the "Service Identity Application ID" generated along with your factory.
-2. Grant the service identity access to Data Lake Store, the same way you do for service principal, following these notes.
+1. [Retrieve the data factory managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the "Service Identity Application ID" generated along with your factory.
+2. Grant the managed identity access to Data Lake Store, the same way you do for service principal, following these notes.
 
 >[!IMPORTANT]
-> Make sure you grant the data factory service identity proper permission in Data Lake Store:
+> Make sure you grant the data factory managed identity proper permission in Data Lake Store:
 >- **As source**: In **Data explorer** > **Access**, grant at least **Read + Execute** permission to list and copy the files in folders and subfolders. Or, you can grant **Read** permission to copy a single file. You can choose to add to **This folder and all children** for recursive, and add as **an access permission and a default permission entry**. There's no requirement on account level access control (IAM).
 >- **As sink**: In **Data explorer** > **Access**, grant at least **Write + Execute** permission to create child items in the folder. You can choose to add to **This folder and all children** for recursive, and add as **an access permission and a default permission entry**. If you use Azure integration runtime to copy (both source and sink are in the cloud), in IAM, grant at least the **Reader** role in order to let Data Factory detect the region for Data Lake Store. If you want to avoid this IAM role, explicitly [create an Azure integration runtime](create-azure-integration-runtime.md#create-azure-ir) with the location of Data Lake Store. Associate them in the Data Lake Store linked service as the following example.
 
 >[!NOTE]
->To list folders starting from the root, you must set the permission of the service principal being granted to **at root level with "Execute" permission**. This is true when you use the:
+>To list folders starting from the root, you must set the permission of the managed identity being granted to **at root level with "Execute" permission**. This is true when you use the:
 >- **Copy Data Tool** to author copy pipeline.
 >- **Data Factory UI** to test connection and navigating folders during authoring.
+>If you have concern on granting permission at root level, you can skip test connection and input path manually during authoring. Copy activity will still work as long as the managed identity is granted with proper permission at the files to be copied.
 
 In Azure Data Factory, you don't need to specify any properties besides the general Data Lake Store information in the linked service.
 
