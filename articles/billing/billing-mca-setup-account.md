@@ -156,7 +156,7 @@ All Azure subscriptions that are transitioned from your Enterprise Agreement enr
 
 2. Search on **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search](./media/billing-mca-setup-account/bbilling-search-costmanagement-billing.png)
+   ![Screenshot that shows Azure portal search](./media/billing-mca-setup-account/billing-search-costmanagement-billing.png)
 
 3. Select an invoice section. Depending on your access, you may need to select a billing account or a billing profile.  From the billing account or billing profile, select **Invoice sections** and then an invoice section.
     <!--Todo Add a screenshot -->
