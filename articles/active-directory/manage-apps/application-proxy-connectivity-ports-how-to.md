@@ -17,6 +17,7 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to open the firewall ports required for an Application Proxy application

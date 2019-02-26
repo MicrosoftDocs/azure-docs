@@ -12,6 +12,7 @@ ms.date: 08/20/2018
 ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory Application Proxy and Tableau 

@@ -11,6 +11,7 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Migrate from federation to password hash synchronization for Azure Active Directory
@@ -314,7 +315,7 @@ First, change the sign-in method:
    * **Seamless single sign-on** is set to **Enabled**.
    * **Password Sync** is set to **Enabled**.<br /> 
 
-   ![Screenshot that shows the settings in the User sign-in section ](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
+   ![Screenshot that shows the settings in the User sign-in section](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
 
 Skip to [Testing and next steps](#testing-and-next-steps).
 
@@ -334,7 +335,7 @@ Use this option if you didn't initially configure your federated domains by usin
    ![Screenshot that shows the Do not configure option on the User sign-in page](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image12.png)<br />
 
    After you enable password hash synchronization:
-   ![Screenshot that shows new options on the User sign-in page ](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
+   ![Screenshot that shows new options on the User sign-in page](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
    
    > [!NOTE]
    > Starting with Azure AD Connect version 1.1.880.0, the **Seamless single sign-on** check box is selected by default.

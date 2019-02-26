@@ -4,7 +4,7 @@ description: This article demonstrates how to customize security center assessme
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid:

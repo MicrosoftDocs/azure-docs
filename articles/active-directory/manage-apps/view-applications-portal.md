@@ -17,6 +17,7 @@ ms.author: celested
 ms.reviewer: arvinh
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 
 # View your Azure Active Directory tenant applications

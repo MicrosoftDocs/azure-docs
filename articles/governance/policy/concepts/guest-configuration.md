@@ -1,5 +1,5 @@
 ---
-title: Understand how to perform audits inside a virtual machine
+title: Understand how to audit the contents of a virtual machine
 description: Learn how Azure Policy uses Guest Configuration to audit settings inside an Azure virtual machine. 
 services: azure-policy
 author: DCtheGeek
@@ -13,13 +13,15 @@ ms.custom: seodec18
 # Understand Azure Policy's Guest Configuration
 
 In addition to auditing and [remediating](../how-to/remediate-resources.md) Azure resources, Azure
-Policy is capable of auditing settings inside a virtual machine. The validation is performed by the
-Guest Configuration extension and client. The extension, through the client, validates settings
-such as the configuration of the operating system, application configuration or presence,
-environment settings, and more.
+Policy can audit settings inside a virtual machine. The validation is performed by the Guest
+Configuration extension and client. The extension, through the client, validates settings such as
+the configuration of the operating system, application configuration or presence, environment
+settings, and more.
 
 > [!IMPORTANT]
 > Currently, only **built-in** policies are supported with Guest Configuration.
+
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## Extension and client
 
@@ -30,7 +32,8 @@ applicable policy assignment and the corresponding configuration definition.
 ### Register Guest Configuration resource provider
 
 Before you can use Guest Configuration, you must register the resource provider. You can register
-through the portal or through PowerShell.
+through the portal or through PowerShell. The resource provider is registered automatically if
+assignment of a Guest Configuration policy is done through the portal.
 
 #### Registration - Portal
 
@@ -68,18 +71,14 @@ The following table shows a list of the local tools used on each supported opera
 
 ### Validation frequency
 
-The Guest Configuration client checks for new content every 5 minutes.
-Once a guest assignment is received,
-the settings are checked on a 15-minute interval.
-Results are sent to the Guest Configuration resource provider
-as soon as the audit completes.
-When a policy
-[evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers)
-occurs, the state of the machine is written to the Guest Configuration resource provider.
-This causes Azure Policy to evaluate the Azure Resource Manager properties.
-An on-demand Policy evaluation retrieves the latest value
-from the Guest Configuration resource provider.
-However, it doesn't trigger a new audit of the configuration within the virtual machine.
+The Guest Configuration client checks for new content every 5 minutes. Once a guest assignment is
+received, the settings are checked on a 15-minute interval. Results are sent to the Guest
+Configuration resource provider as soon as the audit completes. When a policy [evaluation
+trigger](../how-to/get-compliance-data.md#evaluation-triggers) occurs, the state of the machine is
+written to the Guest Configuration resource provider. This event causes Azure Policy to evaluate
+the Azure Resource Manager properties. An on-demand Policy evaluation retrieves the latest value
+from the Guest Configuration resource provider. However, it doesn't trigger a new audit of the
+configuration within the virtual machine.
 
 ### Supported client types
 
@@ -108,9 +107,10 @@ The following table lists operating systems that aren't supported:
 
 ## Guest Configuration definition requirements
 
-Each audit run by Guest Configuration requires two policy definitions, a **DeployIfNotExists** and
-**Audit**. **DeployIfNotExists** is used to prepare the virtual machine with the Guest
-Configuration agent and other components to support the [validation tools](#validation-tools).
+Each audit run by Guest Configuration requires two policy definitions, a **DeployIfNotExists**
+definition and an **Audit** definition. The **DeployIfNotExists** definition is used to prepare the
+virtual machine with the Guest Configuration agent and other components to support the [validation
+tools](#validation-tools).
 
 The **DeployIfNotExists** policy definition validates and corrects the following items:
 
@@ -119,11 +119,14 @@ The **DeployIfNotExists** policy definition validates and corrects the following
   - Installing the latest version of the **Microsoft.GuestConfiguration** extension
   - Installing [validation tools](#validation-tools) and dependencies, if needed
 
-Once the **DeployIfNotExists** is Compliant, the **Audit** policy definition uses the
-local validation tools to determine if the assigned configuration assignment is Compliant or
-Non-compliant. The validation tool provides the results to the Guest Configuration client. The
-client forwards the results to the Guest Extension, which makes them available through the Guest
-Configuration resource provider.
+If the **DeployIfNotExists** assignment is Non-compliant, a [remediation
+task](../how-to/remediate-resources.md#create-a-remediation-task) can be used.
+
+Once the **DeployIfNotExists** assignment is Compliant, the **Audit** policy assignment uses the
+local validation tools to determine if the configuration assignment is Compliant or Non-compliant.
+The validation tool provides the results to the Guest Configuration client. The client forwards the
+results to the Guest Extension, which makes them available through the Guest Configuration resource
+provider.
 
 Azure Policy uses the Guest Configuration resource providers **complianceStatus** property to
 report compliance in the **Compliance** node. For more information, see [getting compliance data](../how-to/getting-compliance-data.md).
@@ -133,11 +136,11 @@ report compliance in the **Compliance** node. For more information, see [getting
 > policy definitions must exist.
 
 All built-in policies for Guest Configuration are included in an initiative to group the
-definitions for use in assignments. The built-in initiative named *[Preview]: Audit Password
-security settings inside Linux and Windows virtual machines* contains 18 policies. There are six
-**DeployIfNotExists** and **Audit** pairs for Windows and three pairs for Linux. In each
-case, the logic inside the definition validates only the target operating system is evaluated based
-on the [policy rule](definition-structure.md#policy-rule) definition.
+definitions for use in assignments. The built-in *[Preview]: Audit Password security settings
+inside Linux and Windows virtual machines* initiative contains 18 policies. There are six
+**DeployIfNotExists** and **Audit** policy definition pairs for Windows and three pairs for Linux.
+For each, the **DeployIfNotExists** [policy definition rule](definition-structure.md#policy-rule)
+limits the systems evaluated.
 
 ## Next steps
 

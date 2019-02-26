@@ -18,6 +18,7 @@ ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 
 
+ms.collection: M365-identity-device-management
 ---
 # Using System for Cross-Domain Identity Management (SCIM) to automatically provision users and groups from Azure Active Directory to applications
 

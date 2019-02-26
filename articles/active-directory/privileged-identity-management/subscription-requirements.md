@@ -17,6 +17,7 @@ ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
 
+ms.collection: M365-identity-device-management
 ---
 
 # License requirements to use PIM

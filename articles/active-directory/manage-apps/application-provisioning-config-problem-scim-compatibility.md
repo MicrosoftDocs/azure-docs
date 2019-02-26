@@ -16,6 +16,7 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
 
+ms.collection: M365-identity-device-management
 ---
 
 # Known issues and resolutions with SCIM 2.0 protocol compliance of the Azure AD User Provisioning service
@@ -57,7 +58,7 @@ Yes. If you are already using this application instance for single sign-on, and 
 1. Sign into the Azure portal at https://portal.azure.com.
 2. In the **Azure Active Directory > Enterprise Applications** section of the Azure portal, locate and select your existing SCIM application.
 3.	In the **Properties** section of your existing SCIM app, copy the **Object ID**.
-4.  In a new web browser window, go to https://developer.microsoft.com/en-us/graph/graph-explorer 
+4.  In a new web browser window, go to https://developer.microsoft.com/graph/graph-explorer 
 and sign in as the administrator for the Azure AD tenant where your app is added.
 5. In the Graph Explorer, run the command below to locate the ID of your provisioning job. Replace "[object-id]" with the service principal ID (object ID) copied from the third step.
  
@@ -98,7 +99,7 @@ Yes. If you had coded an application to the old behavior that existed prior to t
 1.	Sign into the Azure portal at https://portal.azure.com.
 2. in the **Azure Active Directory > Enterprise Applications > Create application** section of the Azure portal, create a new **Non-gallery** application.
 3.	In the **Properties** section of your new custom app, copy the **Object ID**.
-4.  In a new web browser window, go to https://developer.microsoft.com/en-us/graph/graph-explorer 
+4.  In a new web browser window, go to https://developer.microsoft.com/graph/graph-explorer 
 and sign in as the administrator for the Azure AD tenant where your app is added.
 5. In the Graph Explorer, run the command below to initialize the provisioning configuration for your app.
 Replace "[object-id]" with the service principal ID (object ID) copied from the third step.

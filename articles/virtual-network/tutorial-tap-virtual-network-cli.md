@@ -106,7 +106,7 @@ Read [prerequisites](virtual-network-tap-overview.md#prerequisites) before you c
 1. Retrieve the ID of an existing virtual network TAP resource. The following example retrieves a virtual network TAP named *myTap* in a resource group named *myResourceGroup*:
 
    ```azurecli-interactive
-   tapId=$(az network tap show show \
+   tapId=$(az network vnet tap show \
    --name myTap \
    --resource-group myResourceGroup \
    --query id \
@@ -140,7 +140,7 @@ Read [prerequisites](virtual-network-tap-overview.md#prerequisites) before you c
    az network nic vtap-config delete \
    --resource-group myResourceGroup \
    --nic myNetworkInterface \
-   --tap-configuration-name myTapConfig \
+   --name myTapConfig \
    --subscription subscriptionId
    ```
 

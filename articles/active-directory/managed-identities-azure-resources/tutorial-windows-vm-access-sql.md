@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/07/2018
 ms.author: priyamo
+ms.collection: M365-identity-device-management
 ---
 
 

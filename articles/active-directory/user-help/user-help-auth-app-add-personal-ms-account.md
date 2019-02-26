@@ -12,6 +12,7 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
+ms.collection: M365-identity-device-management
 ---
 
 # Add your personal Microsoft accounts
@@ -32,7 +33,7 @@ You can add your personal Microsoft account by first turning on two-factor verif
 
 ### Turn on two-factor verification
 
-1. On your PC, go to your [Security basics](https://account.microsoft.com/security) page and sign-in using your personal Microsoft account. For example, alain@outlook.com.
+1. On your computer, go to your [Security basics](https://account.microsoft.com/security) page and sign-in using your personal Microsoft account. For example, alain@outlook.com.
 
 2. At the bottom of the **Security basics** page, choose the **more security options** link.
 

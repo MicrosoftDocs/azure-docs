@@ -17,6 +17,7 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # Problems signing in to an application using a deeplink

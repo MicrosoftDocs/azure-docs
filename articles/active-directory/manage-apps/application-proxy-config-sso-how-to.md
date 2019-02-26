@@ -17,6 +17,7 @@ ms.date: 10/22/2018
 ms.author: celested
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to configure single sign-on to an Application Proxy application

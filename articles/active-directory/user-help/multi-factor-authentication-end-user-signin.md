@@ -14,6 +14,7 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
+ms.collection: M365-identity-device-management
 ---
 
 # The sign-in experience with Azure Multi-Factor Authentication
