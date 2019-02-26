@@ -24,32 +24,11 @@ Microsoft *Azure for Students Starter* gets you started with the Azure products 
 
 Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application. [Learn more about Functions here.](./functions-overview.md)
 
-## Capabilities of Functions in Azure for Students Starter
-
-In this offering, you have access to most of the features of the Azure Functions runtime, with several key limitations:
-
-* The HTTP trigger is the only trigger type supported.
-    * All input and all output bindings are supported! [See the full list here.](functions-triggers-bindings.md)
-* Languages Supported: 
-    * C# (.NET Core 2)
-    * Javascript (Node.js 8 & 10)
-    * F# (.NET Core 2)
-    * [See languages supported in higher plans here](supported-languages.md)
-* Windows is the only supported operating system.
-* Scale is restricted to [one free tier instance](https://azure.microsoft.com/pricing/details/app-service/windows/) running for up to 60 minutes each day. You will serverlessly scale from 0 to 1 instance automatically as HTTP traffic is received, but no further.
-* Only [the 2.x runtime](functions-versions.md) is supported.
-* All developer tooling is supported for editing and publishing functions. This includes VS Code, Visual Studio, the Azure CLI, and the Azure portal. If you'd like to use anything other than the portal, you will need to first create an app in the portal, and then choose that app as a deployment target in your prefered tool.
-
 ## Create an HTTP triggered hello world Function
 
  In this topic, learn how to use Functions to create a "hello world" function in the Azure portal.
 
 ![Create function app in the Azure portal](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-> [!NOTE]
-> C# developers should consider [creating your first function in Visual Studio 2017](functions-create-your-first-function-visual-studio.md) instead of in the portal. 
 
 ## Log in to Azure
 
@@ -65,21 +44,27 @@ You must have a function app to host the execution of your functions. A function
 
 2. Use the function app settings as specified in the table below the image.
 
-    ![Define new function app settings](./media/functions-create-function-app-portal/function-app-create-flow2.png)
+    <img src="./media/functions-create-student-starter/Function-create-start.png" width="300">
 
     | Setting      | Suggested value  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z`, `0-9`, and `-`.  | 
     | **Subscription** | Your subscription | The subscription under which this new function app is created. | 
     | **[Resource Group](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Name for the new resource group in which to create your function app. |
-    | **OS** | Windows | Serverless hosting is currently only available when running on Windows. For Linux hosting, see [Create your first function running on Linux using the Azure CLI](../articles/azure-functions/functions-create-first-azure-function-azure-cli-linux.md). |
-    | **[Hosting plan](../articles/azure-functions/functions-scale.md)** | Consumption plan | Hosting plan that defines how resources are allocated to your function app. In the default **Consumption Plan**, resources are added dynamically as required by your functions. In this [serverless](https://azure.microsoft.com/overview/serverless-computing/) hosting, you only pay for the time your functions run. When you run in an App Service plan, you must manage the [scaling of your function app](../articles/azure-functions/functions-scale.md).  |
-    | **Location** | West Europe | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. |
+   | **[App Service Plan/Location](../articles/azure-functions/functions-scale.md)** | New | Hosting plan that defines what region your function app is deployed to, and allows you to control the density of resources. Multiple Function Apps deployed to the same plan will all share the same single free instance. This is a restriction of the Student Starter plan. The full hosting options are [explained here](./functions-scale.md)|
     | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language. Choose **.NET** for C# and F# functions. |
-    | **[Storage](../articles/storage/common/storage-quickstart-create-account.md)** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account, which must meets the [storage account requirements](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
-    | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Default | Application Insights is enabled by default. Choose a location near your function app.  |
+
+3. Select **App Service plan/Location** above to choose a different location
+
+4. Select **Create new** and then give your plan a unique name.
+
+5. Select the location closest to you.
+
+<img src="./media/functions-create-student-starter/Create-ASP.png" width="800">
 
 3. Select **Create** to provision and deploy the function app.
+
+<img src="./media/functions-create-student-starter/Function-create-end.png" width="300">
 
 4. Select the Notification icon in the upper-right corner of the portal and watch for the **Deployment succeeded** message.
 
@@ -126,6 +111,22 @@ Now, you can run the new function by sending an HTTP request.
 ## Clean up resources
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
+
+## Capabilities of Functions in Azure for Students Starter
+
+In this offering, you have access to most of the features of the Azure Functions runtime, with several key limitations:
+
+* The HTTP trigger is the only trigger type supported.
+    * All input and all output bindings are supported! [See the full list here.](functions-triggers-bindings.md)
+* Languages Supported: 
+    * C# (.NET Core 2)
+    * Javascript (Node.js 8 & 10)
+    * F# (.NET Core 2)
+    * [See languages supported in higher plans here](supported-languages.md)
+* Windows is the only supported operating system.
+* Scale is restricted to [one free tier instance](https://azure.microsoft.com/pricing/details/app-service/windows/) running for up to 60 minutes each day. You will serverlessly scale from 0 to 1 instance automatically as HTTP traffic is received, but no further.
+* Only [the 2.x runtime](functions-versions.md) is supported.
+* All developer tooling is supported for editing and publishing functions. This includes VS Code, Visual Studio, the Azure CLI, and the Azure portal. If you'd like to use anything other than the portal, you will need to first create an app in the portal, and then choose that app as a deployment target in your prefered tool.
 
 ## Next steps
 
