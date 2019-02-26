@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/20/2019
+ms.date: 02/26/2019
 ms.author: kumud
 ---
 
@@ -27,51 +27,95 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 For this quickstart, you'll need two instances of a web application deployed in two different Azure regions (*East US* and *West Europe*). Each will serve as primary and failover endpoints for Traffic Manager.
 
-### Create a Resource Group
-Create resource groups in the two different Azure regions using `New-AzResourceGroup` command.
+### Create Web App Service plans
+Create Web App service plans for the two instances of a web application that you will deploy in two different Azure regions.
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name myResourceGroupTM1 -Location EastUS
-New-AzResourceGroup -Name MyResourceGroupTM2 -Location westeurope
+
+# Generates a random value
+$Random=(New-Guid).ToString().Substring(0,8)
+
+# Variables
+$ResourceGroupName="myResourceGroup$Random"
+$App1Name="AppServiceTM1$Random"
+$App2Name="AppServiceTM2$Random"
+$Location1="WestUS"
+$Location2="EastUS"
+
+# Create a resource group
+New-AzResourceGroup -Name $ResourceGroupName -Location $Location1
+
+# Create App service plans
+New-AzAppservicePlan `
+-Name "$App1Name-Plan" `
+-ResourceGroupName $ResourceGroupName-tmp `
+-Location $Location1 
+-Tier Standard
+
+New-AzAppservicePlan `
+-Name "$App2Name-Plan" `
+-ResourceGroupName $ResourceGroupName-tmp `
+-Location $Location2
+-Tier Standard
+```
+### Create Web Apps
+Create two instances web applications that you will deploy in two different Azure regions.
+
+```azurepowershell-interactive
+$App1ResourceId=(New-AzWebApp `
+-Name $App1Name `
+-ResourceGroupName MyResourceGroupTM1
+-Location $Location1 `
+-AppServicePlan "$App1Name-Plan").Id
+
+$App2ResourceId=(New-AzWebApp `
+-Name $App2Name `
+-ResourceGroupName $ResourceGroupName `
+-Location $Location2 `
+-AppServicePlan "$App2Name-Plan").Id
+
 ```
 
 ## Create a Traffic Manager profile
 
-Using the 'New-AzTrafficManagerProfile`, create a Traffic Manager profile that directs user traffic based on endpoint priority. In the below example, replace the "MyTrafficManagerProfile" with a unique name.
+Using the `New-AzTrafficManagerProfile`, create a Traffic Manager profile that directs user traffic based on endpoint priority.
 
 ```azurepowershell-interactive
 New-AzTrafficManagerProfile `
--Name MyTrafficManagerProfile `
--ResourceGroupName MyResourceGroupTM1 `
+-Name $ResourceGroupName-tmp `
+-ResourceGroupName $ResourceGroupName `
 -TrafficRoutingMethod Priority `
 -MonitorPath '/' `
 -MonitorProtocol "HTTP" `
--RelativeDnsName MyTrafficManagerProfile `
--Ttl 30 -MonitorPort 80
+-RelativeDnsName $ResourceGroupName `
+-Ttl 30 `
+-MonitorPort 80
 ```
 
-### Create an App Service Plan
-Create an App Service plan for the two instances of a web application that you will deploy in two different Azure regions. In the below example, replace the App Service plan names (WebAppEastUS-Plan, WebAppWestEurope-Plan) with unique names. 
 
-```azurepowershell-interactive
-New-AzAppservicePlan `
--Name WebAppEastUS-Plan `
--ResourceGroupName MyResourceGroupTM1 `
--Location eastus 
--Tier Standard
-
-New-AzAppservicePlan `
--Name WebAppWestEurope-Plan `
--ResourceGroupName MyResourceGroupTM2 `
--Location westeurope
--Tier Standard
-```
-
-## Add Traffic Manager endpoints
+## Create Traffic Manager endpoints
 
 Add the website in the *East US* as primary endpoint to route all the user traffic. Add the website in *West Europe* as a failover endpoint. When the primary endpoint is unavailable, traffic automatically routes to the failover endpoint.
 
+```azurepowershell-interactive
+New-AzTrafficManagerEndpoint `
+-Name "$App1Name-$Location1" `
+-ResourceGroupName $ResourceGroupName `
+-ProfileName "$ResourceGroupName-tmp" `
+-Type AzureEndpoints `
+-Priority 1 `
+-TargetResourceId $App1ResourceId `
+-EndpointStatus "Enabled"
 
+New-AzTrafficManagerEndpoint `
+-Name "$App2Name-$Location2" `
+-ResourceGroupName $ResourceGroupName `
+-ProfileName "$ResourceGroupName-tmp" `
+-Type AzureEndpoints `
+-Priority 2 `
+-TargetResourceId $App2ResourceId `
+-EndpointStatus "Enabled"
+```
 
 ## Test Traffic Manager profile
 
