@@ -39,8 +39,8 @@ and how the connector runs 3270 screen-driven apps
 
 ## Why use this connector?
 
-To access apps on IBM mainframes, you typically use a 3270 
-terminal through a 3270 emulator, often called a "green screen". 
+To access apps on IBM mainframes, you typically use a 
+3270 terminal emulator, often called a "green screen". 
 This method is a time-hardened way but has many limitations. 
 Although Host Integration Server (HIS) lets you work directly 
 with these apps, sometimes, separating the screen and business 
@@ -49,7 +49,7 @@ about how the host applications work.
 
 For these scenarios, you can create .NET apps that programmatically 
 drive the 3270 screens without making changes to the host. To create 
-these apps, you can use the Session Integrator tool, which is a .NET 
+these apps, you can use the Session Integrator feature, which is a .NET 
 library for writing custom apps that can access 3270 screen-driven data, 
 also known as "screen scraping".
 
