@@ -22,6 +22,7 @@
 - name: How-to guides
   items:
   - name: Connect data sources
+    href: connect-data-sources.md
     items:
 
     - name: Connect Microsoft services
@@ -74,7 +75,8 @@
       href: notebooks.md
     - name: Use bookmarks to hunt
       href: bookmarks.md
-  
+  - name: Enable fusion
+    href: connect-fusion.md
 
 - name: Resources
   items:

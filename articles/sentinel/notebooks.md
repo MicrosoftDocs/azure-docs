@@ -60,5 +60,5 @@ In the following example, we run the built-in notebook to search for deep diving
 ## Next steps
 In this article, you learned how to run a hunting investigation using notebooks in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 
-
-* [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/): Find blog posts about Azure security and compliance.
+- [Proactively hunt for threats](hunting.md)
+- [Use bookmarks to save interesting information while hunting](bookmarks.md)

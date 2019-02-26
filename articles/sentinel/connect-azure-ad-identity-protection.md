@@ -29,7 +29,7 @@ You can stream logs from [Azure AD Identity Protection](https://docs.microsoft.c
 
 ## Prerequisites
 
-- You must have an [Azure Active Directory Premium P1 or P2 license](https://azure.microsoft.com/pricing/details/active-directory/0
+- You must have an [Azure Active Directory Premium P1 or P2 license](https://azure.microsoft.com/pricing/details/active-directory/)
 - User with global administrator or security administrator permissions
 
 
@@ -45,9 +45,6 @@ If Azure AD Identity Protection is deployed and getting data, the alert data can
 
 
 6. To use the relevant schema in Log Analytics for the Azure AD Identity Protection alerts, search for **IdentityProtectionLogs_CL**.
-
-
-
 
 ## Next steps
 In this document, you learned how to connect Azure AD Identity Protection to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:

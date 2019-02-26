@@ -31,9 +31,9 @@ After you [connected your data sources](quickstart-onboard.md) to Azure Sentinel
 
 ## Create detection rules
 
-To investigate cases, you first have to create detection rules based on the types of threats and anomalies that could be suspicious in your environment that you want to know about right away so they are surfaced, investigated, and remediated. 
+To investigate cases, you first have to create detection rules. Detection rules are based on the types of threats and anomalies that could be suspicious in your environment that you want to know about right away, ensuring they are surfaced, investigated, and remediated. 
 
-1. In the Azure portal under Azure Sentinel, select **Security analytics**.
+1. In the Azure portal under Azure Sentinel, select **Analytics**.
 
   ![Analytics](./media/tutorial-detect-threats/alert-rules.png)
 
@@ -58,11 +58,11 @@ To investigate cases, you first have to create detection rules based on the type
 
 8. Set the **Period** to control the time window for how much data the query runs on - for example, it can run every hour across 60 minutes of data.
 
-9. You can also set the **Suppression**. Suppression is useful when you want to stop duplicate alerts from being triggered for the same incident. In this way, you can stop alerts from being triggered during a specific period. This can help you avoid duplicate alerts for the same incident and allow you to suppress consecutive alerts for a period of time. For example, if the **Alert scheduling** **Frequency** is set to 60 minutes, and the **Alert scheduling Period** is set to two hours, and the query results surpassed the defined threshold, it will trigger an alert twice, once when it is first detected over the last 60 minutes, and again when it is in the first 60 minutes of the 2-hour data being sampled. We recommend that if an alert is triggered, the suppression should be for the amount of time set in the alert period. In our example, you might want to set suppression for 60 minutes, so that alerts are only triggered for events that happened during the most recent hour.
+9. You can also set the **Suppression**. Suppression is useful when you want to stop duplicate alerts from being triggered for the same incident. In this way, you can stop alerts from being triggered during a specific period. This can help you avoid duplicate alerts for the same incident and allow you to suppress consecutive alerts for a period of time. For example, if the **Alert scheduling** **Frequency** is set to 60 minutes, and the **Alert scheduling Period** is set to two hours, and the query results surpassed the defined threshold, it will trigger an alert twice, once when it is first detected over the last 60 minutes, and again when it is in the first 60 minutes of the 2-hours of data being sampled. We recommend that if an alert is triggered, the suppression should be for the amount of time set in the alert period. In our example, you might want to set suppression for 60 minutes, so that alerts are only triggered for events that happened during the most recent hour.
 
 8. After you paste your query into the **Set alert rule** field, you can immediately see a simulation of the alert under **Logic alert simulation** so that you can gain understanding of how much data will be generated over a specific time interval for the alert you created. This will depend on what you set for **Frequency** and **Threshold**. If you see that on average, your alert will be triggered too frequently, you will want to set the number of results higher so that it's above your average baseline.
 
-9. Click **Create** to initialize your alert rule. After the alert is created, a case is created that contains the alert. You can see the defined detection rules as rows in the **Security Analytics** tab. You can also see the number of matches for each rule - the alerts triggered. From this list you can enable, disable, or delete each rule. You can also right-click on the three dots at the end of the row for each alert to edit, disable, clone, show matches, or delete a rule. The **Security analytics** page is a gallery of all your active alert rules, including templates you enable and alert rules you create based on templates.
+9. Click **Create** to initialize your alert rule. After the alert is created, a case is created that contains the alert. You can see the defined detection rules as rows in the **Security Analytics** tab. You can also see the number of matches for each rule - the alerts triggered. From this list you can enable, disable, or delete each rule. You can also right-select the ellipsis (...) at the end of the row for each alert to edit, disable, clone, show matches, or delete a rule. The **Analytics** page is a gallery of all your active alert rules, including templates you enable and alert rules you create based on templates.
 
 1. The results of the alert rules can be seen in the **Cases** page, where you can triage, [investigate cases](tutorial-investigate-cases.md), and remediate the threats.
 
@@ -72,9 +72,9 @@ To investigate cases, you first have to create detection rules based on the type
 
 Azure Sentinel gives you two primary options for responding to threats using playbooks. You can set a playbook to run automatically when an alert is triggered, or you can manually run a playbook in response to an alert.
 
-- You can set a playbook to run automatically when an alert is triggered when you configure the playbook. 
+- Set a playbook to run automatically when an alert is triggered when you configure the playbook. 
 
-- You can manually run a playbook from inside the alert, by clicking **View playbooks** and then selecting a playbook to run.
+- Manually run a playbook from inside the alert, by clicking **View playbooks** and then selecting a playbook to run.
 
 
 
