@@ -68,7 +68,7 @@ The solutions in this article will use the following tools. We recommend you hav
 
     ```kusto
     ServiceFabricOperationalEvent
-    | where EventId >= 25623 or EventId <= 25626
+    | where EventID >= 25622 or EventID <= 25626
     ```
 
 5. Click "New Alert Rule" at the top and now anytime an event arrives based on this query, you will receive an alert in your chosen method of communication.
@@ -81,7 +81,7 @@ The solutions in this article will use the following tools. We recommend you hav
 
     ```kusto
     ServiceFabricOperationalEvent
-    | where EventId == 29623 or EventId == 29624
+    | where EventID == 29623 or EventID == 29624
     ```
 
 2. Click "New Alert Rule" at the top and now anytime an event arrives based on this query, you will receive an alert.
