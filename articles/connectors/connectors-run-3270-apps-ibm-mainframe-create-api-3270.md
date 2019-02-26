@@ -30,12 +30,14 @@ Government and Azure China 21Vianet. If you're new to logic apps, review
 
 This article describes these aspects for using the 3270 connector: 
 
-* How the HIS 3270 connector in Azure Logic Apps 
-helps you run 3270 screen-driven apps on IBM mainframes
-* The necessary setup for the 3270 connector to work
+* Why use the HIS 3270 connector in Azure Logic Apps and how the 
+connector helps you run 3270 screen-driven apps on IBM mainframes
+
+* The necessary prerequisites and setup for using the 3270 connector
+
 * The steps for adding the connector's actions to your logic app
 
-## Why use the HIS connector?
+## Why use this connector?
 
 To access apps on IBM mainframes, you typically use a 3270 
 terminal through a 3270 emulator, often called a "green screen". 
@@ -123,7 +125,7 @@ you use the standalone 3270 Design Tool, which walks you through
 these specific *modes*, or stages, as described later in more details:
 
 * **Capture**: In this mode, you identify the screens required for completing 
-a specific task with your mainframe app, for example, getting a bank balance. 
+a specific task with your mainframe app, for example, getting a bank balance.
 
 * **Navigation plan**: In this mode, you specify the plan or path for how 
 to navigate through your mainframe app's screens for the specific task.
@@ -142,7 +144,9 @@ the design tool ignores partial screen definitions.
 * Menu processing: Not supported during preview
 * Array processing: Not supported during preview
 
-### Capture screens
+<a name="capture-screens"></a>
+
+## Capture the screens
 
 In this mode, you mark an item on each 3270 screen that uniquely identifies that screen. 
 For example, you might specify a line of text or a more complex set of conditions, 
@@ -182,7 +186,7 @@ with connecting to your session and ends with disconnecting from your session.
 After you finish selecting the identification fields, 
 move to the next mode.
 
-#### Conditions for identifying repeated screens
+### Conditions for identifying repeated screens
 
 For the connector to navigate and differentiate between screens, 
 you usually find unique text on a screen that you can use as an 
@@ -212,7 +216,7 @@ later in this topic.
 
 <a name="define-navigation"></a>
 
-### Define navigation
+## Define navigation plans
 
 In this mode, you define the flow or steps for navigating 
 through your mainframe app's screens for your specific task. 
@@ -227,7 +231,7 @@ keystrokes necessary for moving to the next screen, such as `CICSPROD <enter>`.
 > Disconnect plan types. After you define these types, you can add 
 > them to the start and end for your navigation plan.
 
-#### Guidelines for creating plans
+### Guidelines for plan definitions
 
 * Include all screens, starting from connecting 
 and ending with disconnecting.
@@ -252,7 +256,7 @@ in your plan. Here are some examples of repeated screens:
 
 <a name="create-plan"></a>
 
-#### Create plan
+### Create plans
 
 1. In the design tool, to start your plan, choose **New Plan**.
 
@@ -275,7 +279,7 @@ you can [define methods in the next mode](#define-method).
 
 <a name="example-plan"></a>
 
-#### Example
+### Example
 
 In this example, suppose you run a CICS 
 transaction named "WBGB" that has these steps: 
@@ -318,7 +322,7 @@ Connect plan, Disconnect plan, and a combined plan might look:
 
   ![Combined plan](./media/connectors-create-api-3270/combined-plan.png)
 
-##### Identify repeated screens
+#### Example - identify repeated screens
 
 For the connector to navigate and differentiate between screens, 
 you usually find unique text on a screen that you can use as an 
@@ -342,7 +346,7 @@ add an attribute with an "empty" condition.
 
 <a name="define-method"></a>
 
-### Define method
+## Define methods
 
 In this mode, you define a method that's associated with your navigation plan. 
 For each method parameter, you specify the data type, such as a string, integer, 
@@ -387,7 +391,7 @@ which runs your method definition against the live host.
 1. When you're finished, choose **Done**, which displays 
 the value for your output parameter.
 
-### Add metadata file to integration account
+## Add metadata file to integration account
 
 When you're done, [add your HIDX file as a map to your integration account](../logic-apps/logic-apps-enterprise-integration-maps.md) 
 by using the Azure portal. In a later section on this page, 
@@ -405,7 +409,7 @@ for your app, enter data, return results, and so on.
 You can also continue adding other actions to your logic 
 app for integrating with other apps, services, and systems.
 
-## Run HIS 3270 actions
+## Run an HIS 3270 action
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
