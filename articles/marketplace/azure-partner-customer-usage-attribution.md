@@ -339,7 +339,7 @@ Azure Storage's GUID Generator form is guaranteed to generate a GUID of the requ
 
 **Can I use a private, custom VHD for a solution template offer in the Azure Marketplace?**
 
-No, you cannot. The virtual machine image must come from the Azure Marketplace, see: [https://docs.microsoft.com/en-us/azure/marketplace/marketplace-virtual-machines](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines). 
+No, you cannot. The virtual machine image must come from the Azure Marketplace, see: [https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines). 
 
 You can create a VM offer in marketplace using your custom VHD and mark it as Private so that no one can see it. Then reference to this VM in your solution template.
 
