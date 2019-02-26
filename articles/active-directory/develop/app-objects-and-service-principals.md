@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 02/27/2019
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
@@ -98,6 +98,6 @@ In this example scenario:
 <!--Image references-->
 
 <!--Reference style links -->
-[AAD-Graph-App-Entity]: https://docs.microsoft.com/en-us/graph/api/resources/application
-[AAD-Graph-Sp-Entity]: https://docs.microsoft.com/en-us/graph/api/resources/serviceprincipal
+[AAD-Graph-App-Entity]: https://docs.microsoft.com/graph/api/resources/application
+[AAD-Graph-Sp-Entity]: https://docs.microsoft.com/graph/api/resources/serviceprincipal
 [AZURE-Portal]: https://portal.azure.com
