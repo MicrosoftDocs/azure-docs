@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 If you want to connect IoT devices that use Modbus TCP or RTU protocols to an Azure IoT hub, use an IoT Edge device as a gateway. The gateway device reads data from your Modbus devices, then communicates that data to the cloud using a supported protocol.
 
-![Modbus devices connect to IoT Hub through Edge gateway](./media/deploy-modbus-gateway/diagram.png)
+![Modbus devices connect to IoT Hub through IoT Edge gateway](./media/deploy-modbus-gateway/diagram.png)
 
 This article covers how to create your own container image for a Modbus module (or you can use a prebuilt sample) and then deploy it to the IoT Edge device that will act as your gateway.
 
@@ -80,7 +80,7 @@ This section walks through deploying Microsoft's sample Modbus module to your Io
 
 5. Back in the **Add Modules** step, select **Next**.
 
-7. In the **Specify Routes** step, copy the following JSON into the text box. This route sends all messages collected by the Modbus module to IoT Hub. In this route, ''modbusOutput'' is the endpoint that Modbus module use to output data, and ''upstream'' is a special destination that tells Edge Hub to send messages to IoT Hub.
+7. In the **Specify Routes** step, copy the following JSON into the text box. This route sends all messages collected by the Modbus module to IoT Hub. In this route, ''modbusOutput'' is the endpoint that Modbus module use to output data, and ''upstream'' is a special destination that tells IoT Edge hub to send messages to IoT Hub.
    ```JSON
    {
     "routes": {
