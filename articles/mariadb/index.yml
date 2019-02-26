@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Azure Database for MariaDB Documentation
 metadata:
-  title: Azure MariaDB Documentation - Tutorials, API Reference | Microsoft Docs
+  title: Azure MariaDB Documentation - Tutorials, API Reference
   description: Azure Database for MariaDB is a relational database service in the Microsoft cloud built for developers based on the open-source MariaDB database engine.
   author: ajlam
   ms.author: andrela
