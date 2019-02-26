@@ -193,9 +193,9 @@ a valid value, while the other screen returns an error message.
 
 In the design tool, you can add *recognition attributes*, 
 for example, a screen title such as "Get Account Balance", 
-by using the Screen Recognition editor. In the case where 
-you have a forked path that returns the same screen with 
-different results, you need other identification attributes. 
+by using the Screen Recognition editor. In the case where you 
+have a forked path and either path returns the same screen but 
+with different results, you need other identification attributes. 
 At run time, the connector uses these attributes for 
 determining the current branch and fork. Here are the 
 conditions you can use:
@@ -370,8 +370,8 @@ as the first output, and then choose **Output**.
 1. After you add all your parameters for your method, 
 define the data type for each parameter.
 
-The design tool saves all this information to a file that has 
-an .rap extension. You can save to this file during any mode. 
+The design tool saves all this information to a file that has a 
+RAP (.rap) extension. You can save to this file during any mode. 
 Before you can test your method, save to this file after 
 defining your method.
 
@@ -453,8 +453,8 @@ and choose **Create**.
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Hidx Name** | Yes | <*HIDX-file-name*> | Select the 3270 HIDX file you want to use. |
-   | **Method Name** | Yes | <*method-name*> | Select the method in the HIDX file to use. After you select a method, the **Add new parameter** list appears so you can select parameters to use with that method. |
+   | **Hidx Name** | Yes | <*HIDX-file-name*> | Select the 3270 HIDX file that you want to use. |
+   | **Method Name** | Yes | <*method-name*> | Select the method in the HIDX file that you want to use. After you select a method, the **Add new parameter** list appears so you can select parameters to use with that method. |
    ||||
 
    For example:
