@@ -98,6 +98,6 @@ In this example scenario:
 <!--Image references-->
 
 <!--Reference style links -->
-[AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
-[AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
+[AAD-Graph-App-Entity]: https://docs.microsoft.com/en-us/graph/api/resources/application
+[AAD-Graph-Sp-Entity]: https://docs.microsoft.com/en-us/graph/api/resources/serviceprincipal
 [AZURE-Portal]: https://portal.azure.com
