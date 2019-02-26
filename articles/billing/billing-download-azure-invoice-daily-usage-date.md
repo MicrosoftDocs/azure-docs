@@ -26,35 +26,19 @@ If you're an EA customer or have a [Microsoft Customer Agreement](#check-your-ac
 
 Only certain roles have permission to get billing invoice and usage information, like the Account Administrator or Enterprise Administrator. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](billing-manage-access.md).
 
-If you have a [Microsoft Customer Agreement](#Check-your-access-to-a-Microsoft-Customer-Agreement), you must be an Owner, Contributor, or Invoice manager of a billing profile to view billing and usage information.
+If you have a [Microsoft Customer Agreement](#Check-your-access-to-a-Microsoft-Customer-Agreement), you must be an Owner, Contributor, Reader, or Invoice manager of a billing profile to view billing and usage information.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## Download your Azure invoices (.pdf)
 
-<<<<<<< HEAD
-For most subscriptions, you can download your invoice from the Azure portal. If you have a Microsoft Customer Agreement, see [Download invoices for your billing profile](#download-invoices-for-your-billing-profile).
+For most subscriptions, you can download your invoice from the Azure portal. If you have a Microsoft Customer Agreement, see [Download invoices for a billing profile](#download-invoices-for-a-billing-profile).
 
-### Download invoices from the Azure portal
+### Download invoices for a subscription
 
 1. Select your subscription from the [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal as [a user with access to invoices](billing-manage-access.md).
 
 2. Select **Invoices**.
-=======
-1. Select your subscription from the [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Opt in for each subscription you own. Click **Invoices** then **Email my invoice**.
-
-    ![Screenshot that shows the opt-in flow](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
-
-2. Click **Opt in** and accept the terms.
-
-    ![Screenshot that shows the opt-in flow step 2](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
-
-3. Once you've accepted the agreement, you can configure additional recipients. When a recipient is removed, the email address is no longer stored. If you change your mind, you need to re-add them.
-
-    ![Screenshot that shows the opt-in flow step 3](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
-
-If you don't get an email after following the steps, make sure your email address is correct in the [communication preferences on your profile](https://account.windowsazure.com/profile).
->>>>>>> b3e62deb697340fe7ee0d0b1c70be7fbbbbcb20b
 
     ![Screenshot that shows the Billing & usage option](./media/billing-download-azure-invoice-daily-usage-date/billingandusage.png)
 
@@ -66,9 +50,9 @@ If you don't get an email after following the steps, make sure your email addres
 
 For more information about your invoice, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md). For help managing your costs, see [Prevent unexpected costs with Azure billing and cost management](billing-getting-started.md).
 
-### Download invoices for your billing profile
+### Download invoices for a billing profile
 
-If you have a Microsoft Customer Agreement, you can download your billing profile's invoice PDF from the Azure portal. You must be the Owner, Contributor, Reader, or Invoice manager of the billing profile. <!--TO DO: link to manage billing access MCA doc-->
+If you have a Microsoft Customer Agreement, you can download your billing profile's invoice PDF from the Azure portal. You must be the Owner, Contributor, Reader, or Invoice manager of the billing profile. <!--TO DO: link to manage billing access MCA doc and billing profile doc-->
 
 1. Search on **Cost Management + Billing**.
 2. Select a billing profile.
@@ -93,16 +77,12 @@ There could be several reasons that you don't see an invoice:
 
 You can opt in and configure additional recipients to receive your Azure invoice in an email. This feature may not be available for certain subscriptions such as support offers, Enterprise Agreements, or Azure in Open. If you have a Microsoft Customer agreement, see [Get your billing profile invoices in email](#get-your-billing-profile-invoices-in-email).
 
-<<<<<<< HEAD
 ### Get your subscription's invoices in email
-=======
-### <a name="noinvoice"></a> If you don't see an invoice for the last billing period
->>>>>>> b3e62deb697340fe7ee0d0b1c70be7fbbbbcb20b
 
-1. Select your subscription from the [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Opt in for each subscription you own. Click **Invoices** then **Email my invoice**. 
+1. Select your subscription from the [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Opt in for each subscription you own. Click **Invoices** then **Email my invoice**.
 
     ![Screenshot that shows the opt-in flow](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
-    
+
 2. Click **Opt in** and accept the terms.
 
     ![Screenshot that shows the opt-in flow step 2](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
@@ -136,11 +116,7 @@ You can opt out of getting your invoice by email by following the steps above an
 
 ## Download usage
 
-<<<<<<< HEAD
  For most subscriptions, find your  daily usage file in the [Azure Account Center](https://account.azure.com/Subscriptions). If you are an EA customer or have a Microsoft Customer Agreement, you can download usage in the [Azure portal](https://portal.azure.com/). <!-- TO DO: update PayG experience to Ibiza once it ships>
-=======
- For most subscriptions, find your  daily usage file in the [Azure Account Center](https://account.azure.com/Subscriptions). If you're an EA customer or have a Microsoft Customer Agreement, you can download usage in the [Azure portal](https://portal.azure.com/).
->>>>>>> b3e62deb697340fe7ee0d0b1c70be7fbbbbcb20b
 
 ### Download usage from the Account Center (.csv)
 
