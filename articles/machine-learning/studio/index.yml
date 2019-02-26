@@ -39,7 +39,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="walkthrough-develop-predictive-solution">Create and deploy a predictive solution</a>
+    - html: <a href="tutorial-part1-credit-risk">Create and deploy a predictive solution</a>
     - html: <a href="azure-ml-customer-churn-scenario">Customer churn example</a>
 
 

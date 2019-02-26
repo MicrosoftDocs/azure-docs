@@ -55,11 +55,11 @@ If you use a PIN to complete the authentication process, you can set up the Micr
 ## Who decides if you use this feature?
 Depending on your account type, your organization might decide that you must use two-factor verification, or you might be able to decide for yourself.
 
-- **Work or school account.** If you're using a work or school account (for example, alain@contoso.com), it's up to your organization whether you must use two-factor verification, along with the specific verification methods. For more information about adding your work or school account to the Microsoft Authenticator app, see [Add your work or school accounts](microsoft-authenticator-app-add-work-account.md).
+- **Work or school account.** If you're using a work or school account (for example, alain@contoso.com), it's up to your organization whether you must use two-factor verification, along with the specific verification methods. For more information about adding your work or school account to the Microsoft Authenticator app, see [Add your work or school accounts](user-help-auth-app-add-work-school-account.md).
 
-- **Personal Microsoft account.** You can choose to set up two-factor verification for your personal Microsoft accounts (for example, alain@outlook.com). For more information about adding your personal Microsoft account, see 
+- **Personal Microsoft account.** You can choose to set up two-factor verification for your personal Microsoft accounts (for example, alain@outlook.com). For more information about adding your personal Microsoft account, see [Add your personal accounts](user-help-auth-app-add-personal-ms-account.md).
 
-- **Non-Microsoft account.** You can choose to set up two-factor verification for your non-Microsoft accounts (for example, alain@gmail.com). Your non-Microsoft accounts might not use the term, two-factor verification, but you should be able to find the feature within the **Security** or the **Sign-in** settings. The Microsoft Authenticator app works with any accounts that support the TOTP standards.
+- **Non-Microsoft account.** You can choose to set up two-factor verification for your non-Microsoft accounts (for example, alain@gmail.com). Your non-Microsoft accounts might not use the term, two-factor verification, but you should be able to find the feature within the **Security** or the **Sign-in** settings. The Microsoft Authenticator app works with any accounts that support the TOTP standards. For more information about adding your non-Microsoft accounts, see [Add your non-Microsoft accounts](user-help-auth-app-add-non-ms-account.md).
 
 ## In this section
 
@@ -67,7 +67,8 @@ Depending on your account type, your organization might decide that you must use
 |------|------------|
 |[Download and install the app](user-help-auth-app-download-install.md)|Describes where and how to get and install the Microsoft Authenticator app for devices running Android and iOS.|
 |[Add your work or school accounts](user-help-auth-app-add-work-school-account.md)|Describes how to add your various work or school and personal accounts to the Microsoft Authenticator app.|
-|[Add your personal accounts](user-help-auth-app-add-personal-ms-account.md)|Describes how to add your personal Microsoft and non-Microsoft accounts to the Microsoft Authenticator app.|
+|[Add your personal accounts](user-help-auth-app-add-personal-ms-account.md)|Describes how to add your personal Microsoft accounts to the Microsoft Authenticator app.|
+|[Add your non-Microsoft accounts](user-help-auth-app-add-non-ms-account.md)|Describes how to add your non-Microsoft accounts to the Microsoft Authenticator app.|
 |[Manually add your accounts](user-help-auth-app-add-account-manual.md)|Describes how to manually add your accounts to the Microsoft Authenticator app, if you're unable to scan the provided QR code.|
 |[Sign-in using the app](user-help-auth-app-sign-in.md)|Describes how to sign in to your various accounts, using the Microsoft Authenticator app.|
 |[Backup and recover account credentials](user-help-auth-app-backup-recovery.md)| Provides information about how to back up and recover your account credentials, using the Microsoft Authenticator app.|

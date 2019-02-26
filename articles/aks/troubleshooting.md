@@ -30,7 +30,11 @@ The maximum pods-per-node setting is 110 by default if you deploy an AKS cluster
 
 ## I'm getting an insufficientSubnetSize error while deploying an AKS cluster with advanced networking. What should I do?
 
-In the custom Azure Virtual Network option for networking during AKS creation, the Azure Container Network Interface (CNI) is used for IP Address Management (IPAM). The number of nodes in an AKS cluster can be anywhere between 1 and 100. Based on the preceding section, the subnet size should be greater than the product of the number of nodes and the maximum pods per node. The relationship can be expressed in this way: subnet size > number of nodes in the cluster * maximum pods per node.
+If Azure CNI (advanced networking) is used, AKS preallocates IP addressed based on the "max-pods" per node configured. The number of nodes in an AKS cluster can be anywhere between 1 and 110. Based upon the configured max pods per node, the subnet size should be greater than the "product of the number of nodes and the max pod per node". The following basic equation outlines this:
+
+Subnet size > number of nodes in the cluster (taking into consideration the future scaling requirements) * max pods per node.
+
+For more information, see [Plan IP addressing for your cluster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
 ## My pod is stuck in CrashLoopBackOff mode. What should I do?
 

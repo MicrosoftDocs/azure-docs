@@ -30,9 +30,6 @@ Activity logs are kept for 90 days. You can query for any range of dates, as lon
 
 You can retrieve information from the activity logs through the portal, PowerShell, Azure CLI, Insights REST API, or [Insights .NET Library](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## The Azure portal
 
 1. To view the activity logs through the portal, select **Monitor**.

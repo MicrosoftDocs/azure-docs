@@ -3,7 +3,7 @@ title: Manage authentication in Azure Maps | Microsoft Docs
 description: You can use the Azure portal to manage authentication in Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/09/2018
+ms.date: 02/14/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -12,7 +12,7 @@ manager: timlt
 
 # Manage authentication in Azure Maps
 
-After you create an Azure Maps account, three GUIDS are created to support either Azure Active Directory (Azure AD) or Shared Key authentication.
+After you create an Azure Maps account, the client ID and keys are created to support either Azure Active Directory (Azure AD) or Shared Key authentication.
 
 You can find your authentication details by navigating to the **Authentication** page under **Settings** in the Azure portal. Navigate to your account. Then select **Authentication** from the menu.
 
@@ -30,7 +30,7 @@ To view your authentication details, navigate to the **Authentication** option i
 
 Once an Azure Map account is created, a link between your Azure AD tenant and the Azure Maps Azure resource is required. 
 
-1. Go to the AAD blade and create an App Registration with a name and the sign in URL as the home page of the web app / API such as "https://localhost/" . If you already have a registered app, proceed to step 2.
+1. Go to the Azure AD blade and create an App Registration with a name and the sign in URL as the home page of the web app / API such as "https://localhost/" . If you already have a registered app, proceed to step 2.
 
     ![App registration](./media/how-to-manage-authentication/app-registration.png)
 
@@ -46,11 +46,11 @@ Once an Azure Map account is created, a link between your Azure AD tenant and th
 
 4. Follow step a or b, depending on authentication implementation.
 
-    1. If the application is intending to use user token authentication with our Azure Maps Web SDK,, you must enable the `oauthEnableImplicitFlow` by setting it to true in the Manifest section of your app registration detail page. 
+    1. If the application is intending to use user token authentication with our Azure Maps Web SDK, you must enable the `oauthEnableImplicitFlow` by setting it to true in the Manifest section of your app registration detail page.
     
        ![App manifest](./media/how-to-manage-authentication/app-manifest.png)
 
-    2. If your application uses server/application authentication go to the **Keys** blade in the app registration and either create a password or upload a public key certificate to the app registration. If you create a password, once you **Save**, copy the password for later, and store it securely, you will use this to acquire tokens from AAD. 
+    2. If your application uses server/application authentication go to the **Keys** blade within the app registration and either create a password or upload a public key certificate to the app registration. If you create a password, once you **Save**, copy the password for later, and store it securely, you will use this to acquire tokens from Azure AD.
 
        ![App keys](./media/how-to-manage-authentication/app-keys.png)
 
@@ -89,8 +89,7 @@ Once your app is registered and associated with Azure Maps, you can now request 
 
 * If the application is intending to use user token authentication with our Azure Maps Web SDK (Web), you need to configure your html page with Azure Maps Client ID and Azure AD App ID.
 
-
-* For applications using server/application authentication, request a token from Azure AD login endpoint https://login.microsoftonline.com with Azure Maps Client ID, Azure AD App ID, and Azure AD App registration password or certificate.
+* For applications using server/application authentication, request a token from Azure AD login endpoint `https://login.microsoftonline.com` with Azure AD resource ID `https://atlas.microsoft.com/`, Azure Maps Client ID, Azure AD App ID, and Azure AD App registration password or certificate.
 
 For more information on requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 

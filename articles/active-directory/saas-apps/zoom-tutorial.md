@@ -126,7 +126,7 @@ To configure Azure AD single sign-on with Zoom, perform the following steps:
 	| role | 	user.assignedrole |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role |
 
 	> [!NOTE]
-	> Please click [here](https://docs.microsoft.com/en-gb/azure/role-based-access-control/role-assignments-portal) to know how to configure Role in Azure AD
+	> Please click [here](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) to know how to configure Role in Azure AD
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
@@ -274,8 +274,8 @@ When you click the Zoom tile in the Access Panel, you should be automatically si
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

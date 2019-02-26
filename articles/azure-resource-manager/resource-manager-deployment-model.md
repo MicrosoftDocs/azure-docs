@@ -45,8 +45,6 @@ When Resource Manager was added, all resources were retroactively added to defau
 
 ## Understand support for the models
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 There are three scenarios to be aware of:
 
 1. Cloud Services does not support Resource Manager deployment model.

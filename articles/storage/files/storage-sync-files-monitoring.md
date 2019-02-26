@@ -43,7 +43,7 @@ Metrics
   | Cloud tiering recall | Size of data recalled | Registered servers |
   | Files not syncing | Count of files that are failing to sync | Server endpoint |
   | Files synced | Count of files transferred (upload and download) | Sync group, Server endpoint |
-  | Server heartbeat | Count of heartbeats received from the server | Registered servers |
+  | Server online status | Count of heartbeats received from the server | Registered servers |
 
 - To learn more, see [Azure Monitor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#azure-monitor) section. 
 
@@ -65,7 +65,7 @@ The following metrics for Azure File Sync are available in Azure Monitor:
 | Cloud tiering recall | Size of data recalled.<br><br>Unit: Bytes<br>Aggregation Type: Sum<br>Applicable dimension: Server Name |
 | Files not syncing | Count of files that are failing to sync.<br><br>Unit: Count<br>Aggregation Type: Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
 | Files synced | Count of files transferred (upload and download).<br><br>Unit: Count<br>Aggregation Type: Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
-| Server heartbeat | Count of heartbeats received from the server.<br><br>Unit: Count<br>Aggregation Type: Maximum<br>Applicable dimension: Server Name |
+| Server online status | Count of heartbeats received from the server.<br><br>Unit: Count<br>Aggregation Type: Maximum<br>Applicable dimension: Server Name |
 | Sync session result | Sync session result (1=successful sync session; 0=failed sync session)<br><br>Unit: Count<br>Aggregation Types: Maximum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
 
 ## Windows Server

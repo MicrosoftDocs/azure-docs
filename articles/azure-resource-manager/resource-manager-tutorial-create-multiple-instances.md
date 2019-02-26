@@ -29,8 +29,6 @@ This tutorial covers the following tasks:
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## Prerequisites
 
 To complete this article, you need:
@@ -118,6 +116,8 @@ For more information about creating multiple instances, see [Deploy multiple ins
 
 Refer to the [Deploy the template](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) section in the Visual Studio Code quickstart for the deployment procedure.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To list all three storage accounts, omit the --name parameter:
 
 # [Azure CLI](#tab/azure-cli)
@@ -128,8 +128,6 @@ az storage account list --resource-group $resourceGroupName
 ```
 
 # [PowerShell](#tab/azure-powershell)
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"

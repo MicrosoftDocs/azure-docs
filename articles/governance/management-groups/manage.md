@@ -1,6 +1,6 @@
 ---
-title: How to change, delete, or manage your management groups in Azure
-description: Learn how to maintain and update your management group hierarchy. 
+title: How to change, delete, or manage your management groups in Azure - Azure Governance
+description: Learn how to view, maintain, update, and delete your management group hierarchy.
 author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
@@ -40,11 +40,11 @@ You can change the name of the management group by using the portal, PowerShell,
 
 1. Select the **Rename group** option at the top of the page.
 
-   ![Rename Group](./media/detail_action_small.png)
+   ![Rename Group option](./media/detail_action_small.png)
 
 1. When the menu opens, enter the new name you would like to have displayed.
 
-   ![Rename Group](./media/rename_context.png)
+   ![Rename Group pane](./media/rename_context.png)
 
 1. Select **Save**.
 
@@ -89,11 +89,11 @@ To delete a management group, the following requirements must be met:
 
    - If the icon is disabled, hovering your mouse selector over the icon shows you the reason.
 
-   ![delete Group](./media/delete.png)
+   ![Delete group option](./media/delete.png)
 
 1. There's a window that opens confirming you want to delete the management group.
 
-   ![delete Group](./media/delete_confirm.png)
+   ![Delete group confirmation window](./media/delete_confirm.png)
 
 1. Select **Yes**.
 
@@ -199,13 +199,13 @@ To see what permissions you have, select the management group and then select **
 
 1. Select the ellipse at the end of the row for the subscription in the list you want to move.
 
-   ![Move](./media/move_small.png)
+   ![Move option](./media/move_small.png)
 
 1. Select **Move**.
 
 1. On the menu that opens, select the **Parent management group**.
 
-   ![Move](./media/move_small_context.png)
+   ![Move pane](./media/move_small_context.png)
 
 1. Select **Save**.
 

@@ -1,16 +1,16 @@
 ---
 title: Import and Export data in Azure Cache for Redis | Microsoft Docs
 description: Learn how to import and export data to and from blob storage with your premium Azure Cache for Redis instances
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
 author: yegu-ms
-manager: cfowler
+manager: jhubbard
 editor: ''
 
 ms.assetid: 4a68ac38-87af-4075-adab-569d37d7cc9e
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017

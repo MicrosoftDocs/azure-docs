@@ -6,6 +6,7 @@ metadata:
   title: Azure SQL Database - Monitoring and tuning
   meta.description: Learn how to monitor and tune your Azure SQL database.
   services: sql-database
+  ms.subservice: performance
   author: jovanpop-msft
   manager: craigg
   ms.service: sql-database

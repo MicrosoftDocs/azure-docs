@@ -72,8 +72,6 @@ Because your app accesses other subscription, you must configure it as a multi-t
 
 The following example shows how to register the app by using Azure PowerShell. You must have the latest version (August 2016) of Azure PowerShell for this command to work.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ```azurepowershell-interactive
 $app = New-AzADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
 ```

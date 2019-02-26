@@ -25,17 +25,21 @@ The S0 and S1 pricing tiers handle different amounts of data throughput. Before 
 | Capability                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
 | Search                                  |        ✓           |     ✓    |
-| Routing                                 |        ✓           |     ✓    |
-| Render                                  |        ✓           |     ✓    |
-| Traffic                                 |        ✓           |     ✓    |
-| Time zones                              |        ✓           |     ✓    |
-| Imagery plus hybrid imagery    |            |     ✓    |
-| Route range                    |                   |     ✓    |
-| IP 2 location (preview)                |        ✓           |     ✓    |
-| Polygons from search          |                   |     ✓    |
 | Batch geocoding (preview)              |                   |     ✓    |
+| Polygons from search          |                   |     ✓    |
+| Routing                                 |        ✓           |     ✓    |
+| Route range                    |                   |     ✓    |
 | Batch routing (preview)                |                   |     ✓    |
 | Matrix routing (preview)               |                   |     ✓    |
+| Render                                  |        ✓           |     ✓    |
+| Imagery plus hybrid imagery    |            |     ✓    |
+| Traffic                                 |        ✓           |     ✓    |
+| Time zones                              |        ✓           |     ✓    |
+| Geolocation (preview)                |        ✓           |     ✓    |
+| Data  (preview)               |                   |     ✓    |
+| Spatial  (preview)               |                   |     ✓    |
+| Geofencing  (preview)               |                   |     ✓    |
+
 
 
 These additional data points are worth considering:
