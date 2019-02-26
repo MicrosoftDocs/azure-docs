@@ -44,7 +44,7 @@ ms.author: ramkris
 
 ### <a name="2.1.0-preview2"/>2.1.0-preview2
 
-* Removed overload for BulkDelete operation with query for SQL API. This change makes it functionally equivalent to 1.4.0 release.
+* Added BulkDelete support for SQL API accounts to accept partition key, document id tuples to delete. This change makes it functionally equivalent to 1.4.0 release.
 
 ### <a name="2.0.0-preview2"/>2.0.0-preview2
 
@@ -60,12 +60,10 @@ ms.author: ramkris
 
 ### <a name="1.4.0"/>1.4.0
 
-* Removed overload for BulkDelete with SQL query filter for SQL API. This feature is being improved and will be incorporated in the upcoming release.
+* Added BulkDelete support for SQL API accounts to accept partition key, document id tuples to delete.
 
 ### <a name="1.3.0"/>1.3.0
 
-* Added an overload for BulkDelete operation for SQL API accounts to accept partition key, document id tuples to delete.
-* Added an overload for BulkDelete operation for SQL API accounts to accept RequestOptions containing the partition key specifying the value of the partition key, in addition to using it as a filter in the input query specifying documents to delete.
 * Fixed an issue, which caused a formatting issue in the user agent used by BulkExecutor.
 
 ### <a name="1.2.0"/>1.2.0
