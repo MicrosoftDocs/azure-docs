@@ -201,8 +201,8 @@ KubePodInventory
     a. From the **Based on** drop-down list, select **Metric measurement**. A metric measurement will create an alert for each object in the query with a value that exceeds our specified threshold.  
     b. For the **Condition**, select **Greater than** and enter **75** as an initial baseline **Threshold** or enter a value that meets your criteria.  
     c. Under **Trigger Alert Based On** section, select **Consecutive breaches** and from the drop-down list select **Greater than** enter a value of **2**.  
-    d. If configuring an alert for container CPU or memory utilization, under **Aggregate on** select **ContainerName** from the drop-down list.
-    d. Under **Evaluated based on** section, modify the **Period** value to 60 minutes. The rule will run every five minutes and return records that were created within the last hour from the current time. Setting the time period to a wider window accounts for the potential of data latency, and ensures the query returns data to avoid a false negative where the alert never fires. 
+    d. If configuring an alert for container CPU or memory utilization, under **Aggregate on** select **ContainerName** from the drop-down list.  
+    e. Under **Evaluated based on** section, modify the **Period** value to 60 minutes. The rule will run every five minutes and return records that were created within the last hour from the current time. Setting the time period to a wider window accounts for the potential of data latency, and ensures the query returns data to avoid a false negative where the alert never fires. 
 
 9. Click **Done** to complete the alert rule.
 10. Provide a name of your alert in the **Alert rule name** field. Specify a **Description** detailing specifics for the alert, and select an appropriate severity from the options provided.
