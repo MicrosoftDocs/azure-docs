@@ -53,7 +53,7 @@ FunctionsProject
 
 There's a shared [host.json](functions-host-json.md) file that can be used to configure the function app. Each function has its own code file (.csx) and binding configuration file (function.json).
 
-The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](functions-triggers-bindings.md#local-development-azure-functions-core-tools). When developing functions in the Azure portal, this registration is done for you.
+The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](./functions-bindings-register.md#local-development-azure-functions-core-tools). When developing functions in the Azure portal, this registration is done for you.
 
 ## Binding to arguments
 
@@ -220,7 +220,7 @@ The `#load` directive works only with *.csx* files, not with *.cs* files.
 
 ## Binding to method return value
 
-You can use a method return value for an output binding, by using the name `$return` in *function.json*. For examples, see [Triggers and bindings](functions-triggers-bindings.md#using-the-function-return-value).
+You can use a method return value for an output binding, by using the name `$return` in *function.json*. For examples, see [Triggers and bindings](./functions-bindings-return-value.md).
 
 Use the return value only if a successful function execution always results in a return value to pass to the output binding. Otherwise, use `ICollector` or `IAsyncCollector`, as shown in the following section.
 
@@ -372,12 +372,12 @@ For information on how to upload files to your function folder, see the section 
 The directory that contains the function script file is automatically watched for changes to assemblies. To watch for assembly changes in other directories, add them to the `watchDirectories` list in [host.json](functions-host-json.md).
 
 ## Using NuGet packages
-To use NuGet packages in a C# function, upload a *extensions.csproj* file to the function's folder in the function app's file system. Here is an example *extensions.csproj* file that adds a reference to *Microsoft.ProjectOxford.Face* version *1.1.0*:
+To use NuGet packages in a C# function, upload a *function.proj* file to the function's folder in the function app's file system. Here is an example *function.proj* file that adds a reference to *Microsoft.ProjectOxford.Face* version *1.1.0*:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net46</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
     
     <ItemGroup>
@@ -395,20 +395,15 @@ To use a custom NuGet feed, specify the feed in a *Nuget.Config* file in the Fun
 3. After the *extensions.csproj* file is uploaded, you see output like the following example in your function's streaming log:
 
 ```
-2016-04-04T19:02:48.745 Restoring packages.
-2016-04-04T19:02:48.745 Starting NuGet restore
-2016-04-04T19:02:50.183 MSBuild auto-detection: using msbuild version '14.0' from 'D:\Program Files (x86)\MSBuild\14.0\bin'.
-2016-04-04T19:02:50.261 Feeds used:
-2016-04-04T19:02:50.261 C:\DWASFiles\Sites\facavalfunctest\LocalAppData\NuGet\Cache
-2016-04-04T19:02:50.261 https://api.nuget.org/v3/index.json
-2016-04-04T19:02:50.261
+2018-12-14T22:00:48.658 [Information] Restoring packages.
+2018-12-14T22:00:48.681 [Information] Starting packages restore
+2018-12-14T22:00:57.064 [Information] Restoring packages for D:\local\Temp\9e814101-fe35-42aa-ada5-f8435253eb83\function.proj...
 2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\extensions.csproj...
-2016-04-04T19:02:52.800 Installing Newtonsoft.Json 6.0.8.
-2016-04-04T19:02:52.800 Installing Microsoft.ProjectOxford.Face 1.1.0.
-2016-04-04T19:02:57.095 All packages are compatible with .NETFramework,Version=v4.6.
-2016-04-04T19:02:57.189
-2016-04-04T19:02:57.189
-2016-04-04T19:02:57.455 Packages restored.
+2018-12-14T22:01:00.844 [Information] Installing Newtonsoft.Json 10.0.2.
+2018-12-14T22:01:01.041 [Information] Installing Microsoft.ProjectOxford.Common.DotNetStandard 1.0.0.
+2018-12-14T22:01:01.140 [Information] Installing Microsoft.ProjectOxford.Face.DotNetStandard 1.0.0.
+2018-12-14T22:01:09.799 [Information] Restore completed in 5.79 sec for D:\local\Temp\9e814101-fe35-42aa-ada5-f8435253eb83\function.proj.
+2018-12-14T22:01:10.905 [Information] Packages restored.
 ```
 
 ## Environment variables

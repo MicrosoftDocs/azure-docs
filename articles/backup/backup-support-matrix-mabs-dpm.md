@@ -70,7 +70,7 @@ Azure Backup can back up MABS/DPM running any of the following operating systems
 --- | --- 
 **MABS on an Azure VM** | Windows Server 2012 R2<br/><br/> Windows 2016 Datacenter<br/><br/> Windows 2019 Datacenter<br/><br/> We recommend you start with an image from the marketplace.<br/><br/> Minimum A2 Standard with two cores and 3.5 GB RAM. 
 **DPM on an Azure VM** | System Center 2012 R2 with Update 3 or later.<br/><br/> Windows operating system as [required by System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> We recommend you start with an image from the marketplace.<br/><br/> Minimum A2 Standard with two cores and 3.5 GB RAM. 
-**MABS on-premises** | Supported 64-bit operating systems:<br/><br/> - MABS v3 onwards: Windows Server 2019 (Standard, Datacenter, Essentials) <br/><br/> MABS v2 onwards: Windows Server 2016 (Standard, Datacenter, Essentials)<br/><br/> All MABS versions: Windows Server 2012 R2/2012 (Standard, Datacenter, Foundation)<br/><br/>All MABS versions: Windows Storage Server 2012 R2/2012 (Standard/Workgroup)
+**MABS on-premises** | Supported 64-bit operating systems:<br/><br/> MABS v3 onwards: Windows Server 2019 (Standard, Datacenter, Essentials) <br/><br/> MABS v2 onwards: Windows Server 2016 (Standard, Datacenter, Essentials)<br/><br/> All MABS versions: Windows Server 2012 R2/2012 (Standard, Datacenter, Foundation)<br/><br/>All MABS versions: Windows Storage Server 2012 R2/2012 (Standard/Workgroup)
 **DPM on-premises** | Physical server/Hyper-V VM: System Center 2012 SP1 or later.<br/><br/> VMware VM: System Center 2012 R2 with Update 5 or later. 
 
 
@@ -101,7 +101,7 @@ You can deploy MABS on an Azure Stack VM so that you can manage backup of Azure 
 .NET Framework on MABS | The MABS VM needs .NET Framework 3.3 SP1 or higher installed on it.
 **MABS domain** | The MABS VM must be joined to a domain. A domain user with admin privileges must install MABS on the VM.
 **Azure Stack VM data backup** | You can back up files, folders, and apps.
-**Supported backup** | These operating systems are supported for VMs you want to back up:<br/><br/> - Windows Server Semi-Annual Channel (Datacenter/Enterprise/Standard)<br/><br/> Windows Server 2016/2012 R2/2012/2008 R2.
+**Supported backup** | These operating systems are supported for VMs you want to back up:<br/><br/> Windows Server Semi-Annual Channel (Datacenter/Enterprise/Standard)<br/><br/> Windows Server 2016/2012 R2/2012/2008 R2.
 **SQL support for Azure Stack VMs** | Back up SQL Server 2016/2014/2012 SP1.<br/><br/> Back up and recover database.
 **SharePoint support for Azure Stack VMs** | SharePoint 2016/2013/2010.<br/><br/> Back up and recover farm, database, frontend, web server.
 **Network requirements for backed up VMs** | All VMs in Azure Stack workload must be to the same VNet and belong to same subscription.
@@ -215,4 +215,4 @@ The following table summarizes what can be backed up to DPM from on-premises mac
 - [Learn more](backup-architecture.md#architecture-back-up-to-dpmmabs) about MABS architecture.
 - [Review](backup-support-matrix-mars-agent.md) what's supported for the MARS agent.
 - [Set up](backup-azure-microsoft-azure-backup.md) a MABS server.
-- [Set up](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-180
+- [Set up DPM](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-180)

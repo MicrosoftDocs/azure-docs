@@ -447,10 +447,10 @@
         href: platform/archive-diagnostic-logs.md
       - name: Store diagnostic logs
         href: platform/diagnostic-logs-stream-log-store.md
+      - name: Azure resource data to Event Hub
+        href: platform/stream-monitoring-data-event-hubs.md
       - name: Stream activity log to Event Hubs
         href: platform/activity-logs-stream-event-hubs.md
-      - name: Logs and metrics to Event Hub
-        href: platform/stream-monitoring-data-event-hubs.md
       - name: Diagnostic logs to Event Hub
         href: platform/diagnostic-logs-stream-event-hubs.md
       - name: Application data to Log Analytics

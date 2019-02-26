@@ -17,116 +17,114 @@ ms.date: 01/30/2019
 ms.author: pbutlerm
 ---
 
-# Power BI Apps Storefront Details tab
+# Power BI app Storefront Details tab
 
-Use the **Storefront Details** tab of the **New Offer** page to provide marketing, sales, and legal information to your prospective customers. This tab also specifies how to manage leads generated from the marketplace. This long form is divided into six sections: **Offer Details**, **Listing Details**, **Marketing Artifacts**, **Legal**, **Customer Support**, and **Lead Management**.  An appended asterisk (*) on the field label indicates that it is required.
+On the **New Offer** page, use the **Storefront Details** tab to provide marketing, sales, and legal information for your prospective customers. On this tab you can also set up management for leads that the Azure Marketplace generates. This long form is divided into six sections: **Offer Details**, **Listing Details**, **Marketing Artifacts**, **Legal**, **Customer Support**, and **Lead Management**.  An asterisk (*) at the end of a field label means the field is required.
 
 
 ## Offer Details section
 
-In this section, you enter the general information about your App Source Offer.
+In the **Offer Details** section, enter general information about your AppSource offer.
 
 ![Offer Details section of the Storefront Details tab](./media/offer-details-section.png)
 
-The following table describes the name and purpose of these fields.
+To complete the fields in this section, use the following table:
 
 |   Field               |   Description                                                                           |
 |-----------------------|-----------------------------------------------------------------------------------------|
-| **Offer Summary**     | Brief purpose of the app. Maximum length of 100 characters.                             |
-| **Offer Description** | Description of app. Maximum length of 3000 characters, supports simple HTML formatting. |
+| **Offer summary**     | A brief purpose of the app, using up to 100 characters.                             |
+| **Offer description** | A description of the app, using up to 3,000 characters. This field supports simple HTML formatting. |
 |                       |                                                                                         |
 
 
 ## Listing Details section
 
-This second section provides additional context for your app: what industries it is typically used in, what category best applies to it, compatible products, and associated search terms.
+The **Listing Details** section gathers information about the context of your app: industries where it's typically used, the app category, compatible products, and associated search terms.
 
 ![Listing Details section of the Storefront Details tab](./media/listing-details-section.png)
 
- The following table describes the name and purpose of these fields.
+To complete the fields in this section, use the following table:
  
 |   Field                                  |   Description                                                        |
 | --------------                           | ---------------------                                                |
-| **Industries**                           | Select the industry that your app is best aligned to. If your app relates to multiple industries, you can leave this blank.      |
-| **Categories**                           | Select the categories that are relevant to your app. Select a maximum of 3.     |
-| **Help link for your app**               | URL to a page that has online help for your app           |
-| **Products your app works with (Max 3)** | List the specific products that your app works with. You can list maximum of 3 products. To list a product, click on the plus sign (beside new) and a new open text field will be created for you to enter the name of a product that your app works with.      |
-| **Search keywords (Max 3)**              | AppSource allows customer to do search based on keywords. You can enter the set of keywords for which your application will be shown to the customers. For example, if the application is "My Emailing app" Emails, Mailing, Mail app might be some keywords. Choose words that users will likely use to search for your app in the AppSource search box. |
+| **Industries**                           | Select the industry where your app fits best. If your app relates to multiple industries, leave this field blank.      |
+| **Categories**                           | Select up to three categories that relate to your app.     |
+| **Help link for your app**               | Provide a URL to a page that offers online help for your app.           |
+| **Products your app works with (Max 3)** | Select the **New** plus sign to create a text field. In the field, enter the name of a product that your app works with. List up to three products.       |
+| **Search keywords (Max 3)**              | Enter up to three keywords that users will likely use to search for your application in AppSource. For example, if the application is called "My Emailing app," your keywords might be **emails**, **mailing**, and **mail app**. |
 |  |  |
 
 
 ## Marketing Artifacts section
 
-This third section enables uploading of branding and marketing materials.  It is divided in four subsections: **Logos**, **Videos**, **Documents**, and **Screenshots**. Logos and screenshots are required marketing artifacts; however, all are highly recommended for best customer appeal.
+In the **Marketing Artifacts** section, upload branding and marketing materials to display on AppSource.  This section is divided into four subsections: **Logos**, **Videos**, **Documents**, and **Screenshots**. Logos and screenshots are the only required marketing artifacts. But for the best customer appeal, we recommend adding videos and documents as well.
 
 ![Marketing Artifacts section of the Storefront Details tab](./media/marketing-artifacts-section.png)
 
+To complete the fields in this section, use the following table:
  
 |    Field                             |    Description                                                    |
 |   -----------                        |    -------------                                                  |
 | *Logos*                              |                                                                   |
-| **Offer logo (png format, 48x48)**   | Displayed on AppSource in the overview of app or app results, when completing a search. Only png format, with a resolution of 48px\*48px is supported.  |
-| **Offer logo (png format, 216x216)** | Displayed on AppSource on your app’s detail page.  Only png format, with a resolution of 216px\*216px is supported.  |
+| **Offer logo (png format, 48x48)**   | Upload a logo to display in the overview of the app or in app search results. AppSource supports only PNG format, with a resolution of 48 x 48 px.  |
+| **Offer logo (png format, 216x216)** | Upload a logo to display on your app’s detail page.  AppSource supports only PNG format, with a resolution of 216 x 216 px.  |
 | *Videos*                             |                                                                   |
-| **Name**                             | Name or title of the app                                          |
-| **URL**                              | Video URL hosted on YouTube or Vimeo                              |
-| **Thumbnail**                        | Thumbnail image of the app.  Only png format with a resolution of 1280px\*720px is supported.   |
-| *Documents*                          | Optional, but maximum of three documents. Docs you upload here will appear on AppSource under "Learn more".  |
-| **Name**                             | Name or title of supporting document                              |
-| **File**                             | Upload document must be in pdf format                             |
-| *Screenshots*                        | Optional, but maximum of five screenshots.                        |
-| **Name**                             | Name or title of screenshot                                       |
-| **Image**                            | Upload screen capture image, must be png format with resolution of 1280px\*720px  | 
+| **Name**                             | Enter your app's name or title.                                          |
+| **URL**                              | Enter the URL of a video hosted on YouTube or Vimeo.                              |
+| **Thumbnail**                        | Add a thumbnail image of the app.  AppSource supports only PNG format, with a resolution of 1280 x 720 px.   |
+| *Documents*                          | Add up to three documents to display on AppSource, under the **Learn more** heading.  |
+| **Name**                             | Enter the name or title of a supporting document.                              |
+| **File**                             | Upload a PDF file.                             |
+| *Screenshots*                        | Add up to five screenshots.                        |
+| **Name**                             | Enter a name or title of a screenshot.                                       |
+| **Image**                            | Upload a PNG screenshot. Its resolution must be 1280 x 720 px.  | 
 |   |   |
 
+The logos you upload to [Cloud Partner Portal](https://cloudpartner.azure.com) should *not*:
 
-### Logo guidelines
-
-All the logos uploaded to the [Cloud Partner Portal](https://cloudpartner.azure.com) should follow the guidelines:
-
-- Do not use a gradient background on your logo.
-- Avoid placing text—including your company or brand name—on the logo. The look and feel of your logo should be "flat" and should avoid gradients.
-- Do not stretch the logo.
-
+- Use a gradient. The look and feel of your logo should be flat.
+- Include your company name, brand name, or other text. 
+- Look stretched.
 
 ## Legal section
 
-This fourth section enables you to provide the two legal documents required for each offer: Privacy Policy and the Terms of Use.
+In the **Legal** section, provide the two legal documents required for each offer: your privacy policy and your terms of use.
 
 ![Legal section of the Storefront Details tab](./media/legal-section.png)
 
+To complete the fields in this section, use the following table:
+
 |   Field                |   Description                           |
 |------------------------|--------------------------------------   |
-| **Privacy Policy URL** | URL to your posted privacy policy       |
-| **Terms of use**       | Policy as plain text or simple HTML     |
+| **Privacy policy URL** | URL for your posted privacy policy       |
+| **Terms of use**       | Your use policy, formatted as plain text or simple HTML     |
 |  |  |
 
 
 ## Customer Support section
 
-Provide the **Support URL** for your online customer support page.  It is best if this online support page provides customers with multiple contact options, such as phone, email, and live chat. 
+In the **Customer Support** section, provide the **Support URL** for your online customer support page.  This page should provide multiple contact options, such as phone, email, and live chat. 
 
 
 ## Lead Management section
 
-The last section enables you to collect customers leads generated from your AppSource offers. It offers the following storage options (from a drop-down list)
-for this lead information.
+In the **Lead Management** section, set up your system to collect the customer leads that your AppSource offers generate. To choose your storage options for the leads, use the following table:
 
 |    Field               |   Lead destination                               |
 |------------------------|--------------------------------------            |
-|  **None**              | Leads are not collected (the default).  |
-| **Azure Blob (deprecated)** | An [Azure blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview), specified by a container name and a connection string.  This choice is deprecated; use **Azure Table** instead.  |
-| **Azure Table**        | An [Azure table](https://docs.microsoft.com/azure/cosmos-db/table-storage-overview), specified by a connection string  |
-| **Dynamics CRM Online** | A [Microsoft Dynamics 365 Online](https://dynamics.microsoft.com/) instance, specified by a URL and authentication credentials |
-| **HTTPS Endpoint**     | The specified HTTPS endpoint as a JSON payload   |
-| **Marketo**            | A [Marketo](https://www.marketo.com/) instance, specified by server ID, munchkin ID, and form ID   |
-| **Salesforce**         | A [Salesforce](https://www.salesforce.com/) database, specified by an object Identifier |
+|  **None**              | Collect no leads. This is the default option.  |
+| **Azure Blob (deprecated)** | Specify [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) by using a container name and a connection string.  This choice is deprecated. Use **Azure Table** instead.  |
+| **Azure Table**        | Specify [Azure Table storage](https://docs.microsoft.com/azure/cosmos-db/table-storage-overview) by using a connection string.  |
+| **Dynamics CRM Online** | Specify [Dynamics 365](https://dynamics.microsoft.com/) by using a URL and authentication credentials. |
+| **HTTPS endpoint**     | Specify the HTTPS endpoint by using a JSON payload.   |
+| **Marketo**            | Specify a [Marketo](https://www.marketo.com/) instance by using a server ID, munchkin ID, and form ID.   |
+| **Salesforce**         | Specify [Salesforce](https://www.salesforce.com/) by using an object identifier. |
 |  |  |
 
-After you publish your offer, the lead connection is validated, and a test lead is automatically sent to the specified destination. Lead
-information should be continuously managed, and these settings should be promptly updated to reflect your current customer management architecture.
+After you publish your offer, the lead connection is validated, and a test lead is automatically sent to the specified destination. Continuously manage lead
+information, and promptly update your settings to reflect your current customer management architecture.
 
 
 ## Next steps
 
-In the next [Contacts](./cpp-contacts-tab.md) tab, you will provide technical and user support resources for your offer.
+On the [Contacts](./cpp-contacts-tab.md) tab, provide technical and user support resources for your offer.
