@@ -79,7 +79,7 @@ When assign licenses to a group, Azure AD processes all existing members of that
 ## Step 3: Check for license problems and resolve them
 
 1. Go to **Azure Active Directory** > **Groups**, and find the group that licenses were assigned to.
-2. On the *group pane, select **Licenses**. The notification on top of the pane shows that there are 10 users that licenses couldn't be assigned to. Clicking it opens a list of all users in a licensing-error state for this group.
+2. On the group pane, select **Licenses**. The notification on top of the pane shows that there are 10 users that licenses couldn't be assigned to. Open it to see a list of all users in a licensing error state for this group.
 3. The **Failed assignments** column tells us that both product licenses couldn't be assigned to the users. The **Top reason for failure** column contains the cause of the failure. In this case, it's **Conflicting service plans**.
 
    ![Failed assignments](./media/licensing-groups-assign/failed-assignments.png)
