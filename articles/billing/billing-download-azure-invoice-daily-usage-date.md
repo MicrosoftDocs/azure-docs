@@ -190,11 +190,11 @@ If you have questions or need help, [create a support request](https://portal.az
 
 To learn more about your invoice and charges, see:
 
-- [Understand your bill for Microsoft Azure](billing-understand-your-bill-mca.md)
+- [Understand your bill for Microsoft Azure](billing-understand-your-bill.md)
 - [Understand terms on your Azure invoice](billing-understand-your-invoice.md)
 - [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md)
 
 If you have a Microsoft Customer Agreement, see:
 
-- [Understand the charges on the invoice for your billing profile ](billing-understand-your-bill-mca.md)
-- [Understand terms on the invoice for your billing profile](billing-understand-your-invoice-mca.md)
+- [Understand the charges on the invoice for your billing profile ](billing-mca-understand-your-bill.md)
+- [Understand terms on the invoice for your billing profile](billing-mca-understand-your-invoice.md)

@@ -98,4 +98,4 @@ If you have a Microsoft Customer Agreement, see:
 
 - [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md)
 - [View and download tax documents for your billing profile](billing-mca-download-tax-document.md)
-- [Understand the charges on your billing profile's invoice](billing-mca-understand-your-bill.md)
+- [Understand the charges on your billing profile's invoice](billing-understand-your-bill-mca.md)
