@@ -3,7 +3,7 @@ title: Monitor containers on Azure Service Fabric with Log Analytics | Microsoft
 description: Use Log Analytics for monitoring containers running on Azure Service Fabric clusters.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/1/2017
-ms.author: dekapur
+ms.date: 02/25/2019
+ms.author: srrengar
 
 ---
 
