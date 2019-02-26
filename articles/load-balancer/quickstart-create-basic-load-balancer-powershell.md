@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 02/21/2019
 ms.author: kumud
 ms:custom: seodec18
 ---

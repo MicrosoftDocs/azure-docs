@@ -5,7 +5,7 @@ description: This guide provides solutions for some frequently encountered chall
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs

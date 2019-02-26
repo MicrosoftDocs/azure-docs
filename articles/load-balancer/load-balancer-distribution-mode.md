@@ -89,7 +89,7 @@ When the `LoadBalancerDistribution` element is not present, Azure Load Balancer 
 
 When endpoints are part of a load-balanced endpoint set, the distribution mode must be configured on the load-balanced endpoint set:
 
-```powershell
+```azurepowershell
 Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
 ```
 

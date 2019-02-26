@@ -5,7 +5,7 @@ description: Azure Machine Learning Studio makes it easy to call web services di
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs

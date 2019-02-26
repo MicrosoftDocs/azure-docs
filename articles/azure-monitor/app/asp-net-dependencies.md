@@ -46,7 +46,7 @@ Partial dependency information is collected automatically by the [Application In
 
 ## Where to find dependency data
 * [Application Map](#application-map) visualizes dependencies between your app and neighboring components.
-* [Performance, browser, and failure blades](#performance-and-blades) show server dependency data.
+* [Performance, browser, and failure blades](#performance-and-failure-blades) show server dependency data.
 * [Browsers blade](#ajax-calls) shows AJAX calls from your users' browsers.
 * Click through from slow or failed requests to check their dependency calls.
 * [Analytics](#analytics) can be used to query dependency data.
