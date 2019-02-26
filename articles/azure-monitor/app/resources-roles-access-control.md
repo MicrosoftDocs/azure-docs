@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.date: 02/14/2019
 ms.author: mbullwin
 ---
 # Resources, roles, and access control in Application Insights
@@ -107,6 +107,32 @@ If the user you want isn't in the directory, you can invite anyone with a Micros
 ## Related content
 
 * [Role based access control in Azure](../../role-based-access-control/role-assignments-portal.md)
+
+## PowerShell query to determine role membership
+
+Since certain roles can be linked to notifications and e-mail alerts it can be helpful to be able to generate a list of users who belong to a given role. To help with generating these types of lists we offer the following sample queries that can be adjusted to fit your specific needs:
+
+### Query entire subscription for Admin roles + Contributor roles
+
+```powershell
+(Get-AzureRmRoleAssignment -IncludeClassicAdministrators | Where-Object {$_.RoleDefinitionName -in @('ServiceAdministrator', 'CoAdministrator', 'Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
+```
+
+### Query within the context of a specific Application Insights resource for owners and contributors
+
+```powershell
+$resourceGroup = “RGNAME”
+$resourceName = “AppInsightsName”
+$resourceType = “microsoft.insights/components”
+(Get-AzureRmRoleAssignment -ResourceGroup $resourceGroup -ResourceType $resourceType -ResourceName $resourceName | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
+```
+
+### Query within the context of a specific resource group for owners and contributors
+
+```powershell
+$resourceGroup = “RGNAME”
+(Get-AzureRmRoleAssignment -ResourceGroup $resourceGroup | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
+```
 
 <!--Link references-->
 

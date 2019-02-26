@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: sethm
 ms.reviewer: avishwan
+ms.lastreviewed: 01/08/2019
 
 ---
 # Create and publish a Marketplace item
@@ -187,8 +188,8 @@ Icons and text for Marketplace items as seen in the Azure Stack portal are as fo
 
 ### Create blade
 
-![Create blade](media/azure-stack-marketplace-item-ui-reference/image1.png)
+![Create blade](media/azure-stack-create-and-publish-marketplace-item/image1.png)
 
 ### Marketplace item details blade
 
-![Marketplace item details blade](media/azure-stack-marketplace-item-ui-reference/image3.png)
+![Marketplace item details blade](media/azure-stack-create-and-publish-marketplace-item/image3.png)

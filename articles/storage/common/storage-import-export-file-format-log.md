@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
+ms.subservice: common
 ---
 # Azure Import/Export service log file format
 When the Microsoft Azure Import/Export service performs an action on a drive as part of an import job or an export job, logs are written to block blobs in the storage account associated with that job.  
@@ -16,7 +16,7 @@ There are two logs that may be written by the Import/Export service:
   
 -   The error log is always generated in the event of an error.  
   
--   The verbose log is not enabled by default, but may be enabled by setting the `EnableVerboseLog` property on a [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) or [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update) operation.  
+-   The verbose log is not enabled by default, but may be enabled by setting the `EnableVerboseLog` property on a [Put Job](/rest/api/storageimportexport/jobs) or [Update Job Properties](/rest/api/storageimportexport/jobs) operation.  
   
 ## Log file location  
 The logs are written to block blobs in the container or virtual directory specified by the `ImportExportStatesPath` setting, which you can set on a `Put Job` operation. The location to which the logs are written depends on how authentication is specified for the job, together with the value specified for `ImportExportStatesPath`. Authentication for the job may be specified via a storage account key, or a container SAS (shared access signature).  
@@ -32,7 +32,7 @@ The table below shows the possible options:
 |Container SAS|Default value|A virtual directory named `waimportexport`, which is the default name, beneath the container specified in the SAS.<br /><br /> For example, if the SAS specified for the job is  `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, then the log location would be `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
 |Container SAS|User-specified value|A virtual directory named by the user, beneath the container specified in the SAS.<br /><br /> For example, if the SAS specified for the job is  `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, and the specified virtual directory is named `mylogblobs`, then the log location would be `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
   
-You can retrieve the URL for the error and verbose logs by calling the [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operation. The logs are available after processing of the drive is complete.  
+You can retrieve the URL for the error and verbose logs by calling the [Get Job](/rest/api/storageimportexport/jobs) operation. The logs are available after processing of the drive is complete.  
   
 ## Log file format  
 The format for both logs is the same: a blob containing XML descriptions of the events that occurred while copying blobs between the hard drive and the customer's account.  

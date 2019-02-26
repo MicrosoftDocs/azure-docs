@@ -4,15 +4,16 @@ description: Azure Active Directory smart lockout helps protect your organizatio
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 01/31/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: rogoya
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory smart lockout
 
@@ -20,7 +21,7 @@ Smart lockout assists in locking out bad actors who are trying to guess your use
 
 By default, smart lockout locks the account from sign-in attempts for one minute after 10 failed attempts. The account locks again after each subsequent failed sign-in attempt, for one minute at first and longer in subsequent attempts.
 
-Smart lockout tracks the last three bad password hashes to avoid reincrementing the lockout counter. If someone enters the same bad password multiple times, this behavior will not cause the account to lockout.
+Smart lockout tracks the last three bad password hashes to avoid incrementing the lockout counter for the same password. If someone enters the same bad password multiple times, this behavior will not cause the account to lockout.
 
  > [!NOTE]
  > Hash tracking functionality is not available for customers with pass-through authentication enabled as authentication happens on-premises not in the cloud.

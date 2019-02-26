@@ -29,7 +29,7 @@ If you haven't yet added Application Insights to your project (that is, if it do
 * [ASP.NET web apps](../../azure-monitor/app/asp-net.md)
   * [Add exception monitoring](../../azure-monitor/app/asp-net-exceptions.md)
   * [Add dependency monitoring](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [J2EE web apps](../../azure-monitor/app/java-get-started.md)
+* [Java EE web apps](../../azure-monitor/app/java-get-started.md)
   * [Add dependency monitoring](../../azure-monitor/app/java-agent.md)
 
 ## <a name="view"></a>Exploring performance metrics

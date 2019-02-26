@@ -3,14 +3,14 @@ title: Use entity recognition with the Text Analytics API
 titleSuffix: Azure Cognitive Services
 description: Learn how to recognize entities using the Text Analytics REST API.
 services: cognitive-services
-author: ashmaka
+author: aahill
 
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: article
-ms.date: 10/01/2018
-ms.author: ashmaka
+ms.date: 02/13/2019
+ms.author: aahi
 ---
 
 # How to use Named Entity Recognition in Text Analytics (Preview)

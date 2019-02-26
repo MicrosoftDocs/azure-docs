@@ -7,10 +7,10 @@ ms.service: azure-monitor
 ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
-ms.component: logs
+ms.subservice: logs
 ---
 # Azure Activity Log event schema
-The **Azure Activity Log** is a log that provides insight into any subscription-level events that have occurred in Azure. This article describes the event schema per category of data. The schema of the data differs depending on if you are reading the data in the portal, PowerShell, CLI, or directly via the REST API versus [streaming the data to storage or Event Hubs using a Log Profile](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). The examples below show the schema as made available via the portal, PowerShell, CLI, and REST API. A mapping of those properties to the [Azure diagnostic logs schema](./tutorial-dashboards.md) is provided at the end of the article.
+The **Azure Activity Log** is a log that provides insight into any subscription-level events that have occurred in Azure. This article describes the event schema per category of data. The schema of the data differs depending on if you are reading the data in the portal, PowerShell, CLI, or directly via the REST API versus [streaming the data to storage or Event Hubs using a Log Profile](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). The examples below show the schema as made available via the portal, PowerShell, CLI, and REST API. A mapping of those properties to the [Azure diagnostic logs schema](./diagnostic-logs-schema.md) is provided at the end of the article.
 
 ## Administrative
 This category contains the record of all create, update, delete, and action operations performed through Resource Manager. Examples of the types of events you would see in this category include "create virtual machine" and "delete network security group" Every action taken by a user or application using Resource Manager is modeled as an operation on a particular resource type. If the operation type is Write, Delete, or Action, the records of both the start and success or fail of that operation are recorded in the Administrative category. The Administrative category also includes any changes to role-based access control in a subscription.
@@ -113,10 +113,13 @@ This category contains the record of all create, update, delete, and action oper
 | correlationId |Usually a GUID in the string format. Events that share a correlationId belong to the same uber action. |
 | description |Static text description of an event. |
 | eventDataId |Unique identifier of an event. |
+| eventName | Friendly name of the Administrative event. |
+| category | Always "Administrative" |
 | httpRequest |Blob describing the Http Request. Usually includes the “clientRequestId”, “clientIpAddress” and “method” (HTTP method. For example, PUT). |
 | level |Level of the event. One of the following values: “Critical”, “Error”, “Warning”, and “Informational” |
 | resourceGroupName |Name of the resource group for the impacted resource. |
 | resourceProviderName |Name of the resource provider for the impacted resource |
+| resourceType | The type of resource that was affected by an Administrative event. |
 | resourceId |Resource ID of the impacted resource. |
 | operationId |A GUID shared among the events that correspond to a single operation. |
 | operationName |Name of the operation. |
@@ -268,8 +271,8 @@ This category contains the record of any resource health events that have occurr
 | submissionTimestamp |Timestamp when the event became available for querying. |
 | subscriptionId |Azure Subscription Id. |
 | properties |Set of `<Key, Value>` pairs (that is, a Dictionary) describing the details of the event.|
-| properties.title | A user friendly string that describes the health status of the resource. |
-| properties.details | A user friendly string that describes further details about the event. |
+| properties.title | A user-friendly string that describes the health status of the resource. |
+| properties.details | A user-friendly string that describes further details about the event. |
 | properties.currentHealthStatus | The current health status of the resource. One of the following values: "Available", "Unavailable", "Degraded", and "Unknown". |
 | properties.previousHealthStatus | The previous health status of the resource. One of the following values: "Available", "Unavailable", "Degraded", and "Unknown". |
 | properties.type | A description of the type of resource health event. |
@@ -350,9 +353,9 @@ This category contains the record of all activations of Azure alerts. An example
 | description |Static text description of the alert event. |
 | eventDataId |Unique identifier of the alert event. |
 | level |Level of the event. One of the following values: “Critical”, “Error”, “Warning”, and “Informational” |
-| resourceGroupName |Name of the resource group for the impacted resource if it is a metric alert. For other alert types, this is the name of the resource group that contains the alert itself. |
-| resourceProviderName |Name of the resource provider for the impacted resource if it is a metric alert. For other alert types, this is the name of the resource provider for the alert itself. |
-| resourceId | Name of the resource ID for the impacted resource if it is a metric alert. For other alert types, this is the resource ID of the alert resource itself. |
+| resourceGroupName |Name of the resource group for the impacted resource if it is a metric alert. For other alert types, it is the name of the resource group that contains the alert itself. |
+| resourceProviderName |Name of the resource provider for the impacted resource if it is a metric alert. For other alert types, it is the name of the resource provider for the alert itself. |
+| resourceId | Name of the resource ID for the impacted resource if it is a metric alert. For other alert types, it is the resource ID of the alert resource itself. |
 | operationId |A GUID shared among the events that correspond to a single operation. |
 | operationName |Name of the operation. |
 | properties |Set of `<Key, Value>` pairs (that is, a Dictionary) describing the details of the event. |
@@ -564,7 +567,7 @@ This category contains the record any alerts generated by Azure Security Center.
 | subscriptionId |Azure Subscription ID. |
 
 ## Recommendation
-This category contains the record of any new recommendations that are generated for your services. An example of a recommendation would be "Use availability sets for improved fault tolerance." There are 4 types of Recommendation events that can be generated: High Availability, Performance, Security, and Cost Optimization. 
+This category contains the record of any new recommendations that are generated for your services. An example of a recommendation would be "Use availability sets for improved fault tolerance." There are four types of Recommendation events that can be generated: High Availability, Performance, Security, and Cost Optimization. 
 
 ### Sample event
 ```json
@@ -754,7 +757,7 @@ resource.
 | resourceType | For new resources, it is the type being evaluated. For existing resources, returns "Microsoft.Resources/checkPolicyCompliance". |
 | resourceId | Resource ID of the evaluated resource. |
 | status | String describing the status of the Policy evaluation result. Most Policy evaluations return "Succeeded", but a Deny effect returns "Failed". Errors in auditIfNotExists or deployIfNotExists also return "Failed". |
-| subStatus | This field is blank for Policy events. |
+| subStatus | Field is blank for Policy events. |
 | submissionTimestamp | Timestamp when the event became available for querying. |
 | subscriptionId | Azure Subscription ID. |
 | properties.isComplianceCheck | Returns "False" when a new resource is deployed or an existing resource's Resource Manager properties are updated. All other [evaluation triggers](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) result in "True". |
@@ -765,7 +768,7 @@ resource.
 
 ## Mapping to diagnostic logs schema
 
-When streaming the Azure Activity Log to a storage account or Event Hubs namespace, the data follows the [Azure diagnostic logs schema](./tutorial-dashboards.md). Here is the mapping of properties from the schema above to the diagnostic logs schema:
+When streaming the Azure Activity Log to a storage account or Event Hubs namespace, the data follows the [Azure diagnostic logs schema](./diagnostic-logs-schema.md). Here is the mapping of properties from the schema above to the diagnostic logs schema:
 
 | Diagnostic logs schema property | Activity Log REST API schema property | Notes |
 | --- | --- | --- |
@@ -792,3 +795,4 @@ When streaming the Azure Activity Log to a storage account or Event Hubs namespa
 ## Next steps
 * [Learn more about the Activity Log (formerly Audit Logs)](../../azure-monitor/platform/activity-logs-overview.md)
 * [Stream the Azure Activity Log to Event Hubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+

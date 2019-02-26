@@ -16,7 +16,8 @@ ms.topic: get-started-article
 ms.custom: mvc
 ms.date: 01/09/2019
 ms.author: sethm
-ms.reviewer: unknown
+ms.reviewer: efemmano
+ms.lastreviewed: 01/09/2019
 ---
 
 # Azure Stack add-on plans

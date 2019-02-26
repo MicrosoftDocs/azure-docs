@@ -5,7 +5,6 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ---
-<!--author=alkohli last changed: 07/19/2017-->
 
 #### To create a volume
 1. From the tabular listing of the devices in the **Devices** blade, select your device. Click **+ Add volume**.

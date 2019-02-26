@@ -5,7 +5,7 @@ services: backup
 ms.service: backup
 author: rayne-wiselman
 ms.author: raynew
-ms.date: 10/23/2018
+ms.date: 01/31/2019
 ms.topic: tutorial
 manager: carmonm
 ---

@@ -11,12 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer:
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 12/12/2018
 ---
 # Connect to SQL Database using C and C++
+
 This post is aimed at C and C++ developers trying to connect to Azure SQL DB. It is broken down into sections so you can jump to the section that best captures your interest.
 
 ## Prerequisites for the C/C++ tutorial
+
 Make sure you have the following items:
 
 * An active Azure account. If you don't have one, you can sign up for a [Free Azure Trial](https://azure.microsoft.com/pricing/free-trial/).
@@ -32,7 +34,7 @@ Azure currently has two options for hosting SQL server workloads: Azure SQL data
 Connecting to Azure SQL DB is no different and currently there are two ways to connect to databases: ODBC (Open Database connectivity) and OLE DB (Object Linking and Embedding database). In recent years, Microsoft has aligned with [ODBC for native relational data access](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC is relatively simple, and also much faster than OLE DB. The only caveat here is that ODBC does use an old C-style API.
 
 ## <a id="Create"></a>Step 1:  Creating your Azure SQL Database
-See the [getting started page](sql-database-get-started-portal.md) to learn how to create a sample database.  Alternatively, you can follow this [short two-minute video](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) to create an Azure SQL database using the Azure portal.
+See the [getting started page](sql-database-single-database-get-started.md) to learn how to create a sample database.  Alternatively, you can follow this [short two-minute video](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) to create an Azure SQL database using the Azure portal.
 
 ## <a id="ConnectionString"></a>Step 2:  Get connection string
 After your Azure SQL database has been provisioned, you need to carry out the following steps to determine connection information and add your client IP for firewall access.

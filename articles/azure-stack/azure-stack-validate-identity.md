@@ -16,6 +16,7 @@ ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
+ms.lastreviewed: 12/04/2018
 
 ---
 
@@ -63,7 +64,7 @@ The following prerequisites must be in place.
    > `Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment <environment name> -AADDirectoryTenantName contoso.onmicrosoft.com`
 4. After the tool runs, review the output. Confirm the status is **OK** for installation requirements. A successful validation appears like the following image: 
  
-````PowerShell
+```PowerShell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -74,7 +75,7 @@ Finished Azure Identity Validation
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsAzureIdentityValidation Completed
-````
+```
 
 
 ## Report and log file
@@ -95,7 +96,7 @@ The following examples provide guidance on common validation failures.
 
 ### Expired or temporary password 
  
-````PowerShell
+```PowerShell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -109,7 +110,7 @@ Finished Azure Identity Validation
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsAzureIdentityValidation Completed
-````
+```
 **Cause** - The account can’t log on because the password is either expired or is temporary.     
 
 **Resolution** - In PowerShell run the following, and then follow the prompts to reset the password.  
@@ -118,7 +119,7 @@ Invoke-AzsAzureIdentityValidation Completed
 Alternatively, login into https://portal.azure.com as the account and the user will be forced to change the password.
 ### Unknown user type 
  
-````PowerShell
+```PowerShell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -132,14 +133,14 @@ Finished Azure Identity Validation
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsAzureIdentityValidation Completed
-````
+```
 **Cause** - The account can’t log on to the specified Azure Active Directory (AADDirectoryTenantName). In this example, *AzureChinaCloud* is specified as the *AzureEnvironment*.
 
 **Resolution** - Confirm that the account is valid for the specified Azure Environment. In PowerShell, run the following to verify the account is valid for a specific environment:   Login-AzureRmAccount –
 EnvironmentName AzureChinaCloud 
 ### Account is not an administrator 
  
-````PowerShell
+```PowerShell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -153,7 +154,7 @@ Finished Azure Identity Validation
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsAzureIdentityValidation Completed
-````
+```
 
 **Cause** -  Although the account can successfully log on, the account is not an admin of the Azure Active Directory (AADDirectoryTenantName).  
 

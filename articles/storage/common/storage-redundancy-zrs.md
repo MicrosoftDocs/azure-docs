@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
-ms.component: common
+ms.subservice: common
 ---
 
 # Zone-redundant storage (ZRS): Highly available Azure Storage applications
@@ -20,19 +20,21 @@ ZRS is available for block blobs, non-disk page blobs, files, tables, and queues
 
 ZRS is generally available in the following regions:
 
+- Asia Southeast
+- Europe West
+- Europe North
+- France Central
+- Japan East
+- UK South
 - US East
 - US East 2
 - US West 2
 - US Central
-- North Europe
-- West Europe
-- France Central
-- Southeast Asia
 
 Microsoft continues to enable ZRS in additional Azure regions. Check the [Azure Service Updates](https://azure.microsoft.com/updates/) page regularly for information about new regions.
 
 ## What happens when a zone becomes unavailable?
-Your data is still accessible even if a zone becomes unavailable. Microsoft recommends that you continue to follow practices for transient fault handling. These practices include implementing retry policies with exponential back-off.
+Your data is still accessible for both read and write operations even if a zone becomes unavailable. Microsoft recommends that you continue to follow practices for transient fault handling. These practices include implementing retry policies with exponential back-off.
 
 When a zone is unavailable, Azure undertakes networking updates, such as DNS repointing. These updates may affect your application if you are accessing your data before the updates have completed.
 

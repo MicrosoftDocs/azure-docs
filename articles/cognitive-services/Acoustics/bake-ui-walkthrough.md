@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: This document describes the process of submitting an acoustics bake using the Unity editor extension.
 services: cognitive-services
 author: kegodin
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin

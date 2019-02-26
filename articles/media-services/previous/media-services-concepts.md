@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/10/2019
 ms.author: juliako
 
 ---
-# Azure Media Services concepts
+# Azure Media Services concepts 
+
 This topic gives an overview of the most important Media Services concepts.
 
 ## <a id="assets"/>Assets and Storage
@@ -172,7 +173,7 @@ By default you can have up to 2 streaming endpoints in your Media Services accou
 You are only billed when your StreamingEndpoint is in running state.
 
 ### Asset delivery policy
-One of the steps in the Media Services content delivery workflow is configuring [delivery policies for assets ](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)that you want to be streamed. The asset delivery policy tells Media Services how you want for your asset to be delivered: into which streaming protocol should your asset be dynamically packaged (for example, MPEG DASH, HLS, Smooth Streaming, or all), whether or not you want to dynamically encrypt your asset and how (envelope or common encryption).
+One of the steps in the Media Services content delivery workflow is configuring [delivery policies for assets](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)that you want to be streamed. The asset delivery policy tells Media Services how you want for your asset to be delivered: into which streaming protocol should your asset be dynamically packaged (for example, MPEG DASH, HLS, Smooth Streaming, or all), whether or not you want to dynamically encrypt your asset and how (envelope or common encryption).
 
 If you have a storage encrypted asset, before your asset can be streamed, the streaming server removes the storage encryption and streams your content using the specified delivery policy. For example, to deliver your asset encrypted with Advanced Encryption Standard (AES) encryption key, set the policy type to DynamicEnvelopeEncryption. To remove storage encryption and stream the asset in the clear, set the policy type to NoDynamicEncryption.
 

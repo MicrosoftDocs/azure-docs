@@ -3,15 +3,15 @@ title: Use the Azure Application Insights Profiler settings pane | Microsoft Doc
 description: See Profiler status and start profiling sessions
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: cweining
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: cawa
+ms.reviewer: mbullwin
 ms.date: 08/06/2018
-ms.author: mbullwin
+ms.author: cweining
 ---
 
 # Configure Application Insights Profiler

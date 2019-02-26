@@ -156,7 +156,7 @@ Perform the following steps to connect and copy data from your computer to the D
     
     For more information on Robocopy command, go to [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
 
-6. Open the target folder to view and verify the copied files. If you have any errors during the copy process, download the log files for troubleshooting. The log files are located as specified in the robobopy command.
+6. Open the target folder to view and verify the copied files. If you have any errors during the copy process, download the log files for troubleshooting. The log files are located as specified in the robocopy command.
  
 > [!IMPORTANT]
 > - It is your responsibility to ensure that you copy the data to folders that correspond to the appropriate data format. For instance, copy the block blob data to the folder for block blobs. If the data format does not match the appropriate folder (storage type), then at a later step, the data upload to Azure fails.
@@ -173,20 +173,20 @@ This optional procedure may be used when you are using multiple disks and have a
 1. On your Windows computer, ensure that you have the Data Box Split Copy tool downloaded and extracted in a local folder. This tool was downloaded when you downloaded the Data Box Disk toolset for Windows.
 2. Open File Explorer. Make a note of the data source drive and drive letters assigned to Data Box Disk. 
 
-     ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-1.png)
+     ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-1.png)
  
 3. Identify the source data to copy. For instance, in this case:
     - Following block blob data was identified.
 
-         ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
+         ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
 
     - Following page blob data was identified.
 
-         ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-3.png)
+         ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-3.png)
  
 4. Go to the folder where the software is extracted. Locate the `SampleConfig.json` file in that folder. This is a read-only file that you can modify and save.
 
-   ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-4.png)
+   ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-4.png)
  
 5. Modify the `SampleConfig.json` file.
  
@@ -195,11 +195,11 @@ This optional procedure may be used when you are using multiple disks and have a
     - Enter the drive letters corresponding to the target disks. The data is taken from the source path and copied across multiple disks.
     - Provide a path for the log files. By default, it is sent to the current directory where the `.exe` is located.
 
-     ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-5.png)
+     ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 
 6. To validate the file format, go to `JSONlint`. Save the file as `ConfigFile.json`. 
 
-     ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-6.png)
+     ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-6.png)
  
 7. Open a Command Prompt window. 
 
@@ -207,24 +207,24 @@ This optional procedure may be used when you are using multiple disks and have a
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
-     ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-7.png)
+     ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-7.png)
  
 9. Enter to continue the script.
 
-    ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-8.png)
+    ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-8.png)
   
 10. When the dataset is split and copied, the summary of the Split Copy tool for the copy session is presented. A sample output is shown below.
 
-    ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-9.png)
+    ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-9.png)
  
 11. Verify that the data is split across the target disks. 
  
-    ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-10.png)
-    ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-11.png)
+    ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-10.png)
+    ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-11.png)
 	 
     If you examine the contents of `n:` drive further, you will see that two sub-folders are created corresponding to block blob and page blob format data.
     
-     ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-12.png)
+     ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-12.png)
 
 12. If the copy session fails, then to recover and resume, use the following command:
 
@@ -246,7 +246,7 @@ If you did not use the Split Copy tool to copy data, you will need to validate y
     ![Checksum output](media/data-box-disk-deploy-copy-data/data-box-disk-checksum-output.png)
 
     > [!TIP]
-    > - Reset the tool beween two runs.
+    > - Reset the tool between two runs.
     > - Use option 1 if dealing with large data set containing small files (~ KBs). This option only validates the files, as checksum generation may take a very long time and the performance could be very slow.
 
 3. If using multiple disks, run the command for each disk.
