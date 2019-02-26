@@ -103,7 +103,7 @@ KubeNodeInventory
 >Queries below contain placeholder string values for your cluster and controller names - <your-cluster-name> and <your-controller-name>. Replace placeholders with values specific to your environment before setting up alerts. 
 
 
-The following query calculates the average CPU utilization of all containers in a controller as an average of CPU utilization of every instance of container in a controller every minute as a percentage of the limit set up for container.
+The following query calculates the average CPU utilization of all containers in a controller as an average of CPU utilization of every container instance in a controller every minute as a percentage of the limit set up for a container.
 
 ```kusto
 let endDateTime = now();
@@ -143,7 +143,7 @@ KubePodInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
-The following query calculates the average memory utilization of all containers in a controller as an average of memory utilization of every instance of container in a controller every minute as a percentage of the limit set up for container.
+The following query calculates the average memory utilization of all containers in a controller as an average of memory utilization of every container instance in a controller every minute as a percentage of the limit set up for a container.
 
 ```kusto
 let endDateTime = now();
