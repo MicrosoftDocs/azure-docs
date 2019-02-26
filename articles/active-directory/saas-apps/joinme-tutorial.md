@@ -72,10 +72,10 @@ For single sign-on to work, a link relationship between an Azure AD user and the
 To configure and test Azure AD single sign-on with join.me, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure join.me Single Sign-On](#configure-join.me-single-sign-on)** - to configure the Single Sign-On settings on application side.
+2. **[Configure join.me Single Sign-On](#configure-joinme-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create join.me test user](#create-join.me-test-user)** - to have a counterpart of Britta Simon in join.me that is linked to the Azure AD representation of user.
+5. **[Create join.me test user](#create-joinme-test-user)** - to have a counterpart of Britta Simon in join.me that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
