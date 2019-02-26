@@ -23,6 +23,8 @@ This how-to shows examples for the following tasks:
 * [Upload and download data to datastores](#upload-and-download-data)
 * [Access datastore for training](#access-datastores-for-training)
 
+<a name="access"></a>
+
 ## Create and access a datastore
 To use datastores, you first need a [workspace](concept-azure-machine-learning-architecture.md#workspace). Start by either [creating a new workspace](quickstart-create-workspace-with-python.md) or retrieving an existing one:
 
