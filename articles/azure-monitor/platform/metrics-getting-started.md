@@ -12,9 +12,16 @@ ms.subservice: metrics
 
 # Getting started with Azure Metrics Explorer
 
-> [!NOTE] This topic covers key concepts to help new users to get started with Azure Metrics Explorer. Use [this link](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts) if you are looking for detailed documentation or information about advanced chart settings.
+> [!NOTE] 
+> This topic covers key concepts to help new users to get started with Azure Metrics Explorer. Use [this link](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts) if you are looking for detailed documentation and information about advanced chart settings and metrics.
 
-Use **Azure Metrics Explorer** to create health and utilization charts for your resources. Picking a resource and a metric is all you need to create a simple metric chart.  After that you may need to point the chart to a time range that is relevant for your investigation. Use filtering and splitting capabilities to analyze which segments of the metric contribute to the overall value and identify possible outliers. Use advanced settings to customize the chart before pinning to dashboard. Configure metric alerts to receive notifications when the metric value exceeds or drops below the threshold.
+## Where do I start?
+Use **Azure Metrics Explorer** to investigate health and utilization of your resources. Start in the following order:
+* Start by [picking a resource and a metric](#Creating-your-first-metric-chart) and you will see a basic chart. Then [select a time range](#Picking-time-range) that is relevant for your investigation.
+
+* After learning basic charts, you may want to try [applying dimension filters and splitting](#Applying-dimension-filters-and-splitting). This allow analyzing which segments of the metric contribute to the overall value and identify possible outliers.
+
+* Use [advanced settings](#Advanced-chart-settings-and-next-steps) to customize the chart before pinning to  dashboards. [Configure alerts](alerts-metric-overview.md) to receive notifications when the metric value exceeds or drops below a threshold.
 
 ## Creating your first metric chart
 
@@ -32,7 +39,8 @@ To create a metric chart, from your resource, resource group, subscription, or A
 
 4. You can optionally change metric aggregation. For example, you might want your chart to show minimum, maximum or average values of the metric.
 
-> [!NOTE] Use the **Add Metric** button and repeat these steps if you want to see multiple metrics plotted in the same chart. For multiple charts in one view, use the **Add Chart** button on top.
+> [!NOTE] 
+> Use the **Add Metric** button and repeat these steps if you want to see multiple metrics plotted in the same chart. For multiple charts in one view, use the **Add Chart** button on top.
 
 ## Picking time range
 
@@ -42,14 +50,20 @@ By default, the chart shows the most recent 24 hours of metrics data. Use the **
 
 ## Applying dimension filters and splitting
 
-Use filtering and splitting capabilities to analyze which segments of the metric contribute to the overall value and identify possible outliers.
+[Filtering](metrics-charts.md#Apply-filters-to-charts) and [splitting](metrics-charts.md#Segment-a-chart) are powerful diagnostic tools for the metrics that have dimensions. They bring visibility into how various metric segments (“dimension values”) impact the overall value of the metric, and allow to identify possible outliers.
+
+* Filtering lets you to choose which dimension values are included in the chart. For example, you might want to only account for successful requests when charting the “Server response time” metric. The “success of request” is a dimension on which you would need to apply the filter. 
+
+* Splitting controls whether the chart displays separate lines for each value of a dimension, or aggregates the values into a single line. For example, you can see one line for an average response time across all server instances, or see separate lines for each server. The “server instance” is a dimension on which you would need to apply splitting.
+
+[These are examples of the charts](metric-chart-samples.md) that have filtering and splitting applied. You can see steps that were used to configure each of these charts. 
 
 ## Advanced chart settings and next steps
 
-You can customize chart style, title, and modify advanced chart settings. When you are done with customization, pin it to a dashboard to save your work.  You can also configure metrics alerts. Follow product documentation to learn about these and other advanced features of Azure Monitor metrics explorer.
+You can customize chart style, title, and modify advanced chart settings. When you are done with customization, pin it to a dashboard to save your work.  You can also configure metrics alerts. Follow [product documentation](metrics-charts.md) to learn about these and other advanced features of Azure Monitor metrics explorer.
 
 ## Next steps
 
-* See a list of available metrics for Azure services
-* See examples of created charts (metric-chart-samples.md)
-* Learn more about [Metric Explorer](metrics-charts.md)
+* [See a list of available metrics for Azure services](metrics-supported.md)
+* [Learn about advanced features of Metric Explorer](metrics-charts.md)
+* [See examples of configured charts](metric-chart-samples.md)
