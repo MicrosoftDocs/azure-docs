@@ -1,6 +1,6 @@
 ---
-title: Filters in Azure Log Analytics views | Microsoft Docs
-description: A filter in a Log Analytics view allows users to filter the data in the view by the value of a particular property without modifying the view itself.  This article describes how to use a filter and add one to a custom view.
+title: Filters in Azure Monitor views | Microsoft Docs
+description: A filter in an Azure Monitor view allows users to filter the data in the view by the value of a particular property without modifying the view itself.  This article describes how to use a filter and add one to a custom view.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,8 +15,8 @@ ms.date: 06/22/2018
 ms.author: bwren
 ---
 
-# Filters in Log Analytics views
-A **filter** in a [Log Analytics view](view-designer.md) allows users to filter the data in the view by the value of a particular property without modifying the view itself.  For example, you could allow users of your view to filter the view for data only from a particular computer or set of computers.  You can create multiple filters on a single view to allow users to filter by multiple properties.  This article describes how to use a filter and add one to a custom view.
+# Filters in Azure Monitor views
+A **filter** in an [Azure Monitor view](view-designer.md) allows users to filter the data in the view by the value of a particular property without modifying the view itself.  For example, you could allow users of your view to filter the view for data only from a particular computer or set of computers.  You can create multiple filters on a single view to allow users to filter by multiple properties.  This article describes how to use a filter and add one to a custom view.
 
 ## Using a filter
 Click the data time range at the top of a view to open the drop down where you can change the data time range for the view.
