@@ -66,7 +66,7 @@ Set up a secure channel as follows:
 
 5. In the **certs** folder, right-click the root certificate file > **Rename**.
 
-    ![Rename root certificate ](./media/backup-azure-backup-server-vmware/rename-cert.png)
+    ![Rename root certificate](./media/backup-azure-backup-server-vmware/rename-cert.png)
 
 6. Change the root certificate's extension to .crt, and confirm. The file icon changes to one that represents a root certificate.
 
@@ -118,7 +118,7 @@ The Azure Backup Server needs a user account with permissions to access v-Center
 1. Sign in to the vCenter Server (or ESXi host if you're not using vCenter Server).
 2. In the **Navigator** panel, click **Administration**.
 
-    ![Administration ](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
+    ![Administration](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
 
 3. In **Administration** > **Roles**, click the add role icon (the + symbol).
 

@@ -87,7 +87,7 @@ Add a new intent to capture employee feedback from members of the company.
     |Mark Mathews rocked the sales pitch at Harvard|
     |Walter Williams did a great job on the presentation at Stanford|
 
-    [ ![Screenshot of LUIS app with example utterances in EmployeeFeedback intent](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
+    [![Screenshot of LUIS app with example utterances in EmployeeFeedback intent](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
 ## Add example utterances to the None intent 
 
