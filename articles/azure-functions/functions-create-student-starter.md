@@ -18,7 +18,7 @@ ms.author: alkarche
 ---
 # Create a Function using Azure for Students Starter
 
-In this tutorial, we will walk through what's available in Azure Functions from an Azure for Students Starter subscription and then create a hello world HTTP function.
+In this tutorial, we will create a hello world HTTP function in an Azure for Students Starter subscription. We'll also walk through what's available in Azure Functions in this subscription type.
 
 Microsoft *Azure for Students Starter* gets you started with the Azure products you need to develop in the cloud at no cost to you. [Learn more about this offer here.](https://azure.microsoft.com/offers/ms-azr-0144p/)
 
@@ -51,14 +51,14 @@ You must have a function app to host the execution of your functions. A function
     | **App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z`, `0-9`, and `-`.  | 
     | **Subscription** | Your subscription | The subscription under which this new function app is created. | 
     | **[Resource Group](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Name for the new resource group in which to create your function app. |
-   | **[App Service Plan/Location](./functions-scale.md)** | New | Hosting plan that defines what region your function app is deployed to, and allows you to control the density of resources. Multiple Function Apps deployed to the same plan will all share the same single free instance. This is a restriction of the Student Starter plan. The full hosting options are [explained here](./functions-scale.md)|
+   | **[App Service Plan/Location](./functions-scale.md)** | New | The hosting plan that controls what region your function app is deployed to and the density of your resources. Multiple Function Apps deployed to the same plan will all share the same single free instance. This is a restriction of the Student Starter plan. The full hosting options are [explained here.](./functions-scale.md)|
     | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language. Choose **.NET** for C# and F# functions. |
 
 3. Select **App Service plan/Location** above to choose a different location
 
 4. Select **Create new** and then give your plan a unique name.
 
-5. Select the location closest to you.
+5. Select the location closest to you. [See a full map of Azure regions here.](https://azure.microsoft.com/global-infrastructure/regions/) 
 
 <img src="./media/functions-create-student-starter/Create-ASP.png" width="800">
 
@@ -114,7 +114,7 @@ Now, you can run the new function by sending an HTTP request.
 
 ## Capabilities of Functions in Azure for Students Starter
 
-In this offering, you have access to most of the features of the Azure Functions runtime, with several key limitations:
+In this offering, you have access to most of the features of the Azure Functions runtime, with several key limitations listed below:
 
 * The HTTP trigger is the only trigger type supported.
     * All input and all output bindings are supported! [See the full list here.](functions-triggers-bindings.md)
@@ -130,8 +130,11 @@ In this offering, you have access to most of the features of the Azure Functions
 
 ## Next steps
 
-You have created a function app with a simple HTTP triggered function.  
+You have created a function app with a simple HTTP triggered function! Now you can explore local tooling, more languages, monitoring, and integrations.
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-
-For more information, see [Azure Functions HTTP bindings](functions-bindings-http-webhook.md).
+ * [Create your first function using Visual Studio](./functions-create-your-first-function-visual-studio.md)
+ * [Create your first function using Visual Studio Code](./functions-create-first-function-vs-code.md)
+ * [Azure Functions JavaScript developer guide](./functions-reference-node.md)
+ * [Use Azure Functions to connect to an Azure SQL Database](./functions-scenario-database-table-cleanup.md)
+ * [Learn more about Azure Functions HTTP bindings](./functions-bindings-http-webhook.md).
+ * [Monitor your Azure Functions](./functions-monitoring.md)
