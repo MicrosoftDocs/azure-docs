@@ -46,6 +46,7 @@ Use this quickstart to begin making calls to the Bing Autosuggest API and gettin
     static string query = "sail";
     ```
 
+
 ## Create and send an API request
 
 1. Create a function called `Autosuggest()` to send a request to the API. Create a new `HttpClient()`, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
