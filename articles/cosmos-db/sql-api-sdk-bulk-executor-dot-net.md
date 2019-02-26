@@ -60,7 +60,7 @@ ms.author: ramkris
 
 ### <a name="1.4.0"/>1.4.0
 
-* Removed overload for BulkDelete operation with query for SQL API. This feature is being improved and will be incorporated in a near future release.
+* Removed overload for BulkDelete with SQL query filter for SQL API. This feature is being improved and will be incorporated in the upcoming release.
 
 ### <a name="1.3.0"/>1.3.0
 
