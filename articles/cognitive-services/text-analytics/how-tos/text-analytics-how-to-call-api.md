@@ -56,9 +56,9 @@ The service accepts request up to 1 MB in size. If you are using Postman (or ano
 
    Resource endpoints are as follows (your region may vary):
 
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/entities`
 
 2. Set the three request headers:
