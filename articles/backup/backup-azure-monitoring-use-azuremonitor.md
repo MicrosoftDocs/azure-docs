@@ -14,7 +14,7 @@ ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
 
 # Monitoring at scale using Azure Monitor
 
-The [built-in monitoring and alerting](backup-azure-monitor-built-in-monitor.md) article listed the monitoring and alerting capabilities in a single Recovery services vault and which is offered without any additional management infrastructure. However the built-in service is limited in the following scenarios.
+The [built-in monitoring and alerting article](backup-azure-monitoring-built-in-monitor.md) listed the monitoring and alerting capabilities in a single Recovery services vault and which is offered without any additional management infrastructure. However the built-in service is limited in the following scenarios.
 
 - Monitoring data from multiple RS vaults across subscriptions
 - If email is NOT the preferred notification channel
