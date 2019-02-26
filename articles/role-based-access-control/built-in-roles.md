@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: reference
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 02/16/2019
+ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -78,8 +78,8 @@ The following table provides a brief description of each built-in role. Click th
 | [DevTest Labs User](#devtest-labs-user) | Lets you connect, start, restart, and shutdown your virtual machines in your Azure DevTest Labs. |
 | [DNS Zone Contributor](#dns-zone-contributor) | Lets you manage DNS zones and record sets in Azure DNS, but does not let you control who has access to them. |
 | [DocumentDB Account Contributor](#documentdb-account-contributor) | Can manage Azure Cosmos DB accounts. Azure Cosmos DB is formerly known as DocumentDB. |
-| [EventGrid EventSubscription Contributor](#eventgrid-eventsubscription-contributor) | Lets you manage EventGrid event subscription operations. |
-| [EventGrid EventSubscription Reader](#eventgrid-eventsubscription-reader) | Lets you read EventGrid event subscriptions. |
+| [EventGrid EventSubscription Contributor (Preview)](#eventgrid-eventsubscription-contributor-preview) | Lets you manage EventGrid event subscription operations. |
+| [EventGrid EventSubscription Reader (Preview)](#eventgrid-eventsubscription-reader-preview) | Lets you read EventGrid event subscriptions. |
 | [HDInsight Domain Services Contributor](#hdinsight-domain-services-contributor) | Can Read, Create, Modify and Delete Domain Services related operations needed for HDInsight Enterprise Security Package |
 | [Intelligent Systems Account Contributor](#intelligent-systems-account-contributor) | Lets you manage Intelligent Systems accounts, but not access to them. |
 | [Key Vault Contributor](#key-vault-contributor) | Lets you manage key vaults, but not access to them. |
@@ -100,7 +100,7 @@ The following table provides a brief description of each built-in role. Click th
 | [Network Contributor](#network-contributor) | Lets you manage networks, but not access to them. |
 | [New Relic APM Account Contributor](#new-relic-apm-account-contributor) | Lets you manage New Relic Application Performance Management accounts and applications, but not access to them. |
 | [Reader and Data Access](#reader-and-data-access) | Lets you view everything but will not let you delete or create a storage account or contained resource. It will also allow read/write access to all data contained in a storage account via access to storage account keys. |
-| [Redis Cache Contributor](#redis-cache-contributor) | Lets you manage Azure Cache for Redis, but not access to them. |
+| [Redis Cache Contributor](#redis-cache-contributor) | Lets you manage Redis caches, but not access to them. |
 | [Resource Policy Contributor (Preview)](#resource-policy-contributor-preview) | (Preview) Backfilled users from EA, with rights to create/modify resource policy, create support ticket and read resources/hierarchy. |
 | [Scheduler Job Collections Contributor](#scheduler-job-collections-contributor) | Lets you manage Scheduler job collections, but not access to them. |
 | [Search Service Contributor](#search-service-contributor) | Lets you manage Search services, but not access to them. |
@@ -1194,6 +1194,7 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Evaluates lab policy. |
 > | Microsoft.DevTestLab/labs/virtualMachines/claim/action | Take ownership of an existing virtual machine |
 > | Microsoft.DevTestLab/labs/virtualmachines/listApplicableSchedules/action | Lists the applicable start/stop schedules, if any. |
+> | Microsoft.DevTestLab/labs/virtualMachines/getRdpFileContents/action | Gets a string that represents the contents of the RDP file for the virtual machine |
 > | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joins a load balancer backend address pool. Not Alertable. |
 > | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Joins a load balancer inbound nat rule. Not Alertable. |
 > | Microsoft.Network/networkInterfaces/*/read | Read the properties of a network interface (for example, all the load balancers that the network interface is a part of) |
@@ -1257,7 +1258,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## EventGrid EventSubscription Contributor
+## EventGrid EventSubscription Contributor (Preview)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1280,7 +1281,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## EventGrid EventSubscription Reader
+## EventGrid EventSubscription Reader (Preview)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1498,6 +1499,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **Actions** |  |
 > | */read | Read resources of all types, except secrets. |
 > | Microsoft.Solutions/applications/read | Retrieves a list of applications. |
+> | Microsoft.Solutions/*/action |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1733,11 +1735,11 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lets you manage Azure Cache for Redis, but not access to them. |
+> | **Description** | Lets you manage Redis caches, but not access to them. |
 > | **Id** | e0f68234-74aa-48ed-b826-c38b57376e17 |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role Assignments |
-> | Microsoft.Cache/redis/* | Create and manage Azure Cache for Redis |
+> | Microsoft.Cache/redis/* | Create and manage Redis caches |
 > | Microsoft.Insights/alertRules/* | Create and manage alert rules |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
