@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/25/2019
+ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 
@@ -136,12 +136,11 @@ In addition to using the Azure portal, you can create and manage Batch accounts 
 [azure_portal]: https://portal.azure.com
 [batch_pricing]: https://azure.microsoft.com/pricing/details/batch/
 
-[marketplace_portal]: ./media/batch-account-create-portal/marketplace-batch.png
-[account_blade]: ./media/batch-account-create-portal/batch_blade.png
-[account_portal]: ./media/batch-account-create-portal/batch-account-portal.png
-[account_keys]: ./media/batch-account-create-portal/batch-account-keys.png
-[account_url]: ./media/batch-account-create-portal/account_url.png
-[storage_account]: ./media/batch-account-create-portal/storage_account.png
-[subscription_access]: ./media/batch-account-create-portal/subscription_iam.png
-[add_permission]: ./media/batch-account-create-portal/add_permission.png
-[register_provider]: ./media/batch-account-create-portal/register_provider.png
+[marketplace_portal]: ./media/batch-account-create-portal/marketplace-batch-new.png
+[account_blade]: ./media/batch-account-create-portal/batch_blade-new.png
+[account_portal]: ./media/batch-account-create-portal/batch-account-portal-new.png
+[account_keys]: ./media/batch-account-create-portal/batch-account-keys-new.png
+[storage_account]: ./media/batch-account-create-portal/storage_account-new.png
+[subscription_access]: ./media/batch-account-create-portal/subscription_iam-new.png
+[add_permission]: ./media/batch-account-create-portal/add_permission-new.png
+[register_provider]: ./media/batch-account-create-portal/register_provider-new.png
