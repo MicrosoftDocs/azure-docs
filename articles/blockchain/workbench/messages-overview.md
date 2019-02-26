@@ -676,7 +676,7 @@ Contains information when an application is uploaded to Workbench, such as the n
 | id | Unique identifier for the application workflow inside Azure Blockchain Workbench |
 | name | Application workflow name |
 | displayName | Application workflow display name |
-| functions | Collection of [functions for the application workflow ](#workflow-function-information)|
+| functions | Collection of [functions for the application workflow](#workflow-function-information)|
 | states | Collection of [states for the application workflow](#workflow-state-information) |
 | properties | Application [workflow properties information](#workflow-property-information) |
 

@@ -362,7 +362,7 @@ The following troubleshooting steps apply to all VM extensions.
 
 ### View extension status
 
-After a VM extension has been run against a VM, use [Get-AzVM ](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) to return extension status. *Substatuses[0]* shows that the extension provisioning succeeded, meaning that it successful deployed to the VM, but the execution of the extension inside the VM failed, *Substatuses[1]*.
+After a VM extension has been run against a VM, use [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) to return extension status. *Substatuses[0]* shows that the extension provisioning succeeded, meaning that it successful deployed to the VM, but the execution of the extension inside the VM failed, *Substatuses[1]*.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
