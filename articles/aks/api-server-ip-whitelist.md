@@ -23,9 +23,11 @@ This article shows you how to use the API server IP address whitelist to limit r
 
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
+As the current preview deployment steps use a Resource Manager template, you also need to first [manually create a service principal][create-aks-sp].
+
 ### Azure CLI requirements
 
-You need the Azure CLI version 2.0.56 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You need the Azure CLI version 2.0.58 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 To use the API server IP address whitelist, you need the *aks-preview* Azure CLI extension. Install this extension using the [az extension add][az-extension-add] command, as shown in the following example:
 
@@ -35,16 +37,16 @@ az extension add --name aks-preview
 
 ### Register feature flag for your subscription
 
-To use the API server IP address whitelist, first enable a feature flag on your subscription. To register the *EnableSingleIPPerCCP* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
+To use the API server IP address whitelist, first enable a feature flag on your subscription. To register the *APIServerSecurityPreview* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
 
 ```azurecli-interactive
-az feature register --name EnableSingleIPPerCCP --namespace Microsoft.ContainerService
+az feature register --name APIServerSecurityPreview --namespace Microsoft.ContainerService
 ```
 
 It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableSingleIPPerCCP')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/APIServerSecurityPreview')].{Name:name,State:properties.state}"
 ```
 
 When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
@@ -63,6 +65,40 @@ For more information about the API server and other cluster components, see [Kub
 
 ## Enable IP address whitelisting
 
+Update *parameters-with-whitelisting.json* with your own service principal client ID and secret, such as in the following example:
+
+```json
+"servicePrincipalClientId": {
+    "value": "d017b0f2-9d78-47c2-982a-4a85ba95a7f0"
+},
+"servicePrincipalClientSecret": {
+    "value": "98749598-5e53-4d5e-bb83-dd4f45884624"
+},
+```
+
+Adjust the *parameters-with-whitelisting.json* to whitelist the IP address ranges for your environment. Provide IP address ranges in CIDR format and in a comma-separated list, as shown in the following example:
+
+```json
+"apiServerAuthorizedIPRanges": {
+    "value": ["40.71.84.169/32", "131.107.0.0/16", "167.220.2.74/32"]
+}
+```
+
+Now create a resource group, such as *myResourceGroup*, in your approved region and then deploy the Resource Manager template:
+
+```azurecli-interactive
+az group create --name myResourceGroup --location eastus
+
+az group deployment create \
+    --resource-group myResourceGroup \
+    --template-file template-with-whitelisting.json \
+    --parameters parameters-with-whitelisting.json
+```
+
+<!--
+
+** THESE ARE THE PROPOSED CLI COMMANDS. THESE WILL REPLACE THE TEMPLATE-DRIVEN APPROACH **
+
 To enable the API server IP address whitelist, you use [az aks update][az-aks-update] command and specify the *--api-server-authorized-ip-ranges* to allow. These IP address ranges are usually address ranges used by your on-premises networks.
 
 The following example enables the API server IP address whitelist on the cluster named *myAKSCluster* in the resource group named *myResourceGroup*. The IP address ranges to add to the whitelist are *172.0.0.10/16* and *168.10.0.10/18*:
@@ -74,7 +110,30 @@ az aks update \
     --api-server-authorized-ip-ranges 172.0.0.10/16,168.10.0.10/18
 ```
 
-## Disable IP address whitelisting
+-->
+
+## Update or disable IP address whitelisting
+
+To update or disable IP whitelisting, edit the *parameters-with-whitelisting.json* again. Change the permitted CIDR ranges, or set `"value": null` to provide an empty range of IP addresses and allow public access:
+
+```json
+"apiServerAuthorizedIPRanges": {
+    "value": ["40.71.84.169/32", "131.107.0.0/16", "167.220.2.74/32"]
+}
+```
+
+Redeploy the Resource Manager template to perform an incremental update of the AKS cluster with your permitted IP address ranges:
+
+```azurecli-interactive
+az group deployment create \
+    --resource-group myResourceGroup \
+    --template-file template-with-whitelisting.json \
+    --parameters parameters-with-whitelisting.json
+```
+
+<!--
+
+** THESE ARE THE PROPOSED CLI COMMANDS. THESE WILL REPLACE THE TEMPLATE-DRIVEN APPROACH **
 
 To disable the API server IP address whitelist, you again use [az aks update][az-aks-update] command and specify an empty *--api-server-authorized-ip-ranges* as shown in the following example:
 
@@ -84,6 +143,8 @@ az aks update \
     --name myAKSCluster \
     --api-server-authorized-ip-ranges ""
 ```
+
+-->
 
 ## Next steps
 
@@ -106,3 +167,4 @@ For more information, see [Security concepts for applications and clusters in AK
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
 [concepts-security]: concepts-security.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[create-aks-sp]: kubernetes-service-principal.md#manually-create-a-service-principal
