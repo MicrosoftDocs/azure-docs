@@ -149,24 +149,65 @@ To install a gateway, follow these steps.  (If you installed a previous version 
 
 
 ## Configure network load balancing 
-Configure the gateway for high availability by using network load balancing (NLB). Use either Microsoft Azure Load Balancer or hardware-based load balancers.  The load balancer manages traffic by redirecting the requested connections from the Log Analytics agents or Operations Manager management servers across its nodes. If one gateway server goes down, the traffic is redirected to other nodes.
+You can configure the gateway for high availability using network load balancing (NLB) using either Microsoft Network Load Balancing (NLB), Azure Load Balancer or hardware-based load balancers.  The load balancer manages traffic by redirecting the requested connections from the Log Analytics agents or Operations Manager management servers across its nodes. If one Gateway server goes down, the traffic gets redirected to other nodes.
 
->[!NOTE]
->To learn how to design and deploy a Windows Server 2016 NLB cluster, see [Network load balancing](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing). 
->
+### Microsoft Network Load Balancing
+To learn how to design and deploy a Windows Server 2016 network load balancing cluster, see [Network load balancing](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  The following steps describe how to configure a  Microsoft network load balancing cluster.  
 
-Follow these steps to configure a Microsoft Load Balancer cluster:  
+1. Sign onto the Windows server that is a member of the NLB cluster with an administrative account.  
+1. Open Network Load Balancing Manager in Server Manager, click **Tools**, and then click **Network Load Balancing Manager**.
+1. To connect an Log Analytics gateway server with the Microsoft Monitoring Agent installed, right-click the cluster's IP address, and then click **Add Host to Cluster**.<br><br> ![Network Load Balancing Manager – Add Host To Cluster](./media/gateway/nlb02.png)<br> 
+1. Enter the IP address of the gateway server that you want to connect.<br><br> ![Network Load Balancing Manager – Add Host To Cluster: Connect](./media/gateway/nlb03.png) 
 
-1. Use an administrator account to sign in to the Windows Server that is a member of the Load Balancer cluster.
-1. In Server Manager, open **Network Load Balancing Manager**, select **Tools**, and then select **Network Load Balancing Manager**.
-1. To connect a Log Analytics gateway server that has Microsoft Monitoring Agent installed, right-click the cluster's IP address, and then click **Add Host to Cluster**.
+### Azure Load Balancer
+To learn how to design and deploy an Azure Load Balancer, see [What is Azure Load Balancer?](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview). The following steps describe how to perform a basic configuration of an Azure Load Balancer.
 
-   ![Screenshot of Network Load Balancing Manager, with Add Host To Cluster selected](./media/gateway/nlb02.png)
+> [!NOTE]
+> Configuring the The Azure Load Balancer using the **Basic SKU**, requires that Azure Virtual Machines belong to an Availability Set. To learn more about Availability Sets, see [Manage the availability of Windows virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability). To add existing virtual machine(s) to an Availability Set, please refer to [Set Azure Resource Manager VM AvailabilitySet](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
+> 
 
-1. Enter the IP address of the gateway server that you want to connect.
+1. Login to the Azure portal with an account which has at least the Contributor role.
+1. On the left side menu, click on **All services**, then in the filter text box type **Load Balancers** and then click on **Load Balancers**.<br><br> ![Azure Load Balancers - Load Balancers](./media/gateway/alb01.png)
+1. In the Load Balancers blade, click on **Add**
+1. Enter the following information/settings:
+	1. Name
+	1. Type
+	1. SKU
+	1. Virtual Network
+	1. Subnet
+	1. IP address assignment
+	1. Subscription
+	1. Resource group
+	1. Location
 
-   ![Screenshot of Network Load Balancing Manager, showing the page Add Host To Cluster: Connect](./media/gateway/nlb03.png)
-    
+(like the example below), and the click **Create**.<br><br> ![Azure Load Balancers - Create Load Balancer](./media/gateway/alb02.png)
+1. Click on the just created Load Balancer to open the corresponding blade, then click on **Backend pools** and then click **Add**. 
+1. Enter the **Name**, and select the nodes which will be part of the pool and then click **OK**
+1. Now click on **Health probes** and click **Add**.
+1. Enter the following information/settings:
+	1. Name
+	1. Protocol
+	1. Port
+	1. Interval
+	1. Unhealthy threshold
+
+(see the example below) and then click **OK**. Remember that the health probe should use the port to be balanced.<br><br> ![Azure Load Balancers - Health probes](./media/gateway/alb04.png)
+1. Click on **Load balancing rules** and click **Add**.
+1. Enter the necessary information/settings
+	1. Name
+	1. IP Version
+	1. Frontend IP address
+	1. Protocol
+	1. Port
+	1. Backend port
+	1. Backend pool
+	1. Health probe
+	1. Session persistence
+	1. Idle timeout
+	1. Floating IP
+
+(see the example below) and then click **OK**.<br><br> ![Azure Load Balancers - Load balancing rules](./media/gateway/alb05.png)
+
 ## Configure the Log Analytics agent and Operations Manager management group
 In this section, you'll see how to configure directly connected Log Analytics agents, an Operations Manager management group, or Azure Automation Hybrid Runbook Workers with the Log Analytics gateway to communicate with Azure Automation or Log Analytics.  
 
