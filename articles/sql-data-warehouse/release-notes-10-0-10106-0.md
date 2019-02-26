@@ -13,7 +13,7 @@ manager: craigg
 ---
 
 # Azure SQL Data Warehouse release notes
-This article summarizes the new features and improvements in the recent releases of [SQL Server on Azure virtual machines](sql-data-warehouse-overview-what-is.md). The article also lists notable content updates that are not direclty related to the release but published in the same time frame. For improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates)
+This article summarizes the new features and improvements in the recent releases of [Azure SQL Data Warehouse](sql-data-warehouse-overview-what-is.md). The article also lists notable content updates that are not directly related to the release but published in the same time frame. For improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates)
 
 ## SQL Data Warehouse Version 10.0.10106.0 (January)
 
@@ -21,9 +21,9 @@ This article summarizes the new features and improvements in the recent releases
 
 | Service improvements | Details |
 | --- | --- |
-| **Query Restartability - CTAS and Insert/Select** | In rare situations (that is, intermittent network connection problems, node failures) query executing in Azure SQL DW can fail. Longer running statements, such as [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas) and INSERT-SELECT operations, are more exposed to this potential problem. With this release, Azure SQL DW implements retry logic for CTAS and INSERT-SELECT statements, in addition to SELECT statements announced previously. The changes allow the service to transparently handle transient problems and prevent queries from failing. The number of retry attempts and the list of transient errors handled are system configured.|
 |**Return Order By Optimization**|SELECT…ORDER BY queries get a performance boost in this release.   Now, all compute nodes send their results to a single compute node, which merges and sorts the results, which are returned to the user via the compute node.  Merging through a single compute node results in a significant performance gain when the query result set contains a large number of rows. Previously, the query execution engine would order results on each compute node, and stream them to the control node, which would then merge the results.|
 |**Data Movement Enhancements for PartitionMove and BroadcastMove**|In Azure SQL Data Warehouse Gen2, data movement steps of type ShuffleMove, use instant data movement techniques outlined in the [performance enhancements blog](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/). With this release, data movement types PartitionMove and BroadcastMove are now also powered by the same instant data movement techniques. User queries that utilize these types of data movement steps will run with improved performance. No code change is required to take advantage of these performance improvements.|
+|**Notable Bugs**|Incorrect Azure SQL Data Warehouse version - 'SELECT @@VERSION' may return the incorrect version, 10.0.9999.0. The correct version for the current release is 10.0.10106.0. This bug has been reported and is under review.
 
 ### Documentation improvements
 
@@ -33,7 +33,7 @@ This article summarizes the new features and improvements in the recent releases
 | | |
 
 ## Next steps
-[create a SQL Data Warehouse](./create-data-warehouse-portal.md)
+- [create a SQL Data Warehouse](./create-data-warehouse-portal.md)
 
 ## More information
 - [Blog - Azure SQL Data Warehouse](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)

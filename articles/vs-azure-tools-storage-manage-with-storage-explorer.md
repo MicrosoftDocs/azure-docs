@@ -217,7 +217,7 @@ To illustrate this scenario, let's say that UserA is an admin of an Azure subscr
 
 3. UserB uses Storage Explorer to attach to the account that belongs to UserA by using the supplied SAS.
 
-### Generate a SAS connection string for the account you want to share
+### Generate a SAS query string for the account you want to share
 
 1. In Storage Explorer, right-click the storage account you want share, and then select **Get Shared Access Signature...**.
 
@@ -227,7 +227,7 @@ To illustrate this scenario, let's say that UserA is an admin of an Azure subscr
 
     ![Get SAS dialog box][15]
 
-3. Next to the **Connection String** text box, select **Copy** to copy it to your clipboard, and then click **Close**.
+3. Next to the **Query String** text box, select **Copy** to copy it to your clipboard, and then click **Close**.
 
 ### Attach to a storage account by using a SAS Connection String
 

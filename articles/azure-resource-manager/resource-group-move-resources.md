@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 02/15/2019
 ms.author: tomfitz
 
 ---
@@ -51,7 +51,7 @@ The following list provides a general summary of Azure services that can be move
 * API Management
 * App Service apps (web apps) - see [App Service limitations](#app-service-limitations)
 * App Service Certificates - see [App Service Certificate limitations](#app-service-certificate-limitations)
-* Automation
+* Automation - Runbooks must exist in the same resource group as the Automation Account.
 * Azure Active Directory B2C
 * Azure Cosmos DB
 * Azure Data Explorer
@@ -85,13 +85,13 @@ The following list provides a general summary of Azure services that can be move
 * IoT Hubs
 * Key Vault - Key Vaults used for disk encryption can't be moved to resource groups in the same subscription or across subscriptions.
 * Load Balancers - Basic SKU Load Balancer can be moved. Standard SKU Load Balancer can't be moved.
-* Log Analytics
 * Logic Apps
 * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.
 * Managed Disks - see [Virtual Machines limitations for constraints](#virtual-machines-limitations)
 * Managed Identity - user-assigned
 * Media Services
 * Monitor - make sure moving to new subscription doesn't exceed [subscription quotas](../azure-subscription-service-limits.md#monitor-limits)
+* Azure Monitor logs
 * Notification Hubs
 * Operational Insights
 * Operations Management
@@ -130,6 +130,7 @@ The following list provides a general summary of Azure services that can't be mo
 * Azure Firewall
 * Azure Migrate
 * Certificates - App Service Certificates can be moved, but uploaded certificates have [limitations](#app-service-limitations).
+* Classic Applications
 * Container Instances
 * Container Service
 * Data Box
@@ -140,7 +141,7 @@ The following list provides a general summary of Azure services that can't be mo
 * Lab Services - move to new resource group in same subscription is enabled, but cross subscription move isn't enabled.
 * Managed Applications
 * Microsoft Genomics
-* NetApp
+* Azure NetApp Files
 * SAP HANA on Azure
 * Security
 * Site Recovery
@@ -508,7 +509,7 @@ In the request body, you specify the target resource group and the resources to 
 
 ## Next steps
 
-* To learn about PowerShell cmdlets for managing your subscription, see [Using Azure PowerShell with Resource Manager](powershell-azure-resource-manager.md).
-* To learn about Azure CLI commands for managing your subscription, see [Using the Azure CLI with Resource Manager](xplat-cli-azure-resource-manager.md).
+* To learn about the PowerShell cmdlets for managing your resources, see [Using Azure PowerShell with Resource Manager](manage-resources-powershell.md).
+* To learn about the Azure CLI commands for managing your resources, see [Using the Azure CLI with Resource Manager](manage-resources-cli.md).
 * To learn about portal features for managing your subscription, see [Using the Azure portal to manage resources](resource-group-portal.md).
 * To learn about applying a logical organization to your resources, see [Using tags to organize your resources](resource-group-using-tags.md).

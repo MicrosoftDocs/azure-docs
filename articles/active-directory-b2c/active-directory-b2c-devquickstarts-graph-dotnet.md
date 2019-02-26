@@ -58,7 +58,7 @@ Now you need to configure your application to get all the required permissions t
 You now have an application that has permission to create, read and update users from your B2C tenant.
 
 > [!NOTE]
-> Granting permissions make take a few minutes to fully process.
+> Granting permissions may take a few minutes to fully process.
 > 
 > 
 

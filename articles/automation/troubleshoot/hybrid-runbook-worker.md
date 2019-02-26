@@ -198,7 +198,7 @@ This can be caused if the machine is already registered with a different Automat
 
 #### Resolution
 
-To resolve this issue, remove the following registry key and try the `Add-HybridRunbookWorker` cmdlet again:
+To resolve this issue, remove the following registry key and restart the `HealthService` and try the `Add-HybridRunbookWorker` cmdlet again:
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 

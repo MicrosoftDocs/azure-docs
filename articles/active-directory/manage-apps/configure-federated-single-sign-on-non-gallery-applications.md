@@ -26,13 +26,13 @@ To configure single sign-on for a non-gallery application *without writing code*
 ## Overview of steps required
 Below is a high-level overview of the steps required to configure federated single sign-on with SAML 2.0 for a non-gallery (e.g. custom) application.
 
--   [Configure the application’s metadata values in Azure AD (Sign on URL, Identifier, Reply URL)](#_Configuring_single_sign-on)
+-   Configure the application’s metadata values in Azure AD (Sign on URL, Identifier, Reply URL)
 
 -   [Select User Identifier and add user attributes to be sent to the application](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
 
 -   [Retrieve Azure AD metadata and certificate](#download-the-azure-ad-metadata-or-certificate)
 
--   [Configure Azure AD metadata values in the application (Sign on URL, Issuer, Logout URL and certificate)](#_Configuring_single_sign-on)
+-   Configure Azure AD metadata values in the application (Sign on URL, Issuer, Logout URL and certificate)
 
 -   Assign users to the application
 

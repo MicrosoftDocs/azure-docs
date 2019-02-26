@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/11/2019
+ms.date: 02/25/2019
 ms.topic: quickstart
 ms.author: jgao
 
@@ -49,6 +49,7 @@ The template used in this quickstart is called [Create a standard storage accoun
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
+
 3. Select **Open** to open the file.
 4. Select **File**>**Save As** to save the file as **azuredeploy.json** to your local computer.
 
@@ -130,8 +131,8 @@ There are many methods for deploying templates.  In this quickstart, you use the
     read resourceGroupName &&
     echo "Enter the location (i.e. centralus):" &&
     read location &&
-    az group create --name $resourceGroupName --location $location &&
-    az group deployment create --resource-group $resourceGroupName --template-file "azuredeploy.json"
+    az group create --name $resourceGroupName --location "$location" &&
+    az group deployment create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json"
     ```
    
     # [PowerShell](#tab/PowerShell)
@@ -140,13 +141,13 @@ There are many methods for deploying templates.  In this quickstart, you use the
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     
-    New-AzResourceGroup -Name $resourceGroupName -Location $location
-    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "azuredeploy.json"
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json"
     ```
     
     ---
 
-    Update the template file name if you save the file to a name other than **azuredeploy.json**.
+    Update the template file name if you save the file to a name other than **azuredeploy.json**. 
 
     The following screenshot shows a sample deployment:
 

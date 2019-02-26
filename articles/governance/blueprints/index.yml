@@ -22,10 +22,12 @@ sections:
     style: icon48
     items:
     - image:
+        alt: Azure Portal
         src: ./media/portal.svg
       text: Azure Portal
       href: create-blueprint-portal.md
     - image:
+        alt: REST API
         src: ./media/rest.svg
       text: REST API
       href: create-blueprint-rest-api.md

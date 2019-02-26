@@ -1,6 +1,6 @@
 ---
 title: Sample - Allowed SQL DB SKUs
-description: This sample policy requires SQL databases to use an approved SKU.
+description: This sample policy definition requires SQL databases to use an approved SKU.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ---
-# Allowed SQL DB SKUs
+# Sample - Allowed SQL DB SKUs
 
 This policy requires SQL databases to use an approved SKU. You specify an array of allowed SKU IDs or an array of allowed SKU names.
 

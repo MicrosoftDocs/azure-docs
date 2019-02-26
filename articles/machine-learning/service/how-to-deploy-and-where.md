@@ -24,10 +24,11 @@ You can deploy models to the following compute targets:
 
 | Compute target | Deployment type | Description |
 | ----- | ----- | ----- |
-| [Azure Container Instances (ACI)](#aci) | Web service | Fast deployment. Good for development or testing. |
-| [Azure Kubernetes Service (AKS)](#aks) | Web service | Good for high-scale production deployments. Provides autoscaling, and fast response times. |
-| [Azure IoT Edge](#iotedge) | IoT module | Deploy models on IoT devices. Inferencing happens on the device. |
-| [Field-programmable gate array (FPGA)](#fpga) | Web service | Ultra-low latency for real-time inferencing. |
+| [Azure Kubernetes Service (AKS)](#aks) | Real-time inference | Good for high-scale production deployments. Provides autoscaling, and fast response times. |
+| [Azure ML Compute](#amlcompute) | Batch inference | Run batch prediction on serverless compute. Supports normal and low priority VMs. |
+| [Azure Container Instances (ACI)](#aci) | Testing | Good for development or testing. **Not suitable for production workloads.** |
+| [Azure IoT Edge](#iotedge) | (Preview) IoT module | Deploy models on IoT devices. Inferencing happens on the device. |
+| [Field-programmable gate array (FPGA)](#fpga) | (Preview) Web service | Ultra-low latency for real-time inferencing. |
 
 The process of deploying a model is similar for all compute targets:
 
@@ -220,7 +221,7 @@ When you get to deployment, the process is slightly different depending on the c
 >
 > The examples in this document use `deploy_from_image`.
 
-### <a id="aci"></a> Deploy to Azure Container Instances
+### <a id="aci"></a> Deploy to Azure Container Instances (DEVTEST)
 
 Use Azure Container Instances for deploying your models as a web service if one or more of the following conditions is true:
 
@@ -241,7 +242,7 @@ To deploy to Azure Container Instances, use the following steps:
 
 For more information, see the reference documentation for the [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) classes.
 
-### <a id="aks"></a> Deploy to Azure Kubernetes Service
+### <a id="aks"></a> Deploy to Azure Kubernetes Service (PRODUCTION)
 
 To deploy your model as a high-scale production web service, use Azure Kubernetes Service (AKS). You can use an existing AKS cluster or create a new one using the Azure Machine Learning SDK, CLI, or the Azure portal.
 
@@ -327,6 +328,13 @@ print(service.state)
 **Time estimate**: Approximately 3 minutes.
 
 For more information, see the reference documentation for the [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) classes.
+
+### <a id="fpga"></a> Inference with Azure ML Compute
+
+Azure ML compute targets are created and managed by the Azure Machine Learning service. They can be used for batch prediction from Azure ML Pipelines.
+
+For a walkthrough of batch inference with Azure ML Compute, read the [How to Run Batch Predictions](how-to-run-batch-predictions.md) document.
+
 
 ### <a id="fpga"></a> Deploy to field-programmable gate arrays (FPGA)
 

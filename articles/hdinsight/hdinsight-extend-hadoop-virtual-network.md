@@ -215,8 +215,6 @@ Network traffic in an Azure Virtual Networks can be controlled using the followi
 
 As a managed service, HDInsight requires unrestricted access to the HDinsight health and management services both for incoming and outgoing traffic from the VNET. When using NSGs and UDRs, you must ensure that these services can still communicate with HDInsight cluster.
 
-HDInsight exposes services on several ports. When using a virtual appliance firewall, you must allow traffic on the ports used for these services. For more information, see the [Required ports] section.
-
 ### <a id="hdinsight-ip"></a> HDInsight with network security groups and user-defined routes
 
 If you plan on using **network security groups** or **user-defined routes** to control network traffic, perform the following actions before installing HDInsight:
@@ -299,8 +297,6 @@ If you use network security groups, you must allow traffic from the Azure health
 3. You must also allow access from __168.63.129.16__. This address is Azure's recursive resolver. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
 For more information, see the [Controlling network traffic](#networktraffic) section.
-
-For outbound NSG rules, allow traffic from Any source inside the VNET to reach the above addresses as "Desitnation IP addresses".
 
 If you are using user-defined routes(UDRs), you should specify a route and allow outbound traffic from the VNET to the above IPs with the next hop set to "Internet".
     

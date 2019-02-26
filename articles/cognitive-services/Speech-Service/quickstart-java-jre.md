@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 2/20/2019
 ms.author: fmegen
 ---
 
@@ -16,7 +16,7 @@ ms.author: fmegen
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In this article, you create a Java console application by using the [Speech Service SDK](speech-sdk.md). You transcribe speech to text in real time from your PC's microphone. The application is built with the Speech SDK Maven package, and the Eclipse Java IDE (v4.8) on 64-bit Windows or 64-bit Ubuntu Linux 16.04 / 18.04. It runs on a 64-bit Java 8 runtime environment (JRE).
+In this article, you create a Java console application by using the [Speech SDK](speech-sdk.md). You transcribe speech to text in real time from your PC's microphone. The application is built with the Speech SDK Maven package, and the Eclipse Java IDE (v4.8) on 64-bit Windows or 64-bit Ubuntu Linux 16.04 / 18.04. It runs on a 64-bit Java 8 runtime environment (JRE).
 
 > [!NOTE]
 > For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](speech-devices-sdk.md).
@@ -34,7 +34,7 @@ If you're running Ubuntu 16.04/18.04, make sure these dependencies are installed
 
 ```console
 sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
 
 If you're running Windows (64-bit) please ensure you have installed Microsoft Visual C++ Redistributable for your platform.
