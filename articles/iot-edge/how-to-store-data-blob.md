@@ -328,7 +328,7 @@ The following quickstarts use languages that are also supported by IoT Edge, so 
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
 * [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md) 
 
-You can also try [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to your local blob store. We have tried working with previous version 1.5.0 of Azure Explorer.
+You can also try [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to your local storage account. We have tried working with previous version 1.5.0 of Azure Explorer.
 > [!CAUTION]
 > You might encounter errors while performing below steps, ignore and refresh. 
 
