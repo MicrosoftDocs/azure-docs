@@ -105,6 +105,8 @@
     href: billing-view-all-accounts.md
   - name: Group charges with invoice sections
     href: billing-mca-section-invoice.md
+  - name: EA tasks in billing account for Microsoft Customer Agreement
+    href: billing-mca-section-invoice.md
   - name: Resolve past due balance
     href: billing-azure-subscription-past-due-balance.md
   - name: Sign up with Office 365 account
