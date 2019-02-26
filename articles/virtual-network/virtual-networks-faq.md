@@ -235,12 +235,19 @@ Yes. Global VNet peering enables you to peer VNets in different regions. Global 
 If the two virtual networks are in different region (Global VNet Peering), you cannot connect to resources that use Basic Load Balancer. You can connect to resources that use Standard Load Balancer.
 The following resources use Basic Load Balancers which means you cannot communicate to them across Global VNet Peering:
 - VMs behind Basic Load Balancers
-- Redis Cache 
-- Application Gateway (v1 SKU)
 - VM Scale Sets with Basic Load Balancers 
-- Service Fabric clusters 
+- Redis Cache 
+- Application Gateway (v1) SKU
+- Service Fabric
 - SQL Always-on
 - SQL MI
+- API Managemenet
+- ADDS
+- Logic Apps
+- HD Insight
+-	Azure Batch
+- AKS
+- App Service Environment
 
 You can connect to these resource via ExpressRoute or VNet-to-VNet through VNet Gateways.
 
