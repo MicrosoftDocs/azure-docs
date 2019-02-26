@@ -35,6 +35,15 @@ sections:
     style: ordered
     items:
     - html: Design a Database&#58; <a href="/azure/mariadb/tutorial-design-database-using-portal">Azure portal</a> | <a href="/azure/mariadb/tutorial-design-database-cli">Azure CLI</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: Find scripts to manage common tasks.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/mariadb/sample-scripts-azure-cli">Azure CLI</a>
 - title: Reference
   items:
   - type: list
