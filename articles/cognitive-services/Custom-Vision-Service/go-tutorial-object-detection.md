@@ -153,6 +153,9 @@ To add the images, tags, and regions to the project, insert the following code a
 ```
 Then, use this map of associations to upload each sample image with its region coordinates. Add the following code.
 
+> [!NOTE]
+> You'll need to change the path to the images based on where you downloaded the Cognitive Services Go SDK Samples project earlier.
+
 ```Go
     // Go through the data table above and create the images
     fmt.Println("Adding images...")
