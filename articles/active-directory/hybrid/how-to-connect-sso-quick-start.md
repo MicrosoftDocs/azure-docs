@@ -115,7 +115,7 @@ There are two ways to modify users' Intranet zone settings:
 
 1. Open the Group Policy Management Editor tool.
 2. Edit the group policy that's applied to some or all your users. This example uses **Default Domain Policy**.
-3. Browse to **User Configuration** > **Policy** > ****Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page**. Then select **Site to Zone Assignment List**.
+3. Browse to **User Configuration** > **Policy** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page**. Then select **Site to Zone Assignment List**.
     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Enable the policy, and then enter the following values in the dialog box:
    - **Value name**: The Azure AD URL where the Kerberos tickets are forwarded.
