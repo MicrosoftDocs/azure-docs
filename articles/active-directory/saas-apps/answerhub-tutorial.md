@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To configure Azure AD integration with AnswerHub, you need the following:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can begin a [one-month trial here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can begin a [one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 * An AnswerHub subscription that has single sign-on enabled.
 
 ## Scenario description
@@ -49,7 +49,7 @@ To set up the integration of AnswerHub into Azure AD, you need to add AnswerHub 
 
 **To add AnswerHub from the gallery:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, in the left panel, select **Azure Active Directory**.
+1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**.
 
 	![Azure Active Directory button](common/select-azuread.png)
 
@@ -72,12 +72,12 @@ For single sign-on, you need to establish a link between an Azure AD user and th
 
 To configure and test Azure AD single sign-on with AnswerHub, you need to complete these tasks:
 
-1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable your users to use the feature.
-2. **[Configure AnswerHub single sign-on](#configure-answerhub-single-sign-on)** to set up the single sign-on settings on the application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** named Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create an AnswerHub test user](#create-answerhub-test-user)** that corresponds to and is linked to the Azure AD test user.
-6. **[Test single sign-on](#test-single-sign-on)** to verify that the configuration works.
+1. [Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on) to enable your users to use the feature.
+2. [Configure AnswerHub single sign-on](#configure-answerhub-single-sign-on) to set up the single sign-on settings on the application side.
+3. [Create an Azure AD test user](#create-an-azure-ad-test-user) named Britta Simon.
+4. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable Britta Simon to use Azure AD single sign-on.
+5. [Create an AnswerHub test user](#create-answerhub-test-user) that corresponds to and is linked to the Azure AD test user.
+6. [Test single sign-on](#test-single-sign-on) to verify that the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -121,7 +121,7 @@ In this section, you set up Azure AD single sign-on in the Azure portal.
    You can copy these URLs:
     - Login URL
 
-	- Azure Ad Identifier
+	- Azure AD Identifier
 
 	- Logout URL
 
@@ -138,7 +138,7 @@ In this section, you set up single sign-on for AnswerHub.
 
 2. Go to **Administration**.
 
-3. On the **User and Groups** tab, in the left navigation pane, in the **Social Settings** section, select **SAML Setup**.
+3. On the **User and Groups** tab, in the left pane, in the **Social Settings** section, select **SAML Setup**.
 
 4. On the **IDP Config** tab, complete these steps:
 
@@ -231,7 +231,7 @@ To enable Azure AD users to sign in to AnswerHub, you need to add them in Answer
 
 3. Select the **Users & Groups** tab.
 
-4. In the left navigation pane, in the **Manage Users** section, select **Create or import users**, and then select **Users & Groups**.
+4. In the left pane, in the **Manage Users** section, select **Create or import users**, and then select **Users & Groups**.
 
    ![Users & Groups tab](./media/answerhub-tutorial/ic785175.png "Users & Groups")
 
@@ -248,7 +248,7 @@ When you select the AnswerHub tile in the access panel, you should be automatica
 
 ## Additional resources
 
-- [ Tutorials for integrating SaaS apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutorials for integrating SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
