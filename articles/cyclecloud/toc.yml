@@ -148,7 +148,7 @@
       href: ~/cyclecloud-references/upgrade-and-migrate.md
     - name: HTTP Proxy Configuration
       href: ~/cyclecloud-references/running-behind-proxy.md
-    - name: Running Locked Down Networks
+    - name: Running in Locked Down Networks
       href: ~/cyclecloud-references/running-in-locked-down-network.md
     - name: User Interface Theming
       href: ~/cyclecloud-references/theming.md
