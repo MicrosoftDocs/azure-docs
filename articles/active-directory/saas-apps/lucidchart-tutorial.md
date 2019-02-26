@@ -104,9 +104,6 @@ To configure Azure AD single sign-on with Lucidchart, perform the following step
     In the **Sign-on URL** text box, type a URL as:
     `https://chart2.office.lucidchart.com/saml/sso/azure`
 
-	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [Lucidchart Client support team]() to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
