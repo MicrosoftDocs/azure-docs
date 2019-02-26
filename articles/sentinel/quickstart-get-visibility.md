@@ -25,11 +25,11 @@ ms.author: rkarlin
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This quickstart helps you quickly be able to view and monitor what's happening across your network using Azure Sentinel. After you connected your data sources to Azure Sentinel, you get instant visualization and analysis of data so that you can know what's happening across all your connected data sources. Azure Sentinel gives you dashboards that provide you with the full power of tools already available in Azure as well as tables and charts that are built in to provide you with analytics for your logs and queries. You can either use built-in dashboards or create a new dashboard easily, from scratch or based on an existing dashboard. 
+This quickstart helps you quickly be able to view and monitor what's happening across your environment using Azure Sentinel. After you connected your data sources to Azure Sentinel, you get instant visualization and analysis of data so that you can know what's happening across all your connected data sources. Azure Sentinel gives you dashboards that provide you with the full power of tools already available in Azure as well as tables and charts that are built in to provide you with analytics for your logs and queries. You can either use built-in dashboards or create a new dashboard easily, from scratch or based on an existing dashboard. 
 
 ## Get visualization
 
-To visualize and get analysis of what's happening on your network, first, take a look at the overview dashboard to get an idea of the security posture of your organization. You can click on each element of these tiles to drill down to the raw data from which they are created. To help you reduce noise and minimize the number of alerts you have to review and investigate, Azure Sentinel uses a fusion technique to correlate alerts into cases. **Cases** are groups of related alerts that together create an actionable incident that you can investigate and resolve.
+To visualize and get analysis of what's happening on your environment, first, take a look at the overview dashboard to get an idea of the security posture of your organization. You can click on each element of these tiles to drill down to the raw data from which they are created. To help you reduce noise and minimize the number of alerts you have to review and investigate, Azure Sentinel uses a fusion technique to correlate alerts into cases. **Cases** are groups of related alerts that together create an actionable incident that you can investigate and resolve.
 
 - In the Azure portal, select Azure Sentinel and then select the workspace you want to monitor.
 
@@ -105,17 +105,11 @@ The following sample query enables you to compare trends of traffic across weeks
 You might want to create a query that incorporates data from multiples sources. You can create a query that looks at Azure Active Directory audit logs for new users that were just created, and then checks your Azure logs to see if the user started making role assignment changes within 24 hours of creation. That suspicious activity would show up on this dashboard:
 
     AuditLogs
-
     | where OperationName == "Add user"
-
     | project AddedTime = TimeGenerated, user = tostring(TargetResources[0].userPrincipalName)
-
     | join (AzureActivity
-
     | where OperationName == "Create role assignment"
-
     | project OperationName, RoleAssignmentTime = TimeGenerated, user = Caller) on user
-
     | project-away user1
 
 You can create different dashboards based on role of person looking at the data and what they're looking for. For example, you can create a dashboard for your network admin that includes the firewall data. You can also create dashboards based on how frequently you want to look at them, whether there are things you want to review daily, and others items you want to check once an hour, for example, you might want to look at your Azure AD sign-ins every hour to search for anomalies. 

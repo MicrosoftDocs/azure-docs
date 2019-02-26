@@ -143,4 +143,5 @@ Clone and modify an existing hunting query:
 In this article, you learned how to run a hunting investigation with Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 
 
-* [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/): Find blog posts about Azure security and compliance.
+- [Use notebooks to run automated hunting campaigns](notebooks.md)
+- [Use bookmarks to save interesting information while hunting](bookmarks.md)

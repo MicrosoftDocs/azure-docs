@@ -95,4 +95,5 @@ Deleting the bookmark removes the bookmark from the list in the **Bookmark** tab
 In this article, you learned how to run a hunting investigation using bookmarks in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 
 
-* [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/): Find blog posts about Azure security and compliance.
+- [Proactively hunt for threats](hunting.md)
+- [Use notebooks to run automated hunting campaigns](notebooks.md)

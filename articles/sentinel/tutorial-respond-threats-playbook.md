@@ -36,7 +36,7 @@ A security playbook is a collection of procedures that can be run from Azure Sen
 
 For example, if you're worried about malicious attackers accessing your network resources, you can set an alert that looks for malicious IP addresses accessing your network. Then, you can create a playbook that does the following:
 1. When the alert is triggered, open a ticket in ServiceNow or any other IT ticketing system.
-2. Send a message to the SOC channel in Microsoft Teams or Slack to make sure your security analysts are aware of the incident.
+2. Send a message to your security operations channel in Microsoft Teams or Slack to make sure your security analysts are aware of the incident.
 3. Send all the information in the alert to your senior network admin and security admin. The email message also includes two user option buttons **Block** or **Ignore**.
 4. The playbook continues to run after a response is received from the admins.
 5. If the admins choose **Block**, the IP address is blocked in the firewall and the user is disabled in Azure AD.

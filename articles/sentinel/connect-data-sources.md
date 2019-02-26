@@ -32,26 +32,40 @@ To on-board Azure Sentinel, you first need to connect to your security sources. 
 ![Tiles](./media/overview/connections.png)
 
 
-# Supported data sources
+## Architecture
+
+![Architecture](./media/overview/arch-sentinel.png)
+
+## Data collection methods
+
+The following data collection methods are supported by Azure Sentinel:
+
+- Azure Sentinel can be connected to certain data sources using an agent installed either directly on the monitored data source or on a dedicated server. The agent was designed to ensure a small footprint and performs some basic data compression. The data volume sent varies based on the data source and logs selected. 
+
+- Some data sources are connected using APIs that are provided by the connected data source. Typically, most security technologies provide a set of APIs through which event logs can be retrieved. These logs are then sent to Azure Log Analytics. The APIs connected to Azure Sentinel gather specific data types and consume data from Microsoft services from a dedicated event hub via a Scuba router.
+
+- Real-time Syslog stream collection is a mainstay of most SIEM deployments. Syslog is a way for devices to send event messages to a logging server – usually known as a Syslog server. The Syslog protocol is supported by a wide range of devices and can be used to log different types of events. Syslog messages usually include information to help identify basic information about where, when, and why the log was sent: IP address, timestamp, and the actual log message. Messages are sometimes in a descriptive, human-readable format – but not always. Most of the industry has adopted the CEF standard for Syslog messages. So Azure Sentinel has extensive integration for CEF logs. Data sources that use Syslog, such as busy firewalls, produce thousands, or even tens of thousands of messages per second per each device. Because of this, the ASI Syslog collectors handle high-volume log sources. <br> Syslog collection is accomplished using the OMS agent for Linux. By default, the OMS Agent for Linux receives events from the Syslog daemon over UDP, but in cases where a Linux machine is expected to collect a high volume of Syslog events, such as when a Linux agent is receiving events from other devices, the configuration is modified to use TCP transport between the Syslog daemon and OMS agent.
+
+## Supported data sources
 
 - **Effortless data collection from services in the Microsoft ecosystem, including native service-to-service integration of all Microsoft solutions and their raw data:**
-    - Azure Information Protection
-    - Azure Security Center
-    - Azure Advanced Threat Protection
-    - Cloud App Security
-    - Office 365 
-    - Azure AD audit logs and sign-ins
-    - Azure Activity
-    - Azure AD Identity Protection
+    - [Azure Information Protection](connect-azure-information-protection.md)
+    - [Azure Security Center](connect-azure-security-center.md)
+    - [Azure Advanced Threat Protection](connect-azure-atp.md)
+    - [Cloud App Security](connect-cloud-app-security.md)
+    - [Office 365](connect-office-365)
+    - [Azure AD audit logs and sign-ins](connect-azure-active-directory.md)
+    - [Azure Activity](connect-azure-activity.md)
+    - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
 
 - **Integration with other clouds**:
-    - AWS
+    - [AWS](connect-aws.md)
 
 - **Integration with cloud and on-prem data from**:
     - Windows Servers 
     - Linux servers
     - Windows Event Forwarding
-    - DNS logs
+    - [DNS logs](connect-dns.md)
     - Servers and endpoints
 
 -**Integration with any solution supporting Syslog, CEF, and REST API**

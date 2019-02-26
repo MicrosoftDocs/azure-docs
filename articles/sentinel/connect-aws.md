@@ -24,11 +24,11 @@ ms.author: rkarlin
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article provides instructions for connecting Azure Sentinel to your existing Amazon Web Services account using the connector. This connection streams your AWS CloudTrail logs into your Azure Sentinel workspace in just a few clicks. 
+This article provides instructions for connecting Azure Sentinel to your existing Amazon Web Services account using the connector. This connection streams your Amazon Web Services CloudTrail logs into your Azure Sentinel workspace in just a few clicks. 
   
 ## How to connect Amazon Web Services to Azure Sentinel  
 
-To stream logs from AWS to Azure Sentinel, you first have to download keys to your AWS instance, and then paste them in the new account you create in Azure Sentinel.
+To stream Amazon Web Services CloudTrail logs from AWS to Azure Sentinel, you first have to download keys to your AWS instance, and then paste them in the new account you create in Azure Sentinel.
 
 ## Step 1: Download your AWS keys
   
