@@ -54,7 +54,7 @@ The main body of the overview page gives insight at a glance into the security s
 
    ![Azure Sentinel map](./media/qs-get-visibility/anomolies.png)
 
-## Use built-in dashboards <a name="dashboards"></a>
+## Use built-in dashboards<a name="dashboards"></a>
 
 Built-in dashboards provide integrated data from your connected data sources to let you deep dive into the events generated in those services. The built-in dashboards include Azure ID, Azure activity events, and on-premises, which can be data from Windows Events from servers, from first party alerts, from any third party including firewall traffic logs, Office 365, and insecure protocols based on Windows events.
 

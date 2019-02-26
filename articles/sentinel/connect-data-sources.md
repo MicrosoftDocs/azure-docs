@@ -53,7 +53,7 @@ The following data collection methods are supported by Azure Sentinel:
     - [Azure Security Center](connect-azure-security-center.md)
     - [Azure Advanced Threat Protection](connect-azure-atp.md)
     - [Cloud App Security](connect-cloud-app-security.md)
-    - [Office 365](connect-office-365)
+    - [Office 365](connect-office-365.md)
     - [Azure AD audit logs and sign-ins](connect-azure-active-directory.md)
     - [Azure Activity](connect-azure-activity.md)
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
