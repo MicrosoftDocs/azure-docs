@@ -27,7 +27,7 @@ To alert when CPU or memory utilization is high for a cluster or a controller, y
 
 Before starting, if you are not familiar with Alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../platform/alerts-overview.md). To learn more about alerts using log queries, see [Log alerts in Azure Monitor](../platform/alerts-unified-log.md)
 
-## Alert on cluster CPU or memory utilization
+## Resource utilization log search queries
 The queries in this section are provided to support each alerting scenario. The queries are required for step 7 under the [create alert](#create-alert-rule) section below.  
 
 The following query calculates the average CPU utilization as an average of member nodes CPU utilization every minute.  
@@ -184,8 +184,10 @@ KubePodInventory
 ```
 
 ## Create alert rule
+Perform the following steps to create a Log Alert in Azure Monitor using one of the log search rules provided earlier.  
+
 >[!NOTE]
->The procedure below requires you to switch to new Log Alerts API as described in [Switch API preference for Log Alerts](../../platform/alerts-log-api-switch.md) if you are creating an alert rule for container resource utilization. 
+>The procedure below requires you to switch to new Log Alerts API as described in [Switch API preference for Log Alerts](../platform/alerts-log-api-switch.md) if you are creating an alert rule for container resource utilization. 
 >
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -194,7 +196,7 @@ KubePodInventory
 4. On the left-hand pane under the **Monitoring** section, select **Logs** to open the Azure Monitor logs page, which used to write and execute Azure Log Analytics queries.
 5. On the **Logs** page, click **+ New alert rule**.
 6. Under the **Condition** section, click on the pre-defined custom log condition **Whenever the Custom log search is <logic undefined>**. The **custom log search** signal type is automatically selected for us because we initiated creating an alert rule directly from the Azure Monitor logs page.  
-7. Paste one of the queries provided earlier into the **Search query** field. 
+7. Paste one of the [queries](#resource-utilization-log-search-queries) provided earlier into the **Search query** field. 
 
 8. Configure the alert with the following information:
 
