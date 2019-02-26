@@ -102,8 +102,7 @@ The following table lists the primary and secondary IPs of the Azure SQL Databas
 | North Europe | 191.235.193.75 | 40.113.93.91 |
 | South Central US | 23.98.162.75 | 13.66.62.124 |
 | South East Asia | 23.100.117.95 | 104.43.15.0 |
-| UK South 2 | 51.140.184.11 | |
-| UK West | 51.141.8.11 | |
+| UK South | 51.140.184.11 | |
 | West Central US | 13.78.145.25 | |
 | West Europe | 191.237.232.75 | 40.68.37.158 |
 | West US 1 | 23.99.34.75 | 104.42.238.205 |
