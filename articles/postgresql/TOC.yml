@@ -36,7 +36,7 @@
     - name: Azure CLI
       href: tutorial-design-database-using-azure-cli.md
   - name: 2 - Design Web App - Python
-    href: ../app-service/containers/tutorial-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json 
+    href: ../app-service/containers/tutorial-python-postgresql-app.md
     maintainContext: true
   - name: 3 - Monitor and tune
     href: tutorial-monitor-and-tune.md
