@@ -21,7 +21,7 @@ Before using the speech-to-text REST API, understand:
 * The speech-to-text requests using the REST API can only contain 10 seconds of recorded audio.
 * The speech-to-text REST API only returns final results. Partial results are not provided.
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
 ## Speech-to-text API
 

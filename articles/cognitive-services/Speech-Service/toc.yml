@@ -147,17 +147,17 @@
       displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows'
     - name: Release notes
       href: releasenotes.md
-    - name: C++ reference
+    - name: C++
       href: https://aka.ms/csspeech/cppref
-    - name: C# reference
+    - name: C#
       href: https://aka.ms/csspeech/csharpref
-    - name: Java/Android reference
+    - name: Java/Android
       href: https://aka.ms/csspeech/javaref
-    - name: Javascript/Node.js reference
+    - name: Javascript/Node.js
       href: https://aka.ms/csspeech/javascriptref
-    - name: Objective-C reference
+    - name: Objective-C
       href: https://aka.ms/csspeech/objectivecref
-    - name: Python reference
+    - name: Python
       href: https://aka.ms/csspeech/pythonref
   - name: Speech Devices SDK
     items:

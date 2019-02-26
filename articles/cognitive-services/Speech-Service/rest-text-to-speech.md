@@ -20,7 +20,7 @@ The Speech Services allow you to convert text-to-speech using a REST API. Each a
 Before using this API, understand:
 * The text-to-speech REST API requires an Authorization header. This means that you need to complete a token exchange to access the service. For more information, see [Authentication](#authentication).
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
 ## Text-to-speech API
 
