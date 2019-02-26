@@ -87,21 +87,33 @@ The NGINX ingress controller supports TLS termination. There are several ways to
 To install the cert-manager controller in an RBAC-enabled cluster, use the following `helm install` command:
 
 ```console
+kubectl label namespace kube-system certmanager.k8s.io/disable-validation=true
+
+kubectl apply \
+    -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.6/deploy/manifests/00-crds.yaml
+    
 helm install stable/cert-manager \
     --namespace kube-system \
     --set ingressShim.defaultIssuerName=letsencrypt-staging \
-    --set ingressShim.defaultIssuerKind=ClusterIssuer
+    --set ingressShim.defaultIssuerKind=ClusterIssuer \
+    --version v0.6.0
 ```
 
 If your cluster is not RBAC enabled, instead use the following command:
 
 ```console
+kubectl label namespace kube-system certmanager.k8s.io/disable-validation=true
+
+kubectl apply \
+    -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.6/deploy/manifests/00-crds.yaml
+    
 helm install stable/cert-manager \
     --namespace kube-system \
     --set ingressShim.defaultIssuerName=letsencrypt-staging \
     --set ingressShim.defaultIssuerKind=ClusterIssuer \
     --set rbac.create=false \
-    --set serviceAccount.create=false
+    --set serviceAccount.create=false \
+    --version v0.6.0
 ```
 
 For more information on cert-manager configuration, see the [cert-manager project][cert-manager].
@@ -330,10 +342,10 @@ You can also:
 - [Create an ingress controller that uses Let's Encrypt to automatically generate TLS certificates with a static public IP address][aks-ingress-static-tls]
 
 <!-- LINKS - external -->
-[helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm#install-helm-cli
+[helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm
 [cert-manager]: https://github.com/jetstack/cert-manager
 [cert-manager-certificates]: https://cert-manager.readthedocs.io/en/latest/reference/certificates.html
-[ingress-shim]: http://docs.cert-manager.io/en/latest/reference/ingress-shim.html
+[ingress-shim]: http://docs.cert-manager.io/en/latest/tasks/issuing-certificates/ingress-shim.html
 [cert-manager-cluster-issuer]: https://cert-manager.readthedocs.io/en/latest/reference/clusterissuers.html
 [cert-manager-issuer]: https://cert-manager.readthedocs.io/en/latest/reference/issuers.html
 [lets-encrypt]: https://letsencrypt.org/

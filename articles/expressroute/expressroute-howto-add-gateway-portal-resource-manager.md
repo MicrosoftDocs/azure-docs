@@ -39,9 +39,8 @@ The steps for this task use a VNet based on the values in the following configur
 * Gateway Subnet name: "GatewaySubnet" You must always name a gateway subnet *GatewaySubnet*.
 	* Gateway Subnet address space = "192.168.200.0/26"
 * Gateway Name = "ERGW"
-* Gateway IP Name = "MyERGWVIP"
-* Gateway type = "ExpressRoute" This type is required for an ExpressRoute configuration.
 * Gateway Public IP Name = "MyERGWVIP"
+* Gateway type = "ExpressRoute" This type is required for an ExpressRoute configuration.
 
 You can view a [Video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) of these steps before beginning your configuration.
 

@@ -123,7 +123,7 @@ Live Outputs start on creation and stop when deleted. When you delete the Live O
 #### Create a Streaming Locator
 
 > [!NOTE]
-> When your Media Services account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
+> When your Media Services account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of [dynamic packaging](dynamic-packaging-overview.md) and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
 When you publish the Live Output asset using a Streaming Locator, the Live Event (up to the DVR window length) will continue to be viewable until the Streaming Locator's expiry or deletion, whichever comes first.
 
@@ -163,7 +163,7 @@ The following code shows how to clean up your account of all Live Events:
 
 ## Watch the event
 
-To watch the event, copy the streaming URL that you got when you ran code described in [Create a Streaming Locator](#create-a-streaminglocator) and use a player of your choice. You can use [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) to test your stream at http://ampdemo.azureedge.net. 
+To watch the event, copy the streaming URL that you got when you ran code described in Create a Streaming Locator and use a player of your choice. You can use [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) to test your stream at http://ampdemo.azureedge.net. 
 
 Live Event automatically converts events to on-demand content when stopped. Even after you stop and delete the event, the users would be able to stream your archived content as a video on demand, for as long as you do not delete the asset. An asset cannot be deleted if it is used by an event; the event must be deleted first. 
 

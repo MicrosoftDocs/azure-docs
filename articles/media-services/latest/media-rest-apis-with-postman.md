@@ -53,7 +53,7 @@ This section configures the Postman.
     > [!Note]
     > Update access variables with values you got from the **Access the Media Services API** section above.
 
-7. Double-click on the selected file and enter values that you got by following the [accessing API](#access-the-media-services-api) steps.
+7. Double-click on the selected file and enter values that you got by following the accessing API steps.
 8. Close the dialog.
 9. Select the **Azure Media Service v3 Environment** environment from the dropdown.
 

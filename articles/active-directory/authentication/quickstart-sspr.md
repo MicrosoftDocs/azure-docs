@@ -14,6 +14,7 @@ manager: daveba
 ms.reviewer: sahenry
 
 # Customer intent: As an Azure AD Administrator, I want to protect user authentication so I deploy SSPR so that when users have trouble signing-in they can reset their passwords using something they know.
+ms.collection: M365-identity-device-management
 ---
 # Quickstart: Self-service password reset
 

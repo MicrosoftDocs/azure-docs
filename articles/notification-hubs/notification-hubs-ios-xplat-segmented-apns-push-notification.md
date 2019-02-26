@@ -317,7 +317,7 @@ Normally notifications would be sent by a backend service but, you can send brea
         NSArray* categories = [NSArray arrayWithObjects: @"World", @"Politics", @"Business",
                                 @"Technology", @"Science", @"Sports", nil];
 
-        // Lets send the message as breaking news for each category to WNS, GCM, and APNS
+        // Lets send the message as breaking news for each category to WNS, FCM, and APNS
         // using a template.
         for(NSString* category in categories)
         {

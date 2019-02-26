@@ -10,7 +10,7 @@ ms.date: 09/24/2018
 ms.author: dech
 
 ---
-# Azure Cosmos DB: Build a Node.js app using JavaScript SDK to manage Azure Cosmos DB SQL API data
+# Quickstart: Build a Node.js app using Azure Cosmos DB SQL API account
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
@@ -76,7 +76,7 @@ Now let's clone a SQL API app from GitHub, set the connection string, and run it
 
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
-Note, if you are familiar with the previous version of the JavaScript SDK, you may be used to seeing the terms 'collection' and 'document.' Because Azure Cosmos DB supports [multiple API models](https://docs.microsoft.com/azure/cosmos-db/introduction#key-capabilities), version 2.0+ of the JavaScript SDK uses the generic terms 'container', which may be a collection, graph, or table and 'item' to describe the content of the container.
+Note, if you are familiar with the previous version of the JavaScript SDK, you may be used to seeing the terms 'collection' and 'document.' Because Azure Cosmos DB supports [multiple API models](https://docs.microsoft.com/azure/cosmos-db/introduction), version 2.0+ of the JavaScript SDK uses the generic terms 'container', which may be a collection, graph, or table and 'item' to describe the content of the container.
 
 The following snippets are all taken from the **app.js** file.
 

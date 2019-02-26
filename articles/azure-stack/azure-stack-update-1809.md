@@ -47,7 +47,7 @@ This update includes the following improvements for Azure Stack:
 
 - You can now [move the registration resource](azure-stack-registration.md#move-a-registration-resource) on Azure between resource groups without having to re-register. Cloud Solution Providers (CSPs) can also move the registration resource between subscriptions, as long as both the new and old subscriptions are mapped to the same CSP partner ID. This does not impact the existing customer tenant mappings. 
 
-- Added support for assigning multiple IP addresses per network interface.  For more details see [Assign multiple IP addresses to virtual machines using PowerShell](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell).
+- Added support for assigning multiple IP addresses per network interface.  For more details see [Assign multiple IP addresses to virtual machines using PowerShell](https://docs.microsoft.com/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell).
 
 ### Fixed issues
 
@@ -135,7 +135,7 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ### Prerequisites
 
-- Install the latest Azure Stack Hotfix for 1808 before applying 1809. For more information, see [KB 4481066 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/). While Microsoft recommends the latest Hotfix avaiable, the minimun version required to install 1809 is 1.1808.5.110.
+- Install the latest Azure Stack Hotfix for 1808 before applying 1809. For more information, see [KB 4481066 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/). While Microsoft recommends the latest Hotfix available, the minimum version required to install 1809 is 1.1808.5.110.
 
   > [!TIP]  
   > Subscribe to the following *RRS* or *Atom* feeds to keep up with Azure Stack Hotfixes:

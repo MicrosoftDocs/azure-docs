@@ -11,7 +11,7 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/04/2019
 ---
 # Azure SQL Database and SQL Data Warehouse access control
 
@@ -63,5 +63,5 @@ You should familiarize yourself with the following features that can be used to 
 - For an overview of the SQL Database security features, see [SQL security overview](sql-database-security-overview.md).
 - To learn more about firewall rules, see [Firewall rules](sql-database-firewall-configure.md).
 - To learn about users and logins, see [Manage logins](sql-database-manage-logins.md). 
-- For a discussion of proactive monitoring, see [Database Auditing](sql-database-auditing.md) and [SQL Database Threat Detection](sql-database-threat-detection.md).
+- For a discussion of proactive monitoring, see [Database Auditing](sql-database-auditing.md) and [SQL Database threat detection](sql-database-threat-detection.md).
 - For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md).

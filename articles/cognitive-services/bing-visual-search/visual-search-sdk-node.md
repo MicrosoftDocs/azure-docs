@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Upload an image using the Bing Visual Search SDK and get insights about it.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
@@ -48,7 +48,7 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
 2. Instantiate the client.
 
     ```javascript
-    let visualSearchApiClient = new Search.VisualSearchAPIClient(credentials);
+    let visualSearchClient = new Search.VisualSearchClient(credentials);
     ```
 
 ## Search for images
@@ -60,7 +60,7 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
     let visualSearchRequest = JSON.stringify({});
     let visualSearchResults;
     try {
-        visualSearchResults = await visualSearchApiClient.images.visualSearch({
+        visualSearchResults = await visualSearchClient.images.visualSearch({
             image: fileStream,
             knowledgeRequest: visualSearchRequest
         });

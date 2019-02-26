@@ -86,7 +86,7 @@ Configure the following SKU settings:
   >[!NOTE]
   >Save your pricing changes to enable export/import of pricing data.
 
-- **Simplified Currency Pricing** - Enter the price for the SKU, in USD per month. This must be the same as Old Pricing. For more information, see [Simplified Currency Pricing](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer#simplified-currency-pricing).
+- **Simplified Currency Pricing** - Enter the price for the SKU, in USD per month. This must be the same as Old Pricing. For more information, see [Simplified Currency Pricing](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer).
 
 ### Package Details for Solution Template
 
@@ -135,7 +135,7 @@ Add the Azure Active Directory Identifier of user, group or application to which
 
 #### Policy Settings
 
-Add the policies that the Managed App complies with. Learn more about Azure Resource policies, see [What is Azure Policy?](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) 
+Add the policies that the Managed App complies with. Learn more about Azure Resource policies, see [What is Azure Policy?](../../../governance/policy/overview.md)
 
 
    ![Authorization and policy settings for a managed application](./media/azureapp-sku-details-managedapp-auth-policy.png)

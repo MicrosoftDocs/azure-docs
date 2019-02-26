@@ -26,7 +26,7 @@ The process that's outlined in this article only works on classic virtual machin
 
 - You must be a [service administrator or co-administrator](../../billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription. 
 
-- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
+- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
 - You need to have either [Azure PowerShell](/powershell/azure) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installed.
 

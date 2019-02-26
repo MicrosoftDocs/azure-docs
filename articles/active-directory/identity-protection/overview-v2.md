@@ -18,6 +18,7 @@ ms.date: 10/03/2018
 ms.author: markvi
 ms.reviewer: raluthra
 
+ms.collection: M365-identity-device-management
 ---
 # What is Azure Active Directory Identity Protection (refreshed)?
 

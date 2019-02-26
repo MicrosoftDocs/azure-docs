@@ -4,12 +4,12 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: The LUIS container runtime environment is configured using the `docker run` command arguments. LUIS has several required settings, along with a few optional settings.   
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual 
-ms.date: 01/22/2019
+ms.date: 02/08/2019
 ms.author: diberry 
 ---
 
@@ -54,7 +54,7 @@ Do not use the starter key or the authoring key.
 
 ## Billing setting
 
-The `Billing` setting specifies the endpoint URI of the _Language Understanding_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _Language Understanding_ resource on Azure.
+The `Billing` setting specifies the endpoint URI of the _Language Understanding_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _Language Understanding_ resource on Azure. The container reports usage about every 10 to 15 minutes.
 
 This setting can be found in the following places:
 
@@ -189,5 +189,5 @@ ApiKey={APPLICATION_ID} \
 ## Next steps
 
 * Review [How to install and run containers](luis-container-howto.md)
-* Refer to [Frequently asked questions (FAQ)](luis-resources-faq.md) to resolve issues related to LUIS functionality.
+* Refer to [Troubleshooting](troubleshooting.md) to resolve issues related to LUIS functionality.
 * Use more [Cognitive Services Containers](../cognitive-services-container-support.md)

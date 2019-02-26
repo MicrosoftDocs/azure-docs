@@ -1,6 +1,6 @@
 ---
-title: Secure a standalone or pooled database in Azure SQL Database | Microsoft Docs
-description: Learn about techniques and features to secure a standalone or pooled database in Azure SQL Database.
+title: Secure a single or pooled database in Azure SQL Database | Microsoft Docs
+description: Learn about techniques and features to secure a single or pooled database in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,11 +9,11 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/30/2019
+ms.date: 02/08/2019
 ---
-# Tutorial: Secure a standalone or pooled database
+# Tutorial: Secure a single or pooled database
 
-Azure SQL Database secures data in a standalone or pooled database by allowing you to:
+Azure SQL Database secures data in a single or pooled database by allowing you to:
 
 - Limit access using firewall rules
 - Use authentication mechanisms that require identity
@@ -39,7 +39,7 @@ To complete the tutorial, make sure you have the following prerequisites:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - An Azure SQL server and database
-  - Create them with [Azure portal](sql-database-get-started-portal.md), [CLI](sql-database-cli-samples.md), or [PowerShell](sql-database-powershell-samples.md)
+  - Create them with [Azure portal](sql-database-single-database-get-started.md), [CLI](sql-database-cli-samples.md), or [PowerShell](sql-database-powershell-samples.md)
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -58,7 +58,7 @@ Set **Allow access to Azure services** to **OFF** for the most secure configurat
 
 ### Set up SQL Database server firewall rules
 
-Server-level firewall rules apply to all databases within the same SQL Database server.
+Server-level IP firewall rules apply to all databases within the same SQL Database server.
 
 To set up a server-level firewall rule:
 
@@ -225,7 +225,7 @@ To copy a secure connection string:
 
 ## Enable security features
 
-Azure SQL Database provides security features that are accessed using the Azure portal. These features are available for both the database and server, except for data masking, which is only available on the database. To learn more, see [Advanced data security](sql-advanced-threat-protection.md), [Auditing](sql-database-auditing.md), [Dynamic data masking](sql-database-dynamic-data-masking-get-started.md), and [Transparent data encryption](transparent-data-encryption-azure-sql.md).
+Azure SQL Database provides security features that are accessed using the Azure portal. These features are available for both the database and server, except for data masking, which is only available on the database. To learn more, see [Advanced data security](sql-database-advanced-data-security.md), [Auditing](sql-database-auditing.md), [Dynamic data masking](sql-database-dynamic-data-masking-get-started.md), and [Transparent data encryption](transparent-data-encryption-azure-sql.md).
 
 ### Advanced data security
 

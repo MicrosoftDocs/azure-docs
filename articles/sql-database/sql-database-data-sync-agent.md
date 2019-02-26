@@ -11,7 +11,7 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 11/12/2018
+ms.date: 12/20/2018
 ---
 # Data Sync Agent for Azure SQL Data Sync
 

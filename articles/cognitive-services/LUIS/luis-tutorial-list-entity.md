@@ -4,7 +4,7 @@ description: Learn how to add a list entity to help LUIS label variations of a w
 services: cognitive-services
 author: diberry
 titleSuffix: Azure
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article

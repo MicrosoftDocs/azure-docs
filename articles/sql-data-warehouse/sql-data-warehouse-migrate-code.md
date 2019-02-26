@@ -27,7 +27,7 @@ The following list summarizes the most common features that SQL Data Warehouse d
 * output clause
 * inline user-defined functions
 * multi-statement functions
-* [common table expressions](#Common-table-expressions)
+* common table expressions
 * [recursive common table expressions (CTE)](#Recursive-common-table-expressions-(CTE)
 * CLR functions and procedures
 * $partition function

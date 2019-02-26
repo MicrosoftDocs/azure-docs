@@ -5,7 +5,7 @@ description: This article contains dimension prebuilt entity information in Lang
 services: cognitive-services
 ms.custom: seodec18
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article

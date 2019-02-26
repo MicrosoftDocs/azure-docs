@@ -158,7 +158,7 @@ Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredenti
 Granting and revoking access can also be done via the portal. See [Administer HDInsight by using the Azure portal][hdinsight-admin-portal].
 
 ## Update HTTP user credentials
-It is the same procedure as [Grant/revoke HTTP access](#grant/revoke-access). If the cluster has been granted the HTTP access, you must first revoke it.  And then grant the access with new HTTP user credentials.
+It is the same procedure as Grant/revoke HTTP access. If the cluster has been granted the HTTP access, you must first revoke it.  And then grant the access with new HTTP user credentials.
 
 ## Find the default storage account
 The following PowerShell script demonstrates how to get the default storage account name and the related information:

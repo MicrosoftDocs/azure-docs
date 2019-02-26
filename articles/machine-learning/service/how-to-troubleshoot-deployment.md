@@ -191,12 +191,15 @@ $ docker run -p 8000:5001 <image_id>
 Often, in the `init()` function in the scoring script, `Model.get_model_path()` function is called to locate a model file or a folder of model files in the container. This is often a source of failure if the model file or folder cannot be found. The easiest way to debug this error is to run the below Python code in the Container shell:
 
 ```python
+import logging
+logging.basicConfig(level=logging.DEBUG)
 from azureml.core.model import Model
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
 This would print out the local path (relative to `/var/azureml-app`) in the container where your scoring script is expecting to find the model file or folder. Then you can verify if the file or folder is indeed where it is expected to be.
 
+Setting the logging level to DEBUG may provide cause additional information to be logged, which may be useful in identifying the failure.
 
 ## Function fails: run(input_data)
 If the service is successfully deployed, but it crashes when you post data to the scoring endpoint, you can add error catching statement in your `run(input_data)` function so that it returns detailed error message instead. For example:

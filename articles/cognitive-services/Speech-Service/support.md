@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: How to obtain help and support for questions and problems when you create applications that integrate with the Speech Service
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service

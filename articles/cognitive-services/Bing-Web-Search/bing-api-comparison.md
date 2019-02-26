@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Use this article to learn about the Bing Search APIs, and how you can enable cognitive internet searches in your apps and services.  
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: article

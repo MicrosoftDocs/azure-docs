@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Describes how to get analytics for Bing Autosuggest API. 
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
