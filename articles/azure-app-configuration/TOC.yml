@@ -1,4 +1,4 @@
-- name: Azure App Configuration Documentation
+- name: Azure App Configuration (Preview) Documentation
   href: index.yml
 - name: Overview
   items:
