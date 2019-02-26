@@ -209,7 +209,7 @@ To change the percentage of messages to be traced from the cloud, you must updat
 
     ![Update sampling mode](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-2.png)
 
-    ![Update sampling rate ](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-3.png)
+    ![Update sampling rate](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-3.png)
 
 ### Bulk update for multiple devices
 

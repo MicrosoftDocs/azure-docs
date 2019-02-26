@@ -1,4 +1,4 @@
----  
+---
 title: Containers Offer Publishing Guide for Azure Marketplace
 description: This article describes the requirements to publish Containers in the Marketplace
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
 
----  
+---
 
 # Containers Offer Publishing Guide
 

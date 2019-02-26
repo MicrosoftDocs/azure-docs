@@ -64,7 +64,7 @@ The steps to enable Log Analytics for HDInsight are the same for all HDInsight c
 
     ![Image of the CPU usage search](./media/apache-kafka-log-analytics-operations-management/kafka-cpu-usage.png)
  
- ## Next steps
+## Next steps
 
 For more information on Log Analytics, see the [Get started with a Log Analytics workspace](../../log-analytics/log-analytics-get-started.md) document.
 

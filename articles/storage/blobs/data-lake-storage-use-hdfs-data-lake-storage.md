@@ -73,10 +73,6 @@ For more information on HDFS CLI, see the [official documentation](https://hadoo
 
 The Databricks provides an easy-to-use CLI built on top of the Databricks REST API. The open-source project is hosted on [GitHub](https://github.com/databricks/databricks-cli). Below are the commonly used commands.
 
-### Create a file system
-
-Put the guidance here.
-
 ### Get a list of files or directories
 
     dbfs ls [-l]
