@@ -58,7 +58,7 @@ cd ./iOS/Objective-C/
 
 ***
 
-Run `pod install` to install the CocoaPods for the project.
+Run `pod install --repo-update` to install the CocoaPods for the project.
 
 Now open the `.xcworkspace` in Xcode.
 
