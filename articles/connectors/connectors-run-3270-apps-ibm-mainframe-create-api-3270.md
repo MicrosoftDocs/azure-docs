@@ -254,7 +254,7 @@ in your plan. Here are some examples of repeated screens:
   * The welcome screen for the Customer Information Control System (CICS)
   * The "Clear" or **Empty** screen
 
-<a name="create-plan"></a>
+<a name="create-plans"></a>
 
 ### Create plans
 
@@ -388,8 +388,10 @@ which runs your method definition against the live host.
 
 1. To continue to the next screen, choose **Next**.
 
-1. When you're finished, choose **Done**, which displays 
-the value for your output parameter.
+1. When you're finished, choose **Done**, which 
+displays the value for your output parameter.
+
+<a name="add-metadata-integration-account"></a>
 
 ## Add metadata file to integration account
 
@@ -408,6 +410,8 @@ ready for connecting to your IBM mainframe, drive screens
 for your app, enter data, return results, and so on. 
 You can also continue adding other actions to your logic 
 app for integrating with other apps, services, and systems.
+
+<a name="run-action"></a>
 
 ## Run an HIS 3270 action
 
