@@ -9,18 +9,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/15/2019
+ms.date: 02/26/2019
 ms.author: pafarley
 ---
 # Azure Cognitive Services Computer Vision SDK for Python
 
-The Computer Vision service provides developers with access to advanced algorithms for processing images and returning information. Computer Vision algorithms analyze the content of an image in different ways, depending on the visual features you're interested in. For example, Computer Vision can determine if an image contains adult or racy content, find all the faces in an image, get handwritten or printed text. This service works with popular image formats, such as JPEG and PNG. 
+The Computer Vision service provides developers with access to advanced algorithms for processing images and returning information. Computer Vision algorithms analyze the content of an image in different ways, depending on the visual features you're interested in. 
 
-You can use Computer Vision in your application to:
+* [Analyze an image](#analyze-an-image)
+* [Get subject domain list](#get-subject-domain-list)
+* [Analyze an image by domain](#analyze-an-image-by-domain)
+* [Get text description of an image](#get-text-description-of-an-image)
+* [Get handwritten text from image](#get-text-from-image)
+* [Generate thumbnail](#generate-thumbnail)
 
-- Analyze images for insight
-- Extract text from images
-- Generate thumbnails
+For more information about this service, see [What is Computer Vision?][computervision_docs].
 
 Looking for more documentation?
 
@@ -29,11 +32,21 @@ Looking for more documentation?
 
 ## Prerequisites
 
-* Azure subscription - [Create a free account][azure_sub]
-* Azure [Computer Vision resource][computervision_resource]
 * [Python 3.6+][python]
+* Free [Computer Vision key][computervision_resource] and associated region. You need these values when you create the instance of the [ComputerVisionAPI][ref_computervisionclient] client object. Use one of the following methods to get these values. 
 
-If you need a Computer Vision API account, you can create one with this [Azure CLI][azure_cli] command:
+### If you don't have an Azure Subscription
+
+Create a free key valid for 7 days with the **Try It** experience. When the key is created, copy the key and region name. You will need this to [create the client](#create-client).
+
+Keep the following after the key is created:
+
+* Key value: a 32 character string with the format of `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` 
+* Key region: the subdomain of the endpoint URL, https://**westcentralus**.api.cognitive.microsoft.com
+
+### If you have an Azure Subscription
+
+If you need a Computer Vision API account, the easiest method to create one in your subscription is to use the following [Azure CLI][azure_cli] command. You need to choose the resource group name, for example, "my-cogserv-group" and the computer vision resource name, such as "my-computer-vision-resource". 
 
 ```Bash
 RES_REGION=westeurope 
@@ -53,6 +66,8 @@ az cognitiveservices account create \
 
 Install the Azure Cognitive Services Computer Vision SDK with [pip][pip], optionally within a [virtual environment][venv].
 
+<!--
+
 ### Configure a virtual environment (optional)
 
 Although not required, you can keep your base system and Azure SDK environments isolated from one another if you use a [virtual environment][virtualenv]. Execute the following commands to configure and then enter a virtual environment with [venv][venv], such as `cogsrv-vision-env`:
@@ -61,6 +76,7 @@ Although not required, you can keep your base system and Azure SDK environments 
 python3 -m venv cogsrv-vision-env
 source cogsrv-vision-env/bin/activate
 ```
+-->
 
 ### Install the SDK
 
@@ -76,7 +92,9 @@ Once you create your Computer Vision resource, you need its **region**, and one 
 
 Use these values when you create the instance of the [ComputerVisionAPI][ref_computervisionclient] client object. 
 
-### Get credentials
+### Get credentials for key and region
+
+If you do not remember your region and key, you can use the following method to find them. If you need to create a key and region, you can use the method for [Azure subscription holders](#if-you-have-an-azure-subscription) or for [users without an Azure subscription](#if-you-dont-have-an-azure-subscription).
 
 Use the [Azure CLI][cloud_shell] snippet below to populate two environment variables with the Computer Vision account **region** and one of its **keys** (you can also find these values in the [Azure portal][azure_portal]). The snippet is formatted for the Bash shell.
 
@@ -114,26 +132,7 @@ credentials = CognitiveServicesCredentials(key)
 client = ComputerVisionAPI(region, credentials)
 ```
 
-## Usage
-
-Once you've initialized a [ComputerVisionAPI][ref_computervisionclient] client object, you can:
-
-* Analyze an image: You can analyze an image for certain features such as faces, colors, tags.   
-* Generate thumbnails: Create a custom JPEG image to use as a thumbnail of the original image.
-* Get description of an image: Get a description of the image based on its subject domain. 
-
-For more information about this service, see [What is Computer Vision?][computervision_docs].
-
-## Examples
-
-The following sections provide several code snippets covering some of the most common Computer Vision tasks, including:
-
-* [Analyze an image](#analyze-an-image)
-* [Get subject domain list](#get-subject-domain-list)
-* [Analyze an image by domain](#analyze-an-image-by-domain)
-* [Get text description of an image](#get-text-description-of-an-image)
-* [Get handwritten text from image](#get-text-from-image)
-* [Generate thumbnail](#generate-thumbnail)
+You need a [ComputerVisionAPI][ref_computervisionclient] client object before using any of the following tasks.
 
 ### Analyze an image
 
@@ -197,6 +196,10 @@ for caption in analysis.captions:
 You can get any handwritten or printed text from an image. This requires two calls to the SDK: [`recognize_text`][ref_computervisionclient_recognize_text] and [`get_text_operation_result`][ref_computervisionclient_get_text_operation_result]. The call to recognize_text is asynchronous. In the results of the get_text_operation_result call, you need to check if the first call completed with [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes] before extracting the text data. The results include the text as well as the bounding box coordinates for the text. 
 
 ```Python
+# import models
+from azure.cognitiveservices.vision.computervision.models import TextRecognitionMode
+from azure.cognitiveservices.vision.computervision.models import TextOperationStatusCodes
+
 url = "https://azurecomcdn.azureedge.net/cvt-1979217d3d0d31c5c87cbd991bccfee2d184b55eeb4081200012bdaf6a65601a/images/shared/cognitive-services-demos/read-text/read-1-thumbnail.png"
 mode = TextRecognitionMode.handwritten
 raw = True
