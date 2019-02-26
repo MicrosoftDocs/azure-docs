@@ -135,6 +135,8 @@
       href: howto-restart-server-portal.md
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/mariadb
   - name: REST API
     href: /rest/api/mariadb
   - name: Resource Manager template
