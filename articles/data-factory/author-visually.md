@@ -28,7 +28,7 @@ Visual authoring with the Data Factory service differs from visual authoring wit
 - The Data Factory service doesn't include a repository for storing the JSON entities for your changes.
 - The Data Factory service isn't optimized for collaboration or version control.
 
-![Configure the Data Factory service ](media/author-visually/configure-data-factory.png)
+![Configure the Data Factory service](media/author-visually/configure-data-factory.png)
 
 When you use the UX **Authoring canvas** to author directly with the Data Factory service, only the **Publish All** mode is available. Any changes that you make are published directly to the Data Factory service.
 
