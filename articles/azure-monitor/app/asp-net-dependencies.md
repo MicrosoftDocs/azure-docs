@@ -16,7 +16,7 @@ ms.author: mbullwin
 
 ---
 # Set up Application Insights: Dependency tracking
-A *dependency* is an external component that is called by your app. It's typically a service called using HTTP, or a database, or a file system. [Application Insights](../../application-insights/app-insights-overview.md) measures how long your application waits for dependencies and how often a dependency call fails. You can investigate specific calls, and relate them to requests and exceptions.
+A *dependency* is an external component that is called by your app. It's typically a service called using HTTP, or a database, or a file system. [Application Insights](../../azure-monitor/app/app-insights-overview.md) measures how long your application waits for dependencies and how often a dependency call fails. You can investigate specific calls, and relate them to requests and exceptions.
 
 The out-of-the-box dependency monitor currently reports calls to these  types of dependencies:
 
@@ -48,7 +48,7 @@ Partial dependency information is collected automatically by the [Application In
 * [Application Map](#application-map) visualizes dependencies between your app and neighboring components.
 * [Performance, browser, and failure blades](#performance-and-blades) show server dependency data.
 * [Browsers blade](#ajax-calls) shows AJAX calls from your users' browsers.
-* [Click through from slow or failed requests](#diagnose-slow-requests) to check their dependency calls.
+* Click through from slow or failed requests to check their dependency calls.
 * [Analytics](#analytics) can be used to query dependency data.
 
 ## Application Map
@@ -129,7 +129,7 @@ Click through to an occurrence of a failed request, and look at its associated e
 ![Click a request type, click the instance to get to a different view of the same instance, click it to get exception details.](./media/asp-net-dependencies/07-faildetail.png)
 
 ## Analytics
-You can track dependencies in the [Log Analytics query language](https://aka.ms/LogAnalyticsLanguage). Here are some examples.
+You can track dependencies in the [Kusto query language](/azure/kusto/query/). Here are some examples.
 
 * Find any failed dependency calls:
 

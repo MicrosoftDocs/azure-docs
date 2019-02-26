@@ -3,14 +3,14 @@ title: Configure password change using custom policies in Azure Active Directory
 description: Learn how to enable users to change their password using custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Configure password change using custom policies in Azure Active Directory B2C

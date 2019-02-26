@@ -1,15 +1,15 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with TINFOIL SECURITY | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and TINFOIL SECURITY.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore  
 
 ms.assetid: da02da92-e3b0-4c09-ad6c-180882b0f9f8
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with TINFOIL SECURITY
 
@@ -182,7 +183,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. To display the list of users, go to **Users and groups** and click **All users**.
 	
-	![Users and groups -> All users ](./media/tinfoil-security-tutorial/create_aaduser_02.png) 
+	![Users and groups -> All users](./media/tinfoil-security-tutorial/create_aaduser_02.png) 
 
 1. To open the **User** dialog, click **Add** on the top of the dialog.
  

@@ -3,21 +3,22 @@ title: Profile ASP.NET Core Azure Linux web apps with Application Insights Profi
 description: A conceptual overview and step-by-step tutorial on how to use Application Insights Profiler.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: cweining
 manager: carmonm
+ms.reviewer: mbullwin
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/23/2018
-ms.author: mbullwin
+ms.author: cweining
 ---
 
 # Profile ASP.NET Core Azure Linux web apps with Application Insights Profiler
 
 This feature is currently in preview.
 
-Find out how much time is spent in each method of your live web application when using [Application Insights](../../application-insights/app-insights-overview.md). Application Insights Profiler is now available for ASP.NET Core web apps that are hosted in Linux on Azure App Service. This guide provides step-by-step instructions on how the Profiler traces can be collected for ASP.NET Core Linux web apps.
+Find out how much time is spent in each method of your live web application when using [Application Insights](../../azure-monitor/app/app-insights-overview.md). Application Insights Profiler is now available for ASP.NET Core web apps that are hosted in Linux on Azure App Service. This guide provides step-by-step instructions on how the Profiler traces can be collected for ASP.NET Core Linux web apps.
 
 After you complete this walkthrough, your app can collect Profiler traces like the traces that are shown in the image. In this example, the Profiler trace indicates that a particular web request is slow because of time spent waiting. The *hot path* in the code that's slowing the app is marked by a flame icon. The **About** method in the **HomeController** section is slowing the web app because the method is calling the **Thread.Sleep** function.
 

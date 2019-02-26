@@ -13,11 +13,13 @@ ms.date: 09/14/2018
 ms.author: routlaw
 ---
 
+
+
 # Azure Functions Java developer guide
 
-[!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
+The Azure Functions runtime supports [Java SE 8 LTS (zulu8.31.0.2-jre8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/).
 
-## Programming model 
+## Programming model
 
 The concepts of [triggers and bindings](functions-triggers-bindings.md) are fundamental to Azure Functions. Triggers start the execution of your code. Bindings give you a way to pass data to and return data from a function, without having to write custom data access code.
 
@@ -267,7 +269,7 @@ Above function is invoked on an HttpRequest and writes multiple values to the Az
 
 ## Metadata
 
-Few triggers send [trigger metadata](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties) along with input data. You can use annotation `@BindingName` to bind to trigger metadata
+Few triggers send [trigger metadata](/azure/azure-functions/functions-triggers-bindings) along with input data. You can use annotation `@BindingName` to bind to trigger metadata
 
 
 ```Java
@@ -296,7 +298,7 @@ In the example above, the `queryValue` is bound to query string parameter `name`
         @QueueOutput(name = "output", queueName = "test-output-java-metadata", connection = "AzureWebJobsStorage") OutputBinding<TestData> output,
         final ExecutionContext context
     ) {
-        context.getLogger().info("Java Queue trigger function processed a message: " + message + " whith metadaId:" + metadataId );
+        context.getLogger().info("Java Queue trigger function processed a message: " + message + " with metadaId:" + metadataId );
         TestData testData = new TestData();
         testData.id = metadataId;
         output.setValue(testData);

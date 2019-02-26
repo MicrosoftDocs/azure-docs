@@ -4,25 +4,28 @@ titleSuffix: Azure Machine Learning service
 description: Get started with Azure Machine Learning service in Python. Use the Python SDK to create a workspace, which is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models.  
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: quickstart
 ms.reviewer: sgilley
 author: hning86
 ms.author: haining
-ms.date: 12/04/2018
+ms.date: 01/22/2019
 ms.custom: seodec18
 
 ---
 
 # Quickstart: Use the Python SDK to get started with Azure Machine Learning
 
-In this article, you use the Azure Machine Learning SDK for Python to create and then use an Azure Machine Learning service [workspace](concept-azure-machine-learning-architecture.md). The workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning. 
+In this article, you use the Azure Machine Learning SDK for Python 3 to create and then use an Azure Machine Learning service [workspace](concept-azure-machine-learning-architecture.md). The workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning.
 
-You begin by configuring your own Python environment and Jupyter Notebook Server. To run it with no installation, see [Quickstart: Use the Azure portal to get started with Azure Machine Learning](quickstart-get-started.md).
+You begin by configuring your own Python environment and Jupyter Notebook Server. To run it with no installation, see [Quickstart: Use the Azure portal to get started with Azure Machine Learning](quickstart-get-started.md). 
+
+View a video version of this quickstart:
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
 
-In this article, you:
+In this quickstart, you:
+
 * Install the Python SDK.
 * Create a workspace in your Azure subscription.
 * Create a configuration file for that workspace to use later in other notebooks and scripts.
@@ -38,28 +41,33 @@ The following Azure resources are added automatically to your workspace when the
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
+>[!NOTE]
+> Code in this article requires  Azure Machine Learning SDK version 1.0.2 or later and was tested with version 1.0.8.
+
+
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
 
 ## Install the SDK
 
 > [!IMPORTANT]
-> Skip this section if you use a data science virtual machine created after September 27, 2018.
-> Data science virtual machines created after this date come with the Python SDK preinstalled.
+> Skip this section if you use an Azure Data Science Virtual Machine or Azure Databricks.
+> * Azure Data Science Virtual Machines created after September 27, 2018 come with the Python SDK preinstalled.
+> * In the Azure Databricks environment, use the [Databricks installation steps](how-to-configure-environment.md#azure-databricks) instead.
 
-The code in this article requires the Azure Machine Learning SDK version 1.0.2 or later.
+Before you install the SDK, we recommend that you create an isolated Python environment. Although this article uses [Miniconda](https://docs.conda.io/en/latest/miniconda.html), you can also use full [Anaconda](https://www.anaconda.com/) installed or [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
-Before you install the SDK, we recommend that you create an isolated Python environment. Although this article uses [Miniconda](https://conda.io/docs/user-guide/install/index.html), you can also use full [Anaconda](https://www.anaconda.com/) installed or [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
+The instructions in this quickstart will install all the packages you need to run the quickstart and tutorial notebooks.  Other sample notebooks may require installation of additional components.  For more information about these components, see [Install the Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
 
 ### Install Miniconda
 
-[Download and install Miniconda](https://conda.io/miniconda.html). Select Python 3.7 or later. Don't select the Python 2.x.
+[Download and install Miniconda](https://docs.conda.io/en/latest/miniconda.html). Select the Python 3.7 version to install. Don't select the Python 2.x version.  
 
-### Create an isolated Python environment 
+### Create an isolated Python environment
 
-1. Open a command-line window, and then create a new conda environment named *myenv* with Python 3.6.
+1. Open a command-line window, then create a new conda environment named *myenv* and install Python 3.6.5. Azure Machine Learning SDK will work with Python 3.5.2 or later, but the automated machine learning components are not fully functional on Python 3.7.  It will take several minutes to create the environment while components and packages are downloaded.
 
     ```shell
-    conda create -n myenv -y Python=3.6
+    conda create -n myenv python=3.6.5
     ```
 
 1. Activate the environment.
@@ -68,41 +76,43 @@ Before you install the SDK, we recommend that you create an isolated Python envi
     conda activate myenv
     ```
 
+1. Enable environment-specific ipython kernels:
+
+    ```shell
+    conda install notebook ipykernel
+    ```
+
+    Then create the kernel:
+
+    ```shell
+    ipython kernel install --user
+    ```
+
 ### Install the SDK
 
-In the activated conda environment, install the SDK. This code installs the core components of the Machine Learning SDK. It also installs a Jupyter Notebook server in the conda environment. The installation takes a few minutes to finish based on the configuration of your machine.
+1. In the activated conda environment, install the core components of the Machine Learning SDK with Jupyter notebook capabilities.  The installation takes a few minutes to finish based on the configuration of your machine.
 
-```sh
-# Install Jupyter
-conda install nb_conda
+  ```shell
+    pip install --upgrade azureml-sdk[notebooks]
+    ```
 
-# Install the base SDK and Jupyter Notebook
-pip install azureml-sdk[notebooks]
-```
+1. To use this environment for the Azure Machine Learning tutorials, install these packages.
 
-You can use additional keywords to install other components of the SDK:
+    ```shell
+    conda install -y cython matplotlib pandas
+    ```
 
-```sh
-# Install the base SDK and auto ml components
-pip install azureml-sdk[automl]
+1. To use this environment for the Azure Machine Learning tutorials, install the automated machine learning components.
 
-# Install the base SDK and the model explainability component
-pip install azureml-sdk[explain]
-
-# Install the base SDK and experimental components
-pip install azureml-sdk[contrib]
-```
-
-In the Azure Databricks environment, use the following install command instead:
-
-```
-# Install the base SDK and automl components in the Azure Databricks environment.
-# For more information, see https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks.
-pip install azureml-sdk[databricks]
-```
-
+    ```shell
+    pip install --upgrade azureml-sdk[automl]
+    ```
 
 ## Create a workspace
+
+Create your workspace in a Jupyter Notebook using the Python SDK.
+
+1. Create and/or cd to the directory you want to use for the quickstart and tutorials.
 
 1. To launch Jupyter Notebook, enter this command:
 
@@ -124,7 +134,7 @@ pip install azureml-sdk[databricks]
                          subscription_id='<azure-subscription-id>',	
                          resource_group='myresourcegroup',
                          create_resource_group=True,
-                         location='eastus2' # Or other supported Azure region	
+                         location='eastus2' 
                         )
    ```
 
@@ -139,11 +149,11 @@ pip install azureml-sdk[databricks]
 
 Save the details of your workspace in a configuration file to the current directory. This file is called *aml_config\config.json*.  
 
-This workspace configuration file makes it easy to load the same workspace later. You can load it with other notebooks and scripts in the same directory or a subdirectory. 
+This workspace configuration file makes it easy to load the same workspace later. You can load it with other notebooks and scripts in the same directory or a subdirectory.  
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
 
-The `write_config()` API call creates the configuration file in the current directory. The *config.json* file contains the following script:
+This `write_config()` API call creates the configuration file in the current directory. The *config.json* file contains the following:
 
 ```json
 {
@@ -155,7 +165,11 @@ The `write_config()` API call creates the configuration file in the current dire
 
 ## Use the workspace
 
-Write some code that uses the basic APIs of the SDK to track experiment runs.
+Run some code that uses the basic APIs of the SDK to track experiment runs:
+
+1. Create an experiment in the workspace.
+1. Log a single value into the experiment.
+1. Log a list of values into the experiment.
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=useWs)]
 
@@ -181,19 +195,6 @@ If you don't plan to use the resources that you created in this article, delete 
 ## Next steps
 
 In this article, you created the resources you need to experiment with and deploy models. You ran code in a notebook, and you explored the run history for the code in your workspace in the cloud.
-
-To use the code with the Machine Learning tutorials, you need a few more packages in your environment.
-
-1. In your browser, close your notebook.
-1. In the command-line window, select Ctrl+C to stop the Jupyter Notebook server.
-1. Install the additional packages.
-
-    ```shell
-    conda install -y cython matplotlib scikit-learn pandas numpy
-    pip install azureml-sdk[automl]
-    ```
-
-After you install these packages, continue with the tutorials to train and deploy a model. 
 
 > [!div class="nextstepaction"]
 > [Tutorial: Train an image classification model](tutorial-train-models-with-aml.md)

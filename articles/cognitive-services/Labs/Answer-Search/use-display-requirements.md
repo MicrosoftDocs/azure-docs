@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Use and display requirements for the Project Answer Search endpoint.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: rosh

@@ -11,8 +11,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 02/11/2019
 ms.author: spelluru
+ms.reviewer: christianreddington,anthdela,juselph
 
 ---
 
@@ -55,7 +56,7 @@ However, an additional factor to note is the frequency of changes to your softwa
 How can I set up an easily repeatable process to bring my custom organizational images into a DevTest Labs environment?
 
 ### Answer
-See [this video on Immage Factory pattern](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/). This scenario is an advanced scenario, and the scripts provided are sample scripts only. If any changes are required, you need to manage and maintain the scripts used in your environment.
+See [this video on Image Factory pattern](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/). This scenario is an advanced scenario, and the scripts provided are sample scripts only. If any changes are required, you need to manage and maintain the scripts used in your environment.
 
 Using DevTest Labs to create a custom image pipeline in Azure Pipelines:
 
@@ -100,7 +101,7 @@ When should I use a shared IP vs. public IP vs. private IP?
 If you use a site-to-site VPN or Express Route, consider using private IPs so that your machines are accessible via your internal network, and inaccessible over public internet.
 
 > [!NOTE]
-> Lab owners can change this subnet policy to ensure that no one accidently creates public IP addresses for their VMs. The subscription owner should create a subscription policy preventing public IPs from being created.
+> Lab owners can change this subnet policy to ensure that no one accidentally creates public IP addresses for their VMs. The subscription owner should create a subscription policy preventing public IPs from being created.
 
 When using shared public IPs, the virtual machines in a lab share a public IP address. This approach can be helpful when you need to avoid breaching the limits on public IP addresses for a given subscription.
 

@@ -36,7 +36,7 @@ You can use any text editor to work with solution files, but we recommend levera
 The basic structure of a management solution file is the same as a [Resource Manager Template](../../azure-resource-manager/resource-group-authoring-templates.md#template-format), which is as follows.  Each of the sections below describes the top-level elements and their contents in a solution.  
 
     {
-       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
        "contentVersion": "1.0",
        "parameters": {  },
        "variables": {  },
@@ -47,7 +47,7 @@ The basic structure of a management solution file is the same as a [Resource Man
 ## Parameters
 [Parameters](../../azure-resource-manager/resource-group-authoring-templates.md#parameters) are values that you require from the user when they install the management solution.  There are standard parameters that all solutions will have, and you can add additional parameters as required for your particular solution.  How users will provide parameter values when they install your solution will depend on the particular parameter and how the solution is being installed.
 
-When a user [installs your management solution](solutions.md#install-a-management-solution) through the Azure Marketplace or Azure QuickStart templates they are prompted to select a [Log Analytics workspace and Automation account](solutions.md#log-analytics-workspace-and-automation-account).  These are used to populate the values of each of the standard parameters.  The user is not prompted to directly provide values for the standard parameters, but they are prompted to provide values for any additional parameters.
+When a user [installs your management solution](solutions.md#install-a-monitoring-solution) through the Azure Marketplace or Azure QuickStart templates they are prompted to select a [Log Analytics workspace and Automation account](solutions.md#log-analytics-workspace-and-automation-account).  These are used to populate the values of each of the standard parameters.  The user is not prompted to directly provide values for the standard parameters, but they are prompted to provide values for any additional parameters.
 
 
 A sample parameter is shown below.  

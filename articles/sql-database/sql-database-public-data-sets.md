@@ -7,11 +7,11 @@ ms.subservice: development
 ms.custom:
 ms.devlang: 
 ms.topic: reference
-author: douglaslMS
-ms.author: douglasl
+author: CarlRabeler
+ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 10/01/2018
 ---
 # Public data sets for testing and prototyping
 
@@ -38,7 +38,7 @@ Browse this list of public data sets for data that you can use to prototype and 
 | [Microsoft Research data sets - "Data Science for Research"](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Multiple data sets covering human-computer interaction, audio/video, data mining/information retrieval, geospatial/location, natural language processing, and robotics/computer vision. | Data sets are in various formats, zipped for download. |
 | [Public genome data](http://www.completegenomics.com/public-data/) | "A diverse data set of whole human genomes are freely available for public use to enhance any genomic study..." The provider, Complete Genomics, is a private for-profit corporation. | Data sets, after extraction, are in UNIX text format. Analysis tools are also available. |
 | [Open Science Data Cloud data](https://www.opensciencedatacloud.org/) | "The Open Science Data Cloud provides the scientific community with resources for storing, sharing, and analyzing terabyte and petabyte-scale scientific datasets."| Data sets are in various formats. |
-| [Global climate data - WorldcLIM](http://worldclim.org/) | "WorldClim is a set of global climate layers (gridded climate data) with a spatial resolution of about 1 km2. These data can be used for mapping and spatial modeling." | These files contain geospatial data. For more info, see [Data format](http://worldclim.org/formats1). |
+| [Global climate data - WorldClim](http://worldclim.org/) | "WorldClim is a set of global climate layers (gridded climate data) with a spatial resolution of about 1 km2. These data can be used for mapping and spatial modeling." | These files contain geospatial data. For more info, see [Data format](http://worldclim.org/formats1). |
 | [Data about human society - The GDELT Project](http://www.gdeltproject.org/data.html) | "The GDELT Project is the largest, most comprehensive, and highest resolution open database of human society ever created." | The raw data files are in CSV format. |
 | [Advertising click prediction data for machine learning from Criteo](http://labs.criteo.com/2013/12/download-terabyte-click-logs/) | "The largest ever publicly released ML dataset." For more info, see [Criteo's 1 TB Click Prediction Dataset](https://blogs.technet.microsoft.com/machinelearning/2015/04/01/now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/). | |
 | [ClueWeb09 text mining data set from The Lemur Project](http://www.lemurproject.org/clueweb09.php/) | "The ClueWeb09 dataset was created to support research on information retrieval and related human language technologies. It consists of about 1 billion web pages in 10 languages that were collected in January and February 2009." | See [Dataset Information](http://www.lemurproject.org/clueweb09/datasetInformation.php).|
@@ -47,6 +47,6 @@ Browse this list of public data sets for data that you can use to prototype and 
 
 | Data source | About the data | About the files |
 |---|---|---|
-| [GitHub archive](https://www.githubarchive.org/) | "GitHub Archive is a project to record the public GitHub timeline [of events], archive it, and make it easily accessible for further analysis." | Download JSON-encloded event archives in .gz (Gzip) format from a web client. |
-| [GitHub activity data from The GHTorrent project](http://ghtorrent.org/) | "The GHTorrent project [is] an effort to create a scalable, queriable, offline mirror of data offered through the GitHub REST API. GHTorrent monitors the GitHub public event time line. For each event, it retrieves its contents and their dependencies, exhaustively." | MySQL database dumps are in CSV format. |
+| [GitHub archive](https://www.githubarchive.org/) | "GitHub Archive is a project to record the public GitHub timeline [of events], archive it, and make it easily accessible for further analysis." | Download JSON-encoded event archives in .gz (Gzip) format from a web client. |
+| [GitHub activity data from The GHTorrent project](http://ghtorrent.org/) | "The GHTorrent project [is] an effort to create a scalable, queryable, offline mirror of data offered through the GitHub REST API. GHTorrent monitors the GitHub public event time line. For each event, it retrieves its contents and their dependencies, exhaustively." | MySQL database dumps are in CSV format. |
 | [Stack Overflow data dump](https://archive.org/details/stackexchange) | "This is an anonymized dump of all user-contributed content on the Stack Exchange network [including Stack Overflow]." | "Each site [such as Stack Overflow] is formatted as a separate archive consisting of XML files zipped via 7-zip using bzip2 compression. Each site archive includes Posts, Users, Votes, Comments, PostHistory, and PostLinks." |

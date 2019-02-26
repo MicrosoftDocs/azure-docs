@@ -1,6 +1,6 @@
 ---
-title: Manage access using RBAC and the Azure portal | Microsoft Docs
-description: Learn how to manage access for users, groups, service principals, and managed identities, using role-based access control (RBAC) and the Azure portal. This includes how to list access, grant access, and remove access.
+title: Manage access to Azure resources using RBAC and the Azure portal | Microsoft Docs
+description: Learn how to manage access to Azure resources for users, groups, service principals, and managed identities using role-based access control (RBAC) and the Azure portal. This includes how to list access, grant access, and remove access.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,38 +12,74 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
 
-# Manage access using RBAC and the Azure portal
+# Manage access to Azure resources using RBAC and the Azure portal
 
-[Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. This article describes how you manage access for users, groups, service principals, and managed identities using RBAC and the Azure portal.
+[Role-based access control (RBAC)](overview.md) is the way that you manage access to Azure resources. This article describes how you manage access using the Azure portal. If you need to manage access to Azure Active Directory, see [View and assign administrator roles in Azure Active Directory](../active-directory/users-groups-roles/directory-manage-roles-portal.md).
+
+## Prerequisites
+
+To add and remove role assignments, you must have:
+
+- `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
+
+## Overview of Access control (IAM)
+
+**Access control (IAM)** is the blade that you use to manage access to Azure resources. It's also known as identity and access management and appears in several locations in the Azure portal. The following shows an example of the Access control (IAM) blade for a subscription.
+
+![Access control (IAM) blade for a subscription](./media/role-assignments-portal/access-control-numbers.png)
+
+The following table describes what some of the elements are use for:
+
+| # | Element | What you use it for |
+| --- | --- | --- |
+| 1 | Resource where Access control (IAM) is opened | Identify scope (subscription in this example) |
+| 2 | **Add** button | Add role assignments |
+| 3 | **Check access** tab | View the role assignments for a single user |
+| 4 | **Role assignments** tab | View the role assignments at the current scope |
+| 5 | **Roles** tab | View all roles and permissions |
+
+To be the most effective with the Access control (IAM) blade, it helps if you can answer the following three questions when you are trying to manage access:
+
+1. **Who needs access?**
+
+    Who refers to a user, group, service principal, or managed identity. This is also called a *security principal*.
+
+1. **What permissions do they need?**
+
+    Permissions are grouped together into roles. You can select from a list of several built-in roles.
+
+1. **Where do they need access?**
+
+    Where refers to the set of resources that the access applies to. Where can be a management group, subscription, resource group, or a single resource such as a storage account. This is called the *scope*.
 
 ## Open Access control (IAM)
 
-The **Access control (IAM)** blade, also known as identity and access management, appears throughout the portal. To view or manage access in the portal, the first thing you typically do is open the Access control (IAM) blade at the scope where you want to view or make a change.
+The first thing you need to decide is where to open the Access control (IAM) blade. It depends on what resources you want to manage access for. Do you want to manage access for everything in a management group, everything in a subscription, everything in a resource group, or a single resource?
 
-1. In the Azure portal, click **All services** and then select the scope or resource you want to view or manage. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
+1. In the Azure portal, click **All services** and then select the scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
 
-1. Click the specific resource you want to view or manage.
+1. Click the specific resource.
 
 1. Click **Access control (IAM)**.
 
-    The following shows an example of the Access control (IAM) blade for a subscription.
+    The following shows an example of the Access control (IAM) blade for a subscription. If you make any access control changes here, they would apply to the entire subscription.
 
     ![Access control (IAM) blade for a subscription](./media/role-assignments-portal/access-control-subscription.png)
 
 ## View roles and permissions
 
-A role definition is a collection of permissions that you use for role assignments. Azure has over 70 [built-in roles](built-in-roles.md). Follow these steps to view the roles and permissions that can be performed on the management and data plane.
+A role definition is a collection of permissions that you use for role assignments. Azure has over 70 [built-in roles for Azure resources](built-in-roles.md). Follow these steps to view the available roles and permissions.
 
-1. Open **Access control (IAM)** at a scope, such as management group, subscription, resource group, or resource, where you want to view roles and permissions.
+1. Open **Access control (IAM)** at any scope.
 
 1. Click the **Roles** tab to see a list of all the built-in and custom roles.
 
-   You can see the number of users and groups that are assigned to each role at this scope.
+   You can see the number of users and groups that are assigned to each role at the current scope.
 
    ![Roles list](./media/role-assignments-portal/roles-list.png)
 
@@ -53,7 +89,7 @@ A role definition is a collection of permissions that you use for role assignmen
 
 ## View role assignments
 
-When managing access, you want to know who has access, what are their permissions, and at what level. To list access for a user, group, service principal, or managed identity, you view the role assignments.
+When managing access, you want to know who has access, what are their permissions, and at what scope. To list access for a user, group, service principal, or managed identity, you view their role assignments.
 
 ### View role assignments for a single user
 
@@ -81,7 +117,7 @@ Follow these steps to view the access for a single user, group, service principa
 
 1. Open **Access control (IAM)** at a scope, such as management group, subscription, resource group, or resource, where you want to view access.
 
-1. Click the **Role assignments** tab (or click the **View** button on the View role assignments tile) to view all the role assignments at this scope.
+1. Click the **Role assignments** tab to view all the role assignments at this scope.
 
    ![Access control - Role assignments tab](./media/role-assignments-portal/access-control-role-assignments.png)
 
@@ -97,9 +133,11 @@ In RBAC, to grant access, you assign a role to a user, group, service principal,
 
 1. Click the **Role assignments** tab to view all the role assignments at this scope.
 
-1. Click **Add role assignment** to open the Add role assignment pane.
+1. Click **Add** > **Add role assignment** to open the Add role assignment pane.
 
    If you don't have permissions to assign roles, the Add role assignment option will be disabled.
+
+   ![Add menu](./media/role-assignments-portal/add-menu.png)
 
    ![Add role assignment pane](./media/role-assignments-portal/add-role-assignment.png)
 
@@ -123,9 +161,11 @@ To make a user an administrator of an Azure subscription, assign them the [Owner
 
 1. Click the **Role assignments** tab to view all the role assignments for this subscription.
 
-1. Click **Add role assignment** to open the Add role assignment pane.
+1. Click **Add** > **Add role assignment** to open the Add role assignment pane.
 
    If you don't have permissions to assign roles, the Add role assignment option will be disabled.
+
+   ![Add menu](./media/role-assignments-portal/add-menu.png)
 
    ![Add role assignment pane](./media/role-assignments-portal/add-role-assignment.png)
 
@@ -161,7 +201,7 @@ In RBAC, to remove access, you remove a role assignment. Follow these steps to r
 
 ## Next steps
 
-* [Tutorial: Grant access for a user using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)
-* [Tutorial: Grant access for a user using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-* [Built-in roles](built-in-roles.md)
-* [Organize your resources with Azure management groups](../azure-resource-manager/management-groups-overview.md)
+* [Tutorial: Grant a user access to Azure resources using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)
+* [Tutorial: Grant a user access to Azure resources using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+* [Troubleshoot RBAC for Azure resources](troubleshooting.md)
+* [Organize your resources with Azure management groups](../governance/management-groups/index.md)

@@ -45,14 +45,14 @@ There are two ways to create a SAS token, either using Azure Storage Explorer or
 
 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is a tool to manage resources that you have stored in Azure Storage.  You can learn more about how to use Azure Storage Explorer [here](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
-The SAS for the input files should be scoped to the specific input file (blob). To create a SAS token, follow [these instructions](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#work-with-shared-access-signatures). Once you have created the SAS, the full URL with the query string as well as the query string by itself are provided and can be copied from the screen.
+The SAS for the input files should be scoped to the specific input file (blob). To create a SAS token, follow [these instructions](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer). Once you have created the SAS, the full URL with the query string as well as the query string by itself are provided and can be copied from the screen.
 
  ![Genomics SAS Storage Explorer](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Genomics SAS Storage Explorer")
 
 
 ### Set up: Create a SAS programattically
 
-To create a SAS using the Azure Storage SDK, refer to the existing documentation in several languages, including [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage), and [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage#work-with-shared-access-signatures). 
+To create a SAS using the Azure Storage SDK, refer to the existing documentation in several languages, including [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage), and [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage). 
 
 To create a SAS without an SDK, the SAS query string can be directly constructed, including all the information required to authenticate the SAS. These [instructions](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas) detail the components of the SAS query string and how to construct it. The required SAS signature is created by generating an HMAC using the blob/container authentication information, as described by these [instructions](https://docs.microsoft.com/rest/api/storageservices/service-sas-examples).
 

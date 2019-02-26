@@ -11,7 +11,7 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 12/18/2018
 ---
 # Multi-tenant applications with elastic database tools and row-level security
 

@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 3488ac27-0417-4ad9-b9a3-08325fe8ea0d
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Snowflake
 
@@ -114,7 +115,7 @@ To configure Azure AD single sign-on with Snowflake, perform the following steps
     `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
 
     > [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Snowflake Client support team](https://support.snowflake.net/s/snowflake-support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Snowflake Client support team](https://support.snowflake.net/s/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -139,7 +140,7 @@ To configure Azure AD single sign-on with Snowflake, perform the following steps
 	> [!NOTE]
 	> This is separate from the context you have selected in the top-right corner under your User Name
     
-	![The Snowflake admin ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+	![The Snowflake admin](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
 10. Open the **downloaded Base 64 certificate** in notepad. Copy the value between “-----BEGIN CERTIFICATE-----” and “-----END CERTIFICATE-----" and paste this into the quotation marks next to **certificate** below. In the **ssoUrl**, paste **Login URL** value which you have copied from the Azure portal. Select the **All Queries** and click **Run**.
 
@@ -217,11 +218,11 @@ To enable Azure AD users to log in to Snowflake, they must be provisioned into S
 
 2. **Switch Role** to **ACCOUNTADMIN**, by clicking on **profile** on the top right side of page.  
 
-	![The Snowflake admin ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+	![The Snowflake admin](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
 3. Create the user by running the below SQL query, ensuring "Login name" is set to the Azure AD username on the worksheet as shown below.
 
-	![The Snowflake adminsql ](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
+	![The Snowflake adminsql](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
 
 	```
 	use role accountadmin;
@@ -236,9 +237,9 @@ When you click the Snowflake tile in the Access Panel, you should be automatical
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

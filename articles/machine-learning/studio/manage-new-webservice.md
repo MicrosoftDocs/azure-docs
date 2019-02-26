@@ -1,20 +1,15 @@
 ---
-title: Use the Azure Machine Learning Studio Web Services portal | Microsoft Docs
+title: Use the Azure Machine Learning Studio Web Services portal
+titleSuffix: Azure Machine Learning Studio
 description: You can manage your Machine Learning New and Classic Web services using the Microsoft Azure Machine Learning Web Services portal. Since Classic Web services and New Web services are based on different underlying technologies, you have slightly different management capabilities for each of them.
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
-ms.author: amlstudiodocs
-
-editor: cgronlun
-ms.assetid: b62cf2ca-dd2a-4a83-bb54-469f948fb026
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.subservice: studio
+ms.topic: conceptual
+
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
 ---
 # Manage a web service using the Azure Machine Learning Studio Web Services portal
@@ -28,7 +23,8 @@ In the Machine Learning Web Services portal you can:
 * Create, delete, or update billing plans (New only).
 * Add and delete endpoints (Classic only)
 
-
+>[!NOTE]
+>You also can manage Classic web services in [Machine Learning Studio](http://studio.azureml.net) on the **Web services** tab.
 
 ## Permissions to manage New Resources Manager based web services
 
@@ -38,7 +34,7 @@ If the user does not have the correct permissions to access resources in the Azu
 
 *Web Service deployment failed. This account does not have sufficient access to the Azure subscription that contains the Workspace. In order to deploy a Web Service to Azure, the same account must be invited to the Workspace and be given access to the Azure subscription that contains the Workspace.*
 
-For more information on creating a workspace, see [Create and share an Azure Machine Learning workspace](create-workspace.md).
+For more information on creating a workspace, see [Create and share an Azure Machine Learning Studio workspace](create-workspace.md).
 
 For more information on setting access permissions, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
@@ -107,7 +103,7 @@ The plan dashboard provides the following information:
 
 ## Manage Classic Web Services
 > [!NOTE]
-> The procedures in this section are relevant to managing Classic web services through the Azure Machine Learning Web Services portal. For information on managing Classic Web services through the Machine Learning Studio and the Azure portal, see [Manage an Azure Machine Learning workspace](manage-workspace.md).
+> The procedures in this section are relevant to managing Classic web services through the Azure Machine Learning Web Services portal. For information on managing Classic Web services through the Machine Learning Studio and the Azure portal, see [Manage an Azure Machine Learning Studio workspace](manage-workspace.md).
 > 
 > 
 

@@ -4,15 +4,16 @@ description: Step-by-step configuration guides for Azure MFA to integrate with C
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Advanced scenarios with Azure Multi-Factor Authentication and third-party VPN solutions
 

@@ -1,20 +1,21 @@
-﻿---
+---
 title: Use a Windows VM system-assigned managed identity to access Azure AD Graph API
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure AD Graph API.
 services: active-directory
 documentationcenter: ''
-author: daveba
-manager: mtillman
+author: priyamohanram
+manager: daveba
 editor: daveba
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
-ms.author: daveba
+ms.author: priyamo
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure AD Graph API
@@ -34,6 +35,7 @@ This tutorial shows you how to use a system-assigned managed identity for a Wind
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
 - To grant a VM identity access to Azure AD Graph, your account needs to be assigned the **Global Admin** role in Azure AD.
+- Install the latest [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2) if you haven't already. 
 
 ## Connect to Azure AD
 

@@ -3,15 +3,16 @@ title: Reset your password using security info - Azure Active Directory | Micros
 description: How to reset your own password if you forget it, using your security info and two-step verification.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
+ms.collection: M365-identity-device-management
 ---
 
 # Reset your work or school password

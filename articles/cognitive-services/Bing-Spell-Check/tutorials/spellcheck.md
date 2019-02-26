@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Shows how to use Bing Spell Check.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: tutorial
 ms.date: 09/28/2017
 ms.author: aahi

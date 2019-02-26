@@ -7,7 +7,7 @@ author: jrowlandjones
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
@@ -60,7 +60,7 @@ To learn more about some of our other partners, see [Data Integration partners][
 <!--Website links -->
 [birst_website]:https://www.birst.com/
 [clearstory_website]:http://www.clearstorydata.com/
-[dell_statistica_website]:http://software.dell.com/MSFT_Stat_ref/
+[dell_statistica_website]:http://www.statsoft.com/Products/STATISTICA-Features
 [dundas_bi_website]:http://www.dundas.com/dundas-bi
 [jinfonet_website]:http://www.jinfonet.com/product/jreport-designer
 [logianalytics_website]:http://www.logianalytics.com/
@@ -101,18 +101,14 @@ To learn more about some of our other partners, see [Data Integration partners][
 
 <!--[clearstory_marketplace]:-->
 
-[dell_statistica_marketplace]:https://azure.microsoft.com/marketplace/partners/dell-software/statistica-data-miner
-
 [dundas_bi_marketplace]:https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/ 
 
 <!--[jinfonet_marketplace]:-->
 
-[logianalytics_marketplace]:https://azure.microsoft.com/marketplace/partners/logi-analytics/logi-info-11/
 [looker_marketplace]:https://azure.microsoft.com/marketplace/partners/looker/looker-analytics-platform-326/
 
 [qlik_marketplace]:https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/
 
-[sisense_marketplace]:https://azure.microsoft.com/marketplace/partners/sisense/sisense-byol/
 [tableau_marketplace]:https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/
 [targit_marketplace]:https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/ 
 [yellowfin_marketplace]:https://azure.microsoft.com/marketplace/partners/yellowfin/yellowfin-for-azure-byol/
@@ -145,7 +141,6 @@ To learn more about some of our other partners, see [Data Integration partners][
 [birst_youtube]:https://www.youtube.com/user/BirstBI
 
 [clearstory_youtube]:https://www.youtube.com/user/ClearStoryData
-[dell_statistica_youtube]:https://www.youtube.com/user/DellSoftwareVideo
 [dundas_bi_youtube]:https://www.youtube.com/user/dundasdv
 [jinfonet_youtube]:https://www.youtube.com/user/JinfonetSoftware
 [logianalytics_youtube]:https://www.youtube.com/user/LogiXMLblog

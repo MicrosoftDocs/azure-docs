@@ -4,15 +4,16 @@ description: Get help resolving issues with the NPS extension for Azure Multi-Fa
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/13/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Resolve error messages from the NPS extension for Azure Multi-Factor Authentication
 

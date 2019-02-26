@@ -261,7 +261,7 @@ The report must contain the information about the source of the health report an
 ## sfctl cluster select
 Connects to a Service Fabric cluster endpoint.
 
-If connecting to secure cluster, specify an absolute path to a cert (.crt) and key file (.key) or a single file with both (.pem). Do not specify both. Optionally, if connecting to a secure cluster, also specify an absolute path to a CA bundle file or directory of trusted CA certs. If using a directory of CA certs, `c_rehash <directory>` provided by OpenSSL must be run first to compute the certificate hashes and create the appropriate symbolics links.
+If connecting to secure cluster, specify an absolute path to a cert (.crt) and key file (.key) or a single file with both (.pem). Do not specify both. Optionally, if connecting to a secure cluster, also specify an absolute path to a CA bundle file or directory of trusted CA certs. If using a directory of CA certs, `c_rehash <directory>` provided by OpenSSL must be run first to compute the certificate hashes and create the appropriate symbolic links.
 
 ### Arguments
 

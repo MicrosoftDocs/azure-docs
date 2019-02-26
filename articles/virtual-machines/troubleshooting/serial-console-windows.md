@@ -50,6 +50,9 @@ The serial console for virtual machines is accessible only through the Azure por
 
 ## Enable serial console functionality
 
+> [!NOTE]
+> If you are not seeing anything in the serial console, make sure that boot diagnostics is enabled on your VM.
+
 ### Enable the serial console in custom or older images
 Newer Windows Server images on Azure have [Special Administrative Console](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) enabled by default. SAC is supported on server versions of Windows but isn't available on client versions (for example, Windows 10, Windows 8, or Windows 7).
 
@@ -129,6 +132,13 @@ Function keys are enabled for usage for serial console in Windows VMs. The F8 in
 
 ### Use WSL in serial console
 The Windows Subsystem for Linux (WSL) has been enabled for Windows Server 2019 or later, so it is also possible to enable WSL for use within the serial console if you are running Windows Server 2019 or later. This may be beneficial for users that also have a familiarity with Linux commands. For instructions to enable WSL for Windows Server, see the [Installation guide](https://docs.microsoft.com/windows/wsl/install-on-server).
+
+### Restart your Windows VM within serial console
+You can restart your VM within the serial console by navigating to the power button and clicking "Restart VM". This will initiate a VM restart, and you will see a notification within the Azure portal regarding the restart.
+
+This is useful in situations where you may want to access the boot menu of your VM without leaving the serial console experience.
+
+![Windows Serial Console Restart](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-windows.gif)
 
 ## Disable serial console
 By default, all subscriptions have serial console access enabled for all VMs. You can disable the serial console at either the subscription level or the VM level.
@@ -233,6 +243,7 @@ Unable to type at SAC prompt if kernel debugging is enabled. | RDP to VM and run
 Pasting into PowerShell in SAC results in a third character if the original content had a repeating character. | For a workaround, run `Remove-Module PSReadLine` to unload the PSReadLine module from the current session. This action will not delete or uninstall the module.
 Some keyboard inputs produce strange SAC output (for example, **[A**, **[3~**). | [VT100](https://aka.ms/vtsequences) escape sequences aren't supported by the SAC prompt.
 Pasting long strings doesn't work. | The serial console limits the length of strings pasted into the terminal to 2048 characters to prevent overloading the serial port bandwidth.
+Serial console does not work with a storage account firewall. | Serial console by design cannot work with storage account firewalls enabled on the boot diagnostics storage account.
 
 
 ## Frequently asked questions

@@ -6,14 +6,14 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
 ---
-# Creating continous integration pipeline on Azure using Docker, Kubernetes, and Python Flask application
-For an AI application, there are frequently two streams of work, Data Scientists building machine learning models and App developers building the application and exposing it to end users to consume. In this article, we demonstrate how to implement a Continuous Integration (CI)/Continous Delivery (CD) pipeline for an AI application. AI application is a combination of application code embedded with a pretrained machine learning (ML) model. For this article, we are fetching a pretrained model from a private Azure blob storage account, it could be an AWS S3 account as well. We will use a simple python flask web application for the article.
+# Creating continuous integration pipeline on Azure using Docker, Kubernetes, and Python Flask application
+For an AI application, there are frequently two streams of work, Data Scientists building machine learning models and App developers building the application and exposing it to end users to consume. In this article, we demonstrate how to implement a Continuous Integration (CI)/Continuous Delivery (CD) pipeline for an AI application. AI application is a combination of application code embedded with a pretrained machine learning (ML) model. For this article, we are fetching a pretrained model from a private Azure blob storage account, it could be an AWS S3 account as well. We will use a simple python flask web application for the article.
 
 > [!NOTE]
 > This is one of several ways CI/CD can be performed. There are alternatives to the tooling and other pre-requisites mentioned below. As we develop additional content, we will publish those.

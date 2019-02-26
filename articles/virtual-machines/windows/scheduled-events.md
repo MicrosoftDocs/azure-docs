@@ -61,7 +61,7 @@ The Scheduled Events Service is versioned. Versions are mandatory and the curren
 
 | Version | Release Type | Regions | Release Notes | 
 | - | - | - | - |
-| 2017-08-01 | General Availability | All | <li> Removed prepended underscore from resource names for Iaas VMs<br><li>Metadata Header requirement enforced for all requests | 
+| 2017-08-01 | General Availability | All | <li> Removed prepended underscore from resource names for IaaS VMs<br><li>Metadata Header requirement enforced for all requests | 
 | 2017-03-01 | Preview | All |<li>Initial release
 
 > [!NOTE] 

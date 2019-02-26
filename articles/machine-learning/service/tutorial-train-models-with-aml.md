@@ -4,20 +4,20 @@ titleSuffix: Azure Machine Learning service
 description: This tutorial shows how to use Azure Machine Learning service to train an image classification model with scikit-learn in a Python Jupyter notebook. This tutorial is part one of a two-part series. 
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: tutorial
 
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 12/04/2018
+ms.date: 01/28/2019
 ms.custom: seodec18
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter notebook.
 ---
 
 # Tutorial: Train an image classification model with Azure Machine Learning service
 
-In this tutorial, you train a machine learning model both locally and on remote compute resources. You use the training and deployment workflow for Azure Machine Learning service in a Python Jupyter notebook. You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
+In this tutorial, you train a machine learning model on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service (preview) in a Python Jupyter notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
 
 This tutorial trains a simple logistic regression by using the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset and [scikit-learn](https://scikit-learn.org) with Azure Machine Learning service. MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28 x 28 pixels, representing a number from zero to nine. The goal is to create a multiclass classifier to identify the digit a given image represents. 
 
@@ -35,16 +35,40 @@ You learn how to select a model and deploy it in [part two of this tutorial](tut
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
 
 >[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 1.0.2.
+> Code in this article was tested with Azure Machine Learning SDK version 1.0.8.
 
-## Get the notebook
+## Prerequisites
 
-For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb). Run the `tutorials/img-classification-part1-training.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
+Skip to [Set up your development environment](#start) to read through the notebook steps, or use the instructions below to get the notebook and run it on Azure Notebooks or your own notebook server.  To run the notebook you will need:
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+* A Python 3.6 notebook server with the following installed:
+    * The Azure Machine Learning SDK for Python
+    * `matplotlib` and `scikit-learn`
+* The tutorial notebook and the file utils.py
+* A machine learning workspace 
+* The configuration file for the workspace in the same directory as the notebook 
+
+Get all these prerequisites from either of the sections below.
+ 
+* Use [Azure Notebooks](#azure) 
+* Use [your own notebook server](#server)
+
+### <a name="azure"></a>Use Azure Notebooks: Free Jupyter notebooks in the cloud
+
+It's easy to get started with Azure Notebooks! The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) is already installed and configured for you on [Azure Notebooks](https://notebooks.azure.com/). The installation and future updates are automatically managed via Azure services.
+
+After you complete the steps below, run the **tutorials/img-classification-part1-training.ipynb** notebook in your **Getting Started** project.
+
+[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
 
-## Set up your development environment
+### <a name="server"></a>Use your own Jupyter notebook server
+
+Use these steps to create a local Jupyter Notebook server on your computer.  After you complete the steps, run the **tutorials/img-classification-part1-training.ipynb** notebook.
+
+[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
+
+## <a name="start"></a>Set up your development environment
 
 All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
 
@@ -60,11 +84,10 @@ Import Python packages you need in this session. Also display the Azure Machine 
 ```python
 %matplotlib inline
 import numpy as np
-import matplotlib
 import matplotlib.pyplot as plt
 
-import azureml
-from azureml.core import Workspace, Run
+import azureml.core
+from azureml.core import Workspace
 
 # check core SDK version number
 print("Azure ML SDK Version: ", azureml.core.VERSION)
@@ -91,11 +114,11 @@ from azureml.core import Experiment
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### Create or attach an existing AMlCompute
+### Create or attach an existing compute resource
 
-By using Azure Machine Learning Compute (AmlCompute), a managed service, data scientists can train machine learning models on clusters of Azure virtual machines. Examples include VMs with GPU support. In this tutorial, you create AmlCompute as your training environment. This code creates the compute clusters for you if they don't already exist in your workspace.
+By using Azure Machine Learning Compute, a managed service, data scientists can train machine learning models on clusters of Azure virtual machines. Examples include VMs with GPU support. In this tutorial, you create Azure Machine Learning Compute as your training environment. The code below creates the compute clusters for you if they don't already exist in your workspace.
 
- **Creation of the compute takes about five minutes.** If the compute is already in the workspace, this code uses it and skips the creation process:
+ **Creation of the compute takes about five minutes.** If the compute is already in the workspace, the code uses it and skips the creation process.
 
 
 ```python
@@ -129,8 +152,8 @@ else:
     # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
     
-     # For a more detailed view of current AmlCompute status, use the 'status' property    
-    print(compute_target.status.serialize())
+     # For a more detailed view of current AmlCompute status, use get_status()
+    print(compute_target.get_status().serialize())
 ```
 
 You now have the necessary packages and compute resources to train a model in the cloud. 
@@ -149,16 +172,19 @@ Download the MNIST dataset and save the files into a `data` directory locally. I
 
 
 ```python
-import os
 import urllib.request
+import os
 
-os.makedirs('./data', exist_ok = True)
+data_folder = os.path.join(os.getcwd(), 'data')
+os.makedirs(data_folder, exist_ok = True)
 
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename='./data/train-images.gz')
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename='./data/train-labels.gz')
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename='./data/test-images.gz')
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename='./data/test-labels.gz')
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename=os.path.join(data_folder, 'train-images.gz'))
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename=os.path.join(data_folder, 'train-labels.gz'))
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename=os.path.join(data_folder, 'test-images.gz'))
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename=os.path.join(data_folder, 'test-labels.gz'))
 ```
+You will see output similar to this:
+```('./data/test-labels.gz', <http.client.HTTPMessage at 0x7f40864c77b8>)```
 
 ### Display some sample images
 
@@ -171,13 +197,12 @@ Load the compressed files into `numpy` arrays. Then use `matplotlib` to plot 30 
 from utils import load_data
 
 # note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the model converge faster.
-X_train = load_data('./data/train-images.gz', False) / 255.0
-y_train = load_data('./data/train-labels.gz', True).reshape(-1)
+X_train = load_data(os.path.join(data_folder, 'train-images.gz'), False) / 255.0
+X_test = load_data(os.path.join(data_folder, 'test-images.gz'), False) / 255.0
+y_train = load_data(os.path.join(data_folder, 'train-labels.gz'), True).reshape(-1)
+y_test = load_data(os.path.join(data_folder, 'test-labels.gz'), True).reshape(-1)
 
-X_test = load_data('./data/test-images.gz', False) / 255.0
-y_test = load_data('./data/test-labels.gz', True).reshape(-1)
-
-# now let's show some randomly chosen images from the training set.
+# now let's show some randomly chosen images from the traininng set.
 count = 0
 sample_size = 30
 plt.figure(figsize = (16, 6))
@@ -207,60 +232,32 @@ The MNIST files are uploaded into a directory named `mnist` at the root of the d
 ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 
-ds.upload(src_dir='./data', target_path='mnist', overwrite=True, show_progress=True)
+ds.upload(src_dir=data_folder, target_path='mnist', overwrite=True, show_progress=True)
 ```
 You now have everything you need to start training a model. 
 
-## Train a local model
-
-Train a simple logistic regression model by using scikit-learn locally.
-
-**Training locally can take a minute or two** depending on your computer configuration:
-
-```python
-%%time
-from sklearn.linear_model import LogisticRegression
-
-clf = LogisticRegression()
-clf.fit(X_train, y_train)
-```
-
-Next make predictions by using the test set and calculate the accuracy: 
-
-```python
-y_hat = clf.predict(X_test)
-print(np.average(y_hat == y_test))
-```
-
-The local model accuracy displays:
-
-`0.9202`
-
-With just a few lines of code, you have 92 percent accuracy.
 
 ## Train on a remote cluster
 
-Now you can expand on this simple model by building a model with a different regularization rate. This time, you train the model on a remote resource.  
-
-For this task, submit the job to the remote training cluster you set up earlier. To submit a job, you take the following steps:
-* Create a directory.
-* Create a training script.
-* Create an estimator object.
-* Submit the job.
+For this task, submit the job to the remote training cluster you set up earlier.  To submit a job you:
+* Create a directory
+* Create a training script
+* Create an estimator object
+* Submit the job 
 
 ### Create a directory
 
-Create a directory to deliver the necessary code from your computer to the remote resource:
+Create a directory to deliver the necessary code from your computer to the remote resource.
 
 ```python
 import os
-script_folder = './sklearn-mnist'
+script_folder  = os.path.join(os.getcwd(), "sklearn-mnist")
 os.makedirs(script_folder, exist_ok=True)
 ```
 
 ### Create a training script
 
-To submit the job to the cluster, first create a training script. Run the following code to create the training script called `train.py` in the directory you created. This training adds a regularization rate to the training algorithm. So it produces a slightly different model than the local version:
+To submit the job to the cluster, first create a training script. Run the following code to create the training script called `train.py` in the directory you just created.
 
 ```python
 %%writefile $script_folder/train.py
@@ -281,7 +278,7 @@ parser.add_argument('--data-folder', type=str, dest='data_folder', help='data fo
 parser.add_argument('--regularization', type=float, dest='reg', default=0.01, help='regularization rate')
 args = parser.parse_args()
 
-data_folder = os.path.join(args.data_folder, 'mnist')
+data_folder = args.data_folder
 print('Data folder:', data_folder)
 
 # load train and test set into numpy arrays
@@ -342,13 +339,13 @@ An estimator object is used to submit the run. Create your estimator by running 
 * Parameters required from the training script. 
 * Python packages needed for training.
 
-In this tutorial, this target is AmlCompute. All files in the script folder are uploaded into the cluster nodes for run. The **data_folder** is set to use the datastore, `ds.as_mount()`:
+In this tutorial, this target is AmlCompute. All files in the script folder are uploaded into the cluster nodes for run. The **data_folder** is set to use the datastore, `ds.path('mnist').as_mount()`:
 
 ```python
 from azureml.train.estimator import Estimator
 
 script_params = {
-    '--data-folder': ds.as_mount(),
+    '--data-folder': ds.path('mnist').as_mount(),
     '--regularization': 0.8
 }
 
@@ -404,6 +401,8 @@ This still snapshot is the widget shown at the end of training:
 
 ![Notebook widget](./media/tutorial-train-models-with-aml/widget.png)
 
+If you need to cancel a run, you can follow [these instructions](https://aka.ms/aml-docs-cancel-run).
+
 ### Get log results upon completion
 
 Model training and monitoring happen in the background. Wait until the model has finished training before you run more code. Use `wait_for_completion` to show when the model training is finished: 
@@ -420,7 +419,7 @@ You now have a model trained on a remote cluster. Retrieve the accuracy of the m
 ```python
 print(run.get_metrics())
 ```
-The output shows the remote model has accuracy slightly higher than the local model because of the addition of the regularization rate during training:  
+The output shows the remote model has accuracy of 0.9204:
 
 `{'regularization rate': 0.8, 'accuracy': 0.9204}`
 
@@ -463,8 +462,7 @@ In this Azure Machine Learning service tutorial, you used Python for the followi
 > [!div class="checklist"]
 > * Set up your development environment.
 > * Access and examine the data.
-> * Train a simple logistic regression locally by using the popular scikit-learn machine learning library.
-> * Train multiple models on a remote cluster.
+> * Train multiple models on a remote cluster using the popular scikit-learn machine learning library
 > * Review training details and register the best model.
 
 You're ready to deploy this registered model by using the instructions in the next part of the tutorial series:

@@ -43,7 +43,7 @@ such as Monday through Friday at 8:00 AM and 5:00 PM.
 When the recurrence trigger fires each time, Logic Apps creates 
 and runs a new instance of your logic app workflow. 
 
-To trigger your logic app immediately and run one time without recurring, 
+To trigger your logic app and run only one time in the future, 
 see [Run jobs one time only](#run-once) later in this topic.
 
 ## Prerequisites
@@ -162,8 +162,8 @@ Here is an example [recurrence trigger definition](../logic-apps/logic-apps-work
 
 <a name="run-once"></a>
 
-**Q:** What if I want to run a logic app immediately and one time only? </br>
-**A:** To trigger your logic app immediately and run one time without recurring, 
+**Q:** What if I want to run a logic app one time only in the future? </br>
+**A:** To trigger your logic app and run one time without recurring, 
 you can use the **Scheduler: Run once jobs** template. After you create 
 a new logic app but before opening the Logic Apps designer, under the 
 **Templates** section, from the **Category** list, select **Schedule**, 

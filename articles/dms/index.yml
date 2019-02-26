@@ -47,8 +47,11 @@ sections:
     - html: <a href="/azure/dms/tutorial-sql-server-azure-sql-online">Migrate SQL Server to Azure SQL Database online using DMS</a>
     - html: <a href="/azure/dms/tutorial-sql-server-to-managed-instance">Migrate SQL Server to Azure SQL Database Managed Instance offline using DMS</a>
     - html: <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Migrate SQL Server to Azure SQL Database Managed Instance online using DMS</a>
+    - html: <a href="/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online">Migrate RDS SQL Server to Azure SQL Database or Azure SQL Database Managed Instance online using DMS</a>
     - html: <a href="/azure/dms/tutorial-mysql-azure-mysql-online">Migrate MySQL to Azure Database for MySQL online using DMS</a> 
     - html: <a href="/azure/dms/tutorial-postgresql-azure-postgresql-online">Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS</a> 
+    - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db">Migrate MongoDB to Azure Cosmos DB Mongo API offline using DMS</a>
+    - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db-online">Migrate MongoDB to Azure Cosmos DB Mongo API online using DMS</a>  
 - title: Samples
   items:
   - type: list

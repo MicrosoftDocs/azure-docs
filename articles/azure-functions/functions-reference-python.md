@@ -1,6 +1,6 @@
 ---
 title: Python developer reference for Azure Functions 
-description: Understand how to develop functions with Pythong
+description: Understand how to develop functions with Python
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -104,7 +104,7 @@ Shared code should be kept in a separate folder. To reference modules in the Sha
 from ..SharedCode import myFirstHelperFunction
 ```
 
-Binding extensions used by the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](functions-triggers-bindings.md#local-development-azure-functions-core-tools) using Azure Functions Core Tools. 
+Binding extensions used by the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](./functions-bindings-register.md#local-development-azure-functions-core-tools) using Azure Functions Core Tools. 
 
 When deploying a Functions project to your function app in Azure, the entire content of the FunctionApp folder should be included in the package, but not the folder itself.
 
@@ -313,7 +313,7 @@ The terminal process terminated with exit code: 1
 To automatically build and configure the required binaries, [install Docker](https://docs.docker.com/install/) on your local machine and run the following command to publish using the [Azure Functions Core Tools](functions-run-local.md#v2) (func). Remember to replace `<app name>` with the name of your function app in Azure. 
 
 ```bash
-func azure functionapp <app name> --build-native-deps
+func azure functionapp publish <app name> --build-native-deps
 ```
 
 Underneath the covers, Core Tools will use docker to run the [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) image as a container on your local machine. Using this environment, it'll then build and install the required modules from source distribution, before packaging them up for final deployment to Azure.

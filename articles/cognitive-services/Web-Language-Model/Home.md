@@ -4,9 +4,9 @@ titleSuffix: Azure Cognitive Services
 description: Web Language Model API in Microsoft Cognitive Services provides state-of-the-art tools for natural language processing.
 services: cognitive-services
 author: piyushbehre
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: web-language-model
+ms.subservice: web-language-model
 ms.topic: overview
 ms.date: 08/12/2016
 ms.author: pibehre

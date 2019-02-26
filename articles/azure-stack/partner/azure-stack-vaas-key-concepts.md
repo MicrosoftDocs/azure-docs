@@ -11,9 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 01/07/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 01/07/2019
+
+
+
+ROBOTS: NOINDEX
+
 ---
 
 # Validation as a Service key concepts
@@ -50,8 +56,8 @@ For more information on workflow types, see [What is Validation as a Service for
 2. To create a new workflow, select on **Start** on any tile. For information specific to each workflow, see the following articles:
     - Test Pass: [Quickstart: Use the Validation as a Service portal to schedule your first test](azure-stack-vaas-schedule-test-pass.md)
     - Solution Validation: [Validate a new Azure Stack solution](azure-stack-vaas-validate-solution-new.md)
-    - Package Validation: [Validate software updates from Microsoft](azure-stack-vaas-validate-microsoft-updates.md)
-    - Package Validation: [Validate OEM packages](azure-stack-vaas-validate-oem-package.md)
+    - Package Validation (monthly update): [Validate software updates from Microsoft](azure-stack-vaas-validate-microsoft-updates.md)
+    - Package Validation (package signing): [Validate OEM packages](azure-stack-vaas-validate-oem-package.md)
 
 3. To manage or monitor an existing workflow, select on **Manage** on the workflow tile. Select the name of the workflow and use the **Edit** button to view properties or change common test parameters.
 

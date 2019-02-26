@@ -129,7 +129,7 @@ This article shows you how to connect VNets by using the VNet-to-VNet connection
        - **Shared key**: Enter *abc123*. You can create the shared key yourself. When you create the connection between the VNets, the values must match.
 
 ## Create and configure TestVNet1
-If you already have a VNet, verify that the settings are compatible with your VPN gateway design. Pay particular attention to any subnets that may overlap with other networks. Your connection won't work properly if you have overlapping subnets. After your VNet is configured with the correct settings, you can begin the steps in the [Specify a DNS server](#dns) section.
+If you already have a VNet, verify that the settings are compatible with your VPN gateway design. Pay particular attention to any subnets that may overlap with other networks. Your connection won't work properly if you have overlapping subnets. After your VNet is configured with the correct settings, you can begin the steps in the Specify a DNS server section.
 
 ### To create a virtual network
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]

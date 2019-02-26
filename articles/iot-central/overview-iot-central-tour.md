@@ -1,14 +1,14 @@
 ---
 title: Take a tour of the Azure IoT Central UI | Microsoft Docs
 description: As a builder, become familiar with the key areas of the Azure IoT Central UI that you use to create an IoT solution.
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 04/13/2018
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: peterpr
+manager: philmea
 ---
 
 # Take a tour of the Azure IoT Central UI
@@ -27,6 +27,8 @@ As an _operator_, you use the Azure IoT Central UI to manage your Azure IoT Cent
 - Configure your devices.
 - Troubleshoot and remediate issues with your devices.
 - Provision new devices.
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## Use the left navigation menu
 

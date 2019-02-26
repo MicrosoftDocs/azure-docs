@@ -10,9 +10,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
-ms.date: 08/30/2018
+ms.subservice: pim
+ms.date: 01/23/2019
 ms.author: rolyon
+ms.collection: M365-identity-device-management
 ---
 
 # Discover Azure resources to manage in PIM
@@ -47,12 +48,16 @@ When you first set up PIM for Azure resources, you need to discover and select t
 
 1. Add a checkmark next to any unmanaged resources you want to manage.
 
+1. Click **Manage resource** to start managing the selected resources.
+
     > [!NOTE]
     > Once a management group or subscription is set to managed, it can't be unmanaged. This prevents another resource administrator from removing PIM settings.
 
     ![Discovery - Manage resource](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
-1. Click **Manage resource** to start managing the selected resources.
+1. If you see a message to confirm the onboarding of the selected resource for management, click **Yes**.
+
+    ![Discovery - Manage resource message](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 
 ## Next steps
 

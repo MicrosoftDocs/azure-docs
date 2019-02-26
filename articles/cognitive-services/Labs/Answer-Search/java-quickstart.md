@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Start using Project Answer Search in Java.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
@@ -26,7 +26,7 @@ Get an access key for the free trial [Cognitive Services Labs](https://aka.ms/an
 
 The following code creates a `WebRequest`, sets the access key header, and adds a query string for "Gibraltar".  It then sends the request and assigns the response to a string to contain the JSON text.
 
-````
+```
     static String host = "https://api.labs.cognitive.microsoft.com";
     static String path = "/answerSearch/v7.0/search";
 
@@ -42,7 +42,7 @@ The following code creates a `WebRequest`, sets the access key header, and adds 
 
 	// construct result object for return
 	SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-````
+```
 
 ## Complete code
 
@@ -53,7 +53,7 @@ The Bing Answer Search API returns results from the Bing search engine.
 4. Replace the subscriptionKey value with an access key valid for your subscription.
 5. Run the program.
 
-````
+```
 package knowledgeAPI;
 import java.io.InputStream;
 import java.net.*;
@@ -144,7 +144,7 @@ public class KnowledgeSrch {
 	    }
 }
 
-````
+```
 
 ## Next steps
 - [C# quickstart](c-sharp-quickstart.md)
