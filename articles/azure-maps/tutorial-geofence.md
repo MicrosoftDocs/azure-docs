@@ -160,7 +160,7 @@ You can see all [supported event handlers](https://docs.microsoft.com/azure/even
 
   ![create Logic Apps](./media/tutorial-geofence/logic-app.png)
 
-2. Select an HTTP request trigger and then select "send and email" as an action in the outlook connector
+2. Select an HTTP request trigger and then select "send an email" as an action in the outlook connector
   
   ![Logic Apps schema](./media/tutorial-geofence/logic-app-schema.png)
 

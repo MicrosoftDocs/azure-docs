@@ -105,7 +105,7 @@ At the center of [Log Analytics](https://docs.microsoft.com/azure/log-analytics/
 
 You collect data into the repository from connected sources by configuring data sources and adding solutions to your subscription.
 
-![The Log Analytics dashboard ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
+![The Log Analytics dashboard](./media/azure-threat-detection/azure-threat-detection-fig5.png)
 
 Data sources and solutions each create separate record types with their own set of properties, but you can still analyze them together in queries to the repository. You can use the same tools and methods to work with a variety of data that's collected by various sources.
 

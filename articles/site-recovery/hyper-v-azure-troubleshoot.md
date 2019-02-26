@@ -25,7 +25,7 @@ If you experience issues when you enable protection for Hyper-V VMs, check the f
 5. On the guest VM, verify that WMI is enabled and accessible.
   - [Learn about](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) basic WMI testing.
   - [Troubleshoot](https://aka.ms/WMiTshooting) WMI.
-  - [Troubleshoot ](https://technet.microsoft.com/library/ff406382.aspx#H22) problems with WMI scripts and services.
+  - [Troubleshoot](https://technet.microsoft.com/library/ff406382.aspx#H22) problems with WMI scripts and services.
 6. On the guest VM, ensure that the latest version of Integration Services is running.
     - [Check](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) that you have the latest version.
     - [Keep](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integration Services up-to-date.

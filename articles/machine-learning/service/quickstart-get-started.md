@@ -77,7 +77,7 @@ This example shows how the workspace can help you keep track of information gene
 
  ![Clone a library](./media/quickstart-get-started/clone.png)
 
-1. If you see that the project status is stopped, click on **Run on Free Compute** to use the free notebook server.
+1. If you see that the project status is stopped, click on **Run on Free Computer** to use the free notebook server.
 
     ![Run a project on free compute](./media/quickstart-get-started/run-project.png)
 

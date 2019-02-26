@@ -2,10 +2,11 @@
 title: Azure IoT Hub migrate to diagnostics settings | Microsoft Docs
 description: How to update Azure IoT Hub to use Azure diagnostics settings instead of operations monitoring to monitor the status of operations on your IoT hub in real time.
 author: kgremban
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 02/19/2019
 ms.author: kgremban
 ---
 
@@ -23,7 +24,7 @@ To update your IoT Hub in the Azure portal, first turn on diagnostics settings, 
 
 ### Turn off operations monitoring
 
-Once you have tested the new diagnostics settings on your workflow, you can turn off the operations monitoring feature. 
+Once you test the new diagnostics settings in your workflow, you can turn off the operations monitoring feature. 
 
 1. In your IoT Hub menu, select **Operations monitoring**.
 
@@ -35,7 +36,7 @@ Once you have tested the new diagnostics settings on your workflow, you can turn
 
 The schemas for operations monitoring and diagnostics settings vary slightly. It's important that you update the applications that use operations monitoring today to map to the schema used by diagnostics settings. 
 
-Also, diagnostics settings offers tracking for five new categories. After you update applications for the existing schema, add the new categories as well:
+Also, diagnostics settings offers five new categories for tracking. After you update applications for the existing schema, add the new categories as well:
 
 * Cloud-to-device twin operations
 * Device-to-cloud twin operations
@@ -51,4 +52,4 @@ To monitor device connect and disconnect events, we recommend subscribing to the
 
 ## Next steps
 
-* [Monitor the health of Azure IoT Hub and diagnose problems quickly](iot-hub-monitor-resource-health.md)
+[Monitor the health of Azure IoT Hub and diagnose problems quickly](iot-hub-monitor-resource-health.md)

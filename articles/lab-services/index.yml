@@ -51,6 +51,6 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/cli/azure/lab">Azure CLI</a></p><p><a href="/powershell/module/azurerm.devtestlabs/#devtest_labs">Azure PowerShell</a></p>
+      html: <p><a href="/cli/azure/lab">Azure CLI</a></p><p><a href="/powershell/module/az.devtestlabs/#devtest_labs">Azure PowerShell</a></p>
     - title: REST
       html: <p><a href="/rest/api/dtl">REST API</a></p>      
