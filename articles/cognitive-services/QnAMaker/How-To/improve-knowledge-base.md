@@ -34,6 +34,8 @@ Active learning is triggered based on the scores of top few answers returned by 
 
 All the suggestions are clustered together by similarity and top suggestions for alternate questions are displayed based on the frequency of the particular queries by end users. Active learning gives the best possible suggestions in cases where the endpoints are getting a reasonable quantity and variety of usage queries.
 
+Once the system collects user's questions, and makes suggestions, you need to review and accept or reject this suggestions in the QnA Maker portal. 
+
 ## Upgrade version to use active learning
 
 Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your runtime](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) to use this feature. 
