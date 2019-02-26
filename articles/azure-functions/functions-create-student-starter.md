@@ -20,16 +20,16 @@ ms.author: alkarche
 
 In this tutorial, we will walk through what's available in Azure Functions from an Azure for Students Starter subscription and then create a hello world HTTP function.
 
-Microsoft *Azure for Students Starter* gets you started with the Azure products you need to develop in the cloud at no cost to you. [Learn more about this offer here](https://azure.microsoft.com/offers/ms-azr-0144p/)
+Microsoft *Azure for Students Starter* gets you started with the Azure products you need to develop in the cloud at no cost to you. [Learn more about this offer here.](https://azure.microsoft.com/offers/ms-azr-0144p/)
 
-Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application. [Learn more about Functions here](./functions-overview.md)
+Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application. [Learn more about Functions here.](./functions-overview.md)
 
 ## Capabilities of Functions in Azure for Students Starter
 
 In this offering, you have access to most of the features of the Azure Functions runtime, with several key limitations:
 
 * The HTTP trigger is the only trigger type supported.
-    * All input and all output bindings are supported! [See the full list here](functions-triggers-bindings.md)
+    * All input and all output bindings are supported! [See the full list here.](functions-triggers-bindings.md)
 * Languages Supported: 
     * C# (.NET Core 2)
     * Javascript (Node.js 8 & 10)
@@ -37,8 +37,8 @@ In this offering, you have access to most of the features of the Azure Functions
     * [See languages supported in higher plans here](supported-languages.md)
 * Windows is the only supported operating system.
 * Scale is restricted to [one free tier instance](https://azure.microsoft.com/pricing/details/app-service/windows/) running for up to 60 minutes each day. You will serverlessly scale from 0 to 1 instance automatically as HTTP traffic is received, but no further.
-* [The 2.x runtime](functions-versions.md) is the only supported runtime.
-* All developer tooling is supported for editing and publishing functions. This includes VS code, Visual studio, the Azure CLI, and the portal. If you'd like to use anything other than the portal, you will need to first create an app in the portal, and then choose that app as a deployment target in your prefered tool.
+* Only [the 2.x runtime](functions-versions.md) is supported.
+* All developer tooling is supported for editing and publishing functions. This includes VS Code, Visual Studio, the Azure CLI, and the Azure portal. If you'd like to use anything other than the portal, you will need to first create an app in the portal, and then choose that app as a deployment target in your prefered tool.
 
 ## Create an HTTP triggered hello world Function
 
