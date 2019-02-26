@@ -26,6 +26,10 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 + **New features**
 
   + Azure Machine Learning SDK now supports a [`Chainer`](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) estimator class to streamline the process of training and deploying a model using custom Chainer code.
+  + Azure Machine Learning Pipelines added ability trigger a Pipeline run based on datastore modifications. The pipeline [schedule notebook](https://aka.ms/pl-schedule) is updated to showcase this feature.
+  
++ **Bug fixes and improvements**
+  + We have added support Azure Machine Learning Pipelines for setting the source_directory_data_store property to a desired datastore (such as a blob storage) on RunConfigurations that are supplied to the PythonScriptStep. By default Steps use Azure File store as the backing datastore which may run into throttling issues when a large number of steps are executed concurrently.
 
 ### Azure portal
 + **New features**
