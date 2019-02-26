@@ -36,7 +36,7 @@ This article describes how to use Service Bus queues. The samples are written in
 The **ServiceBusService** object enables you to work with queues. Add the following code near the top of any Python file in which you wish to programmatically access Service Bus:
 
 ```python
-from azure.servicebus import ServiceBusService, Message, Queue
+from azure.servicebus.control_client import ServiceBusService, Message, Queue
 ```
 
 The following code creates a **ServiceBusService** object. Replace `mynamespace`, `sharedaccesskeyname`, and `sharedaccesskey` with your namespace, shared access signature (SAS) key name, and value.
