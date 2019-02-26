@@ -4,7 +4,7 @@ description: This document helps you to understand how Azure Security Center det
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 4c5599cc-99a1-430f-895f-601615ef12a0
@@ -20,7 +20,7 @@ ms.author: rkarlin
 # Azure Security Center detection capabilities
 This document discusses Azure Security Center’s advanced detection capabilities, which helps identify active threats targeting your Microsoft Azure resources - both Windows and Linux - and provides you with the insights needed to respond quickly.
 
-Advanced detections are available in the Standard Tier of Azure Security Center. A free trial is available. You can upgrade from the Pricing Tier selection in the [Security Policy](security-center-azure-policy.md). Visit [Security Center page](https://azure.microsoft.com/pricing/details/security-center/) to learn more about pricing.
+Advanced detections are available in the Standard Tier of Azure Security Center. A free trial is available. You can upgrade from the Pricing Tier selection in the [Security Policy](tutorial-security-policy.md). Visit [Security Center page](https://azure.microsoft.com/pricing/details/security-center/) to learn more about pricing.
 
 
 ## Responding to today’s threats

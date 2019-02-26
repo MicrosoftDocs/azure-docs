@@ -2,7 +2,6 @@
 title: Configure an IP firewall for your Azure Cosmos DB account
 description: Learn how to configure IP access control policies for firewall support on Azure Cosmos DB database accounts.
 author: kanshiG
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
@@ -10,7 +9,7 @@ ms.author: govindk
 
 ---
 
-# Configure an IP firewall for your Azure Cosmos DB account
+# Configure IP firewall in Azure Cosmos DB
 
 You can secure the data stored in your Azure Cosmos DB account by using IP firewalls. Azure Cosmos DB supports IP-based access controls for inbound firewall support. You can set an IP firewall on the Azure Cosmos DB account by using one of the following ways:
 
@@ -142,10 +141,10 @@ You can troubleshoot issues with an IP access control policy by using the follow
 By enabling an IP access control policy for your Azure Cosmos DB account, you block all requests to your account from machines outside the allowed list of IP address ranges. To enable portal data-plane operations like browsing containers and querying documents, you need to explicitly allow Azure portal access by using the **Firewall** pane in the portal.
 
 ### SDKs 
-When you access Azure Cosmos DB resources by using SDKs from machines that are not in the allowed list, a generic **404 Not Found** response is returned with no additional details. Verify the allowed IP list for your account, and make sure that the correct policy configuration is applied to your Azure Cosmos DB account. 
+When you access Azure Cosmos DB resources by using SDKs from machines that are not in the allowed list, a generic **403 Forbidden** response is returned with no additional details. Verify the allowed IP list for your account, and make sure that the correct policy configuration is applied to your Azure Cosmos DB account. 
 
 ### Source IPs in blocked requests
-Enable diagnostic logging on your Azure Cosmos DB account. These logs show each request and response. The firewall-related messages are internally logged with a 403 return code. By filtering these messages, you can see the source IPs for the blocked requests. See [Azure Cosmos DB diagnostic logging](logging.md).
+Enable diagnostic logging on your Azure Cosmos DB account. These logs show each request and response. The firewall-related messages are logged with a 403 return code. By filtering these messages, you can see the source IPs for the blocked requests. See [Azure Cosmos DB diagnostic logging](logging.md).
 
 ### Requests from a subnet with a service endpoint for Azure Cosmos DB enabled
 Requests from a subnet in a virtual network that has a service endpoint for Azure Cosmos DB enabled sends the virtual network and subnet identity to Azure Cosmos DB accounts. These requests don't have the public IP of the source, so IP filters reject them. To allow access from specific subnets in virtual networks, add an access control list as outlined in [How to configure virtual network and subnet-based access for your Azure Cosmos DB account](how-to-configure-vnet-service-endpoint.md). It can take up to 15 minutes for firewall rules to apply.

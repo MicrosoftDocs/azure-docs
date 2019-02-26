@@ -16,9 +16,9 @@ ms.date: 06/15/2018
 ms.author: yagup;jdial
 ---
 
-# Traffic analytics
+# Traffic Analytics
 
-Traffic analytics is a cloud-based solution that provides visibility into user and application activity in cloud networks. Traffic analytics analyzes Network Watcher network security group (NSG) flow logs to provide insights into traffic flow in your Azure cloud. With traffic analytics, you can:
+Traffic Analytics is a cloud-based solution that provides visibility into user and application activity in cloud networks. Traffic analytics analyzes Network Watcher network security group (NSG) flow logs to provide insights into traffic flow in your Azure cloud. With traffic analytics, you can:
 
 - Visualize network activity across your Azure subscriptions and identify hot spots.
 - Identify security threats to, and secure your network, with information such as open-ports, applications attempting internet access, and virtual machines (VM) connecting to rogue networks.
@@ -95,9 +95,6 @@ Your account must be a member of one of the following Azure [built-in roles](../
 |                   | Contributor            |
 |                   | Reader                 |
 |                   | Network Contributor    |
-|Classic            | Account administrator  |
-|                   | Service administrator  |
-|                   | Co-administrator       |
 
 If your account is not assigned to one of the built-in roles, it must be assigned to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) that is assigned the following actions, at the subscription level:
 
@@ -163,7 +160,7 @@ Select the following options, as shown in the picture:
 2. Select an existing storage account to store the flow logs in. If you want to store the data forever, set the value to *0*. You incur Azure Storage fees for the storage account.
 3. Set **Retention** to the number of days you want to store data for.
 4. Select *On* for **Traffic Analytics Status**.
-5. Select an existing Log Analytics Workspace, or select **Create New Workspace** to create a new one. A Log Analytics workspace is used by Traffic Analytics to store the aggregated and indexed data that is then used to generate the analytics. If you select an existing workspace, it must exist in one of the [supported regions](#traffic-analytics-supported-regions) and have been upgraded to the new query language. If you do not wish to upgrade an existing workspace, or do not have a workspace in a supported region, create a new one. For more information about query languages, see [Azure Log Analytics upgrade to new log search](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+5. Select an existing Log Analytics Workspace, or select **Create New Workspace** to create a new one. A Log Analytics workspace is used by Traffic Analytics to store the aggregated and indexed data that is then used to generate the analytics. If you select an existing workspace, it must exist in one of the supported regions and have been upgraded to the new query language. If you do not wish to upgrade an existing workspace, or do not have a workspace in a supported region, create a new one. For more information about query languages, see [Azure Log Analytics upgrade to new log search](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
     The log analytics workspace hosting the traffic analytics solution and the NSGs do not have to be in the same region. For example, you may have traffic analytics in a workspace in the West Europe region, while you may have NSGs in East US and West US. Multiple NSGs can be configured in the same workspace.
 6. Select **Save**.
@@ -172,7 +169,7 @@ Select the following options, as shown in the picture:
 
 Repeat the previous steps for any other NSGs for which you wish to enable traffic analytics for. Data from flow logs is sent to the workspace, so ensure that the local laws and regulations in your country permit data storage in the region where the workspace exists.
 
-You can also configure traffic analytics using the [Set-AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) PowerShell cmdlet in AzureRm PowerShell module version 6.2.1 or later. Run `Get-Module -ListAvailable AzureRM` to find your installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+You can also configure traffic analytics using the [Set-AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) PowerShell cmdlet in AzureRm PowerShell module version 6.2.1 or later. Run `Get-Module -ListAvailable AzureRM` to find your installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## View traffic analytics
 
@@ -287,9 +284,13 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
     ![Dashboard showcasing virtual network distribution](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - The Virtual Network Topology shows the top ribbon for selection of parameters like a virtual network’s (Inter virtual network Connections/Active/Inactive), External Connections, Active Flows, and Malicious flows of the virtual network.
+- You can filter the Virtual Network Topology based on subscriptions, workspaces, resource groups and time interval. Additional filters that help you understand the flow are:
+Flow Type (InterVNet, IntraVNET etc), Flow Direction (Inbound, Outbound), Flow Status ( Allowed, Blocked) VNETs (Targeted and Connected) , Connection Type (Peering or Gateway - P2S and S2S) and NSG. Use these filters to focus on VNets that you want to examine in detail.
 - The Virtual Network Topology shows the traffic distribution to a virtual network with regards to flows (Allowed/Blocked/Inbound/Outbound/Benign/Malicious), application protocol, and network security groups, for example:
 
     ![Virtual network topology showcasing traffic distribution and flow details](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
+    
+    ![Virtual network topology showcasing top level and more filters](./media/traffic-analytics/virtual-network-filters.png)
 
     ![Flow details for virtual network traffic distribution in log search](./media/traffic-analytics/flow-details-for-virtual-network-traffic-distribution-in-log-search.png)
 

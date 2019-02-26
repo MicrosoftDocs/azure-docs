@@ -21,10 +21,10 @@ Learn how to use HDInsight with an [Azure Virtual Network](../virtual-network/vi
 
 * Directly accessing [Apache Hadoop](https://hadoop.apache.org/) services that are not available publicly over the internet. For example, [Apache Kafka](https://kafka.apache.org/) APIs or the [Apache HBase](https://hbase.apache.org/) Java API.
 
-> [!WARNING]
+> [!WARNING]  
 > The information in this document requires an understanding of TCP/IP networking. If you are not familiar with TCP/IP networking, you should partner with someone who is before making modifications to production networks.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > If you are looking for step by step guidance on connecting HDInsight to your on-premises network using an Azure Virtual Network, see the [Connect HDInsight to your on-premises network](connect-on-premises-network.md) document.
 
 ## Planning
@@ -47,7 +47,7 @@ The following are the questions that you must answer when planning to install HD
 
 Use the steps in this section to discover how to add a new HDInsight to an existing Azure Virtual Network.
 
-> [!NOTE]
+> [!NOTE]  
 > You cannot add an existing HDInsight cluster into a virtual network.
 
 1. Are you using a classic or Resource Manager deployment model for the virtual network?
@@ -64,7 +64,7 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
 
     As a managed service, HDInsight requires unrestricted access to several IP addresses in the Azure data center. To allow communication with these IP addresses, update any existing network security groups or user-defined routes.
 
-    HDInsight  hosts multiple services, which use a variety of ports. Do not block traffic to these ports. For a list of ports to allow through virtual appliance firewalls, see the [Security](#security) section.
+    HDInsight  hosts multiple services, which use a variety of ports. Do not block traffic to these ports. For a list of ports to allow through virtual appliance firewalls, see the Security section.
 
     To find your existing security configuration, use the following Azure PowerShell or Azure Classic CLI commands:
 
@@ -82,7 +82,7 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
 
         For more information, see the [Troubleshoot network security groups](../virtual-network/diagnose-network-traffic-filter-problem.md) document.
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > Network security group rules are applied in order based on rule priority. The first rule that matches the traffic pattern is applied, and no others are applied for that traffic. Order rules from most permissive to least permissive. For more information, see the [Filter network traffic with network security groups](../virtual-network/security-overview.md) document.
 
     * User-defined routes
@@ -106,7 +106,7 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
     * [Create HDInsight using Azure Classic CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [Create HDInsight using an Azure Resource Manager template](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Adding HDInsight to a virtual network is an optional configuration step. Be sure to select the virtual network when configuring the cluster.
 
 ## <a id="multinet"></a>Connecting multiple networks
@@ -126,7 +126,7 @@ Azure provides name resolution for Azure services that are installed in a virtua
 
 The default name resolution does __not__ allow HDInsight to resolve the names of resources in networks that are joined to the virtual network. For example, it is common to join your on-premises network to the virtual network. With only the default name resolution, HDInsight cannot access resources in the on-premises network by name. The opposite is also true, resources in your on-premises network cannot access resources in the virtual network by name.
 
-> [!WARNING]
+> [!WARNING]  
 > You must create the custom DNS server and configure the virtual network to use it before creating the HDInsight cluster.
 
 To enable name resolution between the virtual network and resources in joined networks, you must perform the following actions:
@@ -195,7 +195,7 @@ To connect to Apache Ambari and other web pages through the virtual network, use
 
     In the list of nodes returned, find the FQDN for the head nodes and use the FQDNs to connect to Ambari and other web services. For example, use `http://<headnode-fqdn>:8080` to access Ambari.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Some services hosted on the head nodes are only active on one node at a time. If you try accessing a service on one head node and it returns a 404 error, switch to the other head node.
 
 2. To determine the node and port that a service is available on, see the [Ports used by Hadoop services on HDInsight](./hdinsight-hadoop-port-settings-for-services.md) document.
@@ -206,7 +206,7 @@ Network traffic in an Azure Virtual Networks can be controlled using the followi
 
 * **Network security groups** (NSG) allow you to filter inbound and outbound traffic to the network. For more information, see the [Filter network traffic with network security groups](../virtual-network/security-overview.md) document.
 
-    > [!WARNING]
+    > [!WARNING]  
     > HDInsight does not support restricting outbound traffic. All outbound traffic should be allowed.
 
 * **User-defined routes** (UDR) define how traffic flows between resources in the network. For more information, see the [User-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md) document.
@@ -214,8 +214,6 @@ Network traffic in an Azure Virtual Networks can be controlled using the followi
 * **Network virtual appliances** replicate the functionality of devices such as firewalls and routers. For more information, see the [Network Appliances](https://azure.microsoft.com/solutions/network-appliances) document.
 
 As a managed service, HDInsight requires unrestricted access to the HDinsight health and management services both for incoming and outgoing traffic from the VNET. When using NSGs and UDRs, you must ensure that these services can still communicate with HDInsight cluster.
-
-HDInsight exposes services on several ports. When using a virtual appliance firewall, you must allow traffic on the ports used for these services. For more information, see the [Required ports] section.
 
 ### <a id="hdinsight-ip"></a> HDInsight with network security groups and user-defined routes
 
@@ -242,16 +240,16 @@ Forced tunneling is a user-defined routing configuration where all traffic from 
 
 ## <a id="hdinsight-ip"></a> Required IP addresses
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The Azure health and management services must be able to communicate with HDInsight. If you use network security groups or user-defined routes, allow traffic from the IP addresses for these services to reach HDInsight.
 >
 > If you do not use network security groups or user-defined routes to control traffic, you can ignore this section.
 
-If you use network security groups or user-defined routes, you must allow traffic from the Azure health and management services to reach HDInsight. You must also allow traffic between VMs inside the subnet. Use the following steps to find the IP addresses that must be allowed:
+If you use network security groups, you must allow traffic from the Azure health and management services to reach HDInsight clusters on port 443. You must also allow traffic between VMs inside the subnet. Use the following steps to find the IP addresses that must be allowed:
 
 1. You must always allow traffic from the following IP addresses:
 
-    | IP address | Allowed port | Direction |
+    | Source IP address | Destination port | Direction |
     | ---- | ----- | ----- |
     | 168.61.49.99 | 443 | Inbound |
     | 23.99.5.239 | 443 | Inbound |
@@ -260,10 +258,10 @@ If you use network security groups or user-defined routes, you must allow traffi
 
 2. If your HDInsight cluster is in one of the following regions, then you must allow traffic from the IP addresses listed for the region:
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > If the Azure region you are using is not listed, then only use the four IP addresses from step 1.
 
-    | Country | Region | Allowed IP addresses | Allowed port | Direction |
+    | Country | Region | Allowed Source IP addresses | Allowed Destination port | Direction |
     | ---- | ---- | ---- | ---- | ----- |
     | Asia | East Asia | 23.102.235.122</br>52.175.38.134 | 443 | Inbound |
     | &nbsp; | Southeast Asia | 13.76.245.160</br>13.76.136.249 | 443 | Inbound |
@@ -300,15 +298,11 @@ If you use network security groups or user-defined routes, you must allow traffi
 
 For more information, see the [Controlling network traffic](#networktraffic) section.
 
+If you are using user-defined routes(UDRs), you should specify a route and allow outbound traffic from the VNET to the above IPs with the next hop set to "Internet".
+    
 ## <a id="hdinsight-ports"></a> Required ports
 
-If you plan on using a network **virtual appliance firewall** to secure the virtual network, you must allow outbound traffic on the following ports:
-
-* 53
-* 443
-* 1433
-* 11000-11999
-* 14000-14999
+If you plan on using a **firewall** and access the cluster from outside on certain ports, you might need to allow traffic on those ports needed for your scenario. By default, no special whitelisting of ports is needed as long as the azure management traffic explained in the previous section is allowed to reach cluster on port 443.
 
 For a list of ports for specific services, see the [Ports used by Apache Hadoop services on HDInsight](hdinsight-hadoop-port-settings-for-services.md) document.
 
@@ -324,14 +318,14 @@ The following Resource Management template creates a virtual network that restri
 
 * [Deploy a secured Azure Virtual Network and an HDInsight Hadoop cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Change the IP addresses used in this example to match the Azure region you are using. You can find this information in the [HDInsight with network security groups and user-defined routes](#hdinsight-ip) section.
 
 ### Azure PowerShell
 
 Use the following PowerShell script to create a virtual network that restricts inbound traffic and allows traffic from the IP addresses for the North Europe region.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Change the IP addresses used in this example to match the Azure region you are using. You can find this information in the [HDInsight with network security groups and user-defined routes](#hdinsight-ip) section.
 
 ```powershell
@@ -429,7 +423,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 $vnet | Set-AzureRmVirtualNetwork
 ```
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > This example demonstrates how to add rules to allow inbound traffic on the required IP addresses. It does not contain a rule to restrict inbound access from other sources.
 >
 > The following example demonstrates how to enable SSH access from the Internet:
@@ -452,7 +446,7 @@ Use the following steps to create a virtual network that restricts inbound traff
 
 2. Use the following to add rules to the new network security group that allow inbound communication on port 443 from the Azure HDInsight health and management service. Replace **RESOURCEGROUPNAME** with the name of the resource group that contains the Azure Virtual Network.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Change the IP addresses used in this example to match the Azure region you are using. You can find this information in the [HDInsight with network security groups and user-defined routes](#hdinsight-ip) section.
 
     ```azurecli
@@ -484,7 +478,7 @@ Use the following steps to create a virtual network that restricts inbound traff
 
     Once this command completes, you can install HDInsight into the Virtual Network.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > These steps only open access to the HDInsight health and management service on the Azure cloud. Any other access to the HDInsight cluster from outside the Virtual Network is blocked. To enable access from outside the virtual network, you must add additional Network Security Group rules.
 >
 > The following example demonstrates how to enable SSH access from the Internet:
@@ -574,7 +568,7 @@ On the custom DNS server in the virtual network:
 
 4. Add a conditional forwarder to the on-premises DNS server. Configure the conditional forwarder to send requests for the DNS suffix from step 1 to the custom DNS server.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Consult the documentation for your DNS software for specifics on how to add a conditional forwarder.
 
 After completing these steps, you can connect to resources in either network using fully qualified domain names (FQDN). You can now install HDInsight into the virtual network.

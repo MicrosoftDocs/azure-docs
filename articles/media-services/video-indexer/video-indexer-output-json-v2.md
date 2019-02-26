@@ -8,7 +8,7 @@ manager: femila
 
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 02/10/2019
 ms.author: juliako
 ---
 
@@ -74,7 +74,7 @@ This section shows the summary of the insights.
 |Attribute | Description|
 |---|---|
 |name|The name of the video. For example, Azure Monitor.|
-|shortId|The ID of the video. For example, 63c6d532ff.|
+|id|The ID of the video. For example, 63c6d532ff.|
 |privacyMode|Your breakdown can have one of the following modes: **Private**, **Public**. **Public** - the video is visible to everyone in your account and anyone that has a link to the video. **Private** - the video is visible to everyone in your account.|
 |duration|Contains one duration that describes the time an insight occurred. Duration is in seconds.|
 |thumbnailVideoId|The ID of the video from which the thumbnail was taken.
@@ -162,7 +162,7 @@ A face might  have an ID, a name, a thumbnail, other metadata, and a list of its
 |audioEffects|The [audioEffects](#audioEffects) dimension.|
 |sentiments|The [sentiments](#sentiments) dimension.|
 |visualContentModeration|The [visualContentModeration](#visualcontentmoderation) dimension.|
-|textualConentModeration|The [textualConentModeration](#textualconentmoderation) dimension.|
+|textualContentModeration|The [textualContentModeration](#textualcontentmoderation) dimension.|
 |emotions| The [emotions](#emotions) dimension.|
 |topics|The [topics](#topics) dimension.|
 
@@ -183,7 +183,7 @@ Example:
   "audioEffects": ...,
   "sentiments": ...,
   "visualContentModeration": ...,
-  "textualConentModeration": ...
+  "textualContentModeration": ...
 }
 ```
 
@@ -330,7 +330,7 @@ Example:
 |name|The name of the face. It can be 'Unknown #0, an identified celebrity or a customer trained person.|
 |confidence|The face identification confidence.|
 |description|A description of the celebrity. |
-|thumbnalId|The ID of the thumbnail of that face.|
+|thumbnailId|The ID of the thumbnail of that face.|
 |knownPersonId|If it is a known person, its internal ID.|
 |referenceId|If it is a Bing celebrity, its Bing ID.|
 |referenceType|Currently, just Bing.|
@@ -549,7 +549,7 @@ Business and product brand names detected in the speech to text transcript and/o
 |Name|Description|
 |---|---|
 |CorrespondenceCount|Number of correspondences in the video.|
-|WordCount|The number of words per speaker.|
+|SpeakerWordCount|The number of words per speaker.|
 |SpeakerNumberOfFragments|The amount of fragments the speaker has in a video.|
 |SpeakerLongestMonolog|The speaker's longest monolog. If the speaker has silences inside the monolog it is included. Silence at the beginning and the end of the monolog is removed.| 
 |SpeakerTalkToListenRatio|The calculation is based on the time spent on the speaker's monolog (without the silence in between) divided by the total time of the video. The time is rounded to the third decimal point.|
@@ -658,7 +658,7 @@ Videos that are found to contain adult or racy content might be available for pr
 ] 
 ```
 
-#### textualConentModeration 
+#### textualContentModeration 
 
 |Name|Description|
 |---|---|

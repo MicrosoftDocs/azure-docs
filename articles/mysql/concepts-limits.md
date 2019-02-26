@@ -1,13 +1,10 @@
 ---
 title: Limitations in Azure Database for MySQL
 description: This article describes limitations in Azure Database for MySQL, such as number of connection and storage engine options.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/6/2018
 ---
 # Limitations in Azure Database for MySQL
@@ -54,6 +51,8 @@ When connections exceed the limit, you may receive the following error:
 Many server parameters and settings can inadvertently degrade server performance or negate ACID properties of the DBMS. As such, to maintain the service integrity and SLA at a product level, this service does not expose the DBA role. The default user account, which is constructed when a new database instance is created, allows that user to perform most of DDL and DML statements in the managed database instance. 
 - SUPER privilege: 
 Similarly [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) is also restricted.
+- DEFINER: 
+Requires super privileges to create and is restricted. If importing data using a backup, remove the `CREATE DEFINER` commands manually or by using the `--skip-definer` command when performing a mysqldump.
 
 ## Data manipulation statement support
 

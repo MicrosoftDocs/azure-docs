@@ -1,20 +1,20 @@
 ---
-title: Use Azure Data Lake Storage Gen2 Preview with Azure HDInsight clusters
-description: Learn how to query data from Azure Data Lake Storage Gen2 Preview and store results of your analysis.
+title: Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
+description: Learn how to query data from Azure Data Lake Storage Gen2 and store results of your analysis.
 author: jamesbak
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ---
-# Use Azure Data Lake Storage Gen2 Preview with Azure HDInsight clusters
+# Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
 
-To analyze data in an HDInsight cluster, you can store the data either in any combination of Azure Blob Storage, Azure Blob Storage with Azure Data Lake Storage Gen2 Preview enabled, or Azure Data Lake Storage Gen1. All storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
+To analyze data in an HDInsight cluster, you can store the data either in any combination of Azure Blob Storage, Azure Blob Storage with Azure Data Lake Storage Gen2 enabled, or Azure Data Lake Storage Gen1. All storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
 
 Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage or the hierarchical namespace offered by Data Lake Storage Gen2 as the default file system. Alternatively with HDInsight 3.5, you can select either a container or the hierarchical namespace as the default file system with a few exceptions.
 
-In this article, you learn how Data Lake Storage Gen2 works with HDInsight clusters. For more information about creating an HDInsight cluster, see [Set up HDInsight clusters using Azure Data Lake Storage with Hadoop, Spark, Kafka, and more](data-lake-storage-quickstart-create-connect-hdi-cluster.md).
+In this article, you learn how Data Lake Storage Gen2 works with HDInsight clusters. For more information about creating an HDInsight cluster, see [Set up HDInsight clusters using Azure Data Lake Storage with Hadoop, Spark, Kafka, and more](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).
 
 Azure storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. HDInsight can use Azure Data Lake Storage as the default file system for the cluster. Through a Hadoop distributed file system (HDFS) interface, the full set of components in HDInsight can operate directly on files in Azure Data Lake Storage.
 
@@ -95,35 +95,38 @@ When creating an HDInsight cluster from the Portal, you have the options (as sho
 
 ### Use Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 If you [installed and configured Azure PowerShell][powershell-install], you can use the following code from the Azure PowerShell prompt to create a storage account and container:
 
 [!INCLUDE [upgrade-powershell](../../../includes/hdinsight-use-latest-powershell.md)]
 
-    $SubscriptionID = "<Your Azure Subscription ID>"
-    $ResourceGroupName = "<New Azure Resource Group Name>"
-    $Location = "WEST US 2"
+```azurepowershell
+$SubscriptionID = "<Your Azure Subscription ID>"
+$ResourceGroupName = "<New Azure Resource Group Name>"
+$Location = "westus2"
 
-    $StorageAccountName = "<New Azure Storage Account Name>"
-    $containerName = "<New Azure Blob Container Name>"
+$StorageAccountName = "<New Azure Storage Account Name>"
+$containerName = "<New Azure Blob Container Name>"
 
-    Connect-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionId $SubscriptionID
+Select-AzSubscription -SubscriptionId $SubscriptionID
 
-    # Create resource group
-    New-AzureRmResourceGroup -name $ResourceGroupName -Location $Location
+# Create resource group
+New-AzResourceGroup -name $ResourceGroupName -Location $Location
 
-    # Create default storage account
-    New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName `
-      -Name StorageAccountName `
-      -Location $Location `
-      -SkuName Standard_LRS `
-      -Kind StorageV2 
-      -HierarchialNamespace $True
+# Create default storage account
+New-AzStorageAccount -ResourceGroupName $ResourceGroupName `
+  -Name $StorageAccountName `
+  -Location $Location `
+  -SkuName Standard_LRS `
+  -Kind StorageV2 `
+  -EnableHierarchicalNamespace $True
 
-    # Create default blob containers
-    $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName)[0].Value
-    $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
-    New-AzureStorageContainer -Name $containerName -Context $destContext
+# Create default blob containers
+$storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName)[0].Value
+$destContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+New-AzStorageContainer -Name $containerName -Context $destContext
+```
 
 > [!NOTE]
 > Creating a container is synonymous with creating a file system in Data Lake Storage Gen2.
@@ -143,9 +146,6 @@ az storage account create \
     --kind StorageV2 \
     --Enable-hierarchical-namespace true
 ```
-
-> [!NOTE]
-> During the public preview of Data Lake Storage Gen2 only `--sku Standard_LRS` is supported.
 
 You are prompted to specify the geographic region that the storage account is created in. Create the storage account in the same region that you plan on creating your HDInsight cluster.
 
@@ -200,10 +200,9 @@ For more information, see:
 
 * [The ABFS Hadoop Filesystem driver for Azure Data Lake Storage Gen2](data-lake-storage-abfs-driver.md)
 * [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)
-* [Set up HDInsight clusters using Azure Data Lake Storage Gen2 with Hadoop, Spark, Kafka, and more](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
 * [Ingest data into Azure Data Lake Storage Gen2 using distcp](data-lake-storage-use-distcp.md)
 
-[powershell-install]: /powershell/azureps-cmdlets-docs
+[powershell-install]: /powershell/azure/install-az-ps
 [hdinsight-creation]: ../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md
 
 [blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx

@@ -4,16 +4,16 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Use batch testing to continuously work on your application to refine it and improve its language understanding.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 01/02/2019
 ms.author: diberry
 ---
 
-# Batch testing in LUIS
+# Batch testing with 1000 utterances in LUIS portal
 
 Batch testing validates your [active](luis-concept-version.md#active-version) trained model to measure its prediction accuracy. A batch test helps you view the accuracy of each intent and entity in your current trained model in a chart. Review the batch test results to take appropriate action to improve accuracy, such as adding more example utterances to an intent if your app frequently fails to identify the correct intent.
 
@@ -43,7 +43,7 @@ All custom entities in the model appear in the batch test entities filter even i
 
 The batch file consists of utterances. Each utterance must have an expected intent prediction along with any [machine-learned entities](luis-concept-entity-types.md#types-of-entities) you expect to be detected. 
 
-## Batch syntax template
+## Batch syntax template for intents with entities
 
 Use the following template to start your batch file:
 
@@ -70,6 +70,22 @@ Use the following template to start your batch file:
 ```
 
 The batch file uses the **startPos** and **endPos** properties to note the beginning and end of an entity. The values are zero-based and should not begin or end on a space. This is different from the query logs, which use startIndex and endIndex properties. 
+
+## Batch syntax template for intents without entities
+
+Use the following template to start your batch file without entities:
+
+```JSON
+[
+  {
+    "text": "example utterance goes here",
+    "intent": "intent name goes here",
+    "entities": []
+  }
+]
+```
+
+If you do not want to test entities, include the `entities` property and set the value as an empty array, `[]`.
 
 
 ## Common errors importing a batch

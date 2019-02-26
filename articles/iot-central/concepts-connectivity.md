@@ -49,14 +49,13 @@ Connecting a single device to IoT Central using SAS is easy and takes only a few
 
     Below are the references for other languages you might want to use.
 
-    *   **C language:** If you are using C, follow [this C sample device client](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md) to connect a sample device. Use the following settings in the sample.   
+    *   **C language:** If you are using C, follow [this C sample device client](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) to connect a sample device. Use the following settings in the sample.   
 
-         ```
+         ```c
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
-         
-         static const char* const SYMMETRIC_KEY_VALUE = "Enter Primary Symmetric key here";
 
-         static const char* const REGISTRATION_NAME = "Enter Device Id here";
+         ## Enter the Device Id and Symmetric keys 
+         prov_dev_set_symmetric_key_info("<Device Id>", "<Enter Primary Symmetric key here>");
         ```
 
     *   **Node.js:**  If you want to use Node.js [use the step-by-step instructions here](tutorial-add-device.md#prepare-the-client-code), start from the section **Prepare the client code**.
@@ -114,12 +113,12 @@ If you are using the **MxChip** device to connect follow [the step-by-step instr
 
 Below are the references for other languages you might want to use.
 
-   *   **C language:** If you are using C follow [this C sample device client](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md) to connect a sample device. Use the following settings in the sample.   
-         ```
+   *   **C language:** If you are using C follow [this C sample device client](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) to connect a sample device. Use the following settings in the sample.   
+         ```c
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
 
-         static const char* const SYMMETRIC_KEY_VALUE = "Enter Primary Symmetric key here";
-         static const char* const REGISTRATION_NAME = "Enter Device Id here";
+         ## Enter the Device Id and Symmetric keys 
+         prov_dev_set_symmetric_key_info("<Device Id>", "<Enter Primary Symmetric key here>");
         ```
     * **Node.js:**  If you want to use Node.js [use the step-by-step instructions here](tutorial-add-device.md#prepare-the-client-code), start from the section **Prepare the client code**.
 
@@ -160,7 +159,7 @@ To connect devices to IoT Central using X509 certificates, there are three key s
 
     Program the device with provisioning service information enabling it to get its connection details and IoT Central app assignment when switched on.    
 
-    **Further referene** 
+    **Further reference** 
     *   Sample implementation for [RaspberryPi.](https://aka.ms/iotcentral-docs-Raspi-releases)  
 
     *   [Sample device client in C.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
@@ -209,12 +208,12 @@ Follow the steps based on your choice of device authentication scheme (X509/SAS)
 
 1. **Connect device to IoT Central:** Once switched on the devices connect to DPS/IoT Central for registration.
 
-1. **Associate Device to a template:** The connected device will show up under **UnAssociated Devices** in **Device Explorer**. The device provisioning status is **Registered**. **Associate** the device to the appropriate device template and approve the device to connect to the IoT Central app. The device gets the conection details for the IoT Central app, it connects and starts sending data. Device provioning is now complete and the *Provisioning status* turns to **Provisioned**.
+1. **Associate Device to a template:** The connected device will show up under **UnAssociated Devices** in **Device Explorer**. The device provisioning status is **Registered**. **Associate** the device to the appropriate device template and approve the device to connect to the IoT Central app. The device gets the connection details for the IoT Central app, and then it connects and starts sending data. Device provisioning is now complete and the *Provisioning status* turns to **Provisioned**.
 
 ## Device Provisioning status
 There are a series of steps involved when a real device is connected to Azure IoT Central 
 1. **Registered**: The device is first **Registered**, meaning the device is created in IoT Central, and has the Device ID for the device.
-Device is Registeretd when  
+Device is Registered when  
     *   A new real device is added on **Explorer**
     *   A set of device is added using **Import** on **Explorer**
     *   A device that has not been registered but connects with valid credentials and is visible under **Un-Associated** devices. 
@@ -231,7 +230,7 @@ You can get Iot hub device connection string to Azure IoT Hub using the followin
 
     ![Connection details](media/concepts-connectivity/device-connect.PNG)
 
-1. Get the device connection string using the commnd line tool below.
+1. Get the device connection string using the command-line tool below.
     Use the below instructions to get the device connection string  
 
     ```cmd/sh

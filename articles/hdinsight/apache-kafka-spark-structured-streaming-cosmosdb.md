@@ -18,7 +18,7 @@ Learn how to use [Apache Spark](https://spark.apache.org/) [Structured Streaming
 
 Spark structured streaming is a stream processing engine built on Spark SQL. It allows you to express streaming computations the same as batch computation on static data. For more information on Structured Streaming, see the [Structured Streaming Programming Guide](https://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) at Apache.org.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > This example used Spark 2.2 on HDInsight 3.6.
 >
 > The steps in this document create an Azure resource group that contains both a Spark on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Spark cluster to directly communicate with the Kafka cluster.
@@ -31,7 +31,7 @@ Apache Kafka on HDInsight does not provide access to the Kafka brokers over the 
 
 ![Diagram of Spark and Kafka clusters in an Azure virtual network](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
 
-> [!NOTE]
+> [!NOTE]  
 > The Kafka service is limited to communication within the virtual network. Other services on the cluster, such as SSH and Ambari, can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
 While you can create an Azure virtual network, Kafka, and Spark clusters manually, it's easier to use an Azure Resource Manager template. Use the following steps to deploy an Azure virtual network, Kafka, and Spark clusters to your Azure subscription.
@@ -52,12 +52,12 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
 
     * An Azure Virtual Network, which contains the HDInsight clusters.
 
-        > [!NOTE]
+        > [!NOTE]  
         > The virtual network created by the template uses the 10.0.0.0/16 address space.
 
     * An Azure Cosmos DB SQL API database.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > The structured streaming notebook used in this example requires Spark on HDInsight 3.6. If you use an earlier version of Spark on HDInsight, you receive errors when using the notebook.
 
 2. Use the following information to populate the entries on the **Custom deployment** section:
@@ -76,7 +76,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
 
     * **Cluster Version**: The HDInsight cluster version.
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > This example is tested with HDInsight 3.6, and may not work with other cluster types.
 
     * **Cluster Login User Name**: The admin user name for the Spark and Kafka clusters.
@@ -91,7 +91,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
 
 4. Finally, select **Purchase**. It takes about 20 minutes to create the clusters.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > It may take up to 45 minutes to create the clusters, virtual network, and Cosmos DB account.
 
 ## Create the Cosmos DB database and collection
@@ -134,7 +134,7 @@ The document endpoint and primary key information is similar to the following te
 "YqPXw3RP7TsJoBF5imkYR0QNA02IrreNAlkrUMkL8EW94YHs41bktBhIgWq4pqj6HCGYijQKMRkCTsSaKUO2pw=="
 ```
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Save the endpoint and key values, as they are needed in the Jupyter Notebooks.
 
 ## Get the Apache Kafka brokers
@@ -152,7 +152,7 @@ $brokerHosts = $respObj.host_components.HostRoles.host_name[0..1]
 ($brokerHosts -join ":9092,") + ":9092"
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > The Bash example expects `$CLUSTERNAME` to contain the name of the Kafka cluster.
 >
 > This example uses the [jq](https://stedolan.github.io/jq/) utility to parse data out of the JSON document.

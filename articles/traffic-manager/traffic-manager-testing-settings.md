@@ -1,8 +1,7 @@
 ---
-title: Verify Azure Traffic Manager settings | Microsoft Docs
-description: This article will help you verify your Traffic Manager settings
+title: Verify Azure Traffic Manager settings
+description: This article will help you verify your Traffic Manager settings.
 services: traffic-manager
-documentationcenter: ''
 author: kumudd
 ms.service: traffic-manager
 ms.devlang: na

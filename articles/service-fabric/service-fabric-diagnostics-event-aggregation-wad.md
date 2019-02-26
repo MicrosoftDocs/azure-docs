@@ -59,10 +59,12 @@ Now that you're aggregating events in Azure Storage, [set up Log Analytics](serv
 >[!NOTE]
 >There is currently no way to filter or groom the events that are sent to the tables. If you don't implement a process to remove events from the table, the table will continue to grow (the default cap is 50 GB). Instructions on how to change this are [further below in this article](service-fabric-diagnostics-event-aggregation-wad.md#update-storage-quota). Additionally, there is an example of a data grooming service running in the [Watchdog sample](https://github.com/Azure-Samples/service-fabric-watchdog-service), and it is recommended that you write one for yourself as well, unless there is a good reason for you to store logs beyond a 30 or 90 day timeframe.
 
+
+
 ## Deploy the Diagnostics extension through Azure Resource Manager
 
 ### Create a cluster with the diagnostics extension
-To create a cluster by using Resource Manager, you need to add the Diagnostics configuration JSON to the full Resource Manager template before you create the cluster. We provide a sample five-VM cluster Resource Manager template with Diagnostics configuration added to it as part of our Resource Manager template samples. You can see it at this location in the Azure Samples gallery: [Five-node cluster with Diagnostics Resource Manager template sample](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+To create a cluster by using Resource Manager, you need to add the Diagnostics configuration JSON to the full Resource Manager template. We provide a sample five-VM cluster Resource Manager template with Diagnostics configuration added to it as part of our Resource Manager template samples. You can see it at this location in the Azure Samples gallery: [Five-node cluster with Diagnostics Resource Manager template sample](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
 To see the Diagnostics setting in the Resource Manager template, open the azuredeploy.json file and search for **IaaSDiagnostics**. To create a cluster by using this template, select the **Deploy to Azure** button available at the previous link.
 
@@ -184,7 +186,7 @@ After you modify the template.json file as described, republish the Resource Man
 
 ### Update storage quota
 
-Since the tables populated by the extension grows until the quota is hit, you may want to consider decreasing the quota size. The default value is 50 GB and is configurable in the template under the `overallQuotainMB` field under `DiagnosticMonitorConfiguration`
+Since the tables populated by the extension grows until the quota is hit, you may want to consider decreasing the quota size. The default value is 50 GB and is configurable in the template under the `overallQuotaInMB` field under `DiagnosticMonitorConfiguration`
 
 ```json
 "overallQuotaInMB": "50000",
@@ -289,7 +291,49 @@ If you are using an Application Insights sink, as described in the section below
 
 ## Send logs to Application Insights
 
-Sending monitoring and diagnostics data to Application Insights (AI) can be done as part of the WAD configuration. If you decide to use AI for event analysis and visualization, read [how to set up an AI sink](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template) as part of your "WadCfg".
+### Configuring Application Insights with WAD
+
+>[!NOTE]
+>This is only applicable to Windows clusters at the moment.
+
+There are two primary ways to send data from WAD to Azure Application Insights, which is achieved by adding an Application Insights sink to the WAD configuration, through the Azure portal or through an Azure Resource Manager template.
+
+#### Add an Application Insights Instrumentation Key when creating a cluster in Azure portal
+
+![Adding an AIKey](media/service-fabric-diagnostics-event-analysis-appinsights/azure-enable-diagnostics.png)
+
+When creating a cluster, if Diagnostics is turned "On", an optional field to enter an Application Insights Instrumentation key will show. If you paste your Application Insights Key here, the Application Insights sink is automatically configured for you in the Resource Manager template that is used to deploy your cluster.
+
+#### Add the Application Insights Sink to the Resource Manager template
+
+In the "WadCfg" of the Resource Manager template, add a "Sink" by including the following two changes:
+
+1. Add the sink configuration directly after the declaring of the `DiagnosticMonitorConfiguration` is completed:
+
+    ```json
+    "SinksConfig": {
+        "Sink": [
+            {
+                "name": "applicationInsights",
+                "ApplicationInsights": "***ADD INSTRUMENTATION KEY HERE***"
+            }
+        ]
+    }
+
+    ```
+
+2. Include the Sink in the `DiagnosticMonitorConfiguration` by adding the following line in the `DiagnosticMonitorConfiguration` of the `WadCfg` (right before the `EtwProviders` are declared):
+
+    ```json
+    "sinks": "applicationInsights"
+    ```
+
+In both the preceding code snippets, the name "applicationInsights" was used to describe the sink. This is not a requirement and as long as the name of the sink is included in "sinks", you can set the name to any string.
+
+Currently, logs from the cluster show up as **traces** in Application Insights' log viewer. Since most of the traces coming from the platform are of level "Informational", you can also consider changing the sink configuration to only send logs of type "Warning" or "Error." This can be done by adding "Channels" to your sink, as demonstrated in [this article](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
+
+>[!NOTE]
+>If you use an incorrect Application Insights Key either in portal or in your Resource Manager template, you will have to manually change the key and update the cluster / redeploy it.
 
 ## Next steps
 

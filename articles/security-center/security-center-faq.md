@@ -3,8 +3,8 @@ title: Azure Security Center frequently asked questions (FAQ) | Microsoft Docs
 description: This FAQ answers questions about Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: MBaldwin
+author: monhaber
+manager: barbkess
 editor: ''
 
 ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2018
-ms.author: rkarlin
+ms.date: 02/19/2019
+ms.author: monhaber
 
 ---
 # Azure Security Center frequently asked questions (FAQ)
@@ -172,7 +172,7 @@ Security Center will enable the correct solution on the workspace based on the s
 You can manually remove the Microsoft Monitoring Agent. This is not recommended as it limits Security Center recommendations and alerts.
 
 > [!NOTE]
-> If data collection is enabled, Security Center will reinstall the agent after you remove it.  You need to disable data collection before manually removing the agent. See [How do I stop the automatic agent installation and workspace creation?](#how-do-i-stop-the-automatic-agent-installation-and-workspace-creation?) for instructions on disabling data collection.
+> If data collection is enabled, Security Center will reinstall the agent after you remove it.  You need to disable data collection before manually removing the agent. See How do I stop the automatic agent installation and workspace creation? for instructions on disabling data collection.
 >
 >
 
@@ -247,7 +247,7 @@ The security policies enabled in Azure Security Center drive security recommenda
 ### Who can modify a security policy?
 To modify a security policy, you must be a Security Administrator or an Owner or Contributor of that subscription.
 
-To learn how to configure a security policy, see [Setting security policies in Azure Security Center](security-center-azure-policy.md).
+To learn how to configure a security policy, see [Setting security policies in Azure Security Center](tutorial-security-policy.md).
 
 ### What is a security recommendation?
 Azure Security Center analyzes the security state of your Azure resources. When potential security vulnerabilities are identified, recommendations are created. The recommendations guide you through the process of configuring the needed control. Examples are:
@@ -270,6 +270,9 @@ Azure Security Center automatically collects, analyzes, and fuses log data from 
 * Advanced malware detected using Windows error reporting
 * Brute force attacks against virtual machines
 * Security alerts from integrated partner security solutions such as Anti-Malware or Web Application Firewalls
+
+### Why did secure scores values change?
+As of February 2019, Security Center adjusted the score of a few recommendations, in order to better fit their severity. As a result of this adjustment, there may be changes in overall secure score values.  For more information about secure score, see [Secure score calculation](security-center-secure-score.md).
 
 ### What's the difference between threats detected and alerted on by Microsoft Security Response Center versus Azure Security Center?
 The Microsoft Security Response Center (MSRC) performs select security monitoring of the Azure network and infrastructure and receives threat intelligence and abuse complaints from third parties. When MSRC becomes aware that customer data has been accessed by an unlawful or unauthorized party or that the customer’s use of Azure does not comply with the terms for Acceptable Use, a security incident manager notifies the customer. Notification typically occurs by sending an email to the security contacts specified in Azure Security Center or the Azure subscription owner if a security contact is not specified.

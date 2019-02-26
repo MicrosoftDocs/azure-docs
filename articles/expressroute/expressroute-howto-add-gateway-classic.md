@@ -1,7 +1,6 @@
 ---
-title: 'Configure a VNet gateway for ExpressRoute - PowerShell: classic: Azure | Microsoft Docs'
+title: 'Configure a VNet gateway for ExpressRoute - classic: Azure PowerShell | Microsoft Docs'
 description: Configure a VNet gateway for a classic deployment model VNet using PowerShell for an ExpressRoute configuration.
-documentationcenter: na
 services: expressroute
 author: charwen
 

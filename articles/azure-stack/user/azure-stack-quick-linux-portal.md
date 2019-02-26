@@ -12,6 +12,7 @@ ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
+ms.lastreviewed: 12/03/2018
 ---
 
 # Quickstart: create a Linux server virtual machine with the Azure Stack portal

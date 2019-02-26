@@ -5,11 +5,11 @@ services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: mtillman
+manager: daveba
 
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure GitHub for automatic user provisioning
@@ -33,7 +34,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 *   A user account in GitHub with Admin permissions 
 
 > [!NOTE]
-> The Azure AD provisioning integration relies on the [GitHub SCIM API](https://developer.github.com/v3/scim/), which is available to Github teams on the Business plan or better.
+> The Azure AD provisioning integration relies on the [GitHub SCIM API](https://developer.github.com/v3/scim/), which is available to GitHub teams on the Business plan or better.
 
 ## Assigning users to GitHub
 

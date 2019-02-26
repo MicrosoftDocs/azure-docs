@@ -1,14 +1,13 @@
 ---
 title: Distribute data globally with Azure Cosmos DB
 description: Learn about planet-scale geo-replication, multi-master, failover, and data recovery using global databases from Azure Cosmos DB, a globally distributed, multi-model database service.
-services: cosmos-db
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/26/2018
 ---
-# Global data distribution with Azure Cosmos DB
+# Global data distribution with Azure Cosmos DB - overview
 
 Today’s applications are required to be highly responsive and always online. To achieve low latency and high availability, instances of these applications need to be deployed in datacenters that are close to their users. These applications are typically deployed in multiple datacenters and are called globally distributed. Globally distributed applications need a globally distributed database that can transparently replicate the data anywhere in the world to enable the applications to operate on a copy of the data that's close to its users. 
 
@@ -17,6 +16,8 @@ Azure Cosmos DB is a globally distributed database service that's designed to pr
 You can configure your databases to be globally distributed and available in any of the Azure regions. To lower the latency, place the data closer to where your users are. Choosing the required regions depends on the global reach of your application and where your users are located. Azure Cosmos DB transparently replicates the data within your account to all the regions associated with your account. It provides a single system image of your globally distributed Azure Cosmos database and containers that your application can read and write to locally. 
 
 With Azure Cosmos DB, you can add or remove the regions associated with your account at any time. Your application doesn't need to be paused or redeployed to add or remove a region. It continues to be highly available all the time because of the multihoming capabilities that the service provides.
+
+![Highly available deployment topology](./media/distribute-data-globally/deployment-topology.png)
 
 ## Key benefits of global distribution
 
@@ -45,6 +46,7 @@ Many applications benefit from the performance enhancements that come with the a
 Read more about global distribution in the following articles:
 
 * [Global distribution - under the hood](global-dist-under-the-hood.md)
+* [How to configure multi-master in your applications](how-to-multi-master.md)
 * [Configure clients for multihoming](how-to-manage-database-account.md#configure-clients-for-multi-homing)
 * [Add or remove regions from your Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Create a custom conflict resolution policy for SQL API accounts](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

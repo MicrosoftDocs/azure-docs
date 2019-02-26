@@ -1,16 +1,16 @@
 ---
-title: Feature engineering in data science | Microsoft Docs
+title: Feature engineering in data science - Team Data Science Process
 description: Explains the purposes of feature engineering and provides examples of its role in the data enhancement process of machine learning.
 services: machine-learning
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Feature engineering in data science
 This article explains the purposes of feature engineering and provides examples of its role in the data enhancement process of machine learning. The examples used to illustrate this process are drawn from Azure Machine Learning Studio. 

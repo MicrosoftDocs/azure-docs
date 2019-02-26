@@ -10,13 +10,13 @@ ms.devlang:
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 10/23/2018
+ms.date: 02/07/2019
 ---
 # Overview of business continuity with Azure SQL Database
 
-Azure SQL Database is an implementation of the latest stable SQL Server Database Engine configured and optimized for Azure cloud environment that provides [high availability](sql-database-high-availability.md) and resiliency to the errors that might affect your business process. **Business continuity** in Azure SQL Database refers to the mechanisms, policies, and procedures that enable a business to continue operating in the face of disruption, particularly to its computing infrastructure. In the most of the cases, Azure SQL Database will handle the disruptive events that might happen in the cloud environment and keep your business processes running. However, there are some disruptive events that cannot be handled by SQL Database such as:
+**Business continuity** in Azure SQL Database refers to the mechanisms, policies, and procedures that enable your business to continue operating in the face of disruption, particularly to its computing infrastructure. In the most of the cases, Azure SQL Database will handle the disruptive events that might happen in the cloud environment and keep your applications and business processes running. However, there are some disruptive events that cannot be handled by SQL Database such as:
 
 - User accidentally deleted or updated a row in a table.
 - Malicious attacker succeeded to delete data or drop a database.
@@ -40,9 +40,10 @@ Then, you can learn about the additional mechanisms that you can use to recover 
 
 - [Temporal tables](sql-database-temporal-tables.md) enable you to restore row versions from any point in time.
 - [Built-in automated backups](sql-database-automated-backups.md) and [Point in Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) enables you to restore complete database to some point in time within the last 35 days.
-- You can [restore a deleted database](sql-database-recovery-using-backups.md#deleted-database-restore) to the point at which it was deleted if the **logical server has not been deleted**.
+- You can [restore a deleted database](sql-database-recovery-using-backups.md#deleted-database-restore) to the point at which it was deleted if the **SQL Database server has not been deleted**.
 - [Long-term backup retention](sql-database-long-term-retention.md) enables you to keep the backups up to 10 years.
-- [Auto-failover group](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) allows the application to automatically recovery in case of a data center scale outage.
+- [Active geo-replication](sql-database-active-geo-replication.md) enables you to create readable replicas and manually failover to any replica in case of a data center outage or application upgrade.
+- [Auto-failover group](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) allows the application to automatically recovery in case of a data center outage.
 
 Each has different characteristics for estimated recovery time (ERT) and potential data loss for recent transactions. Once you understand these options, you can choose among them - and, in most scenarios, use them together for different scenarios. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event. The time required for application to fully recover is known as recovery time objective (RTO). You also need to understand the maximum period of recent data updates (time interval) the application can tolerate losing when recovering after the disruptive event. The time period of updates that you might afford to lose is known as recovery point objective (RPO).
 
@@ -56,7 +57,7 @@ The following table compares the ERT and RPO for each service tier for the three
 
 ## Recover a database to the existing server
 
-SQL Database automatically performs a combination of full database backups weekly, differential database backups generally taken every 12 hours, and transaction log backups every 5 - 10 minutes to protect your business from data loss. The backups are stored in RA-GRS storage for 35 days for all service tiers except Basic DTU service tiers where the backups are stored for 7 days. For more information, see [automatic database backups](sql-database-automated-backups.md). You can restore an existing database form the automated backups to an earlier point in time as a new database on the same logical server using the Azure portal, PowerShell, or the REST API. For more information, see [Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore).
+SQL Database automatically performs a combination of full database backups weekly, differential database backups generally taken every 12 hours, and transaction log backups every 5 - 10 minutes to protect your business from data loss. The backups are stored in RA-GRS storage for 35 days for all service tiers except Basic DTU service tiers where the backups are stored for 7 days. For more information, see [automatic database backups](sql-database-automated-backups.md). You can restore an existing database form the automated backups to an earlier point in time as a new database on the same SQL Database server using the Azure portal, PowerShell, or the REST API. For more information, see [Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 If the maximum supported point-in-time restore (PITR) retention period is not sufficient for your application, you can extend it by configuring a long-term retention (LTR) policy for the database(s). For more information, see [Long-term backup retention](sql-database-long-term-retention.md).
 
@@ -69,8 +70,7 @@ Use automated backups and [point-in-time restore](sql-database-recovery-using-ba
 - Has a low rate of data change (low transactions per hour) and losing up to an hour of change is an acceptable data loss.
 - Is cost sensitive.
 
-If you need faster recovery, use [failover groups](sql-database-geo-replication-overview.md#auto-failover-group-capabilities
-) (discussed next). If you need to be able to recover data from a period older than 35 days, use [Long-term retention](sql-database-long-term-retention.md).
+If you need faster recovery, use [active geo-replication](sql-database-active-geo-replication.md) or [auto-failover groups](sql-database-auto-failover-group.md). If you need to be able to recover data from a period older than 35 days, use [Long-term retention](sql-database-long-term-retention.md).
 
 ## Recover a database to another region
 
@@ -78,14 +78,14 @@ Although rare, an Azure data center can have an outage. When an outage occurs, i
 
 - One option is to wait for your database to come back online when the data center outage is over. This works for applications that can afford to have the database offline. For example, a development project or free trial you don't need to work on constantly. When a data center has an outage, you do not know how long the outage might last, so this option only works if you don't need your database for a while.
 - Another option is to restore a database on any server in any Azure region using [geo-redundant database backups](sql-database-recovery-using-backups.md#geo-restore) (geo-restore). Geo-restore uses a geo-redundant backup as its source and can be used to recover a database even if the database or datacenter is inaccessible due to an outage.
-- Finally, you can quickly recover from an outage if you have configured a [auto-failover group](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) for your database or databases. You can customize the failover policy to use automatic or manual failover. While failover itself takes only a few seconds, the service will take at least 1 hour to activate it. This is necessary to ensure that the failover is justified by the scale of the outage. Also, the failover may result in small data loss due to the nature of asynchronous replication. See the table earlier in this article for details of the auto-failover RTO and RPO.
+- Finally, you can quickly recover from an outage if you have configured either geo-replicas using [active geo-replication](sql-database-active-geo-replication.md) or an [auto-failover group](sql-database-auto-failover-group.md) for your database or databases. Depending on your choice of these technologies, you can use either manual or automatic failover. While failover itself takes only a few seconds, the service will take at least 1 hour to activate it. This is necessary to ensure that the failover is justified by the scale of the outage. Also, the failover may result in small data loss due to the nature of asynchronous replication. See the table earlier in this article for details of the auto-failover RTO and RPO.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
 > [!IMPORTANT]
 > To use active geo-replication and auto-failover groups, you must either be the subscription owner or have administrative permissions in SQL Server. You can configure and fail over using the Azure portal, PowerShell, or the REST API using Azure subscription permissions or using Transact-SQL with SQL Server permissions.
 
-Use active auto-failover groups if your application meets any of these criteria:
+Use auto-failover groups if your application meets any of these criteria:
 
 - Is mission critical.
 - Has a service level agreement (SLA) that does not allow for 12 hours or more of downtime.
@@ -95,13 +95,14 @@ Use active auto-failover groups if your application meets any of these criteria:
 
 When you take action, how long it takes you to recover, and how much data loss you incur depends upon how you decide to use these business continuity features in your application. Indeed, you may choose to use a combination of database backups and active geo-replication depending upon your application requirements. For a discussion of application design considerations for stand-alone databases and for elastic pools using these business continuity features, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md) and [Elastic pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
+
 The following sections provide an overview of the steps to recover using either database backups or active geo-replication. For detailed steps including planning requirements, post recovery steps, and information about how to simulate an outage to perform a disaster recovery drill, see [Recover a SQL Database from an outage](sql-database-disaster-recovery.md).
 
 ### Prepare for an outage
 
 Regardless of the business continuity feature you use, you must:
 
-- Identify and prepare the target server, including server-level firewall rules, logins, and master database level permissions.
+- Identify and prepare the target server, including server-level IP firewall rules, logins, and master database level permissions.
 - Determine how to redirect clients and client applications to the new server
 - Document other dependencies, such as auditing settings and alerts
 
@@ -126,7 +127,7 @@ If you are using the automated backups with geo-redundant storage (enabled by de
 After recovery from either recovery mechanism, you must perform the following additional tasks before your users and applications are back up and running:
 
 - Redirect clients and client applications to the new server and restored database
-- Ensure appropriate server-level firewall rules are in place for users to connect (or use [database-level firewalls](sql-database-firewall-configure.md#creating-and-managing-firewall-rules))
+- Ensure appropriate server-level IP firewall rules are in place for users to connect or use [database-level firewalls](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal) to enable appropriate rules.
 - Ensure appropriate logins and master database level permissions are in place (or use [contained users](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable))
 - Configure auditing, as appropriate
 - Configure alerts, as appropriate

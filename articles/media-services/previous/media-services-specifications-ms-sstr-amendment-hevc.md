@@ -1,10 +1,10 @@
 ---
 title: Azure Media Services - Smooth Streaming Protocol (MS-SSTR) Amendment for HEVC | Microsoft Docs
-description: This specification describes the protocol and format for fragmented MP4-based live streaming with HEVC in Azure Media Services. This is an amendment to the Smooth Streaming protocol documentaiton (MS-SSTR) to include support for HEVC ingest and streaming. Only the changes required to deliver HEVC are specified in this article, except were “(No Change)” indicates text is copied for clarification only.
+description: This specification describes the protocol and format for fragmented MP4-based live streaming with HEVC in Azure Media Services. This is an amendment to the Smooth Streaming protocol documentation (MS-SSTR) to include support for HEVC ingest and streaming. Only the changes required to deliver HEVC are specified in this article, except were “(No Change)” indicates text is copied for clarification only.
 services: media-services
 documentationcenter: ''
 author: cenkdin
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: f27d85de-2cb8-4269-8eed-2efb566ca2c6
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 02/08/2019
 ms.author: johndeu;
 
 ---
-# Smooth Streaming Protocol (MS-SSTR) Amendment for HEVC
+# Smooth Streaming Protocol (MS-SSTR) Amendment for HEVC 
 
 ## 1 Introduction 
 
@@ -85,15 +85,14 @@ or more **samples**.
 >   [[RFC2119].](https://go.microsoft.com/fwlink/?LinkId=90317) All statements of
 >   optional behavior use either MAY, SHOULD, or SHOULD NOT.
 
-## 1.2 References 
------------
+## 1.2 References
 
 >   References to Microsoft Open Specifications documentation do not include a
 >   publishing year because links are to the latest version of the documents,
 >   which are updated frequently. References to other documents include a
 >   publishing year when one is available.
 
- ### 1.2.1 Normative References 
+### 1.2.1 Normative References 
 
 >  [MS-SSTR] Smooth Streaming Protocol *v20140502*
 >   [https://msdn.microsoft.com/library/ff469518.aspx](https://msdn.microsoft.com/library/ff469518.aspx)
@@ -122,30 +121,25 @@ or more **samples**.
 >   [RFC-6381] IETF RFC-6381, “The 'Codecs' and 'Profiles' Parameters for
 >   "Bucket" Media Types” <http://tools.ietf.org/html/rfc6381>
 
->   [MPEG4-RA] The MP4 Registration Authority, "MP4REG", [http://www.mp4ra.org
->   ](https://go.microsoft.com/fwlink/?LinkId=327787)
+>   [MPEG4-RA] The MP4 Registration Authority, "MP4REG", [http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
 
 >   [RFC2119] Bradner, S., "Key words for use in RFCs to Indicate Requirement
 >   Levels", BCP 14, RFC 2119, March 1997,
->   [http://www.rfc-editor.org/rfc/rfc2119.txt
->   ](https://go.microsoft.com/fwlink/?LinkId=90317)
+>   [http://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
 
 ### 1.2.2 Informative References 
 
 >   [MS-GLOS] Microsoft Corporation, "*Windows Protocols Master Glossary*."
 
 >   [RFC3548] Josefsson, S., Ed., "The Base16, Base32, and Base64 Data
->   Encodings", RFC 3548, July 2003, [http://www.ietf.org/rfc/rfc3548.txt
->   ](https://go.microsoft.com/fwlink/?LinkId=90432)
+>   Encodings", RFC 3548, July 2003, [http://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
 
 >   [RFC5234] Crocker, D., Ed., and Overell, P., "Augmented BNF for Syntax
 >   Specifications: ABNF", STD 68, RFC 5234, January 2008,
->   [http://www.rfc-editor.org/rfc/rfc5234.txt
->   ](https://go.microsoft.com/fwlink/?LinkId=123096)
+>   [http://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
 
 
 ## 1.3 Overview 
----------
 
 >   Only changes to the Smooth Streaming specification required for the delivery
 >   of HEVC are specified below. Unchanged section headers are listed to
@@ -153,19 +147,14 @@ or more **samples**.
 >   [MS-SSTR].
 
 ## 1.4 Relationship to Other Protocols 
---------------------------------
 
 ## 1.5 Prerequisites/Preconditions 
-----------------------------
 
 ## 1.6 Applicability Statement 
-------------------------
 
 ## 1.7 Versioning and Capability Negotiation 
---------------------------------------
 
 ## 1.8 Vendor-Extensible Fields 
--------------------------
 
 >   The following method SHALL be used identify streams using the HEVC video
 >   format:
@@ -173,19 +162,15 @@ or more **samples**.
 >   * **Custom Descriptive Codes for Media Formats:** This capability is
 >   provided by the **FourCC** field, as specified in section *2.2.2.5*.
 >   Implementers can ensure that extensions do not conflict by registering
->   extension codes with the MPEG4-RA, as specified in [[ISO/IEC-14496-12]
->   ](https://go.microsoft.com/fwlink/?LinkId=183695)
+>   extension codes with the MPEG4-RA, as specified in [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695)
 
 ## 1.9 Standards Assignments 
-----------------------
 
-# 2 Messages 
+## 2 Messages 
 
-## 2.1 Transport 
-----------
+## 2.1 Transport
 
 ## 2.2 Message Syntax 
----------------
 
 ### 2.2.1 Manifest Request 
 
@@ -402,7 +387,7 @@ ISO Base Media File Format Edition 4 [ISO/IEC 14496-12].
 
 ### 2.2.8 Server-to-Server Ingest 
 
-# 3 Protocol Details 
+## 3 Protocol Details 
 
 
 ## 3.1 Client Details 
@@ -491,12 +476,11 @@ ISO Base Media File Format Edition 4 [ISO/IEC 14496-12].
 
 ## 3.3 Live Encoder Details 
 
-# 4 Protocol Examples 
+## 4 Protocol Examples 
 
-# 5 Security 
+## 5 Security 
 
-## 5.1 Security Considerations for Implementers 
------------------------------------------
+## 5.1 Security Considerations for Implementers
 
 >   If the content transported using this protocol has high commercial value, a
 >   Content Protection System should be used to prevent unauthorized use of the
@@ -510,8 +494,7 @@ ISO Base Media File Format Edition 4 [ISO/IEC 14496-12].
 >   decryption. in a secure video path, encrypted information is not available
 >   to presentation applications.
 
-# 5.2 Index of Security Parameters 
------------------------------
+## 5.2 Index of Security Parameters 
 
 
 | **Security parameter**  | **Section**         |
@@ -519,8 +502,7 @@ ISO Base Media File Format Edition 4 [ISO/IEC 14496-12].
 | ProtectionElement       | *2.2.2.2*           |
 | Common Encryption Boxes | *[ISO/IEC 23001-7]* |
 
-# 5.3 Common Encryption Boxes
------------------------
+## 5.3 Common Encryption Boxes
 
 The following boxes may be present in fragment responses when Common Encryption
 is applied, and are specified in [ISO/IEC 23001-7] or [ISO/IEC 14496-12]:

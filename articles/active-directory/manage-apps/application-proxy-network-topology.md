@@ -3,19 +3,20 @@ title: Network topology considerations when using Azure Active Directory Applica
 description: Covers network topology considerations when using Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Network topology considerations when using Azure Active Directory Application Proxy
@@ -169,7 +170,7 @@ You can also consider using one other variant in this situation. If most users i
 
 ## Next steps
 
-- [Enable Application Proxy](application-proxy-enable.md)
+- [Enable Application Proxy](application-proxy-add-on-premises-application.md)
 - [Enable single-sign on](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Enable conditional access](application-proxy-integrate-with-sharepoint-server.md)
 - [Troubleshoot issues you're having with Application Proxy](application-proxy-troubleshoot.md)

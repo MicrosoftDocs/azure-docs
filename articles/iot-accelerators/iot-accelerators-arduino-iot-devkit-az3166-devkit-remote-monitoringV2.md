@@ -16,24 +16,21 @@ ms.author: isacabe
 
 This how-to guide shows you how to run a sample application on your IoT DevKit device. The sample code sends telemetry from the sensors on the DevKit device to your solution accelerator.
 
-The [IoT DevKit](https://aka.ms/iot-devkit) is an all-in-one Arduino compatible board with rich peripherals and sensors. You can develop for it using [Azure IoT Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) in Visual Studio Code. The [projects catalog](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) contains sample applications to help you prototype IoT solutions.
+The [MXChip IoT DevKit](https://aka.ms/iot-devkit) is an all-in-one Arduino compatible board with rich peripherals and sensors. You can develop for it using [Azure IoT Device Workbench](https://aka.ms/iot-workbench) or [Azure IoT Tools](https://aka.ms/azure-iot-tools) extension pack in Visual Studio Code. The [projects catalog](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) contains sample applications to help you prototype IoT solutions.
 
-## Prerequisites
+## Before you begin
 
-Follow the [IoT DevKet getting started guide](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) and complete the following sections only:
+To complete the steps in this tutorial, first do the following tasks:
 
-* Prepare your hardware
-* Configure Wi-Fi
-* Start using the DevKit
-* Prepare the development environment
+* Prepare your DevKit by following the steps in [Connect IoT DevKit AZ3166 to Azure IoT Hub in the cloud](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
 
-## Open the sample
+## Open sample project
 
 To open the Remote Monitoring sample in VS Code:
 
 1. Make sure your IoT DevKit isn't to your computer. Start VS Code first, and then connect the DevKit to your computer.
 
-1. Click `F1` to open the command palette, type and select **IoT Workbench: Examples**. Then select **IoT DevKit** as board.
+1. Click `F1` to open the command palette, type and select **Azure IoT Device Workbench: Open Examples...**. Then select **IoT DevKit** as board.
 
 1. Find **Remote Monitoring** and click **Open Sample**. A new VS Code window opens showing the project folder:
 
@@ -52,7 +49,7 @@ To configure IoT Hub device connection string on your DevKit device:
 
     ![IoT DevKit Configuration Mode](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/devkit-configuration-mode.png)
 
-1. Press **F1** to open the command palette, type and select **IoT Workbench: Device > Config Device Settings**.
+1. Press **F1** to open the command palette, type and select **Azure IoT Device Workbench: Configure Device Settings... > Config Device Connection String**.
 
 1. Paste the connection string you copied previously and press **Enter** to configure the device.
 
@@ -60,9 +57,7 @@ To configure IoT Hub device connection string on your DevKit device:
 
 To build and upload the device code:
 
-1. Press **F1**`** to open the command palette, type and select **IoT Workbench: Device > Device Upload**:
-
-    ![IoT Workbench: Device - > Upload](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-device-upload.png)
+1. Press `F1` to open the command palette, type and select **Azure IoT Device Workbench: Upload Device Code**:
 
 1. VS Code compiles and uploads the code to your DevKit device:
 
@@ -78,7 +73,7 @@ To verify that the sample application you uploaded to the DevKit device is worki
 
 When the sample app runs, the DevKit device sends telemetry from its sensors data over Wi-Fi to your solution accelerator. To see the telemetry:
 
-1. Go to your solution dashboard, and click **Devices**.
+1. Go to your solution dashboard, and click **Device Explorer**.
 
 1. Click on the device name of your DevKit device. on the right-hand tab, you can see the telemetry from the DevKit in real time:
 
@@ -86,7 +81,7 @@ When the sample app runs, the DevKit device sends telemetry from its sensors dat
 
 ### Control the DevKit device
 
-The Remote Monitoring solution accelerator lets you control your device remotely. The sample code implements three methods that you can see in the **Method** section when you select the device on the **Devices** page:
+The Remote Monitoring solution accelerator lets you control your device remotely. The sample code implements three methods that you can see in the **Method** section when you select the device on the **Device Explorer** page:
 
 ![IoT DevKit Methods](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-methods.png)
 
@@ -120,8 +115,8 @@ If you no longer need the solution accelerator, delete it from the Provisioned s
 
 If you run into any problems, refer to [the IoT DevKit FAQs](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) or reach out to us using the following channels:
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## Next steps
 

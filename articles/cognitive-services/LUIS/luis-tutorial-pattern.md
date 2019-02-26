@@ -5,23 +5,23 @@ description: Use patterns to increase intent and entity prediction while providi
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 01/30/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use patterns. 
 ---
 
-# Tutorial 3: Add common utterance formats
+# Tutorial: Add common pattern template utterance formats
 
 In this tutorial, use patterns to increase intent and entity prediction while providing fewer example utterances. The pattern is provided by way of a template utterance example, which includes syntax to identify entities and ignorable text. A pattern is a combination of expression matching and machine learning.  The template utterance example, along with the intent utterances, give LUIS a better understanding of what utterances fit the intent. 
 
 **In this tutorial, you learn how to:**
 
 > [!div class="checklist"]
-> * Use existing tutorial app 
+> * Import example app 
 > * Create intent
 > * Train
 > * Publish
@@ -33,13 +33,13 @@ In this tutorial, use patterns to increase intent and entity prediction while pr
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## Use existing app
+## Import example app
 
 Continue with the app created in the last tutorial, named **HumanResources**. 
 
-If you do not have the HumanResources app from the previous tutorial, use the following steps:
+Use the following steps:
 
-1.  Download and save [app JSON file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json).
+1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json).
 
 2. Import the JSON into a new app.
 
@@ -226,7 +226,7 @@ In this tutorial, add two new intents: `OrgChart-Manager` and `OrgChart-Reports`
 
 Once LUIS returns a prediction to the client app, the intent name can be used as a function name in the client app and that the Employee entity could be used as a parameter to that function.
 
-```nodejs
+```javascript
 OrgChartManager(employee){
     ///
 }

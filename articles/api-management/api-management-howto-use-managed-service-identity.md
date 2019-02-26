@@ -34,7 +34,7 @@ To set up a managed service identity in the portal, you will first create an API
 
 ### Using the Azure Resource Manager template
 
-You can create an API Management instance with an identity by including the following property in the resource definition: 
+You can create an API Management instance with an identity by including the following property in the resource definition:
 
 ```json
 "identity" : {
@@ -42,7 +42,7 @@ You can create an API Management instance with an identity by including the foll
 }
 ```
 
-This tells Azure to create and manage the identity for your API Management instance. 
+This tells Azure to create and manage the identity for your API Management instance.
 
 For example, a complete Azure Resource Manager template might look like the following:
 
@@ -66,8 +66,8 @@ For example, a complete Azure Resource Manager template might look like the foll
                 "publisherEmail": "admin@contoso.com",
                 "publisherName": "Contoso"
             },
-            "identity": { 
-                "type": "systemAssigned" 
+            "identity": {
+                "type": "systemAssigned"
             }
         }
     ]
@@ -77,14 +77,14 @@ For example, a complete Azure Resource Manager template might look like the foll
 
 > [!NOTE]
 > Currently, managed service identity can be used to obtain certificates from Azure Key Vault for API Management custom domain names. More scenarios will be supported soon.
-> 
+>
 >
 
 
 ### Obtain a certificate from Azure Key Vault
 
 #### Prerequisites
-1. The Key Vault containing the pfx certificate must be in the same Azure subscription and the same Resource Group as the API Management service. This is a requirement of the Azure Resource Manager template. 
+1. The Key Vault containing the pfx certificate must be in the same Azure subscription and the same Resource Group as the API Management service. This is a requirement of the Azure Resource Manager template.
 2. The Content Type of the secret must be *application/x-pkcs12*. You can use the following script to upload the certificate:
 
 ```powershell
@@ -102,7 +102,7 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
 ```
 
 > [!Important]
-> If the object version of the certificate is not provided, API Management will automatically obtain the newer version of the certificate after it is uploaded to Key Vault. 
+> If the object version of the certificate is not provided, API Management will automatically obtain the newer version of the certificate after it is uploaded to Key Vault.
 
 The following example shows an Azure Resource Manager template that contains the following steps:
 
@@ -124,7 +124,7 @@ The following example shows an Azure Resource Manager template that contains the
 		},
 		"publisherName": {
 			"type": "string",
-            "defaultValue": "Contoso",
+			"defaultValue": "Contoso",
 			"minLength": 1,
 			"metadata": {
 				"description": "The name of the owner of the service"
@@ -154,17 +154,17 @@ The following example shows an Azure Resource Manager template that contains the
 			}
 		},
 		"proxyCustomHostname1": {
-            "type": "string",
-            "metadata": {
-                "description": "Proxy Custom hostname."
-            }
-        },
-        "keyVaultIdToCertificate": {
-            "type": "string",
-            "metadata": {
-                "description": "Reference to the KeyVault certificate."
-            }
-        }
+			"type": "string",
+			"metadata": {
+				"description": "Proxy Custom hostname."
+			}
+		},
+		"keyVaultIdToCertificate": {
+			"type": "string",
+			"metadata": {
+				"description": "Reference to the KeyVault certificate."
+			}
+		}
 	},
 	"variables": {
 		"apiManagementServiceName": "[concat('apiservice', uniqueString(resourceGroup().id))]",
@@ -176,7 +176,6 @@ The following example shows an Azure Resource Manager template that contains the
 		"type": "Microsoft.ApiManagement/service",
 		"location": "[resourceGroup().location]",
 		"tags": {
-			
 		},
 		"sku": {
 			"name": "[parameters('sku')]",
@@ -193,10 +192,10 @@ The following example shows an Azure Resource Manager template that contains the
 	{
 		"type": "Microsoft.KeyVault/vaults/accessPolicies",
 		"name": "[concat(parameters('keyVaultName'), '/add')]",
-		"apiVersion": "2015-06-01",        
-      "dependsOn": [
-        "[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
-      ],
+		"apiVersion": "2015-06-01",
+		"dependsOn": [
+			"[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
+		],
 		"properties": {
 			"accessPolicies": [{
 				"tenantId": "[reference(variables('apimServiceIdentityResourceId'), '2015-08-31-PREVIEW').tenantId]",
@@ -207,28 +206,28 @@ The following example shows an Azure Resource Manager template that contains the
 			}]
 		}
 	},
-	{ 
-      "apiVersion": "2017-05-10", 
-      "name": "apimWithKeyVault", 
-      "type": "Microsoft.Resources/deployments",
-      "dependsOn": [
-        "[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
-      ],
-      "properties": { 
-        "mode": "incremental", 
-        "templateLink": {
-          "uri": "https://raw.githubusercontent.com/solankisamir/arm-templates/master/basicapim.keyvault.json",
-          "contentVersion": "1.0.0.0"
-        }, 
-        "parameters": {
-			"publisherEmail": { "value": "[parameters('publisherEmail')]"},
-			"publisherName": { "value": "[parameters('publisherName')]"},
-			"sku": { "value": "[parameters('sku')]"},
-		    "skuCount": { "value": "[parameters('skuCount')]"},
-		    "proxyCustomHostname1": {"value" : "[parameters('proxyCustomHostname1')]"},
-            "keyVaultIdToCertificate": {"value" : "[parameters('keyVaultIdToCertificate')]"}
+	{
+		"apiVersion": "2017-05-10",
+		"name": "apimWithKeyVault",
+		"type": "Microsoft.Resources/deployments",
+		"dependsOn": [
+		"[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
+		],
+		"properties": {
+			"mode": "incremental",
+			"templateLink": {
+				"uri": "https://raw.githubusercontent.com/solankisamir/arm-templates/master/basicapim.keyvault.json",
+				"contentVersion": "1.0.0.0"
+			},
+			"parameters": {
+				"publisherEmail": { "value": "[parameters('publisherEmail')]"},
+				"publisherName": { "value": "[parameters('publisherName')]"},
+				"sku": { "value": "[parameters('sku')]"},
+				"skuCount": { "value": "[parameters('skuCount')]"},
+				"proxyCustomHostname1": {"value" : "[parameters('proxyCustomHostname1')]"},
+				"keyVaultIdToCertificate": {"value" : "[parameters('keyVaultIdToCertificate')]"}
+			}
 		}
-      } 
 	}]
 }
 ```
@@ -239,4 +238,3 @@ Learn more about Azure Managed Service Identity:
 
 * [Managed Service Identity for Azure resources](../active-directory/msi-overview.md)
 * [Azure Resource Manager templates](https://github.com/Azure/azure-quickstart-templates)
-

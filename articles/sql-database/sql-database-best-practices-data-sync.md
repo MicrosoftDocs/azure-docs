@@ -9,15 +9,18 @@ ms.devlang:
 ms.topic: conceptual
 author: "allenwux"
 ms.author: "xiwu"
-ms.reviewer: 
+ms.reviewer: douglasl
 manager: "craigg"
-ms.date: 10/22/2018
+ms.date: 12/20/2018
 ---
 # Best practices for SQL Data Sync 
 
 This article describes best practices for Azure SQL Data Sync.
 
 For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md).
+
+> [!IMPORTANT]
+> Azure SQL Data Sync does **not** support Azure SQL Database Managed Instance at this time.
 
 ## <a name="security-and-reliability"></a> Security and reliability
 

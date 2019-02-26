@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive 
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 02/20/2019
 ms.author: hrasheed
 
 ---
@@ -33,46 +33,61 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
   * Spark
   * Storm
 
-  For the instructions on how to create an HDInsight cluster, see [Get started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+  For the instructions on how to create an HDInsight cluster, see [Get started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).  
 
-> [!NOTE]
+* **Azure PowerShell Az module**.  See [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
+
+> [!NOTE]  
 > It is recommended to place both the HDInsight cluster and the Log Analytics workspace in the same region for better performance. Azure Log Analytics is not available in all Azure regions.
 
 ## Enable Log Analytics by using the portal
 
 In this section, you configure an existing HDInsight Hadoop cluster to use an Azure Log Analytics workspace to monitor jobs, debug logs, etc.
 
-1. Open an HDInsight cluster in the Azure portal.
-2. In the left pane, select **Monitoring**.
-3. In the right pane, select **Enable**, select an existing Log Analytics workspace, and then select **Save**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. From the left menu, select **All services**.
+
+3. Under **ANALYTICS**, select **HDInsight clusters**.
+
+4. Select your cluster from the list.
+
+5. From the left, under **Monitoring**, select **Operations Management Suite**.
+
+6. From the main view, under **OMS Monitoring**, select **Enable**.
+
+7. From the **Select a workspace** drop-down list, select an existing Log Analytics workspace.
+
+8. Select **Save**.  It takes a few moments to save the setting.
 
     ![Enable monitoring for HDInsight clusters](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "Enable monitoring for HDInsight clusters")
 
-    It takes a few moments to save the setting.
-
 ## Enable Log Analytics by using Azure PowerShell
 
-You can enable Log Analytics using Azure PowerShell. The cmdlet is:
+You can enable Log Analytics using the Azure PowerShell Az module [Enable-AzHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/az.hdinsight/enable-azhdinsightoperationsmanagementsuite) cmdlet.
 
 ```powershell
-Enable-AzureRmHDInsightOperationsManagementSuite
-      [-Name] <CLUSTER NAME>
-      [-WorkspaceId] <LOG ANALYTICS WORKSPACE NAME>
-      [-PrimaryKey] <LOG ANALYTICS WORKSPACE PRIMARY KEY>
-      [-ResourceGroupName] <RESOURCE GROUIP NAME>
+# Enter user information
+$resourceGroup = "<your-resource-group>"
+$cluster = "<your-cluster>"
+$LAW = "<your-Log-Analytics-workspace>"
+# End of user input
+
+# obtain workspace id for defined Log Analytics workspace
+$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $resourceGroup -Name $LAW).CustomerId
+
+# obtain primary key for defined Log Analytics workspace
+$PrimaryKey = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $resourceGroup -Name $LAW | Get-AzOperationalInsightsWorkspaceSharedKeys).PrimarySharedKey
+
+# Enables Operations Management Suite
+Enable-AzHDInsightOperationsManagementSuite -ResourceGroupName $resourceGroup -Name $cluster -WorkspaceId $WorkspaceId -PrimaryKey $PrimaryKey
 ```
 
-See [Enable-AzureRmHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/Enable-AzureRmHDInsightOperationsManagementSuite?view=azurermps-5.0.0).
-
-To disable, the cmdlet is:
+To disable, the use the [Disable-AzHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightoperationsmanagementsuite) cmdlet:
 
 ```powershell
-Disable-AzureRmHDInsightOperationsManagementSuite
-       [-Name] <CLUSTER NAME>
-       [-ResourceGroupName] <RESOURCE GROUP NAME>
+Disable-AzHDInsightOperationsManagementSuite -Name "<your-cluster>"
 ```
-
-See [Disable-AzureRmHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/disable-azurermhdinsightoperationsmanagementsuite?view=azurermps-5.0.0).
 
 ## Install HDInsight cluster management solutions
 
@@ -87,7 +102,7 @@ These are the available HDInsight solutions:
 * HDInsight Spark Monitoring
 * HDInsight Storm Monitoring
 
-For the instructions to install a management solution, see [Management solutions in Azure](../azure-monitor/insights/solutions.md#install-a-management-solution). To experiment, install a HDInsight Hadoop Monotiring solution. When it is done, you see an **HDInsightHadoop** tile listed under **Summary**. Select the **HDInsightHadoop** tile. The HDInsightHadoop solution looks like:
+For the instructions to install a management solution, see [Management solutions in Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). To experiment, install a HDInsight Hadoop Monitoring solution. When it is done, you see an **HDInsightHadoop** tile listed under **Summary**. Select the **HDInsightHadoop** tile. The HDInsightHadoop solution looks like:
 
 ![HDInsight monitoring solution view](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 

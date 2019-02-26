@@ -2,11 +2,11 @@
 title: Auditing in Azure SQL Data Warehouse  | Microsoft Docs
 description: Learn about auditing, and how to set up auditing in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
@@ -69,10 +69,13 @@ The following section describes the configuration of auditing using the Azure po
     ![Navigation pane][8]
 
     > [!IMPORTANT]
-    > Server-level audit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription.
+    > Audit logs are written to **Append Blobs** in Azure Blob storage on your Azure subscription.
     >
-    > * **Premium Storage** is currently **not supported** by Append Blobs.
-    > * **Storage in VNet** is currently **not supported**.
+    > - All storage kinds (v1, v2, blob) are supported.
+    > - All storage replication configurations are supported.
+    > - **Premium storage** is currently **not supported**.
+    > - **Storage in VNet** is currently **not supported**.
+    > - **Storage behind a Firewall** is currently **not supported**
 
 8. Click **Save**.
 
@@ -102,7 +105,7 @@ Before setting up audit auditing check if you are using a ["Downlevel Client"](s
 
 5. Click the **OK** button to save the storage details configuration.
 6. Under **LOGGING BY EVENT**, click **SUCCESS** and **FAILURE** to log all events, or choose individual event categories.
-7. If you are configuring Auditing for a database, you may need to alter the connection string of your client to ensure data auditing is correctly captured. Check the [Modify Server FDQN in the connection string](sql-data-warehouse-auditing-downlevel-clients.md) topic for downlevel client connections.
+7. If you are configuring Auditing for a database, you may need to alter the connection string of your client to ensure data auditing is correctly captured. Check the [Modify Server FQDN in the connection string](sql-data-warehouse-auditing-downlevel-clients.md) topic for downlevel client connections.
 8. Click **OK**.
 
 ## <a id="subheading-3"></a>Analyze audit logs and reports
@@ -192,7 +195,7 @@ A partial list of "Downlevel clients" includes:
 * JDBC (while JDBC does support TDS 7.4, the TDS redirection feature is not fully supported)
 * Tedious (for Node.JS)
 
-**Remark:** The preceding server FDQN modification may be useful also for applying a SQL Server Level Auditing policy without a need for a configuration step in each database (Temporary mitigation).     
+**Remark:** The preceding server FQDN modification may be useful also for applying a SQL Server Level Auditing policy without a need for a configuration step in each database (Temporary mitigation).     
 
 
 

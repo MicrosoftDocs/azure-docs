@@ -11,11 +11,14 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 11/12/2018
+ms.date: 12/20/2018
 ---
 # Data Sync Agent for Azure SQL Data Sync
 
 Sync data with on-premises SQL Server databases by installing and configuring the Data Sync Agent for Azure SQL Data Sync. For more info about SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with SQL Data Sync](sql-database-sync-data.md).
+
+> [!IMPORTANT]
+> Azure SQL Data Sync does **not** support Azure SQL Database Managed Instance at this time.
 
 ## Download and install
 

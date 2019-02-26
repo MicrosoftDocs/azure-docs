@@ -1,20 +1,21 @@
 ---
-title: Quickstart to access Azure Active Directory and to create a new tenant | Microsoft Docs
-description: Quickstart with steps about how to find Azure Active Directory and how to create a new tenant for your organization. 
+title: Quickstart to access and create a new tenant - Azure Active Directory | Microsoft Docs
+description: Instructions about how to find Azure Active Directory and how to create a new tenant for your organization. 
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: lizross
-custom: it-pro
+ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
-# Quickstart: Access Azure Active Directory to create a new tenant
+# Quickstart: Create a new tenant in Azure Active Directory
 You can do all of your administrative tasks using the Azure Active Directory (Azure AD) portal, including creating a new tenant for your organization. 
 
 In this quickstart, you'll learn how to get to the Azure portal and Azure Active Directory, and you'll learn how to create a basic tenant for your organization.
@@ -30,7 +31,7 @@ Sign in to your organization's [Azure portal](https://portal.azure.com/) using a
 After you sign in to the Azure portal, you can create a new tenant for your organization. Your new tenant represents your organization and helps you to manage a specific instance of Microsoft cloud services for your internal and external users.
 
 ### To create a new tenant
-1. Select **Azure Active Directory**, select **Create resources**, select **Identity**, and then select **Azure Active Directory**.
+1. Select **Create a resource**, select **Identity**, and then select **Azure Active Directory**.
 
     The **Create directory** page appears.
 

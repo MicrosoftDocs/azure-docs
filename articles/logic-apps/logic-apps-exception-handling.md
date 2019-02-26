@@ -38,10 +38,10 @@ Here are the retry policy types:
 
 | Type | Description | 
 |------|-------------| 
-| [**Default**](#default-retry) | This policy sends up to four retries at [*exponentially increasing*](#exponential-retry) intervals, which scale by 7.5 seconds but are capped between 5 and 45 seconds. | 
-| [**Exponential interval**](#exponential-retry)  | This policy waits a random interval selected from an exponentially growing range before sending the next request. | 
-| [**Fixed interval**](#fixed-retry)  | This policy waits the specified interval before sending the next request. | 
-| [**None**](#no-retry)  | Don't resend the request. | 
+| **Default** | This policy sends up to four retries at *exponentially increasing* intervals, which scale by 7.5 seconds but are capped between 5 and 45 seconds. | 
+| **Exponential interval**  | This policy waits a random interval selected from an exponentially growing range before sending the next request. | 
+| **Fixed interval**  | This policy waits the specified interval before sending the next request. | 
+| **None**  | Don't resend the request. | 
 ||| 
 
 For information about retry policy limits, 

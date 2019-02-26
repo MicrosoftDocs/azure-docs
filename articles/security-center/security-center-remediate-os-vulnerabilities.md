@@ -4,7 +4,7 @@ description: This document shows you how to implement the Azure Security Center 
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
@@ -97,7 +97,7 @@ To review the specific configurations that are being monitored, see [list of rec
 To learn more about Security Center, see the following resources:
 
 * For a list of supported Windows and Linux VMs, see [Supported platforms in Azure Security Center](security-center-os-coverage.md).
-* To learn how to configure security policies for your Azure subscriptions and resource groups, see [Setting security policies in Azure Security Center](security-center-azure-policy.md).
+* To learn how to configure security policies for your Azure subscriptions and resource groups, see [Setting security policies in Azure Security Center](tutorial-security-policy.md).
 * To learn how recommendations help you protect your Azure resources, see [Managing security recommendations in Azure Security Center](security-center-recommendations.md).
 * To learn how to monitor the health of your Azure resources, see [Security health monitoring in Azure Security Center](security-center-monitoring.md).
 * To learn how to manage and respond to security alerts, see [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).

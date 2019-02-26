@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop-msft
 ms.reviewer:
 manager: craigg
-ms.date: 12/04/2018
+ms.date: 01/17/2019
 ---
 # Use PowerShell with Azure Resource Manager template to create an Azure SQL Database Managed Instance
 
@@ -20,7 +20,7 @@ Azure SQL Database Managed Instance can be created using Azure PowerShell librar
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
 Azure PowerShell commands can start deployment using predefined Azure Resource Manager template. The following properties can be specified in the template:
 - Instance name
@@ -33,7 +33,7 @@ Instance name, SQL Administrator user name, VNet/subnet, and collation cannot be
 
 ## Prerequisites
 
-This sample assumes that you have [created a valid network environment](../sql-database-managed-instance-vnet-configuration.md#create-a-new-virtual-network-for-a-managed-instance) for your Managed Instance. The sample uses the commandlets [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) and [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetwork) so make sure that you have installed the following PowerShell modules:
+This sample assumes that you have [created a valid network environment](../sql-database-managed-instance-create-vnet-subnet.md) or [modified existing VNet](../sql-database-managed-instance-configure-vnet-subnet.md) for your Managed Instance. The sample uses the commandlets [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) and [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetwork) so make sure that you have installed the following PowerShell modules:
 
 ```
 Install-Module AzureRM.Network

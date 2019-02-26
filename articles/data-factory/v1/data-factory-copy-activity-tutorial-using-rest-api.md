@@ -11,7 +11,7 @@ ms.assetid: 1704cdf8-30ad-49bc-a71c-4057e26e7350
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
@@ -115,7 +115,7 @@ Create following JSON files in the folder where curl.exe is located.
 
 For details about JSON properties, see [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 
-### azuersqllinkedservice.json
+### azuresqllinkedservice.json
 > [!IMPORTANT]
 > Replace **servername**, **databasename**, **username**, and **password** with name of your Azure SQL server, name of SQL database, user account, and password for the account.  
 > 

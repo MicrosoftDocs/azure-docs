@@ -1,33 +1,29 @@
 ---
-title: Configure Azure AD SSO for applications | Microsoft Docs
-description: Learn how to self-service connect apps to Azure Active Directory using SAML and password-based SSO
+title: Single sign-on - non-gallery applications - Azure Active Directory | Microsoft Docs
+description: Configure single sign-on (SSO) to non-gallery applications in Azure Active Directory (Azure AD)
 services: active-directory
-author: barbkess
-documentationcenter: na
+author: CelesteDG
 manager: mtillman
 ms.service: active-directory
-ms.component: app-mgmt
-ms.devlang: na
+ms.subservice: app-mgmt
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/12/2018
-ms.author: barbkess
+ms.date: 01/08/2019
+ms.author: celested
 ms.reviewer: asmalser,luleon
-
-ms.custom: H1Hack27Feb2017
+ms.collection: M365-identity-device-management
 ---
 
-# Configure single sign-on to applications that are not in the Azure Active Directory application gallery
+# Configure single sign-on to non-gallery applications in Azure Active Directory
 
-This article is about a feature that enables administrators to configure single sign-on to applications not present in the Azure Active Directory app gallery *without writing code*. This feature was released from technical preview on November 18, 2015 and is included in [Azure Active Directory Premium](../fundamentals/active-directory-whatis.md). If you are instead looking for developer guidance on how to integrate custom apps with Azure AD through code, see [Authentication Scenarios for Azure AD](../develop/authentication-scenarios.md).
+This article is about a feature that enables administrators to configure single sign-on to applications not present in the Azure Active Directory app gallery *without writing code*. If you are instead looking for developer guidance on how to integrate custom apps with Azure AD through code, see [Authentication Scenarios for Azure AD](../develop/authentication-scenarios.md).
 
 The Azure Active Directory application gallery provides a listing of applications that are known to support a form of single sign-on with Azure Active Directory, as described in [this article](what-is-single-sign-on.md). Once you (as an IT specialist or system integrator in your organization) have found the application you want to connect, you can get started by following the step-by-step instructions presented in the Azure portal to enable single sign-on.
 
-Customers with [Azure Active Directory Premium](../fundamentals/active-directory-whatis.md) license also get these additional capabilities:
+These capabilities are also available, according to your license agreement. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/active-directory/). 
 
-* Self-service integration of any application that supports SAML 2.0 identity providers (SP-initiated or IdP-initiated)
-* Self-service integration of any web application that has an HTML-based sign-in page using [password-based SSO](what-is-single-sign-on.md#password-based-sso)
+- Self-service integration of any application that supports SAML 2.0 identity providers (SP-initiated or IdP-initiated)
+- Self-service integration of any web application that has an HTML-based sign-in page using [password-based SSO](what-is-single-sign-on.md#password-based-sso)
 * Self-service connection of applications that use the SCIM protocol for user provisioning ([described here](use-scim-to-provision-users-and-groups.md))
 * Ability to add links to any application in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](what-is-single-sign-on.md#linked-sso)
 
@@ -159,7 +155,7 @@ Once the sign-in page is captured, users and groups may be assigned and credenti
 >
 
 ## Existing single sign-on
-Select this option to add a link to an application to your organization's Azure AD Access Panel or Office 365 portal. You can use this to add links to custom web apps that currently use Azure Active Directory Federation Services (or other federation service) instead of Azure AD for authentication. Or, you can add deep links to specific SharePoint pages or other web pages that you just want to appear on your user's Access Panels. 
+Select this option to add a link to an application to your organization's Azure AD Access Panel or Office 365 portal. You can use this to add links to custom web apps that currently use Active Directory Federation Services (or other federation service) instead of Azure AD for authentication. Or, you can add deep links to specific SharePoint pages or other web pages that you just want to appear on your user's Access Panels. 
 
 After selecting **Next**, you will be prompted to enter the URL of the application to link to. Once completed, users and groups may be assigned to the application, which causes the application to appear in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](end-user-experiences.md) for those users.
 

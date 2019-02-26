@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: The Bing Spell Check API uses machine learning and statistical machine translation for contextual spell checking.
 services: cognitive-services
 author: noellelacharite
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar

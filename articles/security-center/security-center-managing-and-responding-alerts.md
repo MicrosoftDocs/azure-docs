@@ -4,7 +4,7 @@ description: This document helps you to use Azure Security Center capabilities t
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: b88a8df7-6979-479b-8039-04da1b8737a7
@@ -21,7 +21,7 @@ ms.author: rkarlin
 This document helps you use Azure Security Center to manage and respond to security alerts.
 
 > [!NOTE]
-> To enable advanced detections, upgrade to Azure Security Center Standard. A free trial is available. To upgrade, select Pricing Tier in the [Security Policy](security-center-azure-policy.md). See [Azure Security Center pricing](security-center-pricing.md) to learn more.
+> To enable advanced detections, upgrade to Azure Security Center Standard. A free trial is available. To upgrade, select Pricing Tier in the [Security Policy](tutorial-security-policy.md). See [Azure Security Center pricing](security-center-pricing.md) to learn more.
 >
 >
 

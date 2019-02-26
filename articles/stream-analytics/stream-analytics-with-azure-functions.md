@@ -2,9 +2,7 @@
 title: "Tutorial: Run Azure Functions with Azure Stream Analytics jobs | Microsoft Docs"
 description: "In this tutorial, you learn how to configure Azure Functions as an output sink to Stream Analytics jobs."
 services: stream-analytics
-author: jasonwhowell
-manager: kfile
-
+author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
@@ -39,10 +37,10 @@ This section demonstrates how to configure a Stream Analytics job to run a funct
 
 The following steps are required to achieve this task:
 * [Create a Stream Analytics job with Event Hubs as input](#create-a-stream-analytics-job-with-event-hubs-as-input)  
-* [Create an Azure Cache for Redis instance](#create-an-azure-redis-cache-instance)  
-* [Create a function in Azure Functions that can write data to the Azure Cache for Redis](#create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache)    
+* Create an Azure Cache for Redis instance  
+* Create a function in Azure Functions that can write data to the Azure Cache for Redis    
 * [Update the Stream Analytics job with the function as output](#update-the-stream-analytics-job-with-the-function-as-output)  
-* [Check Azure Cache for Redis for results](#check-azure-redis-cache-for-results)  
+* Check Azure Cache for Redis for results  
 
 ## Create a Stream Analytics job with Event Hubs as input
 
@@ -150,7 +148,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
 
 1. Open your Stream Analytics job on the Azure portal.  
 
-2. Browse to your function, and select **Overview** > **Outputs** > **Add**. To add a new output, select **Azure Function** for the sink option. The new Functions output adapter is available, with the following properties:  
+2. Browse to your function, and select **Overview** > **Outputs** > **Add**. To add a new output, select **Azure Function** for the sink option. The Functions output adapter has the following properties:  
 
    |**Property name**|**Description**|
    |---|---|
@@ -158,7 +156,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
    |Import option| You can use the function from the current subscription, or provide the settings manually if the function is located in another subscription. |
    |Function App| Name of your Functions app. |
    |Function| Name of the function in your Functions app (name of your run.csx function).|
-   |Max Batch Size|Sets the maximum size for each output batch, which is sent to your function. By default, this value is set to 256 KB.|
+   |Max Batch Size|Sets the maximum size for each output batch which is sent to your function in bytes. By default, this value is set to 262,144 bytes (256 KB).|
    |Max Batch Count|Specifies the maximum number of events in each batch that is sent to the function. The default value is 100. This property is optional.|
    |Key|Allows you to use a function from another subscription. Provide the key value to access your function. This property is optional.|
 
@@ -205,6 +203,8 @@ In the event of a failure while sending events to Azure Functions, Stream Analyt
 ## Known issues
 
 In the Azure portal, when you try to reset the Max Batch Size/ Max Batch Count value to empty (default), the value changes back to the previously entered value upon save. Manually enter the default values for these fields in this case.
+
+The use of [Http routing](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp) on your Azure Functions is currently not supported by Stream Analytics.
 
 ## Clean up resources
 

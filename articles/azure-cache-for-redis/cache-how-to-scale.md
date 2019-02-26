@@ -1,20 +1,20 @@
 ---
 title: How to Scale Azure Cache for Redis | Microsoft Docs
 description: Learn how to scale your Azure Cache for Redis instances
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 
 ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: wesmc
+ms.author: yegu
 
 ---
 # How to Scale Azure Cache for Redis
@@ -65,9 +65,12 @@ In addition to scaling your cache instances in the Azure portal, you can scale u
 * [Scale using MAML](#scale-using-maml)
 
 ### Scale using PowerShell
-You can scale your Azure Cache for Redis instances with PowerShell by using the [Set-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/set-azurermrediscache?view=azurermps-6.6.0) cmdlet when the `Size`, `Sku`, or `ShardCount` properties are modified. The following example shows how to scale a cache named `myCache` to a 2.5 GB cache. 
 
-    Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+You can scale your Azure Cache for Redis instances with PowerShell by using the [Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) cmdlet when the `Size`, `Sku`, or `ShardCount` properties are modified. The following example shows how to scale a cache named `myCache` to a 2.5 GB cache. 
+
+    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
 For more information on scaling with PowerShell, see [To scale an Azure Cache for Redis using Powershell](cache-howto-manage-redis-cache-powershell.md#scale).
 
@@ -108,7 +111,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 * [Will I lose data from my cache during scaling?](#will-i-lose-data-from-my-cache-during-scaling)
 * [Is my custom databases setting affected during scaling?](#is-my-custom-databases-setting-affected-during-scaling)
 * [Will my cache be available during scaling?](#will-my-cache-be-available-during-scaling)
-* [With Geo-replication configured, why am I not able to scale my cache or change the shards in a cluster?](#scaling-limitations-with-geo-relication)
+* With Geo-replication configured, why am I not able to scale my cache or change the shards in a cluster?
 * [Operations that are not supported](#operations-that-are-not-supported)
 * [How long does scaling take?](#how-long-does-scaling-take)
 * [How can I tell when scaling is complete?](#how-can-i-tell-when-scaling-is-complete)
@@ -132,7 +135,7 @@ No, your cache name and keys are unchanged during a scaling operation.
 ### Will I lose data from my cache during scaling?
 * When a **Basic** cache is scaled to a new size, all data is lost and the cache is unavailable during the scaling operation.
 * When a **Basic** cache is scaled to a **Standard** cache, the data in the cache is typically preserved.
-* When a **Standard** cache is scaled to a larger size or tier, or a **Premium** cache is scaled to a larger size, all data is typically preserved. When scaling a **Standard** or **Premium** cache down to a smaller size, data may be lost depending on how much data is in the cache related to the new size when it is scaled. If data is lost when scaling down, keys are evicted using the [allkeys-lru](http://redis.io/topics/lru-cache) eviction policy. 
+* When a **Standard** cache is scaled to a larger size or tier, or a **Premium** cache is scaled to a larger size, all data is typically preserved. When scaling a **Standard** or **Premium** cache down to a smaller size, data may be lost depending on how much data is in the cache related to the new size when it is scaled. If data is lost when scaling down, keys are evicted using the [allkeys-lru](https://redis.io/topics/lru-cache) eviction policy. 
 
 ### Is my custom databases setting affected during scaling?
 If you configured a custom value for the `databases` setting during cache creation, keep in mind that some pricing tiers have different [databases limits](cache-configure.md#databases). Here are some considerations when scaling in this scenario:

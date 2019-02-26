@@ -11,11 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
+#Customer intent: As a developer, I want to be able to monitor the status of my functions so that I can respond to any errors that occur and make improvements to my applications.
 ---
 
 # Monitor Azure Functions
 
-[Azure Functions](functions-overview.md) offers built-in integration with [Azure Application Insights](../application-insights/app-insights-overview.md) for monitoring functions. This article shows how to configure Functions to send system-generated log files to Application Insights.
+[Azure Functions](functions-overview.md) offers built-in integration with [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) for monitoring functions. This article shows how to configure Functions to send system-generated log files to Application Insights.
 
 ![Application Insights Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
@@ -23,7 +24,7 @@ Functions also has [built-in monitoring that doesn't use Application Insights](#
 
 ## Application Insights pricing and limits
 
-You can try out Application Insights integration with Function Apps for free. However, there's a daily limit to how much data can be processed for free, and you might hit that limit during testing. Azure provides portal and email notifications when you're approaching your daily limit.  But if you miss those alerts and hit the limit, new logs won't appear in Application Insights queries. So be aware of the limit to avoid unnecessary troubleshooting time. For more information, see [Manage pricing and data volume in Application Insights](../application-insights/app-insights-pricing.md).
+You can try out Application Insights integration with Function Apps for free. However, there's a daily limit to how much data can be processed for free, and you might hit that limit during testing. Azure provides portal and email notifications when you're approaching your daily limit.  But if you miss those alerts and hit the limit, new logs won't appear in Application Insights queries. So be aware of the limit to avoid unnecessary troubleshooting time. For more information, see [Manage pricing and data volume in Application Insights](../azure-monitor/app/pricing.md).
 
 ## Enable App Insights integration
 
@@ -80,7 +81,7 @@ After you have set up Application Insights integration as shown in the previous 
 
 1. Select **Refresh** periodically until the list of function invocations appears.
 
-   It may take up to 5 minutes for the list to appear, due to the way the telemetry client batches data for transmission to the server. (This delay doesn't apply to the [Live Metrics Stream](../application-insights/app-insights-live-stream.md). That service connects to the Functions host when you load the page, so logs are streamed directly to the page.)
+   It may take up to 5 minutes for the list to appear, due to the way the telemetry client batches data for transmission to the server. (This delay doesn't apply to the [Live Metrics Stream](../azure-monitor/app/live-stream.md). That service connects to the Functions host when you load the page, so logs are streamed directly to the page.)
 
    ![Invocations list](media/functions-monitoring/monitor-tab-ai-invocations.png)
 
@@ -110,15 +111,15 @@ To open Application Insights from a function app in the Azure portal, select the
 
 For information about how to use Application Insights, see the [Application Insights documentation](https://docs.microsoft.com/azure/application-insights/). This section shows some examples of how to view data in Application Insights. If you are already familiar with Application Insights, you can go directly to [the sections about configuring and customizing the telemetry data](#configure-categories-and-log-levels).
 
-In [Metrics Explorer](../application-insights/app-insights-metrics-explorer.md), you can create charts and alerts based on metrics such as number of function invocations, execution time, and success rate.
+In [Metrics Explorer](../azure-monitor/app/metrics-explorer.md), you can create charts and alerts based on metrics such as number of function invocations, execution time, and success rate.
 
 ![Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
-On the [Failures](../application-insights/app-insights-asp-net-exceptions.md) tab, you can create charts and alerts based on function failures and server exceptions. The **Operation Name** is the function name. Failures in dependencies are not shown unless you implement [custom telemetry](#custom-telemetry-in-c-functions) for dependencies.
+On the [Failures](../azure-monitor/app/asp-net-exceptions.md) tab, you can create charts and alerts based on function failures and server exceptions. The **Operation Name** is the function name. Failures in dependencies are not shown unless you implement [custom telemetry](#custom-telemetry-in-c-functions) for dependencies.
 
 ![Failures](media/functions-monitoring/failures.png)
 
-On the [Performance](../application-insights/app-insights-performance-counters.md) tab, you can analyze performance issues.
+On the [Performance](../azure-monitor/app/performance-counters.md) tab, you can analyze performance issues.
 
 ![Performance](media/functions-monitoring/performance.png)
 
@@ -126,13 +127,13 @@ The **Servers** tab shows resource utilization and throughput per server. This d
 
 ![Servers](media/functions-monitoring/servers.png)
 
-The [Live Metrics Stream](../application-insights/app-insights-live-stream.md) tab shows metrics data as it is created in real time.
+The [Live Metrics Stream](../azure-monitor/app/live-stream.md) tab shows metrics data as it is created in real time.
 
 ![Live stream](media/functions-monitoring/live-stream.png)
 
 ## Query telemetry data
 
-[Application Insights Analytics](../application-insights/app-insights-analytics.md) gives you access to all of the telemetry data in the form of tables in a database. Analytics provides a query language for extracting, manipulating, and visualizing the data.
+[Application Insights Analytics](../azure-monitor/app/analytics.md) gives you access to all of the telemetry data in the form of tables in a database. Analytics provides a query language for extracting, manipulating, and visualizing the data.
 
 ![Select Analytics](media/functions-monitoring/select-analytics.png)
 
@@ -324,7 +325,7 @@ As noted in the previous section, the runtime aggregates data about function exe
 
 ## Configure sampling
 
-Application Insights has a [sampling](../application-insights/app-insights-sampling.md) feature that can protect you from producing too much telemetry data at times of peak load. When the rate of incoming telemetry exceeds a specified threshold, Application Insights starts to randomly ignore some of the incoming items. The default setting for maximum number of items per second is 5. You can configure sampling in [host.json](functions-host-json.md).  Here's an example:
+Application Insights has a [sampling](../azure-monitor/app/sampling.md) feature that can protect you from producing too much telemetry data at times of peak load. When the rate of incoming telemetry exceeds a specified threshold, Application Insights starts to randomly ignore some of the incoming items. The default setting for maximum number of items per second is 5. You can configure sampling in [host.json](functions-host-json.md).  Here's an example:
 
 ### Version 2.x 
 
@@ -355,7 +356,7 @@ Application Insights has a [sampling](../application-insights/app-insights-sampl
 ```
 
 > [!NOTE]
-> [Sampling](../application-insights/app-insights-sampling.md) is enabled by default. If you appear to be missing data, you may just need to adjust the sampling settings to fit your particular monitoring scenario.
+> [Sampling](../azure-monitor/app/sampling.md) is enabled by default. If you appear to be missing data, you may just need to adjust the sampling settings to fit your particular monitoring scenario.
 
 ## Write logs in C# functions
 
@@ -409,7 +410,7 @@ Here's a sample JSON representation of `customDimensions` data:
 In C# script functions, you can use the `LogMetric` extension method on `ILogger` to create custom metrics in Application Insights. Here's a sample method call:
 
 ```csharp
-logger.LogMetric("TestMetric", 1234); 
+logger.LogMetric("TestMetric", 1234);
 ```
 
 This code is an alternative to calling `TrackMetric` using [the Application Insights API for .NET](#custom-telemetry-in-c-functions).
@@ -424,17 +425,17 @@ context.log('JavaScript HTTP trigger function processed a request.' + context.in
 
 ### Logging custom metrics  
 
-In Node.js functions, you can use the `context.log.metric` method to create custom metrics in Application Insights. Here's a sample method call:
+When running on [version 1.x](functions-versions.md#creating-1x-apps) of the Functions runtime, Node.js functions can use the `context.log.metric` method to create custom metrics in Application Insights. This method is not currently supported in version 2.x. Here's a sample method call:
 
 ```javascript
-context.log.metric("TestMetric", 1234); 
+context.log.metric("TestMetric", 1234);
 ```
 
 This code is an alternative to calling `trackMetric` using [the Node.js SDK for Application Insights](#custom-telemetry-in-javascript-functions).
 
 ## Custom telemetry in C# functions
 
-You can use the [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) NuGet package to send custom telemetry data to Application Insights. The following C# example uses the [custom telemetry API](../application-insights/app-insights-api-custom-events-metrics.md). The example is for a .NET class library, but the Application Insights code is the same for C# script.
+You can use the [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) NuGet package to send custom telemetry data to Application Insights. The following C# example uses the [custom telemetry API](../azure-monitor/app/api-custom-events-metrics.md). The example is for a .NET class library, but the Application Insights code is the same for C# script.
 
 ### Version 2.x
 
@@ -575,7 +576,7 @@ namespace functionapp0915
             telemetryClient.TrackDependency(dependency);
         }
         
-        // This correllates all telemetry with the current Function invocation
+        // This correlates all telemetry with the current Function invocation
         private static void UpdateTelemetryContext(TelemetryContext context, ExecutionContext functionContext, string userName)
         {
             context.Operation.Id = functionContext.InvocationId.ToString();
@@ -653,20 +654,20 @@ For the Azure CLI,  use the following commands to sign in, choose your subscript
 ```azurecli
 az login
 az account list
-az account set <subscriptionNameOrId>
+az account set --subscription <subscriptionNameOrId>
 az webapp log tail --resource-group <resource group name> --name <function app name>
 ```
 
 For Azure PowerShell, use the following commands to add your Azure account, choose your subscription, and stream log files:
 
 ```powershell
-PS C:\> Add-AzureAccount
-PS C:\> Get-AzureSubscription
-PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-AzureSubscription
-PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
+Add-AzAccount
+Get-AzSubscription
+Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscription
+Get-AzWebSiteLog -Name <function app name> -Tail
 ```
 
-For more information, see [How to stream logs](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
+For more information, see [How to stream logs](../app-service/troubleshoot-diagnostic-logs.md#streamlogs).
 
 ### Viewing log files locally
 

@@ -1,13 +1,10 @@
 ---
 title: Connect Azure Kubernetes Service (AKS) with Azure Database for MySQL
 description: Learn about connecting Azure Kubernetes Service with Azure Database for MySQL
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2018
 ---
 
@@ -31,11 +28,19 @@ You can confirm whether your AKS cluster has accelerated networking:
 6. Go to the VM's **Networking** tab.
 7. Confirm whether **Accelerated networking** is 'Enabled.'
 
+Or through the Azure CLI using the following two commands:
+```azurecli
+az aks show --resource-group myResourceGroup --name myAKSCluster --query "nodeResourceGroup"
+```
+The output will be the generated resource group that AKS creates containing the network interface. Take the "nodeResourceGroup" name and use it in the next command. **EnableAcceleratedNetworking** will either be true or false:
+```azurecli
+az network nic list --resource-group nodeResourceGroup -o table
+```
 
 ## Open Service Broker for Azure 
 [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) lets you provision Azure services directly from Kubernetes or Cloud Foundry. It is an [Open Service Broker API](https://www.openservicebrokerapi.org/) implementation for Azure.
 
-With OSBA, you can create an Azure Database for MySQL server and bind it to your AKS cluster using Kubernetes' native language. Learn about how to use OSBA and Azure Database for MySQL together on the [OSBA Github page](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/mysql.md). 
+With OSBA, you can create an Azure Database for MySQL server and bind it to your AKS cluster using Kubernetes' native language. Learn about how to use OSBA and Azure Database for MySQL together on the [OSBA GitHub page](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/mysql.md). 
 
 
 

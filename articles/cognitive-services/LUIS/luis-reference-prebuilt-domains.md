@@ -4,16 +4,16 @@ titleSuffix: Azure
 description: Reference for the prebuilt domains, which are prebuilt collections of intents and entities from Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/07/2018
 ms.author: diberry
 ---
 
-# Prebuilt domain reference
+# Prebuilt domain reference for your LUIS app
 This reference provides information about the [prebuilt domains](luis-how-to-use-prebuilt-domains.md), which are prebuilt collections of intents and entities that LUIS offers.
 
 [Custom domains](luis-how-to-start-new-app.md), by contrast, start with no intents and models. You can add any prebuilt domain intents and entities to a custom model.
@@ -237,11 +237,12 @@ The HomeAutomation domain provides intents and entities related to controlling s
 The MovieTickets domain provides intents and entities related to booking tickets to movies at a movie theater.
 
 ### Examples
-```
-Book me two tickets for Captain Omar and the two Musketeers
-Cancel tickets
-When is Captain Omar showing?
-```
+
+|Examples|
+|--|
+|Book me two tickets for Captain Omar and the two Musketeers|
+|Cancel tickets|
+|When is Captain Omar showing?|
 
 ### Intents
 | Intent name | Description | Examples |
@@ -396,7 +397,7 @@ The Places domain provides intents for handling queries related to places like b
 |CheckAccident|Ask whether there is an accident on a specified road.|Is there an accident on 880?<br/>Show me accident information|
 |CheckAreaTraffic|Check the traffic for a general area or highway, not on a specified route.|Traffic in Seattle<br/>What's the traffic like in Seattle?|
 |CheckIntoPlace|Check in to a place using social media.|Check me in on Foursquare<br/>Check in here|
-|CheckRouteTraffic| Check the traffic of a specific route specified by the user.|How is the traffic to Mashiko?<br/>Show me the traffice to Kirkland<br/>How is the traffic to Seattle?| 
+|CheckRouteTraffic| Check the traffic of a specific route specified by the user.|How is the traffic to Mashiko?<br/>Show me the traffic to Kirkland<br/>How is the traffic to Seattle?| 
 |Confirm|Confirm an action relating to a place.|Confirm my restaurant reservation.|
 |Exit|Action to exit a task relating to a place.|Quit please<br/>Quit giving me directions|
 |FindPlace|Search for a place (business, institution, restaurant, public space, address).|Where's the nearest library?<br/>Find me a good Italian restaurant in Mountain View|

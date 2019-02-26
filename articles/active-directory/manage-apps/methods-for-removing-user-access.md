@@ -3,19 +3,20 @@ title: How to remove a user's access to an application | Microsoft Docs
 description: Understand how to remove a user's access to an application
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 
 ms.assetid:
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2018
-ms.author: barbkess
+ms.author: celested
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to remove a user's access to an application
@@ -67,5 +68,6 @@ To **disable all future user consent operations in your entire directory**, foll
 6.  Set the **Users can allow apps to access company data on their behalf** toggle to **No** and click the Save button.
 
 
-# Next steps
+## Next steps
+
 [Managing access to apps](what-is-access-management.md)

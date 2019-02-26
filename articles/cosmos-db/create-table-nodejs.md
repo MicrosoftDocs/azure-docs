@@ -1,12 +1,9 @@
 ---
 title: 'Quickstart: Table API with Node.js - Azure Cosmos DB'
 description: This quickstart shows how to use the Azure Cosmos DB Table API to create an application with the Azure portal and Node.js
-services: cosmos-db
 author: SnehaGunda
-
 ms.service: cosmos-db
-ms.component: cosmosdb-table
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 04/10/2018
@@ -54,7 +51,7 @@ In addition:
 
 ## Clone the sample application
 
-Now let's clone a Table app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's clone a Table app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 

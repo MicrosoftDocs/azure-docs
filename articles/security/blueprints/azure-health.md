@@ -76,7 +76,7 @@ HIPAA and HITRUST (through the Common Security Framework
 -   **Architectural diagram.** The diagram shows the reference
     architecture used for the blueprint and the example use case scenario.
 
--   [IaaS Extension](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)   This solution will demonstrate how to migrate an on-premise SQL based solution to Azure, and to implement a Privieged Access Workstation to securely manage cloud-bsed services and solutions. 
+-   [IaaS Extension](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)   This solution will demonstrate how to migrate an on-premise SQL based solution to Azure, and to implement a Privileged Access Workstation to securely manage cloud-bsed services and solutions. 
 
 ## Solution components
 
@@ -100,7 +100,7 @@ The foundational architecture is composed of the following components:
     of the solution, and considerations for transforming the blueprint
     to a production-ready deployment.
 
-# Architectural diagram
+## Architectural diagram
 
 
 ![](images/ra2.png)
@@ -147,7 +147,7 @@ They have no access to patient records.
 
 -   Scope: ResourceGroup
 
- ### Data Scientist
+### Data Scientist
 
 
 The data scientist operates the Azure Machine Learning Studio. They can
@@ -287,7 +287,7 @@ provided with the solution to ensure that the blueprint and LOS solution
 can be used to store, process, and display sensitive personal data.
 
 
-# Design configuration
+## Design configuration
 
 
 This section details the default configurations and security measures

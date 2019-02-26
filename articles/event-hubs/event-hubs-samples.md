@@ -1,6 +1,6 @@
 ---
 title: Samples - Azure Event Hubs | Microsoft Docs
-description: Azure Event Hubs samples 
+description: This article provides a list of samples for Azure Event Hubs that are on GitHub.  
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy

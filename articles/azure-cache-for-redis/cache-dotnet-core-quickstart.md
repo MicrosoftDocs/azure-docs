@@ -1,20 +1,20 @@
 ---
 title: Quickstart to learn how to Use Azure Cache for Redis with .NET Core apps | Microsoft Docs
 description: In this quickstart, learn how to access Azure Cache for Redis in your .NET Core apps
-services: azure-cache-for-redis,app-service
+services: cache,app-service
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 
 ms.assetid: 
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/18/2018
-ms.author: wesmc
+ms.author: yegu
 ms.custom: mvc
 #Customer intent: As a .NET Core developer, new to Azure Cache for Redis, I want to create a new .NET Core app that uses Azure Cache for Redis.
 ---
@@ -191,7 +191,7 @@ In *Program.cs*, add the following code for the `Main` procedure of the `Program
             Console.WriteLine("\nCache command  : " + cacheCommand + " or StringSet()");
             Console.WriteLine("Cache response : " + cache.StringSet("Message", "Hello! The cache is working from a .NET Core console app!").ToString());
 
-            // Demostrate "SET Message" executed as expected...
+            // Demonstrate "SET Message" executed as expected...
             cacheCommand = "GET Message";
             Console.WriteLine("\nCache command  : " + cacheCommand + " or StringGet()");
             Console.WriteLine("Cache response : " + cache.StringGet("Message").ToString());
@@ -207,7 +207,7 @@ In *Program.cs*, add the following code for the `Main` procedure of the `Program
 
 Save *Program.cs*.
 
-Azure Cache for Rediss have a configurable number of databases (default of 16) that can be used to logically separate the data within an Azure Cache for Redis. The code connects to the default database, DB 0. For more information, see [What are Redis databases?](cache-faq.md#what-are-redis-databases) and [Default Redis server configuration](cache-configure.md#default-redis-server-configuration).
+Azure Cache for Redis has a configurable number of databases (default of 16) that can be used to logically separate the data within an Azure Cache for Redis. The code connects to the default database, DB 0. For more information, see [What are Redis databases?](cache-faq.md#what-are-redis-databases) and [Default Redis server configuration](cache-configure.md#default-redis-server-configuration).
 
 Cache items can be stored and retrieved by using the `StringSet` and `StringGet` methods.
 
@@ -244,7 +244,7 @@ dotnet add package Newtonsoft.json
 
 Add the following `using` statement to the top of *Program.cs*:
 
-```charp
+```csharp
 using Newtonsoft.Json;
 ```
 

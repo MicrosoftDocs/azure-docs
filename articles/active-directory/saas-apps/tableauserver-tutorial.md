@@ -9,14 +9,15 @@ ms.reviewer: joflore
 
 ms.assetid: c1917375-08aa-445c-a444-e22e23fa19e0
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 12/12/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Tableau Server
 
@@ -83,13 +84,14 @@ For single sign-on to work, Azure AD needs to know what the counterpart user in 
 
 To configure and test Azure AD single sign-on with Tableau Server, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Tableau Server test user](#creating-a-tableau-server-test-user)** - to have a counterpart of Britta Simon in Tableau Server that is linked to the Azure AD representation of user.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing single sign-on](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Configure Tableau Server Single Sign-On](#configure-tableau-server-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Create Tableau Server test user](#create-tableau-server-test-user)** - to have a counterpart of Britta Simon in Cisco Umbrella that is linked to the Azure AD representation of user.
+5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD single sign-on
+### Configure Azure AD single sign-on
 
 In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Tableau Server application.
 
@@ -109,9 +111,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 4. In the **User Claims** section on the **User Attributes & Claims** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
     
-	| Attribute Name | Attribute Value |
-	| ---------------| --------------- |    
-	| username | user.userprincipalname |
+	| Attribute Name | Attribute Value | Namespace |
+	| ---------------| --------------- | ----------- |   
+	| username | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
@@ -148,33 +150,41 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 7. On the **SAML Signing Certificate** page, in the **SAML Signing Certificate** section, click **Download** to download **Federation Metadata XML** and then save certificate file on your computer.
 
-	![The Certificate download link](./media/tableauserver-tutorial/tutorial-tableauserver-certificate.png) 
+	![The Certificate download link](./media/tableauserver-tutorial/tutorial-tableauserver-certificate.png)
 
-8. To get SSO configured for your application, you need to sign-on to your Tableau Server tenant as an administrator.
+### Configure Tableau Server Single Sign-On 
 
-9. On the **Tableau Server Configuration** page, perform the following steps:
-   
-    ![Configure Single Sign-On](./media/tableauserver-tutorial/tutorial-tableauserver-001.png)
+1. To get SSO configured for your application, you need to sign-on to your Tableau Server tenant as an administrator.
 
-    a. In the Tableau Server configuration, click the **SAML** tab. 
-  
-    b. Select the checkbox of **Use SAML for single sign-on**.
-   
-    c. Tableau Server return URL—The URL that Tableau Server users will be accessing, such as http://tableau_server. Using http://localhost is not recommended. Using a URL with a trailing slash (for example, http://tableau_server/) is not supported. Copy **Tableau Server return URL** and paste it to Azure AD **Sign On URL** textbox in **Tableau Server Domain and URLs** section.
-   
-    d. SAML entity ID—The entity ID uniquely identifies your Tableau Server installation to the IdP. You can enter your Tableau Server URL again here, if you like, but it does not have to be your Tableau Server URL. Copy **SAML entity ID** and paste it to Azure AD **Identifier** textbox in **Tableau Server Domain and URLs** section.
-     
-    e. Click the **Export Metadata File** and open it in the text editor application. Locate Assertion Consumer Service URL with Http Post and Index 0 and copy the URL. Now paste it to Azure AD **Reply URL** textbox in **Tableau Server Domain and URLs** section.
-   
-    f. Locate your Federation Metadata file downloaded from Azure portal, and then upload it in the **SAML Idp metadata file**.
-   
-    g. Click the **OK** button in the Tableau Server Configuration page.
-   
-    >[!NOTE] 
+2. On the **CONFIGURATION** tab, select **User Identity & Access**, and then select the **Authentication** Method tab.
+
+	![Configure Single Sign-On](./media/tableauserver-tutorial/tutorial-tableauserver-auth.png)
+
+3. On the **CONFIGURATION** page, perform the following steps:
+
+	![Configure Single Sign-On](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
+
+	a. For **Authentication Method**, select SAML.
+	
+	b. Select the checkbox of **Enable SAML Authentication for the server**.
+
+	c. Tableau Server return URL—The URL that Tableau Server users will be accessing, such as http://tableau_server. Using http://localhost is not recommended. Using a URL with a trailing slash (for example, http://tableau_server/) is not supported. Copy **Tableau Server return URL** and paste it to Azure AD **Sign On URL** textbox in **Tableau Server Domain and URLs** section.
+
+	d. SAML entity ID—The entity ID uniquely identifies your Tableau Server installation to the IdP. You can enter your Tableau Server URL again here, if you like, but it does not have to be your Tableau Server URL. Copy **SAML entity ID** and paste it to Azure AD **Identifier** textbox in **Tableau Server Domain and URLs** section.
+
+	e. Click the **Download XML Metadata File** and open it in the text editor application. Locate Assertion Consumer Service URL with Http Post and Index 0 and copy the URL. Now paste it to Azure AD **Reply URL** textbox in **Tableau Server Domain and URLs** section.
+
+	f. Locate your Federation Metadata file downloaded from Azure portal, and then upload it in the **SAML Idp metadata file**.
+
+	g. Enter the names for the attributes that the IdP uses to hold the user names, display names, and email addresses.
+
+	h. Click **Save**
+
+	>[!NOTE] 
 	>Customer have to upload any certificate in the Tableau Server SAML SSO configuration and it will get ignored in the SSO flow.
-	>If you need help configuring SAML on Tableau Server then please refer to this article [Configure SAML](https://onlinehelp.tableau.com/current/server/en-us/config_saml.htm).
+	>If you need help configuring SAML on Tableau Server then please refer to this article [Configure SAML](https://onlinehelp.tableau.com/v2018.2/server/en-us/saml_config_steps_tsm_ui.htm).
 
-### Creating an Azure AD test user
+### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
@@ -199,16 +209,16 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Select **Create**.
   
-### Creating a Tableau Server test user
+### Create Tableau Server test user
 
 The objective of this section is to create a user called Britta Simon in Tableau Server. You need to provision all the users in the Tableau server. 
 
-That username of the user should match the value which you have configured in the Azure AD custom attribute of **username**. With the correct mapping the integration should work [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on).
+That username of the user should match the value which you have configured in the Azure AD custom attribute of **username**. With the correct mapping the integration should work Configuring Azure AD Single Sign-On.
 
 >[!NOTE]
 >If you need to create a user manually, you need to contact the Tableau Server administrator in your organization.
 
-### Assigning the Azure AD test user
+### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Tableau Server.
 
@@ -232,7 +242,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 6. In the **Add Assignment** dialog, select the **Assign** button.
 
-### Testing single sign-on
+### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 

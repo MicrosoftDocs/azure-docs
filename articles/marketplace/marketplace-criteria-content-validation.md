@@ -96,8 +96,8 @@ All offers must meet the [All Listing Requirements](https://docs.microsoft.com/a
 
 
 ## Next steps
-* Learn about different offer types in the marketplace <br>[SaaS Apps](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) <br>[Containers](https://docs.microsoft.com/azure/marketplace/marketplace-containers) <br>[Consulting services](https://docs.microsoft.com/azure/marketplace/consulting-services)
-*	[Determine the listing type for your solution](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
+* Learn about different offer types in the marketplace. <br>[SaaS Apps](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) <br>[Containers](https://docs.microsoft.com/azure/marketplace/marketplace-containers) <br>[Consulting services](https://docs.microsoft.com/azure/marketplace/consulting-services)
+*	[Determine the listing type for your solution](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
 
  
----  
+---

@@ -4,7 +4,7 @@ description: Learn how to connect to SQL Database on Azure by using Visual Studi
 keywords: connect to sql database
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
@@ -12,26 +12,39 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 12/06/2018
+ms.date: 02/12/2019
 ---
 # Quickstart: Use Visual Studio Code to connect and query an Azure SQL Database
 
-[Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows. It supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse. This quickstart demonstrates using Visual Studio Code to connect to an Azure SQL database and then run Transact-SQL statements to query, insert, update, and delete data.
+[Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows. It supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse. In this quickstart, you'll use Visual Studio Code to connect to an Azure SQL database and then run Transact-SQL statements to query, insert, update, and delete data.
 
 ## Prerequisites
 
-To complete this tutorial, you need:
+- An Azure SQL database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+  || Single database | Managed instance |
+  |:--- |:--- |:---|
+  | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  | Configure | [Server-level IP firewall rule](sql-database-server-level-firewall-rule.md)| [Connectivity from a VM](sql-database-managed-instance-configure-vm.md)|
+  |||[Connectivity from on-site](sql-database-managed-instance-configure-p2s.md)
+  |Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |||Restore or import Adventure Works from [BACPAC](sql-database-import.md) file from [github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||
 
-#### Install Visual Studio Code
+  > [!IMPORTANT]
+  > The scripts in this article are written to use the Adventure Works database. With a managed instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
 
-Make sure you have installed the latest [Visual Studio Code](https://code.visualstudio.com/Download) and loaded the [mssql extension](https://aka.ms/mssql-marketplace). For guidance on installing the mssql extension, see [Install VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) and [mssql for Visual Studio Code
-](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql). 
+## Install Visual Studio Code
+
+Make sure you have installed the latest [Visual Studio Code](https://code.visualstudio.com/Download) and loaded the [mssql extension](https://aka.ms/mssql-marketplace). For guidance on installing the mssql extension, see [Install VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) and [mssql for Visual Studio Code
+](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
 
 ## Configure Visual Studio Code 
 
 ### **Mac OS**
+
 For macOS, you need to install OpenSSL, which is a prerequisite for .Net Core that mssql extension uses. Open your terminal and enter the following commands to install **brew** and **OpenSSL**. 
 
 ```bash
@@ -51,9 +64,15 @@ No special configuration needed.
 
 No special configuration needed.
 
-## SQL server connection information
+## Get SQL server connection information
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
+Get the connection information you need to connect to the Azure SQL database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+2. Navigate to the **SQL databases**  or **SQL managed instances** page.
+
+3. On the **Overview** page, review the fully qualified server name next to **Server name** for a single database or the fully qualified server name next to **Host** for a managed instance. To copy the server name or host name, hover over it and select the **Copy** icon.
 
 ## Set language mode to SQL
 
@@ -61,7 +80,7 @@ In Visual Studio Code, set the language mode to **SQL**  to enable mssql command
 
 1. Open a new Visual Studio Code window. 
 
-2. Press **CTRL**+**N**. A new plain text file opens. 
+2. Press **Ctrl**+**N**. A new plain text file opens. 
 
 3. Select **Plain Text** in the status bar's lower right-hand corner.
 
@@ -72,16 +91,16 @@ In Visual Studio Code, set the language mode to **SQL**  to enable mssql command
 Use Visual Studio Code to establish a connection to your Azure SQL Database server.
 
 > [!IMPORTANT]
-> Before continuing, make sure that you have your server and login information ready. Once you begin entering the connection profile information, if you change your focus from Visual Studio Code, you have to restart creating the profile.
+> Before continuing, make sure that you have your server and sign in information ready. Once you begin entering the connection profile information, if you change your focus from Visual Studio Code, you have to restart creating the profile.
 >
 
 1. In Visual Studio Code, press **Ctrl+Shift+P** (or **F1**) to open the Command Palette.
 
-2. Select **MS SQL:Connect** and press **Enter**.
+2. Select **MS SQL:Connect** and choose **Enter**.
 
 3. Select **Create Connection Profile**.
 
-4. Follow the prompts to specify the new profile's connection properties. After specifying each value, press **Enter** to continue. 
+4. Follow the prompts to specify the new profile's connection properties. After specifying each value, choose **Enter** to continue. 
 
    | Property       | Suggested value | Description |
    | ------------ | ------------------ | ------------------------------------------------- | 
@@ -97,7 +116,7 @@ Use Visual Studio Code to establish a connection to your Azure SQL Database serv
 
 ## Query data
 
-Use the following [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement to query for the top 20 products by category.
+Run the following [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement to query for the top 20 products by category.
 
 1. In the editor window, paste the following SQL query.
 
@@ -108,13 +127,13 @@ Use the following [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Tra
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-2. Press **Ctrl**+**Shift**+**E** to execute the query and display results from the `Product` and `ProductCategory` tables.
+2. Press **Ctrl**+**Shift**+**E** to run the query and display results from the `Product` and `ProductCategory` tables.
 
     ![Query to retrieve data from 2 tables](./media/sql-database-connect-query-vscode/query.png)
 
 ## Insert data
 
-Use the following [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement to add a new product into the `SalesLT.Product` table.
+Run the following [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement to add a new product into the `SalesLT.Product` table.
 
 1. Replace the previous query with this one.
 
@@ -142,7 +161,7 @@ Use the following [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Tra
 
 ## Update data
 
-Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update the added product.
+Run the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update the added product.
 
 1. Replace the previous query with this one:
 
@@ -156,7 +175,7 @@ Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Tra
 
 ## Delete data
 
-Use the following [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL statement to remove the new product.
+Run the following [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL statement to remove the new product.
 
 1. Replace the previous query with this one:
 

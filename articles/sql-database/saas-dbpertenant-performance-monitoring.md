@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer:
 manager: craigg
-ms.date: 09/14/2018
+ms.date: 01/25/2019
 ---
 # Monitor and manage performance of Azure SQL databases and pools in a multi-tenant SaaS app
 
 In this tutorial, several key performance management scenarios used in SaaS applications are explored. Using a load generator to simulate activity across all tenant databases, the built-in monitoring and alerting features of SQL Database and elastic pools are demonstrated.
 
-The Wingtip Tickets SaaS Database Per Tenant app uses a single-tenant data model, where each venue (tenant) has their own database. Like many SaaS applications, the anticipated tenant workload pattern is unpredictable and sporadic. In other words, ticket sales may occur at any time. To take advantage of this typical database usage pattern, tenant databases are deployed into elastic database pools. Elastic pools optimize the cost of a solution by sharing resources across many databases. With this type of pattern, it's important to monitor database and pool resource usage to ensure that loads are reasonably balanced across pools. You also need to ensure that individual databases have adequate resources, and that pools are not hitting their [eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model) limits. This tutorial explores ways to monitor and manage databases and pools, and how to take corrective action in response to variations in workload.
+The Wingtip Tickets SaaS Database Per Tenant app uses a single-tenant data model, where each venue (tenant) has their own database. Like many SaaS applications, the anticipated tenant workload pattern is unpredictable and sporadic. In other words, ticket sales may occur at any time. To take advantage of this typical database usage pattern, tenant databases are deployed into elastic pools. Elastic pools optimize the cost of a solution by sharing resources across many databases. With this type of pattern, it's important to monitor database and pool resource usage to ensure that loads are reasonably balanced across pools. You also need to ensure that individual databases have adequate resources, and that pools are not hitting their [eDTU](sql-database-purchase-models.md#dtu-based-purchasing-model) limits. This tutorial explores ways to monitor and manage databases and pools, and how to take corrective action in response to variations in workload.
 
 In this tutorial you learn how to:
 
@@ -36,7 +36,7 @@ To complete this tutorial, make sure the following prerequisites are completed:
 
 ## Introduction to SaaS performance management patterns
 
-Managing database performance consists of compiling and analyzing performance data, and then reacting to this data by adjusting parameters to maintain an acceptable response time for your application. When hosting multiple tenants, Elastic database pools are a cost-effective way to provide and manage resources for a group of databases with unpredictable workloads. With certain workload patterns, as few as two S3 databases can benefit from being managed in a pool.
+Managing database performance consists of compiling and analyzing performance data, and then reacting to this data by adjusting parameters to maintain an acceptable response time for your application. When hosting multiple tenants, Elastic pools are a cost-effective way to provide and manage resources for a group of databases with unpredictable workloads. With certain workload patterns, as few as two S3 databases can benefit from being managed in a pool.
 
 ![application diagram](./media/saas-dbpertenant-performance-monitoring/app-diagram.png)
 
@@ -69,7 +69,7 @@ If you already provisioned a batch of tenants in a prior tutorial, skip to the [
 
 The script will deploy 17 tenants in less than five minutes.
 
-The *New-TenantBatch* script uses a nested or linked set of [Resource Manager](../azure-resource-manager/index.md) templates that create a batch of tenants, which by default copies the database **basetenantdb** on the catalog server to create the new tenant databases, then registers these in the catalog, and finally initializes them with the tenant name and venue type. This is consistent with the way the app provisions a new tenant. Any changes made to *basetenantdb* are applied to any new tenants provisioned thereafter. See the [Schema Management tutorial](saas-tenancy-schema-management.md) to see how to make schema changes to *existing* tenant databases (including the *basetenantdb* database).
+The *New-TenantBatch* script uses a nested or linked set of [Resource Manager](../azure-resource-manager/index.yml) templates that create a batch of tenants, which by default copies the database **basetenantdb** on the catalog server to create the new tenant databases, then registers these in the catalog, and finally initializes them with the tenant name and venue type. This is consistent with the way the app provisions a new tenant. Any changes made to *basetenantdb* are applied to any new tenants provisioned thereafter. See the [Schema Management tutorial](saas-tenancy-schema-management.md) to see how to make schema changes to *existing* tenant databases (including the *basetenantdb* database).
 
 ## Simulate usage on all tenant databases
 
@@ -163,7 +163,7 @@ As an alternative to scaling up the pool, create a second pool and move database
 
 1. In the [Azure portal](https://portal.azure.com), open the **tenants1-dpt-&lt;USER&gt;** server.
 1. Click **+ New pool** to create a pool on the current server.
-1. On the **Elastic database pool** template:
+1. On the **Elastic pool** template:
 
     1. Set **Name** to *Pool2*.
     1. Leave the pricing tier as **Standard Pool**.
@@ -183,9 +183,9 @@ Browse to **Pool2** (on the *tenants1-dpt-\<user\>* server) to open the pool and
 
 You now see that resource usage on *Pool1* has dropped and that *Pool2* is now similarly loaded.
 
-## Manage performance of a single database
+## Manage performance of an individual database
 
-If a single database in a pool experiences a sustained high load, depending on the pool configuration, it may tend to dominate the resources in the pool and impact other databases. If the activity is likely to continue for some time, the database can be temporarily moved out of the pool. This allows the database to have the extra resources it needs, and isolates it from the other databases.
+If an individual database in a pool experiences a sustained high load, depending on the pool configuration, it may tend to dominate the resources in the pool and impact other databases. If the activity is likely to continue for some time, the database can be temporarily moved out of the pool. This allows the database to have the extra resources it needs, and isolates it from the other databases.
 
 This exercise simulates the effect of Contoso Concert Hall experiencing a high load when tickets go on sale for a popular concert.
 
@@ -197,7 +197,7 @@ This exercise simulates the effect of Contoso Concert Hall experiencing a high l
 
 1. In the [Azure portal](https://portal.azure.com), browse to the list of databases on the *tenants1-dpt-\<user\>* server. 
 1. Click on the **contosoconcerthall** database.
-1. Click on the pool that **contosoconcerthall** is in. Locate the pool in the **Elastic database pool** section.
+1. Click on the pool that **contosoconcerthall** is in. Locate the pool in the **Elastic pool** section.
 
 1. Inspect the **Elastic pool monitoring** chart and look for the increased pool eDTU usage. After a minute or two, the higher load should start to kick in, and you should quickly see that the pool hits 100% utilization.
 2. Inspect the **Elastic database monitoring** display, which shows the hottest databases in the past hour. The *contosoconcerthall* database should soon appear as one of the five hottest databases.

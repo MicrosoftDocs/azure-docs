@@ -197,11 +197,11 @@ In your logic app workflow, conditions help run specific actions after passing t
 
 2. Fill the condition as shown below to only execute this for Device Connected and Device Disconnected events:
 
-  * Choose a value: **eventType**
-  * Change "is equal to" to **ends with**
-  * Choose a value: **nected**
+   * Choose a value: **eventType**
+   * Change "is equal to" to **ends with**
+   * Choose a value: **nected**
 
-   ![Fill Condition](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
+     ![Fill Condition](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
 
 3. If the condition is true, click on **Add an action**.
   
@@ -338,7 +338,7 @@ Even if you keep your IoT hub, you may want to delete the event subscription tha
 
 3. Select **Delete**. 
 
-To remove an Azure Cosmos DB account from the Azure portal, right-click the account name and click **Delete account**. See detailed instructions for [deleting an Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/manage-account#delete).
+To remove an Azure Cosmos DB account from the Azure portal, right-click the account name and click **Delete account**. See detailed instructions for [deleting an Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
 ## Next steps
 

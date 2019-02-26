@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning service
 description: Use Application Insights to monitor web services deployed through Azure Machine Learning service 
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 10/01/2018
+ms.date: 1/07/2019
 ms.custom: seodec18
 ---
 # Monitor your Azure Machine Learning models with Application Insights
@@ -19,11 +19,13 @@ In this article, you learn how to set up Azure Application Insights for your Azu
 * Dependency rates, response times, and failure rates.
 * Exceptions.
 
-[Learn more about Application Insights](../../application-insights/app-insights-overview.md). 
+[Learn more about Application Insights](../../azure-monitor/app/app-insights-overview.md). 
 
 
 ## Prerequisites
-* An Azure subscription. If you don't have one, create a [free account](https://aka.ms/AMLfree) before you begin.
+
+* If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+
 * An Azure Machine Learning workspace, a local directory that contains your scripts, and the Azure Machine Learning SDK for Python installed. To learn how to get these prerequisites, see [How to configure a development environment](how-to-configure-environment.md).
 * A trained machine learning model to be deployed to Azure Kubernetes Service (AKS) or Azure Container Instance (ACI). If you don't have one, see the [Train image classification model](tutorial-train-models-with-aml.md) tutorial.
 
@@ -118,7 +120,7 @@ To view it:
 
    [![Custom traces](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
-To learn more about how to use Application Insights, see [What is Application Insights?](../../application-insights/app-insights-overview.md).
+To learn more about how to use Application Insights, see [What is Application Insights?](../../azure-monitor/app/app-insights-overview.md).
     
 
 ## Example notebook

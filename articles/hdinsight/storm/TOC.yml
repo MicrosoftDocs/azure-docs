@@ -4,7 +4,7 @@
   items:
   - name: Overview
     href: apache-storm-overview.md
-  - name: Component versioning
+  - name: Apache Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true
   - name: HDInsight 4.0
@@ -41,11 +41,11 @@
     - name: Apache Kafka and Apache Storm (Java)
       href: ../hdinsight-apache-storm-with-kafka.md
       maintainContext: true
-    - name: Event Hub, Storage, and Data Lake Store (Java)
+    - name: Event Hub, Storage, and Data Lake Storage (Java)
       href: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
     - name: Event Hub and Apache Storm (C# & Java)
       href: apache-storm-develop-csharp-event-hub-topology.md
-    - name: Azure Storage/Data Lake Store (Java)
+    - name: Azure Storage/Data Lake Storage (Java)
       href: apache-storm-write-data-lake-store.md
     - name: Event Hub, Apache HBase (Java)
       href: apache-storm-sensor-data-analysis.md
@@ -121,6 +121,7 @@
         href: ../hdinsight-hadoop-create-linux-clusters-portal.md
         maintainContext: true
       - name: Use Azure Resource Manager templates
+        displayName: resource manager template, arm template, resource manager group
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
     - name: Manage Apache Hadoop clusters
@@ -155,7 +156,7 @@
     - name: Upload data for Apache Hadoop jobs
       href: ../hdinsight-upload-data.md
       maintainContext: true
-    - name: Multiple HDInsight clusters with Data Lake Store
+    - name: Multiple HDInsight clusters with Data Lake Storage
       href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
     - name: Import and export data with Apache Sqoop
@@ -186,7 +187,7 @@
     - name: Migrate to Resource Manager development tools
       href: ../hdinsight-hadoop-development-using-azure-resource-manager.md
       maintainContext: true
-    - name: 'Availability and reliability '
+    - name: Availability and reliability
       href: ../hdinsight-high-availability-linux.md
       maintainContext: true
     - name: Upgrade HDInsight cluster to newer version
@@ -264,12 +265,13 @@
     href: ../hdinsight-go-sdk-overview.md
   - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
-  - name: .NET (Avro)
-    href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST
     href: /rest/api/hdinsight/
   - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
+  - name: Resource Manager template
+    displayName: resource manager template, arm template, resource manager group
+    href: /azure/templates/microsoft.hdinsight/allversions
 - name: Related
   items:
   - name: Windows clusters

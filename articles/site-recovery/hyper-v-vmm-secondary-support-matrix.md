@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ---
 
@@ -57,7 +57,7 @@ Host - IPv6 | No
 Guest VM - NIC teaming | No
 Guest VM - IPv4 | Yes
 Guest VM - IPv6 | No
-Gues VM - Windows/Linux - Static IP address | Yes
+Guest VM - Windows/Linux - Static IP address | Yes
 Guest VM - Multi-NIC | Yes
 
 

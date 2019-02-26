@@ -4,7 +4,7 @@ description: Learn how to download a sign-in report using the Azure portal
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 9131f208-1f90-4cc1-9c29-085cacd69317
@@ -13,22 +13,23 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
 # Customer intent: As an IT administrator, I want to learn how to download a sign report from the Azure portal so that I can understand who is using my environment.
+ms.collection: M365-identity-device-management
 ---
 # Quickstart: Download a sign-in report using the Azure portal
 
-In this quickstart, you learn how to download the sign-in data for your tenant for the past 24 hours.
+In this quickstart, you learn how to download the sign-in data for your tenant for the past 24 hours. You can download up to 5000 records from the Azure portal. The records are sorted by most recent so by default, you get the most recent 5000 records. 
 
 ## Prerequisites
 
 You need:
 
-* An Azure Active Directory tenant, with a Premium license to view the sign-in activity report. 
+* An Azure Active Directory tenant, with a Premium license to view the sign-in activity report. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. Note that if you did not have any activities data prior to the upgrade, it will take a couple of days for the data to show up in the reports after you upgrade to a premium license.
 * A user, who is in the **Security Administrator**, **Security Reader**, **Report Reader** or **Global Administrator** role for the tenant. In addition, any user in the tenant can access their own sign-ins.
 
 ## Quickstart: Download a sign-in report

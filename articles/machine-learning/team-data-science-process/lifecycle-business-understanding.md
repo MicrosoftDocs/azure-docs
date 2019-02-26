@@ -1,16 +1,16 @@
 ---
-title: Business understanding in Team Data Science Process - Azure
+title: Business understanding in Team Data Science Process
 description: The goals, tasks, and deliverables for the business understanding stage of your data-science projects in the Team Data Science Process.
 services: machine-learning
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # The business understanding stage of the Team Data Science Process lifecycle
 

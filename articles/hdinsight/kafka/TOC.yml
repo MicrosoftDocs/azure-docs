@@ -4,7 +4,7 @@
   items:
   - name: About Apache Kafka on HDInsight
     href: apache-kafka-introduction.md
-  - name: Component versioning
+  - name: Apache Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true
   - name: HDInsight 4.0
@@ -16,7 +16,8 @@
     href: apache-kafka-get-started.md
   - name: Create an Apache Kafka cluster - PowerShell
     href: apache-kafka-quickstart-powershell.md
-  - name: Create an Apache kafka cluster - Template
+  - name: Create an Apache Kafka cluster - Resource Manager Template
+    displayName: resource manager template, arm template, resource manager group
     href: apache-kafka-quickstart-resource-manager-template.md
 - name: Tutorials
   items:
@@ -115,6 +116,8 @@
       maintainContext: true
     - name: Bring your own key
       href: apache-kafka-byok.md
+    - name: SSL Encryption and Authentication
+      href: apache-kafka-ssl-encryption-authentication.md
     - name: Apache Kafka RBAC with Apache Ranger
       href: ../domain-joined/apache-domain-joined-run-kafka.md
       maintainContext: true
@@ -140,6 +143,7 @@
         href: ../hdinsight-hadoop-create-linux-clusters-portal.md
         maintainContext: true
       - name: Use Azure Resource Manager templates
+        displayName: resource manager template, arm template, resource manager group
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
     - name: Manage Apache Hadoop clusters
@@ -210,7 +214,7 @@
       - name: Apache Hadoop memory and performance
         href: ../hdinsight-hadoop-stack-trace-error-messages.md
         maintainContext: true
-      - name: Access Hadoop YARN application logs on Linux
+      - name: Access Apache Hadoop YARN application logs on Linux
         href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
         maintainContext: true
       - name: Enable heap dumps for Apache Hadoop services
@@ -258,6 +262,9 @@
     href: /rest/api/hdinsight/
   - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
+  - name: Resource Manager template
+    displayName: resource manager template, arm template, resource manager group
+    href: /azure/templates/microsoft.hdinsight/allversions
 - name: Resources
   items:
   - name: Azure Roadmap

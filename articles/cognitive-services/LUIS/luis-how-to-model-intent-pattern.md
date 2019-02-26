@@ -4,12 +4,12 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Learn how to add pattern templates in Language Understanding (LUIS) applications to improve prediction accuracy.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 01/23/2019
 ms.author: diberry
 ---
 
@@ -91,7 +91,7 @@ To reassign several patterns to a different intent, select the checkbox to the l
 
 2. The **Delete patterns** confirmation dialog appears. Select **Ok** to finish the deletion.
 
-    ![Screenshot of deleting several patterns](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
+    ![Screenshot of deleting several patterns confirmation box](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
 
 ## Filter pattern list by entity
 
@@ -112,7 +112,7 @@ After the filter is applied, the intent name appears below the tool bar.
 ## Remove entity or intent filter
 When the pattern list is filtered, the entity or intent name appears below the toolbar. To remove the filter, select the name.
 
-![Screenshot of filtered patterns by entity](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
+![Screenshot of removing entity from filter](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
 
 The filter is removed and all patterns display. 
 
@@ -121,7 +121,7 @@ You can create a pattern from an existing utterance on either the **Intent** or 
 
 1. On the selected row of the utterance, select the ellipsis (***...***) button to the right of the utterance, and select **Add as pattern**.
 
-    [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Screenshot of utterances table with Add pattern highlighted in options menu")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
+    [![Screenshot of utterances table with Add pattern highlighted in options menu](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Screenshot of utterances table with Add pattern highlighted in options menu")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
 
 2. Modify the pattern according to the [syntax rules](luis-concept-patterns.md#pattern-syntax). If the utterance you selected is labeled with entities, those entities are already in the pattern with the correct syntax.
 

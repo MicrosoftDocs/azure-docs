@@ -4,7 +4,7 @@ description: " Understand the security advantages of PaaS versus other cloud ser
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: techlake
 
 ms.assetid:
@@ -105,7 +105,7 @@ The Microsoft [Security Development Lifecycle](https://www.microsoft.com/en-us/s
 
 The following table lists the STRIDE threats and gives some example mitigations that use Azure features. These mitigations won’t work in every situation.
 
-| Threat | Security property | Potential Azure platform migration |
+| Threat | Security property | Potential Azure platform mitigations |
 | --- | --- | --- |
 | Spoofing | Authentication | Require HTTPS connections. |
 | Tampering | Integrity | Validate SSL certificates. |
@@ -115,11 +115,11 @@ The following table lists the STRIDE threats and gives some example mitigations 
 | Elevation of privilege | Authorization | Use [Privileged Identity Management](../active-directory/privileged-identity-management/subscription-requirements.md). |
 
 ## Develop on Azure App Service
-[Azure App Service](../app-service/app-service-web-overview.md) is a PaaS offering that lets you create web and mobile apps for any platform or device and connect to data anywhere, in the cloud or on-premises. App Service includes the web and mobile capabilities that were previously delivered separately as Azure Websites and Azure Mobile Services. It also includes new capabilities for automating business processes and hosting cloud APIs. As a single integrated service, App Service brings a rich set of capabilities to web, mobile, and integration scenarios.
+[Azure App Service](../app-service/overview.md) is a PaaS offering that lets you create web and mobile apps for any platform or device and connect to data anywhere, in the cloud or on-premises. App Service includes the web and mobile capabilities that were previously delivered separately as Azure Websites and Azure Mobile Services. It also includes new capabilities for automating business processes and hosting cloud APIs. As a single integrated service, App Service brings a rich set of capabilities to web, mobile, and integration scenarios.
 
 Following are best practices for using App Service.
 
-**Best practice**: [Authenticate through Azure Active Directory](../app-service/app-service-authentication-overview.md).   
+**Best practice**: [Authenticate through Azure Active Directory](../app-service/overview-authentication-authorization.md).   
 **Detail**: App Service provides an OAuth 2.0 service for your identity provider. OAuth 2.0 focuses on client developer simplicity while providing specific authorization flows for web applications, desktop applications, and mobile phones. Azure AD uses OAuth 2.0 to enable you to authorize access to mobile and web applications.
 
 **Best practice**: Restrict access based on the need to know and least privilege security principles.   

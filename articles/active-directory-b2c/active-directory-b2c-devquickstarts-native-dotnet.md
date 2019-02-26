@@ -3,41 +3,38 @@ title: Authentication, sign-up, edit profile in Azure Active Directory B2C | Mic
 description: How to build a Windows desktop application that includes sign-in, sign-up, and profile management by using Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Azure AD B2C: Build a Windows desktop app
 By using Azure Active Directory (Azure AD) B2C, you can add powerful self-service identity management features to your desktop app in a few short steps. This article will show you how to create a .NET Windows Presentation Foundation (WPF) "to-do list" app that includes user sign-up, sign-in, and profile management. The app will include support for sign-up and sign-in by using a user name or email. It will also include support for sign-up and sign-in by using social accounts such as Facebook and Google.
 
 ## Get an Azure AD B2C directory
-Before you can use Azure AD B2C, you must create a directory, or tenant.  A directory is a container for all of your users, apps, groups, and more. If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue in this guide.
+Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all of your users, apps, groups, and more. If you don't have one already, [create a B2C directory](tutorial-create-tenant.md) before you continue in this guide.
 
 ## Create an application
-Next, you need to create an app in your B2C directory. This gives Azure AD information that it needs to securely communicate with your app. To create an app, follow [these instructions](active-directory-b2c-app-registration.md).  Be sure to:
+Next, you need to create an app in your B2C directory. This gives Azure AD information that it needs to securely communicate with your app. To create an app, follow [these instructions](active-directory-b2c-app-registration.md). Be sure to:
 
 * Include a **native client** in the application.
 * Copy the **Redirect URI** `urn:ietf:wg:oauth:2.0:oob`. It is the default URL for this code sample.
 * Copy the **Application ID** that is assigned to your app. You will need it later.
 
 ## Create your policies
-In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This code sample contains three identity experiences: sign up, sign in, and edit profile. You need to create a policy for each type, as described in the
-[policy reference article](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). When you create the three policies, be sure to:
+In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This code sample contains three identity experiences: sign up, sign in, and edit profile. When you create the policies, be sure to:
 
 * Choose either **User ID sign-up** or **Email sign-up** in the identity providers blade.
 * Choose **Display name** and other sign-up attributes in your sign-up policy.
 * Choose **Display name** and **Object ID** claims as application claims for every policy. You can choose other claims as well.
-* Copy the **Name** of each policy after you create it. It should have the prefix `b2c_1_`.  You'll need these policy names later.
+* Copy the **Name** of each policy after you create it. It should have the prefix `b2c_1_`. You'll need these policy names later.
 
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
-
-After you have successfully created the three policies, you're ready to build your app.
+After you have successfully created the policies, you're ready to build your app.
 
 ## Download the code
 The code for this tutorial [is maintained on GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet). To build the sample as you go, you can [download a skeleton project as a .zip file](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip). You can also clone the skeleton:
@@ -48,7 +45,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
 
 The completed app is also [available as a .zip file](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) or on the `complete` branch of the same repository.
 
-After you download the sample code, open the Visual Studio .sln file to get started. The `TaskClient` project is the WPF desktop application that the user interacts with. For the purposes of this tutorial, it calls a back-end task web API, hosted in Azure, that stores each user's to-do list.  You do not need to build the web API, we already have it running for you.
+After you download the sample code, open the Visual Studio .sln file to get started. The `TaskClient` project is the WPF desktop application that the user interacts with. For the purposes of this tutorial, it calls a back-end task web API, hosted in Azure, that stores each user's to-do list. You do not need to build the web API, we already have it running for you.
 
 To learn how a web API securely authenticates requests by using Azure AD B2C, check out the
 [web API getting started article](active-directory-b2c-devquickstarts-api-dotnet.md).
@@ -94,7 +91,7 @@ protected async override void OnInitialized(EventArgs e)
 
     pca = new PublicClientApplication(Globals.clientId)
     {
-        // MSAL implements an in-memory cache by default.  Since we want tokens to persist when the user closes the app,
+        // MSAL implements an in-memory cache by default. Since we want tokens to persist when the user closes the app,
         // we've extended the MSAL TokenCache and created a simple FileCache in this app.
         UserTokenCache = new FileCache(),
     };
@@ -113,7 +110,7 @@ private async void SignUp(object sender, RoutedEventArgs e)
     {
         // Use the app's clientId here as the scope parameter, indicating that
         // you want a token to the your app's backend web API (represented by
-        // the cloud hosted task API).  Use the UiOptions.ForceLogin flag to
+        // the cloud hosted task API). Use the UiOptions.ForceLogin flag to
         // indicate to MSAL that it should show a sign-up UI no matter what.
         result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
                 string.Empty, UiOptions.ForceLogin, null, null, Globals.authority,
@@ -185,7 +182,7 @@ private async void EditProfile(object sender, RoutedEventArgs e)
 In all of these cases, MSAL either returns a token in `AuthenticationResult` or throws an exception. Each time you get a token from MSAL, you can use the `AuthenticationResult.User` object to update the user data in the app, such as the UI. ADAL also caches the token for use in other parts of the application.
 
 ### Check for tokens on app start
-You can also use MSAL to keep track of the user's sign-in state.  In this app, we want the user to remain signed in even after they close the app & re-open it.  Back inside the `OnInitialized` override, use MSAL's `AcquireTokenSilent` method to check for cached tokens:
+You can also use MSAL to keep track of the user's sign-in state. In this app, we want the user to remain signed in even after they close the app and re-open it. Back inside the `OnInitialized` override, use MSAL's `AcquireTokenSilent` method to check for cached tokens:
 
 ```csharp
 AuthenticationResult result = null;
@@ -207,7 +204,7 @@ catch (MsalException ex)
 {
     if (ex.ErrorCode == "failed_to_acquire_token_silently")
     {
-        // There are no tokens in the cache.  Proceed without calling the To Do list service.
+        // There are no tokens in the cache. Proceed without calling the To Do list service.
     }
     else
     {
@@ -224,7 +221,7 @@ catch (MsalException ex)
 ```
 
 ## Call the task API
-You have now used MSAL to execute policies and get tokens.  When you want to use one these tokens to call the task API, you can again use MSAL's `AcquireTokenSilent` method to check for cached tokens:
+You have now used MSAL to execute policies and get tokens. When you want to use one these tokens to call the task API, you can again use MSAL's `AcquireTokenSilent` method to check for cached tokens:
 
 ```csharp
 private async void GetTodoList()
@@ -282,7 +279,7 @@ When the call to `AcquireTokenSilentAsync(...)` succeeds and a token is found in
 ```
 
 ## Sign the user out
-Finally, you can use MSAL to end a user's session with the app when the user selects **Sign out**.  When using MSAL, this is accomplished by clearing all of the tokens from the token cache:
+Finally, you can use MSAL to end a user's session with the app when the user selects **Sign out**. When using MSAL, this is accomplished by clearing all of the tokens from the token cache:
 
 ```csharp
 private void SignOut(object sender, RoutedEventArgs e)
@@ -304,7 +301,7 @@ private void SignOut(object sender, RoutedEventArgs e)
 ```
 
 ## Run the sample app
-Finally, build and run the sample.  Sign up for the app by using an email address or user name. Sign out and sign back in as the same user. Edit that user's profile. Sign out and sign up by using a different user.
+Finally, build and run the sample. Sign up for the app by using an email address or user name. Sign out and sign back in as the same user. Edit that user's profile. Sign out and sign up by using a different user.
 
 ## Add social IDPs
 Currently, the app supports only user sign-up and sign-in that use **local accounts**. These are accounts stored in your B2C directory that use a user name and password. By using Azure AD B2C, you can add support for other identity providers (IDPs) without changing any of your code.

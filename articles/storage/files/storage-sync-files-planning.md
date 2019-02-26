@@ -5,15 +5,17 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 2/7/2019
 ms.author: wgries
-ms.component: files
+ms.subservice: files
 ---
 
 # Planning for an Azure File Sync deployment
 Use Azure File Sync to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
 
 This article describes important considerations for an Azure File Sync deployment. We recommend that you also read [Planning for an Azure Files deployment](storage-files-planning.md). 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Azure File Sync terminology
 Before getting into the details of planning for an Azure File Sync deployment, it's important to understand the terminology.
@@ -63,7 +65,7 @@ Cloud tiering is an optional feature of Azure File Sync in which frequently acce
 This section covers Azure File Sync agent system requirements and interoperability with Windows Server features and roles and third-party solutions.
 
 ### Evaluation Tool
-Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an AzureRM PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. Note that its checks cover most but not all of the features mentioned below; we recommend you read through the rest of this section carefully to ensure your deployment goes smoothly. 
+Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. Note that its checks cover most but not all of the features mentioned below; we recommend you read through the rest of this section carefully to ensure your deployment goes smoothly. 
 
 #### Download Instructions
 1. Make sure that you have the latest version of PackageManagement and PowerShellGet installed (this allows you to install preview modules)
@@ -77,29 +79,29 @@ Before deploying Azure File Sync, you should evaluate whether it is compatible w
 3. Install the modules
     
     ```PowerShell
-        Install-Module -Name AzureRM.StorageSync -AllowPrerelease
+        Install-Module -Name Az.StorageSync -AllowPrerelease -AllowClobber -Force
     ```
 
 #### Usage  
 You can invoke the evaluation tool in a few different ways: you can perform the system checks, the dataset checks, or both. To perform both the system and dataset checks: 
 
 ```PowerShell
-    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path>
+    Invoke-AzStorageSyncCompatibilityCheck -Path <path>
 ```
 
 To test only your dataset:
 ```PowerShell
-    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
+    Invoke-AzStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
 ```
  
 To test system requirements only:
 ```PowerShell
-    Invoke-AzureRmStorageSyncCompatibilityCheck -ComputerName <computer name>
+    Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name>
 ```
  
 To display the results in CSV:
 ```PowerShell
-    $errors = Invoke-AzureRmStorageSyncCompatibilityCheck […]
+    $errors = Invoke-AzStorageSyncCompatibilityCheck […]
     $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
 ```
 
@@ -160,10 +162,14 @@ Windows Server Failover Clustering is supported by Azure File Sync for the "File
 > The Azure File Sync agent must be installed on every node in a Failover Cluster for sync to work correctly.
 
 ### Data Deduplication
-For volumes that don't have cloud tiering enabled, Azure File Sync supports Windows Server Data Deduplication being enabled on the volume. Currently, we do not support interoperability between Azure File Sync with cloud tiering enabled and Data Deduplication.
+**Agent version 5.0.2.0**   
+Data Deduplication is supported on volumes with cloud tiering enabled on Windows Server 2016 and Windows Server 2019. Enabling deduplication on a volume with cloud tiering enabled lets you cache more files on-premises without provisioning more storage.
+
+**Windows Server 2012 R2 or older agent versions**  
+For volumes that don't have cloud tiering enabled, Azure File Sync supports Windows Server Data Deduplication being enabled on the volume.
 
 ### Distributed File System (DFS)
-Azure File Sync supports interop with DFS Namespaces (DFS-N) and DFS Replication (DFS-R) starting with [Azure File Sync agent 1.2](https://go.microsoft.com/fwlink/?linkid=864522).
+Azure File Sync supports interop with DFS Namespaces (DFS-N) and DFS Replication (DFS-R).
 
 **DFS Namespaces (DFS-N)**: Azure File Sync is fully supported on DFS-N servers. You can install the Azure File Sync agent on one or more DFS-N members to sync data between the server endpoints and the cloud endpoint. For more information, see [DFS Namespaces overview](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
  
@@ -198,6 +204,9 @@ If you are using an on-premises backup solution, backups should be performed on 
 
 > [!Note]  
 > Bare-metal (BMR) restore can cause unexpected results and is not currently supported.
+
+> [!Note]  
+> VSS snapshots (including Previous Versions tab) are not currently supported on volumes which have cloud tiering enabled. If cloud tiering is enabled, use the Azure file share snapshots to restore a file from backup.
 
 ### Encryption solutions
 Support for encryption solutions depends on how they are implemented. Azure File Sync is known to work with:
@@ -241,7 +250,10 @@ Azure File Sync is available only in the following regions:
 Azure File Sync supports syncing only with an Azure file share that's in the same region as the Storage Sync Service.
 
 ### Azure disaster recovery
-To protect against the loss of an Azure region, Azure File Sync integrates with the [geo-redundant storage redundancy](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) option. GRS storage works by using asynchronous block replication between storage in the primary region, with which you normally interact, and storage in the paired secondary region. In the event of a disaster which causes an Azure region to go temporarily or permanently offline, Microsoft will fail over storage to the paired region. 
+To protect against the loss of an Azure region, Azure File Sync integrates with the [geo-redundant storage redundancy](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) option. GRS storage works by using asynchronous block replication between storage in the primary region, with which you normally interact, and storage in the paired secondary region. In the event of a disaster which causes an Azure region to go temporarily or permanently offline, Microsoft will failover storage to the paired region. 
+
+> [!Warning]  
+> If you are using your Azure file share as a cloud endpoint in a GRS storage account, you shouldn't initiate storage account failover. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files. In the case of loss of an Azure region, Microsoft will trigger the storage account failover in a way that is compatible with Azure File Sync.
 
 To support the failover integration between geo-redundant storage and Azure File Sync, all Azure File Sync regions are paired with a secondary region that matches the secondary region used by storage. These pairs are as follows:
 
@@ -273,3 +285,4 @@ To support the failover integration between geo-redundant storage and Azure File
 * [Planning for an Azure Files deployment](storage-files-planning.md)
 * [Deploy Azure Files](storage-files-deployment-guide.md)
 * [Deploy Azure File Sync](storage-sync-files-deployment-guide.md)
+* [Monitor Azure File Sync](storage-sync-files-monitoring.md)

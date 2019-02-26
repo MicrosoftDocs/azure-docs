@@ -1,24 +1,19 @@
 ---
-title: Azure Monitor for VMs (Preview) Frequently Asked Questions | Microsoft Docs
-description: Azure Monitor for VMs (Preview) is a solution in Azure that combines health and performance monitoring of the Azure VM operating system, as well as automatically discovering application components and dependencies with other resources and maps the communication between them. This article answers common questions.
+title: Azure Monitor for VMs (preview) Frequently Asked Questions | Microsoft Docs
+description: Azure Monitor for VMs is a solution in Azure that combines health and performance monitoring of the Azure VM operating system, as well as automatically discovering application components and dependencies with other resources and maps the communication between them. This article answers common questions.
 services:  azure-monitor
-documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-
-ms.assetid: 
 ms.service:  azure-monitor
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/08/2018
+ms.date: 01/09/2018
 ms.author: magoedte
 
 ---
 
-# Azure Monitor for VMs (Preview) Frequently Asked Questions
+# Azure Monitor for VMs (preview) Frequently Asked Questions
 This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for VMs. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
 ## Can I onboard to an existing workspace?
@@ -48,9 +43,46 @@ When onboarding an Azure VM from the Azure portal, the following steps occur:
 * The Azure Monitor for VMs Map Dependency agent is installed on Azure VMs using an extension, if determined it is required.  
 * Azure Monitor components supporting the Health feature are configured, if needed, and the VM is configured to report health data.
 
-During the onboard process, we check for status on each of the above to return a notification status to you in the portal.  Configuration of the workspace and the agent installation typically takes 5 to 10 minutes.  Viewing monitoring and health data in the portal take an additional 5 to 10 minutes.  
+During the onboard process, we check for status on each of the above to return a notification status to you in the portal. Configuration of the workspace and the agent installation typically takes 5 to 10 minutes. Viewing monitoring and health data in the portal take an additional 5 to 10 minutes.  
 
 If you have initiated onboarding and see messages indicating the VM needs to be onboarded,  allow for up to 30 minutes for the VM to complete the process. 
+
+## I only enabled Azure Monitor for VMs, Why do I see all my VMs monitored by the Health feature?
+The Health feature is enabled for all VMs that are connected to the Log Analytics workspace, even when the action is initiated for a single VM.
+
+## Can I modify the schedule for when health criteria evaluates a condition?
+No, the time period and frequency of health criteria can't be modified with this release. 
+
+## Can I disable health criteria for a condition I don't need to monitor?
+Health criteria can't be disabled in this release.
+
+## Are the health alert severities configurable?  
+Health alert severity cannot be modified, they can only be enabled or disabled. Additionally, some alert severities update based on the state of health criteria. 
+
+## If I reconfigure the settings of a particular health criteria, can it be scoped to a specific instance?  
+If you modify any setting of a health criterion instance, all health criteria instances of the same type on the Azure VM are modified. For example, if the threshold of the disk free-space health criterion instance that corresponds to logical disk C: is modified, this threshold applies to all other logical disks that are discovered and monitored for the same VM.
+
+## Does the Health feature monitor logical processors and cores?
+No, individual processor and logical processor level health criteria is not included for a Windows, only Total CPU utilization is monitored by default to effectively evaluate CPU pressure based on the total number of logical CPUs available to the Azure VM. 
+
+## Are all health criteria thresholds configurable?  
+Thresholds for health criteria that target a Windows VM aren’t modifiable, because their health states are set to *running* or *available*. When you query the health state from the [Workload Monitor API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components), it displays the *comparisonOperator* value of **LessThan** or **GreaterThan** with a *threshold* value of **4** for the service or entity if:
+   - DNS Client Service Health – Service isn't running. 
+   - DHCP client service health – Service isn't running. 
+   - RPC Service Health – Service isn't running. 
+   - Windows firewall service health – Service isn't running.
+   - Windows event log service health – Service isn't running. 
+   - Server service health – Service isn't running. 
+   - Windows remote management service health – Service isn't running. 
+   - File system error or corruption – Logical Disk is unavailable.
+
+Thresholds for the following Linux health criteria aren’t modifiable, because their health state is already set to *true*. The health state displays the *comparisonOperator* with a value **LessThan** and *threshold* value of **1** when queried from the Workload Monitoring API for the entity, depending on its context:
+   - Logical Disk Status – Logical disk isn't online/ available
+   - Disk Status – Disk isn't online/ available
+   - Network Adapter Status -  Network adapter is disabled
+
+## How do I modify alerts that are included with the Health feature?
+Alert rules that are defined for each health criterion aren't displayed in the Azure portal. You can enable or disable a health alert rule only in the [Workload Monitor API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Also, you can't assign an [Azure Monitor action group](../../azure-monitor/platform/action-groups.md) for health alerts in the Azure portal. You can only use the notification setting API to configure an action group to be triggered whenever a health alert is fired. Currently, you can assign action groups against a VM so that all *health alerts* fired against the VM trigger the same action groups. Unlike traditional Azure alerts, there's no concept of a separate action group for each health alert rule. Additionally, only action groups that are configured to provide email or SMS notifications are supported when health alerts are triggered. 
 
 ## I don’t see some or any data in the performance charts for my VM
 If you don’t see performance data in the disk table or in some of the performance charts then your performance counters may not be configured in the workspace. To resolve, run the following [PowerShell script](vminsights-onboard.md#enable-with-powershell).
@@ -69,7 +101,6 @@ The Azure Monitor for VMs Map feature is based on Service Map, but has the follo
 * You cannot create new Service Map machine groups in the Azure Monitor for VMs Map feature.  
 
 ## Why do my performance charts show dotted lines?
-
 This can occur for a few reasons.  In cases where there is a gap in data collection we depict the lines as dotted.  If you have modified the data sampling frequency for the performance counters enabled (the default setting is to collect data every 60 seconds), you can see dotted lines in the chart if you choose a narrow time range for the chart and your sampling frequency is less than the bucket size used in the chart (for example, the sampling frequency is every 10 minutes and each bucket on the chart is 5 minutes).  Choosing a wider time range to view should cause the chart lines to appear as solid lines rather than dots in this case.
 
 ## Are groups supported with Azure Monitor for VMs?

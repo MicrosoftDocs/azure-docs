@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: lakasa
-ms.component: common
+ms.subservice: common
 ---
 
 # Storage Service Encryption using customer-managed keys in Azure Key Vault
@@ -27,55 +27,59 @@ Why create your own keys? Custom keys give you more flexibility, so that you can
 
 To use customer-managed keys with SSE, you can either create a new key vault and key or you can use an existing key vault and key. The storage account and the key vault must be in the same region, but they can be in different subscriptions.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ### Step 1: Create a storage account
 
 First, create a storage account if you don't have one already. For more information, see [Create a storage account](storage-quickstart-create-account.md).
 
 ### Step 2: Enable SSE for Blob and File storage
 
-To enable SSE using customer-managed keys, two key protection features, Soft Delete and Do Not Purge, must also be enabled in Azure Key Vault. These settings ensure the keys cannot be accidently or intentionally deleted. The maximum retention period of the keys is set to 90 days, protecting users against malicious actors or ransomware attacks.
+To enable SSE using customer-managed keys, two key protection features, Soft Delete and Do Not Purge, must also be enabled in Azure Key Vault. These settings ensure the keys cannot be accidentally or intentionally deleted. The maximum retention period of the keys is set to 90 days, protecting users against malicious actors or ransomware attacks.
 
 If you want to programmatically enable customer-managed keys for SSE, you can use the [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp), the [Storage Resource Provider Client Library for .NET](https://docs.microsoft.com/dotnet/api), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), or the [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 
 To use customer-managed keys with SSE, you must assign a storage account identity to the storage account. You can set the identity by executing the following PowerShell or Azure CLI command:
 
 ```powershell
-Set-AzureRmStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
+Set-AzStorageAccount -ResourceGroupName $resourceGroup -Name $accountName -AssignIdentity
 ```
 
 ```azurecli-interactive
-az storage account \
-    --account-name <account_name> \
+az storage account update \
+    --name <account_name> \
     --resource-group <resource_group> \
     --assign-identity
 ```
 
-You can enable Soft Delete and Do Not Purge by executing the following PowerShell or Azure CLI commands:
+If you do not have a keyvault, you can create it from the portal, Powershell or CLI:
 
 ```powershell
-($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
-$vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
-enableSoftDelete -Value 'True'
+New-AzKeyVault -Name <vault_name> -ResourceGroupName <resource_group> -Location <location>
+```
 
-Set-AzureRmResource -resourceid $resource.ResourceId -Properties
+```azurecli-interactive
+az keyvault create -n <vault_name> -g <resource_group> -l <region> --enable-soft-delete --enable-purge-protection
+```
+
+If you are using an existing key vault, you need to enable Soft Delete and Do Not Purge in your vault by executing the following PowerShell or Azure CLI commands:
+
+```powershell
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName $vaultName).ResourceId).Properties `
+    | Add-Member -MemberType NoteProperty -Name enableSoftDelete -Value 'True'
+
+Set-AzResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 
-($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
-$vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
-enablePurgeProtection -Value 'True'
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName $vaultName).ResourceId).Properties `
+    | Add-Member -MemberType NoteProperty -Name enablePurgeProtection -Value 'True'
 
-Set-AzureRmResource -resourceid $resource.ResourceId -Properties
+Set-AzResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 ```
 
 ```azurecli-interactive
-az resource update \
-    --id $(az keyvault show --name <vault_name> -o tsv | awk '{print $1}') \
-    --set properties.enableSoftDelete=true
-
-az resource update \
-    --id $(az keyvault show --name <vault_name> -o tsv | awk '{print $1}') \
-    --set properties.enablePurgeProtection=true
+az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
 ```
 
 ### Step 3: Enable encryption with customer-managed keys
@@ -99,7 +103,7 @@ To specify your key from a URI, follow these steps:
 
 #### Specify a key from a key vault
 
-To specify your key from a key vault, follow these steps:
+You need to have a key vault, and a key in that key vault. To specify your key from a key vault, follow these steps:
 
 1. Choose the **Select from Key Vault** option.
 2. Choose the key vault containing the key you want to use.
@@ -116,12 +120,27 @@ You can also grant access via the Azure portal by navigating to the Azure Key Va
 You can associate the above key with an existing storage account using the following PowerShell commands:
 
 ```powershell
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
-$keyVault = Get-AzureRmKeyVault -VaultName "mykeyvault"
+$storageAccount = Get-AzStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
+$keyVault = Get-AzKeyVault -VaultName "mykeyvault"
 $key = Get-AzureKeyVaultKey -VaultName $keyVault.VaultName -Name "keytoencrypt"
-Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
+Set-AzKeyVaultAccessPolicy `
+    -VaultName $keyVault.VaultName `
+    -ObjectId $storageAccount.Identity.PrincipalId `
+    -PermissionsToKeys wrapkey,unwrapkey,get
+Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
+    -AccountName $storageAccount.StorageAccountName `
+    -KeyvaultEncryption `
+    -KeyName $key.Name `
+    -KeyVersion $key.Version `
+    -KeyVaultUri $keyVault.VaultUri
 ```
+
+```azurecli-interactive
+kv_uri=$(az keyvault show -n <vault_name> -g <resource_group> --query properties.vaultUri -o tsv)
+key_version=$(az keyvault key list-versions -n <key_name> --vault-name <vault_name> --query [].kid -o tsv | cut -d '/' -f 6)
+az storage account update -n <account_name> -g <resource_group> --encryption-key-name <key_name> --encryption-key-version $key_version --encryption-key-source Microsoft.Keyvault --encryption-key-vault $kv_uri 
+```
+
 
 ### Step 5: Copy data to storage account
 
@@ -149,7 +168,7 @@ Storage Service Encryption is available for Azure Managed Disks with Microsoft-m
 Azure Disk Encryption provides integration between OS-based solutions like BitLocker and DM-Crypt and Azure KeyVault. Storage Service Encryption provides encryption natively at the Azure storage platform layer, below the virtual machine.
 
 **Can I revoke access to the encryption keys?**
-Yes, you can revoke access at any time. There are several ways to revoke access to your keys. Refer to [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) and [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault) for more details. Revoking access will effectively block access to all blobs in the storage account as the account encryption key is inaccessible by Azure Storage.
+Yes, you can revoke access at any time. There are several ways to revoke access to your keys. Refer to [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/) and [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault) for more details. Revoking access will effectively block access to all blobs in the storage account as the account encryption key is inaccessible by Azure Storage.
 
 **Can I create a storage account and key in different region?**  
 No, the storage account and the Azure Key Vault and key need to be in the same region.
@@ -167,7 +186,7 @@ SSE is enabled for all storage accounts and for Azure Blob storage, Azure Files,
 Is it an Azure Resource Manager storage account? Classic storage accounts are not supported with customer-managed keys. SSE with customer-managed keys can only be enabled on Resource Manager storage accounts.
 
 **What is Soft Delete and Do Not Purge? Do I need to enable this setting to use SSE with customer-managed keys?**  
-Soft Delete and Do Not Purge must be enabled to use SSE with customer-managed keys. These settings ensure that your key is not accidently or intentionally deleted. The maximum retention period of the keys is set to 90 days, protecting users against malicious actors and ransomware attacks. This setting cannot be disabled.
+Soft Delete and Do Not Purge must be enabled to use SSE with customer-managed keys. These settings ensure that your key is not accidentally or intentionally deleted. The maximum retention period of the keys is set to 90 days, protecting users against malicious actors and ransomware attacks. This setting cannot be disabled.
 
 **Is SSE with customer-managed keys only permitted in specific regions?**  
 SSE with customer-managed keys is available in all regions for Azure Blob storage and Azure Files.

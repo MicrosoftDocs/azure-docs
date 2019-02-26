@@ -4,15 +4,16 @@ description: This article describes how to configure Azure Multi-Factor Authenti
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/26/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Configure Azure Multi-Factor Authentication settings
 
@@ -254,6 +255,9 @@ Users can also create app passwords after registration. The app passwords can be
 
 The _Trusted IPs_ feature of Azure Multi-Factor Authentication is used by administrators of a managed or federated tenant. The feature bypasses two-step verification for users who sign in from the company intranet. The feature is available with the full version of Azure Multi-Factor Authentication, and not the free version for administrators. For details on how to get the full version of Azure Multi-Factor Authentication, see [Azure Multi-Factor Authentication](multi-factor-authentication.md).
 
+> [!NOTE]
+> MFA trusted IPs and conditional access named locations only work with IPV4 addresses.
+
 If your organization deploys the NPS extension to provide MFA to on-premises applications note the source IP address will always appear to be the NPS server the authentication attempt flows through.
 
 | Azure AD tenant type | Trusted IPs feature options |
@@ -382,6 +386,6 @@ The feature reduces the number of authentications on web apps, which normally pr
 
 After you enable the remember Multi-Factor Authentication feature, users can mark a device as trusted when they sign in by selecting **Don't ask again**.
 
-# Next steps
+## Next steps
 
-[Modify Azure AD sign-in page branding](..\fundamentals\customize-branding.md)
+[Modify Azure AD sign-in page branding](../fundamentals/customize-branding.md)

@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 11/15/2018
 ms.author: ellacroi
 
----  
+---
 
 # Azure Applications: Solution Template Offer Publishing Guide
 
@@ -37,7 +37,7 @@ These solution templates are transaction offers, which are deployed and billed t
 |  |  |
 
 
-## Next Steps
+## Next steps
 If you haven't already done so, [register](https://azuremarketplace.microsoft.com/sell) in the marketplace.
 
 If you're registered and are creating a new offer or working on an existing one, sign in to [Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer.

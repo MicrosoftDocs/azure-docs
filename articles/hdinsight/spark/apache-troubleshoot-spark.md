@@ -18,7 +18,7 @@ Learn about the top issues and their resolutions when working with [Apache Spark
 
 ### Resolution steps
 
-The configuration values for this procedure were previously set in HDInsight. To determine which Spark configurations need to be set and to what values, see [What causes an Apache Spark application OutofMemoryError exception](#what-causes-a-spark-application-outofmemoryerror-exception). 
+The configuration values for this procedure were previously set in HDInsight. To determine which Spark configurations need to be set and to what values, see What causes an Apache Spark application OutofMemoryError exception. 
 
 1. In the list of clusters, select **Spark2**.
 
@@ -87,7 +87,7 @@ These changes are cluster-wide but can be overridden when you submit the Spark j
 
 ### Resolution steps
 
-1. To determine which Spark configurations need to be set and to what values, see [What causes an Apache Spark application OutofMemoryError exception](#what-causes-a-spark-application-outofmemoryerror-exception).
+1. To determine which Spark configurations need to be set and to what values, see What causes an Apache Spark application OutofMemoryError exception.
 
 2. In the first cell of the Jupyter notebook, after the **%%configure** directive, specify the Spark configurations in valid JSON format. Change the actual values as necessary:
 
@@ -102,7 +102,7 @@ These changes are cluster-wide but can be overridden when you submit the Spark j
 
 ### Resolution steps
 
-1. To determine which Spark configurations need to be set and to what values, see [What causes an Apache Spark application OutofMemoryError exception](#what-causes-a-spark-application-outofmemoryerror-exception). 
+1. To determine which Spark configurations need to be set and to what values, see What causes an Apache Spark application OutofMemoryError exception. 
 
 2. Submit the Spark application to Livy by using a REST client like cURL. Use a command similar to the following. Change the actual values as necessary:
 
@@ -119,7 +119,7 @@ These changes are cluster-wide but can be overridden when you submit the Spark j
 
 ### Resolution steps
 
-1. To determine which Spark configurations need to be set and to what values, see [What causes an Apache Spark application OutofMemoryError exception](#what-causes-a-spark-application-outofmemoryerror-exception).
+1. To determine which Spark configurations need to be set and to what values, see What causes an Apache Spark application OutofMemoryError exception.
 
 2. Launch spark-shell by using a command similar to the following. Change the actual value of the configurations as necessary: 
 
@@ -213,7 +213,7 @@ The most likely cause of this exception is that not enough heap memory is alloca
 
 ### Additional reading
 
-- [Apache Spark memory management overview](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
+- [Apache Spark memory management overview](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
 - [Debug an Apache Spark application on an HDInsight cluster](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
 
 

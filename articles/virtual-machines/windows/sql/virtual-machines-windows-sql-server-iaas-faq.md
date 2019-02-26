@@ -44,13 +44,19 @@ This article provides answers to some of the most common questions about running
 
    Yes. Azure only maintains one image per major version and edition. For example, when a new SQL Server service pack is released, Azure adds a new image to the gallery for that service pack. The SQL Server image for the previous service pack is immediately removed from the Azure portal. However, it is still available for provisioning from PowerShell for the next three months. After three months, the previous service pack image is no longer available. This removal policy would also apply if a SQL Server version becomes unsupported when it reaches the end of its lifecycle.
 
+
+1. **Is it possible to deploy an older image of SQL Server that is not visible in the Azure Portal?**
+
+   Yes, by using PowerShell. For more information about deploying SQL Server VMs using PowerShell, see [How to provision SQL Server virtual machines with Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
+
 1. **Can I create a VHD image from a SQL Server VM?**
 
    Yes, but there are a few considerations. If you deploy this VHD to a new VM in Azure, you do not ge the SQL Server Configuration section in the portal. You must then manage the SQL Server configuration options through PowerShell. Also, you will be charged for at the rate of the SQL VM your image was originally based on. This is true even if you remove SQL Server from the VHD before deploying. 
 
 1. **Is it possible to set up configurations not shown in the virtual machine gallery (For example Windows 2008 R2 + SQL Server 2012)?**
 
-   No. For virtual machine gallery images that include SQL Server, you must select one of the provided images.
+   No. For virtual machine gallery images that include SQL Server, you must select one of the provided images either through the Azure portal or via [PowerShell](virtual-machines-windows-ps-sql-create.md). 
+
 
 ## Creation
 
@@ -75,7 +81,10 @@ This article provides answers to some of the most common questions about running
 
 1. **Can I change a VM to use my own SQL Server license if it was created from one of the pay-as-you-go gallery images?**
 
-   Yes. You can move easily move between the two licensing models, regardless of the image that was originally deployed. For more information, see [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md).
+   Yes. You can move easily move between the two licensing models, if you originally started with a pay-as-you-go gallery image. However, you will not be able to switch your license to PAYG if you initially started with a BYOL image. For more information, see [How to change the licensing model for a SQL Server VM](virtual-machines-windows-sql-ahb.md).
+
+   > [!Note]
+   > Currently, this facility is available only for Public Cloud customers.
 
 1. **Should I use BYOL images or SQL VM RP to create new SQL VM?**
 
@@ -83,11 +92,11 @@ This article provides answers to some of the most common questions about running
 
 1. **Will switching licensing models require any downtime for SQL Server?**
 
-   No. [Changing the licensing model](virtual-machines-windows-sql-ahb.md) does not require any downtime for SQL Server as the change is effective immediately and does not require a restart of the VM. 
+   No. [Changing the licensing model](virtual-machines-windows-sql-ahb.md) does not require any downtime for SQL Server as the change is effective immediately and does not require a restart of the VM. However, to register your SQL Server VM with the SQL VM resource provider, the [SQL IaaS extension](virtual-machines-windows-sql-server-agent-extension.md) is a prerequisite and installing the SQL IaaS extension restarts the SQL Server service. As such, if the SQL IaaS extension needs to be installed, then it should be done during a maintenance window. 
 
 1. **Can CSP subscriptions activate the Azure Hybrid Benefit?**
 
-   Yes. [Changing the licensing model](virtual-machines-windows-sql-ahb.md) is available for CSP subscriptions. 
+   Yes, the Azure Hybrid Benefit is available for CSP subscriptions. CSP customers should first deploy a pay-as-you-go image, and then [change the licensing model](virtual-machines-windows-sql-ahb.md) to bring-your-own-license.  
 
 1. **Will registering my VM with the new SQL VM resource provider bring additional costs?**
 
@@ -107,7 +116,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Is it possible to register self-deployed SQL Server VMs with the SQL VM resource provider?**
 
-   Yes. If you deployed SQL Server from your own media, you can register your SQL VM with the resource provider to get the manageability benefits provided by the SQL IaaS extension. However, you are unable to convert a self-deployed SQL VM to PAYG. 
+   Yes. If you deployed SQL Server from your own media, and installed the SQL IaaS extension you can register your SQL Server VM with the resource provider to get the manageability benefits provided by the SQL IaaS extension. However, you are unable to convert a self-deployed SQL VM to pay-as-you-go.  
 
 ## Administration
 

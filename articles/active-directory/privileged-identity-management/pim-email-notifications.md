@@ -10,11 +10,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: pim
-ms.date: 11/30/2018
+ms.subservice: pim
+ms.date: 01/05/2019
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
+ms.collection: M365-identity-device-management
 ---
 
 # Email notifications in PIM
@@ -38,16 +39,15 @@ PIM sends emails when the following events occur for Azure AD roles:
 
 - When a privileged role activation is pending approval
 - When a privileged role activation request is completed
-- When a privileged role is assigned as eligible
 - When Azure AD PIM is enabled
 
 Who receives these emails for Azure AD roles depends on your role, the event, and the notifications setting:
 
-| User | Role activation is pending approval | Role activation request is completed | Role is assigned as eligible | PIM is enabled |
-| --- | --- | --- | --- | --- |
-| Privileged Role Administrator</br>(Activated/Eligible) | Yes</br>(only if no explicit approvers are specified) | Yes* | Yes | Yes |
-| Security Administrator</br>(Activated/Eligible) | No | Yes* | Yes | Yes |
-| Global Administrator</br>(Activated/Eligible) | No | Yes* | Yes | Yes |
+| User | Role activation is pending approval | Role activation request is completed | PIM is enabled |
+| --- | --- | --- | --- |
+| Privileged Role Administrator</br>(Activated/Eligible) | Yes</br>(only if no explicit approvers are specified) | Yes* | Yes |
+| Security Administrator</br>(Activated/Eligible) | No | Yes* | Yes |
+| Global Administrator</br>(Activated/Eligible) | No | Yes* | Yes |
 
 \* If the [**Notifications** setting](pim-how-to-change-default-settings.md#notifications) is set to **Enable**.
 

@@ -1,21 +1,22 @@
 ---
 title: "Tutorial: Facebook content moderation - Azure Content Moderator"
 titlesuffix: Azure Cognitive Services
-description: Moderate Facebook pages with Content Moderator.
+description: In this tutorial, you will learn how to use machine-learning-based Content Moderator to help moderate Facebook posts and comments.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 09/18/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
 
 # Tutorial: Facebook content moderation with Content Moderator
 
-In this tutorial, we learn how to use machine-learning-based Content Moderator to help moderate Facebook posts and comments.
+In this tutorial, you will learn how to use machine-learning-based Content Moderator to help moderate Facebook posts and comments.
 
 The tutorial guides you through these steps:
 
@@ -31,7 +32,7 @@ The following figure shows the building blocks of the solution.
 
 ## Create a Content Moderator team
 
-Refer to the [Quickstart](quick-start.md) page to sign up for Content Moderator and create a team.
+Refer to the [Try Content Moderator on the web](quick-start.md) quickstart to sign up for Content Moderator and create a team.
 
 ## Configure image moderation workflow (threshold)
 
@@ -149,14 +150,10 @@ The solution sends all images and text posted on your Facebook page to Content M
 
 All Microsoft Cognitive Services SDKs and samples are licensed with the MIT License. For more details, see [LICENSE](https://microsoft.mit-license.org/).
 
-## Developer Code of Conduct
-
-Developers using Cognitive Services, including this client library & sample, are expected to follow the “Developer Code of Conduct for Microsoft Cognitive Services”, found at http://go.microsoft.com/fwlink/?LinkId=698895.
-
 ## Next steps
 
 1. [Watch a demo (video)](https://channel9.msdn.com/Events/Build/2017/T6033) of this solution from Microsoft Build 2017.
-1. [The Facebook sample on Github](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
+1. [The Facebook sample on GitHub](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
 1. https://docs.microsoft.com/azure/azure-functions/functions-create-github-webhook-triggered-function
 2. http://ukimiawz.github.io/facebook/2015/08/12/webhook-facebook-subscriptions/
 3. http://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token

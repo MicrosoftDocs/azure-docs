@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 06/03/2018
+ ms.date: 01/30/2018
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -96,6 +96,10 @@ Customers can take a snapshot of their managed disks and then use the snapshot t
 
 Yes, both unmanaged and managed disks are supported. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
 
+**Can I co-locate unmanaged and managed disks on the same VM?**
+
+No.
+
 **If I create a 128-GB disk and then increase the size to 130 GiB, will I be charged for the next disk size (256 GiB)?**
 
 Yes.
@@ -120,10 +124,6 @@ No. You can't update the computer name property. The new VM inherits it from the
 * [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
-**Can I co-locate unmanaged and managed disks on the same VM?**
-
-No.
-
 **When creating a disk from a blob, is there any continually existing relationship with that source blob?**
 
 No, when the new disk is created it is a full standalone copy of that blob at that time and there is no connection between the two. If you like, once you've created the disk, the source blob may be deleted without affecting the newly created disk in any way.
@@ -132,9 +132,9 @@ No, when the new disk is created it is a full standalone copy of that blob at th
 
 For managed disks you cannot rename them. However, you may rename an unmanaged disk as long as it is not currently attached to a VHD or VM.
 
-**Can I use GBT partitioning on an Azure Disk?**
+**Can I use GPT partitioning on an Azure Disk?**
 
-GBT partitioning can be used only on data disks, not OS disks. OS disks must use the MBR partition style.
+GPT partitioning can be used only on data disks, not OS disks. OS disks must use the MBR partition style.
 
 ## Standard SSD disks
 
@@ -183,6 +183,10 @@ No, Standard SSDs disks are only available as Managed Disks.
 No, Standard SSDs do not have single instance VM SLA. Use Premium SSD disks for single instance VM SLA.
 
 ## Migrate to Managed Disks
+
+**Is there any impact of migration on the Managed Disks performance?**
+
+Migration involves movement of the Disk from one Storage location to another. This is orchestrated via background copy of data which can take several hours to complete, typically less than 24Hrs depending on the amount of data in the disks. During that time your application can experience higher than usual read latency as some reads can get redirected to the original location, and can take longer to complete. There is no impact on write latency during this period.  
 
 **What changes are required in a pre-existing Azure Backup service configuration prior/after migration to Managed Disks?**
 
@@ -338,7 +342,7 @@ To achieve the disk throughput of Standard SSD and Standard HDD large disk sizes
 
 **What regions are the managed disk sizes larger than 4 TiB supported in?**
 
-At this time in the preview, the managed disk sizes are supported in West US Central only.
+At this time in the preview, the managed disk sizes are supported in West Central US, North Europe, West Europe, US West 2, US East 2, US East.
 
 **Do we support enabling Host Caching on the newer disk sizes?**
 

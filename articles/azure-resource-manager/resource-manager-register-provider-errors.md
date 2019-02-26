@@ -12,13 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/09/2018
+ms.date: 02/15/2019
 ms.author: tomfitz
 
 ---
 # Resolve errors for resource provider registration
 
-This article describes the errors you may encounter when using a resource provider that you have not previously used in your subscription.
+This article describes the errors you may encounter when using a resource provider that you haven't previously used in your subscription.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Symptom
 
@@ -37,40 +39,48 @@ Code: MissingSubscriptionRegistration
 Message: The subscription is not registered to use namespace {resource-provider-namespace}
 ```
 
-The error message should give you suggestions for the supported locations and API versions. You can change your template to one of the suggested values. Most providers are registered automatically by the Azure portal or the command-line interface you are using, but not all. If you have not used a particular resource provider before, you may need to register that provider.
+The error message should give you suggestions for the supported locations and API versions. You can change your template to one of the suggested values. Most providers are registered automatically by the Azure portal or the command-line interface you're using, but not all. If you haven't used a particular resource provider before, you may need to register that provider.
+
+Or, when disabling auto-shutdown for virtual machines, you may receive an error message similar to:
+
+```
+Code: AuthorizationFailed
+Message: The client '<identifier>' with object id '<identifier>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope ...
+```
 
 ## Cause
 
-You receive these errors for one of three reasons:
+You receive these errors for one of these reasons:
 
-1. The resource provider has not been registered for your subscription
-1. API version not supported for the resource type
-1. Location not supported for the resource type
+* The required resource provider hasn't been registered for your subscription
+* API version not supported for the resource type
+* Location not supported for the resource type
+* For auto-shutdown of VMs, the Microsoft.DevTestLab resource provider must be registered.
 
 ## Solution 1 - PowerShell
 
-For PowerShell, use **Get-AzureRmResourceProvider** to see your registration status.
+For PowerShell, use **Get-AzResourceProvider** to see your registration status.
 
 ```powershell
-Get-AzureRmResourceProvider -ListAvailable
+Get-AzResourceProvider -ListAvailable
 ```
 
-To register a provider, use **Register-AzureRmResourceProvider** and provide the name of the resource provider you wish to register.
+To register a provider, use **Register-AzResourceProvider** and provide the name of the resource provider you wish to register.
 
 ```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
+Register-AzResourceProvider -ProviderNamespace Microsoft.Cdn
 ```
 
 To get the supported locations for a particular type of resource, use:
 
 ```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 ```
 
 To get the supported API versions for a particular type of resource, use:
 
 ```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
 ## Solution 2 - Azure CLI
@@ -97,10 +107,22 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
 You can see the registration status and register a resource provider namespace through the portal.
 
+1. From the portal, select **All services**.
+
+   ![Select all services](./media/resource-manager-register-provider-errors/select-all-services.png)
+
+1. Select **Subscriptions**.
+
+   ![Select subscriptions](./media/resource-manager-register-provider-errors/select-subscriptions.png)
+
+1. From the list of subscriptions, select the subscription you want to use for registering the resource provider.
+
+   ![Select subscription to register resource provider](./media/resource-manager-register-provider-errors/select-subscription-to-register.png)
+
 1. For your subscription, select **Resource providers**.
 
-   ![select resource providers](./media/resource-manager-register-provider-errors/select-resource-provider.png)
+   ![Select resource providers](./media/resource-manager-register-provider-errors/select-resource-provider.png)
 
-1. Look at the list of resource providers, and if necessary, select the **Register** link to register the resource provider of the type you are trying to deploy.
+1. Look at the list of resource providers, and if necessary, select the **Register** link to register the resource provider of the type you're trying to deploy.
 
-   ![list resource providers](./media/resource-manager-register-provider-errors/list-resource-providers.png)
+   ![List resource providers](./media/resource-manager-register-provider-errors/list-resource-providers.png)

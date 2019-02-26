@@ -1,16 +1,16 @@
 ---
-title: Create and deploy interoperable ONNX models
+title: Create & deploy interoperable ONNX models
 titleSuffix: Azure Machine Learning service
 description: Learn about ONNX and how to use Azure Machine Learning to create and deploy ONNX models 
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 
 ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
-ms.date: 09/24/2018
+ms.date: 12/3/2018
 ms.custom: seodec18
 ---
 
@@ -32,7 +32,7 @@ There is also an ecosystem of tools for visualizing and accelerating ONNX models
 
 [ONNX models can be deployed](#deploy) to the cloud using Azure Machine Learning and ONNX Runtime. They can also be deployed to Windows 10 devices using [Windows ML](https://docs.microsoft.com/windows/ai/). They can even be deployed to other platforms using converters that are available from the ONNX community. 
 
-[ ![ONNX flow diagram showing training, converters, and deployment](media/concept-onnx/onnx.png) ]
+[![ONNX flow diagram showing training, converters, and deployment](media/concept-onnx/onnx.png) ]
 (./media/concept-onnx/onnx.png#lightbox)
 
 ## Get ONNX models
@@ -66,7 +66,7 @@ With Azure Machine Learning service, you can deploy, manage, and monitor your ON
 
 ### Install and configure ONNX Runtime
 
-ONNX Runtime is an open source high-performance inference engine for ONNX models. It provides hardware acceleration on both CPU and GPU, with APIs available for Python, C#, and C. ONNX Runtime supports ONNX 1.2+ models and runs on Linux, Windows, and Mac. Python packages are available on [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime), [GPU](https://pypi.org/project/onnxruntime-gpu)), and [C# package](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/) is on [Nuget.org](https://www.nuget.org). See more about the project on [Github](https://github.com/Microsoft/onnxruntime). 
+ONNX Runtime is an open source high-performance inference engine for ONNX models. It provides hardware acceleration on both CPU and GPU, with APIs available for Python, C#, and C. ONNX Runtime supports ONNX 1.2+ models and runs on Linux, Windows, and Mac. Python packages are available on [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime), [GPU](https://pypi.org/project/onnxruntime-gpu)), and [C# package](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/) is on [Nuget.org](https://www.nuget.org). See more about the project on [GitHub](https://github.com/Microsoft/onnxruntime). 
 
 To install ONNX Runtime for Python, use:
 ```python
@@ -199,6 +199,6 @@ Learn more about ONNX or contribute to the project:
 + [ONNX code on GitHub](https://github.com/onnx/onnx)
 
 Learn more about ONNX Runtime or contribute to the project:
-+ [ONNX Runtime Github Repo](https://github.com/Microsoft/onnxruntime)
++ [ONNX Runtime GitHub Repo](https://github.com/Microsoft/onnxruntime)
 
 

@@ -5,18 +5,36 @@ description: Use a pattern to extract data from a well-formatted template uttera
 ms.custom: seodec18
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use pattern roles. 
 ---
 
-# Tutorial 4: Extract contextually-related patterns
+# Tutorial: Extract contextually-related patterns using roles
 
 In this tutorial, use a pattern to extract data from a well-formatted template utterance. The template utterance uses a simple entity and roles to extract related data such as origin location and destination location.  When using patterns, fewer example utterances are needed for the intent.
+
+
+**In this tutorial, you learn how to:**
+
+> [!div class="checklist"]
+> * Import example app
+> * Create new entities
+> * Create new intent
+> * Train
+> * Publish
+> * Get intents and entities from endpoint
+> * Create pattern with roles
+> * Create phrase list of Cities
+> * Get intents and entities from endpoint
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## Using roles in patterns
 
 The purpose of roles is to extract contextually-related entities in an utterance. In the utterance, `Move new employee Robert Williams from Sacramento and San Francisco`, the origin city, and destination city values are related to each other and use common language to denote each location. 
 
@@ -33,27 +51,12 @@ Because the example utterance `Move new employee Robert Williams from Sacramento
 
 If you have difficulty with simple entity detection because it is a name such as a city, consider adding a phrase list of similar values. This helps the detection of the city name by giving LUIS an additional signal about that type of word or phrase. Phrase lists only help the pattern by helping with entity detection, which is necessary for the pattern to match. 
 
-**In this tutorial, you learn how to:**
-
-> [!div class="checklist"]
-> * Use existing tutorial app
-> * Create new entities
-> * Create new intent
-> * Train
-> * Publish
-> * Get intents and entities from endpoint
-> * Create pattern with roles
-> * Create phrase list of Cities
-> * Get intents and entities from endpoint
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## Use existing app
+## Import example app
 Continue with the app created in the last tutorial, named **HumanResources**. 
 
-If you do not have the HumanResources app from the previous tutorial, use the following steps:
+Use the following steps:
 
-1.  Download and save [app JSON file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
+1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
 
 2. Import the JSON into a new app.
 

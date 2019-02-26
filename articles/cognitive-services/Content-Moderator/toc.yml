@@ -1,8 +1,10 @@
 - name: Content Moderator Documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What is Content Moderator?
     href: overview.md
+    expanded: true
 - name: Quickstarts
   items:
   - name: Getting started
@@ -19,6 +21,10 @@
       items:
       - name: Analyze text content
         href: text-moderation-quickstart-python.md
+- name: Tutorials
+  items:
+  - name: Moderate e-commerce images
+    href: ecommerce-retail-catalog-moderation.md
 - name: Concepts
   items:
   - name: Image moderation
@@ -101,8 +107,6 @@
     items:
     - name: Facebook content moderation
       href: facebook-post-moderation.md
-    - name: eCommerce image moderation
-      href: ecommerce-retail-catalog-moderation.md
     - name: Video and trancript moderation
       href: video-transcript-moderation-review-tutorial-dotnet.md
   - name: Export or delete account data
@@ -115,20 +119,26 @@
     href: api-reference.md
   - name: SDKs
     items:
+    - name: .NET
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet
     - name: Java
-      href: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-cognitiveservices-contentmoderator%22
+      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable
     - name: Node.js
       href: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-contentmoderator/?view=azure-node-latest
     - name: Python
       href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python
-    - name: .NET
-      href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator
+    - name: Go
+      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator
 - name: Resources
   items:
   - name: Samples
     items:
     - name: .NET SDK samples
       href: samples-dotnet.md
+    - name: Python SDK samples
+      href: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples 
+    - name: Node.js SDK samples
+      href: https://github.com/Azure-Samples/cognitive-services-node-sdk-samples
     - name: REST API samples in C#
       href: samples-rest.md
     - name: Other Azure samples

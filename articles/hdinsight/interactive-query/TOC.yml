@@ -2,7 +2,7 @@
   href: /azure/hdinsight
 - name: Interactive Query on HDInsight
   items:
-  - name: Component versioning
+  - name: Apache Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true
   - name: HDInsight 4.0
@@ -25,7 +25,7 @@
     - name: Using Azure Storage
       href: ../hdinsight-hadoop-use-blob-storage.md
       maintainContext: true
-    - name: Using Azure Data Lake Store
+    - name: Using Azure Data Lake Storage
       href: ../hdinsight-hadoop-use-data-lake-store.md
       maintainContext: true
   - name: Use Apache Hadoop for interactive queries
@@ -49,7 +49,7 @@
       - name: Use the Apache Hive View
         href: ../hadoop/apache-hadoop-use-hive-ambari-view.md
         maintainContext: true
-      - name: Use Beeline
+      - name: Use Apache Hive Beeline
         href: ../hadoop/apache-hadoop-use-hive-beeline.md
         maintainContext: true
       - name: Use REST API
@@ -70,7 +70,7 @@
       - name: Use the Query Console
         href: ../hadoop/apache-hadoop-use-hive-query-console.md
         maintainContext: true
-    - name: Use a Java UDF with Hive
+    - name: Use a Java UDF with Apache Hive
       href: ../hadoop/apache-hadoop-hive-java-udf.md
       maintainContext: true
     - name: Submit Apache Hadoop jobs
@@ -83,9 +83,6 @@
       maintainContext: true
     - name: Process and analyze JSON documents
       href: ../hadoop/using-json-in-hive.md
-      maintainContext: true
-    - name: Serialize data with Avro Library
-      href: ../hadoop/apache-hadoop-dotnet-avro-serialization.md
       maintainContext: true
     - name: Use C# user-defined functions
       href: ../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md
@@ -204,6 +201,7 @@
         href: ../hdinsight-hadoop-create-linux-clusters-portal.md
         maintainContext: true
       - name: Use Azure Resource Manager templates
+        displayName: resource manager template, arm template, resource manager group
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
     - name: Create on-demand clusters
@@ -367,12 +365,13 @@
     href: ../hdinsight-go-sdk-overview.md
   - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
-  - name: .NET (Avro)
-    href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST
     href: /rest/api/hdinsight/
   - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
+  - name: Resource Manager template
+    displayName: resource manager template, arm template, resource manager group
+    href: /azure/templates/microsoft.hdinsight/allversions
 - name: Resources
   items:
   - name: Release notes

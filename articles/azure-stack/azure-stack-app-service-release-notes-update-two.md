@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: sethm
+ms.lastreviewed: 05/18/2018
 
 ---
 # App Service on Azure Stack update 2 release notes
@@ -62,7 +63,7 @@ Azure App Service on Azure Stack Update 2 includes the following improvements an
   - Updated .Net Core components to be consistent with Azure App Service in public cloud.
   - Updated Kudu
 
-- Auto Swap of deployment slots feature enabled - [Configuring Auto Swap](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing#configure-auto-swap)
+- Auto Swap of deployment slots feature enabled - [Configuring Auto Swap](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap)
 
 - Testing in Production feature enabled - [Introduction to Testing in Production](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
 

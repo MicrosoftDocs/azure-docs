@@ -1,20 +1,20 @@
 ---
 title: Azure CLI Azure Cache for Redis samples | Microsoft Docs
 description: Azure CLI samples for Azure Cache for Redis.
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 
 ms.assetid: 8d2de145-50c0-4f76-bf8f-fdf679f03698
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/14/2017
-ms.author: wesmc
+ms.author: yegu
 
 ---
 # Azure CLI Samples for Azure Cache for Redis
@@ -29,7 +29,7 @@ The following table includes links to bash scripts built using the Azure CLI.
 | [Get cache details](./scripts/show-cache.md) | Gets details of an Azure Cache for Redis instance, including provisioning status. |
 | [Get the hostname, ports, and keys](./scripts/cache-keys-ports.md) | Gets the hostname, ports, and keys for an Azure Cache for Redis instance. |
 |**Web app plus cache**||
-| [Connect a web app to an Azure Cache for Redis](./../app-service/scripts/app-service-cli-app-service-redis.md) | Creates an Azure web app and an Azure Cache for Redis, then adds the redis connection details to the app settings. |
+| [Connect a web app to an Azure Cache for Redis](./../app-service/scripts/cli-connect-to-redis.md) | Creates an Azure web app and an Azure Cache for Redis, then adds the redis connection details to the app settings. |
 |**Delete cache**||
 | [Delete a cache](./scripts/delete-cache.md) | Deletes an Azure Cache for Redis instance  |
 | | |

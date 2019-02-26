@@ -1,6 +1,6 @@
 ---
-title: Standard properties in Azure Monitor Log Analytics records | Microsoft Docs
-description: Describes properties that are common to multiple data types in Azure Monitor Log Analytics.
+title: Standard properties in Azure Monitor log records | Microsoft Docs
+description: Describes properties that are common to multiple data types in Azure Monitor logs.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -10,13 +10,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 01/14/2019
 ms.author: bwren
-ms.component: 
 ---
 
-# Standard properties in Log Analytics records
-Data in [Log Analytics](../log-query/log-query-overview.md) is stored as a set of records, each with a particular data type that has a unique set of properties. Many data types will have standard properties that are common across multiple types. This article describes these properties and provides examples of how you can use them in queries.
+# Standard properties in Azure Monitor log records
+Log data in Azure Monitor is [stored as a set of records](../log-query/log-query-overview.md), each with a particular data type that has a unique set of properties. Many data types will have standard properties that are common across multiple types. This article describes these properties and provides examples of how you can use them in queries.
 
 Some of these properties are still in the process of being implemented, so you may see them in some data types but not yet in others.
 
@@ -81,8 +80,72 @@ AzureActivity
 ) on _ResourceId  
 ```
 
+## \_IsBillable
+The **\_IsBillable** property specifies whether ingested data is billable. Data with **\_IsBillable** equal to _false_ are collected for free and not billed to your Azure account.
+
+### Examples
+To get a list of computers sending billed data types, use the following query:
+
+> [!NOTE]
+> Use queries with `union withsource = tt *` sparingly as scans across data types are expensive to execute. 
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize TotalVolumeBytes=sum(_BilledSize) by computerName
+```
+
+This can be extended to return the count of computers per hour that are sending billed data types:
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
+```
+
+## \_BilledSize
+The **\_BilledSize** property specifies the size in bytes of data that will be billed to your Azure account if **\_IsBillable** is true.
+
+### Examples
+To see the size of billable events ingested per computer, use the `_BilledSize` property which provides the size in bytes:
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last 
+```
+
+To see the count of events ingested per computer, use the following query:
+
+```Kusto
+union withsource = tt *
+| summarize count() by Computer | sort by count_ nulls last
+```
+
+To see the count of billable events ingested per computer, use the following query: 
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| summarize count() by Computer  | sort by count_ nulls last
+```
+
+If you want to see counts for billable data types are sending data to a specific computer, use the following query:
+
+```Kusto
+union withsource = tt *
+| where Computer == "computer name"
+| where _IsBillable == true 
+| summarize count() by tt | sort by count_ nulls last 
+```
+
+
 ## Next steps
 
-- Read more about how [Log Analytics data is stored](../log-query/log-query-overview.md).
-- Get a lesson on [writing queries in Log Analytics](../../azure-monitor/log-query/get-started-queries.md).
-- Get a lesson on [joining tables in Log Analytics queries](../../azure-monitor/log-query/joins.md).
+- Read more about how [Azure Monitor log data is stored](../log-query/log-query-overview.md).
+- Get a lesson on [writing log queries](../../azure-monitor/log-query/get-started-queries.md).
+- Get a lesson on [joining tables in log queries](../../azure-monitor/log-query/joins.md).

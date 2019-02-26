@@ -1,5 +1,5 @@
 ---
-title:  Allocate partitions and replicas for query and indexing in Azure Search | Microsoft Docs
+title:  Allocate partitions and replicas for query and indexing - Azure Search
 description: Adjust partition and replica computer resources in Azure Search, where each resource is priced in billable search units.
 author: HeidiSteen
 manager: cgronlun
@@ -8,6 +8,7 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
+ms.custom: seodec2018
 ---
 
 # Allocate partitions and replicas for query and indexing workloads in Azure Search

@@ -1,10 +1,7 @@
 ---
 title: Azure Cosmos DB performance tips for .NET
 description: Learn client configuration options to improve Azure Cosmos DB database performance
-keywords: how to improve database performance
-services: cosmos-db
 author: SnehaGunda
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
@@ -29,7 +26,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 1. **Connection policy: Use direct connection mode**
 
-    How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of observed client-side latency. There are two key configuration settings available for configuring client Connection Policy – the connection *mode* and the [connection *protocol*](#connection-protocol).  The two available modes are:
+    How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of observed client-side latency. There are two key configuration settings available for configuring client Connection Policy – the connection *mode* and the connection *protocol*.  The two available modes are:
 
    * Gateway Mode (default)
       
@@ -42,12 +39,12 @@ So if you're asking "How can I improve my database performance?" consider the fo
     * TCP
     * HTTPS
 
-    When using Gateway mode, Azure Cosmos DB uses port 443 and MongoDB API uses 10250, 10255 and 10256 ports. The 10250 port maps to a default Mongodb instance without  geo-replication and 10255/10256 ports map to the Mongodb instance with geo-replication functionality. When using TCP in Direct Mode, in addition to the Gateway ports, you need to ensure the port range between 10000 and 20000 is open because Azure Cosmos DB uses dynamic TCP ports. If these ports are not open and you attempt to use TCP, you receive a 503 Service Unavailable error. The following table shows connectivity modes available for different APIs and the service ports user for each API:
+    When using Gateway mode, Cosmos DB uses port 443 and ports 10250, 10255 and 10256 when using Azure Cosmos DB's API for MongoDB. The 10250 port maps to a default MongoDB instance without geo-replication and 10255/10256 ports map to the MongoDB instance with geo-replication functionality. When using TCP in Direct Mode, in addition to the Gateway ports, you need to ensure the port range between 10000 and 20000 is open because Azure Cosmos DB uses dynamic TCP ports. If these ports are not open and you attempt to use TCP, you receive a 503 Service Unavailable error. The following table shows connectivity modes available for different APIs and the service ports user for each API:
 
     |Connection mode  |Supported protocol  |Supported SDKs  |API/Service port  |
     |---------|---------|---------|---------|
-    |Gateway  |   HTTPS    |  All SDKS    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(443), Graph(443)    |
-    |Direct    |    HTTPS     |  .Net and Java SDK    |    SQL(443)   |
+    |Gateway  |   HTTPS    |  All SDKS    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(10350), Graph(443)    |
+    |Direct    |    HTTPS     |  .Net and Java SDK    |   Ports within 10,000-20,000 range    |
     |Direct    |     TCP    |  .Net SDK    | Ports within 10,000-20,000 range |
 
     Azure Cosmos DB offers a simple and open RESTful programming model over HTTPS. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and is available through the .NET client SDK. Both Direct TCP and HTTPS use SSL for initial authentication and encrypting traffic. For best performance, use the TCP protocol when possible.

@@ -5,12 +5,12 @@ services: dms
 author: HJToland3
 ms.author: scphang
 manager: craigg
-ms.reviewer: 
+ms.reviewer: douglasl
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 12/19/2018
 ---
 
 # Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 > * Monitor the migration.
 
 > [!NOTE]
-> Using the Azure Database Migration Service to perform an online migration requires creating an instance based on the Premium (Preview) pricing tier.
+> Using the Azure Database Migration Service to perform an online migration requires creating an instance based on the Premium pricing tier.
 
 > [!IMPORTANT]
 > For an optimal migration experience, Microsoft recommends creating an instance of the Azure Database Migration Service in the same Azure region as the target database. Moving data across regions or geographies can slow down the migration process and introduce errors.
@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 To complete this tutorial, you need to:
 
-- Download and install [PostgreSQL community edition](https://www.postgresql.org/download/) 9.5, 9.6, or 10. The source PostgreSQL Server version must be 9.5.11, 9.6.7, 10, or later. For more information, see the article [Supported PostgreSQL Databse Versions](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+- Download and install [PostgreSQL community edition](https://www.postgresql.org/download/) 9.5, 9.6, or 10. The source PostgreSQL Server version must be 9.5.11, 9.6.7, 10, or later. For more information, see the article [Supported PostgreSQL Database Versions](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
 
     In addition, the on-premises PostgreSQL version must match the Azure Database for PostgreSQL version. For example, PostgreSQL 9.5.11.5 can only migrate to Azure Database for PostgreSQL 9.5.11 and not to version 9.6.7.
 

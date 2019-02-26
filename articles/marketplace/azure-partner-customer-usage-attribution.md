@@ -1,4 +1,4 @@
----  
+---
 title: Azure partner and customer usage attribution
 description: Overview of how to track customer usage for Azure Marketplace solutions
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
 
----  
+---
 # Azure partner customer usage attribution
 
 As a software partner for Azure, your solutions require Azure components or they need to be deployed directly on the Azure infrastructure. Customers who deploy a partner solution and provision their own Azure resources can find it difficult to gain visibility into the status of the deployment, and get optics into the impact on Azure growth. When you add a higher level of visibility, you align with the Microsoft sales teams and gain credit for Microsoft partner programs. 
@@ -28,14 +28,18 @@ As a Microsoft partner, you can associate Azure usage with any Azure resources t
 - Azure Resource Manager templates: Resource Manager templates or solution templates to deploy the Azure services to run the partner's software. Partners can create a Resource Manager template to define the infrastructure and configuration of their Azure solution. A Resource Manager template allows you and your customers to deploy your solution throughout its lifecycle. You can be confident that your resources are deployed in a consistent state. 
 - Azure Resource Manager APIs: Partners can call the Resource Manager APIs directly to deploy a Resource Manager template or to generate the API calls to directly provision Azure services. 
 
-Customer usage attribution is required on all [solution templates](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md) published to Azure Marketplace. 
+Customer usage attribution is required on [Azure Application offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer) published to Azure Marketplace.
 
 ## Use Resource Manager templates
 
-Many partner solutions are deployed on a customer’s subscription by using Resource Manager templates. If you have a Resource Manager template that's available in the Azure Marketplace, on GitHub, or as a Quickstart, the process to modify your template to enable the new tracking method should be straight forward. If you aren't using an Azure Resource Manager template, here are a few links to help you better understand Resource Manager templates and how to create one: 
+Many partner solutions are deployed on a customer’s subscription by using Resource Manager templates. If you have a Resource Manager template that's available in the Azure Marketplace, on GitHub, or as a Quickstart, the process to modify your template to enable the new tracking method should be straight forward.
 
-*	[Create and deploy your first Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)
-*	[Create a solution template for Azure Marketplace](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-solution-template-creation)
+For more information on creating and publishing Solution Templates, see
+
+* [Create and deploy your first Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+* [Azure Application offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer).
+* Video: [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
+
 
 ## Add a GUID to your template
 

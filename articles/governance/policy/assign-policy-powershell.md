@@ -1,38 +1,39 @@
 ---
-title: Quickstart - Use PowerShell to create a policy assignment to identify non-compliant resources in your Azure environment
-description: In this quickstart, you use PowerShell to create an Azure Policy assignment to identify non-compliant resources.
+title: Create a policy for non-compliant resources with Azure PowerShell
+description: Use Azure PowerShell to create an Azure Policy assignment to identify non-compliant resources.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: azure-policy
-ms.custom: mvc
 manager: carmonm
+ms.custom: seodec18
 ---
-# Quickstart: Create a policy assignment to identify non-compliant resources using the Azure RM PowerShell module
+# Create a policy assignment to identify non-compliant resources using Azure PowerShell
 
 The first step in understanding compliance in Azure is to identify the status of your resources. In
 this quickstart, you create a policy assignment to identify virtual machines that aren't using
 managed disks. When complete, you'll identify virtual machines that are *non-compliant* with the
 policy assignment.
 
-The AzureRM PowerShell module is used to create and manage Azure resources from the command line or
-in scripts. This guide explains how to use AzureRM to create a policy assignment. The policy
-identifies non-compliant resources in your Azure environment.
+The Azure PowerShell module is used to create and manage Azure resources from the command line or
+in scripts. This guide explains how to use Az to create a policy assignment. The policy identifies
+non-compliant resources in your Azure environment.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
 before you begin.
 
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
+
 ## Prerequisites
 
 - If you haven't already, install the [ARMClient](https://github.com/projectkudu/ARMClient). It's a tool that sends HTTP requests to Azure Resource Manager-based APIs.
-- Before you start, make sure that the latest version of PowerShell is installed. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for detailed information.
-- Update your AzureRM PowerShell module to the latest version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+- Before you start, make sure that the latest version of Azure PowerShell is installed. See [Install Azure PowerShell module](/powershell/azure/install-az-ps) for detailed information.
 - Register the Policy Insights resource provider using Azure PowerShell. Registering the resource provider makes sure that your subscription works with it. To register a resource provider, you must have permission to the register resource provider operation. This operation is included in the Contributor and Owner roles. Run the following command to register the resource provider:
 
   ```azurepowershell-interactive
-  Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
+  Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
   For more information about registering and viewing resource providers, see [Resource Providers and Types](../../azure-resource-manager/resource-manager-supported-services.md)
@@ -46,9 +47,9 @@ in the policy definition.
 Run the following commands to create a new policy assignment:
 
 ```azurepowershell-interactive
-$rg = Get-AzureRmResourceGroup -Name '<resourceGroupName>'
-$definition = Get-AzureRmPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs that do not use managed disks' }
-New-AzureRmPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit VMs without managed disks Assignment' -Scope $rg.ResourceId -PolicyDefinition $definition
+$rg = Get-AzResourceGroup -Name '<resourceGroupName>'
+$definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs that do not use managed disks' }
+New-AzPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit VMs without managed disks Assignment' -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
 The preceding commands use the following information:
@@ -67,16 +68,16 @@ Use the following information to identify resources that aren't compliant with t
 assignment you created. Run the following commands:
 
 ```azurepowershell-interactive
-$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs without managed disks Assignment' }
+$policyAssignment = Get-AzPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs without managed disks Assignment' }
 $policyAssignment.PolicyAssignmentId
 ```
 
-For more information about policy assignment IDs, see [Get-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/get-azurermpolicyassignment).
+For more information about policy assignment IDs, see [Get-AzPolicyAssignment](/powershell/module/az.resources/get-azpolicyassignment).
 
 Next, run the following command to get the resource IDs of the non-compliant resources that are
 output into a JSON file:
 
-```
+```console
 armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
 ```
 
@@ -114,7 +115,7 @@ the Azure portal view.
 To remove the assignment created, use the following command:
 
 ```azurepowershell-interactive
-Remove-AzureRmPolicyAssignment -Name 'audit-vm-manageddisks' -Scope '/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>'
+Remove-AzPolicyAssignment -Name 'audit-vm-manageddisks' -Scope '/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>'
 ```
 
 ## Next steps

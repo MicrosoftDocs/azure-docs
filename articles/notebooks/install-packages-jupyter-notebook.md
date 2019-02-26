@@ -36,13 +36,13 @@ If the command output indicates that the requirement is already satisfied, then 
 
 ## R
 
-Packages in R can be installed from CRAN or Github using the `install.packages` function in a code cell:
+Packages in R can be installed from CRAN or GitHub using the `install.packages` function in a code cell:
 
 ```r
 install.packages("package_name")
 ```
 
-You can also install prerelease versions and other development packages from Github using the devtools library:
+You can also install prerelease versions and other development packages from GitHub using the devtools library:
 
 ```r
 options(unzip = 'internal')

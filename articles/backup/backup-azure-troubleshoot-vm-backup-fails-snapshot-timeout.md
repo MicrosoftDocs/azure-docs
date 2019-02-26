@@ -47,20 +47,19 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 * This issue can also happen if multiple backups are triggered per day. Currently we recommend only one backup per day as the instant RPs are retained for 7 days and only 18 instant RPs can be associated with a VM at any given time. <br>
 
 Recommended Action:<br>
-To resolve this issue, remove the lock on the resource group and retry the operation to trigger clean-up.
-
+To resolve this issue, remove the lock on the resource group of the VM, and retry the operation to trigger clean-up.
 > [!NOTE]
 	> Backup service creates a separate resource group than the resource group of the VM to store restore point collection. Customers are advised not to lock the resource group created for use by the Backup service. The naming format of the resource group created by Backup service is: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
 
 **Step 1: [Remove lock from the restore point resource group](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Step 2: [Clean up restore point collection](#clean_up_restore_point_collection)**<br>
 
-## UserErrorKeyvaultPermissionsNotConfigured - Backup doesn't have sufficient permissions to the key vault for backup of encrypted VMs.
+## UserErrorKeyvaultPermissionsNotConfigured - Backup doesn't have sufficient permissions to the key vault for backup of encrypted VMs
 
 **Error code**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Error message**: Backup doesn't have sufficient permissions to the key vault for backup of encrypted VMs. <br>
 
-For backup operation to succeed on encrypted VMs, it must have permissions to access the key vault. This can be done using the [Azure portal](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#provide-permissions-to-backup) or through the [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
+For backup operation to succeed on encrypted VMs, it must have permissions to access the key vault. This can be done using the [Azure portal](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) or through the [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - Snapshot operation failed due to no network connectivity on the virtual machine
 
@@ -93,7 +92,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Cause 3: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Cause 4: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
-**Cause 5: [Backup service doesn't have permission to delete the old restore points because of a resource group lock](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)** <br>
+**Cause 5: Backup service doesn't have permission to delete the old restore points because of a resource group lock** <br>
 **Cause 6: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**
 
 ## UserErrorUnsupportedDiskSize - Currently Azure Backup does not support disk sizes greater than 1023GB
@@ -101,14 +100,33 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Error code**: UserErrorUnsupportedDiskSize <br>
 **Error message**: Currently Azure Backup does not support disk sizes greater than 1023GB <br>
 
-Your backup operation could fail when backing up VM with disk size greater than 1023GB since your vault is not upgraded to Azure VM Backup stack V2. Upgrading to Azure VM Backup stack V2 will provide support up to 4TB. Review these [benefits](backup-upgrade-to-vm-backup-stack-v2.md), [considerations](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade), and then proceed to upgrade by following these [instructions](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
+Your backup operation could fail when backing up VM with disk size greater than 1023GB since your vault is not upgraded to Instant Restore. Upgrading to Instant Restore will provide support up to 4TB, see this [article](backup-instant-restore-capability.md#upgrading-to-instant-restore). After you upgrade, it will take up to two hours for the subscription to avail this functionality. Provide sufficient buffer before you retry the operation.  
 
 ## UserErrorStandardSSDNotSupported - Currently Azure Backup does not support Standard SSD disks
 
 **Error code**: UserErrorStandardSSDNotSupported <br>
 **Error message**: Currently Azure Backup does not support Standard SSD disks <br>
 
-Currently Azure Backup supports Standard SSD disks only for vaults that are upgraded to Azure VM Backup stack V2. Review these [benefits](backup-upgrade-to-vm-backup-stack-v2.md), [considerations](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade), and then proceed to upgrade by following these [instructions](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).
+Currently Azure Backup supports Standard SSD disks only for vaults that are upgraded to [Instant Restore](backup-instant-restore-capability.md).
+
+## UserErrorBackupOperationInProgress - Unable to initiate backup as another backup operation is currently in progress
+
+**Error code**: UserErrorBackupOperationInProgress <br>
+**Error message**: Unable to initiate backup as another backup operation is currently in progress<br>
+
+Your recent backup job failed because there is an existing backup job in progress. You can't start a new backup job until the current job finishes. Ensure the backup operation currently in progress is completed before triggering or scheduling another backup operations. To check the backup jobs status, perform the below steps:
+
+1. Sign in to Azure portal, click **All services**. Type Recovery Services and click **Recovery Services vaults**. The list of recovery services vaults appears.
+2. From the list of recovery services vaults, select a vault in which the backup is configured.
+3. On the vault dashboard menu, click **Backup Jobs** it displays all the backup jobs.
+
+	* If a backup job is in progress, wait for it to complete or cancel the backup job.
+		* To cancel the backup job right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0).
+	* If you have reconfigured the backup in a different vault, then ensure there are no backup jobs running in the old vault. If it exists then cancel the backup job.
+		* To cancel the backup job right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0)
+4. Retry backup operation.
+
+If the scheduled backup operation is taking longer time conflicting with the next backup configuration then review the [Best Practices](backup-azure-vms-introduction.md#best-practices), [Backup Performance](backup-azure-vms-introduction.md#backup-performance) and [Restore consideration](backup-azure-vms-introduction.md#restore-considerations).
 
 
 ## Causes and solutions
@@ -118,33 +136,8 @@ Per the deployment requirement, the VM doesn't have internet access. Or, it migh
 
 To function correctly, the Backup extension requires connectivity to Azure public IP addresses. The extension sends commands to an Azure storage endpoint (HTTPs URL) to manage the snapshots of the VM. If the extension doesn't have access to the public internet, backup eventually fails.
 
-It is possible to deploy a proxy server to route the VM traffic.
-##### Create a path for HTTPs traffic
-
-1. If you have network restrictions in place (for example, a network security group), deploy an HTTPs proxy server to route the traffic.
-2. To allow access to the internet from the HTTPs proxy server, add rules to the network security group, if you have one.
-
-To learn how to set up an HTTPs proxy for VM backups, see [Prepare your environment to back up Azure virtual machines](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
-
-Either the backed up VM or the proxy server through which the traffic is routed requires access to Azure Public IP addresses
-
 ####  Solution
-To resolve the issue, try one of the following methods:
-
-##### Allow access to Azure storage that corresponds to the region
-
-You can use [service tags](../virtual-network/security-overview.md#service-tags) to allow connections to storage of the specific region. Ensure that the rule that allows access to the storage account has higher priority than the rule that blocks internet access.
-
-![Network security group with storage tags for a region](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
-
-To understand the step by step procedure to configure service tags, watch [this video](https://youtu.be/1EjLQtbKm1M).
-
-> [!WARNING]
-> Storage service tags are in preview. They are available only in specific regions. For a list of regions, see [Service tags for storage](../virtual-network/security-overview.md#service-tags).
-
-If you use Azure Managed Disks, you might need an additional port opening (port 8443) on the firewalls.
-
-Furthermore, if your subnet doesn't have a route for internet outbound traffic, you need to add a service endpoint with service tag "Microsoft.Storage" to your subnet.
+To resolve the network issue, see [Establish network connectivity](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>The agent is installed in the VM, but it's unresponsive (for Windows VMs)
 
@@ -227,7 +220,7 @@ Completing these steps causes the extension to be reinstalled during the next ba
 3. In the **Settings** section, select **Locks** to display the locks.
 4. To remove the lock, select the ellipsis and click **Delete**.
 
-	![Delete lock ](./media/backup-azure-arm-vms-prepare/delete-lock.png)
+	![Delete lock](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
 ### <a name="clean_up_restore_point_collection"></a> Clean up restore point collection
 After removing the lock, the restore points have to be cleaned up. To clean up the restore points, follow any of the methods:<br>
@@ -246,12 +239,15 @@ To manually clear the restore points collection which are not cleared due to the
 1. Sign in to the [Azure portal](http://portal.azure.com/).
 2. On the **Hub** menu, click **All resources**, select the Resource group with the following format AzureBackupRG_`<Geo>`_`<number>` where your VM is located.
 
-	![Delete lock ](./media/backup-azure-arm-vms-prepare/resource-group.png)
+	![Delete lock](./media/backup-azure-arm-vms-prepare/resource-group.png)
 
 3. Click Resource group, the **Overview** blade is displayed.
 4. Select **Show hidden types** option to display all the hidden resources. Select the restore point collections with the following format AzureBackupRG_`<VMName>`_`<number>`.
 
-	![Delete lock ](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
+	![Delete lock](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
 
 5. Click **Delete**, to clean the restore point collection.
 6. Retry the backup operation again.
+
+> [!NOTE]
+ >If the resource (RP Collection) has large number of Restore Points, then deleting the same from portal may timeout and fail. This is a known CRP issue, where all restore points are not deleted in the stipulated time and the operation times out; however the delete operation usually succeeds after 2 or 3 retries.

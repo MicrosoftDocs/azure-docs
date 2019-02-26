@@ -1,15 +1,13 @@
 ---
 title: How to use Azure Table storage or Azure Cosmos DB Table API from Node.js
 description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
-services: cosmos-db
-author: SnehaGunda
-
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: sample
 ms.date: 04/05/2018
-ms.author: sngun
+author: wmengmsft
+ms.author: wmeng
 ---
 # How to use Azure Table storage or the Azure Cosmos DB Table API from Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -53,34 +51,34 @@ communicate with the Storage REST services.
 ### Import the package
 Add the following code to the top of the **server.js** file in your application:
 
-```nodejs
+```javascript
 var azure = require('azure-storage');
 ```
 
 ## Add an Azure Storage connection
 The Azure module reads the environment variables AZURE_STORAGE_ACCOUNT and AZURE_STORAGE_ACCESS_KEY, or AZURE_STORAGE_CONNECTION_STRING for information required to connect to your Azure Storage account. If these environment variables are not set, you must specify the account information when calling **TableService**. For example, the following code creates a **TableService** object:
 
-```nodejs
+```javascript
 var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
 ## Add an Azure Cosmos DB connection
 To add an Azure Cosmos DB connection, create a **TableService** object and specify your account name, primary key, and endpoint. You can copy these values from **Settings** > **Connection String** in the Azure portal for your Cosmos DB account. For example:
 
-```nodejs
+```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
 ```  
 
 ## Create a table
 The following code creates a **TableService** object and uses it to create a new table. 
 
-```nodejs
+```javascript
 var tableSvc = azure.createTableService();
 ```
 
 The call to **createTableIfNotExists** creates a new table with the specified name if it does not already exist. The following example creates a new table named 'mytable' if it does not already exist:
 
-```nodejs
+```javascript
 tableSvc.createTableIfNotExists('mytable', function(error, result, response){
   if(!error){
     // Table exists or created
@@ -93,13 +91,13 @@ The `result.created` is `true` if a new table is created, and `false` if the tab
 ### Filters
 You can apply optional filtering to operations performed using **TableService**. Filtering operations can include logging, automatic retries, etc. Filters are objects that implement a method with the signature:
 
-```nodejs
+```javascript
 function handle (requestOptions, next)
 ```
 
 After doing its preprocessing on the request options, the method must call **next**, passing a callback with the following signature:
 
-```nodejs
+```javascript
 function (returnObject, finalCallback, next)
 ```
 
@@ -107,7 +105,7 @@ In this callback, and after processing the **returnObject** (the response from t
 
 Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **TableService** object that uses the **ExponentialRetryPolicyFilter**:
 
-```nodejs
+```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var tableSvc = azure.createTableService().withFilter(retryOperations);
 ```
@@ -122,7 +120,7 @@ Both **PartitionKey** and **RowKey** must be string values. For more information
 
 The following is an example of defining an entity. Note that **dueDate** is defined as a type of **Edm.DateTime**. Specifying the type is optional, and types are inferred if not specified.
 
-```nodejs
+```javascript
 var task = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'},
@@ -138,7 +136,7 @@ var task = {
 
 You can also use the **entityGenerator** to create entities. The following example creates the same task entity using the **entityGenerator**.
 
-```nodejs
+```javascript
 var entGen = azure.TableUtilities.entityGenerator;
 var task = {
   PartitionKey: entGen.String('hometasks'),
@@ -150,7 +148,7 @@ var task = {
 
 To add an entity to your table, pass the entity object to the **insertEntity** method.
 
-```nodejs
+```javascript
 tableSvc.insertEntity('mytable',task, function (error, result, response) {
   if(!error){
     // Entity inserted
@@ -162,7 +160,7 @@ If the operation is successful, `result` contains the [ETag](https://en.wikipedi
 
 Example response:
 
-```nodejs
+```javascript
 { '.metadata': { etag: 'W/"datetime\'2015-02-25T01%3A22%3A22.5Z\'"' } }
 ```
 
@@ -183,7 +181,7 @@ There are multiple methods available to update an existing entity:
 
 The following example demonstrates updating an entity using **replaceEntity**:
 
-```nodejs
+```javascript
 tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response){
   if(!error) {
     // Entity updated
@@ -211,7 +209,7 @@ Sometimes it makes sense to submit multiple operations together in a batch to en
 
  The following example demonstrates submitting two entities in a batch:
 
-```nodejs
+```javascript
 var task1 = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'},
@@ -251,7 +249,7 @@ You can inspect operations added to a batch by viewing the `operations` property
 ## Retrieve an entity by key
 To return a specific entity based on the **PartitionKey** and **RowKey**, use the **retrieveEntity** method.
 
-```nodejs
+```javascript
 tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
   if(!error){
     // result contains the entity
@@ -273,7 +271,7 @@ To query a table, use the **TableQuery** object to build up a query expression u
 
 The following example builds a query that returns the top five items with a PartitionKey of 'hometasks'.
 
-```nodejs
+```javascript
 var query = new azure.TableQuery()
   .top(5)
   .where('PartitionKey eq ?', 'hometasks');
@@ -281,7 +279,7 @@ var query = new azure.TableQuery()
 
 Because **select** is not used, all fields are returned. To perform the query against a table, use **queryEntities**. The following example uses this query to return entities from 'mytable'.
 
-```nodejs
+```javascript
 tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
   if(!error) {
     // query was successful
@@ -295,7 +293,7 @@ If successful, `result.entries` contains an array of entities that match the que
 A query to a table can retrieve just a few fields from an entity.
 This reduces bandwidth and can improve query performance, especially for large entities. Use the **select** clause and pass the names of the fields to return. For example, the following query returns only the **description** and **dueDate** fields.
 
-```nodejs
+```javascript
 var query = new azure.TableQuery()
   .select(['description', 'dueDate'])
   .top(5)
@@ -305,7 +303,7 @@ var query = new azure.TableQuery()
 ## Delete an entity
 You can delete an entity using its partition and row keys. In this example, the **task1** object contains the **RowKey** and **PartitionKey** values of the entity to delete. Then the object is passed to the **deleteEntity** method.
 
-```nodejs
+```javascript
 var task = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'}
@@ -326,7 +324,7 @@ tableSvc.deleteEntity('mytable', task, function(error, response){
 ## Delete a table
 The following code deletes a table from a storage account.
 
-```nodejs
+```javascript
 tableSvc.deleteTable('mytable', function(error, response){
     if(!error){
         // Table deleted
@@ -343,7 +341,7 @@ The **results** object returned during querying entities sets a `continuationTok
 
 When querying, you can provide a `continuationToken` parameter between the query object instance and the callback function:
 
-```nodejs
+```javascript
 var nextContinuationToken = null;
 dc.table.queryEntities(tableName,
     query,
@@ -369,7 +367,7 @@ A trusted application such as a cloud-based service generates a SAS using the **
 
 The following example generates a new shared access policy that will allow the SAS holder to query ('r') the table, and expires 100 minutes after the time it is created.
 
-```nodejs
+```javascript
 var startDate = new Date();
 var expiryDate = new Date(startDate);
 expiryDate.setMinutes(startDate.getMinutes() + 100);
@@ -392,7 +390,7 @@ Note that you must also provide the host information, as it is required when the
 The client application then uses the SAS with **TableServiceWithSAS** to perform operations against the table. The following example connects to the table and performs a query. See [using shared access signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md#examples-of-sas-uris)
 article for the format of tableSAS. 
 
-```nodejs
+```javascript
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;
 
 var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
@@ -413,7 +411,7 @@ You can also use an Access Control List (ACL) to set the access policy for a SAS
 
 An ACL is implemented using an array of access policies, with an ID associated with each policy. The following example defines two policies, one for 'user1' and one for 'user2':
 
-```nodejs
+```javascript
 var sharedAccessPolicy = {
   user1: {
     Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
@@ -430,7 +428,7 @@ var sharedAccessPolicy = {
 
 The following example gets the current ACL for the **hometasks** table, and then adds the new policies using **setTableAcl**. This approach allows:
 
-```nodejs
+```javascript
 var extend = require('extend');
 tableSvc.getTableAcl('hometasks', function(error, result, response) {
 if(!error){
@@ -446,7 +444,7 @@ if(!error){
 
 After the ACL has been set, you can then create a SAS based on the ID for a policy. The following example creates a new SAS for 'user2':
 
-```nodejs
+```javascript
 tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ```
 

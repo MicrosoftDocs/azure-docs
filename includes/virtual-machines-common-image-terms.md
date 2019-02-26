@@ -15,8 +15,8 @@
 A Marketplace image in Azure has the following attributes:
 
 * **Publisher**: The organization that created the image. Examples: Canonical, MicrosoftWindowsServer
-* **Offer**: The name of a group of related images created by a publisher. Examples: Ubuntu Server, WindowsServer
-* **SKU**: An instance of an offer, such as a major release of a distribution. Examples: 16.04-LTS, 2016-Datacenter
+* **Offer**: The name of a group of related images created by a publisher. Examples: UbuntuServer, WindowsServer
+* **SKU**: An instance of an offer, such as a major release of a distribution. Examples: 18.04-LTS, 2019-Datacenter
 * **Version**: The version number of an image SKU. 
 
 To identify a Marketplace image when you deploy a VM programmatically, supply these values individually as parameters. Some tools accept an image *URN*, which combines these values, separated by the colon (:) character: *Publisher*:*Offer*:*Sku*:*Version*. In a URN, you can replace the version number with "latest", which selects the latest version of the image. 

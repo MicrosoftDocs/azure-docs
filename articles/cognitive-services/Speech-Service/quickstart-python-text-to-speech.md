@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to convert text-to-speech using Python and the Text-to-Speech REST API. The sample text included in this guide is structured as Speech Synthesis Markup Language (SSML). This allows you to choose the voice and language of the speech response.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/16/2018
+ms.date: 01/11/2019
 ms.author: erhopf
 ms.custom: seodec18
 ---
@@ -33,6 +33,7 @@ Create a new Python project using your favorite IDE or editor. Then copy this co
 
 ```python
 import os, requests, time
+from xml.etree import ElementTree
 ```
 
 > [!NOTE]
@@ -81,7 +82,7 @@ def get_token(self):
 ```
 
 > [!NOTE]
-> For more information on authentication, see [How to get an access token](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#how-to-get-an-access-token).
+> For more information on authentication, see [Authenticate with an access token](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
 
 ## Make a request and save the response
 
@@ -108,10 +109,15 @@ def save_audio(self):
         'Authorization': 'Bearer ' + self.access_token,
         'Content-Type': 'application/ssml+xml',
         'X-Microsoft-OutputFormat': 'riff-24khz-16bit-mono-pcm',
-        'User-Agent': 'YOUR_RESOURCE_NAME',
-        'cache-control': 'no-cache'
+        'User-Agent': 'YOUR_RESOURCE_NAME'
     }
-    body = "<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>" + self.tts + "</voice></speak>"
+    xml_body = ElementTree.Element('speak', version='1.0')
+    xml_body.set('{http://www.w3.org/XML/1998/namespace}lang', 'en-us')
+    voice = ElementTree.SubElement(xml_body, 'voice')
+    voice.set('{http://www.w3.org/XML/1998/namespace}lang', 'en-US')
+    voice.set('name', 'Microsoft Server Speech Text to Speech Voice (en-US, Guy24KRUS)')
+    voice.text = self.tts
+    body = ElementTree.tostring(xml_body)
 
     response = requests.post(constructed_url, headers=headers, data=body)
     if response.status_code == 200:
@@ -120,7 +126,6 @@ def save_audio(self):
             print("\nStatus code: " + str(response.status_code) + "\nYour TTS is ready for playback.\n")
     else:
         print("\nStatus code: " + str(response.status_code) + "\nSomething went wrong. Check your subscription key and headers.\n")
-
 ```
 
 ## Put it all together
@@ -152,9 +157,10 @@ Make sure to remove any confidential information from your sample app's source c
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Text-to-speech API reference](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
+> [Explore Python samples on GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
 
 ## See also
 
+* [Text-to-speech API reference](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
 * [Creating custom voice fonts](how-to-customize-voice-font.md)
 * [Record voice samples to create a custom voice](record-custom-voice-samples.md)

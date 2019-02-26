@@ -12,7 +12,7 @@ ms.author: adigan
 
 # Add storage to Azure Backup Server
 
-Azure Backup Server V2 and later comes with System Center 2016 Data Protection Manager Modern Backup Storage. Modern Backup Storage offers storage savings of 50 percent, backups that are three times faster, and more efficient storage. It also offers workload-aware storage.
+Azure Backup Server V2 and later supports Modern Backup Storage that offers storage savings of 50 percent, backups that are three times faster, and more efficient storage. It also offers workload-aware storage.
 
 > [!NOTE]
 > To use Modern Backup Storage, you must run Backup Server V2 or V3 on Windows Server 2016 or V3 on Windows Server 2019.
@@ -70,7 +70,7 @@ With workload-aware storage, you can select the volumes that preferentially stor
 
 ### Update-DPMDiskStorage
 
-You can set up workload-aware storage by using the PowerShell cmdlet Update-DPMDiskStorage, which updates the properties of a volume in the storage pool on a Data Protection Manager server.
+You can set up workload-aware storage by using the PowerShell cmdlet Update-DPMDiskStorage, which updates the properties of a volume in the storage pool on a Azure Backup Server. 
 
 Syntax:
 

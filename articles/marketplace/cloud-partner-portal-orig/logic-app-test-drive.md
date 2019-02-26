@@ -24,7 +24,7 @@ This article is for Publishers who have their offer on AppSource and want to bui
 How to build a Logic App Test Drive
 -----------------------------------
 
-Test Drive documentation for Logic App Test Drives is currently still on github for
+Test Drive documentation for Logic App Test Drives is currently still on GitHub for
 [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) and [Customer Engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app), go there to read more.
 
 How to publish a Test Drive

@@ -97,16 +97,20 @@
       href: quickstarts-sdk/csharp-thumb-sdk.md
     - name: Extract text
       href: quickstarts-sdk/csharp-hand-text-sdk.md
+  - name: Using the Python SDK
+    href: quickstarts-sdk/python-sdk.md
 - name: Tutorials
   items:
-  - name: Build an image processing app
-    href: Tutorials/CSharpTutorial.md
+  - name: Generate metadata for images
+    href: Tutorials/storage-lab-tutorial.md
 - name: Concepts
   items:
   - name: Tagging images
     href: concept-tagging-images.md
   - name: Detecting objects
     href: concept-object-detection.md
+  - name: Detecting brands
+    href: concept-brand-detection.md
   - name: Categorizing images
     href: concept-categorizing-images.md
   - name: Describing images
@@ -163,22 +167,26 @@
     href: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
   - name: SDKs
     items:
-    - name: Windows
-      href: https://github.com/Microsoft/Cognitive-vision-windows
+    - name: .NET
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
     - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules
+      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/computervision?view=azure-node-latest
     - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python
     - name: Go
-      href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/computervision
-    - name: Android
-      href: https://github.com/Microsoft/Cognitive-vision-android
+      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/computervision
+    - name: Android (Java)
+      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
     - name: Swift
       href: https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK
 - name: Resources
   items: 
-  - name: Samples
-    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
+  - name: Samples  
+    items:  
+    - name: Explore an image processing app
+      href: Tutorials/CSharpTutorial.md
+    - name: Other Computer Vision samples
+      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
   - name: FAQ
     href: FAQ.md
   - name: Pricing and limits

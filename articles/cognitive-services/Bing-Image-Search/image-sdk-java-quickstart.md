@@ -1,18 +1,19 @@
 ---
-title: "Quickstart: Search for images with the Bing Image Search SDK for Java"
+title: "Quickstart: Search for images - Bing Image Search SDK for Java"
 description: Use this quickstart to make your first image search using the Bing Image Search SDK, which is a wrapper for the API and contains the same features. This simple Java application sends an image search query, parses the JSON response, and displays the URL of the first image returned.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 02/12/2019
 ms.author: aahi
+ms.custom: seodec2018
 ---
 
-# Quickstart: Search for images with the Bing Image Search SDK and Java
+# Quickstart: Search for images with the Bing Image Search SDK for Java
 
 Use this quickstart to make your first image search using the Bing Image Search SDK, which is a wrapper for the API and contains the same features. This simple Java application sends an image search query, parses the JSON response, and displays the URL of the first image returned.
 
@@ -39,7 +40,7 @@ Install the Bing Image Search SDK dependencies by using Maven, Gradle, or anothe
 
 ## Create and initialize the application
 
-1. Create a new Java project in your favorite IDE or editor, and add the following imports to your class implimentation:
+1. Create a new Java project in your favorite IDE or editor, and add the following imports to your class implementation:
 
     ```java
     import com.microsoft.azure.cognitiveservices.search.imagesearch.BingImageSearchAPI;
@@ -57,9 +58,10 @@ Install the Bing Image Search SDK dependencies by using Maven, Gradle, or anothe
     BingImageSearchAPI client = BingImageSearchManager.authenticate(subscriptionKey);
     ```
 
-## Send a search request to the Bing Image Search API
+## Send a search request to the API
 
 1. Using `bingImages().search()`, send the HTTP request containing the search query. Save the response as a `ImagesModel`.
+
    ```java
     ImagesModel imageResults = client.bingImages().search()
                 .withQuery(searchTerm)
@@ -70,7 +72,7 @@ Install the Bing Image Search SDK dependencies by using Maven, Gradle, or anothe
 ## Parse and view the result
 
 Parse the image results returned in the response.
-If the response contains search results, store the first result and print out its details, such as a thumbnail URL, the original URL,along with the total number of returned images.  
+If the response contains search results, store the first result and print out its details, such as a thumbnail URL, the original URL, along with the total number of returned images.  
 
 ```java
 if (imageResults != null && imageResults.value().size() > 0) {

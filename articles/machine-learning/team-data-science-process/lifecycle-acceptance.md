@@ -1,16 +1,16 @@
 ---
-title: Customer acceptance stage of the Team Data Science Process lifecycle - Azure | Microsoft Docs
+title: Customer acceptance stage of the Team Data Science Process lifecycle
 description: The goals, tasks, and deliverables for the customer acceptance stage of your data-science projects
 services: machine-learning
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Customer acceptance stage of the Team Data Science Process lifecycle
 

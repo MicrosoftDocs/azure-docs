@@ -1,15 +1,15 @@
 ---
-title: Collaborative coding with Git - Azure Machine Learning | Microsoft Docs
+title: Collaborative coding with Git - Team Data Science Process
 description: How to do collaborative code development for data science projects using Git with agile planning.
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 
 

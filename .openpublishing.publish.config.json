@@ -142,7 +142,7 @@
     },
     {
       "path_to_root": "samples-luis",
-      "url": "https://github.com/Microsoft/Luis-Samples",
+      "url": "https://github.com/Azure-Samples/cognitive-services-language-understanding",
       "branch": "master",
       "branch_mapping": {}
     },
@@ -293,6 +293,30 @@
     {
       "path_to_root": "cognitive-services-content-moderator-samples",
       "url": "https://github.com/Azure-Samples/cognitive-services-content-moderator-samples",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-eCommerceCatalogModeration",
+      "url": "https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-cogserv-containers",
+      "url": "https://github.com/Azure-Samples/cognitive-services-containers-samples",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-iot-distributed-tracing",
+      "url": "https://github.com/Azure-Samples/azure-iot-distributed-tracing-sample",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "AIVisualProvision",
+      "url": "https://github.com/Microsoft/AIVisualProvision",
       "branch": "master",
       "branch_mapping": {}
     }

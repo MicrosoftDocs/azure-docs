@@ -12,16 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: adshar
+ms.lastreviewed: 12/03/2018
 ---
 
 # Validate Azure Stack system state
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-As an Azure Stack operator, having the ability to know the health and status of your system on-demand is essential. The Azure Stack validation tool (**Test-AzureStack**) is a PowerShell cmdlet that lets you run a series of tests on your system to identify failures if present. You will typically be asked to run this tool through the [privileged end point (PEP)](azure-stack-privileged-endpoint.md) when you contact Microsoft Customer Services Support (CSS) with an issue. With the system-wide health and status information at hand, CSS can collect and analyze detailed logs, focus on the area where the error occurred, and work with you to resolve the issue.
+As an Azure Stack operator, being able to determine the health and status of your system on-demand is essential. The Azure Stack validation tool (**Test-AzureStack**) is a PowerShell cmdlet that lets you run a series of tests on your system to identify failures if present. You will typically be asked to run this tool through the [privileged end point (PEP)](azure-stack-privileged-endpoint.md) when you contact Microsoft Customer Services Support (CSS) with an issue. With the system-wide health and status information at hand, CSS can collect and analyze detailed logs, focus on the area where the error occurred, and work with you to resolve the issue.
 
 ## Running the validation tool and accessing results
 
@@ -42,7 +43,7 @@ As stated previously, the validation tool is run via the PEP. Each test returns 
    Test-AzureStack
    ```
 
-   Refer to the [Parameter considerations](azure-stack-diagnostic-test.md#parameter-considerations) and [Use case examples](azure-stack-diagnostic-test.md#use-cases) sections for more information.
+   Refer to the [Parameter considerations](azure-stack-diagnostic-test.md#parameter-considerations) and [Use case examples](azure-stack-diagnostic-test.md#use-case-examples) sections for more information.
 
 3. If any tests report **FAIL**, run:
 
@@ -89,7 +90,6 @@ These low impact tests work on an infrastructure level and provide you with info
 
 In addition to the infrastructure tests above, you also have the ability to run cloud scenario tests to check functionality across infrastructure components. Cloud administrator credentials are required to run these tests as they involve resource deployment. 
 	> [!NOTE]
-	>
 	> Currently you cannot run cloud scenario tests using Active Directory Federated Services (AD FS) credentials. 
 
 The following cloud scenarios are tested by the validation tool:
@@ -118,13 +118,13 @@ The following cloud scenarios are tested by the validation tool:
 
 - A tenant VM is deployed as part of one the cloud scenario tests. You can use **DoNotDeployTenantVm** to disable this. 
 
-- You need to supply the **ServiceAdminCredential** parameter to run cloud scenario tests as described in the [Use case examples](azure-stack-diagnostic-test.md#use-cases) section.
+- You need to supply the **ServiceAdminCredential** parameter to run cloud scenario tests as described in the [Use case examples](azure-stack-diagnostic-test.md#use-case-examples) section.
 
-- **BackupSharePath** and **BackupShareCredential** are used when testing infrastructure backup settings as shown in the [Use case examples](azure-stack-diagnostic-test.md#use-cases) section.
+- **BackupSharePath** and **BackupShareCredential** are used when testing infrastructure backup settings as shown in the [Use case examples](azure-stack-diagnostic-test.md#use-case-examples) section.
 
-- The validation tool also supports common PowerShell parameters: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable, and OutVariable. For more information, see [About Common Parameters](http://go.microsoft.com/fwlink/?LinkID=113216).  
+- The validation tool also supports common PowerShell parameters: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable, and OutVariable. For more information, see [About Common Parameters](https://go.microsoft.com/fwlink/?LinkID=113216).  
 
-## Use case examples 
+## Use case examples
 
 ### Run validation without cloud scenarios
 

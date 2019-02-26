@@ -224,7 +224,7 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 
 For possible issues with the Virtual Kubelet, see the [Known quirks and workarounds][vk-troubleshooting]. To report problems with the Virtual Kubelet, [open a GitHub issue][vk-issues].
 
-Read more about Virtual Kubelet at the [Virtual Kubelet Github project][vk-github].
+Read more about Virtual Kubelet at the [Virtual Kubelet GitHub project][vk-github].
 
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md
@@ -236,7 +236,7 @@ Read more about Virtual Kubelet at the [Virtual Kubelet Github project][vk-githu
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
-[kubectl-get]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#get
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [vk-github]: https://github.com/virtual-kubelet/virtual-kubelet

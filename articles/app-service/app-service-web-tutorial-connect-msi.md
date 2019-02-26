@@ -1,5 +1,5 @@
 ---
-title: Secure Azure SQL Database connection from App Service using a managed identity | Microsoft Docs 
+title: Secure SQL Database connection with managed identity - Azure App Service | Microsoft Docs 
 description: Learn how to make database connectivity more secure by using a managed identity, and also how to apply this to other Azure services.
 services: app-service\web
 documentationcenter: dotnet
@@ -18,7 +18,7 @@ ms.custom: mvc
 ---
 # Tutorial: Secure Azure SQL Database connection from App Service using a managed identity
 
-[App Service](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](app-service-managed-service-identity.md) for your app, which is a turn-key solution for securing access to [Azure SQL Database](/azure/sql-database/) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. In this tutorial, you will add managed identity to the sample ASP.NET web app you built in [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md). When you're finished, your sample app will connect to SQL Database securely without the need of username and passwords.
+[App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure SQL Database](/azure/sql-database/) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. In this tutorial, you will add managed identity to the sample ASP.NET web app you built in [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md). When you're finished, your sample app will connect to SQL Database securely without the need of username and passwords.
 
 > [!NOTE]
 > This scenario is currently supported by .NET Framework 4.6 and above, but not by [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows). [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2) does support the scenario, but is not yet included in the default images in App Service. 
@@ -72,7 +72,7 @@ az ad sp show --id <principalid>
 
 ## Grant database access to identity
 
-Next, you grant database access to your app's managed identity, using the [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) command in the Cloud Shell. In the following command, replace *\<server_name>* and <principalid_from_last_step>. Type an administrator name for *\<admin_user>*.
+Next, you grant database access to your app's managed identity, using the [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest) command in the Cloud Shell. In the following command, replace *\<server_name>* and <principalid_from_last_step>. Type an administrator name for *\<admin_user>*.
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>
@@ -118,7 +118,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 }
 ```
 
-This constructor configures a custom SqlConnection object to use an access token for Azure SQL Database from App Service. With the access token, your App Service app authenticates with Azure SQL Database with its managed identity. For more information, see [Obtaining tokens for Azure resources](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources). The `if` statement lets you continue to test your app locally with LocalDB.
+This constructor configures a custom SqlConnection object to use an access token for Azure SQL Database from App Service. With the access token, your App Service app authenticates with Azure SQL Database with its managed identity. For more information, see [Obtaining tokens for Azure resources](overview-managed-identity.md#obtaining-tokens-for-azure-resources). The `if` statement lets you continue to test your app locally with LocalDB.
 
 > [!NOTE]
 > `SqlConnection.AccessToken` is currently supported only in .NET Framework 4.6 and above, as well as [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2), not in [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows).
@@ -142,7 +142,7 @@ In the **Solution Explorer**, right-click your **DotNetAppSqlDb** project and se
 
 In the publish page, click **Publish**. When the new webpage shows your to-do list, your app is connecting to the database using the managed identity.
 
-![Azure web app after Code First Migration](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
+![Azure app after Code First Migration](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
 You should now be able to edit the to-do list as before.
 
@@ -206,4 +206,4 @@ What you learned:
 Advance to the next tutorial to learn how to map a custom DNS name to your web app.
 
 > [!div class="nextstepaction"]
-> [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md)
