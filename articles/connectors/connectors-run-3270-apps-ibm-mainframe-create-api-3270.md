@@ -95,7 +95,7 @@ If you use an ISE, select that ISE as your logic app's location.
 which you use for generating a Host Integration Designer 
 XML (HIDX) file. This metadata file identifies the screens, 
 navigation path, method, and parameters for the task you 
-want use when you add and run a 3270 connector action.
+want to use when you add and run a 3270 connector action.
 
   The Microsoft .NET Framework 4.6.1 is the 
   only prerequisite for the 3270 Design Tool.
@@ -193,9 +193,9 @@ a valid value, while the other screen returns an error message.
 
 In the design tool, you can add *recognition attributes*, 
 for example, a screen title such as "Get Account Balance", 
-by using the Screen Recognition editor. In the case where you 
-have a forked path and either path returns the same screen but 
-with different results, you need other identification attributes. 
+by using the Screen Recognition editor. If you have a forked 
+path and both branches return the same screen but with 
+different results, you need other identification attributes. 
 At run time, the connector uses these attributes for 
 determining the current branch and fork. Here are the 
 conditions you can use:
