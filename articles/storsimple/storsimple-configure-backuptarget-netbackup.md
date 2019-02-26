@@ -288,7 +288,7 @@ Based on the preceding assumptions, create a 26-TiB StorSimple tiered volume for
 
 The following figure shows the mapping of a typical volume to a backup job. In this case, all the weekly backups map to the Saturday full disk, and the incremental backups map to Monday-Friday incremental disks. All the backups and restores are from a StorSimple tiered volume.
 
-![Primary backup target configuration logical diagram ](./media/storsimple-configure-backup-target-using-netbackup/primarybackuptargetdiagram.png)
+![Primary backup target configuration logical diagram](./media/storsimple-configure-backup-target-using-netbackup/primarybackuptargetdiagram.png)
 
 ### StorSimple as a primary backup target GFS schedule example
 

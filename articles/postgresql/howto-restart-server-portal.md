@@ -31,15 +31,15 @@ The following steps restart the PostgreSQL server:
 
 3. Click **Yes** to confirm restarting the server.
 
-   ![Azure Database for PostgreSQL - Restart confirm ](./media/howto-restart-server-portal/3-restart-confirm.png)
+   ![Azure Database for PostgreSQL - Restart confirm](./media/howto-restart-server-portal/3-restart-confirm.png)
 
 4. Observe that the server status changes to "Restarting".
 
-   ![Azure Database for PostgreSQL - Restart status ](./media/howto-restart-server-portal/4-restarting-status.png)
+   ![Azure Database for PostgreSQL - Restart status](./media/howto-restart-server-portal/4-restarting-status.png)
 
 5. Confirm server restart is successful.
 
-   ![Azure Database for PostgreSQL - Restart success ](./media/howto-restart-server-portal/5-restart-success.png)
+   ![Azure Database for PostgreSQL - Restart success](./media/howto-restart-server-portal/5-restart-success.png)
 
 ## Next steps
 
