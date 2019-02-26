@@ -77,7 +77,7 @@ In the billing account for a Microsoft Customer Agreement, until the charges are
 
 2. Search on **Cost Management +Billing**.
 
-   ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-understand-your-bill-mca/billing-search-costmanagement+billing.png) 
+   ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-understand-your-bill-mca/billing-search-costmanagement-billing.png)
 
 3. Select a billing profile. Depending on your access, you may have to select a billing account. From the billing account, select **Billing profiles** then select a billing profile.
 
@@ -113,7 +113,7 @@ Once you identify pending charges, you can view individual transactions that con
 
 2. Search on **Cost Management +Billing**.
 
-   ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-understand-your-bill-mca/billing-search-costmanagement+billing.png)
+   ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-understand-your-bill-mca/billing-search-costmanagement-billing.png)
 
 3. Select a billing profile. Depending on your access, you may have to select a billing account. From the billing account, select **Billing profiles** then select a billing profile.
 
