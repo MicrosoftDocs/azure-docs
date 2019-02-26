@@ -29,9 +29,7 @@ If you don’t have a free LUIS portal account, you can create the free account 
 
     ![Create new app in LUIS portal](./media/get-started-portal-build-app/create-app-in-portal.png)
 
-1. In the pop-up window, configure the app with the settings:
-
-    ![Enter new app settings](./media/get-started-portal-build-app/create-new-app-settings.png)
+1. In the pop-up window, configure the app with the settings then select **Done**.
 
     |Setting name| Value | Purpose|
     |--|--|--|
@@ -39,7 +37,7 @@ If you don’t have a free LUIS portal account, you can create the free account 
     |Culture|**English**|Language of utterances from users, **en-us**, required|
     |Description|`App made with LUIS Portal`|Description of app, optional|
 
-
+    ![Enter new app settings](./media/get-started-portal-build-app/create-new-app-settings.png)
 
 
 ## Create intent 
