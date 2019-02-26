@@ -54,7 +54,7 @@ library for writing custom apps that can access 3270 screen-driven data,
 also known as "screen scraping".
 
 To extend these scenarios, the HIS 3270 connector in Azure Logic Apps 
-works with the standalone 3270 Design Tool, which you use to record, 
+works with the standalone HIS 3270 Design Tool, which you use to record, 
 or "capture", the host screens used for a specific task, define the 
 navigation flow through your mainframe app for that task, and define 
 the methods with input and output parameters for that task. The design 
@@ -93,14 +93,21 @@ You can then add 3270 connector actions. To get started,
 [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 If you use an ISE, select that ISE as your logic app's location.
 
-* Download and install the [standalone 3270 Design Tool](https://aka.ms/3270-design-tool-download), 
+* Download and install the [standalone HIS 3270 Design Tool](https://aka.ms/3270-design-tool-download), 
 which you use for generating a Host Integration Designer 
 XML (HIDX) file. This metadata file identifies the screens, 
 navigation path, method, and parameters for the task you 
 want to use when you add and run a 3270 connector action.
 
   The Microsoft .NET Framework 4.6.1 is the 
-  only prerequisite for the 3270 Design Tool.
+  only prerequisite for the 3270 Design Tool. 
+  After you download and install this tool, 
+  follow these setup steps:
+
+  1. Open the HIS 3270 Design Tool. 
+  From the **Session** menu, select **Host Sessions**.
+  
+  1. Provide your TN3270 host server information.
 
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
 where you store your HIDX file as a map so your logic app 
@@ -109,7 +116,7 @@ Make sure your integration account is linked to the logic app
 you're using. Also, if you use an ISE, make sure your integration 
 account's location is the same ISE that your logic app uses.
 
-* Access to a TN3270 Server
+* Access to the TN3270 Server that hosts your mainframe app
 
 <a name="define-app-metadata"></a>
 
@@ -127,10 +134,10 @@ these specific *modes*, or stages, as described later in more details:
 * **Capture**: In this mode, you record the screens required for completing 
 a specific task with your mainframe app, for example, getting a bank balance.
 
-* **Navigation plan**: In this mode, you specify the plan or path for how 
+* **Navigation**: In this mode, you specify the plan or path for how 
 to navigate through your mainframe app's screens for the specific task.
 
-* **Method**: In this mode, you define the method, for example, `GetBalance`, 
+* **Methods**: In this mode, you define the method, for example, `GetBalance`, 
 that describes the screen navigation path. You also choose the fields on each 
 screen that become the method's input and output parameters.
 
@@ -156,15 +163,20 @@ Basic Mapping Support (BMS) map. The live connection uses a TN3270 emulator for
 connecting to the host. Each connector action must map to a single task that starts 
 with connecting to your session and ends with disconnecting from your session.
 
-1. Connect to your host server and start your session.
+1. In the 3270 Design Tool, from the **Recording** menu, 
+select **Start Recording**. Or, you can just press the F5 key.
 
-1. In the design tool, to begin capturing screens, choose **Start**.
+1. From the **Session** menu, select **Connect**.
 
-1. From the first screen, step through your app for the specific task.
+1. Starting from the first screen in your app, step through 
+your app for the specific task that you're recording.
 
 1. After you finish the task, sign out from your session as you usually do.
 
-1. In the design tool, choose **Stop**. Disconnect from the host. 
+1. From the **Session** menu, select **Disconnect**.
+
+1. From the **Recording** menu, select **Stop Recording**. 
+Or, you can just press the Shift + F5 keys.
 
    After you capture the screens for a task, the designer tool 
    shows thumbnails that represent those screens. Along with your 
@@ -376,8 +388,11 @@ define the data type for each parameter.
 
 The design tool saves all this information to a file that has a 
 RAP (.rap) extension. You can save to this file during any mode. 
-Before you can test your method, save to this file after 
-defining your method.
+Before you can test your method, save to this file after defining 
+your method. To view a sample RAP file, from the design tool, 
+browse to this folder in the design tool's installation location:
+
+`..\Program Files\Microsoft Host Integration Server - 3270 Design Tool\SDK\WoodgroveBank.rap`
 
 ### Test your method
 
