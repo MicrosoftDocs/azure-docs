@@ -19,7 +19,7 @@ ms.subservice: metrics
 Use **Azure Metrics Explorer** to investigate health and utilization of your resources. Start in the following order:
 * Start by [picking a resource and a metric](#Creating-your-first-metric-chart) and you will see a basic chart. Then [select a time range](#Picking-time-range) that is relevant for your investigation.
 
-* After learning basic charts, you may want to try [applying dimension filters and splitting](#Applying-dimension-filters-and-splitting). This allow analyzing which segments of the metric contribute to the overall value and identify possible outliers.
+* After learning basic charts, you may want to try [applying dimension filters and splitting](#Applying-dimension-filters-and-splitting). This allows analyzing which segments of the metric contribute to the overall metric value and identify possible outliers.
 
 * Use [advanced settings](#Advanced-chart-settings-and-next-steps) to customize the chart before pinning to  dashboards. [Configure alerts](alerts-metric-overview.md) to receive notifications when the metric value exceeds or drops below a threshold.
 
@@ -52,15 +52,15 @@ By default, the chart shows the most recent 24 hours of metrics data. Use the **
 
 [Filtering](metrics-charts.md#Apply-filters-to-charts) and [splitting](metrics-charts.md#Segment-a-chart) are powerful diagnostic tools for the metrics that have dimensions. They bring visibility into how various metric segments (“dimension values”) impact the overall value of the metric, and allow to identify possible outliers.
 
-* Filtering lets you to choose which dimension values are included in the chart. For example, you might want to only account for successful requests when charting the “Server response time” metric. The “success of request” is a dimension on which you would need to apply the filter. 
+* Filtering lets you choose which dimension values are included in the chart. For example, you might want to only account for successful requests when charting the “Server response time” metric. The “success of request” is a dimension on which you would need to apply the filter. 
 
 * Splitting controls whether the chart displays separate lines for each value of a dimension, or aggregates the values into a single line. For example, you can see one line for an average response time across all server instances, or see separate lines for each server. The “server instance” is a dimension on which you would need to apply splitting.
 
-[These are examples of the charts](metric-chart-samples.md) that have filtering and splitting applied. You can see steps that were used to configure each of these charts. 
+See [examples of the charts](metric-chart-samples.md) that have filtering and splitting applied. You can find which steps were used to configure each of these charts.
 
 ## Advanced chart settings and next steps
 
-You can customize chart style, title, and modify advanced chart settings. When you are done with customization, pin it to a dashboard to save your work.  You can also configure metrics alerts. Follow [product documentation](metrics-charts.md) to learn about these and other advanced features of Azure Monitor metrics explorer.
+You can customize chart style, title, and modify advanced chart settings. When done with customization, pin it to a dashboard to save your work. You can also configure metrics alerts. Follow [product documentation](metrics-charts.md) to learn about these and other advanced features of Azure Monitor metrics explorer.
 
 ## Next steps
 
