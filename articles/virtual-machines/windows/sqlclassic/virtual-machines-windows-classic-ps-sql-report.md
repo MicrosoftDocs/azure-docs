@@ -479,7 +479,7 @@ To use Windows PowerShell to configure the report server, complete the following
 9. The script is currently configured for  Reporting Services. If you want to run the script for  Reporting Services, modify the version portion of the path to the namespace to “v11”, on the Get-WmiObject statement.
 10. Run the script.
 
-**Validation**: To verify that the basic report server functionality is working, see the [Verify the configuration](#verify-the-connection) section later in this topic. To verify the certificate binding open a command prompt with administrative privileges, and then run the following command:
+**Validation**: To verify that the basic report server functionality is working, see the Verify the configuration section later in this topic. To verify the certificate binding open a command prompt with administrative privileges, and then run the following command:
 
     netsh http show sslcert
 

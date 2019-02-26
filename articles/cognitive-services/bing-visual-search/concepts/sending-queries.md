@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Learn about the REST API parameters used in the Bing Visual Search API.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
@@ -108,7 +108,7 @@ The following are the headers that your request should specify. The Content-Type
 Each request must include the Content-Type header. The header must be set to: multipart/form-data; boundary=\<boundary string\>, where \<boundary string\> is a unique, opaque string that identifies the boundary of the form data. For example, boundary=boundary_1234-abcd.
 
 
-If you send Visual Search an image token or URL, the following shows the form data you must include in the body of the POST. The form data must include the Content-Disposition header and its `name` parameter must be set to "knowledgeRequest." For details about the `imageInfo` object, see [The request](#the-request).
+If you send Visual Search an image token or URL, the following shows the form data you must include in the body of the POST. The form data must include the Content-Disposition header and its `name` parameter must be set to "knowledgeRequest." For details about the `imageInfo` object, see The request.
 
 
 ```

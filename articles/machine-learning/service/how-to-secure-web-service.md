@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 10/02/2018
+ms.date: 02/05/2019
 ms.custom: seodec18
 ---
 
@@ -78,6 +78,16 @@ To deploy (or re-deploy) the service with SSL enabled, set the `ssl_enabled` par
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
++ **Deploy on Field Programmable Gate Arrays (FPGA)**
+
+  While deploying to FPGA, provide values for the SSL-related parameters as shown in the code snippet:
+
+    ```python
+    from azureml.contrib.brainwave import BrainwaveWebservice
+
+    deployment_config = BrainwaveWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem")
+    ```
+
 ## Update your DNS
 
 Next, you must update your DNS to point to the web service.
@@ -94,10 +104,7 @@ Next, you must update your DNS to point to the web service.
 
   ![Azure Machine Learning service: Securing web services with SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
 
-+ **For FPGA**:
-
-Using SSL with services deployed to FPGA is not currently supported.
-
 ## Next steps
-
-Learn how to [Consume a ML Model deployed as a web service](how-to-consume-web-service.md).
+Learn how to:
++ [Consume a machine learning model deployed as a web service](how-to-consume-web-service.md)
++ [Securely run experiments and inferencing inside an Azure Virtual Network](how-to-enable-virtual-network.md)

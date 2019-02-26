@@ -268,7 +268,7 @@ dbStep = DatabricksStep(
     notebook_path=notebook_path,
     notebook_params={'myparam': 'testparam'},
     run_name='demo run name',
-    databricks_compute=databricks_compute,
+    compute_target=databricks_compute,
     allow_reuse=False
 )
 # List of steps to run
@@ -336,7 +336,7 @@ You can publish a pipeline to run it with different inputs later. For the REST e
 
 All published pipelines have a REST endpoint. This endpoint invokes the run of the pipeline from external systems, such as non-Python clients. This endpoint enables "managed repeatability" in batch scoring and retraining scenarios.
 
-To invoke the run of the preceding pipeline, you need an Azure Active Directory authentication header token, as described in [AzureCliAuthentication class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py).
+To invoke the run of the preceding pipeline, you need an Azure Active Directory authentication header token, as described in [AzureCliAuthentication class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py) or get more details at [Authentication in Azure Machine Learning](https://aka.ms/pl-restep-auth) notebook.
 
 ```python
 response = requests.post(published_pipeline1.endpoint, 

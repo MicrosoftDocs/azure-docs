@@ -18,6 +18,7 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Customize claims issued in the SAML token for enterprise applications

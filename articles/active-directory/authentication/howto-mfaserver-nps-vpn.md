@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Advanced scenarios with Azure Multi-Factor Authentication and third-party VPN solutions
 

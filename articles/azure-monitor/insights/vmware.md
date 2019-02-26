@@ -29,7 +29,7 @@ The solution uses native syslog functionality of the ESXi host to push data to a
 ## Install and configure the solution
 Use the following information to install and configure the solution.
 
-* Add the VMware Monitoring solution to your subscription using the process described in [Install a management solution](../insights/solutions.md#install-a-management-solution).
+* Add the VMware Monitoring solution to your subscription using the process described in [Install a monitoring solution](../insights/solutions.md#install-a-monitoring-solution).
 
 #### Supported VMware ESXi hosts
 vSphere ESXi Host 5.5, 6.0, and 6.5

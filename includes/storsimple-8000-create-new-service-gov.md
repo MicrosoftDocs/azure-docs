@@ -5,8 +5,6 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ---
-<!--author=SharS last changed: 9/17/15-->
-
 
 #### To create a new service
 1. Use your Microsoft account credentials to sign in to the [Microsoft Azure Government Portal](https://portal.azure.us/).

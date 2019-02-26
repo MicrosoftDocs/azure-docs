@@ -1,6 +1,6 @@
 ---
 title: Sample - Audit DB level threat detection setting
-description: This sample policy audits SQL database security alert policies if those policies are not set to the specified state.
+description: This sample policy definition audits SQL database security alert policies if those policies are not set to the specified state.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ---
-# Audit DB level threat detection setting
+# Sample - Audit DB level threat detection setting
 
 This policy audits SQL database security alert policies if those policies are not set to the specified state. You specify a value that indicates whether threat detection is enabled or disabled.
 

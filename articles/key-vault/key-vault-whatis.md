@@ -4,7 +4,7 @@ description: Azure Key Vault safeguard cryptographic keys and secrets used by cl
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid: e759df6f-0638-43b1-98ed-30b3913f9b82

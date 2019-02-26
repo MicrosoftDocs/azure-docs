@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/12/2019
 ms.author: juliako
 
 ---
-# Media Services development with .NET
+# Media Services development with .NET 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
 
 This article discusses how to start developing Media Services applications using .NET.

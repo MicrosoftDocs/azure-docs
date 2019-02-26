@@ -1,4 +1,4 @@
----  
+---
 title: Register in Dev Center | Azure
 description: How to Register in Developer Center (Dev Center).
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
 
----  
+---
 
 # Register in Dev Center  
 To help verify that you are not logged into a personal browser account, open a new Internet Explorer InPrivate or Chrome Incognito browsing session.  
@@ -79,7 +79,7 @@ To help verify that you are not logged into a personal browser account, open a n
 
     *   An example of a commercial offer is a VM offer with an hourly billing model.  
 
----  
+---
 
 ## Get Help with Dev Center Registration  
 If you have issues with Dev Center registration, then follow these steps to submit a support ticket.  
@@ -95,7 +95,7 @@ If you have issues with Dev Center registration, then follow these steps to subm
     
     Click on the Start email button.  
 1.  On the sign-in page, sign in using any Microsoft ID. If you do not have a Microsoft ID, then create one.  
-    *   For more information about creating a Microsoft ID, visit the [Guidelines for creating a Microsoft ID to manage an Azure Marketplace account](#guidelines-for-creating-a-microsoft-id-to-manage-an-azure-marketplace-account) section.  
+    *   For more information about creating a Microsoft ID, visit the Guidelines for creating a Microsoft ID to manage an Azure Marketplace account section.  
 2.  Fill in the details of the issue.  
 3.  To submit the ticket, click on the Submit button. 
 
@@ -122,7 +122,7 @@ The bank and tax information is required for all commercial offers using the tra
 
 4.  Click on the Next button. 
 
----   
+---
 
 ## Add tax information  
 1.  Sign into Dev Center using your Microsoft ID.  
@@ -193,4 +193,4 @@ To access support, visit the Windows developer support page located at [develope
 ## Next steps
 *   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
  
----  
+---

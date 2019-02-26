@@ -20,7 +20,7 @@ This article introduces the core concepts that secure your applications in AKS:
 - [Node security](#node-security)
 - [Cluster upgrades](#cluster-upgrades)
 - [Network security](#network-security)
-- [Kubernetes Secrets](#secrets)
+- [Kubernetes Secrets](#kubernetes-secrets)
 
 ## Master security
 
@@ -32,9 +32,9 @@ By default, the Kubernetes API server uses a public IP address and with fully qu
 
 AKS nodes are Azure virtual machines that you manage and maintain. The nodes run an optimized Ubuntu Linux distribution with the Docker container runtime. When an AKS cluster is created or scaled up, the nodes are automatically deployed with the latest OS security updates and configurations.
 
-The Azure platform automatically applies OS security patches to the nodes on a nightly basis. If an OS security update requires a host reboot, that reboot is not automatically performed. You can manually reboot the nodes, or a common approach is to use [Kured][kured], an open-source reboot daemon for Kubernetes. Kured runs as a [DaemonSet][aks-daemonset] and monitors each node for the presence of a file indicating that a reboot is required. Reboots are managed across the cluster using the same [cordon and drain process](#cordon-and-drain) as a cluster upgrade.
+The Azure platform automatically applies OS security patches to the nodes on a nightly basis. If an OS security update requires a host reboot, that reboot is not automatically performed. You can manually reboot the nodes, or a common approach is to use [Kured][kured], an open-source reboot daemon for Kubernetes. Kured runs as a [DaemonSet][aks-daemonsets] and monitors each node for the presence of a file indicating that a reboot is required. Reboots are managed across the cluster using the same [cordon and drain process](#cordon-and-drain) as a cluster upgrade.
 
-Nodes are deployed into a private virtual network subnet, with no public IP addresses assigned. For troubleshooting and management purposes, SSH is enabled by default. This SSH access is only available using the internal IP address. Azure network security group rules can be used to further restrict IP range access to the AKS nodes. Deleting the default network security group SSH rule and disabling the SSH service on the nodes prevents the Azure platform from performing maintenance tasks.
+Nodes are deployed into a private virtual network subnet, with no public IP addresses assigned. For troubleshooting and management purposes, SSH is enabled by default. This SSH access is only available using the internal IP address.
 
 To provide storage, the nodes use Azure Managed Disks. For most VM node sizes, these are Premium disks backed by high-performance SSDs. The data stored on managed disks is automatically encrypted at rest within the Azure platform. To improve redundancy, these disks are also securely replicated within the Azure datacenter.
 
@@ -42,7 +42,7 @@ Kubernetes environments, in AKS or elsewhere, currently aren't completely safe f
 
 ## Cluster upgrades
 
-For security and compliance, or to use the latest features, Azure provides tools to orchestrate the upgrade of an AKS cluster and components. This upgrade orchestration includes both the Kubernetes master and agent components. You can view a list of available Kubernetes versions for your AKS cluster. To start the upgrade process, you specify one of these available versions. Azure then safely cordons and drains each AKS node and performs the upgrade.
+For security and compliance, or to use the latest features, Azure provides tools to orchestrate the upgrade of an AKS cluster and components. This upgrade orchestration includes both the Kubernetes master and agent components. You can view a [list of available Kubernetes versions](supported-kubernetes-versions.md) for your AKS cluster. To start the upgrade process, you specify one of these available versions. Azure then safely cordons and drains each AKS node and performs the upgrade.
 
 ### Cordon and drain
 
@@ -53,7 +53,7 @@ During the upgrade process, AKS nodes are individually cordoned from the cluster
 - Pods are scheduled to run on them again.
 - The next node in the cluster is cordoned and drained using the same process until all nodes are successfully upgraded.
 
-For more information, see [Upgrade and AKS cluster][aks-upgrade-cluster].
+For more information, see [Upgrade an AKS cluster][aks-upgrade-cluster].
 
 ## Network security
 

@@ -129,7 +129,7 @@ When a builder or operator signs in to an Azure IoT Central application, they se
 
     ![Add image to home page](media/tutorial-customize-operator-experimental/addimage.png)
 
-    To learn more, see [How to prepare and upload images to your Azure IoT Central application](howto-prepare-images.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+    To learn more, see [How to prepare and upload images to your Azure IoT Central application](howto-prepare-images-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 ## Preview the default home page as an operator
 

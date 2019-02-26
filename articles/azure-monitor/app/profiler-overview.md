@@ -3,15 +3,15 @@ title: Profile production applications in Azure with Application Insights Profil
 description: Identify the hot path in your web server code with a low-footprint profiler.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: cweining
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: cawa
+ms.reviewer: mbullwin
 ms.date: 08/06/2018
-ms.author: mbullwin
+ms.author: cweining
 ---
 # Profile production applications in Azure with Application Insights
 ## Enable Application Insights Profiler for your application

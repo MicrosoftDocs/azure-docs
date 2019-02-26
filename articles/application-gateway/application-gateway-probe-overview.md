@@ -42,7 +42,7 @@ Match criteria can be specified using the `New-AzApplicationGatewayProbeHealthRe
 
 For example:
 
-```
+```azurepowershell
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```

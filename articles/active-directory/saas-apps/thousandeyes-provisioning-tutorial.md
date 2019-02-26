@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure ThousandEyes for automatic user provisioning

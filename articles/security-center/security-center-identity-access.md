@@ -4,7 +4,7 @@ description: Learn how to use the identity and access capability in Azure Securi
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da

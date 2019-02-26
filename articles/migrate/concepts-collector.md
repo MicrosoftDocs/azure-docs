@@ -60,7 +60,7 @@ The Collector must pass a few prerequisite checks to ensure it can connect to th
 - **Check internet connection**: The Collector can connect to the internet directly, or via a proxy.
     - The prerequisite check verifies connectivity to [required and optional URLs](#urls-for-connectivity).
     - If you have a direct connection to the internet, no specific action is required, other than making sure that the Collector can reach the required URLs.
-    - If you're connecting via a proxy, note the [requirements below](#connect-via-a-proxy).
+    - If you're connecting via a proxy, note the requirements below.
 - **Verify time synchronization**: The Collector should synchronized with the internet time server to ensure the requests to the service are authenticated.
     - The portal.azure.com url should be reachable from the Collector so that the time can be validated.
     - If the machine isn't synchronized, you need to change the clock time on the Collector VM to match the current time. To do this open an admin prompt on the VM, run **w32tm /tz** to check the time zone. Run **w32tm /resync** to synchronize the time.
@@ -70,7 +70,7 @@ The Collector must pass a few prerequisite checks to ensure it can connect to th
     - The Collector service connects to vCenter Server, collects the VM metadata and performance data, and sends it to the Azure Migrate service.
 - **Check VMware PowerCLI 6.5 installed**: The VMware PowerCLI 6.5 PowerShell module must be installed on the Collector VM, so that it can communicate with vCenter Server.
     - If the Collector can access the URLs required to install the module, it's install automatically during Collector deployment.
-    - If the Collector can't install the module during deployment, you must [install it manually](#install-vwware-powercli-module-manually).
+    - If the Collector can't install the module during deployment, you must install it manually.
 - **Check connection to vCenter Server**: The Collector must be able to vCenter Server and query for VMs, their metadata, and performance counters. [Verify prerequisites](#connect-to-vcenter-server) for connecting.
 
 

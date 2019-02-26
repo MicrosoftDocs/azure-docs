@@ -13,6 +13,7 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
+ms.collection: M365-identity-device-management
 ---
 
 # Troubleshoot issues with accessing and using the MyApps portal

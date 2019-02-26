@@ -95,16 +95,16 @@ Use the following information to install and configure the solution.
 2. Install and use Docker with a Log Analytics agent. Based on your operating system and Docker orchestrator, you can use the following methods to configure your agent.
   - For standalone hosts:
     - On supported Linux operating systems, install and run Docker and then install and configure the [Log Analytics agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md).  
-    - On CoreOS, you cannot run the Log Analytics agent for Linux. Instead, you run a containerized version of the Log Analytics agent for Linux. Review [Linux container hosts including CoreOS](#for-all-linux-container-hosts-including-coreos) or [Azure Government Linux container hosts including CoreOS](#for-all-azure-government-linux-container-hosts-including-coreos) if you are working with containers in Azure Government Cloud.
+    - On CoreOS, you cannot run the Log Analytics agent for Linux. Instead, you run a containerized version of the Log Analytics agent for Linux. Review Linux container hosts including CoreOS or Azure Government Linux container hosts including CoreOS if you are working with containers in Azure Government Cloud.
     - On Windows Server 2016 and Windows 10, install the Docker Engine and client then connect an agent to gather information and send it to Log Analytics. Review [Install and configure Windows container hosts](#install-and-configure-windows-container-hosts) if you have a Windows environment.
   - For Docker multi-host orchestration:
-    - If you have a Red Hat OpenShift environment, review [Configure a Log Analytics agent for Red Hat OpenShift](#configure-an-oms-agent-for-red-hat-openshift).
+    - If you have a Red Hat OpenShift environment, review Configure a Log Analytics agent for Red Hat OpenShift.
     - If you have a Kubernetes cluster using the Azure Container Service:
        - Review [Configure a Log Analytics Linux agent for Kubernetes](#configure-a-log-analytics-linux-agent-for-kubernetes).
        - Review [Configure an Log Analytics Windows agent for Kubernetes](#configure-a-log-analytics-windows-agent-for-kubernetes).
-       - Review [Use Helm to deploy Log Analytics agent on Linux Kubernetes](#use-helm-to-deploy-oms-agent-on-linux-kubernetes).
+       - Review Use Helm to deploy Log Analytics agent on Linux Kubernetes.
     - If you have an Azure Container Service DC/OS cluster, learn more at [Monitor an Azure Container Service DC/OS cluster with Log Analytics](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
-    - If you have a Docker Swarm mode environment, learn more at [Configure an Log Analytics agent for Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
+    - If you have a Docker Swarm mode environment, learn more at Configure an Log Analytics agent for Docker Swarm.
     - If you have a Service Fabric cluster, learn more at [Monitor containers with Log Analytics Log Analytics](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
 Review the [Docker Engine on Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) article for additional information about how to install and configure your Docker Engines on computers running Windows.

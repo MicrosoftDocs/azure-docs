@@ -1,6 +1,6 @@
 ---
 title: Sample - Audit SQL DB level audit Setting
-description: This sample policy audits SQL database audit settings if those settings do not match a specified setting.
+description: This sample policy definition audits SQL database audit settings if those settings do not match a specified setting.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ---
-# Audit SQL DB level audit setting
+# Sample - Audit SQL DB level audit setting
 
 This policy audits SQL database audit settings if those settings do not match a specified setting. You specify a value that indicates whether audit settings should be enabled or disabled.
 

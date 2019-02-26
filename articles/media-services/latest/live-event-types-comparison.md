@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/06/2019
 ms.author: juliako
 
 ---
@@ -41,7 +41,7 @@ The following table compares features of the two Live Event types.
 | Maximum video resolution of output video|Same as input|720p (at 30 frames/second)|
 | Input protocols|RTMP, fragmented-MP4 (Smooth Streaming)|RTMP, fragmented-MP4 (Smooth Streaming)|
 | Price|See the [pricing page](https://azure.microsoft.com/pricing/details/media-services/) and click on "Live Video" tab|See the [pricing page](https://azure.microsoft.com/pricing/details/media-services/) and click on "Live Video" tab|
-| Maximum run time|24x365 live linear|24x7|
+| Maximum run time| 24 hrs x 365 days, live linear | Up to 24 hours|
 | Ability to pass through embedded CEA 608/708 captions data|Yes|Yes|
 | Support for inserting slates|No|No|
 | Support for ad signaling via API| No|No|

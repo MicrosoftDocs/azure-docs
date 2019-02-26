@@ -160,7 +160,7 @@ except Exception as e:
     raise e
 ```
 
-The Batch Python SDK extension also supports adding task parameters to job using a JSON specification for a task factory. For example, configure job parameters for a parametric sweep similar to the one in the preceding [Batch CLI template](#example-batch-cli-template) example:
+The Batch Python SDK extension also supports adding task parameters to job using a JSON specification for a task factory. For example, configure job parameters for a parametric sweep similar to the one in the preceding Batch CLI template example:
 
 ```python
 parameter_sweep = {

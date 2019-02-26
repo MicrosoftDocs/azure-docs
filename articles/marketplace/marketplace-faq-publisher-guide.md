@@ -346,7 +346,7 @@ If you don’t already have a Microsoft account, you can [create an account](htt
 
 **Why is Dev Center account required?**
 
-A Dev Center account is required to enable Microsoft to bill customers on the publisher's behalf for Transact listing types. Dev Center account registration enables Microsoft to validate the legal, tax, and banking information. For more information, see [register in Dev Center](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center).
+A Dev Center account is required to enable Microsoft to bill customers on the publisher's behalf for Transact listing types. Dev Center account registration enables Microsoft to validate the legal, tax, and banking information. For more information, see [register in Dev Center](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
 **Which publishers require a Dev Center account registration?**
 

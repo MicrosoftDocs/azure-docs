@@ -72,7 +72,7 @@ When you define a rule, you also define an action to run when the rule condition
     | Notes     | Air conditioner temperature exceeded the threshold. |
 
     > [!NOTE]
-    > To receive an email notification, the email address must be a [user ID in the application](howto-administer.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json), and that user must have signed in to the application at least once.
+    > To receive an email notification, the email address must be a [user ID in the application](howto-administer-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json), and that user must have signed in to the application at least once.
 
     ![Temperature action](media/tutorial-configure-rules-experimental/temperatureaction.png)
 

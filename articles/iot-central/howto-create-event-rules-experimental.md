@@ -84,7 +84,7 @@ This section shows you how to set up actions to take when the rule is fired. Act
 1. Choose the **Email** action, enter a valid email address in the **To** field, and provide a note to appear in the body of the email when the rule triggers.
 
     > [!NOTE]
-    > Emails are only sent to the users that have been added to the application and have logged in at least once. Learn more about [user management](howto-administer.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) in Azure IoT Central.
+    > Emails are only sent to the users that have been added to the application and have logged in at least once. Learn more about [user management](howto-administer-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) in Azure IoT Central.
 
    ![Configure Action](media/howto-create-event-rules-experimental/Configure_Action.png)
 
@@ -92,8 +92,8 @@ This section shows you how to set up actions to take when the rule is fired. Act
 
 You can add other actions to the rule such as Microsoft Flow and webhooks. You can add up to 5 actions per rule.
 
-- [Microsoft Flow action](howto-add-microsoft-flow.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) to kick off a workflow in Microsoft Flow when a rule is triggered 
-- [Webhook action](howto-create-webhooks.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) to notify other services when a rule is triggered
+- [Microsoft Flow action](howto-add-microsoft-flow-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) to kick off a workflow in Microsoft Flow when a rule is triggered 
+- [Webhook action](howto-create-webhooks-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) to notify other services when a rule is triggered
 
 ## Parameterize the rule
 
@@ -115,6 +115,6 @@ Navigate to the device and choose the rule you want to enable or disable. Toggle
 
 Now that you have learned how to create rules in your Azure IoT Central application, here are some next step:
 
-- [Add Microsoft Flow action in rules](howto-add-microsoft-flow.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
-- [Add Webhook action in rules](howto-create-webhooks.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
-- [How to manage your devices](howto-manage-devices.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+- [Add Microsoft Flow action in rules](howto-add-microsoft-flow-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+- [Add Webhook action in rules](howto-create-webhooks-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+- [How to manage your devices](howto-manage-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
