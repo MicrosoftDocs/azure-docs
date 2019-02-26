@@ -40,7 +40,7 @@ To configure Azure AD integration with Klue, you need the following items:
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Klue supports supports **SP and IDP** initiated SSO
+* Klue supports **SP and IDP** initiated SSO
 * Klue supports **Just In Time** user provisioning
 
 ## Adding Klue from the gallery
