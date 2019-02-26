@@ -17,8 +17,8 @@ The Anomaly Detector API enables you to easily monitor and gain insights from yo
 
 Using the Anomaly Detector doesn't require any prior experience in machine learning. The RESTful API enables you to easily integrate the service into your applications and processes, and it accepts any data set taken at uniform intervals of time.
 
-![Anomaly_Finder](./media/anomaly_detection1.png) 
-![Anomaly_Finder](./media/anomaly_detection2.png)
+![Detecting anomalies in sales revenues](./media/anomaly_detection1.png) 
+![Detect pattern changes in service requests](./media/anomaly_detection2.png)
 
 ## Features
 
@@ -31,17 +31,17 @@ With the Anomaly Detector, you can automatically find anomalies throughout your 
 | Visualize the range of normal values for your data | Visualize your data, including expected values, anomaly boundaries, and anomalies themselves. |
 | Adjust the sensitivity of anomaly detection for better results. | Increase or decrease the sensitivity of the anomaly detection boundaries. |
 
-![Anomaly_Finder](./media/anomaly_detection1.png) 
+## Workflow
 
-Fig. 1: Detect anomalies in sales revenues
+The Anomaly Detection API is a RESTful web service, making it easy to call from any programming language that can make HTTP requests and parse JSON.
 
-![Anomaly_Finder](./media/anomaly_detection2.png)
+> [!NOTE] 
+> To use the Anomaly Detection API, your data must follow these requirements:
+> - Minimum data for input time series: Minimum of 13 data points for time series without clear periodicity, minimum of four cycles of data points for the time series with known periodicity.
+> - Data integrity: time series data points are separated in the same interval and no missing points.
 
-Fig. 2: Detect pattern changes in service requests
+1. Create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/try/cognitive-services/) for free.
+2. Send a request to the API, with your data.
+3. Process the API response by parsing the returned JSON message.
 
-## Requirements
-
-The following preparation is required for your data.
-
-- Minimum data for input time series: Minimum of 13 data points for time series without clear periodicity, minimum of four cycles of data points for the time series with known periodicity.
-- Data integrity: time series data points are separated in the same interval and no missing points.
+## Next steps
