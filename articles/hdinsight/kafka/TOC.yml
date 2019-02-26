@@ -40,6 +40,8 @@
     href: apache-kafka-scalability.md
   - name: High availability of data
     href: apache-kafka-high-availability.md
+  - name: Performance tuning
+    href: apache-kafka-performance-tuning.md
 - name: How to
   items:
   - name: Enable auto topic creation
