@@ -181,13 +181,13 @@ Or, you can just press the Shift + F5 keys.
    After you capture the screens for a task, the designer tool 
    shows thumbnails that represent those screens. Along with your 
    captured screens, you also have a screen that's named "Empty". 
-   When you first connect to CICS, you must send the "Clear" key 
-   before you can enter the name for the transaction you want to run. 
-   The screen where you send the "Clear" key doesn't have any 
-   recognition attributes. So, to represent this screen, 
-   the thumbnails include a screen named "Empty". You can 
-   later use this screen for representing the screen 
-   where you enter the transaction name.
+   When you first connect to [CICS](https://www.ibm.com/it-infrastructure/z/cics), 
+   you must send the "Clear" key before you can enter the name 
+   for the transaction you want to run. The screen where you 
+   send the "Clear" key doesn't have any recognition attributes. 
+   So, to represent this screen, the thumbnails include a screen 
+   named "Empty". You can later use this screen for representing 
+   the screen where you enter the transaction name.
 
 1. Now specify the fields for identifying each screen.
 
