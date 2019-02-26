@@ -182,16 +182,31 @@ your app for the specific task that you're recording.
 Or, you can just press the Shift + F5 keys.
 
    After you capture the screens for a task, the designer tool 
-   shows thumbnails that represent those screens. Along with your 
-   captured screens, you also have a screen that's named "Empty". 
-   When you first connect to [CICS](https://www.ibm.com/it-infrastructure/z/cics), 
-   you must send the "Clear" key before you can enter the name 
-   for the transaction you want to run. The screen where you 
-   send the "Clear" key doesn't have any recognition attributes. 
-   So, to represent this screen, the thumbnails include a screen 
-   named "Empty". You can later use this screen for representing 
-   the screen where you enter the transaction name.
+   shows thumbnails that represent those screens. Here are some 
+   notes about these thumbnails: 
+   
+   * Included with your captured screens, you also 
+   have a screen that's named "Empty". 
+   
+     When you first connect to 
+     [CICS](https://www.ibm.com/it-infrastructure/z/cics), 
+     you must send the "Clear" key before you can enter the name 
+     for the transaction you want to run. The screen where you 
+     send the "Clear" key doesn't have any *recognition attributes*, 
+     such as a screen title, which you can add by using the Screen 
+     Recognition editor. To represent this screen, the thumbnails 
+     also include a screen named "Empty". You can later use this screen 
+     for representing the screen where you enter the transaction name.
 
+   * By default, the name for a captured screen uses the first word 
+   on the screen. If that name already exists, the design tool 
+   appends the name with an underscore and a number, for example, 
+   "WBGB" and "WBGB_1".
+
+1. To give a more meaningful name to a captured screen, in the **Host Screens** pane, 
+select the screen you want to rename. In the same pane, near the bottom in the same pane, find the 
+**Screen Name** property, and change the current name to a more descriptive name. 
+   
 1. Now specify the fields for identifying each screen.
 
    With the 3270 data stream, screens don't have default identifiers, 
@@ -350,7 +365,7 @@ you might need more identification methods. The example plan has a
 fork where you can get screens that look similar. One screen returns 
 an account balance, while the other screen returns an error message.
 
-In the design tool, you can add *recognition attributes*, 
+The design tool lets you add recognition attributes, 
 such as the screen title, "Get Account Balance", by using 
 the Screen Recognition editor. In the case with similar screens, 
 you need other attributes. At run time, the connector uses 
