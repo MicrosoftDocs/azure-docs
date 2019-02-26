@@ -159,7 +159,7 @@ A. You can clone your previous order. Cloning creates the same order as before a
 
 ### Q. I copied data to ManagedDisk folder. I don't see any managed disks with the resource group specified for managed disks. Was my data uploaded to Azure and how can I locate it?
 A. Yes. Your data was uploaded to Azure but if you don't see any managed disks with the specified resource groups, it is likely because the data was not valid. If the page blobs, block blobs, Azure Files, and managed disks were not valid, these would go to the following folders:
- - Page blobs would to a block blob container starting with *databoxdisk-invalid-pb-*.
+ - Page blobs would go to a block blob container starting with *databoxdisk-invalid-pb-*.
  - Azure Files would go to a block blob container starting with *databoxdisk-invalid-af-*.
  - Managed disks would go to a block blob container starting with *databoxdisk-invliad-md-*.
 
