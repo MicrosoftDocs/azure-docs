@@ -32,7 +32,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. Ch
 
 2. Search on **Cost Management +Billing**.
 
-    ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-understand-your-bill-mca/billing-search-costmanagement+billing.png)
+    ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-understand-your-bill-mca/billing-search-costmanagement-billing.png)
 
 3. Select **All transactions** from the left side of the screen. Depending on your access you may have to select a billing account or a billing profile, then select **All transactions**.
 
@@ -97,7 +97,7 @@ Once you identify pending charges, you can view individual transactions that con
 
 2. Search on **Cost Management +Billing**.
 
-   ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-understand-your-bill-mca/billing-search-costmanagement+billing.png)
+   ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-understand-your-bill-mca/billing-search-costmanagement-billing.png)
 
 3. Select a billing profile. Depending on your access, you may have to select a billing account. From the billing account, select **Billing profiles** then select a billing profile.
 
@@ -159,7 +159,7 @@ The following screenshot displays the list of subscriptions with their usage cha
 
 You can filter the **subscriptionName** column in the CSV file to **WA_Subscription** to view the daily usage charges for WA_Subscription.
 
-## <a name="payment"></a>Pay your bill
+## Pay your bill
 
 Instructions for paying your bill are shown at the bottom of the invoice. [Learn how to pay](billing-understand-your-invoice-mca.md#how-to-pay).
 
