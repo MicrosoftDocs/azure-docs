@@ -192,7 +192,7 @@ Following is a sample payload for a custom webhook action for any log alert.
 
 
 ## Next steps
-- Learn about [Log Alerts in Azure Alerts ](alerts-unified-log.md)
+- Learn about [Log Alerts in Azure Alerts](alerts-unified-log.md)
 - Understand [managing log alerts in Azure](alerts-log.md)
 - Create and manage [action groups in Azure](action-groups.md)
 - Learn more about [Application Insights](../../azure-monitor/app/analytics.md)

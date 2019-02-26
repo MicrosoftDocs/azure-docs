@@ -57,7 +57,7 @@ The goals, tasks, and documentation artifacts for each stage of the lifecycle in
 
 The following diagram provides a grid view of the tasks (in blue) and artifacts (in green) associated with each stage of the lifecycle (on the horizontal axis) for these roles (on the vertical axis). 
 
-[ ![TDSP-roles-and-tasks](./media/overview/tdsp-tasks-by-roles.png) ](./media/overview/tdsp-tasks-by-roles.png#lightbox)
+[![TDSP-roles-and-tasks](./media/overview/tdsp-tasks-by-roles.png)](./media/overview/tdsp-tasks-by-roles.png#lightbox)
 
 ## Standardized project structure
 
@@ -71,7 +71,7 @@ We provide templates for the folder structure and required documents in standard
 - model performance metrics such as ROC curves or MSE
 
 
-[ ![TDSP-directories](./media/overview/tdsp-dir-structure.png) ](./media/overview/tdsp-dir-structure.png#lightbox)
+[![TDSP-directories](./media/overview/tdsp-dir-structure.png)](./media/overview/tdsp-dir-structure.png#lightbox)
 
 The directory structure can be cloned from [GitHub](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
 
@@ -88,7 +88,7 @@ The analytics and storage infrastructure can be in the cloud or on-premises. Thi
 
 Here is an example of a team working on multiple projects and sharing various cloud analytics infrastructure components.
 
-[ ![TDSP-infrastructure](./media/overview/tdsp-analytics-infra.png) ](./media/overview/tdsp-analytics-infra.png#lightbox) 
+[![TDSP-infrastructure](./media/overview/tdsp-analytics-infra.png)](./media/overview/tdsp-analytics-infra.png#lightbox) 
 
 
 ## Tools and utilities for project execution
