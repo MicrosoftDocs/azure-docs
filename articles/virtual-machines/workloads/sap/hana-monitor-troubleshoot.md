@@ -155,7 +155,7 @@ Sample outputs:
 
 **HANA\_Services\_Statistics** for SAP HANA service information (CPU, memory, etc.).
 
-![HANA\_Services\_Statistics for SAP HANA service information ](./media/troubleshooting-monitoring/image13-services-statistics.png)
+![HANA\_Services\_Statistics for SAP HANA service information](./media/troubleshooting-monitoring/image13-services-statistics.png)
 
 **HANA\_Configuration\_Overview\_Rev110+** for general information on the SAP HANA instance.
 
