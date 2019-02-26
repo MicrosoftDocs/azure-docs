@@ -317,9 +317,10 @@ Edit the module create options to change the HostPort value:
 
 When you connect to additional blob storage modules, change the endpoint to point to the updated host port. 
 
-### Try it out
+## Try it out
 
-The Azure Blob Storage documentation includes quickstarts that provide sample code in several languages. You can run these samples to test Azure Blob Storage on IoT Edge by changing the blob endpoint to point to your blob storage module.
+### Azure Blob Storage Quickstart samples
+The Azure Blob Storage documentation includes quickstarts that provide sample code in several languages. You can run these samples to test Azure Blob Storage on IoT Edge by changing the blob endpoint to point to your blob storage module. Follow the steps to [connect to your blob storage module](#connect-to-your-blob-storage-module)
 
 The following quickstarts use languages that are also supported by IoT Edge, so you could deploy them as IoT Edge modules alongside the blob storage module:
 
@@ -328,6 +329,7 @@ The following quickstarts use languages that are also supported by IoT Edge, so 
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
 * [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md) 
 
+### Azure Storage Explorer
 You can also try [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to your local storage account. We have tried working with previous version 1.5.0 of Azure Explorer.
 > [!CAUTION]
 > You might encounter errors while performing below steps, ignore and refresh. 
@@ -339,7 +341,7 @@ You can also try [Azure Storage Explorer](https://azure.microsoft.com/features/s
 5. Create container inside your local storage account
 6. Start uploading files as Block blobs.
 > [!CAUTION]
-> uncheck the checkbox to upload it as page blobs. This module does not support page blobs. You will get this prompt while uploading files like .iso, .vhd, .vhdx files or any big files.
+> uncheck the checkbox to upload it as page blobs. This module does not support page blobs. You will get this prompt while uploading files like .iso, .vhd, .vhdx or any big files.
 
 7. You can choose to connect your Azure storage accounts where you are uploading the data. It gives you a single view for both your local storage account and Azure storage account
 
