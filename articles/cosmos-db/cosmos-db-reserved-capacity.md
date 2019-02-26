@@ -64,6 +64,10 @@ After you buy a reservation, it's applied immediately to any existing Azure Cosm
 
 When your reservation expires, your Azure Cosmos DB instances continue to run and are billed at the regular pay-as-you-go rates.
 
+## Cancellation and exchanges
+
+For help in identifying the right reserved capacity, see [Understand how the reservation discount is applied to Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md). In the event, you need to cancel or exchange an Azure Cosmos DB reservation, please contact the Azure Cosmos DB team at `askCosmosDB@microsoft.com`.
+
 ## Next steps
 
 The reservation discount is applied automatically to the Azure Cosmos DB resources that match the reservation scope and attributes. You can update the scope of the reservation through the Azure portal, PowerShell, Azure CLI, or the API.
