@@ -93,9 +93,7 @@ matched the query.
 
 > [!IMPORTANT]
 > The query must **project** the **id** field in order for pagination to work. If it is missing from
-> the query, the REST API response won't include the **$skipToken**. When using Azure CLI with the
-> `--output table` option, the **id** and **type** are removed from the results and **$skipToken**
-> isn't included. For more information, see [Azure CLI Table output format](/cli/azure/format-output-azure-cli?view=azure-cli-latest#table-output-format).
+> the query, the REST API response won't include the **$skipToken**.
 
 For an example, see [Next page query](/rest/api/azureresourcegraph/resources/resources#next_page_query)
 in the REST API docs.
