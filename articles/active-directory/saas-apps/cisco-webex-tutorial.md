@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/22/2019
+ms.date: 02/26/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -44,8 +44,6 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 * Cisco Webex Meetings supports **SP** initiated SSO
 
 * Cisco Webex Meetings supports **Just In Time** user provisioning
-
-* Cisco Webex Meetings supports **Automated** user provisioning
 
 ## Adding Cisco Webex Meetings from the gallery
 
@@ -183,7 +181,7 @@ To configure Azure AD single sign-on with Cisco Webex Meetings, perform the foll
 
 	c. Click on **Export** button to download the Service Provider Metadata file and upload it in the **Basic SAML Configuration** section on Azure portal.
 
-	d. In the **AuthContextClassRef** textbox, type `urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified` and if you want to enable the MFA using Azure AD type the two values like `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport` and `urn:oasis:names:tc:SAML:2.0:ac:classes:X509`.
+	d. In the **AuthContextClassRef** textbox, type `urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified` and if you want to enable the MFA using Azure AD type the two values like `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport;urn:oasis:names:tc:SAML:2.0:ac:classes:X509`.
 
 	e. Select **Auto Account Creation**.
 
