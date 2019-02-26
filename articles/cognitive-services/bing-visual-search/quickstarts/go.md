@@ -105,30 +105,50 @@ type BingAnswer struct {
 
 ## Declare the main function and define variables  
 
-The following code declares the main function and assigns required variables. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account.  The `batchNumber` is a guid required for leading and trailing boundaries of the Post data.  The `fileName` variable identifies the image file for the Post.
+The following code declares the main function and assigns required variables. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account.  The `batchNumber` is a guid required for leading and trailing boundaries of the Post data.  The `fileName` variable identifies the image file for the Post.  Following sections explain the details of the code.
 
 ```
 func main() {
 	// Verify the endpoint URI and replace the token string with a valid subscription key.se
 	endpoint := "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch"
-	token := "YOUR-ACCESS-KEY"
-
-    // Initialize the http client.
-    client := &http.Client{}
-
-    //set a new guid for the Post batch
-	batchNumber := "d7ecz947-942f-4f3e-961d-a82031f1775f" 
-    // The file to Post. Include the path if needed.
+	token := "3d25ef338c9e45cf881c5db36cd8e463"  //"cab5e9fa4e1947e48ecbf95e213ebf3c"
+	client := &http.Client{}
+	batchNumber := "d7ecc447-912f-413e-961d-a83021f1775f"
 	fileName := "ElectricBike.JPG"
 
-    // Open the file to upload to Visual Search.
-	file, err := os.Open(fileName)
+	body, contentType := createRequestBody(fileName, batchNumber)
+	
+	req, err := http.NewRequest("POST", endpoint, body)
+	req.Header.Add("Content-Type", contentType)
+	req.Header.Set("Ocp-Apim-Subscription-Key", token)
+	
+	resp, err := client.Do(req)
 	if err != nil {
 		panic(err)
 	}
-	defer file.Close()
+	
+       defer resp.Body.Close()
+	
+	resbody, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		panic(err)
+	}
 
-    // Add the remaining code of this example here.
+	//fmt.Print(string(resbody))
+	
+	// Create a new answer.  
+    ans := new(BingAnswer)
+    err = json.Unmarshal(resbody, &ans)
+    if err != nil {
+        fmt.Println(err)
+    }
+	
+	fmt.Print("Output of BingAnswer: \r\n\r\n")
+	
+	// Iterate over search results and print the result name and URL.
+    for _, result := range ans.Tags {
+	    spew.Dump(result)
+    }
 }
 
 ```
@@ -152,39 +172,32 @@ func BuildFormDataEnd(batNum string) string{
 }
 
 ```
-## Create buffer to hold image bytes and add to form data
+## Create Post request and add image bytes to Post body
 
-The following code segment instantiates a buffer and multipart form `writer`.  It sets the leading boundary, then assigns the image data to a `part` of the form.   It reads the bytes into a buffer and copys the bytes to the request form.  Finally it sets the trailing boundary.
+This code segment creates the Post request that contains image data. 
 
 ```
+func createRequestBody(fileName string, batchNumber string) (*bytes.Buffer, string) {
+    file, err := os.Open(fileName)
+	if err != nil {
+		panic(err)
+	}
+	defer file.Close()
+
 	body := &bytes.Buffer{}
 	writer := multipart.NewWriter(body)
-
-    // Set the leading boundary
-    writer.SetBoundary(BuildFormDataStart(batchNumber, fileName))
-
-    // Write the image data from the file to the Post body
+	
+	writer.SetBoundary(BuildFormDataStart(batchNumber, fileName))
+	
 	part, err := writer.CreateFormFile("image", filepath.Base(file.Name()))
 	if err != nil {
 		panic(err)
 	}
 	io.Copy(part, file)
-
-    // Set the trailing boundary
-    writer.WriteField("lastpart", BuildFormDataEnd(batchNumber))
-
+	writer.WriteField("lastpart", BuildFormDataEnd(batchNumber))	
 	writer.Close()
-
-```
-
-## Create Post request and add image bytes to Post body
-
-This code segment creates the Post request that contains image data.  It sets the headers.
-
-```
-	req, err := http.NewRequest("POST", endpoint, body)
-	req.Header.Add("Content-Type", writer.FormDataContentType())
-	req.Header.Set("Ocp-Apim-Subscription-Key", token)
+    return body, writer.FormDataContentType()
+}
 
 ```
 
