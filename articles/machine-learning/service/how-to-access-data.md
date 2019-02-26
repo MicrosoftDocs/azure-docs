@@ -42,7 +42,7 @@ ds = ws.get_default_datastore()
 ```
 
 ### Register a datastore
-If you have existing Azure Storage, you can register it as a datastore on your workspace. You can also register an Azure Blob Container or Azure File Share as a datastore. All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form `register_azure_*`.
+If you have existing Azure Storage, you can register it as a datastore on your workspace.  All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form register_azure_*. Below are examples for registering an Azure Blob Container and Azure File Share as a datastore.
 
 #### Azure Blob Container Datastore
 To register an Azure Blob Container datastore, use [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-:)
@@ -69,7 +69,7 @@ ds = Datastore.register_azure_file_share(workspace=ws,
 ```
 
 ### Get an existing datastore
-To query for an already registered datastore by name:
+The [`get()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#get-workspace--datastore-name-) method queries for an already registered datastore by name:
 
 ```Python
 ds = Datastore.get(ws, datastore_name='your datastore name')
@@ -83,7 +83,7 @@ for name, ds in datastores.items():
     print(name, ds.datastore_type)
 ```
 
-For convenience, set one of your registered datastores as the default datastore for your workspace:
+For convenience, [`set_default_datastore()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#set-default-datastore-name-) sets the default datastore for your workspace to whichever datastore you choose:
 
 ```Python
 ws.set_default_datastore('your datastore name')
@@ -121,7 +121,7 @@ You can access a datastore during a training run (for example, for training or v
 There are two supported ways to make your datastore available on the remote compute:
 * **Mount**  
 
-    * [as_mount()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), specifying this mount mode, the datastore gets mounted for you on the remote compute.
+    * [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), specifying this mount mode, the datastore gets mounted for you on the remote compute.
 
 ```Python
 import azureml.data
@@ -131,9 +131,9 @@ ds.as_mount()
 ```
 
 * **Download/upload**  
-    * [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), downloads data from your datastore to the remote compute to the location specified by `path_on_compute`.
+    * [`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), downloads data from your datastore to the remote compute to the location specified by `path_on_compute`.
 
-    * [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), uploads data to the root of your datastore from the location specified by `path_on_compute`
+    * [`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), uploads data to the root of your datastore from the location specified by `path_on_compute`
 
 ```Python
 ds.as_download(path_on_compute='your path on compute')
@@ -148,7 +148,7 @@ ds.path('./bar').as_download()
 ```
 Any `ds` or `ds.path` object resolves to an environment variable name of the format `"$AZUREML_DATAREFERENCE_XXXX"` whose value represents the mount/download path on the remote compute. The datastore path on the remote compute might not be the same as the execution path for the script.
 
-To access your datastore during training, pass it into your training script as a command-line argument via `script_params` from the [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) class:
+To access your datastore during training, pass it into your training script as a command-line argument via `script_params` from the [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) class:
 
 ```Python
 from azureml.train.estimator import Estimator
