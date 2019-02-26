@@ -11,7 +11,7 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/03/2019
+ms.date: 02/26/2019
 
 ---
 # Use Resource Health to troubleshoot connectivity for Azure SQL Database
