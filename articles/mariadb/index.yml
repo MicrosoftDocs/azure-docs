@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/25/2018
   abstract:
-  description: Azure Database for MariaDB is a relational database service based on the open-source MariaDB Server engine.  It is a fully managed database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability. Develop applications with Azure Database for MariaDB leveraging the open-source tools and platform of your choice. Learn how to use Azure Database for MariaDB with our quickstarts, tutorials, and samples.
+  description: Azure Database for MariaDB is a relational database service based on the open-source MariaDB Server engine.  It's a fully managed database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability. Develop applications with Azure Database for MariaDB leveraging the open-source tools and platform of your choice. Learn how to use Azure Database for MariaDB with our quickstarts, tutorials, and samples.
 sections:
 - title: 5-Minute Quickstarts
   items:
