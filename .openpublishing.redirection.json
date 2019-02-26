@@ -31790,6 +31790,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-support-create-directory.md",
+      "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-faqs",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/video-indexer/video-indexer-output-json.md",
       "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-output-json-v2",
       "redirect_document_id": true
