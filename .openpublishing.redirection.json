@@ -24578,7 +24578,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "azure/security-center/security-center-alert-export.md",
+      "source_path": "articles/security-center/security-center-alert-export.md",
       "redirect_url": "/azure/security-center/security-center-detection-capabilities",
       "redirect_document_id": false
     },
