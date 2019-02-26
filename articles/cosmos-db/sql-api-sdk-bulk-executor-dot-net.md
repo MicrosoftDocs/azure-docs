@@ -38,6 +38,14 @@ ms.author: ramkris
 
 ## Release notes
 
+### <a name="2.2.0-preview2"/>2.2.0-preview2
+
+* Fixed an issue, which caused exceptions during elastic scaling of Cosmos DB when running in Gateway mode. This fix makes it functionally equivalent to 1.4.1 release.
+
+### <a name="2.1.0-preview2"/>2.1.0-preview2
+
+* Removed overload for BulkDelete operation with query for SQL API. This change makes it functionally equivalent to 1.4.0 release.
+
 ### <a name="2.0.0-preview2"/>2.0.0-preview2
 
 * Including MongoBulkExecutor to support .NET Standard 2.0. This feature makes it functionally equivalent to 1.3.0 release, with the addition of supporting .NET Standard 2.0 as the target framework.
@@ -45,6 +53,14 @@ ms.author: ramkris
 ### <a name="2.0.0-preview"/>2.0.0-preview
 
 * Added .NET Standard 2.0 as one of the supported target frameworks to make the BulkExecutor library work with .NET Core applications.
+
+### <a name="1.4.1"/>1.4.1
+
+* Fixed an issue, which caused exceptions during elastic scaling of Cosmos DB when running in Gateway mode.
+
+### <a name="1.4.0"/>1.4.0
+
+* Removed overload for BulkDelete operation with query for SQL API. This feature is being improved and will be incorporated in a near future release.
 
 ### <a name="1.3.0"/>1.3.0
 
