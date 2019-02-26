@@ -9,7 +9,7 @@ metadata:
   ms.author: andrela
   ms.service: mysql
   ms.topic: landing-page
-  ms.date: 12/13/2018
+  ms.date: 02/25/2018
 abstract:
   description: Azure Database for MySQL is a relational database service based on the open source MySQL Server engine.  It is a fully managed database as a service offering capable of handling mission-critical workloads with predictable performance and dynamic scalability. Develop applications with Azure Database for MySQL leveraging the open source tools and platform of your choice. Learn how to use Azure Database for MySQL with our quickstarts, tutorials, and samples.
 sections:
@@ -37,6 +37,15 @@ sections:
     items:
     - html: Design a Database&#58; <a href="/azure/mysql/tutorial-design-database-using-portal">Azure portal</a> | <a href="/azure/mysql/tutorial-design-database-using-cli">Azure CLI</a>
     - html: Create a Web App&#58; <a href="https://portal.azure.com/#create/hub">Wordpress - Portal</a> | <a href="../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json">PHP - Azure CLI</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: Find scripts to manage common tasks.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/mysql/sample-scripts-azure-cli">Azure CLI</a>
 - title: Reference
   items:
   - type: list
@@ -45,3 +54,5 @@ sections:
     items:
     - title: Command-Line
       html: <p><a href="/cli/azure/mysql">Azure CLI</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/mysql">REST API</a></p>
