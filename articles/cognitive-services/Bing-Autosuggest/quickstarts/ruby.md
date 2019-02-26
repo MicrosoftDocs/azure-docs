@@ -13,7 +13,7 @@ ms.date: 02/20/2019
 ms.author: aahi
 ---
 
-# Quickstart: Suggest search queries with the Bing Autosuggest REST API and PHP
+# Quickstart: Suggest search queries with the Bing Autosuggest REST API and Ruby
 
 Use this quickstart to begin making calls to the Bing Autosuggest API and getting the JSON response. This simple Ruby application sends a partial search query to the API, and returns suggestions for searches. While this application is written in Ruby, the API is a RESTful Web service compatible with most programming languages.
 

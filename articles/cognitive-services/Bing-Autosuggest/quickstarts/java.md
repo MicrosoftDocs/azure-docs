@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Bing Autosuggest API, Java"
+title: "Quickstart: Suggest search queries with the Bing Autosuggest REST API and Java"
 titlesuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Bing Autosuggest API.
+description: Learn how to quickly start suggesting search terms in real-time with the Bing Autosuggest API.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,7 +13,7 @@ ms.date: 02/20/2019
 ms.author: aahi
 ---
 
-# Quickstart for Bing Autosuggest API with Java
+# Quickstart: Suggest search queries with the Bing Autosuggest REST API and Java
 
 
 Use this quickstart to begin making calls to the Bing Autosuggest API and getting the JSON response. This simple Java application sends a partial search query to the API, and returns suggestions for searches. While this application is written in Java, the API is a RESTful Web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java)

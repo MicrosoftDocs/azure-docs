@@ -13,7 +13,7 @@ ms.date: 02/20/2019
 ms.author: aahi
 ---
 
-# Quickstart: Suggest search queries with the Bing Autosuggest REST API and C#
+# Quickstart: Suggest search queries with the Bing Autosuggest REST API and Node.js
 
 Use this quickstart to begin making calls to the Bing Autosuggest API and getting the JSON response. This simple Node.js application sends a partial search query to the API, and returns suggestions for searches. While this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js)
 
