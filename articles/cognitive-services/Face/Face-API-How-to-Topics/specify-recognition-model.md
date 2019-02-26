@@ -57,9 +57,9 @@ var faces = await faceServiceClient.DetectAsync(imageUrl, true, true, "recogniti
 
 ## Identify faces with specified model
 
-When the Face API extracts face feature data from an image, the service builds a **PersonGroup** object for person identification.
+The Face API can extract face data from an image and associate it with a **Person** object (through the [Add face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API call, for example), and multiple **Person** objects can be stored together in a **PersonGroup**. Then, a new face can be compared against a **PersonGroup** (with the [Face - Identify] call), and the matching person within that group can be identified.
 
-A **PersonGroup** should have one unique recognition model for all of the Persons, and you can specify this using the `recognitionModel` parameter when you create the group ([PersonGroup - Create] or [LargePersonGroup - Create]).
+A **PersonGroup** should have one unique recognition model for all of the **Person**s, and you can specify this using the `recognitionModel` parameter when you create the group ([PersonGroup - Create] or [LargePersonGroup - Create]).
 
 See the following code example for the .NET client library.
 
