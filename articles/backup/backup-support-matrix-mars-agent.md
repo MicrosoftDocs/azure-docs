@@ -24,11 +24,11 @@ Azure Backup uses the MARS agent to back up data from on-premises machines and A
 Your backup options depend on where the agent is installed. For more information, see [Azure Backup architecture using the MARS agent](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders). For information about MABS and Data Protection Manager backup architecture, see [Back up to Data Protection Manager or MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Also see [requirements](backup-support-matrix-mabs-dpm.md) for the backup architecture.
 
 
-## Supported installation
+## Supported installations
 
 **Installation** | **Details**
 --- | ---
-Download latest MARS agent | You can download the latest version of the agent from the vault, or [download it directly](https://aka.ms/azurebackup_agent).
+Download the latest MARS agent | You can download the latest version of the agent from the vault, or [download it directly](https://aka.ms/azurebackup_agent).
 Install directly on a machine | You can install the MARS agent directly on an on-premises Windows server or on a Windows Azure virtual machine that's running any of the supported operating systems.
 Install on a backup server | When you set up Data Protection Manager or MABS to back up to Azure, you download and install the MARS agent on the server. You can install the agent on [supported operating systems](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) in the backup server support matrix.
 
@@ -43,10 +43,10 @@ When you use the MARS agent to back up data, the agent takes a snapshot of the d
 
 **Cache** | **Details**
 --- | ---
-Cache size |  Free space in the cache folder should be at least 5 to 10 percent of the overall size of your backup data. 
-Cache location | The cache folder must be locally stored on the machine that's being backed up, and it must be online. The cache folder shouldn't be on a network share, on removable media, or on an offline volume. 
-Cache folder | The cache folder should be encrypted on a deduplicated volume or in a folder that's compressed, that's sparse, or that has a reparse point.
-Cache location changes | You can change the cache location by stopping the backup engine (`net stop bengine`) and copying the cache folder to a new drive. (Ensure the new drive has sufficient space.) Then update two registry entries under **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** and **Config/CloudBackupProvider/ScratchLocation**) to the new location and restart the engine.
+Size |  Free space in the cache folder should be at least 5 to 10 percent of the overall size of your backup data. 
+Location | The cache folder must be locally stored on the machine that's being backed up, and it must be online. The cache folder shouldn't be on a network share, on removable media, or on an offline volume. 
+Folder | The cache folder should be encrypted on a deduplicated volume or in a folder that's compressed, that's sparse, or that has a reparse point.
+Location changes | You can change the cache location by stopping the backup engine (`net stop bengine`) and copying the cache folder to a new drive. (Ensure the new drive has sufficient space.) Then update two registry entries under **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** and **Config/CloudBackupProvider/ScratchLocation**) to the new location and restart the engine.
 
 ## Networking and access support
 
@@ -69,7 +69,7 @@ Network throttling | This isn't available for backed up machines that run Window
 
 ## Support for direct backups
 
-You can use the MARS agent to back up directly to Azure on some operating systems that run on on-premises machines and Azure virtual machines. The operating systems must be 64 bit and should be running the latest services packs and updates. The following table summarizes these operating systems.
+You can use the MARS agent to back up directly to Azure on some operating systems that run on on-premises machines and Azure virtual machines. The operating systems must be 64 bit and should be running the latest services packs and updates. The following table summarizes these operating systems:
 
 **Operating system** | **Files/folders** | **System state**
 --- | --- | ---
@@ -145,4 +145,4 @@ Backups can't be restored to a target machine that's running an earlier version 
 
 ## Next steps
 - Learn more about [backup architecture that uses the MARS agent](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders).
-- Learn what's supported when you [run the MARS agent on MABS or Data Protection Manager](backup-support-matrix-mabs-dpm.md).
+- Learn what's supported when you [run the MARS agent on MABS or a Data Protection Manager server](backup-support-matrix-mabs-dpm.md).
