@@ -36,7 +36,7 @@ For most subscriptions, you can download your invoice from the Azure portal. If 
 
 ### Download invoices from the Azure portal
 
-1. Select your subscription from the [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in Azure portal as [a user with access to invoices](billing-manage-access.md).
+1. Select your subscription from the [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal as [a user with access to invoices](billing-manage-access.md).
 
 2. Select **Invoices**.
 
