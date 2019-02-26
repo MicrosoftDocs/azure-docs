@@ -147,7 +147,7 @@ Use the following procedure to create a policy definition.
 
 1. Create the policy definition using one of the following calls:
 
-   ```
+   ```console
    # For defining a policy in a subscription
    armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
 
@@ -177,7 +177,7 @@ Use the following procedure to create a policy assignment and assign the policy 
 
 1. Create the policy assignment using the following call:
 
-   ```
+   ```console
    armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2017-06-01-preview" @<path to Assignment JSON file>
    ```
 
@@ -256,7 +256,7 @@ az policy definition show --name 'Audit Storage Accounts with Open Public Networ
 
 The policy definition ID for the policy definition that you created should resemble the following example:
 
-```
+```output
 "/subscription/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks"
 ```
 

@@ -1,6 +1,6 @@
 ---
 title: Sample - Allowed locations
-description: This sample policy requires that all resources are deployed to the approved locations.
+description: This sample policy definition requires that all resources are deployed to the approved locations.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
 ---
-# Allowed locations
+# Sample - Allowed region locations
 
 This policy enables you to restrict the locations your organization can specify when deploying
 resources. Use to enforce your geo-compliance requirements. Excludes resource groups,
@@ -82,7 +82,7 @@ In this example parameter, only the _eastus2_ or _westus_ locations will be allo
 
 ## Azure PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ### Deploy with Azure PowerShell
 

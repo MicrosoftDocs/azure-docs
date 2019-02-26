@@ -47,7 +47,7 @@ az storage container set-permission \ --account-name $blobStorageAccount \ --acc
 
 In part one of this tutorial series, the web application was showing images from a public container. In this part of the series, you use [Shared Access Signature (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) tokens to retrieve the thumbnail images. SAS tokens allow you to provide restricted access to a container or blob based on IP, protocol, time interval, or rights allowed.
 
-In this example, the source code repository uses the `sasTokens` branch, which has an updated code sample. Delete the existing GitHub deployment with the [az webapp deployment source delete](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete). Next, configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source) command.  
+In this example, the source code repository uses the `sasTokens` branch, which has an updated code sample. Delete the existing GitHub deployment with the [az webapp deployment source delete](/cli/azure/webapp/deployment/source). Next, configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source) command.  
 
 In the following command, `<web-app>` is the name of your web app.  
 
@@ -143,7 +143,7 @@ SSE automatically encrypts data in all performance tiers (Standard and Premium),
 
 ## Enable HTTPS only
 
-In order to ensure that requests for data to and from a storage account are secure, you can limit requests to HTTPS only. Update the storage account required protocol by using the [az storage account update](/cli/azure/storage/account#az_storage_account_update) command.
+In order to ensure that requests for data to and from a storage account are secure, you can limit requests to HTTPS only. Update the storage account required protocol by using the [az storage account update](/cli/azure/storage/account) command.
 
 ```azurecli-interactive
 az storage account update --resource-group myresourcegroup --name <storage-account-name> --https-only true

@@ -1,20 +1,13 @@
 ---
 title: Configure health notifications for existing problem management systems using a webhook | Microsoft Docs
 description: Get personalized notifications about service health events to your existing problem management system.
-author: shawntabrizi
-manager: scotthit
-editor: ''
-services: service-health
-documentationcenter: service-health
-
-ms.assetid:
+author: stephbaron
+ms.author: stbaron
+ms.topic: conceptual
 ms.service: service-health
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.workload: Supportability
+
 ms.date: 3/27/2018
-ms.author: shtabriz
 
 ---
 

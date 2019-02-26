@@ -203,7 +203,7 @@ The following examples assume the table service is storing employee entities wit
 | **Age** |Integer |
 | **EmailAddress** |String |
 
-The earlier section [Azure Table service overview](#overview) describes some of the key features of the Azure Table service that have a direct influence on designing for query. These result in the following general guidelines for designing Table service queries. The filter syntax used in the examples below is from the Table service REST API, for more information, see [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+The earlier section Azure Table service overview describes some of the key features of the Azure Table service that have a direct influence on designing for query. These result in the following general guidelines for designing Table service queries. The filter syntax used in the examples below is from the Table service REST API, for more information, see [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 * A ***Point Query*** is the most efficient lookup to use and is recommended to be used for high-volume lookups or lookups requiring lowest latency. Such a query can use the indexes to locate an individual entity efficiently by specifying both the **PartitionKey** and **RowKey** values. For example:
   $filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  
@@ -726,6 +726,9 @@ The following patterns and guidance may also be relevant when implementing this 
 
 ### Log tail pattern
 Retrieve the *n* entities most recently added to a partition by using a **RowKey** value that sorts in reverse date and time order.  
+
+> [!NOTE]
+> Query results returned by the Azure Table API in Azure Cosmso DB aren't sorted by partition key or row key. Thus, this pattern is suitable for Azure Table Storage and not Azure Cosmos DB. For a detailed list of feature differences, see [differences between Table API in Azure Cosmos DB and Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 #### Context and problem
 A common requirement is to be able to retrieve the most recently created entities, for example the ten most recent expense claims submitted by an employee. Table queries support a **$top** query operation to return the first *n* entities from a set: there is no equivalent query operation to return the last n entities in a set.  
@@ -1299,7 +1302,7 @@ Each entity must still have **PartitionKey**, **RowKey**, and **Timestamp** valu
 
 The first option, prepending the entity type to the **RowKey**, is useful if there is a possibility that two entities of different types might have the same key value. It also groups entities of the same type together in the partition.  
 
-The techniques discussed in this section are especially relevant to the discussion [Inheritance relationships](#inheritance-relationships) earlier in this guide in the section [Modeling relationships](#modelling-relationships).  
+The techniques discussed in this section are especially relevant to the discussion [Inheritance relationships](#inheritance-relationships) earlier in this guide in the section Modeling relationships.  
 
 > [!NOTE]
 > You should consider including a version number in the entity type value to enable client applications to evolve POCO objects and work with different versions.  

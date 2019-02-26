@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/31/2019
+ms.date: 02/05/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
@@ -26,7 +26,9 @@ In this quickstart, you learn how to:
 
 ## Prerequisites
 
-Cost analysis is available to all [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. You must have at least read access to one or more of the following scopes to view cost data. For more information about assigning access to Cost Management data, see [Assign access to data](assign-access-acm-data.md).
+Cost analysis supports a variety of Azure account types. To view the full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md). To view cost data, you need at least read access for your Azure account.
+
+For [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers, you must have at least read access to one or more of the following scopes to view cost data.
 
 - Billing account
 - Department
@@ -34,6 +36,8 @@ Cost analysis is available to all [Enterprise Agreement (EA)](https://azure.micr
 - Management group
 - Subscription
 - Resource group
+
+For more information about assigning access to Cost Management data, see [Assign access to data](assign-access-acm-data.md).
 
 ## Sign in to Azure
 

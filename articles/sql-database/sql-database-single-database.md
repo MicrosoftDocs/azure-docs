@@ -11,11 +11,11 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 01/30/2019
+ms.date: 02/08/2019
 ---
 # What is a single database in Azure SQL Database
 
-A single database is a standalone database in Azure SQL Database with its own set of resources and is managed via a SQL Database server. With a single database, each database is isolated from each other and portable, each with its own service tier within the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or [vCore-based purchasing model](sql-database-service-tiers-vcore.md) and a guaranteed compute size.
+The single database deployment option creates a database in Azure SQL Database with its own set of resources and is managed via a SQL Database server. With a single database, each database is isolated from each other and portable, each with its own service tier within the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or [vCore-based purchasing model](sql-database-service-tiers-vcore.md) and a guaranteed compute size.
 
 > [!IMPORTANT]
 > Single database is one of three deployment options for Azure SQL Database. The other two are [elastic pools](sql-database-elastic-pool.md) and [managed instance](sql-database-managed-instance.md).
@@ -51,6 +51,6 @@ SQL Database provides a range of [built-in security and compliance](sql-database
 
 ## Next steps
 
-- To quickly get started with a single database, start with the [Single database quickstart guide.md](sql-database-quickstart-guide.md).
-- To learn about migrating a SQL Server database to Azure, see [Migrate to Azure SQL Database](sql-database-cloud-migrate.md).
+- To quickly get started with a single database, start with the [Single database quickstart guide.md](sql-database-single-database-quickstart-guide.md).
+- To learn about migrating a SQL Server database to Azure, see [Migrate to Azure SQL Database](sql-database-single-database-migrate.md).
 - For information about supported features, see [Features](sql-database-features.md).

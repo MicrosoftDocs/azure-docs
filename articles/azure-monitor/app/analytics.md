@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/08/2018
+ms.date: 02/02/2019
 ms.author: mbullwin
 
 ---
 # Analytics in Application Insights
-Analytics is the powerful search and query tool of [Application Insights](../../azure-monitor/app/app-insights-overview.md). Analytics is a web tool so no setup is required. 
+Analytics is the powerful search and query tool of [Application Insights](app-insights-overview.md). Analytics is a web tool so no setup is required.
 If you've already configured Application Insights for one of your apps then you can  analyze your app's data by opening Analytics from your 
-app's [overview blade](../../azure-monitor/app/app-insights-dashboards.md).
+app's [overview blade](app-insights-dashboards.md).
 
 ![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/analytics/001.png)
 
@@ -25,6 +25,12 @@ You can also use the [Analytics playground](https://go.microsoft.com/fwlink/?lin
 <br>
 <br>
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
+
+## Relation to Azure Monitor logs
+Application Insights analytics is based on [Azure Data Explorer](/azure/data-explorer) like Azure Monitor logs and also uses the [Kusto query language](/azure/kusto/query). It uses the same [log analytics portal](../log-query/get-started-portal.md) as Azure Monitor logs, although its data is stored in a separate partition.
+
+You cannot directly access data in a Log Analytics workspace from Application Insights analytics, nor can you directly access application data from log analytics. In order to query both sets of data together, write a [query in log analytics](../log-query/log-query-overview.md) and the use the [app() expression](../log-query/app-expression.md) to access application data.
+
 
 ## Query data in Analytics
 A typical query starts with a table name followed by a series of *operators* separated by `|`.

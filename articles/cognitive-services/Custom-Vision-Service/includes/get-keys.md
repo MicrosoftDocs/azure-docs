@@ -2,7 +2,7 @@
  author: PatrickFarley
  ms.service: cognitive-services
  ms.topic: include
- ms.date: 11/07/2018
+ ms.date: 02/07/2019
  ms.author: pafarley
 ---
 

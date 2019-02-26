@@ -4,7 +4,7 @@ description: This document addresses recommendations in Security Center that hel
 services: security-center
 documentationcenter: na
 author: monhaber
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
@@ -155,6 +155,24 @@ There are three types of icons represented in this list:
  -  Select a passed assessment from the list for a description of the assessment, a list of unhealthy and healthy resources, and a list of unscanned resources. There is a tab for unhealthy resources but that list is always empty since the assessment passed.
 
     ![App Service remediation](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
+
+## Virtual machine scale sets
+Security Center automatically discovers whether you have scales sets and recommends that you install the Microsoft Monitoring Agent on these scale sets. 
+
+To install the Microsoft Monitoring Agent: 
+
+1. Select the recommendation **Install the monitoring agent on virtual machine scale set**. You get a list of unmonitored scale sets.
+2. Select an unhealthy scale set. Follow the instructions to install the monitoring agent using an existing populated workspace or create a new one. Make sure to set the workspace [pricing tier](security-center-pricing.md) if it’s not set.
+
+ ![Install MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
+
+If you want to set new scale sets to automatically install the Microsoft Monitoring Agent:
+1. Go to Azure Policy and click **Definitions**.
+2. Search for the policy **Deploy Log Analytics agent for Windows VM scale sets** and click on it.
+3. Click **Assign**.
+4. Set the **Scope** and **Log Analytics workspace** and click **Assign**.
+
+If you want to set all existing scale sets to install the Microsoft Monitoring Agent, in Azure Policy, go to **Remediation** and apply the existing policy to existing scale sets.
 
 
 ## Compute and app recommendations

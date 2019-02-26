@@ -18,6 +18,7 @@ ms.author: nacanuma
 ms.custom: aaddev
 
 #Customer intent: As an app developer, I want to learn how to get access tokens using the Azure AD v2.0 endpoint so that my JavaScript app can sign in personal and work and school accounts.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Sign in users and acquire an access token from a JavaScript application

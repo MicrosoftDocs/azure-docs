@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use the Interpret method to return formatted interpretations of user query strings based on Academic Graph data and the Academic Grammar in Microsoft Cognitive Services.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: academic-knowledge

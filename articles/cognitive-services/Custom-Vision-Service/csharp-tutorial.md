@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Create a project, add tags, upload images, train your project, and make a prediction using the .NET SDK with C#.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision

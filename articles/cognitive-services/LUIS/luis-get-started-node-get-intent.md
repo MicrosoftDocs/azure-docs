@@ -4,7 +4,7 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: In this quickstart, use an available public LUIS app to determine a user's intention from conversational text. Using Node.js, send the user's intention as text to the public app's HTTP prediction endpoint.  
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding

@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: priyamo
+ms.collection: M365-identity-device-management
 ---
 
 # Create, list or delete a user-assigned managed identity using the Azure CLI

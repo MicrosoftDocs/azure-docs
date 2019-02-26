@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Explore a basic JavaScript app that uses the Computer Vision API in Azure Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision

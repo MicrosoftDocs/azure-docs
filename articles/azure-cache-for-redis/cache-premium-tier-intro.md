@@ -1,20 +1,20 @@
 ---
 title: Introduction to the Azure Cache for Redis Premium tier | Microsoft Docs
 description: Learn how to create and manage Redis Persistence, Redis clustering, and VNET support for your Premium tier Azure Cache for Redis instances
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 
 ms.assetid: 30f46f9f-e6ec-4c38-a8cc-f9d4444856e5
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: wesmc
+ms.author: yegu
 
 ---
 # Introduction to the Azure Cache for Redis Premium tier

@@ -27,7 +27,7 @@ If you decide to install and use Azure CLI locally instead, this quickstart requ
 
 ## Create a resource group and a virtual network
 
-Before you can create a virtual network, you have to create a resource group to host the virtual network. Create a resource group with [az group create](/cli/azure/group#az_group_create). This example creates a resource group named *myResourceGroup* in the *eastus* location:
+Before you can create a virtual network, you have to create a resource group to host the virtual network. Create a resource group with [az group create](/cli/azure/group). This example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -48,7 +48,7 @@ Create two VMs in the virtual network.
 
 ### Create the first VM
 
-Create a VM with [az vm create](/cli/azure/vm#az_vm_create). If SSH keys don't already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option. The `--no-wait` option creates the VM in the background, so that you can continue to the next step. This example creates a VM named *myVm1*:
+Create a VM with [az vm create](/cli/azure/vm). If SSH keys don't already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option. The `--no-wait` option creates the VM in the background, so that you can continue to the next step. This example creates a VM named *myVm1*:
 
 ```azurecli-interactive
 az vm create \
@@ -85,6 +85,7 @@ The VMs take a few minutes to create. After Azure creates the VMs, the Azure CLI
   "privateIpAddress": "10.0.0.5",
   "publicIpAddress": "40.68.254.142",
   "resourceGroup": "myResourceGroup"
+  "zones": ""
 }
 ```
 

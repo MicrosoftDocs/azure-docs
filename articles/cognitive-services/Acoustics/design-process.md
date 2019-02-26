@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: This document describes how to express your design intent in all three phases of the Project Acoustics workflow.
 services: cognitive-services
 author: kegodin
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: acoustics

@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: As your QnA Maker knowledge base grows large, it becomes difficult to maintain it as a single monolithic set and there is a need to split the knowledge base into smaller logical chunks.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article

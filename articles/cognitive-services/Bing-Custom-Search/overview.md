@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: The Bing Custom Search API enables you to create tailored search experiences for topics that you care about.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-custom-search

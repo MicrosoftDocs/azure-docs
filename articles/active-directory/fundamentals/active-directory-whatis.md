@@ -12,6 +12,7 @@ ms.author: lizross
 ms.custom: "it-pro, seodec18"
 
 #customer intent: As a new administrator, I want to understand what Azure Active Directory is, which license is right for me, and what features are available.
+ms.collection: M365-identity-device-management
 ---
 
 # What is Azure Active Directory? 

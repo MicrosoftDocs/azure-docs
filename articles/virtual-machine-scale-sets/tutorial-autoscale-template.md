@@ -140,13 +140,13 @@ The following example defines a rule to scale in the number of VM instances by o
 ## Create an autoscaling scale set
 Let's use a sample template to create a scale set and apply autoscale rules. You can [review the complete template](https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json), or [see the *Microsoft.insights/autoscalesettings* resource provider section](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/autoscale.json#L220) of the template.
 
-First, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+First, create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Now create a virtual machine scale set with [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). When prompted, provide your own username, such as *azureuser*, and password that is used as the credentials for each VM instance:
+Now create a virtual machine scale set with [az group deployment create](/cli/azure/group/deployment). When prompted, provide your own username, such as *azureuser*, and password that is used as the credentials for each VM instance:
 
 ```azurecli-interactive
 az group deployment create \
@@ -194,7 +194,7 @@ When **stress** shows output similar to *stress: info: [2688] dispatching hogs: 
 
 To confirm that **stress** generates CPU load, examine the active system load with the **top** utility:
 
-```azuecli-interactive
+```azurecli-interactive
 top
 ```
 
@@ -260,7 +260,7 @@ Exit *watch* with `Ctrl-c`. The scale set continues to scale in every 5 minutes 
 
 
 ## Clean up resources
-To remove your scale set and additional resources, delete the resource group and all its resources with [az group delete](/cli/azure/group#az_group_delete):
+To remove your scale set and additional resources, delete the resource group and all its resources with [az group delete](/cli/azure/group):
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

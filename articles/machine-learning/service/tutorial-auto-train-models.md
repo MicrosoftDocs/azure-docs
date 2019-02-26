@@ -8,8 +8,8 @@ ms.subservice: core
 ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
-ms.reviewer: sgilley
-ms.date: 12/04/2018
+ms.reviewer: trbye
+ms.date: 02/05/2019
 ms.custom: seodec18
 ---
 
@@ -29,7 +29,6 @@ In this tutorial, you learn the following tasks:
 > * Autotrain a regression model.
 > * Run the model locally with custom parameters.
 > * Explore the results.
-> * Register the best model.
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
 
@@ -101,8 +100,6 @@ Import the Python packages you need in this tutorial:
 import azureml.core
 import pandas as pd
 from azureml.core.workspace import Workspace
-from azureml.train.automl.run import AutoMLRun
-import time
 import logging
 import os
 ```
@@ -778,7 +775,6 @@ for run in children:
     metrics = {k: v for k, v in run.get_metrics().items() if isinstance(v, float)}
     metricslist[int(properties['iteration'])] = metrics
 
-import pandas as pd
 rundata = pd.DataFrame(metricslist).sort_index(1)
 rundata
 ```
@@ -1215,6 +1211,5 @@ In this automated machine learning tutorial, you did the following tasks:
 > * Configured a workspace and prepared data for an experiment.
 > * Trained by using an automated regression model locally with custom parameters.
 > * Explored and reviewed training results.
-> * Registered the best model.
 
 [Deploy your model](tutorial-deploy-models-with-aml.md) with Azure Machine Learning.

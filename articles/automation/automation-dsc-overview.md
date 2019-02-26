@@ -40,16 +40,56 @@ and target nodes.
 
 ![Screenshot of the Azure Automation page](./media/automation-dsc-overview/azure-automation-blade.png)
 
-### Import reporting data into Log Analytics
+### Import reporting data into Azure Monitor logs
 
 Nodes that are managed with Azure Automation State Configuration send detailed reporting status
 data to the built-in pull server. You can configure Azure Automation State Configuration to send
 this data to your Log Analytics workspace. To learn how to send State Configuration status data to
-your Log Analytics workspace, see [Forward Azure Automation State Configuration reporting data to Log Analytics](automation-dsc-diagnostics.md).
+your Log Analytics workspace, see [Forward Azure Automation State Configuration reporting data to Azure Monitor logs](automation-dsc-diagnostics.md).
 
-## <a name="network-planning"></a>Configure your network
+## Prerequisites
 
-The following port and URLs are required for State Configuration (DSC) to communicate with Automation:
+Please consider the following requirements when using Azure Automation State Configuration (DSC).
+
+### Operating System Requirements
+
+For nodes running Windows, the following versions are supported:
+
+- Windows Server 2019
+- Windows Server 2016
+- Windows Server 2012R2
+- Windows Server 2012
+- Windows Server 2008 R2 SP1
+- Windows 10
+- Windows 8.1
+- Windows 7
+
+For nodes running Linux, the following distros/versions are supported:
+
+The DSC Linux extension supports all the Linux distributions
+[endorsed on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)
+except:
+
+Distribution | Version
+-|-
+Debian	| all versions
+Ubuntu	| 18.04
+
+### DSC requirements
+
+For all Windows nodes running in Azure,
+[WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure)
+will be installed during onboarding.  For nodes running Windows Server 2012 and Windows 7,
+[WinRM will be enabled](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
+
+For all Linux nodes running in Azure,
+[PowerShell DSC for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux)
+will be installed during onboarding.
+
+### <a name="network-planning"></a>Configure private networks
+
+If your nodes are located within a private network,
+the following port and URLs are required for State Configuration (DSC) to communicate with Automation:
 
 * Port: Only TCP 443 is required for outbound internet access.
 * Global URL: *.azure-automation.net
@@ -94,7 +134,7 @@ State Configuration was first announced.
 > Configuration has progressed a lot since this video was recorded. It is now generally available,
 > has a much more extensive UI in the Azure portal, and supports many additional capabilities.
 
-[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
+<iframe src="https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 ## Next steps
 

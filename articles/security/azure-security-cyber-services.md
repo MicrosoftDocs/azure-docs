@@ -4,7 +4,7 @@ description: The article provides an introduction about Microsoft services relat
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 925ba3c6-fe35-413a-98ea-e1a1461f3022

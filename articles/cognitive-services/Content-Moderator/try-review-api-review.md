@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use the Review API's review operations to create image or text reviews for human moderation.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator

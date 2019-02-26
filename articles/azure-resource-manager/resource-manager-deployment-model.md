@@ -44,6 +44,7 @@ In 2014, Azure introduced Resource Manager, which added the concept of a resourc
 When Resource Manager was added, all resources were retroactively added to default resource groups. If you create a resource through classic deployment now, the resource is automatically created within a default resource group for that service, even though you did not specify that resource group at deployment. However, just existing within a resource group does not mean that the resource has been converted to the Resource Manager model.
 
 ## Understand support for the models
+
 There are three scenarios to be aware of:
 
 1. Cloud Services does not support Resource Manager deployment model.

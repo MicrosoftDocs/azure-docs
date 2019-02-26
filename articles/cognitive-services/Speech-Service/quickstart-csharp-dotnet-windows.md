@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Use this guide to create a speech-to-text console application using the .NET framework for Windows and the Speech SDK. When finished, you can use your computer's microphone to transcribe speech to text in real time.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart

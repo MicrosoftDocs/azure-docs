@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Learn how to build a LUIS app programmatically from preexisting data in CSV format using the LUIS Authoring API.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding

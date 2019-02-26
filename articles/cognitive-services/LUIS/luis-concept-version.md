@@ -4,7 +4,7 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Versions, in LUIS, are similar to versions in traditional programming. Each version is a snapshot in time of the app. Before you make changes to the app, create a new version. It is easier to go back to the exact app, then to try to unpeel and app's intent and utterances to a previous state.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding

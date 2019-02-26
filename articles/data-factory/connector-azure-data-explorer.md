@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/25/2019
 ms.author: orspod
 ---
 
@@ -24,7 +24,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 You can copy data from any supported source data store to Azure Data Explorer. You can also copy data from Azure Data Explorer to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md) table.
 
 >[!NOTE]
->Currently, copying data to/from Azure Data Explorer from/to on-prem data store using Self-hosted Integration Runtime is not supported yet.
+>Copying data to/from Azure Data Explorer from/to on-prem data store using Self-hosted Integration Runtime is supported since version 3.14.
 
 The Azure Data Explorer connector allows you to do the following:
 
@@ -45,7 +45,7 @@ The following properties are supported for Azure Data Explorer linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureDataExplorer** | Yes |
-| endpoint | Endpoint URL of the Azure Data Explorer cluster, with the format as `https://<clusterName>.kusto.windows.net`. | Yes |
+| endpoint | Endpoint URL of the Azure Data Explorer cluster, with the format as `https://<clusterName>.<regionName>.kusto.windows.net `. | Yes |
 | database | Name of database. | Yes |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering with the mouse in the top-right corner of the Azure portal. | Yes |
 | servicePrincipalId | Specify the application's client ID. | Yes |
@@ -59,7 +59,7 @@ The following properties are supported for Azure Data Explorer linked service:
     "properties": {
         "type": "AzureDataExplorer",
         "typeProperties": {
-            "endpoint": "https://<clusterName>.kusto.windows.net",
+            "endpoint": "https://<clusterName>.<regionName>.kusto.windows.net ",
             "database": "<database name>",
             "tenant": "<tenant name/id e.g. microsoft.onmicrosoft.com>",
             "servicePrincipalId": "<service principal id>",
@@ -114,8 +114,8 @@ To copy data from Azure Data Explorer, set the **type** property in the Copy act
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the copy activity source must be set to: **AzureDataExplorerSource** | Yes |
-| query | Use the custom KQL query to read data. | Yes |
-| queryTimeout | Specify the wait time before the query request times out. Default value is 10 min (00:10:00); allowed max value is 1 hour (01:00:00). | No |
+| query | A read-only request given in a [KQL format](/azure/kusto/query/). Use the custom KQL query as a reference. | Yes |
+| queryTimeout | The wait time before the query request times out. Default value is 10 min (00:10:00); allowed max value is 1 hour (01:00:00). | No |
 
 **Example:**
 
@@ -157,7 +157,7 @@ To copy data to Azure Data Explorer, set the type property in the copy activity 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the copy activity sink must be set to: **AzureDataExplorerSink** | Yes |
-| ingestionMappingName | Name of [csv mapping](/azure/kusto/management/mappings#csv-mapping) on table. To map the columns from source to Azure Data Explore, you can also use the Copy activity [column mapping](copy-activity-schema-and-type-mapping.md). | No |
+| ingestionMappingName | Name of a pre-created **[CSV mapping](/azure/kusto/management/mappings#csv-mapping)** on a Kusto table; JSON mapping and Avro mapping on Azure Data Explorer are not directly supported but you can still copy data from JSON/Avro files. To map the columns from source to Azure Data Explorer, you can use the Copy activity [column mapping](copy-activity-schema-and-type-mapping.md) which also co-works with Azure Data Explorer CSV mappings - copy activity maps/re-shapes data from source to sink based on column mapping settings, then maps data again based on ingestion mapping configuration if exists. It applies to [all supported source stores](copy-activity-overview.md#supported-data-stores-and-formats) including JSON and Avro formats. | No |
 
 **Example:**
 

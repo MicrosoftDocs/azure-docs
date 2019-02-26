@@ -14,6 +14,7 @@ ms.topic: reference
 ms.date: 05/21/2018
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # User privacy and Azure AD Connect 
