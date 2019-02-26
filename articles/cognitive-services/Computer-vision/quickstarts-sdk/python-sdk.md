@@ -62,11 +62,10 @@ az cognitiveservices account create \
     --yes
 ```
 
+<!--
 ## Installation
 
 Install the Azure Cognitive Services Computer Vision SDK with [pip][pip], optionally within a [virtual environment][venv].
-
-<!--
 
 ### Configure a virtual environment (optional)
 
@@ -92,7 +91,16 @@ Once you create your Computer Vision resource, you need its **region**, and one 
 
 Use these values when you create the instance of the [ComputerVisionAPI][ref_computervisionclient] client object. 
 
-### Get credentials for key and region
+<!--
+
+For example, use the Bash terminal to set the environment variables:
+
+```Bash
+ACCOUNT_REGION=<resourcegroup-name>
+ACCT_NAME=<computervision-account-name>
+```
+
+### For Azure subscription usrs, get credentials for key and region
 
 If you do not remember your region and key, you can use the following method to find them. If you need to create a key and region, you can use the method for [Azure subscription holders](#if-you-have-an-azure-subscription) or for [users without an Azure subscription](#if-you-dont-have-an-azure-subscription).
 
@@ -114,19 +122,19 @@ export ACCOUNT_KEY=$(az cognitiveservices account keys list \
     --query key1 \
     --output tsv)
 ```
+-->
 
 ### Create client
 
-Once you've populated the `ACCOUNT_REGION` and `ACCOUNT_KEY` environment variables, you can create the [ComputerVisionAPI][ref_computervisionclient] client object.
+Create the [ComputerVisionAPI][ref_computervisionclient] client object. Change the region and key values in the following code example to your own values.
 
 ```Python
 from azure.cognitiveservices.vision.computervision import ComputerVisionAPI
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
 from msrest.authentication import CognitiveServicesCredentials
 
-import os
-region = os.environ['ACCOUNT_REGION']
-key = os.environ['ACCOUNT_KEY']
+region = "westcentralus"
+key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 credentials = CognitiveServicesCredentials(key)
 client = ComputerVisionAPI(region, credentials)
@@ -234,10 +242,19 @@ if result.status == TextOperationStatusCodes.succeeded:
 
 You can generate a thumbnail (JPG) of an image with [`generate_thumbnail`][ref_computervisionclient_generate_thumbnail]. The thumbnail does not need to be in the same proportions as the original image. 
 
-This example uses the [Pillow][pypi_pillow] package to save the new thumbnail image locally.
+Install **Pillow** to use this example:
+
+```bash
+pip install Pillow
+``` 
+
+Once Pillow is installed, use the package in the following code example to generate the thumbnail image.
 
 ```Python
+# Pillow package
 from PIL import Image
+
+# IO package to create local image
 import io
 
 width = 50
