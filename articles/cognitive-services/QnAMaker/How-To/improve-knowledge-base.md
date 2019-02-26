@@ -3,12 +3,11 @@ title: Improve knowledge base - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: 
 author: diberry
-manager: nitinme
-displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting
+manager: nitinme 
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/26/2019
 ms.author: diberry
 ---
 
