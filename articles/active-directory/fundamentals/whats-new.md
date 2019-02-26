@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 02/28/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
@@ -104,7 +104,23 @@ For more information about the apps, see [SaaS application integration with Azur
 **Service category:** Self Service Password Reset  
 **Product capability:** User Authentication
  
-In response to customer feedback, we've enhanced the combined multi-factor authentication (MFA) and self-service password reset (SSPR) registration experience for end-users. This enhancement helps your users to more quickly and easily register their security info for both MFA and SSPR.
+In response to customer feedback, we’ve enhanced the combined MFA/SSPR registration preview experience, helping your users to more quickly register their security info for both MFA and SSPR. 
+
+**To turn on the enhanced experience for your users today, follow these steps:**
+
+1. As a global administrator or user administrator, sign in to the Azure portal and go to **Azure Active Directory > User settings > Manage settings for access panel preview features**. 
+
+2. In the **Users who can use the preview features for registering and managing security info – refresh** option, choose to turn on the features for a **Selected group of users** or for **All users**.
+
+Over the next few weeks, we’ll be removing the ability to turn on the old combined MFA/SSPR registration preview experience for tenants that don’t already have it turned on.
+
+**To see if the control will be removed for your tenant, follow these steps:**
+
+1. As a global administrator or user administrator, sign in to the Azure portal and go to **Azure Active Directory > User settings > Manage settings for access panel preview features**.  
+
+2.	If the **Users who can use the preview features for registering and managing security info** option is set to **None**, the option will be removed from your tenant.
+
+Regardless whether you previously turned on the old combined MFA/SSPR registration preview experience for users or not, the old experience is scheduled to be turned off at a future date. Because of that, we strongly suggest that you move to the new, enhanced experience as soon as possible. 
 
 For more information about the enhanced registration experience, see the [Cool enhancements to the Azure AD combined MFA and password reset registration experience](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271).
 
