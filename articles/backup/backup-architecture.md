@@ -12,19 +12,18 @@ ms.author: raynew
 
 # Azure Backup architecture
 
-You can use the [Azure Backup service](backup-overview.md) to back up data to the Microsoft Azure cloud. This article summarizes Azure Backup architecture, components, and processes. 
-
+You can use the [Azure Backup service](backup-overview.md) to back up data to the Microsoft Azure cloud platform. This article summarizes Azure Backup architecture, components, and processes. 
 
 ## What does Azure Backup do?
 
-Azure Backup backs up data, machine state, and workloads running on on-premises machines and Azure VMs. There are a number of Azure Backup scenarios.
+Azure Backup backs up the data, machine state, and workloads running on on-premises machines and Azure virtual machines (VMs). There are a number of Azure Backup scenarios.
 
 ## How does Azure Backup work?
 
-You can back up machines and data using a number of methods.
+You can back up machines and data by using a number of methods.
 
 - **Back up on-premises machines**:
-    - You can back up on-premises Windows machines directly to Azure using the Azure Backup Microsoft Azure Recovery Services (MARS) agent. Linux machines aren't supported.
+    - You can back up on-premises Windows machines directly to Azure by using the Azure Backup Microsoft Azure Recovery Services (MARS) agent. Linux machines aren't supported.
     - You can back up on-premises machines to a backup server (System Center Data Protection Manager (DPM) or Microsoft Azure Backup Server (MABS)), and then in turn back up backup server to an Azure Backup Recovery Services vault in Azure.
 - **Back up Azure VMs**:
     - You can back up Azure VMs directly. Azure Backup installs a backup extension to the Azure VM agent running on the VM to do this. This backs up the entire VM.
@@ -43,7 +42,7 @@ Azure Backup stores backed up data in a Recovery Services vault. A vault is an o
 - You can monitor backed up items in a vault, including Azure VMs and on-premises machines.
 - You can manage vault access with Azure [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 - You specify how data in the vault is replicated for redundancy:
-    - **LRS**: You can use locally-redundant storage (LRS) to protects against failure in a datacenter. LRS replicates data to a storage scale unit. [Learn more](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
+    - **LRS**: You can use locally redundant storage (LRS) to protects against failure in a datacenter. LRS replicates data to a storage scale unit. [Learn more](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
     - **GRS**: You can use geo-redundant storage (GRS): Protects against region-wide outages. It replicates your data to a secondary region. [Learn more](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). 
     - By default, Recovery Services vaults for Backup use GRS. 
 
@@ -162,7 +161,7 @@ Note that Azure VMs need internet access for control commands. If you're backing
 - Azure VMs use disks to store their operating system, apps, and data.
 - Azure VMs have at least two disks. One for the operating system, and a temporary disk. They can also have data disks for app data. Disks are stored as VHDs.
 - VHDs are stored as page blobs in standard or premium storage accounts in Azure.
-    - Standard storage: Reliable, low-cost disk support for VMs running workloads that aren't sensitive to latency. Standard storage can use standard SSD disks or standard HDD disks.
+    - Standard storage: Reliable, low-cost disk support for VMs running workloads that aren't sensitive to latency. Standard storage can use standard solid-state drive (SSD) disks or standard hard disk drive (HDD) disks.
     - Premium storage: High-performance disk support. Uses premium SSD disks.
 - There are different performance tiers for disks:
     - Standard HDD disk: Backed by HDDs, and used for cost-effective storage.
