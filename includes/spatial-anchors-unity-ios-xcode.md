@@ -14,7 +14,7 @@ When the export is complete, a folder will be displayed containing the exported 
 In the exported Xcode project folder, run the following command to install the necessary CocoaPods for the project:
 
 ```bash
-pod install
+pod install --repo-update
 ```
 
 Now your can open `Unity-iPhone.xcworkspace` to open the project in Xcode:
