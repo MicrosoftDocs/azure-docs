@@ -64,9 +64,9 @@ After you buy a reservation, it's applied immediately to any existing Azure Cosm
 
 When your reservation expires, your Azure Cosmos DB instances continue to run and are billed at the regular pay-as-you-go rates.
 
-## Cancellation and exchanges not allowed
+## Cancellation and exchanges
 
-You can't cancel or exchange an Azure Cosmos DB reservation that you bought. Please check your usage to make sure you buy the right plan. For help in identifying what to buy, see [Understand how the reservation discount is applied to Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md).
+For help in identifying the right reserved capacity, see [Understand how the reservation discount is applied to Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md). In the event, you need to cancel or exchange an Azure Cosmos DB reservation, please contact the [Azure Cosmos DB team](AskCosmosDB@microsoft.com).
 
 ## Next steps
 
