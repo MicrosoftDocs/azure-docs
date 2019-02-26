@@ -59,7 +59,7 @@ var faces = await faceServiceClient.DetectAsync(imageUrl, true, true, "recogniti
 
 When the Face API extracts face feature data from an image, the service builds a **PersonGroup** object for person identification.
 
-A **PersonGroup** should have one unique recognition model for all of the Persons, and you can specify this using the `recognitionModelType` parameter when you create the group ([PersonGroup - Create] or [LargePersonGroup - Create]).
+A **PersonGroup** should have one unique recognition model for all of the Persons, and you can specify this using the `recognitionModel` parameter when you create the group ([PersonGroup - Create] or [LargePersonGroup - Create]).
 
 See the following code example for the .NET client library.
 
