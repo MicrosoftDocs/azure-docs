@@ -75,7 +75,7 @@ Your Azure AD user object ID is needed by the template to configure permissions.
     ```
     or
     ```azurepowershell-interactive
-    $displayName = Read-Host -Prompt "Enter your user display name (i.e. John Dole, see the upper right side on the portal)"
+    $displayName = Read-Host -Prompt "Enter your user display name (i.e. John Dole, see the upper right corner of the Azure portal)"
     (Get-AzADUser -DisplayName $displayName).Id
     ```
     ---
