@@ -89,7 +89,7 @@ As mentioned in a previous section, port 443 needs to be open outbound. Based on
 The following table describes the required domains for communication:
 
 | Service | Public cloud endpoint | Azure Government endpoint | Usage |
-|---------|----------------|------------------------------|
+|---------|----------------|---------------|------------------------------|
 | **Azure Resource Manager** | https://management.azure.com | https://management.usgovcloudapi.net | Any user call (like PowerShell) goes to/through this URL, including the initial server registration call. |
 | **Azure Active Directory** | https://login.windows.net | https://login.microsoftonline.us | Azure Resource Manager calls must be made by an authenticated user. To succeed, this URL is used for user authentication. |
 | **Azure Active Directory** | https://graph.windows.net/ | https://graph.windows.net/ | As part of deploying Azure File Sync, a service principal in the subscription's Azure Active Directory will be created. This URL is used for that. This principal is used for delegating a minimal set of rights to the Azure File Sync service. The user performing the initial setup of Azure File Sync must be an authenticated user with subscription owner privileges. |
