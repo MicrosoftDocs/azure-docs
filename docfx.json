@@ -330,12 +330,12 @@
 	"articles/**/*.md": [
           "azure"
         ],
-        "articles/azure-virtual-machines/**/*.md": [
+        "articles/virtual-machines/**/*.md": [
           "azure-virtual-machines"
         ], 
         "articles/azure-portal/**/*.md": [
           "azure-portal"
-        ], 
+        ],
         "articles/azure-functions/**/*.md": [
           "azure-functions"
         ]
