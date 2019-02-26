@@ -58,6 +58,8 @@ You may also find the **Helm** package manager useful for installing and deployi
 
 ## Next steps
 
+[Enable the Kubernetes Dashboard](azure-stack-solution-template-kubernetes-dashboard.md)
+
 [Add a Kubernetes to the Marketplace (for the Azure Stack operator)](../azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Deploy Kubernetes to Azure Stack using Azure Active Directory (Azure AD)](azure-stack-solution-template-kubernetes-azuread.md)
