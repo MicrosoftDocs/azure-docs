@@ -102,6 +102,8 @@ If you inspect the access token with a tool like [https://jwt.ms](https://jwt.ms
 
 In troubleshooting situations, validating that you have the correct audience (`aud` claim) is a good place to start. The managed Azure API for FHIR uses [identity object IDs](find-identity-object-ids.md) to restrict access to the service. Make sure that `oid` claim of the token contains an object ID from the list of allowed object IDs.
 
+It is also possible to [get a token for the Azure API for FHIR using the Azure CLI](get-healthcare-apis-access-token-cli.md).
+
 ## Inserting a patient
 
 Now that you have a valid access token. You can insert a new patient. Switch to method "POST" and add the following JSON document in the body of the request:
