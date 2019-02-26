@@ -390,9 +390,23 @@ The design tool saves all this information to a file that has a
 RAP (.rap) extension. You can save to this file during any mode. 
 Before you can test your method, save to this file after defining 
 your method. To view a sample RAP file, from the design tool, 
-browse to this folder in the design tool's installation location:
+browse to this folder in the design tool's installation location 
+and open the "WoodgroveBank.rap" file:
 
 `..\Program Files\Microsoft Host Integration Server - 3270 Design Tool\SDK\WoodgroveBank.rap`
+
+> [!TIP]
+> 
+> You might get an error when saving changes to the sample .RAP 
+> file or when generating an HIDX file based on the sample file 
+> in the the design tool's installation folder. By default, 
+> the design tool installs in your Program Files folder 
+> without elevated permissions. If you get an error, 
+> try one of these solutions: 
+> 
+> * Copy the sample file to a different location.
+> * Run the design tool as an administrator.
+> * Make yourself the Program Files folder owner.
 
 ### Test your method
 
