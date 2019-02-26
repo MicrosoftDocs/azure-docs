@@ -93,7 +93,7 @@ func main() {
 To create classification tags to your project, add the following code to the end of *sample.go*:
 
 ```Go
-# Make two tags in the new project
+    # Make two tags in the new project
     forkTag, _ := trainer.CreateTag(ctx, *project.ID, "fork", "A fork", string(training.Regular))
     scissorsTag, _ := trainer.CreateTag(ctx, *project.ID, "scissors", "Pair of scissors", string(training.Regular))
 ```
@@ -154,7 +154,7 @@ To add the images, tags, and regions to the project, insert the following code a
 Then, use this map of associations to upload each sample image with its region coordinates. Add the following code.
 
 ```Go
-// Go through the data table above and create the images
+    // Go through the data table above and create the images
     fmt.Println("Adding images...")
     var fork_images []training.ImageFileCreateEntry
     for file, region := range forkImageRegions {
