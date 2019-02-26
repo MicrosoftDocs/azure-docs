@@ -19,11 +19,7 @@ The Windows Virtual Desktop diagnostics role service is a Remote Desktop role th
   
 Connections that don’t reach Windows Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Windows Virtual Desktop. Windows Virtual Desktop connection issues can happen when the end user is experiencing network connectivity issues.
 
-You need the Windows Virtual Desktop PowerShell module to follow the instructions in this article. Install the Windows Virtual Desktop PowerShell module from the PowerShell Gallery by running this cmdlet:
-
-```powershell
-PS C:\> Install-Module WindowsVirtualDesktop
-```
+To get started, [download and import the Windows Virtual Desktop PowerShell module](powershell-get-started.md) to use in your PowerShell session if you haven't already.
 
 ## Diagnose issues with PowerShell
 
