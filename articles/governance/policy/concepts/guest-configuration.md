@@ -18,9 +18,6 @@ Configuration extension and client. The extension, through the client, validates
 the configuration of the operating system, application configuration or presence, environment
 settings, and more.
 
-> [!IMPORTANT]
-> Currently, only **built-in** policies are supported with Guest Configuration.
-
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## Extension and client
@@ -94,7 +91,9 @@ The following table shows a list of supported operating system on Azure images:
 |Suse|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Guest Configuration is not currently supported on custom virtual machine images.
+> Guest Configuration can audit any server running a supported OS.  If you would like to audit
+> servers that use a custom image, you will need to clone the DeployIfNotExists definition
+> and modify the If section to include your image proeprties.
 
 ### Unsupported client types
 
