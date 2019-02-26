@@ -21,7 +21,7 @@ This article describes a template that's available to incrementally load new or 
 This template requires that the schema of the source database contains a timestamp column or incrementing key to identify new or updated rows.
 
 >[!NOTE]
-> If you have a timestamp column in your source database to identify new or updated rows but you don't want to create an external control table to use for delta copy, you can instead use the [**Data Factory Copy Data tool**](copy-data-tool.md) to get a pipeline. That tool uses a trigger-scheduled time as a variable to read new rows from the source database.
+> If you have a timestamp column in your source database to identify new or updated rows but you don't want to create an external control table to use for delta copy, you can instead use the [Azure Data Factory Copy Data tool](copy-data-tool.md) to get a pipeline. That tool uses a trigger-scheduled time as a variable to read new rows from the source database.
 
 ## About this solution template
 
@@ -98,21 +98,21 @@ The template defines the following five parameters:
 
      ![Use this template](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable7.png)
 	
-8. You'll see the available pipeline, as shown in the following example:
+8. You see the available pipeline, as shown in the following example:
 
-     ![Review pipeline](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
+     ![Review the pipeline](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
 
 9. Select **Stored Procedure**. For **Stored procedure name**, choose **[update_watermark]**. Select **Import parameter**, and then select **Add dynamic content**.  
 
-     ![Set Stored Procedure activity](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png)	
+     ![Set the stored procedure activity](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png)	
 
 10. Write the content **@{activity('LookupCurrentWaterMark').output.firstRow.NewWatermarkValue}**, and then select **Finish**.  
 
-     ![Write the content for parameter for Stored Procedure](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)		 
+     ![Write the content for the parameters of the stored procedure](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)		 
 	 
 11. Select **Debug**, enter the **Parameters**, and then select **Finish**.
 
-    ![Click the Debug](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
+    ![Select **Debug**](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
 
 12. Results similar to the following example will be displayed:
 
@@ -129,9 +129,9 @@ The template defines the following five parameters:
 	```
 14. To run the pipeline again, select **Debug**, enter the **Parameters**, and then select **Finish**.
 
-    ![Click Debug](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
+    ![Select **Debug**](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
 
-You'll see that only new rows were copied to the destination.
+You see that only new rows were copied to the destination.
 
 15. (Optional:) If you selected SQL Data Warehouse as the data destination, you must also provide a connection to Azure Blob storage for staging, which is required by SQL Data Warehouse Polybase. Make sure that the container has already been created in Blob storage.
     
