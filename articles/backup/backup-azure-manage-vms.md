@@ -21,19 +21,19 @@ In the Azure portal, the Recovery Services vault dashboard provides access to in
 * The total size of all backup snapshots
 * The number of VMs enabled for backup
 
-You can manage backups using the dashboard, and by drilling down to individual VMs. achine backup begin with opening the vault in the dashboard. 
+You can manage backups using the dashboard, and by drilling down to individual VMs. achine backup begin with opening the vault in the dashboard.
 
 ![Full view with slider](./media/backup-azure-manage-vms/bottom-slider.png)
 
 ## View VMs in the dashboard
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list filters based on your input. Click **Recovery Services vault**. 
+2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list filters based on your input. Click **Recovery Services vault**.
 
     ![Create Recovery Services Vault step 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 
 3. For ease of use, right-click the vault in the vaults list > **Pin to dashboard**.
-4. Open the vault dashboard. 
+4. Open the vault dashboard.
     ![Open vault dashboard and Settings blade](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
 4. On the **Backup Items** tile, click **Azure Virtual Machines**.
@@ -44,7 +44,7 @@ You can manage backups using the dashboard, and by drilling down to individual V
 
     ![Backup items tile](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
- 
+
 6. From the vault item dashboard, you can create or modify backup policies, view restore points, run an on-demand backup, stop and resume protection of VMs, delete recovery points, and run a restore.
 
     ![Backup items dashboard with Settings blade](./media/backup-azure-manage-vms/item-dashboard-settings.png)
@@ -81,7 +81,7 @@ To trigger an on-demand backup:
 
     ![Backup now button](./media/backup-azure-manage-vms/backup-now-check.png)
 
- 
+
  The backup job creates a recovery point. The retention range of the recovery point is the same as retention range specified in the policy associated with the virtual machine. To track the progress for the job, in the vault dashboard, click the **Backup Jobs** tile.  
 
 ## Stop protecting a VM
@@ -89,15 +89,12 @@ To trigger an on-demand backup:
 There are two ways to stop protecting VMs:
 
 - Stop all future backup jobs and delete all recovery points. You won't be able to restore the VM in this case.
-- Stop all future backup jobs but leave the recovery points. There's a cost associated with leaving the recovery points in storage. However, the benefit of leaving the recovery points is you can restore the VM if needed. [Learn more](https://azure.microsoft.com/pricing/details/backup/) about pricing details.
+- Stop all future backup jobs but retain the recovery points. There's a cost associated with retaining the recovery points in vault. However, the benefit of retaining the recovery points is you can restore the VM if needed. [Learn more](https://azure.microsoft.com/pricing/details/backup/) about pricing details.
 
-Note that:
-
-- If you leave the recovery points, the points will be cleaned up in accordance with backup policy. You incur charges for the protected instance and the consumed storage, until all recovery points are cleaned up. [Learn more](https://azure.microsoft.com/pricing/details/backup/) about pricing.
-- When you leave recovery points intact, although they expire as per the retention policy, Azure Backup always keeps one last recovery point until you explicitly delete backup data.
+>[!NOTE]
+>
+- If you retain the recovery points, the recovery points will not expire in accordance to backup policy and you are charged for the protected instance and the consumed storage, until all recovery points are cleaned up. Learn more about [how to delete retained data](backup-azure-delete-vault.md#what-if-i-stop-the-backup-process-but-retain-the-data)
 - If you delete a data source without stopping backup, new backups will start failing. Again, old recovery points will expire according to policy, but one last recovery point will always be retained until you stop backup and delete the data.
-
-
 
 To stop protection for a virtual machine:
 
@@ -147,6 +144,5 @@ This procedure assumes the Backup job for the VM has been stopped or disabled.
 
 ## Next steps
 - [Learn about](backup-azure-vms-first-look-arm.md) backing up Azure VMs from VM settings.
-- [Learn about](backup-azure-arm-restore-vms.md) restoring VMs. 
+- [Learn about](backup-azure-arm-restore-vms.md) restoring VMs.
 - [Learn about](backup-azure-monitor-vms.md) monitoring Azure VM backups.
- 
