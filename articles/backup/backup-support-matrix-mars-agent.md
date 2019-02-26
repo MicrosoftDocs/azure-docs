@@ -21,19 +21,16 @@ Azure Backup uses the MARS agent to back up data from on-premises machines and A
 - Run on Windows Azure virtual machines so that they can back up directly to a vault.
 - Run on Microsoft Azure Backup Server (MABS) or a System Center Data Protection Manager server. In this scenario, machines and workloads back up to MABS or to the Data Protection Manager server. The MARS agent then backs up this server to a vault in Azure. 
 
-Your backup options depend on where the agent is installed.
-
-- For more information, see [Azure Backup architecture using the MARS agent](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders).
-- For information about MABS and Data Protection Manager backup architecture, see [Back up to Data Protection Manager or MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Also see [requirements](backup-support-matrix-mabs-dpm.md) for the backup architecture.
+Your backup options depend on where the agent is installed. For more information, see [Azure Backup architecture using the MARS agent](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders). For information about MABS and Data Protection Manager backup architecture, see [Back up to Data Protection Manager or MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Also see [requirements](backup-support-matrix-mabs-dpm.md) for the backup architecture.
 
 
 ## Supported installation
 
 **Installation** | **Details**
 --- | ---
-**Download latest MARS agent** | You can download the latest version of the agent from the vault, or [download it directly](https://aka.ms/azurebackup_agent).
-**Install directly on a machine** | You can install the MARS agent directly on an on-premises Windows server or on a Windows Azure virtual machine that's running any of the supported operating systems.
-**Install on a backup server** | When you set up Data Protection Manager or MABS to back up to Azure, you download and install the MARS agent on the server. You can install the agent on [supported operating systems](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) in the backup server support matrix.
+Download latest MARS agent | You can download the latest version of the agent from the vault, or [download it directly](https://aka.ms/azurebackup_agent).
+Install directly on a machine | You can install the MARS agent directly on an on-premises Windows server or on a Windows Azure virtual machine that's running any of the supported operating systems.
+Install on a backup server | When you set up Data Protection Manager or MABS to back up to Azure, you download and install the MARS agent on the server. You can install the agent on [supported operating systems](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) in the backup server support matrix.
 
 > [!NOTE]
 > By default, Azure virtual machines that are enabled for backup have an Azure Backup extension installation. This extension backs up the entire VM. You can install and run the MARS agent on an Azure virtual machine alongside the extension if you want to back up specific folders and files, rather than the complete VM.
