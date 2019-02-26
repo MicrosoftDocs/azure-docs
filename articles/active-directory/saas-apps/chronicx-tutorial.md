@@ -74,10 +74,10 @@ For single sign-on to work, a link relationship between an Azure AD user and the
 To configure and test Azure AD single sign-on with ChronicX®, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure ChronicX® Single Sign-On](#configure-chronicx®-single-sign-on)** - to configure the Single Sign-On settings on application side.
+2. **[Configure ChronicX® Single Sign-On](#configure-chronicx-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create ChronicX® test user](#create-chronicx®-test-user)** - to have a counterpart of Britta Simon in ChronicX® that is linked to the Azure AD representation of user.
+5. **[Create ChronicX® test user](#create-chronicx-test-user)** - to have a counterpart of Britta Simon in ChronicX® that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -125,7 +125,7 @@ To configure Azure AD single sign-on with ChronicX®, perform the following step
 
 	c. Logout URL
 
-### Configure ChronicX® Single Sign-On
+### Configure ChronicX Single Sign-On
 
 To configure single sign-on on **ChronicX®** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [ChronicX® support team](https://www.casebank.com/contact-us/). They set this setting to have the SAML SSO connection set properly on both sides.
 
@@ -180,7 +180,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. In the **Add Assignment** dialog click the **Assign** button.
 
-### Create ChronicX® test user
+### Create ChronicX test user
 
 In this section, a user called Britta Simon is created in ChronicX®. ChronicX® supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in ChronicX®, a new one is created after authentication.
 
