@@ -165,11 +165,12 @@ with connecting to your session and ends with disconnecting from your session.
    After you capture the screens for a task, the designer tool 
    shows thumbnails that represent those screens. Along with your 
    captured screens, you also have a screen that's named "Empty". 
-   When you first connect to the Customer Information Control System (CICS), 
-   you must choose **Clear** before you can enter the name for the transaction 
-   you want to run. This "clear" screen doesn't have any attributes to recognize. 
-   So, by default, this screen is named "Empty". You can use the screen later 
-   for representing the screen where you enter the transaction name.
+   When you first connect to the Customer Information Control 
+   System (CICS), you must choose **Clear** before you can enter 
+   the name for the transaction you want to run. This "clear" screen 
+   doesn't have any attributes to recognize. So, by default, this 
+   screen is named "Empty". You can use the screen later for 
+   representing the screen where you enter the transaction name.
 
 1. Now specify the fields for identifying each screen.
 
@@ -201,9 +202,9 @@ conditions you can use:
 
 * Specific value: This value matches the specified string 
 at the specified location.
-* <NOT> a specific value: This value doesn't match the 
+* NOT a specific value: This value doesn't match the 
 specified string at the specified location.
-* <NOT> empty: This field isn't empty.
+* NOT empty: This field isn't empty.
 * Empty: This field is empty.
 
 To learn more, see the [Example navigation plan](#example-plan) 
