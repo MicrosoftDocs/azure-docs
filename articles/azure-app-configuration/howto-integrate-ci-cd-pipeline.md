@@ -27,9 +27,9 @@ You can use any code editor to complete the steps in this quickstart. However, [
 
 ## Prerequisites
 
-If you build locally, download and install [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) if you haven’t already.
+If you build locally, download and install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) if you haven’t already.
 
-If you want to do a cloud build, with Azure DevOps for example, make sure [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) is installed in your build system.
+If you want to do a cloud build, with Azure DevOps for example, make sure [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) is installed in your build system.
 
 ## Export app configuration store
 
