@@ -36,30 +36,6 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ---
 ## February 2019
 
-### Configurable end-user password requirements for B2C (GA)
-
-**Type:** New feature  
-**Service category:** B2C - Consumer Identity Management  
-**Product capability:** B2B/B2C
-
-You can now specifically set up your organization's password complexity for your end-users, instead of having to use your native Azure AD password policy. From the **Properties** blade of your user flows (previously known as your built-in policies), you can choose a password complexity of **Simple** or **Complex**, or you can create a **Custom** set of requirements.
-
-For more information about password complexity requirement configuration, see NEED LINK.
-
----
-
-### New default templates for custom branded authentication experiences
-
-**Type:** New feature  
-**Service category:** B2C - Consumer Identity Management  
-**Product capability:** B2B/B2C
-
-You can use our new default templates, located on the **Page layouts** blade of your user flows (previously known as built-in policies), to create a custom branded authentication experience for your users.
-
-For more information about using the templates, see NEED LINK.
-
----
-
 ### Configurable Azure AD SAML token encryption (Public preview) 
 
 **Type:** New feature  
@@ -126,7 +102,7 @@ For more information about the enhanced registration experience, see the [Cool e
 
 ---
 
-### Updated policy management experience for built-in policies
+### Updated policy management experience for user flows
 
 **Type:** Changed feature  
 **Service category:** B2C - Consumer Identity Management  
@@ -149,6 +125,30 @@ For more information about the new policy management experience, see the [Azure 
 You can now choose a specific version of the page elements provided by Azure AD B2C. By selecting a specific version, you can test your updates before they appear on a page and you can get predictable behavior. Additionally, you can now opt in to enforce specific page versions to allow JavaScript customizations. To turn this feature on, go to the **Properties** page in your user flows.
 
 For more information about choosing specific versions of page elements, see the [Azure AD B2C now has JavaScript customization and many more new features](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595) blog.
+
+---
+
+### Configurable end-user password requirements for B2C (GA)
+
+**Type:** New feature  
+**Service category:** B2C - Consumer Identity Management  
+**Product capability:** B2B/B2C
+
+You can now specifically set up your organization's password complexity for your end-users, instead of having to use your native Azure AD password policy. From the **Properties** blade of your user flows (previously known as your built-in policies), you can choose a password complexity of **Simple** or **Complex**, or you can create a **Custom** set of requirements.
+
+For more information about password complexity requirement configuration, see NEED LINK.
+
+---
+
+### New default templates for custom branded authentication experiences
+
+**Type:** New feature  
+**Service category:** B2C - Consumer Identity Management  
+**Product capability:** B2B/B2C
+
+You can use our new default templates, located on the **Page layouts** blade of your user flows (previously known as built-in policies), to create a custom branded authentication experience for your users.
+
+For more information about using the templates, see NEED LINK.
 
 ---
 
