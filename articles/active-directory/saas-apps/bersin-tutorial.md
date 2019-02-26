@@ -100,19 +100,19 @@ To configure Azure AD single sign-on with Bersin, perform the following steps:
 
     ![Bersin Domain and URLs single sign-on information](common/idp-identifier-relay.png)
 
-	a. In the **Identifier** text box, type the URL:
+	a. In the **Identifier** text box, type a URL using the following pattern:
     `https://www.bersin.com/shibboleth`
 
     b. Click **Set additional URLs**.
 
-    c. In the **Relay State** text box, type the URL:
+    c. In the **Relay State** text box, type a URL using the following pattern:
     `https://www.bersin.com/secure/`
 
 5. Click **Set additional URLs** and perform the following steps if you wish to configure the application in **SP** initiated mode:
 
     ![Bersin Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
-	a. In the **Sign-on URL** text box, type the URL:
+	In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://www.bersin.com/Login.aspx`
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
