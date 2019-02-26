@@ -93,7 +93,7 @@ You can then add 3270 connector actions. To get started,
 [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 If you use an ISE, select that ISE as your logic app's location.
 
-* Download and install the [standalone 3270 Design Tool](), 
+* Download and install the [standalone 3270 Design Tool](https://aka.ms/3270-design-tool-download), 
 which you use for generating a Host Integration Designer 
 XML (HIDX) file. This metadata file identifies the screens, 
 navigation path, method, and parameters for the task you 
