@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/08/2019
+ms.date: 02/26/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -35,6 +35,8 @@ The following are limitations to the current solution:
 ## Prerequisites
 
 The runbooks for this solution work with an [Azure Run As account](automation-create-runas-account.md). The Run As account is the preferred authentication method, because it uses certificate authentication instead of a password that might expire or change frequently.
+
+It is recommended to use a separate Automation Account for the Start/Stop VM solution. This is because Azure module versions are frequently upgraded, and their parameters may change. The Start/Stop VM solution is not upgraded on the same cadence so it may not work with newer versions of the cmdlets that it uses. It is recommended to test module updates in a test Automation Account prior to importing them in your production Automation Account.
 
 ## Deploy the solution
 

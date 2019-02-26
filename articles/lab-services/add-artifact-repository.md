@@ -56,7 +56,7 @@ To add a repository to your lab, first, get key information from your repository
    4. Select the **All scopes** option.
    5. Select **Create Token**.
 9. The new token appears in the **Personal Access Tokens** list. Select **Copy Token**, and then save the token value for later use.
-10. Continue to the [Connect your lab to the repository](#connect-your-lab-to-the-repository) section.
+10. Continue to the Connect your lab to the repository section.
 
 ## Use Azure portal
 This section provides steps to add an artifact repository to a lab in the Azure portal. 
