@@ -28,7 +28,7 @@ To alert when CPU or memory utilization is high for a cluster or a controller, y
 Before starting, if you are not familiar with Alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../platform/alerts-overview.md). To learn more about alerts using log queries, see [Log alerts in Azure Monitor](../platform/alerts-unified-log.md)
 
 ## Alert on cluster CPU or memory utilization
-The queries in this section are provided to support each alerting scenario. The queries are required for step 7 under the [create alert](#create-alert) section below.  
+The queries in this section are provided to support each alerting scenario. The queries are required for step 7 under the [create alert](#create-alert-rule) section below.  
 
 The following query calculates the average CPU utilization as an average of member nodes CPU utilization every minute.  
 
@@ -183,7 +183,7 @@ KubePodInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
-## Creating alert rule
+## Create alert rule
 >[!NOTE]
 >The procedure below requires you to switch to new Log Alerts API as described in [Switch API preference for Log Alerts](../../platform/alerts-log-api-switch.md) if you are creating an alert rule for container resource utilization. 
 >
