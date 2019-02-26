@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ---
 
-# Risky IP report (Public Preview)
+# Risky IP report (public preview)
 AD FS customers may expose password authentication endpoints to the internet to provide authentication services for end users to access SaaS applications such as Office 365. In this case, it is possible for a bad actor to attempt logins against your AD FS system to guess an end user’s password and get access to application resources. AD FS provides the extranet account lockout functionality to prevent these types of attacks since AD FS in Windows Server 2012 R2. If you are on a lower version, we strongly recommend that you upgrade your AD FS system to Windows Server 2016. <br />
 Additionally, it is possible for a single IP address to attempt multiple logins against multiple users. In these cases, the number of attempts per user may be under the threshold for account lockout protection in AD FS. Azure AD Connect Health now provides the “Risky IP report” that detects this condition and notifies administrators when this occurs. The following are the key benefits for this report: 
 - Detection of IP addresses that exceed a threshold of failed password-based logins
@@ -31,7 +31,7 @@ Additionally, it is possible for a single IP address to attempt multiple logins 
 > To access preview, Global Admin or [Security Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) permission is required.  
 > 
 
-## What is in the report
+## What is in the report?
 Each item in the Risky IP report shows aggregated information about failed AD FS sign-in activities which exceed designated threshold. It provides the following information:
 ![Azure AD Connect Health Portal](./media/how-to-connect-health-adfs/report4a.png)
 
@@ -56,10 +56,10 @@ For example, the below report item indicates from the 6pm to 7pm hour window on 
 
 ![Azure AD Connect Health Portal](./media/how-to-connect-health-adfs/report4c.png)
 
-## Load Balancer IP addresses in the list
+## Load balancer IP addresses in the list
 Load balancer aggregate failed sign-in activities and hit the alert threshold. If you are seeing load balancer IP addresses, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server. Please configure your load balancer correctly to pass forward client IP address. 
 
-## Download Risky IP report 
+## Download risky IP report 
 Using the **Download** functionality, the whole risky IP address list in the past 30 days can be exported from the Connect Health Portal
 The export result will include all the failed AD FS sign-in activities in each detection time window, so you can customize the filtering after the export. 
 Besides the highlighted aggregations in the portal, the export result also shows more details about failed sign-in activities per IP address:
@@ -71,11 +71,11 @@ Besides the highlighted aggregations in the portal, the export result also shows
 | attemptCountThresholdIsExceeded | The flag if the current activities are exceeding the alerting threshold.  | 
 | isWhitelistedIpAddress | The flag if the IP address is filtered from alerting and reporting. Private IP addresses (<i>10.x.x.x, 172.x.x.x & 192.168.x.x</i>) and Exchange IP addresses are filtered and marked as True. If you are seeing private IP address ranges, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server.  | 
 
-## Configure Notification Settings
+## Configure notification settings
 Admin contacts of the report can be updated through the **Notification Settings**. By default, the risky IP alert email notification is in off state. You can enable the notification by toggle the button under “Get email notifications for IP addresses exceeding failed activity threshold report”
 Like generic alert notification settings in Connect Health, it allows you to customize designated notification recipient list about risky IP report from here. You can also notify all global admins while making the change. 
 
-## Configure Threshold settings
+## Configure threshold settings
 Alerting threshold can be updated through Threshold Settings. To start with, system has threshold set by default. There are four categories in the risk IP report threshold settings:
 
 ![Azure AD Connect Health Portal](./media/how-to-connect-health-adfs/report4d.png)
@@ -95,29 +95,24 @@ Alerting threshold can be updated through Threshold Settings. To start with, sys
 >
 
 ## FAQ
-1. Why am I seeing private IP address ranges in the report?  <br />
+**Why am I seeing private IP address ranges in the report?**  <br />
 Private IP addresses (<i>10.x.x.x, 172.x.x.x & 192.168.x.x</i>) and Exchange IP addresses are filtered and marked as True in the IP whitelist. If you are seeing private IP address ranges, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server.
 
-2. Why am I seeing load balancer IP addresses in the report?  <br />
+**Why am I seeing load balancer IP addresses in the report?**  <br />
 If you are seeing load balancer IP addresses, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server. Please configure your load balancer correctly to pass forward client IP address. 
 
-3. What do I do to block the IP address?  <br />
+**What do I do to block the IP address?**  <br />
 You should add identified malicious IP address to the firewall or block in Exchange.   <br />
 
-4. Why am I not seeing any items in this report? <br />
-   - Failed sign-in activities are not exceeding the threshold settings. 
-   - Ensure no “Health service is not up to date” alert active in your AD FS server list.  Read more about [how to troubleshoot this alert](how-to-connect-health-data-freshness.md).
-   - Audits is not enabled in AD FS farms.
- 
-5. Why am I seeing no access to the report?  <br />
+**Why am I not seeing any items in this report?** <br />
+- Failed sign-in activities are not exceeding the threshold settings.
+- Ensure no “Health service is not up to date” alert active in your AD FS server list.  Read more about [how to troubleshoot this alert](how-to-connect-health-data-freshness.md).
+- Audits is not enabled in AD FS farms.
+
+**Why am I seeing no access to the report?**  <br />
 Global Admin or [Security Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) permission is required. Please contact your global admin to get access.
 
 
 ## Next steps
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Azure AD Connect Health Agent Installation](how-to-connect-health-agent-install.md)
-* [Azure AD Connect Health Operations](how-to-connect-health-operations.md)
-* [Using Azure AD Connect Health for sync](how-to-connect-health-sync.md)
-* [Using Azure AD Connect Health with AD DS](how-to-connect-health-adds.md)
-* [Azure AD Connect Health FAQ](reference-connect-health-faq.md)
-* [Azure AD Connect Health Version History](reference-connect-health-version-history.md)
