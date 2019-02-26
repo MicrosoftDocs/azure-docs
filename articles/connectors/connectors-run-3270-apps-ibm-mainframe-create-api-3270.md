@@ -458,7 +458,7 @@ displays the value for your output parameter.
 When you're done, add your HIDX file as a map to your 
 integration account by using the Azure portal. Except 
 for where you select **HIDX** as your map type, you can 
-[follow these similar steps for adding maps](../logic-apps/logic-apps/logic-apps-enterprise-integration-liquid-transform.md). 
+[follow these similar steps for adding maps](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md). 
 
 In a later section on this page, you learn how to add an HIS 3270 
 action to your logic app. When you add this action for the first time, 
