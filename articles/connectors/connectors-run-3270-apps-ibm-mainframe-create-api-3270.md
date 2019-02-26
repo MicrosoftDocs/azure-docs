@@ -291,7 +291,7 @@ the screens you capture:
 * CICS Welcome
 * Empty
 * WBGB_1 (input)
-* WBGB_1 (error)
+* WBGB_2 (error)
 * Empty_1
 * MSG-10_1
 
