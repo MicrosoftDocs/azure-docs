@@ -65,7 +65,7 @@ ms.author: jegeib
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Linked Service Types - Azure and On Prem |
-| **References**              |[ Moving data between On Prem and Azure Data Factory](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway), [Data management gateway](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
+| **References**              |[Moving data between On Prem and Azure Data Factory](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway), [Data management gateway](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
 | **Steps** | <p>The Data Management Gateway (DMG) tool is required to connect to data sources which are protected behind corpnet or a firewall.</p><ol><li>Locking down the machine isolates the DMG tool and prevents malfunctioning programs from damaging or snooping on the data source machine. (E.g. latest updates must be installed, enable minimum required ports, controlled accounts provisioning, auditing enabled, disk encryption enabled etc.)</li><li>Data Gateway key must be rotated at frequent intervals or whenever the DMG service account password renews</li><li>Data transits through Link Service must be encrypted</li></ol> |
 
 ## <a id="identity-https"></a>Ensure that all traffic to Identity Server is over HTTPS connection
