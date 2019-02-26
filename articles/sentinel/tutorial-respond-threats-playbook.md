@@ -72,27 +72,18 @@ Follow these steps to create a new security playbook in Azure Sentinel:
 
    ![Logical app designer](./media/tutorial-respond-threats-playbook/logic-app.png)
 
-## How to use a security playbook
+## How to run a security playbook
 
-You can run a playbook either on demand or set an automated trigger to run it as part of an alert response.
+You can run a playbook on demand.
 
 To run a playbook on-demand:
 
-1. In the **Cases** page, select a case and drill down into a specific alert.
+1. In the **Cases** page, select a case and click on **View full details**.
 
-2. Click **View playbooks** and select a playbook to **run** from the list of available playbooks on the subscription. 
+2. In the **Alerts** tab, click on the alert you want to run the playbook on, and scroll all the way to the right and click **View playbooks** and select a playbook to **run** from the list of available playbooks on the subscription. 
 
-To set an automated trigger to run a playbook:
 
-1. When you create a [custom alert rule](tutorial-detect-threats.md), click the tab **Response automation**.
 
-2. On the right, click **Add playbook**, and select the playbooks to run automatically when the alert rule is triggered and click **Apply**.
-
-   ![Alert automated response](./media/tutorial-respond-threats-playbook/alert-dashboard-automate-playbook.png)
-
-> [!NOTE]
-> It is recommended that if you are setting a playbook that enforces administrative actions that impact users or business operations such as blocking a user or deleting files, you should thoroughly test the playbook manually before setting it to run automatically. 
->
 
 ## Next steps
 In this article, you learned how to run a playbook in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:

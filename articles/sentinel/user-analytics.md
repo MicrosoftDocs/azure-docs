@@ -50,7 +50,7 @@ Azure Sentinel enriches your user data with analytics from Microsoft 365 to enab
 1. Then, it takes you to Azure ATP. Under **Security extensions** in the **Microsoft Azure Sentinel** tab, click the **+plus** to add and then select the workspace. 
 1. Click **Connect**.
 
-# Investigate a user
+## Investigate a user
 
 1. In the Azure Sentinel menu under **User analytics**, review the list of users according to their investigation priority. The score is based on Azure Sentinel alerts, and Microsoft 365 alerts.
 

@@ -71,15 +71,7 @@ At the bottom, Azure Sentinel provides recommendations for which dashboards you 
 8. Use the sample query data if you want to start building queries in Log Analytics, that run on this data. The samples help by providing you with basic queries including the correct parameter names for data of this type.
 
 
-For information about machines, services, and apps that are natively connected to Azure Sentinel, see [Connect Microsoft services](connect-azure-active-directory.md).
-For information about other on-premises machines, services, and apps that can be connected to Azure Sentinel, see [Connect your on-premises appliance to Azure Sentinel using Common Event Format](connect-common-error-format.md).
-
-Azure Sentinel also collects [Syslog](connect-syslog.md) and [CEF over Syslog](connect-common-error-format.md) formatted events. If your solution supports CEF, it is recommended that you send your log events as CEF because of Azure Sentinel's integration with Log Analytics, which parses and normalizes the data best from CEF. In addition, CEF data analyzed with Azure Sentinel includes Threat Intelligence enrichment from Microsoft Threat Intelligence feeds, which identifies interaction with malicious IP addresses and locations.
-
-
-
-
-
+For information about data connectors, see [Connect Microsoft services](connect-data-sources.md).
 
 
 

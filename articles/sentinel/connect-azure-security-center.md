@@ -40,9 +40,7 @@ Azure Sentinel enables you to collect alerts from [Azure Security Center](../sec
 ## Connect to Azure Security Center
 
 1. In Azure Sentinel, select **Data collection** and then click the **Azure Security Center** tile.
-1. ## Connect to Azure Activity log
-
-2. In the right, click **Connect** next to each subscription whose alerts you want to stream into Azure Sentinel. Make sure to upgrade each subscription to Azure Security Center Standard tier to stream alerts to Azure Sentinel.
+1. In the right, click **Connect** next to each subscription whose alerts you want to stream into Azure Sentinel. Make sure to upgrade each subscription to Azure Security Center Standard tier to stream alerts to Azure Sentinel.
 
 3. Click **Connect**.
 

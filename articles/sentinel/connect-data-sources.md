@@ -68,7 +68,7 @@ The following data collection methods are supported by Azure Sentinel:
     - [DNS logs](connect-dns.md)
     - Servers and endpoints
 
--**Integration with any solution supporting Syslog, CEF, and REST API**
+- **Integration with any solution supporting Syslog, CEF, and REST API**
     - Firewalls
     - Proxy servers
     - DLP solutions
