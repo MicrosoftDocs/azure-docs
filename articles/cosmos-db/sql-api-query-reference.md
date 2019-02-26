@@ -2347,7 +2347,7 @@ StringToArray(<expr>)
   
  **Examples**  
   
-The following example shows how StringToArray behaves across different types. 
+ The following example shows how StringToArray behaves across different types. 
   
 ```  
 SELECT 
@@ -2391,7 +2391,7 @@ StringToBoolean(<expr>)
   
  **Examples**  
   
-The following example shows how StringToBoolean behaves across different types. 
+ The following example shows how StringToBoolean behaves across different types. 
   
 ```  
 SELECT 
@@ -2434,7 +2434,7 @@ StringToNull(<expr>)
   
  **Examples**  
   
-The following example shows how StringToNull behaves across different types. 
+ The following example shows how StringToNull behaves across different types. 
   
 ```  
 SELECT 
@@ -2476,7 +2476,7 @@ StringToNumber(<expr>)
   
  **Examples**  
   
-The following example shows how StringToNumber behaves across different types. 
+ The following example shows how StringToNumber behaves across different types. 
   
 ```  
 SELECT 
@@ -2521,7 +2521,7 @@ StringToObject(<expr>)
   
  **Examples**  
   
-The following example shows how StringToObject behaves across different types. 
+ The following example shows how StringToObject behaves across different types. 
   
 ```  
 SELECT 
