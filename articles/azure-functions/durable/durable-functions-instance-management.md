@@ -99,13 +99,15 @@ func durable start-new --function-name HelloWorld --input @counter-data.json --t
 
 ## Query instances
 
+As part of your effort to manage your orchestrations, you'll most likely need to gather information about the status of an orchestration instance (for example, whether it has completed normally or failed).
+
 The [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) method on the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class (.NET) or the `getStatus` method on the `DurableOrchestrationClient` class (JavaScript) queries the status of an orchestration instance.
 
 It takes an `instanceId` (required), `showHistory` (optional), `showHistoryOutput` (optional), and `showInput` (optional, .NET only) as parameters.
 
-* **`showHistory`**: If set to `true`, the response will contain the execution history.
-* **`showHistoryOutput`**: If set to `true`, the execution history will contain activity outputs.
-* **`showInput`**: If set to `false`, the response will not contain the input of the function. The default value is `true`. (.NET only)
+* **`showHistory`**: If set to `true`, the response contains the execution history.
+* **`showHistoryOutput`**: If set to `true`, the execution history contains activity outputs.
+* **`showInput`**: If set to `false`, the response won't contain the input of the function. The default value is `true`. (.NET only)
 
 The method returns a JSON object with the following properties:
 
@@ -113,9 +115,9 @@ The method returns a JSON object with the following properties:
 * **InstanceId**: The instance ID of the orchestration (should be the same as the `instanceId` input).
 * **CreatedTime**: The time at which the orchestrator function started running.
 * **LastUpdatedTime**: The time at which the orchestration last checkpointed.
-* **Input**: The input of the function as a JSON value. This field will not be populated if `showInput` is false.
+* **Input**: The input of the function as a JSON value. This field isn't populated if `showInput` is false.
 * **CustomStatus**: Custom orchestration status in JSON format.
-* **Output**: The output of the function as a JSON value (if the function has completed). If the orchestrator function failed, this property will include the failure details. If the orchestrator function was terminated, this property will include the provided reason for the termination (if any).
+* **Output**: The output of the function as a JSON value (if the function has completed). If the orchestrator function failed, this property includes the failure details. If the orchestrator function was terminated, this property includes the reason for the termination (if any).
 * **RuntimeStatus**: One of the following values:
   * **Pending**: The instance has been scheduled but has not yet started running.
   * **Running**: The instance has started running.
@@ -153,35 +155,37 @@ module.exports = async function(context, instanceId) {
 }
 ```
 
-### Using Core Tools
+### Core Tools
 
-It is also possible to get the status of an orchestration instance directly via the [Azure Functions Core Tools](../functions-run-local.md) `durable get-runtime-status` command. It takes the following parameters:
+It's also possible to get the status of an orchestration instance directly, by using the [Azure Functions Core Tools](../functions-run-local.md) `durable get-runtime-status` command. It takes the following parameters:
 
-* **`id` (required)**: ID of the orchestration instance
-* **`show-input` (optional)**: If set to `true`, the response will contain the input of the function. The default value is `false`.
-* **`show-output` (optional)**: If set to `true`, the response will contain the output of the function. The default value is `false`.
-* **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is AzureWebJobsStorage.
-* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in [host.json](durable-functions-bindings.md#host-json) via durableTask:HubName.
+* **`id` (required)**: ID of the orchestration instance.
+* **`show-input` (optional)**: If set to `true`, the response contains the input of the function. The default value is `false`.
+* **`show-output` (optional)**: If set to `true`, the response contains the output of the function. The default value is `false`.
+* **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is `AzureWebJobsStorage`.
+* **`task-hub-name` (optional)**: Name of the Durable Functions task hub to use. The default is `DurableFunctionsHub`. It can also be set in [host.json](durable-functions-bindings.md#host-json), by using durableTask:HubName.
 
-The following command would retrieve the status (including input and output) of an instance with an orchestration instance ID of 0ab8c55a66644d68a3a8b220b12d209c. It assumes the `func` command is being run from the root directory of the Function app:
+The following command retrieves the status (including input and output) of an instance with an orchestration instance ID of 0ab8c55a66644d68a3a8b220b12d209c. It assumes that you are running the `func` command from the root directory of the function app:
 
 ```bash
 func durable get-runtime-status --id 0ab8c55a66644d68a3a8b220b12d209c --show-input true --show-output true
 ```
 
-The `durable get-history` command can be used to retrieve the history of an orchestration instance. It takes the following parameters:
+You can use the `durable get-history` command to retrieve the history of an orchestration instance. It takes the following parameters:
 
-* **`id` (required)**: ID of the orchestration instance
-* **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is AzureWebJobsStorage.
-* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in host.json via durableTask:HubName.
+* **`id` (required)**: ID of the orchestration instance.
+* **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is `AzureWebJobsStorage`.
+* **`task-hub-name` (optional)**: Name of the Durable Functions task hub to use. The default is `DurableFunctionsHub`. It can also be set in host.json, by using durableTask:HubName.
 
 ```bash
 func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
 ```
 
-## Querying all instances
+## Query all instances
 
-You can use the `GetStatusAsync` (.NET) or `getStatusAll` (JavaScript) method to query the statuses of all orchestration instances. In .NET you can pass a `CancellationToken` object in case you want to cancel it. The method returns objects with the same properties as the `GetStatusAsync` method with parameters.
+Rather than query one instance in your orchestration at a time, you might find it more efficient to query all of them at once.
+
+You can use the `GetStatusAsync` (.NET) or `getStatusAll` (JavaScript) method to query the statuses of all orchestration instances. In .NET, you can pass a `CancellationToken` object in case you want to cancel it. The method returns objects with the same properties as the `GetStatusAsync` method with parameters.
 
 ### C#
 
@@ -215,22 +219,24 @@ module.exports = async function(context, req) {
 };
 ```
 
-### Using Core Tools
+### Core Tools
 
-It is also possible to query instances directly via the [Azure Functions Core Tools](../functions-run-local.md) `durable get-instances` command. It takes the following parameters:
+It's also possible to query instances directly, by using the [Azure Functions Core Tools](../functions-run-local.md) `durable get-instances` command. It takes the following parameters:
 
 * **`top` (optional)**: This command supports paging. This parameter corresponds to the number of instances retrieved per request. The default is 10.
-* **`continuation-token` (optional)**: A token to indicate which page/section of instances to retrieve. Each `get-instances` execution returns a token to the next set of instances.
-* **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is AzureWebJobsStorage.
-* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in [host.json](durable-functions-bindings.md#host-json) via durableTask:HubName.
+* **`continuation-token` (optional)**: A token to indicate which page or section of instances to retrieve. Each `get-instances` execution returns a token to the next set of instances.
+* **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is `AzureWebJobsStorage`.
+* **`task-hub-name` (optional)**: Name of the Durable Functions task hub to use. The default is `DurableFunctionsHub`. It can also be set in [host.json](durable-functions-bindings.md#host-json), by using durableTask:HubName.
 
 ```bash
 func durable get-instances
 ```
 
-## Querying instances with filters
+## Query instances with filters
 
-You can also use the `GetStatusAsync` (.NET) or `getStatusBy` (JavaScript) method to get a list of orchestration instances that match a set of predefined filters. Possible filter options include the orchestration creation time and the orchestration runtime status.
+What if you don't really need all the information that a standard instance query can provide? For example, what if you're just looking for the orchestration creation time, or the orchestration runtime status? You can narrow your query by applying filters.
+
+Use the `GetStatusAsync` (.NET) or `getStatusBy` (JavaScript) method to get a list of orchestration instances that match a set of predefined filters.
 
 ### C#
 
@@ -280,27 +286,29 @@ module.exports = async function(context, req) {
 };
 ```
 
-### Using the Functions Core Tools
+### Core Tools
 
-The `durable get-instances` command can also be used with filters. In addition to the aforementioned `top`, `continuation-token`, `connection-string-setting`, and `task-hub-name` parameters, three filter parameters (`created-after`, `created-before`, and `runtime-status`), can be used.
+In the Azure Functions Core Tools, you can also use the `durable get-instances` command with filters. In addition to the aforementioned `top`, `continuation-token`, `connection-string-setting`, and `task-hub-name` parameters, you can use three filter parameters (`created-after`, `created-before`, and `runtime-status`).
 
 * **`created-after` (optional)**: Retrieve the instances created after this date/time (UTC). ISO 8601 formatted datetimes accepted.
 * **`created-before` (optional)**: Retrieve the instances created before this date/time (UTC). ISO 8601 formatted datetimes accepted.
-* **`runtime-status` (optional)**: Retrieve the instances whose status match these ('running', 'completed', etc.). Can provide multiple (space separated) statuses.
+* **`runtime-status` (optional)**: Retrieve the instances with a particular status (for example, running or completed). Can provide multiple (space separated) statuses.
 * **`top` (optional)**: Number of instances retrieved per request. The default is 10.
-* **`continuation-token` (optional)**: A token to indicate which page/section of instances to retrieve. Each `get-instances` execution returns a token to the next set of instances.
-* **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is AzureWebJobsStorage.
-* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in [host.json](durable-functions-bindings.md#host-json) via durableTask:HubName.
+* **`continuation-token` (optional)**: A token to indicate which page or section of instances to retrieve. Each `get-instances` execution returns a token to the next set of instances.
+* **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is `AzureWebJobsStorage`.
+* **`task-hub-name` (optional)**: Name of the Durable Functions task hub to use. The default is `DurableFunctionsHub`. It can also be set in [host.json](durable-functions-bindings.md#host-json), by using durableTask:HubName.
 
-If no filters (`created-after`, `created-before`, or `runtime-status`) are provided, then `top` instances will be retrieved with no regard to runtime status or creation time.
+If you don't provide any filters (`created-after`, `created-before`, or `runtime-status`), the command simply retrieves `top` instances, with no regard to runtime status or creation time.
 
 ```bash
 func durable get-instances --created-after 2018-03-10T13:57:31Z --created-before  2018-03-10T23:59Z --top 15
 ```
 
-## Terminating instances
+## Terminate instances
 
-A running orchestration instance can be terminated using the [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) method of the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class (.NET), or the `terminate` method of the `DurableOrchestrationClient` class (JavaScript). The two parameters are an `instanceId` and a `reason` string, which will be written to logs and to the instance status. A terminated instance will stop running as soon as it reaches the next `await` (.NET) or `yield` (JavaScript) point, or it will terminate immediately if it is already on an `await` (.NET) or `yield` (JavaScript).
+If you have an orchestration instance that is taking too long to run, or you just need to stop it before it completes for any reason, you have the option to terminate it.
+
+You can use the [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) method of the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class (.NET), or the `terminate` method of the `DurableOrchestrationClient` class (JavaScript). The two parameters are an `instanceId` and a `reason` string, which are written to logs and to the instance status. A terminated instance stops running as soon as it reaches the next `await` (.NET) or `yield` (JavaScript) point, or it terminates immediately if it's already on an `await` or `yield`.
 
 ### C#
 
@@ -329,26 +337,28 @@ module.exports = async function(context, instanceId) {
 ```
 
 > [!NOTE]
-> Instance termination does not currently propagate. Activity functions and sub-orchestrations will run to completion regardless of whether the orchestration instance that called them has been terminated.
+> Instance termination doesn't currently propagate. Activity functions and sub-orchestrations run to completion, regardless of whether you've terminated the orchestration instance that called them.
 
-### Using Core Tools
+### Core Tools
 
-It is also possible to terminate an orchestration instance directly via the [Core Tools](../functions-run-local.md) `durable terminate` command. It takes the following parameters:
+You can also terminate an orchestration instance directly, by using the [Core Tools](../functions-run-local.md) `durable terminate` command. It takes the following parameters:
 
-* **`id` (required)**: ID of the orchestration instance to terminate
-* **`reason` (optional)**: Reason for termination
-* **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is AzureWebJobsStorage.
-* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in [host.json](durable-functions-bindings.md#host-json) via durableTask:HubName.
+* **`id` (required)**: ID of the orchestration instance to terminate.
+* **`reason` (optional)**: Reason for termination.
+* **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is `AzureWebJobsStorage`.
+* **`task-hub-name` (optional)**: Name of the Durable Functions task hub to use. The default is `DurableFunctionsHub`. It can also be set in [host.json](durable-functions-bindings.md#host-json), by using durableTask:HubName.
 
-The following command would terminate an orchestration instance with an ID of 0ab8c55a66644d68a3a8b220b12d209c:
+The following command terminates an orchestration instance with an ID of 0ab8c55a66644d68a3a8b220b12d209c:
 
 ```bash
 func durable terminate --id 0ab8c55a66644d68a3a8b220b12d209c --reason "It was time to be done."
 ```
 
-## Sending events to instances
+## Send events to instances
 
-Event notifications can be sent to running instances using the [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) method of the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class (.NET) or the `raiseEvent` method of the `DurableOrchestrationClient` class (JavaScript). Instances that can handle these events are those that are awaiting a call to [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.NET) or `waitForExternalEvent` (JavaScript).
+[Glenn: how would you frame the significance of this method? In other words, how can we introduce it briefly to give just a little context for why this is important enough to be included in the list of management options for the customer?]
+
+Send event notifications to running instances by using the [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) method of the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class (.NET) or the `raiseEvent` method of the `DurableOrchestrationClient` class (JavaScript). Instances that can handle these events are those that are awaiting a call to [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.NET) or `waitForExternalEvent` (JavaScript).
 
 The parameters to [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) (.NET) and `raiseEvent` (JavaScript) are as follows:
 
@@ -382,18 +392,18 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
-> [!WARNING]
-> If there is no orchestration instance with the specified *instance ID* or if the instance is not waiting on the specified *event name*, the event message is discarded. For more information about this behavior, see the [GitHub issue](https://github.com/Azure/azure-functions-durable-extension/issues/29).
+> [!IMPORTANT]
+> If there is no orchestration instance with the specified instance ID, or if the instance is not waiting on the specified event name, the event message is discarded. For more information about this behavior, see the [GitHub issue](https://github.com/Azure/azure-functions-durable-extension/issues/29).
 
-### Using Core Tools
+### Core Tools
 
-It is also possible to raise an event to an orchestration instance directly via the [Core Tools](../functions-run-local.md) `durable raise-event` command. It takes the following parameters:
+You can also raise an event to an orchestration instance directly, by using the [Core Tools](../functions-run-local.md) `durable raise-event` command. It takes the following parameters:
 
-* **`id` (required)**: ID of the orchestration instance
-* **`event-name` (optional)**: Name of the event to raise. The default is `$"Event_{RandomGUID}"`
-* **`event-data` (optional)**: Data to send to the orchestration instance. This can be the path to a JSON file or the data can be provided directly on the command line
-* **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is AzureWebJobsStorage.
-* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in [host.json](durable-functions-bindings.md#host-json) via durableTask:HubName.
+* **`id` (required)**: ID of the orchestration instance.
+* **`event-name` (optional)**: Name of the event to raise. The default is `$"Event_{RandomGUID}"`.
+* **`event-data` (optional)**: Data to send to the orchestration instance. This can be the path to a JSON file, or you can provide the data directly on the command line.
+* **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is `AzureWebJobsStorage`.
+* **`task-hub-name` (optional)**: Name of the Durable Functions task hub to use. The default is `DurableFunctionsHub`. It can also be set in [host.json](durable-functions-bindings.md#host-json), by using durableTask:HubName.
 
 ```bash
 func durable raise-event --id 0ab8c55a66644d68a3a8b220b12d209c --event-name MyEvent --event-data @eventdata.json
