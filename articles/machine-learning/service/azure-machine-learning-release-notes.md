@@ -9,7 +9,7 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 12/20/2018
+ms.date: 2/25/2019
 ms.custom: seodec18
 ---
 
@@ -18,6 +18,33 @@ ms.custom: seodec18
 In this article, learn about the Azure Machine Learning service releases.  For a full description of each SDK, visit the reference docs for:
 + The Azure Machine Learning's  [**main SDK for Python**](https://aka.ms/aml-sdk)
 + The Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
+
+## 2019-02-25
+
+### Azure Machine Learning SDK for Python v1.0.17
+
++ **New features**
+
+  + Azure Machine Learning SDK now supports a [`Chainer`](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) estimator class to streamline the process of training and deploying a model using custom Chainer code.
+
+### Azure portal
++ **New features**
+	+ New drag and drop table editor experience for reports. Users can drag a column from the well to the table area where a preview of the table will be displayed. The columns can be rearranged.
+	+ New Run button for runs submitted with ScriptRunConfig. Users can re-run an existing run on a remote compute cluster of their choice.
+	+ New Logs file viewer
+	+ Links to experiment runs, compute, models, images and deployments from the activities tab
+
+### Azure Machine Learning Data Prep SDK v1.0.15
+
++ **New features**
+  + Data Prep now supports writing file streams from a dataflow. Also provides the ability to manipulate the file stream names to create new file names.
+    + How-to guide: [Working With File Streams notebook](https://aka.ms/aml-data-prep-file-stream-nb)
+ 
++ **Bug fixes and improvements**
+  + Improved performance of t-Digest on large data sets.
+  + Data Prep now supports reading data from a DataPath.
+  + One hot encoding now works on boolean and numeric columns.
+  + Other miscellaneous bug fixes.
 
 ## 2019-02-11
 
@@ -80,7 +107,7 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 ### Azure Machine Learning Data Prep SDK v1.0.7
 
 + **New features**
-  + Datastore improvements (documented in [Datastore how-to-guide](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/how-to-guides/datastore.ipynb))
+  + Datastore improvements (documented in [Datastore how-to-guide](https://aka.ms/aml-data-prep-datastore-nb))
     + Added ability to read from and write to Azure File Share and ADLS Datastores in scale-up.
     + When using Datastores, Data Prep now supports using service principal authentication instead of interactive authentication.
     + Added support for wasb and wasbs urls.
