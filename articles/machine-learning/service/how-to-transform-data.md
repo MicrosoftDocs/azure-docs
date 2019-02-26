@@ -264,7 +264,7 @@ df = dataflow.to_pandas_dataframe()
 
 ## Filtering
 
-The SDK includes the methods [`Dataflow.drop_columns()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow) and [`Dataflow.filter()`]((https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#filter-expression--azureml-dataprep-api-expressions-expression-----azureml-dataprep-api-dataflow-dataflow)) to let you filter out columns or rows.
+The SDK includes the methods [`Dataflow.drop_columns()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow) and [`Dataflow.filter()`]((https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py) to let you filter out columns or rows.
 
 ### Initial setup
 
