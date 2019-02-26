@@ -155,7 +155,7 @@ The following questions and answers apply to the **Azure CNI** networking config
 
   It's not recommended, but this configuration is possible. The service address range is a set of virtual IPs (VIPs) that Kubernetes assigns to internal services in your cluster. Azure Networking has no visibility into the service IP range of the Kubernetes cluster. Because of the lack of visibility into the cluster's service address range, it's possible to later create a new subnet in the cluster virtual network that overlaps with the service address range. If such an overlap occurs, Kubernetes could assign a service an IP that's already in use by another resource in the subnet, causing unpredictable behavior or failures. By ensuring you use an address range outside the cluster's virtual network, you can avoid this overlap risk.
 
-* *How can I access the Kubernetes Dashboard of a cluster running in a virtual network?
+* *How can I access the Kubernetes Dashboard of a cluster running in a virtual network?*
    The `az aks browse` command can be used with a cluster inside a virtual network. To enable this functionality, the cluster's service principal needs to have permissions to modify the virtual network configuration. Grant the cluster's service principal the Contributor role on the virtual network. Then, use [the `az aks browse` command in Azure CLI](https://docs.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-browse) as documented. *Note:* to minimize the attack surface of the cluster, the use of this functionality in production is unrecommended.
    
 ## Next steps
