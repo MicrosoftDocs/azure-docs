@@ -480,19 +480,19 @@ and choose **Create**.
 
 1. To review the outputs, choose **See raw outputs**.
 
-# Connector reference
+## Connector reference
 
 For technical details about triggers, actions, and limit, which are described
 by the connector's OpenAPI (formerly Swagger) description, review the
 connector's [reference page](/connectors/<*replace-with-api-topic-file-name*>).
 
-# Get support
+## Get support
 
 * For questions, visit the 
 [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
 * To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
-# Next steps
+## Next steps
 
 * Learn about other [Logic Apps connectors](../connectors/apis-list.md)
