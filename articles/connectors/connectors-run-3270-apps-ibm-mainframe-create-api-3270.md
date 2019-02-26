@@ -394,12 +394,12 @@ as the first output, and then choose **Output**.
 1. After you add all your parameters for your method, 
 define the properties for each parameter:
 
-   | Parameter property | Value | Description | 
-   |--------------------|-------|-------------|
-   | **Data type** | Byte, Date Time, Decimal, Int, Long, Short, String ||
-   | **Field fill technique** | Parameters support these fill types, filling with blanks if necessary: <p>- **Type**: Enter characters sequentially into the field. <br>- **Fill**: Replace the field's contents with characters, filling with blanks if necessary. <br>- **EraseEofType**: Clear the field, and then enter characters sequentially into the field. ||
-   | **Format string** | Several parameter data types use a format string, which informs the 3270 connector how to convert text from the screen into a .NET data type: <p>- **DateTime**: The DateTime format string follows the [.NET custom date and time format strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). For example, the date `06/30/2019` uses the format string `MM/dd/yyyy`. <br>- **Decimal**: The decimal format string uses the [COBOL Picture clause](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). For example, the number `100.35` uses the format string `999V99`. ||
-   ||||
+   | Property name | Possible values | 
+   |---------------|-----------------|
+   | **Data type** | Byte, Date Time, Decimal, Int, Long, Short, String |
+   | **Field fill technique** | Parameters support these fill types, filling with blanks if necessary: <p>- **Type**: Enter characters sequentially into the field. <p>- **Fill**: Replace the field's contents with characters, filling with blanks if necessary. <p>- **EraseEofType**: Clear the field, and then enter characters sequentially into the field. |
+   | **Format string** | Several parameter data types use a format string, which informs the 3270 connector how to convert text from the screen into a .NET data type: <p>- **DateTime**: The DateTime format string follows the [.NET custom date and time format strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). <br>For example, the date `06/30/2019` uses the format string `MM/dd/yyyy`. <p>- **Decimal**: The decimal format string uses the [COBOL Picture clause](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). <p>For example, the number `100.35` uses the format string `999V99`. |
+   |||
 
 The design tool saves all this information to a file that has a 
 RAP (.rap) extension. You can save to this file during any mode. 
@@ -440,15 +440,17 @@ displays the value for your output parameter.
 
 ## Add metadata file to integration account
 
-When you're done, [add your HIDX file as a map to your integration account](../logic-apps/logic-apps-enterprise-integration-maps.md) 
-by using the Azure portal. In a later section on this page, 
-you learn how to add an HIS 3270 action to your logic app. 
-When you add this action for the first time, you're prompted 
-to create a connection from your logic app to the host server, 
-and provide connection information, such as the names for your 
-integration account and host server. After you create the connection, 
-you can select your previously added HIDX file, the method to run, 
-and the parameters to use.
+When you're done, add your HIDX file as a map to your 
+integration account by using the Azure portal. Except 
+for where you select **HIDX** as your map type, you can 
+[follow these similar steps for adding maps](../logic-apps/logic-apps/logic-apps-enterprise-integration-liquid-transform.md). 
+
+In a later section on this page, you learn how to add an HIS 3270 
+action to your logic app. When you add this action for the first time, 
+you're prompted to create a connection from your logic app to the host server, 
+and provide connection information, such as the names for your integration 
+account and host server. After you create the connection, you can select 
+your previously added HIDX file, the method to run, and the parameters to use.
 
 After you finish all these steps, the action you created is 
 ready for connecting to your IBM mainframe, drive screens 
