@@ -163,8 +163,11 @@ Basic Mapping Support (BMS) map. The live connection uses a TN3270 emulator for
 connecting to the host. Each connector action must map to a single task that starts 
 with connecting to your session and ends with disconnecting from your session.
 
-1. In the 3270 Design Tool, from the **Recording** menu, 
-select **Start Recording**. Or, you can just press the F5 key.
+1. On the design tool's toolbar, choose **Capture** 
+so that you enter Capture mode.
+
+1. From the **Recording** menu, select **Start Recording**. 
+Or, you can just press the F5 key.
 
 1. From the **Session** menu, select **Connect**.
 
@@ -271,6 +274,9 @@ in your plan. Here are some examples of repeated screens:
 
 ### Create plans
 
+1. On the design tool's toolbar, choose **Navigation** so 
+that you enter Navigation mode.
+
 1. In the design tool, to start your plan, choose **New Plan**.
 
 1. Drag those thumbnails to the navigation plan surface.
@@ -351,11 +357,11 @@ you need other attributes. At run time, the connector uses
 these attributes for determining the branch and fork.
 
 * In the branch that returns valid input, which is 
-the screen with the account balance, you can add an 
-attribute with a "not empty" condition.
+the screen with the account balance, you can add a 
+field that has a "not empty" condition.
 
 * In the branch that returns with an error, you can 
-add an attribute with an "empty" condition.
+add a field that has an "empty" condition.
 
 <a name="define-method"></a>
 
@@ -369,9 +375,10 @@ the metadata file, or Host Integration Designer XML (HIDX) file, which now
 has the method definitions to use for creating and running an action for 
 the HIS 3270 connector.
 
-1. In the design tool, to start your method, choose **New**.
+1. On the design tool's toolbar, choose **Methods** 
+so that you enter Methods mode. 
 
-1. On the navigation plan surface, select the screen that 
+1. In the **Navigation** pane, select the screen that 
 has the input fields you want.
 
 1. To add the first input parameter for your method, 
@@ -385,7 +392,14 @@ in the 3270 emulator screen, choose the field you want
 as the first output, and then choose **Output**.
 
 1. After you add all your parameters for your method, 
-define the data type for each parameter.
+define the properties for each parameter:
+
+   | Parameter property | Value | Description | 
+   |--------------------|-------|-------------|
+   | **Data type** | Byte, Date Time, Decimal, Int, Long, Short, String ||
+   | **Field fill technique** | Parameters support these fill types, filling with blanks if necessary: <p>- **Type**: Enter characters sequentially into the field. <br>- **Fill**: Replace the field's contents with characters, filling with blanks if necessary. <br>- **EraseEofType**: Clear the field, and then enter characters sequentially into the field. ||
+   | **Format string** | Several parameter data types use a format string, which informs the 3270 connector how to convert text from the screen into a .NET data type: <p>- **DateTime**: The DateTime format string follows the [.NET custom date and time format strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). For example, the date `06/30/2019` uses the format string `MM/dd/yyyy`. <br>- **Decimal**: The decimal format string uses the [COBOL Picture clause](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). For example, the number `100.35` uses the format string `999V99`. ||
+   ||||
 
 The design tool saves all this information to a file that has a 
 RAP (.rap) extension. You can save to this file during any mode. 
@@ -411,8 +425,9 @@ and open the "WoodgroveBank.rap" file:
 
 ### Test your method
 
-1. In the design tool, choose **Play** or press the F5 key, 
-which runs your method definition against the live host.
+1. While still in Methods mode, from the design tool's toolbar, 
+choose **Run** or press the F5 key, which runs your method 
+definition against the live host.
 
 1. Enter values for your parameters, and choose **OK**.
 
