@@ -308,9 +308,9 @@ The following table lists the operationName and corresponding REST API command.
 | SecretList |[List secrets in a vault](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | SecretListVersions |[List versions of a secret](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
-## <a id="loganalytics"></a>Use Log Analytics
+## <a id="loganalytics"></a>Use Azure Monitor logs
 
-You can use the Azure Key Vault solution in Log Analytics to review Azure Key Vault AuditEvent logs. For more information, including how to set this up, see [Azure Key Vault solution in Log Analytics](../azure-monitor/insights/azure-key-vault.md). This article also contains instructions if you need to migrate from the old Key Vault solution that was offered during the Log Analytics preview, where you first routed your logs to an Azure Storage account and configured Log Analytics to read from there.
+You can use the Azure Key Vault solution in Azure Monitor logs to review Azure Key Vault AuditEvent logs. For more information, including how to set this up, see [Azure Key Vault solution in Azure Monitor logs](../azure-monitor/insights/azure-key-vault.md). This article also contains instructions if you need to migrate from the old Key Vault solution that was offered during the Azure Monitor logs preview, where you first routed your logs to an Azure Storage account and configured Azure Monitor logs to read from there.
 
 ## <a id="next"></a>Next steps
 
