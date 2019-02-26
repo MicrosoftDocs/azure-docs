@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 02/25/2019
 ms.author: iainfou
 ---
 
@@ -23,16 +23,16 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 You need the Azure CLI version 2.0.58 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-To create or update an AKS cluster to use pod security policies, first enable a feature flag on your subscription. To register the *EnablePodSecurityPolicy* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
+To create or update an AKS cluster to use pod security policies, first enable a feature flag on your subscription. To register the *PodSecurityPolicyPreview* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
 
 ```azurecli-interactive
-az feature register --name EnablePodSecurityPolicy --namespace Microsoft.ContainerService
+az feature register --name PodSecurityPolicyPreview --namespace Microsoft.ContainerService
 ```
 
 It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnablePodSecurityPolicy')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/PodSecurityPolicyPreview')].{Name:name,State:properties.state}"
 ```
 
 When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
