@@ -198,6 +198,8 @@
         href: ../connectors/connectors-create-api-github.md
       - name: Google Drive
         href: ../connectors/connectors-create-api-googledrive.md
+      - name: HIS 3270
+        href: ../connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270.md
       - name: HTTP
         href: ../connectors/connectors-native-http.md
       - name: HTTP + Swagger
