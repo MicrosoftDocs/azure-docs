@@ -12,9 +12,9 @@ ms.topic: article
 ms.date: 02/09/2019
 ---
 # Upgrade your data warehouse to Gen2
-Microsoft is helping drive down the entry-level cost of running a data warehouse capable of handling demanding queries by adding lower compute tiers for Azure SQL Data Warehouse To read full announcement about [Lower compute tier support for Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). The new offering is already available in the regions noted in the table below. For supported regions, existing Gen1 data warehouses can be upgraded to Gen2 through either:
+Microsoft is helping drive down the entry-level cost of running a data warehouse capable of handling demanding queries by adding lower compute tiers for Azure SQL Data Warehouse. Read the full announcement [Lower compute tier support for Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). The new offering is already available in the regions noted in the table below. For supported regions, existing Gen1 data warehouses can be upgraded to Gen2 through either:
 - **The automatic upgrade process:** Automatic upgrades do not start as soon as the service is available in a region.  When automatic upgrades start in a specific region, individual DW upgrades will take place during your selected maintenance schedule. 
-- **Self-upgrade to Gen2:** If you prefer to control when to upgrade, you can perform a self-upgrade to Gen2. If your region is not yet supported, you can migrate your DW to a region that is supported and then perform a self-upgrade to Gen 2.
+- [**Self-upgrade to Gen2:**](#Self-upgrade-to-Gen2) If you prefer to control when to upgrade, you can perform a self-upgrade to Gen2. If your region is not yet supported, you can migrate your DW to a region that is supported and then perform a self-upgrade to Gen 2.
 
 ## Automated Schedule and Region Availability Table
 The following table summarizes by region when the Lower Gen2 compute tier will be available and when automatic upgrades start. The dates are subject to change. Check back to see when your region becomes available.
