@@ -314,6 +314,8 @@
           href: app/asp-net-exceptions.md
         - name: Log traces
           href: app/asp-net-trace-logs.md
+        - name: ILogger
+          href: app/ilogger.md
         - name: Performance counters
           href: app/performance-counters.md
         - name: Dependencies
@@ -389,6 +391,8 @@
           href: app/proactive-cloud-services.md
         - name: Manage smart detection rules
           href: app/proactive-arm-config.md
+        - name: E-mail notification
+          href: app/proactive-email-notification.md
       - name: Create a resource
         href: app/create-new-resource.md 
       - name: Troubleshoot

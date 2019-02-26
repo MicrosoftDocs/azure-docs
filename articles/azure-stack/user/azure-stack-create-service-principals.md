@@ -71,7 +71,7 @@ When logging in programmatically, use the ID for your application and an authent
 
 2. Copy the **Application ID** and store it in your application code. The applications in the sample applications use **client id** when referring to the **Application ID**.
 
-     ![Application ID for the application](./media/azure-stack-create-service-principal/image12.png)
+     ![Application ID for the application](./media/azure-stack-create-service-principals/image12.png)
 3. To generate an authentication key, select **Keys**.
 
 4. Provide a description of the key, and a duration for the key. When done, select **Save**.
@@ -79,7 +79,7 @@ When logging in programmatically, use the ID for your application and an authent
 >[!IMPORTANT]
 After you save the key, the key **VALUE** is displayed. Write down this value because you can't retrieve the key later. Store the key value where your application can retrieve it.
 
-![Key value warning for saved key.](./media/azure-stack-create-service-principal/image15.png)
+![Key value warning for saved key.](./media/azure-stack-create-service-principals/image15.png)
 
 The final step is [assigning your application a role](azure-stack-create-service-principals.md).
 
@@ -106,7 +106,7 @@ Use the following steps as a guide for assigning a role to a service principal.
 
 2. Select the subscription to assign the application to. In this example, the subscription is Visual Studio Enterprise.
 
-     ![Select Visual Studio Enterprise subscription for assignment](./media/azure-stack-create-service-principal/image16.png)
+     ![Select Visual Studio Enterprise subscription for assignment](./media/azure-stack-create-service-principals/image16.png)
 
 3. Select **Access Control (IAM)** for the subscription.
 

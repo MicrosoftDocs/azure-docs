@@ -124,7 +124,7 @@ get your storage account's access key:
       ![Finished storage container](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
    To create a storage container, you can also use 
-   [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontainer), 
+   [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontainer), 
    or [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create). 
 
 Next, connect Storage Explorer to your storage account.

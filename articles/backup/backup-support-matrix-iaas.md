@@ -32,7 +32,7 @@ Here's how you can back up and restore Azure VMs with the Azure Backup service.
 **Direct backup of Azure VMs (Windows only)** | Back up specific files/folders/volume | Install the [Microsoft Azure Recovery Services (MARS) agent](backup-azure-file-folder-backup-faq.md).<br/><br/> You can run the MARS agent alongside the backup extension for the Azure VM agent to back up the VM at file/folder level. | Restore specific folders/files.
 **Back up Azure VM to backup server** |  Back up files/folders/volumes; system state/bare metal files; app data to System Center DPM or Microsoft Azure Backup Server (MAB server).<br/><br/> DPM/MABS then backs up to the backup vault | Install the MABS/DPM protection agent on the VM. The MARS agent is installed on DPM/MABS.| Restore files/folders/volumes; system state/bare metal files; app data. 
 
-Learn more about backup using a backup server(backup-architecture.md#architecture-back-up-to-dpmmabs), and [support requirements](backup-support-matrix-mabs-dpm.md).
+Learn more about backup [using a backup server](backup-architecture.md#architecture-back-up-to-dpmmabs), and [support requirements](backup-support-matrix-mabs-dpm.md).
 
 
 ## Supported backup actions
@@ -184,7 +184,7 @@ VMs with public IP addresses	| Supported.<br/><br/> You need to associate an exi
 Network security group (NSG) on NIC/subnet. |	Supported.
 Reserved IP address (static) | Not Supported.<br/><br/> You can't back up a VM with an reserved IP address and no defined endpoint.
 Dynamic IP address |	Supported.<br/><br/> If the NIC on the source VM uses dynamic IP addressing, by default the NIC on the restored VM will too.
-Traffic Manager	| Supported<br/><br/>. If the backed up VM is in Traffic Manager, you'll need to manually add the restored VM to the same Traffic Manager. 
+Traffic Manager	| Supported<br/><br/> If the backed up VM is in Traffic Manager, you'll need to manually add the restored VM to the same Traffic Manager. 
 Azure DNS |	Supported.
 Custom DNS |	Supported.
 Outbound connectivity via HTTP proxy | Supported.<br/><br/> An authenticated proxy isn't supported.	

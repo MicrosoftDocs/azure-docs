@@ -245,7 +245,9 @@ supported conditions are:
 - `"like": "value"`
 - `"notLike": "value"`
 - `"match": "value"`
+- `"matchInsensitively": "value"`
 - `"notMatch": "value"`
+- `"notMatchInsensitively": "value"`
 - `"contains": "value"`
 - `"notContains": "value"`
 - `"in": ["value1","value2"]`
@@ -258,8 +260,9 @@ When using the **like** and **notLike** conditions, you provide a wildcard `*` i
 The value shouldn't have more than one wildcard `*`.
 
 When using the **match** and **notMatch** conditions, provide `#` to match a digit, `?` for a
-letter, `.` to match all characters, and any other character to match that actual character. For
-examples, see [Allow several name patterns](../samples/allow-multiple-name-patterns.md).
+letter, `.` to match all characters, and any other character to match that actual character.
+**match** and **notMatch** are case-sensitive. Case-insensitive alternatives are available in
+**matchInsensitively** and **notMatchInsensitively**. For examples, see [Allow several name patterns](../samples/allow-multiple-name-patterns.md).
 
 ### Fields
 
