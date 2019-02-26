@@ -25,14 +25,14 @@ and other apps, services, and systems by creating automated
 workflows with Azure Logic Apps. The connector communicates 
 with IBM mainframes by using the TN3270 protocol and is 
 available in all Azure Logic Apps regions except for Azure 
-Government and Azure China. If you're new to logic apps, review 
+Government and Azure China 21Vianet. If you're new to logic apps, review 
 [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 This article describes how the HIS 3270 connector helps you run 
-3270 screen-driven apps on IBM mainframes by creating logic apps, 
-what you need for the connector to work, and the steps for adding 
-the connector's actions to your logic apps so you can run your 
-mainframe apps from automated logic app workflows.
+3270 screen-driven apps on IBM mainframes by using logic apps, 
+the prerequisites for the connector to work, and the steps for 
+adding the connector's actions to your logic apps so you can run 
+your mainframe apps from automated logic app workflows.
 
 ## Why use the HIS connector?
 
@@ -53,7 +53,7 @@ also known as "screen scraping".
 To extend these scenarios, the HIS 3270 connector in Azure Logic Apps 
 works with the standalone 3270 Design Tool, which you use to identify, 
 or "capture", the host screens used for a specific task, define the 
-navigation flow through your mainframe app for that tasks, and define 
+navigation flow through your mainframe app for that task, and define 
 the methods with input and output parameters for that task. The design 
 tool converts that information into metadata that the 3270 connector uses 
 when calling an action that represents that task from your logic app. 
@@ -61,7 +61,7 @@ when calling an action that represents that task from your logic app.
 After you generate the metadata file from the design tool, you add the file 
 to an integration account in Azure. That way, your logic app can access the 
 metadata about your app when you add a 3270 connector action. The connector 
-reads the metdata file from your integration account and dynamically presents 
+reads the metadata file from your integration account and dynamically presents 
 the parameters for the 3270 action.
 
 So, by handling navigation through the 3270 screens, entering data into the 
@@ -135,7 +135,7 @@ screen that become the method's input and output parameters.
 
 The design tool doesn't support these elements:
 
-* Partial BMS maps: If you import an IBM Basic Mapping Support (BMS) map, 
+* Partial IBM Basic Mapping Support (BMS) maps: If you import a BMS map, 
 the design tool ignores partial screen definitions.
 * In/Out parameters: You can't define In/Out parameters.
 * Menu processing: Not supported during preview
@@ -278,8 +278,8 @@ you can [define methods in the next mode](#define-method).
 In this example, suppose you run a CICS 
 transaction named "WBGB" that has these steps: 
 
-* On the 1st screen, you enter a name and an account.
-* On the 2nd screen, you get the account balance.
+* On the first screen, you enter a name and an account.
+* On the second screen, you get the account balance.
 * You exit to the "Empty" screen.
 * You sign out from CICS to the "MSG-10" screen.
 
@@ -355,7 +355,7 @@ the HIS 3270 connector.
 1. On the navigation plan surface, select the screen that 
 has the input fields you want.
 
-1. To add the first input paramater for your method, 
+1. To add the first input parameter for your method, 
 in the 3270 emulator screen, choose the field you 
 want as the first input, and then choose **Input**. 
 
@@ -457,15 +457,15 @@ and choose **Create**.
 
    For example:
 
-   **Select HIDX file**
+   **Select the HIDX file**
 
    ![Select HIDX file](./media/connectors-create-api-3270/select-hidx-file.png)
 
-   **Select method**
+   **Select the method**
 
    ![Select method](./media/connectors-create-api-3270/select-method.png)
 
-   **Select parameters**
+   **Select the parameters**
 
    ![Select parameters](./media/connectors-create-api-3270/add-parameters.png)
 
