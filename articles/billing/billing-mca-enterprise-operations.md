@@ -39,9 +39,9 @@ The billing in your new account is organized differently than your Enterprise Ag
 
 If you are an enterprise administrator on an Enterprise Agreement that got renewed to a Microsoft Customer Agreement, you are assigned the following roles on the new billing account created for the agreement:
 
-**Billing profile owner** - You are assigned this role on the billing profile that was created when the agreement was signed. The role lets you manage the billing for your organization. You can view charges and invoices, organize costs on the invoice, manage payment methods, and control access to your organization's billing.
+**Billing profile owner** - You are assigned the billing profile owner role on the billing profile that was created when the agreement was signed. The role lets you manage the billing for your organization. You can view charges and invoices, organize costs on the invoice, manage payment methods, and control access to your organization's billing.
 
-**Invoice section owner** - You are assigned this role on all invoice sections that are created for the departments in your Enterprise Agreement enrollment. The role lets you view and track charges, and control who can create Azure subscriptions and purchase other products.
+**Invoice section owner** - You are assigned the invoice section owner role on all invoice sections that are created for the departments in your Enterprise Agreement enrollment. The role lets you view and track charges, and control who can create Azure subscriptions and purchase other products.
 
 ### View charges and credits balance for your organization
 
@@ -87,7 +87,7 @@ The account billing context in your Enterprise Agreement isn't supported in the 
 
 If you are a department administrator on an Enterprise agreement that renewed to a Microsoft Customer Agreement, you are assigned the following roles on the new billing account:
 
-**Invoice section owner** - You are assigned this role on all invoice sections that are created for the departments that you were an administrator on. The role lets you view and track charges, and control who can create Azure subscriptions and buy other products.
+**Invoice section owner** - You are assigned the invoice section owner role on all invoice sections that are created for the departments that you were an administrator on. The role lets you view and track charges, and control who can create Azure subscriptions and buy other products.
 
 You are assigned Invoice section owner role on each invoice section that was created for the department that you had access on.
 
@@ -103,21 +103,21 @@ To learn how to provide,  access to an invoice section, see [Provide others acce
 
 ### Create a new account in your department
 
-The account billing context in Enterprise Agreement isn't supported in the new billing account. However, you can provide Azure subscription creator role to users in your organization to allow them to create Azure subscriptions. For more information, see [Give permission to create Azure subscriptions](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions)
+The account billing context in your Enterprise Agreement isn't supported in the new billing account. However, you can provide Azure subscription creator role to users in your organization to allow them to create Azure subscriptions. For more information, see [Give permission to create Azure subscriptions](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions).
 
 ### View charges for accounts in your departments
 
-The account billing context in Enterprise Agreement isn't supported in the new billing account. The account's subscriptions belong to the invoice section created for your department. Account owners can create and manage subscriptions for the invoice sections. To analyze aggregate cost for subscriptions that belong to an account, you must set up cost analysis for the subscriptions. For more information, see [Set up cost analysis for subscriptions](billing-mca-overview.md). <!-- Todo update the link -->
+The account billing context in your Enterprise Agreement isn't supported in the new billing account. The account's subscriptions belong to the invoice section created for your department. Account owners can create and manage subscriptions for the invoice sections. To analyze aggregate cost for subscriptions that belong to an account, you must set up cost analysis for the subscriptions. For more information, see [Set up cost analysis for subscriptions](billing-mca-overview.md). <!-- Todo update the link -->
 
 ## Tasks performed by an account owner
 
 If you are an account owner on an Enterprise Agreement that got renewed to a Microsoft Customer Agreement, you are assigned the following role on the new billing account created for the agreement:
 
-**Azure subscription creator** - You are assigned this role on the invoice section that is created for your department in Enterprise Agreement. If your account doesn't belong to a department, your subscriptions will belong to the invoice section named Default section and you get Azure subscription creator on the section. The role lets you create Azure subscriptions for the invoice section.
+**Azure subscription creator** - You are assigned the azure subscription creator role on the invoice section that is created for your department in Enterprise Agreement. If your account doesn't belong to a department, your subscriptions will belong to the invoice section named Default section and you get Azure subscription creator on the section. The role lets you create Azure subscriptions for the invoice section.
 
 ### View charges for your account
 
-The account billing context in Enterprise Agreement isn't supported in the new billing account. The account's subscriptions belong to the invoice section created for your account's department. A To analyze aggregate cost for subscriptions that belong to your account, you must set up cost analysis for the subscriptions. For more information, see [Set up cost analysis for subscriptions](billing-mca-overview.md). <!-- Todo update the link -->
+The account billing context in your Enterprise Agreement isn't supported in the new billing account. The account's subscriptions belong to the invoice section created for your account's department. To analyze aggregate cost for subscriptions that belong to your account, you must set up cost analysis for the subscriptions. For more information, see [Set up cost analysis for subscriptions](billing-mca-overview.md). <!-- Todo update the link -->
 
 ### View charges for a subscription
 
