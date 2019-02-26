@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2018
+ms.date: 02/19/2019
 ms.author: banders
 
 ---
@@ -53,9 +53,9 @@ To complete the setup, you need access to both the new billing account and the E
 
 To complete the setup, you need the following access:
 
-1. Owner of the billing profile that was created when the Microsoft Customer Agreement was signed. To learn more about billing profiles, see [Understand billing profiles](billing-mca-overview.md#understand-billing-profiles)
+- Owner of the billing profile that was created when the Microsoft Customer Agreement was signed. To learn more about billing profiles, see [Understand billing profiles](billing-mca-overview.md#understand-billing-profiles).
 
-2. Enterprise administrator on the enrollment that is renewed.
+- Enterprise administrator on the enrollment that is renewed.
 
 ### If you're not an enterprise administrator on the enrollment
 
@@ -122,7 +122,7 @@ The billing of your Azure subscriptions and the access of your billing administr
      - If the department has a spending quota, a corresponding budget is created for the invoice section.
      - Billing of Azure subscriptions is transitioned from the department to the invoice section. Billing for Azure subscriptions that are created after this step does not transition to the new billing account. Charges for these subscriptions show on your Enterprise Agreement enrollment.
 
-1. Azure subscriptions and Enterprise Agreement accounts that don't belong to a department are selected
+1. Azure subscriptions and Enterprise Agreement accounts that don't belong to a department are selected.
     - An invoice section is created for all Azure subscriptions and accounts that do not belong to a department.
     - Enterprise administrators and account owners are provided access to the invoice section.
     - Billing of Azure subscriptions is transitioned to the invoice section. Billing for Azure subscriptions that are created after this step does not transition to the new billing account. Charges for these subscriptions show on your Enterprise Agreement enrollment.
@@ -141,7 +141,7 @@ Azure subscriptions and Reservations that are added to the Enterprise Agreement 
 
 2. Search on **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search](./media/billing-mca-setup-account/billing-search-costmanagement+billing.png)
+   ![Screenshot that shows Azure portal search](./media/billing-mca-setup-account/billing-search-costmanagement-billing.png)
 
 3. Select the billing profile. Depending on your access, you may need to select a billing account.  From the billing account, select **Billing profiles** and then the billing profile.
     <!--Todo Add a screenshot -->
@@ -156,7 +156,7 @@ All Azure subscriptions that are transitioned from your Enterprise Agreement enr
 
 2. Search on **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search](./media/billing-mca-setup-account/billing-search-costmanagement+billing.png)
+   ![Screenshot that shows Azure portal search](./media/billing-mca-setup-account/bbilling-search-costmanagement-billing.png)
 
 3. Select an invoice section. Depending on your access, you may need to select a billing account or a billing profile.  From the billing account or billing profile, select **Invoice sections** and then an invoice section.
     <!--Todo Add a screenshot -->
@@ -173,7 +173,7 @@ Azure Reservations are displayed on the All products page. Repeat the steps for 
 
 2. Search on **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search](./media/billing-mca-setup-account/billing-search-costmanagement+billing.png)
+   ![Screenshot that shows Azure portal search](./media/billing-mca-setup-account/billing-search-costmanagement-billing.png)
 
 3. Select the billing profile created for your enrollment. Depending on your access, you may need to select a billing account.  From the billing account, select **Billing profiles** and then the billing profile.
     <!--Todo Add a screenshot -->
@@ -188,7 +188,7 @@ Enterprise administrators are listed as Billing profile owners while the enterpr
 
 2. Search on **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search](./media/billing-mca-setup-account/billing-search-costmanagement+billing.png)
+   ![Screenshot that shows Azure portal search](./media/billing-mca-setup-account/billing-search-costmanagement-billing.png)
 
 3. Select the billing profile created for your enrollment. Depending on your access, you may need to select a billing account.  From the billing account, select **Billing profiles** and then the billing profile.
     <!--Todo Add a screenshot -->
@@ -214,7 +214,7 @@ Notification contacts are sent email communications about the Azure Enterprise A
 
 ### Spending quota
 
-Spending quotas that were set for departments in your Enterprise Agreement enrollment are replaced with budgets in the new billing account. A budget is created for each spending quota set on departments in your enrollment. For more information on budgets, see [Create and manage Azure budgets](../cost-management/manage-budgets.md)
+Spending quotas that were set for departments in your Enterprise Agreement enrollment are replaced with budgets in the new billing account. A budget is created for each spending quota set on departments in your enrollment. For more information on budgets, see [Create and manage Azure budgets](../cost-management/manage-budgets.md).
 
 ### Cost center
 
@@ -250,7 +250,7 @@ Charges and credits balance prior to transition can be viewed in your Enterprise
 
 ### When should the setup be completed
 
-Complete the setup of your billing account before your Enterprise Agreement enrollment expires. If your enrollment expires, services in your Azure subscriptions will still keep on running without disruption. However, you'll be charged retail rates for the services.
+Complete the setup of your billing account before your Enterprise Agreement enrollment expires. If your enrollment expires,services in your Azure subscriptions will still keep on running without disruption. However, you'll be charged retail rates for the services.
 
 ### Revert the transition
 
