@@ -171,7 +171,7 @@ select **Start Recording**. Or, you can just press the F5 key.
 1. Starting from the first screen in your app, step through 
 your app for the specific task that you're recording.
 
-1. After you finish the task, sign out from your session as you usually do.
+1. After you finish the task, sign out from your app as you usually do.
 
 1. From the **Session** menu, select **Disconnect**.
 
@@ -181,21 +181,22 @@ Or, you can just press the Shift + F5 keys.
    After you capture the screens for a task, the designer tool 
    shows thumbnails that represent those screens. Along with your 
    captured screens, you also have a screen that's named "Empty". 
-   When you first connect to the Customer Information Control 
-   System (CICS), you must choose **Clear** before you can enter 
-   the name for the transaction you want to run. This "clear" screen 
-   doesn't have any attributes to recognize. So, by default, this 
-   screen is named "Empty". You can use the screen later for 
-   representing the screen where you enter the transaction name.
+   When you first connect to CICS, you must send the "Clear" key 
+   before you can enter the name for the transaction you want to run. 
+   The screen where you send the "Clear" key doesn't have any 
+   recognition attributes. So, to represent this screen, 
+   the thumbnails include a screen named "Empty". You can 
+   later use this screen for representing the screen 
+   where you enter the transaction name.
 
 1. Now specify the fields for identifying each screen.
 
    With the 3270 data stream, screens don't have default identifiers, 
    so you need to select unique text on each screen. For complex scenarios, 
    you can specify multiple conditions, for example, unique text and a 
-   field with a specific value.
+   field with a specific condition.
 
-After you finish selecting the identification fields, 
+After you finish selecting the recognition fields, 
 move to the next mode.
 
 ### Conditions for identifying repeated screens
@@ -211,7 +212,7 @@ In the design tool, you can add *recognition attributes*,
 for example, a screen title such as "Get Account Balance", 
 by using the Screen Recognition editor. If you have a forked 
 path and both branches return the same screen but with 
-different results, you need other identification attributes. 
+different results, you need other recognition attributes. 
 At run time, the connector uses these attributes for 
 determining the current branch and fork. Here are the 
 conditions you can use:
@@ -263,7 +264,7 @@ so select and use only one instance of any repeated screens
 in your plan. Here are some examples of repeated screens:
 
   * The sign in screen, for example, the **MSG-10** screen
-  * The welcome screen for the Customer Information Control System (CICS)
+  * The welcome screen for CICS
   * The "Clear" or **Empty** screen
 
 <a name="create-plans"></a>
@@ -282,8 +283,8 @@ in your plan. Here are some examples of repeated screens:
 1. After arranging the screens, draw arrows between the screens by using the Flow tool. 
 The arrows define the flow, including forks and joins, through the screens.
 
-1. For each screen, specify the Automatic Initiate Descriptor (AID) 
-key and the static text that moves the flow to the next screen.
+1. For each screen, specify the Attention Identifier (AID) key 
+and the static text that moves the flow to the next screen.
 You might have just the AID key, or both the AID key and text. 
 
 After you finish your navigation plan, 
