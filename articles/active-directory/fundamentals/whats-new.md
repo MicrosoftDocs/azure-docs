@@ -42,7 +42,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 **Service category:** Enterprise Apps  
 **Product capability:** SSO
  
-You can now configure your SAML token encryption using SAML assertions for any app that supports it. When configured and used with an app, Azure AD encrypts the emitted SAML assertions using a public key obtained from a certificate stored in Azure AD.
+You can now configure any supported SAML app to receive encrypted SAML tokens. When configured and used with an app, Azure AD encrypts the emitted SAML assertions using a public key obtained from a certificate stored in Azure AD.
 
 For more information about configuring your SAML token encryption, see [Configure Azure AD SAML token encryption](https://docs.microsoft.com/azure/active-directory/manage-apps/howto-saml-token-encryption).
 
@@ -96,7 +96,7 @@ Over the next few weeks, we’ll be removing the ability to turn on the old comb
 
 2.	If the **Users who can use the preview features for registering and managing security info** option is set to **None**, the option will be removed from your tenant.
 
-Regardless whether you previously turned on the old combined MFA/SSPR registration preview experience for users or not, the old experience is scheduled to be turned off at a future date. Because of that, we strongly suggest that you move to the new, enhanced experience as soon as possible. 
+Regardless of whether you previously turned on the old combined MFA/SSPR registration preview experience for users or not, the old experience will be turned off at a future date. Because of that, we strongly suggest that you move to the new, enhanced experience as soon as possible.
 
 For more information about the enhanced registration experience, see the [Cool enhancements to the Azure AD combined MFA and password reset registration experience](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271).
 
@@ -134,9 +134,9 @@ For more information about choosing specific versions of page elements, see the 
 **Service category:** B2C - Consumer Identity Management  
 **Product capability:** B2B/B2C
 
-You can now specifically set up your organization's password complexity for your end-users, instead of having to use your native Azure AD password policy. From the **Properties** blade of your user flows (previously known as your built-in policies), you can choose a password complexity of **Simple** or **Complex**, or you can create a **Custom** set of requirements.
+You can now specifically set up your organization's password complexity for your end-users, instead of having to use your native Azure AD password policy. From the **Properties** blade of your user flows (previously known as your built-in policies), you can choose a password complexity of **Simple** or **Strong**, or you can create a **Custom** set of requirements.
 
-For more information about password complexity requirement configuration, see NEED LINK.
+For more information about password complexity requirement configuration, see [Configure complexity requirements for passwords in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-password-complexity).
 
 ---
 
@@ -148,7 +148,7 @@ For more information about password complexity requirement configuration, see NE
 
 You can use our new default templates, located on the **Page layouts** blade of your user flows (previously known as built-in policies), to create a custom branded authentication experience for your users.
 
-For more information about using the templates, see NEED LINK.
+For more information about using the templates, see [Azure AD B2C now has JavaScript customization and many more new features](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595).
 
 ---
 
