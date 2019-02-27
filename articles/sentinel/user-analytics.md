@@ -72,7 +72,7 @@ For example:
 > [!NOTE]
 > In activity logs of Azure Activity, the caller entity includes the UPN.
 
-1. This your query searches for creation of an anomalous number of resources or deployment activities in Azure Activity Log.
+1. This query searches for creation of an anomalous number of resources or deployment activities in Azure Activity Log.
 
         AzureActivity      
         | where TimeGenerated >= startofday(ago(7d))        
@@ -94,6 +94,8 @@ For example:
         | extend AccountCustomEntity = Caller
  
 2. In the custom alert rule, map the **Account** property to **Caller**.
+   
+   ![Query](./media/user-analytics/query-window.png)
 
 3. Investigate the user in the user investigation window. For advice about how to investigate users, see [Tutorial: Investigate a user](https://docs.microsoft.com/en-us/azure-advanced-threat-protection/investigate-a-user).
 

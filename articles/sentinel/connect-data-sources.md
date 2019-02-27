@@ -58,9 +58,9 @@ The following data collection methods are supported by Azure Sentinel:
     - DLP solutions
     - [Threat intelligence providers](connect-threat-intelligence.md)
     - [DNS machines](connect-dns.md) - agent installed directly on the DNS machine
-    - [Windows security events](windows-security-events.md) 
+    - [Windows security events](connect-windows-security-events.md) 
     - Linux servers
-    - [Windows firewall](windows-firewall.md)
+    - [Windows firewall](connect-windows-firewall.md)
 
 To connect your external appliance to Azure Sentinel, the agent must be deployed on a dedicated machine (VM or on-prem) to support the communication between the appliance and Azure Sentinel. You can deploly the agent automatically or manually. Automatic deployment is only available if your dedicated machine is a new VM you are creating in Azure. 
 

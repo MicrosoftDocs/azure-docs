@@ -51,7 +51,7 @@
     - name: Connect external solutions
       items:
       - name: Connect generic CEF
-        href: connect-common-error-format.md
+        href: connect-common-event-format.md
       - name: Connect Barracuda
         href: connect-barracuda.md
       - name: Connect Check Point
