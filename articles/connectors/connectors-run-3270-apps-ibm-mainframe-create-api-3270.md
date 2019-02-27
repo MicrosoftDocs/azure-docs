@@ -163,30 +163,31 @@ Basic Mapping Support (BMS) map. The live connection uses a TN3270 emulator for
 connecting to the host. Each connector action must map to a single task that starts 
 with connecting to your session and ends with disconnecting from your session.
 
-1. On the design tool's toolbar, choose **Capture** 
-so that you enter Capture mode.
+1. If you haven't already, open the 3270 Design Tool. On the toolbar, 
+choose **Capture** so that you enter Capture mode.
 
-1. From the **Recording** menu, select **Start Recording**. 
-Or, you can just press the F5 key.
+1. To start recording, press the F5 key, or from 
+the **Recording** menu, select **Start Recording**. 
 
 1. From the **Session** menu, select **Connect**.
 
-1. Starting from the first screen in your app, step through 
-your app for the specific task that you're recording.
+1. In the **Capture** pane, starting from the 
+first screen in your app, step through your app 
+for the specific task that you're recording.
 
 1. After you finish the task, sign out from your app as you usually do.
 
 1. From the **Session** menu, select **Disconnect**.
 
-1. From the **Recording** menu, select **Stop Recording**. 
-Or, you can just press the Shift + F5 keys.
+1. To stop recording, press the Shift + F5 keys, 
+or from the **Recording** menu, select **Stop Recording**.
 
    After you capture the screens for a task, the designer tool 
-   shows thumbnails that represent those screens. Here are some 
-   notes about these thumbnails: 
+   shows thumbnails that represent those screens. Some notes 
+   about these thumbnails: 
    
-   * Included with your captured screens, you also 
-   have a screen that's named "Empty". 
+   * Included with your captured screens, 
+   you have a screen that's named "Empty". 
    
      When you first connect to 
      [CICS](https://www.ibm.com/it-infrastructure/z/cics), 
@@ -195,7 +196,7 @@ Or, you can just press the Shift + F5 keys.
      send the "Clear" key doesn't have any *recognition attributes*, 
      such as a screen title, which you can add by using the Screen 
      Recognition editor. To represent this screen, the thumbnails 
-     also include a screen named "Empty". You can later use this screen 
+     includes a screen named "Empty". You can later use this screen 
      for representing the screen where you enter the transaction name.
 
    * By default, the name for a captured screen uses the first word 
@@ -203,9 +204,15 @@ Or, you can just press the Shift + F5 keys.
    appends the name with an underscore and a number, for example, 
    "WBGB" and "WBGB_1".
 
-1. To give a more meaningful name to a captured screen, in the **Host Screens** pane, 
-select the screen you want to rename. In the same pane, near the bottom in the same pane, find the 
-**Screen Name** property, and change the current name to a more descriptive name. 
+1. To give a more meaningful name to a captured screen, 
+follow these steps:
+
+   1. In the **Host Screens** pane, select the screen you want to rename. 
+
+   1. In the same pane, near the bottom in the same pane, 
+   find the **Screen Name** property. 
+   
+   1. Change the current screen name to a more descriptive name. 
    
 1. Now specify the fields for identifying each screen.
 
@@ -239,8 +246,8 @@ conditions you can use:
 at the specified location.
 * NOT a specific value: This value doesn't match the 
 specified string at the specified location.
-* NOT empty: This field isn't empty.
 * Empty: This field is empty.
+* NOT empty: This field isn't empty.
 
 To learn more, see the [Example navigation plan](#example-plan) 
 later in this topic.
@@ -259,13 +266,13 @@ keystrokes necessary for moving to the next screen, such as `CICSPROD <enter>`.
 > [!TIP]
 > If you're automating several tasks that use the same connect and 
 > disconnect screens, the design tool provides special Connect and 
-> Disconnect plan types. After you define these types, you can add 
-> them to the start and end for your navigation plan.
+> Disconnect plan types. When you define these plans, you can add 
+> them to your navigation plan's beginning and end.
 
 ### Guidelines for plan definitions
 
-* Include all screens, starting from connecting 
-and ending with disconnecting.
+* Include all screens, starting with 
+connecting and ending with disconnecting.
 
 * You can create a standalone plan or use the 
 Connect and Disconnect plans, which let you reuse 
@@ -289,24 +296,40 @@ in your plan. Here are some examples of repeated screens:
 
 ### Create plans
 
-1. On the design tool's toolbar, choose **Navigation** so 
-that you enter Navigation mode.
+1. On the 3270 Design Tool's toolbar, choose 
+**Navigation** so that you enter Navigation mode.
 
-1. In the design tool, to start your plan, choose **New Plan**.
+1. To start your plan, in the **Navigation** pane, 
+choose **New Plan**. 
 
-1. Drag those thumbnails to the navigation plan surface.
+1. Under **Choose New Plan Name**, enter a name for 
+your plan. From the **Type** list, select the plan type:
+
+   | Plan type | Description |
+   |-----------|-------------|
+   | **Process** | For standalone plans |
+   | **Connect** | For Connect plans |
+   | **Disconnect** | For Disconnect plans |
+   |||
+
+1. From the **Host Screens** pane, drag the captured thumbnails 
+to the navigation plan surface in the **Navigation** pane.
 
    To represent the blank screen where you enter 
    the transaction name, use the "Empty" screen.
 
-1. Arrange the screens in the order that describes the task you're defining.
+1. Arrange the screens in the order that 
+describes the task that you're defining.
 
-1. After arranging the screens, draw arrows between the screens by using the Flow tool. 
-The arrows define the flow, including forks and joins, through the screens.
+1. To define the flow between screens, including forks and joins, 
+on the design tool's toolbar, choose **Flow**. 
 
-1. For each screen, specify the Attention Identifier (AID) key 
-and the static text that moves the flow to the next screen.
-You might have just the AID key, or both the AID key and text. 
+1. Choose the first screen in the flow. Drag and draw 
+a connection to the next screen in the flow. 
+
+1. For each screen, specify the Attention Identifier (**AID key**) 
+and **Fixed Text** that moves the flow to the next screen.
+You might have just the AID key, or both the AID key and fixed text. 
 
 After you finish your navigation plan, 
 you can [define methods in the next mode](#define-method).
