@@ -27,13 +27,13 @@ This template requires that the schema of the source database contains a timesta
 
 This template first retrieves the old watermark value and compares it with the current watermark value. After that, it copies only the changes from the source database, based on a comparison between the two watermark values. Finally, it stores the new high-watermark value to an external control table for delta data loading next time.
 
-The template contains the following four activities:
+The template contains four activities:
 - **Lookup** retrieves the old high-watermark value, which is stored in an external control table.
 - Another **Lookup** activity retrieves the current high-watermark value from the source database.
 - **Copy** copies only changes from the source database to the destination store. The query that identifies the changes in the source database is similar to 'SELECT * FROM Data_Source_Table WHERE TIMESTAMP_Column > “last high-watermark” and TIMESTAMP_Column <= “current high-watermark”'.
 - **SqlServerStoredProcedure** writes the current high-watermark value to an external control table for delta copy next time.
 
-The template defines the following five parameters:
+The template defines five parameters:
 - *Data_Source_Table_Name* is the table in the source database that you want to load data from.
 - *Data_Source_WaterMarkColumn* is the name of the column in the source table that's used to identify new or updated rows. The type of this column is typically *datetime*, *INT*, or similar.
 - *Data_Destination_Folder_Path* or *Data_Destination_Table_Name* is the place where the data is copied to in your destination store.
@@ -114,7 +114,7 @@ The template defines the following five parameters:
 
     ![Select **Debug**](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
 
-12. Results similar to the following example will be displayed:
+12. Results similar to the following example are displayed:
 
     ![Review the result](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable12.png)
 
