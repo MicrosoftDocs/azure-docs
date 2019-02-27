@@ -115,4 +115,4 @@ If you have questions or need help, [create a support request](https://portal.az
 - [Understand the charges on your billing profile's invoice](billing-understand-your-bill-mca.md)
 - [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md)
 - [View your organization's Azure pricing](billing-ea-pricing.md)
-- [View tax documents for your billing profile](billing-download-tax-document-mca.md)
+- [View tax documents for your billing profile](billing-mca-download-tax-document.md)

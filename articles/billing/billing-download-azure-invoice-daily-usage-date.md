@@ -196,5 +196,5 @@ To learn more about your invoice and charges, see:
 
 If you have a Microsoft Customer Agreement, see:
 
-- [Understand the charges on the invoice for your billing profile ](billing-mca-understand-your-bill.md)
+- [Understand the charges on the invoice for your billing profile ](billing-understand-your-bill-mca.md)
 - [Understand terms on the invoice for your billing profile](billing-mca-understand-your-invoice.md)
