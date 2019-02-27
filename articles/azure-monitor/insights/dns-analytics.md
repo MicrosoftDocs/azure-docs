@@ -137,7 +137,7 @@ The information helps you to identify the:
 
 **Name registration requests**. The upper tile shows a trendline of successful and failed DNS dynamic update requests. The lower tile lists the top 10 clients that are sending failed DNS update requests to the DNS servers, sorted by the number of failures.
 
-![Name registration requests blade ](./media/dns-analytics/name-reg-req-blade.png)
+![Name registration requests blade](./media/dns-analytics/name-reg-req-blade.png)
 
 **Sample DDI Analytics Queries**. Contains a list of the most common search queries that fetch raw analytics data directly.
 

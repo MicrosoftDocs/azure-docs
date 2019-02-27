@@ -97,5 +97,5 @@ While [Application Insights](../app/app-insights-overview.md) stores application
 
 
 ## Next steps
-- Learn about using [log analytics to create and edit log searches](../log-query/portals.md).
+- Learn about using [Log Analytics to create and edit log searches](../log-query/portals.md).
 - Check out a [tutorial on writing queries](../log-query/get-started-queries.md) using the new query language.

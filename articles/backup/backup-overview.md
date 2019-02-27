@@ -72,7 +72,7 @@ Azure Backup can back up both on-premises machines, and Azure VMs.
 The advantages of backing up machines and apps to MABS/DPM storage , and then backing up DPM/MABS storage to a vault are as follows:
 
 - Backing up to MABS/DPM provides app-aware backups optimized for common apps such as SQL Server, Exchange, and SharePoint, in additional to file/folder/volume backups, and machine state backups (bare-metal, system state).
-- For on-premises mahines, you don't need to install the MARS agent on each machine you want to back up. Each machines runs the DPM/MABS protection agent, and the MARS agent runs on the MABS/DPM only.
+- For on-premises machines, you don't need to install the MARS agent on each machine you want to back up. Each machines runs the DPM/MABS protection agent, and the MARS agent runs on the MABS/DPM only.
 - You have more flexibility and granular scheduling options for running backups.
 - You can manage backups for multiple machines that you gather into protection groups in a single console. This is particularly useful when apps are tiered over multiple machines and you want to back them up together.
 

@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/25/2018
+ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.lastreviewed: 10/25/2018
+ms.lastreviewed: 02/25/2019
 
 ---
 # What is Azure Stack?
@@ -29,15 +29,15 @@ Azure Stack is offered in two deployment options to meet your needs.
 
 ## Azure Stack Development Kit
 
-Microsoft [Azure Stack Development Kit (ASDK)](./asdk/asdk-what-is.md) is a single-node deployment of Azure Stack, that you can use to evaluate and learn about Azure Stack.  You can also use ASDK as a developer environment to build apps using the APIs and tooling that's consistent with Azure.
+Microsoft [Azure Stack Development Kit (ASDK)](./asdk/asdk-what-is.md) is a single-node deployment of Azure Stack, that you can use to evaluate and learn about Azure Stack.  You can also use the ASDK as a developer environment to build apps using the APIs and tooling that's consistent with Azure.
 
 >[!Note]
 >The ASDK isn't intended to be used as a production environment.
 
 The ASDK has the following limitations:
 
-* ASDK is associated with a single Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS) identity provider. You can create multiple users in this directory and assign subscriptions to each user.
-* Because Azure Stack components are deployed on one host computer, there are limited physical resources available for tenant resources. This configuration is not intended to scale or performance evaluation.
+* The ASDK is associated with a single Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS) identity provider. You can create multiple users in this directory and assign subscriptions to each user.
+* Because Azure Stack components are deployed on a single host computer, there are limited physical resources available for tenant resources. This configuration is not intended to scale or for performance evaluation.
 * Networking scenarios are limited because of the single host and NIC deployment requirements.
 
 ## Azure Stack integrated systems
