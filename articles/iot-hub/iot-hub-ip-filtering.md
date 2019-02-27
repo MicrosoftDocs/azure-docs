@@ -116,11 +116,13 @@ Note that `<ipFilterIndexToRemove>` must correspond to the ordering of IP filter
 
 ## Retrieve and update IP filters using Azure PowerShell
 
-Your IoT Hub's IP filters can be retrieved and set through [Azure  PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0). 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Your IoT Hub's IP filters can be retrieved and set through [Azure PowerShell](/powershell/azure/overview). 
 
 ```powershell
 # Get your IoT Hub resource using its name and its resource group name
-$iothubResource = Get-AzureRmResource -ResourceGroupName <resourceGroupNmae> -ResourceName <iotHubName> -ExpandProperties
+$iothubResource = Get-AzResource -ResourceGroupName <resourceGroupNmae> -ResourceName <iotHubName> -ExpandProperties
 
 # Access existing IP filter rules
 $iothubResource.Properties.ipFilterRules |% { Write-host $_ }
@@ -135,7 +137,7 @@ $iothubResource.Properties.ipFilterRules += $filter
 $iothubResource.Properties.ipFilterRules = @($iothubResource.Properties.ipFilterRules | Where 'filterName' -ne 'GoodIP')
 
 # Update your IoT Hub resource with your updated IP filters
-$iothubResource | Set-AzureRmResource -Force
+$iothubResource | Set-AzResource -Force
 ```
 
 ## Update IP filter rules using REST

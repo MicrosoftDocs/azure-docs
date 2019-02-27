@@ -1,18 +1,18 @@
 ---
 title: About ExpressRoute Direct - Azure | Microsoft Docs
-description: This page provides an overview of ExpressRoute Direct (Preview)
+description: This page provides an overview of ExpressRoute Direct
 services: expressroute
-author: mialdrid
+author: jaredr80
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
 
 ---
 
-# About ExpressRoute Direct (Preview)
+# About ExpressRoute Direct
 
 ExpressRoute Direct gives you the ability to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. ExpressRoute Direct provides dual 100-Gbps connectivity, which supports Active/Active connectivity at scale.
 
@@ -22,14 +22,9 @@ Key features that ExpressRoute Direct provides include, but aren't limited to:
 * Physical isolation for industries that are regulated and require dedicated and isolated connectivity like: Banking, Government, and Retail
 * Granular control of circuit distribution based on business unit
 
-> [!IMPORTANT]
-> ExpressRoute Direct is currently in Preview.
->
-> This Public Preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
+## Onboard to ExpressRoute Direct
 
-## Enroll in the Preview
-
-Before using ExpressRoute Direct, you must first enroll your subscription in the preview. To enroll, send an Email to <ExpressRouteDirect@microsoft.com> with your subscription ID, including the following details:
+Before using ExpressRoute Direct, you must first enroll your subscription. To enroll, send an Email to <ExpressRouteDirect@microsoft.com> with your subscription ID, including the following details:
 
 * Scenarios you're looking to accomplish with **ExpressRoute Direct**
 * Location preferences - see [Partners and peering locations](expressroute-locations-providers.md) for a complete list of all locations
@@ -67,11 +62,11 @@ ExpressRoute Direct supports both QinQ and Dot1Q VLAN tagging.
 
 ## Workflow
 
-[ ![workflow](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
+[![workflow](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
 
 ## SLA
 
-ExpressRoute Direct provides the same enterprise-grade SLA with Active/Active redundant connections into the Microsoft Global Network. ExpressRoute infrastructure is redundant and connectivity into the Microsoft Global Network is redundant and diverse and scales accordingly with customer requirements. During preview, there will be no SLA and should be considered only for non-production workloads.
+ExpressRoute Direct provides the same enterprise-grade SLA with Active/Active redundant connections into the Microsoft Global Network. ExpressRoute infrastructure is redundant and connectivity into the Microsoft Global Network is redundant and diverse and scales accordingly with customer requirements. 
 
 ## Next steps
 

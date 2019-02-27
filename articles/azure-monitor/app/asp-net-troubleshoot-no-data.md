@@ -210,7 +210,7 @@ Follow these instructions to capture troubleshooting logs for your framework.
   
 ### .Net Core
 
-1. Install the [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) package from NuGet. The version you install must match the current installed version of `Microsoft.ApplicationInsighs`
+1. Install the [Microsoft.AspNetCore.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.ApplicationInsights.HostingStartup) package from NuGet. The version you install must match the current installed version of `Microsoft.ApplicationInsights`
 
 2. Modify `ConfigureServices` method in your `Startup.cs` class.:
 

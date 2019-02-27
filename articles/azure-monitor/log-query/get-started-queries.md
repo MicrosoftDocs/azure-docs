@@ -19,11 +19,11 @@ ms.author: bwren
 
 
 > [!NOTE]
-> You should complete [Get started with Azure Monitor log analytics](get-started-portal.md) before completing this tutorial.
+> You should complete [Get started with Azure Monitor Log Analytics](get-started-portal.md) before completing this tutorial.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-In this tutorial you will learn to write Azure LMonitor log queries. It will teach you how to:
+In this tutorial you will learn to write Azure Monitor log queries. It will teach you how to:
 
 - Understand queries' structure
 - Sort query results

@@ -4,7 +4,7 @@ description: Learn how to configure the gateway that handles incoming traffic fo
 services: service-fabric-mesh
 documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
+manager: chakdan
 editor: ''
 
 ms.assetid: 

@@ -90,13 +90,14 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
             authOptions: {
                 authType: 'aad',
                 clientId: '<Your AAD Client Id>',
-                aadAppId: '<Your AAD App Id',
+                aadAppId: '<Your AAD App Id>',
                 aadTenant: 'msft.ccsctp.net'
             }
         });
     </script>
     ```
 
+	See [Authentication with Azure Maps](azure-maps-authentication.md) for more details.
 6. Optionally, you may find adding the following meta tag elements to the head of your page helpful:
 
     ```html

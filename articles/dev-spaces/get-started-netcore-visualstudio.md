@@ -47,13 +47,6 @@ In this guide, you will learn how to:
 
     ![RBAC setting](media/common/k8s-RBAC.PNG)
 
-1. Make sure that Http Application Routing is enabled.
-
-   ![Enable Http Application Routing](media/common/Kubernetes-Create-Cluster-3.PNG)
-
-    > [!Note]
-    > To enable [Http Application Routing](/azure/aks/http-application-routing) on an existing cluster, use the command: `az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing`
-
 1. Select **Review + create** and then **Create** when complete.
 
 ## Get the Visual Studio tools
