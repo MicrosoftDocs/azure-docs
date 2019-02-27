@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/17/2018
+ms.date: 02/04/2019
 
 ms.custom: seodec18
 
@@ -73,10 +73,10 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
      Get-AzureRmVmDiskEncryptionStatus -ResourceGroupName 'MySecureRg' -VMName 'MySecureVM'
      ```
     
-- **Disable disk encryption:** To disable the encryption, use the [Disable-Azure​RmVMDisk​Encryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet. Disabling data disk encryption on Windows VM when both OS and data disks have been encrypted doesn’t work as expected. Disable encryption on all disks instead.
+- **Disable disk encryption:** To disable the encryption, use the [Disable-Azure​RmVMDisk​Encryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet. Disabling data disk encryption on Windows VM when both OS and data disks have been encrypted doesn’t work as expected. Disable encryption on all disks using the -VolumeType "All" parameter for PowerShell, otherwise the disable command will fail.
 
      ```azurepowershell-interactive
-     Disable-AzureRmVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM'
+      Disable-AzureRmVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM' -VolumeType "all"
      ```
 
 ### <a name="bkmk_RunningWinVMCLI"></a>Enable encryption on existing or running VMs with  Azure CLI
@@ -106,10 +106,10 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
      az vm encryption show --name "MySecureVM" --resource-group "MySecureRg"
      ```
 
-- **Disable encryption:** To disable encryption, use the [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable) command. Disabling data disk encryption on Windows VM when both OS and data disks have been encrypted doesn’t work as expected. Disable encryption on all disks instead.
+- **Disable encryption:** To disable encryption, use the [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable) command. Disabling data disk encryption on Windows VM when both OS and data disks have been encrypted doesn’t work as expected. Disable encryption on all disks using the --volume-type "All" parameter for CLI, otherwise the disable command will fail.
 
      ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type [ALL, DATA, OS]
+     az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type "ALL"
      ```
  
  > [!NOTE]
@@ -183,8 +183,15 @@ Use the [Set-Azure​RmVmss​Disk​Encryption​Extension](/powershell/module/
      $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgName;
      $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
      $KeyVaultResourceId = $KeyVault.ResourceId;
-     Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
+     $KeyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
+     Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $KeyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
     ```
+
+   >[!NOTE]
+   > The syntax for the value of disk-encryption-keyvault parameter is the full identifier string:
+/subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> 
+   > The syntax for the value of the key-encryption-key parameter is the full URI to the KEK as in:
+https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
 - **Get encryption status for a virtual machine scale set:** Use the [Get-Azure​RmVmss​VMDisk​Encryption](/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption) cmdlet.
     
@@ -228,6 +235,13 @@ Use the [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryptio
      az vmss encryption enable --resource-group "MySecureRG" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" --key-encryption-key "MyKEK" --key-encryption-keyvault "MySecureVault" 
 
      ```
+     
+   >[!NOTE]
+   > The syntax for the value of disk-encryption-keyvault parameter is the full identifier string:
+/subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> 
+   > The syntax for the value of the key-encryption-key parameter is the full URI to the KEK as in:
+https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
+
 - **Get encryption status for a virtual machine scale set:** Use [az vmss encryption show](/cli/azure/vmss/encryption#az-vmss-encryption-show)
 
     ```azurecli-interactive
@@ -336,7 +350,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 
 
 ## Disable encryption
-You can disable encryption using Azure PowerShell, the Azure CLI, or with a Resource Manager template. Disabling data disk encryption on Windows VM when both OS and data disks have been encrypted doesn’t work as expected. Disable encryption on all disks instead.
+You can disable encryption using Azure PowerShell, the Azure CLI, or with a Resource Manager template. Disabling data disk encryption on Windows VM when both OS and data disks have been encrypted doesn’t work as expected. Disable encryption on all disks using either the -VolumeType "All" parameter for PowerShell or --volume-type "All" for CLI, otherwise the disable command will fail. 
 
 - **Disable disk encryption with Azure PowerShell:** To disable the encryption, use the [Disable-Azure​RmVMDisk​Encryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet. 
      ```azurepowershell-interactive

@@ -1,4 +1,4 @@
---- 
+---
 title: Copy a Linux VM using Azure CLI | Microsoft Docs 
 description: Learn how to create a copy of your Azure Linux VM using Azure CLI and Managed Disks. 
 services: virtual-machines-linux
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
 
----                    
-			   
+---
+
 # Create a copy of a Linux VM by using Azure CLI and Managed Disks
 
 This article shows you how to create a copy of your Azure virtual machine (VM) running Linux by using the Azure CLI and the Azure Resource Manager deployment model. 

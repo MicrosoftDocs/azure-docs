@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/23/2018
-ms.author: dekapur
+ms.date: 2/25/2019
+ms.author: srrengar
 
 ---
 
@@ -212,7 +212,7 @@ The [Service Fabric Health Model](service-fabric-health-introduction.md) provide
 
 | EventId | Name | Description |Source (Task) | Level | Version |
 | --- | --- | ---| --- | --- | --- |
-| 65011 | CorrelationOperational | A correlation has been detacted | Testability | Informational | 1 |
+| 65011 | CorrelationOperational | A correlation has been detected | Testability | Informational | 1 |
 
 ## Events prior to version 6.2
 

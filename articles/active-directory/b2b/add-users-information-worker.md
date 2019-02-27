@@ -5,15 +5,16 @@ description: B2B collaboration allows information workers and app owners to add 
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 12/19/2018
 
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: mal
 
+ms.collection: M365-identity-device-management
 ---
 
 # How users in your organization can invite guest users to an app

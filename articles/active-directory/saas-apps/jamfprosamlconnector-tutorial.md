@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 35e86d08-c29e-49ca-8545-b0ff559c5faf
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Jamf Pro
 
@@ -154,7 +155,7 @@ To configure Azure AD single sign-on with Jamf Pro, perform the following steps:
 
 	e. Paste the value `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` in the **GROUP ATTRIBUTE NAME** textbox.
 
-7. On the same page scroll down upto **IDENTITY PROVIDER** under the **Single Sign-On** section and perform the following steps:
+7. On the same page scroll to **IDENTITY PROVIDER** under the **Single Sign-On** section and perform the following steps:
 
 	![Jamf Pro Configuration](./media/jamfprosamlconnector-tutorial/configure3.png)
 
@@ -272,8 +273,8 @@ When you click the Jamf Pro tile in the Access Panel, you should be automaticall
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

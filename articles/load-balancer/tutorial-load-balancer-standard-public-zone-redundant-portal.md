@@ -4,7 +4,8 @@ titlesuffix: Azure Load Balancer
 description: This tutorial demonstrates how to create a Standard Load Balancer with zone-redundant frontend to load balance VMs across availability zones using Azure portal
 services: load-balancer
 documentationcenter: na
-author: KumudD 
+author: KumudD
+manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
 ms.service: load-balancer
 ms.devlang: na
@@ -171,7 +172,7 @@ To distribute traffic to the VMs, a back-end address pool contains the IP addres
 4. Click **Add new backend resource** to add each virtual machine (*myVM2* and *myVM3*) to add to the backend pool of the load balancer.
 5. Click **Add**.
 
-    ![Adding to the backend address pool - ](./media/load-balancer-standard-public-availability-zones-portal/add-backend-pool.png)
+    ![Adding to the backend address pool -](./media/load-balancer-standard-public-availability-zones-portal/add-backend-pool.png)
 
 3. Check to make sure your load balancer backend pool setting displays all the three VMs - **myVM1**, **myVM2** and **myVM3**.
 

@@ -119,7 +119,7 @@ To remove the extension from a virtual machine, follow these steps:
 ## Template deployment
 Azure virtual machine extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template. This runs the Azure Performance Diagnostics VM extension during an Azure Resource Manager template deployment. Here is a sample template:
 
-````
+```
 {
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -203,18 +203,18 @@ Azure virtual machine extensions can be deployed with Azure Resource Manager tem
     }
   ]
 }
-````
+```
 
 ## PowerShell deployment
-The `Set-AzureRmVMExtension` command can be used to deploy Azure Performance Diagnostics VM Extension to an existing virtual machine.
+The `Set-AzVMExtension` command can be used to deploy Azure Performance Diagnostics VM Extension to an existing virtual machine.
 
 PowerShell
 
-````
+```
 $PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z";"resourceId"="VMResourceId" }
 $ProtectedSettings = @{"storageAccountKey"="mystoragekey" }
 
-Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
+Set-AzVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Publisher "Microsoft.Azure.Performance.Diagnostics" `
@@ -223,7 +223,7 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -Settings $PublicSettings `
     -ProtectedSettings $ProtectedSettings `
     -Location WestUS
-````
+```
 
 ## Information on the data captured
 The PerfInsights tool collects various logs, configuration, and diagnostic data, depending on the selected scenario. For more information, see the [PerfInsights documentation](https://aka.ms/perfinsights).

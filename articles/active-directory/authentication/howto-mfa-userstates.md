@@ -4,17 +4,19 @@ description: Learn about user states in Azure Multi-Factor Authentication.
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 01/11/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # How to require two-step verification for a user
+
 You can take one of two approaches for requiring two-step verification, both of which require using a global administrator account. The first option is to enable each user for Azure Multi-Factor Authentication (MFA). When users are enabled individually, they perform two-step verification each time they sign in (with some exceptions, such as when they sign in from trusted IP addresses or when the _remembered devices_ feature is turned on). The second option is to set up a conditional access policy that requires two-step verification under certain conditions.
 
 > [!TIP]
@@ -22,7 +24,7 @@ You can take one of two approaches for requiring two-step verification, both of 
 
 ## Choose how to enable
 
-**Enabled by changing user state** - This is the traditional method for requiring two-step verification and is discussed in this article. It works with both Azure MFA in the cloud and Azure MFA Server. Using this method requires users to perform two-step verification **every time** they sign in and overrides conditional access policies.
+**Enabled by changing user state** - This is the traditional method for requiring two-step verification and is discussed in this article. It works with both Azure MFA in the cloud and Azure MFA Server. Using this method requires users to perform two-step verification **every time** they sign in and overrides conditional access policies. This is the method used for those with either Office 365 or Microsoft 365 Business licenses as they do not include conditional access features.
 
 Enabled by conditional access policy - This is the most flexible means to enable two-step verification for your users. Enabling using conditional access policy only works for Azure MFA in the cloud and is a premium feature of Azure AD. More information on this method can be found in [Deploy cloud-based Azure Multi-Factor Authentication](howto-mfa-getstarted.md).
 
@@ -91,7 +93,7 @@ Install the Module first, using:
 > Don't forget to connect first using **Connect-MsolService**
 
 
-Using PowerShell is a good option when you need to bulk enabling users. Create a PowerShell script that loops through a list of users and enables them:
+ This example PowerShell script enables MFA for an individual user:
 
         Import-Module MSOnline
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
@@ -100,7 +102,7 @@ Using PowerShell is a good option when you need to bulk enabling users. Create a
         $sta = @($st)
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
-The following script is an example:
+Using PowerShell is a good option when you need to bulk enable users. As an example, the following script loops through a list of users and enables MFA on their accounts:
 
     $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
     foreach ($user in $users)
@@ -112,11 +114,11 @@ The following script is an example:
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
     }
     
-To disabled MFA, used this script:
+To disable MFA, use this script:
 
     Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
     
-or also can be shorten to:
+which can also be shortened to:
 
     Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
 

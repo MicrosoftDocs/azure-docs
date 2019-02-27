@@ -67,7 +67,7 @@ The following cmdlet provides the ARP tables for Azure private peering
         # ARP table for Azure private peering - Primary path
         Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Primary
 
-        # ARP table for Azure private peering - Secodary path
+        # ARP table for Azure private peering - Secondary path
         Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Secondary 
 
 Sample output is shown below for one of the paths
@@ -88,7 +88,7 @@ The following cmdlet provides the ARP tables for Azure public peering
         # ARP table for Azure public peering - Primary path
         Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Primary
 
-        # ARP table for Azure public peering - Secodary path
+        # ARP table for Azure public peering - Secondary path
         Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Secondary 
 
 
@@ -110,7 +110,7 @@ The following cmdlet provides the ARP tables for Microsoft peering
         # ARP table for Microsoft peering - Primary path
         Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Primary
 
-        # ARP table for Microsoft peering - Secodary path
+        # ARP table for Microsoft peering - Secondary path
         Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Secondary 
 
 

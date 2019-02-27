@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +18,7 @@ ms.date: 12/18/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Application types for v2.0

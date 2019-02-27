@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -109,6 +109,8 @@ By specifying the dependencies, Resource Manager efficiently deploys the solutio
 
 ## Deploy the template
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 There are many methods for deploying templates.  In this tutorial, you use Cloud Shell from the Azure portal.
 
 1. Sign in to the [Cloud Shell](https://shell.azure.com). 
@@ -117,44 +119,32 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
 
     ![Azure portal Cloud shell upload file](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
 4. Select the template you saved earlier in the tutorial. The default name is **azuredeploy.json**.  If you have a file with the same file name, the old file is overwritten without any notification.
-5. From the Cloud shell, run the following command to verify the file is uploaded successfully. 
 
-    ```bash
-    ls
-    ```
+    You can optionally use the **ls $HOME** command and the **cat $HOME/azuredeploy.json** command to verify the files areis uploaded successfully. 
 
-    ![Azure portal Cloud shell list file](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-list-file.png)
-
-    The file name shown on the screenshot is azuredeploy.json.
-
-6. From the Cloud shell run the following command to verify the content of the JSON file:
-
-    ```bash
-    cat azuredeploy.json
-    ```
-7. From the Cloud shell, run the following PowerShell commands. To increase security, use a generated password for the virtual machine administrator account. See [Prerequisites](#prerequisites).
+5. From the Cloud shell, run the following PowerShell commands. To increase security, use a generated password for the virtual machine administrator account. See [Prerequisites](#prerequisites).
 
     ```azurepowershell
-    $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
     $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
     $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-    New-AzureRmResourceGroupDeployment -Name $deploymentName `
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+    New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -adminUsername $adminUsername `
         -adminPassword $adminPassword `
         -dnsLabelPrefix $dnsLabelPrefix `
-        -TemplateFile azuredeploy.json
+        -TemplateFile "$HOME/azuredeploy.json"
     ```
+
 8. Run the following PowerShell command to list the newly created virtual machine:
 
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-    Get-AzureRmVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
+    Get-AzVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
     ```
 
     The virtual machine name is hard-coded as **SimpleWinVM** inside the template.

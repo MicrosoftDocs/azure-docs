@@ -1,20 +1,15 @@
 ---
-title: Manage experiment iterations in Machine Learning Studio - Azure | Microsoft Docs
+title: Manage experiment iterations in Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
 description: How to manage experiment iterations in Azure Machine Learning Studio. You can review previous runs of your experiments at any time in order to challenge, revisit, and ultimately either confirm or refine previous assumptions.
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-
-editor: cgronlun
-ms.assetid: 6a53530f-20d5-40ae-9b49-7b499ccb44b7
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.subservice: studio
+ms.topic: conceptual
+
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
 ms.date: 03/20/2017
 ---
 # Manage experiment iterations in Azure Machine Learning Studio
@@ -48,7 +43,7 @@ For example, suppose you create an experiment with the [Linear Regression][linea
 
 If you click **VIEW RUN HISTORY**, you see a list of all these runs:
 
-![Example run history][runhistory]
+![Example run history](./media/manage-experiment-iterations/viewrunhistory.jpg)
 
 Click any of these runs to view a snapshot of the experiment at the time you ran it. The configuration, parameter values, comments, and results are all preserved to give you a complete record of that run of your experiment.
 
@@ -73,10 +68,6 @@ For example, suppose you have the experiment run history shown in the previous s
 5. Click **RUN**.
 
 You can now continue to modify and run this version of your experiment, building a new run history to record your work.
-
-<!-- Images -->
-[runhistory]:./media/manage-experiment-iterations/viewrunhistory.jpg
-
 
 <!-- Module References -->
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/

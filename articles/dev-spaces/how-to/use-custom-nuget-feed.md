@@ -3,7 +3,7 @@ title: "How to use a custom NuGet feed in Azure Dev Spaces | Microsoft Docs"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: "johnsta"
 ms.author: "johnsta"
 ms.date: "05/11/2018"

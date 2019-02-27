@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -17,6 +17,7 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 #Customer intent: As an application developer, I want to learn how to implement Microsoft sign-in with an ASP.NET solution with a browser-based app using the OpenID Connect standard.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Add sign-in with Microsoft to an ASP.NET web app
@@ -61,7 +62,7 @@ These steps show how to install and configure the authentication pipeline throug
 
 To download this sample's Visual Studio project instead, follow these steps:
 1. [Download the project on GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/GuidedSetup.zip).
-1. Skip to the [Configuration step](#configure-your-webconfig-and-register-an-application) to configure the code sample before executing.
+1. Skip to the Configuration step to configure the code sample before executing.
 
 ## Step 2: Create your ASP.NET project
 
@@ -227,7 +228,7 @@ This option is a common scenario for line-of-business applications.
 If you want your application to accept sign-ins only from accounts that belong to a specific Azure AD instance (including *guest accounts* of that instance), follow these steps:
 
 1. Replace the `Tenant` parameter in *web.config* from `Common` with the tenant name of the organization – example, *contoso.onmicrosoft.com*.
-1. Change the `ValidateIssuer` argument in your [*OWIN Startup class*](#configure-the-authentication-pipeline) to `true`.
+1. Change the `ValidateIssuer` argument in your [*OWIN Startup class*](#step-4-configure-the-authentication-pipeline) to `true`.
 
 To allow users from only a list of specific organizations, follow these steps:
 

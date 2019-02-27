@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
-ms.component: metrics
+ms.subservice: metrics
 ---
 # Supported metrics with Azure Monitor
 Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. Below is a complete list of all metrics currently available with Azure Monitor's metric pipeline. Other metrics may be available in the portal or using legacy APIs. This list below only includes metrics available using the consolidated Azure Monitor metric pipeline. To query for and access these metrics please use the [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -59,7 +59,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |ProcessingPoolIdleIOJobThreads|Threads: Processing pool idle I/O job threads|Count|Average|Number of idle threads for I/O jobs in the processing thread pool.|ServerResourceType|
 |ProcessingPoolIdleNonIOThreads|Threads: Processing pool idle non-I/O threads|Count|Average|Number of idle threads in the processing thread pool dedicated to non-I/O jobs.|ServerResourceType|
 |QueryPoolIdleThreads|Threads: Query pool idle threads|Count|Average|Number of idle threads for I/O jobs in the processing thread pool.|ServerResourceType|
-|QueryPoolJobQueueLength|Threads: Query pool job queue lengt|Count|Average|Number of jobs in the queue of the query thread pool.|ServerResourceType|
+|QueryPoolJobQueueLength|Threads: Query pool job queue length|Count|Average|Number of jobs in the queue of the query thread pool.|ServerResourceType|
 |ShortParsingBusyThreads|Threads: Short parsing busy threads|Count|Average|Number of busy threads in the short parsing thread pool.|ServerResourceType|
 |ShortParsingIdleThreads|Threads: Short parsing idle threads|Count|Average|Number of idle threads in the short parsing thread pool.|ServerResourceType|
 |ShortParsingJobQueueLength|Threads: Short parsing job queue length|Count|Average|Number of jobs in the queue of the short parsing thread pool.|ServerResourceType|
@@ -113,12 +113,12 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |PoolResizeCompleteEvent|Pool Resize Complete Events|Count|Total|Total number of pool resizes that have completed|No Dimensions|
 |PoolDeleteStartEvent|Pool Delete Start Events|Count|Total|Total number of pool deletes that have started|No Dimensions|
 |PoolDeleteCompleteEvent|Pool Delete Complete Events|Count|Total|Total number of pool deletes that have completed|No Dimensions|
-|JobDeleteCompleteEvent|Job Delete Complete Events|Count|Total|Total number of jobs that have been sucessfully deleted.|No Dimensions|
+|JobDeleteCompleteEvent|Job Delete Complete Events|Count|Total|Total number of jobs that have been successfully deleted.|No Dimensions|
 |JobDeleteStartEvent|Job Delete Start Events|Count|Total|Total number of jobs that have been requested to be deleted.|No Dimensions|
-|JobDisableCompleteEvent|Job Disable Complete Events|Count|Total|Total number of jobs that have been sucessfully disabled.|No Dimensions|
+|JobDisableCompleteEvent|Job Disable Complete Events|Count|Total|Total number of jobs that have been successfully disabled.|No Dimensions|
 |JobDisableStartEvent|Job Disable Start Events|Count|Total|Total number of jobs that have been requested to be disabled.|No Dimensions|
-|JobStartEvent|Job Start Events|Count|Total|Total number of jobs that have been sucessfully started.|No Dimensions|
-|JobTerminateCompleteEvent|Job Terminate Complete Events|Count|Total|Total number of jobs that have been sucessfully terminated.|No Dimensions|
+|JobStartEvent|Job Start Events|Count|Total|Total number of jobs that have been successfully started.|No Dimensions|
+|JobTerminateCompleteEvent|Job Terminate Complete Events|Count|Total|Total number of jobs that have been successfully terminated.|No Dimensions|
 |JobTerminateStartEvent|Job Terminate Start Events|Count|Total|Total number of jobs that have been requested to be terminated.|No Dimensions|
 
 ## Microsoft.Cache/redis
@@ -646,14 +646,52 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 ## Microsoft.DocumentDB/databaseAccounts
 
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|
-|MetadataRequests|Metadata Requests|Count|Count|Count of metadata requests. Cosmos DB maintains system metadata collection for each account, that allows you to enumerate collections, databases, etc, and their configurations, free of charge.|DatabaseName, CollectionName, Region, StatusCode|
-|MongoRequestCharge|Mongo Request Charge|Count|Total|Mongo Request Units Consumed|DatabaseName, CollectionName, Region, CommandName, ErrorCode|
-|MongoRequests|Mongo Requests|Count|Count|Number of Mongo Requests Made|DatabaseName, CollectionName, Region, CommandName, ErrorCode|
-|TotalRequestUnits|Total Request Units|Count|Total|Request Units consumed|DatabaseName, CollectionName, Region, StatusCode|
-|TotalRequests|Total Requests|Count|Count|Number of requests made|DatabaseName, CollectionName, Region, StatusCode|
+### Request metrics
 
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
+|---|---|---|---|---|---| ---| ---| ---|
+| TotalRequests |	Total Requests|	Count	| Count	| Number of requests made|	DatabaseName, CollectionName, Region, StatusCode|	All |	TotalRequests, Http 2xx, Http 3xx, Http 400, Http 401, Internal Server error, Service Unavailable, Throttled Requests, Average Requests per Second |	Used to monitor requests per status code, collection at a minute granularity. To get average requests per second, use Count aggregation at minute and divide by 60. |
+| MetadataRequests |	Metadata Requests	|Count|	Count	| Count of metadata requests. Azure Cosmos DB maintains system metadata collection for each account, that allows you to enumerate collections, databases, etc, and their configurations, free of charge.	| DatabaseName, CollectionName, Region, StatusCode|	All|  |Used to monitor throttles due to metadata requests.|
+| MongoRequests |	Mongo Requests|	Count |	Count|	Number of Mongo Requests Made	| DatabaseName, CollectionName, Region, CommandName, ErrorCode|	All	|Mongo Query Request Rate, Mongo Update Request Rate, Mongo Delete Request Rate, Mongo Insert Request Rate, Mongo Count Request Rate|	Used to monitor Mongo request errors, usages per command type. |
+
+
+### Request Unit metrics
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
+|---|---|---|---|---|---| ---| ---| ---|
+| MongoRequestCharge|	Mongo Request Charge |	Count	|Total	|Mongo Request Units Consumed|	DatabaseName, CollectionName, Region, CommandName, ErrorCode|	All	|Mongo Query Request Charge, Mongo Update Request Charge, Mongo Delete Request Charge, Mongo Insert Request Charge, Mongo Count Request Charge|	Used to monitor Mongo resource RUs in a minute.|
+| TotalRequestUnits	|Total Request Units|	Count|	Total|	Request Units consumed|	DatabaseName, CollectionName, Region, StatusCode	|All|	TotalRequestUnits|	Used to monitor Total RU usage at a minute granularity. To get average RU consumed per second, use Total aggregation at minute and divide by 60.|
+| ProvisionedThroughput	|Provisioned Throughput|	Count|	Maximum	|Provisioned throughput at collection granularity|	DatabaseName, CollectionName|	5M|	|	Used to monitor provisioned throughput per collection.|
+
+### Storage metrics
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
+|---|---|---|---|---|---| ---| ---| ---|
+| AvailableStorage|	Available Storage	|Bytes|	Total|	Total available storage reported at 5 minutes granularity per region|	DatabaseName, CollectionName, Region|	5M|	Available Storage|	 Used to monitor available storage capacity (applicable only for fixed storage collections) Minimum granularity should be 5 minutes.| 
+| DataUsage	|Data Usage	|Bytes|	Total	|Total data usage  reported at 5 minutes granularity per region|	DatabaseName, CollectionName, Region|	5M	|Data size	| Used to monitor total data usage at collection and region, minimum granularity should be 5 minutes.|
+| IndexUsage|	Index Usage|	Bytes|	Total	|Total Index usage reported at 5 minutes granularity per region|	DatabaseName, CollectionName, Region|	5M|	Index Size|	Used to monitor total data usage at collection and region, minimum granularity should be 5 minutes. |
+| DocumentQuota|	Document Quota|	Bytes|	Total|	Total storage quota reported at 5 minutes granularity per region. Applicable for f|	DatabaseName, CollectionName, Region|	5M	|Storage Capacity|	Used to monitor total quota at collection and region, minimum granularity should be 5 minutes.|
+| DocumentCount|	Document Count|	Count	|Total	|Totaldocument count reported at 5 minutes granularity per region|	DatabaseName, CollectionName, Region|	5M	|Document Count|Used to monitor document count at collection and region, minimum granularity should be 5 minutes.|
+
+### Latency metrics
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions| Time granularities| Usage |
+|---|---|---|---|---|---| ---| ---| ---|
+| ReplicationLatency	| Replication Latency|	MilliSeconds| 	Minimum,Maximum,Average	| P99 Replication Latency across source and target regions for geo-enabled account|	SourceRegion, TargetRegion|	All	| Used to monitor P99 replication latency between any two regions for a geo-replicated account. |
+
+### Availability metrics
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
+|---|---|---|---|---|---| ---| ---| ---|
+| ServiceAvailability	| Service Availability|	Percent	|Minimum,Maximum|	Account requests availability at one hour granularity|	| 	1H	| Service Availability	| This is the percent of total passed requests. A request is considered to be failed due to system error if the status code is 410, 500 or 503 Used to monitor availability of the account at hour granularity. |
+
+### Cassandra API metrics
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions| Time granularities| Usage |
+|---|---|---|---|---|---| ---| ---| ---|
+| CassandraRequests	| Cassandra Requests |	Count|	Count|	Number of Cassandra API requests made|	DatabaseName, CollectionName, ErrorCode, Region, OperationType, ResourceType|	All| Used to monitor Cassandra requests at a minute granularity. To get average requests per second, use Count aggregation at minute and divide by 60.|
+| CassandraRequestCharges|	Cassandra Request Charges| Count|	Sum, Min, Max, Avg|	Request Units consumed by Cassandra API requests|	DatabaseName, CollectionName, Region, OperationType, ResourceType|	All| Used to monitor RUs used per minute by a Cassandra API account.|
+| CassandraConnectionClosures	| Cassandra Connection Closures	|Count|	Count	|Number of Cassandra Connections closed|	ClosureReason, Region|	All	| Used to monitor the connectivity between clients and the Azure Cosmos DB Cassandra API.|
 
 ## Microsoft.EventGrid/topics
 
@@ -810,7 +848,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |ClusterDataCapacityFactor|Cache Utilization|Percent|Average|Utilization level in the cluster scope|No Dimensions|
 |QueryDuration|Query Duration|Milliseconds|Average|Queries’ duration in seconds|QueryStatus|
 |IngestionsLoadFactor|Ingestion Utilization|Percent|Average|Ratio of used ingestion slots in the cluster|No Dimensions|
-|IsEngineAnsweringQuery|Keep Alive|Count|Average|Sanity check indicates the cluster respondes to queries|No Dimensions|
+|IsEngineAnsweringQuery|Keep Alive|Count|Average|Sanity check indicates the cluster responds to queries|No Dimensions|
 |IngestCommandOriginalSizeInMb|Ingestion Volume (In MB)|Count|Total|Overall volume of ingested data to the cluster (in MB)|No Dimensions|
 |EventAgeSeconds|Ingestion Latency (In seconds)|Seconds|Average|Ingestion time from the source (e.g. message is in EventHub) to the cluster in seconds|No Dimensions|
 |EventReceivedFromEventHub|Events Processed (for Event Hubs)|Count|Total|Number of events processed by the cluster when ingesting from Event Hub|No Dimensions|
@@ -1567,3 +1605,4 @@ Azure Monitor provides several ways to interact with metrics, including charting
 * [Read about metrics in Azure Monitor](../../azure-monitor/platform/data-collection.md)
 * [Create alerts on metrics](../../azure-monitor/platform/alerts-overview.md)
 * [Export metrics to storage, Event Hub, or Log Analytics](../../azure-monitor/platform/diagnostic-logs-overview.md)
+

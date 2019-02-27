@@ -22,15 +22,9 @@ This script creates an Event Grid subscription to the events for a Blob storage 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-The preview sample script requires the Event Grid extension. To install, run `az extension add --name eventgrid`.
-
-## Sample script - stable
+## Sample script
 
 [!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-blob-storage/subscribe-to-blob-storage.sh "Subscribe to Blob storage")]
-
-## Sample script - preview extension
-
-[!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-blob-storage-preview/subscribe-to-blob-storage-preview.sh "Subscribe to Blob storage")]
 
 ## Script explanation
 

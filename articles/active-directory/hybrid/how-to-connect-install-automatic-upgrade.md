@@ -4,19 +4,20 @@ description: This topic describes the built-in automatic upgrade feature in Azur
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2018
-ms.component: hybrid
+ms.date: 02/26/2019
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect: Automatic upgrade
 This feature was introduced with build [1.1.105.0 (released February 2016)](reference-connect-version-history.md#111050).  This feature was updated in [build 1.1.561](reference-connect-version-history.md#115610) and now supports additional scenarios that were previously not supported.
@@ -38,7 +39,7 @@ The current state of automatic upgrade can be viewed with the PowerShell cmdlet 
 | Suspended |Set by the system only. The system is **not currently** eligible to receive automatic upgrades. |
 | Disabled |Automatic upgrade is disabled. |
 
-You can change between **Enabled** and **Disabled** with `Set-ADSyncAutoUpgrade`. Only the system should set the state **Suspended**.
+You can change between **Enabled** and **Disabled** with `Set-ADSyncAutoUpgrade`. Only the system should set the state **Suspended**.  Prior to 1.1.750.0 the Set-ADSyncAutoUpgrade cmdlet would block Autoupgrade if the auto-upgrade state was set to Suspended. This functionality has now changed so it does not block AutoUpgrade.
 
 Automatic upgrade is using Azure AD Connect Health for the upgrade infrastructure. For automatic upgrade to work, make sure you have opened the URLs in your proxy server for **Azure AD Connect Health** as documented in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 

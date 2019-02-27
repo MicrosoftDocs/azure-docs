@@ -11,9 +11,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 01/17/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 11/26/2018
+
+ROBOTS: NOINDEX
 
 ---
 
@@ -21,9 +24,8 @@ ms.reviewer: johnhas
 
 Validation as a Service (VaaS) provides the ability to automate the launching of tests using the **LaunchVaaSTests.ps1** script.
 
-You can use PowerShell for the following workflow:
-
-- Test Pass
+> [!NOTE]
+> Automation is only available for the Test Pass workflow. The Package Validation and Solution Validation workflows are only supported through the VaaS portal.
 
 In this tutorial, you learn how to create a script that:
 
@@ -68,7 +70,7 @@ In this tutorial, you learn how to create a script that:
 
     | Parameter | Description |
     | --- | --- |
-    | VaaSUserld | Your VaaS user ID. |
+    | VaaSUserId | Your VaaS user ID. |
     | VaaSUserPassword | Your VaaS password. |
     | VaaSAccountTenantId | Your VaaS tenant GUID. |
     | VaaSSolutionName | The name of the VaaS solution under which the test pass will run. |
@@ -88,4 +90,4 @@ In this tutorial, you learn how to create a script that:
 To learn more about PowerShell on Azure Stack, review the lastest modules.
 
 > [!div class="nextstepaction"]
-> [Azure Stack Module](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.5.0)
+> [Azure Stack Module](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0)
