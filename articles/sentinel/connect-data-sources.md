@@ -54,7 +54,7 @@ The following data collection methods are supported by Azure Sentinel:
         - [Fortinet](connect-fortinet.md)
         - [Palo Alto](connect-paloalto.md)
     - Proxy servers
-        - [Other CEF appliances](connect-cef.md)
+        - [Other CEF appliances](connect-common-event-format.md)
         - [Other Syslog appliances](connect-syslog.md)
     - DLP solutions
     - [Threat intelligence providers](connect-threat-intelligence.md)
