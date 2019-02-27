@@ -67,9 +67,9 @@ Select your cluster name from the [**HDInsight clusters** page](#showClusters). 
 
 - **Monitoring menu**
   - **Alerts**: Manage the alerts and actions.
-  - **Metrics**: Monitor the cluster metrics in Azure Log Analytics.
+  - **Metrics**: Monitor the cluster metrics in Azure Monitor logs.
   - **Diagnosis settings**: Settings on where to store the diagnosis metrics.
-  - **Operations Management Suite**:  Monitor your cluster in Azure Operations Management Suite (OMS) and Azure Log Analytics.
+  - **Operations Management Suite**:  Monitor your cluster in Azure Operations Management Suite (OMS) and Azure Monitor logs.
 
 - **Support + troubleshooting menu**
   - **Resource health**: See [Azure resource health overview](../service-health/resource-health-overview.md).
