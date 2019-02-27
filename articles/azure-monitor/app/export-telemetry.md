@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 02/26/2019
 ms.author: mbullwin
 ---
 # Export telemetry from Application Insights
@@ -31,7 +31,7 @@ After Continuous Export copies your data to storage (where it can stay for as lo
 
 Continuous Export **does not support** the following Azure storage features/configurations:
 
-* Use of [VNET/Azure Storage firewalls](https://docs.microsoft.com/azure/storage/common/storage-network-security) in conjuntion with Azure Blob storage.
+* Use of [VNET/Azure Storage firewalls](https://docs.microsoft.com/azure/storage/common/storage-network-security) in conjunction with Azure Blob storage.
 
 * [Immutable storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) for Azure Blob storage.
 
@@ -144,7 +144,7 @@ On a small scale, you can write some code to pull apart your data, read it into 
 For a larger code sample, see [using a worker role][exportasa].
 
 ## <a name="delete"></a>Delete your old data
-Please note that you are responsible for managing your storage capacity and deleting the old data if necessary.
+You are responsible for managing your storage capacity and deleting the old data if necessary.
 
 ## If you regenerate your storage key...
 If you change the key to your storage, continuous export will stop working. You'll see a notification in your Azure account.
@@ -181,7 +181,7 @@ On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdin
 * *How many blobs should I see in the storage?*
 
   * For every data type you selected to export, a new blob is created every minute (if data is available).
-  * In addition, for applications with high traffic, additional partition units are allocated. In this case each unit creates a blob every minute.
+  * In addition, for applications with high traffic, additional partition units are allocated. In this case, each unit creates a blob every minute.
 * *I regenerated the key to my storage or changed the name of the container, and now the export doesn't work.*
 
     Edit the export and open the export destination blade. Leave the same storage selected as before, and click OK to confirm. Export will restart. If the change was within the past few days, you won't lose data.

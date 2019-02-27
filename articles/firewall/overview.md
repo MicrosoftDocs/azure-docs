@@ -50,7 +50,7 @@ Inbound network traffic to your firewall public IP address is translated (Destin
 
 ### Azure Monitor logging
 
-All events are integrated with Azure Monitor, allowing you to archive logs to a storage account, stream events to your Event Hub, or send them to Log Analytics.
+All events are integrated with Azure Monitor, allowing you to archive logs to a storage account, stream events to your Event Hub, or send them to Azure Monitor logs.
 
 ## Known issues
 
