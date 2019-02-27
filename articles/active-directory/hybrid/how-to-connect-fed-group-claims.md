@@ -112,33 +112,33 @@ Group claims can also be configured in the [Optional Claims](../../active-direct
 
  2. Enable group membership claims by changing the groupMembershipClaim
  
- The valid values are:
+    The valid values are:
 
- - "All"
- - "SecurityGroup"
- - "DistributionList"
- - "DirectoryRole"
+    - "All"
+    - "SecurityGroup"
+    - "DistributionList"
+    - "DirectoryRole"
 
- For example:
+    For example:
 
- ```
- "groupMembershipClaims": "SecurityGroup"
- ```
+    ```
+    "groupMembershipClaims": "SecurityGroup"
+    ```
  
- By default Group ObjectIDs will be emitted in the group claim value.  To modify the claim value to contain on premises group attributes, or to change the claim type to role, use OptionalClaims configuration as follows:
+    By default Group ObjectIDs will be emitted in the group claim value.  To modify the claim value to contain on premises group attributes, or to change the claim type to role, use OptionalClaims configuration as follows:
 
  3. Set group name configuration optional claims.
 
- If you want to groups in the token to contain the on premises AD group attributes in the optional claims section specify which token type optional claim should be applied to, the name of optional claim requested and any additional properties desired.  Multiple token types can be listed:
+    If you want to groups in the token to contain the on premises AD group attributes in the optional claims section specify which token type optional claim should be applied to, the name of optional claim requested and any additional properties desired.  Multiple token types can be listed:
 
- - idToken for the OIDC ID token
- - accessToken for the OAuth/OIDC access token
- - Saml2Token for SAML tokens.
+    - idToken for the OIDC ID token
+    - accessToken for the OAuth/OIDC access token
+    - Saml2Token for SAML tokens.
 
- >[!NOTE]
- >The Saml2Token type applies to both SAML1.1 and SAML2.0 format tokens  
+    >[!NOTE]
+    >The Saml2Token type applies to both SAML1.1 and SAML2.0 format tokens  
 
-For each relevant token type, modify the the groups claim to use the OptionalClaims section in the manifest. The OptionalClaims schema is as follows:
+    For each relevant token type, modify the the groups claim to use the OptionalClaims section in the manifest. The OptionalClaims schema is as follows:
 
  ```
  {
