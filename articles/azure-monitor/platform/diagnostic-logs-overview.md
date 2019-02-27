@@ -17,7 +17,7 @@ ms.subservice: logs
 * **Tenant logs** - these logs come from tenant-level services that exist outside of an Azure subscription, such as Azure Active Directory logs.
 * **Resource logs** - these logs come from Azure services that deploy resources within an Azure subscription, such as Network Security Groups or Storage Accounts.
 
-    ![Resource diagnostics logs vs other types of logs ](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
+    ![Resource diagnostics logs vs other types of logs](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
 
 The content of these logs varies by the Azure service and resource type. For example, Network Security Group rule counters and Key Vault audits are two types of diagnostic logs.
 
