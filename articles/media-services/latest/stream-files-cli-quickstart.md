@@ -19,9 +19,9 @@ ms.author: juliako
 
 # Quickstart: Stream video files - CLI
 
-This quickstart shows you how easy it is to encode and start streaming videos on a wide variety of browsers and devices by using Azure Media Services. You can specify input content by using HTTPS URLs, SAS URLs, or paths to files in Azure Blob storage.
+This quickstart shows how easy it is to encode and stream videos on a wide variety of browsers and devices by using Azure Media Services. You can specify input content by using HTTPS URLs, SAS URLs, or paths to files in Azure Blob storage.
 
-The sample in this article encodes content that you make accessible via an HTTPS URL. Media Services doesn't currently support chunked transfer encoding over HTTPS URLs.
+The sample in this article encodes content that you make accessible via an HTTPS URL. Media Services v3 doesn't currently support chunked transfer encoding over HTTPS URLs.
 
 By the end of this quickstart, you'll be able to stream a video.  
 
@@ -78,9 +78,9 @@ You get a response similar to this:
 }
 ```
 
-## Start streaming endpoint
+## Start the streaming endpoint
 
-The following CLI starts the default **Streaming Endpoint**.
+The following CLI command starts the default *streaming endpoint*.
 
 ```azurecli
 az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
@@ -124,7 +124,7 @@ If the streaming endpoint is already running, you get this message:
 
 ## Create a transform for Adaptive Bitrate Encoding
 
-Create a **transform** to configure common tasks for encoding or analyzing videos. In this example, we do an adaptive bitrate encoding. Then, we submit a **job** under the transform that we created. The job is the actual request to Media Services to apply the transform to a given video or audio content input.
+Create a *transform* to configure common tasks for encoding or analyzing videos. In this example, we do adaptive bitrate encoding. Then, we submit a *job* under the transform that we created. The job is the actual request to Media Services to apply the transform to the given video or audio content input.
 
 ```azurecli
 az ams transform create --name testEncodingTransform --preset AdaptiveStreaming --description 'a simple Transform for Adaptive Bitrate Encoding' -g amsResourceGroup -a amsaccount
@@ -156,7 +156,7 @@ You get a response similar to this:
 
 ## Create an output asset
 
-Create an output **asset** that's used as the encoding job's output.
+Create an output *asset* that's used as the encoding job's output.
 
 ```azurecli
 az ams asset create -n testOutputAssetName -a amsaccount -g amsResourceGroup
@@ -183,11 +183,11 @@ You get a response that's similar to the following:
 
 ## Start a job by using HTTPS input
 
-When you submit jobs to process your videos, you have to tell Media Services where to find the input video. One option is to specify an HTTPS URL as a job input (as shown in this example).
+When you submit jobs to process your videos, you have to tell Media Services where to find the input video. One option is to specify an HTTPS URL as the job input, as shown in this example.
 
-When you run `az ams job start`, you can set a label on the job's output. The label can later be used to identify what the output asset is for.
+When you run `az ams job start`, you can set a label on the job's output. The label can then be used to identify what the output asset is for.
 
-- If you assign a value to the label, set ‘--output-assets’ to “assetname=label”
+- If you assign a value to the label, set ‘--output-assets’ to “assetname=label”.
 - If you don't assign a value to the label, set ‘--output-assets’ to “assetname=”.
   Notice that we add "=" to the `output-assets`.
 
@@ -232,15 +232,15 @@ You get a response similar to this:
 
 ### Check status
 
-In about five minutes, check the status of the job. It should be "Finished." It's not finished yet, check again in a few minutes. Once it is "Finished," go to the next step and create a **streaming locator**.
+In about five minutes, check the status of the job. It should be "Finished." It's not finished yet, check again in a few minutes. Once it's finished, go to the next step and create a *streaming locator*.
 
 ```azurecli
 az ams job show -a amsaccount -g amsResourceGroup -t testEncodingTransform -n testJob001
 ```
 
-## Create a Streaming Locator and get a path
+## Create a streaming locator and get a path
 
-After the encoding is complete, the next step is to make the video in the output asset available to clients for playback. To do this, first create a **Streaming Locator**. Then, build a streaming URLs that clients can use.
+After the encoding is complete, the next step is to make the video in the output asset available to clients for playback. To do this, first create a *streaming locator*. Then, build streaming URLs that clients can use.
 
 ### Create a streaming locator
 
@@ -314,8 +314,7 @@ Copy the HTTP Live Streaming (HLS) path. In this case, it's `/e01b2be1-5ea4-42ca
 ```azurecli
 az ams streaming-endpoint list -a amsaccount -g amsResourceGroup -n default
 ```
-
-Copy the `hostName` value. In this case: `amsaccount-usw22.streaming.media.azure.net`.
+Copy the `hostName` value. In this case, it's `amsaccount-usw22.streaming.media.azure.net`.
 
 ### Assemble the URL
 
@@ -330,12 +329,12 @@ Copy the `hostName` value. In this case: `amsaccount-usw22.streaming.media.azure
 To test the stream, this article uses Azure Media Player.
 
 > [!NOTE]
-> If a player is hosted on an https site, make sure to change the URL to "https".
+> If a player is hosted on an HTTPS site, make sure to start the URL with "https".
 
-1. Open a web browser and navigate to [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
+1. Open a web browser and go to [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
 2. In the **URL** box, paste the URL that you built in the previous section.
 
-  You can paste the URL in HLS, Dash, or Smooth format, and Azure Media Player will automatically use an appropriate streaming protocol for playback on your device.
+You can paste the URL in HLS, Dash, or Smooth format,and Azure Media Player will automatically use an appropriate streaming protocol for playback on your device.
 3. Select **Update Player**.
 
 >!NOTE
