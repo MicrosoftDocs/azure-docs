@@ -48,10 +48,10 @@ Specifically, here is a mapping of how you should think about them:
  
 Here is another view of the same table that will help you visualize things further:
  
-**Batch AI hierarchy**
+### Batch AI hierarchy
 ![Flow diagram](./media/overview-what-happened-batch-ai/batchai-heirarchy.png) 
  
-**Azure Machine Learning service hierarchy**
+### Azure Machine Learning service hierarchy
 ![Flow diagram](./media/overview-what-happened-batch-ai/azure-machine-learning-service-heirarchy.png) 
 
 ## Platform capabilities
