@@ -307,7 +307,7 @@ your plan. From the **Type** list, select the plan type:
 
    | Plan type | Description |
    |-----------|-------------|
-   | **Process** | For standalone plans |
+   | **Process** | For standalone or combined plans |
    | **Connect** | For Connect plans |
    | **Disconnect** | For Disconnect plans |
    |||
@@ -327,9 +327,10 @@ on the design tool's toolbar, choose **Flow**.
 1. Choose the first screen in the flow. Drag and draw 
 a connection to the next screen in the flow. 
 
-1. For each screen, specify the Attention Identifier (**AID key**) 
-and **Fixed Text** that moves the flow to the next screen.
-You might have just the AID key, or both the AID key and fixed text. 
+1. For each screen, specify the Attention Identifier 
+in the **AID Key** property and **Fixed Text** that 
+moves the flow to the next screen. You might have 
+just the AID key, or both the AID key and fixed text. 
 
 After you finish your navigation plan, 
 you can [define methods in the next mode](#define-method).
@@ -379,7 +380,7 @@ Connect plan, Disconnect plan, and a combined plan might look:
 
   ![Combined plan](./media/connectors-create-api-3270/combined-plan.png)
 
-#### Example - identify repeated screens
+#### Example: Identify repeated screens
 
 For the connector to navigate and differentiate between screens, 
 you usually find unique text on a screen that you can use as an 
@@ -413,49 +414,59 @@ the metadata file, or Host Integration Designer XML (HIDX) file, which now
 has the method definitions to use for creating and running an action for 
 the HIS 3270 connector.
 
-1. On the design tool's toolbar, choose **Methods** 
-so that you enter Methods mode. 
+1. On the 3270 Design Tool's toolbar, choose 
+**Methods** so that you enter Methods mode. 
 
-1. In the **Navigation** pane, select the screen that 
-has the input fields you want.
+1. In the **Navigation** pane, select the 
+screen that has the input fields you want.
 
 1. To add the first input parameter for your method, 
-in the 3270 emulator screen, choose the field you 
-want as the first input, and then choose **Input**. 
+follow these steps:
 
-   To add more parameters, repeat this step for each parameter.
+   1. In the **Capture** pane, on the 3270 emulator screen, 
+   choose the field you want as the first input. 
+
+   1. On the design tool's toolbar, choose **Input Field**. 
+
+   To add more input parameters, repeat these steps for each parameter.
 
 1. To add the first output parameter for your method, 
-in the 3270 emulator screen, choose the field you want 
-as the first output, and then choose **Output**.
+follow these steps:
 
-1. After you add all your parameters for your method, 
-define the properties for each parameter:
+   1. In the **Capture** pane, on the 3270 emulator screen, 
+   choose the field you want as the first output.
+   
+   1. On the design tool's toolbar, choose **Output Field**.
+   
+   To add more output parameters, repeat these steps for each parameter.
+
+1. After you add all your method's parameters, 
+define these properties for each parameter:
 
    | Property name | Possible values | 
    |---------------|-----------------|
-   | **Data type** | Byte, Date Time, Decimal, Int, Long, Short, String |
-   | **Field fill technique** | Parameters support these fill types, filling with blanks if necessary: <p><p>- **Type**: Enter characters sequentially into the field. <p>- **Fill**: Replace the field's contents with characters, filling with blanks if necessary. <p>- **EraseEofType**: Clear the field, and then enter characters sequentially into the field. |
-   | **Format string** | Several parameter data types use a format string, which informs the 3270 connector how to convert text from the screen into a .NET data type: <p><p>- **DateTime**: The DateTime format string follows the [.NET custom date and time format strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). For example, the date `06/30/2019` uses the format string `MM/dd/yyyy`. <p>- **Decimal**: The decimal format string uses the [COBOL Picture clause](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). For example, the number `100.35` uses the format string `999V99`. |
+   | **Data Type** | Byte, Date Time, Decimal, Int, Long, Short, String |
+   | **Field Fill Technique** | Parameters support these fill types, filling with blanks if necessary: <p><p>- **Type**: Enter characters sequentially into the field. <p>- **Fill**: Replace the field's contents with characters, filling with blanks if necessary. <p>- **EraseEofType**: Clear the field, and then enter characters sequentially into the field. |
+   | **Format String** | Some parameter data types use a format string, which informs the 3270 connector how to convert text from the screen into a .NET data type: <p><p>- **DateTime**: The DateTime format string follows the [.NET custom date and time format strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). For example, the date `06/30/2019` uses the format string `MM/dd/yyyy`. <p>- **Decimal**: The decimal format string uses the [COBOL Picture clause](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). For example, the number `100.35` uses the format string `999V99`. |
    |||
 
-The design tool saves all this information to a file that has a 
-RAP (.rap) extension. You can save to this file during any mode. 
-Before you can test your method, save to this file after defining 
-your method. To view a sample RAP file, from the design tool, 
-browse to this folder in the design tool's installation location 
-and open the "WoodgroveBank.rap" file:
+The design tool saves all this information to a file that has a RAP 
+(.rap) extension. You can save to this RAP file during any mode. 
+Before you can test your method, save your RAP file after defining 
+your method. 
+
+To view a sample RAP file, from the design tool, find the design tool's 
+installation folder, and open the "WoodgroveBank.rap" file:
 
 `..\Program Files\Microsoft Host Integration Server - 3270 Design Tool\SDK\WoodgroveBank.rap`
 
 > [!TIP]
 > 
-> You might get an error when saving changes to the sample .RAP 
-> file or when generating an HIDX file based on the sample file 
-> in the the design tool's installation folder. By default, 
-> the design tool installs in your Program Files folder 
-> without elevated permissions. If you get an error, 
-> try one of these solutions: 
+> You might get an error if you try saving changes to the sample .RAP 
+> file or generating an HIDX file by using the sample RAP file in the 
+> design tool's installation folder. By default, the design tool installs 
+> in your Program Files folder without elevated permissions. If you get 
+> an error, try one of these solutions: 
 > 
 > * Copy the sample file to a different location.
 > * Run the design tool as an administrator.
@@ -463,9 +474,9 @@ and open the "WoodgroveBank.rap" file:
 
 ### Test your method
 
-1. While still in Methods mode, from the design tool's toolbar, 
-choose **Run** or press the F5 key, which runs your method 
-definition against the live host.
+1. To run your method against the live host, 
+while still in Methods mode, press the F5 key, 
+or from the design tool's toolbar, choose **Run**. 
 
 1. Enter values for your parameters, and choose **OK**.
 
@@ -478,23 +489,23 @@ displays the value for your output parameter.
 
 ## Add metadata file to integration account
 
-When you're done, add your HIDX file as a map to your 
-integration account by using the Azure portal. Except 
-for where you select **HIDX** as your map type, you can 
+When you're ready, add your HIDX file as a map to your 
+integration account in the Azure portal. Except for 
+where you select **HIDX** as your map type, you can 
 [follow these similar steps for adding maps](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md). 
 
-In a later section on this page, you learn how to add an HIS 3270 
+In a later section in this topic, you learn how to add an HIS 3270 
 action to your logic app. When you add this action for the first time, 
-you're prompted to create a connection from your logic app to the host server, 
+you're prompted to connect from your logic app to the host server, 
 and provide connection information, such as the names for your integration 
 account and host server. After you create the connection, you can select 
 your previously added HIDX file, the method to run, and the parameters to use.
 
-After you finish all these steps, the action you created is 
-ready for connecting to your IBM mainframe, drive screens 
-for your app, enter data, return results, and so on. 
-You can also continue adding other actions to your logic 
-app for integrating with other apps, services, and systems.
+When you finish all these steps, you can use the action that you create 
+in your logic app for connecting to your IBM mainframe, drive screens for 
+your app, enter data, return results, and so on. You can also continue 
+adding other actions to your logic app for integrating with other apps, 
+services, and systems.
 
 <a name="run-action"></a>
 
