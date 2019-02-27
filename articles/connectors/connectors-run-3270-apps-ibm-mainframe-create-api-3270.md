@@ -15,7 +15,8 @@ tags: connectors
 # Integrate 3270 screen-driven apps on IBM mainframes with Azure by using Azure Logic Apps and HIS 3270 connector
 
 > [!NOTE]
-> This connector is in *public preview*.
+> This connector is in 
+> [*public preview*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 With Azure Logic Apps and the HIS 3270 connector, you can 
 access and run IBM mainframe apps that you usually drive by 
