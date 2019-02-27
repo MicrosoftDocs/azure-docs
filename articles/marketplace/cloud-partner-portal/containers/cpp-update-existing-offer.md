@@ -73,6 +73,9 @@ Use the following steps to update the marketplace metadata associated with your 
 3. Go to the **Marketplace** tab. Use the instructions in the [Publish container offer](./cpp-publish-offer.md) offer article to make metadata changes.
 4. Select **Publish** to start the workflow to publish your changes.
 
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](./cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
+
 ## Compare feature
 
 When you make changes to a published offer, you can use the **Compare** feature to audit the changes that you've made.
