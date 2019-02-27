@@ -30,27 +30,29 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 | Canada East |\* |\* |
 | Central US |Available |May 1, 2019 |
 | China East |\* |\* |
-| China North 1 |\* |\* |
+| China East 2 |\* |\* |
+| China North |\* |\* |
+| China North 2 |\* |\* |
 | East Asia |Available |May 1, 2019 |
-| East US 1 |Available |March 16, 2019 |
+| East US |Available |March 16, 2019 |
 | East US 2 |Available |March 16, 2019 |
 | France Central |March 1, 2019 |May 1, 2019 |
 | Germany Central |\* |\* |
 | India Central |Available |May 1, 2019 |
-| India South 1 |March 1, 2019 |June 15, 2019 |
+| India South |March 1, 2019 |June 15, 2019 |
 | Japan East |Available |May 1, 2019 |
 | Japan West |Available |June 15, 2019 |
 | Korea Central |March 1, 2019 |May 1, 2019 |
-| Korea South 1 |March 1, 2019 |June 15, 2019 |
+| Korea South |March 1, 2019 |June 15, 2019 |
 | North Central US |March 1, 2019 |June 15, 2019 |
 | North Europe |Available |March 16, 2019 |
 | South Central US |Available |May 1, 2019 |
 | South East Asia |Available |March 16, 2019 |
 | UK South |March 1, 2019 |May 1, 2019 |
-| UK West 1 |March 1, 2019 |June 15, 2019 |
+| UK West |March 1, 2019 |June 15, 2019 |
 | West Central US |\* |\* |
 | West Europe |Available |March 16, 2019 |
-| West US 1 |March 1, 2019 |June 15, 2019 |
+| West US |March 1, 2019 |June 15, 2019 |
 | West US 2 |Available |March 16, 2019 |
 
 ## Automatic upgrade process
