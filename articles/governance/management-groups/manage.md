@@ -140,7 +140,7 @@ Get-AzManagementGroup -GroupName 'Contoso'
 To return a specific management group and all the levels of the hierarchy under it, use **-Expand** and **-Recurse** parameters.  
 
 ```azurepowershell-interactive
-PS C:\> $response = Get-AzureRmManagementGroup -GroupName TestGroupParent -Expand -Recurse
+PS C:\> $response = Get-AzManagementGroup -GroupName TestGroupParent -Expand -Recurse
 PS C:\> $response
 
 Id                : /providers/Microsoft.Management/managementGroups/TestGroupParent
@@ -331,7 +331,7 @@ When referencing management groups from other Resource Provider's actions, use t
 An example of using this path is when assigning a new role assignment to a management group in PowerShell
 
 ```powershell-interactive
-New-AzureRmRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
+New-AzRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
 ```
 
 The same scope path is used when retrieving a policy definition at a management group.
