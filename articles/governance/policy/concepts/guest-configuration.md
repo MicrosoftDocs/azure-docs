@@ -92,8 +92,8 @@ The following table shows a list of supported operating system on Azure images:
 
 > [!IMPORTANT]
 > Guest Configuration can audit any server running a supported OS.  If you would like to audit
-> servers that use a custom image, you will need to clone the DeployIfNotExists definition
-> and modify the If section to include your image properties.
+> servers that use a custom image, you need to clone the **DeployIfNotExists** definition
+> and modify the **If** section to include your image properties.
 
 ### Unsupported client types
 
