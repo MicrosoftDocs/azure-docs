@@ -16,7 +16,7 @@ This article explains about physical and logical partitions in Azure Cosmos DB, 
 
 ## Logical partitions
 
-A logical partition consists of a set of items with the same partition key. For example, consider a container where all the items contain a `City` property, then you can use `City` as the partition key for the container. Groups of items with specific values for the `City` such as, "London", "Paris", "NYC" etc. will form a distinct logical partition.
+A logical partition consists of a set of items with the same partition key. For example, consider a container where all the items contain a `City` property, then you can use `City` as the partition key for the container. Groups of items with specific values for the `City` such as, "London", "Paris", "NYC" etc. will form a distinct logical partition. You don't have to worry about deleting a partition when the underlying data is deleted. 
 
 In Azure Cosmos DB, a container is the fundamental unit of scalability. The data added to the container and the throughput that you provision on the container are automatically (horizontally) partitioned across a set of logical partitions. They are partitioned based on the partition key you specify for the Cosmos container. To learn more, see [how to specify the partition key for your Cosmos container](how-to-create-container.md) article.
 
