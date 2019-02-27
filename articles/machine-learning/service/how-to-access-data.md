@@ -44,19 +44,21 @@ ds = ws.get_default_datastore()
 ```
 
 ### Register a datastore
-If you have existing Azure Storage, you can register it as a datastore on your workspace.  All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form register_azure_*. The following examples show you to register an Azure Blob Container and Azure File Share as a datastore.
+If you have existing Azure Storage, you can register it as a datastore on your workspace.  All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form register_azure_*. 
 
-#### Azure Blob Container Datastore
-To register an Azure Blob Container datastore, use [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-:)
+The following examples show you to register an Azure Blob Container or an Azure File Share as a datastore.
 
-```Python
-ds = Datastore.register_azure_blob_container(workspace=ws, 
-                                             datastore_name='your datastore name', 
-                                             container_name='your azure blob container name',
-                                             account_name='your storage account name', 
-                                             account_key='your storage account key',
-                                             create_if_not_exists=True)
-```
++ For an **Azure Blob Container Datastore**, use [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-:)
+
+  ```Python
+  ds = Datastore.register_azure_blob_container(workspace=ws, 
+                                               datastore_name='your datastore name', 
+                                               container_name='your azure blob container name',
+                                               account_name='your storage account name', 
+                                               account_key='your storage account key',
+                                               create_if_not_exists=True)
+  ```
+
 
 #### Azure File Share Datastore
 To register an Azure File Share datastore, use [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)
