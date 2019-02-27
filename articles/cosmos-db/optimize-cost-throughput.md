@@ -154,7 +154,7 @@ The following steps help you to make your solutions highly scalable and cost-eff
 
 2. One method for estimating the amount of reserved throughput required by your application is to record the request unit RU charge associated with running typical operations against a representative Azure Cosmos container or database used by your application and then estimate the number of operations you anticipate to perform each second. Be sure to measure and include typical queries and their usage as well. To learn how to estimate RU costs of queries programmatically or using portal see [Optimizing the cost of queries](online-backup-and-restore.md). 
 
-3. Another way to get operations and their costs in RUs is by enabling Log Analytics, which will give you the breakdown of operation/duration and the request charge. Azure Cosmos DB provides request charge for every operation, so every operation charge can be stored back from the response and then used for analysis. 
+3. Another way to get operations and their costs in RUs is by enabling Azure Monitor logs, which will give you the breakdown of operation/duration and the request charge. Azure Cosmos DB provides request charge for every operation, so every operation charge can be stored back from the response and then used for analysis. 
 
 4. You can elastically scale up and down provisioned throughput as you need to accommodate your workload needs. 
 

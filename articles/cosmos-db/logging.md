@@ -11,11 +11,13 @@ ms.custom: seodec18
 ---
 # Diagnostic logging in Azure Cosmos DB 
 
-After you start to use one or more Azure Cosmos DB databases, you may want to monitor how and when your databases are accessed. This article provides an overview of the logs that are available on the Azure platform. You learn how to enable diagnostic logging for monitoring purposes to send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), how to stream logs to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and how to export logs to [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/).
+After you start to use one or more Azure Cosmos DB databases, you may want to monitor how and when your databases are accessed. This article provides an overview of the logs that are available on the Azure platform. You learn how to enable diagnostic logging for monitoring purposes to send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), how to stream logs to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and how to export logs to [Azure Monitor logs](https://azure.microsoft.com/services/log-analytics/).
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Logs available in Azure
 
-Before we talk about how to monitor your Azure Cosmos DB account, let's clarify a few things about logging and monitoring. There are different types of logs on the Azure platform. There are [Azure Activity Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Azure metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), events, heartbeat monitoring, operations logs, and so on. There is a plethora of logs. You can see the complete list of logs in [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/) in the Azure portal. 
+Before we talk about how to monitor your Azure Cosmos DB account, let's clarify a few things about logging and monitoring. There are different types of logs on the Azure platform. There are [Azure Activity Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Azure metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), events, heartbeat monitoring, operations logs, and so on. There is a plethora of logs. You can see the complete list of logs in [Azure Monitor logs](https://azure.microsoft.com/services/log-analytics/) in the Azure portal. 
 
 The following image shows the different kinds of Azure logs that are available:
 
@@ -46,7 +48,7 @@ Activity Logs (control plane operations) can be richer in nature and can include
 
 Azure Diagnostic Logs are emitted by a resource and provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type. Resource-level diagnostic logs also differ from Guest OS-level diagnostic logs. Guest OS diagnostic logs are collected by an agent that's running inside a virtual machine or other supported resource type. Resource-level diagnostic logs require no agent and capture resource-specific data from the Azure platform itself. Guest OS-level diagnostic logs capture data from the operating system and applications that are running on a virtual machine.
 
-![Diagnostic logging to Storage, Event Hubs, or Log Analytics](./media/logging/azure-cosmos-db-logging-overview.png)
+![Diagnostic logging to Storage, Event Hubs, or Azure Monitor logs](./media/logging/azure-cosmos-db-logging-overview.png)
 
 ### What is logged by Azure Diagnostic Logs?
 
@@ -74,7 +76,7 @@ To enable diagnostic logging in the Azure portal, do the following steps:
 
     * **Archive to a storage account**: To use this option, you need an existing storage account to connect to. To create a new storage account in the portal, see [Create a storage account](../storage/common/storage-create-storage-account.md) and follow the instructions to create an Azure Resource Manager, general-purpose account. Then, return to this page in the portal to select your storage account. It might take a few minutes for newly created storage accounts to appear in the drop-down menu.
     * **Stream to an event hub**: To use this option, you need an existing Event Hubs namespace and event hub to connect to. To create an Event Hubs namespace, see [Create an Event Hubs namespace and an event hub by using the Azure portal](../event-hubs/event-hubs-create.md). Then, return to this page in the portal to select the Event Hubs namespace and policy name.
-    * **Send to Log Analytics**: To use this option, either use an existing workspace or create a new Log Analytics workspace by following the steps to [Create a new workspace](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) in the portal. For more information about viewing your logs in Log Analytics, see View logs in Log Analytics.
+    * **Send to Log Analytics**: To use this option, either use an existing workspace or create a new Log Analytics workspace by following the steps to [Create a new workspace](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) in the portal. For more information about viewing your logs in Azure Monitor logs, see View logs in Azure Monitor logs.
     * **Log DataPlaneRequests**: Select this option to log back-end requests from the underlying Azure Cosmos DB distributed platform for SQL, Graph, MongoDB, Cassandra, and Table API accounts. If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are auto-deleted after the retention period expires.
     * **Log MongoRequests**: Select this option to log user-initiated requests from the Azure Cosmos DB front end for serving Cosmos accounts configured with Azure Cosmos DB's API for MongoDB. If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are auto-deleted after the retention period expires.
     * **Metric Requests**: Select this option to store verbose data in [Azure metrics](../azure-monitor/platform/metrics-supported.md). If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are auto-deleted after the retention period expires.
@@ -344,22 +346,22 @@ Diagnostic Logs are made available in your account for two hours from the time t
 
 
 <a id="#view-in-loganalytics"></a>
-## View logs in Log Analytics
+## View logs in Azure Monitor logs
 
-If you selected the **Send to Log Analytics** option when you turned on diagnostic logging, diagnostic data from your container is forwarded to Log Analytics within two hours. When you look at Log Analytics immediately after you turn on logging, you won't see any data. Just wait two hours and try again. 
+If you selected the **Send to Log Analytics** option when you turned on diagnostic logging, diagnostic data from your container is forwarded to Azure Monitor logs within two hours. When you look at Azure Monitor logs immediately after you turn on logging, you won't see any data. Just wait two hours and try again. 
 
-Before you view your logs, check and see if your Log Analytics workspace has been upgraded to use the new Log Analytics query language. To check, open the [Azure portal](https://portal.azure.com), select **Log Analytics** on the far left, then select the workspace name as shown in the next image. The **Log Analytics workspace** page is displayed:
+Before you view your logs, check and see if your Log Analytics workspace has been upgraded to use the new Kusto query language. To check, open the [Azure portal](https://portal.azure.com), select **Log Analytics workspaces** on the far left, then select the workspace name as shown in the next image. The **Log Analytics workspace** page is displayed:
 
-![Log Analytics in the Azure portal](./media/logging/azure-portal.png)
+![Azure Monitor logs in the Azure portal](./media/logging/azure-portal.png)
 
 >[!NOTE]
 >OMS workspaces are now referred to as Log Analytics workspaces.  
 
 If you see the following message on the **Log Analytics workspace** page, your workspace hasn't been upgraded to use the new language. For more information on how to upgrade to the new query language, see [Upgrade your Azure Log Analytics workspace to new log search](../log-analytics/log-analytics-log-search-upgrade.md). 
 
-![Log Analytics upgrade message](./media/logging/upgrade-notification.png)
+![Azure Monitor logs upgrade message](./media/logging/upgrade-notification.png)
 
-To view your diagnostic data in Log Analytics, open the **Log Search** page from the left menu or the **Management** area of the page, as shown in the following image:
+To view your diagnostic data in Azure Monitor logs, open the **Log Search** page from the left menu or the **Management** area of the page, as shown in the following image:
 
 ![Log search options in the Azure portal](./media/logging/log-analytics-open-log-search.png)
 
@@ -424,15 +426,15 @@ To learn about the meaning of the data that's returned by each log search, see [
     AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , toint(duration_s)/1000 | render timechart
     ```
 
-For more information about how to use the new Log Search language, see [Understand log searches in Log Analytics](../log-analytics/log-analytics-log-search-new.md). 
+For more information about how to use the new Log Search language, see [Understand log searches in Azure Monitor logs](../log-analytics/log-analytics-log-search-new.md). 
 
 ## <a id="interpret"></a>Interpret your logs
 
-Diagnostic data that's stored in Azure Storage and Log Analytics uses a similar schema. 
+Diagnostic data that's stored in Azure Storage and Azure Monitor logs uses a similar schema. 
 
 The following table describes the content of each log entry.
 
-| Azure Storage field or property | Log Analytics property | Description |
+| Azure Storage field or property | Azure Monitor logs property | Description |
 | --- | --- | --- |
 | **time** | **TimeGenerated** | The date and time (UTC) when the operation occurred. |
 | **resourceId** | **Resource** | The Azure Cosmos DB account for which logs are enabled.|
@@ -459,4 +461,4 @@ The following table describes the content of each log entry.
    - [What is Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - Read [Download metrics and diagnostic logs from Azure Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs).
-- Read [Understand log searches in Log Analytics](../log-analytics/log-analytics-log-search-new.md).
+- Read [Understand log searches in Azure Monitor logs](../log-analytics/log-analytics-log-search-new.md).
