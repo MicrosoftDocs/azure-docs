@@ -4,7 +4,7 @@ description: Learn how to buy an App Service certificate and bind it to your App
 services: app-service
 documentationcenter: .net
 author: cephalin
-manager: cfowler
+manager: jpconnoc
 tags: buy-ssl-certificates
 
 ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
@@ -128,16 +128,15 @@ Rekeying your certificate rolls the certificate with a new certificate issued fr
 
 ## Renew certificate
 
-To turn on automatic renewal of your certificate at any time, select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then click **Auto Renew Settings** in the left navigation. 
+To turn on automatic renewal of your certificate at any time, select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then click **Auto Renew Settings** in the left navigation.
 
 Select **On** and click **Save**. Certificates can start automatically renewing 60 days before expiration if you have automatic renewal turned on.
 
-![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
+![renew certificate automatically](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
 
 To manually renew the certificate instead, click **Manual Renew**. You can request to manually renew your certificate 60 days before expiration.
 
-> [!NOTE]
-> The renewed certificate is not automatically bound to your app, whether you renewed it manually or it renewed automatically. To bind it to your app, see [Renew certificates](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
+An automatically or manually renewed certificate is bound to your app automatically within 48 hours. To bind it to your app manually, see [Renew certificates](./app-service-web-tutorial-custom-ssl.md#renew-certificates).
 
 ## Automate with scripts
 
