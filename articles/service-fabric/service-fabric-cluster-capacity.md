@@ -24,9 +24,9 @@ For any production deployment, capacity planning is an important step. Here are 
 * The properties of each of node type (size, primary, internet facing, number of VMs, etc.)
 * The reliability and durability characteristics of the cluster
 
-> [!NOTE]
-> You should minimally review all **Not Allowed** upgrade policy values during planning. This is to ensure that you set the values appropriately and to mitigate burning down of your cluster later because of unchangeable system configuration settings. 
-> 
+> [!NOTE]
+> You should minimally review all **Not Allowed** upgrade policy values during planning. This is to ensure that you set the values appropriately and to mitigate burning down of your cluster later because of unchangeable system configuration settings. 
+> 
 
 Let us briefly review each of these items.
 

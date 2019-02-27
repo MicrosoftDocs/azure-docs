@@ -16,8 +16,6 @@
     href: powershell-samples.md
 - name: Concepts
   items:
-  - name: Planning and design for VPN Gateway
-    href: vpn-gateway-plan-design.md
   - name: About VPN Gateway settings
     href: vpn-gateway-about-vpn-gateway-settings.md
   - name: About VPN devices

@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2018
+ms.date: 02/22/2019
 ms.author: ramankum
 ms.subservice: disks
 ---
@@ -27,11 +27,8 @@ Azure managed disks offers four storage type options: Ultra solid state drives (
 
 ## Prerequisites
 
-* Because the conversion requires a restart of the virtual machine (VM), you should schedule the migration of your disks storage during a pre-existing maintenance window. 
-* If you're using an unmanaged disk, first [convert it to a managed disk](convert-unmanaged-to-managed-disks.md) to allow you to switch it between the storage types. 
-* The examples in this article require the Azure PowerShell module version 6.0.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). Run [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) to create a connection with Azure.
-
-* The examples in this article require the Azure PowerShell module version 6.0.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). Run [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) to create a connection with Azure.
+* Because the conversion requires a restart of the virtual machine (VM), you should schedule the migration of your disks storage during a pre-existing maintenance window.
+* If you're using an unmanaged disk, first [convert it to a managed disk](convert-unmanaged-to-managed-disks.md) to allow you to switch it between the storage types.
 
 ## Convert all the managed disks of a VM from standard to premium
 

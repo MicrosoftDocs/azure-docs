@@ -40,6 +40,16 @@ If the provider shows as *NotRegistered*, register the provider using the [az pr
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
+## Preview limitations
+
+While this feature is in preview, the following regions are supported for deployments:
+
+* Australia East (australiaeast)
+* East US (eastus)
+* West Central US (westcentralus)
+* West Europe (westeurope)
+* West US (westus)
+
 ## Launch Azure Cloud Shell
 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
