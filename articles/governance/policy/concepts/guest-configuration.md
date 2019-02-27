@@ -111,7 +111,7 @@ To communicate with the Guest Configuration resource provider in Azure,
 virtual machines will require outbound access to Azure datacenters on port `443`.
 If you are using a private virtual network in Azure and do not allow outbound traffic,
 exceptions must be configured using
-[Network Security Group](../../../virtual-network-manage-network-security-group.md#create-a-security-rule) rules.
+[Network Security Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules.
 At this time, a service tag does not exist for Azure Policy Guest Configuration.
 
 For IP address lists you can download [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This file is updated weekly, and has the currently deployed ranges and any upcoming changes to the IP ranges.  You will only need to allow outbound access to the IPs in the regions where your VMs are deployed.
