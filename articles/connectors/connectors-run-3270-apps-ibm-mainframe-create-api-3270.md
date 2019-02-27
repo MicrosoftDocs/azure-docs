@@ -49,28 +49,32 @@ about how the host applications work.
 
 For these scenarios, you can create .NET apps that programmatically 
 drive the 3270 screens without making changes to the host. To create 
-these apps, you can use the Session Integrator feature, which is a .NET 
-library for writing custom apps that can access 3270 screen-driven data, 
-also known as "screen scraping".
+these apps, you can use the Session Integrator feature, which is 
+a .NET library for writing custom apps that can access 3270 
+screen-driven data, also known as "screen scraping".
 
-To extend these scenarios, the HIS 3270 connector in Azure Logic Apps 
-works with the standalone HIS 3270 Design Tool, which you use to record, 
-or "capture", the host screens used for a specific task, define the 
-navigation flow through your mainframe app for that task, and define 
-the methods with input and output parameters for that task. The design 
-tool converts that information into metadata that the 3270 connector uses 
-when calling an action that represents that task from your logic app. 
+To extend these scenarios, the HIS 3270 connector in Azure 
+Logic Apps works with the standalone HIS 3270 Design Tool, 
+which you use to record, or "capture", the host screens 
+used for a specific task, define the navigation flow through 
+your mainframe app for that task, and define the methods with 
+input and output parameters for that task. The design tool 
+converts that information into metadata that the 3270 
+connector uses when calling an action that represents 
+that task from your logic app. 
 
-After you generate the metadata file from the design tool, you add the file 
-to an integration account in Azure. That way, your logic app can access the 
-metadata about your app when you add a 3270 connector action. The connector 
-reads the metadata file from your integration account and dynamically presents 
-the parameters for the 3270 action.
+After you generate the metadata file from the design tool, 
+you add the file to an integration account in Azure. That way, 
+your logic app can access the metadata about your app when 
+you add a 3270 connector action. The connector reads the 
+metadata file from your integration account and dynamically 
+presents the parameters for the 3270 action.
 
-So, by handling navigation through the 3270 screens, entering data into the 
-host application, and returning the results to your logic app, you can 
-integrate your legacy apps with Azure, Microsoft, and other apps, services, 
-and systems that Azure Logic Apps supports.
+So, by handling navigation through the 3270 screens, 
+entering data into the host application, and returning 
+the results to your logic app, you can integrate your 
+legacy apps with Azure, Microsoft, and other apps, 
+services, and systems that Azure Logic Apps supports.
 
 ## Prerequisites
 
@@ -137,16 +141,17 @@ a specific task with your mainframe app, for example, getting a bank balance.
 * **Navigation**: In this mode, you specify the plan or path for how 
 to navigate through your mainframe app's screens for the specific task.
 
-* **Methods**: In this mode, you define the method, for example, `GetBalance`, 
-that describes the screen navigation path. You also choose the fields on each 
-screen that become the method's input and output parameters.
+* **Methods**: In this mode, you define the method, for example, 
+`GetBalance`, that describes the screen navigation path. You also 
+choose the fields on each screen that become the method's input 
+and output parameters.
 
 ### Unsupported elements
 
 The design tool doesn't support these elements:
 
-* Partial IBM Basic Mapping Support (BMS) maps: If you import a BMS map, 
-the design tool ignores partial screen definitions.
+* Partial IBM Basic Mapping Support (BMS) maps: If you import 
+a BMS map, the design tool ignores partial screen definitions.
 * In/Out parameters: You can't define In/Out parameters.
 * Menu processing: Not supported during preview
 * Array processing: Not supported during preview
@@ -155,16 +160,19 @@ the design tool ignores partial screen definitions.
 
 ## Capture screens
 
-In this mode, you mark an item on each 3270 screen that uniquely identifies that screen. 
-For example, you might specify a line of text or a more complex set of conditions, 
-such as specific text and a non-empty field. You can either record these screens 
-over a live connection to the host server, or import this information from an IBM 
-Basic Mapping Support (BMS) map. The live connection uses a TN3270 emulator for 
-connecting to the host. Each connector action must map to a single task that starts 
-with connecting to your session and ends with disconnecting from your session.
+In this mode, you mark an item on each 3270 screen that 
+uniquely identifies that screen. For example, you might 
+specify a line of text or a more complex set of conditions, 
+such as specific text and a non-empty field. You can either 
+record these screens over a live connection to the host server, 
+or import this information from an IBM Basic Mapping Support 
+(BMS) map. The live connection uses a TN3270 emulator for 
+connecting to the host. Each connector action must map to 
+a single task that starts with connecting to your session 
+and ends with disconnecting from your session.
 
-1. If you haven't already, open the 3270 Design Tool. On the toolbar, 
-choose **Capture** so that you enter Capture mode.
+1. If you haven't already, open the 3270 Design Tool. On the 
+toolbar, choose **Capture** so that you enter Capture mode.
 
 1. To start recording, press the F5 key, or from 
 the **Recording** menu, select **Start Recording**. 
@@ -204,16 +212,18 @@ or from the **Recording** menu, select **Stop Recording**.
    appends the name with an underscore and a number, for example, 
    "WBGB" and "WBGB_1".
 
-1. To give a more meaningful name to a captured screen, 
-follow these steps:
+1. To give a more meaningful name to a 
+captured screen, follow these steps:
 
-   1. In the **Host Screens** pane, select the screen you want to rename. 
+   1. In the **Host Screens** pane, select the 
+   screen you want to rename. 
 
-   1. In the same pane, near the bottom in the same pane, 
-   find the **Screen Name** property. 
-   
-   1. Change the current screen name to a more descriptive name. 
-   
+   1. In the same pane, near the bottom in the 
+   same pane, find the **Screen Name** property.
+
+   1. Change the current screen name to 
+   a more descriptive name. 
+
 1. Now specify the fields for identifying each screen.
 
    With the 3270 data stream, screens don't have default identifiers, 
@@ -242,10 +252,10 @@ At run time, the connector uses these attributes for
 determining the current branch and fork. Here are the 
 conditions you can use:
 
-* Specific value: This value matches the specified string 
-at the specified location.
-* NOT a specific value: This value doesn't match the 
+* Specific value: This value matches the 
 specified string at the specified location.
+* NOT a specific value: This value doesn't match 
+the specified string at the specified location.
 * Empty: This field is empty.
 * NOT empty: This field isn't empty.
 
@@ -264,10 +274,10 @@ while the other path produces an error. For each screen, specify the
 keystrokes necessary for moving to the next screen, such as `CICSPROD <enter>`.
 
 > [!TIP]
-> If you're automating several tasks that use the same connect and 
-> disconnect screens, the design tool provides special Connect and 
-> Disconnect plan types. When you define these plans, you can add 
-> them to your navigation plan's beginning and end.
+> If you're automating several tasks that use the same connect 
+> and disconnect screens, the design tool provides special 
+> Connect and Disconnect plan types. When you define these plans, 
+> you can add them to your navigation plan's beginning and end.
 
 ### Guidelines for plan definitions
 
@@ -300,7 +310,7 @@ in your plan. Here are some examples of repeated screens:
 **Navigation** so that you enter Navigation mode.
 
 1. To start your plan, in the **Navigation** pane, 
-choose **New Plan**. 
+choose **New Plan**.
 
 1. Under **Choose New Plan Name**, enter a name for 
 your plan. From the **Type** list, select the plan type:
@@ -321,16 +331,18 @@ to the navigation plan surface in the **Navigation** pane.
 1. Arrange the screens in the order that 
 describes the task that you're defining.
 
-1. To define the flow between screens, including forks and joins, 
-on the design tool's toolbar, choose **Flow**. 
+1. To define the flow path between screens, including forks 
+and joins, on the design tool's toolbar, choose **Flow**.
 
-1. Choose the first screen in the flow. Drag and draw 
-a connection to the next screen in the flow. 
+1. Choose the first screen in the flow. Drag and 
+draw a connection to the next screen in the flow.
 
-1. For each screen, specify the Attention Identifier 
-in the **AID Key** property and **Fixed Text** that 
-moves the flow to the next screen. You might have 
-just the AID key, or both the AID key and fixed text. 
+1. For each screen, provide the values for the **AID Key** 
+property (Attention Identifier) and for the **Fixed Text** 
+property, which moves the flow to the next screen.
+
+   You might have just the AID key, 
+   or both the AID key and fixed text.
 
 After you finish your navigation plan, 
 you can [define methods in the next mode](#define-method).
@@ -428,17 +440,19 @@ follow these steps:
 
    1. On the design tool's toolbar, choose **Input Field**. 
 
-   To add more input parameters, repeat these steps for each parameter.
+   To add more input parameters, 
+   repeat the previous steps for each parameter.
 
 1. To add the first output parameter for your method, 
 follow these steps:
 
    1. In the **Capture** pane, on the 3270 emulator screen, 
    choose the field you want as the first output.
-   
+
    1. On the design tool's toolbar, choose **Output Field**.
-   
-   To add more output parameters, repeat these steps for each parameter.
+
+   To add more output parameters, 
+   repeat the previous steps for each parameter.
 
 1. After you add all your method's parameters, 
 define these properties for each parameter:
@@ -450,40 +464,45 @@ define these properties for each parameter:
    | **Format String** | Some parameter data types use a format string, which informs the 3270 connector how to convert text from the screen into a .NET data type: <p><p>- **DateTime**: The DateTime format string follows the [.NET custom date and time format strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). For example, the date `06/30/2019` uses the format string `MM/dd/yyyy`. <p>- **Decimal**: The decimal format string uses the [COBOL Picture clause](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). For example, the number `100.35` uses the format string `999V99`. |
    |||
 
-The design tool saves all this information to a file that has a RAP 
-(.rap) extension. You can save to this RAP file during any mode. 
-Before you can test your method, save your RAP file after defining 
-your method. 
+## Save and view metadata
 
-To view a sample RAP file, from the design tool, find the design tool's 
-installation folder, and open the "WoodgroveBank.rap" file:
+After you define your method, but before you test your method, 
+save all the information that you defined so far to a RAP (.rap) file.
+You can save to this RAP file at any time during any mode. The design 
+tool also includes a sample RAP file that you can open and review by 
+browsing to the design tool's installation folder at this location 
+and opening the "WoodgroveBank.rap" file:
 
 `..\Program Files\Microsoft Host Integration Server - 3270 Design Tool\SDK\WoodgroveBank.rap`
 
-> [!TIP]
-> 
-> You might get an error if you try saving changes to the sample .RAP 
-> file or generating an HIDX file by using the sample RAP file in the 
-> design tool's installation folder. By default, the design tool installs 
-> in your Program Files folder without elevated permissions. If you get 
-> an error, try one of these solutions: 
-> 
-> * Copy the sample file to a different location.
-> * Run the design tool as an administrator.
-> * Make yourself the Program Files folder owner.
+However, if you try saving changes to the sample .RAP file or 
+generating an HIDX file from the sample RAP file while the file 
+stays in the design tool's installation folder, you might get an 
+"access denied" error. By default, the design tool installs in 
+your Program Files folder without elevated permissions. If you 
+get an error, try one of these solutions:
 
-### Test your method
+* Copy the sample file to a different location.
+* Run the design tool as an administrator.
+* Make yourself the Program Files folder owner.
+
+## Test your method
 
 1. To run your method against the live host, 
 while still in Methods mode, press the F5 key, 
-or from the design tool's toolbar, choose **Run**. 
+or from the design tool's toolbar, choose **Run**.
 
-1. Enter values for your parameters, and choose **OK**.
+   > [!TIP]
+   > You can change modes at any time. 
+   > On the **File** menu, select **Mode**, 
+   > and then select the mode you want.
+
+1. Enter your parameters' values, and choose **OK**.
 
 1. To continue to the next screen, choose **Next**.
 
-1. When you're finished, choose **Done**, which 
-displays the value for your output parameter.
+1. When you're finished, choose **Done**, 
+which shows your output parameter values.
 
 <a name="add-metadata-integration-account"></a>
 
@@ -491,10 +510,10 @@ displays the value for your output parameter.
 
 When you're ready, generate the HIDX file so you 
 can upload to your integration account. The 3270 
-Design Tool, creates the HIDX file in a new 
+Design Tool creates the HIDX file in a new 
 subfolder where you saved your .rap file.
 
-1. On the 3270 Design Tool's toolbar, choose **Generate**.
+1. On the 3270 Design Tool's toolbar, choose **Generate Code**.
 
 1. Go to the folder that contains your .rap file, and open the 
 subfolder that the tool created after generating your HIDX file. 
