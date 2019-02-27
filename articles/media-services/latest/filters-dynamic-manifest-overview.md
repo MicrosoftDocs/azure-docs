@@ -28,7 +28,6 @@ The following table shows some examples of URLs with filters:
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
 |Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
-
 > [!NOTE]
 > Dynamic Manifests do not change the asset and the default manifest for that asset. Your client can choose to request a stream with or without filters. 
 > 
@@ -64,7 +63,7 @@ QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
 
 ### Get and examine manifest files
 
-You specify a list of filter track property conditions based on which the tracks of your stream (Live or Video on Demand) should be included into dynamically created manifest. To get and examine the properties of the tracks, you have to load the Smooth Streaming manifest first.
+You specify a list of filter track property conditions based on which the tracks of your stream (live or video-on-demand) should be included into dynamically created manifest. To get and examine the properties of the tracks, you have to load the Smooth Streaming manifest first.
 
 The [Upload, encode, and stream files with .NET](stream-files-tutorial-with-api.md) tutorial shows you how to build the streaming URLs with .NET (see, the [building URLs](stream-files-tutorial-with-api.md#get-streaming-urls) section). If you run the app, one of the URLs points to the Smooth Streaming manifest: `https://amsaccount-usw22.streaming.media.azure.net/00000000-0000-0000-0000-0000000000000/ignite.ism/manifest`.<br/>Copy and paste the URL into the address bar of a browser. The file will be downloaded. You can open it in a text editor of your choice.
 
@@ -89,6 +88,7 @@ In the following example, an encoder was used to encode a mezzanine asset into s
 ![Rendition filtering][renditions1]
 
 ## Removing language tracks
+
 Your assets might include multiple audio languages such as English, Spanish, French, etc. Usually, the Player SDK managers default audio track selection and available audio tracks per user selection. It is challenging to develop such Player SDKs, it requires different implementations across device-specific player-frameworks. Also, on some platforms, Player APIs are limited and do not include audio selection feature where users cannot select or change the default audio track. With asset filters, you can control the behavior by creating filters that only include desired audio languages.
 
 ![Language tracks filtering][language_filter]
