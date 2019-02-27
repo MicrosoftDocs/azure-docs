@@ -37,9 +37,9 @@ For more information, see [Logic Apps Pricing](https://azure.microsoft.com/prici
 
 For new logic apps that run inside an 
 [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
-you pay a fixed monthly price for built-in actions and 
-standard ISE-labeled connectors. An ISE provides a way 
-for you to create and run isolated logic apps that can 
+you pay a fixed monthly price for built-in actions 
+and standard connectors. An ISE provides a way for 
+you to create and run isolated logic apps that can 
 access resources in an Azure virtual network. 
 
 Your ISE base unit has fixed capacity, so if you need more throughput, 
