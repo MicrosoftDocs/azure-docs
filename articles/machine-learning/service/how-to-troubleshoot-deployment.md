@@ -98,9 +98,9 @@ The image log uri is a SAS URL pointing to a log file stored in your Azure blob 
 
 ### Azure Key Vault access policy and Azure Resource Manager templates
 
-In some cases, image creation can fail due to a problem with the access policy on Azure Key Vault. This can occur when you use an Azure Resource Manager template to create the workspace and associated resources (including Azure Key Vault), multiple times. For example, using the template multiple times with the same parameters as part of a CICD pipeline.
+In some cases, image creation can fail due to a problem with the access policy on Azure Key Vault. This can occur when you use an Azure Resource Manager template to create the workspace and associated resources (including Azure Key Vault), multiple times. For example, using the template multiple times with the same parameters as part of a continuous integration and deployment pipeline.
 
-Most resource creation operations through templates are idempotent, but Key Vault clears the access policies on each use. This breaks access to the Key Vault for any existing workspace that is using it. This results in errors when you try to create new images. The following are examples of the errors that you can receive:
+Most resource creation operations through templates are idempotent, but Key Vault clears the access policies each time the template is used. This breaks access to the Key Vault for any existing workspace that is using it. This results in errors when you try to create new images. The following are examples of the errors that you can receive:
 
 __Portal__:
 ```text
