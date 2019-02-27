@@ -46,11 +46,10 @@ This method is a time-hardened way but has many limitations.
 Although Host Integration Server (HIS) lets you work directly 
 with these apps, sometimes, separating the screen and business 
 logic isn't possible. Or maybe you no longer have information 
-about how the host applications work.
-
-For these scenarios, you can create .NET apps that programmatically 
-drive the 3270 screens without making changes to the host. To create 
-these apps, you can use the Session Integrator feature, which is 
+about how the host applications work. For these scenarios, 
+you can create .NET apps that programmatically drive the 3270 
+screens without making changes to the host. To create these 
+apps, you can use the Session Integrator feature, which is 
 a .NET library for writing custom apps that can access 3270 
 screen-driven data, also known as "screen scraping".
 
@@ -85,43 +84,49 @@ services, and systems that Azure Logic Apps supports.
 * Basic knowledge about 
 [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Recommended: An [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md), 
-which you can use as the location for creating and running 
-your logic app. An ISE provides access from your logic app to 
-resources that are protected inside Azure virtual networks.
+* Recommended: An [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) 
+
+  You can select this environment as the location for creating and 
+  running your logic app. An ISE provides access from your logic app 
+  to resources that are protected inside Azure virtual networks.
 
 * The logic app to use for automating and running 
-your 3270 screen-driven app. The HIS 3270 connector 
-doesn't have triggers, so use another trigger to start 
-your logic app, such as the **Recurrence** trigger. 
-You can then add 3270 connector actions. To get started, 
-[create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
-If you use an ISE, select that ISE as your logic app's location.
+your 3270 screen-driven app 
 
-* Download and install the [standalone HIS 3270 Design Tool](https://aka.ms/3270-design-tool-download), 
-which you use for generating a Host Integration Designer 
-XML (HIDX) file. This metadata file identifies the screens, 
-navigation path, method, and parameters for the task you 
-want to use when you add and run a 3270 connector action.
+  The HIS 3270 connector doesn't have triggers, 
+  so use another trigger to start your logic app, 
+  such as the **Recurrence** trigger. You can 
+  then add 3270 connector actions. To get started, 
+  [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+  If you use an ISE, select that ISE as your logic app's location.
 
-  The Microsoft .NET Framework 4.6.1 is the 
-  only prerequisite for the 3270 Design Tool. 
-  After you download and install this tool, 
-  follow these setup steps:
+* [Download and install the standalone HIS 3270 Design Tool](https://aka.ms/3270-design-tool-download).
+The only prerequisite is Microsoft .NET Framework 4.6.1.
+
+  This tool helps you record the screens, navigation paths, 
+  methods, and parameters for the tasks in your app that you 
+  add and run as 3270 connector actions. The tool generates 
+  a Host Integration Designer XML (HIDX) file that provides 
+  the necessary metadata for the connector to use for driving 
+  your mainframe app. 
+  
+  After downloading and installing this tool, 
+  follow these steps for connecting to your host:
 
   1. Open the HIS 3270 Design Tool. 
   From the **Session** menu, select **Host Sessions**.
   
   1. Provide your TN3270 host server information.
 
-* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
-where you store your HIDX file as a map so your logic app 
-can access the metadata and method definitions in that file. 
-Make sure your integration account is linked to the logic app 
-you're using. Also, if you use an ISE, make sure your integration 
-account's location is the same ISE that your logic app uses.
+* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), 
+which is the place where you store your HIDX file as a map so your 
+logic app can access the metadata and method definitions in that file. 
 
-* Access to the TN3270 Server that hosts your mainframe app
+  Make sure your integration account is linked to the logic app 
+  you're using. Also, if you use an ISE, make sure your integration 
+  account's location is the same ISE that your logic app uses.
+
+* Access to the TN3270 server that hosts your mainframe app
 
 <a name="define-app-metadata"></a>
 
