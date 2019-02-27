@@ -9,13 +9,14 @@ editor: ''
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: tutorial
-ms.date: 08/07/2018
+ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: krbain
-ms.custom: it-pro
+ms.custom: "it-pro;seo-update-azuread-jan"
 #As a new Azure AD identity administrator, I want to automatically add or remove users, so I don't have to manually do it."
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Add or remove group members automatically

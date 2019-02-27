@@ -4,16 +4,16 @@ titleSuffix: Azure Cognitive Services
 description: In this tutorial, create an app that demonstrates how to get positive, negative, and neutral sentiment from utterances. Sentiment is determined from the entire utterance.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand what sentiment is conveyed in a user's utterances. 
 
---- 
+---
 
 # Tutorial:  Get sentiment of utterance
 
@@ -87,7 +87,7 @@ Add a new intent to capture employee feedback from members of the company.
     |Mark Mathews rocked the sales pitch at Harvard|
     |Walter Williams did a great job on the presentation at Stanford|
 
-    [ ![Screenshot of LUIS app with example utterances in EmployeeFeedback intent](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
+    [![Screenshot of LUIS app with example utterances in EmployeeFeedback intent](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
 ## Add example utterances to the None intent 
 

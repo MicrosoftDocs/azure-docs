@@ -125,7 +125,7 @@ With the data file ready and the project environment set, you can now create and
 1. Because you have a *requirements.txt* file in the environment settings, you see the message, "Waiting for your container to finish being prepared." You can select **OK** to close the message and continue working in the notebook; you can't run code cells, however, until the environment is set up fully.
 1. The notebook opens in the Jupyter interface with a single empty code cell as the default.
 
-    [![](media/tutorial/tutorial-new-notebook.png "Initial view of a new notebook in Azure Notebooks")](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![Initial view of a new notebook in Azure Notebooks](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## Tour the notebook interface
 
@@ -141,7 +141,7 @@ Along the top of the window you see the following items:
 (F) indicator of whether the notebook is trusted (default is **Not Trusted**).
 (G) the kernel used to run the notebook along with an activity indicator.
 
-[![](media/tutorial/tutorial-notebook-ui.png "Primary UI areas of the Jupyter interface")](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[![Primary UI areas of the Jupyter interface](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
 Jupyter provides a built-in tour of the primary UI elements. Start the tour by selecting the **Help** > **User Interface Tour** command and clicking through the popups.
 

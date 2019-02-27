@@ -3,13 +3,14 @@ title: Create a resilient access control management strategy with Azure Active D
 description: This document provides guidance on strategies an organization should adopt to provide resilience to reduce the risk of lockout during unforeseen disruptions
 services: active-directory
 author: martincoetzer
-manager: mtillman
+manager: daveba
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
+ms.collection: M365-identity-device-management
 ---
 # Create a resilient access control management strategy with Azure Active Directory
 
@@ -71,7 +72,7 @@ This example policy set will grant selected users in **AppUsers**, access to sel
 **CA mitigation policies set:**
 
 * Policy 1: Block access to people outside target groups
-  * Users and Groups: Include all users. Exclude AppAccess, CoreAdmins, and EmergencyAccess
+  * Users and Groups: Include all users. Exclude AppUsers, CoreAdmins, and EmergencyAccess
   * Cloud Apps: Include all apps
   * Conditions: (None)
   * Grant Control: Block
@@ -193,7 +194,7 @@ Order of activation:
 
 1. Exclude SalesAdmins and SalesforceContingency from the existing device compliance policy for Salesforce. Verify a user in the SalesforceContingency group can access Salesforce.
 2. Enable Policy 1: Verify users outside of SalesContingency cannot access Salesforce. Verify users in the SalesAdmins and SalesforceContingency can access Salesforce.
-3. Enable Policy 2: Verify users in the SalesContigency group cannot access Salesforce from their Windows/Mac laptops but can still access from their mobile devices. Verify SalesAdmin can still access Salesforce from any device.
+3. Enable Policy 2: Verify users in the SalesContingency group cannot access Salesforce from their Windows/Mac laptops but can still access from their mobile devices. Verify SalesAdmin can still access Salesforce from any device.
 4. Disable the existing device compliance policy for Salesforce.
 
 ### Deploy password hash sync even if you are federated or use pass-through authentication

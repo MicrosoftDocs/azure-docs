@@ -99,7 +99,7 @@ Azure Network Watcher troubleshoot feature enables you to diagnose and troublesh
 | ConnectionEntityNotFound | Connection configuration is missing. | No |
 | ConnectionIsMarkedDisconnected | The Connection is marked "disconnected." |No|
 | ConnectionNotConfiguredOnGateway | The underlying service does not have the Connection configured. | Yes |
-| ConnectionMarkedStandy | The underlying service is marked as standby.| Yes|
+| ConnectionMarkedStandby | The underlying service is marked as standby.| Yes|
 | Authentication | Preshared Key mismatch. | Yes|
 | PeerReachability | The peer gateway is not reachable. | Yes|
 | IkePolicyMismatch | The peer gateway has IKE policies that are not supported by Azure. | Yes|

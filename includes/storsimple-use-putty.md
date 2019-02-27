@@ -5,7 +5,6 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ---
-<!--author=SharS last changed: 9/17/15-->
 
 #### To connect through the serial console
 1. Connect your serial cable to the device (directly or through a USB-serial adapter).

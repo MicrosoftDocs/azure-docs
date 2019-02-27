@@ -3,19 +3,20 @@ title: How to use self-service application access | Microsoft Docs
 description: Enable self-service application access to allow users to find their own applications
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: japere,asteen
+ms.collection: M365-identity-device-management
 ---
 
 # How to use self-service application access

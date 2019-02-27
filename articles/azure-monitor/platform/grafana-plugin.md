@@ -8,7 +8,7 @@ ms.author: robb
 ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
-ms.component: ""
+ms.subservice: ""
 ---
 
 # Monitor your Azure services in Grafana
@@ -21,7 +21,8 @@ Use the following steps to set up a Grafana server and build dashboards for metr
 ## Set up a Grafana server
 
 ### Set up Grafana locally
-To set up a local Grafana server, [download and install Grafana in your local environment](https://grafana.com/grafana/download). To use the plugin's Log Analytics integration, install Grafana version 5.3 or higher.
+To set up a local Grafana server, [download and install Grafana in your local environment](https://grafana.com/grafana/download). To use the plugin's Azure Monitor integration, install Grafana version 5.3 or higher.
+
 ### Set up Grafana on Azure through the Azure Marketplace
 1. Go to Azure Marketplace and pick Grafana by Grafana Labs.
 
@@ -61,11 +62,11 @@ Once successfully logged in, you should see that the Azure Monitor data source p
 
 3. Create a service principal - Grafana uses an Azure Active Directory service principal to connect to Azure Monitor APIs and collect data. You must create, or use an existing service principal, to manage access to your Azure resources.
     * See [these instructions](../../azure-resource-manager/resource-group-create-service-principal-portal.md) to create a service principal. Copy and save your tenant ID (Directory ID), client ID (Application ID) and client secret (Application key value).
-    * See [Assign application to role](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) to assign the Reader role to the Azure Active Directory application on the subscription, resource group or resource you want to monitor. 
+    * See [Assign application to role](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) to assign the Reader role to the Azure Active Directory application on the subscription, resource group or resource you want to monitor. 
     The Log Analytics API requires the [Log Analytics Reader role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader), which includes the Reader role's permissions and adds to it.
 
 4. Provide the connection details to the APIs you'd like to use. You can connect to all or to some of them. 
-    * If you connect to both Azure Monitor (to collect metrics) and Azure Log Analytics (for log data), you can reuse the same credentials by selecting **Same details as Azure Monitor API**.
+    * If you connect to both metrics and logs in Azure Monitor, you can reuse the same credentials by selecting **Same details as Azure Monitor API**.
     * When configuring the plugin, you can indicate which Azure Cloud you would like the plugin to monitor (Public, Azure US Government, Azure Germany, or Azure China).
     * If you use Application Insights, you can also include your Application Insights API and application ID to collect Application Insights based metrics. For more information, see [Getting your API key and Application ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 
@@ -92,7 +93,7 @@ Once successfully logged in, you should see that the Azure Monitor data source p
 4. Select the Azure Monitor data source you've configured.
     * Collecting Azure Monitor metrics - select **Azure Monitor** in the service dropdown. A list of selectors shows up, where you can select the resources and metric to monitor in this chart. To collect metrics from a VM, use the namespace **Microsoft.Compute/VirtualMachines**. Once you have selected VMs and metrics, you can start viewing their data in the dashboard.
     ![Grafana graph config for Azure Monitor](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
-    * Collecting Azure Log Analytics data - select **Azure Log Analytics** in the service dropdown. Select the workspace you'd like to query and set the query text. You can copy here any Log Analytics query you already have or create a new one. As you type in your query, IntelliSense will show up and suggest autocomplete options. Select the visualization type, **Time series** **Table**, and run the query.
+    * Collecting Azure Monitor log data - select **Azure Log Analytics** in the service dropdown. Select the workspace you'd like to query and set the query text. You can copy here any log query you already have or create a new one. As you type in your query, IntelliSense will show up and suggest autocomplete options. Select the visualization type, **Time series** **Table**, and run the query.
     
     > [!NOTE]
     >
@@ -163,3 +164,4 @@ If you've setup a Grafana environment on Azure, you are charged when VMs are run
 
 ## Next steps
 * [Overview of Azure Monitor Metrics](../../azure-monitor/platform/data-collection.md)
+

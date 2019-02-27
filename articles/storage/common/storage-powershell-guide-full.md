@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: rogarana
-ms.component: common
+ms.subservice: common
 ---
 
 # Using Azure PowerShell with Azure Storage
@@ -196,7 +196,7 @@ You can configure monitoring using the [Azure portal](https://portal.azure.com),
 
 * To learn how to enable and view Storage Metrics data using PowerShell, see [Enabling Azure Storage metrics and viewing metrics data](storage-enable-and-view-metrics.md#how-to-enable-metrics-using-powershell).
 
-* To learn how to enable and retrieve Storage Logging data using PowerShell, see [How to enable Storage Logging using PowerShell](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data#how-to-enable-storage-logging-using-powershell) and [Finding your Storage Logging log data](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data#finding-your-storage-logging-log-data).
+* To learn how to enable and retrieve Storage Logging data using PowerShell, see [How to enable Storage Logging using PowerShell](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data) and [Finding your Storage Logging log data](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data).
 
 * For detailed information on using Storage Metrics and Storage Logging to troubleshoot storage issues, see [Monitoring, Diagnosing, and Troubleshooting Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 

@@ -100,7 +100,7 @@ In the portal, click any tile or chart to see more detail.
 ## Step 4: Publish your app
 Publish your app to your IIS server or to Azure. Watch [Live Metrics Stream](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) to make sure everything is running smoothly.
 
-Your telemetry builds up in the Application Insights portal, where you can monitor metrics, search your telemetry, and set up [dashboards](../../azure-monitor/app/app-insights-dashboards.md). You can also use the powerful [Log Analytics query language](https://aka.ms/LogAnalyticsLanguage) to analyze usage and performance, or to find specific events.
+Your telemetry builds up in the Application Insights portal, where you can monitor metrics, search your telemetry, and set up [dashboards](../../azure-monitor/app/app-insights-dashboards.md). You can also use the powerful [Kusto query language](/azure/kusto/query/) to analyze usage and performance, or to find specific events.
 
 You can also continue to analyze your telemetry in [Visual Studio](../../azure-monitor/app/visual-studio.md), with tools such as diagnostic search and [trends](../../azure-monitor/app/visual-studio-trends.md).
 

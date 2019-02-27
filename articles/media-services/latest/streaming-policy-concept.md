@@ -11,94 +11,61 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 02/03/2019
 ms.author: juliako
 ---
 
 # Streaming Policies
 
-In Azure Media Services v3, Streaming Policies enable you to define streaming protocols and encryption options for your StreamingLocators. You can either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies currently available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'.
+In Azure Media Services v3, [Streaming Policies](https://docs.microsoft.com/rest/api/media/streamingpolicies) enable you to define streaming protocols and encryption options for your [Streaming Locators](streaming-locators-concept.md). You can either use one of the predefined Streaming Policies or created a custom policy. The predefined Streaming Policies currently available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'.
 
 > [!IMPORTANT]
-> When using a custom [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your Streaming Locators whenever the same encryption options and protocols are needed. Your Media Service account has a quota for the number of Streaming Policy entries. You should not be creating a new Streaming Policy for each Streaming Locator.
+> * Properties of **Streaming Policies** that are of the Datetime type are always in UTC format.
+> * You should design a limited set of policies for your Media Service account and reuse them for your Streaming Locators whenever the same options are needed. 
 
-## StreamingPolicy definition
+## Examples
 
-The following table shows the StreamingPolicy's properties and gives their definitions.
+### Not encrypted
 
-|Name|Description|
-|---|---|
-|id|Fully qualified resource ID for the resource.|
-|name|The name of the resource.|
-|properties.commonEncryptionCbcs|Configuration of CommonEncryptionCbcs|
-|properties.commonEncryptionCenc|Configuration of CommonEncryptionCenc|
-|properties.created	|Creation time of Streaming Policy|
-|properties.defaultContentKeyPolicyName	|Default ContentKey used by current Streaming Policy|
-|properties.envelopeEncryption	|Configuration of EnvelopeEncryption|
-|properties.noEncryption|Configurations of NoEncryption|
-|type|The type of the resource.|
+If you want to stream your file in-the-clear (non-encrypted), set the predefined clear streaming policy: to 'Predefined_ClearStreamingOnly' (in .NET, you can use PredefinedStreamingPolicy.ClearStreamingOnly).
 
-For the full definition, see [Streaming Policies](https://docs.microsoft.com/rest/api/media/streamingpolicies).
+```csharp
+StreamingLocator locator = await client.StreamingLocators.CreateAsync(
+    resourceGroup,
+    accountName,
+    locatorName,
+    new StreamingLocator
+    {
+        AssetName = assetName,
+        StreamingPolicyName = PredefinedStreamingPolicy.ClearStreamingOnly
+    });
+```
+
+### Encrypted 
+
+If you need to encrypt your content with envelope and cenc encryption, set your policy to 'Predefined_MultiDrmCencStreaming'. This policy indicates that you want for two content keys (envelope and CENC) to get generated and set on the locator. Thus, the envelope, PlayReady, and Widevine encryptions are applied (the key is delivered to the playback client based on the configured DRM licenses).
+
+```csharp
+StreamingLocator locator = await client.StreamingLocators.CreateAsync(
+    resourceGroup,
+    accountName,
+    locatorName,
+    new StreamingLocator
+    {
+        AssetName = assetName,
+        StreamingPolicyName = "Predefined_MultiDrmCencStreaming",
+        DefaultContentKeyPolicyName = contentPolicyName
+    });
+```
+
+If you also want to encrypt your stream with CBCS (FairPlay), use 'Predefined_MultiDrmStreaming'.
 
 ## Filtering, ordering, paging
 
-Media Services supports the following OData query options for Streaming Policies: 
-
-* $filter 
-* $orderby 
-* $top 
-* $skiptoken 
-
-Operator description:
-
-* Eq = equal to
-* Ne = not equal to
-* Ge = Greater than or equal to
-* Le = Less than or equal to
-* Gt = Greater than
-* Lt = Less than
-
-### Filtering/ordering
-
-The following table shows how these options may be applied to the StreamingPolicy properties: 
-
-|Name|Filter|Order|
-|---|---|---|
-|id|||
-|name|Eq, ne, ge, le, gt, lt|Ascending and descending|
-|properties.commonEncryptionCbcs|||
-|properties.commonEncryptionCenc|||
-|properties.created	|Eq, ne, ge, le,  gt, lt|Ascending and descending|
-|properties.defaultContentKeyPolicyName	|||
-|properties.envelopeEncryption|||
-|properties.noEncryption|||
-|type|||
-
-### Pagination
-
-Pagination is supported for each of the four enabled sort orders. Currently, the page size is 10.
-
-> [!TIP]
-> You should always use the next link to enumerate the collection and not depend on a particular page size.
-
-If a query response contains many items, the service returns an "\@odata.nextLink" property to get the next page of results. This can be used to page through the entire result set. You cannot configure the page size. 
-
-If StreamingPolicy are created or deleted while paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that has not been downloaded.) 
-
-The following C# example shows how to enumerate through all StreamingPolicies in the account.
-
-```csharp
-var firstPage = await MediaServicesArmClient.StreamingPolicies.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.StreamingPolicies.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-For REST examples, see [Streaming Policies - List](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
+See [Filtering, ordering, paging of Media Services entities](entities-overview.md).
 
 ## Next steps
 
-[Stream a file](stream-files-dotnet-quickstart.md)
+* [Stream a file](stream-files-dotnet-quickstart.md)
+* [Use AES-128 dynamic encryption and the key delivery service](protect-with-aes128.md)
+* [Use DRM dynamic encryption and license delivery service](protect-with-drm.md)

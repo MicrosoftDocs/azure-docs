@@ -2,11 +2,11 @@
 title: Auditing in Azure SQL Data Warehouse  | Microsoft Docs
 description: Learn about auditing, and how to set up auditing in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
@@ -69,10 +69,13 @@ The following section describes the configuration of auditing using the Azure po
     ![Navigation pane][8]
 
     > [!IMPORTANT]
-    > Server-level audit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription.
+    > Audit logs are written to **Append Blobs** in Azure Blob storage on your Azure subscription.
     >
-    > * **Premium Storage** is currently **not supported** by Append Blobs.
-    > * **Storage in VNet** is currently **not supported**.
+    > - All storage kinds (v1, v2, blob) are supported.
+    > - All storage replication configurations are supported.
+    > - **Premium storage** is currently **not supported**.
+    > - **Storage in VNet** is currently **not supported**.
+    > - **Storage behind a Firewall** is currently **not supported**
 
 8. Click **Save**.
 

@@ -1,15 +1,11 @@
 ﻿---
-title: Create an application gateway with a virtual machine scale set - Azure PowerShell | Microsoft Docs
+title: Create an application gateway with a virtual machine scale set - Azure PowerShell
 description: Learn how to create an application gateway with a virtual machine scale set using Azure PowerShell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 01/25/2018
+ms.date: 2/26/2019
 ms.author: victorh
 
 ---
@@ -28,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use PowerShell locally, this tutorial requires the Azure PowerShell module version 3.6 or later. To find the version, run `Get-Module -ListAvailable AzureRM`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this tutorial requires the Azure PowerShell module version 3.6 or later. To find the version, run `Get-Module -ListAvailable AzureRM`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -166,6 +162,7 @@ $vmssConfig = New-AzureRmVmssConfig `
   -SkuName Standard_DS2 `
   -UpgradePolicyMode Automatic
 Set-AzureRmVmssStorageProfile $vmssConfig `
+  -OsDiskCreateOption "FromImage" -OsDiskCaching "None" `
   -ImageReferencePublisher MicrosoftWindowsServer `
   -ImageReferenceOffer WindowsServer `
   -ImageReferenceSku 2016-Datacenter `

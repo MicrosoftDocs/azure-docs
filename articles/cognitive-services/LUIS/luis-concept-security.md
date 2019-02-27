@@ -4,10 +4,10 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Authoring access is available for owners and collaborators. For a private app, endpoint access is available for owners and collaborators. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry

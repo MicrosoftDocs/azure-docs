@@ -5,9 +5,9 @@ author: rboucher
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 01/28/2018
 ms.author: robb
-ms.component: alerts
+ms.subservice: alerts
 ---
 
 # Overview of alerts in Microsoft Azure 
@@ -15,10 +15,12 @@ ms.component: alerts
 This article describes what alerts are, their benefits, and how to get started using them.  
 
 
+
+
 ## What are alerts in Microsoft Azure?
 Alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. 
 
-This article discusses the unified alert experience in Azure Monitor, which now includes Log Analytics and Application Insights. The [previous alert experience](alerts-overview.md) and alert types are called **classic alerts**. You can view this older experience and older alert type by clicking on **View classic alerts** at the top of the alert page. 
+This article discusses the unified alert experience in Azure Monitor, which now includes alerts that were managed by Log Analytics and Application Insights. The [previous alert experience](alerts-classic.overview.md) and alert types are called **classic alerts**. You can view this older experience and older alert type by clicking on **View classic alerts** at the top of the alert page. 
 
 ## Overview
 
@@ -57,6 +59,13 @@ You can alert on metrics and logs as described in [monitoring data sources](../.
 - Activity Log events
 - Health of the underlying Azure platform
 - Tests for web site availability
+
+Previously, Azure Monitor metrics, Application Insights, Log Analytics, and Service Health had separate alerting capabilities. Over time, Azure improved and combined both the user interface and different methods of alerting. This consolidation is still in process. As a result, there are still some alerting capabilities not yet in the new alerts system.  
+
+| **Monitor source** | **Signal type**  | **Description** | 
+|-------------|----------------|-------------|
+| Service health | Activity log  | Not supported. See [Create activity log alerts on service notifications](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
+| Application Insights | Web availability tests | Not supported. See [Web test alerts](../../azure-monitor/app/monitor-web-app-availability.md). Available to any website that's instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations. |
 
 ## Manage alerts
 You can set the state of an alert to specify where it is in the resolution process. When the criteria specified in the alert rule is met, an alert is created or fired, it has a status of *New*. You can change the status when you acknowledge an alert and when you close it. All state changes are stored in the history of the alert.
@@ -119,14 +128,7 @@ This simplified authoring process no longer requires you to know the monitoring 
 
 You can learn more about how to create alert rules in [Create, view, and manage alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
-Alerts are available across several Azure monitoring services. For information about how and when to use each of these services, see [Monitoring Azure applications and resources](../../azure-monitor/overview.md). The following table provides a listing of the types of alert rules that are available across Azure. It also lists what's currently supported in which alert experience.
-
-Previously, Azure Monitor, Application Insights, Log Analytics, and Service Health had separate alerting capabilities. Overtime, Azure improved and combined both the user interface and different methods of alerting. This consolidation is still in process. As a result, there are still some alerting capabilities not yet in the new alerts system.  
-
-| **Monitor source** | **Signal type**  | **Description** | 
-|-------------|----------------|-------------|
-| Service health | Activity log  | Not supported. See [Create activity log alerts on service notifications](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
-| Application Insights | Web availability tests | Not supported. See [Web test alerts](../../azure-monitor/app/monitor-web-app-availability.md). Available to any website that's instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations. |
+Alerts are available across several Azure monitoring services. For information about how and when to use each of these services, see [Monitoring Azure applications and resources](../../azure-monitor/overview.md). 
 
 
 ## All alerts page 
@@ -169,7 +171,7 @@ The Alert detail page includes the following sections.
 
 The Azure Monitor metrics and activity log alerting capability before June 2018 is called "Alerts (classic)". 
 
-For more information, see [Alerts classic](./../../azure-monitor/platform/alerts-classic.overview.md)
+For more information, see [Classic alerts](./../../azure-monitor/platform/alerts-classic.overview.md)
 
 
 ## Next steps
@@ -178,6 +180,7 @@ For more information, see [Alerts classic](./../../azure-monitor/platform/alerts
 - [Learn about action groups](../../azure-monitor/platform/action-groups.md)
 - [Managing your alert instances in Azure](https://aka.ms/managing-alert-instances)
 - [Managing Smart Groups](https://aka.ms/managing-smart-groups)
+
 
 
 

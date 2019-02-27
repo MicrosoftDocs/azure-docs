@@ -3,14 +3,15 @@ title: Virtual Network service endpoints and rules for Azure Service Bus | Micro
 description: Add a Microsoft.ServiceBus service endpoint to a virtual network. 
 services: service-bus
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
+editor: spelluru
 
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
-ms.author: clemensv
+ms.author: aschhab
 ---
 
 # Use Virtual Network service endpoints with Azure Service Bus
@@ -24,7 +25,7 @@ The result is a private and isolated relationship between the workloads bound to
 >[!WARNING]
 > Implementing Virtual Networks integration can prevent other Azure services from interacting with Service Bus.
 >
-> Trusted Microsoft services are not supported when Virtual Networks are implemented, and will be made available soon.
+> Trusted Microsoft services are not supported when Virtual Networks are implemented.
 >
 > Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
 > - Azure Monitor
@@ -129,8 +130,8 @@ Template:
         "type": "Microsoft.ServiceBus/namespaces",
         "location": "[parameters('location')]",
         "sku": {
-          "name": "Standard",
-          "tier": "Standard"
+          "name": "Premium",
+          "tier": "Premium"
         },
         "properties": { }
       },

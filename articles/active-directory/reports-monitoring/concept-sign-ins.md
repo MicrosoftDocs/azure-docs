@@ -4,7 +4,7 @@ description: Introduction to sign-in activity reports in the Azure Active Direct
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 # Sign-in activity reports in the Azure Active Directory portal
 
@@ -157,8 +158,8 @@ If you need more flexibility, you can use the script solution. Clicking **Script
 
 If you want to run the script on a **Windows 10** machine, you need to perform a few additional steps first. 
 
-1. Install the [AzureRM module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0l).
-2. Import the module by opening a PowerShell prompt and running the command **Import-Module AzureRM**.
+1. Install the [Az module](/powershell/azure/install-az-ps).
+2. Import the module by opening a PowerShell prompt and running the command **Import-Module Az**.
 3. Run **Set-ExecutionPolicy unrestricted** and choose **Yes to All**. 
 4. Now you can run the downloaded PowerShell script in administrator mode to generate the CSV file.
 
@@ -199,7 +200,11 @@ By clicking an item, you get more details about the sign-in operation:
 - Date
 - MFA Required
 - Sign-in status
- 
+
+> [!NOTE]
+> IP addresses are issued in such a way that there is no definitive connection between an IP address and where the computer with that address is physically located. Mapping IP addresses is complicated by the fact that mobile providers and VPNs issue IP addresses from central pools that are often very far from where the client device is actually used. 
+> Currently in Azure AD reports, converting IP address to a physical location is a best effort based on traces, registry data, reverse look ups and other information.
+
 On the **Users** page, you get a complete overview of all user sign-ins by clicking **Sign-ins** in the **Activity** section.
 
 ![Sign-in activity](./media/concept-sign-ins/08.png "Sign-in activity")

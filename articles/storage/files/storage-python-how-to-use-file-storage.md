@@ -9,7 +9,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 12/14/2018
 ms.author: tamram
-ms.component: files
+ms.subservice: files
 ---
 
 # Develop for Azure Files with Python
@@ -122,7 +122,7 @@ Finally, to delete a file, call `delete_file`.
 file_service.delete_file('myshare', None, 'myfile')
 ```
 
-## Create share snapshot (preview)
+## Create share snapshot
 You can create a point in time copy of your entire file share.
 
 ```python
