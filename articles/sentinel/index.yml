@@ -49,7 +49,7 @@ sections:
     - title: Introduction to Security in Azure
       href: https://docs.microsoft.com/learn/azure
       image: 
-        src: /media/index/tutorial.svg
+        src: media/index/tutorial.svg
         href: https://docs.microsoft.com/learn/azure
 
   - type: paragraph
