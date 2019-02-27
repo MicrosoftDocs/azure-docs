@@ -66,6 +66,7 @@ DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionA
     collectionDefinition,
     new RequestOptions { OfferThroughput = 20000 });
 ```
+
 ### <a id="nodejs-enable-withexpiry"></a>NodeJS SDK
 
 ```javascript
@@ -73,9 +74,9 @@ const containerDefinition = {
           id: "sample container1",
         };
 
-async function createcontainerWithTTL(db: Database, containerDefinition: ContainerDefinition, collId: any, ttl: number) {
+async function createcontainerWithTTL(db: Database, containerDefinition: ContainerDefinition, collId: any, defaultTtl: number) {
       containerDefinition.id = collId;
-      containerDefinition.ttl = ttl;
+      containerDefinition.defaultTtl = defaultTtl;
       await db.containers.create(containerDefinition);
 }
 ```
