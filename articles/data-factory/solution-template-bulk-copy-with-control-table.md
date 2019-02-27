@@ -25,12 +25,12 @@ To copy data from a data warehouse in Oracle Server, Netezza, Teradata, or SQL S
 
 This template retrieves a list of source database partitions to copy from an external control table. Then it iterates over each partition in the source database and copies the data to the destination.
 
-The template contains the following three activities:
+The template contains three activities:
 - **Lookup** retrieves the list of sure database partitions from an external control table.
 - **ForEach** gets the partition list from the Lookup activity and iterates each partition to the Copy activity.
 - **Copy** copies each partition from the source database store to the destination store.
 
-The template defines these five parameters:
+The template defines five parameters:
 - *Control_Table_Name* is your external control table, which stores the partition list for the source database.
 - *Control_Table_Schema_PartitionID* is the name of the column name in your external control table that stores each partition ID. Make sure that the partition ID is unique for each partition in the source database.
 - *Control_Table_Schema_SourceTableName* is your external control table that stores each table name from the source database.
