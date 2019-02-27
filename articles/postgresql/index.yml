@@ -67,7 +67,7 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/cli/azure">Azure CLI</a></p>
+      html: <p><a href="/cli/azure/postgres">Azure CLI</a></p>
     - title: REST
       html: <p><a href="/rest/api/postgresql">REST API</a></p>
     - title: Azure Resource Manager
