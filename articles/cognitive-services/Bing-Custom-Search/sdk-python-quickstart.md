@@ -35,17 +35,17 @@ pip install azure-cognitiveservices-search-customsearch
 
 Create a new Python file in your favorite editor or IDE, and add the following imports. Create a variable for your subscription key.
 
-    ```python
-    from azure.cognitiveservices.search.customsearch import CustomSearchClient
-    from msrest.authentication import CognitiveServicesCredentials
-    ```
+```python
+from azure.cognitiveservices.search.customsearch import CustomSearchClient
+from msrest.authentication import CognitiveServicesCredentials
+```
 
 ## Create a search client and send a request
 
 1. Create a variable for your subscription key.
 
     ```python
-    key = 'your-subscription-key'
+    subscription_key = 'your-subscription-key'
     ```
 
 2. Create an instance of `CustomSearchClient`, using a `CognitiveServicesCredentials` object with the subscription key. 
@@ -62,7 +62,7 @@ Create a new Python file in your favorite editor or IDE, and add the following i
 
 ## View the search results.
 
-1. If any search results were found, get the first one, and print the web page's name, and URL. 
+If any web page search results were found, get the first one and print its name, URL, and total web pages found.
 
 ```python
 if web_data.web_pages.value:
