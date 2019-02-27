@@ -20,7 +20,7 @@ ms.reviewer: bagovind
 ---
 # List deny assignments for Azure resources using the REST API
 
-Currently, deny assignments are **read-only** and can only be set by Azure. Even though you can't create your own deny assignments, you can list deny assignments because they could impact your effective permissions. This article describes how you to list deny assignments using RBAC and the REST API.
+Currently, deny assignments are **read-only** and can only be set by Microsoft. Even though you can't create your own deny assignments, you can list deny assignments because they could impact your effective permissions. This article describes how you to list deny assignments using RBAC and the REST API.
 
 ## List a single deny assignment
 
