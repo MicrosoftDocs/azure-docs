@@ -74,7 +74,7 @@ As outlined in [Azure Functions scale and hosting](functions-scale.md), there ar
 - on a regular App Service plan (on the multitenant version of App Service or on App Service Environment)
 - on an App Service consumption plan
 
-In order to deploy the function on a consumption Plan, skip the next section.
+In order to deploy the function on a consumption Plan, skip to the next section.
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
