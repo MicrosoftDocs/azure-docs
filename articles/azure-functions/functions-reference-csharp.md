@@ -388,12 +388,10 @@ To use NuGet packages in a 2.x C# function, upload a *function.proj* file to the
 
 To use a custom NuGet feed, specify the feed in a *Nuget.Config* file in the Function App root. For more information, see [Configuring NuGet behavior](/nuget/consume-packages/configuring-nuget-behavior). 
 
-Once the install is complete, then a *project.assets.json* file is generated.
-
 > [!NOTE]
 > In 1.x C# functions, NuGet packages are referenced with a *project.json* file instead of a *function.proj* file.
 
-For 1.x functions, add the following code to *project.json*. 
+For 1.x functions, use a *project.json* file instead. Here is an example *project.json* file: 
 
 ```json
 {
