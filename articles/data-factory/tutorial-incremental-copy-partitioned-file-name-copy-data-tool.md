@@ -107,15 +107,15 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
 	a. Click  **+ Create new connection**, to add a connection.
 
-		![Source data store page](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page.png)
+	![Source data store page](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page.png)
 	
 	b. Select **Azure Blob Storage** from the gallery, and then click **Continue**.
 
-		![Source data store page](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-select-blob.png)
+	![Source data store page](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-select-blob.png)
 	
 	c. On the **New Linked Service** page, select your storage account from the **Storage account name** list, and then click **Finish**.
 	
-		![Source data store page](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-linkedservice.png)
+	![Source data store page](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-linkedservice.png)
     
 	d. Select the newly created linked service, then click **Next**. 
 	
@@ -124,19 +124,19 @@ Prepare your Blob storage for the tutorial by performing these steps.
     
     a. Browse and select the **source** container, then select **Choose**.
 	
-		![Choose the input file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-input-file-folder.png)
+	![Choose the input file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-input-file-folder.png)
 	
 	b. Under **File loading behavior**, select **Incremental load: time-partitioned folder/file names**.
 	
-		![Choose the input file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-loading-behavior.png)
+	![Choose the input file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-loading-behavior.png)
 	
 	c. Write the dynamic folder path as **source/{year}/{month}/{day}/{hour}/**, and change the format as followings:
 	
-		![Choose the input file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name.png)
+	![Choose the input file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name.png)
 	
 	d. Check **Binary copy** and click **Next**.
 	
-		![Choose the input file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/check-binary-copy.png)	 
+	![Choose the input file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/check-binary-copy.png)	 
 5. On the **Destination data store** page, select the **AzureBlobStorage**, which is the same storage account as data source store, and then click **Next**.
 
 	![Destination data store page](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/destination-data-store-page-select-linkedservice.png)	
@@ -144,15 +144,15 @@ Prepare your Blob storage for the tutorial by performing these steps.
     
     a. Browse and select the **destination** folder, then click **Choose**.
 	
-		![Choose the output file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-output-file-folder.png)	
+	![Choose the output file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-output-file-folder.png)	
 	
 	b. Write the dynamic folder path as **source/{year}/{month}/{day}/{hour}/**, and change the format as followings:
 	
-		![Choose the output file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name2.png)	
+	![Choose the output file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name2.png)	
 	
 	c. Click **Next**.
 	
-		![Choose the output file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)	
+	![Choose the output file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)	
 7. On the **Settings** page, select **Next**. 
 
     ![Settings page](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/settings-page.png)	
