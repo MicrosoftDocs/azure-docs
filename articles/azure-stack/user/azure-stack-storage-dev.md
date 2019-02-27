@@ -4,12 +4,12 @@ description: Guidance to get started with using Azure Stack storage development 
 services: azure-stack 
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 12/03/2018
+ms.date: 02/27/2019
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.lastreviewed: 12/03/2018
+ms.lastreviewed: 02/27/2019
 
 ---
 
