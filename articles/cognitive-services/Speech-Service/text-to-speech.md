@@ -1,7 +1,7 @@
 ---
 title: Text-to-speech with Azure Speech Services
 titleSuffix: Azure Cognitive Services
-description: Text-to-speech from Azure Speech Services is a REST-based service that enables your applications, tools, or devices to text into natural human-like synthesized speech. Speech synthesis is available in 75 languages and more than 45 languages and locales. Choose from standard from standard and neural voices, or create your own custom voice unique to your product or brand.
+description: Text-to-speech from Azure Speech Services is a REST-based service that enables your applications, tools, or devices to convert text into natural human-like synthesized speech. Choose from standard from standard and neural voices, or create your own custom voice unique to your product or brand. 75+ standard voices are available in more than 45 languages and locales, and 5 neural voices are available in 4 languages and locales.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -13,11 +13,11 @@ ms.author: erhopf
 ms.custom: seodec18
 ---
 
-# What is text to speech?
+# What is text-to-speech?
 
-Text-to-speech from Azure Speech Services is a REST-based service that enables your applications, tools, or devices to convert text into natural human-like synthesized speech. Speech synthesis is available in 75 languages and more than 45 languages and locales. Choose from standard from standard and neural voices, or create your own custom voice unique to your product or brand. For a full list of languages, locales, and voices, see [supported languages](language-support.md#text-to-speech).
+Text-to-speech from Azure Speech Services is a REST-based service that enables your applications, tools, or devices to convert text into natural human-like synthesized speech. Choose from standard from standard and neural voices, or create your own [custom voice](#custom-voice-fonts) unique to your product or brand. 75+ standard voices are available in more than 45 languages and locales, and 5 neural voices are available in 4 languages and locales. For a full list, see [supported languages](language-support.md#text-to-speech).
 
-Text-to-speech technology allows content creators to interact with their users in different ways. Speech synthesis can improve accessibility by providing users with an option to interact with content audibly. Whether the user has a visual impairment, a learning disability, or requires navigation information while driving, text-to-speech can improve an existing experience. Speech synthesis is also a valuable add-on for voice bots and virtual assistants.
+Text-to-speech technology allows content creators to interact with their users in different ways. Text-to-speech can improve accessibility by providing users with an option to interact with content audibly. Whether the user has a visual impairment, a learning disability, or requires navigation information while driving, text-to-speech can improve an existing experience. Text-to-speech is also a valuable add-on for voice bots and virtual assistants.
 
 ### Neural voices
 
@@ -59,7 +59,7 @@ We offer quickstarts designed to have you running code in less than 10 minutes. 
 
 Sample code for text-to-speech is available on GitHub. These samples cover text-to-speech conversion in most popular programming languages.
 
-* [Speech synthesis samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+* [Text-to-speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
 ## Next steps
 
