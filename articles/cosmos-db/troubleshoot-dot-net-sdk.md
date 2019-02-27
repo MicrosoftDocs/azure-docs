@@ -19,7 +19,8 @@ The .NET SDK provides client-side logical representation to access the Azure Cos
 * Take a look at the [Common issues and workarounds](#common-issues-workarounds) section in this article.
 * Check the [GitHub issues section](https://github.com/Azure/azure-cosmos-dotnet-v2/issues) that's actively monitored. Check to see if any similar issue with a workaround is already filed.
 * If you didn't find a solution then file a [GitHub issue](https://github.com/Azure/azure-cosmos-dotnet-v2/issues).
- 
+ * Open a support tick for urgent issues.
+
 ## <a name="common-issues-workarounds"></a>Common issues and workarounds
 
 ### General suggestions
@@ -27,7 +28,7 @@ The .NET SDK provides client-side logical representation to access the Azure Cos
 * You may run into connectivity/availability issues due to lack of resources on your client machine. We recommend monitoring your CPU utilization on nodes running the Azure Cosmos DB client, and scaling up/out if they're running at high load.
 
 ### Check the portal metrics
-Checking the [portal metrics](monitor-accounts.md) will help determine if it's a client side issue or if there is an issue with the service. For example if you are seeing a lot of 429s which means the request is getting throttled then check the [Request rate too large] section. 
+Checking the [portal metrics](monitor-accounts.md) will help determine if it's a client side issue or if there is an issue with the service. For example if the metrics contains a high rate of rate-limited requests(HTTP status code 429) which means the request is getting throttled then check the [Request rate too large] section. 
 
 ### <a name="request-timeouts"></a>Requests timeouts
 RequestTimeout usually happens when using Direct/TCP, but can happen in Gateway mode. These are the common known causes, and suggestions on how to fix the problem.
@@ -78,7 +79,7 @@ Consider the following checklist before you move your application to production.
 * [Enable the SDK logging](#logging) to help you troubleshoot an issue. The [portal metrics](monitor-accounts.md) shows the Azure Cosmos DB telemetry. Telemetry is helpful to determine if the issue corresponds to Azure Cosmos DB or if the it's from the client side.
 
 ### Enable the SDK logging<a name="logging"></a>
-The following items should be logged. This will allow an issue to be quickly diagnosed.
+Enabling the logging may affect performance, and should be enabled only for troubleshooting issues. This information will allow an issue to be quickly diagnosed.
 * Log the [diagnostics string](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet) from the point operation responses.
 * Log the [SQL Query Metrics](sql-api-query-metrics.md) from all the query responses 
 * Follow the setup for [SDK logging](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md) 
