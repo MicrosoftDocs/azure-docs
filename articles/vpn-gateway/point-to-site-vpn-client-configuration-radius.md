@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 02/27/2019
 ms.author: cherylmc
 
 ---
@@ -43,6 +43,19 @@ You can configure username/password authentication to either use Active Director
 When you configure username/password authentication, you can only create a configuration for the EAP-MSCHAPv2 username/password authentication protocol. In the commands, `-AuthenticationMethod` is `EapMSChapv2`.
 
 ### <a name="usernamefiles"></a> 1. Generate VPN client configuration files
+
+You can generate the VPN client configuration files by using the Azure portal, or by using Azure PowerShell.
+
+#### Azure portal
+
+1. Navigate to the virtual network gateway.
+2. Click **Point-to-Site configuration**.
+3. Click **Download VPN client**.
+4. Select the client and fill out any information that is requested.
+5. Click **Download** to generate the client.
+6. The client will download, typically to your Downloads folder.
+
+#### Azure PowerShell
 
 Generate VPN client configuration files for use with username/password authentication. You can generate the VPN client configuration files by using the following command:
 
