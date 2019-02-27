@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Cloud Shell limitations | Microsoft Docs
 description: Overview of limitations of Azure Cloud Shell
 services: azure
@@ -41,7 +41,7 @@ Cloud Shell supports the latest versions of Microsoft Edge, Microsoft Internet E
 
 ### For a given user, only one shell can be active
 
-Users can only launch one type of shell at a time, either **Bash** or **PowerShell**. However, you may have multiple instances of Bash or PowerShell running at one time. Swapping between Bash or PowerShell via the menu causes Cloud Shell to restart, which terminates existing sessions. Alternatively you can run bash inside powershell by typing 'bash' or PowerShell inside bash by typing 'pwsh'.
+Users can only launch one type of shell at a time, either **Bash** or **PowerShell**. However, you may have multiple instances of Bash or PowerShell running at one time. Swapping between Bash or PowerShell by using the menu causes Cloud Shell to restart, which terminates existing sessions. Alternatively, you can run bash inside PowerShell by typing `bash`, and you can run PowerShell inside bash by typing `pwsh`.
 
 ### Usage limits
 
