@@ -17,12 +17,13 @@ By default, the template creates a function that requires a function key when ma
 
 ### C\#
 
-Open the MyHttpTrigger.cs code file that is your new function and update the **AuthorizationLevel** attribute in the function definition to a value of `anonymous` and save your changes.
+Open the MyHttpTrigger.cs code file that is your new function and update the **AuthorizationLevel** attribute in the function definition to a value of `Anonymous` and save your changes.
 
 ```csharp
 [FunctionName("MyHttpTrigger")]
-        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, 
-            "get", "post", Route = null)]HttpRequest req, ILogger log)
+public static async Task<IActionResult> Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
+    ILogger log)
 ```
 
 ### JavaScript
