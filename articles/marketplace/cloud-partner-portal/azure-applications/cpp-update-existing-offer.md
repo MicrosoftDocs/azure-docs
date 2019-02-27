@@ -73,7 +73,7 @@ Use the following steps to update the marketplace metadata associated with your 
 4. Select **Publish** to start the workflow to publish your changes.
  
 >[!Note]
->Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](./cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
+>Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](../../cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
 
 ## Deleting an existing offer
 

@@ -34,7 +34,7 @@ Some of the benefits of listing your applications on a Microsoft marketplace inc
 - Getting actionable insights: we will share insights into how your app is performing on AppSource, what works well, and how to further improve your sales procedures.
  
 >[!Note]
->Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](./cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
+>Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](../../cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
 
 ## Publishing process workflow 
 
