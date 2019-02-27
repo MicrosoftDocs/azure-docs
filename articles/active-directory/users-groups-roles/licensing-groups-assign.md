@@ -40,9 +40,7 @@ In this example, the tenant contains a security group called **HR Department**. 
 
    ![All products, assign license](./media/licensing-groups-assign/all-products-assign.png)
 
-5. On the **Assign license** pane, select **Users and groups** to open a list of users and groups. Select a user or group, and then use the **Select** button at the bottom of the pane to confirm.
-
-   ![Select a group](./media/licensing-groups-assign/select-a-group.png)
+5. On the **Assign license** pane, select **Users and groups** to open a list of users and groups. Select a user or group, and then use the **Select** button at the bottom of the pane to confirm your selection.
 
 6. On the **Assign license** pane, click **Assignment options**, which displays all service plans included in the two products that we selected previously. Find **Yammer Enterprise** and turn it **Off** to disable that service from the product license. Confirm by clicking **OK** at the bottom of **License options**.
 
