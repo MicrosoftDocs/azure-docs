@@ -92,7 +92,7 @@ There are two ways to stop protecting VMs:
 
 >[!NOTE]
 >
-* If you **'Stop backup** with **Retain Backup Data**, the recovery points will not expire in accordance to backup policy. You are charged for the protected instances and the consumed storage. The recovery points will only be cleaned up after you resume backup (re-enable protection) as per policy  or manually delete backup data.
+* If you **Stop backup** with **Retain Backup Data**, the recovery points will not expire in accordance to backup policy. You are charged for the protected instances and the consumed storage. The recovery points will only be cleaned up after you resume backup (re-enable protection) as per policy  or manually delete backup data.
 * If you delete a data source without stopping backup, new backups will start failing. Again, old recovery points will expire according to policy, but one last recovery point will always be retained until you stop backup and delete the data.
 
 To stop protection for a virtual machine:
