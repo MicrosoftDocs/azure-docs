@@ -95,7 +95,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 ## Specify source details
 1. On the **Source details** screen, specify the connection details for the source MongoDB server.
     
-   You can also use connection string mode and supply a location for a blog store file container in which you've dumped the collection data you intend to migrate.
+   You can also use connection string mode and supply a location for a blob store file container in which you've dumped the collection data you intend to migrate.
 
    > [!NOTE]
    > The Azure Database Migration Service can also migrate bson documents or json documents to Azure Cosmos DB's API for MongoDB collections.
