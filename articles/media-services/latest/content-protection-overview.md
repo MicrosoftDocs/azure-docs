@@ -139,7 +139,7 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 
 The `ContentKeyId` has a value of the key being requested and the `AlternativeMediaId` can be used if you want to map the request to an entity on your side. For example, the `AlternativeMediaId` can be used to help you look up permissions.
 
-For REST examples that use custom key and license acquisition URLs, see [Streaming Policies - Create](https://docs.microsoft.com/en-us/rest/api/media/streamingpolicies/create)
+For REST examples that use custom key and license acquisition URLs, see [Streaming Policies - Create](https://docs.microsoft.com/rest/api/media/streamingpolicies/create)
 
 ## Control content access
 
