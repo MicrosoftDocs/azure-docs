@@ -1,5 +1,5 @@
 ---
-title: Agent Health solution in Azure | Microsoft Docs
+title: Agent Health solution in Azure Monitor | Microsoft Docs
 description: This article is intended to help you understand how to use this solution to monitor the health of your agents reporting directly to Log Analytics or System Center Operations Manager.
 services: operations-management-suite
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.date: 03/19/2017
 ms.author: magoedte
 ---
 #  Agent Health solution in Azure
-The Agent Health solution in Azure helps you understand, for all of the agents reporting directly to the Log Analytics workspace or a System Center Operations Manager management group  connected to Log Analytics, which are unresponsive and submitting operational data.  You can also keep track of how many agents are deployed, where they are distributed geographically, and perform other queries to maintain awareness of the distribution of agents deployed in Azure, other cloud environments, or on-premises.    
+The Agent Health solution in Azure helps you understand, for all of the agents reporting directly to the Log Analytics workspace or a System Center Operations Manager management group  connected to Azure Monitor, which are unresponsive and submitting operational data.  You can also keep track of how many agents are deployed, where they are distributed geographically, and perform other queries to maintain awareness of the distribution of agents deployed in Azure, other cloud environments, or on-premises.    
 
 ## Prerequisites
-Before you deploy this solution, confirm you have currently supported [Windows agents](../../log-analytics/log-analytics-windows-agent.md) reporting to the Log Analytics workspace or reporting to an [Operations Manager management group](../../azure-monitor/platform/om-agents.md) integrated with your workspace.    
+Before you deploy this solution, confirm you have currently supported [Windows agents](../../log-analytics/log-analytics-windows-agent.md) reporting to the Log Analytics workspace or reporting to an [Operations Manager management group](../../azure-monitor/platform/om-agents.md) integrated with your workspace.
 
 ## Solution components
 This solution consists of the following resources that are added to your workspace and directly connected agents or Operations Manager connected management group.
@@ -42,7 +42,7 @@ The following table describes the connected sources that are supported by this s
 | Connected Source | Supported | Description |
 | --- | --- | --- |
 | Windows agents | Yes | Heartbeat events are collected from direct Windows agents.|
-| System Center Operations Manager management group | Yes | Heartbeat events are collected from  agents reporting to the management group every 60 seconds and then forwarded to Log Analytics. A direct connection from Operations Manager agents to Log Analytics is not required. Heartbeat event data is forwarded from the management group to the Log Analytics repository.|
+| System Center Operations Manager management group | Yes | Heartbeat events are collected from  agents reporting to the management group every 60 seconds and then forwarded to Azure Monitor. A direct connection from Operations Manager agents to Azure Monitor is not required. Heartbeat event data is forwarded from the management group to the Log Analytics workspace.|
 
 ## Using the solution
 When you add the solution to your Log Analytics workspace, the **Agent Health** tile will be added to your dashboard. This tile shows the total number of agents and the number of unresponsive agents in the last 24 hours.<br><br> ![Agent Health Solution tile on dashboard](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
@@ -62,7 +62,7 @@ Click on the **Agent Health** tile to open the **Agent Health** dashboard.  The 
 
 ![Agent Health Solution dashboard example](./media/solution-agenthealth/agenthealth-solution-dashboard.png)  
 
-## Log Analytics records
+## Azure Monitor log records
 The solution creates one type of record in the Log Analytics workspace.  
 
 ### Heartbeat records
@@ -86,7 +86,7 @@ A record with a type of **Heartbeat** is created.  These records have the proper
 | RemoteIPLongitude | Longitude of computer's geographic location.|
 | RemoteIPLatitude | Latitude of computer's geographic location.|
 
-Each agent reporting to an Operations Manager management server will send two heartbeats, and SCAgentChannel property's value will include both **Direct** and **SCManagementServer** depending on what Log Analytics data sources and solutions you have enabled in your subscription. If you recall, data from solutions are either sent directly from an Operations Manager management server to Log Analytics, or because of the volume of data collected on the agent, are sent directly from the agent to Log Analytics. For heartbeat events which have the value **SCManagementServer**, the ComputerIP value is the IP address of the management server since the data is actually uploaded by it.  For heartbeats where SCAgentChannel is set to **Direct**, it is the public IP address of the agent.  
+Each agent reporting to an Operations Manager management server will send two heartbeats, and SCAgentChannel property's value will include both **Direct** and **SCManagementServer** depending on what data sources and monitoring solutions you have enabled in your subscription. If you recall, data from solutions are either sent directly from an Operations Manager management server to Azure Monitor, or because of the volume of data collected on the agent, are sent directly from the agent to Azure Monitor. For heartbeat events which have the value **SCManagementServer**, the ComputerIP value is the IP address of the management server since the data is actually uploaded by it.  For heartbeats where SCAgentChannel is set to **Direct**, it is the public IP address of the agent.  
 
 ## Sample log searches
 The following table provides sample log searches for records collected by this solution.
@@ -111,4 +111,4 @@ The following table provides sample log searches for records collected by this s
 
 ## Next steps
 
-* Learn about [Alerts in Log Analytics](../../azure-monitor/platform/alerts-overview.md) for details on generating alerts from Log Analytics. 
+* Learn about [Alerts in Azure Monitor](../platform/alerts-overview.md) for details on generating alerts from Log Analytics. 
