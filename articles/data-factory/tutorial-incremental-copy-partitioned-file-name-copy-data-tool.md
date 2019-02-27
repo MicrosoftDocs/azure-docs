@@ -135,7 +135,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
 	d. Check **Binary copy** and click **Next**.
 	
 	![Choose the input file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/check-binary-copy.png)	 
-5. On the **Destination data store** page, select the **AzureBlobStorage** which is the same storage account as data source store, and then click **Next**.
+5. On the **Destination data store** page, select the **AzureBlobStorage**, which is the same storage account as data source store, and then click **Next**.
 
 	![Destination data store page](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/destination-data-store-page-select-linkedservice.png)	
 6. On the **Choose the output file or folder** page, do the following steps:
@@ -161,7 +161,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
 9. On the **Deployment page**, select **Monitor** to monitor the pipeline (task).
     ![Deployment page](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/deployment-page.png)
 	
-10. Notice that the **Monitor** tab on the left is automatically selected.  You need wait for the pipeline run when it is triggerred automatically (about after one hour).  When it runs, the **Actions** column includes links to view activity run details and to rerun the pipeline. Select **Refresh** to refresh the list, and select the **View Activity Runs** link in the **Actions** column. 
+10. Notice that the **Monitor** tab on the left is automatically selected.  You need wait for the pipeline run when it is triggered automatically (about after one hour).  When it runs, the **Actions** column includes links to view activity run details and to rerun the pipeline. Select **Refresh** to refresh the list, and select the **View Activity Runs** link in the **Actions** column. 
 
 	![Monitor pipeline runs](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs1.png)
 11. There's only one activity (copy activity) in the pipeline, so you see only one entry. You can see the source file (file1.txt) has been copied from  **source/2019/02/26/14/**  to **destination/2019/02/26/14/** with the same file name.  
