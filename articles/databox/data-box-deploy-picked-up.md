@@ -64,11 +64,11 @@ Verify that your data is uploaded to Azure before you delete it from the source.
 
     - If your copy to managed disks in Azure was successful, you can go to the **Order details** in the Azure portal and make a note of the resource groups specified for managed disks.
 
-        ![Identify managed disk resource groups](media/data-box-deploy-copy-data-from-vhds/order-details-mananged-disk-res-groups.png)
+        ![Identify managed disk resource groups](media/data-box-deploy-copy-data-from-vhds/order-details-managed-disk-resource-groups.png)
 
         Go to the noted resource group and locate your managed disks.
 
-        ![Managed disk attached to resource groups](media/data-box-deploy-copy-data-from-vhds/managed-disks-in-res-group.png)
+        ![Managed disk attached to resource groups](media/data-box-deploy-copy-data-from-vhds/managed-disks-resource-group.png)
 
     - If you copied a VHDX, or a dynamic/differencing VHD, then the VHDX/VHD is uploaded to the staging storage account as a page blob but the conversion of VHD to managed disk fails. Go to your staging **Storage account > Blobs** and then select the appropriate container - Standard SSD, Standard HDD, or Premium SSD. The VHDs are uploaded as page blobs in your staging storage account.
 

@@ -79,7 +79,7 @@ Perform the following steps in the Azure portal to order a device.
 
     If using storage account as the storage destination, you see the following screenshot:
 
-    ![Data Box order for storage account](media/data-box-deploy-ordered/order-for-storage-account.png)
+    ![Data Box order for storage account](media/data-box-deploy-ordered/order-storage-account.png)
 
     If using Data Box to create managed disks from the on-premises VHDs, you will also need to provide the following information:
 
@@ -87,7 +87,7 @@ Perform the following steps in the Azure portal to order a device.
     |---------|---------|
     |Resource groups     | Create new resource groups if you intend to create managed disks from on-premises VHDs. You can use an existing resource group only if the resource group was created previously when creating a Data Box order for managed disk by Data Box service. <br> Specify multiple resource groups separated by semi-colons. A maximum of 10 resource groups are supported.|
 
-    ![Data Box order for managed disk](media/data-box-deploy-ordered/order-for-managed-disks.png)
+    ![Data Box order for managed disk](media/data-box-deploy-ordered/order-managed-disks.png)
 
     The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting it into managed disks and moving it to the resource groups. For more information, see [Verify data upload to Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
 

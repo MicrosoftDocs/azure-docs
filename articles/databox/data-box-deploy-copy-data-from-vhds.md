@@ -6,11 +6,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/22/2019
+ms.date: 02/27/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises VM data from my server onto Azure.
 ---
-# Tutorial: Use Data Box to migrate data to managed disks in Azure (preview)
+# Tutorial: Use Data Box to import data as managed disks in Azure
 
 This tutorial describes how to use the Azure Data Box to migrate you on-premises VHDs to managed disks in Azure. The VHDs from on-premises VMs are copied to Data Box as page blobs and are uploaded into Azure as managed disks. These managed disks can then be attached to Azure VMs.
 
@@ -142,7 +142,7 @@ Depending on whether you are connecting via SMB or NFS, you can use:
 
 Wait for the copy jobs to finish. Make sure that the copy jobs have finished with no errors before you go to the next step.
 
-![No errors on **Connect and copy** page](media/data-box-deploy-copy-data-from-vhds/verify-no-errors-on-connect-and-copy.png)
+![No errors on **Connect and copy** page](media/data-box-deploy-copy-data-from-vhds/verify-no-errors-connect-and-copy.png)
 
 If there are errors during the copy process, download the logs from the **Connect and copy** page.
 
@@ -150,7 +150,7 @@ If there are errors during the copy process, download the logs from the **Connec
 
 - If you copied a VHDX (these files are not supported) with a long name, you will see an error in the logs.
 
-    ![Error in the logs from **Connect and copy** page](media/data-box-deploy-copy-data-from-vhds/errors-on-connect-and-copy.png)
+    ![Error in the logs from **Connect and copy** page](media/data-box-deploy-copy-data-from-vhds/errors-connect-and-copy.png)
 
     Resolve the errors before you proceed to the next step.
 
