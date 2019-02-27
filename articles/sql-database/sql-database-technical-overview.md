@@ -96,11 +96,11 @@ You use the [built-in performance monitoring](sql-database-performance.md) and [
 
 ## Availability capabilities
 
-In a traditional SQL Server environment, you would generally have (at least) 2 machines locally set up with exact (synchronously maintained) copies of the data (using features like AlwaysOn Availability Groups or Failover Clustering) to protect against a failure of a single machine/component.  This provides high availably but does not protect against a natural disaster destroying your data center.
+In a traditional SQL Server environment, you would generally have (at least) 2 machines locally set up with exact (synchronously maintained) copies of the data (using features like AlwaysOn availability groups or Failover Cluster Instances) to protect against a failure of a single machine/component.  This provides high availability but does not protect against a natural disaster destroying your data center.
  
-Disaster Recovery assumes that a catastrophic event will be geographically localized enough to have another machine/set of machines with a copy of your data far away.  In SQL Server, you could use Always On Availability Groups running in async mode to get this capability.  The speed of light issues usually means that people do not want to wait for replication to happen that far away before committing a transaction, so there is potential for data loss when you do unplanned failovers.
+Disaster recovery assumes that a catastrophic event will be geographically localized enough to have another machine/set of machines with a copy of your data far away.  In SQL Server, you could use Always On Availability Groups running in async mode to get this capability.  The speed of light issues usually means that people do not want to wait for replication to happen that far away before committing a transaction, so there is potential for data loss when you do unplanned failovers.
 
-SQL Azure premium databases already do something very similar to sync availability groups. There is logic that protects against a single machine failure.  The active geo-replication feature gives you the ability to protect against disaster where a whole region is destroyed.
+SQL Azure premium databases already do something very similar to sync availability groups (and lower tiers usually provide redundancy using different but equivalent machanisms). There is logic that protects against a single machine failure.  The active geo-replication feature gives you the ability to protect against disaster where a whole region is destroyed.
 
 Azure Availability Zones is a play on the high availability problem.  It tries to protect against the outage of a single data center building within a single region.  So, it wants to protect against the loss of power or network to a building. In SQL Azure, this will work by placing the different replicas in different availability zones (different buildings, effectively) and otherwise working as before. 
 
