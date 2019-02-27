@@ -34,6 +34,7 @@
   - name: Azure CLI
     href: cli-samples.md        
 - name: Concepts
+  href: concepts-overview.md
   items:
   - name: Cloud upload and storage
     href: storage-account-concept.md     

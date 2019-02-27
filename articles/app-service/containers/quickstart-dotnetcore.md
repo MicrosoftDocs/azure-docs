@@ -1,5 +1,5 @@
 ---
-title: Create .NET Core app on Linux - Azure App Service | Microsoft Docs
+title: Create ASP.NET Core app on Linux - Azure App Service | Microsoft Docs
 description: Deploy your first .NET Core Hello World app to App Service on Linux in minutes.
 keywords: azure app service, web app, dotnet, core, linux, oss
 services: app-service
