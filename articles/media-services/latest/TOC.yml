@@ -34,12 +34,12 @@
   - name: Azure CLI
     href: cli-samples.md        
 - name: Concepts
+  href: concepts-overview.md
   items:
   - name: Cloud upload and storage
     href: storage-account-concept.md     
-    items:
-    - name: Assets
-      href: assets-concept.md    
+  - name: Assets
+    href: assets-concept.md    
   - name: Encoding
     items:
     - name: Overview
@@ -65,13 +65,14 @@
       - name: Dynamic packaging
         displayName: packager      
         href: dynamic-packaging-overview.md
+      - name: Dynamic manifests
+        href: filters-dynamic-manifest-overview.md 
       - name: Filters
         href: filters-concept.md
-      - name: Dynamic manifests
-        href: filters-dynamic-manifest-overview.md       
     - name: Content protection
-      href: content-protection-overview.md  
       items:
+      - name: Overview      
+        href: content-protection-overview.md  
       - name: Multi-DRM system with access control
         href: design-multi-drm-system-with-access-control.md  
       - name: DRM licenses
@@ -93,8 +94,9 @@
     - name: Content Key Policies
       href: content-key-policy-concept.md              
   - name: Live streaming 
-    href: live-streaming-overview.md
     items:
+    - name: Overview
+      href: live-streaming-overview.md
     - name: Live Events and Live Outputs
       href: live-events-outputs-concept.md    
     - name: Recommended live encoders
