@@ -33,12 +33,9 @@ You can connect Azure Sentinel to any Cisco ASA appliance. Cisco ASA is natively
 
 To connect your Cisco ASA appliance to Azure Sentinel, you need to deploy an agent on a dedicated machine (VM or on-prem) to support the communication between the appliance and Azure Sentinel. You can deploly the agent automatically or manually. Automatic deployment is only available if your dedicated machine is a new VM you are creating in Azure. 
 
-
-![CEF in Azure](./media/connect-cef/cef-syslog-azure.png)
-
 Alternatively, you can deploy the agent manually on an existing Azure VM, on a VM in another cloud, or on an on-premises machine.
 
-![CEF on-prem](./media/connect-cef/cef-syslog-onprem.png)
+To see a network diagram of both options, see [Connect data sources](connect-data-sources.md).
 
 ### Deploy the agent in Azure
 

@@ -46,7 +46,7 @@ The following data collection methods are supported by Azure Sentinel:
 - **External solutions via API**: Some data sources are connected using APIs that are provided by the connected data source. Typically, most security technologies provide a set of APIs through which event logs can be retrieved.The APIs connect to Azure Sentinel and gather specific data types and send them to Azure Log Analytics. Appliances connected via API include:
     - [Barracuda](connect-barracuda.md)
     - Symantec
-- **External soultions via agent**: Azure Sentinel can be connected to all other data sources that can perform real-time log streaming using the Syslog protocol, via an agent. <br>Most appliances use the Syslog protocol to send event messages that include the log itself and data about the log. The format of the logs varies, but most appliances support the Common Event Format (CEF) standard. <br>The Azure Sentinel agent, which is based on the OMS agent, converts CEF formatted logs into a format that can be ingested by Log Analytics. Depending on the appliance type, the agent is installed either directly on the appliance, or on a dedicated Linux server. The agent for Linux receives events from the Syslog daemon over UDP, but in cases where a Linux machine is expected to collect a high volume of Syslog events, they are sent over TCP from the Syslog daemon to the agent and from there to Log Analytics.
+- **External solutions via agent**: Azure Sentinel can be connected to all other data sources that can perform real-time log streaming using the Syslog protocol, via an agent. <br>Most appliances use the Syslog protocol to send event messages that include the log itself and data about the log. The format of the logs varies, but most appliances support the Common Event Format (CEF) standard. <br>The Azure Sentinel agent, which is based on the OMS agent, converts CEF formatted logs into a format that can be ingested by Log Analytics. Depending on the appliance type, the agent is installed either directly on the appliance, or on a dedicated Linux server. The agent for Linux receives events from the Syslog daemon over UDP, but in cases where a Linux machine is expected to collect a high volume of Syslog events, they are sent over TCP from the Syslog daemon to the agent and from there to Log Analytics.
     - Firewalls
         - [F5](connect-f5.md)
         - [Check Point](connect-checkpoint.md)
@@ -65,12 +65,14 @@ The following data collection methods are supported by Azure Sentinel:
     - Linux servers
     - Windows Event Forwarding
     - Servers and endpoints
+To connect your external appliance to Azure Sentinel, the agent must be deployed on a dedicated machine (VM or on-prem) to support the communication between the appliance and Azure Sentinel. You can deploly the agent automatically or manually. Automatic deployment is only available if your dedicated machine is a new VM you are creating in Azure. 
 
-- **Integration with other clouds**:
-    - [AWS](connect-aws.md)
 
-- **Integration with cloud and on-prem data from**:
-    - 
+![CEF in Azure](./media/connect-cef/cef-syslog-azure.png)
+
+Alternatively, you can deploy the agent manually on an existing Azure VM, on a VM in another cloud, or on an on-premises machine.
+
+![CEF on-prem](./media/connect-cef/cef-syslog-onprem.png)
 
 
 ## Next steps
