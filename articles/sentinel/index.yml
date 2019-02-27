@@ -24,11 +24,11 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: /media/index/deploy.svg
+        src: media/index/deploy.svg
       text: Onboard Azure Sentinel
       href: /azure/sentinel/qs-onboard
     - image: 
-        src: /media/index/get-started.svg
+        src: media/index/get-started.svg
       text: Get started with Azure Sentinel
       href: /azure/sentinel/qs-get-visibility
 - title: Step-by-Step Tutorials
