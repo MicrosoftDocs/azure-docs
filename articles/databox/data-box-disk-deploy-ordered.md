@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 02/22/2019
+ms.date: 02/27/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -81,7 +81,7 @@ Perform the following steps in the [Azure portal](https://aka.ms/azuredataboxfro
 
     If using storage account as the storage destination, you see the following screenshot:
 
-    ![Data Box Disk order for storage account](media/data-box-disk-deploy-ordered/order-for-storage-account.png)
+    ![Data Box Disk order for storage account](media/data-box-disk-deploy-ordered/order-storage-account.png)
 
     If using Data Box Disk to create managed disks from the on-premises VHDs, you also need to provide the following information:
 
@@ -89,7 +89,7 @@ Perform the following steps in the [Azure portal](https://aka.ms/azuredataboxfro
     |---------|---------|
     |Resource group     | Create a new resource group if you intend to create managed disks from on-premises VHDs. Use an existing resource group only if it was created for Data Box Disk order for managed disk by Data Box service. <br> Only one resource group is supported.|
 
-    ![Data Box Disk order for managed disk](media/data-box-disk-deploy-ordered/order-for-managed-disks.png)
+    ![Data Box Disk order for managed disk](media/data-box-disk-deploy-ordered/order-managed-disks.png)
 
     The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs to the staging storage account and then converts those into managed disks and moves to the resource groups. For more information, see [Verify data upload to Azure](data-box-disk-deploy-picked-up.md#verify-data-upload-to-azure).
 

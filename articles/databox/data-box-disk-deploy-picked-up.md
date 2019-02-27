@@ -73,17 +73,17 @@ Verify that your data is in the storage account(s) before you delete it from the
 
 - Your managed disk resource group(s). When creating managed disks, the VHDs are uploaded as page blobs and then converted to managed disks. The managed disks are attached to the resource groups specified at the time of order creation.
 
-    - If your copy to managed disks in Azure was successful, you can go to the **Order details** in the Azure portal and make a note of the resource group specified for managed disks.      
+    - If your copy to managed disks in Azure was successful, you can go to the **Order details** in the Azure portal and make a note of the resource group specified for managed disks.
 
-        ![View order details](media/data-box-disk-deploy-picked-up/order-details-res-grp.png)
+        ![View order details](media/data-box-disk-deploy-picked-up/order-details-resourc-group.png)
 
     Go to the noted resource group and locate your managed disks.
 
-        ![Resource group for managed disks](media/data-box-disk-deploy-picked-up/res-grp-attached-md.png)
+        ![Resource group for managed disks](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
 
     - If you copied a VHDX, or a dynamic/differencing VHD, then the VHDX/VHD is uploaded to the staging storage account as a block blob. Go to your staging **Storage account > Blobs** and then select the appropriate container - StandardSSD, StandardHDD, or PremiumSSD. The  VHDX/VHDs should show up as block blobs in your staging storage account.
 
- To verify that the data has uploaded into Azure, perform the following steps:
+To verify that the data has uploaded into Azure, perform the following steps:
 
 1. Go to the storage account associated with your disk order.
 2. Go to **Blob service > Browse blobs**. The list of containers is presented. Corresponding to the subfolder that you created under *BlockBlob* and *PageBlob* folders, containers with the same name are created in your storage account.
