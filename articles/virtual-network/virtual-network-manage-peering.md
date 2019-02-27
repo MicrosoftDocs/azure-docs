@@ -67,7 +67,7 @@ For step-by-step instructions for implementing peering between virtual networks 
 
 ### Commands
 
-- **Azure CLI**: [az network vnet peering create](/cli/azure/network/vnet/peering#create)
+- **Azure CLI**: [az network vnet peering create](/cli/azure/network/vnet/peering)
 - **PowerShell**: [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering)
 
 ## View or change peering settings
@@ -84,7 +84,7 @@ Before changing a peering, familiarize yourself with the requirements and constr
 
 **Commands**
 
-- **Azure CLI**: [az network vnet peering list](/cli/azure/network/vnet/peering) to list peerings for a virtual network, [az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) to show settings for a specific peering, and [az network vnet peering update](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) to change peering settings.|
+- **Azure CLI**: [az network vnet peering list](/cli/azure/network/vnet/peering) to list peerings for a virtual network, [az network vnet peering show](/cli/azure/network/vnet/peering) to show settings for a specific peering, and [az network vnet peering update](/cli/azure/network/vnet/peering) to change peering settings.|
 - **PowerShell**: [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering) to retrieve view peering settings and [Set-AzVirtualNetworkPeering](/powershell/module/az.network/set-azvirtualnetworkpeering) to change settings.
 
 ## Delete a peering
@@ -93,7 +93,7 @@ Before deleting a peering, ensure your account has the [necessary permissions](#
 
 When a peering is deleted, traffic from a virtual network no longer flows to the peered virtual network. When virtual networks deployed through Resource Manager are peered, each virtual network has a peering to the other virtual network. Though deleting the peering from one virtual network disables the communication between the virtual networks, it does not delete the peering from the other virtual network. The peering status for the peering that exists in the other virtual network is **Disconnected**. You cannot recreate the peering until you re-create the peering in the first virtual network and the peering status for both virtual networks changes to *Connected*.
 
-If you want virtual networks to communicate sometimes, but not always, rather than deleting a peering, you can set the **Allow virtual network access** setting to **Disabled** instead. To learn how, read step 6 of the [Create a peering](#create-a-peering) section of this article. You may find disabling and enabling network access easier than deleting and recreating peerings.
+If you want virtual networks to communicate sometimes, but not always, rather than deleting a peering, you can set the **Allow virtual network access** setting to **Disabled** instead. To learn how, read step 6 of the Create a peering section of this article. You may find disabling and enabling network access easier than deleting and recreating peerings.
 
 1. In the search box at the top of the portal, enter *virtual networks* in the search box. When **Virtual networks** appear in the search results, select it. Do not select **Virtual networks (classic)** if it appears in the list, as you cannot create a peering from a virtual network deployed through the classic deployment model.
 2. Select the virtual network in the list that you want to delete a peering for.
