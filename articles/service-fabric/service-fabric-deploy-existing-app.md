@@ -69,7 +69,7 @@ The process of manually packaging a guest executable is based on the following g
 -->
 
 ### Create the package directory structure
-You can start by creating the directory structure, as described in the preceding section, "Application package file structure."
+You can start by creating the directory structure, as described in [Package an Azure Service Fabric App](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps)
 
 ### Add the application's code and configuration files
 After you have created the directory structure, you can add the application's code and configuration files under the code and config directories. You can also create additional directories or subdirectories under the code or config directories.
