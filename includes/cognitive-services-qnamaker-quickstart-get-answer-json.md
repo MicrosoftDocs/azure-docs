@@ -8,24 +8,74 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: include
 ms.custom: include file
-ms.date: 11/12/2018
+ms.date: 02/27/2019
 ms.author: diberry
 ---
+<a name="generateanswer-request"></a>
+<a name="request-and-response-json">
 
-## Request and response JSON
+## GenerateAnswer Request 
+
+You call GenerateAnswer with an HTTP POST request. For sample code that shows how to call GenerateAnswer, see the [quickstarts](../quickstarts/csharp.md).
+
+The **request URL** has the following format: 
+
+```
+https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer?isTest=true
+```
+
+|HTTP request property|Name|Type|Purpose|
+|--|--|--|--|
+|URL route parameter|Knowledge base ID|string|The GUID for your knowledge base.|
+|URL route parameter|QnAMaker endpoint host|string|The hostname of the endpoint deployed in your Azure subscription. This is available on the Settings page after you publish the knowledge base. |
+|Header|Content-Type|string|The media type of the body sent to the API. Default value is: ``|
+|Header|Authorization|string|Your endpoint key (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Post Body|JSON object|JSON|The question with settings|
+|Query string parameter (optional)|`isTest`|boolean|If set to true, returns results from `testkb` Search index instead of published index.|
+
+The JSON body has several settings:
+
+|JSON body property|Required|Type|Purpose|
+|--|--|--|--|
+|`question`|required|string|A user question to be sent to your knowledge base.|
+|`top`|optional|integer|The number of ranked results to include in the output. The default value is 1.|
+|`userId`|optional|string|A unique ID to identify the user. This ID will be recorded in the chat logs.|
+|`strictFilters`|optional|string|If specified, tells QnA Maker to return only answers that have the specified metadata. |
 
 An example JSON-formatted question for the REST API:
 
 ```json
 {
     "question": "Is the QnA Maker Service free?",
-    "top": 3
+    "top": 3,
+    "strictFilters": [
+      {
+        "name": "category",
+        "value": "api"
+      }
+    ],
+    "userId": "sd53lsY="
 }
 ```
 
 The question includes a property to return the top three answers. 
 
-The answer is returned in a JSON object:
+<a name="generateanswer-response"></a>
+
+## GenerateAnswer Response
+
+|Answers property (sorted by score)|Purpose|
+|--|--|
+|score|A ranking score between 0 and 100.|
+|Id|A unique ID assigned to the answer.|
+|questions|The questions provided by the user.|
+|answer|The answer to the question.|
+|source|The name of the source from which the answer was extracted or saved in the knowledge base.|
+|metadata|The metadata associated with the answer.|
+|metadata.name|Metadata name. (string, max Length: 100, required)|
+|metadata.value: Metadata value. (string, max Length: 100, required)|
+
+The following is an example answer returned in a JSON object:
 
 ```json
 {
