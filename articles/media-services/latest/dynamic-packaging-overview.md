@@ -36,7 +36,7 @@ The following is a common Media Services streaming workflow where Dynamic Packag
 
 1. Upload an input file (called a mezzanine file). For example, H.264, MP4, or WMV (for the list of supported formats see [Formats Supported by the Media Encoder Standard](media-encoder-standard-formats.md).
 2. Encode your mezzanine file to H.264 MP4 adaptive bitrate sets.
-3. Publish the asset that contains the adaptive bitrate MP4 set. You publish by creating a **Streaming Locator.
+3. Publish the asset that contains the adaptive bitrate MP4 set. You publish by creating a **Streaming Locator**.
 4. Build URLs that target different formats (HLS, Dash, and Smooth Streaming). The **Streaming Endpoint** would take care of serving the correct manifest and requests for all these different formats.
 
 ## Encode to adaptive bitrate MP4s
