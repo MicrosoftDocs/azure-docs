@@ -389,6 +389,8 @@ Stateful services that are only called from within the cluster should use dynami
 | Port configuration | dynamically assigned | Multiple replicas of a stateful service may share a host process or host operating system and thus will need unique ports. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | With dynamic port assignment, this setting prevents the mistaken identity issue described earlier. |
 
+## ASP.NET Core Configuration Provider
+
 ## Next steps
 [Debug your Service Fabric application by using Visual Studio](service-fabric-debugging-your-application.md)
 
