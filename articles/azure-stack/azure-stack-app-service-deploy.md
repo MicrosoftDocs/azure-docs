@@ -95,7 +95,7 @@ To deploy App Service resource provider, follow these steps:
 
    ![App Service Installer][4]
 
-8. Enter the information for your file share and then select **Next**. The address of the file share must use the Fully Qualified Domain Name (FQDN), or the IP address of your File Server. For example, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or \\\10.0.0.1\websites.  If you are using a fileserver which is domain joined, you must provide the full username including domain, for example, myfileserverdomain\FileShareOwner.
+8. Enter the information for your file share and then select **Next**. The address of the file share must use the Fully Qualified Domain Name (FQDN), or the IP address of your File Server. For example, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or \\\10.0.0.1\websites.  If you are using a file server which is domain joined, you must provide the full username including domain, for example, myfileserverdomain\FileShareOwner.
 
    >[!NOTE]
    >The installer tries to test connectivity to the file share before proceeding. But, if you're deploying to an existing virtual network, this connectivity test might fail. You're given a warning and a prompt to continue. If the file share information is correct, continue the deployment.
@@ -188,12 +188,12 @@ To deploy App Service resource provider, follow these steps:
 
     ![App Service Management](media/azure-stack-app-service-deploy/image12.png)
 
-    If you're deploying to an existing virtual network and using an internal IP address to connect to your fileserver, you must add an outbound security rule. This rule enables SMB traffic between the worker subnet and the fileserver.  To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
+    If you're deploying to an existing virtual network and using an internal IP address to connect to your file server, you must add an outbound security rule. This rule enables SMB traffic between the worker subnet and the file server.  To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
 
     - Source: Any
     - Source port range: *
     - Destination: IP Addresses
-    - Destination IP address range: Range of IPs for your fileserver
+    - Destination IP address range: Range of IPs for your file server
     - Destination port range: 445
     - Protocol: TCP
     - Action: Allow
