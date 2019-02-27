@@ -73,10 +73,11 @@ To configure and test Azure AD single sign-on with SharePoint on-premises, you n
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Configure SharePoint on-premises Single Sign-On](#configure-sharepoint-on-premises-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD Security Group in the Azure Portal](#create-an-azure-ad-security-group-in-the-azure-portal)** - to enable a new security group in Azure AD for single sign-on.
-4. **[Grant access to SharePoint on-premises Security Group](#grant-access-to-sharepoint-on-premises-security-group)** - grant access for particular group to Azure AD.
-5. **[Assign the Azure AD Security Group in the Azure Portal](#assign-the-azure-ad-security-group-in-the-azure-portal)** - to assign the particular group to Azure AD for authentication.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Create an Azure AD Security Group in the Azure Portal](#create-an-azure-ad-security-group-in-the-azure-portal)** - to enable a new security group in Azure AD for single sign-on.
+5. **[Grant access to SharePoint on-premises Security Group](#grant-access-to-sharepoint-on-premises-security-group)** - grant access for particular group to Azure AD.
+6. **[Assign the Azure AD Security Group in the Azure Portal](#assign-the-azure-ad-security-group-in-the-azure-portal)** - to assign the particular group to Azure AD for authentication.
+7. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -176,6 +177,31 @@ To configure Azure AD single sign-on with SharePoint on-premises, perform the fo
 
 	> [!NOTE]
 	> Some of the external users will not able to use this single sign-on integration as their UPN will have mangled value something like `MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com`. Soon we will allow customers app config on how to handle the UPN depending on the user type. After that all your guest users should be able to use SSO seamlessly as the organization employees.
+
+### Create an Azure AD test user
+
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
+
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
+
+    ![The "Users and groups" and "All users" links](common/users.png)
+
+2. Select **New user** at the top of the screen.
+
+    ![New user Button](common/new-user.png)
+
+3. In the User properties, perform the following steps.
+
+    ![The User dialog box](common/user-properties.png)
+
+    a. In the **Name** field enter **BrittaSimon**.
+  
+    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    For example, BrittaSimon@contoso.com
+
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
+
+    d. Click **Create**.
 
 ### Create an Azure AD Security Group in the Azure Portal
 
