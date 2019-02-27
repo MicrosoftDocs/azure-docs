@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 02/27/2019
 ms.author: iainfou
 ---
 
@@ -23,17 +23,9 @@ This article shows you how to use the API server IP address whitelist to limit r
 
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-As the current preview deployment steps use a Resource Manager template, you also need to first [manually create a service principal][create-aks-sp].
-
 ### Azure CLI requirements
 
-You need the Azure CLI version 2.0.58 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-
-To use the API server IP address whitelist, you need the *aks-preview* Azure CLI extension. Install this extension using the [az extension add][az-extension-add] command, as shown in the following example:
-
-```azurecli-interactive
-az extension add --name aks-preview
-```
+You need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ### Register feature flag for your subscription
 
@@ -65,34 +57,59 @@ For more information about the API server and other cluster components, see [Kub
 
 ## Enable IP address whitelisting
 
-Update *parameters-with-whitelisting.json* with your own service principal client ID and secret, such as in the following example:
+To enable the API server IP whitelisting and provide a list of authorized IP address ranges, you update an existing AKS cluster using a Resource Manager template. In the template, parameters are defined for the cluster name and location, then a comma-separated list of CIDR ranges for access to the API server.
+
+Create a file name `api-server-ip-whitelist.json` and paste the following Resource Manager template. In this example, the existing cluster is named *myAKSCluster* in the *eastus* region. A single IP address of *172.56.42.28/32* is then authorized to access the API server. Update these values to match your own cluster name and location, and CIDR range(s) to access the API server:
 
 ```json
-"servicePrincipalClientId": {
-    "value": "d017b0f2-9d78-47c2-982a-4a85ba95a7f0"
-},
-"servicePrincipalClientSecret": {
-    "value": "98749598-5e53-4d5e-bb83-dd4f45884624"
-},
-```
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
 
-Adjust the *parameters-with-whitelisting.json* to whitelist the IP address ranges for your environment. Provide IP address ranges in CIDR format and in a comma-separated list, as shown in the following example:
+    "parameters": {
+        "resourceName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of your existing AKS cluster resource."
+            },
+            "defaultValue": "myAKSCluster"
+        },
+        "location": {
+            "type": "string",
+            "metadata": {
+                "description": "The location of your existing AKS cluster resource."
+            },
+            "defaultValue": "eastus"
+        },
+        "apiServerAuthorizedIPRanges": {
+            "type": "array",
+            "metadata": {
+                "description": "An array of CIDR to be whitelisted to kube-apiserver"
+            },
+            "defaultValue": ["172.56.42.28/32"]
+        }
+    },
 
-```json
-"apiServerAuthorizedIPRanges": {
-    "value": ["40.71.84.169/32", "131.107.0.0/16", "167.220.2.74/32"]
+    "resources": [
+        {
+            "apiVersion": "2019-02-01",
+            "type": "Microsoft.ContainerService/managedClusters",
+            "location": "[parameters('location')]",
+            "name": "[parameters('resourceName')]",
+            "properties": {
+                "apiServerAuthorizedIPRanges": "[parameters('apiServerAuthorizedIPRanges')]"
+            }
+        }
+    ]
 }
 ```
 
-Now create a resource group, such as *myResourceGroup*, in your approved region and then deploy the Resource Manager template:
+To update your AKS cluster with the API server IP address whitelist, deploy the Resource Manager template using the [az group deployment create][az-group-deployment-create] command. This process creates an incremental deployment against your existing AKS cluster resource:
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
-
 az group deployment create \
     --resource-group myResourceGroup \
-    --template-file template-with-whitelisting.json \
-    --parameters parameters-with-whitelisting.json
+    --template-file api-server-ip-whitelist.json
 ```
 
 <!--
@@ -114,21 +131,24 @@ az aks update \
 
 ## Update or disable IP address whitelisting
 
-To update or disable IP whitelisting, edit the *parameters-with-whitelisting.json* again. Change the permitted CIDR ranges, or set `"value": null` to provide an empty range of IP addresses and allow public access:
+To update or disable IP whitelisting, edit the *parameters-with-whitelisting.json* again. Change the permitted CIDR ranges, or set `"defaultValue": []` to provide an empty range of IP addresses and allow public access, as shown in the following example.
 
 ```json
-"apiServerAuthorizedIPRanges": {
-    "value": ["40.71.84.169/32", "131.107.0.0/16", "167.220.2.74/32"]
-}
+        "apiServerAuthorizedIPRanges": {
+            "type": "array",
+            "metadata": {
+                "description": "An array of CIDR to be whitelisted to kube-apiserver"
+            },
+            "defaultValue": []
+        }
 ```
 
-Redeploy the Resource Manager template to perform an incremental update of the AKS cluster with your permitted IP address ranges:
+Redeploy the Resource Manager template using the [az group deployment create][az-group-deployment-create] command:
 
 ```azurecli-interactive
 az group deployment create \
     --resource-group myResourceGroup \
-    --template-file template-with-whitelisting.json \
-    --parameters parameters-with-whitelisting.json
+    --template-file api-server-ip-whitelist.json
 ```
 
 <!--
@@ -168,3 +188,4 @@ For more information, see [Security concepts for applications and clusters in AK
 [concepts-security]: concepts-security.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [create-aks-sp]: kubernetes-service-principal.md#manually-create-a-service-principal
+[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
