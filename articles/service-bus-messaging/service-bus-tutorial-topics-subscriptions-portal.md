@@ -65,7 +65,7 @@ To run the code, do the following:
 
 2. Navigate to the sample folder `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveTutorialwithFilters`.
 
-3. Obtain the connection string you copied to Notepad in the [Obtain the management credentials](#obtain-the-management-credentials) section of this tutorial. You also need the name of the topic you created in the previous section.
+3. Obtain the connection string you copied to Notepad in the Obtain the management credentials section of this tutorial. You also need the name of the topic you created in the previous section.
 
 4. At the command prompt, type the following command:
 

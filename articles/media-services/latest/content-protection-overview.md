@@ -27,7 +27,7 @@ The following image illustrates the Media Services content protection workflow:
 
 &#42; *dynamic encryption supports AES-128 "clear key", CBCS, and CENC. For details see the support matrix [here](#streaming-protocols-and-encryption-types).*
 
-This article explains concepts and terminology relevant to understanding content protection with Media Services. The article also has the [FAQ](#faq) section and provides links to articles that show how to protect content. 
+This article explains concepts and terminology relevant to understanding content protection with Media Services. The article also has the FAQ section and provides links to articles that show how to protect content. 
 
 ## Main components of a content protection system
 
