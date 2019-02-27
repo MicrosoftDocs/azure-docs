@@ -46,7 +46,7 @@ When you configure username/password authentication, you can only create a confi
 
 Generate VPN client configuration files for use with username/password authentication. You can generate the VPN client configuration files by using the following command:
 
-```powershell 
+```azurepowershell-interactive
 New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapMSChapv2"
 ```
  
@@ -60,7 +60,7 @@ If you already created client configuration files, you can retrieve them by usin
 
 To retrieve previously generated client configuration files, use the following command:
 
-```powershell
+```azurepowershell-interactive
 Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
 
@@ -178,7 +178,7 @@ Each VPN client device requires an installed client certificate. Sometimes a Win
 
 Generate VPN client configuration files for use with certificate authentication. You can generate the VPN client configuration files by using the following command:
  
-```powershell
+```azurepowershell-interactive
 New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root> | fl
 ```
 
@@ -191,7 +191,7 @@ If you already created client configuration files, you can retrieve them by usin
 
 To retrieve previously generated client configuration files, use the following command:
 
-```powershell
+```azurepowershell-interactive
 Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 ```
  
