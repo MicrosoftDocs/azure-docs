@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2019
+ms.date: 02/27/2019
 ms.author: kumud
 ---
 
@@ -121,12 +121,31 @@ New-AzTrafficManagerEndpoint `
 
 In this section, you'll check the domain name of your Traffic Manager profile. You'll also configure the primary endpoint to be unavailable. Finally, you get to see that the web app is still available. It's because Traffic Manager sends the traffic to the failover endpoint.
 
-### Check the DNS name
+### Determine the DNS name
 
+Determine the DNS name of the Traffic Manager profile using `Get-AzTrafficManagerProfile`.
+
+```azurepowershell-interactive
+Get-AzTrafficManagerProfile `
+-Name $ResourceGroupName-tmp `
+-ResourceGroupName $ResourceGroupName
+```
+
+Copy the relativednsname value. The DNS name of your Traffic Manager profile is *http://<relativednsname>.trafficmanager.net*. 
 
 ### View Traffic Manager in action
+ 1. In a web browser, enter the DNS name of your Traffic Manager profile (*http://<relativednsname>.trafficmanager.net*) to view your Web App's default website.
 
+    > [!NOTE]
+    > In this quickstart scenario, all requests route to the primary endpoint. It is set to **Priority 1**.
+ 
+2. To view Traffic Manager failover in action, disable your primary site using 
 
+```azurepowershell-interactive
+Disable-AzTrafficManagerEndpoint -Name $App1Name-$Location1 -Type AzureEndpoints -ProfileName $ResourceGroupName-tmp -ResourceGroupName $ResourceGroupName -Force
+```
+3. Copy the DNS name of your Traffic Manager Profile (*http://<relativednsname>.trafficmanager.net*) to view the website in a new web browser session.
+4. Verify that the web app is still available.
 
 ## Clean up resources
 
@@ -134,7 +153,7 @@ When you're done, delete the resource groups, web applications, and all related 
 
 ## Next steps
 
-In this quickstart, you created a Traffic Manager profile. It allows you to direct user traffic for high-availability web applications. To learn more about routing traffic, continue to the Traffic Manager tutorials.
+In this quickstart, you created a Traffic Manager profile that provides high availability for your web application. To learn more about routing traffic, continue to the Traffic Manager tutorials.
 
 > [!div class="nextstepaction"]
 > [Traffic Manager tutorials](tutorial-traffic-manager-improve-website-response.md)
