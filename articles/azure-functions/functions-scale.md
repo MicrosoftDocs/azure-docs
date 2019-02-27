@@ -56,7 +56,7 @@ Consider an App Service plan in the following cases:
 * You have existing, underutilized VMs that are already running other App Service instances.
 * Your function apps run continuously, or nearly continuously. In this case, an App Service Plan can be more cost-effective.
 * You need more CPU or memory options than what is provided on the Consumption plan.
-* Your code needs to run longer than the [maximum execution time allowed]() on the Consumption plan.
+* Your code needs to run longer than the [maximum execution time allowed](#timeout) on the Consumption plan.
 * You require features that are only available on an App Service plan, such as support for App Service Environment, VNET/VPN connectivity, and larger VM sizes.
 * You want to run your function app on Linux, or you want to provide a custom image on which to run your functions.
 
