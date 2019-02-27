@@ -365,10 +365,92 @@ public void ConfigureServices(IServiceCollection services)
     services.AddMvc();
 }
 ```
-### Key Mapping and Multiple configuration packages
-### Encrypted settings
-### Custom Key Mapping
+### Default Key Mapping
+By default, Service Fabric configuraiton provider includes package name, section name and property name together to form the asp.net core configuration Key.
+
+```csharp
+$"{this.PackageName}{ConfigurationPath.KeyDelimiter}{section.Name}{ConfigurationPath.KeyDelimiter}{property.Name}"
+```
+
+For example, if you have a Configuration packages named `MyConfigPackage` with below content, then the configuration value will be available on ASP.NET Core `IConfiguration` via Key 'MyConfigPackage:MyConfigSection:MyParameter'
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">  
+  <Section Name="MyConfigSection">
+    <Parameter Name="MyParameter" Value="Value1" />
+  </Section>  
+</Settings>
+```
+### Service Fabric Configuration Options
+Service Fabric Configuration Provider also supports `ServiceFabricConfigurationOptions` to change the default behavior of key mapping.
+
+#### Exclude Package Name from Key
+and Multiple configuration packages
+
+#### Encrypted settings
+Service Fabric supports to encrypt the settings, Service Fabric Configuration Provider also supports this. To follow secure by default principle, the encrypted settings are not descrypted by default when store to ASP.NET Core `IConfiguration` and its encrypted value are stored there. However, if you want to decrypt the value to store in ASP.NET Core `IConfiguration` you could set DecryptValue flag of `ServiceFabricConfigurationOptions` to false in `AddServiceFabricConfiguration` extensions as follow:
+
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    var builder = new ConfigurationBuilder()        
+        .AddServiceFabricConfiguration(activationContext, (options) => options.DecryptValue = true); // set flag to decrypt the value
+    Configuration = builder.Build();
+}
+```
+#### Multiple Configuration Packages
+Service Fabric supports multiple configuration packages, and by default the package name is included in the configuration Key, you could set the IncludePackageName flag to change this behavior.
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    var builder = new ConfigurationBuilder()        
+        // exclude package name from key.
+        .AddServiceFabricConfiguration(activationContext, (options) => options.IncludePackageName = false); 
+    Configuration = builder.Build();
+}
+```
+#### Custom Key Mapping, Value Extraction and Data Population
+In addition to above 2 flags to change the default behavior, Service Fabric Configuration Provider also supports more advanced scenarios to custom the key mapping via `ExtractKeyFunc` and to custom extract the values via `ExtractValueFunc`. You could even change the whole process to populate data from Service Fabric configuration to ASP.NET Core configuration via `ConfigAction`.
+
+The following examples illustrate to use `ConfigAction` to customize data population.
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    
+    this.valueCount = 0;
+    this.sectionCount = 0;
+    var builder = new ConfigurationBuilder();
+    builder.AddServiceFabricConfiguration(activationContext, (options) =>
+        {
+            options.ConfigAction = (package, configData) =>
+            {
+                ILogger logger = new ConsoleLogger("Test", null, false);
+                logger.LogInformation($"Config Update for package {package.Path} started");
+
+                foreach (var section in package.Settings.Sections)
+                {
+                    this.sectionCount++;
+
+                    foreach (var param in section.Parameters)
+                    {
+                        configData[options.ExtractKeyFunc(section, param)] = options.ExtractValueFunc(section, param);
+                        this.valueCount++;
+                    }
+                }
+
+                logger.LogInformation($"Config Update for package {package.Path} finished");
+            };
+        });
+  Configuration = builder.Build();
+}
+```
 ### Configuration Update
+Service Fabric Configuration Provider also supports Configuration Update and you could use ASP.NET Core `IOptionsMonitor` to receive change notifications and also with `IOptionsSnapshot` to reload configuration data. See [ASP.NET Core Options](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options) for more details on general support by ASP.NET CORE.
+
+This is supported by default and no further coding are needed to enable configuration update.
 
 ## Scenarios and configurations
 This section describes the following scenarios and provides the recommended combination of web server, port configuration, Service Fabric integration options, and miscellaneous settings to achieve a properly functioning service:
