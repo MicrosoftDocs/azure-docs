@@ -9,7 +9,7 @@
   - name: Speech recognition
     href: speech-to-text.md
     displayName: recognize speech, speech recognition, speech to text, stt
-  - name: Speech synthesis
+  - name: Text-to-speech
     href: text-to-speech.md
     displayName: synthesize speech, speech synthesis, text to speech, tts
   - name: Speech translation
@@ -111,7 +111,7 @@
         href: how-to-customize-pronunciation.md
       - name: Create custom recognition endpoint
         href: how-to-create-custom-endpoint.md
-    - name: Speech synthesis
+    - name: Text-to-speech
       items:
       - name: Create voice fonts (bot brand voice)
         href: how-to-customize-voice-font.md
@@ -134,7 +134,7 @@
     href: https://github.com/Azure-Samples/cognitive-services-speech-sdk
   - name: Speech Devices SDK
     href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
-  - name: Speech synthesis (REST)
+  - name: Text-to-speech (REST)
     href: https://github.com/Azure-Samples/Cognitive-Speech-TTS
   - name: Batch transcription (REST)
     href: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch
@@ -170,7 +170,7 @@
     - name: Speech recognition
       href: rest-speech-to-text.md
       displayName: speech-to-text, speech recognition
-    - name: Speech synthesis
+    - name: Text-to-speech
       href: rest-text-to-speech.md
       displayName: text-to-speech, speech synthesis
     - name: Batch transcription & customization
@@ -193,7 +193,7 @@
     - name: Speech recognition
       href: faq-stt.md
       displayName: recognize speech, speech recognition, speech to text, stt
-    - name: Speech synthesis
+    - name: Text-to-speech
       href: faq-text-to-speech.md
       displayName: synthesize speech, speech synthesis, text to speech, tts
     - name: Speech translation
