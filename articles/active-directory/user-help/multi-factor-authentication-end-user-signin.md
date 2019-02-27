@@ -79,9 +79,6 @@ Sometimes you don't have the phone or device that you set up as your preferred v
   ![Use alternate method](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 ## Next steps
-
-- If you're having trouble getting your verification code, see [Troubleshooting verification code issues](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-security-codes#securitycode)
-
 - If you have problems signing in with two-step verification, get more information at [Having trouble with Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
 - Learn how to [Manage your two-step verification settings](multi-factor-authentication-end-user-manage-settings.md).

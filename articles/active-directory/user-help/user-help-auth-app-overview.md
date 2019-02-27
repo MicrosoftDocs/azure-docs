@@ -29,7 +29,7 @@ You can use the Microsoft Authenticator app in multiple ways, including:
 - Providing sign-in without requiring a password, using your username and your mobile device with your fingerprint, face, or PIN.
 
 >[!Important]
->The Microsoft Authenticator app works wi>th any app that uses two-factor verification and any account that supports the time-based one-time password (TOTP) standards.
+>The Microsoft Authenticator app works with any app that uses two-factor verification and any account that supports the time-based one-time password (TOTP) standards.
 
 >Your organization might require you to use an authenticator app to sign-in and access your organizational data and documents. Although your user name might appear in the app, the account isn't actually set up to act as a verification method until you complete the registration process. For more information, see [Add your work or school account](user-help-auth-app-overview.md).
 
