@@ -4,12 +4,12 @@ description: Information on how to configure group claims for use with Azure AD.
 services: active-directory
 documentationcenter: ''
 ms.reviewer: paulgarn
-manager: mtillman
+manager: daveba
 ms.component: hybrid
 ms.service: active-directory    
 ms.workload: identity
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
 ---
@@ -18,7 +18,7 @@ author: billmath
 
 Azure Active Directory can provide a users group membership information in tokens for use within applications.  Two main patterns are supported:
 
-- Groups identified by their Azure Active Directory object identifier (OID) (Genarally Available)
+- Groups identified by their Azure Active Directory object identifier (OID) (Generally Available)
 - Groups identified by SAMAccountName or GroupSID for Active Directory (AD) synchronized groups and users (Public Preview)
 
 >[!Note]
@@ -26,7 +26,7 @@ Azure Active Directory can provide a users group membership information in token
 
 ## Group Claims for applications migrating from AD FS and other IDPs connected to Windows Active Directory
 
-Many applications that are configured to authenticate with AD FS rely on group membership information in the form of Windows AD group attributes.   These are the Group SAMAccountName, which may be qualified by-domain name, or the Windows Group SID.  When the application is federated with AD FS, AD FS uses the TokenGroups function to retrieve the group memberships for the user.
+Many applications that are configured to authenticate with AD FS rely on group membership information in the form of Windows AD group attributes.   These attributes are the group SAMAccountName, which may be qualified by-domain name, or the Windows Group SID.  When the application is federated with AD FS, AD FS uses the TokenGroups function to retrieve the group memberships for the user.
 
 To match the token an app would receive from AD FS, group and role claims may be emitted containing the domain qualified SAMAccountName rather than the group's Azure Active Directory objectID.
 
@@ -43,13 +43,13 @@ The supported formats for group claims are:
 
 ## Options for applications to consume Group information
 
-One way for applications to obtain group information is to call the Graph groups endpoint in order to retrieve the group membership for the authenticated user. This ensures that all the groups a user is a member of are available even when there are a large number of groups involved and the application needs to enumerate all groups the user is a member of.  Group enumeration is then independent of token size limitations.
+One way for applications to obtain group information is to call the Graph groups endpoint in order to retrieve the group membership for the authenticated user. This call ensures that all the groups a user is a member of are available even when there are a large number of groups involved and the application needs to enumerate all groups the user is a member of.  Group enumeration is then independent of token size limitations.
 
-However, if an existing application already expects to consume group information via claims in the token it receives, Azure Active Directory can be configured with a number of different claims options to fit the needs of the application.  Consider the following:
+However, if an existing application already expects to consume group information via claims in the token it receives, Azure Active Directory can be configured with a number of different claims options to fit the needs of the application.  Consider the following options:
 
-- When using group membership for an application authorization purposes (whether group membership is obtained from the token or from Graph), it’s preferable to use the Group ObjectID which is immutable and unique in Azure Active Directory and available for all groups.
-- If using the group SAMAccountName for authorization, use domain qualified names;  there’s less chance of situations arising where names clash. SAMAccountName on it's own may be unique within an Active Directory domain, but if more than one Active Directory domain is synchronized with an Azure Active Directory tenant there is a possibility for more than one group to have the same name.
-- Consider using [Application Roles](howto-add-app-roles-in-azure-ad-apps.md) to provide a layer of indirection between the group membership and the application.   The application then makes internal authorization decisions based on role clams in the token.
+- When using group membership for an application authorization purpose (whether group membership is obtained from the token or from Graph), it’s preferable to use the Group ObjectID, which is immutable and unique in Azure Active Directory and available for all groups.
+- If using the group SAMAccountName for authorization, use domain qualified names;  there’s less chance of situations arising were names clash. SAMAccountName on its own may be unique within an Active Directory domain, but if more than one Active Directory domain is synchronized with an Azure Active Directory tenant there is a possibility for more than one group to have the same name.
+- Consider using [Application Roles](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) to provide a layer of indirection between the group membership and the application.   The application then makes internal authorization decisions based on role clams in the token.
 - If the application is configured to get group attributes that are synced from Active Directory and a Group doesn't contain those attributes it won't be included in the claims.
 - Group claims in tokens include nested groups.   If a user is a member of GroupB and GroupB is a member of GroupA, then the group claims for the user will contain both GroupA and GroupB. For organizations with heavy usage of nested groups and users with large numbers of group memberships the number of groups listed in the token can grow the token size.   Azure Active Directory limits the number of groups it will emit in a token to 150 for SAML assertions, and 200 for JWT.
 
@@ -69,11 +69,11 @@ To configure Group Claims for a Gallery or Non-Gallery SAML application, open En
 
 Select the edit icon next to "Groups returned in token"
 
-![](media/how-to-connect-fed-group-claims/groupclaimsui1.png)</br>
+![](media/how-to-connect-fed-group-claims/groupclaimsui1.png)
 
 Use the radio buttons to select which groups should be included in the token
 
-![](media/how-to-connect-fed-group-claims/groupclaimsui2.png)</br>
+![](media/how-to-connect-fed-group-claims/groupclaimsui2.png)
 
 | Selection | Description |
 |----------|-------------|
@@ -84,7 +84,7 @@ Use the radio buttons to select which groups should be included in the token
 
 For example, to emit all the Security Groups the user is a member of, select Security Groups
 
-![](media/how-to-connect-fed-group-claims/groupclaimsui3.png)</br>
+![](media/how-to-connect-fed-group-claims/groupclaimsui3.png)
 
 ### Advanced options
 
@@ -92,26 +92,24 @@ The way group claims are emitted can be modified by the settings under Advanced 
 
 Customize the name of the group claim:  If selected, a different claim type can be specified for group claims.   Enter the claim type in the Name field and the optional namespace for the claim in the namespace field.
 
-![](media/how-to-connect-fed-group-claims/groupclaimsui4.png)</br>
+![](media/how-to-connect-fed-group-claims/groupclaimsui4.png)
 
-To emit groups using Active Directory attributes instead of Azure AD objectIDs check the 'Return groups as names instead of IDs' box, and select the format from the drop down.  This replaces the object id in the claims with string values containing group names.   Only groups synchronized from Active Directory will be included in the claims.
+To emit groups using Active Directory attributes instead of Azure AD objectIDs check the 'Return groups as names instead of IDs' box, and select the format from the drop-down.  This replaces the object ID in the claims with string values containing group names.   Only groups synchronized from Active Directory will be included in the claims.
 
-![](media/how-to-connect-fed-group-claims/groupclaimsui5.png)</br>
+![](media/how-to-connect-fed-group-claims/groupclaimsui5.png)
 
 Some applications require the group membership information to appear in the 'role' claim. You can optionally emit the user's groups as roles by checking the 'Emit groups a role claims' box.  
 
-![](media/how-to-connect-fed-group-claims/groupclaimsui6.png)</br>
+![](media/how-to-connect-fed-group-claims/groupclaimsui6.png)
 
 >[!NOTE]
 >If the option to emit group data as roles is used, only groups will appear in the role claim.  Any Application Roles the user is assigned will not appear in the role claim.
 
 ## How to configure the Azure Active Directory Application Registration for group attributes  
 
-Group claims can also be configured in the [Optional Claims](active-directory-optional-claims.md) section of the [Application Manifest](reference-app-manifest.md).
+Group claims can also be configured in the [Optional Claims](../../active-directory/develop/active-directory-optional-claims.md) section of the [Application Manifest](../../active-directory/develop/reference-app-manifest.md).
 
-1. In the Azure Portal ->Azure Active Directory -> Application Registrations->Select Application->Manifest
-
-![](media/how-to-connect-fed-group-claims/groupclaim7.png)</br>
+1. In the portal ->Azure Active Directory -> Application Registrations->Select Application->Manifest
 
 2. Enable group membership claims by changing the groupMembershipClaim
 
@@ -128,22 +126,20 @@ For example:
 "groupMembershipClaims": "SecurityGroup"
 ```
 
-![](media/how-to-connect-fed-group-claims/groupclaim8.png)</br>
-
 By default Group ObjectIDs will be emitted in the group claim value.  To modify the claim value to contain on premises group attributes, or to change the claim type to role, use OptionalClaims configuration as follows:
 
 3. Set group name configuration optional claims.
 
 If you want to groups in the token to contain the on premises AD group attributes in the optional claims section specify which token type optional claim should be applied to, the name of optional claim requested and any additional properties desired.  Multiple token types can be listed:
 
-- idToken for the OIDC Id token
+- idToken for the OIDC ID token
 - accessToken for the OAuth/OIDC access token
 - Saml2Token for SAML tokens.
 
 >[!NOTE]
 >The Saml2Token type applies to both SAML1.1 and SAML2.0 format tokens  
 
-For each token relevant token type, modify the the groups claim using the OptionalClaims section in the manifest. The OptionalClaims schema is as follows:
+For each relevant token type, modify the the groups claim to use the OptionalClaims section in the manifest. The OptionalClaims schema is as follows:
 
 ```
 {
@@ -181,7 +177,7 @@ Emit groups as group names in OAuth access tokens in dnsDomainName\SAMAccountNam
 }
  ```
 
-To emit group names to be returned in netbiosDomain\samAccountName format as the roles claim in SAML and OIDC idTokens:
+To emit group names to be returned in netbiosDomain\samAccountName format as the roles claim in SAML and OIDC ID Tokens:
 
 ```
 "optionalClaims": {
