@@ -6,10 +6,7 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 02/07/2019
-
-
-
+ms.date: 02/27/2019
 ---
 # Troubleshoot Mobility Service push installation issues
 
@@ -250,6 +247,99 @@ This error occurs when the user account used for installation does not have perm
 Try to install VSS provider service manually on the source machine by running the following command line
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+
+
+## VSS error - 0x8004E00F
+
+This error is typically encountered during the installation of the mobility agent due to issues in DCOM and is in a critical state.
+
+Use the following procedure to determine the cause of the error.
+
+**Examine the installation logs**
+
+1. Open the installation log located at c:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
+2. The presence of the following error indicates this issue:
+
+    Unregistering the existing application...
+    Create the catalogue object
+    Get the collection of Applications 
+
+    ERROR:
+
+    - Error code: -2147164145 [0x8004E00F]
+    - Exit code: 802
+
+To resolve the issue:
+
+Contact the [Microsoft Windows platform team](https://aka.ms/Windows_Support) to obtain assistance with resolving the DCOM issue.
+
+When the DCOM issue is resolved, reinstall the ASR VSS Provider manually using the following command:
+ 
+**C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd**
+  
+If application consistency is not critical for your Disaster Recovery requirements, you can bypass the VSS Provider installation. 
+
+To bypass the ASR VSS Provider installation and manually install ASR VSS Provider post installation:
+
+1. Install the mobility service. 
+> [!Note]
+> 
+> The Installation will fail at 'Post install configuration' step. 
+2. To bypass the VSS installation:
+   1. Open the ASR Mobility Service installation directory located at:
+   
+    C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
+   2.  Modify the ASR VSS Provider installation scripts, **nMageVSSProvider_Install** and **InMageVSSProvider_Uninstall.cmd** to always succeed by adding the following lines:
+    
+    ```     
+    rem @echo off
+    setlocal
+    exit /B 0
+    ```
+
+3. Rerun the Mobility Agent installation manually. 
+4. When the Installation succeeds and moves to the next step, **Configure**, remove the lines you added.
+5. To install the VSS provider, open a command prompt as Administrator and run the following command:
+   
+    **C:\Program Files (x86)\Microsoft Azure Site Recovery\agent> .\InMageVSSProvider_Install.cmd**
+
+9.	Verify that the ASR VSS Provider is installed as a service in Windows Services and open the Component Service MMC to verify that ASR VSS Provider is listed.
+10.	If the VSS Provider install continues to fail, work with CX to resolve the permissions errors in CAPI2.
+
+## VSS Provider installation fails due to the cluster service being enabled on non-cluster machine
+
+This issue causes the ASR Mobility Agent installation to fail during the ASR VSS Provider installation step due to an issue with COM+ that prevents the installation of the VSS provider.
+ 
+### To identify the issue
+
+In the log located on configuration server at C:\ProgramData\ASRSetupLogs\UploadedLogs\<date-time>UA_InstallLogFile.log, you will find the following exception:
+
+COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator (Exception from HRESULT: 0x8004E00F)
+
+To resolve the issue:
+
+1.	Verify that this machine is a non-cluster machine and that the cluster components are not being used.
+3.	If the components are not being used, remove the cluster components from the machine.
+
+## Drivers are missing on the Source Server
+
+If the Mobility Agent installation fails, examine the logs under C:\ProgramData\ASRSetupLogs to determine if some of the required drivers are missing in some control sets.
+ 
+To resolve the issue:
+  
+1. Using a registry editor such as regedit.msc, open the registry.
+2. Open the HKEY_LOCAL_MACHINE\SYSTEM node.
+3. In the SYSTEM node, locate the control Sets.
+4. Open each control set and verify that following Windows drivers are present:
+
+   - Atapi
+   - Vmbus
+   - Storflt
+   - Storvsc
+   - intelide
+ 
+Reinstall any missing drivers.
 
 ## Next steps
 
