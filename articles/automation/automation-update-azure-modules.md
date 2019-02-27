@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/08/2019
+ms.date: 02/25/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -79,6 +79,10 @@ The following are some considerations to take into account when using this proce
 > Azure Automation uses the latest modules in your Automation account when a new scheduled job is run.  
 
 If you use cmdlets from these Azure PowerShell modules in your runbooks, you want to run this update process every month or so to make sure that you have the latest modules. Azure Automation uses the `AzureRunAsConnection` connection to authenticate when updating the modules. If the service principal is expired or no longer exists on the subscription level, the module update will fail.
+
+## Known issues
+
+There is a known issue with updating the AzureRM modules in an Automation Account that is in a resource group with a numeric name that starts with 0. To update your Azure modules in your Automation Account, it must be in a resource group that has a alphanumeric name. Resource groups with numeric names starting with 0 are unable to update AzureRM modules at this time.
 
 ## Next steps
 
