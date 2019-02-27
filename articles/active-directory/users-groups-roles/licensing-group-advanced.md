@@ -1,23 +1,22 @@
 ---
 
-  title: Group-based licensing additional scenarios - Azure Active Directory | Microsoft Docs
-  description: More scenarios for Azure Active Directory group-based licensing
-  services: active-directory
-  keywords: Azure AD licensing
-  documentationcenter: ''
-  author: curtand
-  manager: mtillman
+title: Group-based licensing additional scenarios - Azure Active Directory | Microsoft Docs
+description: More scenarios for Azure Active Directory group-based licensing
+services: active-directory
+keywords: Azure AD licensing
+documentationcenter: ''
+author: curtand
+manager: mtillman
   
-  ms.service: active-directory
-  ms.topic: article
-  ms.workload: identity
-  ms.subservice: users-groups-roles
-  ms.date: 01/31/2019
-  ms.author: curtand
-  ms.reviewer: sumitp
-
-  ms.custom: 
-
+ms.service: active-directory
+ms.topic: article
+ms.workload: identity
+ms.subservice: users-groups-roles
+ms.date: 01/31/2019
+ms.author: curtand
+ms.reviewer: sumitp
+ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory

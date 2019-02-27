@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Learn how to export your model for use in creating mobile applications.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision

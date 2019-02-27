@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Text Analytics with Power BI'
+title: 'Tutorial: Integrate Power BI with the Text Analytics Cognitive Service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to use Text Analytics to extract key phrases from text stored in Power BI.
 services: cognitive-services
-author: luiscabrer
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 09/12/2018
-ms.author: luisca
+ms.date: 02/13/2019
+ms.author: aahi
 ---
 
 # Tutorial: Integrate Power BI with the Text Analytics Cognitive Service
@@ -91,7 +91,7 @@ The [Key Phrases API](//westus.dev.cognitive.microsoft.com/docs/services/TextAna
 | | |
 | - | - |
 | `id`  | A unique identifier for this document within the request. The response also contains this field. That way, if you process more than one document, you can easily associate the extracted key phrases with the document they came from. In this tutorial, because you're processing only one document per request, you can hard-code the value of `id` to be the same for each request.|
-| `text`  | The text to be processed. The value of this field comes from the `Merged` column you created in the [previous section](#PreparingData), which contains the combined subject line and comment text. The Key Phrases API requires this data be no longer than about 5,000 characters.|
+| `text`  | The text to be processed. The value of this field comes from the `Merged` column you created in the [previous section](#PreparingData), which contains the combined subject line and comment text. The Key Phrases API requires this data be no longer than about 5,120 characters.|
 | `language` | The code for the natural language the document is written in. All the messages in the sample data are in English, so you can hard-code the value `en` for this field.|
 
 ## Create a custom function

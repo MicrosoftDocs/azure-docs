@@ -163,7 +163,7 @@ In this example, you create three virtual machines to be used as backend servers
 
 ### Create an Availability set
 
-Create an availability set with [az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create)
+Create an availability set with [az vm availabilityset create](/cli/azure/network/nic)
 
  ```azurecli-interactive
   az vm availability-set create \

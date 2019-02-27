@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/31/2016
+ms.date: 02/07/2019
 ms.author: mbullwin
 ---
 # Smart Detection in Application Insights
@@ -40,6 +40,14 @@ There are three kinds of detection:
 * [Smart detection - Azure Cloud Service issues](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). You get alerts if your app is hosted in Azure Cloud Services and a role instance has startup failures, frequent recycling, or runtime crashes.
 
 (The help links in each notification take you to the relevant articles.)
+
+## Smart Detection email notifications
+
+All Smart Detection rules, except for rules marked as Preview, are configured by default to send email notifications when detections are found.
+
+Configuring email notifications for a specific Smart Detection rule can be done by opening the Smart Detection **Settings** blade and selecting the rule, which will open the **Edit rule** blade.
+
+Alternatively, you can change the configuration using Azure Resource Manager templates. [See Manage Application Insights smart detection rules using Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config) for more details.
 
 ## Video
 

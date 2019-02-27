@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor metrics explorer
-description: Learn about new features in Azure Monitor Metrics Explorer
+description: Learn about new features in Azure Monitor metrics explorer
 author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
@@ -10,13 +10,13 @@ ms.author: vitalyg
 ms.subservice: metrics
 ---
 
-# Azure Monitor Metrics Explorer
+# Azure Monitor metrics explorer
 
-Azure Monitor Metrics Explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics' values. Metrics Explorer is an essential starting point for investigating various performance and availability issues with your applications and infrastructure hosted in Azure or monitored by Azure Monitor services.
+Azure Monitor metrics explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics' values. Metrics explorer is an essential starting point for investigating various performance and availability issues with your applications and infrastructure hosted in Azure or monitored by Azure Monitor services.
 
 ## Metrics in Azure
 
-Metrics in Microsoft Azure are the series of measured values and counts that are collected and stored over time. There are standard (or “platform”) metrics, and custom metrics. The standard metrics are provided to you by the Azure platform itself. Standard metrics reflect the health and usage statistics of your Azure resources. Whereas custom metrics are sent to Azure by your applications using the [Application Insights API for custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Custom metrics are stored in the Application Insights resources together with other application specific metrics.
+[Metrics in Azure Monitor](data-collection.md#metrics) are the series of measured values and counts that are collected and stored over time. There are standard (or “platform”) metrics, and custom metrics. The standard metrics are provided to you by the Azure platform itself. Standard metrics reflect the health and usage statistics of your Azure resources. Whereas custom metrics are sent to Azure by your applications using the [Application Insights API for custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Custom metrics are stored in the Application Insights resources together with other application specific metrics.
 
 ## Create a new chart
 
@@ -47,7 +47,7 @@ Metrics in Microsoft Azure are the series of measured values and counts that are
 7. By clicking on **Add metric** and repeating steps 3-6, you can add more metrics on the same chart.
 
    > [!NOTE]
-   > You typically don’t want to have metrics with different units of measure (i.e. “milliseconds” and “kilobytes”) or with significantly different scale on one chart. Instead, consider using multiple charts. Click on the Add Chart button to create multiple charts in Metrics Explorer.
+   > You typically don’t want to have metrics with different units of measure (i.e. “milliseconds” and “kilobytes”) or with significantly different scale on one chart. Instead, consider using multiple charts. Click on the Add Chart button to create multiple charts in metrics explorer.
 
 ## Apply filters to charts
 
@@ -95,20 +95,6 @@ You can split a metric by dimension to visualize how different segments of the m
    > [!NOTE]
    > Use both Filtering and Splitting on the same dimension to hide the segments that are irrelevant for your scenario and make charts easier to read.
 
-### New alert rule
-
-You can also use the criteria you have set to visualize your metrics as the basis for the underlying logic of a metric based alert rule. 
-
-If you click **New Alert rule**
-
-![New alert rule button highlighted in red](./media/metrics-charts/015.png)
-
-You will be taken to the alert rule creation pane with the underlying metric dimensions from your chart pre-populated to make it easier to generate custom alert rules.
-
-![Create alert rule](./media/metrics-charts/016.png)
-
-Check out this [article](alerts-metric.md) to learn more about setting up metric alerts.
-
 ## Lock boundaries of chart y-axis
 
 Locking the range of the y-axis becomes important when the chart shows smaller fluctuations of larger values. 
@@ -133,6 +119,20 @@ To pin a configured chart to a dashboard:
 After configuring your chart, click on the **Chart Actions** menu in the right top corner of the chart, and click **Pin to dashboard**.
 
 ![metric image](./media/metrics-charts/00013.png)
+
+## Create alert rules
+
+You can use the criteria you have set to visualize your metrics as the basis of a metric based alert rule. The new alerting rule will include your target resource, metric, splitting, and filter dimensions from your chart. You will be able to modify these settings later on the alert rule creation pane.
+
+### To create a new alert rule, click **New Alert rule**
+
+![New alert rule button highlighted in red](./media/metrics-charts/015.png)
+
+You will be taken to the alert rule creation pane with the underlying metric dimensions from your chart pre-populated to make it easier to generate custom alert rules.
+
+![Create alert rule](./media/metrics-charts/016.png)
+
+Check out this [article](alerts-metric.md) to learn more about setting up metric alerts.
 
 ## Troubleshooting
 

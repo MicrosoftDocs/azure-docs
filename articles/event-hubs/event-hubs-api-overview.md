@@ -40,7 +40,7 @@ For more information about the current status of each runtime library, see [addi
 
 #### .NET
 
-The .NET ecosystem has multiple runtimes, so there are multiple .NET libraries for Event Hubs. The .NET Standard library can be run using either .NET Core or the .NET Framework, while the .NET Framework library can only be run in a .NET Framework environment. For more information about .NET Framework versions, see [framework versions](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).
+The .NET ecosystem has multiple runtimes, so there are multiple .NET libraries for Event Hubs. The .NET Standard library can be run using either .NET Core or the .NET Framework, while the .NET Framework library can only be run in a .NET Framework environment. For more information about .NET Framework versions, see [framework versions](https://docs.microsoft.com/dotnet/articles/standard/frameworks).
 
 #### Node
 

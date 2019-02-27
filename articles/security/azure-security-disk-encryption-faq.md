@@ -55,11 +55,9 @@ Azure Disk Encryption is supported on the following Linux server distributions a
 | CentOS | 6.7 | Data disk |
 | CentOS | 6.6 | Data disk |
 | CentOS | 6.5 | Data disk |
-| openSUSE | SUSE:openSUSE-Leap:42.3:latest | Data disk |
-| SLES | SUSE:SLES-Priority:12-SP4:latest | Data disk |
-| SLES | SUSE:SLES-HPC:12-SP3:latest | Data disk |
-| SLES | SUSE:SLES-Priority:12-SP3:latest | Data disk |
-
+| openSUSE | 42.3 | Data disk |
+| SLES | 12-SP4 | Data disk |
+| SLES | 12-SP3 | Data disk |
 
 *__New ADE implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images. ADE is currently not supported for RHEL Bring-Your-Own-Subscription (BYOS) images. Please also refer to the [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) article for more information.__
 

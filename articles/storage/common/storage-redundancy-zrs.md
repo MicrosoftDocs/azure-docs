@@ -25,6 +25,7 @@ ZRS is generally available in the following regions:
 - Europe North
 - France Central
 - Japan East
+- UK South
 - US East
 - US East 2
 - US West 2

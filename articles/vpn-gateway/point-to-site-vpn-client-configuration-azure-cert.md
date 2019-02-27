@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 02/13/2019
 ms.author: cherylmc
 
 ---
@@ -41,10 +41,12 @@ You can generate client configuration files using PowerShell, or by using the Az
 
 ### <a name="zipps"></a>Generate files using PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. When generating VPN client configuration files, the value for '-AuthenticationMethod' is 'EapTls'. Generate the VPN client configuration files using the following command:
 
-  ```powershell
-  $profile=New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls"
+  ```azurepowershell-interactive
+  $profile=New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls"
 
   $profile.VPNProfileSASUrl
   ```
@@ -75,7 +77,7 @@ Use the following steps to configure the native Windows VPN client for certifica
 
 Use the following steps to configure the native VPN client on Mac for certificate authentication. You have to complete these steps on every Mac that will connect to Azure:
 
-1. Import the **VpnServerRoot** root certificate to your Mac. This can be done by copying the file over to your Mac and double-clicking on it.
+1. Import the **VpnServerRoot** root certificate to your Mac. This can be done by copying the file over to your Mac and double-clicking on it.  
 Click **Add** to import.
 
   ![add certificate](./media/point-to-site-vpn-client-configuration-azure-cert/addcert.png)
@@ -109,13 +111,10 @@ Click **Add** to import.
 
 ## <a name="linuxgui"></a>Linux (strongSwan GUI)
 
-### 1: Generate the key and certificate
+### Extract the key and certificate
 
 For strongSwan, you need to extract the key and the cert from the client certificate (.pfx file) and save them to individual .pem files.
-
-[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
-
-### 2: Extract the key
+Follow the steps below:
 
 1. Download and install OpenSSL from [OpenSSL](https://www.openssl.org/source/).
 2. Open a command-line window and change to the directory where you installed OpenSSL, for example, 'c:\OpenSLL-Win64\bin\'.
@@ -124,13 +123,13 @@ For strongSwan, you need to extract the key and the cert from the client certifi
   ```
   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nocerts -out privatekey.pem -nodes
   ```
-4.  Run the following command to extract the public cert and save it to a new file:
- 
+4.  Now run the following command to extract the public cert and save it to a new file:
+
   ```
   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nokeys -out publiccert.pem -nodes
   ```
 
-### <a name="install"></a>3: Install and configure
+### <a name="install"></a>Install and configure
 
 The following instructions were created through strongSwan 5.5.1 on Ubuntu 17.0.4. Ubuntu 16.0.10 does not support strongSwan GUI. If you want to use Ubuntu 16.0.10, you will have to use the [command line](#linuxinstallcli). The examples below may not match screens that you see, depending on your version of Linux and strongSwan.
 
@@ -159,13 +158,14 @@ The following instructions were created through strongSwan 5.5.1 on Ubuntu 17.0.
 
 ## <a name="linuxinstallcli"></a>Linux (strongSwan CLI)
 
-### 1: Generate the key and certificate
+### Install strongSwan
 
 You can use the following CLI commands, or use the strongSwan steps in the [GUI](#install) to install strongSwan.
 
-[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
+1. `apt-get install strongswan-ikev2 strongswan-plugin-eap-tls`
+2. `apt-get install libstrongswan-standard-plugins`
 
-### 2: Install and configure
+### Install and configure
 
 1. Download the VPNClient package from Azure portal.
 2. Extract the File.

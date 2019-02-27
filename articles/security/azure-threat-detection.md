@@ -4,7 +4,7 @@ description: Learn about Azure AD Identity Protection and its capabilities.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 
@@ -26,7 +26,7 @@ Azure provides a wide array of options to configure and customize security to me
 
 ## Azure Active Directory Identity Protection
 
-[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) is an [Azure Active Directory Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions) edition feature that provides an overview of the risk events and potential vulnerabilities that can affect your organization’s identities. Identity Protection uses existing Azure AD anomaly-detection capabilities that are available through [Azure AD Anomalous Activity Reports](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports#anomalous-activity-reports), and introduces new risk event types that can detect real time anomalies.
+[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) is an [Azure Active Directory Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions) edition feature that provides an overview of the risk events and potential vulnerabilities that can affect your organization’s identities. Identity Protection uses existing Azure AD anomaly-detection capabilities that are available through [Azure AD Anomalous Activity Reports](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports), and introduces new risk event types that can detect real time anomalies.
 
 ![Azure AD Identity Protection diagram](./media/azure-threat-detection/azure-threat-detection-fig1.png)
 
@@ -105,7 +105,7 @@ At the center of [Log Analytics](https://docs.microsoft.com/azure/log-analytics/
 
 You collect data into the repository from connected sources by configuring data sources and adding solutions to your subscription.
 
-![The Log Analytics dashboard ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
+![The Log Analytics dashboard](./media/azure-threat-detection/azure-threat-detection-fig5.png)
 
 Data sources and solutions each create separate record types with their own set of properties, but you can still analyze them together in queries to the repository. You can use the same tools and methods to work with a variety of data that's collected by various sources.
 

@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -195,7 +195,7 @@ ms.custom: H1Hack27Feb2017
 > ![Windows][Logo_Windows] Windows
 >
 
-In September 2016, Microsoft released a feature where you can manage multiple virtual IP addresses by using an [Azure internal load balancer][load-balancer-multivip-overview]. This functionality already exists in the Azure external load balancer.
+You can manage multiple virtual IP addresses by using an [Azure internal load balancer][load-balancer-multivip-overview]. 
 
 If you have an SAP deployment, you can use an internal load balancer to create a Windows cluster configuration for SAP Central Services (ASCS/SCS) instances.
 
@@ -209,8 +209,10 @@ This article focuses on how to move from a single ASCS/SCS installation to an SA
 >
 >The maximum number of SAP ASCS/SCS instances in one WSFC cluster is equal to the maximum number of private front-end IPs for each Azure internal load balancer.
 >
+> The configuration introduced in this documentation is not yet supported to be used for [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview)
+> 
 
-For more information about load-balancer limits, see the "Private front-end IP per load balancer" section in [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager].
+For more information about load-balancer limits, see the "Private front-end IP per load balancer" section in [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager]. Also consider using the [Azure Standard Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) instead of the basic SKU of the Azure load balancer.
 
 ## Prerequisites
 
@@ -342,7 +344,7 @@ Create the second **Volume2**. Execute this PowerShell script:
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
 
-![Figure 5: Multi-SID SOFS is the same as the SAP GLOBAL host name 2][sap-ha-guide-figure-8016]
+![Figure 5: Second Volume2 in Failover Cluster Manager][sap-ha-guide-figure-8016]
 
 _**Figure 5:** Second Volume2 in Failover Cluster Manager_
 

@@ -67,6 +67,8 @@
     items:
     - name: Review requirements
       href: data-box-edge-system-requirements.md
+    - name: Understand limits
+      href: data-box-edge-limits.md
   - name: How to
     items:
     - name: Develop C# module

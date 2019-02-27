@@ -11,7 +11,7 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 12/20/2018
 ---
 # Monitor SQL Data Sync with Log Analytics 
 

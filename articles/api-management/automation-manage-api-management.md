@@ -28,7 +28,7 @@ Azure Automation provides a highly reliable, highly available workflow execution
 Reduce operational overhead and free up IT and DevOps staff to focus on work that adds business value by moving your cloud management tasks to be run automatically by Azure Automation.
 
 ## How can Azure Automation help manage Azure API Management?
-API Management can be managed in Azure Automation by using the [Windows PowerShell cmdlets for Azure API Management API](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/?view=azurermps-5.5.0#api_management/). Within Azure Automation, you can write PowerShell workflow scripts to perform many of your API Management tasks using the cmdlets. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.
+API Management can be managed in Azure Automation by using the [Windows PowerShell cmdlets for Azure API Management API](https://docs.microsoft.com/powershell/module/az.apimanagement). Within Azure Automation, you can write PowerShell workflow scripts to perform many of your API Management tasks using the cmdlets. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.
 
 Here are some examples of using API Management with Powershell:
 

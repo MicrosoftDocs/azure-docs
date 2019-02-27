@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
 ---
@@ -153,15 +153,11 @@ Unmanaged disks are stored as page blobs in Azure Storage. When a VM is running 
 
 Keep in mind that any data stored in a temporary disk is lost when the VM is shut down.
 
-#### Azure File Sync
-
-Azure File Sync supports account failover. However, you will need to reconfigure all Azure File Sync settings after the failover is complete.
-
 ### Unsupported features or services
-
 The following features or services are not supported for account failover for the preview release:
 
-- Azure Data Lake Storage Gen2 hierarchical file shares cannot be failed over.
+- Azure File Sync does not support storage account failover. Storage accounts containing Azure file shares being used as cloud endpoints in Azure File Sync should not be failed over. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files.  
+- Storage accounts using Azure Data Lake Storage Gen2 hierarchical namespace cannot be failed over.
 - A storage account containing archived blobs cannot be failed over. Maintain archived blobs in a separate storage account that you do not plan to fail over.
 - A storage account containing premium block blobs cannot be failed over. Storage accounts that support premium block blobs do not currently support geo-redundancy.
 

@@ -5,7 +5,7 @@ description: Share and discover analytics resources and more in the Azure AI Gal
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs
@@ -14,7 +14,7 @@ ms.date: 01/11/2019
 ---
 # Share and discover resources in the Azure AI Gallery
 
-**[Azure AI Gallery](http://gallery.cortanaintelligence.com)** is a community-driven site for discovering and sharing solutions built with Azure AI.
+**[Azure AI Gallery](http://gallery.azure.ai)** is a community-driven site for discovering and sharing solutions built with Azure AI.
 The Gallery has a variety of resources that you can use to develop your own analytics solutions.
 
 ## What can I find in the Gallery?

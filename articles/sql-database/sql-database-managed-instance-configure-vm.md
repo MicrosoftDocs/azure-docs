@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
-ms.date: 12/13/2018
+ms.date: 02/18/2019
 ---
 # Quickstart: Configure Azure VM to connect to an Azure SQL Database Managed Instance
 
@@ -91,7 +91,8 @@ The easiest way to create a client virtual machine with all necessary tools is t
 4. Select **Purchase** to deploy the Azure VM in your network.
 5. Select the **Notifications** icon to view the status of deployment.
 
-Don't continue until the Azure virtual machine is created. 
+> [!IMPORTANT]
+> Do not continue until approximately 15 minutes after the virtual machine is created to give time for the post-creation scripts to install SQL Server Management Studio.
 
 ## Connect to virtual machine
 

@@ -33,21 +33,25 @@ sections:
         - href: ./management-groups/overview
           html: <p>Learn about grouping and organizing your subscriptions in a logical hierarchy that support the deployment of other Governance services in a structured way.<br /></p>
           image:
+            alt: Management Groups
             src: ./media/management-groups-illustration.svg
           title: Management Groups
         - href: ./resource-graph/
           html: <p>Use a powerful command-line tool (supports Azure CLI and Azure PowerShell) to rapidly query complex details about your Azure resources. Find and expose information that previously required complex and iterative scripts to discover those resources at scale.</p>
           image:
+            alt: Resource Graph
             src: ./media/resource-graph-illustration.svg
           title: Resource Graph
         - href: ./policy/
           html: <p>Define and apply standards to resources in your environment. Prevent the creation of undesired resources, enhance new resources with additional elements, and audit and remediate resources already in your environment.</p>
           image:
+            alt: Policy
             src: ./media/policy-illustration.svg
           title: Policy
         - href: ./blueprints/
           html: <p>Create an Azure native package of <i>artifacts</i> (resource groups, policies, role assignments, Resource Manager templates and more) that can be dynamically deployed to subscriptions to create consistent, repeatable environments.</p>
           image:
+            alt: Blueprints
             src: ./media/blueprints-illustration.svg
           title: Blueprints
   - title: Implementations

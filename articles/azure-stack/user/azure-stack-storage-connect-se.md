@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/24/2019
+ms.date: 02/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/24/2019
@@ -41,20 +41,15 @@ For the Azure Stack Development Kit (ASDK), you need to export the Azure Stack a
 
 ### Export and then import the Azure Stack certificate
 
+Export and then import Azure Stack certificate for the ASDK. For integrated system, the certificate is publicly signed. So, this step isn't necessary while setting up Storage Explorer connection to Azure Stack integrated system.
+
 1. Open `mmc.exe` on an Azure Stack host machine, or a local machine with a VPN connection to Azure Stack. 
 
 2. In **File**, select **Add/Remove Snap-in**, and then add **Certificates** to manage **My user account**.
 
-3.  Under **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates**.
+3.  Under **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates**. Find **AzureStackSelfSignedRootCert**.
 
-    - For the ASDK,  find **AzureStackSelfSignedRootCert**.
-
-        ![Load the Azure Stack root certificate through mmc.exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
-
-    - For an integrated system, find the root certificate of your external certificates. 
-    
-        ![Load the Azure Stack root certificate through mmc.exe](./media/azure-stack-storage-connect-se/azure-stack-storage-cert-location-is.png)
-        
+    ![Load the Azure Stack root certificate through mmc.exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
 4. Right-click the certificate, select **All Tasks** > **Export**, and then follow the instructions to export the certificate with **Base-64 encoded X.509 (.CER)**.
 

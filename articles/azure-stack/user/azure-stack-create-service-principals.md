@@ -46,7 +46,7 @@ The way you configured Active Directory for Azure Stack determines how you creat
 * Create a service principal for [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad).
 * Create a service principal for [Active Directory Federation Services (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
 
-The steps for assigning a service principal to a role the same for Azure AD and AD FS. After you create the service principal, you can [delegate permissions](azure-stack-create-service-principals.md#assign-role-to-service-principal) by assigning it to a role.
+The steps for assigning a service principal to a role the same for Azure AD and AD FS. After you create the service principal, you can [delegate permissions](azure-stack-create-service-principals.md) by assigning it to a role.
 
 ## Create service principal for Azure AD
 
@@ -69,9 +69,9 @@ When logging in programmatically, use the ID for your application and an authent
 
 1. From **App registrations** in Active Directory, select your application.
 
-2. Copy the **Application ID** and store it in your application code. The applications in the [sample applications](#sample-applications) use **client id** when referring to the **Application ID**.
+2. Copy the **Application ID** and store it in your application code. The applications in the sample applications use **client id** when referring to the **Application ID**.
 
-     ![Application ID for the application](./media/azure-stack-create-service-principal/image12.png)
+     ![Application ID for the application](./media/azure-stack-create-service-principals/image12.png)
 3. To generate an authentication key, select **Keys**.
 
 4. Provide a description of the key, and a duration for the key. When done, select **Save**.
@@ -79,9 +79,9 @@ When logging in programmatically, use the ID for your application and an authent
 >[!IMPORTANT]
 After you save the key, the key **VALUE** is displayed. Write down this value because you can't retrieve the key later. Store the key value where your application can retrieve it.
 
-![Key value warning for saved key.](./media/azure-stack-create-service-principal/image15.png)
+![Key value warning for saved key.](./media/azure-stack-create-service-principals/image15.png)
 
-The final step is [assigning your application a role](azure-stack-create-service-principals.md#assign-role-to-service-principal).
+The final step is [assigning your application a role](azure-stack-create-service-principals.md).
 
 ## Create service principal for AD FS
 
@@ -106,7 +106,7 @@ Use the following steps as a guide for assigning a role to a service principal.
 
 2. Select the subscription to assign the application to. In this example, the subscription is Visual Studio Enterprise.
 
-     ![Select Visual Studio Enterprise subscription for assignment](./media/azure-stack-create-service-principal/image16.png)
+     ![Select Visual Studio Enterprise subscription for assignment](./media/azure-stack-create-service-principals/image16.png)
 
 3. Select **Access Control (IAM)** for the subscription.
 
