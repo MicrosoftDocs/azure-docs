@@ -118,7 +118,7 @@ minimize complexity when creating security rules.
 | Publish Diagnostic Logs & Metrics | Outbound | 443 | VIRTUAL_NETWORK  | AzureMonitor | |
 | Logic Apps Designer - dynamic properties | Inbound | 454 | INTERNET  | VIRTUAL_NETWORK | Requests come from the Logic Apps [access endpoint inbound IP addresses in that region](../logic-apps/logic-apps-limits-and-config.md#inbound). |
 | App Service Management dependency | Inbound | 454 & 455 | AppServiceManagement | VIRTUAL_NETWORK | |
-| Connector deployment | Inbound | 454 & 3443 | INTERNET  | VIRTUAL_NETWORK | Necessary for deploying and updating connectors. Closing or blockng this port causes ISE deployments to fail and prevents connector updates or fixes. |
+| Connector deployment | Inbound | 454 & 3443 | INTERNET  | VIRTUAL_NETWORK | Necessary for deploying and updating connectors. Closing or blocking this port causes ISE deployments to fail and prevents connector updates or fixes. |
 | API Management - management endpoint | Inbound | 3443 | APIManagement  | VIRTUAL_NETWORK | |
 | Dependency from Log to Event Hub policy and monitoring agent | Outbound | 5672 | VIRTUAL_NETWORK  | EventHub | |
 | Access Azure Cache for Redis Instances between Role Instances | Inbound <br>Outbound | 6379-6383 | VIRTUAL_NETWORK  | VIRTUAL_NETWORK | |
@@ -287,7 +287,7 @@ choose **Enable autoscale**.
 processing units between 0 and 3 inclusively. 
 Otherwise, for metric-based, follow these steps:
 
-   1. In the **Default** section, uchoose **Add a rule**.
+   1. In the **Default** section, choose **Add a rule**.
    1. On the **Scale rule** pane, set up your criteria 
    and action to take when the rule triggers.
 
