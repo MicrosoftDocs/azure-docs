@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/11/2019
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 
 # Initiate a storage account failover (preview)

@@ -23,7 +23,7 @@ ms.lastreviewed: 09/05/2018
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Perform an on-demand backup on Azure Stack. For instructions on configuring the PowerShell environment, see [Install PowerShell for Azure Stack ](azure-stack-powershell-install.md). To sign in to Azure Stack, see [Using the administrator portal in Azure Stack](azure-stack-manage-portals.md).
+Perform an on-demand backup on Azure Stack. For instructions on configuring the PowerShell environment, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md). To sign in to Azure Stack, see [Using the administrator portal in Azure Stack](azure-stack-manage-portals.md).
 
 ## Start Azure Stack backup
 

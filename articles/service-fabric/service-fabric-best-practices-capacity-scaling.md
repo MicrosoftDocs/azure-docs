@@ -4,7 +4,7 @@ description: Best practices for planning and scaling Service Fabric clusters and
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: jeanpaul.connock  
+manager: chackdan  
 editor: ''
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
@@ -28,14 +28,14 @@ Scaling operations should be performed via Azure Resource template deployment, b
 * You only need to horizontally scale 1 virtual machine scale set node at a time.
   * To scaling out by 3 or more nodes at a time, you should [scale a Service Fabric cluster out by adding a Virtual Machine Scale Set](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out), and it is safest to scale in and out Virtual Machine Scale Sets horizontally 1 node at a time.
 * You have at Silver Reliability or higher for your Service Fabric Cluster, and Silver Durability or higher on any scale Set you configure Autoscaling rules.
-  * Autoscaling rules capacity[minimum] must be equal to or greater than 5 virtual machine instances, and must be equal to or greater than your Reliability Tier minimum for your Primary Node type.
+  * Autoscaling rules capacity [minimum] must be equal to or greater than 5 virtual machine instances, and must be equal to or greater than your Reliability Tier minimum for your Primary Node type.
 
 > [!NOTE]
 > Azure Service Fabric stateful service fabric:/System/InfastructureService/<NODE_TYPE_NAME>, runs on every Node Type that has Silver or Higher Durability, which is the only System Service that is supported to run in Azure on any of your clusters Node Types. 
 
 ## Vertical scaling considerations
 
-[Vertical scaling](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out#upgrade-the-size-and-operating-system-of-the-primary-node-type-vms) a Node Type in Azure Service Fabric requires a number of steps and considerations. For example:
+[Vertical scaling](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) a Node Type in Azure Service Fabric requires a number of steps and considerations. For example:
 * The cluster must be healthy before scaling. Otherwise you will only destabilize cluster further.
 * **Silver durability level or greater** is required for all Service Fabric Cluster NodeTypes that host stateful services.
 

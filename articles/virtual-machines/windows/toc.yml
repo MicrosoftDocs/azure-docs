@@ -92,7 +92,9 @@
     - name: Azure compute units (ACU)
       href: acu.md 
     - name: Benchmark scores
-      href: compute-benchmark-scores.md       
+      href: compute-benchmark-scores.md
+    - name: vCPU quotas
+      href: quotas.md
   - name: Maintenance and updates
     href: maintenance-and-updates.md
   - name: Disk storage
@@ -123,12 +125,8 @@
     href: backup-recovery.md
   - name: High performance computing
     href: high-performance-computing.md
-  - name: Deployment considerations
-    items:
-    - name: Infrastructure guidelines
-      href: infrastructure-example.md
-    - name: vCPU quotas
-      href: quotas.md
+  - name: Infrastructure example
+    href: infrastructure-example.md
 - name: How-to guides
   items:
   - name: Create VMs
@@ -348,7 +346,7 @@
       href: using-managed-disks-template-deployments.md
     - name: Enable write accelerator
       href: how-to-enable-write-accelerator.md
-    - name: Enable ultra disks
+    - name: Enable ultra SSDs
       href: disks-enable-ultra-ssd.md
     - name: Migrate to Managed Disks
       href: migrate-to-managed-disks.md

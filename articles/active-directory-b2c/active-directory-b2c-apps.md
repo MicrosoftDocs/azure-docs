@@ -87,10 +87,10 @@ The web API can then use the token to verify the API caller's identity and to ex
 A web API can receive tokens from many types of clients, including web applications, desktop and mobile applications, single page applications, server-side daemons, and other web APIs. Here's an example of the complete flow for a web application that calls a web API:
 
 1. The web application executes a policy and the user completes the user experience.
-2. Azure AD B2C returns an `access_token` and an authorization code to the browser.
-3. The browser posts the `access_token` and authorization code to the redirect URI.
-4. The web server validates the `access token` and sets a session cookie.
-5. The `access_token` is provided to Azure AD B2C with the authorization code, application client ID, and credentials.
+2. Azure AD B2C returns an (OpenID Connect) `id_token` and an authorization code to the browser.
+3. The browser posts the `id_token` and authorization code to the redirect URI.
+4. The web server validates the `id_token` and sets a session cookie.
+5. The web server asks Azure AD B2C for an `access_token` by providing it with the authorization code, application client ID, and client credentials.
 6. The `access_token` and `refresh_token` are returned to the web server.
 7. The web API is called with the `access_token` in an authorization header.
 8. The web API validates the token.
