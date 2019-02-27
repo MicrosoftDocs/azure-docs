@@ -88,7 +88,7 @@ To use Visual Studio, verify:
 
 1. You've installed [Visual Studio 2017 v15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/) or later.
 
-2. The [App Authentication extension for Visual Studio](https://go.microsoft.com/fwlink/?linkid=862354) is installed.
+2. The [App Authentication extension for Visual Studio](https://go.microsoft.com/fwlink/?linkid=862354) is installed. _(The App Authentication Extension is available as a seperate extension for visual studio 2017 Update 5 and from update 6 and above the exension is bundled within the product . You may require to install the same by selecting Azure Development tools from within the Visual Studio  installer.)_ 
  
 3. You signed in to Visual Studio and have selected an account to use for local development. Use **Tools**&nbsp;>&nbsp;**Options**&nbsp;>&nbsp;**Azure Service Authentication** to choose a local development account. 
 
