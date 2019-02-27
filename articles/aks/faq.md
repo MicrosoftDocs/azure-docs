@@ -56,7 +56,7 @@ If you create resources for use with your AKS cluster, such as storage accounts 
 
 ## Can I modify tags and other properties of the AKS resources in the MC_* resource group?
 
-Modifying and deleting the Azure-created tags and other properties of resources in the *MC_** resource group can lead to unexpected results such as scaling and upgrading errors. It is supported to create and modify additional custom tags, such as to assign a business unit or cost center. Modifying the resources under the *MC_** in the AKS cluster breaks the SLO.
+Modifying and deleting the Azure-created tags and other properties of resources in the *MC_** resource group can lead to unexpected results such as scaling and upgrading errors. It is supported to create and modify additional custom tags, such as to assign a business unit or cost center. Modifying the resources under the *MC_** in the AKS cluster breaks the service level objective (SLO). For more information, see [Does AKS offer a service level agreement?](#does-aks-offer-a-service-level-agreement)
 
 ## What Kubernetes admission controllers does AKS support? Can admission controllers be added or removed?
 
@@ -93,7 +93,7 @@ In a service level agreement (SLA), the provider agrees to reimburse the custome
 [aks-upgrade]: ./upgrade-cluster.md
 [aks-cluster-autoscale]: ./autoscaler.md
 [virtual-kubelet]: virtual-kubelet.md
-[aks-advanced-networking]: ./configure-advanced-networking.md
+[aks-advanced-networking]: ./configure-azure-cni.md
 [aks-rbac-aad]: ./aad-integration.md
 [node-updates-kured]: node-updates-kured.md
 

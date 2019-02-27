@@ -16,6 +16,9 @@ ms.topic: article
 ms.date: 12/12/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
+ms.lastreviewed: 12/12/2018
+
+
 ---
 
 # Azure Stack deployment planning considerations

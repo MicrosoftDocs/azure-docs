@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 02/05/2019
 ms.author: alkohli
 ---
 # Azure Data Box Disk system requirements
@@ -44,6 +44,10 @@ For Linux client, the Data Box Disk toolset installs the following required soft
 
 - dislocker
 - OpenSSL
+
+## Supported connection
+
+The client computer containing the data must have a USB 3.0 or later port. The disks connect to this client using the provided cable. 
 
 ## Supported storage accounts
 

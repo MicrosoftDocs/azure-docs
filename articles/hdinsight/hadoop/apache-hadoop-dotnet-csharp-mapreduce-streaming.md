@@ -4,11 +4,10 @@ description: Learn how to use C# to create MapReduce solutions with Apache Hadoo
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
-
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/27/2018
+ms.date: 02/15/2019
 ms.author: hrasheed
 
 ---
@@ -171,7 +170,13 @@ After creating the application, build it to produce the `/bin/Debug/reducer.exe`
 
 2. Use one of the following commands to start the MapReduce job:
 
-    * If using __Data Lake Storage__ as default storage:
+    * If using __Data Lake Storage Gen2__ as default storage:
+
+        ```bash
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files abfs:///mapper.exe,abfs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+        ```
+
+    * If using __Data Lake Storage Gen1__ as default storage:
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
@@ -186,7 +191,7 @@ After creating the application, build it to produce the `/bin/Debug/reducer.exe`
     The following list describes what each parameter does:
 
     * `hadoop-streaming.jar`: The jar file that contains the streaming MapReduce functionality.
-    * `-files`: Adds the `mapper.exe` and `reducer.exe` files to this job. The `adl:///` or `wasb:///` before each file is the path to the root of default storage for the cluster.
+    * `-files`: Adds the `mapper.exe` and `reducer.exe` files to this job. The `abfs:///`,`adl:///` or `wasb:///` before each file is the path to the root of default storage for the cluster.
     * `-mapper`: Specifies which file implements the mapper.
     * `-reducer`: Specifies which file implements the reducer.
     * `-input`: The input data.

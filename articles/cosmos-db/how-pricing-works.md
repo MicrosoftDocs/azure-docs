@@ -8,7 +8,7 @@ ms.date: 11/28/2018
 ms.author: rimman
 ---
 
-# Pricing model of Azure Cosmos DB 
+# Pricing model in Azure Cosmos DB 
 
 The pricing model of Azure Cosmos DB simplifies the cost management and planning. With Azure Cosmos DB, you pay for the throughput provisioned and the storage that you consume.
 

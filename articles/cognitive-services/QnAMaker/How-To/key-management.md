@@ -4,9 +4,9 @@ titleSuffix: Azure Cognitive Services
 description: Your QnA Maker service deals with two kinds of keys, subscription keys and endpoint keys.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: tulasim
@@ -37,7 +37,7 @@ You can view and reset your subscription keys from the Azure portal where you cr
 
 Endpoint keys can be managed from the [QnA Maker portal](https://qnamaker.ai).
 
-1. Log in to the [QnA Maker portal](https://qnamaker.ai), and go to **Service settings**.
+1. Log in to the [QnA Maker portal](https://qnamaker.ai), go to your profile, and then click **Service settings**.
 
     ![endpoint key](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
 

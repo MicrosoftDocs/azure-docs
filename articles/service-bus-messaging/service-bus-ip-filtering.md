@@ -3,14 +3,15 @@ title: Azure Service Bus Firewall Rules | Microsoft Docs
 description: How to use Firewall Rules to allow connections from specific IP addresses to Azure Service Bus. 
 services: service-bus
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
+editor: spelluru
 
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
-ms.author: clemensv
+ms.date: 01/23/2019
+ms.author: aschhab
 
 ---
 

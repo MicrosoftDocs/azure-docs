@@ -3,16 +3,17 @@ title: Troubleshoot two-step verification - Azure Active Directory | Microsoft D
 description: Provides instructions for users about what to do if they run into an issue with Azure Multi-Factor Authentication and two-step verification.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 
 ms.workload: identity
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: lizross
 ms.reviewer: kexia
+ms.collection: M365-identity-device-management
 ---
 
 # Get help with two-step verification
@@ -32,7 +33,7 @@ There are several reasons why you might need to use an alternate verification me
 
 - **You lost your phone or got a new phone number.** If you've lost your phone or gotten a new number, you can either sign in using a different method or ask your administrator to clear your settings. We strongly recommend letting your administrator know if your phone was lost or stolen, so the appropriate updates can be made to your account. After your settings are cleared, you'll be prompted to [register for two-step verification](multi-factor-authentication-end-user-first-time.md) the next time you sign in.
 
-- **Not getting the authentication text or phone call.** There are several reasons why you might not get the text or phone call. If you've successfully gotten texts or phone calls in the past, this is probably an issue with the phone provider, not your account. If you often have delays due to a bad signal, we recommend you use the [Microsoft Authenticator app](microsoft-authenticator-app-how-to.md) on your mobile device. This app can generate random security codes for sign-in, without requiring any cell signal or Internet connection.<br><br>If you're trying to receive a text message, ask a friend to text you as a test to make sure you can get one, and if you've gotten several messages, make sure you're using the code from the most current one.
+- **Not getting the authentication text or phone call.** There are several reasons why you might not get the text or phone call. If you've successfully gotten texts or phone calls in the past, this is probably an issue with the phone provider, not your account. If you often have delays due to a bad signal, we recommend you use the [Microsoft Authenticator app](user-help-auth-app-download-install.md) on your mobile device. This app can generate random security codes for sign-in, without requiring any cell signal or Internet connection.<br><br>If you're trying to receive a text message, ask a friend to text you as a test to make sure you can get one, and if you've gotten several messages, make sure you're using the code from the most current one.
 
 - **Your app passwords aren't working.** App passwords replace your normal password for older desktop applications that don't support two-step verification. First, make sure you typed the password correctly. If that doesn't fix it, try signing in to [create a new app password](multi-factor-authentication-end-user-app-passwords.md) or contacting your administrator to [delete your existing app passwords](../authentication/howto-mfa-userdevicesettings.md) so you can create a new one.
 
@@ -57,4 +58,4 @@ If you've tried these steps but are still running into problems, contact your ad
 
 * [Manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md)
 
-* [Microsoft Authenticator application FAQ](microsoft-authenticator-app-faq.md)
+* [Microsoft Authenticator application FAQ](user-help-auth-app-faq.md)

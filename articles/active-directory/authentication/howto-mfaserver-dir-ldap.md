@@ -4,14 +4,15 @@ description: Deploying LDAP Authentication and Azure Multi-Factor Authentication
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # LDAP authentication and Azure Multi-Factor Authentication Server
 

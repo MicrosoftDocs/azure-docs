@@ -84,6 +84,8 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
             $registrationPath = $asrHivePath + '\Registration'
             $proxySettingsPath = $asrHivePath + '\ProxySettings'
             $draIdvalue = 'DraID'
+            $idMgmtCloudContainerId='IdMgmtCloudContainerId'
+
 
             if (Test-Path $asrHivePath)
             {
@@ -104,6 +106,11 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
                 {            
                     "Removing DraId"
                     Remove-ItemProperty -Path $asrHivePath -Name $draIdValue
+                }
+                if($regNode.IdMgmtCloudContainerId -ne $null)
+                {            
+                    "Removing IdMgmtCloudContainerId"
+                    Remove-ItemProperty -Path $asrHivePath -Name $idMgmtCloudContainerId
                 }
                 "Registry keys removed."
             }
@@ -143,7 +150,7 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
 ## Disable protection for a Hyper-V virtual machine (Hyper-V to Azure)
 
 > [!NOTE]
-> Use this procedure if you're replicating Hyper-V VMs to Azure without a VMM server. If you are replicating your virtual machines using the **System Center VMM to Azure** scenario, then follow the instructions [Disable protection for a Hyper-V virtual machine replicating using the System Center VMM to Azure scenario](#disable-protection-for-a-hyper-v-virtual-machine-replicating-using-the-system-centet-vmm-to-azure-scenario)
+> Use this procedure if you're replicating Hyper-V VMs to Azure without a VMM server. If you are replicating your virtual machines using the **System Center VMM to Azure** scenario, then follow the instructions Disable protection for a Hyper-V virtual machine replicating using the System Center VMM to Azure scenario
 
 1. In **Protected Items** > **Replicated Items**, right-click the machine > **Disable replication**.
 2. In **Disable replication**, you can select the following options:

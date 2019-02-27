@@ -1,5 +1,5 @@
 ---
-title: Conflict resolution types and resolution policies in Azure Cosmos DB 
+title: Conflict resolution types and resolution policies with multiple write regions in Azure Cosmos DB 
 description: This article describes the conflict categories and conflict resolution policies in Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
@@ -45,6 +45,7 @@ Azure Cosmos DB offers a flexible policy-driven mechanism to resolve update conf
 
 Learn how to configure conflict resolution policies. See the following articles:
 
+* [How to configure multi-master in your applications](how-to-multi-master.md)
 * [Use the LWW conflict resolution policy](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
 * [Use the custom conflict resolution policy](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
 * [Use the conflicts feed](how-to-manage-conflicts.md#read-from-conflict-feed)

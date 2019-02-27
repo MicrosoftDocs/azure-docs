@@ -53,7 +53,7 @@ Organizations with fewer device models, more predictable scenarios, and limited 
 
 ### Compare Azure IoT solution accelerators and Azure IoT Central
 
-To implement a typical [IoT solution architecture](/azure/iot-fundamentals/iot-introduction#iot-solution-architecture), Azure IoT offers several options, [Azure IoT solution accelerators](/azure/iot-suite) and [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions), each appropriate for different sets of customer requirements.
+To implement a typical [IoT solution architecture](/azure/iot-fundamentals/iot-introduction), Azure IoT offers several options, [Azure IoT solution accelerators](/azure/iot-suite) and [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions), each appropriate for different sets of customer requirements.
 
 [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) is the core Azure PaaS that both Azure IoT Central and Azure IoT solution accelerators use. IoT Hub enables reliable and securely bidirectional communications between millions of IoT devices and a cloud solution. IoT Hub helps you meet IoT implementation challenges such as:
 

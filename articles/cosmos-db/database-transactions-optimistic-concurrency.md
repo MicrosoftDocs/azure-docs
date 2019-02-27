@@ -9,7 +9,7 @@ ms.author: mjbrown
 ms.reviewer: sngun
 ---
 
-# Database transactions and optimistic concurrency control
+# Transactions and optimistic concurrency control
 
 Database transactions provide a safe and predictable programming model to deal with concurrent changes to the data. Traditional relational databases, like SQL Server allow you to write the business logic using stored-procedures and/or triggers, send it to the server for execution directly within the database engine. With traditional relational databases, you are required to deal with two different programming languages- the (non-transactional) application programming language such as JavaScript, Python, C#, Java, etc. and the transactional programming language (T-SQL) that is natively executed by the database.
 
@@ -44,7 +44,7 @@ The ability to execute JavaScript directly within the database engine provides p
 
 ## Optimistic concurrency control 
 
-Optimistic concurrency control allows you to prevent lost updates and deletes. Concurrent, conflicting operations are subjected to the regular pessimistic locking of the database engine hosted by the logical partition that owns the item. When two concurrent operations attempting to update the latest version of an item within a logical partition, one of them will win and the other will fail. However, if one or two operations attempting to concurrently update the same item had previously read an older value of the item, the database doesn’t know if the previously read value by either or both the conflicting operations was indeed the latest value of the item. Fortunately, this situation can be detected with the Optimistic Concurrency Control (OCC) before letting the two operations enter the transaction boundary inside the database engine. OCC protects your data from accidentally overwriting changes that were made by others. It also prevents others from accidentally overwriting your own changes.
+Optimistic concurrency control allows you to prevent lost updates and deletes. Concurrent, conflicting operations are subjected to the regular pessimistic locking of the database engine hosted by the logical partition that owns the item. When two concurrent operations attempt to update the latest version of an item within a logical partition, one of them will win and the other will fail. However, if one or two operations attempting to concurrently update the same item had previously read an older value of the item, the database doesn’t know if the previously read value by either or both the conflicting operations was indeed the latest value of the item. Fortunately, this situation can be detected with the Optimistic Concurrency Control (OCC) before letting the two operations enter the transaction boundary inside the database engine. OCC protects your data from accidentally overwriting changes that were made by others. It also prevents others from accidentally overwriting your own changes.
 
 The concurrent updates of an item are subjected to the OCC by Azure Cosmos DB’s communication protocol layer. Azure Cosmos database ensures that the client-side version of the item that you are updating (or deleting) is the same as the version of the item in the Azure Cosmos container. This guarantees that your writes are protected from being overwritten accidentally by the writes of others and vice versa. In a multi-user environment, the optimistic concurrency control protects you from accidentally deleting or updating wrong version of an item. As such, items are protected against the infamous “lost update” or “lost delete” problems.
 

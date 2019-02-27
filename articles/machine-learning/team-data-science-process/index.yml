@@ -7,7 +7,7 @@ metadata:
   services: machine-learning
   author: cjgronlund
   ms.service: machine-learning
-  ms.component: team-data-science-process
+  ms.subservice: team-data-science-process
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page

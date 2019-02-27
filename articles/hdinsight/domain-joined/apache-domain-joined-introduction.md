@@ -50,7 +50,7 @@ A HDInsight cluster with ESP uses the familiar Apache Ranger UI to search audit 
 ## Encryption
 Protecting data is important for meeting organizational security and compliance requirements. Along with restricting access to data from unauthorized employees, you should encrypt it. 
 
-Both data stores for HDInsight clusters--Azure Blob storage and Azure Data Lake Storage Gen1--support transparent server-side [encryption of data](../../storage/common/storage-service-encryption.md) at rest. Secure HDInsight clusters will seamlessly work with this capability of server-side encryption of data at rest.
+Both data stores for HDInsight clusters--Azure Blob storage and Azure Data Lake Storage Gen1/Gen2--support transparent server-side [encryption of data](../../storage/common/storage-service-encryption.md) at rest. Secure HDInsight clusters will seamlessly work with this capability of server-side encryption of data at rest.
 
 ## Next steps
 

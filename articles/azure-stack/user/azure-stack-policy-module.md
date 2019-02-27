@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: sethm
+ms.lastreviewed: 11/29/2018
 
 ---
 # Manage Azure policy using the Azure Stack Policy Module

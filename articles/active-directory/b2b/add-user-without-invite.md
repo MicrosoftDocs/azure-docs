@@ -1,21 +1,22 @@
 ---
 
-title: Add B2B collaboration users to Azure Active Directory without an invitation | Microsoft Docs
+title: Add B2B collaboration users without an invitation - Azure Active Directory | Microsoft Docs
 description: You can let a guest user add other guest users to your Azure AD without redeeming an invitation in Azure Active Directory B2B collaboration.
 services: active-directory
 documentationcenter: ''
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 05/21/2018
 
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
 
+ms.collection: M365-identity-device-management
 ---
 
 # Add B2B collaboration guest users without an invitation

@@ -5,11 +5,11 @@ services: active-directory
 keywords: azure active directory identity protection, cloud discovery, managing applications, security, risk, risk level, vulnerability, security policy
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: identity-protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +18,7 @@ ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Identity Protection playbook
 
@@ -143,7 +144,7 @@ For more information, see [How to configure the sign-in risk policy](howto-sign-
 
 **To test a sign in risk policy, perform the following steps:**
 
-1. Sign-in to [https://portal.azure.com ](https://portal.azure.com) with global administrator credentials for your tenant.
+1. Sign-in to [https://portal.azure.com](https://portal.azure.com) with global administrator credentials for your tenant.
 
 2. Navigate to **Azure AD Identity Protection**.
 

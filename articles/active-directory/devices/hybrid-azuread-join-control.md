@@ -4,12 +4,12 @@ description: Learn how to control the hybrid Azure AD join of your devices in Az
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
-ms.component: devices
+ms.subservice: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +18,7 @@ ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
+ms.collection: M365-identity-device-management
 ---
 # Control the hybrid Azure AD join of your devices
 
@@ -77,7 +78,7 @@ To set the GPO:
 8.	Right-click **Register domain-joined computers as devices**, and then select **Edit**.
 
     > [!NOTE] 
-    > This Group Policy template has been renamed from earlier versions of the Group Policy Management console. If you're using an earlier version of the console, go to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Workplace Join** > **Automatically workplace join client computers**. 
+    > This Group Policy template has been renamed from earlier versions of the Group Policy Management console. If you're using an earlier version of the console, go to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Device Registration** > **Register domain joined computer as device**. 
 
 9.	Select one of the following settings, and then select **Apply**:
 

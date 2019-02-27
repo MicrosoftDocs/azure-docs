@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure Media Services - Signaling Timed Metadata in Live Streaming | Microsoft Docs
 description: This specification outlines two modes that are supported by Media Services for signaling timed metadata within live streaming. This includes support for generic timed metadata signals, as well as SCTE-35 signaling for ad splice insertion. 
 services: media-services
 documentationcenter: ''
 author: johndeu
-manager: cfowler
+manager: femila
 editor: johndeu
 
 ms.assetid: 265b94b1-0fb8-493a-90ec-a4244f51ce85
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 02/08/2019
 ms.author: johndeu;
 
 ---
-# Signaling Timed Metadata in Live Streaming
+# Signaling Timed Metadata in Live Streaming 
 
 
 ## 1 Introduction 
@@ -85,7 +85,7 @@ For RTMP simple mode, Media Services supports a single AMF cue message called "o
 
 ---------------------------
 
-#### 2.1.1 Cancelation and Updates
+#### 2.1.1 Cancellation and Updates
 
 Messages can be canceled or updated by sending multiple messages with the same
 presentation time and ID. The presentation time and ID uniquely identify the
@@ -165,7 +165,7 @@ The MediaDataBox (‘mdat’) box MUST have the following format:
 ------------------------------
 
 
-### 2.2.4 Cancelation and Updates
+### 2.2.4 Cancellation and Updates
 Messages can be canceled or updated by sending multiple messages with the same presentation time and ID.  The presentation time and ID uniquely identify the event. The last message received for a specific presentation time, that meets pre-roll constraints, is the message that is acted upon. The updated message replaces any previously received messages.  The pre-roll constraint is four seconds. Messages received at least four seconds prior to the presentation time will be acted upon. 
 
 

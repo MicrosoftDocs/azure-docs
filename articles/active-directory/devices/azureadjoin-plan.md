@@ -4,10 +4,10 @@ description: Explains the steps that are required to implement Azure AD joined d
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 
-ms.component: devices
+ms.subservice: devices
 ms.assetid: 81d4461e-21c8-4fdd-9076-0e4991979f62
 ms.service: active-directory
 ms.workload: identity
@@ -18,6 +18,7 @@ ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Plan your Azure AD join implementation
@@ -123,6 +124,8 @@ Azure AD join:
 - Is only applicable to Windows 10 devices. 
 
 - Is not applicable to previous versions of Windows or other operating systems. If you have Windows 7/8.1 devices, you must upgrade to Windows 10 to deploy Azure AD join.
+
+- Is not supported on devices with TPM in FIPS mode.
  
 **Recommendation:** Always use the latest Windows 10 release to take advantage of updated features.
 
