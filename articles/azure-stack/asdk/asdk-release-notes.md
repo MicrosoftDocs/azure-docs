@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 02/27/2019
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 02/09/2019
@@ -41,6 +41,8 @@ This build includes the following improvements for Azure Stack:
 - Note that [available Azure Stack hotfixes](../azure-stack-update-1902.md#azure-stack-hotfixes) are not applicable to the Azure Stack ASDK.
 
 ## Build 1.1901.0.95
+
+See the [important build information in the Azure Stack release notes](../azure-stack-update-1901.md#build-reference).
 
 ### Changes
 

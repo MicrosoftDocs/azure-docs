@@ -215,7 +215,7 @@ Yes, Azure distributes instances across update and fault domains to ensure that 
 
 ### What certificates are supported on Application Gateway?
 
-Self-Signed certs, CA certs, and wild-card certs are supported. EV certs are not supported.
+Self-Signed certs, CA certs, EV certs, and wild-card certs are supported.
 
 ### What are the current cipher suites supported by Application Gateway?
 

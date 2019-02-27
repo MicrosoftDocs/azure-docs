@@ -297,8 +297,6 @@
       href: active-directory-b2c-how-to-enable-billing.md
     - name: Threat management
       href: active-directory-b2c-reference-threat-management.md
-    - name: Issue when creating a directory
-      href: active-directory-b2c-support-create-directory.md
     - name: Extensions app
       href: active-directory-b2c-reference-extensions-app.md
     - name: User flow versions

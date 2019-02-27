@@ -54,7 +54,7 @@ Run histories are now called **experiments**. You can collect your model's exper
 
 The portal's workspace dashboard is supported on Microsoft Edge, Chrome, and Firefox browsers only:
 
-[ ![Online portal](./media/overview-what-happened-to-workbench/image001.png)]
+[![Online portal](./media/overview-what-happened-to-workbench/image001.png)]
 (./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
 Start training your models and tracking the run histories using the new CLI and SDK. You can learn how with the [Tutorial: train models with Azure Machine Learning service](tutorial-train-models-with-aml.md).
@@ -104,7 +104,7 @@ By using the new Python SDK in the latest release, you can interact with Azure M
 
 In this latest release, the extension was renamed to Azure Machine Learning for Visual Studio Code and has been expanded and improved to work with the preceding new features.
 
-[ ![Azure Machine Learning for Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)]
+[![Azure Machine Learning for Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)]
 (./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
 
 ## What about domain packages?
