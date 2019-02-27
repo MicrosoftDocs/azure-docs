@@ -59,6 +59,7 @@ The following new content is available in our [sample repository](https://aka.ms
   * Initial support and implementation for phrase hints.
   * Return properties collection with service JSON for recognition
 * Windows DLLs do now contain a version resource.
+* If you create a recognizer `FromEndpoint` you can add parameters directly to the endpoint URL. Using `FromEndpoint` you can not configure the recognizer through the standard configuration properties.
 
 **Bug fixes**
 
