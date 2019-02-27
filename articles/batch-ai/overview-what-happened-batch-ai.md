@@ -430,7 +430,7 @@ estimator = TensorFlow(source_directory=project_folder,
                        use_gpu=True)
 ```
 
-The full information for this training code snippet (including the tf_mnist_replica.py file) can be found in the [Azure ML sample notebook github repo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server). The datastore itself can either be mounted on the individual nodes, or the training data can be downloaded on the node itself. More details on referencing the datastore in your estimator is in the [Azure ML service documentation](../machine-learning/service/how-to-access-data.md#access-datastores-for-training). 
+The full information for this training code snippet (including the tf_mnist_replica.py file) can be found in the [Azure ML sample notebook github repo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server). The datastore itself can either be mounted on the individual nodes, or the training data can be downloaded on the node itself. More details on referencing the datastore in your estimator is in the [Azure ML service documentation](../machine-learning/service/how-to-access-data.md#access). 
 
 Submitting a run in Azure ML is through the submit function.
 
