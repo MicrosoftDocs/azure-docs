@@ -15,7 +15,7 @@ ms.custom: seodec2018
 ---
 
 # Indexing JSON blobs with Azure Search Blob indexer
-This article shows you how to configure an Azure Search blob indexer to extract structured content from JSON documents in Azure Blob storage and make it searchable in Azure Search. This workflow creates an Azure Search index and loads it with existing data extracted from JSON blobs. 
+This article shows you how to configure an Azure Search blob indexer to extract structured content from JSON documents in Azure Blob storage and make it searchable in Azure Search. This workflow creates an Azure Search index and loads it with existing text extracted from JSON blobs. 
 
 You can use the [portal](#json-indexer-portal), [REST APIs](#json-indexer-rest), or [.NET SDK](#json-indexer-dotnet) to index JSON content. Common to all approaches is that JSON documents are located in a blob container in an Azure Storage account. For guidance on pushing JSON documents from other non-Azure platforms, see [Data import in Azure Search](search-what-is-data-import.md).
 
@@ -103,7 +103,7 @@ When indexing is complete, you can use [Search explorer](search-explorer.md) to 
 
 ## Use REST APIs
 
-You can use the REST API to index JSON blobs, following a three-part workflow common to all indexers in Azure Search: create a data source, create an index, create an indexer. Creation of the indexer in step 3 is where data extraction occurs. When step 3 is completed, you will have a queryable index.
+You can use the REST API to index JSON blobs, following a three-part workflow common to all indexers in Azure Search: create a data source, create an index, create an indexer. Creation of the indexer in step 3 is where data extraction occurs. When step 3 is completed, you will have a queryable index. To view example requests that create all three objects, see [REST Example](#rest-example) at the end of this section.
 
 For code-based JSON indexing, you can use [Postman](search-fiddler.md) and the REST API to create these objects:
 
@@ -313,7 +313,7 @@ You can also refer to individual array elements by using a zero-based index. For
 >
 >
 
-## REST Example
+### REST Example
 
 This section is a recap of all the requests used for creating objects. For a discussion of component parts, see the previous sections in this article.
 
@@ -353,6 +353,8 @@ All indexers require a target index that receives the data. The body of the requ
 ### Indexer request
 
 This request shows a fully-specified indexer. It includes [field mappings](#field-mappings), which were omitted in previous examples. Recall that "schedule", "parameters", and "fieldMappings" are optional as long as there is an available default. Omitting "schedule" causes the indexer to run immediately. Omitting "parsingMode" causes the index to use the "json" default.
+
+Creating the indexer on Azure Search triggers data import. It runs immediately, and then on a schedule if you've provided one.
 
     POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
