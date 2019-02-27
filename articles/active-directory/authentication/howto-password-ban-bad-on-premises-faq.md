@@ -24,10 +24,6 @@ ms.collection: M365-identity-device-management
 
 ## General questions
 
-**Q: When will Azure AD Password Protection reach General Availability (GA)?**
-
-GA is planned for Q1 CY2019 (before end of March 2019). Thank you to everyone who has supplied feedback on the feature to date - we appreciate it!
-
 **Q: What guidance should users be given on how to select a secure password?**
 
 Microsoft's current guidance on this topic can be found at the following link:
