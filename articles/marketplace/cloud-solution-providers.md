@@ -31,6 +31,8 @@ The following table shows offer types and pricing models that can opt in to the 
 | IT solution SaaS (per site pricing) | N/A | Yes | Yes |
 |   |   |   |
 
+## How to opt-in
+
 The CSP partner channel opt-in setting is found in the Marketplace or Storefront tab within the Cloud Partner Portal offer creation experience.
 
 ![CSP opt-in experience](media/marketplace-publishers-guide/csp-opt-in.png)
