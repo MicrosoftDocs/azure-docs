@@ -4,7 +4,7 @@ description: "Learn about Azure App Service security best practices for securing
 services: security
 documentationcenter: na
 author: techlake
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid:

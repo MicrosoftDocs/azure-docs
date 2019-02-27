@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Learn how to create a Windows UWP app that uses an ONNX model exported from Azure Cognitive Services.
 services: cognitive-services
 author: larryfr
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 10/16/2018
 ms.author: larryfr

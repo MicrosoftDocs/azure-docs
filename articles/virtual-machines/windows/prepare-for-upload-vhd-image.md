@@ -404,6 +404,10 @@ Not every role or application that’s installed on a Windows-based computer sup
 7. Now the VHD is ready to be uploaded. For more information about how to create a VM from a generalized disk, see [Upload a generalized VHD and use it to create a new VMs in Azure](sa-upload-generalized.md).
 
 
+>[!NOTE]
+> A custom unattend.xml is not supported. While we do support the additionalUnattendContent property, that only provides limited support for adding [microsoft-windows-shell-setup](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) options into the unattend.xml that the Azure provisioning agent uses. E.g.  they can use [additionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) to add FirstLogonCommands and LogonCommands. See also [additionalUnattendContent FirstLogonCommands example](https://github.com/Azure/azure-quickstart-templates/issues/1407).
+
+
 ## Complete recommended configurations
 The following settings do not affect VHD uploading. However, we strongly recommend that you configured them.
 

@@ -19,7 +19,6 @@ ms.author: subramar
 ---
 # Create your first Azure Service Fabric application
 > [!div class="op_single_selector"]
-> * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
 > * [Java - Linux (Preview)](service-fabric-create-your-first-linux-application-with-java.md)
 > * [C# - Linux (Preview)](service-fabric-create-your-first-linux-application-with-csharp.md)
 >

@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
 
@@ -34,7 +34,7 @@ You can:
 Monitoring agents are installed on multiple servers, both on-premises and in Azure. The agents communicate with each other, but do not send data, they send TCP handshake packets. The communication between the agents allows Azure to map the network topology and path the traffic could take.
 
 1. Create an NPM Workspace. This is the same as a Log Analytics workspace.
-2. Install and configure software agents: 
+2. Install and configure software agents. (If you only want to monitor over Microsoft Peering, you do not need to install and configure software agents.): 
     * Install monitoring agents on the on-premises servers and the Azure VMs (for private peering).
     * Configure settings on the monitoring agent servers to allow the monitoring agents to communicate. (Open firewall ports, etc.)
 3. Configure network security group (NSG) rules to allow the monitoring agent installed on Azure VMs to communicate with on-premises monitoring agents.

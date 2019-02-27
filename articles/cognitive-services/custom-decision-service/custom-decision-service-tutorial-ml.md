@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: A tutorial for machine learning featurization and feature specification in Custom Decision Service.
 services: cognitive-services
 author: slivkins
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins

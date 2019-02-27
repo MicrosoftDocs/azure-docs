@@ -4,7 +4,7 @@ description: This tutorial explains how to use the Azure AD Reporting API with c
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory
@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk 
 
 # Customer intent: As a developer, I want to learn how to access the Azure AD reporting API using certificates so that I can create an application that does not require user intervention to access reports.
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Get data using the Azure Active Directory reporting API with certificates

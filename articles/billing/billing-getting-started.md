@@ -3,7 +3,7 @@ title: Prevent unexpected costs, manage billing in Azure | Microsoft Docs
 description: Learn how to avoid unexpected charges on your Azure bill. Use cost-tracking and management features for a Microsoft Azure subscription.
 services: ''
 documentationcenter: ''
-author: tonguyen10
+author: bandersmsft
 manager: alherz
 editor: ''
 tags: billing
@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
-ms.author: cwatson
+ms.author: banders
 ---
 # Prevent unexpected charges with Azure billing and cost management
 
-When you sign up for Azure, there are several things you can do to get a better idea of your spend. The [pricing calculator](https://azure.microsoft.com/pricing/calculator/) can provide an estimate of costs before you create an Azure resource. The [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) provides you with the current cost breakdown and forecast for your subscription. If you want to group and understand costs for different projects or teams, look at [resource tagging](../azure-resource-manager/resource-group-using-tags.md). If your organization has a reporting system that you prefer to use, check out the [billing APIs](billing-usage-rate-card-overview.md).
+When you sign up for Azure, there are several things you can do to get a better idea of your spending. The [pricing calculator](https://azure.microsoft.com/pricing/calculator/) can provide an estimate of costs before you create an Azure resource. The [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) provides you with the current cost breakdown and forecast for your subscription. If you want to group and understand costs for different projects or teams, look at [resource tagging](../azure-resource-manager/resource-group-using-tags.md). If your organization has a reporting system that you prefer to use, check out the [billing APIs](billing-usage-rate-card-overview.md).
 
 - If your subscription is an Enterprise Agreement (EA), the public preview for seeing your costs in the Azure portal is available. If your subscription is through Cloud Solution Provider (CSP), or Azure Sponsorship, then some of the following features may not apply to you. See [Additional resources for EA, CSP, and Sponsorship](#other-offers) for more info.
 
@@ -59,6 +59,24 @@ To see if you've got spending limit on, go to the [Subscriptions view in the Acc
 
 Click the banner and follow prompts to remove the spending limit. If you didn't enter credit card information when you signed up, you must enter it to remove the spending limit. For more information, see [Azure spending limit – How it works and how to enable or remove it](https://azure.microsoft.com/pricing/spending-limits/).
 
+You can use the [Cloudyn](https://www.cloudyn.com/) service to create alerts that automatically notify stakeholders of spending anomalies and overspending risks. You can create alerts using reports that support alerts based on budget and cost thresholds. For more information on using Cloudyn, see [Tutorial: Review usage and costs](../cost-management/tutorial-review-usage.md).
+
+This example uses the **Actual Cost Over Time** report to send a notification when your spending on an Azure VM  nears your total budget. In this scenario, you have a total budget of $20,000 and you want to receive a notification when costs are approaching half of your budget, $9,000, and an additional alert when costs reach $10,000.
+
+1. From the menu at the top of the Cloudyn portal, select **Costs** > **Cost Analysis** > **Actual Cost Over Time**. 
+2. Set **Groups** to **Service** and set **Filter on the service** to **Azure/VM**. 
+3. In the top right of the report, select **Actions** and then select **Schedule report**.
+4. To send yourself an email of the report at scheduled interval, select the **Scheduling** tab in the **Save or Schedule this** report dialog. Be sure to select **Send via email**. Any tags, grouping, and filtering you use are included in the emailed report. 
+5. Select the **Threshold** tab and then select  **Actual Cost vs. Threshold**. 
+   1. In the **Red alert** threshold box enter 10000. 
+   2. In the **Yellow alert** threshold box enter 9000. 
+   3. In the **Number of consecutive alerts** box, enter the number of consecutive alerts to receive. When you receive the total number of alerts that you specified, no additional alerts are sent. 
+6. Select **Save**.
+
+    ![Example showing red and yellow alerts based on spending thresholds](./media/billing-getting-started/schedule-alert01.png)
+
+You can also choose the **Cost Percentage vs. Budget** threshold metric to create alerts. This allows you to specify the thresholds as percentages of your budget instead of currency values.
+
 ## Ways to monitor your costs when using Azure services
 
 ### <a name="tags"></a> Add tags to your resources to group your billing data
@@ -85,7 +103,7 @@ After you get your services running, regularly check how much they're costing yo
 
     ![Screenshot of the cost analysis view in Azure portal](./media/billing-getting-started/cost-analysis.PNG)
 
-4. You can filter by different properties like [tags](#tags), resource group, and timespan. Click **Apply** to confirm the filters and **Download** if you want to export the view to a Comma-Separated Values (.csv) file.
+4. You can filter by different properties like [tags](#tags), resource type, resource group, and timespan. Click **Apply** to confirm the filters and **Download** if you want to export the view to a Comma-Separated Values (.csv) file.
 
 5. Additionally, you can click a resource to see your daily spend history and how much the resource costs each day.
 

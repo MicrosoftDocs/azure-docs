@@ -5,18 +5,19 @@ keywords: The Azure AD Connect installation wizard lets you configure maintenanc
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Running the installation wizard a second time
 The first time you run the Azure AD Connect installation wizard, it walks you through how to configure your installation. If you run the installation wizard again, it offers options for maintenance.

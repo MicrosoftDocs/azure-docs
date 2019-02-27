@@ -37,10 +37,10 @@ This section demonstrates how to configure a Stream Analytics job to run a funct
 
 The following steps are required to achieve this task:
 * [Create a Stream Analytics job with Event Hubs as input](#create-a-stream-analytics-job-with-event-hubs-as-input)  
-* [Create an Azure Cache for Redis instance](#create-an-azure-redis-cache-instance)  
-* [Create a function in Azure Functions that can write data to the Azure Cache for Redis](#create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache)    
+* Create an Azure Cache for Redis instance  
+* Create a function in Azure Functions that can write data to the Azure Cache for Redis    
 * [Update the Stream Analytics job with the function as output](#update-the-stream-analytics-job-with-the-function-as-output)  
-* [Check Azure Cache for Redis for results](#check-azure-redis-cache-for-results)  
+* Check Azure Cache for Redis for results  
 
 ## Create a Stream Analytics job with Event Hubs as input
 

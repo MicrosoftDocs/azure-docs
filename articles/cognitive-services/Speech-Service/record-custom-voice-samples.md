@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: Make a production-quality custom voice by preparing a robust script, hiring good voice talent, and recording professionally.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf

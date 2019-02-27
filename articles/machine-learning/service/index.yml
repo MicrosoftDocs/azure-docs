@@ -2,54 +2,66 @@
 documentType: LandingData
 title: Azure Machine Learning Service Documentation
 metadata:
-  title: Documentation - Azure Machine Learning Service – Tutorials, API reference | Microsoft Docs
-  description: Learn how to build intelligent algorithms into apps and websites. Use Scikit-learn, Tensorflow, Pytorch or any other Python-based framework to build your machine learning model and train it locally or in the cloud. Tutorials, quickstarts, API references, and examples show you how.
+  title: Azure Machine Learning Service Documentation – Tutorials, API reference | Microsoft Docs
+  description: Azure Machine Learning service provides SDKs and services to quickly prep data, train, and deploy machine learning models. Improve productivity and reduce costs with autoscaling compute and pipelines. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn. Get started with our quickstarts and tutorials.
   services: machine-learning
   ms.service: machine-learning
-  ms.component: core
+  ms.subservice: core
   ms.topic: landing-page
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 12/04/2018
+  ms.date: 2/19/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: Learn how to build intelligent algorithms into apps and websites. Use Scikit-learn, Tensorflow, Pytorch or any other Python-based framework to build your machine learning model and train it locally or in the cloud. Tutorials, quickstarts, API references, and examples show you how. 
-sections:
-        
+  description: Azure Machine Learning service provides SDKs and services to quickly prep data, train, and deploy machine learning models. Improve productivity and costs with autoscaling compute & pipelines. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn. Get started with our quickstarts and tutorials.
+  aside:
+    image:
+      alt: 
+      height: 130
+      src: media/index/video.png
+      width: 250  
+    title: Watch video (9:58)
+    href: https://www.youtube.com/watch?v=GBDSBInvz08
+    width: 250  
+sections:      
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to set up the workspace and resources for Azure Machine Learning service using a quickstart:'
+    text: 'To use this service, you need a workspace and associated resources.  Get started with:'
   - type: list
     style: unordered
     items:
-    - html: Get started using <a href="quickstart-get-started">Azure portal</a>.
-    - html: Get started using <a href="quickstart-create-workspace-with-python">Python</a>.
-    
+    - html: '<a href="quickstart-get-started">Azure portal quickstart</a>: get a workspace and run experiments without installing anything.'
+    - html: '<a href="quickstart-create-workspace-with-python">Python quickstart</a>: install main SDK, create a workspace, and experiment in a local notebook server.'
+
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to prep data, set up experiments, and operationalize your machine learning models:'
+    text: 'Learn how to prep data, set up experiments, train and operationalize your machine learning models:'
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-train-models-with-aml">Train and deploy image classification models</a> (<b>two-part series</b>).
-    - html: <a href="tutorial-data-prep">Prep data and use automated machine learning</a> to train & tune regression models  (<b>two-part series</b>).<br>&nbsp;
-  - type: paragraph
-    text: '<b>Samples</b>: Explore the service with these <a href="https://aka.ms/aml-notebooks">Jupyter notebooks</a> on GitHub.'
+    - html: <a href="tutorial-train-models-with-aml">Train</a> and <a href="tutorial-deploy-models-with-aml">deploy</a>  image classification models (<b>two-part series</b>).
+    - html: <a href="tutorial-data-prep">Prep data</a> and <a href="tutorial-auto-train-models">use automated machine learning</a> to train & tune regression models  (<b>two-part series</b>).
 
+- title: Samples
+  items:
+  - type: paragraph
+    text: 'Find <a href="samples-notebooks">Jupyter notebooks</a> to help you explore the service on Github.'
+    
 - title: Reference
   items:
   - type: list
     style: unordered
     items:
-    - html: <a href="https://aka.ms/data-prep-sdk">Azure Machine Learning Data Prep SDK</a>
-    - html: <a href="https://aka.ms/aml-sdk">Azure Machine Learning SDK for Python (main SDK)</a>
-    - html: <a href="https://aka.ms/aml-monitoring-sdk">Azure Machine Learning Monitoring SDK</a>
+    - html: '<a href="https://aka.ms/aml-sdk">Main Python SDK</a>: core functionality, automated machine learning, pipelines, and more'
+    - html: '<a href="https://aka.ms/data-prep-sdk">Data Prep</a> Python SDK: prep and transform your data'
+    - html: '<a href="https://aka.ms/aml-monitoring-sdk">Monitoring</a> Python SDK: collect data on deployed web services'
 
+  
 - title: Other Azure Machine Learning technologies
   items:
   - type: list

@@ -5,9 +5,9 @@ services: storage
 author: cbrooksmsft
 ms.service: storage
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/22/2019
 ms.author: cbrooks
-ms.component: common
+ms.subservice: common
 ---
 # Configure Azure Storage firewalls and virtual networks
 
@@ -235,7 +235,7 @@ Each storage account supports up to 100 IP network rules, which may be combined 
 
 To grant access from your on-premises networks to your storage account with an IP network rule, you must identify the internet facing IP addresses used by your network. Contact your network administrator for help.
 
-You can use [ExpressRoute](/azure/expressroute/expressroute-introduction) to connect your network to the Azure network. Here, each circuit is configured with two public IP addresses. They can be found at the Microsoft Edge and use [Azure Public Peering](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) to connect to Microsoft Services like Azure Storage. To allow communication with Azure Storage, create IP network rules for the public IP addresses of your circuits. To find your ExpressRoute circuit's public IP addresses, [open a support ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via the Azure portal.
+You can use [ExpressRoute](/azure/expressroute/expressroute-introduction) to connect your network to the Azure network. Here, each circuit is configured with two public IP addresses. They can be found at the Microsoft Edge and use [Azure Public Peering](/azure/expressroute/expressroute-circuit-peerings) to connect to Microsoft Services like Azure Storage. To allow communication with Azure Storage, create IP network rules for the public IP addresses of your circuits. To find your ExpressRoute circuit's public IP addresses, [open a support ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via the Azure portal.
 
 ### Managing IP network rules
 
@@ -346,10 +346,11 @@ If you enable the **Allow trusted Microsoft services...** exception, the followi
 |Azure Backup|Microsoft.Backup|Run backups and restores of unmanaged disks in IAAS virtual machines. (not required for managed disks). [Learn more](/azure/backup/backup-introduction-to-azure-backup).|
 |Azure Site Recovery|Microsoft.SiteRecovery |Configure disaster recovery by enabling replication for Azure IaaS virtual machines. This is required if you are using firewall enabled cache storage account or source storage account or target storage account.  [Learn more](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication).|
 |Azure DevTest Labs|Microsoft.DevTestLab|Custom image creation and artifact installation. [Learn more](/azure/devtest-lab/devtest-lab-overview).|
+|Azure Data Box|Microsoft.DataBox|Enables import of data to Azure using Data Box. [Learn more](/azure/databox/data-box-overview).|
 |Azure Event Grid|Microsoft.EventGrid|Enable Blob Storage event publishing and allow Event Grid to publish to storage queues. Learn about [blob storage events](/azure/event-grid/event-sources) and [publishing to queues](/azure/event-grid/event-handlers).|
 |Azure Event Hubs|Microsoft.EventHub|Archive data with Event Hubs Capture. [Learn More](/azure/event-hubs/event-hubs-capture-overview).|
 |Azure Networking|Microsoft.Networking|Store and analyze network traffic logs. [Learn more](/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure Monitor|Microsoft.Insights|Allows writing of monitoring data to a secured storage account [Learn more](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|Azure Monitor|Microsoft.Insights|Allows writing of monitoring data to a secured storage account [Learn more](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
 |Azure SQL Data Warehouse|Microsoft.Sql|Allows import and export scenarios using PolyBase. [Learn more](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
 
 ### Storage analytics data access

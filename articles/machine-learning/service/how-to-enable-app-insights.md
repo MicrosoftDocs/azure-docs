@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning service
 description: Use Application Insights to monitor web services deployed through Azure Machine Learning service 
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 10/01/2018
+ms.date: 1/07/2019
 ms.custom: seodec18
 ---
 # Monitor your Azure Machine Learning models with Application Insights

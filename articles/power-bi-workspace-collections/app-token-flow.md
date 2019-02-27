@@ -79,7 +79,7 @@ Body
 
 ```
 
-There are methods available within the SDKs that make creation of app tokens easier. For example, for .NET you can look at the [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) class and the [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) methods.
+There are methods available within the SDKs that make creation of app tokens easier. For example, for .NET you can look at the [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) class and the [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) methods.
 
 For the .NET SDK, you can refer to [Scopes](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.scopes).
 
@@ -101,7 +101,7 @@ The following are the available scopes for Power BI Workspace Collections.
 
 You can supply multiple scopes by using a space between the scopes like the following.
 
-```
+```csharp
 string scopes = "Dataset.Read Workspace.Report.Create";
 ```
 
@@ -171,7 +171,7 @@ After **Power BI Workspace Collections** sends a report to the user, the user ca
 
 ## See Also
 
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [Get started with Microsoft Power BI Workspace Collections sample](get-started-sample.md)  
 [Common Microsoft Power BI Workspace Collections scenarios](scenarios.md)  
 [Get started with Microsoft Power BI Workspace Collections](get-started.md)  

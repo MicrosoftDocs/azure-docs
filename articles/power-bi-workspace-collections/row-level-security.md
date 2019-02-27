@@ -88,7 +88,7 @@ This wraps up all the work that needs to be done in Power BI Desktop, but there�
 * **username** (optional) – Used with RLS this is a string that can be used to help identify the user when applying RLS rules. See Using Row Level Security with Power BI Embedded
 * **roles** – A string containing the roles to select when applying Row Level Security rules. If passing more than one role, they should be passed as a string array.
 
-You create the token by using the [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#Microsoft_PowerBI_Security_PowerBIToken_CreateReportEmbedToken_System_String_System_String_System_String_System_DateTime_System_String_System_Collections_Generic_IEnumerable_System_String__) method. If the username property is present, you must also pass at least one value in roles.
+You create the token by using the [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) method. If the username property is present, you must also pass at least one value in roles.
 
 For example, you could change the EmbedSample. DashboardController line 55 could be updated from
 

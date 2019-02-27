@@ -4,7 +4,7 @@ description: Give partners access to both on-premises and cloud resources with A
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 04/26/2018
 
@@ -13,6 +13,7 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory B2B collaboration for hybrid organizations

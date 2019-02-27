@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: android
 ms.devlang: java
@@ -18,6 +18,7 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Enable cross-app SSO on Android using ADAL

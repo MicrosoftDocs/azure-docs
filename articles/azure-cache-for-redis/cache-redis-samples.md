@@ -1,20 +1,20 @@
 ---
 title: Azure Cache for Redis samples | Microsoft Docs
 description: Learn how to use Azure Cache for Redis
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 
 ms.assetid: 1f8d210c-ee09-4fe2-b63f-1e69246a27d8
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: wesmc
+ms.author: yegu
 
 ---
 # Azure Cache for Redis samples

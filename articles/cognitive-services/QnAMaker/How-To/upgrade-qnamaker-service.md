@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: You can choose to upgrade individual components of the QnA Maker stack after the initial creation.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/24/2019
 ms.author: tulasim
 ---
 

@@ -10,7 +10,7 @@ editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
 
+ms.collection: M365-identity-device-management
 ---
 # What is baseline protection (preview)?  
 

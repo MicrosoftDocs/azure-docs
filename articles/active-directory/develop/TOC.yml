@@ -396,6 +396,10 @@
         href: howto-add-branding-in-azure-ad-apps.md
       - name: Terms of Service and Privacy Statement
         href: howto-add-terms-of-service-privacy-statement.md
+      - name: Java
+        items:
+        - name: Secure a Java web app
+          href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?toc=/java/azure/toc.json&bc=/java/azure/breadcrumb/toc.json
     - name: Work with Visual Studio
       items:
       - name: Use the Active Directory connected service
@@ -434,6 +438,7 @@
   - name: Try Sign in with Microsoft
     href: https://azure.microsoft.com/develop/identity/signin/
   - name: Getting help
+    displayName: support, help options
     href: developer-support-help-options.md
   - name: Managed identities for Azure resources
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview

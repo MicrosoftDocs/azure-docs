@@ -3,17 +3,18 @@ title: Reset your password - Azure Active Directory | Microsoft Docs
 description: Use self-service password reset to regain access to your work or school user account
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.assetid: 7ba69b18-317a-4a62-afa3-924c4ea8fb49
 
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.custom: end-user
+ms.collection: M365-identity-device-management
 ---
 
 # Reset your work or school password
@@ -28,7 +29,7 @@ If you forgot your password, never received one from your company support, have 
 
 You might be unable to access your Azure Active Directory (Azure AD) account because of one of the following reasons:
 
-* Your password is not working and you want to reset it.
+* Your password is not working, and you want to reset it.
 * You know your password, but your account is locked out and you want to unlock it.
 
 Use the following steps to access Azure AD self-service password reset (SSPR) and get back in to your account.

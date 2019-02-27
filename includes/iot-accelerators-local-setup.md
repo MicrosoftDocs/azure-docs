@@ -27,17 +27,6 @@ cd azure-iot-pcs-remote-monitoring-dotnet
 git submodule foreach git pull origin master
 ```
 
-This article assumes you are using the .NET microservices. There are also Java implementations available. To download the latest version of the Java microservice implementations, run:
-
-```cmd/sh
-git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-java.git
-
-# To retrieve the latest submodules, run the following command:
-
-cd azure-iot-pcs-remote-monitoring-java
-git submodule foreach git pull origin master
-```
-
 > [!NOTE]
 > These commands download the source code for all the microservices in addition to the scripts you use to run the microservices locally. Although you don't need the source code to run the microservices in Docker, the source code is useful if you later plan to modify the solution accelerator and test your changes locally.
 

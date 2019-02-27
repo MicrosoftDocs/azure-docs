@@ -13,16 +13,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: asganesh
+ms.lastreviewed: 12/10/2018
 ---
  
 # Azure Stack datacenter integration
 
-This article describes the end-to-end Azure Stack customer experience from purchasing an integrated solution through to a successful on-site deployment by a solution provider. Use this information to ease your journey and to help set expectations on what you, as an Azure Stack customer, should expect when integrating Azure Stack into your datacenter.
+This article describes the end-to-end Azure Stack customer experience from purchasing an integrated system through to a successful on-site deployment by a solution provider. Use this information to ease your journey and to help set expectations for you, an Azure Stack customer.
 
-As an Azure Stack customer, you should anticipate the following datacenter integration phases:
+As an Azure Stack customer, you should anticipate the following phases:
 
 |     |Planning phase|Order process|Pre-deployment|Factory process|Hardware delivery|Onsite deployment|
 |-----|-----|-----|-----|-----|-----|-----|
@@ -58,7 +59,7 @@ During this phase, you will need to decide how you want to integrate Azure Stack
 The [general datacenter integration considerations](azure-stack-datacenter-integration.md) article provides information that helps you complete the template, known as the Deployment Worksheet. 
 
 > [!IMPORTANT]
-> During this stage it is important that all pre-requisite information is investigated and decided on prior to ordering the solution. Be aware that this step is time consuming and requires coordination and data gathering from multiple disciplines within your organization. 
+> During this stage it is important that all pre-requisite information is investigated and decided on prior to ordering the solution. Be aware that this step is time consuming and requires coordination and data gathering from multiple disciplines within your organization. Incorrect or incomplete information can result in a longer deployment. 
 
 In the pre-deployment phase you will need to decide on the following:
 
@@ -85,7 +86,7 @@ It is **crucial** that all pre-requisite data is locked and available *before th
 
 -   All certificates must be purchased and ready.
 
--   Domain name must be decided on.
+-   Region name must be decided on.
 
 -   All network integration parameters are finalized and match with what you have shared with your solution provider.
 
@@ -97,16 +98,16 @@ To deploy Azure Stack, an onsite engineer from your hardware solution provider w
 
 The following is what you should expect from the onsite engineer during the deployment experience:
 
-- Check all the cabling and border connectivity to ensure the solution is properly put together and meets your requirements
-- Configure the solution HLH (Hardware Lifecycle Host)
+- Check all the cabling and border connectivity to ensure the solution is properly put together and meets your requirements.
+- Configure the solution HLH (Hardware Lifecycle Host), if present.
 - Check to make sure all BMC, BIOS, and Network settings are correct.
-- Make sure the firmware of all components is at the latest approved version by the solution
-- Start the deployment
+- Make sure the firmware of all components is at the latest approved version by the solution.
+- Start the deployment.
 
 > [!NOTE]
 > A deployment procedure by the onsite engineer might take about one business week to complete.
 
-## Post-integration phase
+## Post-deployment phase
 Several steps must be performed by the partner before the solution is handed off to the customer in the post-integration phase. In this phase, validation is important to ensure the system is deployed and performing correctly. 
 
 Actions that should be taken by the OEM Partner are:
@@ -117,13 +118,13 @@ Actions that should be taken by the OEM Partner are:
 
 -   [Marketplace Syndication](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
 
--   Backup Switch Configuration Files
+-   Backup Switch Configuration and HLH Configuration files
 
 -   Remove DVM
 
 -   Prepare a customer summary for deployment
 
--   [Check updates to make sure the solution software is updated to the latest version](azure-stack-updates.md)
+-   [Check updates to make sure the solution software is updated to the latest version](.\azure-stack-updates.md)
 
 There are several steps that are required or optional depending on the installation type.
 

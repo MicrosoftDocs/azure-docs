@@ -93,7 +93,7 @@ waiting for AAD role to propagate.done
 }
 ```
 
-Now that you have a cluster, you can import the credentials by using the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) command. Now you have a local configuration file for your cluster, which is what Helm and Draft need to get their work done.
+Now that you have a cluster, you can import the credentials by using the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes) command. Now you have a local configuration file for your cluster, which is what Helm and Draft need to get their work done.
 
 ## Install and configure draft
 
@@ -186,7 +186,7 @@ stable/traefik	1.3.0  	A Traefik based Kubernetes ingress controller w...
 
 $ helm install stable/traefik --name ingress
 ```
-Now set a watch on the `ingress` controller to capture the external IP value when it is deployed. This IP address will be the one [mapped to your deployment domain](#wire-up-deployment-domain) in the next section.
+Now set a watch on the `ingress` controller to capture the external IP value when it is deployed. This IP address will be the one mapped to your deployment domain in the next section.
 
 ```bash
 $ kubectl get svc -w

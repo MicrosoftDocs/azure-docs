@@ -3,20 +3,21 @@ title:  Unexpected error when performing consent to an application | Microsoft D
 description: Discusses errors that can occur during the process of consenting to an application and what you can do about them
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # Unexpected error when performing consent to an application

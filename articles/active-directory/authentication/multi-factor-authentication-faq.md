@@ -4,7 +4,7 @@ description: Frequently asked questions and answers related to Azure Multi-Facto
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 
@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Frequently asked questions about Azure Multi-Factor Authentication
 
@@ -115,7 +116,7 @@ Azure Active Directory is required for the license model because licenses are ad
 
 **Q: What should I tell my users to do if they don’t receive a response on their phone?**
 
-Have your users attempt up to 5 times in 5 minutes to get a phone call or SMS for authentication. Microsoft uses multiple providers for delivering calls and SMS messages. If this doesnt work please open a support case with Microsoft to further troubleshoot.
+Have your users attempt up to 5 times in 5 minutes to get a phone call or SMS for authentication. Microsoft uses multiple providers for delivering calls and SMS messages. If this doesn't work please open a support case with Microsoft to further troubleshoot.
 
 If the steps above do not work hopefully all your users configured more than one verification method. Tell them to try signing in again, but select a different verification method on the sign-in page.
 

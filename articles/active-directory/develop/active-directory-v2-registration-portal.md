@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: f0507c28-9464-4d3e-bd53-de9053fd5278
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +18,7 @@ ms.date: 08/28/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # App registration reference

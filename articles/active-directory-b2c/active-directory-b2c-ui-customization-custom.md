@@ -3,14 +3,14 @@ title: Customize the user interface of your application using a custom policy in
 description: Learn about customizing a user interface using a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 # Customize the user interface of your application using a custom policy in Azure Active Directory B2C
 
@@ -81,7 +81,7 @@ To create a public container in Blob storage, do the following:
 5. Click **$root** to open the new container.
 6. Click **Upload**.
 7. Click the folder icon next to **Select a file**.
-8. Go to **customize-ui.html**, which you created earlier in the [Page UI customization](#the-page-ui-customization-feature) section.
+8. Go to **customize-ui.html**, which you created earlier in the Page UI customization section.
 9. Click **Upload**.
 10. Select the customize-ui.html blob that you uploaded.
 11. Next to **URL**, click **Copy**.
@@ -170,7 +170,7 @@ The sample_templates/wingtip folder contains the following HTML files:
 | *unified.html* | Use this file as a template for a unified sign-up or sign-in page. |
 | *updateprofile.html* | Use this file as a template for a profile update page. |
 
-In the [Modify your sign-up or sign-in custom policy section](#modify-your-sign-up-or-sign-in-custom-policy), you configured the content definition for `api.idpselections`. The full set of content definition IDs that are recognized by the Azure AD B2C identity experience framework and their descriptions are in the following table:
+In the Modify your sign-up or sign-in custom policy section, you configured the content definition for `api.idpselections`. The full set of content definition IDs that are recognized by the Azure AD B2C identity experience framework and their descriptions are in the following table:
 
 | Content definition ID | Description | 
 |-----------------------|-------------|

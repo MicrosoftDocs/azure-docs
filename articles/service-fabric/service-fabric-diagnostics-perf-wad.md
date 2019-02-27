@@ -40,7 +40,7 @@ To collect performance counters via WAD, you need to modify the configuration ap
     }
     ```
 
-    The `scheduledTransferPeriod` defines how frquently the values of the counters that are collected are transferred to your Azure storage table and to any configured sink. 
+    The `scheduledTransferPeriod` defines how frequently the values of the counters that are collected are transferred to your Azure storage table and to any configured sink. 
 
 3. Add the performance counters you would like to collect to the `PerformanceCounterConfiguration` that was declared in the previous step. Each counter you would like to collect is defined with a `counterSpecifier`, `sampleRate`, `unit`, `annotation`, and any relevant `sinks`.
 
@@ -195,7 +195,7 @@ Here is an example of a configuration with the counter for the *Total Processor 
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-5. Once the upgrade finishes rolling out (takes between 15-45 minutes depending on whether it's the first deployment and the size of your resource group), WAD should be collecting the performance counters and sending them to the table named WADPerformanceCountersTable in the storage account associated with your cluster. See your performance counters in Application Insights by [adding the AI Sink to the Resource Manager template](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template).
+5. Once the upgrade finishes rolling out (takes between 15-45 minutes depending on whether it's the first deployment and the size of your resource group), WAD should be collecting the performance counters and sending them to the table named WADPerformanceCountersTable in the storage account associated with your cluster. See your performance counters in Application Insights by [adding the AI Sink to the Resource Manager template](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template).
 
 ## Next steps
 * Collect more performance counters for your cluster. See [Performance metrics](service-fabric-diagnostics-event-generation-perf.md) for a list of counters you should collect.

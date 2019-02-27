@@ -30,7 +30,11 @@ The maximum pods-per-node setting is 110 by default if you deploy an AKS cluster
 
 ## I'm getting an insufficientSubnetSize error while deploying an AKS cluster with advanced networking. What should I do?
 
-In the custom Azure Virtual Network option for networking during AKS creation, the Azure Container Network Interface (CNI) is used for IP Address Management (IPAM). The number of nodes in an AKS cluster can be anywhere between 1 and 100. Based on the preceding section, the subnet size should be greater than the product of the number of nodes and the maximum pods per node. The relationship can be expressed in this way: subnet size > number of nodes in the cluster * maximum pods per node.
+If Azure CNI (advanced networking) is used, AKS preallocates IP addressed based on the "max-pods" per node configured. The number of nodes in an AKS cluster can be anywhere between 1 and 110. Based upon the configured max pods per node, the subnet size should be greater than the "product of the number of nodes and the max pod per node". The following basic equation outlines this:
+
+Subnet size > number of nodes in the cluster (taking into consideration the future scaling requirements) * max pods per node.
+
+For more information, see [Plan IP addressing for your cluster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
 ## My pod is stuck in CrashLoopBackOff mode. What should I do?
 
@@ -62,28 +66,3 @@ Make sure that the default network security group (NSG) isn't modified and that 
 ## I'm trying to upgrade or scale and am getting a "message: Changing property 'imageReference' is not allowed" error.  How do I fix this problem?
 
 You might be getting this error because you've modified the tags in the agent nodes inside the AKS cluster. Modifying and deleting tags and other properties of resources in the MC_* resource group can lead to unexpected results. Modifying the resources under the MC_* group in the AKS cluster breaks the service-level objective (SLO).
-
-## How do I renew the service principal secret on my AKS cluster?
-
-By default, AKS clusters are created with a service principal that has a one-year expiration time. As you near the expiration date, you can reset the credentials to extend the service principal for an additional period of time.
-
-The following example performs these steps:
-
-1. Gets the service principal ID of your cluster by using the [az aks show](/cli/azure/aks#az-aks-show) command.
-1. Lists the service principal client secret by using the [az ad sp credential list](/cli/azure/ad/sp/credential#az-ad-sp-credential-list).
-1. Extends the service principal for another one year by using the [az ad sp credential-reset](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) command. The service principal client secret must remain the same for the AKS cluster to run correctly.
-
-```azurecli
-# Get the service principal ID of your AKS cluster.
-sp_id=$(az aks show -g myResourceGroup -n myAKSCluster \
-    --query servicePrincipalProfile.clientId -o tsv)
-
-# Get the existing service principal client secret.
-key_secret=$(az ad sp credential list --id $sp_id --query [].keyId -o tsv)
-
-# Reset the credentials for your AKS service principal and extend for one year.
-az ad sp credential reset \
-    --name $sp_id \
-    --password $key_secret \
-    --years 1
-```

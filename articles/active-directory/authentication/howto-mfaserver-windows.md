@@ -4,7 +4,7 @@ description: Deploying Windows Authentication and Azure Multi-Factor Authenticat
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 
@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Windows Authentication and Azure Multi-Factor Authentication Server
 

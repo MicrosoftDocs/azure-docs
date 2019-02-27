@@ -54,10 +54,18 @@ You can find the same information by running the following command in the [Cloud
 az webapp show --resource-group <group_name> --name <app_name> --query outboundIpAddresses --output tsv
 ```
 
+```azurepowershell
+(Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).OutboundIpAddresses
+```
+
 To find all possible outbound IP addresses for your app, regardless of pricing tiers, run the following command in the [Cloud Shell](../cloud-shell/quickstart.md).
 
 ```azurecli-interactive
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
+```
+
+```azurepowershell
+(Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).PossibleOutboundIpAddresses
 ```
 
 ## Next steps

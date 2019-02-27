@@ -5,7 +5,7 @@ ms.service: key-vault
 ms.topic: conceptual
 author: bryanla
 ms.author: bryanla
-manager: mbaldwin
+manager: barbkess
 ms.date: 09/25/2017
 ---
 

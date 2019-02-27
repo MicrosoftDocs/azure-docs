@@ -16,7 +16,7 @@ ms.custom: seodec2018
 
 In Azure Search, a [resource is created](search-create-service-portal.md) at a pricing tier or SKU that is fixed for the lifetime of the service. Tiers include **Free**, **Basic**, or **Standard**, where **Standard** is available in several configurations and capacities. Most customers start with the **Free** tier for evaluation and then graduate to **Standard** for development and production deployments. You can complete all quickstarts and tutorials on the **Free** tier, including those for resource-intensive cognitive search. 
 
-Tiers determine capacity, not features, and are differentiated by:
+Tiers reflect the characteristics of the hardware hosting the service (rather than features) and are differentiated by:
 
 + Number of indexes you can create
 + Size and speed of partitions (physical storage)
@@ -103,7 +103,7 @@ Shifting focus to the more commonly used standard tiers, **S1-S3** are a progres
 
 |  | S1 | S2 | S3 |  |  |  |  |
 |--|----|----|----|--|--|--|--|
-| partition size|  25 GB | 100 GB | 250 GB |  |  |  |  |
+| partition size|  25 GB | 100 GB | 200 GB |  |  |  |  |
 | index and indexer limits| 50 | 200 | 200 |  |  |  |  |
 
 **S1** is a common choice when dedicated resources and multiple partitions become a necessity. With partitions of 25 GB for up to 12 partitions, the per-service limit on **S1** is 300 GB total if you maximize partitions over replicas (see [Allocate partitions and replicas](search-capacity-planning.md#chart) for more balanced compositions.)

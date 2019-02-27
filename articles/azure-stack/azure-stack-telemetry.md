@@ -13,9 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/15/2018
+ms.date: 02/19/2019
 ms.author: jeffgilb
 ms.reviewer: comartin
+ms.lastreviewed: 10/15/2018
 ---
 # Azure Stack telemetry
 

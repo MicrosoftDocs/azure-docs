@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: d923f0e7-ad31-4d59-a6fd-f0e895e1a32d
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Signagelive
 
@@ -101,7 +102,7 @@ To configure Azure AD single sign-on with Signagelive, perform the following ste
     ![Signagelive Domain and URLs single sign-on information](common/sp-signonurl.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://login.signagelive.com/sso/<ORGANISATIONALUNITNAME>`
+    `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>`
 
 	> [!NOTE]
 	> The value is not real. Update the value with the actual Sign-On URL. Contact [Signagelive Client support team](mailto:support@signagelive.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -187,9 +188,9 @@ When you click the Signagelive tile in the Access Panel, you should be automatic
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
