@@ -39,16 +39,18 @@ In this example, the tenant contains a security group called **HR Department**. 
 4. Under **All products**, select both Office 365 Enterprise E5 and Enterprise Mobility + Security E3 by selecting the product names. To start the assignment, select **Assign** at the top of the pane.
 
    ![All products, assign license](./media/licensing-groups-assign/all-products-assign.png)
+  
+5. On the **Assign license** pane, select **Users and groups** to open a list of users and groups.
 
-5. On the **Assign license** pane, select **Users and groups** to open a list of users and groups. Select a user or group, and then use the **Select** button at the bottom of the pane to confirm your selection.
+6. Select a user or group, and then use the **Select** button at the bottom of the pane to confirm your selection.
 
-6. On the **Assign license** pane, click **Assignment options**, which displays all service plans included in the two products that we selected previously. Find **Yammer Enterprise** and turn it **Off** to disable that service from the product license. Confirm by clicking **OK** at the bottom of **License options**.
+7. On the **Assign license** pane, click **Assignment options**, which displays all service plans included in the two products that we selected previously. Find **Yammer Enterprise** and turn it **Off** to disable that service from the product license. Confirm by clicking **OK** at the bottom of **License options**.
 
    ![Assignment options](./media/licensing-groups-assign/assignment-options.png)
+  
+8. To complete the assignment, on the **Assign license** pane, click **Assign** at the bottom of the pane.
 
-7. To complete the assignment, on the **Assign license** pane, click **Assign** at the bottom of the pane.
-
-8. A notification is displayed in the upper-right corner that shows the status and outcome of the process. If the assignment to the group couldn't be completed (for example, because of pre-existing licenses in the group), click the notification to view details of the failure.
+9. A notification is displayed in the upper-right corner that shows the status and outcome of the process. If the assignment to the group couldn't be completed (for example, because of pre-existing licenses in the group), click the notification to view details of the failure.
 
 When assign licenses to a group, Azure AD processes all existing members of that group. This process might take some time, varying with the size of the group. The next step describes how to verify that the process has finished and determine if further attention is required to resolve problems.
 
