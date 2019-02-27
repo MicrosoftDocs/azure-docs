@@ -60,7 +60,7 @@ An **indexer** describes how the data flows from your data source into a target 
 
 To set up an Azure Cosmos DB indexer, you need to create an index, datasource, and finally the indexer. You can create these objects using the [portal](search-import-data-portal.md), [.NET SDK](/dotnet/api/microsoft.azure.search), or [REST API](/rest/api/searchservice/). 
 
-This article shows how to use the REST API. If you opt for the portal, the [Import data wizard](search-import-data-portal.md) guides you through the creation of all these resources, including the index.
+This article shows how to use the REST API. If you opt for the portal, make sure your Cosmos DB database contains data. The [Import data wizard](search-import-data-portal.md) reads metadata and samples data to define an index structure and then populates the index with data from Cosmos DB.
 
 > [!TIP]
 > You can launch the **Import data** wizard from the Azure Cosmos DB dashboard to simplify indexing for that data source. In left-navigation, go to **Collections** > **Add Azure Search** to get started.
