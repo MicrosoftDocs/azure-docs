@@ -65,7 +65,8 @@ Azure Marketplace offers can be purchased through:
 * [web-based storefront](https://azuremarketplace.microsoft.com/marketplace/apps)
 * [Microsoft Azure Management portal](https://portal.azure.com/), or via the [Azure Marketplace Command Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
-Note: Prepaid credits and other forms of monetary commitment cannot be used to pay for software license fees, but can be used to pay associated Azure usage charges.  Exceptions are listed in [Azure monetary commitment](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
+>[!Note]
+>Prepaid credits and other forms of monetary commitment cannot be used to pay for software license fees, but can be used to pay associated Azure usage charges.  Exceptions are listed in [Azure monetary commitment](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
 
 **Can I choose which Microsoft Azure region(s) to deploy my Azure Marketplace purchase?**
 
@@ -503,7 +504,10 @@ Algeria, Argentina, Australia, Austria, Bahrain, Belarus, Belgium, Brazil, Bulga
 
     ![Select country list](media/marketplace-publishers-guide/FAQ-select-countries.png)
 
-1.  Finally for the changes to be applied to your live offer, click "Publish."  Note: it will take 24 hours for the changes to take effect.
+1.  Finally for the changes to be applied to your live offer, click "Publish."  
+
+>[!Note]
+>It will take 24 hours for the changes to take effect.
 
 <!---    ![Publish offer](media/marketplace-publishers-guide/FAQ-publish-offer.png) -->
 
