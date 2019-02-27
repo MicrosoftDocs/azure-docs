@@ -72,7 +72,7 @@ three values will need to be provided.
 - NodeConfigurationName - the name of the Node Configuration (MOF) to pull from the service to configure the server role
 
 This information can be seen in the
-[Azure portal](../../automation-dsc-onboarding#azure-portal) or you can use PowerShell.
+[Azure portal](../../automation/automation-dsc-onboarding.md#azure-portal) or you can use PowerShell.
 
 ```PowerShell
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint
