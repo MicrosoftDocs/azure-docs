@@ -47,7 +47,7 @@ Before you begin the upgrade of Azure App Service on Azure Stack to 1.5:
 
 - Back up the Tenant App content file share
 
-- Syndicate the Custom Script Extension version 1.9 from the Marketplace
+- Syndicate the **Custom Script Extension** version **1.9.1** from the Marketplace
 
 ### New features and fixes
 
@@ -67,9 +67,14 @@ Azure App Service on Azure Stack Update 5 includes the following improvements an
 - **Updates to underlying operating system of all roles**:
   - [2019-02 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4487006)](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006)
 
-### Post update steps (optional)
+### Post Deployment Steps
 
-For customers wishing to migrate to contained database for existing Azure App Service on Azure Stack deployments, execute these steps after the Azure App Service on Azure Stack 1.4 update has completed:
+> [!IMPORTANT]  
+> If you have provided the App Service RP with a SQL Always On Instance you MUST [add the appservice_hosting and appservice_metering databases to an availability group](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) and synchronize the databases to prevent any loss of service in the event of a database failover.
+
+### Post update steps
+
+For customers wishing to migrate to contained database for existing Azure App Service on Azure Stack deployments, execute these steps after the Azure App Service on Azure Stack 1.5 update has completed:
 
 > [!IMPORTANT]
 > The migration procedure takes approximately 5-10 minutes.  The procedure involves killing the existing database login sessions.  Plan for downtime to migrate and validate Azure App Service on Azure Stack post migration.  If you completed these steps after updating to Azure App Service on Azure Stack 1.3 then these steps are not required.

@@ -180,6 +180,11 @@ To deploy App Service resource provider, follow these steps:
 
     ![App Service Installer][17]
 
+## Post Deployment Steps
+
+> [!IMPORTANT]  
+> If you have provided the App Service RP with a SQL Always On Instance you MUST [add the appservice_hosting and appservice_metering databases to an availability group](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) and synchronize the databases to prevent any loss of service in the event of a database failover.
+
 ## Validate the App Service on Azure Stack installation
 
 1. In the Azure Stack admin portal, go to **Administration - App Service**.
