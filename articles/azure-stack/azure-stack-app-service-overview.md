@@ -50,7 +50,7 @@ Your application can be composed of multiple App Service apps of different kinds
 - Deploy both (front end and api) to a single web app
 - Deploy your front-end code to a web app and your back-end code to an API app.
 
-   [ ![App Service overview with monitoring data](media/azure-stack-app-service-overview/image01.png "App Service overview with monitoring data") ](media/azure-stack-app-service-overview/image01.png#lightbox)
+   [![App Service overview with monitoring data](media/azure-stack-app-service-overview/image01.png "App Service overview with monitoring data")](media/azure-stack-app-service-overview/image01.png#lightbox)
 
 ## What is an App Service plan?
 

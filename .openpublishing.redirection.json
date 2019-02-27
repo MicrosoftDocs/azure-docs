@@ -15508,6 +15508,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/marketplace-terms.md",
+      "redirect_url": "https://docs.microsoft.com/legal/marketplace/terms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/marketplace-participation-policy.md",
+      "redirect_url": "https://docs.microsoft.com/legal/marketplace/participation-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/rating-review-policies.md",
+      "redirect_url": "https://docs.microsoft.com/legal/marketplace/rating-review-policies",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/cloud-partner-portal/cloud-partner-portal-delete-an-offer.md",
       "redirect_url": "https://go.microsoft.com/fwlink/?linkid=847458",
       "redirect_document_id": false
@@ -24633,6 +24648,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/security-center-alert-export.md",
+      "redirect_url": "/azure/security-center/security-center-detection-capabilities",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md",
       "redirect_url": "/azure/virtual-machines/linux/multiple-nics",
       "redirect_document_id": false
@@ -30374,6 +30394,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/bing-spell-check-resource-faq.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Spell-Check/concepts/using-spell-check",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/quick-start.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Spell-Check/concepts/sending-requests",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/sdk.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Spell-Check/sdk-quickstart-spell-check",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Bing-Video-Search/UseAndDisplayRequirements.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
       "redirect_document_id": false
@@ -31785,6 +31820,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-support-create-directory.md",
+      "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-faqs",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/video-indexer/video-indexer-output-json.md",
       "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-output-json-v2",
       "redirect_document_id": true
@@ -32046,6 +32086,16 @@
     {
       "source_path": "articles/cognitive-services/Bing-Video-Search/search-the-web.md",
       "redirect_url": "/azure/cognitive-services/Bing-Video-Search/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/proof-text.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Spell-Check/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/tutorials/spellcheck-source.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Spell-Check/tutorials/spellcheck",
       "redirect_document_id": true
     },
     {
@@ -36026,7 +36076,12 @@
       "redirect_url": "/azure/azure-stack/azure-stack-app-service-before-you-get-started#high-availability",
       "redirect_document_id": false
     },
-	  {
+    {
+      "source_path": "articles/azure-monitor/platform/collect-azurepass-posh.md",
+      "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-stream-log-store",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-monitor/app/java-live.md",
       "redirect_url": "/azure/azure-monitor/app/java-get-started",
       "redirect_document_id": false
