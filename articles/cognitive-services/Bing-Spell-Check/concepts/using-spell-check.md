@@ -1,41 +1,35 @@
 ---
-title: What is Bing Spell Check API?
+title: Using the Bing Spell Check API
 titlesuffix: Azure Cognitive Services
-description: The Bing Spell Check API uses machine learning and statistical machine translation for contextual spell checking.
+description: Learn about the Bing Spell Check modes, settings, and other information relating to the API.
 services: cognitive-services
-author: noellelacharite
+author: aahill
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: overview
-ms.date: 05/03/2018
-ms.author: nolachar
+ms.date: 02/20/2019
+ms.author: aahi
 ---
-# What is Bing Spell Check API?
 
-The Bing Spell Check API lets you perform contextual grammar and spell checking.
+# Using the Bing Spell Check API
 
-What’s the difference between regular spell-checkers and Bing’s third-generation spell-checker? Current spell-checkers rely on verifying spelling and grammar against dictionary-based rule sets, which get updated and expanded periodically. In other words, the spell-checker is only as strong as the dictionary that supports it, and the editorial staff who supports the dictionary. You know this type of spell-checker from Microsoft Word and other word processors.
-
-In contrast, Bing has developed a web-based spell-checker that leverages machine learning and statistical machine translation to dynamically train a constantly evolving and highly contextual algorithm. The spell-checker is based on a massive corpus of web searches and documents.
-
-This spell-checker can handle any word-processing scenario:
-
-- Recognizes slang and informal language
-- Recognizes common name errors in context
-- Corrects word breaking issues with a single flag
-- Is able to correct homophones in context, and other difficult to spot errors
-- Supports new brands, digital entertainment, and popular expressions as they emerge
-- Words that sound the same but differ in meaning and spelling, for example “see” and “sea.”
+Use this article to learn about using the Bing Spell Check API to perform contextual grammar and spell checking. While most spell-checkers rely on dictionary-based rule sets, the Bing spell-checker leverages machine learning and statistical machine translation to provide accurate and contextual corrections. 
 
 ## Spell check modes
 
 The API supports two proofing modes, `Proof` and `Spell`.  Try examples [here](https://azure.microsoft.com/services/cognitive-services/spell-check/).
-### Proof - for documents scenario
+
+### Proof - for documents 
+
 The default mode is `Proof`. The `Proof` spelling mode provides the most comprehensive checks,  adding capitalization, basic punctuation, and other features to aid document creation. but it is available only in the en-US (English-United States), es-ES(Spanish), pt-BR(Portuguese) markets (Note: only in beta version for Spanish and Portuguese). For all other markets, set the mode query parameter to Spell. 
-<br /><br/>**NOTE:**   If the length of query text exceeds 4096, it will be truncated to 4096 characters, then get processed. 
-### Spell -  for web searches/queries scenario
+
+> [!NOTE]
+> If the length of query text exceeds 4096, it will be truncated to 4096 characters, then get processed. 
+
+### Spell -  for web searches/queries
+
 `Spell` is more aggressive in order to return better search results. The `Spell` mode finds most spelling mistakes but doesn't find some of the grammar errors that `Proof` catches, for example, capitalization and repeated words.
 
 > [!NOTE]
@@ -45,10 +39,11 @@ The default mode is `Proof`. The `Proof` spelling mode provides the most compreh
 > * The Spell mode does not support square bracket characters (`[` and `]`) in queries, and may cause inconsistent results. We recommend removing them from your queries when using the Spell mode.
 
 ## Market setting
-Market needs to be specified in the query parameter in request URL, otherwise speller will take the default market based on IP address.
+
+A [market code](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference#market-codes) should be specified with the `mkt` query parameter in your request. The API will otherwise use a default market based on the request's IP address.
 
 
-## POST vs. GET
+## HTTP POST and GET support
 
 The API supports either HTTP POST or HTTP GET. Which you use depends on the length of text you plan to proof. If the strings are always less than 1,500 characters, you'd use a GET. But if you want to support strings up to 10,000 characters, you'd use POST. The text string may include any valid UTF-8 character.
 
@@ -71,7 +66,7 @@ If you use HTTP GET, you'd include the `text` query parameter in the URL's query
   
 The following shows the response to the previous request. The response contains a [SpellCheck](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference#spellcheck) object. 
   
-```  
+```json
 {  
     "_type" : "SpellCheck",  
     "flaggedTokens" : [{  
@@ -119,12 +114,9 @@ If the `type` field is RepeatedToken, you'd still replace the token with `sugges
 
 ## Throttling requests
 
-[!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
+[!INCLUDE [cognitive-services-bing-throttling-requests](../../../../includes/cognitive-services-bing-throttling-requests.md)]
 
 ## Next steps
 
-To get started quickly with your first request, see [Making Your First Request](quickstarts/csharp.md).
-
-Familiarize yourself with the [Bing Spell Check API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference). The reference contains the list of endpoints, headers, and query parameters that you'd use to request search results, and the definitions of the response objects. 
-
-Be sure to read [Bing Use and Display Requirements](./useanddisplayrequirements.md) so you don't break any of the rules about using the results.
+- [What is the Bing Spell Check API?](../overview.md)
+- [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
