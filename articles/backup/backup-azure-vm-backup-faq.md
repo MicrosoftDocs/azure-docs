@@ -41,6 +41,7 @@ Yes. You can cancel backup job in a **Taking snapshot** state. You can't cancel 
 
 ### I enabled lock on resource group created by Azure Backup Service (i.e ` AzureBackupRG_<geo>_<number>`), will my backups continue to work?
 If you lock the resource group created by Azure Backup Service, backups will start to fail as there's a maximum limit of 18 restore points.
+
 User needs to remove the lock and clear the restore point collection from that resource group in order to make the future backups successful, [follow these steps](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) to remove the restore point collection.
 
 ### Does the backup policy consider Daylight Saving Time (DST)?
