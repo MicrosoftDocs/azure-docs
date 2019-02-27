@@ -30,7 +30,7 @@ After Read Scale-Out is enabled for a database, applications connecting to that 
 If Read Scale-Out is disabled or you set the ReadScale property in an unsupported service tier, all connections are directed to the read-write replica, independent of the `ApplicationIntent` property.
 
 > [!NOTE]
-> Query Data Store and Extended Events are not supported on the read-only replicas.
+> Query Data Store, Extended Events and Audit features are not supported on the read-only replicas.  
 
 ## Data consistency
 
@@ -73,7 +73,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 When connected to read-only replica, you can access the performance metrics using `sys.dm_db_resource_stats` DMV. To access query plan statistics, use `sys.dm_exec_query_stats`, `sys.dm_exec_query_plan` and `sys.dm_exec_sql_text` DMVs.
 
 > [!NOTE]
-> Features that require read-write database access, such as Query Data Store and Extended events, are not suppored on read-only replicas.
+> The DMV `sys.resource_stats` in the logical master database returns CPU usage and storage data of the primary replica.
 
 
 ## Enable and disable Read Scale-Out
