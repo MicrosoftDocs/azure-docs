@@ -66,6 +66,19 @@ DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionA
     collectionDefinition,
     new RequestOptions { OfferThroughput = 20000 });
 ```
+### <a id="nodejs-enable-withexpiry"></a>NodeJS SDK
+
+```javascript
+const containerDefinition = {
+          id: "sample container1",
+        };
+
+async function createcontainerWithTTL(db: Database, containerDefinition: ContainerDefinition, collId: any, ttl: number) {
+      containerDefinition.id = collId;
+      containerDefinition.ttl = ttl;
+      await db.containers.create(containerDefinition);
+}
+```
 
 ## Set time to live on an item
 
@@ -101,6 +114,23 @@ SalesOrder salesOrder = new SalesOrder
     TimeToLive = 60 * 60 * 24 * 30;  // Expire sales orders in 30 days
 };
 ```
+
+### <a id="nodejs-set-ttl-item"></a>NodeJS SDK
+
+```javascript
+const itemDefinition = {
+          id: "doc",
+          name: "sample Item",
+          key: "value"
+        };
+
+async function createItemWithTTL(container: Container, itemDefinition: any, itemId: any, ttl: number){
+      itemDefinition.id = itemId;
+      itemDefinition.ttl = ttl;
+      await container.items.create(itemDefinition);
+}
+```
+
 
 ## Reset time to live
 
