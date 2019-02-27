@@ -32,10 +32,6 @@ To on-board Azure Sentinel, you first need to connect to your security sources. 
 ![Tiles](./media/overview/connections.png)
 
 
-## Architecture
-
-![Architecture](./media/overview/arch-sentinel.png)
-
 ## Data collection methods
 
 The following data collection methods are supported by Azure Sentinel:
