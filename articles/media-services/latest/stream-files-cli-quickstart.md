@@ -19,9 +19,9 @@ ms.author: juliako
 
 # Quickstart: Stream video files - CLI
 
-This quickstart shows how easy it is to encode and stream videos on a wide variety of browsers and devices by using Azure Media Services. You can specify input content by using HTTPS URLs, SAS URLs, or paths to files in Azure Blob storage.
+This quickstart shows how to easily encode and stream videos on a variety of browsers and devices by using Azure Media Services. You can specify input content by using HTTPS or SAS URLs or paths to files in Azure Blob storage.
 
-The sample in this article encodes content that you make accessible via an HTTPS URL. Media Services v3 doesn't currently support chunked transfer encoding over HTTPS URLs.
+The example in this article encodes content that you make accessible via an HTTPS URL. Media Services v3 doesn't currently support chunked transfer encoding over HTTPS URLs.
 
 By the end of this quickstart, you'll be able to stream a video.  
 
@@ -31,9 +31,9 @@ By the end of this quickstart, you'll be able to stream a video.
 
 ## Create a Media Services account
 
-Before you can encrypt, encode, analyze, manage, and stream media content in Azure, you need to create a Media Services account. The Media Services account must be associated with one or more storage accounts.
+Before you can encrypt, encode, analyze, manage, and stream media content in Azure, you need to create a Media Services account. That account must be associated with one or more storage accounts.
 
-Your Media Services account and all associated storage accounts must be in the same Azure subscription. We strongly recommend that you use storage accounts that are in the same place as the Media Services account. This helps limit latency and data egress costs.
+Your Media Services account and all associated storage accounts must be in the same Azure subscription. We recommend that you use storage accounts that are in the same place as the Media Services account to limit latency and data egress costs.
 
 ### Create a resource group
 
@@ -57,7 +57,7 @@ az storage account create -n amsstorageaccount --kind StorageV2 --sku Standard_L
 az ams account create --n amsaccount -g amsResourceGroup --storage-account amsstorageaccount -l westus2
 ```
 
-You get a response similar to this:
+You get a response like this:
 
 ```
 {
@@ -80,7 +80,7 @@ You get a response similar to this:
 
 ## Start the streaming endpoint
 
-The following CLI command starts the default *streaming endpoint*.
+The following Azure CLI command starts the default *streaming endpoint*.
 
 ```azurecli
 az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
@@ -122,9 +122,9 @@ If the streaming endpoint is already running, you get this message:
 (InvalidOperation) The server cannot execute the operation in its current state.
 ```
 
-## Create a transform for Adaptive Bitrate Encoding
+## Create a transform for adaptive bitrate encoding
 
-Create a *transform* to configure common tasks for encoding or analyzing videos. In this example, we do adaptive bitrate encoding. Then, we submit a *job* under the transform that we created. The job is the actual request to Media Services to apply the transform to the given video or audio content input.
+Create a *transform* to configure common tasks for encoding or analyzing videos. In this example, we do adaptive bitrate encoding. We then submit a job under the transform that we created. The job is the request to Media Services to apply the transform to the given video or audio content input.
 
 ```azurecli
 az ams transform create --name testEncodingTransform --preset AdaptiveStreaming --description 'a simple Transform for Adaptive Bitrate Encoding' -g amsResourceGroup -a amsaccount
@@ -156,13 +156,13 @@ You get a response similar to this:
 
 ## Create an output asset
 
-Create an output *asset* that's used as the encoding job's output.
+Create an output *asset* to use as the encoding job's output.
 
 ```azurecli
 az ams asset create -n testOutputAssetName -a amsaccount -g amsResourceGroup
 ```
 
-You get a response that's similar to the following:
+You get a response like this:
 
 ```
 {
@@ -183,12 +183,13 @@ You get a response that's similar to the following:
 
 ## Start a job by using HTTPS input
 
-When you submit jobs to process your videos, you have to tell Media Services where to find the input video. One option is to specify an HTTPS URL as the job input, as shown in this example.
+When you submit jobs to process videos, you have to tell Media Services where to find the input video. One option is to specify an HTTPS URL as the job input, as shown in this example.
 
-When you run `az ams job start`, you can set a label on the job's output. The label can then be used to identify what the output asset is for.
+When you run `az ams job start`, you can set a label on the job's output. You can then use the label to identify what the output asset is for.
 
 - If you assign a value to the label, set ‘--output-assets’ to “assetname=label”.
 - If you don't assign a value to the label, set ‘--output-assets’ to “assetname=”.
+
   Notice that we add "=" to the `output-assets`.
 
 ```azurecli
@@ -232,7 +233,7 @@ You get a response similar to this:
 
 ### Check status
 
-In about five minutes, check the status of the job. It should be "Finished." It's not finished yet, check again in a few minutes. Once it's finished, go to the next step and create a *streaming locator*.
+In five minutes, check the status of the job. It should be "Finished." It's not finished, check again in a few minutes. When it's finished, go to the next step and create a *streaming locator*.
 
 ```azurecli
 az ams job show -a amsaccount -g amsResourceGroup -t testEncodingTransform -n testJob001
@@ -248,7 +249,7 @@ After the encoding is complete, the next step is to make the video in the output
 az ams streaming-locator create -n testStreamingLocator --asset-name testOutputAssetName --streaming-policy-name Predefined_ClearStreamingOnly  -g amsResourceGroup -a amsaccount 
 ```
 
-You get a response similar to the following:
+You get a response similar to this:
 
 ```
 {
@@ -305,7 +306,7 @@ You get a response similar to this:
 }
 ```
 
-Copy the HTTP Live Streaming (HLS) path. In this case, it's `/e01b2be1-5ea4-42ca-ae5d-7fe704a5962f/ignite.ism/manifest(format=m3u8-aapl)`.
+Copy the HTTP live streaming (HLS) path. In this case, it's `/e01b2be1-5ea4-42ca-ae5d-7fe704a5962f/ignite.ism/manifest(format=m3u8-aapl)`.
 
 ## Build the URL 
 
@@ -326,15 +327,11 @@ Copy the `hostName` value. In this case, it's `amsaccount-usw22.streaming.media.
 
 ## Test playback by using Azure Media Player
 
-To test the stream, this article uses Azure Media Player.
-
 > [!NOTE]
 > If a player is hosted on an HTTPS site, make sure to start the URL with "https".
 
 1. Open a web browser and go to [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
-2. In the **URL** box, paste the URL that you built in the previous section.
-
-You can paste the URL in HLS, Dash, or Smooth format,and Azure Media Player will automatically use an appropriate streaming protocol for playback on your device.
+2. In the **URL** box, paste the URL that you built in the previous section. You can paste the URL in HLS, Dash, or Smooth format, and Azure Media Player will automatically use an appropriate streaming protocol for playback on your device.
 3. Select **Update Player**.
 
 >!NOTE
@@ -344,7 +341,7 @@ You can paste the URL in HLS, Dash, or Smooth format,and Azure Media Player will
 
 If you no longer need any of the resources in your resource group, including the Media Services and storage accounts that you created for this Quickstart, delete the resource group.
 
-Execute the following CLI command:
+Run this CLI command:
 
 ```azurecli
 az group delete --name amsResourceGroup
