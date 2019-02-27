@@ -19,7 +19,7 @@ Functions in a function app share resources, and among those shared resources ar
 
 The number of available connections is limited partly because a function app runs in a [sandbox environment](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). One of the restrictions that the sandbox imposes on your code is a [cap on the number of connections (currently at 600 active connections, 1200 total connections)](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits) per instance. When you reach this limit, the functions runtime creates a log with the following message: `Host thresholds exceeded: Connections`.
 
-This limit is per instance.  If the [scale controller adds function app instances](functions-scale.md#how-the-consumption-plan-works) to handle more requests, each instance will have an independent connection limit.  That means there is no global connection limit, and in total you can have much more than 600 active connections across all active instances.
+This limit is per instance.  When the [scale controller adds function app instances](functions-scale.md#how-the-consumption-plan-works) to handle more requests, each instance has an independent connection limit.  That means there is no global connection limit, and in total you can have much more than 600 active connections across all active instances.
 
 ## Use static clients
 
