@@ -18,9 +18,6 @@ Configuration extension and client. The extension, through the client, validates
 the configuration of the operating system, application configuration or presence, environment
 settings, and more.
 
-> [!IMPORTANT]
-> Currently, only **built-in** policies are supported with Guest Configuration.
-
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## Extension and client
@@ -94,7 +91,9 @@ The following table shows a list of supported operating system on Azure images:
 |Suse|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Guest Configuration is not currently supported on custom virtual machine images.
+> Guest Configuration can audit any server running a supported OS.  If you would like to audit
+> servers that use a custom image, you need to duplicate the **DeployIfNotExists** definition
+> and modify the **If** section to include your image properties.
 
 ### Unsupported client types
 
@@ -104,6 +103,22 @@ The following table lists operating systems that aren't supported:
 |-|-|
 |Windows client | Client operating systems (such as Windows 7 and Windows 10) aren't supported.
 |Windows Server 2016 Nano Server | Not supported.|
+
+### Guest Configuration Extension network requirements
+
+To communicate with the Guest Configuration resource provider in Azure,
+virtual machines will require outbound access to Azure datacenters on port `443`.
+If you are using a private virtual network in Azure and do not allow outbound traffic,
+exceptions must be configured using
+[Network Security Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules.
+At this time, a service tag does not exist for Azure Policy Guest Configuration.
+
+For IP address lists you can download [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This file is updated weekly, and has the currently deployed ranges and any upcoming changes to the IP ranges.  You will only need to allow outbound access to the IPs in the regions where your VMs are deployed.
+
+> [!NOTE]
+> The Azure Datacenter IP address XML file lists the IP address ranges that are used in the Microsoft Azure datacenters. The file includes compute, SQL, and storage ranges.
+> An updated file is posted weekly. The file reflects the currently deployed ranges and any upcoming changes to the IP ranges. New ranges that appear in the file aren't used in the datacenters for at least one week.
+> It's a good idea to download the new XML file every week. Then, update your site to correctly identify services running in Azure. Azure ExpressRoute users should note that this file is used to update the Border Gateway Protocol (BGP) advertisement of Azure space in the first week of each month.
 
 ## Guest Configuration definition requirements
 

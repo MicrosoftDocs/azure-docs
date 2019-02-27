@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 02/26/2019
 ms.author: kumud
 ---
 
@@ -55,14 +55,7 @@ As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-h
  If you select TCP as the monitoring protocol, Traffic Manager's endpoint health monitoring can be done without using any application protocols. If you choose to have the health verified using an application protocol, the endpoint needs to be able to respond to either HTTP or HTTPS GET requests.
 
 ### Can I use Traffic Manager with a 'naked' domain name?
-
-No. The DNS standards do not permit CNAMEs to co-exist with other DNS records of the same name. The apex (or root) of a DNS zone always contains two pre-existing DNS records; the SOA and the authoritative NS records. This means a CNAME record cannot be created at the zone apex without violating the DNS standards.
-
-Traffic Manager requires a DNS CNAME record to map the vanity DNS name. For example, you map `www.contoso.com` to the Traffic Manager profile DNS name `contoso.trafficmanager.net`. Additionally, the Traffic Manager profile returns a second DNS CNAME to indicate which endpoint the client should connect to.
-
-To work around this issue, we recommend using an HTTP redirect to direct traffic from the naked domain name to a different URL, which can then use Traffic Manager. For example, the naked domain 'contoso.com' can redirect users to the CNAME 'www.contoso.com' that points to the Traffic Manager DNS name.
-
-Full support for naked domains in Traffic Manager is tracked in our feature backlog. You can register your support for this feature request by [voting for it on our community feedback site](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
+Yes. To learn how to create an alias record for your domain name apex to reference an Azure Traffic Manager profile, see [Configure an alias record to support apex domain names with Traffic Manager](../dns/tutorial-alias-tm.md).
 
 ### Does Traffic Manager consider the client subnet address when handling DNS queries? 
 Yes, in addition to the source IP address of the DNS query it receives (which usually is the IP address of the DNS resolver), when performing lookups for Geographic, Performance, and Subnet routing methods, traffic manager also considers the client subnet address if it is included in the query by the resolver making the request on behalf of the end user.  
