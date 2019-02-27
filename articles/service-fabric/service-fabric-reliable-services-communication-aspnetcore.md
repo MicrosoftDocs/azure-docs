@@ -366,13 +366,12 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 ### Default Key Mapping
-By default, Service Fabric configuraiton provider includes package name, section name and property name together to form the asp.net core configuration Key.
-
+By default, Service Fabric configuraiton provider includes package name, section name and property name together to form the asp.net core configuration Key using following function:
 ```csharp
 $"{this.PackageName}{ConfigurationPath.KeyDelimiter}{section.Name}{ConfigurationPath.KeyDelimiter}{property.Name}"
 ```
 
-For example, if you have a Configuration packages named `MyConfigPackage` with below content, then the configuration value will be available on ASP.NET Core `IConfiguration` via Key 'MyConfigPackage:MyConfigSection:MyParameter'
+For example, if you have a Configuration packages named `MyConfigPackage` with below content, then the configuration value will be available on ASP.NET Core `IConfiguration` via Key *MyConfigPackage:MyConfigSection:MyParameter*
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">  
@@ -383,9 +382,6 @@ For example, if you have a Configuration packages named `MyConfigPackage` with b
 ```
 ### Service Fabric Configuration Options
 Service Fabric Configuration Provider also supports `ServiceFabricConfigurationOptions` to change the default behavior of key mapping.
-
-#### Exclude Package Name from Key
-and Multiple configuration packages
 
 #### Encrypted settings
 Service Fabric supports to encrypt the settings, Service Fabric Configuration Provider also supports this. To follow secure by default principle, the encrypted settings are not descrypted by default when store to ASP.NET Core `IConfiguration` and its encrypted value are stored there. However, if you want to decrypt the value to store in ASP.NET Core `IConfiguration` you could set DecryptValue flag of `ServiceFabricConfigurationOptions` to false in `AddServiceFabricConfiguration` extensions as follow:
