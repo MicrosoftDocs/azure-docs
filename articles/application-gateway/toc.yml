@@ -43,13 +43,13 @@
     href: how-application-gateway-works.md
   - name: Application Gateway components
     href: application-gateway-components.md
-    items:
-    -name: SSL
-     items:
-     - name: SSL policy overview
-       href: application-gateway-ssl-policy-overview.md
-     - name: End to end SSL
-       href: ssl-overview.md
+  items:
+  -name: SSL
+   items:
+   - name: SSL policy overview
+     href: application-gateway-ssl-policy-overview.md
+   - name: End to end SSL
+     href: ssl-overview.md
   - name: Web application firewall
     href: waf-overview.md
   - name: WAF configuration
