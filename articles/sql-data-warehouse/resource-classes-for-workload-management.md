@@ -18,7 +18,7 @@ Guidance for using resource classes to manage memory and concurrency for queries
 
 ## What is workload management
 
-Workload management is the ability to optimize the overall performance of all queries. A well-tuned workload runs queries and load operations efficiently whether they're compute-intensive or IO-intensive.  SQL Data Warehouse provides workload management capabilities for multi-user environments. A data warehouse is not intended for multi-tenant workloads.
+Workload management is the ability to optimize the overall performance of all queries. A well-tuned workload runs queries and load operations efficiently regardless of whether they are compute-intensive or IO-intensive.  SQL Data Warehouse provides workload management capabilities for multi-user environments. A data warehouse is not intended for multi-tenant workloads.
 
 The performance capacity of a data warehouse is determined by the [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md).
 
@@ -29,19 +29,19 @@ The performance capacity of a query is determined by the query's resource class.
 
 ## What are resource classes
 
-The performance capacity of a query is determined by the user's resource class.  Resource classes are pre-determined resource limits in Azure SQL Data Warehouse that govern compute resources and concurrency for query execution. Resource classes can help you manage your workload by setting limits on the number of queries that run concurrently and the compute-resources assigned to each query. There is a trade-off between memory and concurrency.
+The performance capacity of a query is determined by the user's resource class.  Resource classes are pre-determined resource limits in Azure SQL Data Warehouse that govern compute resources and concurrency for query execution. Resource classes can help you manage your workload by setting limits on the number of queries that run concurrently and the compute-resources assigned to each query. There is a trade off between memory and concurrency.
 
 - Smaller resource classes reduce the maximum memory per query, but increase concurrency.
-- Larger resource classes increase the maximum memory per query, but reduce concurrency.
+- Larger resource classes increases the maximum memory per query, but reduce concurrency.
 
 There are two types of resource classes:
 
-- Static resources classes are well suited for increased concurrency on a data set size that is fixed.
-- Dynamic resource classes are well suited for data sets that are growing in size and increase performance as the service level is scaled up.
+- Static resources classes, which are well suited for increased concurrency on a data set size that is fixed.
+- Dynamic resource classes, which are well suited for data sets that are growing in size and increasing performance as the service level is scaled up.
 
 Resource classes use concurrency slots to measure resource consumption.  [Concurrency slots](#concurrency-slots) are explained later in this article.
 
-- To view the resource utilization for resource classes, see [Memory and concurrency limits](memory-and-concurrency-limits.md#concurrency-maximums).
+- To view the resource utilization for the resource classes, see [Memory and concurrency limits](memory-and-concurrency-limits.md#concurrency-maximums).
 - To adjust the resource class, you can run the query under a different user or [change the current user's resource class](#change-a-users-resource-class) membership.
 
 ### Static resource classes
@@ -74,11 +74,11 @@ The dynamic resource classes are implemented with these pre-defined database rol
 
 When digging into the details of dynamic resource classes on Gen1, there are a few details that add additional complexity to understanding their behavior:
 
-- The smallrc resource class operates with a fixed memory model like a static resource class.  Smallrc queries do not dynamically get more memory as the service level is increased.
+- The smallrc resources class operates with a fixed memory model like a static resource class.  Smallrc queries do not dynamically get more memory as the service level is increased.
 - As service levels change, the available query concurrency can go up or down.
-- Scaling service levels does not provide a proportional change to the memory allocated to the same resource classes.
+- Scaling services levels does not provide a proportional change the memory allocated to the same resource classes.
 
-On --Gen2 only--, dynamic resource classes are truly dynamic addressing the points mentioned above.  The new rule is 3-10-22-70 for memory percentage allocations for small-medium-large-xlarge resource classes, --regardless of service level--.  The below table has the consolidated details of memory allocation percentages and the minimum number of concurrent queries that run, regardless of the service level.
+On **Gen2 only**, dynamic resource classes are truly dynamic addressing the points mentioned above.  The new rule is 3-10-22-70 for memory percentage allocations for small-medium-large-xlarge resource classes, **regardless of service level**.  The below table has the consolidated details of memory allocation percentages and the minimum number of concurrent queries that run, regardless of the service level.
 
 | Resource Class | Percentage Memory | Min Concurrent Queries |
 |:--------------:|:-----------------:|:----------------------:|
@@ -89,7 +89,7 @@ On --Gen2 only--, dynamic resource classes are truly dynamic addressing the poin
 
 ### Default resource class
 
-By default, each user is a member of the dynamic resource class --smallrc--.
+By default, each user is a member of the dynamic resource class **smallrc**.
 
 The resource class of the service administrator is fixed at smallrc and cannot be changed.  The service administrator is the user created during the provisioning process.  The service administrator in this context is the login specified for the "Server admin login" when creating a new SQL Data Warehouse instance with a new server.
 
@@ -118,7 +118,6 @@ These operations are governed by resource classes:
 
 > [!NOTE]  
 > SELECT statements on dynamic management views (DMVs) or other system views are not governed by any of the concurrency limits. You can monitor the system regardless of the number of queries executing on it.
->
 
 ### Operations not governed by resource classes
 
@@ -126,24 +125,24 @@ Some queries always run in the smallrc resource class even though the user is a 
 
 The following statements are exempt from resource classes and always run in smallrc:
 
-- CREATE or DROP TABLE
-- ALTER TABLE ... SWITCH, SPLIT, or MERGE PARTITION
-- ALTER INDEX DISABLE
-- DROP INDEX
-- CREATE, UPDATE, or DROP STATISTICS
-- TRUNCATE TABLE
-- ALTER AUTHORIZATION
-- CREATE LOGIN
-- CREATE, ALTER, or DROP USER
-- CREATE, ALTER, or DROP PROCEDURE
-- CREATE or DROP VIEW
-- INSERT VALUES
-- SELECT from system views and DMVs
-- EXPLAIN
-- DBCC
+-CREATE or DROP TABLE
+-ALTER TABLE ... SWITCH, SPLIT, or MERGE PARTITION
+-ALTER INDEX DISABLE
+-DROP INDEX
+-CREATE, UPDATE, or DROP STATISTICS
+-TRUNCATE TABLE
+-ALTER AUTHORIZATION
+-CREATE LOGIN
+-CREATE, ALTER, or DROP USER
+-CREATE, ALTER, or DROP PROCEDURE
+-CREATE or DROP VIEW
+-INSERT VALUES
+-SELECT from system views and DMVs
+-EXPLAIN
+-DBCC
 
 <!--
-Removed as these two are not confirmed / supported under SQLDW
+Removed as these two are not confirmed / supported under SQL DW
 - CREATE REMOTE TABLE AS SELECT
 - CREATE EXTERNAL TABLE AS SELECT
 - REDISTRIBUTE
@@ -168,21 +167,6 @@ FROM   sys.database_principals
 WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
 ```
 
-## Change a user's workload group
-
-Resource classes are implemented by assigning users to database roles. When a user runs a query, the query runs with the user's resource class. For example, when a user is a member of the smallrc or staticrc10 database role, their queries run with small amounts of memory. When a database user is a member of the xlargerc or staticrc80 database roles, their queries run with large amounts of memory.
-
-To increase a user's resource class, use the stored procedure [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
-
-```sql
-EXEC sp_addrolemember 'largerc', 'loaduser';
-```
-
-To decrease the resource class, use [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql).  
-
-```sql
-EXEC sp_droprolemember 'largerc', 'loaduser';
-<remove this section
 ## Change a user's resource class
 
 Resource classes are implemented by assigning users to database roles. When a user runs a query, the query runs with the user's resource class. For example, when a user is a member of the smallrc or staticrc10 database role, their queries run with small amounts of memory. When a database user is a member of the xlargerc or staticrc80 database roles, their queries run with large amounts of memory.
@@ -199,56 +183,47 @@ To decrease the resource class, use [sp_droprolemember](https://docs.microsoft.c
 EXEC sp_droprolemember 'largerc', 'loaduser';
 ```
 
-## Workload group precedence
-
-Users can be members of multiple workload groups. When a user belongs to more than one workload group:
-
-- Dynamic resource classes take precedence over static resource classes. For example, if a user is a member of both mediumrc(dynamic) and staticrc80 (static), queries run with mediumrc.
-- Larger resource classes take precedence over smaller resource classes. For example, if a user is a member of mediumrc and largerc, queries run with largerc. Likewise, if a user is a member of both staticrc20 and statirc80, queries run with staticrc80 resource allocations.
-
-<Remove this section
-
 ## Resource class precedence
 
 Users can be members of multiple resource classes. When a user belongs to more than one resource class:
 
 - Dynamic resource classes take precedence over static resource classes. For example, if a user is a member of both mediumrc(dynamic) and staticrc80 (static), queries run with mediumrc.
-- Larger resource classes take precedence over smaller resource classes. For example, if a user is a member of mediumrc and largerc, queries run with largerc. Likewise, if a user is a member of both staticrc20 and statirc80, queries run with staticrc80 resource allocations.>
+- Larger resource classes take precedence over smaller resource classes. For example, if a user is a member of mediumrc and largerc, queries run with largerc. Likewise, if a user is a member of both staticrc20 and statirc80, queries run with staticrc80 resource allocations.
 
 ## Recommendations
 
-We recommend creating a user that is dedicated to running a specific type of query or load operations. Then give that user a permanent workload group instead of changing the workload group on a frequent basis. Given that static resource classes afford greater overall control on the workload we also suggest using those first before considering dynamic resource classes.
+We recommend creating a user that is dedicated to running a specific type of query or load operations. Then give that user a permanent resource class instead of changing the resource class on a frequent basis. Given that static resource classes afford greater overall control on the workload we also suggest using those first before considering dynamic resource classes.
 
 ### Resource classes for load users
 
-`CREATE TABLE` uses clustered columnstore indexes by default. Compressing data into a columnstore index is a memory-intensive operation, and memory pressure can reduce the index quality. Therefore, you are most likely to require a higher resource class when loading data. To ensure loads have enough memory, you can create a user that is designated for running loads and assign that user to a higher workload group.
+`CREATE TABLE` uses clustered columnstore indexes by default. Compressing data into a columnstore index is a memory-intensive operation, and memory pressure can reduce the index quality. Therefore, you are most likely to require a higher resource class when loading data. To ensure loads have enough memory, you can create a user that is designated for running loads and assign that user to a higher resource class.
 
 The memory needed to process loads efficiently depends on the nature of the table loaded and the data size. For more information on memory requirements, see [Maximizing rowgroup quality](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
-Once you have determined the memory requirement, choose whether to assign the load user to a workload group with a static or dynamic resource class.
+Once you have determined the memory requirement, choose whether to assign the load user to a static or dynamic resource class.
 
-- Use a static resource class when table memory requirements fall within a specific range. Loads run with appropriate memory. When you scale the data warehouse, the loads do not need more memory. By using a static resource class, the memory allocations stay constant. This consistency conserves memory and allows more queries to run concurrently. We recommend that new solutions use workload groups with static resource classes first as these provide greater control.
-- Use a workload group with a dynamic resource class when table memory requirements vary widely. Loads might require more memory than the current DWU or cDWU level provides. Therefore, scaling the data warehouse adds more memory to load operations, which allows loads to perform faster.
+- Use a static resource class when table memory requirements fall within a specific range. Loads run with appropriate memory. When you scale the data warehouse, the loads do not need more memory. By using a static resource class, the memory allocations stay constant. This consistency conserves memory and allows more queries to run concurrently. We recommend that new solutions use the static resource classes first as these provide greater control.
+- Use a dynamic resource class when table memory requirements vary widely. Loads might require more memory than the current DWU or cDWU level provides. Therefore, scaling the data warehouse adds more memory to load operations, which allows loads to perform faster.
 
 ### Resource classes for queries
 
 Some queries are compute-intensive and some are not.  
 
-- Choose a workload group with a dynamic resource class when queries are complex, but do not need high concurrency.  For example, generating daily or weekly reports is an occasional need for resources. If the reports are processing large amounts of data, scaling the data warehouse provides more memory to the user's existing resource class.
-- Choose a a workload group with a static resource class when resource expectations vary throughout the day. For example, a static resource class works well when the data warehouse is queried by many people. When scaling the data warehouse, the amount of memory allocated to the user does not change. Consequently, more queries can be executed in parallel on the system.
+- Choose a dynamic resource class when queries are complex, but do not need high concurrency.  For example, generating daily or weekly reports is an occasional need for resources. If the reports are processing large amounts of data, scaling the data warehouse provides more memory to the user's existing resource class.
+- Choose a static resource class when resource expectations vary throughout the day. For example, a static resource class works well when the data warehouse is queried by many people. When scaling the data warehouse, the amount of memory allocated to the user does not change. Consequently, more queries can be executed in parallel on the system.
 
 Selecting a proper memory grant depends on many factors, such as the amount of data queried, the nature of the table schemas, and various join, select, and group predicates. In general, allocating more memory allows queries to complete faster, but reduces the overall concurrency. If concurrency is not an issue, over-allocating memory does not harm throughput.
 
-To tune performance, use different resource classes. The next section gives a stored procedure that helps you figure out the best resource class for a workload group.
+To tune performance, use different resource classes. The next section gives a stored procedure that helps you figure out the best resource class.
 
 ## Example code for finding the best resource class
 
-You can use the following stored procedure on --Gen1 only--. Run the following to determine concurrency and memory grant per resource class at a given SLO. Use this information to determine the best resource class for memory intensive CCI operations on non-partitioned CCI tables.
+You can use the following stored procedure on **Gen1 only*-to figure out concurrency and memory grant per resource class at a given SLO and the closest best resource class for memory intensive CCI operations on non-partitioned CCI table at a given resource class:
 
 Here's the purpose of this stored procedure:
-  
-1. Find the concurrency and memory grant per resource class at a given SLO. You need to provide NULL for both schema and tablename as shown in this example.
-2. Find the best resource class for the memory-intensive CCI operations (load, copy table, rebuild index, etc.) on non partitioned CCI tables. The stored proc uses table schema to determine the required memory grant.
+
+1. To see the concurrency and memory grant per resource class at a given SLO. User needs to provide NULL for both schema and tablename as shown in this example.  
+2. To see the closest best resource class for the memory-intensive CCI operations (load, copy table, rebuild index, etc.) on non partitioned CCI table at a given resource class. The stored proc uses table schema to find out the required memory grant.
 
 ### Dependencies & Restrictions
 
@@ -271,14 +246,14 @@ Here's the purpose of this stored procedure:
 
 Syntax:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`
-
+  
 1. @DWU: Either provide a NULL parameter to extract the current DWU from the DW DB or provide any supported DWU in the form of 'DW100'
 2. @SCHEMA_NAME: Provide a schema name of the table
 3. @TABLE_NAME: Provide a table name of the interest
 
 Examples executing this stored proc:
 
-```sql  
+```sql
 EXEC dbo.prc_workload_management_by_DWU 'DW2000', 'dbo', 'Table1';  
 EXEC dbo.prc_workload_management_by_DWU NULL, 'dbo', 'Table1';  
 EXEC dbo.prc_workload_management_by_DWU 'DW6000', NULL, NULL;  
@@ -293,228 +268,13 @@ EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;
 The following statement creates Table1 that is used in the preceding examples.
 `CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);`
 
-### Stored procedure definition for Gen2
-
-```sql
--------------------------------------------------------------------------------
--- Dropping prc_workload_management_by_DWU procedure if it exists.
--------------------------------------------------------------------------------
-IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'prc_workload_management_by_DWU')
-DROP PROCEDURE dbo.prc_workload_management_by_DWU
-GO
-
--------------------------------------------------------------------------------
--- Creating prc_workload_management_by_DWU.
--------------------------------------------------------------------------------
-CREATE PROCEDURE dbo.prc_workload_management_by_DWU
-(@DWU VARCHAR(7),
- @SCHEMA_NAME VARCHAR(128),
- @TABLE_NAME VARCHAR(128)
-)
-AS
-
-IF @DWU IS NULL
-BEGIN
--- Selecting proper DWU for the current DB if not specified.
-  SELECT @DWU = 'DW'+CAST(Nodes*CASE WHEN CPUVer>6 THEN 500 ELSE 100 END AS VARCHAR(10))+CASE WHEN CPUVer>6 THEN 'c' ELSE '' END
-    FROM (
-      SELECT Nodes=count(distinct n.pdw_node_id), CPUVer=max(i.cpu_count)
-        FROM sys.dm_pdw_nodes n
-        CROSS APPLY sys.dm_pdw_nodes_os_sys_info i
-        WHERE type = 'COMPUTE'
-      )A
-END
-
--- Dropping temp table if exists.
-IF OBJECT_ID('tempdb..#ref') IS NOT NULL
-BEGIN
-  DROP TABLE #ref;
-END;
-
--- Creating ref. temp table (CTAS) to hold mapping info.
-CREATE TABLE #ref
-WITH (DISTRIBUTION = ROUND_ROBIN)
-AS
-WITH
--- Creating concurrency slots mapping for various DWUs.
-alloc
-AS
-(
-  SELECT 'DW100' AS DWU, 4 AS max_queries, 4 AS max_slots, 1 AS slots_used_smallrc, 1 AS slots_used_mediumrc,
-        2 AS slots_used_largerc, 4 AS slots_used_xlargerc, 1 AS slots_used_staticrc10, 2 AS slots_used_staticrc20,
-        4 AS slots_used_staticrc30, 4 AS slots_used_staticrc40, 4 AS slots_used_staticrc50,
-        4 AS slots_used_staticrc60, 4 AS slots_used_staticrc70, 4 AS slots_used_staticrc80
-  UNION ALL
-    SELECT 'DW200', 8, 8, 1, 2, 4, 8, 1, 2, 4, 8, 8, 8, 8, 8
-  UNION ALL
-    SELECT 'DW300', 12, 12, 1, 2, 4, 8, 1, 2, 4, 8, 8, 8, 8, 8
-  UNION ALL
-    SELECT 'DW400', 16, 16, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
-  UNION ALL
-    SELECT 'DW500', 20, 20, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
-  UNION ALL
-    SELECT 'DW600', 24, 24, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
-  UNION ALL
-    SELECT 'DW1000', 32, 40, 1, 8, 16, 32, 1, 2, 4, 8, 16, 32, 32, 32
-  UNION ALL
-    SELECT 'DW1200', 32, 48, 1, 8, 16, 32, 1, 2, 4, 8, 16, 32, 32, 32
-  UNION ALL
-    SELECT 'DW1500', 32, 60, 1, 8, 16, 32, 1, 2, 4, 8, 16, 32, 32, 32
-  UNION ALL
-    SELECT 'DW2000', 32, 80, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
-  UNION ALL
-    SELECT 'DW3000', 32, 120, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
-  UNION ALL
-    SELECT 'DW6000', 32, 240, 1, 32, 64, 128, 1, 2, 4, 8, 16, 32, 64, 128
-  UNION ALL
-    SELECT 'DW1000c', 32, 40, 1, 4, 8, 28, 1, 2, 4, 8, 16, 32, 32, 32
-  UNION ALL
-    SELECT 'DW1500c', 32, 60, 1, 6, 13, 42, 1, 2, 4, 8, 16, 32, 32, 32
-  UNION ALL
-    SELECT 'DW2000c', 48, 80, 2, 8, 17, 56, 1, 2, 4, 8, 16, 32, 64, 64
-  UNION ALL
-    SELECT 'DW2500c', 48, 100, 3, 10, 22, 70, 1, 2, 4, 8, 16, 32, 64, 64
-  UNION ALL
-    SELECT 'DW3000c', 64, 120, 3, 12, 26, 84, 1, 2, 4, 8, 16, 32, 64, 64
-  UNION ALL
-    SELECT 'DW5000c', 64, 200, 6, 20, 44, 140, 1, 2, 4, 8, 16, 32, 64, 128
-  UNION ALL
-    SELECT 'DW6000c', 128, 240, 7, 24, 52, 168, 1, 2, 4, 8, 16, 32, 64, 128
-  UNION ALL
-    SELECT 'DW7500c', 128, 300, 9, 30, 66, 210, 1, 2, 4, 8, 16, 32, 64, 128
-  UNION ALL
-    SELECT 'DW10000c', 128, 400, 12, 40, 88, 280, 1, 2, 4, 8, 16, 32, 64, 128
-  UNION ALL
-    SELECT 'DW15000c', 128, 600, 18, 60, 132, 420, 1, 2, 4, 8, 16, 32, 64, 128
-  UNION ALL
-    SELECT 'DW30000c', 128, 1200, 36, 120, 264, 840, 1, 2, 4, 8, 16, 32, 64, 128
-)
--- Creating workload mapping to their corresponding slot consumption and default memory grant.
-,map
-AS
-(
-  SELECT CONVERT(varchar(20), 'SloDWGroupSmall') AS wg_name, slots_used_smallrc AS slots_used FROM alloc WHERE DWU = @DWU
-UNION ALL
-  SELECT CONVERT(varchar(20), 'SloDWGroupMedium') AS wg_name, slots_used_mediumrc AS slots_used FROM alloc WHERE DWU = @DWU
-UNION ALL
-  SELECT CONVERT(varchar(20), 'SloDWGroupLarge') AS wg_name, slots_used_largerc AS slots_used FROM alloc WHERE DWU = @DWU
-UNION ALL
-  SELECT CONVERT(varchar(20), 'SloDWGroupXLarge') AS wg_name, slots_used_xlargerc AS slots_used FROM alloc WHERE DWU = @DWU
-  UNION ALL
-  SELECT 'SloDWGroupC00',1
-  UNION ALL
-    SELECT 'SloDWGroupC01',2
-  UNION ALL
-    SELECT 'SloDWGroupC02',4
-  UNION ALL
-    SELECT 'SloDWGroupC03',8
-  UNION ALL
-    SELECT 'SloDWGroupC04',16
-  UNION ALL
-    SELECT 'SloDWGroupC05',32
-  UNION ALL
-    SELECT 'SloDWGroupC06',64
-  UNION ALL
-    SELECT 'SloDWGroupC07',128
-)
-
--- Creating ref based on current / asked DWU.
-, ref
-AS
-(
-  SELECT  a1.*
-  ,       m1.wg_name          AS wg_name_smallrc
-  ,       m1.slots_used * CASE WHEN RIGHT(@DWU,1)='c' THEN 250 ELSE 200 END AS tgt_mem_grant_MB_smallrc
-  ,       m2.wg_name          AS wg_name_mediumrc
-  ,       m2.slots_used * CASE WHEN RIGHT(@DWU,1)='c' THEN 250 ELSE 200 END AS tgt_mem_grant_MB_mediumrc
-  ,       m3.wg_name          AS wg_name_largerc
-  ,       m3.slots_used * CASE WHEN RIGHT(@DWU,1)='c' THEN 250 ELSE 200 END AS tgt_mem_grant_MB_largerc
-  ,       m4.wg_name          AS wg_name_xlargerc
-  ,       m4.slots_used * CASE WHEN RIGHT(@DWU,1)='c' THEN 250 ELSE 200 END AS tgt_mem_grant_MB_xlargerc
-  ,       m5.wg_name          AS wg_name_staticrc10
-  ,       m5.slots_used * CASE WHEN RIGHT(@DWU,1)='c' THEN 250 ELSE 200 END AS tgt_mem_grant_MB_staticrc10
-  ,       m6.wg_name          AS wg_name_staticrc20
-  ,       m6.slots_used * CASE WHEN RIGHT(@DWU,1)='c' THEN 250 ELSE 200 END AS tgt_mem_grant_MB_staticrc20
-  ,       m7.wg_name          AS wg_name_staticrc30
-  ,       m7.slots_used * CASE WHEN RIGHT(@DWU,1)='c' THEN 250 ELSE 200 END AS tgt_mem_grant_MB_staticrc30
-  ,       m8.wg_name          AS wg_name_staticrc40
-  ,       m8.slots_used * CASE WHEN RIGHT(@DWU,1)='c' THEN 250 ELSE 200 END AS tgt_mem_grant_MB_staticrc40
-  ,       m9.wg_name          AS wg_name_staticrc50
-  ,       m9.slots_used * CASE WHEN RIGHT(@DWU,1)='c' THEN 250 ELSE 200 END AS tgt_mem_grant_MB_staticrc50
-  ,       m10.wg_name          AS wg_name_staticrc60
-  ,       m10.slots_used * CASE WHEN RIGHT(@DWU,1)='c' THEN 250 ELSE 200 END AS tgt_mem_grant_MB_staticrc60
-  ,       m11.wg_name          AS wg_name_staticrc70
-  ,       m11.slots_used * CASE WHEN RIGHT(@DWU,1)='c' THEN 250 ELSE 200 END AS tgt_mem_grant_MB_staticrc70
-  ,       m12.wg_name          AS wg_name_staticrc80
-  ,       m12.slots_used * CASE WHEN RIGHT(@DWU,1)='c' THEN 250 ELSE 200 END AS tgt_mem_grant_MB_staticrc80
-  FROM alloc a1
-  JOIN map   m1  ON a1.slots_used_smallrc     = m1.slots_used and m1.wg_name = 'SloDWGroupSmall'
-  JOIN map   m2  ON a1.slots_used_mediumrc    = m2.slots_used and m2.wg_name = 'SloDWGroupMedium'
-  JOIN map   m3  ON a1.slots_used_largerc     = m3.slots_used and m3.wg_name = 'SloDWGroupLarge'
-  JOIN map   m4  ON a1.slots_used_xlargerc    = m4.slots_used and m4.wg_name = 'SloDWGroupXLarge'
-  JOIN map   m5  ON a1.slots_used_staticrc10    = m5.slots_used and m5.wg_name NOT IN ('SloDWGroupSmall','SloDWGroupMedium','SloDWGroupLarge','SloDWGroupXLarge')
-  JOIN map   m6  ON a1.slots_used_staticrc20    = m6.slots_used and m6.wg_name NOT IN ('SloDWGroupSmall','SloDWGroupMedium','SloDWGroupLarge','SloDWGroupXLarge')
-  JOIN map   m7  ON a1.slots_used_staticrc30    = m7.slots_used and m7.wg_name NOT IN ('SloDWGroupSmall','SloDWGroupMedium','SloDWGroupLarge','SloDWGroupXLarge')
-  JOIN map   m8  ON a1.slots_used_staticrc40    = m8.slots_used and m8.wg_name NOT IN ('SloDWGroupSmall','SloDWGroupMedium','SloDWGroupLarge','SloDWGroupXLarge')
-  JOIN map   m9  ON a1.slots_used_staticrc50    = m9.slots_used and m9.wg_name NOT IN ('SloDWGroupSmall','SloDWGroupMedium','SloDWGroupLarge','SloDWGroupXLarge')
-  JOIN map   m10  ON a1.slots_used_staticrc60    = m10.slots_used and m10.wg_name NOT IN ('SloDWGroupSmall','SloDWGroupMedium','SloDWGroupLarge','SloDWGroupXLarge')
-  JOIN map   m11  ON a1.slots_used_staticrc70    = m11.slots_used and m11.wg_name NOT IN ('SloDWGroupSmall','SloDWGroupMedium','SloDWGroupLarge','SloDWGroupXLarge')
-  JOIN map   m12  ON a1.slots_used_staticrc80    = m12.slots_used and m12.wg_name NOT IN ('SloDWGroupSmall','SloDWGroupMedium','SloDWGroupLarge','SloDWGroupXLarge')
-  WHERE   a1.DWU = @DWU
-)
-SELECT  DWU
-,       max_queries
-,       max_slots
-,       slots_used
-,       wg_name
-,       tgt_mem_grant_MB
-,       up1 as rc
-,       (ROW_NUMBER() OVER(PARTITION BY DWU ORDER BY DWU)) as rc_id
-FROM
-(
-    SELECT  DWU
-    ,       max_queries
-    ,       max_slots
-    ,       slots_used
-    ,       wg_name
-    ,       tgt_mem_grant_MB
-    ,       REVERSE(SUBSTRING(REVERSE(wg_names),1,CHARINDEX('_',REVERSE(wg_names),1)-1)) as up1
-    ,       REVERSE(SUBSTRING(REVERSE(tgt_mem_grant_MBs),1,CHARINDEX('_',REVERSE(tgt_mem_grant_MBs),1)-1)) as up2
-    ,       REVERSE(SUBSTRING(REVERSE(slots_used_all),1,CHARINDEX('_',REVERSE(slots_used_all),1)-1)) as up3
-    FROM    ref AS r1
-    UNPIVOT
-    (
-        wg_name FOR wg_names IN (wg_name_smallrc,wg_name_mediumrc,wg_name_largerc,wg_name_xlargerc,
-        wg_name_staticrc10, wg_name_staticrc20, wg_name_staticrc30, wg_name_staticrc40, wg_name_staticrc50,
-        wg_name_staticrc60, wg_name_staticrc70, wg_name_staticrc80)
-    ) AS r2
-    UNPIVOT
-    (
-        tgt_mem_grant_MB FOR tgt_mem_grant_MBs IN (tgt_mem_grant_MB_smallrc,tgt_mem_grant_MB_mediumrc,
-        tgt_mem_grant_MB_largerc,tgt_mem_grant_MB_xlargerc, tgt_mem_grant_MB_staticrc10, tgt_mem_grant_MB_staticrc20,
-        tgt_mem_grant_MB_staticrc30, tgt_mem_grant_MB_staticrc40, tgt_mem_grant_MB_staticrc50,
-        tgt_mem_grant_MB_staticrc60, tgt_mem_grant_MB_staticrc70, tgt_mem_grant_MB_staticrc80)
-    ) AS r3
-    UNPIVOT
-    (
-        slots_used FOR slots_used_all IN (slots_used_smallrc,slots_used_mediumrc,slots_used_largerc,
-        slots_used_xlargerc, slots_used_staticrc10, slots_used_staticrc20, slots_used_staticrc30,
-        slots_used_staticrc40, slots_used_staticrc50, slots_used_staticrc60, slots_used_staticrc70,
-        slots_used_staticrc80)
-    ) AS r4
-) a
-WHERE   up1 = up2
-AND     up1 = up3
-;
-```
-
-### Stored procedure definition for Gen1
+### Stored procedure definition
 
 ```sql  
 -------------------------------------------------------------------------------
 -- Dropping prc_workload_management_by_DWU procedure if it exists.
 -------------------------------------------------------------------------------
-IF EXISTS (SELECT - FROM sys.objects WHERE type = 'P' AND name = 'prc_workload_management_by_DWU')
+IF EXISTS (SELECT -FROM sys.objects WHERE type = 'P' AND name = 'prc_workload_management_by_DWU')
 DROP PROCEDURE dbo.prc_workload_management_by_DWU
 GO
 
@@ -531,7 +291,7 @@ IF @DWU IS NULL
 BEGIN
 -- Selecting proper DWU for the current DB if not specified.
 SET @DWU = (
-  SELECT 'DW'+CAST(COUNT(-)-100 AS VARCHAR(10))
+  SELECT 'DW'+CAST(COUNT(*)*100 AS VARCHAR(10))
   FROM sys.dm_pdw_nodes
   WHERE type = 'COMPUTE')
 END
@@ -610,7 +370,7 @@ AS
 , ref
 AS
 (
-  SELECT  a1.-
+  SELECT  a1.*
   ,       m1.wg_name          AS wg_name_smallrc
   ,       m1.tgt_mem_grant_MB AS tgt_mem_grant_MB_smallrc
   ,       m2.wg_name          AS wg_name_mediumrc
@@ -702,11 +462,11 @@ AS
 (
   SELECT
           rp.name                                           AS rp_name
-  ,       rp.max_memory_kb-1.0/1048576                      AS rp_max_mem_GB
-  ,       (rp.max_memory_kb-1.0/1024)
-          -(request_max_memory_grant_percent/100)           AS max_memory_grant_MB
-  ,       (rp.max_memory_kb-1.0/1048576)
-          -(request_max_memory_grant_percent/100)           AS max_memory_grant_GB
+  ,       rp.max_memory_kb*1.0/1048576                      AS rp_max_mem_GB
+  ,       (rp.max_memory_kb*1.0/1024)
+          *(request_max_memory_grant_percent/100)           AS max_memory_grant_MB
+  ,       (rp.max_memory_kb*1.0/1048576)
+          *(request_max_memory_grant_percent/100)           AS max_memory_grant_GB
   ,       wg.name                                           AS wg_name
   ,       wg.importance                                     AS importance
   ,       wg.request_max_memory_grant_percent               AS request_max_memory_grant_percent
@@ -783,23 +543,23 @@ SELECT  schema_name
 ,       table_name
 ,       75497472                                            AS table_overhead
 
-,       column_count-1048576-8                              AS column_size
-,       short_string_column_count-1048576-32                       AS short_string_size,       (long_string_column_count-16777216) AS long_string_size
+,       column_count*1048576*8                              AS column_size
+,       short_string_column_count*1048576*32                       AS short_string_size,       (long_string_column_count*16777216) AS long_string_size
 FROM    base
 UNION
-SELECT CASE WHEN COUNT(-) = 0 THEN 'EMPTY' END as schema_name
-         ,CASE WHEN COUNT(-) = 0 THEN 'EMPTY' END as table_name
-         ,CASE WHEN COUNT(-) = 0 THEN 0 END as table_overhead
-         ,CASE WHEN COUNT(-) = 0 THEN 0 END as column_size
-         ,CASE WHEN COUNT(-) = 0 THEN 0 END as short_string_size
+SELECT CASE WHEN COUNT(*) = 0 THEN 'EMPTY' END as schema_name
+         ,CASE WHEN COUNT(*) = 0 THEN 'EMPTY' END as table_name
+         ,CASE WHEN COUNT(*) = 0 THEN 0 END as table_overhead
+         ,CASE WHEN COUNT(*) = 0 THEN 0 END as column_size
+         ,CASE WHEN COUNT(*) = 0 THEN 0 END as short_string_size
 
-,CASE WHEN COUNT(-) = 0 THEN 0 END as long_string_size
+,CASE WHEN COUNT(*) = 0 THEN 0 END as long_string_size
 FROM   base
 )
 , load_multiplier as
 (
 SELECT  CASE
-                     WHEN FLOOR(8 - (CAST (@DWU_NUM AS FLOAT)/6000)) > 0 THEN FLOOR(8 - (CAST (@DWU_NUM AS FLOAT)/6000))
+                     WHEN FLOOR(8 -(CAST (@DWU_NUM AS FLOAT)/6000)) > 0 THEN FLOOR(8 -(CAST (@DWU_NUM AS FLOAT)/6000))
                      ELSE 1
               END AS multipliplication_factor
 )
@@ -815,15 +575,15 @@ SELECT  CASE
        , r1.max_slots as max_concurrency_slots
        , r1.slots_used as required_slots_for_the_rc
        , r1.tgt_mem_grant_MB  as rc_mem_grant_MB
-       , CAST((table_overhead-1.0+column_size+short_string_size+long_string_size)-multipliplication_factor/1048576    AS DECIMAL(18,2)) AS est_mem_grant_required_for_cci_operation_MB
+       , CAST((table_overhead*1.0+column_size+short_string_size+long_string_size)*multipliplication_factor/1048576    AS DECIMAL(18,2)) AS est_mem_grant_required_for_cci_operation_MB
        FROM    size, load_multiplier, #ref r1, names  rc
        WHERE r1.rc_id=rc.rc_id
-                     AND CAST((table_overhead-1.0+column_size+short_string_size+long_string_size)-multipliplication_factor/1048576    AS DECIMAL(18,2)) < r1.tgt_mem_grant_MB
-       ORDER BY ABS(CAST((table_overhead-1.0+column_size+short_string_size+long_string_size)-multipliplication_factor/1048576    AS DECIMAL(18,2)) - r1.tgt_mem_grant_MB)
+                     AND CAST((table_overhead*1.0+column_size+short_string_size+long_string_size)*multipliplication_factor/1048576    AS DECIMAL(18,2)) < r1.tgt_mem_grant_MB
+       ORDER BY ABS(CAST((table_overhead*1.0+column_size+short_string_size+long_string_size)*multipliplication_factor/1048576    AS DECIMAL(18,2)) - r1.tgt_mem_grant_MB)
 GO
 ```
 
-## Next steps
+## Next step
 
 For more information about managing database users and security, see [Secure a database in SQL Data Warehouse][Secure a database in SQL Data Warehouse]. For more information about how larger resource classes can improve clustered columnstore index quality, see [Memory optimizations for columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
