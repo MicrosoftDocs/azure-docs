@@ -31,42 +31,28 @@ The following script looks for unattached [managed disks](managed-disks-overview
 >First, run the script by setting the **deleteUnattachedDisks** variable to 0. This action lets you find and view all the unattached managed disks.
 >
 >After you review all the unattached disks, run the script again and set the **deleteUnattachedDisks** variable to 1. This action lets you delete all the unattached managed disks.
->
 
 ```azurepowershell-interactive
-
 # Set deleteUnattachedDisks=1 if you want to delete unattached Managed Disks
 # Set deleteUnattachedDisks=0 if you want to see the Id of the unattached Managed Disks
 $deleteUnattachedDisks=0
-
 $managedDisks = Get-AzDisk
-
 foreach ($md in $managedDisks) {
-    
     # ManagedBy property stores the Id of the VM to which Managed Disk is attached to
     # If ManagedBy property is $null then it means that the Managed Disk is not attached to a VM
     if($md.ManagedBy -eq $null){
-
         if($deleteUnattachedDisks -eq 1){
-            
             Write-Host "Deleting unattached Managed Disk with Id: $($md.Id)"
-
             $md | Remove-AzDisk -Force
-
             Write-Host "Deleted unattached Managed Disk with Id: $($md.Id) "
-
         }else{
-
             $md.Id
-
         }
-           
     }
-     
- } 
+ }
 ```
 
-## Unmanaged disks: Find and delete unattached disks 
+## Unmanaged disks: Find and delete unattached disks
 
 Unmanaged disks are VHD files that are stored as [page blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) in [Azure storage accounts](../../storage/common/storage-create-storage-account.md). The following script looks for unattached unmanaged disks (page blobs) by examining the value of the **LeaseStatus** property. When an unmanaged disk is attached to a VM, the **LeaseStatus** property is set to **Locked**. When an unmanaged disk is unattached, the **LeaseStatus** property is set to **Unlocked**. The script examines all the unmanaged disks in all the Azure storage accounts in an Azure subscription. When the script locates an unmanaged disk with a **LeaseStatus** property set to **Unlocked**, the script determines that the disk is unattached.
 
