@@ -74,7 +74,7 @@ When you set up conditional access policies for Exchange Online, you need to rev
 
 While Exchange Active Sync supports modern authentication, there are some limitations regarding the support for conditional access scenarios:
 
-- You can only configure the device platforms condition  
+- When selecting **Exchange Active Sunc clients** in your policy, you can't configure other conditions.  
 
     ![Device platforms](./media/conditional-access-for-exo-and-spo/05.png)
 
