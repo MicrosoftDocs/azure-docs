@@ -24,9 +24,9 @@ At this time, the [Azure Cosmos DB Table API](table-introduction.md) has four SD
 
 * [Python SDK](table-sdk-python.md): The new Azure Cosmos DB Python SDK is the only SDK that supports Azure Table storage in Python. This SDK connects with both Azure Table storage and Azure Cosmos DB Table API.
 
-* [Java SDK](table-sdk-java): This Azure Storage SDK has the ability to connect to Azure Cosmos DB accounts using the Table API.
+* [Java SDK](table-sdk-java.md): This Azure Storage SDK has the ability to connect to Azure Cosmos DB accounts using the Table API.
 
-* [Node.js SDK](table-sdk-nodejs): This Azure Storage SDK has the ability to connect to Azure Cosmos DB accounts using the Table API.
+* [Node.js SDK](table-sdk-nodejs.md): This Azure Storage SDK has the ability to connect to Azure Cosmos DB accounts using the Table API.
 
 
 Additional information about working with the Table API is available in the [FAQ: Develop with the Table API](faq.md#table) article.
