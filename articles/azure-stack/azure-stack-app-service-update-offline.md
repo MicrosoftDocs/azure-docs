@@ -23,7 +23,7 @@ ms.reviewer: anwestg
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> Apply the 1809 update or later to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.4. Before updating the resource provider, review the release notes to learn about new functionality, fixes, and any known issues that could affect your deployment.
+> Apply the 1901 update or later to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.5. 
 
 By following the instructions in this article, you can upgrade the [App Service resource provider](azure-stack-app-service-overview.md) deployed in an Azure Stack environment that is:
 
@@ -31,9 +31,7 @@ By following the instructions in this article, you can upgrade the [App Service 
 * secured by Active Directory Federation Services (AD FS).
 
 > [!IMPORTANT]
-> Prior to running the upgrade, make sure that you have already completed the [deployment of the Azure App Service on Azure Stack Resource Provider](azure-stack-app-service-deploy-offline.md) and that you have read the [release notes](azure-stack-app-service-release-notes-update-five.md) which accompany the 1.5 release.
->
->
+> Prior to running the upgrade, make sure that you have already completed the [deployment of the Azure App Service on Azure Stack Resource Provider](azure-stack-app-service-deploy-offline.md) and that you have read the [release notes](azure-stack-app-service-release-notes-update-five.md), which accompany the 1.5 release, to learn about new functionality, fixes, and any known issues that could affect your deployment.
 
 ## Run the App Service resource provider installer
 

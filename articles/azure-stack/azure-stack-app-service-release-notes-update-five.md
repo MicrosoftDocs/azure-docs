@@ -26,12 +26,11 @@ These release notes describe the improvements and fixes in Azure App Service on 
 
 > [!IMPORTANT]
 > Apply the 1901 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.5.
->
->
+
 
 ## Build reference
 
-The App Service on Azure Stack Update 5 build number is **80.0.13698.6**
+The App Service on Azure Stack Update 5 build number is **80.0.2.15**
 
 ### Prerequisites
 
