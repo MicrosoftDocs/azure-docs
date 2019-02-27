@@ -65,9 +65,26 @@ The following examples show you to register an Azure Blob Container or an Azure 
   ds = Datastore.register_azure_blob_container(workspace=ws, 
                                                datastore_name='your datastore name', 
                                                container_name='your azure blob container name',
+                                               account_name='your storage account name', 
+                                               account_key='your storage account key',
+                                               create_if_not_exists=True)
+  ```
 
-### Get an existing datastore
-The [`get()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#get-workspace--datastore-name-) method queries for an already registered datastore by name:
++ For an **Azure File Share Datastore**, use [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). For example: 
+  ```Python
+  ds = Datastore.register_azure_file_share(workspace=ws, 
+                                           datastore_name='your datastore name', 
+                                           container_name='your file share name',
+                                           account_name='your storage account name', 
+                                           account_key='your storage account key',
+                                           create_if_not_exists=True)
+  ```
+
+<a name="get"></a>
+
+## Get data in your datastore
+
+To get a specified datastore registered in the current workspace, use [`get()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#get-workspace--datastore-name-) :
 
 ```Python
 #get named datastore from current workspace
