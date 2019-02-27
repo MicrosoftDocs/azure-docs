@@ -172,7 +172,7 @@ To distribute traffic to the VMs, a back-end address pool contains the IP addres
 4. Click **Add new backend resource** to add each virtual machine (*myVM2* and *myVM3*) to add to the backend pool of the load balancer.
 5. Click **Add**.
 
-    ![Adding to the backend address pool - ](./media/load-balancer-standard-public-availability-zones-portal/add-backend-pool.png)
+    ![Adding to the backend address pool -](./media/load-balancer-standard-public-availability-zones-portal/add-backend-pool.png)
 
 3. Check to make sure your load balancer backend pool setting displays all the three VMs - **myVM1**, **myVM2** and **myVM3**.
 
