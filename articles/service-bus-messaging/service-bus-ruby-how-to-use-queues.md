@@ -3,9 +3,9 @@ title: How to use Azure Service Bus queues with Ruby | Microsoft Docs
 description: Learn how to use Service Bus queues in Azure. Code samples written in Ruby.
 services: service-bus-messaging
 documentationcenter: ruby
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: 0a11eab2-823f-4cc7-842b-fbbe0f953751
 ms.service: service-bus-messaging
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 09/10/2017
-ms.author: spelluru
+ms.date: 01/10/2019
+ms.author: aschhab
 
 ---
 # How to use Service Bus queues with Ruby
@@ -28,6 +28,7 @@ covered include **creating queues, sending and receiving messages**, and
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
+## Create a Service Bus namespace
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
    
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]

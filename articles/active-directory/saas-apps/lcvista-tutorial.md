@@ -1,14 +1,14 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with LCVista | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and LCVista.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 
 ms.assetid: 8db80d6e-3275-419f-aa39-6115a7bc9800
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with LCVista
 

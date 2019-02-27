@@ -12,9 +12,10 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
+ms.lastreviewed: 01/14/2019
 ---
 
 # Quickstart: create a Windows Server virtual machine by using Azure CLI in Azure Stack
@@ -67,7 +68,7 @@ When the VM is created, the **PublicIPAddress** parameter in the output contains
 
 Because this VM is going to run the IIS web server, you need to open port 80 to Internet traffic.
 
-Use the [az vm open-port](/cli/azure/vm#open-port) command to open port 80.
+Use the [az vm open-port](/cli/azure/vm) command to open port 80.
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM

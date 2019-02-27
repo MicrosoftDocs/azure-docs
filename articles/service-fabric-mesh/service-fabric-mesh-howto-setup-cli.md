@@ -3,8 +3,8 @@ title: Set up the Azure Service Fabric Mesh CLI | Microsoft Docs
 description: Learn how to set up the Azure Service Fabric Mesh CLI.
 services: service-fabric-mesh
 keywords:  
-author: tylermsft
-ms.author: twhitney
+author: dkkapur
+ms.author: dekapur
 ms.date: 11/28/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh

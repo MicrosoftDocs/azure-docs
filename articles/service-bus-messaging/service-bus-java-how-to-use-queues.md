@@ -3,8 +3,9 @@ title: How to use Azure Service Bus queues with Java | Microsoft Docs
 description: Learn how to use Service Bus queues in Azure. Code samples written in Java.
 services: service-bus-messaging
 documentationcenter: java
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 
 ms.assetid: f701439c-553e-402c-94a7-64400f997d59
 ms.service: service-bus-messaging
@@ -13,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 09/13/2018
-ms.author: spelluru
+ms.author: aschhab
 
 ---
 # How to use Service Bus queues with Java
@@ -26,10 +27,8 @@ This article describes how to use Service Bus queues. The samples are written in
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## Create a Service Bus namespace
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## Create a Service Bus queue
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## Configure your application to use Service Bus
@@ -105,7 +104,7 @@ public void run() throws Exception {
 
 ```
 
-Messages sent to, and received from Service Bus queues are instances of the [Message](/java/api/com.microsoft.azure.servicebus._message?view=azure-java-stable) class. Message objects have a set of standard properties (such as Label and TimeToLive), a dictionary that is used to hold custom application-specific properties, and a body of arbitrary application data. An application can set the body of the message by passing any serializable object into the constructor of the Message, and the appropriate serializer will then be used to serialize the object. Alternatively, you can provide a **java.IO.InputStream** object.
+Messages sent to, and received from Service Bus queues are instances of the [Message](/java/api/com.microsoft.azure.servicebus.message?view=azure-java-stable) class. Message objects have a set of standard properties (such as Label and TimeToLive), a dictionary that is used to hold custom application-specific properties, and a body of arbitrary application data. An application can set the body of the message by passing any serializable object into the constructor of the Message, and the appropriate serializer will then be used to serialize the object. Alternatively, you can provide a **java.IO.InputStream** object.
 
 
 Service Bus queues support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have

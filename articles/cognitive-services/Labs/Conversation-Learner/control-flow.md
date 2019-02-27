@@ -6,7 +6,7 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
@@ -36,4 +36,4 @@ This document describes the control flow of the Conversation Learner (CL) as dis
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to teach with Conversation Learner ](./how-to-teach-cl.md)
+> [How to teach with Conversation Learner](./how-to-teach-cl.md)

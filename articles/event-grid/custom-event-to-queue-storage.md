@@ -3,9 +3,9 @@ title: Send custom events to storage queue - Event Grid, Azure CLI
 description: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. A storage queue is used for the endpoint. 
 services: event-grid 
 keywords: 
-author: tfitzmac
-ms.author: tomfitz
-ms.date: 12/07/2018
+author: spelluru
+ms.author: spelluru
+ms.date: 01/07/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
@@ -18,9 +18,12 @@ Azure Event Grid is an eventing service for the cloud. Azure Queue storage is on
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Install preview feature
+If you are using Azure CLI or Azure PowerShell on your local machine instead of using Cloud Shell in the Azure portal, ensure that you have the following versions of Azure CLI and Azure PowerShell. 
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
+- Azure CLI version 2.0.56 or greater. For instructions on installing the latest version of Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
+- Azure PowerShell version 1.1.0 or greater. Download the latest version of Azure PowerShell on your Windows machine from [Azure downloads - Command-line tools](https://azure.microsoft.com/downloads/). 
+
+This article gives you commands for using Azure CLI. 
 
 ## Create a resource group
 
@@ -41,10 +44,6 @@ az group create --name gridResourceGroup --location westus2
 An event grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<topic_name>` with a unique name for your custom topic. The event grid topic name must be unique because it's represented by a DNS entry.
 
 ```azurecli-interactive
-# if you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 ```
 

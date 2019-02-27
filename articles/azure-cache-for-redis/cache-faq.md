@@ -1,16 +1,16 @@
 ---
 title: Azure Cache for Redis FAQ | Microsoft Docs
 description: Learn the answers to common questions, patterns and best practices for Azure Cache for Redis
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
 author: yegu-ms
-manager: cfowler
+manager: jhubbard
 editor: ''
 
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
@@ -116,7 +116,7 @@ The following are considerations for choosing a Cache offering.
 <a name="cache-performance"></a>
 
 ### Azure Cache for Redis performance
-The following table shows the maximum bandwidth values observed while testing various sizes of Standard and Premium caches using `redis-benchmark.exe` from an Iaas VM against the Azure Cache for Redis endpoint. For SSL throughput, redis-benchmark is used with stunnel to connect to the Azure Cache for Redis endpoint.
+The following table shows the maximum bandwidth values observed while testing various sizes of Standard and Premium caches using `redis-benchmark.exe` from an IaaS VM against the Azure Cache for Redis endpoint. For SSL throughput, redis-benchmark is used with stunnel to connect to the Azure Cache for Redis endpoint.
 
 >[!NOTE] 
 >These values are not guaranteed and there is no SLA for these numbers, but should be typical. You should load test your own application to determine the right cache size for your application.

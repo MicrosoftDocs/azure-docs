@@ -153,7 +153,7 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/1
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-You can track the progress of a restore with [TrackRestoreProgress](service-fabric-backup-restore-service-trigger-restore.md#tracking-restore-progress).
+You can track the progress of a restore with TrackRestoreProgress.
 
 ### Data restore for _data corruption_/_data loss_
 
@@ -193,7 +193,7 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/9
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-You can track the restore progress by using [TrackRestoreProgress](service-fabric-backup-restore-service-trigger-restore.md#tracking-restore-progress).
+You can track the restore progress by using TrackRestoreProgress.
 
 ## Track restore progress
 
@@ -226,7 +226,7 @@ The restore request progresses in the following order:
     ```
     
 3. **Success**, **Failure**, or **Timeout**: A requested restore can be completed in any of the following states. Each state has the following significance and response details:
-    - **Success**: A _Success_ restore state indicates a regained  partition state. The partition reports _RestoreEpoch_ and _RestordLSN_ states along with the time in UTC.
+    - **Success**: A _Success_ restore state indicates a regained  partition state. The partition reports _RestoredEpoch_ and _RestoredLSN_ states along with the time in UTC.
 
         ```
         RestoreState  : Success

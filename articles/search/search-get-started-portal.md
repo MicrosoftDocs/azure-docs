@@ -1,13 +1,13 @@
 ---
 title: Indexing and query quickstart tutorial using Azure portal - Azure Search
-description: In this quickstart tutorial, use the Azure portal and built-in sample data to generate an index in Azure Search. Explore full text search, filters, facets, fuzzy search, geosearch, and more.
+description: Learn how to build and query your first index in Azure Search using built-in sample data and the Import Data wizard in the Azure portal. 
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
 #Customer intent: As a developer, I want a low-impact introduction to index design.
@@ -43,7 +43,7 @@ Many customers start with the free service. This version is limited to three ind
 
 Sections on the service dashboard show how many indexes, indexers, and data sources you already have. 
 
-![Lists of indexes, indexers, and datasources][media/search-get-started-portal/tiles-indexers-datasources2.png]
+![Lists of indexes, indexers, and datasources](media/search-get-started-portal/tiles-indexers-datasources2.png)
 
 ## <a name="create-index"></a> Create an index and load data
 
@@ -78,7 +78,7 @@ We'll skip this step for now, and move directly on to **Customize target index**
 
 ### Step 3 - Configure index
 
-Typically, index creation is a code-based exercise, completed prior to loading data. However, as this tutorial indicates, the wizard can generate a basic index for any data source it can crawl. Minimally, an index requires a name and a fields collection; one of the fields should be marked as the document key to uniquely identify each document. Additionally, you can specify language analyzers or suggesters if you want auto-complete or suggested queries.
+Typically, index creation is a code-based exercise, completed prior to loading data. However, as this tutorial indicates, the wizard can generate a basic index for any data source it can crawl. Minimally, an index requires a name and a fields collection; one of the fields should be marked as the document key to uniquely identify each document. Additionally, you can specify language analyzers or suggesters if you want autocomplete or suggested queries.
 
 Fields have data types and attributes. The check boxes across the top are *index attributes* controlling how the field is used.
 
@@ -89,15 +89,17 @@ Fields have data types and attributes. The check boxes across the top are *index
 
 Storage requirements do not vary as a result of your selection. For example, if you set the **Retrievable** attribute on multiple fields, storage requirements do not go up.
 
-By default, the wizard scans the data source for unique identifiers as the basis for the key field. Strings are attributed as retrievable and searchable. Integers are attributed as retrievable, filterable, sortable, and facetable.
+By default, the wizard scans the data source for unique identifiers as the basis for the key field. *Strings* are attributed as **Retrievable** and **Searchable**. *Integers* are attributed as **Retrievable**, **Filterable**, **Sortable**, and **Facetable**.
 
-1. Accept all of the defaults.
+1. Accept the defaults. 
 
-  ![Generated realestate index](media/search-get-started-portal/realestateindex2.png)
+   If you rerun the wizard a second time using an existing realestate data source, the index won't be configured with default attributes. You'll have to manually select attributes on future imports.
+
+   ![Generated realestate index](media/search-get-started-portal/realestateindex2.png)
 
 2. Continue to the next page.
 
-  ![Next page create indexer](media/search-get-started-portal/next-button-create-indexer.png)
+   ![Next page create indexer](media/search-get-started-portal/next-button-create-indexer.png)
 
 ### Step 4 - Configure indexer
 
@@ -120,9 +122,13 @@ It can take a few minutes for the portal to update the page, but you should see 
 
 ## View the index
 
-The **Indexes** list shows existing indexes, including the *realestate-us-sample* index that you just created in the wizard.
+The main service page provides links to the resources created in your Azure Search service.  To view the index you just created, click **Indexes** from the list of links. 
 
-From this list, you can view the index schema and optionally add new fields, but you cannot change existing fields. Existing fields have a physical representation in Azure Search and are thus non-modifiable, not even in code. To fundamentally change an existing field, create a new index, dropping the original.
+   ![Indexes list on the service dashboard](media/search-get-started-portal/indexes-list.png)
+
+From this list, you can click on the *realestate-us-sample* index that you just created, view the index schema. and optionally add new fields. 
+
+The **Fields** tab shows the index schema. Scroll to the bottom of the list to enter a new field. In most cases, you cannot change existing fields. Existing fields have a physical representation in Azure Search and are thus non-modifiable, not even in code. To fundamentally change an existing field, create a new index, dropping the original.
 
    ![sample index definition](media/search-get-started-portal/sample-index-def.png)
 
@@ -133,6 +139,8 @@ To clearly understand what you can and cannot edit during index design, take a m
 ## <a name="query-index"></a> Query using Search explorer
 
 Moving forward, you should now have a search index that's ready to query using the built-in [**Search explorer**](search-explorer.md) query page. It provides a search box so that you can test arbitrary query strings.
+
+**Search explorer** is only equipped to handle [REST API requests](https://docs.microsoft.com/rest/api/searchservice/search-documents), but it accepts syntax for both [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus all the search parameters available in [Search Document REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) operations.
 
 > [!TIP]
 > The following steps are demonstrated at 6m08s into the [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
@@ -146,11 +154,9 @@ Moving forward, you should now have a search index that's ready to query using t
 
    ![Index and API commands](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 
-3. In the search bar, enter the query strings below and click **Search**.
+3. In the search bar, paste in the query strings below and click **Search**.
 
-    > [!NOTE]
-    > **Search explorer** is only equipped to handle [REST API requests](https://docs.microsoft.com/rest/api/searchservice/search-documents). It accepts syntax for both [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus all the search parameters available in [Search Document](https://docs.microsoft.com/rest/api/searchservice/search-documents) operations.
-    >
+   ![Query string and search button](media/search-get-started-portal/search-explorer-query-string-example.png)
 
 ## Example queries
 

@@ -4,7 +4,7 @@ description: This quickstart shows you how to provision the Microsoft Monitoring
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e

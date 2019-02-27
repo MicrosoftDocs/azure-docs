@@ -22,7 +22,7 @@ To automatically deploy your virtual network gateways across availability zones,
 <br>
 <br>
 
-![zone-redunant gateways graphic](./media/create-zone-redundant-vnet-gateway/zonered.png)
+![zone-redundant gateways graphic](./media/create-zone-redundant-vnet-gateway/zonered.png)
 
 ### <a name="zgw"></a>Zonal gateways
 

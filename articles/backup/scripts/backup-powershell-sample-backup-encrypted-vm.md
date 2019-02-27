@@ -5,15 +5,9 @@ services: backup
 documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor:
-tags:
-
-ms.assetid:
 ms.service: backup
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/07/2017
+ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
 ---

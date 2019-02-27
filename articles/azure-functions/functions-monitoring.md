@@ -11,11 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
+#Customer intent: As a developer, I want to be able to monitor the status of my functions so that I can respond to any errors that occur and make improvements to my applications.
 ---
 
 # Monitor Azure Functions
 
-[Azure Functions](functions-overview.md) offers built-in integration with [Azure Application Insights](../application-insights/app-insights-overview.md) for monitoring functions. This article shows how to configure Functions to send system-generated log files to Application Insights.
+[Azure Functions](functions-overview.md) offers built-in integration with [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) for monitoring functions. This article shows how to configure Functions to send system-generated log files to Application Insights.
 
 ![Application Insights Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
@@ -409,7 +410,7 @@ Here's a sample JSON representation of `customDimensions` data:
 In C# script functions, you can use the `LogMetric` extension method on `ILogger` to create custom metrics in Application Insights. Here's a sample method call:
 
 ```csharp
-logger.LogMetric("TestMetric", 1234); 
+logger.LogMetric("TestMetric", 1234);
 ```
 
 This code is an alternative to calling `TrackMetric` using [the Application Insights API for .NET](#custom-telemetry-in-c-functions).
@@ -424,10 +425,10 @@ context.log('JavaScript HTTP trigger function processed a request.' + context.in
 
 ### Logging custom metrics  
 
-In Node.js functions, you can use the `context.log.metric` method to create custom metrics in Application Insights. Here's a sample method call:
+When running on [version 1.x](functions-versions.md#creating-1x-apps) of the Functions runtime, Node.js functions can use the `context.log.metric` method to create custom metrics in Application Insights. This method is not currently supported in version 2.x. Here's a sample method call:
 
 ```javascript
-context.log.metric("TestMetric", 1234); 
+context.log.metric("TestMetric", 1234);
 ```
 
 This code is an alternative to calling `trackMetric` using [the Node.js SDK for Application Insights](#custom-telemetry-in-javascript-functions).
@@ -575,7 +576,7 @@ namespace functionapp0915
             telemetryClient.TrackDependency(dependency);
         }
         
-        // This correllates all telemetry with the current Function invocation
+        // This correlates all telemetry with the current Function invocation
         private static void UpdateTelemetryContext(TelemetryContext context, ExecutionContext functionContext, string userName)
         {
             context.Operation.Id = functionContext.InvocationId.ToString();
@@ -653,17 +654,17 @@ For the Azure CLI,  use the following commands to sign in, choose your subscript
 ```azurecli
 az login
 az account list
-az account set <subscriptionNameOrId>
+az account set --subscription <subscriptionNameOrId>
 az webapp log tail --resource-group <resource group name> --name <function app name>
 ```
 
 For Azure PowerShell, use the following commands to add your Azure account, choose your subscription, and stream log files:
 
 ```powershell
-PS C:\> Add-AzureAccount
-PS C:\> Get-AzureSubscription
-PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-AzureSubscription
-PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
+Add-AzAccount
+Get-AzSubscription
+Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscription
+Get-AzWebSiteLog -Name <function app name> -Tail
 ```
 
 For more information, see [How to stream logs](../app-service/troubleshoot-diagnostic-logs.md#streamlogs).

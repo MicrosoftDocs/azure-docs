@@ -3,7 +3,7 @@ title: Overview of autoscale with Azure virtual machine scale sets | Microsoft D
 description: Learn about the different ways that you can automatically scale an Azure virtual machine scale set based on performance or on a fixed schedule
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -118,7 +118,7 @@ For more information, see the articles for how to enable the Azure diagnostics e
 ## Application-level metrics with App Insights
 To gain more visibility in to the performance of your applications, you can use Application Insights. You install a small instrumentation package in your application that monitors the app and sends telemetry to Azure. You can monitor metrics such as the response times of your application, the page load performance, and the session counts. These application metrics can be used to create autoscale rules at a granular and embedded level as you trigger rules based on actionable insights that may impact the customer experience.
 
-For more information about App Insights, see [What is Application Insights](../application-insights/app-insights-overview.md).
+For more information about App Insights, see [What is Application Insights](../azure-monitor/app/app-insights-overview.md).
 
 
 ## Scheduled autoscale

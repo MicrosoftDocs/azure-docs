@@ -24,6 +24,8 @@ Azure API Management can be deployed inside the virtual network (VNET), so it ca
 > [!NOTE]
 > Azure API Management supports both classic and Azure Resource Manager VNets.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## Prerequisites
@@ -81,9 +83,9 @@ To perform the steps described in this article, you must have:
 ## <a name="enable-vnet-powershell"> </a>Enable VNET connection using PowerShell cmdlets
 You can also enable VNET connectivity using the PowerShell cmdlets
 
-* **Create an API Management service inside a VNET**: Use the cmdlet [New-AzureRmApiManagement](/powershell/module/azurerm.apimanagement/new-azurermapimanagement) to create an Azure API Management service inside a VNET.
+* **Create an API Management service inside a VNET**: Use the cmdlet [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) to create an Azure API Management service inside a VNET.
 
-* **Deploy an existing API Management service inside a VNET**: Use the cmdlet [Update-AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) to move an existing Azure API Management service inside a Virtual Network.
+* **Deploy an existing API Management service inside a VNET**: Use the cmdlet [Update-AzApiManagementDeployment](/powershell/module/az.apimanagement/update-azapimanagementdeployment) to move an existing Azure API Management service inside a Virtual Network.
 
 ## <a name="connect-vnet"> </a>Connect to a web service hosted within a virtual Network
 After your API Management service is connected to the VNET, accessing backend services within it is no different than accessing public services. Just type in the local IP address or the host name (if a DNS server is configured for the VNET) of your web service into the **Web service URL** field when creating a new API or editing an existing one.
@@ -123,11 +125,11 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 >[!IMPORTANT]
 > The Ports for which the *Purpose* is **bold** are required for API Management service to be deployed successfully. Blocking the other ports however will cause degradation in the ability to use and monitor the running service.
 
-* **SSL functionality**: To enable SSL certificate chain building and validation the API Management service needs Outbound network connectivity to ocsp.msocsp.com, mscrl.microsoft.com and crl.microsoft.com. This dependency is not required, if any certificate you upload to API Management contain the full chain to the CA root.
++ **SSL functionality**: To enable SSL certificate chain building and validation the API Management service needs Outbound network connectivity to ocsp.msocsp.com, mscrl.microsoft.com and crl.microsoft.com. This dependency is not required, if any certificate you upload to API Management contain the full chain to the CA root.
 
-* **DNS Access**: Outbound access on port 53 is required for communication with DNS servers. If a custom DNS server exists on the other end of a VPN gateway, the DNS server must be reachable from the subnet hosting API Management.
++ **DNS Access**: Outbound access on port 53 is required for communication with DNS servers. If a custom DNS server exists on the other end of a VPN gateway, the DNS server must be reachable from the subnet hosting API Management.
 
-* **Metrics and Health Monitoring**: Outbound network connectivity to Azure Monitoring endpoints, which resolve under the following domains: 
++ **Metrics and Health Monitoring**: Outbound network connectivity to Azure Monitoring endpoints, which resolve under the following domains: 
 
     | Azure Environment | Endpoints                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -135,17 +137,22 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
     | Azure China       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
 
-* **SMTP Relay**: Outbound network connectivity for the SMTP Relay, which resolves under the host `ies.global.microsoft.com`.
++ **SMTP Relay**: Outbound network connectivity for the SMTP Relay, which resolves under the host `ies.global.microsoft.com`.
 
-* **Azure portal Diagnostics**: To enable the flow of diagnostic logs from Azure portal when using the API Management extension from inside a Virtual Network, outbound access to `dc.services.visualstudio.com` on port 443 is required. This helps in troubleshooting issues you might face when using extension.
++ **Developer portal CAPTCHA**: Outbound network connectivity for the developer portal's CAPTCHA, which resolves under the host `client.hip.live.com`.
 
-* **Express Route Setup**: A common customer configuration is to define their own default route (0.0.0.0/0) which forces outbound Internet traffic to instead flow on-premises. This traffic flow invariably breaks connectivity with Azure API Management because the outbound traffic is either blocked on-premises, or NAT'd to an unrecognizable set of addresses that no longer work with various Azure endpoints. The solution is to define one (or more) user-defined routes ([UDRs][UDRs]) on the subnet that contains the Azure API Management. A UDR defines subnet-specific routes that will be honored instead of the default route.
-  If possible, it is recommended to use the following configuration:
- * The ExpressRoute configuration advertises 0.0.0.0/0 and by default force tunnels all outbound traffic on-premises.
- * The UDR applied to the subnet containing the Azure API Management defines 0.0.0.0/0 with a next hop type of Internet.
- The combined effect of these steps is that the subnet level UDR takes precedence over the ExpressRoute forced tunneling, thus ensuring outbound Internet access from the Azure API Management.
++ **Azure portal Diagnostics**: To enable the flow of diagnostic logs from Azure portal when using the API Management extension from inside a Virtual Network, outbound access to `dc.services.visualstudio.com` on port 443 is required. This helps in troubleshooting issues you might face when using extension.
 
-* **Routing through network virtual appliances**: Configurations that use a UDR with a default route (0.0.0.0/0) to route internet destined traffic from the API Management subnet through a network virtual appliance running in Azure will block management traffic coming from Internet to the API Management service instance deployed inside the virtual network subnet. This configuration is not supported.
++ **Express Route Setup**: A common customer configuration is to define their own default route (0.0.0.0/0) which forces outbound Internet traffic to instead flow on-premises. This traffic flow invariably breaks connectivity with Azure API Management because the outbound traffic is either blocked on-premises, or NAT'd to an unrecognizable set of addresses that no longer work with various Azure endpoints. The solution is to define one (or more) user-defined routes ([UDRs][UDRs]) on the subnet that contains the Azure API Management. A UDR defines subnet-specific routes that will be honored instead of the default route.
+
+    If possible, it is recommended to use the following configuration:
+
+     * The ExpressRoute configuration advertises 0.0.0.0/0 and by default force tunnels all outbound traffic on-premises.
+     * The UDR applied to the subnet containing the Azure API Management defines 0.0.0.0/0 with a next hop type of Internet.
+
+    The combined effect of these steps is that the subnet level UDR takes precedence over the ExpressRoute forced tunneling, thus ensuring outbound Internet access from the Azure API Management.
+
++ **Routing through network virtual appliances**: Configurations that use a UDR with a default route (0.0.0.0/0) to route internet destined traffic from the API Management subnet through a network virtual appliance running in Azure will block management traffic coming from Internet to the API Management service instance deployed inside the virtual network subnet. This configuration is not supported.
 
 >[!WARNING]
 >Azure API Management is not supported with ExpressRoute configurations that **incorrectly cross-advertise routes from the public peering path to the private peering path**. ExpressRoute configurations that have public peering configured, will receive route advertisements from Microsoft for a large set of Microsoft Azure IP address ranges. If these address ranges are incorrectly cross-advertised on the private peering path, the end result is that all outbound network packets from the Azure API Management instance's subnet are incorrectly force-tunneled to a customer's on-premises network infrastructure. This network flow breaks Azure API Management. The solution to this problem is to stop cross-advertising routes from the public peering path to the private peering path.

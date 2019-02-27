@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2018l
+ms.date: 11/28/2018
 ms.author: magoedte
 ---
 

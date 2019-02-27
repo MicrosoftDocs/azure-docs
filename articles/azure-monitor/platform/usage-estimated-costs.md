@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
-ms.component: ""
+ms.subservice: ""
 ---
 # Monitoring usage and estimated costs
 
@@ -67,7 +67,7 @@ There's another change to data ingested into Log Analytics or Application Insigh
 
 ## New pricing model and Operations Management Suite subscription entitlements
 
-Customers who purchased Microsoft Operations Management Suite E1 and E2 are eligible for per-node data ingestion entitlements for [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) and [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing#the-price-plans). To receive these entitlements for Log Analytics workspaces or Application Insights resources in a given subscription: 
+Customers who purchased Microsoft Operations Management Suite E1 and E2 are eligible for per-node data ingestion entitlements for [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) and [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing). To receive these entitlements for Log Analytics workspaces or Application Insights resources in a given subscription: 
 
 - The subscription's pricing model must remain in the pre-April 2018 model.
 - Log Analytics workspaces should use the "Per-node (OMS)" pricing tier.
@@ -106,7 +106,7 @@ To move a subscription to the new pricing model, just select the box and then se
 
 ## Automate moving to the new pricing model
 
-The scripts below require the Azure PowerShell Module. To check if you have the latest version see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.1.0).
+The scripts below require the Azure PowerShell Module. To check if you have the latest version see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.1.0).
 
 Once you have the latest version of Azure PowerShell, you would first need to run ``Connect-AzureRmAccount``.
 

@@ -4,16 +4,17 @@ description: This FAQ answers questions about Azure AD Connect Health. This FAQ 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: f1b851aa-54d7-4cb4-8f5c-60680e2ce866
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect Health frequently asked questions
 This article includes answers to frequently asked questions (FAQs) about Azure Active Directory (Azure AD) Connect Health. These FAQs cover questions about how to use the service, which includes the billing model, capabilities, limitations, and support.
@@ -56,7 +57,7 @@ Example:
 
 **Q: Does Azure AD Connect Health support Azure Germany Cloud?**
 
-Azure AD Connect Health is not supported in Germany Cloud except for the [sync errors report feature](how-to-connect-health-sync.md#object-level-synchronization-error-report). 
+Azure AD Connect Health is not supported in Germany Cloud except for the [sync errors report feature](how-to-connect-health-sync.md#object-level-synchronization-error-report).
 
 | Roles | Features | Supported in German Cloud |
 | ------ | --------------- | --- |
@@ -65,7 +66,7 @@ Azure AD Connect Health is not supported in Germany Cloud except for the [sync e
 | Connect Health for ADFS | Monitoring / Insight / Alerts / Analysis | No |
 | Connect Health for ADDS | Monitoring / Insight / Alerts / Analysis | No |
 
-To ensure the agent connectivity of Connect Health for sync, please configure the [installation requirement](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) accordingly.   
+To ensure the agent connectivity of Connect Health for sync, please configure the [installation requirement](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) accordingly.
 
 ## Installation questions
 
@@ -157,7 +158,7 @@ Azure AD Connect Health service scanned all the machines it monitors to ensure t
 
 You can use the following PowerShell script to perform this check manually. It implements the above logic.
 
-```
+```powershell
 Function CheckForMS17-010 ()
 {
     $hotfixes = "KB3205409", "KB3210720", "KB3210721", "KB3212646", "KB3213986", "KB4012212", "KB4012213", "KB4012214", "KB4012215", "KB4012216", "KB4012217", "KB4012218", "KB4012220", "KB4012598", "KB4012606", "KB4013198", "KB4013389", "KB4013429", "KB4015217", "KB4015438", "KB4015546", "KB4015547", "KB4015548", "KB4015549", "KB4015550", "KB4015551", "KB4015552", "KB4015553", "KB4015554", "KB4016635", "KB4019213", "KB4019214", "KB4019215", "KB4019216", "KB4019263", "KB4019264", "KB4019472", "KB4015221", "KB4019474", "KB4015219", "KB4019473"
@@ -184,7 +185,7 @@ CheckForMS17-010
 
 **Q: Why are my ADFS audits not being generated?**
 
-Please use PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i> to ensure audit logs is not in disabled state. Read more about [ADFS audit logs](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Notice if there are advanced audit settings pushed to the ADFS server, any changes with auditpol.exe will be overwritten (event if Application Generated is not configured). In this case, please set the local security policy to log Application Generated failures and success. 
+Please use PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i> to ensure audit logs is not in disabled state. Read more about [ADFS audit logs](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Notice if there are advanced audit settings pushed to the ADFS server, any changes with auditpol.exe will be overwritten (event if Application Generated is not configured). In this case, please set the local security policy to log Application Generated failures and success.
 
 
 ## Related links

@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
-ms.component: autoscale
+ms.subservice: autoscale
 ---
 # Use autoscale actions to send email and webhook alert notifications in Azure Monitor
 This article shows you how set up triggers so that you can call specific web URLs or send emails based on autoscale actions in Azure.  
@@ -114,3 +114,4 @@ When the autoscale notification is generated, the following metadata is included
 | oldCapacity |Yes |The current (old) instance count when Autoscale took a scale action |
 | newCapacity |Yes |The new instance count that Autoscale scaled the resource to |
 | Properties |No |Optional. Set of <Key, Value> pairs (for example,  Dictionary <String, String>). The properties field is optional. In a custom user interface  or Logic app based workflow, you can enter keys and values that can be passed using the payload. An alternate way to pass custom properties back to the outgoing webhook call is to use the webhook URI itself (as query parameters) |
+

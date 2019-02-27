@@ -12,9 +12,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/18/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
+ms.reviewer: anajod
+ms.lastreviewed: 01/25/2019
 ---
 
 # Tutorial: Deploy a hybrid cloud solution with Azure and Azure Stack
@@ -73,7 +74,7 @@ Before you start this tutorial, make sure you can meet the following requirement
 
 2. On the **Dashboard**, select **Marketplace**.
 
-    ![Auzure Stack Marketplace](media/azure-stack-solution-hybrid-cloud/image1.png)
+    ![Azure Stack Marketplace](media/azure-stack-solution-hybrid-cloud/image1.png)
 
 3. In **Marketplace**, select **Compute**, and then choose **More**. Under **More**, select the **Free SQL Server License: SQL Server 2017 Developer on Windows Server** image.
 

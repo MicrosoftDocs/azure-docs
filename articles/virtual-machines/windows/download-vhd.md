@@ -20,7 +20,7 @@ ms.author: cynthn
 
 # Download a Windows VHD from Azure
 
-In this article, you learn how to download a [Windows virtual hard disk (VHD)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) file from Azure using the Azure portal. 
+In this article, you learn how to download a Windows virtual hard disk (VHD) file from Azure using the Azure portal.
 
 ## Stop the VM
 

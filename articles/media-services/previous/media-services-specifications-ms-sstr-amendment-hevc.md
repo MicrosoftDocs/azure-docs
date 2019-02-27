@@ -1,10 +1,10 @@
 ---
 title: Azure Media Services - Smooth Streaming Protocol (MS-SSTR) Amendment for HEVC | Microsoft Docs
-description: This specification describes the protocol and format for fragmented MP4-based live streaming with HEVC in Azure Media Services. This is an amendment to the Smooth Streaming protocol documentaiton (MS-SSTR) to include support for HEVC ingest and streaming. Only the changes required to deliver HEVC are specified in this article, except were “(No Change)” indicates text is copied for clarification only.
+description: This specification describes the protocol and format for fragmented MP4-based live streaming with HEVC in Azure Media Services. This is an amendment to the Smooth Streaming protocol documentation (MS-SSTR) to include support for HEVC ingest and streaming. Only the changes required to deliver HEVC are specified in this article, except were “(No Change)” indicates text is copied for clarification only.
 services: media-services
 documentationcenter: ''
 author: cenkdin
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: f27d85de-2cb8-4269-8eed-2efb566ca2c6
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 02/08/2019
 ms.author: johndeu;
 
 ---
-# Smooth Streaming Protocol (MS-SSTR) Amendment for HEVC
+# Smooth Streaming Protocol (MS-SSTR) Amendment for HEVC 
 
 ## 1 Introduction 
 
@@ -121,26 +121,22 @@ or more **samples**.
 >   [RFC-6381] IETF RFC-6381, “The 'Codecs' and 'Profiles' Parameters for
 >   "Bucket" Media Types” <http://tools.ietf.org/html/rfc6381>
 
->   [MPEG4-RA] The MP4 Registration Authority, "MP4REG", [http://www.mp4ra.org
->   ](https://go.microsoft.com/fwlink/?LinkId=327787)
+>   [MPEG4-RA] The MP4 Registration Authority, "MP4REG", [http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
 
 >   [RFC2119] Bradner, S., "Key words for use in RFCs to Indicate Requirement
 >   Levels", BCP 14, RFC 2119, March 1997,
->   [http://www.rfc-editor.org/rfc/rfc2119.txt
->   ](https://go.microsoft.com/fwlink/?LinkId=90317)
+>   [http://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
 
 ### 1.2.2 Informative References 
 
 >   [MS-GLOS] Microsoft Corporation, "*Windows Protocols Master Glossary*."
 
 >   [RFC3548] Josefsson, S., Ed., "The Base16, Base32, and Base64 Data
->   Encodings", RFC 3548, July 2003, [http://www.ietf.org/rfc/rfc3548.txt
->   ](https://go.microsoft.com/fwlink/?LinkId=90432)
+>   Encodings", RFC 3548, July 2003, [http://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
 
 >   [RFC5234] Crocker, D., Ed., and Overell, P., "Augmented BNF for Syntax
 >   Specifications: ABNF", STD 68, RFC 5234, January 2008,
->   [http://www.rfc-editor.org/rfc/rfc5234.txt
->   ](https://go.microsoft.com/fwlink/?LinkId=123096)
+>   [http://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
 
 
 ## 1.3 Overview 
@@ -166,8 +162,7 @@ or more **samples**.
 >   * **Custom Descriptive Codes for Media Formats:** This capability is
 >   provided by the **FourCC** field, as specified in section *2.2.2.5*.
 >   Implementers can ensure that extensions do not conflict by registering
->   extension codes with the MPEG4-RA, as specified in [[ISO/IEC-14496-12]
->   ](https://go.microsoft.com/fwlink/?LinkId=183695)
+>   extension codes with the MPEG4-RA, as specified in [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695)
 
 ## 1.9 Standards Assignments 
 

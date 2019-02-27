@@ -164,7 +164,7 @@ In addition to the virtual array and other components, the StorSimple solution u
 
 * [Automatic storage tiering](#automatic-storage-tiering) 
 * [Locally pinned shares and volumes](#locally-pinned-shares-and-volumes)
-* [Deduplication and compression for data tiered or backed up to the cloud](#deduplication-and-compression-for-data-tiered/backed-up-to-the-cloud) 
+* Deduplication and compression for data tiered or backed up to the cloud 
 * [Scheduled and on-demand backups](#scheduled-and-on-demand-backups)
 
 ### Automatic storage tiering

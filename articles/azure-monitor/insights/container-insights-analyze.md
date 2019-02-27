@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 02/08/2019
 ms.author: magoedte
 ---
 
@@ -93,6 +93,8 @@ The performance chart displays four performance metrics:
 - **Node count**: A node count and status from Kubernetes. Statuses of the cluster nodes represented are *All*, *Ready*, and *Not Ready* and can be filtered individually or combined in the selector above the chart. 
 - **Activity pod count**: A pod count and status from Kubernetes. Statuses of the pods represented are *All*, *Pending*, *Running*, and *Unknown* and can be filtered individually or combined in the selector above the chart. 
 
+You can use the left/right arrow keys to cycle through each data point on the chart and the up/down arrow keys to cycle through the percentile lines.
+
 When you switch to **Nodes**, **Controllers**, and **Containers** tab, automatically displayed on the right-side of the page is the property pane.  It shows the properties of the item selected, including labels you define to organize Kubernetes objects. Click on the **>>** link in the pane to view\hide the pane.  
 
 ![Example Kubernetes perspectives properties pane](./media/container-insights-analyze/perspectives-preview-pane-01.png)
@@ -124,7 +126,7 @@ By default, Performance data is based on the last six hours, but you can change 
 
 ![Percentile selection for data filtering](./media/container-insights-analyze/containers-metric-percentile-filter.png)
 
-When you mouse over the bar graph under the **Trend** column, each bar shows either CPU or memory usage, depending on which metric is selected, within a sample period of 15 minutes.  
+When you mouse over the bar graph under the **Trend** column, each bar shows either CPU or memory usage, depending on which metric is selected, within a sample period of 15 minutes. After you select the trend chart through a keyboard, you can use the Alt+PageUp or Alt+PageDown keys to cycle through each bar individually and get the same details as you would on mouseover.
 
 ![Trend bar chart hover example](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 
@@ -268,5 +270,5 @@ It's often useful to build queries that start with an example or two and then mo
 | **Select the Line chart display option**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Container CPU | 
 | **Select the Line chart display option**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Container memory |
 
-## Alerting
-Azure Monitor for containers does not include a predefined set of alerts that you can copy and modify according to your supporting processes and procedures. In the meantime, check out [create log alerts with Azure Monitor](../../azure-monitor/platform/alerts-log.md?toc=/azure/azure-monitor/toc.json) and learn how to create your own set of alerts.  
+## Next steps
+Azure Monitor for containers does not include a predefined set of alerts to copy and modify according to your supporting processes and procedures. Review the [Create performance alerts with Azure Monitor for containers](container-insights-alerts.md) to learn how to create recommended alerts for high CPU and memory utilization.  

@@ -5,7 +5,6 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ---
-<!--author=SharS last changed: 9/17/15-->
 
 #### To install regular hotfixes via Windows PowerShell for StorSimple
 1. Connect to the device serial console. For more information, see [Step 1: Connect to the serial console](../articles/storsimple/storsimple-update-device.md#step1).

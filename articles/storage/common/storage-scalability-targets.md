@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: rogarana
-ms.component: common
+ms.subservice: common
 ---
 
 # Azure Storage scalability and performance targets for standard storage accounts
 
-This article details the scalability and performance targets for standard Azure storage accounts. The scalability and performance targets listed here are high-end targets, but are achievable. In all cases, the request rate and bandwidth achieved by your storage account depends upon the size of objects stored, the access patterns utilized, and the type of workload your application performs. 
+This article details the scalability and performance targets for Azure storage accounts. The scalability and performance targets listed here are high-end targets, but are achievable. In all cases, the request rate and bandwidth achieved by your storage account depends upon the size of objects stored, the access patterns utilized, and the type of workload your application performs. 
 
 Be sure to test your service to determine whether its performance meets your requirements. If possible, avoid sudden spikes in the rate of traffic and ensure that traffic is well-distributed across partitions.
 
@@ -21,7 +21,10 @@ When your application reaches the limit of what a partition can handle for your 
 ## Standard storage account scale limits
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
-## Storage resource provider scale limits 
+## Premium storage account scale limits
+[!INCLUDE [azure-premium-limits](../../../includes/azure-storage-limits-premium.md)]
+
+## Storage resource provider scale limits
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 

@@ -49,6 +49,9 @@ The following table lists the prerequisites that you need to complete before sta
 
 Before you begin the tutorial, you need to [Complete prerequisites for creating Always On Availability Groups in Azure Virtual Machines](virtual-machines-windows-portal-sql-availability-group-prereq.md). If these prerequisites are completed already, you can jump to [Create Cluster](#CreateCluster).
 
+  >[!NOTE]
+  > Many of the steps provided in this tutorial can now be automated with [Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) and [Azure Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
@@ -293,7 +296,7 @@ You are now ready to configure an Availability Group using the following steps:
 
     ![New AG Wizard, Select Initial Data Synchronization](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. In the **Select Initial Data Synchronization** page, select **Full** and specify a shared network location. For the location, use the [backup share that you created](#backupshare). In the example it was, **\\\\\<First SQL Server\>\Backup\**. Click **Next**.
+8. In the **Select Initial Data Synchronization** page, select **Full** and specify a shared network location. For the location, use the [backup share that you created](#backupshare). In the example it was, **\\\\\<First SQL Server\>\Backup\\**. Click **Next**.
 
    >[!NOTE]
    >Full synchronization takes a full backup of the database on the first instance of SQL Server and restores it to the second instance. For large databases, full synchronization is not recommended because it may take a long time. You can reduce this time by manually taking a backup of the database and restoring it with `NO RECOVERY`. If the database is already restored with `NO RECOVERY` on the second SQL Server before configuring the Availability Group, choose **Join only**. If you want to take the backup after configuring the Availability Group, choose **Skip initial data synchronization**.

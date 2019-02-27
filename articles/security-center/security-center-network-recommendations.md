@@ -4,7 +4,7 @@ description: This document addresses recommendations in Azure Security Center th
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 96c55a02-afd6-478b-9c1f-039528f3dea0
@@ -129,7 +129,7 @@ The third level displays virtual machines, which is similar to what is described
 |Machine|40|Enable Network Security Groups on virtual machines|Enable Network Security Groups to control network access of your virtual machines.|
 |Subnet|35|Enable network security groups on subnets |Enable network  security groups to control network access of resources deployed in your subnets.|
 |Machine|30|Apply a Just-In-Time network access control|Apply just in time VM access control to permanently lock down access to selected ports, and enable authorized users to open them via the same mechanism and for a limited amount of time.|
-|Machine|20|Restrict access through Internet facing endpoint|Harden the network security goups of your Internet facing VMs by restricting the access of your existing allow rules.|
+|Machine|20|Restrict access through Internet facing endpoint|Harden the network security groups of your Internet facing VMs by restricting the access of your existing allow rules.|
 |Machine|10|Add a next generation firewall|Add a Next Generation Firewall (NGFW) solution to better protect your internet facing VMs.|
 |Machine|5|Route traffic through network gateway firewall only|In order to complete the deployment of your next generation firewall solution, traffic to your protected internet facing VMs should be routed only via the next generation firewall solution.|
 |VNet|5|Enable DDoS protection standard|Applications with public IPs in these virtual networks are not protected with the DDOS protection service standard. It is advised to enable it to enable mitigation of network volumetric and protocol attacks.|

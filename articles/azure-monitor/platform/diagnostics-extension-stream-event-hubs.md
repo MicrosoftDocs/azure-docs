@@ -8,7 +8,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
-ms.component: diagnostic-extension
+ms.subservice: diagnostic-extension
 ---
 # Streaming Azure Diagnostics data in the hot path by using Event Hubs
 Azure Diagnostics provides flexible ways to collect metrics and logs from cloud services virtual machines (VMs) and transfer results to Azure Storage. Starting in the March 2016 (SDK 2.9) time frame, you can send Diagnostics to custom data sources and transfer hot path data in seconds by using [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -29,7 +29,7 @@ This article shows you how to configure Azure Diagnostics with Event Hubs from e
 * How to troubleshoot the connection  
 
 ## Prerequisites
-Event Hubs receieving data from Azure Diagnostics is supported in Cloud Services, VMs, Virtual Machine Scale Sets, and Service Fabric starting in the Azure SDK 2.9 and the corresponding Azure Tools for Visual Studio.
+Event Hubs receiving data from Azure Diagnostics is supported in Cloud Services, VMs, Virtual Machine Scale Sets, and Service Fabric starting in the Azure SDK 2.9 and the corresponding Azure Tools for Visual Studio.
 
 * Azure Diagnostics extension 1.6 ([Azure SDK for .NET 2.9 or later](https://azure.microsoft.com/downloads/) targets this by default)
 * [Visual Studio 2013 or later](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
@@ -509,3 +509,4 @@ You can learn more about Event Hubs by visiting the following links:
 
 <!-- Images. -->
 [0]: ../../event-hubs/media/event-hubs-streaming-azure-diags-data/dashboard.png
+

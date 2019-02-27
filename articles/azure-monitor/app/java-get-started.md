@@ -10,13 +10,13 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 01/31/2019
 ms.author: lagayhar
 ---
 # Get started with Application Insights in a Java web project
 
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/) is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Use it to [detect and diagnose performance issues and exceptions](../../azure-monitor/app/detect-triage-diagnose.md), and [write code][api] to track what users do with your app.
+[Application Insights](https://azure.microsoft.com/services/application-insights/) is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Use it to [automatically instrument request, track dependencies, and collect performance counters](auto-collect-dependencies.md#java), [diagnose performance issues and exceptions](../../azure-monitor/app/detect-triage-diagnose.md), and [write code][api] to track what users do with your app. 
 
 ![Screenshot of overview sample data](./media/java-get-started/overview-graphs.png)
 
@@ -26,8 +26,6 @@ You need:
 
 * JRE version 1.7 or 1.8
 * A subscription to [Microsoft Azure](https://azure.microsoft.com/).
-
-*If you have a web app that's already live, you could follow the alternative procedure to [add the SDK at runtime in the web server](java-live.md). That alternative avoids rebuilding the code, but you don't get the option to write code to track user activity.*
 
 If you prefer the Spring framework try the [configure a Spring Boot initializer app to use Application Insights guide](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
 
@@ -353,6 +351,14 @@ To collect data on other exceptions, you have two options:
 ## Monitor method calls and external dependencies
 [Install the Java Agent](java-agent.md) to log specified internal methods and calls made through JDBC, with timing data.
 
+## W3C distributed tracing
+
+The Application Insights Java SDK now supports [W3C distributed tracing](https://w3c.github.io/trace-context/).
+
+The incoming SDK configuration is explained further in our article on [correlation](correlation.md#w3c-distributed-tracing).
+
+Outgoing SDK configuration is defined in the [AI-Agent.xml](java-agent.md) file.
+
 ## Performance counters
 Open **Settings**, **Servers**, to see a range of performance counters.
 
@@ -427,7 +433,7 @@ Your performance counters are visible as custom metrics in [Metrics Explorer][me
 </Channel>
 ```
 
-If you are using SpringBoot starter, add the following to your configuration file (application.properies):
+If you are using SpringBoot starter, add the following to your configuration file (application.properties):
 
 ```yml
 azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->

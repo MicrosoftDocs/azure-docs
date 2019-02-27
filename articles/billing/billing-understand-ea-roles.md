@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2018
-ms.author: cwatson
+ms.author: banders
 ---
 # Understand Azure Enterprise Agreement administrative roles in Azure
 

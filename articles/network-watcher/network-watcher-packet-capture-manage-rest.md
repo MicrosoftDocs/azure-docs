@@ -207,11 +207,12 @@ The following response is an example of a typical response returned when queryin
 
 ```json
 {
-    "name": "vm1PacketCapture",     "id": "/subscriptions/{guid}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatche rName}/packetCaptures/{packetCaptureName}",
-   "captureStartTime" : "9/7/2016 12:35:24PM",
-   "packetCaptureStatus" : "Stopped",
-   "stopReason" : "TimeExceeded"
-   "packetCaptureError" : [ ]
+    "name": "vm1PacketCapture",
+    "id": "/subscriptions/{guid}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/packetCaptures/{packetCaptureName}",
+    "captureStartTime" : "9/7/2016 12:35:24PM",
+    "packetCaptureStatus" : "Stopped",
+    "stopReason" : "TimeExceeded",
+    "packetCaptureError" : [ ]
 }
 ```
 

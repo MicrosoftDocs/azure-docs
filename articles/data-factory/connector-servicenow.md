@@ -112,7 +112,7 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 Note the following when specifying the schema and column for ServiceNow in query, and **refer to [Performance tips](#performance-tips) on copy performance implication**.
 
 - **Schema:** specify the schema as `Actual` or `Display` in the ServiceNow query, which you can look at it as the parameter of `sysparm_display_value` as true or false when calling [ServiceNow restful APIs](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
-- **Column:** the column name for actual value under `Actual` schema is `[columne name]_value`, while for display value under `Display` schema is `[columne name]_display_value`. Note the column name need map to the schema being used in the query.
+- **Column:** the column name for actual value under `Actual` schema is `[column name]_value`, while for display value under `Display` schema is `[column name]_display_value`. Note the column name need map to the schema being used in the query.
 
 **Sample query:**
 `SELECT col_value FROM Actual.alm_asset`
