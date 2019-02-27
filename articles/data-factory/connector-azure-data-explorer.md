@@ -48,13 +48,13 @@ The Azure Data Explorer connector uses service principal authentication. Follow 
     - Application key
     - Tenant ID
 
-2. Grant the service principal proper permission in Azure Data Explorer. Refer to [Manage Azure Data Explorer database permissions](../data-explorer/manage-database-permissions.md) with detailed information on roles and permissions as well as walkthrough on managing permissions.
+2. Grant the service principal proper permission in Azure Data Explorer. Refer to [Manage Azure Data Explorer database permissions](../data-explorer/manage-database-permissions.md) with detailed information on roles and permissions as well as walkthrough on managing permissions. In general, you need to
 
-    - **As source**, grant at least **place-holder** role to your database.
-    - **As sink**, grant at least **place-holder** role to your database.
+    - **As source**, grant at least **Database viewer** role to your database.
+    - **As sink**, grant at least **Database ingestor** role to your database.
 
 >[!NOTE]
->When using ADF UI to author, to list databases on linked service or to list tables on dataset, you need to grant the service principal with **place-holder** permission. If you have concern on granting such higher privileged permission, you can choose to manually input database name and table name. Copy activity execution will work as long as the service principal is granted with proper permission to read/write the data as mentioned above.
+>When using ADF UI to author, the operations of listing databases on linked service or listing tables on dataset may require higher privileged permission granted for the service principal. Alternatively, you can choose to manually input database name and table name. Copy activity execution works as long as the service principal is granted with proper permission to read/write data.
 
 The following properties are supported for Azure Data Explorer linked service:
 
@@ -173,7 +173,7 @@ To copy data to Azure Data Explorer, set the type property in the copy activity 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the copy activity sink must be set to: **AzureDataExplorerSink** | Yes |
-| ingestionMappingName | Name of a pre-created **[CSV mapping](/azure/kusto/management/mappings#csv-mapping)** on a Kusto table; JSON mapping and Avro mapping on Azure Data Explorer are not directly supported but you can still copy data from JSON/Avro files. To map the columns from source to Azure Data Explorer, you can use the Copy activity [column mapping](copy-activity-schema-and-type-mapping.md) which also co-works with Azure Data Explorer CSV mappings - copy activity maps/re-shapes data from source to sink based on column mapping settings, then maps data again based on ingestion mapping configuration if exists. It applies to [all supported source stores](copy-activity-overview.md#supported-data-stores-and-formats) including JSON and Avro formats. | No |
+| ingestionMappingName | Name of a pre-created **[CSV mapping](/azure/kusto/management/mappings#csv-mapping)** on a Kusto table. To map the columns from source to Azure Data Explorer - which applies to **[all supported source stores/formats](copy-activity-overview.md#supported-data-stores-and-formats)** including CSV/JSON/Avro formats etc., you can use the Copy activity [column mapping](copy-activity-schema-and-type-mapping.md) (implicitly by name or explicitly as configured) and/or Azure Data Explorer CSV mappings. | No |
 
 **Example:**
 
