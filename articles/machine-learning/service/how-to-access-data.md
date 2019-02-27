@@ -19,9 +19,25 @@ ms.custom: seodec18
 In this article, you learn different ways to access and interact with your data in Azure Machine Learning workflows via datastores.
 
 This how-to shows examples for the following tasks: 
-* Create and access a datastore
+* [Choose a datastore](#access)
+* [Get a datastore](#get)
 * [Upload and download data to datastores](#upload-and-download-data)
-* [Access datastore for training](#access-datastores-for-training)
+* [Access datastore during training](#access-datastores-for-training)
+
+## Prerequisites
+
+To use datastores, you need a [workspace](concept-azure-machine-learning-architecture.md#workspace) first. 
+
+Start by either [creating a new workspace](quickstart-create-workspace-with-python.md) or retrieving an existing one:
+
+```Python
+import azureml.core
+from azureml.core import Workspace, Datastore
+
+ws = Workspace.from_config()
+```
+
+Or, [follow this Python quickstart](quickstart-create-workspace-with-python.md) to use the SDK to create your workspace and get started.
 
 <a name="access"></a>
 
