@@ -18,7 +18,7 @@ This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for
 
 ## I am unable to see any data for Azure Monitor for containers in the Log Analytics workspace at a certain period of time everyday. How do I resolve this? 
 
-You may have reached the default 500 MB limit or the daily cap specified to control the amount of data to collect daily. When the datacap is met for the day, data collection stops and resumes only on the next day. To review your data usage and update to a different pricing tier based on your anticipated usage patterns, see [Log data usage and cost](../platform/manage-cost-storage.md). 
+You may have reached the default 500 MB limit or the daily cap specified to control the amount of data to collect daily. When the limit is met for the day, data collection stops and resumes only on the next day. To review your data usage and update to a different pricing tier based on your anticipated usage patterns, see [Log data usage and cost](../platform/manage-cost-storage.md). 
 ## What are the states of containers specified in the ContainerInventory table?
 The ContainerInventory table contains information about both stopped and running containers. The table is populated by a workflow inside the agent that queries the docker for all the containers (running and stopped), and forwards that data the Log Analytics workspace.
  
@@ -29,7 +29,7 @@ To resolve the error, register the resource provider **Microsoft.OperationsManag
 The Container Monitoring solution doesn’t support RBAC, but it is supported with Azure Monitor for Containers. The solution details page may not show the right information in the blades that show data for these clusters.
 
 ## How do I enable log collection for containers in the kube-system namespace through Helm?
-The log collection from containers in the kube-system namespace is disabled by default. Log collection can be enabled by setting an environment variable on the omsagent. For more information see the [Azure Monitor for containers](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers) GitHub page. 
+The log collection from containers in the kube-system namespace is disabled by default. Log collection can be enabled by setting an environment variable on the omsagent. For more information, see the [Azure Monitor for containers](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers) GitHub page. 
 
 ## How do I update the omsagent to the latest released version?
 To learn how to upgrade the agent, see [Agent management](container-insights-manage-agent.md).
@@ -48,7 +48,7 @@ console.log(json.stringify({
       }));
 ```
 
-This data will look like the following in Azure Monitor for logs when you query for it:
+This data will look like the following example in Azure Monitor for logs when you query for it:
 
 ```
 LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will not break this into multiple lines", "and you will receive":"all of them in log analytics", "as one": "log entry"}
@@ -58,7 +58,7 @@ LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will 
 For a detailed look at the issue, review the following [github link](https://github.com/moby/moby/issues/22920).
 
 ## How do I resolve Azure Active Directory errors when I enable live logs? 
-You may see the following error: **The reply url specified in the request does not match the reply urls configured for the application: '<application ID>'**. The fix for this can be found in the article [How to view container logs real time with Azure Monitor for containers](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
+You may see the following error: **The reply url specified in the request does not match the reply urls configured for the application: '<application ID>'**. The solution to solve it can be found in the article [How to view container logs real time with Azure Monitor for containers](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
 
 ## Next steps
 To begin monitoring your AKS cluster, review [How to onboard the Azure Monitor for containers](container-insights-onboard.md) to understand the requirements and available methods to enable monitoring. 
