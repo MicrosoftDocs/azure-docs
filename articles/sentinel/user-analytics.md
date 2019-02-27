@@ -97,7 +97,7 @@ For example:
    
    ![Query](./media/user-analytics/query-window.png)
 
-3. Investigate the user in the user investigation window. For advice about how to investigate users, see [Tutorial: Investigate a user](https://docs.microsoft.com/en-us/azure-advanced-threat-protection/investigate-a-user).
+3. Investigate the user in the user investigation window. For advice about how to investigate users, see [Tutorial: Investigate a user](https://docs.microsoft.com/azure-advanced-threat-protection/investigate-a-user).
 
 
 
