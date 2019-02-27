@@ -16,8 +16,7 @@ ms.author: diberry
 
 ## GenerateAnswer Request 
 
-You call GenerateAnswer with an HTTP POST request. For sample code that shows how to call GenerateAnswer, see the [quickstarts](../quickstarts/csharp.md).
-
+You call GenerateAnswer with an HTTP POST request. 
 The **request URL** has the following format: 
 
 ```
