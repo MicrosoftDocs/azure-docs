@@ -14,13 +14,13 @@ ms.author: ellacroi
 ---
 # Cloud Solution Providers
 
-In addition to public availability through Microsoft’s web storefronts, Azure Marketplace and AppSource, software offers can reach millions of qualified Microsoft customers served by Cloud Solution Provider (CSP) partners with minimal marketing and sales investment.
+In addition to public availability through [Microsoft’s web storefronts](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace), software offers can reach millions of qualified Microsoft customers.  Made possible by Cloud Solution Provider (CSP) partners, with minimal marketing and sales investment to publishers.
 
-As a publisher, you can elect to opt-in your offer for availability in the CSP partner channel when you publish a new offer or update an existing one. This enables CSP partners to sell your products and create bundled solutions for customers.
+As a publisher, you can elect to opt in your offer for availability in the CSP partner channel. It can be done when you publish a new offer or update an existing one. CSP partners can sell your products and create bundled solutions for customers.
 
-Publishers are responsible for providing break-fix support to end customers and for providing a mechanism for CSP partners and/or customers to contact you for support. It is best practices to provide CSP partners with user documentation, training and service health/outage notifications (as applicable) so that CSP partners are equipped to handle tier 1 support requests from customers.
+Publishers are responsible for providing break-fix support to end customers and for providing a mechanism for CSP partners and/or customers to contact you for support. It is best practices to provide CSP partners with user documentation, training, and service health/outage notifications (as applicable) so that CSP partners are equipped to handle tier 1 support requests from customers.
 
-The following table shows offer types and pricing models that can opt-in to the CSP partner channel:
+The following table shows offer types and pricing models that can opt in to the CSP partner channel:
 
 | **Offer Type**    | **BYOL**  |  **Free** | **PAYG**   |
 | :---------------- | :---------|:----------|:-----------|
@@ -41,6 +41,6 @@ Visit the [Azure Marketplace and AppSource Publisher Guide](https://docs.microso
 
 To learn more about marketplace GTM services, go to [Go-to-market services](https://partner.microsoft.com/reach-customers/gtm).
 
-Log in to the [Cloud Partner Portal](https://cloudpartner.azure.com/) to create and configure your offer.
+Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/) to create and configure your offer.
 
 ---
