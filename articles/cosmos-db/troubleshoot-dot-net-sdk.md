@@ -1,57 +1,42 @@
 ---
-title: Diagnose and troubleshoot Azure Cosmos DB Dot Net SDK
-description: Use features like client-side logging and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues.
+title: Diagnose and troubleshoot issues when using Azure Cosmos DB .NET SDK
+description: Use features like client-side logging and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues when using .NET SDK.
 author: j82w
 ms.service: cosmos-db
-ms.topic: article
 ms.date: 01/19/2019
-ms.author: j82w
+ms.author: jawilley
 ms.devlang: c#
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
-ms.reviewer: 
+ms.reviewer: sngun
 ---
+# Diagnose and troubleshoot issues when using Azure Cosmos DB .NET SDK
+This article covers common issues, workarounds, diagnostic steps, and tools when you use the [.NET SDK](sql-api-sdk-dotnet.md) with Azure Cosmos DB SQL API accounts.
+The .NET SDK provides client-side logical representation to access the Azure Cosmos DB SQL API. This article describes tools and approaches to help you if you run into any issues.
 
-# Production check list<a name="production-check-list"></a>
-These should be done before your application goes to production. This will prevent several of the common issues customers hit and will ensure that when an issue does occur that it can be quickly diagnosed.
-
-* Use the latest [SDK](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md) (Preview SDKs should not be used for production). This will prevent hitting known issues that are already fixed.
-* Review the [performance tips](performance-tips.md), and follow the suggested practices. This will help prevent scaling, latency, and other performance issues.
-* [Enable the SDK logging](#logging). This will be needed to troubleshoot an issue when one does happen. The [portal metrics](https://docs.microsoft.com/azure/cosmos-db/monitor-accounts) shows the Cosmos DB telemetry. This is helpful to determine if the issue was from Cosmos DB or if the issue was on the client side.
-
-## Enable the SDK logging<a name="logging"></a>
-The following items should be logged. This will allow an issue to be quickly diagnosed.
-* Log the [diagnostics string](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet) from the point operation responses.
-* Log the [SQL Query Metrics](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-metrics) from all the query responses 
-* Follow the setup for [SDK logging](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md) 
-
-# Troubleshoot issues when you use the Dot Net SDK with Azure Cosmos DB SQL API accounts
-This article covers common issues, workarounds, diagnostic steps, and tools when you use the [Dot Net SDK](sql-api-sdk-dotnet.md) with Azure Cosmos DB SQL API accounts.
-The Dot Net SDK provides client-side logical representation to access the Azure Cosmos DB SQL API. This article describes tools and approaches to help you if you run into any issues.
-
-## Start with this list:
-* Make sure to follow the [Production check list] shown above.
+## Use the following checklist to troubleshooting the issue:
+* Make sure to follow the [Production check list] shown below.
 * Take a look at the [Common issues and workarounds](#common-issues-workarounds) section in this article.
-* Look at the SDK, which is available [open source on GitHub](https://github.com/Azure/azure-cosmos-dotnet-v2). It has an [issues section](https://github.com/Azure/azure-cosmos-dotnet-v2/issues) that's actively monitored. Check to see if any similar issue with a workaround is already filed.
+* Check the [GitHub issues section](https://github.com/Azure/azure-cosmos-dotnet-v2/issues) that's actively monitored. Check to see if any similar issue with a workaround is already filed.
 * If you didn't find a solution then file a [GitHub issue](https://github.com/Azure/azure-cosmos-dotnet-v2/issues).
  
 ## <a name="common-issues-workarounds"></a>Common issues and workarounds
 
 ### General suggestions
-* Make sure the app is running on the same region as your Azure Cosmos DB account. 
-* Check the CPU usage on the host where the app is running. If CPU usage is 90 percent or more, run your app on a host with a higher configuration. Or you can distribute the load on more machines.
+* Run your app in the same Azure region as your Azure Cosmos DB account, whenever possible. 
+* You may run into connectivity/availability issues due to lack of resources on your client machine. We recommend monitoring your CPU utilization on nodes running the Azure Cosmos DB client, and scaling up/out if they're running at high load.
 
 ### Check the portal metrics
-Checking the [portal metrics](https://docs.microsoft.com/azure/cosmos-db/monitor-accounts) will help determine if it's a client side issue or if there is an issue with the service. For example if you are seeing a lot of 429s which means the request is getting throttled then check the [Request rate too large] section. 
+Checking the [portal metrics](monitor-accounts.md) will help determine if it's a client side issue or if there is an issue with the service. For example if you are seeing a lot of 429s which means the request is getting throttled then check the [Request rate too large] section. 
 
 ### <a name="request-timeouts"></a>Requests timeouts
 RequestTimeout usually happens when using Direct/TCP, but can happen in Gateway mode. These are the common known causes, and suggestions on how to fix the problem.
 
 * CPU utilization is high which will cause latency and/or request timeouts. The customer can scale up the host machine to give it more resources, or the load can be distributed across more machines.
-* Socket / Port availability might be low. Previous to 2.0 SDK, clients running in Azure could hit the [Azure SNAT (PAT) port exhaustion]. This an example of why it is recommended to always run the latest SDK version.
+* Socket / Port availability might be low. Previous to .NET SDK 2.0, clients running in Azure could hit the [Azure SNAT (PAT) port exhaustion]. This an example of why it is recommended to always run the latest SDK version.
 * The application is not following the [performance tips](performance-tips.md), and use one DocumentClient per request. This has an enormous overhead. Customer must share a single DocumentClient instance across an entire process.
-* Users sometimes see elevated latency or request timeouts because their collections are provisioned insufficiently, the back-end throttles requests, and the client retries internally without surfacing this to the caller. Check the [portal metrics](https://docs.microsoft.com/azure/cosmos-db/monitor-accounts).
-* Cosmos DB distributes the overall provisioned throughput evenly across physical partitions. Check portal metrics to see if the workload is encountering a hot [partition key](https://docs.microsoft.com/azure/cosmos-db/partition-data). This will cause the aggregate consumed throughput (RU/s) to be appear to be under the provisioned RUs, but a single partition consumed throughput (RU/s) will exceed the provisioned throughput. 
+* Users sometimes see elevated latency or request timeouts because their collections are provisioned insufficiently, the back end throttles requests, and the client retries internally without surfacing this to the caller. Check the [portal metrics](monitor-accounts.md).
+* Azure Cosmos DB distributes the overall provisioned throughput evenly across physical partitions. Check portal metrics to see if the workload is encountering a hot [partition key](partition-data.md). This will cause the aggregate consumed throughput (RU/s) to be appear to be under the provisioned RUs, but a single partition consumed throughput (RU/s) will exceed the provisioned throughput. 
 * Additionally, the 2.0 SDK adds channel semantics to direct/TCP connections. One TCP connection is used for multiple requests at the same time. This can lead to two issues under specific cases:
     * A high degree of concurrency can lead to contention on the channel (more than ~12 threads acting on a single connection).
     * Large requests or responses can lead to head-of-line blocking on the channel and exacerbate contention, even with a relatively low degree of concurrency.
@@ -74,17 +59,29 @@ If your app is deployed on Azure Virtual Machines without a public IP address, b
 * Assign a public IP to your Azure VM.
 
 ### HTTP proxy
-
 If you use an HTTP proxy, make sure it can support the number of connections configured in the SDK `ConnectionPolicy`.
 Otherwise, you face connection issues.
 
 ### Request rate too large<a name="request-rate-too-large"></a>
-'Request rate too large' or error code 429 indicates that your requests are being throttled, because the consumed throughput (RU/s) has exceeded the provisioned throughput. The SDK will automatically retry requests based on the specified [retry policy](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions?view=azure-dotnet). If you get this failure often, consider increasing the throughput on the collection. Check the [portal’s metrics](https://docs.microsoft.com/azure/cosmos-db/use-metrics) to see if you are getting 429 errors. Review your [partition key](https://docs.microsoft.com/en-us/azure/cosmos-db/partitioning-overview#choose-partitionkey) to ensure it results in an even distribution of storage and request volume. 
+'Request rate too large' or error code 429 indicates that your requests are being throttled, because the consumed throughput (RU/s) has exceeded the provisioned throughput. The SDK will automatically retry requests based on the specified [retry policy](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions?view=azure-dotnet). If you get this failure often, consider increasing the throughput on the collection. Check the [portal’s metrics](use-metrics.md) to see if you are getting 429 errors. Review your [partition key](https://docs.microsoft.com/en-us/azure/cosmos-db/partitioning-overview#choose-partitionkey) to ensure it results in an even distribution of storage and request volume. 
 
 ### Slow query performance
-The [query metrics](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-metrics) will help determine where the query is spending most of the time. From the query metrics you can see how much of it is being spent on the back end vs the client.
+The [query metrics](sql-api-query-metrics.md) will help determine where the query is spending most of the time. From the query metrics you can see how much of it is being spent on the back end vs the client.
 * If the back end query returns quickly, and spends a large time on the client check the load on the machine. It's likely that there are not enough resource and the SDK is waiting for resources to be available to handle the response.
-* If the back end query is slow try [optimizing the query](https://docs.microsoft.com/azure/cosmos-db/optimize-cost-queries) and looking at the current [indexing policy](https://docs.microsoft.com/azure/cosmos-db/index-overview) 
+* If the back end query is slow try [optimizing the query](optimize-cost-queries.md) and looking at the current [indexing policy](index-overview.md) 
+
+## Production check list<a name="production-check-list"></a>
+Consider the following checklist before you move your application to production. Using the checklist will prevent several common issues you might see. You can also quickly diagnose if an issue occurs.
+
+* Use the latest [SDK](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md) (Preview SDKs should not be used for production). This will prevent hitting known issues that are already fixed.
+* Review the [performance tips](performance-tips.md), and follow the suggested practices. This will help prevent scaling, latency, and other performance issues.
+* [Enable the SDK logging](#logging) to help you troubleshoot an issue. The [portal metrics](monitor-accounts.md) shows the Azure Cosmos DB telemetry. Telemetry is helpful to determine if the issue corresponds to Azure Cosmos DB or if the it's from the client side.
+
+### Enable the SDK logging<a name="logging"></a>
+The following items should be logged. This will allow an issue to be quickly diagnosed.
+* Log the [diagnostics string](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet) from the point operation responses.
+* Log the [SQL Query Metrics](sql-api-query-metrics.md) from all the query responses 
+* Follow the setup for [SDK logging](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md) 
 
 
  <!--Anchors-->
