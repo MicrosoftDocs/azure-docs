@@ -67,7 +67,9 @@ Make sure that the default network security group isn't modified and that port 2
 
 You might be getting this error because you've modified the tags in the agent nodes inside the AKS cluster. Modifying and deleting tags and other properties of resources in the MC_* resource group can lead to unexpected results. Modifying the resources under the MC_* group in the AKS cluster breaks the service-level objective (SLO).
 
-## I'm receiving errors that my cluster is in failed state and upgrading or scaling will not work until it is fixed (directed from https://aka.ms/aks-cluster-failed)
+## I'm receiving errors that my cluster is in failed state and upgrading or scaling will not work until it is fixed
+
+*This troubleshooting assistance is directed from https://aka.ms/aks-cluster-failed*
 
 This error occurs when clusters enter a failed state for multiple reasons. Follow the steps below to resolve your cluster failed state before retrying the previously failed operation:
 
@@ -76,7 +78,9 @@ This error occurs when clusters enter a failed state for multiple reasons. Follo
     * Scaling a cluster with advanced networking and **insufficient subnet (networking) resources**. To resolve, first scale your cluster back to a stable goal state within quota. Then follow [these steps to request a resource quota increase](../azure-resource-manager/resource-manager-quota-errors.md#solution) before trying to scale up again beyond initial quota limits.
 2. Once the underlying cause for upgrade failure is resolved, your cluster should be in a succeeded state. Once a succeeded state is verified, retry the original operation.
 
-## I'm receiving errors when trying to upgrade or scale that state my cluster is being currently being upgraded or has failed upgrade (directed from https://aka.ms/aks-pending-upgrade)
+## I'm receiving errors when trying to upgrade or scale that state my cluster is being currently being upgraded or has failed upgrade
+
+*This troubleshooting assistance is directed from https://aka.ms/aks-pending-upgrade*
 
 Cluster operations are limited when active upgrade operations are occurring or an upgrade was attempted, but subsequently failed. To diagnose the issue run `az aks show -g myResourceGroup -n myAKSCluster -o table` to retrieve detailed status on your cluster. Based on the result:
 
