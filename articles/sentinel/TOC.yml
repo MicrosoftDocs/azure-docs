@@ -1,4 +1,4 @@
-- name: Azure Sentinel Documentation
+- name: Azure Sentinel Preview Documentation
   href: index.yml
 - name: Overview
   href: overview.md
@@ -43,11 +43,15 @@
         href: connect-azure-atp.md
       - name: Connect Azure Security Center
         href: connect-azure-security-center.md
+      - name: Connect Windows firewall
+        href: connect-windows-firewall.md
+      - name: Connect Windows security events
+        href: connect-windows-security-events.md  
 
     - name: Connect external solutions
       items:
       - name: Connect generic CEF
-        href: connect-common-error-format.md
+        href: connect-common-event-format.md
       - name: Connect Barracuda
         href: connect-barracuda.md
       - name: Connect Check Point
@@ -62,8 +66,6 @@
         href: connect-syslog.md
       - name: Connect Cisco
         href: connect-cisco.md
-    - name: Connect other clouds
-      href: connect-aws.md
     - name: Connect threat intelligence
       href: connect-threat-intelligence.md
   - name: User analytics

@@ -17,7 +17,7 @@ ms.date: 2/28/2019
 ms.author: rkarlin
 
 ---
-# Connect your on-premises appliance (Syslog)
+# Connect your external solution using Syslog
 
 > [!IMPORTANT]
 > Azure Sentinel is currently in public preview.
@@ -27,7 +27,7 @@ ms.author: rkarlin
 You can connect any on-premises appliance that supports Syslog to Azure Sentinel. This is done by using an agent based on a Linux machine between the appliance and Azure Sentinel. If your Linux machine is in Azure, you can stream the logs from your appliance or application to a dedicated workspace you create in Azure and connect it. If your Linux machine is not in Azure, you can stream the logs from your appliance to a dedicated on-prem VM or machine onto which you install the Agent for Linux. 
 
 > [!NOTE]
-> If your appliance supports Syslog CEF, the connection is more complete and you should choose this option and follow the instructions in [Collecting data from CEF](connect-common-error-format.md).
+> If your appliance supports Syslog CEF, the connection is more complete and you should choose this option and follow the instructions in [Collecting data from CEF](connect-common-event-format.md).
 
 ## How it works
 

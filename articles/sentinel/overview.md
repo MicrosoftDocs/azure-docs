@@ -25,7 +25,7 @@ ms.author: rkarlin
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Microsoft Azure Sentinel is a scalable, cloud-native, **security information and event management (SIEM)** and **security orchestration and automated response (SOAR)** solution. Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. 
+Microsoft Azure Sentinel is a scalable, cloud-native, **security information event management (SIEM)** and **security orchestration automated response (SOAR)** solution. Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. 
 
 Azure Sentinel is your birds-eye view across the enterprise alleviating the stress of increasingly sophisticated attacks, increasing volumes of alerts, and long resolution timeframes.
 
@@ -47,12 +47,11 @@ Building on the full range of existing Azure services, Azure Sentinel natively i
 
 To on-board Azure Sentinel, you first need to [connect to your security sources](connect-data-sources.md). Azure Sentinel comes with a number of connectors for Microsoft solutions, available out of the box and providing real-time integration, including Microsoft Threat Protection solutions, and Microsoft 365 sources, including Office 365, Azure AD, Azure ATP, and Microsoft Cloud App Security, and more. In addition, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use common event format, Syslog or REST-API to connect your data sources with Azure Sentinel as well.  
 
-![Tiles](./media/overview/connections.png)
-
+![Data collectors](./media/collect-data/collect-data-page.png)
 
 ## Dashboards
 
-After connecting data sources you can choose from a gallery of [expertly created dashboards](quickstart-get-visibility.md#dashboards) that surface insights from your data sources. Each dashboard is fully customizable - you can add your own logic or modify queries or you can create a dashboard from scratch.
+After connecting data sources you can choose from a gallery of [expertly created dashboards](quickstart-get-visibility.md#dashboards) that surface insights from your data sources. Each dashboard is fully customizable - you can add your own logic or modify queries, or you can create a dashboard from scratch.
 
 The dashboards provide interactive visualization using advanced analytics to help your security analysts get a better understanding of what’s going on during an attack. The investigation tools enable you to deep dive on any field, from any data, to rapidly develop threat context. 
 
@@ -77,13 +76,13 @@ Automate your common tasks and [simplify security orchestration with playbooks](
 
 For example, if you use the ServiceNow ticketing system, you can use the tools provided to use Azure Logic Apps to automate your workflows and open a ticket in ServiceNow each time a particular event is detected.
 
-![Playbooks](./media/overview/playbooks.png)
+![Playbooks](./media/tutorial-respond-threats-playbook/logic-app.png)
 
 
 
 ## Investigation
 
-Azure Sentinel [deep investigation](tutorial-investigate-cases.md) tools include helps you to understand the scope and find the root cause of a potential security threat. You can choose an entity on the interactive graph to ask interesting questions for a specific entity, and drill down into that entity and its connections to get to the root cause of the threat. 
+Azure Sentinel [deep investigation](tutorial-investigate-cases.md) tools help you to understand the scope and find the root cause, of a potential security threat. You can choose an entity on the interactive graph to ask interesting questions for a specific entity, and drill down into that entity and its connections to get to the root cause of the threat. 
 
 ![Investigation](./media/overview/investigation.png)
 

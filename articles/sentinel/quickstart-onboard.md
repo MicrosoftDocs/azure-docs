@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-
+#As a security operator, connect all my data sources in one place so I can monitor and protect my environment
 ---
 # On-board Azure Sentinel Preview
 
@@ -24,12 +24,16 @@ ms.author: rkarlin
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+In this quickstart you will learn how to on-board Azure Sentinel. 
+
 To on-board Azure Sentinel, you first need to connect to your data sources. Azure Sentinel comes with a number of connectors for Microsoft solutions, available out of the box and providing real-time integration, including Microsoft Threat Protection solutions, Microsoft 365 sources, including Office 365, Azure AD, Azure ATP, and Microsoft Cloud App Security, and more. In addition, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use common event format, Syslog or REST-API to connect your data sources with Azure Sentinel.  
 
 After you connect your data sources, choose from a gallery of expertly created dashboards that surface insights based on your data. These dashboards can be easily customized to your needs.
 
 
 ## Global prerequisites
+
+- If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 - Log Analytics workspace. Learn how to [create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md)
 
@@ -51,12 +55,10 @@ After you connect your data sources, choose from a gallery of expertly created d
 
   >[!NOTE] 
   > - **Workspace location**  It's important to understand that all the data you stream to Azure Sentinel is stored in the geographic location of the workspace you selected.  
-  > - You won't see the ASC default workspaces here, you can't run Azure Sentinel on them.
+  > - Default workspaces created by Azure Security Center will not appear in the list; you can't install Azure Sentinel on them.
 
-6. Click **Add security insights**.
+6. Click **Add Azure Sentinel**.
   
-   ![search](./media/quickstart-onboard/connect-workspace.png)
-
 
 ## Connect data sources
 
@@ -64,14 +66,11 @@ Azure Sentinel creates the connection to services and apps by connecting to the 
  
 1. Click **Data collection**.
 2. There is a tile for each data source you can connect.<br>
-For example, click **Azure Active Directory**. If you connect this data source, you stream all the logs from Azure AD into Azure Sentinel. You can select what type of logs you wan to get - sign-in logs and or audit logs. <br>
-At the bottom, Azure Sentinel provides recommendations for which dashboards you should install for each connector so you can immediately get interesting insights across your data. <br> Follow the installation instructions or [refer to the relevant connection guide](connect-azure-active-directory.md) for more information.
- ![Collection](./media/overview/connections.png)
+For example, click **Azure Active Directory**. If you connect this data source, you stream all the logs from Azure AD into Azure Sentinel. You can select what type of logs you wan to get - sign-in logs and/or audit logs. <br>
+At the bottom, Azure Sentinel provides recommendations for which dashboards you should install for each connector so you can immediately get interesting insights across your data. <br> Follow the installation instructions or [refer to the relevant connection guide](connect-data-sources.md) for more information. For information about data connectors, see [Connect Microsoft services](connect-data-sources.md).
 
-8. Use the sample query data if you want to start building queries in Log Analytics, that run on this data. The samples help by providing you with basic queries including the correct parameter names for data of this type.
+After your data sources are connected, your data starts streaming into Azure Sentinel and is ready for you to start working with. You can view the logs in the [built-in dashboards](quickstart-get-visibility.md) and start building queries in Log Analytics to [investigate the data](tutorial-investigate-cases.md).
 
-
-For information about data connectors, see [Connect Microsoft services](connect-data-sources.md).
 
 
 
@@ -79,4 +78,4 @@ For information about data connectors, see [Connect Microsoft services](connect-
 In this document, you learned about connecting data sources to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
-- Stream data from [Common Error Format appliances](connect-common-error-format.md) into Azure Sentinel.
+- Stream data from [Common Error Format appliances](connect-common-event-format.md) into Azure Sentinel.

@@ -24,7 +24,7 @@ ms.author: rkarlin
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-You can connect Azure Sentinel to any Palo Alto Networks appliance by saving the log files as Syslog CEF. The integration with Azure Sentinel enables you to easily run analytics and queries across the log file data from Palo Alto. For more information on how Azure Sentinel ingests CEF data, see [Connect CEF appliances](connect-common-error-format.md).
+You can connect Azure Sentinel to any Palo Alto Networks appliance by saving the log files as Syslog CEF. The integration with Azure Sentinel enables you to easily run analytics and queries across the log file data from Palo Alto. For more information on how Azure Sentinel ingests CEF data, see [Connect CEF appliances](connect-common-event-format.md).
 
 > [!NOTE]
 > - Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
@@ -33,12 +33,10 @@ You can connect Azure Sentinel to any Palo Alto Networks appliance by saving the
 
 To connect your Palo Alto appliance to Azure Sentinel, you need to deploy an agent on a dedicated machine (VM or on-prem) to support the communication between the appliance and Azure Sentinel. You can deploly the agent automatically or manually. Automatic deployment is only available if your dedicated machine is a new VM you are creating in Azure. 
 
-
-![CEF in Azure](./media/connect-cef/cef-syslog-azure.png)
-
 Alternatively, you can deploy the agent manually on an existing Azure VM, on a VM in another cloud, or on an on-premises machine.
 
-![CEF on-prem](./media/connect-cef/cef-syslog-onprem.png)
+To see a network diagram of both options, see [Connect data sources](connect-data-sources.md#agent-options).
+
 
 ### Deploy the agent in Azure
 
