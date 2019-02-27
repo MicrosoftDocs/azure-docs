@@ -17,7 +17,7 @@ ms.author: glenga
 # Run your Azure Functions from a package file
 
 > [!NOTE]
-> The functionality described in this article is not available for Functions on App Service Linux.
+> The functionality described in this article is not available for function apps running on Linux in an [App Service plan](functions-scale.md#app-service-plan).
 
 In Azure, you can run your functions directly from a deployment package file in your function app. The other option is to deploy your files in the `d:\home\site\wwwroot` directory of your function app.
 
