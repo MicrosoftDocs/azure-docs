@@ -90,7 +90,7 @@ To effectively protect access to Exchange Online from Exchange ActiveSync, you c
 
     ![Conditional access](./media/conditional-access-for-exo-and-spo/04.png)
 
-    b. Select **Exchange Active Sync** as **client app**, and then select **Apply policy only to supported platforms**.  
+    b. Select **Exchange Active Sync** as **client app**.  
 
     ![Device platforms](./media/conditional-access-for-exo-and-spo/03.png)
 
