@@ -1,6 +1,6 @@
 ---
-title: What's happening to Azure Batch AI? | Microsoft Docs
-description: Learn about what's happening to Azure Batch AI and the Azure Machine Learning service compute option.
+title: Migrate from Batch AI to Azure Machine Learning service
+description: Learn how to migrate to Azure Machine Learning service for the AMLcompute and how your code maps to code in Azure Machine Learning service. 
 ms.service: batch-ai
 services: batch-ai
 ms.topic: overview
