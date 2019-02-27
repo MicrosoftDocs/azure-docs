@@ -1423,7 +1423,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 
 ## Deprecation
 
--   **OMS Portal:** We have removed the link from HDInsight resource page that was pointing to OMS portal. Log Analytics initially used its own portal called the OMS portal to manage its configuration and analyze collected data. All functionality from this portal has been moved to the Azure portal where it will continue to be developed. HDInsight has deprecated the support for OMS portal. Customers will use HDInsight Log Analytics integration in Azure portal.
+-   **OMS Portal:** We have removed the link from HDInsight resource page that was pointing to OMS portal. Azure Monitor logs initially used its own portal called the OMS portal to manage its configuration and analyze collected data. All functionality from this portal has been moved to the Azure portal where it will continue to be developed. HDInsight has deprecated the support for OMS portal. Customers will use HDInsight Azure Monitor logs integration in Azure portal.
 
 -   **Spark 2.3**
 

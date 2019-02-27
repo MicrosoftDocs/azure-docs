@@ -278,7 +278,7 @@ ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 ```
 
-Learn more about registering additional storage accounts, or getting a reference to another registered datastore in the [Azure ML service documentation](../machine-learning/service/how-to-access-data.md#create-a-datastore).
+Learn more about registering additional storage accounts, or getting a reference to another registered datastore in the [Azure ML service documentation](../machine-learning/service/how-to-access-data.md#access).
 
 
 #### Downloading and uploading data 
