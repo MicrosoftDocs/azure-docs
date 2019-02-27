@@ -67,12 +67,12 @@ Azure App Service on Azure Stack Update 5 includes the following improvements an
 - **Updates to underlying operating system of all roles**:
   - [2019-02 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4487006)](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006)
 
-### Post Deployment Steps
+### Post-deployment Steps
 
 > [!IMPORTANT]  
 > If you have provided the App Service RP with a SQL Always On Instance you MUST [add the appservice_hosting and appservice_metering databases to an availability group](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) and synchronize the databases to prevent any loss of service in the event of a database failover.
 
-### Post update steps
+### Post-update steps
 
 For customers wishing to migrate to contained database for existing Azure App Service on Azure Stack deployments, execute these steps after the Azure App Service on Azure Stack 1.5 update has completed:
 
