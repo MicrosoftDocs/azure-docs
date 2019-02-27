@@ -14,9 +14,9 @@ ms.author: ellacroi
 ---
 # Cloud Solution Providers
 
-In addition to public availability through [Microsoft’s web storefronts](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace), software offers can reach millions of qualified Microsoft customers served by Cloud Solution Provider (CSP) partners with minimal marketing and sales investment.
+Software offers can now reach millions of qualified Microsoft customers served by Cloud Solution Provider (CSP) partners with minimal marketing and sales investment.  Publishers can now leverage CSP partner channels, in addition to public availability of offers through [Microsoft’s web storefronts](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
 
-As a publisher, you can elect to opt-in your offer for availability in the CSP partner channel when you publish a new offer or update an existing one. This enables CSP partners to sell your products and create bundled solutions for customers.
+Publishers can elect to opt-in an offer for availability in the CSP partner channel, for a new offer or an existing one. This option enables CSP partners to sell your products and create bundled solutions for customers.
 
 Publishers are responsible for providing break-fix support to end customers and for providing a mechanism for CSP partners and/or customers to contact you for support. It is best practices to provide CSP partners with user documentation, training, and service health/outage notifications (as applicable) so that CSP partners are equipped to handle tier 1 support requests from customers.
 
