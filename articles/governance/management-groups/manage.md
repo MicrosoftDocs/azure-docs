@@ -17,7 +17,7 @@ Management groups give you enterprise-grade management at a large scale no matte
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## Change the name of a management group
 
