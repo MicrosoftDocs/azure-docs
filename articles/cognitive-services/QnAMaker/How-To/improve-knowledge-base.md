@@ -4,7 +4,6 @@ titleSuffix: Azure Cognitive Services
 description: 
 author: diberry
 manager: nitinme 
-displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
@@ -28,7 +27,7 @@ QnA Maker learns new question variations with implicit and explicit feedback.
 
 Either method provides the ranker with similar queries that are clustered.
 
-When similar queries are clustered, QnA Maker suggests the user-based questions to the knowledge base designer to accept or reject.
+**When 5 or more similar queries are clustered, every 30 minutes, QnA Maker suggests the user-based questions to the knowledge base designer to accept or reject.**
 
 ## How active learning works
 
