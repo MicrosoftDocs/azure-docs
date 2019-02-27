@@ -11968,7 +11968,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure/machine-learning/studio/faq.md",
+      "source_path": "articles/machine-learning/studio/faq.md",
       "redirect_url": "/azure/machine-learning/studio/what-is-ml-studio",
       "redirect_document_id": false
     },
