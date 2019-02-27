@@ -11,7 +11,7 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 02/18/2019
+ms.date: 02/26/2019
 ---
 
 # Azure SQL Database managed instance connectivity architecture
@@ -152,7 +152,7 @@ You deploy a managed instance in a dedicated subnet (the managed instance subnet
 |mi-8-7-nexthop-internet|8.0.0.0/7|Internet|
 ||||
 
-In addition, you can add entries to the route table routes traffic that has on-premises private IP ranges as a destination through virtual network gateway or virtual network appliance (NVA).
+In addition, you can add entries to the route table to route traffic that has on-premises private IP ranges as a destination through virtual network gateway or virtual network appliance (NVA).
 
 - **Optional custom DNS**: If a custom DNS is specified on the virtual network, Azure's recursive resolver IP address (such as 168.63.129.16) must be added to the list. For more information, see [Configuring Custom DNS](sql-database-managed-instance-custom-dns.md). The custom DNS server must be able to resolve host names in the following domains and their subdomains: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, and *microsoftonline-p.com*.
 
