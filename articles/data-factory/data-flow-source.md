@@ -7,7 +7,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
---- 
+---
 
 # Mapping Data Flow Source Transformation
 
@@ -48,7 +48,7 @@ For source file types that are not strongly typed (i.e. flat files as opposed to
 
 ![Source Transformation](media/data-flow/source003.png "data types")
 
-For strongly-typed sources, you can modify the 
+For strongly-typed sources, you can modify the data types in a subsequent Select transformation. 
 
 ### Optimize
 
@@ -93,6 +93,6 @@ Similar to schemas in datasets, the Projection in Source defines the data column
 
 ![Default formats](media/data-flow/source2.png "Default formats")
 
-## Next Steps
+## Next steps
 
 Begin building your data transformation with [Derived Column](data-flow-derived-column.md) and [Select](data-flow-select.md).

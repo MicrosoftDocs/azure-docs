@@ -43,7 +43,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     |Connection mode  |Supported protocol  |Supported SDKs  |API/Service port  |
     |---------|---------|---------|---------|
-    |Gateway  |   HTTPS    |  All SDKS    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(443), Graph(443)    |
+    |Gateway  |   HTTPS    |  All SDKS    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(10350), Graph(443)    |
     |Direct    |    HTTPS     |  .Net and Java SDK    |   Ports within 10,000-20,000 range    |
     |Direct    |     TCP    |  .Net SDK    | Ports within 10,000-20,000 range |
 

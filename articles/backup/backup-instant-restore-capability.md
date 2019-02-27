@@ -32,11 +32,11 @@ Currently, the backup job consists of two phases:
 1.	Taking a VM snapshot.
 2.	Transferring a VM snapshot to the Azure Recovery Services vault.
 
-A recovery point is considered created only after phases 1 and 2 are completed. As a part of this upgrade, a recovery point is created as soon as the snapshot is finished and this recovery point of snapshot type can be used to perform a restore using the same restore flow. You can identify this recovery point in the Azure portal by using “snapshot” as the recovery point type, and after the snapshot is transferred to the vault, the recovery point type changes to “snapshot and vault.”
+A recovery point is considered created only after phases 1 and 2 are completed. As a part of this upgrade, a recovery point is created as soon as the snapshot is finished and this recovery point of snapshot type can be used to perform a restore using the same restore flow. You can identify this recovery point in the Azure portal by using “snapshot” as the recovery point type, and after the snapshot is transferred to the vault, the recovery point type changes to “snapshot and vault”.
 
 ![Backup job in VM backup stack Resource Manager deployment model--storage and vault](./media/backup-azure-vms/instant-rp-flow.png)
 
-Snapshots are retained for seven days. This feature allows restores operation from these snapshots there by cutting down the restore times. It reduces the time that is required to transform and copy data back from the vault to the user's storage account for unmanaged disk scenarios while for managed disk users, it creates managed disks out of the backup data.
+By default, snapshots are retained for two days. This feature allows restores operation from these snapshots there by cutting down the restore times. It reduces the time that is required to transform and copy data back from the vault to the user's storage account for unmanaged disk scenarios while for managed disk users, it creates managed disks out of the Recovery Services data.
 
 ## Feature considerations
 
@@ -44,6 +44,7 @@ Snapshots are retained for seven days. This feature allows restores operation fr
 * Incremental snapshots are stored as page blobs. All the users using unmanaged disks are charged for the snapshots stored in their local storage account. Since the restore point collections used by Managed VM backups use blob snapshots at the underlying storage level, for managed disks you will see costs corresponding to blob snapshot pricing and they are incremental.
 * For premium storage accounts, the snapshots taken for instant recovery points count towards the 10-TB limit of allocated space.
 * You get an ability to configure the snapshot retention based on the restore needs. Depending on the requirement, you can set the snapshot retention to a minimum of one day in the backup policy blade as explained below. This can help you save cost for snapshot retention if you don’t perform restores frequently.
+* This is a one directional upgrade, once upgraded to Instant restore, you cannot go back.
 
 
 >[!NOTE]
@@ -72,7 +73,7 @@ Alternatively, you can go to **Properties** page of the vault to get the **Upgra
 
 
 ## Configure snapshot retention using Azure portal
-This option is currently available in West Central US, India South and Australia East.
+This option is currently available in **West Central US**, **India South** and **Australia East**.
 
 For the upgraded users, in the Azure portal you can see a field added in the **VM Backup Policy** blade under the **Instant Restore** section. You can change the snapshot retention duration from the **VM Backup Policy** blade for all the VMs associated with the specific backup policy.
 

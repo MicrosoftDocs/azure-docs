@@ -25,6 +25,7 @@ This tutorial shows you how to move Azure VMs to another region using Azure Site
 > * [Perform the move](#perform-the-move-to-the-target-region-and-confirm)
 > * [Discard the resources from the source region](#discard-the-resource-in-the-source-region)
 
+
 > [!IMPORTANT]
 > This article describes how to move Azure VMs from one region to another *as is*. If your goal is to improve the availability of your infrastructure by moving VMs to availability zones, see [Move Azure VMs to Availability Zones](move-azure-vms-avset-azone.md).
 
@@ -131,7 +132,7 @@ Navigate to the vault in **Settings** > **Replicated items**, select the virtual
 3. When the job is finished, check that the VM appears in the target Azure region as expected.
 4. In **Replicated items**, right-click the VM and select **Commit**. This finishes the move. Wait until the commit job completes.
 
-## Discard the resource in the source region
+## Discard the resources from the source region
 
 - Navigate to the VM. Select **Disable Replication**.  This stops the process of copying the data for the VM.
 
