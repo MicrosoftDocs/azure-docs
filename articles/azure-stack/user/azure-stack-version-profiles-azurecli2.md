@@ -357,44 +357,27 @@ This section will walk you through setting up CLI if you are using Azure AD as y
 
 Trust the Azure Stack CA root certificate by appending it to the existing Python certificate.
 
-Find the certificate location on your machine. The location may vary depending on where you have installed Python. You will need to have [pip](https://pip.pypa.io) and the [certifi](https://pypi.org/project/certifi/) module installed. You can use the following Python command from the bash prompt:
+1. Find the certificate location on your machine. The location may vary depending on where you have installed Python. You will need to have [pip](https://pip.pypa.io) and the [certifi](https://pypi.org/project/certifi/) module installed. You can use the following Python command from the bash prompt:
 
     ```bash  
-    python -c "import certifi; print(certifi.where())"
+    python3 -c "import certifi; print(certifi.where())"
     ```
 
     Make a note of the certificate location; for example, `~/lib/python3.5/site-packages/certifi/cacert.pem`. Your specific path depends on your operating system and the version of Python that you have installed.
 
-#### Set the path for a development machine inside the cloud
+2. Run the following bash command with the path to your certificate.
 
-If you are running CLI from a Linux machine that is created within the Azure Stack environment, run the following bash command with the path to your certificate.
+  - For a remote Linux machine:
 
-```bash
-sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
-```
+    ```bash  
+    sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
+    ```
 
-#### Set the path for a development machine outside the cloud
+  - For a Linux machine within the Azure Stack environment:
 
-If you are running CLI from a machine outside the Azure Stack environment:  
-
-1. Set up [VPN connectivity to Azure Stack](azure-stack-connect-azure-stack.md).
-1. Copy the PEM certificate that you got from the Azure Stack operator, and make a note of the location of the file (PATH_TO_PEM_FILE).
-1. Run the commands in the following sections, depending on the operating system on your development workstation.
-
-##### Linux
-
-```bash
-sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
-```
-
-##### macOS
-
-```bash
-sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
-```
-
-
-
+    ```bash  
+    sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
+    ```
 
 ### Connect to Azure Stack
 
@@ -409,13 +392,8 @@ Use the following steps to connect to Azure Stack:
 
 To register the *user* environment, use:
 
-      ```azurecli
-      az cloud register \ 
-        -n AzureStackUser \ 
-        --endpoint-resource-manager "https://management.local.azurestack.external" \ 
-        --suffix-storage-endpoint "local.azurestack.external" \ 
-        --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
-        --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+      ```azurecli  
+      az cloud register -n AzureStackUser --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
 
 Set the active environment 
