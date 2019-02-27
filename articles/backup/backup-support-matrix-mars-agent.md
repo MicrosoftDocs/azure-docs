@@ -16,9 +16,9 @@ You can use the [Azure Backup service](backup-overview.md) to back up on-premise
 
 ## The MARS agent
 
-Azure Backup uses the MARS agent to back up data from on-premises machines and Azure virtual machines to a backup Recovery Services vault in Azure. The MARS agent can:
+Azure Backup uses the MARS agent to back up data from on-premises machines and Azure VMs to a backup Recovery Services vault in Azure. The MARS agent can:
 - Run on on-premises Windows machines so that they can back up directly to a backup Recovery Services vault in Azure.
-- Run on Windows Azure virtual machines so that they can back up directly to a vault.
+- Run on Windows VMs so that they can back up directly to a vault.
 - Run on Microsoft Azure Backup Server (MABS) or a System Center Data Protection Manager server. In this scenario, machines and workloads back up to MABS or to the Data Protection Manager server. The MARS agent then backs up this server to a vault in Azure. 
 
 Your backup options depend on where the agent is installed. For more information, see [Azure Backup architecture using the MARS agent](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders). For information about MABS and Data Protection Manager backup architecture, see [Back up to Data Protection Manager or MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Also see [requirements](backup-support-matrix-mabs-dpm.md) for the backup architecture.
@@ -29,12 +29,12 @@ Your backup options depend on where the agent is installed. For more information
 **Installation** | **Details**
 --- | ---
 Download the latest MARS agent | You can download the latest version of the agent from the vault, or [download it directly](https://aka.ms/azurebackup_agent).
-Install directly on a machine | You can install the MARS agent directly on an on-premises Windows server or on a Windows Azure virtual machine that's running any of the supported operating systems.
+Install directly on a machine | You can install the MARS agent directly on an on-premises Windows server or on a Windows VM that's running any of the supported operating systems.
 Install on a backup server | When you set up Data Protection Manager or MABS to back up to Azure, you download and install the MARS agent on the server. You can install the agent on [supported operating systems](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) in the backup server support matrix.
 
 > [!NOTE]
-> By default, Azure virtual machines that are enabled for backup have an Azure Backup extension installation. This extension backs up the entire VM. You can install and run the MARS agent on an Azure virtual machine alongside the extension if you want to back up specific folders and files, rather than the complete VM.
-> When you run the MARS agent on an Azure virtual machine, it backs up files or folders that are in temporary storage on the VM. Backups fail if the files or folders are removed from the temporary storage or if the temporary storage is removed.
+> By default, Azure VMs that are enabled for backup have an Azure Backup extension installation. This extension backs up the entire VM. You can install and run the MARS agent on an Azure VM alongside the extension if you want to back up specific folders and files, rather than the complete VM.
+> When you run the MARS agent on an Azure VM, it backs up files or folders that are in temporary storage on the VM. Backups fail if the files or folders are removed from the temporary storage or if the temporary storage is removed.
 
 
 ## Cache folder support
@@ -64,12 +64,12 @@ The MARS agent needs access to these URLs:
 
 **Feature** | **Details**
 --- | ---
-Bandwidth control | This is supported. In the MARS agent, use **Change Properties** to adjust bandwidth.
-Network throttling | This isn't available for backed up machines that run Windows Server 2008 R2, Windows Server 2008 SP2, or Windows 7.
+Bandwidth control | Supported. In the MARS agent, use **Change Properties** to adjust bandwidth.
+Network throttling | Not available for backed-up machines that run Windows Server 2008 R2, Windows Server 2008 SP2, or Windows 7.
 
 ## Support for direct backups
 
-You can use the MARS agent to back up directly to Azure on some operating systems that run on on-premises machines and Azure virtual machines. The operating systems must be 64 bit and should be running the latest services packs and updates. The following table summarizes these operating systems:
+You can use the MARS agent to back up directly to Azure on some operating systems that run on on-premises machines and Azure VMs. The operating systems must be 64 bit and should be running the latest services packs and updates. The following table summarizes these operating systems:
 
 **Operating system** | **Files/folders** | **System state**
 --- | --- | ---
@@ -138,7 +138,7 @@ Offline backup can't be used for system state files.
 
 ## Support for data restoration
 
-Using the [Instant Restore](backup-instant-restore-capability.md) feature of Azure Backup, you can restore data before it's copied to the vault. The machine you're backing up must be running .NET Framework 4.5.2 or higher.
+By using the [Instant Restore](backup-instant-restore-capability.md) feature of Azure Backup, you can restore data before it's copied to the vault. The machine you're backing up must be running .NET Framework 4.5.2 or higher.
 
 Backups can't be restored to a target machine that's running an earlier version of the operating system. For example, a backup taken from a computer that's running Windows 7 can be restored on Windows 8 or later. But a backup taken from a computer that's running Windows 8 can't be restored on a computer that's running Windows 7.
 
