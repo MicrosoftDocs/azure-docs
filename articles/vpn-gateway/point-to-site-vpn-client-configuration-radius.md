@@ -52,8 +52,8 @@ You can generate the VPN client configuration files by using the Azure portal, o
 2. Click **Point-to-Site configuration**.
 3. Click **Download VPN client**.
 4. Select the client and fill out any information that is requested.
-5. Click **Download** to generate the client.
-6. The client will download, typically to your Downloads folder.
+5. Click **Download** to generate the .zip file.
+6. The .zip file will download, typically to your Downloads folder.
 
 #### Azure PowerShell
 
