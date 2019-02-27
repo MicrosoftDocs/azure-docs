@@ -30,7 +30,7 @@ Kubernetes includes a web dashboard that you can use for basic management operat
 
 * Azure Stack Kubernetes cluster
 
-    You will need to have deployed a Kubernetes cluster to Azure Stack. For more information, see [Deploy Kubernetes](C:\Git\MS\azure-docs-pr\articles\azure-stack\user\azure-stack-solution-template-kubernetes-deploy.md).
+    You will need to have deployed a Kubernetes cluster to Azure Stack. For more information, see [Deploy Kubernetes](azure-stack-solution-template-kubernetes-deploy.md).
 
 * SSH client
 
