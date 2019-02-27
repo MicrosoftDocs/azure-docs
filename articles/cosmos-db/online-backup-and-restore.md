@@ -20,16 +20,13 @@ With Azure Cosmos DB, not only your data, but also the backups of your data are 
 
 * Azure Cosmos DB automatically takes a backup of your database every 4 hours and at any point of time, only the latest 2 backups are stored. However, if the container or database is deleted, Azure Cosmos DB retains the existing snapshots of a given container or database for 30 days.
 
-* Azure Cosmos DB stores these automatic backups in Azure Blob storage whereas the actual data resides locally within Azure Cosmos DB.
+* Azure Cosmos DB stores these backups in Azure Blob storage whereas the actual data resides locally within Azure Cosmos DB.
 
 *  To guarantee low latency, the snapshot of your backup is stored in Azure Blob storage in the same region as the current write region (or one of the write regions, in case you have a multi-master configuration) of your Azure Cosmos database account. For resiliency against regional disaster, each snapshot of the backup data in Azure Blob storage is again replicated to another region through geo-redundant storage (GRS). The region to which the backup is replicated is based on your source region and the regional pair associated with the source region. To learn more, see the [list of geo-redundant pairs of Azure regions](../best-practices-availability-paired-regions.md) article. You cannot access this backup directly. Azure Cosmos DB will use this backup only if a backup restore is initiated.
 
 * The backups are taken without affecting the performance or availability of your application. Azure Cosmos DB performs data backup in the background without consuming any additional provisioned throughput (RUs) or affecting the performance and availability of your database.
 
 * If you have accidentally deleted or corrupted your data, you should contact [Azure support](https://azure.microsoft.com/support/options/) within 8 hours so that the Azure Cosmos DB team can help you restore the data from the backups.
-  
-  * If you have accidentally deleted your database or collection, open a Sev B or Sev C Azure support case. 
-  * If you have accidentally deleted or corrupted some documents within the collection, open a Sev A support case. 
 
 The following image shows how an Azure Cosmos container with all the three primary physical partitions in West US is backed up in a remote Azure Blob Storage account in West US and then replicated to East US:
 
