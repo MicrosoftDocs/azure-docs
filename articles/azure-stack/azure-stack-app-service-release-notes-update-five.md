@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/27/2019
 ms.author: anwestg
 ms.reviewer: 
 
@@ -63,21 +63,10 @@ Azure App Service on Azure Stack Update 5 includes the following improvements an
 - **Updates to the following application frameworks and tools**:
   - Added NodeJS 10.14.1
   - Added NPM 6.4.1
-  - Updated Git for Windows to v 2.17.1.2
-  - Updated Kudu to 78.11022.3613
+  - Updated Kudu to 79.20129.3767
   
 - **Updates to underlying operating system of all roles**:
-  - [2018-10 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4462928)](https://support.microsoft.com/help/4462928/windows-10-update-kb4462928)
-
-- Resolved template validation issue when deploying Wordpress; DNN; and Orchard CMS gallery items
-
-- Resolved configuration issue when Azure Stack rotates the Azure Resource Manager client certificate
-
-- Restored functionality in the Cross Origin Resource Sharing settings in the App Service tenant portal
-
-- Display error message in App Service Admin portal experience when the resource provider control plane cannot connect to the configured SQL Server instance
-
-- Ensure endpoint is specified in custom storage connection string when specified in new Function application
+  - [2019-02 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4487006)](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006)
 
 ### Post update steps (optional)
 
