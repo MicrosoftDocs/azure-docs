@@ -22,7 +22,7 @@ Microsoft Azure Media Services can be used to deliver many media source file for
 
 [Streaming Endpoints](streaming-endpoint-concept.md) is the dynamic packaging service in Media Services used to deliver media content to client players. Dynamic Packaging is a feature that comes standard on all **Streaming Endpoints** (Standard or Premium). There is no extra cost associated with this feature in Media Services v3. 
 
-All you need is to encode a video to adaptive bitrate MP4s. Once your asset contains a set of adaptive bitrate MP4 files with manifest file(s), you can start using Media Services **Dynamic Packaging**. Based on the specified format in the manifest or fragment request, you receive the stream in the protocol you have chosen. To make videos in the encoded output asset available to clients for playback, you have to create a **Streaming Locator** and then build streaming URLs. 
+To take advantage of **Dynamic Packaging**, you need to have an **Asset** with a set of adaptive bitrate MP4 files and manifest file(s). One way to get the files is to encode your mezzanine (source) file with Media Services. To make videos in the Asset with encoded MP4s and manifests available to clients for playback, you have to create a **Streaming Locator** and then build streaming URLs. Then, based on the specified format in the manifest, you receive the stream in the protocol you have chosen.
 
 As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client. 
 
