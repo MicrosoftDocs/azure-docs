@@ -71,7 +71,7 @@ This section clarifies the monikers that refer to product versions. It also list
 https://www.microsoft.com/download/details.aspx?id=56567
 
 * Connect to Azure SQL Database V12 via Redirection
-https://blogs.msdn.microsoft.com/sqlcat/2016/09/08/connect-to-azure-sql-database-v12-via-redirection/
+https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 
 * [TDS protocol version list](http://www.freetds.org/userguide/tdshistory.htm)
 * [SQL Database Development Overview](sql-database-develop-overview.md)
