@@ -15,7 +15,7 @@ ms.custom: seodec2018
 ---
 
 # Indexing JSON blobs with Azure Search Blob indexer
-This article shows you how to configure an Azure Search blob indexer to extract structured content from JSON blobs in Azure Blob storage and make it searchable in Azure Search. This workflow creates an Azure Search index and loads it with data extracted from JSON blobs. 
+This article shows you how to configure an Azure Search blob indexer to extract structured content from JSON blobs in Azure Blob storage and make it searchable in Azure Search. This workflow creates an Azure Search index and loads it with existing data extracted from JSON blobs. 
 
 You can use the [portal](#json-indexer-portal), [REST APIs](#json-indexer-rest), or [.NET SDK](#json-indexer-dotnet) to index JSON content. Common to all approaches is that JSON documents are located in a blob container in an Azure Storage account. For guidance on pushing JSON documents from other non-Azure platforms, see [Data import in Azure Search](search-what-is-data-import.md).
 
@@ -32,7 +32,7 @@ The easiest method for indexing JSON documents is to use a wizard in the [Azure 
 
 ### 1 - Prepare source data
 
-Use the same Azure subscription for both Azure Search and Azure storage, preferrably in the same region.
+Use the same Azure subscription for both Azure Search and Azure storage, preferably in the same region.
 
 You should have an Azure storage account, with Blob storage, and a container of JSON documents. If you are unfamiliar with any of these tasks, review the prerequisite "Set up Azure Blob service and load sample data" in the [cognitive search-quickstart](cognitive-search-quickstart-blob.md#set-up-azure-blob-service-and-load-sample-data).
 
@@ -199,7 +199,7 @@ Schedule and parameters are optional, but if you omit them, the indexer runs imm
 
 This particular indexer does not include [field mappings](#field-mappings). Within the indexer definition, you can leave out **field mappings** if the properties of the source JSON document match the fields of your target search index. 
 
-#### Parsing modes explained
+## JSON parsing modes
 
 Until now, definitions for the data source and index have been parsingMode agnostic. However, in step 3 for Indexer configuration, the path diverges depending on how you want the JSON blob content to be parsed and structured in an Azure Search index. Choices include `json` or `jsonArray`:
 
@@ -278,9 +278,7 @@ Use this configuration to index the array contained in the `level2` property:
         "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
     }
 
-<a name="field-mappings"></a>
-
-### Using field mappings to build search documents
+## Field mappings
 
 When source and target fields are not perfectly aligned, you can define a field mapping section in the request body for explicit field-to-field associations.
 
@@ -315,13 +313,50 @@ You can also refer to individual array elements by using a zero-based index. For
 >
 >
 
-### REST Example: Indexer request with field mappings
+## REST Example
 
-The following example is a fully specified indexer payload, including field mappings:
+This section is a recap of all the requests used for creating objects. For a discussion of component parts, see the previous sections in this article.
+
+### Data source request
+
+All indexers require a data source object that provides connection information to existing data. 
+
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    Content-Type: application/json
+    api-key: [admin key for Azure Search]
+
+    {
+        "name" : "my-blob-datasource",
+        "type" : "azureblob",
+        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
+        "container" : { "name" : "my-container", "query" : "optional, my-folder" }
+    }  
+
+
+### Index request
+
+The body of the request defines the index schema, consisting of two fields, attributed to support the desired behaviors in a searchable index. This index should be empty when you run the indexer. If an index already exists, sending this request overwrites the existing index if the schema is different.
+
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    Content-Type: application/json
+    api-key: [admin key for Azure Search]
+
+    {
+          "name" : "my-target-index",
+          "fields": [
+            { "name": "id", "type": "Edm.String", "key": true, "searchable": false },
+            { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
+          ]
+    }
+
+
+### Indexer request (fully-specified)
+
+This example includes [field mappings](#field-mappings), which were omitted in previous examples. Recall that "schedule", "parameters", and "fieldMappings" are optional as long as there is an applicable default. Omitting "schedule" causes the indexer to run immediately.
 
     POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
-    api-key: [admin key]
+    api-key: [admin key for Azure Search]
 
     {
       "name" : "my-json-indexer",
@@ -335,6 +370,7 @@ The following example is a fully specified indexer payload, including field mapp
         { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
         ]
     }
+
 
 <a name="json-indexer-dotnet"></a>
 
