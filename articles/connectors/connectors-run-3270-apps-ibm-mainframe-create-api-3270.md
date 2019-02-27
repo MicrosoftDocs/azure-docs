@@ -1,6 +1,6 @@
 ---
 title: Connect to 3270 apps on IBM mainframes with Azure - Azure Logic Apps
-description: Integrate and automate 3270 screen-driven apps with Azure by using Azure Logic Apps and HIS 3270 connector
+description: Integrate and automate 3270 screen-driven apps with Azure by using Azure Logic Apps and IBM 3270 connector
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -12,13 +12,13 @@ ms.date: 03/06/2019
 tags: connectors
 ---
 
-# Integrate 3270 screen-driven apps on IBM mainframes with Azure by using Azure Logic Apps and HIS 3270 connector
+# Integrate 3270 screen-driven apps on IBM mainframes with Azure by using Azure Logic Apps and IBM 3270 connector
 
 > [!NOTE]
 > This connector is in 
 > [*public preview*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-With Azure Logic Apps and the HIS 3270 connector, you can 
+With Azure Logic Apps and the IBM 3270 connector, you can 
 access and run IBM mainframe apps that you usually drive by 
 navigating through 3270 emulator screens. That way, you can 
 integrate your IBM mainframe apps with Azure, Microsoft, 
@@ -31,7 +31,7 @@ Government and Azure China 21Vianet. If you're new to logic apps, review
 
 This article describes these aspects for using the 3270 connector: 
 
-* Why use the HIS 3270 connector in Azure Logic Apps 
+* Why use the IBM 3270 connector in Azure Logic Apps 
 and how the connector runs 3270 screen-driven apps
 
 * The prerequisites and setup for using the 3270 connector
@@ -53,8 +53,8 @@ apps, you can use the Session Integrator feature, which is
 a .NET library for writing custom apps that can access 3270 
 screen-driven data, also known as "screen scraping".
 
-To extend these scenarios, the HIS 3270 connector in Azure 
-Logic Apps works with the standalone HIS 3270 Design Tool, 
+To extend these scenarios, the IBM 3270 connector in Azure 
+Logic Apps works with the standalone IBM 3270 Design Tool, 
 which you use to record, or "capture", the host screens 
 used for a specific task, define the navigation flow through 
 your mainframe app for that task, and define the methods with 
@@ -92,14 +92,14 @@ that Azure Logic Apps supports.
 * The logic app to use for automating and running 
 your 3270 screen-driven app 
 
-  The HIS 3270 connector doesn't have triggers, 
+  The IBM 3270 connector doesn't have triggers, 
   so use another trigger to start your logic app, 
   such as the **Recurrence** trigger. You can 
   then add 3270 connector actions. To get started, 
   [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
   If you use an ISE, select that ISE as your logic app's location.
 
-* [Download and install the standalone HIS 3270 Design Tool](https://aka.ms/3270-design-tool-download).
+* [Download and install the standalone IBM 3270 Design Tool](https://aka.ms/3270-design-tool-download).
 The only prerequisite is Microsoft .NET Framework 4.6.1.
 
   This tool helps you record the screens, navigation paths, 
@@ -112,7 +112,7 @@ The only prerequisite is Microsoft .NET Framework 4.6.1.
   After downloading and installing this tool, 
   follow these steps for connecting to your host:
 
-  1. Open the HIS 3270 Design Tool. 
+  1. Open the IBM 3270 Design Tool. 
   From the **Session** menu, select **Host Sessions**.
   
   1. Provide your TN3270 host server information.
@@ -197,11 +197,11 @@ or from the **Recording** menu, select **Stop Recording**.
 
    After you capture the screens for a task, the designer tool 
    shows thumbnails that represent those screens. Some notes 
-   about these thumbnails: 
-   
+   about these thumbnails:
+
    * Included with your captured screens, 
-   you have a screen that's named "Empty". 
-   
+   you have a screen that's named "Empty".
+
      When you first connect to 
      [CICS](https://www.ibm.com/it-infrastructure/z/cics), 
      you must send the "Clear" key before you can enter the name 
@@ -212,22 +212,20 @@ or from the **Recording** menu, select **Stop Recording**.
      includes a screen named "Empty". You can later use this screen 
      for representing the screen where you enter the transaction name.
 
-   * By default, the name for a captured screen uses the first word 
-   on the screen. If that name already exists, the design tool 
-   appends the name with an underscore and a number, for example, 
-   "WBGB" and "WBGB_1".
+   * By default, the name for a captured screen uses the first word on 
+   the screen. If that name already exists, the design tool appends 
+   the name with an underscore and a number, for example, "WBGB" and "WBGB_1".
 
 1. To give a more meaningful name to a 
 captured screen, follow these steps:
 
    1. In the **Host Screens** pane, select the 
-   screen you want to rename. 
+   screen you want to rename.
 
    1. In the same pane, near the bottom in the 
    same pane, find the **Screen Name** property.
 
-   1. Change the current screen name to 
-   a more descriptive name. 
+   1. Change the current screen name to a more descriptive name.
 
 1. Now specify the fields for identifying each screen.
 
@@ -429,7 +427,7 @@ date or time, and so on. When you're done, you can test your method on the
 live host and confirm that the method works as expected. You then generate 
 the metadata file, or Host Integration Designer XML (HIDX) file, which now 
 has the method definitions to use for creating and running an action for 
-the HIS 3270 connector.
+the IBM 3270 connector.
 
 1. On the 3270 Design Tool's toolbar, choose 
 **Methods** so that you enter Methods mode. 
@@ -441,7 +439,13 @@ screen that has the input fields you want.
 follow these steps:
 
    1. In the **Capture** pane, on the 3270 emulator screen, 
-   choose the field you want as the first input. 
+   choose the whole field, not just text inside the field, 
+   that you want as the first input.
+
+      > [!TIP]
+      > To display all the fields and make sure 
+      > that you select the complete field, 
+      > on the **View** menu, select **All Fields**.
 
    1. On the design tool's toolbar, choose **Input Field**. 
 
@@ -452,7 +456,13 @@ follow these steps:
 follow these steps:
 
    1. In the **Capture** pane, on the 3270 emulator screen, 
-   choose the field you want as the first output.
+   choose the whole field, not just text inside the field, 
+   that you want as the first output.
+
+      > [!TIP]
+      > To display all the fields and make sure 
+      > that you select the complete field, 
+      > on the **View** menu, select **All Fields**.
 
    1. On the design tool's toolbar, choose **Output Field**.
 
@@ -489,7 +499,7 @@ get an error, try one of these solutions:
 
 * Copy the sample file to a different location.
 * Run the design tool as an administrator.
-* Make yourself the Program Files folder owner.
+* Make yourself the owner for the SDK folder.
 
 ## Test your method
 
@@ -531,7 +541,7 @@ and find your integration account.
 by [follow these similar steps for adding maps](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md), 
 but when you select the map type, select **HIDX**.
 
-Later in this topic, when you add an HIS 3270 action to your 
+Later in this topic, when you add an IBM 3270 action to your 
 logic app for the first time, you're prompted to create a 
 connection between your logic app and the host server by 
 providing connection information, such as the names for 
@@ -547,7 +557,7 @@ integrating with other apps, services, and systems.
 
 <a name="run-action"></a>
 
-## Run HIS 3270 actions
+## Run IBM 3270 actions
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
@@ -579,9 +589,9 @@ and choose **Create**.
    | **Integration Account ID** | Yes | <*integration-account-name*> | Your integration account's name |
    | **Integration Account SAS URL** | Yes | <*integration-account-SAS-URL*> | Your integration account's Shared Access Signature (SAS) URL, which you can generate from your integration account's settings in the Azure portal. <p>1. On your integration account menu, under **Settings**, select **Callback URL**. <br>2. In the right-hand pane, copy the **Generated Callback URL** value. |
    | **Server** | Yes | <*TN3270-server-name*> | The server name for your TN3270 service |
-   | **Port** | No | <*TN3270-server-port*> | The port used by your TN3270 server. If left blank, the connector uses default values. |
+   | **Port** | No | <*TN3270-server-port*> | The port used by your TN3270 server. If left blank, the connector uses `23` as the default value. |
    | **Device Type** | No | <*IBM-terminal-model*> | The model name or number for the IBM terminal to emulate. If left blank, the connector uses default values. |
-   | **Code Page** | No | <*code-page-number*> | The code page number for the host. If left blank, the connector uses default values. |
+   | **Code Page** | No | <*code-page-number*> | The code page number for the host. If left blank, the connector uses `37` as the default value. |
    | **Logical Unit Name** | No | <*logical-unit-name*> | The specific logical unit name to request from the host |
    | **Enable SSL?** | No | On or off | Turn on or turn off SSL encryption. |
    | **Validate host ssl certificate?** | No | On or off | Turn on or turn off validation for the server's certificate. |
