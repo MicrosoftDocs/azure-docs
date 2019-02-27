@@ -42,8 +42,8 @@ Prepare your Blob storage for the tutorial by performing these steps.
 	
 	![upload files](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/upload-file.png)
 	
-> [!NOTE]
-> Please adjust the folder name with your UTC time.  For example, if the current UTC time is 2:03 PM on Feb 26th, 2019, you can create the folder path as **source/2019/02/26/14/** by the rule of **source/{Year}/{Month}/{Day}/{Hour}/**.
+	> [!NOTE]
+	> Please adjust the folder name with your UTC time.  For example, if the current UTC time is 2:03 PM on Feb 26th, 2019, you can create the folder path as **source/2019/02/26/14/** by the rule of **source/{Year}/{Month}/{Day}/{Hour}/**.
 
 2. Create a container named **destination**. You can use various tools to perform these tasks, such as [Azure Storage Explorer](http://storageexplorer.com/).
 
@@ -55,9 +55,11 @@ Prepare your Blob storage for the tutorial by performing these steps.
 2. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**. 
       
     ![New data factory](./media/tutorial-copy-data-tool/new-azure-data-factory.png)
-   The name for your data factory must be _globally unique_. You might receive the following error message:
+	
+	The name for your data factory must be _globally unique_. You might receive the following error message:
    
    ![New data factory error message](./media/tutorial-copy-data-tool/name-not-available-error.png)
+   
    If you receive an error message about the name value, enter a different name for the data factory. For example, use the name _**yourname**_**ADFTutorialDataFactory**. For the naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 3. Select the Azure **subscription** in which to create the new data factory. 
 4. For **Resource Group**, take one of the following steps:
@@ -105,15 +107,15 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
 	a. Click  **+ Create new connection**, to add a connection.
 
-	![Source data store page](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page.png)
+		![Source data store page](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page.png)
 	
 	b. Select **Azure Blob Storage** from the gallery, and then click **Continue**.
 
-	![Source data store page](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-select-blob.png)
+		![Source data store page](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-select-blob.png)
 	
 	c. On the **New Linked Service** page, select your storage account from the **Storage account name** list, and then click **Finish**.
 	
-	![Source data store page](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-linkedservice.png)
+		![Source data store page](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-linkedservice.png)
     
 	d. Select the newly created linked service, then click **Next**. 
 	
@@ -122,19 +124,19 @@ Prepare your Blob storage for the tutorial by performing these steps.
     
     a. Browse and select the **source** container, then select **Choose**.
 	
-    ![Choose the input file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-input-file-folder.png)
+		![Choose the input file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-input-file-folder.png)
 	
 	b. Under **File loading behavior**, select **Incremental load: time-partitioned folder/file names**.
 	
-    ![Choose the input file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-loading-behavior.png)
+		![Choose the input file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-loading-behavior.png)
 	
 	c. Write the dynamic folder path as **source/{year}/{month}/{day}/{hour}/**, and change the format as followings:
 	
-	![Choose the input file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name.png)
+		![Choose the input file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name.png)
 	
 	d. Check **Binary copy** and click **Next**.
 	
-	![Choose the input file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/check-binary-copy.png)	 
+		![Choose the input file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/check-binary-copy.png)	 
 5. On the **Destination data store** page, select the **AzureBlobStorage**, which is the same storage account as data source store, and then click **Next**.
 
 	![Destination data store page](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/destination-data-store-page-select-linkedservice.png)	
@@ -142,15 +144,15 @@ Prepare your Blob storage for the tutorial by performing these steps.
     
     a. Browse and select the **destination** folder, then click **Choose**.
 	
-    ![Choose the output file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-output-file-folder.png)	
+		![Choose the output file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-output-file-folder.png)	
 	
 	b. Write the dynamic folder path as **source/{year}/{month}/{day}/{hour}/**, and change the format as followings:
 	
-	![Choose the output file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name2.png)	
+		![Choose the output file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name2.png)	
 	
 	c. Click **Next**.
 	
-	 ![Choose the output file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)	
+		![Choose the output file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)	
 7. On the **Settings** page, select **Next**. 
 
     ![Settings page](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/settings-page.png)	
@@ -175,8 +177,8 @@ Prepare your Blob storage for the tutorial by performing these steps.
 	
 	![Monitor pipeline runs](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs4.png)
 	
-> [!NOTE]
-> You might be aware that a new folder path is required to be created. Please adjust the folder name with your UTC time.  For example, if the current UTC time is 3:20 PM on Feb 26th, 2019, you can create the folder path as **source/2019/02/26/15/** by the rule of **{Year}/{Month}/{Day}/{Hour}/**.
+	> [!NOTE]
+	> You might be aware that a new folder path is required to be created. Please adjust the folder name with your UTC time.  For example, if the current UTC time is 3:20 PM on Feb 26th, 2019, you can create the folder path as **source/2019/02/26/15/** by the rule of **{Year}/{Month}/{Day}/{Hour}/**.
 	
 13. To go back to the **Pipeline Runs** view, select **All Pipelines Runs**, and wait for the same pipeline being triggered again automatically after another one hour.  
 
