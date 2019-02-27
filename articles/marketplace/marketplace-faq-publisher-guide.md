@@ -507,13 +507,13 @@ Algeria, Argentina, Australia, Austria, Bahrain, Belarus, Belgium, Brazil, Bulga
 
 <!---    ![Publish offer](media/marketplace-publishers-guide/FAQ-publish-offer.png) -->
 
-**How can a publisher change the geo availability for an existing offer?**
+**How can a publisher change the geographic availability for an existing offer?**
 
-The publisher can edit an existing offer, select the new geos, and use the spreadsheet download/upload function to set pricing.
+The publisher can edit an existing offer, select the new countries, and use the spreadsheet download/upload function to set pricing.
 
 **In what countries can customers purchase Azure Marketplace offerings?**
 
-Azure Marketplace supports 141 buy-from geographies as defined by the customer’s billing address. See [participation policies](https://docs.microsoft.com/legal/marketplace/participation-policy) for a list of the countries.
+Azure Marketplace supports 141 buy-from geographies as defined by the customer’s billing address. See [participation policies](https://docs.microsoft.com/legal/marketplace/participation-policy) for a list of countries.
 
 **What currencies are supported by Azure Marketplace?**
 
