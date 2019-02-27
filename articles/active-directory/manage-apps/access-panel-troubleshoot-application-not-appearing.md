@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 09/09/2018
 ms.author: celested
 ms.reviwer: japere
+ms.collection: M365-identity-device-management
 ---
 
 # An assigned application is not appearing on the access panel

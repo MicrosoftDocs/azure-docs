@@ -288,6 +288,8 @@
       href: iot-hub-upgrade.md
     - name: Usage metrics
       href: iot-hub-metrics.md
+    - name: Enable message tracing
+      href: iot-hub-distributed-tracing.md  
     - name: Configure IP filtering
       href: iot-hub-ip-filtering.md
     - name: Configure devices at scale

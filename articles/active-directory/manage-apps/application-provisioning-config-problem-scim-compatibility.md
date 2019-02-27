@@ -16,6 +16,7 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
 
+ms.collection: M365-identity-device-management
 ---
 
 # Known issues and resolutions with SCIM 2.0 protocol compliance of the Azure AD User Provisioning service

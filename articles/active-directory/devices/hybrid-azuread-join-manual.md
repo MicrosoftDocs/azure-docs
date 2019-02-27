@@ -19,6 +19,7 @@ ms.author: markvi
 ms.reviewer: sandeo
 
 #Customer intent: As an IT admin, I want to set up hybrid Azure AD joined devices so that I can automatically bring AD domain-joined devices under control.
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure hybrid Azure Active Directory joined devices manually 
 

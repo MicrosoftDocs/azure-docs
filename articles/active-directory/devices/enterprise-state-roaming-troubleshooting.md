@@ -20,6 +20,7 @@ ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 
 # Troubleshooting Enterprise State Roaming settings in Azure Active Directory

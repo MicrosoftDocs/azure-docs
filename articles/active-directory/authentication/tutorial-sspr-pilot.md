@@ -14,6 +14,7 @@ manager: daveba
 ms.reviewer: sahenry
 
 # Customer intent: How, as an Azure AD Administrator, do I enable SSPR to complete a pilot roll out.
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Complete an Azure AD self-service password reset pilot roll out
 

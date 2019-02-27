@@ -16,6 +16,7 @@ ms.reviewer: elkuzmen
 
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 # Managing custom domain names in your Azure Active Directory
 

@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 02/12/2019
 ms.author: bwren
 ---
 
@@ -168,6 +168,8 @@ There are some constraints around the data posted to the Azure Monitor Data coll
 * Maximum of 30 MB per post to Azure Monitor Data Collector API. This is a size limit for a single post. If the data from a single post that exceeds 30 MB, you should split the data up to smaller sized chunks and send them concurrently.
 * Maximum of 32 KB limit for field values. If the field value is greater than 32 KB, the data will be truncated.
 * Recommended maximum number of fields for a given type is 50. This is a practical limit from a usability and search experience perspective.  
+* A table in a Log Analytics workspace only supports up to 500 columns (referred to as a field in this article). 
+* The maximum number of characters for the column name is 500.
 
 ## Return codes
 The HTTP status code 200 means that the request has been received for processing. This indicates that the operation completed successfully.

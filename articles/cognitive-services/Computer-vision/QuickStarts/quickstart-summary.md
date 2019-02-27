@@ -9,9 +9,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
+# This topic is not currently listed.
 ---
 
 # Quickstart: Summary

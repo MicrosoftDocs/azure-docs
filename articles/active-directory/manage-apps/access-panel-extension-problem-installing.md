@@ -13,9 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/4/18
+ms.date: 5/4/2018
 ms.author: celested
 ms.reviewer: japere,asteen
+ms.collection: M365-identity-device-management
 ---
 
 # Install the access panel browser extension

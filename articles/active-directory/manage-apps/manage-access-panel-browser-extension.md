@@ -16,6 +16,7 @@ ms.author: celested
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
 
+ms.collection: M365-identity-device-management
 ---
 # Troubleshooting the Access Panel Extension for Internet Explorer
 This article helps you troubleshoot the following problems:

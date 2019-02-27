@@ -10,7 +10,7 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: concepts
+ms.topic: conceptual
 ms.custom: mvc
 ms.date: 12/11/2018
 ms.author: barclayn

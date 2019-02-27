@@ -12,6 +12,7 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
+ms.collection: M365-identity-device-management
 ---
 # Password policies and restrictions in Azure Active Directory
 

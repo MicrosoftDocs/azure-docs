@@ -84,7 +84,7 @@ To enable FIM on a workspace:
 4. Select **Apply file integrity monitoring** to enable FIM.
 
 > [!NOTE]
-> You can change the settings at any time. See [Edit monitored entities](security-center-file-integrity-monitoring.md#edit-monitored-items) below to learn more.
+> You can change the settings at any time. See Edit monitored entities below to learn more.
 >
 >
 

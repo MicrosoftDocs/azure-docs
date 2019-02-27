@@ -12,10 +12,9 @@ ms.topic: overview
 ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
-
- 
-# What is hybrid identity? 
+# What is hybrid identity?
 
 Today, businesses, and corporations are becoming more and more a mixture of on-premises and cloud applications.  Users require access to those applications both on-premises and in the cloud. This requirement has become a challenging scenario. 
 
@@ -25,7 +24,7 @@ To achieve hybrid identity, one of three authentication methods can be used, dep
 
 - **[Password hash synchronization (PHS)](whatis-phs.md)**  
 - **[Pass-through authentication (PTA)](how-to-connect-pta.md)**  
-- **[Federation](whatis-fed.md)** 
+- **[Federation (AD FS)](whatis-fed.md)** 
 
 These authentication methods also provide [single-sign on](how-to-connect-sso.md) capabilities.  Single-sign on automatically signs your users in when they are on their corporate devices, connected to your corporate network.
 
@@ -42,7 +41,7 @@ Here are some common hybrid identity and access management scenarios with recomm
 |Enable my users to sign in and access cloud services using their on-premises password.|![Recommended](./media/whatis-hybrid-identity/ic195031.png)| ![Recommended](./media/whatis-hybrid-identity/ic195031.png) |![Recommended](./media/whatis-hybrid-identity/ic195031.png)| 
 |Implement single sign-on using corporate credentials.|![Recommended](./media/whatis-hybrid-identity/ic195031.png)| ![Recommended](./media/whatis-hybrid-identity/ic195031.png) |![Recommended](./media/whatis-hybrid-identity/ic195031.png)|  
 |Ensure no password hashes are stored in the cloud.| |![Recommended](./media/whatis-hybrid-identity/ic195031.png)|![Recommended](./media/whatis-hybrid-identity/ic195031.png)| 
-|Enable cloud multi-factor authentication solutions.| |![Recommended](./media/whatis-hybrid-identity/ic195031.png)|![Recommended](./media/whatis-hybrid-identity/ic195031.png)| 
+|Enable cloud-based multi-factor authentication solutions.|![Recommended](./media/whatis-hybrid-identity/ic195031.png)|![Recommended](./media/whatis-hybrid-identity/ic195031.png)|![Recommended](./media/whatis-hybrid-identity/ic195031.png)| 
 |Enable on-premises multi-factor authentication solutions.| | |![Recommended](./media/whatis-hybrid-identity/ic195031.png)| 
 |Support smartcard authentication for my users.<sup>4</sup>| | |![Recommended](./media/whatis-hybrid-identity/ic195031.png)| 
 |Display password expiry notifications in the Office Portal and on the Windows 10 desktop.| | |![Recommended](./media/whatis-hybrid-identity/ic195031.png)| 

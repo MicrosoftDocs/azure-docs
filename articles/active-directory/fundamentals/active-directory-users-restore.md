@@ -13,6 +13,7 @@ ms.date: 12/17/2018
 ms.author: lizross 
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
 # Restore or remove a recently deleted user using Azure Active Directory

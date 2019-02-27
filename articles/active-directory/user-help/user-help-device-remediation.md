@@ -14,6 +14,7 @@ ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
 
+ms.collection: M365-identity-device-management
 ---
 # Potential reasons for the "You can't get there from here" error message
 While accessing your organization's internal web apps or services, you might get an error message that says, **You can't get there from here**. This message means your organization has put a policy in place that's preventing your device from accessing your organization's resources. While you might end up having to contact your Helpdesk to fix this problem, here are a few things you can try first.

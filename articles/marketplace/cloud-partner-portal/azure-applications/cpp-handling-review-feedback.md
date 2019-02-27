@@ -54,20 +54,20 @@ Use the following procedure to review issues documented in the pull request.
 
 1. In the **Microsoft review** section of **Publishing steps** form, click on a PR link to launch your browser and navigate to the **Overview** (home) page for this PR.  The following image depicts an example critical issue home page for the Contoso sample app offer.  This page contains useful summary information about the review issues found in the Azure app.  
 
-    [ ![Pull request home page](./media/pr-home-page-thumb.png) ](./media/pr-home-page.png)
+    [![Pull request home page](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
     <br/> *Click on the image to expand.*
     
 2. (Optional) On the right side of the window, in the section **Policies**, click on the issue message (in this example: **Policy Validation failed**) to investigate the low-level details of the issue, including the associated log files.  Errors are typically displayed at the bottom of the log files.
 
 3. In the menu on the left-side of the home page, select **Files** to display the list files that comprise the technical assets for this offer.  The Microsoft reviewers should have added comments describing the discovered critical issues.  In the following example, two issues have been discovered. 
 
-    [ ![Pull request home page](./media/pr-files-page-thumb.png) ](./media/pr-files-page.png)
+    [![Pull request home page](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
     <br/> *Click on the image to expand.*
 
 4. Click on each comment node in the left tree to navigate to the comment in context of the surrounding code.  Fix your source code in your team's project to correct the issue described by the comment.
 
 > [!Note]
-> You cannot edit your offer's technical assets within the the review team's Azure DevOps environment.  For publishers, this is a read-only environment for the contained source code.  However, you can leave replies to the comments for the benefit of the Microsoft review team.
+> You cannot edit your offer's technical assets within the review team's Azure DevOps environment.  For publishers, this is a read-only environment for the contained source code.  However, you can leave replies to the comments for the benefit of the Microsoft review team.
 
    In the following example, the publisher has reviewed, corrected, and replied to the first issue.
 

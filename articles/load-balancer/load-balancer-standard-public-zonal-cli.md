@@ -46,7 +46,7 @@ az group create \
 ## Create a zonal public IP Standard
 To access your app on the Internet, you need a public IP address for the load balancer. A Public IP address that is created in a specific zone always exists only in that zone. It is not possible to change the zone of a Public IP address.
 
-Create a public IP address with [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). The following example creates a zonal public IP address named *myPublicIP* in the *myResourceGroupLoadBalancer* resource group in zone 1.
+Create a public IP address with [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create). The following example creates a zonal public IP address named *myPublicIP* in the *myResourceGroupLoadBalancer* resource group in zone 1.
 
 ```azurecli-interactive
 az network public-ip create \

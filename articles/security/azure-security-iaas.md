@@ -37,7 +37,7 @@ The best practices are based on a consensus of opinion, and they work with curre
 The first step in protecting your VMs is to ensure that only authorized users can set up new VMs and access VMs.
 
 **Best practice**: Control VM access.   
-**Detail**: Use [Azure policies](../azure-policy/azure-policy-introduction.md) to establish conventions for resources in your organization and create customized policies. Apply these policies to resources, such as [resource groups](../azure-resource-manager/resource-group-overview.md). VMs that belong to a resource group inherit its policies.
+**Detail**: Use [Azure policies](../governance/policy/overview.md) to establish conventions for resources in your organization and create customized policies. Apply these policies to resources, such as [resource groups](../azure-resource-manager/resource-group-overview.md). VMs that belong to a resource group inherit its policies.
 
 If your organization has many subscriptions, you might need a way to efficiently manage access, policies, and compliance for those subscriptions. [Azure management groups](../azure-resource-manager/management-groups-overview.md) provide a level of scope above subscriptions. You organize subscriptions into management groups (containers) and apply your governance conditions to those groups. All subscriptions within a management group automatically inherit the conditions applied to the group. Management groups give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.
 

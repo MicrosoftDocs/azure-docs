@@ -13,6 +13,7 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
+ms.collection: M365-identity-device-management
 ---
 
 # Download and install the Microsoft Authenticator app
@@ -23,6 +24,9 @@ You can use the Microsoft Authenticator app in multiple ways, including:
 - **Two-factor verification.** The standard verification method, where one of the factors is your password. After you sign-in using your username and password, you can either approve a notification or enter a provided verification code.
 
 - **Phone sign-in.** A version of two-factor verification that lets you sign-in without requiring a password, using your username and your mobile device with your fingerprint, face, or PIN.
+
+>[!Important]
+>Your organization might require you to use an authenticator app to sign-in and access your organizational data and documents. Although your user name might appear in the app, the account isn't actually set up to act as a verification method until you complete the registration process. For more information, see [Add your work or school account](user-help-auth-app-overview.md).
 
 >[!NOTE]
 >If you're having issues signing in to your account, see [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) for help.  Get more info about what to do when you receive the [“That Microsoft account doesn't exist”](https://support.microsoft.com/help/13811) message when you try to sign in to your Microsoft account.

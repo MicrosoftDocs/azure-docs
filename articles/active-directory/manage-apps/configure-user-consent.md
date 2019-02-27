@@ -12,6 +12,7 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: celested
 ms.reviewer: arvindh
+ms.collection: M365-identity-device-management
 ---
 
 # Configure the way end-users consent to an application in Azure Active Directory

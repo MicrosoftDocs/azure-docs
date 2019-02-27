@@ -1,6 +1,6 @@
 ---
-title: Understand deny assignments in Azure RBAC | Microsoft Docs
-description: Learn about deny assignments in role-based access control (RBAC) for resources in Azure.
+title: Understand deny assignments for Azure resources | Microsoft Docs
+description: Learn about deny assignments in role-based access control (RBAC) for Azure resources.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -17,9 +17,9 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: 
 ---
-# Understand deny assignments
+# Understand deny assignments for Azure resources
 
-Similar to a role assignment, a *deny assignment* attaches a set of deny actions to a user, group, or service principal at a particular scope for the purpose of denying access. Deny assignments block users from performing specific actions even if a role assignment grants them access. Some resource providers in Azure now include deny assignments. Currently, deny assignments are **read-only** and can only be set by Azure.
+Similar to a role assignment, a *deny assignment* attaches a set of deny actions to a user, group, or service principal at a particular scope for the purpose of denying access. Deny assignments block users from performing specific Azure resource actions even if a role assignment grants them access. Some resource providers in Azure now include deny assignments. Currently, deny assignments are **read-only** and can only be set by Microsoft.
 
 In some ways, deny assignments are different than role assignments. Deny assignments can exclude principals and prevent inheritance to child scopes. Deny assignments also apply to [classic subscription administrator](rbac-and-directory-admin-roles.md) assignments.
 
@@ -55,5 +55,5 @@ To support deny assignments, the **System-Defined Principal** has been introduce
 
 ## Next steps
 
-* [List deny assignments using RBAC and the REST API](deny-assignments-rest.md)
-* [Understand role definitions](role-definitions.md)
+* [List deny assignments for Azure resources using the REST API](deny-assignments-rest.md)
+* [Understand role definitions for Azure resources](role-definitions.md)

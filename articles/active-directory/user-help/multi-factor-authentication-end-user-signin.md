@@ -14,6 +14,7 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
+ms.collection: M365-identity-device-management
 ---
 
 # The sign-in experience with Azure Multi-Factor Authentication
@@ -78,9 +79,8 @@ Sometimes you don't have the phone or device that you set up as your preferred v
   ![Use alternate method](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 ## Next steps
+- If you have problems signing in with two-step verification, get more information at [Having trouble with Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
-If you have problems signing in with two-step verification, get more information at [Having trouble with Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
+- Learn how to [Manage your two-step verification settings](multi-factor-authentication-end-user-manage-settings.md).
 
-Learn how to [Manage your two-step verification settings](multi-factor-authentication-end-user-manage-settings.md).
-
-Find out how to [Get started with the Microsoft Authenticator app](user-help-auth-app-download-install.md) so that you can use notifications to sign in, instead of texts and phone calls.
+- Find out how to [Get started with the Microsoft Authenticator app](user-help-auth-app-download-install.md) so that you can use notifications to sign in, instead of texts and phone calls.

@@ -14,6 +14,7 @@ author: msmimart
 manager: daveba
 ms.reviewer: mal
 
+ms.collection: M365-identity-device-management
 ---
 
 # Add Azure Active Directory B2B collaboration users in the Azure portal

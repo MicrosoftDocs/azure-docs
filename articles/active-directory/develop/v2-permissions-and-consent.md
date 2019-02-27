@@ -19,6 +19,7 @@ ms.author: celested
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
 
+ms.collection: M365-identity-device-management
 ---
 # Permissions and consent in the Azure Active Directory v2.0 endpoint
 

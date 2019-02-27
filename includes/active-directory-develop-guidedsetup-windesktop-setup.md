@@ -39,7 +39,7 @@ To create your application, do the following:
 2. In the Package Manager Console window, paste the following Azure PowerShell command:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre
+    Install-Package Microsoft.Identity.Client
     ```
 
     > [!NOTE] 

@@ -6,6 +6,7 @@ metadata:
   title: Azure SQL Database - Scalability
   meta.description: Learn how to scale your Azure SQL Database.
   services: sql-database
+  ms.subservice: scale-out
   author: jovanpop-msft
   manager: craigg
   requires-business-manager-approval: false
