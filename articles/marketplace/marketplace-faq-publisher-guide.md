@@ -62,8 +62,8 @@ With Azure Marketplace, customers can discover technical applications built for 
 
 Azure Marketplace offers can be purchased through:
 
-* [web-based storefront](https://azuremarketplace.microsoft.com/marketplace/apps).
-* [Microsoft Azure Management portal](https://portal.azure.com/), or via the [Azure Marketplace Command Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+* [web-based storefront](https://azuremarketplace.microsoft.com/marketplace/apps)
+* [Microsoft Azure Management portal](https://portal.azure.com/), or via the [Azure Marketplace Command Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
 Note: Prepaid credits and other forms of monetary commitment cannot be used to pay for software license fees, but can be used to pay associated Azure usage charges.  Exceptions are listed in [Azure monetary commitment](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
 
@@ -93,7 +93,7 @@ Azure Marketplace is available to Microsoft Azure customers in the countries lis
 
 **What currencies are supported by Azure Marketplace?**
 
-Transactions can be conducted in the following 17 currencies: AUD, BRL, CAD, CHF, DKK, EUR, GBP, INR, JPY, KRW, NOK, NZD, RUB, SEK, TWD, USD.
+Transactions can be conducted in the following 17 currencies: AUD, BRL, CAD, CHF, DKK, EUR, GBP, INR, JPY, KRW, NOK, NZD, RUB, SEK, TWD, USD, RMB.
 
 ### Deploying a solution from Azure Marketplace
 
