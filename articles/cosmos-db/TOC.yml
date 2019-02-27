@@ -599,8 +599,8 @@
       items:
       - name: Troubleshoot Java Async SDK
         href: troubleshoot-java-async-sdk.md
-	  - name: Troubleshoot .NET SDK
-		href: troubleshoot-dot-net-sdk.md
+      - name: Troubleshoot .NET SDK
+        href: troubleshoot-dot-net-sdk.md
   - name: Reference
     items:
     - name: .NET
