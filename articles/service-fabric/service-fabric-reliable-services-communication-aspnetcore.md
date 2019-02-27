@@ -330,6 +330,46 @@ new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 
 In this configuration, `KestrelCommunicationListener` will automatically select an unused port from the application port range.
 
+## Service Fabric Configuration Provider
+App configuration in ASP.NET Core is based on key-value pairs established by configuration providers, read 
+[Configuration in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/) to understand more on general ASP.NET Core configuration support.
+
+This section describes the Service Fabric Configuration Provider to integrate with ASP.NET Core configuration by importing the `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet package.
+
+### AddServiceFabricConfiguration Startup extensions
+After you've import `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet package, you need to register the Service Fabric Configuration source with ASP.NET Core configuration API by **AddServiceFabricConfiguration** extensions in `Microsoft.ServiceFabric.AspNetCore.Configuration` namespace against `IConfigurationBuilder`
+
+```csharp
+using Microsoft.ServiceFabric.AspNetCore.Configuration;
+
+public Startup(IHostingEnvironment env)
+{
+    var builder = new ConfigurationBuilder()
+        .SetBasePath(env.ContentRootPath)
+        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+        .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+        .AddServiceFabricConfiguration() // Add Service Fabric configuration settings.
+        .AddEnvironmentVariables();
+    Configuration = builder.Build();
+}
+
+public IConfigurationRoot Configuration { get; }
+```
+
+Now the ASP.NET Core service can access the Service Fabric configuration settings just like any other application settings. For example, you can use the options pattern to load settings into strongly typed objects.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.Configure<MyOptions>(Configuration);  // Strongly typed configuration object.
+    services.AddMvc();
+}
+```
+### Key Mapping and Multiple configuration packages
+### Encrypted settings
+### Custom Key Mapping
+### Configuration Update
+
 ## Scenarios and configurations
 This section describes the following scenarios and provides the recommended combination of web server, port configuration, Service Fabric integration options, and miscellaneous settings to achieve a properly functioning service:
  - Externally exposed ASP.NET Core stateless service
@@ -388,8 +428,6 @@ Stateful services that are only called from within the cluster should use dynami
 | Web server | Kestrel | The `HttpSysCommunicationListener` is not designed for use by stateful services in which replicas share a host process. |
 | Port configuration | dynamically assigned | Multiple replicas of a stateful service may share a host process or host operating system and thus will need unique ports. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | With dynamic port assignment, this setting prevents the mistaken identity issue described earlier. |
-
-## ASP.NET Core Configuration Provider
 
 ## Next steps
 [Debug your Service Fabric application by using Visual Studio](service-fabric-debugging-your-application.md)
