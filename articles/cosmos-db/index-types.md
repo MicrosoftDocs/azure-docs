@@ -50,6 +50,9 @@ Here are examples of queries that Hash, Range, and Spatial indexes can be used t
 
 ## Index precision
 
+> [!NOTE]
+> Azure Cosmos containers support a new index layout that no longer requires a custom index precision other than the maximum precision value(-1). With this method, paths are always indexed with the maximum precision. If you specify a precision value on the indexing policy, the CRUD requests on a containers will silently ignore the precision value and the response from the container only contains the maximum precision value(-1).  All new Cosmos containers use the new index layout by default.
+
 - You can use index precision to make a trade-off between index storage overhead and query performance. For numbers, we recommend using the default precision configuration of -1 (maximum). Because numbers are 8 bytes in JSON, this is equivalent to a configuration of 8 bytes. Choosing a lower value for precision, such as 1 through 7, means that values within some ranges map to the same index entry. Therefore, you can reduce index storage space, but query execution might have to process more items. Consequently, it consumes more throughput/RUs.
 
 - Index precision has more practical application with string ranges. Because strings can be any arbitrary length, the choice of the index precision might affect the performance of string range queries. It also might affect the amount of index storage space that's required. String Range indexes can be configured with an index precision between 1 and 100, or -1 (maximum). If you want to perform ORDER BY queries against string properties, you must specify a precision of -1 for the corresponding paths.
@@ -57,9 +60,6 @@ Here are examples of queries that Hash, Range, and Spatial indexes can be used t
 - Spatial indexes always use the default index precision for all types (Point, LineString, and Polygon). The default index precision for spatial indexes can't be overridden.
 
 Azure Cosmos DB returns an error when a query uses ORDER BY but doesn't have a Range index against the queried path with the maximum precision.
-
-> [!NOTE]
-> Azure Cosmos containers support a new index layout that no longer requires a custom index precision other than the maximum precision value(-1). With this method, paths are always indexed with the maximum precision. If you specify a precision value on the indexing policy, the CRUD requests on a containers will silently ignore the precision value and the response from the container only contains the maximum precision value(-1).  All new Cosmos containers use the new index layout by default.
 
 ## Next steps
 
