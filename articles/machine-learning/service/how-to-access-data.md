@@ -70,20 +70,23 @@ The following examples show you to register an Azure Blob Container or an Azure 
 The [`get()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#get-workspace--datastore-name-) method queries for an already registered datastore by name:
 
 ```Python
+#get named datastore from current workspace
 ds = Datastore.get(ws, datastore_name='your datastore name')
 ```
 
-You can also get all the datastores for a workspace:
+To get a list of all datastores in a given workspace, use this code:
 
 ```Python
+#list all datastores registered in current workspace
 datastores = ws.datastores
 for name, ds in datastores.items():
     print(name, ds.datastore_type)
 ```
 
-For convenience, [`set_default_datastore()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#set-default-datastore-name-) sets the default datastore for your workspace to whichever datastore you choose:
+To define a different default datastore for the current workspace, use [`set_default_datastore()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#set-default-datastore-name-):
 
 ```Python
+#define default datastore for current workspace
 ws.set_default_datastore('your datastore name')
 ```
 
@@ -113,7 +116,7 @@ ds.download(target_path='your target path',
 ```
 `target_path` is the location of the local directory to download the data to. To specify a path to the folder in the file share (or blob container) to download, provide that path to `prefix`. If `prefix` is `None`, all the contents of your file share (or blob container) will get downloaded.
 
-## Access datastores for training
+## Access datastores during training
 You can access a datastore during a training run (for example, for training or validation data) on a remote compute target via the Python SDK using the [`DataReference`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) class.
 
 There are several ways to make your datastore available on the remote compute.
@@ -180,4 +183,3 @@ est = Estimator(source_directory='your code directory',
 * [Train a model](how-to-train-ml-models.md)
 
 * [Deploy a model](how-to-deploy-and-where.md)
-
