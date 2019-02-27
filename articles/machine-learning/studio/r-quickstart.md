@@ -5,7 +5,7 @@ description: Use this R programming tutorial to get started quickly using the R 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs

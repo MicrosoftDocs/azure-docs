@@ -12,7 +12,7 @@ ms.date: 2/20/2019
 ms.author: chlandsi
 ---
 
-# How to select an audio input device with the Speech SDK 
+# Select an audio input device with the Speech SDK
 
 Version 1.3.0 of the Speech SDK introduces an API to select the audio input
 This article describes how to obtain the IDs of the audio devices connected to a system.
@@ -363,3 +363,13 @@ For example, the instruction
 ```
 
 enables the use of a Bluetooth headset for a speech-enabled app.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Explore our samples on GitHub](https://aka.ms/csspeech/samples)
+
+## See also
+
+- [Customize acoustic models](how-to-customize-acoustic-models.md)
+- [Customize language models](how-to-customize-language-model.md)
