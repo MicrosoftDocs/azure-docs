@@ -14,7 +14,7 @@ ms.author: magoedte
 ---
 
 # Azure Monitor for containers Frequently Asked Questions
-This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for containers. If you have any additional questions about the solution, send an email to [askcoin@microsoft.com](askcoin@microsoft.com) with your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
+This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for containers. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
 ## I am unable to see any data for Azure Monitor for containers in the Log Analytics workspace at a certain period of time everyday. How do I resolve this? 
 
