@@ -35,7 +35,7 @@ To connect your Palo Alto appliance to Azure Sentinel, you need to deploy an age
 
 Alternatively, you can deploy the agent manually on an existing Azure VM, on a VM in another cloud, or on an on-premises machine.
 
-To see a network diagram of both options, see [Connect data sources](connect-data-sources.md).
+To see a network diagram of both options, see [Connect data sources](connect-data-sources.md#agent-options).
 
 
 ### Deploy the agent in Azure

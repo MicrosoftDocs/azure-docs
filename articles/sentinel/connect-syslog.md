@@ -17,7 +17,7 @@ ms.date: 2/28/2019
 ms.author: rkarlin
 
 ---
-# Connect your on-premises appliance (Syslog)
+# Connect your external solution using Syslog
 
 > [!IMPORTANT]
 > Azure Sentinel is currently in public preview.
