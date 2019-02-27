@@ -1,4 +1,4 @@
-- name: Azure App Configuration Documentation
+- name: Azure App Configuration (Preview) Documentation
   href: index.yml
 - name: Overview
   items:
@@ -50,4 +50,4 @@
     - name: Java Spring configuration provider
       href: https://go.microsoft.com/fwlink/?linkid=2074659
     - name: REST
-      href: https://docs.microsoft.com/rest/api/azure-app-configuration
+      href: https://go.microsoft.com/fwlink/?linkid=2078296
