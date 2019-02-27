@@ -14,7 +14,7 @@ ms.topic: article
 ms.date: 02/27/2019 
 ms.author: mabrigg 
 ms.reviewer: waltero 
-ms.lastreviewed: 02/06/2019 
+ms.lastreviewed: 02/27/2019
 
 # Keyword target: Azure Stack Kubernetes dashboard 
 --- 
@@ -53,7 +53,7 @@ You can retrieve the URL for the dashboard from the master node in your cluster.
 1. Get the public IP address and username for your cluster master from the Azure Stack dashboard. To get this information:
 
     - Sign in to the [Azure Stack portal](https://portal.local.azurestack.external/)
-    - Select **All services** > **All resources**. Find the master in your cluster resource group. The master is named `k8s-master-\<sequence-of-numbers>`. 
+    - Select **All services** > **All resources**. Find the master in your cluster resource group. The master is named `k8s-master-<sequence-of-numbers>`. 
 
 2. Open the master node in the portal. Copy the **Public IP** address. Click **Connect** to get your user name in the  **Login using VM local account** box. This is the same user name you set when creating your cluster. Use the public IP address rather than the private IP address listed in the connect blade.
 
