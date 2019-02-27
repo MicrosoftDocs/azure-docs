@@ -415,7 +415,9 @@ func durable raise-event --id 1234567 --event-name MyOtherEvent --event-data 3
 
 ## Wait for orchestration completion
 
-The [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class exposes a [WaitForCompletionOrCreateCheckStatusResponseAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_WaitForCompletionOrCreateCheckStatusResponseAsync_) API in .NET that can be used to get synchronously the actual output from an orchestration instance. In JavaScript, the `DurableOrchestrationClient` class exposes a `waitForCompletionOrCreateCheckStatusResponse` API for the same purpose. The methods use a default value of 10 seconds for `timeout` and 1 second for `retryInterval` when they are not set.  
+[Glenn: same thing here. This needs a little context before diving right into the technical details. Why is this important to cover in the article? What problem is this solving for the customer in the customer intent statement at the beginning? Doesn't need to be extensive. A couple of sentences to set context should do it.]
+
+The [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class exposes a [WaitForCompletionOrCreateCheckStatusResponseAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_WaitForCompletionOrCreateCheckStatusResponseAsync_) API in .NET. You can use this API to get the actual output from an orchestration instance synchronously. In JavaScript, the `DurableOrchestrationClient` class exposes a `waitForCompletionOrCreateCheckStatusResponse` API for the same purpose. When they are not set, the methods use a default value of 10 seconds for `timeout`, and 1 second for `retryInterval`.  
 
 Here is an example HTTP-trigger function that demonstrates how to use this API:
 
@@ -423,7 +425,7 @@ Here is an example HTTP-trigger function that demonstrates how to use this API:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpSyncStart/index.js)]
 
-The function can be called with the following line using 2-seconds timeout and 0.5-second retry interval:
+Call the function with the following line. Use 2 seconds for the timeout and 0.5 seconds for the retry interval:
 
 ```bash
     http POST http://localhost:7071/orchestrators/E1_HelloSequence/wait?timeout=2&retryInterval=0.5
@@ -431,7 +433,7 @@ The function can be called with the following line using 2-seconds timeout and 0
 
 Depending on the time required to get the response from the orchestration instance, there are two cases:
 
-* The orchestration instances complete within the defined timeout (in this case 2 seconds), the response is the actual orchestration instance output delivered synchronously:
+* The orchestration instances complete within the defined timeout (in this case 2 seconds), and the response is the actual orchestration instance output, delivered synchronously:
 
     ```http
         HTTP/1.1 200 OK
@@ -447,7 +449,7 @@ Depending on the time required to get the response from the orchestration instan
         ]
     ```
 
-* The orchestration instances cannot complete within the defined timeout (in this case 2 seconds), the response is the default one described in **HTTP API URL discovery**:
+* The orchestration instances can't complete within the defined timeout, and the response is the default one described in [HTTP API URL discovery](durable-functions-http-api.md):
 
     ```http
         HTTP/1.1 202 Accepted
@@ -468,17 +470,17 @@ Depending on the time required to get the response from the orchestration instan
     ```
 
 > [!NOTE]
-> The format of the webhook URLs may differ depending on which version of the Azure Functions host you are running. The preceding example is for the Azure Functions 2.x host.
+> The format of the webhook URLs might differ, depending on which version of the Azure Functions host you are running. The preceding example is for the Azure Functions 2.x host.
 
-## Retrieving HTTP Management Webhook URLs
+## Retrieve HTTP management webhook URLs
 
-External systems can communicate with Durable Functions via the webhook URLs that are part of the default response described in [HTTP API URL discovery](durable-functions-http-api.md). However, the webhook URLs also can be accessed programmatically in the orchestration client or in an activity function via the [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) method of the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class (.NET) or the `createHttpManagementPayload` method of the `DurableOrchestrationClient` class (JavaScript).
+You can use an external system to monitor or raise events to an orchestration. External systems can communicate with Durable Functions through the webhook URLs that are part of the default response described in [HTTP API URL discovery](durable-functions-http-api.md). However, the webhook URLs also can be accessed programmatically in the orchestration client or in an activity function. Do this by using the [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) method of the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class (.NET), or the `createHttpManagementPayload` method of the `DurableOrchestrationClient` class (JavaScript).
 
 [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) and `createHttpManagementPayload` have one parameter:
 
 * **instanceId**: The unique ID of the instance.
 
-The methods return an instance of [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) (.NET) or an object (JavaScript) with the following string properties:
+The methods return an instance of [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) (.NET) or an object (JavaScript), with the following string properties:
 
 * **Id**: The instance ID of the orchestration (should be the same as the `InstanceId` input).
 * **StatusQueryGetUri**: The status URL of the orchestration instance.
@@ -525,17 +527,19 @@ modules.exports = async function(context, ctx) {
 };
 ```
 
-## Rewinding instances (preview)
+## Rewind instances (preview)
 
-A failed orchestration instance can be *rewound* into a previously healthy state using the [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_) (.NET) or `rewindAsync` (JavaScript) API. It works by putting the orchestration back into the *Running* state and rerunning the activity and/or suborchestration execution failures that caused the orchestration failure.
-
-> [!NOTE]
-> This API is not intended to be a replacement for proper error handling and retry policies. Rather, it is intended to be used only in cases where orchestration instances fail for unexpected reasons. For more details on error handling and retry policies, please see the [Error handling](durable-functions-error-handling.md) topic.
-
-One example use case for *rewind* is a workflow involving a series of [human approvals](durable-functions-concepts.md#human). Suppose there are a series of activity functions that notify someone that their approval is needed and wait out the real-time response. After all of the approval activities have received responses or timed out, another activity fails due to an application misconfiguration, such as an invalid database connection string. The result is an orchestration failure deep into the workflow. With the `RewindAsync` (.NET) or `rewindAsync` (JavaScript) API, an application administrator can fix the configuration error and *rewind* the failed orchestration back to the state immediately before the failure. None of the human-interaction steps need to be reapproved and the orchestration can now complete successfully.
+If you have an orchestration failure for an unexpected reason, you can *rewind* the instance to a previously healthy state by using an API built for that purpose.
 
 > [!NOTE]
-> The *rewind* feature does not support rewinding orchestration instances that use durable timers.
+> This API is not intended to be a replacement for proper error handling and retry policies. Rather, it is intended to be used only in cases where orchestration instances fail for unexpected reasons. For more details on error handling and retry policies, see the [Error handling](durable-functions-error-handling.md) topic.
+
+Use the [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_) (.NET) or `rewindAsync` (JavaScript) API to put the orchestration back into the *Running* state. Rerun the activity or suborchestration execution failures that caused the orchestration failure.
+
+For example, let's say you have a workflow involving a series of [human approvals](durable-functions-concepts.md#human). Suppose there are a series of activity functions that notify someone that their approval is needed, and wait out the real-time response. After all of the approval activities have received responses or timed out, suppose that another activity fails due to an application misconfiguration, such as an invalid database connection string. The result is an orchestration failure deep into the workflow. With the `RewindAsync` (.NET) or `rewindAsync` (JavaScript) API, an application administrator can fix the configuration error, and rewind the failed orchestration back to the state immediately before the failure. None of the human-interaction steps need to be reapproved, and the orchestration can now complete successfully.
+
+> [!NOTE]
+> The *rewind* feature doesn't support rewinding orchestration instances that use durable timers.
 
 ### C#
 
@@ -563,25 +567,27 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
-### Using Core Tools
+### Core Tools
 
-It is also possible to rewind an orchestration instance directly via the [Core Tools](../functions-run-local.md) `durable rewind` command. It takes the following parameters:
+You can also rewind an orchestration instance directly by using the [Azure Functions Core Tools](../functions-run-local.md) `durable rewind` command. It takes the following parameters:
 
-* **`id` (required)**: ID of the orchestration instance
-* **`reason` (optional)**: Reason for rewinding the orchestration instance
-* **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is AzureWebJobsStorage.
-* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in [host.json](durable-functions-bindings.md#host-json) via durableTask:HubName.
+* **`id` (required)**: ID of the orchestration instance.
+* **`reason` (optional)**: Reason for rewinding the orchestration instance.
+* **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is `AzureWebJobsStorage`.
+* **`task-hub-name` (optional)**: Name of the Durable Functions task hub to use. The default is `DurableFunctionsHub`. It can also be set in [host.json](durable-functions-bindings.md#host-json), by using durableTask:HubName.
 
 ```bash
 func durable rewind --id 0ab8c55a66644d68a3a8b220b12d209c --reason "Orchestrator failed and needs to be revived."
 ```
 
-## Purge Instance History
+## Purge instance history
+
+To remove all the data associated with an orchestration, you can purge the instance history. For example, you might want to get rid of Azure Table rows and large message blobs, if they exist. To do so, use the [PurgeInstanceHistoryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_PurgeInstanceHistoryAsync_) API.
 
 > [!NOTE]
-> The `PurgeInstanceHistoryAsync` API is currently available only for C#. It will be added to JavaScript in an upcoming release.
+> The `PurgeInstanceHistoryAsync` API is currently available only for C#.
 
-Orchestration history can be purged by using [PurgeInstanceHistoryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_PurgeInstanceHistoryAsync_). The functionality will remove all the data associated with an orchestration - Azure Table rows and large message blobs if they exist. The method has two overloads. The first one purges history by orchestration instance's ID:
+ The method has two overloads. The first one purges history by the ID of the orchestration instance:
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
@@ -593,7 +599,7 @@ public static Task Run(
 }
 ```
 
-The second example shows a timer-triggered function that purges the history for all orchestration instances that completed after the specified time interval. In this case, it will remove data for all instances completed 30 or more days ago. It is scheduled to run once per day at 12 AM:
+The second example shows a timer-triggered function that purges the history for all orchestration instances that completed after the specified time interval. In this case, it removes data for all instances completed 30 or more days ago. It's scheduled to run once per day, at 12 AM:
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
@@ -612,32 +618,32 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> The *PurgeInstanceHistory* overload accepting time period as parameter will process only orchestration instances in one of the runtime status - Completed, Terminated, or Failed.
+> For the time-triggered function process to succeed, the runtime status must be **Completed**, **Terminated**, or **Failed**.
 
-### Using Core Tools
+### Core Tools
 
-It is possible to purge an orchestration instance's history using the [Core Tools](../functions-run-local.md) `durable purge-history` command. Similar to the second C# example above, it purges the history for all orchestration instances created during a specified time interval. The instances purged can be further filtered by runtime status. The command has several parameters:
+You can purge an orchestration instance's history by using the [Azure Functions Core Tools](../functions-run-local.md) `durable purge-history` command. Similar to the second C# example in the preceding section, it purges the history for all orchestration instances created during a specified time interval. You can further filter purged instances by runtime status. The command has several parameters:
 
 * **`created-after` (optional)**: Purge the history of instances created after this date/time (UTC). ISO 8601 formatted datetimes accepted.
 * **`created-before` (optional)**: Purge the history of instances created before this date/time (UTC). ISO 8601 formatted datetimes accepted.
-* **`runtime-status` (optional)**: Purge the history of instances whose status match these ('running', 'completed', etc.). Can provide multiple (space separated) statuses.
-* **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is AzureWebJobsStorage.
-* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in [host.json](durable-functions-bindings.md#host-json) via durableTask:HubName.
+* **`runtime-status` (optional)**: Purge the history of instances with a particular status (for example, running or completed). Can provide multiple (space separated) statuses.
+* **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is `AzureWebJobsStorage`.
+* **`task-hub-name` (optional)**: Name of the Durable Functions task hub to use. The default is `DurableFunctionsHub`. It can also be set in [host.json](durable-functions-bindings.md#host-json), by using durableTask:HubName.
 
-The following command would delete the history of all failed instances created before November 14, 2018 at 7:35 PM (UTC).
+The following command deletes the history of all failed instances created before November 14, 2018 at 7:35 PM (UTC).
 
 ```bash
 func durable purge-history --created-before 2018-11-14T19:35:00.0000000Z --runtime-status failed
 ```
 
-## Deleting a Task Hub
+## Delete a task hub
 
-Using the [Core Tools](../functions-run-local.md) `durable delete-task-hub` command, it is possible to delete all storage artifacts associated with a particular task hub. This includes Azure storage tables, queues, and blobs. The command has two parameters:
+Using the [Azure Functions Core Tools](../functions-run-local.md) `durable delete-task-hub` command, you can delete all storage artifacts associated with a particular task hub. This includes Azure storage tables, queues, and blobs. The command has two parameters:
 
-* **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is AzureWebJobsStorage.
-* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in [host.json](durable-functions-bindings.md#host-json) via durableTask:HubName.
+* **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is `AzureWebJobsStorage`.
+* **`task-hub-name` (optional)**: Name of the Durable Functions task hub to use. The default is `DurableFunctionsHub`. It can also be set in [host.json](durable-functions-bindings.md#host-json), by using durableTask:HubName.
 
-The following command would delete all Azure storage data associated with the 'UserTest' task hub.
+The following command deletes all Azure storage data associated with the `UserTest` task hub.
 
 ```bash
 func durable delete-task-hub --task-hub-name UserTest
