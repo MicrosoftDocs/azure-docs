@@ -635,7 +635,7 @@ When you're troubleshooting a specific error, it can help to see where it is occ
 * Choose an image that you know has failed recently and find the error logs for it. Start by finding a container name that is running that image with a **ContainerInventory** search. For example, search for `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
     ![Search for Ubuntu containers](./media/containers/search-ubuntu.png)
 
-  The name of the container next to **Name**, and search for those logs. In this example, it is `ContainerLog | where Name == "cranky_stonebreaker"`.
+  Expand any row in the results to view details for that container.
 
 
 ## Example log queries
