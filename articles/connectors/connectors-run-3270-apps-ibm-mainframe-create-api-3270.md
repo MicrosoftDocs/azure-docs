@@ -487,17 +487,31 @@ displays the value for your output parameter.
 
 <a name="add-metadata-integration-account"></a>
 
-## Add metadata file to integration account
+## Generate and upload HIDX file
 
-When you're ready, add your HIDX file as a map to your 
-integration account in the Azure portal. Except for 
-where you select **HIDX** as your map type, you can 
-[follow these similar steps for adding maps](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md). 
+When you're ready, generate the HIDX file so you 
+can upload to your integration account. The 3270 
+Design Tool, creates the HIDX file in a new 
+subfolder where you saved your .rap file.
 
-In a later section in this topic, you learn how to add an HIS 3270 
-action to your logic app. When you add this action for the first time, 
-you're prompted to connect from your logic app to the host server, 
-and provide connection information, such as the names for your integration 
+1. On the 3270 Design Tool's toolbar, choose **Generate**.
+
+1. Go to the folder that contains your .rap file, and open the 
+subfolder that the tool created after generating your HIDX file. 
+Confirm that the tool created the HIDX file.
+
+1. Sign in to the [Azure portal](https://portal.azure.com), 
+and find your integration account.
+
+1. Add your HIDX file as a map to your integration account 
+by [follow these similar steps for adding maps](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md), 
+but when you select the map type, select **HIDX**.
+
+Later in this topic, when you add an HIS 3270 
+action to your logic app for the first time, 
+you're prompted to create a connection between 
+your logic app and the host server by providing 
+connection information, such as the names for your integration 
 account and host server. After you create the connection, you can select 
 your previously added HIDX file, the method to run, and the parameters to use.
 
