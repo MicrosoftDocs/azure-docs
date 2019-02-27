@@ -36,6 +36,8 @@ These solution templates are transaction offers, which are deployed and billed t
 | Customer Usage Attribution | Enabling customer usage attribution is required on all solution templates published to the Azure Marketplace. For more information on customer usage attribution and how to enable it, see [Azure partner customer usage attribution](./azure-partner-customer-usage-attribution.md).  |
 |  |  |
 
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](./cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
 
 ## Next steps
 If you haven't already done so, [register](https://azuremarketplace.microsoft.com/sell) in the marketplace.

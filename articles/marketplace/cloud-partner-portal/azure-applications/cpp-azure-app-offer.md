@@ -61,6 +61,8 @@ The high-level steps for publishing an Azure application offer are:
 
 4. Certify and [publish the offer](./cpp-publish-offer.md) - After the offer and the technical assets are completed, you can submit the offer. This submission starts the publishing process. During this process, the solution is tested, validated, certified, then "goes live" on the Azure Marketplace.
 
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](./cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
 
 ## Next steps
 
