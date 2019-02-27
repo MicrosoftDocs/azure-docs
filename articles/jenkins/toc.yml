@@ -29,6 +29,8 @@
     maintainContext: true
   - name: Deploy to AKS using blue/green pattern
     href: /azure/jenkins/jenkins-aks-blue-green-deployment
+  - name: Deploy to Azure Functions
+    href: ./jenkins-azure-functions-deploy.md
 - name: How-to
   items:
     - name: Secure Jenkins on Azure

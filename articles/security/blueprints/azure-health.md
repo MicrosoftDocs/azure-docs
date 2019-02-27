@@ -147,7 +147,7 @@ They have no access to patient records.
 
 -   Scope: ResourceGroup
 
- ### Data Scientist
+### Data Scientist
 
 
 The data scientist operates the Azure Machine Learning Studio. They can

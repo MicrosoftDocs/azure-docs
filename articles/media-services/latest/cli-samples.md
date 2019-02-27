@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 02/11/2019
+ms.date: 02/21/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -28,7 +28,7 @@ The following table includes links to the Azure CLI examples for Azure Media Ser
 |**Scale**||
 | [Scale Media Reserved Units](media-reserved-units-cli-how-to.md)|For the Audio Analysis and Video Analysis Jobs that are triggered by Media Services v3 or Video Indexer, it is highly recommended to provision your account with 10 S3 MRUs. <br/>The script shows how to use CLI to scale Media Reserved Units (MRUs).|
 |**Account**||
-| [Create a Media Services account](./scripts/cli-create-account.md) | Creates an Azure Media Services account. Also, creates a service principal that can be used to access APIs to programmatically manage the account. |
+| [Create a Media Services account](create-account-cli-how-to.md) | Creates an Azure Media Services account. Also, creates a service principal that can be used to access APIs to programmatically manage the account. |
 | [Reset account credentials](./scripts/cli-reset-account-credentials.md)|Resets your account credentials and gets the app.config settings back.|
 |**Assets**||
 | [Create assets](./scripts/cli-create-asset.md)|Creates a Media Services Asset to upload content to.|
@@ -43,4 +43,5 @@ The following table includes links to the Azure CLI examples for Azure Media Ser
 
 ## See also
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+- [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+- [Quickstart: Stream video files - CLI](stream-files-cli-quickstart.md)

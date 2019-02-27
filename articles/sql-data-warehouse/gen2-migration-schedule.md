@@ -23,8 +23,6 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 
 | **Region** | **Lower Gen2 available** | **Automatic upgrades begin** |
 |:--- |:--- |:--- |
-| Australia Central 1 |March 1, 2019 |June 15, 2019 |
-| Australia Central 2 |March 1, 2019 |June 15, 2019 |
 | Australia East |Available |May 1, 2019 |
 | Australia Southeast |March 1, 2019 |June 15, 2019 |
 | Brazil South |\* |\* |
