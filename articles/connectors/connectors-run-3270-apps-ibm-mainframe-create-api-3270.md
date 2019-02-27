@@ -65,16 +65,15 @@ that task from your logic app.
 
 After you generate the metadata file from the design tool, 
 you add the file to an integration account in Azure. That way, 
-your logic app can access the metadata about your app when 
-you add a 3270 connector action. The connector reads the 
-metadata file from your integration account and dynamically 
-presents the parameters for the 3270 action.
-
-So, by handling navigation through the 3270 screens, 
-entering data into the host application, and returning 
-the results to your logic app, you can integrate your 
-legacy apps with Azure, Microsoft, and other apps, 
-services, and systems that Azure Logic Apps supports.
+your logic app can access the metadata about your app when you 
+add a 3270 connector action. The connector reads the metadata 
+file from your integration account, handles navigation through 
+the 3270 screens, and dynamically presents the parameters for 
+the 3270 connector action. You can then provide data to the 
+host application, and the connector returns the results to 
+your logic app. That way, you can integrate your legacy apps 
+with Azure, Microsoft, and other apps, services, and systems 
+that Azure Logic Apps supports.
 
 ## Prerequisites
 
