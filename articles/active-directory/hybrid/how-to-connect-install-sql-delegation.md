@@ -43,7 +43,8 @@ To provision the database out of band and install Azure AD Connect with database
  ![Collation](./media/how-to-connect-install-sql-delegation/sql4.png)
  2.	Grant the Azure AD Connect administrator and the domain service account the following permissions:
     - SQL Login 
-    - **database owner(dbo)** rights.  </br>
+    - **database owner(dbo)** rights.
+ 
  ![Permissions](./media/how-to-connect-install-sql-delegation/sql3a.png)
 
  >[!NOTE]
