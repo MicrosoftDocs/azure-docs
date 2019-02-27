@@ -3,7 +3,7 @@ title: Create and Manage an Azure Virtual Machine Using Java | Microsoft Docs
 description: Use Java and Azure Resource Manager to deploy a virtual machine and all its supporting resources.
 services: virtual-machines-windows
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: zarhoads
+ms.author: cynthn
 
 ---
 # Create and manage Windows VMs in Azure using Java
@@ -35,7 +35,7 @@ It takes about 20 minutes to do these steps.
 
 ## Create a Maven project
 
-1. If you haven't already done so, install [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+1. If you haven't already done so, install [Java](https://aka.ms/azure-jdks).
 2. Install [Maven](http://maven.apache.org/download.cgi).
 3. Create a new folder and the project:
     

@@ -1,11 +1,11 @@
-﻿---
+---
 title: Set up disaster recovery to Azure for Hyper-V VMs using PowerShell and Azure Resource Manager | Microsoft Docs
 description: Automate disaster recovery of Hyper-V VMs to Azure with the Azure Site Recovery service using PowerShell and Azure Resource Manager.
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: sutalasi
 
 ---
@@ -19,7 +19,7 @@ This article describes how to use Windows PowerShell, together with Azure Resour
 
 Azure PowerShell provides cmdlets to manage Azure using Windows PowerShell. Site Recovery PowerShell cmdlets, available with Azure PowerShell for Azure Resource Manager, help you protect and recover your servers in Azure.
 
-You don't need to be a PowerShell expert to use this article, but you do need to understand basic concepts, such as modules, cmdlets, and sessions. Read [Getting started with Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx), and [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
+You don't need to be a PowerShell expert to use this article, but you do need to understand basic concepts, such as modules, cmdlets, and sessions. Read [Getting started with Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx), and [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 > [!NOTE]
 > Microsoft partners in the Cloud Solution Provider (CSP) program can configure and manage protection of customer servers to their respective CSP subscriptions (tenant subscriptions).
@@ -43,24 +43,21 @@ In addition, the specific example described in this article has the following pr
 1. Open a PowerShell console and run this command to sign in to your Azure account. The cmdlet brings up a web page prompts you for your account credentials: **Connect-AzureRmAccount**.
     - Alternately, you can include your account credentials as a parameter in the **Connect-AzureRmAccount** cmdlet, using the **-Credential** parameter.
     - If you are CSP partner working on behalf of a tenant, specify the customer as a tenant, by using their tenantID or tenant primary domain name. For example: **Connect-AzureRmAccount -Tenant "fabrikam.com"**
-2. Associate the subscription you want to use with the acount, since an account can have several subscriptions:
+2. Associate the subscription you want to use with the account, since an account can have several subscriptions:
 
     `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`
 
 3. Verify that your subscription is registered to use the Azure providers for Recovery Services and Site Recovery, using these commands:
 
     `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
-    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`
 
 4. Verify that in the command output, the **RegistrationState** is set to **Registered**, you can proceed to Step 2. If not, you should register the missing provider in your subscription, by running these commands:
 
-    `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.SiteRecovery`
     `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
 
 5. Verify that the Providers registered successfully, using the following commands:
 
     `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
-    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`.
 
 ## Step 2: Set up the vault
 

@@ -3,7 +3,7 @@ title: Search with Azure Maps | Microsoft Docs
 description: Search nearby point of interest using Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/22/2018
+ms.date: 01/17/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -68,47 +68,47 @@ The Map Control API is a convenient client library that allows you to easily int
 2. Add the following HTML components to the file:
 
    ```HTML
-   <!DOCTYPE html>
-   <html>
-   <head>
-      <title>Map Search</title>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, user-scalable=no" />
-
-      <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
-      <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
-
-      <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
-      <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1"></script>
-
-      <script>		
-         var map, datasource, client, popup;
-
-         function GetMap(){
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Map Search</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        
+        <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
+        
+        <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
+        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1"></script>
+        
+        <script>		
+        var map, datasource, client, popup;
+        
+        function GetMap(){
             //Add Map Control JavaScript code here.
-         }
-      </script>
-      <style>
-      html,
-      body {
-         width: 100%;
-         height: 100%;
-         padding: 0;
-         margin: 0;
-      }
-
-      #map {
-         width: 100%;
-         height: 100%;
-      }
-      </style>
-   </head>
-   <body onload="GetMap()">
-      <div id="myMap"></div>
-   </body>
-   </html>
-   ```
+        }
+        </script>
+        <style>
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                margin: 0;
+            }
+            
+            #map {
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+    </head>
+    <body onload="GetMap()">
+        <div id="myMap"></div>
+    </body>
+    </html>
+    ```
 
    Notice that the HTML header includes the CSS and JavaScript resource files hosted by the Azure Map Control library. Note the `onload` event on the body of the page, which will call the `GetMap` function when the body of the page has loaded. This function will contain the inline JavaScript code to access the Azure Maps APIs.
 
@@ -148,11 +148,6 @@ The Map Control API is a convenient client library that allows you to easily int
       });
       map.layers.add(resultLayer);
 
-      //Create a popup but leave it closed so we can update it and display it later.
-      popup = new atlas.Popup();
-
-      //Add a mouse over event to the result layer and display a popup when this event fires.
-      map.events.add('mouseover', resultLayer, showPopup);
    });
    ```
 
@@ -173,7 +168,7 @@ This section shows how to use the Maps Search API to find a point of interest on
 	 client = new atlas.service.Client(atlas.getSubscriptionKey());
     ```
 
-2. Next add the following script block to build the search query. It uses the Fuzzy Search Service, which is a basic search API of the Search Service. Fuzzy Search Service handles most fuzzy inputs like addresses, places, and points of interest (POI). This code searches for nearby Gasoline Stations within the specified radius. The response is then parsed into GeoJSON format and added to the data source, which automatically results in the data being rendered on the map via the symbol layer. The last part of the script sets the maps camera view using the bounding box of the results using the Map's [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) property. A padding is added to compensate for the pixel dimensions of the symbol icons as the bounding box is calculated based on the coordinates. 
+2. Next add the following script block to build the search query. It uses the Fuzzy Search Service, which is a basic search API of the Search Service. Fuzzy Search Service handles most fuzzy inputs like addresses, places, and points of interest (POI). This code searches for nearby Gasoline Stations within the specified radius. The response is then parsed into GeoJSON format and added to the data source, which automatically results in the data being rendered on the map via the symbol layer. The last part of the script sets the maps camera view using the bounding box of the results using the Map's [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) property. A padding is added to compensate for the pixel dimensions of the symbol icons as the bounding box is calculated based on the coordinates. 
  
    ```JavaScript
    //Execute a POI search query then add the results to the map.
@@ -228,8 +223,9 @@ The map that we've made so far only looks at the longitude/latitude data for the
 2. In the *script* tag, after the `GetMap` function add the following code to show the moused over result information in the popup. 
 
    ```JavaScript
-   function showPopup(e) {
+    function showPopup(e) {
         //Get the properties and coordinates of the first shape that the event occured on.
+
         var p = e.shapes[0].getProperties();
         var position = e.shapes[0].getCoordinates();
 
@@ -246,7 +242,7 @@ The map that we've made so far only looks at the longitude/latitude data for the
 
         //Open the popup.
         popup.open(map);
-   }
+    }
    ```
 
 2. Save the file and refresh your browser. Now the map in the browser shows information pop-ups when you hover over any of the search pins.

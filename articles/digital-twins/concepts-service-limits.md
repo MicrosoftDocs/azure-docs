@@ -1,50 +1,54 @@
 ---
-title: Azure Digital Twins public preview service limits | Microsoft Docs
-description: Understanding Azure Digital Twins public preview service limits
+title: 'Azure Digital Twins public preview service limits | Microsoft Docs'
+description: Understand Azure Digital Twins public preview service limits.
 author: dwalthermsft
 manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 01/03/2019
 ms.author: dwalthermsft
 ---
 
 # Public preview service limits
 
-During **Public Preview**, Azure Digital Twins will have temporary subscription, instance, and rate limits that are described below.
+During the public preview, Azure Digital Twins has the following temporary subscription, instance, and rate limits.
 
 These constraints exist to help simplify learning about the new service and its many features.
 
 > [!NOTE]
-> These limits will be increased and/or removed by **General Availability** (**GA**).
+> These limits will be increased or removed by general availability (GA).
 
-## Per-Subscription limits
+## Per-subscription limits
 
-During **Public Preview**, each Azure subscription can create or have running exactly one Azure Digital Twins instance at a time.
+During the public preview, each Azure subscription can create or run only one Azure Digital Twins instance at a time.
 
 > [!TIP]
-> Deleting your instance will allow you to create a new one.
+> If you delete your instance, you can create a new one.
 
-## Per-Instance limits
+## Per-instance limits
 
 In turn, each Azure Digital Twins instance can have:
 
-- One **IoTHub** Resource
-- One **EventHub** endpoint for event type **DeviceMessage**
-- Up to three **EventHub**, **ServiceBus**, or **EventGrid** endpoints of event type **SensorChange**, **SpaceChange**, **TopologyOperation**, or **UdfCustom**
+- Exactly one embedded **IoTHub** resource that's created automatically during service provisioning.
+- Exactly One **EventHub** endpoint for the event type **DeviceMessage**.
+- Up to three **EventHub**, **ServiceBus**, or **EventGrid** endpoints of the event type **SensorChange**, **SpaceChange**, **TopologyOperation**, or **UdfCustom**.
 
-## Management API limits
+> [!NOTE]
+> Some parameters that are usually defined in creating the above Azure IoT entities are not required during public preview.
+> - Consult the [Swagger reference documentation](./how-to-use-swagger.md) for the most recent API specifications.
 
-The request rate limits for your Management API are:
+## Azure Digital Twins Management API limits
 
-- 100 requests per second to Management API
-- A single Management API query can return up to 1000 objects
+The request rate limits for your Azure Digital Twins Management API are:
+
+- 100 requests per second to the Azure Digital Twins Management API.
+- Up to 1,000 objects returned by a single Azure Digital Twins Management API query.
 
 > [!IMPORTANT]
-> If you exceed the 1000 object limit, you will receive an error and will need to simplify your query.
+> If you exceed the 1,000-object limit, you receive an error and must simplify your query.
 
-## UDF rate limits
+## User-defined functions rate limits
 
 The following limits set the total number of all user-defined function calls made to your Azure Digital Twins instance:
 
@@ -52,17 +56,17 @@ The following limits set the total number of all user-defined function calls mad
 - 100 **SendNotification** calls per second
 
 > [!NOTE]
-> The following actions may cause additional rate limits to be applied temporarily:
-> - Topology object metadata edits
-> - UDF definition updates
-> - Devices sending telemetry for the first time
+> The following actions might cause additional rate limits to be applied temporarily:
+> - Edits made to the topology object metadata
+> - Updates made to the user-defined function definition
+> - Devices that send telemetry for the first time
 
 ## Device telemetry limits
 
-The limits below cap the total number of all messages your devices can send  to your Azure Digital Twins instance:
+The following limits cap the total number of all messages your devices can send to your Azure Digital Twins instance:
 
 - 100 messages per second
 
 ## Next steps
 
-To try out an Azure Digital Twins sample, go to [Quickstart to find available rooms](./quickstart-view-occupancy-dotnet.md).
+- To try out an Azure Digital Twins sample, go to [Quickstart to find available rooms](./quickstart-view-occupancy-dotnet.md).

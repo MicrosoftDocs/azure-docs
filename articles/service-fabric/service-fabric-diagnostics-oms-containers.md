@@ -3,7 +3,7 @@ title: Monitor containers on Azure Service Fabric with Log Analytics | Microsoft
 description: Use Log Analytics for monitoring containers running on Azure Service Fabric clusters.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/1/2017
-ms.author: dekapur
+ms.date: 02/25/2019
+ms.author: srrengar
 
 ---
 
@@ -22,7 +22,7 @@ ms.author: dekapur
  
 This article covers the steps required to set up the Azure Log Analytics container monitoring solution to view container events. To set up your cluster to collect container events, see this [step-by-step tutorial](service-fabric-tutorial-monitoring-wincontainers.md). 
 
-[!INCLUDE [log-analytics-agent-note.md](../../includes/log-analytics-agent-note.md)]
+[!INCLUDE [log-analytics-agent-note.md](../../includes/log-analytics-agent-note.md)]
 
 ## Set up the container monitoring solution
 
@@ -50,7 +50,7 @@ The agent enables the collection of several container-specific logs that can be 
 
 
 ## Next steps
-* Learn more about [Log Analytics Containers solution](../log-analytics/log-analytics-containers.md).
+* Learn more about [Log Analytics Containers solution](../azure-monitor/insights/containers.md).
 * Read more about container orchestration on Service Fabric - [Service Fabric and containers](service-fabric-containers-overview.md)
 * Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Log Analytics
 * Configure Log Analytics to set up [automated alerting](../log-analytics/log-analytics-alerts.md) rules to aid in detecting and diagnostics

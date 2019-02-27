@@ -1,15 +1,16 @@
 ---
 title: Using the Geo Artificial Intelligence Data Science Virtual Machine  - Azure | Microsoft Docs
-description: How to use a Geo AI Virtual Machine on Azure.
+description: Learn how to use the Geo AI Data Science Virtual Machine to analyze data and build models based on geospatial data.
 keywords: deep learning, AI, data science tools, data science virtual machine, Geospatial analytics
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 
 ms.assetid: 
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -44,7 +45,7 @@ In addition to the ML and deep learning framework-based samples from the base Da
 
 2. [Getting stated with Geospatial analytics with R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): An introductory sample that shows how to work with Geospatial data using the R interface to ArcGIS provided by the [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) library. 
 
-3. [Pixel-level land use classification](https://github.com/Azure/pixel_level_land_classification): A tutorial that illustrates how to create a deep neural network model that accepts an aerial image as input and returns a land-cover label. Examples of land-cover labels are "forested" or "water." The model returns such a label for every pixel in the image. The model is built using Microsoft's open-source [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) deep learning framework. The example also shows how to scale out the training on [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) and consume the model predictions in ArcGIS Pro software. 
+3. [Pixel-level land use classification](https://github.com/Azure/pixel_level_land_classification): A tutorial that illustrates how to create a deep neural network model that accepts an aerial image as input and returns a land-cover label. Examples of land-cover labels are "forested" or "water." The model returns such a label for every pixel in the image. The model is built using Microsoft's open-source [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) deep learning framework. 
 
 
 ## Next steps

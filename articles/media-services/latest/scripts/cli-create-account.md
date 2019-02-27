@@ -13,17 +13,17 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/16/2018
+ms.date: 01/25/2019
 ms.author: juliako
 ---
 
 # CLI example: Create an Azure Media Services account
 
-The Azure CLI script in this topic shows how to create an Azure Media Services account.
+The Azure CLI script in this topic shows how to create an Azure Media Services account. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
+The Media Services account and all associated storage accounts must be in the same Azure subscription. It is recommended to use storage accounts in the same location as the Media Services account.
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
+[!INCLUDE [media-services-cli-instructions.md](../../../../includes/media-services-cli-instructions.md)]
 
 ## Example script
 
@@ -34,7 +34,7 @@ If you choose to install and use the CLI locally, this article requires that you
 Run the following command to remove the
 resource group and all resources associated with it.
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 

@@ -3,7 +3,7 @@ title: App Service on Azure Stack overview | Microsoft Docs
 description: Overview of App Service on Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: jeffgilb
 manager: femila
 
 ms.assetid:
@@ -13,8 +13,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
-ms.author: sethm
+ms.author: jeffgilb
 ms.reviewer: anwestg
+ms.lastreviewed: 10/16/2018
 
 ---
 
@@ -38,8 +39,8 @@ Here are some key features and capabilities of App Service:
 
 App Service offers several app types, each of which is intended to host a specific workload:
 
-- [Web Apps](../app-service/app-service-web-overview.md) for hosting websites and web applications.
-- [API Apps](../app-service/app-service-web-overview.md) for hosting REST APIs.
+- [Web Apps](../app-service/overview.md) for hosting websites and web applications.
+- [API Apps](../app-service/overview.md) for hosting REST APIs.
 - Azure Functions for hosting event driven, serverless workloads.
 
 The word *app* refers to the hosting resources dedicated to running a workload. Taking *web app* as an example, you're probably accustomed to thinking of a web app as both the compute resources and application code that together deliver functionality to a browser. In App Service, a web app is the compute resource that Azure Stack provides for hosting your application code.
@@ -49,7 +50,7 @@ Your application can be composed of multiple App Service apps of different kinds
 - Deploy both (front end and api) to a single web app
 - Deploy your front-end code to a web app and your back-end code to an API app.
 
-   [ ![App Service overview with monitoring data](media/azure-stack-app-service-overview/image01.png "App Service overview with monitoring data") ](media/azure-stack-app-service-overview/image01.png#lightbox)
+   [![App Service overview with monitoring data](media/azure-stack-app-service-overview/image01.png "App Service overview with monitoring data")](media/azure-stack-app-service-overview/image01.png#lightbox)
 
 ## What is an App Service plan?
 

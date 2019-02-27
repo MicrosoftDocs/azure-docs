@@ -1,21 +1,14 @@
 ---
-title: 'Create and modify an ExpressRoute circuit: Azure portal | Microsoft Docs'
-description: This article describes how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
-documentationcenter: na
+title: 'Create and modify an ExpressRoute circuit - portal: Azure | Microsoft Docs'
+description: Create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 68d59d59-ed4d-482f-9cbc-534ebb090613
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/20/2017
+ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
+ms.custom: seodec18
 
 ---
 # Create and modify an ExpressRoute circuit
@@ -23,18 +16,18 @@ ms.author: cherylmc;ganesr
 > * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
-> * [Video - Azure portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
+> * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-circuit-classic.md)
 >
 
-This article describes how to create an Azure ExpressRoute circuit by using the Azure portal and the Azure Resource Manager deployment model. The following steps also show you how to check the status of the circuit, update it, or delete and deprovision it.
+This article helps you create an ExpressRoute circuit using the Azure portal and the Azure Resource Manager deployment model. You can also check the status, update, delete, or deprovision a circuit.
 
 
 ## Before you begin
 * Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
 * Ensure that you have access to the [Azure portal](https://portal.azure.com).
 * Ensure that you have permissions to create new networking resources. Contact your account administrator if you do not have the right permissions.
-* You can [view a video](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit) before beginning in order to better understand the steps.
+* You can [view a video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit) before beginning in order to better understand the steps.
 
 ## <a name="create"></a>Create and provision an ExpressRoute circuit
 ### 1. Sign in to the Azure portal
@@ -54,7 +47,8 @@ From a browser, navigate to the [Azure portal](http://portal.azure.com) and sign
   ![Configure the SKU tier and data metering](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
 
   * **Tier** determines whether an ExpressRoute standard or an ExpressRoute premium add-on is enabled. You can specify **Standard** to get the standard SKU or **Premium** for the premium add-on.
-  * **Data metering** determines the billing type. You can specify **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. Note that you can change the billing type from **Metered** to **Unlimited**, but you can't change the type from **Unlimited** to **Metered**.
+  * **Data metering** determines the billing type. You can specify **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. Note that you can change the billing type from **Metered** to **Unlimited**.
+    > [!IMPORTANT] You can't change the type from **Unlimited** to **Metered**.
   * **Peering Location** is the physical location where you are peering with Microsoft.
 
     > [!IMPORTANT]
@@ -120,10 +114,11 @@ You can modify certain properties of an ExpressRoute circuit without impacting c
 You can perform the following tasks with no downtime:
 
 * Enable or disable an ExpressRoute Premium add-on for your ExpressRoute circuit.
-* Increase the bandwidth of your ExpressRoute circuit, provided there is capacity available on the port. Downgrading the bandwidth of a circuit is not supported. 
-* Change the metering plan from *Metered Data* to *Unlimited Data*. Changing the metering plan from Unlimited Data to Metered Data is not supported.
+* Increase the bandwidth of your ExpressRoute circuit, provided there is capacity available on the port.
+> [!IMPORTANT] Downgrading the bandwidth of a circuit is not supported. 
+* Change the metering plan from *Metered Data* to *Unlimited Data*.
+> [!IMPORTANT] Changing the metering plan from Unlimited Data to Metered Data is not supported.
 * You can enable and disable *Allow Classic Operations*.
-
 > [!IMPORTANT]
 > You may have to recreate the ExpressRoute circuit if there is inadequate capacity on the existing port. You cannot upgrade the circuit if there is no additional capacity available at that location.
 >

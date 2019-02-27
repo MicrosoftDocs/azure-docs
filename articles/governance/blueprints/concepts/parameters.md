@@ -1,13 +1,14 @@
 ---
-title: Creating dynamic blueprints through parameters in Azure Blueprints
+title: Use parameters to creating dynamic blueprints
 description: Learn about static and dynamic parameters and how using them creates dynamic blueprints.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
+ms.custom: seodec18
 ---
 # Creating dynamic blueprints through parameters
 
@@ -79,11 +80,11 @@ be selective in what you define as required vs what can be changed during assign
 
 #### Setting static parameters in the portal
 
-1. Click on **All services** and searching for and selecting **Policy** in the left pane. On the **Policy** page, click on **Blueprints**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
-1. Select **Blueprint Definitions** from the page on the left.
+1. Select **Blueprint definitions** from the page on the left.
 
-1. Click on an existing blueprint and then click **Edit Blueprint** OR click **+ Create Blueprint** and fill out the information on the **Basics** tab.
+1. Click on an existing blueprint and then click **Edit blueprint** OR click **+ Create blueprint** and fill out the information on the **Basics** tab.
 
 1. Click **Next: Artifacts** OR click on the **Artifacts** tab.
 
@@ -110,7 +111,7 @@ parameters](#blueprint-parameters). To do so, use the following REST API URI and
 - REST API URI
 
   ```http
-  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2017-11-11-preview
+  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2018-11-01-preview
   ```
 
 - Request Body
@@ -144,7 +145,7 @@ blueprint level parameter.
 - REST API URI
 
   ```http
-  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleOwner?api-version=2017-11-11-preview
+  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleOwner?api-version=2018-11-01-preview
   ```
 
 - Request Body
@@ -174,7 +175,7 @@ and **tagValue**. The value on each is directly provided and doesn't use a funct
 - REST API URI
 
   ```http
-  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyStorageTags?api-version=2017-11-11-preview
+  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyStorageTags?api-version=2018-11-01-preview
   ```
 
 - Request Body
@@ -206,13 +207,13 @@ different name for every assignment of the blueprint.
 
 #### Setting dynamic parameters in the portal
 
-1. Click on **All services** and searching for and selecting **Policy** in the left pane. On the **Policy** page, click on **Blueprints**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
-1. Select **Blueprint Definitions** from the page on the left.
+1. Select **Blueprint definitions** from the page on the left.
 
-1. Right-click on the blueprint that you want to assign. Select **Assign Blueprint** OR click on the blueprint you want to assign, then click the **Assign Blueprint** button.
+1. Right-click on the blueprint that you want to assign. Select **Assign blueprint** OR click on the blueprint you want to assign, then click the **Assign blueprint** button.
 
-1. On the **Assign Blueprint** page, find the **Artifact parameters** section. Each artifact with at least one **dynamic parameter** displays the artifact and the configuration options. Provide required values to the parameters before assigning the blueprint. In the example below, _Name_ is a **dynamic parameter** that must be defined to complete blueprint assignment.
+1. On the **Assign blueprint** page, find the **Artifact parameters** section. Each artifact with at least one **dynamic parameter** displays the artifact and the configuration options. Provide required values to the parameters before assigning the blueprint. In the example below, _Name_ is a **dynamic parameter** that must be defined to complete blueprint assignment.
 
    ![Blueprint dynamic parameter](../media/parameters/dynamic-parameter.png)
 
@@ -228,7 +229,7 @@ isn't provided during assignment, the assignment will fail.
 - REST API URI
 
   ```http
-  PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2017-11-11-preview
+  PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
   ```
 
 - Request Body

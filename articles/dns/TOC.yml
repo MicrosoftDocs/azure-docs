@@ -33,13 +33,13 @@
     href: cli-samples.md
 - name: Concepts
   items:
-  - name: DNS zones and records
+  - name: Zones and records
     href: dns-zones-records.md
-  - name: DNS alias records
+  - name: Alias records
     href: dns-alias.md
-  - name: DNS delegation with Azure DNS
+  - name: Delegation with Azure DNS
     href: dns-domain-delegation.md
-  - name: DNS FAQ
+  - name: FAQ
     href: dns-faq.md
   - name: Using private DNS zones
     href: private-dns-overview.md
@@ -55,6 +55,8 @@
   items:
   - name: Create private DNS zone and record - Azure CLI
     href: private-dns-getstarted-cli.md
+  - name: Alias records for load balanced web apps
+    href: dns-alias-appservice.md
   - name: Manage DNS zones
     items:
     - name: Azure portal
@@ -79,6 +81,10 @@
       href: dns-reverse-dns-for-azure-services.md
   - name: Import and export a DNS zone file
     href: dns-import-export.md
+  - name: Delegate a subdomain
+    href: delegate-subdomain.md
+  - name: Delegate a subdomain using PowerShell
+    href: delegate-subdomain-ps.md
   - name: Integrate with other Azure services
     href: dns-for-azure-services.md
   - name: Protect DNS zones and records
@@ -111,6 +117,8 @@
     href: http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html
   - name: REST
     href: /rest/api/dns/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.network/dns-allversions
 - name: Related
   items:
   - name: Application Gateway

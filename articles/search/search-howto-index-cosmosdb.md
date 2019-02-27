@@ -1,6 +1,6 @@
 ---
-title: Indexing an Azure Cosmos DB data source for Azure Search | Microsoft Docs
-description: This article shows you how to create an Azure Search indexer with an Azure Cosmos DB data source.
+title: Index an Azure Cosmos DB data source - Azure Search 
+description: Crawl an Azure Cosmos DB data source and ingest data in a full text searchable index in Azure Search. Indexers automate data ingestion for selected data sources like Azure Cosmos DB.
 
 ms.date: 10/17/2018
 author: mgottein 
@@ -11,6 +11,7 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
+ms.custom: seodec2018
 ---
 # Connecting Cosmos DB with Azure Search using indexers
 
@@ -32,7 +33,7 @@ In the following video, Azure Cosmos DB Program Manager Andrew Liu demonstrates 
 <a name="supportedAPIs"></a>
 ## Supported API types
 
-Although Azure Cosmos DB supports a variety of data models and APIs, Azure Search indexer production support extends to the SQL API only. Support for MongoDB API is currently in public preview.  
+Although Azure Cosmos DB supports a variety of data models and APIs, Azure Search indexer production support extends to the SQL API only. Support for the Azure Cosmos DB's API for MongoDB is currently in public preview.  
 
 Support for additional APIs is forthcoming. To help us prioritize which ones to support first, please cast your vote on the User Voice web site:
 
@@ -43,6 +44,8 @@ Support for additional APIs is forthcoming. To help us prioritize which ones to 
 ## Prerequisites
 
 In addition to a Cosmos DB account, you need to have a [Azure Search service](search-create-service-portal.md). 
+
+In your Cosmos DB account you can choose whether you want the collection to automatically index all documents. By default, all documents are automatically indexed, but you can turn off automatic indexing. When indexing is turned off, documents can be accessed only through their self-links or by queries by using the document ID. Azure Search requires Cosmos DB automatic indexing to be turned on in the collection that will be indexed by Azure Search. 
 
 <a name="Concepts"></a>
 ## Azure Search indexer concepts
@@ -57,7 +60,7 @@ An **indexer** describes how the data flows from your data source into a target 
 
 To set up an Azure Cosmos DB indexer, you need to create an index, datasource, and finally the indexer. You can create these objects using the [portal](search-import-data-portal.md), [.NET SDK](/dotnet/api/microsoft.azure.search), or [REST API](/rest/api/searchservice/). 
 
-This article shows how to use the REST API. If you opt for the portal, the [Import data wizard](search-import-data-portal.md) guides you through the creation of all these resources, including the index.
+This article shows how to use the REST API. If you opt for the portal, make sure your Cosmos DB database contains data. The [Import data wizard](search-import-data-portal.md) reads metadata and performs data sampling to infer an index schema, but it also loads data from Cosmos DB. If the data is missing, the wizard stops with this error "Error detecting index schema from data source: Could not build a prototype index because datasource 'emptycollection' returned no data.".
 
 > [!TIP]
 > You can launch the **Import data** wizard from the Azure Cosmos DB dashboard to simplify indexing for that data source. In left-navigation, go to **Collections** > **Add Azure Search** to get started.

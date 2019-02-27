@@ -8,7 +8,7 @@ manager: nunoc
 editor:
 
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
-ms.service: Marketplace
+ms.service: marketplace
 ms.workload: 
 ms.tgt_pltfrm: 
 ms.devlang: 
@@ -21,6 +21,9 @@ ms.author: ellacroi
 # Azure Marketplace and AppSource publishing guide
 
 The Marketplace publishing guide is designed to help new and existing publishers learn how to use storefronts in the [Azure Marketplace](https://azuremarketplace.microsoft.com) and [Microsoft AppSource](https://appsource.microsoft.com) to grow their business in partnership with Microsoft by listing applications and services.
+
+>[!Note]
+>The Marketplace here refers to both Azure Marketplace and AppSource.  See [One Marketplace, two storefronts](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace) for more information.
 
 This guide covers the following topics: 
 *   What the Marketplace is and how it works 

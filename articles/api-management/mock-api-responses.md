@@ -36,7 +36,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
++ Learn the [Azure API Management terminology](api-management-terminology.md).
++ Understand the [concept of policies in Azure API Management](api-management-howto-policies.md).
++ Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 
 ## Create a test API 
 

@@ -17,7 +17,7 @@ The sequence number is a string representation of a hexadecimal number. You can 
 
 ## Prerequisites
 
-* An active Azure account. If you don't have one, you can [create a free account](http://azure.microsoft.com/pricing/free-trial/).
+* An active Azure account. If you don't have one, you can [create a free account](https://azure.microsoft.com/pricing/free-trial/).
 
 * An active Azure Cosmos DB SQL API account. If you haven't created one yet, see [Create a database account](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#create-a-database-account) for a walkthrough.
 
@@ -197,11 +197,11 @@ In your logic app workflow, conditions help run specific actions after passing t
 
 2. Fill the condition as shown below to only execute this for Device Connected and Device Disconnected events:
 
-  * Choose a value: **eventType**
-  * Change "is equal to" to **ends with**
-  * Choose a value: **nected**
+   * Choose a value: **eventType**
+   * Change "is equal to" to **ends with**
+   * Choose a value: **nected**
 
-   ![Fill Condition](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
+     ![Fill Condition](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
 
 3. If the condition is true, click on **Add an action**.
   
@@ -312,7 +312,7 @@ You can see results of the executed stored procedure in your Cosmos DB document.
 
 ## Use the Azure CLI
 
-Instead of using the [Azure portal](http://portal.azure.com), you can accomplish the IoT Hub steps using the Azure CLI. For details, see the Azure CLI pages for [creating an event subscription](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) and [creating an IoT device](https://docs.microsoft.com/cli/azure/iot/device).
+Instead of using the [Azure portal](http://portal.azure.com), you can accomplish the IoT Hub steps using the Azure CLI. For details, see the Azure CLI pages for [creating an event subscription](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) and [creating an IoT device](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create).
 
 ## Clean up resources
 
@@ -338,7 +338,7 @@ Even if you keep your IoT hub, you may want to delete the event subscription tha
 
 3. Select **Delete**. 
 
-To remove an Azure Cosmos DB account from the Azure portal, right-click the account name and click **Delete account**. See detailed instructions for [deleting an Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/manage-account#delete).
+To remove an Azure Cosmos DB account from the Azure portal, right-click the account name and click **Delete account**. See detailed instructions for [deleting an Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
 ## Next steps
 

@@ -1,19 +1,18 @@
 ---
-title: 'Quickstart: Recognize speech in Objective-C on iOS using the Speech Service SDK'
+title: 'Quickstart: Recognize speech, Objective-C - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in Objective-C on iOS using the Speech Service SDK
+description: Learn how to recognize speech in Objective-C on iOS using the Speech SDK
 services: cognitive-services
 author: chlandsi
-manager: cgronlun
-
+manager: nitinme
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 10/12/2018
+ms.date: 2/20/2019
 ms.author: chlandsi
 ---
 
-# Quickstart: Recognize speech in Objective-C on iOS using the Speech Service SDK
+# Quickstart: Recognize speech in Objective-C on iOS using the Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -21,19 +20,22 @@ In this article, you learn how to create an iOS app in Objective-C using the Cog
 
 ## Prerequisites
 
-* A subscription key for the Speech service. See [Try the Speech Service for free](get-started.md).
-* A Mac with Xcode 9.4.1 installed as iOS development environment. This tutorial targets iOS versions 11.4. If you don't have Xcode yet, you can install it from the [App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12).
+Before you get started, here's a list of prerequisites:
+
+* A [subscription key](get-started.md) for the Speech Service
+* A macOS machine with [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) or later
+* The target set to iOS version 11.4 or later
 
 ## Get the Speech SDK for iOS
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-The current version of the Cognitive Services Speech SDK is `1.0.1`.
+The current version of the Cognitive Services Speech SDK is `1.3.1`.
 
 The Cognitive Services Speech SDK for Mac and iOS is currently distributed as a Cocoa Framework.
 It can be downloaded from https://aka.ms/csspeech/iosbinary. Download the file to your home directory.
 
-## Create an Xcode Project 
+## Create an Xcode Project
 
 Start Xcode, and start a new project by clicking **File** > **New** > **Project**.
 In the template selection dialog, choose the "iOS Single View App" template.
@@ -42,15 +44,15 @@ In the dialogs that follow, make the following selections:
 
 1. Project Options Dialog
     1. Enter a name for the quickstart app, for example `helloworld`.
-    1. Enter an appropriate organization name and organization identifier, if you already have an Apple developer account. For testing purposes, you can just pick any name like `testorg`. In order to sign the app, you also need a proper provisioning profile. Please refer to the [Apple developer site](https://developer.apple.com/) for details.
+    1. Enter an appropriate organization name and organization identifier, if you already have an Apple developer account. For testing purposes, you can just pick any name like `testorg`. To sign the app, you need a proper provisioning profile. Refer to the [Apple developer site](https://developer.apple.com/) for details.
     1. Make sure Objective-C is chosen as the language for the project.
     1. Disable all checkboxes for tests and core data.
     ![Project Settings](media/sdk/qs-objectivec-project-settings.png)
 1. Select project directory
-    1. Choose your home directory to put the project in. This will create a `helloworld` directory in your home directory that contains all the files for the Xcode project.
+    1. Choose your home directory to put the project in. This creates a `helloworld` directory in your home directory that contains all the files for the Xcode project.
     1. Disable the creation of a Git repo for this example project.
     1. Adjust the paths to the SDK in the *Project Settings*.
-        1. In the **General** tab under the **Embedded Binaries** header, add the SDK library as a framework: **Add embedded binaries** > **Add other...** > Navigate to your home directory and choose the file `MicrosoftCognitiveServicesSpeech.framework`. This will also automatically add the SDK library to the header **Linked Framework and Libraries**.
+        1. In the **General** tab under the **Embedded Binaries** header, add the SDK library as a framework: **Add embedded binaries** > **Add other...** > Navigate to your home directory and choose the file `MicrosoftCognitiveServicesSpeech.framework`. This adds the SDK library to the header **Linked Framework and Libraries** automatically.
         ![Added Framework](media/sdk/qs-objectivec-framework.png)
         1. Go to the **Build Settings** tab and activate **All** settings.
         1. Add the directory `$(SRCROOT)/..` to the *Framework Search Paths* under the **Search Paths** heading.
@@ -61,7 +63,7 @@ In the dialogs that follow, make the following selections:
 The example app will have a very simple UI: Two buttons to start speech recognition either from file or from microphone input, and a text label to display the result.
 The UI is set up in the `Main.storyboard` part of the project.
 Open the XML view of the storyboard by right-clicking the `Main.storyboard` entry of the project tree and selecting **Open As...** > **Source Code**.
-Replace the autogenerated XML with this:
+Replace the autogenerated XML with this code:
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/Base.lproj/Main.storyboard)]
 
@@ -75,7 +77,7 @@ Click **Finish** in the following dialog without changing the settings.
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
 1. Replace the string `YourSubscriptionKey` with your subscription key.
 1. Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
-1. Add the request for microphone access. Right click the `Info.plist` entry of the project tree and select **Open As...** > **Source Code**. Add the following lines into the `<dict>` section and then save the file.
+1. Add the request for microphone access. Right-click the `Info.plist` entry of the project tree and select **Open As...** > **Source Code**. Add the following lines into the `<dict>` section and then save the file.
     ```xml
     <key>NSMicrophoneUsageDescription</key>
     <string>Need microphone access for speech recognition from microphone.</string>
@@ -93,11 +95,7 @@ Currently the Speech SDK only supports 64bit iOS platforms.
 
 1. After you click the "Recognize (Microphone)" button in the app and say a few words, you should see the text you have spoken on the lower part of the screen.
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Look for this sample in the `quickstart/objectivec-ios` folder.
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get our samples](speech-sdk.md#get-the-samples)
-
+> [Explore Objective-C samples on GitHub](https://aka.ms/csspeech/samples)

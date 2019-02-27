@@ -1,27 +1,28 @@
 ---
-title: LUIS Prebuilt entities url reference - Azure| Microsoft Docs
+title: URL Prebuilt entities
 titleSuffix: Azure
 description: This article contains url prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 11/27/2018
 ms.author: diberry
 ---
 
-# URL entity
+# URL prebuilt entity for a LUIS app
 URL entity extracts URLs with domain names or IP addresses. Because this entity is already trained, you do not need to add example utterances containing URLs to the application. URL entity is supported in `en-us` culture only. 
 
 ## Types of URLs
-Url is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml) Github repository
+Url is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml) GitHub repository
 
 ## Resolution for prebuilt URL entity
 The following example shows the resolution of the **builtin.url** entity.
 
-```JSON
+```json
 {
   "query": "http://www.luis.ai is a great cognitive services example of artificial intelligence",
   "topScoringIntent": {

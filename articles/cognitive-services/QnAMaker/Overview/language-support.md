@@ -1,15 +1,16 @@
 ---
 title: Language support - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: A list of natural languages supported by QnA Maker.
+description: A list of culture, natural languages supported by QnA Maker for your knowledge base. Do not mix languages in the same knowledge base.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 02/04/2019
 ms.author: tulasim
+ms.custom: seodec18
 ---
 # Language and region support for QnA Maker
 
@@ -28,6 +29,8 @@ QnA Maker supports question/answer extraction in any language page, but the effe
 
 ## Query matching and relevance
 QnA Maker depends on [language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) in Azure search for providing results. Special re-ranking features are available for En-* languages that enable better relevance.
+
+While the Azure Search capabilities are on par for supported languages, QnA Maker has an additional ranker that sits above the Azure search results. In this ranker model, we use some special semantic and word based features in en-*, that are not yet available for other languages. We do not make these available, as they are part of the internal working of the ranker. 
 
 QnA Maker auto-detects the language of the knowledge base during creation and sets the analyzer accordingly. You can create knowledge bases in the following languages. Read [this](../How-To/language-knowledge-base.md) for more details about how QnA Maker handles languages.
 

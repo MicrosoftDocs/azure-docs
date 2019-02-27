@@ -3,19 +3,20 @@ title: Header-based authentication with PingAccess for Azure AD Application Prox
 description: Publish applications with PingAccess and App Proxy to support header-based authentication.
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Header-based authentication for single sign-on with Application Proxy and PingAccess
@@ -47,7 +48,7 @@ This article is intended for people who are publishing an app with this scenario
 
 If you already have Application Proxy enabled, and have a connector installed, you can skip this section and move on to [Add your app to Azure AD with Application Proxy](#add-your-app-to-azure-ad-with-application-proxy).
 
-The Application Proxy connector is a Windows Server service that directs the traffic from your remote employees to your published apps. For more detailed installation instructions, see [Enable Application Proxy in the Azure portal](application-proxy-enable.md).
+The Application Proxy connector is a Windows Server service that directs the traffic from your remote employees to your published apps. For more detailed installation instructions, see [Enable Application Proxy in the Azure portal](application-proxy-add-on-premises-application.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
 2. Select **Azure Active Directory** > **Application proxy**.
@@ -62,7 +63,7 @@ The Application Proxy connector is a Windows Server service that directs the tra
 
 There are two actions you need to take in the Azure portal. First, you need to publish your application with Application Proxy. Then, you need to collect some information about the app that you can use during the PingAccess steps.
 
-Follow these steps to publish your app. For a more detailed walkthrough of steps 1-8, see [Publish applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md).
+Follow these steps to publish your app. For a more detailed walkthrough of steps 1-8, see [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md).
 
 1. If you didn't in the last section, sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
 2. Select **Azure Active Directory** > **Enterprise applications**.
@@ -148,7 +149,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
-This example uses the [Azure portal](https://portal.azure.com) to udpate the *acceptedMappedClaims* field:
+This example uses the [Azure portal](https://portal.azure.com) to update the *acceptedMappedClaims* field:
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
 2. Select **Azure Active Directory** > **App registrations**.
 3. Select your application > **Manifest**.

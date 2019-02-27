@@ -3,15 +3,15 @@ title: 'Configure long-term backup retention - Azure SQL Database | Microsoft Do
 description: "Learn how to store automated backups in the Azure Recovery Services vault and to restore from the Azure Recovery Services vault"
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: mathoma,carlrab
 manager: craigg
-ms.date: 10/05/2018
+ms.date: 01/25/2019
 ---
 # Configure long-term backup retention using Azure Recovery Services Vault
 
@@ -65,7 +65,7 @@ You configure an Azure Recovery Services vault to [retain automated backups](sql
    ![create vault](./media/sql-database-get-started-backup-recovery/create-new-vault.png)
 
    > [!IMPORTANT]
-   > The vault must be located in the same region as the Azure SQL logical server, and must use the same resource group as the logical server.
+   > The vault must be located in the same region as the SQL Database server, and must use the same resource group as the SQL Database server.
 
 10. After the new vault is created, execute the necessary steps to return to the **Recovery services vault** page.
 
@@ -148,7 +148,7 @@ The following sections show you how to use PowerShell to configure the Azure Rec
 Use the [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault) to create a recovery services vault.
 
 > [!IMPORTANT]
-> The vault must be located in the same region as the Azure SQL logical server, and must use the same resource group as the logical server.
+> The vault must be located in the same region as the SQL Database server, and must use the same resource group as the SQL Database server.
 
 ```PowerShell
 # Create a recovery services vault

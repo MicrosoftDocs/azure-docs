@@ -1,17 +1,17 @@
 ---
-title: Unique features of Azure page blobs | Microsoft Docs
-description: An overview of Azure page blobs and their benefits, including use cases with sample scripts. 
+title: Overview of Azure page blobs | Microsoft Docs
+description: An overview of Azure page blobs and their advantages, including use cases with sample scripts. 
 services: storage
 author: anasouma
 
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 01/03/2019
 ms.author: wielriac
-ms.component: blobs
+ms.subservice: blobs
 ---
 
-# Unique features of Azure page blobs
+# Overview of Azure page blobs
 
 Azure Storage offers three types of blob storage: Block Blobs, Append Blobs and page blobs. Block blobs are composed of blocks and are ideal for storing text or binary files, and for uploading large files efficiently. Append blobs are also made up of blocks, but they are optimized for append operations, making them ideal for logging scenarios. Page blobs are made up of 512-byte pages up to 8 TB in total size and are designed for frequent random read/write operations. Page blobs are the foundation of Azure IaaS Disks. This article focuses on explaining the features and benefits of page blobs.
 

@@ -3,7 +3,7 @@ title: Configure deployment sources for App Services on Azure Stack | Microsoft 
 description: How a service administrator can configure deployment sources (Git, GitHub, BitBucket, DropBox and OneDrive) for App Services on Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -14,8 +14,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
-ms.author: sethm
+ms.author: jeffgilb
 ms.reviewer: anwestg
+ms.lastreviewed: 10/15/2018
 
 ---
 
@@ -35,7 +36,7 @@ In addition to local Git, the following source control providers are supported:
 ## View deployment sources in App Service administration
 
 1. Sign in to the Azure Stack Admin Portal (https://adminportal.local.azurestack.external) as the service administrator.
-2. Browse to **Resource Providers** and select the **App Service Resource Provider Admin**.
+2. Browse to **All Services** and select the **App Service**.
     ![App Service Resource Provider Admin][1]
 3. Click **Source control configuration**. You can see the list of all configured deployment sources.
     ![App Service Resource Provider Admin Source Control Configuration][2]
@@ -135,7 +136,7 @@ You must have a Microsoft Account linked to a OneDrive account to complete this 
 
 ## Next steps
 
-Users can now use the deployment sources for things like [continuous deployment](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment), [local Git deployment](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-local-git), and [cloud folder synchronization](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-content-sync).
+Users can now use the deployment sources for things like [continuous deployment](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment), [local Git deployment](https://docs.microsoft.com/azure/app-service/deploy-local-git), and [cloud folder synchronization](https://docs.microsoft.com/azure/app-service/deploy-content-sync).
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin.png

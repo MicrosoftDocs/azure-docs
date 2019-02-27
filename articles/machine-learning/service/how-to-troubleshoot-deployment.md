@@ -1,19 +1,21 @@
 ---
-title: Deployment troubleshooting guide for Azure Machine Learning service
-description: Learn how to workaround, solve, and troubleshoot the common Docker deployment errors with Azure Machine Learning service.
+title: Deployment troubleshooting guide
+titleSuffix: Azure Machine Learning service
+description: Learn how to workaround, solve, and troubleshoot the common Docker deployment errors with AKS and ACI using  Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
-ms.author: haining
-author: hning86
+author: chris-lauren
+ms.author:  clauren
 ms.reviewer: jmartens
-ms.date: 10/01/2018
+ms.date: 12/04/2018
+ms.custom: seodec18
 ---
 
-# Troubleshooting Azure Machine Learning service deployments
+# Troubleshooting Azure Machine Learning service AKS and ACI deployments
 
-In this article, you will learn how to work around or solve the common Docker deployment errors with Azure Machine Learning service.
+In this article, you will learn how to work around or solve the common Docker deployment errors with Azure Container Instances (ACI) and Azure Kubernetes Service (AKS) using Azure Machine Learning service.
 
 When deploying a model in Azure Machine Learning service, the system performs a number of tasks. This is a complex sequence of events and sometimes issues arise. The deployment tasks are:
 
@@ -86,10 +88,10 @@ If system is unable to build the Docker image, the `image.wait_for_creation()` c
 print(image.image_build_log_uri)
 
 # if you only know the name of the image (note there might be multiple images with the same name but different version number)
-print(ws.images()['myimg'].image_build_log_uri)
+print(ws.images['myimg'].image_build_log_uri)
 
 # list logs for all images in the workspace
-for name, img in ws.images().items():
+for name, img in ws.images.items():
     print (img.name, img.version, img.image_build_log_uri)
 ```
 The image log uri is a SAS URL pointing to a log file stored in your Azure blob storage. Simply copy and paste the uri into a browser window and you can download and view the log file.
@@ -108,11 +110,11 @@ You can print out detailed Docker engine log messages from the service object.
 print(service.get_logs())
 
 # if you only know the name of the service (note there might be multiple services with the same name but different version number)
-print(ws.webservices()['mysvc'].get_logs())
+print(ws.webservices['mysvc'].get_logs())
 ```
 
 ### Debug the Docker image locally
-Some times the Docker log does not emit enough information about what is going wrong. You can go one step further and pull down the built Docker image, start a local container, and debug directly inside the live container interactively. To start a local container, you must have a Docker engine running locally, and it would be a lot easier if you also have [azure-cli](/cli/azure/install-azure-cli?view=azure-cli-latest) installed.
+Some times the Docker log does not emit enough information about what is going wrong. You can go one step further and pull down the built Docker image, start a local container, and debug directly inside the live container interactively. To start a local container, you must have a Docker engine running locally, and it would be a lot easier if you also have [azure-cli](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installed.
 
 First we need to find out the image location:
 
@@ -189,12 +191,15 @@ $ docker run -p 8000:5001 <image_id>
 Often, in the `init()` function in the scoring script, `Model.get_model_path()` function is called to locate a model file or a folder of model files in the container. This is often a source of failure if the model file or folder cannot be found. The easiest way to debug this error is to run the below Python code in the Container shell:
 
 ```python
+import logging
+logging.basicConfig(level=logging.DEBUG)
 from azureml.core.model import Model
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
 This would print out the local path (relative to `/var/azureml-app`) in the container where your scoring script is expecting to find the model file or folder. Then you can verify if the file or folder is indeed where it is expected to be.
 
+Setting the logging level to DEBUG may provide cause additional information to be logged, which may be useful in identifying the failure.
 
 ## Function fails: run(input_data)
 If the service is successfully deployed, but it crashes when you post data to the scoring endpoint, you can add error catching statement in your `run(input_data)` function so that it returns detailed error message instead. For example:
@@ -217,10 +222,6 @@ def run(input_data):
 ## Next steps
 
 Learn more about deployment: 
-* [How to deploy to ACI](how-to-deploy-to-aci.md)
+* [How to deploy and where](how-to-deploy-and-where.md)
 
-* [How to deploy to AKS](how-to-deploy-to-aks.md)
-
-* [Tutorial part 1: train model](tutorial-train-models-with-aml.md)
-
-* [Tutorial part 2: deploy model](tutorial-deploy-models-with-aml.md)
+* [Tutorial: Train & deploy models](tutorial-train-models-with-aml.md)

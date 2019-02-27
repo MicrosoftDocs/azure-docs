@@ -1,6 +1,6 @@
 ---
-title: Adding Azure Search to Blob Storage | Microsoft Docs
-description: Create an index in code using the Azure Search HTTP REST API.
+title: Add full text search to Azure Blob Storage - Azure Search
+description: Crawl text content in Azure Blob storage for Azure Search indexing, in code using the HTTP REST API.
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -8,6 +8,7 @@ ms.date: 10/17/2018
 author: mgottein 
 manager: cgronlun
 ms.author: magottei
+ms.custom: seodec2018
 ---
 
 # Searching Blob storage with Azure Search

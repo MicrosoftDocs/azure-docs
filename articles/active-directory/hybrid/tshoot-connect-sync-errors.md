@@ -4,24 +4,25 @@ description: Explains how to troubleshoot errors encountered during synchronizat
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 2209d5ce-0a64-447b-be3a-6f06d47995f8
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2018
-ms.component: hybrid
+ms.date: 10/29/2018
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Troubleshooting Errors during synchronization
 Errors could occur when identity data is synchronized from Windows Server Active Directory (AD DS) to Azure Active Directory (Azure AD). This article provides an overview of different types of sync errors, some of the possible scenarios that cause those errors and potential ways to fix the errors. This article includes the common error types and may not cover all the possible errors.
 
  This article assumes the reader is familiar with the underlying [design concepts of Azure AD and Azure AD Connect](plan-connect-design-concepts.md).
 
-With the latest version of Azure AD Connect \(August 2016 or higher\), a report of Synchronization Errors is available in the [Azure Portal](https://aka.ms/aadconnecthealth) as part of Azure AD Connect Health for sync.
+With the latest version of Azure AD Connect \(August 2016 or higher\), a report of Synchronization Errors is available in the [Azure portal](https://aka.ms/aadconnecthealth) as part of Azure AD Connect Health for sync.
 
 Starting September 1, 2016 [Azure Active Directory Duplicate Attribute Resiliency](how-to-connect-syncservice-duplicate-attribute-resiliency.md) feature will be enabled by default for all the *new* Azure Active Directory Tenants. This feature will be automatically enabled for existing tenants in the upcoming months.
 
@@ -218,6 +219,29 @@ When an attribute exceeds the allowed size limit, length limit or count limit se
 
 ### How to fix
 1. Ensure that the attribute causing the error is within the allowed limitation.
+
+## Existing Admin Role Conflict
+
+### Description
+An **Existing Admin Role Conflict** will occur on a user object during synchronization when that user object has:
+
+- administrative permissions and
+- the same UserPrincipalName as an existing Azure AD object
+
+Azure AD Connect is not allowed to soft match a user object from on-premises AD with a user object in Azure AD that has an administrative role assigned to it.  For more information see [Azure AD UserPrincipalName population](plan-connect-userprincipalname.md)
+
+![Existing Admin](media/tshoot-connect-sync-errors/existingadmin.png)
+
+
+### How to fix
+To resolve this issue do one of the following:
+
+
+- change the UserPrincipalName to a value that does not match that of an Admin user in Azure AD - which will create a new user in Azure AD with the matching UserPrincipalName
+- remove the administrative role from the Admin user in Azure AD, which will enable the soft match between the on-premises user object and the existing Azure AD user object.
+
+>[!NOTE]
+>You can assign the administrative role to the existing user object again after the soft match between the on-premises user object and the Azure AD user object has completed.
 
 ## Related links
 * [Locate Active Directory Objects in Active Directory Administrative Center](https://technet.microsoft.com/library/dd560661.aspx)

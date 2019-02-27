@@ -4,7 +4,7 @@ description: " This article provides an overview of the core Azure security feat
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 5aa0a7ac-8f18-4ede-92a1-ae0dfe585e28
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
-Customer intent: As a IT Pro or decision maker I am trying to learn about identity mangement capabilities in Azure
+Customer intent: As a IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
 ---
 # Azure identity management security overview
 
@@ -150,9 +150,8 @@ With Azure AD Privileged Identity Management, you can:
 
 Learn more:
 
-* [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
-* [Roles in Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-roles.md)
-* [Azure AD Privileged Identity Management: How to add or remove a user role](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
+* [What is Azure AD Privileged Identity Management?](../active-directory/privileged-identity-management/pim-configure.md)
+* [Assign Azure AD directory roles in PIM](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
 ## Identity protection
 
@@ -174,7 +173,7 @@ Microsoft’s identity solutions span on-premises and cloud-based capabilities, 
 
 Learn more:
 
-* [Hybrid identity white paper](http://download.microsoft.com/download/D/B/A/DBA9E313-B833-48EE-998A-240AA799A8AB/Hybrid_Identity_White_Paper.pdf)
+* [Hybrid identity white paper](https://download.microsoft.com/download/D/B/A/DBA9E313-B833-48EE-998A-240AA799A8AB/Hybrid_Identity_White_Paper.pdf)
 * [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
 * [Azure AD team blog](https://blogs.technet.microsoft.com/ad/)
 

@@ -35,9 +35,11 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
++ Learn the [Azure API Management terminology](api-management-terminology.md).
++ Understand the [concept of policies in Azure API Management](api-management-howto-policies.md).
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 + Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
- 
+
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## Transform an API to strip response headers
@@ -120,9 +122,10 @@ This section shows how to add protection for your backend API by configuring rat
 1. Select **Demo Conference API**.
 2. Select **All operations**.
 3. On the top of the screen, select **Design** tab.
-4. In the **Inbound processing** section, click the **</>** icon.5. Position the cursor inside the **&lt;inbound&gt;** element.
-5. In the right window, under **Access restriction policies**, click **+ Limit call rate per key**.
-6. Modify your **rate-limit-by-key** code (in the **\<inbound\>** element) to the following code:
+4. In the **Inbound processing** section, click the **</>** icon.
+5. Position the cursor inside the **&lt;inbound&gt;** element.
+6. In the right window, under **Access restriction policies**, click **+ Limit call rate per key**.
+7. Modify your **rate-limit-by-key** code (in the **\<inbound\>** element) to the following code:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 

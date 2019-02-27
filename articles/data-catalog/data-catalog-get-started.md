@@ -78,7 +78,7 @@ You can provision only one data catalog per organization (Azure Active Directory
     ![Azure Data Catalog--view catalog in list](media/data-catalog-get-started/data-catalog-azure-portal-show-catalog.png)
 3. Click the catalog that you created. You see the **Data Catalog** blade in the portal.
    
-   ![Azure Data Catalog--blade in portal ](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
+   ![Azure Data Catalog--blade in portal](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
 4. You can view properties of the data catalog and update them. For example, click **Pricing tier** and change the edition.
    
     ![Azure Data Catalog--pricing tier](media/data-catalog-get-started/data-catalog-change-pricing-tier.png)
@@ -92,7 +92,7 @@ The Adventure Works database supports standard online transaction-processing sce
 To install the Adventure Works sample database:
 
 1. Download [Adventure Works 2014 Full Database Backup.zip](https://msftdbprodsamples.codeplex.com/downloads/get/880661) on CodePlex.
-2. To restore the database on your machine, follow the instructions in [Restore a Database Backup by using SQL Server Management Studio](http://msdn.microsoft.com/library/ms177429.aspx), or by following these steps:
+2. To restore the database on your machine, follow the instructions in [Restore a Database Backup by using SQL Server Management Studio](https://msdn.microsoft.com/library/ms177429.aspx), or by following these steps:
    1. Open SQL Server Management Studio and connect to the SQL Server Database Engine.
    2. Right-click **Databases** and click **Restore Database**.
    3. Under **Restore Database**, click the **Device** option for **Source** and click **Browse**.
@@ -140,7 +140,7 @@ In this exercise, you use the registration tool to register data assets from the
       ![Azure Data Catalog--registered objects](media/data-catalog-get-started/data-catalog-registered-objects.png)
    9. To see your registered data source objects, click **View Portal**. In the Azure Data Catalog portal, confirm that you see all four tables and the database in the grid view.
       
-      ![Objects in the Azure Data Catalog portal ](media/data-catalog-get-started/data-catalog-view-portal.png)
+      ![Objects in the Azure Data Catalog portal](media/data-catalog-get-started/data-catalog-view-portal.png)
 
 In this exercise, you registered objects from the Adventure Works sample database so that they can be easily discovered by users across your organization. In the next exercise, you learn how to discover registered data assets.
 

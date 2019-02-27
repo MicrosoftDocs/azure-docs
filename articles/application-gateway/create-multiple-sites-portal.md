@@ -1,21 +1,17 @@
 ---
-title: Create an application gateway that hosts multiple web sites  - Azure portal | Microsoft Docs
+title: Create an application gateway that hosts multiple web sites  - Azure portal
 description: Learn how to create an application gateway that hosts multiple web sites using the Azure portal.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 12/28/2017
+ms.date: 2/20/2019
 ms.author: victorh
 
 ---
 # Create and configure an application gateway to host multiple web sites using the Azure portal
 
-You can use the Azure portal to [configure the hosting of multiple web sites](multiple-site-overview.md) when you create an [application gateway](overview.md). In this tutorial, you define backend address pools using virtual machines. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate servers in the pools. This tutorial assumes that you own multiple domains and uses examples of *www.contoso.com* and *www.fabrikam.com*.
+You can use the Azure portal to [configure the hosting of multiple web sites](multiple-site-overview.md) when you create an [application gateway](overview.md). In this article, you define backend address pools using virtual machines. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate servers in the pools. This article assumes that you own multiple domains and uses examples of *www.contoso.com* and *www.fabrikam.com*.
 
 In this article, you learn how to:
 
@@ -31,9 +27,9 @@ In this article, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
 
 ## Create an application gateway
 
@@ -137,6 +133,8 @@ In this example, you create two virtual machines to be used as backend servers f
 3. Click **OK**.
 4. Create a second listener using the name of *fabrikamListener* and use your second domain name. In this example, *www.fabrikam.com* is used.
 
+![mult-site listeners](media/create-multiple-sites-portal/be-listeners.png)
+
 ## Create routing rules
 
 Rules are processed in the order they are listed, and traffic is directed using the first rule that matches regardless of specificity. For example, if you have a rule using a basic listener and a rule using a multi-site listener both on the same port, the rule with the multi-site listener must be listed before the rule with the basic listener in order for the multi-site rule to function as expected. 
@@ -176,12 +174,4 @@ After the application gateway is created with its public IP address, you can get
 
 ## Next steps
 
-In this article, you learned how to:
-
-> [!div class="checklist"]
-> * Create an application gateway
-> * Create virtual machines for backend servers
-> * Create backend pools with the backend servers
-> * Create backend listeners
-> * Create routing rules
-> * Create a CNAME record in your domain
+[Configure App Service with Application Gateway](create-web-app.md)

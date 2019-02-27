@@ -26,7 +26,7 @@ Although the Java Service SDK works on both Windows and Linux machines, this art
 
 ## Prerequisites
 
-* Install [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* Install [Java SE Development Kit 8](https://aka.ms/azure-jdks).
 * Install [Maven 3](https://maven.apache.org/download.cgi). You can verify your current Maven version by running:
 
     ```cmd/sh

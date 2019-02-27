@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 
 # Use an Azure AD identity to access Azure Storage with CLI or PowerShell (Preview)
@@ -21,7 +21,7 @@ When you log in to Azure CLI or PowerShell with an Azure AD identity, an access 
 
 ## Supported operations
 
-The preview extensions are supported for operations on containers and queues. Which operations you may call depends on the permissions granted to the Azure AD identity with which you log in to Azure CLI or PowerShell. Permissions to Azure Storage containers or queues are assigned via role-based access control (RBAC). For example, if a Data Reader role is assigned to the identity, then you can run scripting commands that read data from a container or queue. If a Data Contributer role is assigned to the identity, then you can run scripting commands that read, write, or delete a container or queue or the data they contain. 
+The preview extensions are supported for operations on containers and queues. Which operations you may call depends on the permissions granted to the Azure AD identity with which you log in to Azure CLI or PowerShell. Permissions to Azure Storage containers or queues are assigned via role-based access control (RBAC). For example, if a Data Reader role is assigned to the identity, then you can run scripting commands that read data from a container or queue. If a Data Contributor role is assigned to the identity, then you can run scripting commands that read, write, or delete a container or queue or the data they contain. 
 
 For details about the permissions required for each Azure Storage operation on a container or queue, see [Permissions for calling REST operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).  
 
@@ -52,10 +52,7 @@ The environment variable associated with the `--auth-mode` parameter is `AZURE_S
 
 ## Call PowerShell commands with an Azure AD identity
 
-Azure PowerShell supports signing in with an Azure AD identity with one of the following preview modules only: 
-
-- 4.4.0-preview 
-- 4.4.1-preview 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 To use Azure PowerShell to sign in with an Azure AD identity:
 
@@ -74,23 +71,23 @@ To use Azure PowerShell to sign in with an Azure AD identity:
 1. Install the latest version of Azure PowerShell:
 
     ```powershell
-    Install-Module AzureRM –Repository PSGallery –AllowClobber
+    Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. Install one of the Azure Storage preview modules that supports Azure AD:
-
-    ```powershell
-    Install-Module Azure.Storage –Repository PSGallery -RequiredVersion 4.4.1-preview  –AllowPrerelease –AllowClobber –Force 
-    ```
+1. Install an Azure Storage preview module that supports Azure AD:
+   
+   ```powershell
+   Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
+   ```
 1. Close and reopen the PowerShell window.
-1. Call the [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext) cmdlet to create a context, and include the `-UseConnectedAccount` parameter. 
+1. Call the [New-AzStorageContext](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontext) cmdlet to create a context, and include the `-UseConnectedAccount` parameter. 
 1. To call a cmdlet with an Azure AD identity, pass the newly created context to the cmdlet.
 
 The following example shows how to list the blobs in a container from Azure PowerShell using an Azure AD identity. Be sure to replace the placeholder account and container names with your own values: 
 
 ```powershell
-$ctx = New-AzureStorageContext -StorageAccountName storagesamples -UseConnectedAccount 
-Get-AzureStorageBlob -Container sample-container -Context $ctx 
+$ctx = New-AzStorageContext -StorageAccountName storagesamples -UseConnectedAccount 
+Get-AzStorageBlob -Container sample-container -Context $ctx 
 ```
 
 ## Next steps

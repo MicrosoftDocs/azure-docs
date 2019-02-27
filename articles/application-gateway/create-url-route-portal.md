@@ -35,7 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Log in to Azure
 
-Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
+Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
 
 ## Create an application gateway
 
@@ -120,7 +120,7 @@ In this example, you create three virtual machines to be used as backend servers
 ## Create backend pools with the virtual machines
 
 1. Click **All resources** and then click **myAppGateway**.
-2. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGateayBackendPool**.
+2. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGatewayBackendPool**.
 3. Click **Add target** to add *myVM1* to appGatewayBackendPool.
 
     ![Add backend servers](./media/create-url-route-portal/application-gateway-backend.png)

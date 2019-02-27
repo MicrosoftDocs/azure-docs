@@ -6,7 +6,7 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 11/27/2018
 ms.author: sutalasi
 ---
 # Set up disaster recovery for Azure virtual machines using Azure PowerShell
@@ -58,7 +58,7 @@ In the example in this article, a virtual machine in the East US region will be 
 # Get details of the virtual machine
 $VM = Get-AzureRmVM -ResourceGroupName "A2AdemoRG" -Name "AzureDemoVM"
 
-Write-Output $VM
+Write-Output $VM     
 ```
 
 ```
@@ -142,7 +142,7 @@ Import-AzureRmRecoveryServicesAsrVaultSettingsFile -Path $Vaultsettingsfile.File
 
 ```
 ```
-ResourceName         ResourceGroupName ResourceNamespace          ResouceType
+ResourceName         ResourceGroupName ResourceNamespace          ResourceType
 ------------         ----------------- -----------------          -----------
 a2aDemoRecoveryVault a2ademorecoveryrg Microsoft.RecoveryServices Vaults     
 ```
@@ -174,7 +174,7 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
-#Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 Write-Output $TempASRJob.State
 
 $PrimaryFabric = Get-AsrFabric -Name "A2Ademo-EastUS"
@@ -195,7 +195,7 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
-#Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 Write-Output $TempASRJob.State
 
 $RecoveryFabric = Get-AsrFabric -Name "A2Ademo-WestUS"
@@ -232,7 +232,7 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
-#Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 
 Write-Output $TempASRJob.State
 
@@ -251,7 +251,7 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
-#Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 Write-Output $TempASRJob.State
 
 $ReplicationPolicy = Get-ASRPolicy -Name "A2APolicy"
@@ -270,7 +270,7 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
-#Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 Write-Output $TempASRJob.State
 
 $EusToWusPCMapping = Get-ASRProtectionContainerMapping -ProtectionContainer $PrimaryProtContainer -Name "A2APrimaryToRecovery"
@@ -290,7 +290,7 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
-#Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 Write-Output $TempASRJob.State
 ```
 
@@ -338,7 +338,7 @@ A network mapping maps virtual networks in the primary region to virtual network
     #Extract resource name from the ResourceId of the nic
     $NICname = $SplitNicArmId[-1]
 
-    #Get network interface details using the extracted resource group name and resourec name
+    #Get network interface details using the extracted resource group name and resource name
     $NIC = Get-AzureRmNetworkInterface -ResourceGroupName $NICRG -Name $NICname
 
     #Get the subnet ID of the subnet that the nic is connected to
@@ -358,7 +358,7 @@ A network mapping maps virtual networks in the primary region to virtual network
             $TempASRJob = Get-ASRJob -Job $TempASRJob
     }
 
-    #Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+    #Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
     Write-Output $TempASRJob.State
 
    ```
@@ -373,7 +373,7 @@ A network mapping maps virtual networks in the primary region to virtual network
             $TempASRJob = Get-ASRJob -Job $TempASRJob
     }
 
-    #Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+    #Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
     Write-Output $TempASRJob.State
     ```
 
@@ -444,7 +444,7 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
 }
 
 
-#Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
+#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 Write-Output $TempASRJob.State
 ```
 
@@ -585,4 +585,4 @@ Errors           : {}
 After a failover, when you are ready to go back to the original region, start reverse replication for the replication protected item using the Update-AzureRmRecoveryServicesAsrProtectionDirection cmdlet.
 
 ## Next steps
-View the [Azure Site Recovery PowerShell reference ](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery) to learn how you can perform other tasks such as creating Recovery Plans and testing failover of Recovery plans through PowerShell.
+View the [Azure Site Recovery PowerShell reference](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery) to learn how you can perform other tasks such as creating Recovery Plans and testing failover of Recovery plans through PowerShell.

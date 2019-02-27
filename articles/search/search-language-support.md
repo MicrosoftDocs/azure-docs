@@ -1,5 +1,5 @@
 ---
-title: Azure Search multi language indexing | Microsoft Docs
+title: Multi-language indexing for non-English search queries - Azure Search
 description: Azure Search supports 56 languages, leveraging language analyzers from Lucene and Natural Language Processing technology from Microsoft.
 author: yahnoosh
 manager: jlembicz
@@ -8,6 +8,7 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
+ms.custom: seodec2018
 ---
 
 # Create an index for documents in multiple languages in Azure Search
@@ -47,7 +48,7 @@ Below are screenshots of the Azure Portal blades for Azure Search that allow use
 ![][2]
 *Select one of the supported analyzers for each field*
 
-By default, all searchable fields use the [Standard Lucene analyzer](http://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) which is language agnostic. To view the full list of supported analyzers, see [Language Support in Azure Search](https://msdn.microsoft.com/library/azure/dn879793.aspx).
+By default, all searchable fields use the [Standard Lucene analyzer](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) which is language agnostic. To view the full list of supported analyzers, see [Language Support in Azure Search](https://msdn.microsoft.com/library/azure/dn879793.aspx).
 
 Once the language analyzer is selected for a field, it will be used with each indexing and search request for that field. When a query is issued against multiple fields using different analyzers, the query will be processed independently by the right analyzers for each field.
 
@@ -75,7 +76,7 @@ Sometimes the language of the agent issuing a query is not known, in which case 
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2017-11-11`
 
-If you're a .NET developer, note that you can configure language analyzers using the [Azure Search .NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Search). The latest release includes support for the Microsoft language analyzers as well.
+If you're a .NET developer, note that you can configure language analyzers using the [Azure Search .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search). The latest release includes support for the Microsoft language analyzers as well.
 
 <!-- Image References -->
 [1]: ./media/search-language-support/AnalyzerTab.png

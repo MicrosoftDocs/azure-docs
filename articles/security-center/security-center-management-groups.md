@@ -3,8 +3,8 @@ title: Gain tenant-wide visibility for Azure Security Center | Microsoft Docs
 description: Learn about gaining tenant-wide visibility in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
-manager: MBaldwin
+author: rkarlin
+manager: barbkess
 editor: ''
 
 ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
-ms.author: terrylan
+ms.date: 12/19/2018
+ms.author: rkarlin
 
 ---
 
@@ -68,19 +68,19 @@ An Azure Active Directory tenant administrator doesn’t have direct access to A
 
    ![Azure AD Properties - screenshot](./media/security-center-management-groups/aad-properties.png)
 
-3. Under **Global admin can manage Azure Subscriptions and Management Groups**, set the switch to **Yes**.
+3. Under **Access management for Azure resources**, set the switch to **Yes**.
 
    ![Global admin can manage Azure Subscriptions and Management Groups - screenshot](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
-   - When you set the switch to **Yes**, your Global administrator account (currently logged in user) is added to the User Access Administrator role in Azure RBAC at the root scope (`/`), which grants you access to view and report on all Azure subscriptions associated with your Azure AD tenant.
+   - When you set the switch to Yes, you are assigned the User Access Administrator role in Azure RBAC at the root scope (/). This grants you permission to assign roles in all Azure subscriptions and management groups associated with this Azure AD directory. This switch is only available to users who are assigned the Global Administrator role in Azure AD.
 
-   - When you set the switch to **No**, your Global administrator account (currently logged in user) is removed from the User Access Administrator role in Azure RBAC. You can't see all Azure subscriptions that are associated with the Azure AD tenant, and you can view and manage only the Azure subscriptions to which you have been granted access.
+  - When you set the switch to No, the User Access Administrator role in Azure RBAC is removed from your user account. You can no longer assign roles in all Azure subscriptions and management groups that are associated with this Azure AD directory. You can view and manage only the Azure subscriptions and management groups to which you have been granted access.
 
 4. Click **Save** to save your setting.
 
     - This setting isn't a global property and applies only to the currently logged in user.
 
-5. Do the tasks you need to make at the elevated access. When you're done, set the switch back to **No**.
+5. Perform the tasks you need to make at the elevated access. When you're done, set the switch back to **No**.
 
 
 ### Assign RBAC roles to users
@@ -90,27 +90,30 @@ To gain visibility to all subscriptions, tenant administrators need to assign th
 #### Assign RBAC roles to users through the Azure portal: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
-2. To view management groups, select **All services** under the Azure main menu then select **Management Groups**.
-3.  Select a management group and click **details**.
+1. To view management groups, select **All services** under the Azure main menu then select **Management Groups**.
+1.  Select a management group and click **details**.
 
     ![Management Groups details screenshot](./media/security-center-management-groups/management-group-details.PNG)
  
-4. Click **Access control (IAM)** then **Add**.
-5. Select the role to assign and the user, then click **Save**.  
+1. Click **Access control (IAM)** then **Role assignments**.
+
+1. Click **Add role assignment**.
+
+1. Select the role to assign and the user, then click **Save**.  
    
    ![Add Security Reader role screenshot](./media/security-center-management-groups/asc-security-reader.png)
 
 
 #### Assign RBAC roles to users with PowerShell: 
-1. Install [Azure PowerShell](/powershell/azure/install-azurerm-ps).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+1. Install [Azure PowerShell](/powershell/azure/install-az-ps).
 2. Run the following commands: 
 
     ```azurepowershell
-    # Install Management Groups Powershell module
-    Install-Module AzureRM.Resources
-    
     # Login to Azure as a Global Administrator user
-    Login-AzureRmAccount
+    Connect-AzAccount
     ```
 
 3. When prompted, sign in with global admin credentials. 
@@ -122,12 +125,12 @@ To gain visibility to all subscriptions, tenant administrators need to assign th
     ```azurepowershell
     # Add Reader role to the required user on the Root Management Group
     # Replace "user@domian.com” with the user to grant access to
-    New-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
+    New-AzRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
     ```
 5. To remove the role, use the following command: 
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
+    Remove-AzRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
     ```
 
 ### Open or refresh Security Center
@@ -135,11 +138,16 @@ Once you have elevated access, open or refresh Azure Security Center to verify y
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. Make sure you select all the subscriptions in the subscription selector that you would like to view in Security Center.
+
     ![Subscription selector screenshot](./media/security-center-management-groups/subscription-selector.png)
+
 1. Select **All services** under the Azure main menu then select **Security Center**.
-2. In the **Overview**, there's a subscription coverage chart. 
+2. In the **Overview**, there's a subscription coverage chart.
+
     ![Subscription coverage chart screenshot](./media/security-center-management-groups/security-center-subscription-coverage.png)
+
 3. Click on **Coverage** to see the list of subscriptions covered. 
+
     ![Subscription coverage list screenshot](./media/security-center-management-groups/security-center-coverage.png)
 
 ### Remove elevated access 

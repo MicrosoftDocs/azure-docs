@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -103,5 +103,5 @@ In Partition Manager, notice the **Last Processed** column for each of the new p
   
     ![aas-lesson10-process-complete](../tutorials/media/aas-lesson10-process-complete.png)
   
- ## What's next?
+## What's next?
 Go to the next lesson: [Lesson 11: Create Roles](../tutorials/aas-lesson-11-create-roles.md). 

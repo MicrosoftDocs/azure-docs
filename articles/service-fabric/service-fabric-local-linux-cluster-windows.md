@@ -26,6 +26,7 @@ Linux-based Service Fabric clusters do not run natively on Windows. To run a loc
 
 * At least 4-GB RAM
 * Latest version of [Docker](https://store.docker.com/editions/community/docker-ce-desktop-windows)
+* Docker must be running on Linux mode
 
 >[!TIP]
 > * You can follow the steps mentioned in the official Docker [documentation](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions) to install Docker on your Windows. 
@@ -35,13 +36,8 @@ Linux-based Service Fabric clusters do not run natively on Windows. To run a loc
 ## Create a local container and setup Service Fabric
 To set up a local Docker container and have a service fabric cluster running on it, perform the following steps in PowerShell:
 
-1. Pull the image from Docker hub repository:
 
-    ```powershell
-    docker pull microsoft/service-fabric-onebox
-    ```
-
-2. Update the Docker daemon configuration on your host with the following and restart the Docker daemon: 
+1. Update the Docker daemon configuration on your host with the following and restart the Docker daemon: 
 
     ```json
     {
@@ -51,32 +47,75 @@ To set up a local Docker container and have a service fabric cluster running on 
     ```
     The advised way to update is - go to Docker Icon > Settings > Daemon > Advanced and update it there. Next, restart the Docker daemon for the changes to take effect. 
 
-3. Start a Service Fabric One-box container instance with the image:
+2. In a new directory create a file called `Dockerfile` to build your Service Fabric Image:
 
-    ```powershell
-    docker run -itd -p 19080:19080 --name sfonebox microsoft/service-fabric-onebox
+    ```Dockerfile
+    FROM microsoft/service-fabric-onebox
+    WORKDIR /home/ClusterDeployer
+    RUN ./setup.sh
+    #Generate the local
+    RUN locale-gen en_US.UTF-8
+    #Set environment variables
+    ENV LANG=en_US.UTF-8
+    ENV LANGUAGE=en_US:en
+    ENV LC_ALL=en_US.UTF-8
+    EXPOSE 19080 19000 80 443
+    #Start SSH before running the cluster
+    CMD /etc/init.d/ssh start && ./run.sh
     ```
+
+    >[!NOTE]
+    >You can adapt this file to add additional programs or dependencies into your container.
+    >For example, adding `RUN apt-get install nodejs -y` will allow support for `nodejs` applications as guest executables.
+    
     >[!TIP]
-    > * By specifying a name for your container instance, you can handle it in a more readable manner. 
-    > * If your application is listening on certain ports, it must be specified using additional -p tags. For example, if your application is listening on port 8080, run docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox
+    > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) page
 
-4. Log in to the Docker container in interactive ssh mode:
+3. To build your reusable image from the `Dockerfile` open a terminal and `cd` to the directly holding your `Dockerfile` then run:
 
-    ```powershell
-    docker exec -it sfonebox bash
+    ```powershell 
+    docker build -t mysfcluster .
+    ```
+    
+    >[!NOTE]
+    >This operation will take some time but is only needed once.
+
+4. Now you can quickly start a local copy of Service Fabric, whenever you need it, by running:
+
+    ```powershell 
+    docker run --name sftestcluster -d -v //var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
     ```
 
-5. Run the setup script, that will fetch the required dependencies and after that start the cluster on the container.
+    >[!TIP]
+    >Provide a name for your container instance so it can be handled in a more readable manner. 
+    >
+    >If your application is listening on certain ports, the ports must be specified by using additional `-p` tags. For example, if your application is listening on port 8080, add the following `-p` tag:
+    >
+    >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
+    >
 
-    ```bash
-    ./setup.sh     # Fetches and installs the dependencies required for Service Fabric to run
-    ./run.sh       # Starts the local cluster
+5. The cluster will take a short amount of time to start, you can view logs using the following command or jump to the dashboard to view the clusters health [http://localhost:19080](http://localhost:19080):
+
+    ```powershell 
+    docker logs sftestcluster
     ```
 
 6. After step 5 is completed successfully, you can go to ``http://localhost:19080`` from your Windows and you would be able to see the Service Fabric explorer. At this point, you can connect to this cluster using any tools from your Windows developer machine and deploy application targeted for Linux Service Fabric clusters. 
 
     > [!NOTE]
     > The Eclipse plugin is currently not supported on Windows. 
+
+7. When you are done, stop and cleanup the container with this command:
+
+    ```powershell 
+    docker rm -f sftestcluster
+    ```
+
+### Known Limitations 
+ 
+ The following are known limitations of the local cluster running in a container for Mac's: 
+ 
+ * DNS service does not run and is not supported [Issue #132](https://github.com/Microsoft/service-fabric/issues/132)
 
 ## Next steps
 * Get started with [Eclipse](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-eclipse)

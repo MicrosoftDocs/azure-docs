@@ -1,5 +1,5 @@
 ---
-title: Monitoring Azure SQL Database Using Dynamic Management Views | Microsoft Docs
+title: Monitoring performance Azure SQL Database Using DMVs | Microsoft Docs
 description: Learn how to detect and diagnose common performance problems by using dynamic management views to monitor Microsoft Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -7,13 +7,13 @@ ms.subservice: performance
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer:
+author: juliemsft
+ms.author: jrasnick
+ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/22/2018
+ms.date: 12/19/2018
 ---
-# Monitoring Azure SQL Database using dynamic management views
+# Monitoring performance Azure SQL Database using dynamic management views
 
 Microsoft Azure SQL Database enables a subset of dynamic management views to diagnose performance problems, which might be caused by blocked or long-running queries, resource bottlenecks, poor query plans, and so on. This topic provides information on how to detect common performance problems by using dynamic management views.
 
@@ -327,7 +327,7 @@ ORDER BY start_time ASC;
 
 ## Identify memory grant wait performance issues
 
-If your top wait type is `RESOURCE_SEMAHPORE` and you don't have high a CPU issue, you may have a memory grant waiting issue.
+If your top wait type is `RESOURCE_SEMAHPORE` and you don't have a high CPU usage issue, you may have a memory grant waiting issue.
 
 ### Determine if a `RESOURCE_SEMAHPORE` wait is a top wait
 
@@ -543,7 +543,7 @@ Other application types might interpret the same graph differently. For example,
 Azure SQL Database exposes consumed resource information for each active database in the **sys.resource_stats** view of the **master** database in each server. The data in the table is aggregated for 5-minute intervals. With the Basic, Standard, and Premium service tiers, the data can take more than 5 minutes to appear in the table, so this data is more useful for historical analysis rather than near-real-time analysis. Query the **sys.resource_stats** view to see the recent history of a database and to validate whether the reservation you chose delivered the performance you want when needed.
 
 > [!NOTE]
-> You must be connected to the **master** database of your logical SQL database server to query **sys.resource_stats** in the following examples.
+> You must be connected to the **master** database of your SQL Database server to query **sys.resource_stats** in the following examples.
 
 This example shows you how the data in this view is exposed:
 
@@ -676,7 +676,7 @@ For SQL Database analysis, you can get historical statistics on sessions by quer
 
 ## Monitoring query performance
 
-Slow or long running queries can consume significant system resources. This section demonstrates how to use dynamic management views to detect a few common query performance problems. An older but still helpful reference for troubleshooting, is the [Troubleshooting Performance Problems in SQL Server 2008](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) article on Microsoft TechNet.
+Slow or long running queries can consume significant system resources. This section demonstrates how to use dynamic management views to detect a few common query performance problems. An older but still helpful reference for troubleshooting, is the [Troubleshooting Performance Problems in SQL Server 2008](https://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) article on Microsoft TechNet.
 
 ### Finding top N queries
 

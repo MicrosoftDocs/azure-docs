@@ -62,6 +62,7 @@ The application process includes:
  * Email Verification
  * Accepting [Terms and Conditions](https://download.microsoft.com/download/2/C/8/2C8CAC17-FCE7-4F51-9556-4D77C7022DF5/MCRA2018_AOC_USGCC_ENG_Feb2019_CR.pdf)
 
+
 After the validation has been completed and terms have been signed, you are Ready to Transact. At this point, you can create customers, spin up resources, and  get billed as per regular CSP Terms. To learn more about CSP Billing, you can visit [this](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-billing-overview) page.
 
 ## Additional resources

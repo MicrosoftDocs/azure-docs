@@ -3,8 +3,8 @@ title: Azure Billing Enterprise APIs | Microsoft Docs
 description: Learn about the Reporting APIs that enable Enterprise Azure customers to pull consumption data programmatically. 
 services: ''
 documentationcenter: ''
-author: anandedwin
-manager: aedwin
+author: mumami
+manager: mumami
 editor: ''
 tags: billing
 
@@ -20,9 +20,6 @@ ms.author: erikre
 ---
 # Overview of Reporting APIs for Enterprise customers
 The Reporting APIs enable Enterprise Azure customers to programmatically pull consumption and billing data into preferred data analysis tools. Enterprise customers have signed an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) with Azure to make negotiated monetary commitments and gain access to custom pricing for Azure resources.
-
-> [!div class="nextstepaction"]
-> [Help improve Azure billing docs](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## Enabling data access to the API
 * **Generate or retrieve the API key** - Log in to the Enterprise portal, and navigate to Reports > Download Usage > API Access Key to generate or retrieve the API key.
@@ -57,7 +54,7 @@ Etags will be returned in the response of all the above API. A change in Etag in
 |401| Unauthorized| API Key not found, Invalid, Expired etc.|
 |404| Unavailable| Report endpoint not found|
 |400| Bad Request| Invalid params – Date ranges, EA numbers etc.|
-|500| Server Error| Unexoected error processing request| 
+|500| Server Error| Unexpected error processing request| 
 
 
 

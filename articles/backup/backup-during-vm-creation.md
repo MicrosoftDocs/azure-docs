@@ -2,14 +2,14 @@
 title: Enable Azure VM backup during creation
 description: See the steps to enable Azure virtual machine backup during the creation process.
 services: backup, virtual-machines
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup, virtual-machines
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: trinadhk
---- 
+---
 
 
 # Enable backup during Azure virtual machine creation 

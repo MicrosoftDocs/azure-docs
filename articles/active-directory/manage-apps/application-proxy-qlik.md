@@ -3,17 +3,18 @@ title: Azure AD App Proxy and Qlik Sense| Microsoft Docs
 description:  Turn on Application Proxy in the Azure  portal, and install the Connectors for the reverse proxy.
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: article
 ms.date: 09/06/2018
-ms.author: barbkess
-ms.reviewer: harshja
+ms.author: celested
+ms.reviewer: japere
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 # Application Proxy and Qlik Sense 
 Azure Active Directory Application Proxy and Qlik Sense have partnered together to ensure you are easily able to use Application Proxy to provide remote access for your Qlik Sense deployment.  
@@ -22,13 +23,13 @@ Azure Active Directory Application Proxy and Qlik Sense have partnered together 
 The remainder of this scenario assumes you done the following:
  
 - Configured [Qlik Sense](https://community.qlik.com/docs/DOC-19822). 
-- [Installed an Application Proxy connector](application-proxy-enable.md#install-and-register-a-connector) 
+- [Installed an Application Proxy connector](application-proxy-add-on-premises-application.md#install-and-register-a-connector) 
  
 ## Publish your applications in Azure 
 To publish QlikSense, you will need to publish two applications in Azure.  
 
 ### Application #1: 
-Follow these steps to publish your app. For a more detailed walkthrough of steps 1-8, see [Publish applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md). 
+Follow these steps to publish your app. For a more detailed walkthrough of steps 1-8, see [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md). 
 
 
 1. Sign in to the Azure portal as a global administrator. 
@@ -53,7 +54,11 @@ Follow the same steps as for Application #1, with the following exceptions:
 ## Testing 
 Your application is now ready to test. Access the external URL you used to publish QlikSense in Application #1, and login as a user assigned to both applications.  
 
-## Next Steps
+## Additional references
+For more information about publishing Qlik Sense with Application Proxy, refer to the Qlik Community Article: [Azure AD with Integrated Windows Authentication using a Kerberos Constrained Delegation with Qlik Sense](https://community.qlik.com/docs/DOC-20183).
 
-- [Publish applications with Application Proxy](application-proxy-publish-azure-portal.md)
-- [Working with Application Proxy connectors](application-proxy-connector-groups.md).
+## Next steps
+
+- [Publish applications with Application Proxy](application-proxy-add-on-premises-application.md)
+- [Working with Application Proxy connectors](application-proxy-connector-groups.md)
+

@@ -45,7 +45,7 @@ To complete this tutorial, you need the following:
 
 * Visual Studio 2017
 
-* An active Azure account. (If you don't have an account, you can create a [free account](http://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
+* An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
 ## Receive messages in the device app
 

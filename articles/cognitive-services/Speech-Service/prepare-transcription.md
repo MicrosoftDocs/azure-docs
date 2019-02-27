@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to prepare text to customize acoustic and language models and voice fonts for the Speech Service.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: panosper
