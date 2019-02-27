@@ -24,7 +24,7 @@ ms.reviewer: bagovind
 This article describes how to use the Azure portal to view deny assignments.
 
 > [!NOTE]
-> At this time, deny assignments are read-only and can only be set by Azure.
+> At this time, deny assignments are read-only and can only be set by Microsoft.
 
 ## View deny assignments
 

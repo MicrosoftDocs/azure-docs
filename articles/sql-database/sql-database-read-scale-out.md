@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/25/2019
 ---
 # Use read-only replicas to load balance read-only query workloads (preview)
 
@@ -30,7 +30,7 @@ After Read Scale-Out is enabled for a database, applications connecting to that 
 If Read Scale-Out is disabled or you set the ReadScale property in an unsupported service tier, all connections are directed to the read-write replica, independent of the `ApplicationIntent` property.
 
 > [!NOTE]
-> During preview, Query Data Store and Extended Events are not supported on the read-only replicas.
+> Query Data Store and Extended Events are not supported on the read-only replicas.
 
 ## Data consistency
 
@@ -119,7 +119,7 @@ For more information, see [Databases - Create or Update](https://docs.microsoft.
 If you are using read scale-out to load balance read-only workloads on a database that is geo-replicated (e.g. as a member of a failover group), make sure that read scale-out is enabled on both the primary and the geo-replicated secondary databases. This will ensure the same load-balancing effect when your application connects to the new primary after failover. If you are connecting to the geo-replicated secondary database with read-scale enabled, your sessions with `ApplicationIntent=ReadOnly` will be routed to one of the  replicas the same way we route connections on the primary database.  The sessions without `ApplicationIntent=ReadOnly` will be routed to the primary replica of the geo-replicated secondary, which is also read-only. Because geo-replicated secondary database has a different end-point than the primary database, historically to access the secondary it wasn't required to set `ApplicationIntent=ReadOnly`. To ensure backward compatibility, `sys.geo_replication_links` DMV shows `secondary_allow_connections=2` (any client connection is allowed).
 
 > [!NOTE]
-> During preview, round-robin or any other load balanced routing between the local replicas of the secondary database is not supported.
+> Round-robin or any other load balanced routing between the local replicas of the secondary database is not supported.
 
 ## Next steps
 

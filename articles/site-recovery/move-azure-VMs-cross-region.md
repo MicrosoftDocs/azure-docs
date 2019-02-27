@@ -21,9 +21,9 @@ This tutorial shows you how to move Azure VMs to another region using Azure Site
 > * [Prepare the source VMs](#prepare-the-source-vms)
 > * [Prepare the target region](#prepare-the-target-region)
 > * [Copy data to the target region](#copy-data-to-the-target-region)
-> * [Test the configuration ](#test-the-configuration)
-> * [Perform the move ](#perform-the-move-to-the-target-region-and-confirm)
-> * [Discard the resource in the source region ](#discard-the-resource-in-the-source-region)
+> * [Test the configuration](#test-the-configuration)
+> * [Perform the move](#perform-the-move-to-the-target-region-and-confirm)
+> * [Discard the resource in the source region](#discard-the-resource-in-the-source-region)
 
 > [!IMPORTANT]
 > This document guides you to move Azure VMs from one region to another as is, if your requirement is to improve availability of your infrastructure by moving VMs to availability zones, refer to the tutorial here.
@@ -68,7 +68,7 @@ This tutorial shows you how to move Azure VMs to another region using Azure Site
 
     - [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Load balancers](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [Public IP ](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [Public IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
     
     For any other networking components, refer to the networking [documentation.](https://docs.microsoft.com/azure/#pivot=products&panel=network) 
 

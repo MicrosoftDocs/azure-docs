@@ -36,7 +36,7 @@ Azure Stack has a set of region management capabilities available in the **Regio
 
 If you click a region in the **Region management** tile, you can access the following information:
 
-[ ![Description of panes on the Region management blade](media/azure-stack-region-management/regionssm.png "Region management blade") ](media/azure-stack-region-management/regions.png#lightbox)
+[![Description of panes on the Region management blade](media/azure-stack-region-management/regionssm.png "Region management blade")](media/azure-stack-region-management/regions.png#lightbox)
 
 1. **The resource menu**. Access specific infrastructure management areas, and view and manage user resources such as storage accounts and virtual networks.
 
