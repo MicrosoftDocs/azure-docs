@@ -109,7 +109,7 @@ To stop protection for a virtual machine:
 
 If you retained backup data when the VM was stopped, you can resume protection. If you deleted backup data then you can't resume.
 
-To resume protection for the virtual machine
+To resume protection for the virtual machine:
 
 1. On the [vault item dashboard](#view-vms-in-the-dashboard), click **Resume backup**.
 
