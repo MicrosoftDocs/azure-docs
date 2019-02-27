@@ -30394,6 +30394,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/bing-spell-check-resource-faq.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Spell-Check/concepts/using-spell-check",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/quick-start.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Spell-Check/concepts/sending-requests",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/sdk.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Spell-Check/sdk-quickstart-spell-check",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Bing-Video-Search/UseAndDisplayRequirements.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
       "redirect_document_id": false
@@ -32071,6 +32086,16 @@
     {
       "source_path": "articles/cognitive-services/Bing-Video-Search/search-the-web.md",
       "redirect_url": "/azure/cognitive-services/Bing-Video-Search/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/proof-text.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Spell-Check/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/tutorials/spellcheck-source.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Spell-Check/tutorials/spellcheck",
       "redirect_document_id": true
     },
     {
