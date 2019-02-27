@@ -407,11 +407,11 @@ you might need more identification methods. The example plan has a
 fork where you can get screens that look similar. One screen returns 
 an account balance, while the other screen returns an error message.
 
-The design tool lets you add recognition attributes, 
-such as the screen title, "Get Account Balance", by using 
-the Screen Recognition editor. In the case with similar screens, 
-you need other attributes. At run time, the connector uses 
-these attributes for determining the branch and fork.
+The design tool lets you add recognition attributes, for example, 
+a screen title named "Get Account Balance", by using the Screen 
+Recognition editor. In the case with similar screens, you need 
+other attributes. At run time, the connector uses these attributes 
+for determining the branch and fork.
 
 * In the branch that returns valid input, which is 
 the screen with the account balance, you can add a 
@@ -481,7 +481,7 @@ and opening the "WoodgroveBank.rap" file:
 
 `..\Program Files\Microsoft Host Integration Server - 3270 Design Tool\SDK\WoodgroveBank.rap`
 
-However, if you try saving changes to the sample .RAP file or 
+However, if you try saving changes to the sample RAP file or 
 generating an HIDX file from the sample RAP file while the file 
 stays in the design tool's installation folder, you might get an 
 "access denied" error. By default, the design tool installs in 
@@ -517,11 +517,11 @@ which shows your output parameter values.
 When you're ready, generate the HIDX file so you 
 can upload to your integration account. The 3270 
 Design Tool creates the HIDX file in a new 
-subfolder where you saved your .rap file.
+subfolder where you saved your RAP file.
 
 1. On the 3270 Design Tool's toolbar, choose **Generate Code**.
 
-1. Go to the folder that contains your .rap file, and open the 
+1. Go to the folder that contains your RAP file, and open the 
 subfolder that the tool created after generating your HIDX file. 
 Confirm that the tool created the HIDX file.
 
@@ -532,19 +532,19 @@ and find your integration account.
 by [follow these similar steps for adding maps](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md), 
 but when you select the map type, select **HIDX**.
 
-Later in this topic, when you add an HIS 3270 
-action to your logic app for the first time, 
-you're prompted to create a connection between 
-your logic app and the host server by providing 
-connection information, such as the names for your integration 
-account and host server. After you create the connection, you can select 
-your previously added HIDX file, the method to run, and the parameters to use.
+Later in this topic, when you add an HIS 3270 action to your 
+logic app for the first time, you're prompted to create a 
+connection between your logic app and the host server by 
+providing connection information, such as the names for 
+your integration account and host server. After you create 
+the connection, you can select your previously added 
+HIDX file, the method to run, and the parameters to use.
 
-When you finish all these steps, you can use the action that you create 
-in your logic app for connecting to your IBM mainframe, drive screens for 
-your app, enter data, return results, and so on. You can also continue 
-adding other actions to your logic app for integrating with other apps, 
-services, and systems.
+When you finish all these steps, you can use the action that 
+you create in your logic app for connecting to your IBM mainframe, 
+drive screens for your app, enter data, return results, and so on. 
+You can also continue adding other actions to your logic app for 
+integrating with other apps, services, and systems.
 
 <a name="run-action"></a>
 
