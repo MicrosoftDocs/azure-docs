@@ -45,8 +45,10 @@ To provision the database out of band and install Azure AD Connect with database
     - SQL Login 
     - **database owner(dbo)** rights.  </br>
 ![Permissions](./media/how-to-connect-install-sql-delegation/sql3a.png)</br>
->[!NOTE]
->Azure AD Connect does not support logins with a nested membership.  This means your Azure AD Connect administrator account and domain service account must be linked to a login that is explicity granted dbo rights.  It cannot simply be the memeber of a group that is assigned to a login with dbo rights.</br>
+
+ >[!NOTE]
+ >Azure AD Connect does not support logins with a nested membership.  This means your Azure AD Connect administrator account and domain service account must be linked to a login that is granted dbo rights.  It cannot simply be the member of a group that is assigned to a login with dbo rights.</br>
+
  3.	Send an email to the Azure AD Connect administrator indicating the SQL server and instance name that should be used when installing Azure AD Connect.
 
 ## Additional information
