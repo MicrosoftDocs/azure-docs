@@ -36,6 +36,9 @@ We recommend using the same Azure subscription for both Azure Search and Azure s
 
 You should have an Azure storage account, with Blob storage, and a container of JSON documents. If you are unfamiliar with any of these tasks, review the prerequisite "Set up Azure Blob service and load sample data" in the [cognitive search-quickstart](cognitive-search-quickstart-blob.md#set-up-azure-blob-service-and-load-sample-data).
 
+> [!Important]
+> On the container, be sure that **Public access level** is set to "Container (anonymous read access for containers and blobs)".
+
 ### 2 - Start Import data wizard
 
 You can [start the wizard](search-import-data-portal.md) from the command bar in the Azure Search service page, or by clicking **Add Azure Search** in the **Blob service** section of your storage account's left navigation pane.
