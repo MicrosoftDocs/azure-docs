@@ -50,7 +50,6 @@ To get your endpoint details:
 
 You can also get your endpoint details from the **Settings** tab of your knowledge base.
 
-
 [!INCLUDE [JSON request and response](../../../../includes/cognitive-services-qnamaker-quickstart-get-answer-json.md)] 
 
 <a name="metadata-example"></a>

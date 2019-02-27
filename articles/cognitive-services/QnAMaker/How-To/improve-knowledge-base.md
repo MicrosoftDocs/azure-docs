@@ -27,8 +27,6 @@ QnA Maker learns new question variations with implicit and explicit feedback.
 
 Either method provides the ranker with similar queries that are clustered.
 
-**When 5 or more similar queries are clustered, every 30 minutes, QnA Maker suggests the user-based questions to the knowledge base designer to accept or reject.**
-
 ## How active learning works
 
 Active learning is triggered based on the scores of top few answers returned by QnA Maker for any given query. If the score differences lie within a small range, then the query is considered a possible _suggestion_ for each of the possible answers. 
@@ -88,6 +86,7 @@ Active learning is off by default. Turn it on to see suggested questions.
 
 1. Select **Publish** to allow the changes to be available from the GenerateAnswer API.
 
+    When 5 or more similar queries are clustered, every 30 minutes, QnA Maker suggests the user-based questions to the knowledge base designer to accept or reject.
 
 ## Determine best choice when several questions have similar scores
 
