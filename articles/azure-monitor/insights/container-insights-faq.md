@@ -16,7 +16,7 @@ ms.author: magoedte
 # Azure Monitor for containers Frequently Asked Questions
 This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for containers. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
-## I am unable to see any data for Azure Monitor for containers in the Log Analytics workspace at a certain period of time everyday. How do I resolve this? 
+## I am unable to see any data in the Log Analytics workspace at a certain time everyday. How do I resolve this? 
 
 You may have reached the default 500 MB limit or the daily cap specified to control the amount of data to collect daily. When the limit is met for the day, data collection stops and resumes only on the next day. To review your data usage and update to a different pricing tier based on your anticipated usage patterns, see [Log data usage and cost](../platform/manage-cost-storage.md). 
 ## What are the states of containers specified in the ContainerInventory table?
