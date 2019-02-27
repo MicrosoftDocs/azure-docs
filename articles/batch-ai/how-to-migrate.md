@@ -19,6 +19,7 @@ Upgrading from the Preview Batch AI to the GA'ed Azure Machine Learning service 
 
 Azure Machine Learning service also brings in new functionality such as automated machine learning, hyperparameter tuning, and ML pipelines, which are useful in most large-scale AI workloads. The ability to deploy a trained model without switching to a separate service helps complete the data science loop from data preparation (using the Data Prep SDK) all the way to operationalization and model monitoring.
 
+## Start migrating
 To avoid disruptions to your applications and to benefit from the latest features, take the following steps before March 31, 2019:
 
 1. Create an Azure Machine Learning service workspace and get started:
