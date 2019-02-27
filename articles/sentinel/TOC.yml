@@ -43,6 +43,10 @@
         href: connect-azure-atp.md
       - name: Connect Azure Security Center
         href: connect-azure-security-center.md
+      - name: Connect Windows firewall
+        href: connect-windows-firewall.md
+      - name: Connect Windows security events
+        href: connect-windows-security-events.md  
 
     - name: Connect external solutions
       items:
@@ -62,8 +66,6 @@
         href: connect-syslog.md
       - name: Connect Cisco
         href: connect-cisco.md
-    - name: Connect other clouds
-      href: connect-aws.md
     - name: Connect threat intelligence
       href: connect-threat-intelligence.md
   - name: User analytics

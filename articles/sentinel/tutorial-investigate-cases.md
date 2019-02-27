@@ -28,6 +28,11 @@ This tutorial helps you detect threats with Azure Sentinel.
 
 After you [connected your data sources](quickstart-onboard.md) to Azure Sentinel, you want to be notified when something suspicious happens. To enable you to do this, Azure Sentinel lets you create advanced alert rules, that generate cases that you can assign and use to deeply investigate anomalies and threats in your environment. 
 
+> [!div class="checklist"]
+> * Create cases
+> * Investigate cases
+> * Respond to threats
+
 ## Investigate cases
 
 A case can include multiple alerts. It's an aggregation of all the relevant evidence for a specific investigation. A case is created based on alerts you defined in the **Analytics** page. The properties related to the alerts, such as severity and status are set at the case level. 
