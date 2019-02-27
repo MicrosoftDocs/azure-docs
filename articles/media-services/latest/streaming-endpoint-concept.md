@@ -81,19 +81,20 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
       
     - China:
         
-        - `mediaservices.chinacloudapi.cn`
-        - `verifydns.mediaservices.chinacloudapi.cn`
+      - `mediaservices.chinacloudapi.cn`
+      - `verifydns.mediaservices.chinacloudapi.cn`
         
-   For example, a `CName` record that maps "945a4c4e-28ea-45cd-8ccb-a519f6b700ad.contoso.com" to "verifydns.media.azure.net" proves that the Media Services ID 945a4c4e-28ea-45cd-8ccb-a519f6b700ad has the ownership of the contoso.com domain, thus enabling any name under contoso.com to be used as a custom host name for a streaming endpoint under that account. To find the Media Service ID value, go to the [Azure portal](https://portal.azure.com/) and select your Media Service account. The **Account ID** appears on the top right of the page.
-    
+    For example, a `CName` record that maps "945a4c4e-28ea-45cd-8ccb-a519f6b700ad.contoso.com" to "verifydns.media.azure.net" proves that the Media Services ID 945a4c4e-28ea-45cd-8ccb-a519f6b700ad has the ownership of the contoso.com domain, thus enabling any name under contoso.com to be used as a custom host name for a streaming endpoint under that account. To find the Media Service ID value, go to the [Azure portal](https://portal.azure.com/) and select your Media Service account. The **Account ID** appears on the top right of the page.
+        
     If there is an attempt to set a custom host name without a proper verification of the `CName` record, the DNS response will fail and then be cached for some time. Once a proper record is in place, it might take a while until the cached response is revalidated. Depending on the DNS provider for the custom domain, it could take anywhere from a few minutes to an hour to revalidate the record.
-    
-    In addition to the `CName` that maps `<accountId>.<parent domain>` to `verifydns.<mediaservices-dns-zone>`, you must create another `CName` that maps the custom host name (for example, `sports.contoso.com`) to your Media Services Streaming Endpoint's host name (for example, `amstest-usea.streaming.media.azure.net`).
+        
+     In addition to the `CName` that maps `<accountId>.<parent domain>` to `verifydns.<mediaservices-dns-zone>`, you must create another `CName` that maps the custom host name (for example, `sports.contoso.com`) to your Media Services Streaming Endpoint's host name (for example, `amstest-usea.streaming.media.azure.net`).
  
     > [!NOTE]
     > Streaming Endpoints located in the same data center, cannot share the same custom host name.
 
     Currently, Media Services doesn’t support SSL with custom domains. 
+    
 - `maxCacheAge` -  Overrides the default max-age HTTP cache control header set by the streaming endpoint on media fragments and on-demand manifests. The value is set in seconds.
 - `resourceState` -
 
@@ -103,6 +104,7 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
     - Scaling - the scale units are being increased or decreased
     - Stopping - is transitioning to the stopped state
     - Deleting - is being deleted
+    
 - `scaleUnits ` - Provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. If you need to move to a **Premium** type, adjust `scaleUnits`.
 
 ## Next steps
