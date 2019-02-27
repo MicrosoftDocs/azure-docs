@@ -149,7 +149,7 @@ The path and pins location information can also be obtained through [Data Upload
 > [!Note]
 > This example requires Azure Maps account with pricing tier S1.
 
-You can modify the appearance of a polygon by using style modifiers with the [path parameter](https://docs.microsoft.com/rest-staging/api/maps/render/getmapimage#uri-parameters).
+You can modify the appearance of a polygon by using style modifiers with the [path parameter](https://docs.microsoft.com/rest-staging/api/maps/render/getmapimage).
 
 1. In the Postman app, open a new tab in the same collection you created above. Select GET HTTP method on the builder tab and enter the following URL to make a GET request to render a polygon with color and opacity:
     
@@ -168,7 +168,7 @@ The response image should look like the following:
 > [!Note]
 > This example requires Azure Maps account with pricing tier S1.
 
-You can make pushpins and their labels larger or smaller by using the 'sc' scale style modifier. This is a value greater than zero. A value of 1 is the standard scale. Values larger than 1 will make the pins larger, and values smaller than 1 will make them smaller. For more information on style modifiers see, [static image service path parameters](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+You can make pushpins and their labels larger or smaller by using the 'sc' scale style modifier. This is a value greater than zero. A value of 1 is the standard scale. Values larger than 1 will make the pins larger, and values smaller than 1 will make them smaller. For more information on style modifiers see, [static image service path parameters](https://docs.microsoft.com/rest/api/maps/render/getmapimage).
 
 Follow the steps below to render a polygon with circle and push pins with custom labels:
 
