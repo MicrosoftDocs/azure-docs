@@ -57,7 +57,7 @@ You must be the Owner, Contributor, Reader, or Invoice manager of the billing pr
 2. Select a billing profile.
 3. Select **Invoices**.
 4. In the invoice grid, find the row of the invoice corresponding to the price sheet you want to download.
-5. Click on the ellipsis (...) at the end of the row.
+5. Click on the ellipsis (`...`) at the end of the row.
 6. If you want to see prices for the services in the selected invoice, select **Invoice price sheet**.
 7. If you want to see prices for all Azure services for the given billing period, select **Azure price sheet**.
 
@@ -79,7 +79,8 @@ If you're an EA customer, you may also use your organization’s EA pricing to e
 1. Search and add products to your estimate.
 1. Estimated prices shown are based on pricing for the organization you selected.
 
-<!-- ### Estimate costs for your billing profile -->
+<!-- ### Estimate costs for your billing profile 
+Get info from Alex 2/27 -->
 
 ## Check your access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

@@ -25,9 +25,9 @@ The invoice provides a summary of your charges and provides instructions for pay
 
 A few things to note:
 
--   You are invoiced on a monthly basis. You can find out which day of the month you receive invoices by checking *invoice date* under billing profile properties in the [Azure portal](https://portal.azure.com/). Charges that occur between the end of the billing period and the invoice date are included in the next month's invoice, since they are in the next billing period. The billing period start and end dates for each invoice are listed in the invoice PDF above **Billing Summary**.
+## When am I billed?
 
--   Charges on invoices for international customers are converted to their local currencies. Exchange rate information is shown at the bottom of the invoice.
+You are invoiced on a monthly basis. You can find out which day of the month you receive invoices by checking *invoice date* under billing profile properties in the [Azure portal](https://portal.azure.com/). Charges that occur between the end of the billing period and the invoice date are included in the next month's invoice, since they are in the next billing period. The billing period start and end dates for each invoice are listed in the invoice PDF above **Billing Summary**.
 
 ## Invoice terms and descriptions
 
