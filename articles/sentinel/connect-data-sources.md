@@ -47,24 +47,21 @@ The following data collection methods are supported by Azure Sentinel:
     - [Barracuda](connect-barracuda.md)
     - Symantec
 - **External solutions via agent**: Azure Sentinel can be connected to all other data sources that can perform real-time log streaming using the Syslog protocol, via an agent. <br>Most appliances use the Syslog protocol to send event messages that include the log itself and data about the log. The format of the logs varies, but most appliances support the Common Event Format (CEF) standard. <br>The Azure Sentinel agent, which is based on the OMS agent, converts CEF formatted logs into a format that can be ingested by Log Analytics. Depending on the appliance type, the agent is installed either directly on the appliance, or on a dedicated Linux server. The agent for Linux receives events from the Syslog daemon over UDP, but in cases where a Linux machine is expected to collect a high volume of Syslog events, they are sent over TCP from the Syslog daemon to the agent and from there to Log Analytics.
-    - Firewalls
+    - Firewalls, proxies, and endpoints
         - [F5](connect-f5.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
         - [Fortinet](connect-fortinet.md)
         - [Palo Alto](connect-paloalto.md)
-    - Proxy servers
         - [Other CEF appliances](connect-common-event-format.md)
         - [Other Syslog appliances](connect-syslog.md)
     - DLP solutions
     - [Threat intelligence providers](connect-threat-intelligence.md)
     - [DNS machines](connect-dns.md) - agent installed directly on the DNS machine
-    
-    - 
-    - - Windows Servers 
+    - [Windows security events](windows-security-events.md) 
     - Linux servers
-    - Windows Event Forwarding
-    - Servers and endpoints
+    - [Windows firewall](windows-firewall.md)
+
 To connect your external appliance to Azure Sentinel, the agent must be deployed on a dedicated machine (VM or on-prem) to support the communication between the appliance and Azure Sentinel. You can deploly the agent automatically or manually. Automatic deployment is only available if your dedicated machine is a new VM you are creating in Azure. 
 
 
