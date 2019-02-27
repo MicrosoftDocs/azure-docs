@@ -49,7 +49,7 @@ Use the following table to help you configure the certificate. When finished, cl
 | Subscription | The datacenter where the web app is hosted. |
 | Resource group | The resource group that contains the certificate. You can use a new resource group or select the same resource group as your App Service app, for example. |
 | Certificate SKU | Determines the type of certificate to create, whether a standard certificate or a [wildcard certificate](https://wikipedia.org/wiki/Wildcard_certificate). |
-| Legal Terms | Click to confirm that you agree with the legal terms. |
+| Legal Terms | Click to confirm that you agree with the legal terms. The certificates are obtained from GoDaddy. |
 
 ## Store in Azure Key Vault
 

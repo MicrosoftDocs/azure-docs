@@ -252,8 +252,6 @@ The following options can't be modified:
 - `SINGLE_USER`
 - `WITNESS`
 
-Modify name isn't supported.
-
 For more information, see [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
 ### SQL Server Agent
@@ -432,7 +430,7 @@ Cross-instance service broker isn't supported:
 
 ### Stored procedures, functions, triggers
 
-- `NATIVE_COMPILATION` is currently not supported.
+- `NATIVE_COMPILATION` is not supported in General Purpose tier.
 - The following [sp_configure](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql) options aren't supported:
   - `allow polybase export`
   - `allow updates`
@@ -443,7 +441,6 @@ Cross-instance service broker isn't supported:
 - `xp_cmdshell` isn't supported. See [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
 - `Extended stored procedures` aren't supported, including `sp_addextendedproc` and `sp_dropextendedproc`. See [Extended stored procedures](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
 - `sp_attach_db`, `sp_attach_single_file_db`, and `sp_detach_db` aren't supported. See [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), and [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
-- `sp_renamedb` isn't supported. See [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
 ## <a name="Changes"></a> Behavior changes
 
