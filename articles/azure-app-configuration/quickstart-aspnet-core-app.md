@@ -50,8 +50,6 @@ You will add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/se
 
 - Open your *.csproj* file. Add a `UserSecretsId` element as shown below and replace its value with your own, which typically is a GUID. Save the file.
 
-    *TestAppConfig.csproj:*
-
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
 
@@ -84,7 +82,7 @@ You will add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/se
 
     This command must be executed in the same directory as the *.csproj* file.
 
-        dotnet user-secrets set ConnectionStrings:AppConfig "Endpoint=<service_endpoint>;Id=<store_id>;Secret=<secret_key>"
+        dotnet user-secrets set ConnectionStrings:AppConfig "Endpoint=<your_endpoint>;Id=<your_id>;Secret=<your_secret>"
 
     Secret Manager will only be used for testing the web app locally. When the app is deployed (for example, to [Azure App Service](https://azure.microsoft.com/services/app-service/web)), you will use an application setting (for example, **Connection Strings** in App Service) instead of storing the connection string with Secret Manager.
 
