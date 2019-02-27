@@ -37,13 +37,15 @@ To register a new confidential application in the portal, follow the steps below
 
 Next add API permissions:
 
-1. Open the **API permissions** and select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md):
+1. Open the **API permissions**:
 
     ![Confidential client. API Permissions](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-Permissions.png)
 
 2. Click **Add a permission**
 
-3. Select your resource API:
+3. Select appropriate resource API:
+
+    For the Azure API for FHIR (managed service), click **APIs my organization uses** and search for "Azure Healthcare APIs". For the Open Source FHIR server for Azure, select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md):
 
     ![Confidential client. My APIs](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-MyApis.png)
 
