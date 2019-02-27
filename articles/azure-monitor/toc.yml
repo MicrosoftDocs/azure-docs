@@ -419,8 +419,6 @@
         href: platform/collect-azure-metrics-logs.md
       - name: Diagnostic or log data from Azure storage
         href: platform/azure-storage-iis-table.md
-      - name: Azure PaaS resources
-        href: platform/collect-azurepass-posh.md
       - name: Correlate custom data sources
         href: app/custom-data-correlation.md
     - name: Collect custom data 
@@ -635,8 +633,9 @@
   - name: Visualize data
     items:
     - name: Views
-      href: platform/view-designer.md
       items:
+      - name: View Designer
+        href: platform/view-designer.md
       - name: Tile reference
         href: platform/view-designer-tiles.md
       - name: Visualization part reference
