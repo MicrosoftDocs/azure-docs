@@ -288,8 +288,13 @@ processing units between 0 and 3 inclusively.
 Otherwise, for metric-based, follow these steps:
 
    1. In the **Default** section, choose **Add a rule**.
+
    1. On the **Scale rule** pane, set up your criteria 
    and action to take when the rule triggers.
+   
+   1. When you're done, choose **Add**.
+
+1. When you're finished, remember to save your changes.
 
 <a name="create-logic-apps-environment"></a>
 
