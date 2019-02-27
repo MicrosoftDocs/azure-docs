@@ -23,7 +23,7 @@ ms.custom:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-You can create a virtual machine (VM) with a static private IP address. Assign a static private IP address, rather than a dynamic address, to ensure that the address never changes. Learn more about [static private IP addresses](virtual-network-ip-addresses-overview-arm.md#allocation-method). To change a private IP address assigned to an existing VM from dynamic to static, or to work with public IP addresses, see [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md).
+You can create a virtual machine (VM) with a static private IP address. Assign a static private IP address, rather than a dynamic address, if you want to select which address from a subnet is assigned to a VM. Learn more about [static private IP addresses](virtual-network-ip-addresses-overview-arm.md#allocation-method). To change a private IP address assigned to an existing VM from dynamic to static, or to work with public IP addresses, see [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md).
 
 ## Create a virtual machine
 
