@@ -253,7 +253,7 @@ Try to install VSS provider service manually on the source machine by running th
 
 ## VSS error - 0x8004E00F
 
-This error is typically encountered during the installation of the mobility agent due to issues in DCOM and is in a critical state.
+This error is typically encountered during the installation of the mobility agent due to issues in DCOM and DCOM is in a critical state.
 
 Use the following procedure to determine the cause of the error.
 
