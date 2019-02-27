@@ -76,6 +76,10 @@
       items:
       - name: Copy Data tool
         href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
+    - name: 5 - Copy new files by time partitioned file name
+      items:
+      - name: Copy Data tool
+        href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
   - name: Transform data in cloud
     items:
     - name: HDInsight Spark

@@ -75,6 +75,9 @@
     - name: Azure PowerShell
       tocHref: /azure/api-management/scripts/
       topicHref: /azure/api-management/powershell-samples/
+  - name: Azure App Configuration
+    tocHref: /azure/azure-app-configuration/
+    topicHref: /azure/azure-app-configuration/
   - name: App Service
     tocHref: /azure/app-service/
     topicHref: /azure/app-service/
