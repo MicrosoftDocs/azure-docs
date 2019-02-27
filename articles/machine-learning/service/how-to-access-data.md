@@ -41,26 +41,21 @@ Or, [follow this Python quickstart](quickstart-create-workspace-with-python.md) 
 
 <a name="access"></a>
 
-## Create and access a datastore
-To use datastores, you first need a [workspace](concept-azure-machine-learning-architecture.md#workspace). Start by either [creating a new workspace](quickstart-create-workspace-with-python.md) or retrieving an existing one:
+## Choose a datastore
 
-```Python
-import azureml.core
-from azureml.core import Workspace, Datastore
+You can use the default datastore or bring your own.
 
-ws = Workspace.from_config()
-```
+### Use the default datastore in your workspace
 
-### Use the default datastore
-No need to create or configure a storage account.  Each workspace has a default datastore that you can start using immediately.
+No need to create or configure a storage account since each workspace has a default datastore. You can use that datastore right away as it is already registered in the workspace. 
 
 To get the workspace's default datastore:
 ```Python
 ds = ws.get_default_datastore()
 ```
 
-### Register a datastore
-If you have existing Azure Storage, you can register it as a datastore on your workspace.  All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form register_azure_*. 
+### Register your own datastore with the workspace
+If you have existing Azure Storage, you can register it as a datastore on your workspace.   All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form register_azure_*. 
 
 The following examples show you to register an Azure Blob Container or an Azure File Share as a datastore.
 
