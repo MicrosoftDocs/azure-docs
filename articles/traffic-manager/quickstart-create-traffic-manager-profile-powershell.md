@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Create a Traffic Manager profile for high availability of applications using Azure PowerShell
-description: This quickstart article describes how to create a Traffic Manager profile to build a highly available web applications.
+description: This quickstart article describes how to create a Traffic Manager profile to build a highly available web application.
 services: traffic-manager
 author: KumudD
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
