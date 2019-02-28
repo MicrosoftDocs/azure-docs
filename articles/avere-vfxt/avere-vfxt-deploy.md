@@ -99,7 +99,7 @@ The second page of the deployment template allows you to set the cluster size, n
 
 * **Avere vFXT cluster name** - Give the cluster a unique name. 
 
-* **Size** - This section shows the VM type that will be used for the cluster nodes. Although there is only one recommended option, the **Change size** link opens a table with details about this instance type and a link to a pricing calculator.  <!-- old: Specify the VM type to use when creating the cluster nodes.  -->
+* **Size** - This section shows the VM type that will be used for the cluster nodes. Although there is only one recommended option, the **Change size** link opens a table with details about this instance type and a link to a pricing calculator.  
 
 * **Cache size per node** - The cluster cache is spread across the cluster nodes, so the total cache size on your Avere vFXT cluster will be the cache size per node multiplied by the number of nodes. 
 
@@ -115,7 +115,7 @@ The second page of the deployment template allows you to set the cluster size, n
   >  * If you do not set up a public IP address on the controller, you must use another jump host, a VPN connection, or ExpressRoute to access the cluster. For example, create the controller within a virtual network that already has a VPN connection configured.
   >  * If you create a controller with a public IP address, you should protect the controller VM with a network security group. By default, the Avere vFXT for Azure deployment creates a network security group and restricts inbound access to only port 22 for controllers with public IP addresses. You can further protect the system by locking down access to your range of IP source addresses - that is, only allow connections from machines you intend to use for cluster access.
 
-  The deploy template also configures the new vnet with a storage service endpoint for Azure Blob storage and with network access control locked to only IPs from the cluster subnet. <!-- xxx make sure this is accurate --> <!-- do I need to say that this only happens if you choose to create storage? -->
+  The deploy template also configures the new vnet with a storage service endpoint for Azure Blob storage and with network access control locked to only IPs from the cluster subnet. 
 
 * **Subnet** - Choose a subnet from your existing virtual network, or create a new one. 
 
