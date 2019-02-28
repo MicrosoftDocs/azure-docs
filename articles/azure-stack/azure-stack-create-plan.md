@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/09/2019
+ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: efemmano
-ms.lastreviewed: 01/09/2019
+ms.lastreviewed: 02/28/2019
 
 ---
 # Create a plan in Azure Stack
@@ -31,7 +31,7 @@ ms.lastreviewed: 01/09/2019
   
    ![Select a plan](media/azure-stack-create-plan/select-plan.png)
 
-3. Under **New plan**, enter a **Display name** and a **Resource name**. The display name is the plan's friendly name that users can see. Only the admin can see the resource name, which admins use to work with the plan as an Azure Resource Manager resource.
+3. Under the **Basics** tab of the **New plan** window, enter a **Display name** and a **Resource name**. The display name is the plan's friendly name that users can see. Only the administrator can see the resource name, which is used to work with the plan as an Azure Resource Manager resource.
 
    ![Specify details](media/azure-stack-create-plan/plan-name.png)
 
@@ -39,31 +39,29 @@ ms.lastreviewed: 01/09/2019
 
    ![Specify the resource group](media/azure-stack-create-plan/resource-group.png)
 
-5. Select **Services** and then select the checkbox for **Microsoft.Compute**, **Microsoft.Network**, and **Microsoft.Storage**. Next, choose **Select** to save the configuration. Checkboxes appear when the mouse hovers over each option.
+5. Select the **Services** tab, and then select the checkbox for **Microsoft.Compute**, **Microsoft.Network**, and **Microsoft.Storage**.
   
    ![Select services](media/azure-stack-create-plan/services.png)
 
-6. Select **Quotas**, **Microsoft.Storage (local)**, and then choose either the default quota or select **Create new quota** to create a customized quota.
+6. Select the **Quotas** tab. Next to **Microsoft.Storage (local)**, choose either the default quota or select **Create New** to create a customized quota.
   
    ![Quotas](media/azure-stack-create-plan/quotas.png)
 
-7. If you're creating a new quota, enter a **Name** for the quota > specify the quota values > select **OK**. The **Create quota** dialog closes.
+7. If you're creating a new quota, enter a **Name** for the quota, and then specify the quota values. Select **OK** to create the quota.
 
    ![New quota](media/azure-stack-create-plan/new-quota.png)
-
-   You then select the new quota you created. Selecting the quota assigns it and closes the selection dialog.
-  
-   ![Assign the quota](media/azure-stack-create-plan/assign-quota.png)
 
 8. Repeat steps 6 and 7 to create and assign quotas for **Microsoft.Network (local)** and **Microsoft.Compute (local)**. When all three services have quotas assigned, they'll look like the next example.
 
    ![Complete quota assignments](media/azure-stack-create-plan/all-quotas-assigned.png)
 
-9. Under **Quotas**, choose **OK**, and then under **New plan**, choose **Create** to create the plan.
+9. Select **Review + create** to review the plan. Review all values and quotas to ensure they are correct.
 
-    ![Create the plan](media/azure-stack-create-plan/create.png)
+   ![Create the plan](media/azure-stack-create-plan/create.png)
 
-10. To see your new plan, select **All resources**, then search for the plan and select its name. If your list of resources is long, use **Search** to locate your plan by name.
+10. When you are ready, select **Create** to create the plan.
+
+11. To see the new plan, select **All resources**, then search for the plan and select its name. If your list of resources is long, use **Search** to locate your plan by name.
 
    ![Review the plan](media/azure-stack-create-plan/plan-overview.png)
 
