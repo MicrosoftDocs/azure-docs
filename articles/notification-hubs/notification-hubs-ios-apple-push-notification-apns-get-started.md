@@ -92,7 +92,27 @@ You have now configured your notification hub with APNS, and you have the connec
 
     ![Xcode - push capabilities][12]
 
-5. Download the [Windows Azure Messaging Framework] and unzip the file. In Xcode, right-click your project and click the **Add Files to** option to add the **WindowsAzureMessaging.framework** folder to your Xcode project. Select **Options** and make sure **Copy items if needed** is selected, and then click **Add**.
+5. Add the Azure Notification Hubs SDK modules
+
+The Azure Notification Hubs SDK can be integrated into your app via [Cocoapods](https://cocoapods.org) or by manually adding the binaries to your project.
+
+- Integration via Cocoapods
+
+Add the following dependencies to your `podfile` to include Azure Notification Hubs SDK into your app.
+
+```ruby
+pod 'AzureNotificationHubs-iOS'
+```
+
+Run `pod install` to install your newly defined pod and open your `.xcworkspace`.
+
+> [!NOTE]
+> If you see an error like ```[!] Unable to find a specification for `AzureNotificationHubs-iOS` ```
+>  while running `pod install`, please run `pod repo update` to get the latest pods from the Cocoapods repository and then run `pod install`.
+
+- Integration by copying the binaries into your project
+
+Download the [Windows Azure Messaging Framework] and unzip the file. In Xcode, right-click your project and click the **Add Files to** option to add the **WindowsAzureMessaging.framework** folder to your Xcode project. Select **Options** and make sure **Copy items if needed** is selected, and then click **Add**.
 
     ![Unzip Azure SDK][10]
 
