@@ -301,7 +301,7 @@
   - name: Support
     href: sql-data-warehouse-get-started-create-support-ticket.md
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+    href: sql-data-warehouse-videos.md
   - name: Partners
     items:
     - name: Business intelligence
