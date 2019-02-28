@@ -75,7 +75,7 @@ Verify that your data is in the storage account(s) before you delete it from the
 
     - If your copy to managed disks in Azure was successful, you can go to the **Order details** in the Azure portal and make a note of the resource group specified for managed disks.
 
-        ![View order details](media/data-box-disk-deploy-picked-up/order-details-resourc-group.png)
+        ![View order details](media/data-box-disk-deploy-picked-up/order-details-resource-group.png)
 
     Go to the noted resource group and locate your managed disks.
 
