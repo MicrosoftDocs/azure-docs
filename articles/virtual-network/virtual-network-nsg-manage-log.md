@@ -73,7 +73,7 @@ $Oms=Get-AzOperationalInsightsWorkspace `
 
 If you don't have an existing workspace, you can create one with [New-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace).
 
-There are two categories of logging you can enable logs for. For more information, see [Log categories](#log-categories). Enable diagnostic logging for the NSG with [Set-AzDiagnosticSetting](/powershell/module/az.insights/set-azdiagnosticsetting). The following example logs both event and counter category data to the workspace for an NSG, using the IDs for the NSG and workspace you retrieved previously:
+There are two categories of logging you can enable logs for. For more information, see [Log categories](#log-categories). Enable diagnostic logging for the NSG with [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). The following example logs both event and counter category data to the workspace for an NSG, using the IDs for the NSG and workspace you retrieved previously:
 
 ```azurepowershell-interactive
 Set-AzDiagnosticSetting `
