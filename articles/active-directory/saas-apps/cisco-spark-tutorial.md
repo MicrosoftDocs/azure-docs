@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/26/2019
+ms.date: 02/28/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -120,7 +120,7 @@ To configure Azure AD single sign-on with Cisco Webex, perform the following ste
     
 	| Name |  Source Attribute|
 	| ---------------|--------- |
-	| UID | user.userprincipalname |
+	| uid | user.userprincipalname |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
@@ -150,7 +150,7 @@ To configure Azure AD single sign-on with Cisco Webex, perform the following ste
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Azure AD Identifier
 
 	c. Logout URL
 
