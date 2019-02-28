@@ -21,7 +21,7 @@ This article shows you how to use the API server IP address whitelist to limit r
 
 ## Before you begin
 
-API server IP address whitelisting only works for new AKS clusters that you create. You can create an AKS cluster [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+API server IP address whitelisting is only recommended for new AKS clusters that you create. You can create an AKS cluster [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
 ### Azure CLI requirements
 
