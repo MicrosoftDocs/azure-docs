@@ -17,13 +17,9 @@ Along with many other machine learning capabilities, the Azure Machine Learning 
 
 ## Support timeline
 
-| Date | Batch AI service support details |
-| ---- |-----------------|
-| December&nbsp;14&#x2c;&nbsp;2018| You can use your existing Azure Batch AI subscriptions as before. However, no **new subscriptions** are possible and no new investments are being made.|
-| March&nbsp;31&#x2c;&nbsp;2019 | After this date, existing Batch AI subscriptions will no longer work. |
+At this time, you can use your existing Azure Batch AI subscriptions as before. However, no **new subscriptions** are possible and no new investments are being made.
 
-<a name="migrate"></a>
-[Learn more about migrating.](how-to-migrate.md)
+Starting March&nbsp;31&#x2c;&nbsp;2019, unused Batch AI subscriptions will no longer work.
 
 ## Compare to Azure Machine Learning
 It is a cloud service that you use to train, deploy, automate, and manage machine learning models, all at the broad scale that the cloud provides. Get a high-level understanding of the [Azure Machine Learning service in this overview](../machine-learning/service/overview-what-is-azure-ml.md).
@@ -111,6 +107,10 @@ Upgrading from the Preview Batch AI to the GA'ed Azure Machine Learning service 
 
 Azure Machine Learning service also brings in new functionality such as automated machine learning, hyperparameter tuning, and ML pipelines, which are useful in most large-scale AI workloads. The ability to deploy a trained model without switching to a separate service helps complete the data science loop from data preparation (using the Data Prep SDK) all the way to operationalization and model monitoring.
 
+<a name="migrate"></a>
+## Migrate
+
+Learn how to migrate and how the code you use maps to code in Azure Machine Learning service in the [Migrate to Azure Machine Learning service](how-to-migrate.md) article.
 
 ## Get support
 
