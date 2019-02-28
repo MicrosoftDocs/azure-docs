@@ -75,7 +75,7 @@ Use *Azure CNI* when:
 - You need advanced features such as virtual nodes or network policy.
 
 > [!NOTE]
-> Kuberouter makes it possible to to enable network policy when using kubenet and can be installed as a daemonset in an AKS cluster. Please be aware kube-router is still in beta and no support is offered by Microsoft for the project.
+> Kuberouter makes it possible to enable network policy when using kubenet and can be installed as a daemonset in an AKS cluster. Please be aware kube-router is still in beta and no support is offered by Microsoft for the project.
 
 ## Create a virtual network and subnet
 
