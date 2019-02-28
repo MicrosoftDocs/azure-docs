@@ -45,7 +45,7 @@ az provider register --namespace Microsoft.ContainerService
 
 By default, all pods in an AKS cluster can send and receive traffic without limitations. To improve security, you can define rules that control the flow of traffic. For example, backend applications are often only exposed to required frontend services, or database components are only accessible to the application tiers that connect to them.
 
-Network policies are Kubernetes resources that let you control the traffic flow between pods. You can choose to allow or deny traffic based on settings like assigned labels, namespace, or traffic port. Network policies are defined as YAML manifests, and can be included as part of a wider manifest that also creates a deployment or service.
+Network policies are Kubernetes resources that let you control the traffic flow between pods. You can choose to allow or deny traffic based on settings like assigned labels, namespace, or traffic port. Network policies are defined as YAML manifests and can be included as part of a wider manifest that also creates a deployment or service.
 
 To see network policies in action, let's create and then expand on a policy that defines traffic flow:
 
@@ -64,7 +64,7 @@ The following example script:
 * Creates a virtual network and subnet.
 * Creates an Azure Active Directory (AD) service principal for use with the AKS cluster.
 * Assigns *Contributor* permissions for the AKS cluster service principal on the virtual network.
-* Creates an AKS cluster in the defined virtual network, and enables network policy.
+* Creates an AKS cluster in the defined virtual network and enables network policy.
 
 Provide your own secure *SP_PASSWORD*. If desired, replace the *RESOURCE_GROUP_NAME* and *CLUSTER_NAME* variables:
 
@@ -202,7 +202,7 @@ Let's see if you can use the NGINX webpage on the backend pod again. Create anot
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-At the shell prompt, use `wget` to see if you can use the default NGINX web page. This time, set a timeout value to *two* seconds. The network policy now blocks all inbound traffic, so the page cannot be loaded, as shown in the following example:
+At the shell prompt, use `wget` to see if you can use the default NGINX web page. This time set a timeout value to *two* seconds. The network policy now blocks all inbound traffic, so the page cannot be loaded, as shown in the following example:
 
 ```console
 $ wget -qO- --timeout=2 http://backend
