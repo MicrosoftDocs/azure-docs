@@ -3,8 +3,9 @@ title: Improve knowledge base - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: 
 author: diberry
-manager: cgronlun
+manager: nitinme
 displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting
+services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
@@ -51,7 +52,7 @@ The algorithm to determine proximity is not a simple calculation. The ranges in 
 
 ## Turn on active learning
 
-Active learning is off by default. Turned it on to see suggested questions. 
+Active learning is off by default. Turn it on to see suggested questions. 
 
 1. To turn active learning on, Click on your **Name**, go to [**Service Settings**](https://www.qnamaker.ai/UserSettings) in the QnA Maker portal, in the top-right corner.  
 

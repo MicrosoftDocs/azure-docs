@@ -37,7 +37,9 @@ A resource application has an identifier URI (Application ID URI), which clients
 
 2. Click **Set** next to *Application ID URI*.
 
-3. Click **Add a scope** and add any scopes that you would like to define for you API. Azure AD does not currently allow slashes (`/`) in scope names. We recommend using `$` instead. A scope like `patient/*.read` would be `patient$*.read`.
+3. Enter the identifier URI and click **Save**. A good identifier URI would be the URI of your FHIR server.
+
+4. Click **Add a scope** and add any scopes that you would like to define for you API. Azure AD does not currently allow slashes (`/`) in scope names. We recommend using `$` instead. A scope like `patient/*.read` would be `patient$*.read`.
 
     ![Audience and scope](media/how-to-aad/portal-aad-register-new-app-registration-AUD-SCOPE.png)
 

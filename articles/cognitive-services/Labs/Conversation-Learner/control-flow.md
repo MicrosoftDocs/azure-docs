@@ -36,4 +36,4 @@ This document describes the control flow of the Conversation Learner (CL) as dis
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to teach with Conversation Learner ](./how-to-teach-cl.md)
+> [How to teach with Conversation Learner](./how-to-teach-cl.md)

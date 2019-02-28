@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Use this guide to create a speech-to-text console application by using the Speech SDK for Node.js. When finished, you can use your computer's microphone to transcribe speech to text in real time.
 services: cognitive-services
 author: fmegen
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart

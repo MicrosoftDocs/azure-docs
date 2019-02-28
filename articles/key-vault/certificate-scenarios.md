@@ -4,7 +4,7 @@ description: The following scenarios outline several of the primary usages of Ke
 services: key-vault
 documentationcenter:
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid: a788b958-3acb-4bb6-9c94-4776852aeea1

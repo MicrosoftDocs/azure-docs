@@ -11,17 +11,17 @@ ms.reviewer: sngun
 
 # Consistency levels and Azure Cosmos DB APIs
 
-Five consistency models offered by Azure Cosmos DB are natively supported by the Azure Cosmos DB SQL API. When you use Azure Cosmos DB, the SQL API is the default. 
+Five consistency models offered by Azure Cosmos DB are natively supported by the SQL API. When you use Azure Cosmos DB, the SQL API is the default. 
 
-Azure Cosmos DB also provides native support for wire protocol-compatible APIs for popular databases. Databases include MongoDB, Apache Cassandra, Gremlin, and Azure Table storage. These databases don't offer precisely defined consistency models or SLA-backed guarantees for consistency levels. They typically provide only a subset of the five consistency models offered by Azure Cosmos DB. For the SQL API, Gremlin API, and Table API, the default consistency level configured on the Azure Cosmos DB account is used. 
+Azure Cosmos DB also provides native support for wire protocol-compatible APIs for popular databases. Databases include MongoDB, Apache Cassandra, Gremlin, and Azure Table storage. These databases don't offer precisely defined consistency models or SLA-backed guarantees for consistency levels. They typically provide only a subset of the five consistency models offered by Azure Cosmos DB. For the SQL API, Gremlin API, and Table API, the default consistency level configured on the Azure Cosmos account is used. 
 
-The following sections show the mapping between the data consistency requested by an OSS client driver for Apache Cassandra 4.x and MongoDB 3.4. This document also shows the corresponding Azure Cosmos DB consistency levels for Apache Cassandra and MongoDB.
+The following sections show the mapping between the data consistency requested by an OSS client driver for Apache Cassandra and MongoDB and the corresponding consistency levels in Azure Cosmos DB.
 
 ## <a id="cassandra-mapping"></a>Mapping between Apache Cassandra and Azure Cosmos DB consistency levels
 
-This table shows the consistency mapping between the Apache Cassandra and consistency levels in Azure Cosmos DB. For each of Cassandra Read and Write consistency levels, the corresponding Cosmos DB Consistency Level provides stronger, i.e., stricter guarantees.
+Below table describes the various consistency combination one can use against Cassandra API and the equivalent native consistency level mapping of Cosmos DB. All combination of Apache Cassandra write and read modes are natively supported by Cosmos DB. In every combinations of Apache Cassandra write and read consistency model, Cosmos DB will provide equal or higher consistency guarantees than Apache Cassandra. In addition, Cosmos DB provides higher durability guarantees than Apache Cassandra even in the weakest mode of write.
 
-The following table shows the **write consistency mapping** between Azure Cosmos DB and Cassandra:
+The following table shows the **Write Consistency Mapping** between Azure Cosmos DB and Cassandra:
 
 | Cassandra | Azure Cosmos DB | Guarantee |
 | - | - | - |
@@ -37,7 +37,7 @@ The following table shows the **write consistency mapping** between Azure Cosmos
 | LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE	| Bounded Staleness | <ul><li>Bounded Staleness.</li><li>At most K versions or t time behind.</li><li>Read latest committed value in the region.</li></ul> |
 | ONE, LOCAL_ONE, ANY	| Consistent Prefix	| Per-region Consistent Prefix |
 
-The following table shows the **Read consistency mapping** between Azure Cosmos DB and Cassandra:
+The following table shows the **Read Consistency Mapping** between Azure Cosmos DB and Cassandra:
 
 | Cassandra | Azure Cosmos DB | Guarantee |
 | - | - | - |

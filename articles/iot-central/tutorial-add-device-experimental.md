@@ -83,7 +83,7 @@ The example code in this article is written in [Node.js](https://nodejs.org/) an
 * Respond to an operator who uses the **Set Temperature** setting.
 * Handle the Echo command from your Azure IoT Central application.
 
-The "How to" articles referenced in the [Next Steps](#next-steps) section provide more complete samples and show the use of other programming languages. For more information about how devices connect to Azure IoT Central, see the [Device connectivity](concepts-connectivity.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) article.
+The "How to" articles referenced in the [Next Steps](#next-steps) section provide more complete samples and show the use of other programming languages. For more information about how devices connect to Azure IoT Central, see the [Device connectivity](concepts-connectivity-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) article.
 
 The following steps show how to prepare the [Node.js](https://nodejs.org/) sample:
 
@@ -114,7 +114,7 @@ The following steps show how to prepare the [Node.js](https://nodejs.org/) sampl
 1. Return to the command line environment and generate your connection string by executing:
 
     ```cmd/sh
-    dps_keygen <scope_id> <device_id> <Primary Key>
+    dps_keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
     ```
 
    Copy the output and save in a new file (for example, connection.txt).

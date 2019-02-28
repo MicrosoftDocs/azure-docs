@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/01/2019
+ms.date: 02/21/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
@@ -372,7 +372,7 @@ this trigger.
 
 ## Notification message reference
 
-Depending on the **OperationName**, the notification messages have one of the following message types.
+Depending on the **messageName**, the notification messages have one of the following message types.
 
 ### Block message
 
@@ -566,7 +566,7 @@ Contains information when a contract function is invoked, such as the function n
 | contractLedgerIdentifier    | Unique identifier for the contract on the ledger |
 | functionName                | Name of the function |
 | parameters                  | [Parameter information](#parameter-information) |
-| transaction                 | [Transaction information](#eventmessage-transaction-information) |
+| transaction                 | Transaction information |
 | inTransactionSequenceNumber | The sequence number of the transaction in the block |
 | connectionId                | Unique identifier for the connection |
 | messageSchemaVersion        | Messaging schema version |
@@ -676,7 +676,7 @@ Contains information when an application is uploaded to Workbench, such as the n
 | id | Unique identifier for the application workflow inside Azure Blockchain Workbench |
 | name | Application workflow name |
 | displayName | Application workflow display name |
-| functions | Collection of [functions for the application workflow ](#workflow-function-information)|
+| functions | Collection of [functions for the application workflow](#workflow-function-information)|
 | states | Collection of [states for the application workflow](#workflow-state-information) |
 | properties | Application [workflow properties information](#workflow-property-information) |
 

@@ -13,6 +13,7 @@ ms.topic: overview
 ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim 
+ms.collection: M365-identity-device-management
 ---
 # What is Azure AD Privileged Identity Management?
 
@@ -52,13 +53,15 @@ To better understand PIM and its documentation, you should review the following 
 | --- | --- | --- |
 | eligible | Type | A role assignment that requires a user to perform one or more actions to use the role. If a user has been made eligible for a role, that means they can activate the role when they need to perform privileged tasks. There's no difference in the access given to someone with a permanent versus an eligible role assignment. The only difference is that some people don't need that access all the time. |
 | active | Type | A role assignment that doesn't require a user to perform any action to use the role. Users assigned as active have the privileges assigned to the role. |
-| activate |  | The process of performing one or more actions to use the role that a user is eligible for. Actions might include performing a multi-factor authentication (MFA) check, providing a business justification, or requesting approval from designated approvers. |
+| activate |  | The process of performing one or more actions to use a role that a user is eligible for. Actions might include performing a multi-factor authentication (MFA) check, providing a business justification, or requesting approval from designated approvers. |
 | assigned | State | A user that has an active role assignment. |
-| activated | State | A user that has an eligible role assignment, performed the actions to activate the role, and is now active. |
+| activated | State | A user that has an eligible role assignment, performed the actions to activate the role, and is now active.  Once activated, the user can use the role for a preconfigured period-of-time before they need to activate again. |
 | permanent eligible | Duration | A role assignment where a user is always eligible to activate the role. |
 | permanent active | Duration | A role assignment where a user can always use the role without performing any actions. |
 | expire  eligible | Duration | A role assignment where a user is eligible to activate the role within a specified start and end date. |
 | expire active | Duration | A role assignment where a user can use the role without performing any actions within a specified start and end date. |
+| just-in-time (JIT) access |  | A model in which users receive temporary permissions to perform privileged tasks, which prevents malicious or unauthorized users from gaining access after the permissions have expired. Access is granted only when users need it. |
+| principle of least privilege access |  | A recommended security practice in which every user is provided with only the minimum privileges needed to accomplish the tasks they are authorized to perform. This practice minimizes the number of Global Administrators and instead uses specific administrator roles for certain scenarios. |
 
 ## What does PIM look like?
 
@@ -98,6 +101,6 @@ PIM supports the following scenarios:
 
 ## Next steps
 
-- [Start using PIM](pim-getting-started.md)
 - [License requirements to use PIM](subscription-requirements.md)
 - [Securing privileged access for hybrid and cloud deployments in Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+- [Deploy PIM](pim-deployment-plan.md)

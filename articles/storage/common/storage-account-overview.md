@@ -74,7 +74,7 @@ When naming your storage account, keep these rules in mind:
 General-purpose storage accounts may be configured for either of the following performance tiers:
 
 * A standard performance tier for storing blobs, files, tables, queues, and Azure virtual machine disks.
-* A premium performance tier for storing Azure virtual machine disks only. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../virtual-machines/windows/premium-storage.md) for an in-depth overview of Premium storage.
+* A premium performance tier for storing unmanaged virtual machine disks only.
 
 ## Access tiers for block blob data
 

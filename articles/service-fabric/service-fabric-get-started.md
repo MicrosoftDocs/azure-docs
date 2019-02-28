@@ -70,7 +70,7 @@ The current versions are:
 * Service Fabric Tools for Visual Studio 2015 2.4.11116.1
 * Visual Studio 2017 15.9 includes Service Fabric Tools for Visual Studio 2.4.11024.1 
 
-For a list of supported versions, see [Service Fabric support](service-fabric-support.md)
+For a list of supported versions, see [Service Fabric versions](service-fabric-versions.md)
 
 > [!NOTE]
 > Single machine clusters (OneBox) are not supported for Application or Cluster upgrades; delete the OneBox cluster and recreate it if you need to perform a Cluster upgrade, or have any issues performing an Application upgrade. 

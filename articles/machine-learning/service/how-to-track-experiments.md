@@ -9,7 +9,7 @@ ms.author: hshapiro
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/04/2018
 
 ms.custom: seodec18
@@ -239,6 +239,12 @@ if r.get_status() not in ['Complete', 'Failed']:
 ```
 Please note that currently only ScriptRun and PipelineRun types support cancel operation.
 
+Additionally, you can cancel a run through the CLI using the following command:
+```shell
+az ml run cancel -r <run_id> -p <project_path>
+```
+
+
 ## View run details
 
 ### Monitor run with Jupyter notebook widgets
@@ -256,7 +262,7 @@ When you use the **ScriptRunConfig** method to submit runs, you can watch the pr
 2. **[For automated machine learning runs]** To access the charts from a previous run. Please replace `<<experiment_name>>` with the appropriate experiment name:
 
    ``` 
-   from azureml.train.widgets import RunDetails
+   from azureml.widgets import RunDetails
    from azureml.core.run import Run
 
    experiment = Experiment (workspace, <<experiment_name>>)

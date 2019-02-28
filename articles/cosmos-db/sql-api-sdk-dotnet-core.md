@@ -46,6 +46,12 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 * Support for streams.
 * Updated CosmosResponseMessage from server to return status code, and only throw exception when no response is returned.
 
+### <a name="2.2.2"/>2.2.2
+
+* Added environment variable setting “POCOSerializationOnly”.
+
+* Removed DocumentDB.Spatial.Sql.dll and now included in Microsoft.Azure.Documents.ServiceInterop.dll
+
 ### <a name="2.2.1"/>2.2.1
 
 * Improvement in retry logic during failover for StoredProcedure execute calls.
@@ -223,6 +229,7 @@ If you have questions related to this SDK, post to [StackOverflow](https://stack
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.2.2](#2.2.2) |february  06, 2019 |--- |
 | [2.2.1](#2.2.1) |December 24, 2018 |--- |
 | [2.2.0](#2.2.0) |December 07, 2018 |--- |
 | [2.1.3](#2.1.3) |October 15, 2018 |--- |

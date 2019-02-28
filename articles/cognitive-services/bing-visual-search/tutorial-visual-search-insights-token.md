@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use the Bing Visual Search SDK to get URLs of images specified by ImageInsightsToken.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-visual-search

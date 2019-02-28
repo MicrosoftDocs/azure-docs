@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Setup for Bing Entity search SDK console application.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-entity-search

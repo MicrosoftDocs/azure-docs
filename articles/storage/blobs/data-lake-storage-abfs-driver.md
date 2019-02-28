@@ -1,5 +1,5 @@
 ---
-title: The Azure Blob Filesystem driver for Azure Data Lake Storage Gen2 Preview
+title: The Azure Blob Filesystem driver for Azure Data Lake Storage Gen2
 description: The ABFS Hadoop Filesystem driver
 services: storage
 author: jamesbak
@@ -12,7 +12,7 @@ ms.subservice: data-lake-storage-gen2
 
 # The Azure Blob Filesystem driver (ABFS): A dedicated Azure Storage driver for Hadoop
 
-One of the primary access methods for data in Azure Data Lake Storage Gen2 Preview is via the [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Data Lake Storage Gen2 allows users of Azure Blob Storage access to a new driver, the Azure Blob File System driver or `ABFS`. ABFS is part of Apache Hadoop and is included in many of the commercial distributions of Hadoop. Using this driver, many applications and frameworks can access data in Azure Blob Storage without any code explicitly referencing Data Lake Storage Gen2.
+One of the primary access methods for data in Azure Data Lake Storage Gen2 is via the [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Data Lake Storage Gen2 allows users of Azure Blob Storage access to a new driver, the Azure Blob File System driver or `ABFS`. ABFS is part of Apache Hadoop and is included in many of the commercial distributions of Hadoop. Using this driver, many applications and frameworks can access data in Azure Blob Storage without any code explicitly referencing Data Lake Storage Gen2.
 
 ## Prior capability: The Windows Azure Storage Blob driver
 
@@ -57,6 +57,5 @@ The ABFS driver is fully documented in the [Official Hadoop documentation](http:
 
 ## Next steps
 
-- [Setup HDInsight Clusters](./data-lake-storage-quickstart-create-connect-hdi-cluster.md)
 - [Create an Azure Databricks Cluster](./data-lake-storage-quickstart-create-databricks-account.md)
 - [Use the Azure Data Lake Storage Gen2 URI](./data-lake-storage-introduction-abfs-uri.md)

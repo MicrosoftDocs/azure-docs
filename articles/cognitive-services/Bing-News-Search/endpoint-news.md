@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Summary of the News search API endpoint.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-news-search

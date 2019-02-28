@@ -78,7 +78,7 @@ To create a resource group in the Azure portal, follow these steps:
 To create a general-purpose v2 storage account in the Azure portal, follow these steps:
 
 > [!NOTE]
-> The hierarchical namespace is currently available in all public regions. It is currently unavailable in sovereign clouds.
+> The hierarchical namespace is currently available in all public regions.
 
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **All services**. Then, scroll down to **Storage**, and choose **Storage accounts**. On the **Storage Accounts** window that appears, choose **Add**.
 2. Select your **Subscription** and the **Resource group** you created earlier.
@@ -88,7 +88,7 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
 6. Choose the subscription in which you want to create the storage account.
 7. Select **Next : Advanced >**
 8. Leave the values under **SECURITY** and **VIRTUAL NETWORKS** fields set to their defaults.
-9. In the **Data Lake Storage Gen2 (preview)** section set **Hierarchical namespace** to **Enabled**.
+9. In the **Data Lake Storage Gen2** section set **Hierarchical namespace** to **Enabled**.
 10. Click **Review + Create** to create the storage account.
 
     ![Screen shot showing storage account creation in the Azure portal](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
@@ -136,7 +136,7 @@ Login-AzAccount
 To create a new resource group with PowerShell, use the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command: 
 
 > [!NOTE]
-> The hierarchical namespace is currently available in all public regions. It is currently unavailable in sovereign clouds.
+> The hierarchical namespace is currently available in all public regions.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -196,7 +196,7 @@ az group create `
 ```
 
 > [!NOTE]
-> > The hierarchical namespace is currently available in all public regions. It is currently unavailable in sovereign clouds.
+> > The hierarchical namespace is currently available in all public regions.
 
 ### Create a general-purpose v2 storage account
 

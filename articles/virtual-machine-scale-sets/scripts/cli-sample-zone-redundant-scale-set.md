@@ -20,7 +20,7 @@ ms.custom: mvc
 
 ---
 
-# Create a zone-redundant virtual machine scale set with PowerShell
+# Create a zone-redundant virtual machine scale set with Azure CLI
 This script creates a virtual machine scale set running Ubuntu across multiple Availability Zones. After running the script, you can access the virtual machine over RDP.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]

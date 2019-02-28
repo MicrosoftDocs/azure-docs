@@ -205,7 +205,7 @@ This command generates several artifacts, including a *charts/* folder, which is
 
 Create a file at the root of your project named *Dockerfile* with this content:
 
-```dockerfile
+```Dockerfile
 FROM openjdk:8-jdk-alpine
 EXPOSE 8080
 WORKDIR /app

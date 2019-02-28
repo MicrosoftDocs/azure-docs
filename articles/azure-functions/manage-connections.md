@@ -6,8 +6,9 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 11/02/2018
+ms.date: 02/25/2018
 ms.author: glenga
+#Customer intent: As a developer, I want to know how to write my Azure Functions code so that I efficiently use connections and avoid potential bottlenecks.
 ---
 
 # How to manage connections in Azure Functions
@@ -16,13 +17,13 @@ Functions in a function app share resources, and among those shared resources ar
 
 ## Connections limit
 
-The number of available connections is limited partly because a function app runs in the [Azure App Service sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). One of the restrictions that the sandbox imposes on your code is a [cap on the number of connections, currently 300](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits). When you reach this limit, the functions runtime creates a log with the following message: `Host thresholds exceeded: Connections`.
+The number of available connections is limited partly because a function app runs in a [sandbox environment](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). One of the restrictions that the sandbox imposes on your code is a [cap on the number of connections (currently at 600 active connections, 1200 total connections)](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits) per instance. When you reach this limit, the functions runtime creates a log with the following message: `Host thresholds exceeded: Connections`.
 
-The likelihood of exceeding the limit goes up when the [scale controller adds function app instances](functions-scale.md#how-the-consumption-plan-works) to handle more requests. Each function app instance can be running many functions at once, all of which are using connections that count toward the 300 limit.
+This limit is per instance.  When the [scale controller adds function app instances](functions-scale.md#how-the-consumption-plan-works) to handle more requests, each instance has an independent connection limit.  That means there is no global connection limit, and in total you can have much more than 600 active connections across all active instances.
 
 ## Use static clients
 
-To avoid holding more connections than necessary, reuse client instances rather than creating new ones with each function invocation. .NET clients like the [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx), [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
+To avoid holding more connections than necessary, reuse client instances rather than creating new ones with each function invocation.  Reusing client connections is recommended for any language you may write your function in. For example, .NET clients like the [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx), [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
 ), and Azure Storage clients can manage connections if you use a single, static client.
 
 Here are some guidelines to follow when using a service-specific client in an Azure Functions application:

@@ -97,7 +97,7 @@ All search parameter types are supported. Chained parameters and reverse chainin
 
 ## Persistence
 
-The Microsoft FHIR Server has a pluggable persistence module (see [`Microsoft.Health.Fhir.Core.Features.Persistence`](https://github.com/Microsoft/fhir-server/src/Microsoft.Health.Fhir.Core/Features/Persistence)).
+The Microsoft FHIR Server has a pluggable persistence module (see [`Microsoft.Health.Fhir.Core.Features.Persistence`](https://github.com/Microsoft/fhir-server/tree/master/src/Microsoft.Health.Fhir.Core/Features/Persistence)).
 
 Currently the FHIR Server open source code includes an implementation for [Azure Cosmos DB](../cosmos-db/index-overview.md).
 
