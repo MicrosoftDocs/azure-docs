@@ -66,12 +66,12 @@ For this quickstart, you'll need two instances of a web application deployed in 
 Create Web App service plans for the two instances of the web application that you will deploy in two different Azure regions.
 
 ```azurepowershell-interactive
+
+# Variables
 $App1Name="AppServiceTM1$Random"
 $App2Name="AppServiceTM2$Random"
 $Location1="WestUS"
 $Location2="EastUS"
-
-
 
 # Create an App service plan
 New-AzAppservicePlan -Name "$App1Name-Plan" -ResourceGroupName $ResourceGroupName -Location $Location1 -Tier Standard
@@ -121,7 +121,7 @@ Get-AzTrafficManagerProfile -Name $ResourceGroupName-tmp `
 -ResourceGroupName $ResourceGroupName
 ```
 
-Copy the relativednsname value. The DNS name of your Traffic Manager profile is *http://<*relativednsname*>.trafficmanager.net*. 
+Copy the **RelativeDnsName** value. The DNS name of your Traffic Manager profile is *http://<*relativednsname*>.trafficmanager.net*. 
 
 ### View Traffic Manager in action
  1. In a web browser, enter the DNS name of your Traffic Manager profile (*http://<*relativednsname*>.trafficmanager.net*) to view your Web App's default website.
