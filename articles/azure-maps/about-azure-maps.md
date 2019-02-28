@@ -18,7 +18,7 @@ Azure Maps is a collection of geospatial services, unpinned by the freshest mapp
 
 The following video explains Azure Maps in depth:
 
-<iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 ## Map Controls
 
