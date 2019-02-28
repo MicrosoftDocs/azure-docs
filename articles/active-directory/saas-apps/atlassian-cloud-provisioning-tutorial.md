@@ -175,5 +175,5 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 <!--Image references-->
 [1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial_general_01.png
-[2]: ./media/atlassian-cloud-tutorial/tutorial_general_02.png
-[3]: ./media/atlassian-cloud-tutorial/tutorial_general_03.png
+[2]: ./media/atlassian-cloud-provisioning-tutorial/tutorial_general_02.png
+[3]: ./media/atlassian-cloud-provisioning-tutorial/tutorial_general_03.png
