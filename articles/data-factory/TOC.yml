@@ -76,6 +76,10 @@
       items:
       - name: Copy Data tool
         href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
+    - name: 5 - Copy new files by time partitioned file name
+      items:
+      - name: Copy Data tool
+        href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
   - name: Transform data in cloud
     items:
     - name: HDInsight Spark
@@ -331,7 +335,7 @@
       href: connector-xero.md
     - name: Zoho
       href: connector-zoho.md
-  - name: Copy data
+  - name: Move data
     items:
     - name: Copy data using Copy Activity
       href: copy-activity-overview.md
@@ -397,8 +401,10 @@
       href: control-flow-append-variable-activity.md
     - name: Azure Function Activity
       href: control-flow-azure-function-activity.md
+    - name: Execute Data Flow Activity
+      href: control-flow-execute-data-flow-activity.md
     - name: Execute Pipeline Activity
-      href: control-flow-execute-pipeline-activity.md
+      href: control-flow-execute-pipeline-activity.md      
     - name: Filter Activity
       href: control-flow-filter-activity.md
     - name: For Each Activity
