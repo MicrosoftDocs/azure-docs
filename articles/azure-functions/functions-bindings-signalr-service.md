@@ -43,6 +43,9 @@ To use the SignalR Service annotations in Java functions, you need to add a depe
 </dependency>
 ```
 
+> [!NOTE]
+> To use the SignalR Service bindings in Java, make sure you are using version 2.4.419 or higher of the Azure Functions Core Tools (host version 2.0.12332).
+
 ## Using SignalR Service with Azure Functions
 
 For details on how to configure and use SignalR Service and Azure Functions together, refer to [Azure Functions development and configuration with Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md).
