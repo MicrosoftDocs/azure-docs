@@ -1,9 +1,9 @@
 ---
-title: Create an On Premises virtual network in hub and spoke network topology
-description: Tutorial implements creation of an On Premises VNet that houses local resources
+title: Create on-premises virtual network in Azure using hub and spoke network topology
+description: Tutorial illustrating how to implement an on-premises VNet on Azure that houses local resources
 services: terraform
 ms.service: terraform
-keywords: terraform, hub and spoke, networks, hybrid networks, devops, virtual machine, azure,  VNet peering, on-premises 
+keywords: terraform, hub and spoke, networks, hybrid networks, devops, virtual machine, azure, VNet peering, on-premises 
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 2/28/2019
 ---
 
-# Implementing On-Premises Virtual Network
+# Implementing on-premises Virtual Network
 
-In this tutorial, we will implement a simulation of On-Premises network using an Azure Virtual network(VNet) for demo purposes. Azure VNet could be easily replaced by your own private virtual network in a private data center by mapping the right IP addresses in the subnets.
+In this tutorial, you learn how to implement a simulation of an on-premises network using an Azure Virtual network (VNet) for demo purposes. An Azure VNet could be replaced by your own private virtual network in a private data center. To do so, map the appropriate IP addresses in the subnets.
 
 [!div class="checklist"]
 
-> * Use HCL (HashiCorp Language) to implement an on premises VNet in hub-spoke topology
+> * Use HCL (HashiCorp Language) to implement an on-premises VNet in hub-spoke topology
 > * Use Terraform to create hub network appliance resources
-> * Use Terraform to create on premises virtual machine
-> * Use Terraform to create on premises virtual private network gateway
+> * Use Terraform to create on-premises virtual machine
+> * Use Terraform to create on-premises virtual private network gateway
 
 ## Prerequisites
 
@@ -28,13 +28,13 @@ To implement this tutorial, complete the [prerequisites in the Introduction to H
 
 ## Components
 
-To simulate an on premises network, we will create an Azure virtual network for demo purpose in place of implementing an actual private on premises network. You can easily map the same with your existing on premises network by mapping the relevant IP addresses in the subnets.
+To simulate an on-premises network, we create an Azure virtual network for demo purpose. This demo VNet takes the place of an actual private on-premises network. To do the same with your existing on-premises network, map the appropriate IP addresses in the subnets.
 
 1. Browse to the [Azure portal](http://portal.azure.com).
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). If you didn't select an environment previously, select **Bash** as your environment.
 
-    ![Cloud Shell prompt](./media/hub-spoke/azure-portal-cloud-shell-button-min.png)
+    ![Cloud Shell prompt](./media/common/azure-portal-cloud-shell-button-min.png)
 
 1. Change directories to the `clouddrive` directory.
 
@@ -48,9 +48,9 @@ To simulate an on premises network, we will create an Azure virtual network for 
     cd hub-spoke
     ```
 
-## Declare the On Premises Terraform configuration files
+## Declare the on-premises Terraform configuration files
 
-Create the Terraform configuration file that declares On-Premises Virtual network.
+Create the Terraform configuration file that declares an on-premises VNet.
 
 1. In Cloud Shell, create a file named `on-prem.tf`.
 
@@ -228,7 +228,7 @@ Create the Terraform configuration file that declares On-Premises Virtual networ
 
 ## Next steps
 
-In this article, we created a simulation of on premises network on Azure using a virtual network. To continue with the entire hub-spoke topology tutorial, complete the remaining steps.
+In this article, we created a simulation of on-premises network on Azure using a virtual network. To continue with the entire hub-spoke topology tutorial, complete the remaining steps.
 
  > [!div class="nextstepaction"] 
  > [Hub network](./terraform-hub-spoke-hub-network.md)
