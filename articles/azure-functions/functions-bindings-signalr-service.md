@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/23/2019
+ms.date: 02/25/2019
 ms.author: cshoe
 ---
 
@@ -39,7 +39,7 @@ To use the SignalR Service annotations in Java functions, you need to add a depe
 <dependency>
     <groupId>com.microsoft.azure.functions</groupId>
     <artifactId>azure-functions-java-library-signalr</artifactId>
-    <version>1.0</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
