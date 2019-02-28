@@ -5,10 +5,10 @@ services: active-directory
 keywords: 
 author: CelesteDG
 manager: mtillman
-editor: PatAltimore
+
 ms.author: celested
 ms.reviewer: dadobali
-ms.date: 07/19/2017
+ms.date: 02/28/2019
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
@@ -35,14 +35,13 @@ Knowledge of [single](quickstart-v1-integrate-apps-with-azure-ad.md) and [multi-
 
 ### App types impacted
 
-In most common cases, conditional access does not change an app's behavior or requires any changes from the developer. Only in certain cases when an app indirectly or silently requests a token for a service, an app requires code changes to handle conditional access "challenges". It may be as simple as performing an interactive sign-in request. 
+In most common cases, conditional access does not change an app's behavior or requires any changes from the developer. Only in certain cases when an app indirectly or silently requests a token for a service, an app requires code changes to handle conditional access "challenges". It may be as simple as performing an interactive sign-in request.
 
-Specifically, the following scenarios require code to handle conditional access "challenges": 
+Specifically, the following scenarios require code to handle conditional access "challenges":
 
-* Apps accessing Microsoft Graph
 * Apps performing the on-behalf-of flow
 * Apps accessing multiple services/resources
-* Single page apps using ADAL.js
+* Single-page apps using ADAL.js
 * Web Apps calling a resource
 
 Conditional access policies can be applied to the app, but also can be applied to a web API your app accesses. To learn more about how to configure a conditional access policy, see [Quickstart: Require MFA for specific apps with Azure Active Directory conditional access](../conditional-access/app-based-mfa.md).
@@ -54,14 +53,27 @@ Depending on the scenario, an enterprise customer can apply and remove condition
 Some scenarios require code changes to handle conditional access whereas others work as is. Here are a few scenarios using conditional access to do multi-factor authentication that gives some insight into the difference.
 
 * You are building a single-tenant iOS app and apply a conditional access policy. The app signs in a user and doesn't request access to an API. When the user signs in, the policy is automatically invoked and the user needs to perform multi-factor authentication (MFA). 
-* You are building a multi-tenant web app that uses Microsoft Graph to access Exchange, among other services. An enterprise customer who adopts this app sets a policy on Exchange. When the web app requests a token for MS Graph, the app will not be challenged to comply with the policy. The end user is signed in with valid tokens. When the app attempts to use this token against the Microsoft Graph to access Exchange data, a claims "challenge" is returned to the web app through the ```WWW-Authenticate``` header. The app can then use the ```claims``` in a new request, and the end user will be prompted to comply with the conditions. 
 * You are building a native app that uses a middle tier service to access a downstream API. An enterprise customer at the company using this app applies a policy to the downstream API. When an end user signs in, the native app requests access to the middle tier and sends the token. The middle tier performs on-behalf-of flow to request access to the downstream API. At this point, a claims "challenge" is presented to the middle tier. The middle tier sends the challenge back to the native app, which needs to comply with the conditional access policy.
+
+#### Microsoft Graph
+
+Microsoft Graph has special considerations when building apps in Conditional Access environments. Generally, the mechanics of Conditional Access behave the same, but the policies your users see will be based on the underlying data your app is requesting from the graph. 
+
+Specifically, all Microsoft Graph scopes represent some dataset that can individually have policies applied. Since Conditional Access policies are assigned the specific datasets, Azure AD will enforce Conditional Access policies based on the data behind Graph - rather than Graph itself.
+
+For example, if an app requests the following Microsoft Graph scopes,
+
+```
+scopes="Bookings.Read.All Mail.Read"
+```
+
+An app can expect their users to fulfill all policies set on Bookings and Exchange. Some scopes may map to multiple datasets if it grants access. 
 
 ### Complying with a conditional access policy
 
 For several different app topologies, a conditional access policy is evaluated when the session is established. As a conditional access policy operates on the granularity of apps and services, the point at which it is invoked depends heavily on the scenario you're trying to accomplish.
 
-When your app attempts to access a service with a conditional access policy, it may encounter a conditional access challenge. This challenge is encoded in the `claims` parameter that comes in a response from Azure AD or Microsoft Graph. Here's an example of this challenge parameter: 
+When your app attempts to access a service with a conditional access policy, it may encounter a conditional access challenge. This challenge is encoded in the `claims` parameter that comes in a response from Azure AD. Here's an example of this challenge parameter: 
 
 ```
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
@@ -79,70 +91,15 @@ Azure AD conditional access is a feature included in [Azure AD Premium](https://
 
 The following information only applies in these conditional access scenarios:
 
-* Apps accessing Microsoft Graph
 * Apps performing the on-behalf-of flow
 * Apps accessing multiple services/resources
-* Single page apps using ADAL.js
+* Single-page apps using ADAL.js
 
-The following sections discuss common scenarios that are more complex. The core operating principle is conditional access policies are evaluated at the time the token is requested for the service that has a conditional access policy applied unless it's being accessed through Microsoft Graph.
-
-## Scenario: App accessing Microsoft Graph
-
-In this scenario, learn how a web app requests access to Microsoft Graph. The conditional access policy in this case could be assigned to SharePoint, Exchange, or some other service that is accessed as a workload through Microsoft Graph. In this example, let's assume there's a conditional access policy on Sharepoint Online.
-
-![App accessing Microsoft Graph flow diagram](./media/conditional-access-dev-guide/app-accessing-microsoft-graph-scenario.png)
-
-The app first requests authorization to Microsoft Graph which requires accessing a downstream workload without conditional access. The request succeeds without invoking any policy and the app receives tokens for Microsoft Graph. At this point, the app may use the access token in a bearer request for the endpoint requested. Now, the app needs to access a Sharepoint Online endpoint of Microsoft Graph, for example: `https://graph.microsoft.com/v1.0/me/mySite`
-
-The app already has a valid token for Microsoft Graph, so it can perform the new request without being issued a new token. This request fails and a claims challenge is issued from Microsoft Graph in the form of an HTTP 403 Forbidden with a ```WWW-Authenticate``` challenge.
-
-Here's an example of the response: 
-
-```
-HTTP 403; Forbidden 
-error=insufficient_claims
-www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/common/oauth2/authorize", client_id="<GUID>", error=insufficient_claims, claims={"access_token":{"polids":{"essential":true,"values":["<GUID>"]}}}"
-```
-
-The claims challenge is inside the ```WWW-Authenticate``` header, which can be parsed to extract the claims parameter for the next request. Once it's appended to the new request, Azure AD knows to evaluate the conditional access policy when signing in the user and the app is now in compliance with the conditional access policy. Repeating the request to the Sharepoint Online endpoint succeeds.
-
-The ```WWW-Authenticate``` header does have a unique structure and is not trivial to parse in order to extract values. Here's a short method to help.
-
-```csharp
-        /// <summary>
-        /// This method extracts the claims value from the 403 error response from MS Graph. 
-        /// </summary>
-        /// <param name="wwwAuthHeader"></param>
-        /// <returns>Value of the claims entry. This should be considered an opaque string. 
-        /// Returns null if the wwwAuthheader does not contain the claims value. </returns>
-        private String extractClaims(String wwwAuthHeader)
-        {
-            String ClaimsKey = "claims=";
-            String ClaimsSubstring = "";
-            if (wwwAuthHeader.Contains(ClaimsKey))
-            {
-                int Index = wwwAuthHeader.IndexOf(ClaimsKey);
-                ClaimsSubstring = wwwAuthHeader.Substring(Index, wwwAuthHeader.Length - Index);
-                string ClaimsChallenge;
-                if (Regex.Match(ClaimsSubstring, @"}$").Success)
-                {
-                    ClaimsChallenge = ClaimsSubstring.Split('=')[1];
-                }
-                else
-                {
-                    ClaimsChallenge = ClaimsSubstring.Substring(0, ClaimsSubstring.IndexOf("},") + 1);
-                }
-                return ClaimsChallenge;
-            }
-            return null; 
-        }
-```
-
-For code samples that demonstrate how to handle the claims challenge, refer to the [On-behalf-of code sample](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca) for ADAL .NET.
+The following sections discuss common scenarios that are more complex. The core operating principle is conditional access policies are evaluated at the time the token is requested for the service that has a conditional access policy applied.
 
 ## Scenario: App performing the on-behalf-of flow
 
-In this scenario, we walk through the case in which a native app calls a web service/API. In turn, this service does [the "on-behalf-of" flow](authentication-scenarios.md#application-types-and-scenarios) to call a downstream service. In our case, we've applied our conditional access policy to the downstream service (Web API 2) and are using a native app rather than a server/daemon app. 
+In this scenario, we walk through the case in which a native app calls a web service/API. In turn, this service does [he "on-behalf-of" flow to call a downstream service. In our case, we've applied our conditional access policy to the downstream service (Web API 2) and are using a native app rather than a server/daemon app. 
 
 ![App performing the on-behalf-of flow diagram](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -185,9 +142,9 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 If the app is using the ADAL library, a failure to acquire the token is always retried interactively. When this interactive request occurs, the end user has the opportunity to comply with the conditional access. This is true unless the request is a `AcquireTokenSilentAsync` or `PromptBehavior.Never` in which case the app needs to perform an interactive ```AcquireToken``` request to give the end use the opportunity to comply with the policy. 
 
-## Scenario: Single Page App (SPA) using ADAL.js
+## Scenario: Single-page app (SPA) using ADAL.js
 
-In this scenario, we walk through the case when we have a single page app (SPA), using ADAL.js to call a conditional access protected web API. This is a simple architecture but has some nuances that need to be taken into account when developing around conditional access.
+In this scenario, we walk through the case when we have a single-page app (SPA), using ADAL.js to call a conditional access protected web API. This is a simple architecture but has some nuances that need to be taken into account when developing around conditional access.
 
 In ADAL.js, there are a few functions that obtain tokens: `login()`, `acquireToken(...)`, `acquireTokenPopup(…)`, and `acquireTokenRedirect(…)`. 
 
@@ -197,7 +154,7 @@ In ADAL.js, there are a few functions that obtain tokens: `login()`, `acquireTok
 
 When an app needs an access token to call a Web API, it attempts an `acquireToken(…)`. If the token session is expired or we need to comply with a conditional access policy, then the *acquireToken* function fails and the app uses `acquireTokenPopup()` or `acquireTokenRedirect()`.
 
-![Single page app using ADAL flow diagram](./media/conditional-access-dev-guide/spa-using-adal-scenario.png)
+![Single-page app using ADAL flow diagram](./media/conditional-access-dev-guide/spa-using-adal-scenario.png)
 
 Let's walk through an example with our conditional access scenario. The end user just landed on the site and doesn’t have a session. We perform a `login()` call, get an ID token without multi-factor authentication. Then the user hits a button that requires the app to request data from a web API. The app tries to do an `acquireToken()` call but fails since the user has not performed multi-factor authentication yet and needs to comply with the conditional access policy.
 
@@ -212,7 +169,6 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 Our app needs to catch the `error=interaction_required`. The application can then use either `acquireTokenPopup()` or `acquireTokenRedirect()` on the same resource. The user is forced to do a multi-factor authentication. After the user completes the multi-factor authentication, the app is issued a fresh access token for the requested resource.
 
 To try out this scenario, see our [JS SPA On-behalf-of code sample](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca). This code sample uses the conditional access policy and web API you registered earlier with a JS SPA to demonstrate this scenario. It shows how to properly handle the claims challenge and get an access token that can be used for your Web API. Alternatively, checkout the general [Angular.js code sample](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) for guidance on an Angular SPA
-
 
 ## See also
 
