@@ -124,7 +124,7 @@ export ACCOUNT_KEY=$(az cognitiveservices account keys list \
 
 ### Create client
 
-Create the [ComputerVisionAPI][ref_computervisionclient] client object. Change the region and key values in the following code example to your own values.
+Get the region and key from environment variables then create the [ComputerVisionAPI][ref_computervisionclient] client object.  
 
 ```Python
 from azure.cognitiveservices.vision.computervision import ComputerVisionAPI
@@ -143,9 +143,9 @@ credentials = CognitiveServicesCredentials(key)
 client = ComputerVisionAPI(region, credentials)
 ```
 
-You need a [ComputerVisionAPI][ref_computervisionclient] client object before using any of the following tasks.
-
 ## Examples
+
+You need a [ComputerVisionAPI][ref_computervisionclient] client object before using any of the following tasks.
 
 ### Analyze an image
 
