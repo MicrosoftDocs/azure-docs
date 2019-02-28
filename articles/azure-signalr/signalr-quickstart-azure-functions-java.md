@@ -5,7 +5,7 @@ author: sffamily
 ms.service: signalr
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 02/28/2019
 ms.author: zhshang
 ---
 
@@ -20,6 +20,9 @@ This quickstart can be run on macOS, Windows, or Linux.
 Make sure you have a code editor such as [Visual Studio Code](https://code.visualstudio.com/) installed.
 
 Install the [Azure Functions Core Tools (v2)](https://github.com/Azure/azure-functions-core-tools#installing) to run Azure Function apps locally.
+
+> [!NOTE]
+> To use the SignalR Service bindings in Java, make sure you are using version 2.4.419 or higher of the Azure Functions Core Tools (host version 2.0.12332).
 
 In order to install extensions, Azure Functions Core Tools currently require the [.NET Core SDK](https://www.microsoft.com/net/download) installed. However, no knowledge of .NET is required to build JavaScript Azure Function apps.
 
