@@ -6,7 +6,7 @@ author: richrundmsft
 ms.service: log-analytics
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 11/21/2016
+ms.date: 02/28/2019
 ms.author: richrund
 ---
 
@@ -150,10 +150,6 @@ foreach ($search in $ExportedSearches) {
 
 # Create Computer Group based on a query
 New-AzOperationalInsightsComputerGroup -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -SavedSearchId "My Web Servers" -DisplayName "Web Servers" -Category "My Saved Searches" -Query "Computer=""web*"" | distinct Computer" -Version 1
-
-# Create a computer group based on names (up to 5000)
-$computerGroup = """servername1.contoso.com"",""servername2.contoso.com"",""servername3.contoso.com"",""servername4.contoso.com"""
-New-AzOperationalInsightsComputerGroup -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -SavedSearchId "My Named Servers" -DisplayName "Named Servers" -Category "My Saved Searches" -Query $computerGroup -Version 1
 
 # Enable IIS Log Collection using agent
 Enable-AzOperationalInsightsIISLogCollection -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
