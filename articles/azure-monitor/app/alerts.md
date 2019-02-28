@@ -109,10 +109,11 @@ In this section, we will go through how to set a query based exception alert. Fo
 6. In the custom log search tab, enter your query in the "Search query" box. For this example, we will use the below Kusto query.
 	```kusto
     let percentthreshold = 10;
+    let period = 24h;
     requests
-    | where timestamp >ago(24h)
+    | where timestamp >ago(period)
     | summarize requestsCount = sum(itemCount)
-    | project requestsCount, exceptionsCount = toscalar(exceptions | where timestamp >ago(24h) | summarize sum(itemCount))
+    | project requestsCount, exceptionsCount = toscalar(exceptions | where timestamp >ago(period) | summarize sum(itemCount))
     | extend exceptionsRate = toreal(exceptionsCount)/toreal(requestsCount) * 100
     | where exceptionsRate > percentthreshold
 
@@ -123,11 +124,11 @@ In this section, we will go through how to set a query based exception alert. Fo
     > [!NOTE]
     > You can also apply these steps to other types of query-based alerts. You can learn more about the Kusto query language from this  [Kusto getting started doc](https://docs.microsoft.com/azure/kusto/concepts/) or this [SQL to Kusto cheat sheet](https://docs.microsoft.com/azure/kusto/query/sqlcheatsheet)
 
-7. Under "Alert logic", choose whether it's based on number of results or metric measurement. Then pick the condition (greater than, equal to, less than) and a threshold. While you are changing these values, you may notice the condition preview sentence changes.
+7. Under "Alert logic", choose whether it's based on number of results or metric measurement. Then pick the condition (greater than, equal to, less than) and a threshold. While you are changing these values, you may notice the condition preview sentence changes. In this example we are using "equal to".
 
     ![Under Alert logic choose from the options provided for based on and condition, then type a threshold](./media/alerts/6alertlogic.png)
 
-8. Under "Evaluated based on", set the period and frequency. Then click **done**.
+8. Under "Evaluated based on", set the period and frequency. The period here must match the value that we put for period in the query above. Then click **done**.
 
     ![Set period and frequency at the bottom and then click done](./media/alerts/7evaluate.png)
 
@@ -145,7 +146,7 @@ This section only applies to classic alerts and will help you optimize your aler
 
 * We recommend the use of specific recipients for classic alert notifications.
 
-* For alerts on any Application Insights metrics (including availability metrics), the **bulk/group** check-box option, if enabled, sends to users with owner, contributor, or reader roles in the subscription. In effect, _all_ users with access to the subscription the Application Insights resource are in scope and will receive notifications. 
+* For alerts on any Application Insights metrics (including availability metrics), the **bulk/group** check-box option, if enabled, sends to users with owner, contributor, or reader roles in the subscription. In effect, _all_ users with access to the subscription the Application Insights resource are in scope and will receive notifications.
 
 > [!NOTE]
 > If you currently use the **bulk/group** check-box option, and disable it, you will not be able to revert the change.
