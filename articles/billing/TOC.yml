@@ -103,9 +103,9 @@
     href: billing-partner-admin-link-started.md
   - name: View billing accounts
     href: billing-view-all-accounts.md
-  - name: Group charges with invoice sections
+  - name: Organize costs with invoice sections
     href: billing-mca-section-invoice.md
-  - name: EA tasks in billing account for Microsoft Customer Agreement
+  - name: EA tasks in Microsoft Customer Agreement
     href: billing-mca-enterprise-operations.md
   - name: Resolve past due balance
     href: billing-azure-subscription-past-due-balance.md
