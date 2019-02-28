@@ -1,7 +1,7 @@
 ---
-author: wesmc7777
-ms.author: wesmc
-ms.service: iot-hub
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.topic: include
 ms.date: 10/26/2018
 ---
