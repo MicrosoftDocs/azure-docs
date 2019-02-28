@@ -49,3 +49,7 @@
       href: https://go.microsoft.com/fwlink/?linkid=2074659
     - name: REST
       href: https://go.microsoft.com/fwlink/?linkid=2078296
+- name: Resources
+  items:
+    - name: Provide product feedback
+      href: https://github.com/Azure/AppConfiguration
