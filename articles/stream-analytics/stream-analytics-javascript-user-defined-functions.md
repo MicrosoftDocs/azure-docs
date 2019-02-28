@@ -46,7 +46,7 @@ Although functions like **Date.GetDate()** or **Math.random()** are not blocked 
 To create a simple JavaScript user-defined function under an existing Stream Analytics job, follow these steps:
 
 > [!NOTE]
-> These steps work on the Stream Analytics jobs configured to run in the cloud. If your Stream Analytics job is configured to run on Azure IoT Edge, instead use Visual Studio and [write the user-defined finction using C#](stream-analytics-edge-csharp-udf.md).
+> These steps work on the Stream Analytics jobs configured to run in the cloud. If your Stream Analytics job is configured to run on Azure IoT Edge, instead use Visual Studio and [write the user-defined function using C#](stream-analytics-edge-csharp-udf.md).
 
 1.	In the Azure portal, find your Stream Analytics job.
 
