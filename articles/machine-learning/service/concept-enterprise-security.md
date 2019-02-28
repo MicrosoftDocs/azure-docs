@@ -22,7 +22,7 @@ When using a cloud service, it is a best practice to restrict access only to the
 Multi Factor authentication is supported if Azure Active Directory (Azure AD) is configured for the same.
 * Client logs into Azure AD and gets Azure Resource Manager token.  Users and Service Principals are fully supported.
 * Client presents token to Azure Resource Manager & all Azure Machine Learning services
-* Azure Machine Learning service provides an Azure Machine Learning Token to user compute ex. Machine Learning Compute. This Azure Machine Learning Token is used by user compute to call back into Azure Machine Learning service (limits scope to workspace) after the run is complete.
+* Azure Machine Learning service provides an Azure Machine Learning token to the user compute. For example, Machine Learning Compute. This Azure Machine Learning token is used by user compute to call back into Azure Machine Learning service (limits scope to workspace) after the run is complete.
 
 ![Screenshot showing how authentication works in Azure Machine Learning service](./media/enterprise-readiness/authentication.png)
 
@@ -88,7 +88,8 @@ For more information on managed identities, see [Managed identities for Azure re
 | Resource Group that contains the Key Vault (if different than the one containing the workspace) | Contributor | 
 
 It is recommended that administrators do not revoke the access of the managed identity to the resources mentioned above. Access can be restored with the Resync Keys operation.
-There is additional Service Principal (name starts with aml-guid) with the contributor level access to the subscription per region. This is needed so that Azure Machine Learning service can help manage compute resources.
+
+Azure Machine Learning service creates an additional application (name starts with aml-) with the contributor level access in your subscription for every workspace region. For ex. if you have a workspace in East US and another workspace in North Europe in the same subscription you will see 2 such applications. This is needed so that Azure Machine Learning service can help manage compute resources.
 
 
 ## Network security
@@ -128,7 +129,7 @@ Key Vault instance associated with the workspace is used by Azure Machine Learni
 * Passwords to Azure Container Repository instances
 * Connection Strings to data stores. 
 
-SSH passwords and keys to compute targets such as HDI HDInsight and VM are stored in a separate Key Vault that is associated with Microsoft subscription. Azure Machine Learning service does store any passwords or keys provided by the user and creates its own SSH keys in order to connect to VM/HDInsight. 
+SSH passwords and keys to compute targets such as HDI HDInsight and VM are stored in a separate Key Vault that is associated with Microsoft subscription. Azure Machine Learning service does store any passwords or keys provided by the user instead it generates, authorizes, and stores its own SSH keys in order to connect to VM/HDInsight to run the experiments. 
 Each workspace has an associated system-assigned Managed Identity (with the same name as the workspace) that has access to all keys, secrets, and certificates in the Key Vault.
 
  
@@ -191,7 +192,7 @@ The following diagram shows the inferencing workflow in which model is deployed 
 See details below:
 * User registers a model using a client like Azure ML SDK
 * User creates image using model, score file, and other model dependencies
-* The Docker Image is created using ACR build in ACR
+* The Docker Image is created and stored in ACR
 * Webservice is deployed to the compute target (ACI/AKS) using the image created above
 * Scoring request details are stored in the AppInsights, which is in user’s subscription
 * Telemetry is also pushed to Microsoft/Azure subscription
