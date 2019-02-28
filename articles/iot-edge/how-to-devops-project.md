@@ -33,7 +33,7 @@ DevOps Projects creates a CI/CD pipeline in Azure DevOps. You can create a new A
 
    ![Select language to create a new application](./media/how-to-devops-project/select-language.png)
 
-2. Select **Simple IoT (Preview)** as your application framwork, and then select **Next**.
+2. Select **Simple IoT (Preview)** as your application framework, and then select **Next**.
 
    ![Select Simple IoT framework](media/how-to-devops-project/select-iot.png)
 
@@ -68,7 +68,7 @@ DevOps Projects created a Git repository for your project in Azure Repos. In thi
 
 1. To navigate to the repo created for your project, select **Repositories** in the menu of your project dashboard.  
 
-   ![View repository generated in in Azure Repos](./media/how-to-devops-project/view-repositories.png)
+   ![View repository generated in Azure Repos](./media/how-to-devops-project/view-repositories.png)
 
 2. The following steps walk through using the web browser to make code changes. If you want to clone your repository locally instead, select **Clone** from the top right of the window. Use the provided URL to clone your Git repository in Visual Studio Code or your preferred development tool. 
 
@@ -88,7 +88,7 @@ DevOps Projects created a Git repository for your project in Azure Repos. In thi
 
 ## Examine the CI/CD pipeline
 
-In the previous sections, Azure DevOps Projects automatically configured a full CI/CD pipeline for your IoT Edge application. Then you tested that build pipeline by commiting changes to one of the files. Now, explore and customize the pipeline as needed. Take the following steps to familiarize yourself with the Azure DevOps build and release pipelines.
+In the previous sections, Azure DevOps Projects automatically configured a full CI/CD pipeline for your IoT Edge application. Then you tested that build pipeline by committing changes to one of the files. Now, explore and customize the pipeline as needed. Take the following steps to familiarize yourself with the Azure DevOps build and release pipelines.
 
 1. To view the build pipelines in your DevOps project, select **Build Pipelines** in the menu of your project dashboard. This link opens a browser tab and the Azure DevOps build pipeline for your new project.
 

@@ -7,11 +7,12 @@ manager: daveba
 ms.author: lizross
 
 ms.service: active-directory
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
 # Identity data storage for European customers in Azure Active Directory

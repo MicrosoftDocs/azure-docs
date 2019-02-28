@@ -10,17 +10,18 @@ editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: calebb
 
 #Customer intent: As a IT admin, I need to understand the controls in conditional access so that I can set them according to my business needs
 
+ms.collection: M365-identity-device-management
 ---
 
 # What are access controls in Azure Active Directory conditional access?
@@ -70,9 +71,15 @@ Using multi-factor authentication helps protect resources from being accessed by
 
 ### Compliant device
 
-You can configure conditional access policies that are device-based. The objective of a device-based conditional access policy is to grant access to the configured resources only from [managed devices](require-managed-devices.md). Requiring a compliant device is one option you have to define what a managed device is. If this option is selected, your conditional access policy grants access to access attempts made with devices that are [registered](../devices/overview.md) to your Azure Active Directory and are marked as compliant by Intune (for any device OS) or by your third-party MDM system for Windows 10 devices. Third-party MDM systems for device OS types other than Windows 10 are not supported.
+You can configure conditional access policies that are device-based. The objective of a device-based conditional access policy is to only grant access to the selected cloud apps from [managed devices](require-managed-devices.md). Requiring a device to be marked as compliant is one option you have to limit access to managed devices. A device can be marked as compliant by Intune (for any device OS) or by your third-party MDM system for Windows 10 devices. Third-party MDM systems for device OS types other than Windows 10 are not supported. 
 
-For more information, see [set up Azure Active Directory device-based conditional access policies](require-managed-devices.md).
+Your device needs to be registered to Azure AD before it can be marked as compliant. To register a device, you have three options: 
+
+- [Azure AD registered devices](../devices/overview.md#azure-ad-registered-devices)
+- [Azure AD joined devices](../devices/overview.md#azure-ad-joined-devices)  
+- [Hybrid Azure AD joined devices](../devices/overview.md#hybrid-azure-ad-joined-devices)
+
+For more information, see [how to require managed devices for cloud app access with conditional access](require-managed-devices.md).
 
 ### Hybrid Azure AD joined device
 

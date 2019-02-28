@@ -62,7 +62,7 @@ In this section, you create a new build pipeline. Configure the pipeline to run 
 
       ![Start with an empty process](./media/how-to-ci-cd/start-with-empty.png)
 
-4. Once your pipeline is created, you are taken to the the pipeline editor. In your pipeline description, choose the correct agent pool based on your target platform: 
+4. Once your pipeline is created, you are taken to the pipeline editor. In your pipeline description, choose the correct agent pool based on your target platform: 
     
     * If you would like to build your modules in platform amd64 for Linux containers, choose **Hosted Ubuntu 1604**
 

@@ -1,18 +1,19 @@
 ---
-title: Properties of an Azure Active Directory B2B collaboration user | Microsoft Docs
+title: Properties of a B2B collaboration user - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B collaboration user properties are configurable
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/5/2018
+ms.date: 02/12/2019
 
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 
+ms.collection: M365-identity-device-management
 ---
 
 # Properties of an Azure Active Directory B2B collaboration user
@@ -97,7 +98,7 @@ It's possible to turn off the default limitations so that a guest user in the co
 ![Remove guest user limitations](media/user-properties/remove-guest-limitations.png)
 
 ## Can I make guest users visible in the Exchange Global Address List?
-Yes. By default, guest objects aren't visible in your organization's global address list, but you can use Azure Active Directory PowerShell to make them visible. For details, see **Can I make guest objects visible in the global address list?** in [Guest access in Office 365 Groups](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ). 
+Yes. By default, guest objects aren't visible in your organization's global address list, but you can use Azure Active Directory PowerShell to make them visible. For details, see **Can I make guest objects visible in the global address list?** in [Manage guest access in Office 365 Groups](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#faq). 
 
 ## Next steps
 

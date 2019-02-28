@@ -7,12 +7,13 @@ manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: lizross
 ms.custom: "it-pro, seodec18"
 ms.reviewer: krbain
+ms.collection: M365-identity-device-management
 ---
 
 # Add or remove group members using Azure Active Directory

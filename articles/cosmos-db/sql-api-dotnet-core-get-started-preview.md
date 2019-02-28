@@ -126,7 +126,7 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
 
    Copy the URI from the portal and paste it into `<your endpoint URL>` in the `Program.cs` file. Copy the PRIMARY KEY from the portal and paste it into `<your primary key>`.
 
-   ![Screen shot to get Azure Cosmso DB keys from Azure portal](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
+   ![Screen shot to get Azure Cosmos DB keys from Azure portal](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
 
 1. Next, we'll create a new instance of `CosmosClient` and set up some scaffolding for our program.
 
@@ -306,7 +306,7 @@ A container can be created by using either the [**CreateContainerIfNotExistsAsyn
    ```csharp
    /*
        Create the container if it does not exist.
-       Specifiy "/LastName" as the partition key since we're storing family information, to ensure good distribution of requests and storage.
+       Specify "/LastName" as the partition key since we're storing family information, to ensure good distribution of requests and storage.
    */
    private async Task CreateContainer()
    {

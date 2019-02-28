@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.component: files
+ms.subservice: files
 ---
 
 # Overview of share snapshots for Azure Files 

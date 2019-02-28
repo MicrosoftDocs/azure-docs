@@ -12,10 +12,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Change signature hash algorithm for Office 365 relying party trust
 ## Overview

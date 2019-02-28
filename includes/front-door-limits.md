@@ -24,6 +24,7 @@
 ### Timeout Values
 #### Client to Front Door
 - Front Door has an idle TCP connection timeout of 61 seconds.
+
 #### Front Door to application backend
 - If the response is a chunked response, a 200 will be returned if / when the first chunk is received.
 - After the HTTP request is forwarded to the backend, Front Door will wait for 30 seconds for the first packet from backend, before returning a 503 error to the client.

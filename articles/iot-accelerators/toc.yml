@@ -52,6 +52,8 @@
         href: iot-accelerators-remote-monitoring-deploy-local.md
       - name: Deploy locally with VS Code
         href: iot-accelerators-remote-monitoring-deploy-local-vscode.md
+      - name: Deploy locally with IntelliJ
+        href: iot-accelerators-remote-monitoring-deploy-local-java.md
       - name: Deploy locally with Docker
         href: iot-accelerators-remote-monitoring-deploy-local-docker.md
     - name: Connect a real device

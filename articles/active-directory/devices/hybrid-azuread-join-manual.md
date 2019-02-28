@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
-ms.component: devices
+ms.subservice: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.author: markvi
 ms.reviewer: sandeo
 
 #Customer intent: As an IT admin, I want to set up hybrid Azure AD joined devices so that I can automatically bring AD domain-joined devices under control.
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure hybrid Azure Active Directory joined devices manually 
 

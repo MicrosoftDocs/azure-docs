@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 # Sign-in activity reports in the Azure Active Directory portal
 
@@ -157,8 +158,8 @@ If you need more flexibility, you can use the script solution. Clicking **Script
 
 If you want to run the script on a **Windows 10** machine, you need to perform a few additional steps first. 
 
-1. Install the [AzureRM module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.4.0l).
-2. Import the module by opening a PowerShell prompt and running the command **Import-Module AzureRM**.
+1. Install the [Az module](/powershell/azure/install-az-ps).
+2. Import the module by opening a PowerShell prompt and running the command **Import-Module Az**.
 3. Run **Set-ExecutionPolicy unrestricted** and choose **Yes to All**. 
 4. Now you can run the downloaded PowerShell script in administrator mode to generate the CSV file.
 

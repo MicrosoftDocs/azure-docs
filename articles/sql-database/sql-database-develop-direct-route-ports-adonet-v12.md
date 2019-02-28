@@ -11,9 +11,10 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 11/07/2018
 ---
 # Ports beyond 1433 for ADO.NET 4.5
+
 This topic describes the Azure SQL Database connection behavior for clients that use ADO.NET 4.5 or a later version. 
 
 > [!IMPORTANT]
@@ -21,12 +22,15 @@ This topic describes the Azure SQL Database connection behavior for clients that
 >
 
 ## Outside vs inside
+
 For connections to Azure SQL Database, we must first ask whether your client program runs *outside* or *inside* the Azure cloud boundary. The subsections discuss two common scenarios.
 
 #### *Outside:* Client runs on your desktop computer
+
 Port 1433 is the only port that must be open on your desktop computer that hosts your SQL Database client application.
 
 #### *Inside:* Client runs on Azure
+
 When your client runs inside the Azure cloud boundary, it uses what we can call a *direct route* to interact with the SQL Database server. After a connection is established, further interactions between the client and database involve no Azure SQL Database Gateway.
 
 The sequence is as follows:
@@ -67,7 +71,7 @@ This section clarifies the monikers that refer to product versions. It also list
 https://www.microsoft.com/download/details.aspx?id=56567
 
 * Connect to Azure SQL Database V12 via Redirection
-https://blogs.msdn.microsoft.com/sqlcat/2016/09/08/connect-to-azure-sql-database-v12-via-redirection/
+https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 
 * [TDS protocol version list](http://www.freetds.org/userguide/tdshistory.htm)
 * [SQL Database Development Overview](sql-database-develop-overview.md)

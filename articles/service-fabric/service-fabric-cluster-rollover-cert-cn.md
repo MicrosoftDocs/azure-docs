@@ -18,9 +18,9 @@ ms.author: ryanwi
 
 ---
 # Manually roll over a Service Fabric cluster certificate
-When a Service Fabric cluster certificate is close to expiring, you need to update the certificate.  Certificate rollover is simple if the cluster was [set up to use certificates based on common name](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (instead of thumbprint).  Get a new certificate from a certificate authority with a new expiration date.  Self-signed certificates, including those generated when deploying a Service Fabric cluster in the Azure portal, are not supported.  The new certificate must have the same common name as the older certificate. 
+When a Service Fabric cluster certificate is close to expiring, you need to update the certificate.  Certificate rollover is simple if the cluster was [set up to use certificates based on common name](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (instead of thumbprint).  Get a new certificate from a certificate authority with a new expiration date.  Self-signed certificates are not support for production Service Fabric clusters, to include certificates generated during Azure portal Cluster creation workflow. The new certificate must have the same common name as the older certificate. 
 
-The following script uploads a new certificate to a key vault and then installs the certificate on the virtual machine scale set.  The Service Fabric cluster will automatically use the certificate with the latest expiration date.
+Service Fabric cluster will automatically use the declared certificate with a further into the future expiration date; when more than one validate certificate is installed on the host. A best practice is to use a Resource Manager template to provision Azure Resources. For non-production environment the following script can be used to upload a new certificate to a key vault and then installs the certificate on the virtual machine scale set: 
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -74,6 +74,9 @@ $vmss = Add-AzureRmVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $Sour
 # Update the VM scale set 
 Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -VirtualMachineScaleSet $vmss  -Verbose
 ```
+
+>[!NOTE]
+> Computes Virtual Machine Scale Set Secrets do not support the same resource id for two separate secrets, as each secret is a versioned unique resource. 
 
 To learn more, read the following:
 * Learn about [cluster security](service-fabric-cluster-security.md).

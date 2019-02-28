@@ -85,7 +85,7 @@ Incorrect firewall rules | Access the serial console and fix iptables.
 Filesystem corruption/check | Access the serial console and recover the filesystem.
 SSH/RDP configuration issues | Access the serial console and change the settings.
 Network lock down system| Access the serial console from the Azure portal to manage the system.
-Interacting with bootloader | Access GRUB from the serial console. For more information, see [Use serial console to access GRUB and single user mode](serial-console-grub-single-user-mode.md).
+Interacting with bootloader | Restart your VM from within the serial console blade to access GRUB on your Linux VM. For more information, see [Use serial console to access GRUB and single user mode](serial-console-grub-single-user-mode.md).
 
 ## Disable the serial console
 By default, all subscriptions have serial console access enabled for all VMs. You can disable the serial console at either the subscription level or VM level.

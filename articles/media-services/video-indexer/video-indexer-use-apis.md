@@ -1,5 +1,5 @@
 ---
-title: Use the Video Indexer API
+title: Use the Video Indexer API - Azure
 titlesuffix: Azure Media Services
 description: This article shows how to get started using the Video Indexer API.
 services: media-services
@@ -8,11 +8,11 @@ manager: femila
 
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 02/10/2019
 ms.author: juliako
 ---
 
-# Use the Video Indexer API
+# Tutorial: Use the Video Indexer API
 
 > [!Note]
 > The Video Indexer V1 API was deprecated on August 1st, 2018. You should now use the Video Indexer v2 API. <br/>To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://api-portal.videoindexer.ai/). 
@@ -78,7 +78,7 @@ The values described in the following table apply. The **Param value** is the va
 
 |**Name**|**Param value**|**Description**|
 |---|---|---|
-|Trial|trial|Used for trial accounts.|
+|Trial|trail|Used for trial accounts.|
 |West US|westus2|Used for the Azure West US 2 region.|
 |North Europe |northeurope|Used for the Azure North Europe region.|
 |East Asia|eastasia|Used for the Azure East Asia region.|

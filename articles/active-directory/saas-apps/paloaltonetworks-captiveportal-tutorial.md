@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 67a0b476-2305-4157-8658-2ec3625850d5
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Palo Alto Networks Captive Portal
 
@@ -77,7 +78,7 @@ To configure and test Azure AD single sign-on with Palo Alto Networks Captive Po
 2. **[Configure Palo Alto Networks Captive Portal single sign-on](#configure-palo-alto-networks-captive-portal-single-sign-on)**: Configure the single sign-on settings in the application.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)**: Test Azure AD single sign-on with the user *Britta Simon*.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)**: Set up Britta Simon to use Azure AD single sign-on.
-5. **[Create a Palo Alto Networks Captive Portal test user](#create-palo-alto-networks-captive-portal-test-user)**: Create a counterpart user *Britta Simon* in Palo Alto Networks Captive Portal that's linked to the Azure AD user.
+5. **Create a Palo Alto Networks Captive Portal test user**: Create a counterpart user *Britta Simon* in Palo Alto Networks Captive Portal that's linked to the Azure AD user.
 6. **[Test single sign-on](#test-single-sign-on)**: Verify that the configuration works.
 
 ### Configure Azure AD single sign-on

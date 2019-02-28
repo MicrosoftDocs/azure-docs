@@ -42,7 +42,7 @@ For more information about setting these values during create, see the [Azure Da
 The backup retention period of a server can be changed as follows:
 
 ```azurecli-interactive
-az postgres server update --name mydemoserver --resource-group myresourcegroup --backup-retention-days 10
+az postgres server update --name mydemoserver --resource-group myresourcegroup --backup-retention 10
 ```
 
 The preceding example changes the backup retention period of mydemoserver to 10 days.
@@ -52,7 +52,7 @@ The backup retention period governs how far back in time a point-in-time restore
 ## Server point-in-time restore
 You can restore the server to a previous point in time. The restored data is copied to a new server, and the existing server is left as is. For example, if a table is accidentally dropped at noon today, you can restore to the time just before noon. Then, you can retrieve the missing table and data from the restored copy of the server. 
 
-To restore the server, use the Azure CLI [az postgres server restore](/cli/azure/postgres/server#az_postgres_server_restore) command.
+To restore the server, use the Azure CLI [az postgres server restore](/cli/azure/postgres/server) command.
 
 ### Run the restore command
 
@@ -101,7 +101,7 @@ az postgres server georestore --resource-group newresourcegroup --name mydemoser
 
 ```
 
-The `az postgres server georestore` command requies the following parameters:
+The `az postgres server georestore` command requires the following parameters:
 | Setting | Suggested value | Description  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | The name of the resource group the new server will belong to.|

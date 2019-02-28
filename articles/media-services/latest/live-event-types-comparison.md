@@ -12,24 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 02/28/2019
 ms.author: juliako
 
 ---
-# LiveEvent types comparison
+# Live Event types comparison
 
-In Azure Media Services, a  [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) can be one of two types: live encoding and pass-through. 
+In Azure Media Services, a  [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) can be one of two types: live encoding and pass-through. 
 
 ## Types comparison 
 
-The following table compares features of the two LiveEvent types.
+The following table compares features of the two Live Event types.
 
-| Feature | Pass-through LiveEvent | Standard LiveEvent |
+| Feature | Pass-through Live Event | Standard Live Event |
 | --- | --- | --- |
 | Single bitrate input is encoded into multiple bitrates in the cloud |No |Yes |
 | Maximum video resolution for contribution feed |4K (4096x2160 at 60 frames/sec) |1080p (1920x1088 at 30 frames/sec)|
 | Recommended maximum layers in contribution feed|Up to 12|One audio|
-| Maximum layers in output| Same as input|Up to 7|
+| Maximum layers in output| Same as input|Up to 6|
 | Maximum aggregate bandwidth of contribution feed|60 Mbps|N/A|
 | Maximum bitrate for a single layer in the contribution |20 Mbps|20 Mbps|
 | Support for multiple language audio tracks|Yes|No|
@@ -41,15 +41,15 @@ The following table compares features of the two LiveEvent types.
 | Maximum video resolution of output video|Same as input|720p (at 30 frames/second)|
 | Input protocols|RTMP, fragmented-MP4 (Smooth Streaming)|RTMP, fragmented-MP4 (Smooth Streaming)|
 | Price|See the [pricing page](https://azure.microsoft.com/pricing/details/media-services/) and click on "Live Video" tab|See the [pricing page](https://azure.microsoft.com/pricing/details/media-services/) and click on "Live Video" tab|
-| Maximum run time|24x365 live linear|24x7|
+| Maximum run time| 24 hrs x 365 days, live linear | Up to 24 hours|
 | Ability to pass through embedded CEA 608/708 captions data|Yes|Yes|
 | Support for inserting slates|No|No|
 | Support for ad signaling via API| No|No|
 | Support for ad signaling via SCTE-35 in-band messages|Yes|Yes|
-| Ability to recover from brief stalls in contribution feed|Yes|No (LiveEvent will begin slating after 6+ seconds w/o input data)|
+| Ability to recover from brief stalls in contribution feed|Yes|No (Live Event will begin slating after 6+ seconds w/o input data)|
 | Support for non-uniform input GOPs|Yes|No – input must have fixed GOP duration|
 | Support for variable frame rate input|Yes|No – input must be fixed frame rate. Minor variations are tolerated, for example, during high motion scenes. But the contribution feed cannot drop the frame rate (for example, to 15 frames/sec).|
-| Auto-shutoff of LiveEvent when input feed is lost|No|After 12 hours, if there is no LiveOutput running|
+| Auto-shutoff of Live Event when input feed is lost|No|After 12 hours, if there is no LiveOutput running|
 
 ## Next steps
 

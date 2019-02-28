@@ -63,9 +63,9 @@
 ### [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_sapase.md)
 ### [SAP MaxDB, liveCache and Content Server deployment on Azure](dbms_guide_maxdb.md)
 ### SAP HANA Availability in Azure Virtual Machines
-### [SAP HANA on Azure Availability overview](sap-hana-availability-overview.md)
-### [SAP HANA on Azure Availability within one Azure region](sap-hana-availability-one-region.md)
-### [SAP HANA on Azure Availability across Azure regions](sap-hana-availability-across-regions.md)
+#### [SAP HANA on Azure Availability overview](sap-hana-availability-overview.md)
+#### [SAP HANA on Azure Availability within one Azure region](sap-hana-availability-one-region.md)
+#### [SAP HANA on Azure Availability across Azure regions](sap-hana-availability-across-regions.md)
 ## [SAP Business One on Azure Virtual Machines](business-one-azure.md)
 ## [SAP IDES on Windows/SQL Server SAP CAL deployment guide](cal-ides-erp6-erp7-sp3-sql.md)
 ## [SAP LaMa connector for Azure](lama-installation.md)
@@ -74,6 +74,7 @@
 ### High Availability Architecture
 #### [HA Architecture and Scenarios](sap-high-availability-architecture-scenarios.md)
 #### [Higher Availability Architecture and Scenarios](sap-higher-availability-architecture-scenarios.md)
+#### [SAP workload configurations with Azure Availability Zones](sap-ha-availability-zones.md)
 #### [HA on Windows with Shared Disk for (A)SCS Instance](sap-high-availability-guide-wsfc-shared-disk.md)
 #### [HA on Windows with SOFS File Share for (A)SCS Instance](sap-high-availability-guide-wsfc-file-share.md)
 #### [HA on SUSE Linux for (A)SCS Instance](high-availability-guide-suse.md)

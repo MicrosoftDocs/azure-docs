@@ -7,11 +7,12 @@ manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
+ms.collection: M365-identity-device-management
 ---
 
 # Add or update a user's profile information using Azure Active Directory

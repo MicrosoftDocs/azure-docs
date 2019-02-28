@@ -36,7 +36,7 @@ Azure Migrate helps you to:
     Azure Government | US Gov Virginia
     Asia | Southeast Asia
     Europe | North Europe or West Europe
-    Unites States | East US or West Central US
+    United States | East US or West Central US
 
     The geography associated with the migration project is used to store the metadata discovered from the on-premises environment. Metadata is stored in one of the regions based on the geography specified for the migration project. If you use dependency visualization by creating a new Log Analytics workspace, the workspace is created in the same region as the project.
 - The dependency visualization functionality is not available in Azure Government.
@@ -53,7 +53,7 @@ Assessment settings can be customized based on your needs. Assessment properties
 
 **Property** | **Details**
 --- | ---
-**Target location** | The Azure location to which you want to migrate.<br/><br/>Azure Migrate currently supports 33 regions as migration target locations. [Check regions](https://azure.microsoft.com/global-infrastructure/services/). By default, the target region is set to West US 2.
+**Target location** | The Azure location to which you want to migrate.<br/><br/>Azure Migrate currently supports 33 regions as migration target locations. [Check regions](https://azure.microsoft.com/global-infrastructure/services/). By default, the target region is set to East US.
 **Storage type** | The type of managed disks you want to allocate for all VMs that are part of the assessment. If the sizing criterion is *as on-premises sizing* you can specify the target disk type either as premium disks (the default), standard SSD disks or standard HDD disks. For *performance-based sizing*, along with the above options, you also have the option to select Automatic which will ensure that the disk sizing recommendation is automatically done based on the performance data of the VMs. For example, if you want to achieve a [single instance VM SLA of 99.9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), you may want to specify the storage type as Premium managed disks which will ensure that all disks in the assessment will be recommended as Premium managed disks. Note that Azure Migrate only supports managed disks for migration assessment.
 **Reserved Instances** |  Whether you have [reserved instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) in Azure. Azure Migrate estimates the cost accordingly.
 **Sizing criterion** | Sizing can be based on **performance history** of the on-premises VMs (the default), or **as on-premises**, without considering performance history.
@@ -88,7 +88,7 @@ Component | Communicates with |  Details
 --- | --- |---
 Collector  | Azure Migrate service | The collector connects to the service over SSL port 443.
 Collector | vCenter Server | By default the collector connects to the vCenter Server on port 443. If the server listens on a different port, configure it as an outgoing port on the collector VM.
-On-premises VM | Log Analytics Workspace | [TCP 443] | [The Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) uses TCP port 443 to connect to Log Analytics. You only need this port if you're using dependency visualization, that requires the MMA agent.
+On-premises VM | Log Analytics Workspace | [TCP 443] | [The Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) uses TCP port 443 to connect to Azure Monitor logs. You only need this port if you're using dependency visualization, that requires the MMA agent.
 
 
 ## What happens after assessment?

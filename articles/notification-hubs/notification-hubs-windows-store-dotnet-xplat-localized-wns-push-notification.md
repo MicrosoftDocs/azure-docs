@@ -105,7 +105,7 @@ To learn more about templates, see [Push Templates](notification-hubs-templates-
         <Button Content="Subscribe" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click" />
     </Grid>
     ```
-3. In the `Notifications` class, add a locale parameter to the  `StoreCategoriesAndSubscribe` and `SubscribeToCateories` methods.
+3. In the `Notifications` class, add a locale parameter to the  `StoreCategoriesAndSubscribe` and `SubscribeToCategories` methods.
 
     ```csharp
     public async Task<Registration> StoreCategoriesAndSubscribe(string locale, IEnumerable<string> categories)
@@ -212,7 +212,7 @@ private static async void SendTemplateNotificationAsync()
 
     // Sending the notification as a template notification. All template registrations that contain
     // "messageParam" or "News_<local selected>" and the proper tags will receive the notifications.
-    // This includes APNS, GCM, WNS, and MPNS template registrations.
+    // This includes APNS, FCM, WNS, and MPNS template registrations.
     Dictionary<string, string> templateParams = new Dictionary<string, string>();
 
     // Create an array of breaking news categories.

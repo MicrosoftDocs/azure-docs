@@ -100,7 +100,7 @@ In this section, you update the code in the project you completed for the [Tutor
                             Content="1. Login and register" Click="LoginAndRegisterClick" Margin="0,0,0,20"/>
 
                 <ToggleButton Name="toggleWNS" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" Content="WNS" IsChecked="True" />
-                <ToggleButton Name="toggleGCM" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" Content="GCM" />
+                <ToggleButton Name="toggleFCM" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" Content="FCM" />
                 <ToggleButton Name="toggleAPNS" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" Content="APNS" />
 
                 <TextBlock Grid.Row="6" Grid.ColumnSpan="3" Text="Username Tag To Send To" FontSize="24" Margin="20,0,20,0"/>
@@ -140,9 +140,9 @@ In this section, you update the code in the project you completed for the [Tutor
         {
             await sendPush("wns", ToUserTagTextBox.Text, this.NotificationMessageTextBox.Text);
         }
-        if (toggleGCM.IsChecked.Value)
+        if (toggleFCM.IsChecked.Value)
         {
-            await sendPush("gcm", ToUserTagTextBox.Text, this.NotificationMessageTextBox.Text);
+            await sendPush("fcm", ToUserTagTextBox.Text, this.NotificationMessageTextBox.Text);
         }
         if (toggleAPNS.IsChecked.Value)
         {

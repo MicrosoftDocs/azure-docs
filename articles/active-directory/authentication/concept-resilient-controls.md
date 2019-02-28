@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
+ms.collection: M365-identity-device-management
 ---
 # Create a resilient access control management strategy with Azure Active Directory
 
@@ -71,7 +72,7 @@ This example policy set will grant selected users in **AppUsers**, access to sel
 **CA mitigation policies set:**
 
 * Policy 1: Block access to people outside target groups
-  * Users and Groups: Include all users. Exclude AppAccess, CoreAdmins, and EmergencyAccess
+  * Users and Groups: Include all users. Exclude AppUsers, CoreAdmins, and EmergencyAccess
   * Cloud Apps: Include all apps
   * Conditions: (None)
   * Grant Control: Block

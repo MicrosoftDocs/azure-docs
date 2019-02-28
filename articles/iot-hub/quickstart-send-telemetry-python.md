@@ -1,15 +1,15 @@
 ---
 title: Send telemetry to Azure IoT Hub quickstart (Python) | Microsoft Docs
 description: In this quickstart, you run a sample Python application to send simulated telemetry to an IoT hub and use a utility to read telemetry from the IoT hub.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/07/2018
-ms.author: dobett
+ms.date: 01/22/2019
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
 
@@ -110,7 +110,7 @@ The IoT Hub CLI extension can connect to the service-side **Events** endpoint on
 Run the following commands in Azure Cloud Shell, replacing `YourIoTHubName` with the name of your IoT hub:
 
 ```azurecli-interactive
-az iot hub monitor-events --device-id MyPythonDevice --hub-name YourIoTHubName
+az iot hub monitor-events --hub-name YourIoTHubName --device-id MyPythonDevice 
 ```
 
 The following screenshot shows the output as the extension receives telemetry sent by the simulated device to the hub:

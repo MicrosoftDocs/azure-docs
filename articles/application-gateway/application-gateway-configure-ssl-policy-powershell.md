@@ -13,7 +13,7 @@ ms.author: victorh
 
 # Configure SSL policy versions and cipher suites on Application Gateway
 
-Learn how to configure SSL policy versions and cipher suites on Application Gateway. You can select from a [list of predefined policies](#predefined-ssl-policies) that contain different configurations of SSL policy versions and enabled cipher suites. You also have the ability to define a [custom SSL policy](#configure-a-custom-ssl-policy) based on your requirements.
+Learn how to configure SSL policy versions and cipher suites on Application Gateway. You can select from a list of predefined policies that contain different configurations of SSL policy versions and enabled cipher suites. You also have the ability to define a [custom SSL policy](#configure-a-custom-ssl-policy) based on your requirements.
 
 ## Get available SSL options
 

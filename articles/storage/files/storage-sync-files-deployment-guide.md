@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.component: files
+ms.subservice: files
 ---
 
 # Deploy Azure File Sync
@@ -412,3 +412,4 @@ For more information, see [Azure File Sync interop with Distributed File System 
 ## Next steps
 - [Add or remove an Azure File Sync Server Endpoint](storage-sync-files-server-endpoint.md)
 - [Register or unregister a server with Azure File Sync](storage-sync-files-server-registration.md)
+- [Monitor Azure File Sync](storage-sync-files-monitoring.md)

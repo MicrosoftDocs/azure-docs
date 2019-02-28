@@ -14,6 +14,7 @@ ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
 ms.reviewer: sijuman
+ms.lastreviewed: 01/19/2019
 
 ---
 
@@ -30,9 +31,9 @@ A profile is a combination of different resource types with different versions f
 
 In the Go SDK, profiles are available under the profiles path, with their version in the **YYYY-MM-DD** format. Right now, the latest Azure Stack API profile version is **2017-03-09**. To import a given service from a profile, import its corresponding module from the profile. For example, to import **Compute** service from **2017-03-09** profile, use the following code:
 
-````go
+```go
 import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compute"
-````
+```
 
 ## Install Azure SDK for Go
 
@@ -48,7 +49,7 @@ import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compu
 
 You can find more information about the Azure GO SDK at the following links:
 
-- The Azure Go SDK at [Installing the Azure SDK for Go](/azure/azure-sdk-go-install).
+- The Azure Go SDK at [Installing the Azure SDK for Go](/go/azure/azure-sdk-go-install).
 - The Azure Go SDK is publicly available on GitHub in the [azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go) repo.
 
 ### Go-AutoRest dependencies
@@ -64,7 +65,7 @@ To run a sample of Go code on Azure Stack, follow these steps:
 
    > [!NOTE]  
    > The **ResourceManagerUrl** in the Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/`  
-   > The **ResourceManagerUrl** in integrated systems is: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
+   > The **ResourceManagerUrl** in integrated systems is: `https://management.<region>.<fqdn>/`  
    > To retrieve the metadata required: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
    Sample JSON file:
@@ -82,7 +83,7 @@ To run a sample of Go code on Azure Stack, follow these steps:
 
 3. If not available, create a subscription and save the subscription ID to be used later. For information about creating a subscription, see [Create subscriptions to offers in Azure Stack](../azure-stack-subscribe-plan-provision-vm.md).
 
-4. Create a service principal with **Subscription** scope and **Owner** role. Save the service principal ID and secret. For information about creating a service principal for Azure Stack, see [Create service principal](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad). Your Azure Stack environment is now set up.
+4. Create a service principal with **Subscription** scope and **Owner** role. Save the service principal ID and secret. For information about creating a service principal for Azure Stack, see [Create service principal](azure-stack-create-service-principals.md). Your Azure Stack environment is now set up.
 
 5. Import a service module from the Go SDK profile in your code. The current version of Azure Stack profile is **2017-03-09**. For example, to import network module from **2017-03-09** profile type, use the following code:
 

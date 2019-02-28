@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: a27862a6-d513-43ba-97c1-1c0d400bf243
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.author: markvi
 ms.reviewer: jairoc
 #Customer intent: As a It admin, I wan to know how to require managed devices for the access to certain resources to ensure that they are accessed only from devices that meet my standards for security and compliance
 
+ms.collection: M365-identity-device-management
 ---
 
 # How To: Require managed devices for cloud app access with conditional access

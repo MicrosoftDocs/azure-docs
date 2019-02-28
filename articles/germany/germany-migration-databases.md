@@ -36,7 +36,7 @@ For more information:
 
 ## SQL Data Warehouse
 
-To migrate Azure SQL Data Warehouse resources from Azure Germany to global Azure, follow the steps that are described in [Azure SQL Database](#azure-sql-database).
+To migrate Azure SQL Data Warehouse resources from Azure Germany to global Azure, follow the steps that are described in Azure SQL Database.
 
 ## Azure Cosmos DB
 

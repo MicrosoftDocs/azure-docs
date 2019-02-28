@@ -1,5 +1,5 @@
 ---
-title: Interpret the Azure Active Directory sign-in log schema in Azure Monitor (preview) | Microsoft Docs
+title: Azure Active Directory sign-in log schema in Azure Monitor (preview) | Microsoft Docs
 description: Describe the Azure AD sign in log schema for use in Azure Monitor (preview)
 services: active-directory
 documentationcenter: ''
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 
 # Interpret the Azure AD sign-in logs schema in Azure Monitor (preview)

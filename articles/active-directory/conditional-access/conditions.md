@@ -10,7 +10,7 @@ editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.reviewer: calebb
 
 #Customer intent: As a IT admin, I need to understand the conditions in conditional access so that I can set them according to my business needs
 
+ms.collection: M365-identity-device-management
 ---
 
 # What are conditions in Azure Active Directory conditional access? 
