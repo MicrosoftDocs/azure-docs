@@ -5,7 +5,7 @@ description: You can manage your Machine Learning New and Classic Web services u
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs

@@ -61,7 +61,7 @@ When you create a CDN endpoint, select an optimization type that best matches th
 
 1. In an **Azure CDN Standard from Akamai** profile, select an endpoint.
 
-    ![Endpoint selection ](./media/cdn-optimization-overview/01_Akamai.png)
+    ![Endpoint selection](./media/cdn-optimization-overview/01_Akamai.png)
 
 2. Under SETTINGS, select **Optimization**. Then, select a type from the **Optimized for** drop-down list.
 
