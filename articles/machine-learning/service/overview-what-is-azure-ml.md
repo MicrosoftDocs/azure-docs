@@ -28,7 +28,7 @@ Forecasts or predictions from machine learning can make apps and devices smarter
 
 Azure Machine Learning service provides a cloud-based environment you can use to prep data, train, test, deploy, manage, and track machine learning models.
 
-[ ![Azure Machine Learning service workflow](./media/overview-what-is-azure-ml/aml.png)]
+[![Azure Machine Learning service workflow](./media/overview-what-is-azure-ml/aml.png)]
 (./media/overview-what-is-azure-ml/aml.png#lightbox)
 
 Azure Machine Learning service fully supports open-source technologies. So you can use tens of thousands of open-source Python packages with machine learning components. Examples are PyTorch, TensorFlow, and scikit-learn.

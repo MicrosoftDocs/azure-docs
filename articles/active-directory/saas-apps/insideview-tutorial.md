@@ -113,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    	In the **Reply URL** textbox, type a URL using the following pattern: `https://my.insideview.com/iv/<STS Name>/login.iv`
 
 	> [!NOTE] 
-	> This value is not real. Update this value with the actual Reply URL. Contact [InsideView support team ](mailto:support@insideview.com) to get this value.
+	> This value is not real. Update this value with the actual Reply URL. Contact [InsideView support team](mailto:support@insideview.com) to get this value.
  
 1. On the **SAML Signing Certificate** section, click **Certificate (Raw)** and then save the certificate file on your computer.
 
