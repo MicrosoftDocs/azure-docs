@@ -438,6 +438,10 @@
       href: copy-files-to-linux-vm-using-scp.md
     - name: Performance
       items:
+      - name: Using write accelerator
+        href: how-to-enable-write-accelerator.md
+      - name: Enable ultra SSDs
+        href: disks-enable-ultra-ssd.md
       - name: Benchmark a disk
         href: disks-benchmarks.md
       - name: Optimizing performance
@@ -446,10 +450,6 @@
         href: configure-raid.md
       - name: Configure LVM
         href: configure-lvm.md
-      - name: Using write accelerator
-        href: how-to-enable-write-accelerator.md
-      - name: Enable ultra SSDs
-        href: disks-enable-ultra-ssd.md
     - name: Find unattached disks
       href: find-unattached-disks.md
     - name: Use File storage
