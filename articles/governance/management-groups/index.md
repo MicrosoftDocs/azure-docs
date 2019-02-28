@@ -99,10 +99,10 @@ A few directories that started using management groups early in the preview befo
 There are two options you can do to resolve this issue.
 
 1. Remove all Role and Policy assignments from the root management group
-    1. By removing any policy and role assignments from the root management group, the service will backfill all subscriptions into the hierarchy the next overnight cycle.  This process is so there's no accidental access given or policy assignment to all of the tenants subscriptions.
-    1. The best way to do this process without impacting your services is to apply the role or policy assignments one level below the Root management group. Then you can remove all assignments from the root scope.
+   1. By removing any policy and role assignments from the root management group, the service will backfill all subscriptions into the hierarchy the next overnight cycle.  This process is so there's no accidental access given or policy assignment to all of the tenants subscriptions.
+   1. The best way to do this process without impacting your services is to apply the role or policy assignments one level below the Root management group. Then you can remove all assignments from the root scope.
 1. Call the API directly to start the backfill process
-    1. Any customer in the directory can call the *TenantBackfillStatusRequest* or *StartTenantBackfillRequest* APIs. When the StartTenantBackfillRequest API is called, it kicks off the initial setup process of moving all the subscriptions into the hierarchy. This process also starts the enforcement of all new subscription to be a child of the root management group. This process can be done without changing any assignments on the root level. By calling the API, you're saying it's okay that any policy or access assignment on the root can be applied to all subscriptions.
+   1. Any customer in the directory can call the *TenantBackfillStatusRequest* or *StartTenantBackfillRequest* APIs. When the StartTenantBackfillRequest API is called, it kicks off the initial setup process of moving all the subscriptions into the hierarchy. This process also starts the enforcement of all new subscription to be a child of the root management group. This process can be done without changing any assignments on the root level. By calling the API, you're saying it's okay that any policy or access assignment on the root can be applied to all subscriptions.
 
 If you have questions on this backfill process, contact: managementgroups@microsoft.com  
   
@@ -149,6 +149,6 @@ To learn more about management groups, see:
 
 - [Create management groups to organize Azure resources](create.md)
 - [How to change, delete, or manage your management groups](manage.md)
-- [Review management groups in Azure PowerShell Resources Module](https://aka.ms/mgPSdocs)
-- [Review management groups in REST API](https://aka.ms/mgAPIdocs)
-- [Review management groups in Azure CLI](https://aka.ms/mgclidoc)
+- [Review management groups in Azure PowerShell Resources Module](/powershell/module/az.resources#resources)
+- [Review management groups in REST API](/rest/api/resources/managementgroups)
+- [Review management groups in Azure CLI](/cli/azure/account/management-group)
