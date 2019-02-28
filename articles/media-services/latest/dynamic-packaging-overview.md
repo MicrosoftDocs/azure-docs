@@ -22,7 +22,7 @@ Microsoft Azure Media Services can be used to deliver many media source file for
 
 [Streaming Endpoints](streaming-endpoint-concept.md) is the dynamic packaging service in Media Services used to deliver media content to client players. Dynamic Packaging is a feature that comes standard on all **Streaming Endpoints** (Standard or Premium). There is no extra cost associated with this feature in Media Services v3. 
 
-To take advantage of **Dynamic Packaging**, you need to have an **Asset** with a set of adaptive bitrate MP4 files and  manifest file(s). One way to get the files is to encode your mezzanine (source) file with Media Services. To have videos in the Asset (with encoded MP4s and server and client manifests) available to clients for playback, you have to create a **Streaming Locator** and then build streaming URLs. Then, based on the specified format in the client manifest, you receive the stream in the protocol you have chosen.
+To take advantage of **Dynamic Packaging**, you need to have an **Asset** with a set of adaptive bitrate MP4 files and streaming configuration files needed by Media Services Dynamic Packaging. One way to get the files is to encode your mezzanine (source) file with Media Services. To make videos in the encoded Asset available to clients for playback, you have to create a **Streaming Locator** and build streaming URLs. Then, based on the specified format in the streaming client manifest (HLS, DASH, or Smooth), you receive the stream in the protocol you have chosen.
 
 As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client. 
 
@@ -71,7 +71,9 @@ Dynamic Packaging supports MP4 files, which contain audio encoded with [AAC](htt
 > [!NOTE]
 > Dynamic Packaging does not support files that contain [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (it is a legacy codec).
 
-## Manifest files overview
+## Streaming client manifests
+
+Media Services supports the HLS, MPEG DASH, Smooth Streaming protocols. Depending your the protocol you need, you can build URLs to include apporpriate client manifests, as described in [delivery protocols](#delivery-protocols). 
 
 A **manifest** (playlist) file (text-based or XML-based) includes streaming metadata such as: track type (audio, video, or text), track name, start and end time, bitrate (qualities), track languages, presentation window (sliding window of fixed duration), video codec (FourCC). It also instructs the player to retrieve the next fragment by providing information about the next playable video fragments available and their location. Fragments (or segments) are the actual "chunks" of a video content.
 
