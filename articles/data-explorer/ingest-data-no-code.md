@@ -336,7 +336,7 @@ Now you need to create the data connections for your diagnostic logs and activit
 
 ### Create the data connection for activity logs
 
-Repeat the steps in the [Create the data connection for diagnostic logs](#diagnostic-logs-data-connection) section to create the data connection for your activity logs.
+Repeat the steps in the Create the data connection for diagnostic logs section to create the data connection for your activity logs.
 
 1. Use the following settings in the **Data Connection** window:
 

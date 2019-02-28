@@ -110,6 +110,8 @@
         items:  
         - name: Frequently asked questions
           href: traffic-analytics-faq.md
+        - name: Schema and Data Aggregation
+          href: traffic-analytics-schema.md
       - name: Use Power BI
         href: network-watcher-visualize-nsg-flow-logs-power-bi.md
       - name: Use Elastic Stack
