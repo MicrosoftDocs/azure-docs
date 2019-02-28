@@ -8,7 +8,7 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 2/11/2019
+ms.date: 2/28/2019
 ---
 
 # Implement a Hub Network virtual appliance device
@@ -253,4 +253,4 @@ In this article, we created a virtual machine image acting like a network virtua
 
  > [!div class="nextstepaction"]
 
- > [Spoke Networks](./spoke-networks.md)
+ > [Spoke Networks](./terraform-hub-spoke-spoke-network.md)

@@ -8,7 +8,7 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 2/11/2019
+ms.date: 2/28/2019
 ---
 
 # Implementing On-Premises Virtual Network
@@ -231,4 +231,4 @@ Create the Terraform configuration file that declares On-Premises Virtual networ
 In this article, we created a simulation of on premises network on Azure using a virtual network. To continue with the entire hub-spoke topology tutorial, complete the remaining steps.
 
  > [!div class="nextstepaction"] 
- > [Hub network](./hub-network.md)
+ > [Hub network](./terraform-hub-spoke-hub-network.md)

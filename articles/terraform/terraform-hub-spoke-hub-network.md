@@ -8,7 +8,7 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 2/11/2019
+ms.date: 2/28/2019
 ---
 
 # Implementing Hub Virtual Network
@@ -241,4 +241,4 @@ In this article, we created a central virtual network with its subnets. This net
 
  > [!div class="nextstepaction"] 
 
- > [Hub network virtual appliance](./hub-nva.md))
+ > [Hub network virtual appliance](./terraform-hub-spoke-hub-nva.md))

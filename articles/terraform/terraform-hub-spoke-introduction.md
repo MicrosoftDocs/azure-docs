@@ -8,7 +8,7 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 2/11/2019
+ms.date: 2/28/2019
 ---
 
 # Hub and Spoke Network Topology
@@ -186,4 +186,4 @@ This tutorial is implemented in multiple articles to cover all the details. Impl
 In this article, you learned the introduction to Hub and Spoke Topology for Hybrid networks. To start implementing this architecture, continue to implement on premises network tutorial.
 
  > [!div class="nextstepaction"] 
- > [On-Premises network](./on-prem.md)
+ > [On-Premises network](./terraform-hub-spoke-on-prem.md)

@@ -8,7 +8,7 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 2/11/2019
+ms.date: 2/28/2019
 ---
 
 # Hub and spoke network validation 

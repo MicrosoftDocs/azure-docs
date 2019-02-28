@@ -8,7 +8,7 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 2/11/2019
+ms.date: 2/28/2019
 ---
 
 # Implement Spoke Virtual Networks
@@ -330,5 +330,5 @@ In this article, we created a two spoke networks with one virtual machine each. 
 
  > [!div class="nextstepaction"] 
 
- > [Hub and spoke validation](./hub-spoke-validation.md)
+ > [Hub and spoke validation](./terraform-hub-spoke-validation.md)
 
