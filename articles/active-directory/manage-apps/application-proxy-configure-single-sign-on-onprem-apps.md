@@ -45,7 +45,7 @@ Before you can provide SSO for on-premises applications, make sure you have enab
     ![Enter basic SAML configuration data](./media/application-proxy-configure-single-sign-on-onprem-apps/enter-basic-saml-configuration.png)
 
 > [!NOTE]
-> If the backend application expects the **Reply URL** to be the internal URL, you'll need to install the My Apps secure sign-in extension on users' devices. This extension will automatically redirect to the appropriate Application Proxy Service. To install the extension, see [My Apps secure sign-in extension](./user-help/active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
+> If the backend application expects the **Reply URL** to be the internal URL, you'll need to install the My Apps secure sign-in extension on users' devices. This extension will automatically redirect to the appropriate Application Proxy Service. To install the extension, see [My Apps secure sign-in extension](../user-help/active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
 
 ## Test your app
 
