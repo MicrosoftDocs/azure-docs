@@ -19,7 +19,7 @@ ms.author: banders
 ---
 # Understand terms on your Microsoft Customer Agreement invoice
 
-This article applies to a billing account for a Microsoft Customer Agreement. Check if you have a [Microsoft Customer Agreement](billing-mca-overview.md#check-your-access-to-a-microsoft-customer-agreement).
+This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-your-access-to-a-microsoft-customer-agreement).
 
 The invoice provides a summary of your charges and provides instructions for payment. It’s available for download in the Portable Document Format (.pdf) from the [Azure portal](https://portal.azure.com/) or can be sent via email. For more information, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md).
 
@@ -101,6 +101,9 @@ If you have third-party services in your bill, the name and address of each publ
 ### Exchange rate
 
 If prices were converted to your local currency, the exchange rates are listed in this section at the bottom of the invoice. All Azure charges are priced in USD and third-party services are priced in the seller's currency.
+
+## Check access to a Microsoft Customer Agreement
+[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## Need help? Contact us
 

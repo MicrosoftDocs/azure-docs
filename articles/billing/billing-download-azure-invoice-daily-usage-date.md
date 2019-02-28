@@ -22,7 +22,7 @@ ms.author: banders
 
 For most subscriptions, you can download your invoice from the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or have it sent in email. If you're an Azure customer with an Enterprise Agreement (EA customer), you can't download your organization's invoices. Invoices are sent to whoever is set up to receive invoices for the enrollment.
 
-If you're an EA customer or have a [Microsoft Customer Agreement](billing-mca-overview.md#check-your-access-to-a-microsoft-customer-agreement), you can download usage in the [Azure portal](https://portal.azure.com/). For other subscriptions, go to the [Azure Account Center](https://account.azure.com/Subscriptions) to download usage.
+If you're an EA customer or have a [Microsoft Customer Agreement](billing-mca-overview.md#check-access-to-a-microsoft-customer-agreement), you can download usage in the [Azure portal](https://portal.azure.com/). For other subscriptions, go to the [Azure Account Center](https://account.azure.com/Subscriptions) to download usage.
 
 Only certain roles have permission to get billing invoice and usage information, like the Account Administrator, or Enterprise Administrator. If you have a Microsoft Customer Agreement, you must be an Owner, Contributor, or Invoice manager of a billing profile to view its invoices. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](billing-manage-access.md).
 
