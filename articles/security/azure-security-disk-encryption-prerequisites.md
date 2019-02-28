@@ -25,8 +25,9 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 ## <a name="bkmk_OSs"></a> Supported operating systems
 Azure Disk Encryption is supported on the following operating systems:
 
-- Windows Server versions: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, and Windows Server 2016.
-    - For Windows Server 2008 R2, you must have .NET Framework 4.5 installed before you enable encryption in Azure. Install it from Windows Update with the optional update Microsoft .NET Framework 4.5.2 for Windows Server 2008 R2 x64-based systems ([KB2901983](https://support.microsoft.com/kb/2901983)).    
+- Windows Server versions: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Server 2012 R2 Server Core and Windows Server 2016 Server core.
+    - For Windows Server 2008 R2, you must have .NET Framework 4.5 installed before you enable encryption in Azure. Install it from Windows Update with the optional update Microsoft .NET Framework 4.5.2 for Windows Server 2008 R2 x64-based systems ([KB2901983](https://support.microsoft.com/kb/2901983)).
+    - For Windows Server 2012 R2 Server Core and Windows Server 2016 Server core, the bdehdcfg component isn't available by default which is required for ADE. For more details, see [Troubleshooting Windows Server 2016 Server Core](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-tsg#troubleshooting-windows-server-2016-server-core)
 - Windows client versions: Windows 8 client and Windows 10 client.
 - Azure Disk Encryption is only supported on specific Azure Gallery based Linux server distributions and versions. For the list of currently supported versions, refer to the [Azure Disk Encryption FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
 - Azure Disk Encryption requires that your key vault and VMs reside in the same Azure region and subscription. Configuring the resources in separate regions causes a failure in enabling the Azure Disk Encryption feature.
