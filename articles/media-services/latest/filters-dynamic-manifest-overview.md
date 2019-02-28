@@ -34,9 +34,11 @@ The following table shows some examples of URLs with filters:
 
 This topic explains concepts related to **Dynamic Manifests** and gives examples of scenarios in which you might want to use this feature.
 
-## Streaming client manifests
+## Manifests overview
 
-Media Services supports HLS, MPEG DASH, Smooth Streaming protocols. As part of [Dynamic Packaging](dynamic-packaging-overview.md), the streaming client manifests are dynamically generated based on the format selector in the URL. See the delivery protocols in [this section](dynamic-packaging-overview.md#delivery-protocols). 
+Media Services supports HLS, MPEG DASH, Smooth Streaming protocols. As part of **Dynamic Packaging**, the streaming client manifests (HLS Master Playlist, DASH Media Presentation Description (MPD)) are dynamically generated based on the format selector in the URL. 
+
+Media Services supports HLS, MPEG DASH, Smooth Streaming protocols. As part of [Dynamic Packaging](dynamic-packaging-overview.md), the streaming client manifests (HLS Master Playlist, DASH Media Presentation Description (MPD)) are dynamically generated based on the format selector in the URL. See the delivery protocols in [this section](dynamic-packaging-overview.md#delivery-protocols). 
 
 A manifest file (text-based or XML-based) includes streaming metadata such as: track type (audio, video, or text), track name, start and end time, bitrate (qualities), track languages, presentation window (sliding window of fixed duration), video codec (FourCC). It also instructs the player to retrieve the next fragment by providing information about the next playable video fragments available and their location. Fragments (or segments) are the actual "chunks" of a video content.
 
