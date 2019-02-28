@@ -89,7 +89,7 @@ Use this option if the access level of your storage container is set to **Privat
 
 3. Select **Read** from **Permissions**.
 
-4. Set **Start time** to the current time, and **End time** to at least 48 hours from **Start time**. If you will be running other workflows with the same package, consider increasing **End time** for the length of your testing.
+4. Set **Start time** to the current time, and **End time** to at least 48 hours from **Start time**. If you will be creating other workflows with the same package, consider increasing **End time** for the length of your testing.
 
 5. Select **Generate blob SAS token and URL**.
 
@@ -107,7 +107,7 @@ Use this option if the access level of your storage container is set to **Privat
 
 1. Select **Read** and **List** from **Allowed permissions**. Deselect any remaining options.
 
-1. Select **Start time** as current time and **End time** to at least 14 days from **Start time**. The validity time should last for the duration of your tests.
+1. Select **Start time** as current time and **End time** to at least 14 days from **Start time**. If you will be running other tests with the same package, consider increasing **End time** for the length of your testing. Any tests scheduled through VaaS after **End time** will fail and a new SAS will need to be generated.
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
     The format should appear as follows:
