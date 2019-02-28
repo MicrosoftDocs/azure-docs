@@ -197,9 +197,9 @@ az group deployment create --resource-group $resourceGroupName --template-file "
 
 To learn how to create templates, see:
 
-- [Azure Resource Manager documentation](/azure/azure-resource-manager/). 
+- [Azure Resource Manager documentation](/azure/azure-resource-manager/).
 - [Storage account template reference](/azure/templates/microsoft.storage/allversions).
-- [Additional storage account template samples](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)
+- [Additional storage account template samples](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
 
 ---
 
