@@ -73,9 +73,9 @@ Yes, you can encrypt boot and data volumes for Windows and Linux IaaS VMs. For W
 
 To rotate secrets, just call the same command you used originally to enable disk encryption. If you specified a key encryption key, specify a new on to rotate it. 
 
-## How do I add a key encryption key if I didn't originally use one?
+## How do I add or remove a key encryption key if I didn't originally use one?
 
-If you didn't specify a key encryption key and want to add one, simple call the enable command again passing the key encryption key parameter.
+To add a key encryption key, call the enable command again passing the key encryption key parameter. To remove a key encryption key, call the enable command again without the key encryption key parameter.
 
 ## Does Azure Disk Encryption allow you to bring your own key (BYOK)?
 
