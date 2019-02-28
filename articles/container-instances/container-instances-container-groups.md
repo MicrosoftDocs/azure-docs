@@ -43,7 +43,7 @@ Here are two common ways to deploy a multi-container group: use a [Resource Mana
 
 Azure Container Instances allocates resources such as CPUs, memory, and optionally [GPUs][gpus] (preview) to a container group by adding the *resource requests* of the instances in the group. Taking CPU resources as an example, if you create a container group with two instances, each requesting 1 CPU, then the container group is allocated 2 CPUs.
 
-### Resource requests and limits
+### Container resource requests and limits
 
 * By default, container instances in a group share the requested resources of the group. In a group with two instances requesting 1 CPU, each instance can use up to the 2 CPUs allocated to the group. The instances might compete for CPU resources while they're running.
 
@@ -53,7 +53,7 @@ Azure Container Instances allocates resources such as CPUs, memory, and optional
 
 For more information, see the [ResourceRequirements][resource-requirements] property in the container groups REST API.
 
-### Minimum and maximum resources
+### Minimum and maximum allocation
 
 * Allocate a **minimum** of 1 CPU and 1 GB of memory to a container group. Individual container instances within a group can be provisioned with less than 1 CPU and 1 GB of memory. 
 
@@ -63,7 +63,7 @@ For more information, see the [ResourceRequirements][resource-requirements] prop
 
 Container groups share an IP address and a port namespace on that IP address. To enable external clients to reach a container within the group, you must expose the port on the IP address and from the container. Because containers within the group share a port namespace, port mapping isn't supported. Containers within a group can reach each other via localhost on the ports that they have exposed, even if those ports aren't exposed externally on the group's IP address.
 
-Optionally deploy container groups into an [Azure virtual network](virtual-network) (preview) to allow containers to communicate securely with other resources in the virtual network.
+Optionally deploy container groups into an [Azure virtual network][virtual-network] (preview) to allow containers to communicate securely with other resources in the virtual network.
 
 ## Storage
 
