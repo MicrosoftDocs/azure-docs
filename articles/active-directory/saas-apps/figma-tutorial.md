@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/22/2019
+ms.date: 02/28/2019
 ms.author: jeedes
 
 ---
@@ -154,13 +154,26 @@ To configure Azure AD single sign-on with Figma, perform the following steps:
 8. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)
-
->[!Note]
->The following section will require leaving the Azure site. The copied **App Federation Metadata Url** will be used on the Figma site to generate the information required to complete the remaining steps.
   
 ### Configure Figma Single Sign-On
 
-To configure single sign-on on Figma side, In a different web browser window open this form: [here](https://goo.gl/forms/XkRB1z5ed4eVUzXn2) and fill it accordingly. It will accept your App Federation Metadata Url from Step #8.
+1. In a different web browser window, open the Figma's site [here](https://goo.gl/forms/XkRB1z5ed4eVUzXn2) as an Administrator.
+
+2. On the **Figma SAML SSO Configuration** page, perform the following steps:
+
+	![Configure Single Sign-On](./media/figma-tutorial/configure01.png)
+
+	a. In **Email address** text box, enter the email of user like **brittasimon@contoso.com**.
+
+	b. In **Your Name** text box, enter the name of user like **Brittasimon**.
+
+	c. Select your option according to Figma organization.
+
+	d. In **Your organization's name on Figma** textbox, type your organization name.
+
+	e. In **Identity Provider (IDP) Metadata URL** textbox, paste the **App Federation Metadata Url** which you have copied from the Azure portal.
+
+	f. Click **SUBMIT**.
 
 ### Create an Azure AD test user 
 
