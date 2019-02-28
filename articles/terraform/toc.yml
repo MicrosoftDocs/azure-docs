@@ -39,6 +39,22 @@
           href: terraform-create-vm-scaleset-network-disks-hcl.md
         - name: Provision VM scale set from a Packer custom image
           href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+    - name: Networks
+      items:
+      - name: Hub and spoke topology 
+        items:
+          - name: Introduction
+            href: terraform-hub-spoke-introduction.md
+          - name: Create on-premises virtual network
+            href: terraform-hub-spoke-on-prem.md
+          - name: Create hub virtual network
+            href: terraform-hub-spoke-hub-network.md
+          - name: Create a hub virtual network appliance
+            href: terraform-hub-spoke-hub-nva.md
+          - name: Create spoke network
+            href: terraform-hub-spoke-spoke-network.md
+          - name: Validate network topology connectivity 
+            href: terraform-hub-spoke-validation.md
     - name: Tools
       items:
         - name: Install the Terraform Visual Studio Code extension
