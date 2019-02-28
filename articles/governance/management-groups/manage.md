@@ -17,6 +17,8 @@ Management groups give you enterprise-grade management at a large scale no matte
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
+
 ## Change the name of a management group
 
 You can change the name of the management group by using the portal, PowerShell, or Azure CLI.
@@ -41,11 +43,11 @@ You can change the name of the management group by using the portal, PowerShell,
 
 ### Change the name in PowerShell
 
-To update the display name use **Update-AzureRmManagementGroup**. For example, to change a
-management groups name from "Contoso IT" to "Contoso Group", you run the following command:
+To update the display name use **Update-AzManagementGroup**. For example, to change a
+management groups display name from "Contoso IT" to "Contoso Group", you run the following command:
 
 ```azurepowershell-interactive
-Update-AzureRmManagementGroup -GroupName 'ContosoIt' -DisplayName 'Contoso Group'
+Update-AzManagementGroup -GroupName 'ContosoIt' -DisplayName 'Contoso Group'
 ```
 
 ### Change the name in Azure CLI
@@ -91,10 +93,10 @@ To delete a management group, the following requirements must be met:
 
 ### Delete in PowerShell
 
-Use the **Remove-AzureRmManagementGroup** command within PowerShell to delete management groups.
+Use the **Remove-AzManagementGroup** command within PowerShell to delete management groups.
 
 ```azurepowershell-interactive
-Remove-AzureRmManagementGroup -GroupName 'Contoso'
+Remove-AzManagementGroup -GroupName 'Contoso'
 ```
 
 ### Delete in Azure CLI
@@ -123,22 +125,22 @@ You can view any management group you have a direct or inherited RBAC role on.
 
 ### View in PowerShell
 
-You use the Get-AzureRmManagementGroup command to retrieve all groups.  See [https://aka.ms/Get-MG-Powershell](https://aka.ms/Get-MG-Powershell) for the full list of management group GET Powershell commands.  
+You use the Get-AzManagementGroup command to retrieve all groups.  See [Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup) modules for the full list of management group GET Powershell commands.  
 
 ```azurepowershell-interactive
-Get-AzureRmManagementGroup
+Get-AzManagementGroup
 ```
 
 For a single management group's information, use the -GroupName parameter
 
 ```azurepowershell-interactive
-Get-AzureRmManagementGroup -GroupName 'Contoso'
+Get-AzManagementGroup -GroupName 'Contoso'
 ```
 
 To return a specific management group and all the levels of the hierarchy under it, use **-Expand** and **-Recurse** parameters.  
 
 ```azurepowershell-interactive
-PS C:\> $response = Get-AzureRmManagementGroup -GroupName TestGroupParent -Expand -Recurse
+PS C:\> $response = Get-AzManagementGroup -GroupName TestGroupParent -Expand -Recurse
 PS C:\> $response
 
 Id                : /providers/Microsoft.Management/managementGroups/TestGroupParent
@@ -246,16 +248,16 @@ To see what permissions you have in the Azure portal, select the management grou
 
 ### Move subscriptions in PowerShell
 
-To move a subscription in PowerShell, you use the New-AzureRmManagementGroupSubscription command.  
+To move a subscription in PowerShell, you use the New-AzManagementGroupSubscription command.  
 
 ```azurepowershell-interactive
-New-AzureRmManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
+New-AzManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
 ```
 
-To remove the link between and subscription and the management group use the Remove-AzureRmManagementGroupSubscription command.
+To remove the link between and subscription and the management group use the Remove-AzManagementGroupSubscription command.
 
 ```azurepowershell-interactive
-Remove-AzureRmManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
+Remove-AzManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
 ```
 
 ### Move subscriptions in Azure CLI
@@ -297,11 +299,11 @@ When you move a parent management group, the hierarchy under that group moves wi
 
 ### Move management groups in PowerShell
 
-Use the Update-AzureRmManagementGroup command in PowerShell to move a management group under a
+Use the Update-AzManagementGroup command in PowerShell to move a management group under a
 different group.
 
 ```azurepowershell-interactive
-Update-AzureRmManagementGroup -GroupName 'Contoso' -ParentName 'ContosoIT'
+Update-AzManagementGroup -GroupName 'Contoso' -ParentId '/providers/Microsoft.Management/managementGroups/ContosoIT'
 ```  
 
 ### Move management groups in Azure CLI
@@ -309,7 +311,7 @@ Update-AzureRmManagementGroup -GroupName 'Contoso' -ParentName 'ContosoIT'
 Use the update command to move a management group with Azure CLI.
 
 ```azurecli-interactive
-az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
+az account management-group update --name 'Contoso' --parent-id '/providers/Microsoft.Management/managementGroups/ContosoIT'
 ```
 
 ## Audit management groups using activity logs
@@ -329,7 +331,7 @@ When referencing management groups from other Resource Provider's actions, use t
 An example of using this path is when assigning a new role assignment to a management group in PowerShell
 
 ```powershell-interactive
-New-AzureRmRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
+New-AzRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
 ```
 
 The same scope path is used when retrieving a policy definition at a management group.
@@ -344,6 +346,6 @@ To learn more about management groups, see:
 
 - [Create management groups to organize Azure resources](create.md)
 - [How to change, delete, or manage your management groups](manage.md)
-- [Review management groups in Azure PowerShell Resources Module](https://aka.ms/mgPSdocs)
-- [Review management groups in REST API](https://aka.ms/mgAPIdocs)
-- [Review management groups in Azure CLI](https://aka.ms/mgclidoc)
+- [Review management groups in Azure PowerShell Resources Module](/powershell/module/az.resources#resources)
+- [Review management groups in REST API](/rest/api/resources/managementgroups)
+- [Review management groups in Azure CLI](/cli/azure/account/management-group)
