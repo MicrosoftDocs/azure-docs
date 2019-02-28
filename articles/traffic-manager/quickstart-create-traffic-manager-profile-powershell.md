@@ -135,10 +135,10 @@ Get-AzTrafficManagerProfile `
 -ResourceGroupName $ResourceGroupName
 ```
 
-Copy the relativednsname value. The DNS name of your Traffic Manager profile is *http://<relativednsname>.trafficmanager.net*. 
+Copy the relativednsname value. The DNS name of your Traffic Manager profile is *http://<*relativednsname*>.trafficmanager.net*. 
 
 ### View Traffic Manager in action
- 1. In a web browser, enter the DNS name of your Traffic Manager profile (*http://<relativednsname>.trafficmanager.net*) to view your Web App's default website.
+ 1. In a web browser, enter the DNS name of your Traffic Manager profile (*http://<*relativednsname*>.trafficmanager.net*) to view your Web App's default website.
 
     > [!NOTE]
     > In this quickstart scenario, all requests route to the primary endpoint. It is set to **Priority 1**.
@@ -148,7 +148,7 @@ Copy the relativednsname value. The DNS name of your Traffic Manager profile is 
 ```azurepowershell-interactive
 Disable-AzTrafficManagerEndpoint -Name $App1Name-$Location1 -Type AzureEndpoints -ProfileName $ResourceGroupName-tmp -ResourceGroupName $ResourceGroupName -Force
 ```
-3. Copy the DNS name of your Traffic Manager Profile (*http://<relativednsname>.trafficmanager.net*) to view the website in a new web browser session.
+3. Copy the DNS name of your Traffic Manager profile (*http://<*relativednsname*>.trafficmanager.net*) to view the website in a new web browser session.
 4. Verify that the web app is still available.
 
 ## Clean up resources
