@@ -97,18 +97,12 @@ The following steps show how to prepare the [Node.js](https://nodejs.org/) sampl
 1. In your command-line environment, navigate to the `connectedairconditioner` folder you created.
 
 1. Install the DPS key generator by using the following command:
-    
+
     ```cmd/sh
     npm i -g dps-keygen
     ```
 
    Learn more about the [command line tool here](https://www.npmjs.com/package/dps-keygen).
-
-1. Download and unzip (Windows) the dps_cstr tool from [GitHub](https://github.com/Azure/dps-keygen/archive/master.zip
-
-)
-
-    Make sure you choose the one that matches your platform. For example, on Windows the dps_cstr.exe and the dll files should be now available in your folder. 
 
 1. The connection string for a device instance in your application is generated from device information provided by the IoT Central.
 
@@ -116,17 +110,16 @@ The following steps show how to prepare the [Node.js](https://nodejs.org/) sampl
 
    ![Device page showing view connection information link](media/tutorial-add-device/connectionlink.png)
 
-
 1. On the Device Connection page, copy and paste Scope ID, Device ID and Primary Key on to a text editor, then save. You use these values in the next step.
 
-   ![Connection details](media/tutorial-add-device/device-connect.PNG)
+   ![Connection details](media/tutorial-add-device/device-connect.png)
 
 1. Return to the command line environment and generate your connection string by executing:
 
-   ```cmd/sh
-   dps_cstr <scope_id> <device_id> <Primary Key>
-   ```
-   
+    ```cmd/sh
+    dps_keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
+    ```
+
    Copy the output and save in a new file (for example, connection.txt).
 
 1. To initialize your Node.js project, run the following command accepting all the defaults:
