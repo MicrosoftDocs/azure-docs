@@ -43,12 +43,18 @@
     href: how-application-gateway-works.md
   - name: Application Gateway components
     href: application-gateway-components.md
-  - name: SSL policy overview
-    href: application-gateway-ssl-policy-overview.md
-  - name: Web application firewall
-    href: waf-overview.md
-  - name: WAF configuration
-    href: application-gateway-waf-configuration.md 
+  - name: SSL
+    items:
+    - name: SSL policy overview
+      href: application-gateway-ssl-policy-overview.md
+    - name: End to end SSL
+      href: ssl-overview.md
+  - name: WAF
+    items:
+    - name: Web application firewall
+      href: waf-overview.md
+    - name: WAF configuration
+      href: application-gateway-waf-configuration.md 
   - name: URL routing
     href: url-route-overview.md
   - name: Multiple site hosting
