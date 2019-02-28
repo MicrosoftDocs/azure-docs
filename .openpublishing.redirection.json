@@ -11968,7 +11968,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure/machine-learning/studio/faq.md",
+      "source_path": "articles/machine-learning/studio/faq.md",
       "redirect_url": "/azure/machine-learning/studio/what-is-ml-studio",
       "redirect_document_id": false
     },
@@ -27059,6 +27059,26 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/tutorials/autosuggest-source.md",
+      "redirect_url": "/azure/cognitive-services/bing-autosuggest/tutorials/autosuggest",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/autosuggest-endpoint.md",
+      "redirect_url": "/azure/cognitive-services/bing-autosuggest/concepts/sending-requests",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/quick-start.md",
+      "redirect_url": "/azure/cognitive-services/bing-autosuggest/concepts/sending-requests",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/bing-autosuggest-resource-faq.md",
+      "redirect_url": "/azure/cognitive-services/bing-autosuggest/concepts/sending-requests",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-understanding-resource-access.md",
       "redirect_url": "/azure/role-based-access-control/rbac-and-directory-admin-roles",
       "redirect_document_id": true
@@ -31817,6 +31837,16 @@
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-web-api-dotnet.md",
       "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-api-node.md",
+      "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-tutorials-spa",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-native-dotnet.md",
+      "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app",
       "redirect_document_id": false
     },
     {

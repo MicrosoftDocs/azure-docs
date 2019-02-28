@@ -74,7 +74,7 @@ To set up a managed identity in the portal, you will first create an application
 
     ```json
     "AppConfig": {
-        "Url": "<service_endpoint>"
+        "Endpoint": "<service_endpoint>"
     }
     ```
 
@@ -86,7 +86,7 @@ To set up a managed identity in the portal, you will first create an application
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(o => o.ConnectWithManagedIdentity(settings["AppConfig:Url"]));
+                config.AddAzureAppConfiguration(o => o.ConnectWithManagedIdentity(settings["AppConfig:Endpoint"]));
             })
             .UseStartup<Startup>();
     ```
@@ -161,11 +161,27 @@ http://<app_name>.azurewebsites.net
 
 ![app running in App Service](../app-service/media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
-<!-- ### Use a managed identity in a .NET Core app -->
+## Use managed identity in other languages
 
-<!-- ### Use a managed identity in a .NET Framework app -->
+App Configuration providers for .NET Framework and Java Spring also have built-in support for managed identity. In these cases, you simply use your app configuration store's URL endpoint instead of its full connection string when configuring a provider. For example, for the .NET Framework console app created in the quickstart, you specify the following settings in the *App.config* file:
 
-<!-- ### Use a managed identity in a Java Spring app -->
+    ```xml
+    <configSections>
+        <section name="configBuilders" type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" restartOnExternalChanges="false" requirePermission="false" />
+    </configSections>
+
+    <configBuilders>
+        <builders>
+            <add name="MyConfigStore" mode="Greedy" endpoint="${Endpoint}" type="Microsoft.Configuration.ConfigurationBuilders.AzureAppConfigurationBuilder, Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration" />
+            <add name="Environment" mode="Greedy" type="Microsoft.Configuration.ConfigurationBuilders.EnvironmentConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Environment" />
+        </builders>
+    </configBuilders>
+
+    <appSettings configBuilders="Environment,MyConfigStore">
+        <add key="AppName" value="Console App Demo" />
+        <add key="Endpoint" value ="Set via an environment variable - for example, dev, test, staging, or production endpoint." />
+    </appSettings>
+    ```
 
 ## Clean up resources
 
