@@ -145,6 +145,9 @@ This isn't supported. Request this feature in the [feedback forum](http://feedba
 ### Can I exclude disks?
 Yes, you can exclude disks from replication.
 
+### Can I change the target VM size or VM type before failover?
+Yes, you can change the type or size of the VM any time before failover by going to Compute and Network settings of the replication item from the portal.
+
 ### Can I replicate VMs with dynamic disks?
 Dynamic disks can be replicated. The operating system disk must be a basic disk.
 
