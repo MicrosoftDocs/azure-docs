@@ -53,7 +53,7 @@ If there is insufficient memory available for R, you will get an error message. 
 * 'R' script error occurred during execution of 'sp_execute_external_script' with HRESULT 0x80004004. ...an external script error occurred: "..could not allocate memory (0 Mb) in C function 'R_AllocStringBuffer'"
 * An external script error occurred: Error: cannot allocate vector of size.
 
-Memory usage depends on the amount used in your R scripts and the number of parallel queries being executed. If you receive the errors above, you can scale your database to a higher service tier to resolve this.
+Memory usage depends on how much is used in your R scripts and the number of parallel queries being executed. If you receive the errors above, you can scale your database to a higher service tier to resolve this.
 
 ## Security isolation
 
