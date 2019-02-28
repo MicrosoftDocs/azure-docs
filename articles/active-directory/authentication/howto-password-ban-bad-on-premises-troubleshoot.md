@@ -34,15 +34,15 @@ The usual cause of this issue is that a proxy has not yet been registered. If a 
 
 The main symptom of this problem is 30018 events in the DC agent Admin event log. This may have several possible causes:
 
-1. The DC agent is located in a isolated portion of the network that does not allow network connectivity to the registered proxy(s). This may be expected\benign as long as other DC agents can communicate with the proxy(s) in order to download password policies from Azure, which will then be obtained by the isolated DC via replication of the policy files in the sysvol share.
+1. The DC agent is located in a isolated portion of the network that does not allow network connectivity to the registered proxy(s). This problem may therefore be expected\benign as long as other DC agents can communicate with the proxy(s) in order to download password policies from Azure, which will then be obtained by the isolated DC via replication of the policy files in the sysvol share.
 
 1. The proxy host machine is blocking access to the RPC endpoint mapper endpoint (port 135)
 
-   The Azure AD Password Protection Proxy installer automatically creates a Windows Firewall inbound rule that allows access to port 135. If this rule is later deleted or disabled, this will block DC agents from being able to communicate with the Proxy service. If the builtin Windows Firewall has been disabled in lieu of another firewall product, you must configure that firewall to allow access to port 135.
+   The Azure AD Password Protection Proxy installer automatically creates a Windows Firewall inbound rule that allows access to port 135. If this rule is later deleted or disabled, DC agents will be unable to communicate with the Proxy service. If the builtin Windows Firewall has been disabled in lieu of another firewall product, you must configure that firewall to allow access to port 135.
 
 1. The proxy host machine is blocking access to the RPC endpoint (dynamic or static) listened on by the Proxy service
 
-   The Azure AD Password Protection Proxy installer automatically creates a Windows Firewall inbound rule that allows access to any inbound ports listened to by the Azure AD Password Protection Proxy service. If this rule is later deleted or disabled, this will block DC agents from being able to communicate with the Proxy service. If the builtin Windows Firewall has been disabled in lieu of another firewall product, you must configure that firewall to allow access to any inbound ports listened to by the Azure AD Password Protection Proxy service. This configuration may be made more specific if the Proxy service has been configured to listen on a specific static RPC port (using the `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet).
+   The Azure AD Password Protection Proxy installer automatically creates a Windows Firewall inbound rule that allows access to any inbound ports listened to by the Azure AD Password Protection Proxy service. If this rule is later deleted or disabled, DC agents will be unable to communicate with the Proxy service. If the builtin Windows Firewall has been disabled in lieu of another firewall product, you must configure that firewall to allow access to any inbound ports listened to by the Azure AD Password Protection Proxy service. This configuration may be made more specific if the Proxy service has been configured to listen on a specific static RPC port (using the `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet).
 
 ## The Proxy service can receive calls from DC agents in the domain but is unable to communicate with Azure
 
@@ -52,39 +52,37 @@ Ensure the proxy machine has connectivity to the endpoints listed in the [deploy
 
 This problem can manifest with a variety of symptoms but usually has a common root cause.
 
-Azure AD Password Protection has a critical dependency on the encryption and decryption functionality supplied by the Microsoft Key Distribution Service which is available on domain controllers running Windows Server 2012 and later. The KDS service must be enabled and functional on all Windows Server 2012 and later domain controllers in a domain.  
+Azure AD Password Protection has a critical dependency on the encryption and decryption functionality supplied by the Microsoft Key Distribution Service, which is available on domain controllers running Windows Server 2012 and later. The KDS service must be enabled and functional on all Windows Server 2012 and later domain controllers in a domain.  
 
-By default the KDS service's service start mode is configured as Manual (Trigger Start). This means that the first time a client tries to use the service, it is started on-demand. This default service start mode is acceptable for Azure AD Password Protection to work. 
+By default the KDS service's service start mode is configured as Manual (Trigger Start). This configuration means that the first time a client tries to use the service, it is started on-demand. This default service start mode is acceptable for Azure AD Password Protection to work. 
 
-If the KDS service start mode has been configured to Automatic, this is also acceptable.
-
-If the KDS service start mode has been configured to Disabled, this must be fixed before Azure AD Password Protection will work properly.
+If the KDS service start mode has been configured to Disabled, this configuration must be fixed before Azure AD Password Protection will work properly.
 
 A simple test for this issue is to manually start the KDS service, either via the the Service management MMC console, or using other service management tools (for example, run "net start kdssvc" from a command prompt console). The KDS service is expected to start successfully and stay running.
 
-The most common root cause is that the Active Directory domain controller object is located outside of the default Domain Controllers OU. This configuration is not supported by the KDS service and is not a limitation imposed by Azure AD Password Protection. The fix for this is to move the domain controller object to a location under the default Domain Controllers OU.
+The most common root cause is that the Active Directory domain controller object is located outside of the default Domain Controllers OU. This configuration is not supported by the KDS service and is not a limitation imposed by Azure AD Password Protection. The fix for this condition is to move the domain controller object to a location under the default Domain Controllers OU.
 
 ## Weak passwords are being accepted but should not be
 
-This may have several causes.
+This problem may have several causes.
 
 1. Your DC agent(s) cannot downloaded a policy or is unable to decrypt existing policies. Check for possible causes in the above topics.
 
-1. The password policy Enforce mode is still set to Audit. If this is the case, reconfigure it to Enforce using the Azure AD Password Protection portal. Please see [Enable Password protection](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. The password policy Enforce mode is still set to Audit. If this configuration is in effect, reconfigure it to Enforce using the Azure AD Password Protection portal. See [Enable Password protection](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
 
-1. The password policy has been disabled. If this is the case, reconfigure it to enabled using the Azure AD Password Protection portal. Please see [Enable Password protection](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. The password policy has been disabled. If this configuration is in effect, reconfigure it to enabled using the Azure AD Password Protection portal. See [Enable Password protection](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
 
-1. You have not installed the DC agent software on all domain controllers in the domain. In this situation it is difficult to ensure that remote Windows clients target a particular domain controller during a password change operation. If you have think you have successfully targeted a particular DC where the DC agent software is installed, this can be verified by checking the DC agent admin event log: regardless of outcome, there will be at least one event to document the outcome of the password validation. If there is no event present for the user whose password is changed, then the password change was likely processed by a different domain controller.
+1. You have not installed the DC agent software on all domain controllers in the domain. In this situation, it is difficult to ensure that remote Windows clients target a particular domain controller during a password change operation. If you have think you have successfully targeted a particular DC where the DC agent software is installed, you can verify by double-checking the DC agent admin event log: regardless of outcome, there will be at least one event to document the outcome of the password validation. If there is no event present for the user whose password is changed, then the password change was likely processed by a different domain controller.
 
    As an alternative test, try setting\changing passwords while logged in directly to a DC where the DC agent software is installed. This technique is not recommended for production Active Directory domains.
 
-   While incremental deployment of the DC agent software is supported subject to these limitations, Microsoft strongly recommends that the DC agent software be installed on all domain controllers in a domain as soon as possible.
+   While incremental deployment of the DC agent software is supported subject to these limitations, Microsoft strongly recommends that the DC agent software is installed on all domain controllers in a domain as soon as possible.
 
-1. The password validation algorithm may actually be working as expected. Please see [How are passwords evaluated](concept-password-ban-bad.md#how-are-passwords-evaluated).
+1. The password validation algorithm may actually be working as expected. See [How are passwords evaluated](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
 ## Directory Services Repair Mode
 
-If the domain controller is booted into Directory Services Repair Mode, the DC agent service detects this and will cause all password validation or enforcement activities to be disabled, regardless of the currently active policy configuration.
+If the domain controller is booted into Directory Services Repair Mode, the DC agent service detects this condition and will cause all password validation or enforcement activities to be disabled, regardless of the currently active policy configuration.
 
 ## Emergency remediation
 
