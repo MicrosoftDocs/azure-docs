@@ -34,7 +34,7 @@ ms.lastreviewed: 02/28/2019
 
    ![Select plan](media/azure-stack-create-offer/select-plan.png)
 
-4. At this point you can create an add-on plan to modify the base plan, but skip that step for now. We will create an add-on plan in the next article, [Create an add-on plan](create-add-on-plan.md).
+4. At this point you can create an add-on plan to modify the base plan, but skip that step for now. We will create an add-on plan in the next article, [Azure Stack add-on plans](create-add-on-plan.md).
 
 5. Select the **Review + create** tab. Review the offer summary to ensure that all values are correct. Then select **Create** to create the offer.
 
