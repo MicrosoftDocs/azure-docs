@@ -71,7 +71,7 @@ Yes, you can encrypt boot and data volumes for Windows and Linux IaaS VMs. For W
 
 ## How do I rotate secrets or encryption keys?
 
-To rotate secrets, just call the same command you used originally to enable disk encryption. If you specified a key encryption key, specify a new on to rotate it. 
+To rotate secrets, just call the same command you used originally to enable disk encryption. To rotate the key encryption key, call the same command you used originally to enable disk encryption, specifying the new key encryption. 
 
 ## How do I add or remove a key encryption key if I didn't originally use one?
 
