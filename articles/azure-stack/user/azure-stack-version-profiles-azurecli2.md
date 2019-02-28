@@ -3,7 +3,7 @@ title: Connect to Azure Stack with CLI | Microsoft Docs
 description: Learn how to use the cross-platform command-line interface (CLI) to manage and deploy resources on Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 
 ms.service: azure-stack
@@ -11,10 +11,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2019
-ms.author: sethm
+ms.date: 02/28/2019
+ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 01/24/2019
+ms.lastreviewed: 02/28/2019
 
 ---
 # Use API version profiles with Azure CLI in Azure Stack
@@ -37,24 +37,31 @@ The following sections describe how to get these values.
 
 If you are using an integrated system, you don't need to export the CA root certificate. You will need to export the CA root certificate on an ASDK.
 
-To export the ASDK root certificate in PEM format, create a Windows VM on Azure Stack, sign in, and run the following script:
+To export the ASDK root certificate in PEM format:
 
-```powershell
-$label = "AzureStackSelfSignedRootCert"
-Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
-$root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
-if (-not $root)
-{
-    Write-Error "Certificate with subject CN=$label not found"
-    return
-}
+1. [Create a Windows VM on Azure Stack](azure-stack-quick-windows-portal.md).
 
-Write-Host "Exporting certificate"
-Export-Certificate -Type CERT -FilePath root.cer -Cert $root
+2. Sign in to the machine, open an elevated PowerShell prompt, and then run the following script:
 
-Write-Host "Converting certificate to PEM format"
-certutil -encode root.cer root.pem
+      ```powershell  
+      $label = "AzureStackSelfSignedRootCert"
+      Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
+      $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
+      if (-not $root)
+      {
+          Write-Error "Certificate with subject CN=$label not found"
+          return
+      }
+      
+    Write-Host "Exporting certificate"
+    Export-Certificate -Type CERT -FilePath root.cer -Cert $root
+
+    Write-Host "Converting certificate to PEM format"
+    certutil -encode root.cer root.pem
 ```
+
+3. Copy the certificate to your local machine.
+
 
 ### Set up the virtual machine aliases endpoint
 
@@ -68,9 +75,9 @@ You can set up a publicly accessible endpoint that hosts a virtual machine alias
 
 3. Upload the JSON file to the new container. When that's done, you can view the URL of the blob. Select the blob name and then selecting the URL from the blob properties.
 
-### Install CLI
+### Install or ugrade CLI
 
-Sign in to your development workstation and install CLI. Azure Stack requires version 2.0 or later of Azure CLI. You can install the CLI by using the steps described in the [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) article. To verify whether the installation was successful, open a terminal or command prompt window, and run the following command:
+Sign in to your development workstation and install CLI. Azure Stack requires version 2.0 or later of Azure CLI. The latest version of the API Profiles requires a current version of the CLI.  You can install the CLI by using the steps described in the [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) article. To verify whether the installation was successful, open a terminal or command prompt window, and run the following command:
 
 ```azurecli
 az --version
@@ -183,16 +190,25 @@ To trust the Azure Stack CA root certificate, append it to the existing Python c
 
 ### Connect to Azure Stack
 
-1. Register your Azure Stack environment by running the `az cloud register` command. In some scenarios, direct outbound internet connectivity is routed through a proxy or firewall, which enforces SSL interception. In these cases, the `az cloud register` command can fail with an error such as "Unable to get endpoints from the cloud." To work around this error, you can set the following environment variables:
+1. Register your Azure Stack environment by running the `az cloud register` command.
+
+    In some scenarios, direct outbound internet connectivity is routed through a proxy or firewall, which enforces SSL interception. In these cases, the `az cloud register` command can fail with an error such as "Unable to get endpoints from the cloud." To work around this error, you can set the following environment variables:
+
+    ```shell  
+    set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
+    set ADAL_PYTHON_SSL_NO_VERIFY=1
+    ```
+
+    Register your environment by specifying the name. Specify the name of environment after the `-n` switch. Use `AzureStackUser`  for the user environment. If you are operator, specify `AzureStackAdmin`.
 
     ```azurecli  
-    az cloud register -n AzureStackUser --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
     ```
 
 1. Set the active environment by using the following commands.
 
       ```azurecli
-      az cloud set -n AzureStackUser
+      az cloud set -n <environmentname>
       ```
 
 1. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
@@ -202,8 +218,8 @@ To trust the Azure Stack CA root certificate, append it to the existing Python c
    ```
 
     >[!NOTE]  
-    >If you are running a version of Azure Stack before the 1808 build, you must use the API version profile **2017-03-09-profile** rather than the API version profile **2018-03-01-hybrid**.
-
+    >If you are running a version of Azure Stack before the 1808 build, you must use the API version profile **2017-03-09-profile** rather than the API version profile **2018-03-01-hybrid**. You will need to be using a recent version of the Azure CLI.
+ 
 1. Sign in to your Azure Stack environment by using the `az login` command. You can sign in to the Azure Stack environment either as a user or as a [service principal](../../active-directory/develop/app-objects-and-service-principals.md). 
 
   - Sign in as a *user*: 
@@ -284,16 +300,25 @@ This section will walk you through setting up CLI if you are using Active Direct
 
 ### Connect to Azure Stack
 
-1. Register your Azure Stack environment by running the `az cloud register` command. In some scenarios, direct outbound internet connectivity is routed through a proxy or firewall, which enforces SSL interception. In these cases, the `az cloud register` command can fail with an error such as "Unable to get endpoints from the cloud." To work around this error, you can set the following environment variables:
+1. Register your Azure Stack environment by running the `az cloud register` command.
+
+    In some scenarios, direct outbound internet connectivity is routed through a proxy or firewall, which enforces SSL interception. In these cases, the `az cloud register` command can fail with an error such as "Unable to get endpoints from the cloud." To work around this error, you can set the following environment variables:
+
+    ```shell  
+    set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
+    set ADAL_PYTHON_SSL_NO_VERIFY=1
+    ```
+
+    Register your environment by specifying the name. Specify the name of environment after the `-n` switch. Use `AzureStackUser`  for the user environment. If you are operator, specify `AzureStackAdmin`.
 
     ```azurecli  
-    az cloud register -n AzureStackUser --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
     ```
 
 1. Set the active environment by using the following commands.
 
       ```azurecli
-      az cloud set -n AzureStackUser
+      az cloud set -n <environmentname>
       ```
 
 1. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
@@ -303,7 +328,7 @@ This section will walk you through setting up CLI if you are using Active Direct
    ```
 
     >[!NOTE]  
-    >If you are running a version of Azure Stack before the 1808 build, you must use the API version profile **2017-03-09-profile** rather than the API version profile **2018-03-01-hybrid**.
+    >If you are running a version of Azure Stack before the 1808 build, you must use the API version profile **2017-03-09-profile** rather than the API version profile **2018-03-01-hybrid**. You will need to be using a recent version of the Azure CLI.
 
 1. Sign in to your Azure Stack environment by using the `az login` command. You can sign in to the Azure Stack environment either as a user or as a [service principal](../../active-directory/develop/app-objects-and-service-principals.md). 
 
@@ -312,7 +337,7 @@ This section will walk you through setting up CLI if you are using Active Direct
     You can either specify the username and password directly within the `az login` command, or authenticate by using a browser. You must do the latter if your account has multi-factor authentication enabled:
 
     ```azurecli
-    az cloud register  -n AzureStack   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/" --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2018-03-01-hybrid"
+    az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/" --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2018-03-01-hybrid"
     ``
 
     > [!NOTE]
@@ -390,49 +415,32 @@ Use the following steps to connect to Azure Stack:
    set ADAL_PYTHON_SSL_NO_VERIFY=1
    ```
 
-To register the *user* environment, use:
+2. Register your environment by specifying the name. Specify the name of environment after the `-n` switch. Use `AzureStackUser`  for the user environment. If you are operator, specify `AzureStackAdmin`.
 
       ```azurecli  
-      az cloud register -n AzureStackUser --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+      az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
 
-Set the active environment 
+3. Set the active environment 
 
       ```azurecli
-      az cloud set \
-        -n AzureStackUser
+        az cloud set -n <environmentname>
       ```
 
-Set the active environment by using the following commands.
-   
-    a. For the *cloud administrative* environment, use:
-
-      ```azurecli
-      az cloud set \
-        -n AzureStackAdmin
-      ```
-
-    b. For the *user* environment, use:
-
-      ```azurecli
-      az cloud set \
-        -n AzureStackUser
-      ```
-
-1. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
+4. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
 
     ```azurecli
-    az cloud update \
-      --profile 2018-03-01-hybrid
+      az cloud update --profile 2018-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >If you are running a version of Azure Stack before the 1808 build, you must use the API version profile **2017-03-09-profile** rather than the API version profile **2018-03-01-hybrid**.
+    >If you are running a version of Azure Stack before the 1808 build, you must use the API version profile **2017-03-09-profile** rather than the API version profile **2018-03-01-hybrid**. You will need to be using a recent version of the Azure CLI.
 
-1. Sign in to your Azure Stack environment by using the `az login` command. You can sign in to the Azure Stack environment either as a user or as a [service principal](../../active-directory/develop/app-objects-and-service-principals.md). 
+5. Sign in to your Azure Stack environment by using the `az login` command. You can sign in to the Azure Stack environment either as a user or as a [service principal](../../active-directory/develop/app-objects-and-service-principals.md). 
 
-    * Azure AD environments
-      * Sign in as a *user*: You can either specify the username and password directly within the `az login` command, or authenticate by using a browser. You must do the latter if your account has multi-factor authentication enabled:
+    * Sign in as a *user*:
+
+    You can either specify the username and password directly within the `az login` command, or authenticate by using a browser. You must do the latter if your account has multi-factor authentication enabled:
 
       ```azurecli
       az login \
@@ -440,10 +448,12 @@ Set the active environment by using the following commands.
         --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
       ```
 
-      > [!NOTE]
-      > If your user account has multi-factor authentication enabled, you can use the `az login` command without providing the `-u` parameter. Running this command gives you a URL and a code that you must use to authenticate.
+    > [!NOTE]
+    > If your user account has multi-factor authentication enabled, you can use the `az login` command without providing the `-u` parameter. Running this command gives you a URL and a code that you must use to authenticate.
    
-      * Sign in as a *service principal*: Before you sign in, [create a service principal through the Azure portal](azure-stack-create-service-principals.md) or CLI and assign it a role. Now, sign in by using the following command:
+    * Sign in as a *service principal*
+    
+    Before you sign in, [create a service principal through the Azure portal](azure-stack-create-service-principals.md) or CLI and assign it a role. Now, sign in by using the following command:
 
       ```azurecli  
       az login \
@@ -452,40 +462,13 @@ Set the active environment by using the following commands.
         -u <Application Id of the Service Principal> \
         -p <Key generated for the Service Principal>
       ```
-    * AD FS environments
-
-        * Sign in as a user using a web browser with a device code:  
-           ```azurecli  
-           az login --use-device-code
-           ```
-
-           > [!NOTE]  
-           >Running the command gives you a URL and a code that you must use to authenticate.
-
-        * Sign in as a service principal:
-        
-          1. Prepare the .pem file to be used for service principal login.
-
-            * On the client machine where the principal was created, export the service principal certificate as a pfx with the private key located at `cert:\CurrentUser\My`; the cert name has the same name as the principal.
-        
-            * Convert the pfx to pem (use the OpenSSL utility).
-
-          2.  Sign in to the CLI:
-            ```azurecli  
-            az login --service-principal \
-              -u <Client ID from the Service Principal details> \
-              -p <Certificate's fully qualified name, such as, C:\certs\spn.pem>
-              --tenant <Tenant ID> \
-              --debug 
-            ```
 
 ### Test the connectivity
 
 With everything set up, use CLI to create resources within Azure Stack. For example, you can create a resource group for an application and add a virtual machine. Use the following command to create a resource group named "MyResourceGroup":
 
 ```azurecli
-az group create \
-  -n MyResourceGroup -l local
+    az group create -n MyResourceGroup -l local
 ```
 
 If the resource group is created successfully, the previous command outputs the following properties of the newly created resource:
@@ -498,8 +481,104 @@ This section will walk you through setting up CLI if you are using Active Direct
 
 ### Trust the Azure Stack CA root certificate
 
+Trust the Azure Stack CA root certificate by appending it to the existing Python certificate.
+
+1. Find the certificate location on your machine. The location may vary depending on where you have installed Python. You will need to have [pip](https://pip.pypa.io) and the [certifi](https://pypi.org/project/certifi/) module installed. You can use the following Python command from the bash prompt:
+
+    ```bash  
+    python3 -c "import certifi; print(certifi.where())"
+    ```
+
+    Make a note of the certificate location; for example, `~/lib/python3.5/site-packages/certifi/cacert.pem`. Your specific path depends on your operating system and the version of Python that you have installed.
+
+2. Run the following bash command with the path to your certificate.
+
+  - For a remote Linux machine:
+
+    ```bash  
+    sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
+    ```
+
+  - For a Linux machine within the Azure Stack environment:
+
+    ```bash  
+    sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
+    ```
+
 ### Connect to Azure Stack
 
+Use the following steps to connect to Azure Stack:
+
+1. Register your Azure Stack environment by running the `az cloud register` command. In some scenarios, direct outbound internet connectivity is routed through a proxy or firewall, which enforces SSL interception. In these cases, the `az cloud register` command can fail with an error such as "Unable to get endpoints from the cloud." To work around this error, you can set the following environment variables:
+
+   ```shell
+   set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
+   set ADAL_PYTHON_SSL_NO_VERIFY=1
+   ```
+
+2. Register your environment by specifying the name. Specify the name of environment after the `-n` switch. Use `AzureStackUser`  for the user environment. If you are operator, specify `AzureStackAdmin`.
+
+      ```azurecli  
+      az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+      ```
+
+3. Set the active environment 
+
+      ```azurecli
+        az cloud set -n <environmentname>
+      ```
+
+4. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
+
+    ```azurecli
+      az cloud update --profile 2018-03-01-hybrid
+   ```
+
+    >[!NOTE]  
+    >If you are running a version of Azure Stack before the 1808 build, you must use the API version profile **2017-03-09-profile** rather than the API version profile **2018-03-01-hybrid**. You will need to be using a recent version of the Azure CLI.
+
+5. Sign in to your Azure Stack environment by using the `az login` command. You can sign in to the Azure Stack environment either as a user or as a [service principal](../../active-directory/develop/app-objects-and-service-principals.md). 
+
+6. Sign in: 
+
+  *  As a **user** using a web browser with a device code:  
+
+    ```azurecli  
+    az login --use-device-code
+    ```
+
+    > [!NOTE]  
+    >Running the command gives you a URL and a code that you must use to authenticate.
+
+  * As a service principal:
+        
+    Prepare the .pem file to be used for service principal login.
+
+      * On the client machine where the principal was created, export the service principal certificate as a pfx with the private key located at `cert:\CurrentUser\My`; the cert name has the same name as the principal.
+  
+      * Convert the pfx to pem (use the OpenSSL utility).
+
+    Sign in to the CLI:
+
+      ```azurecli  
+      az login --service-principal \
+        -u <Client ID from the Service Principal details> \
+        -p <Certificate's fully qualified name, such as, C:\certs\spn.pem>
+        --tenant <Tenant ID> \
+        --debug 
+      ```
+
+### Test the connectivity
+
+With everything set up, use CLI to create resources within Azure Stack. For example, you can create a resource group for an application and add a virtual machine. Use the following command to create a resource group named "MyResourceGroup":
+
+```azurecli
+az group create \
+  -n MyResourceGroup -l local
+```
+If the resource group is created successfully, the previous command outputs the following properties of the newly created resource:
+
+![Resource group create output](media/azure-stack-connect-cli/image1.png)
 
 ## Known issues
 
