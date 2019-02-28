@@ -5,7 +5,7 @@ description: How to choose Azure Machine Learning Studio algorithms for supervis
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs
@@ -208,7 +208,7 @@ or faster training times.
 | **Multi-class classification** | | | | | |
 | [logistic regression](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
 | [decision forest](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
-| [decision jungle ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Low memory footprint |
+| [decision jungle](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Low memory footprint |
 | [neural network](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Additional customization is possible](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |See properties of the two-class method selected |
 | **Regression** | | | | | |
