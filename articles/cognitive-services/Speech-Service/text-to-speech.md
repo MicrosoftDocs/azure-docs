@@ -1,7 +1,7 @@
 ---
 title: Text-to-speech with Azure Speech Services
 titleSuffix: Azure Cognitive Services
-description: Text-to-speech from Azure Speech Services is a REST-based service that enables your applications, tools, or devices to convert text into natural human-like synthesized speech. Choose from standard from standard and neural voices, or create your own custom voice unique to your product or brand. 75+ standard voices are available in more than 45 languages and locales, and 5 neural voices are available in 4 languages and locales.
+description: Text-to-speech from Azure Speech Services is a REST-based service that enables your applications, tools, or devices to convert text into natural human-like synthesized speech. Choose from standard and neural voices, or create your own custom voice unique to your product or brand. 75+ standard voices are available in more than 45 languages and locales, and 5 neural voices are available in 4 languages and locales.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -25,11 +25,11 @@ Neural voices can be used to make interactions with chatbots and virtual assista
 
 ### Custom voice fonts
 
-Voice customization lets you to create a recognizable, one-of-a-kind voice for your brand: a *voice font.* To create your voice font, you make a studio recording and upload the associated scripts as the training data. The service then creates a unique voice model tuned to your recording. You can use his voice font to synthesize speech. For more information, see [custom voice fonts](how-to-customize-voice-font.md).
+Voice customization lets you create a recognizable, one-of-a-kind voice for your brand: a *voice font.* To create your voice font, you make a studio recording and upload the associated scripts as the training data. The service then creates a unique voice model tuned to your recording. You can use this voice font to synthesize speech. For more information, see [custom voice fonts](how-to-customize-voice-font.md).
 
 ## Core features
 
-This is a list of core features for text-to-speech:
+This table lists the core features for text-to-speech:
 
 | Use case | SDK | REST |
 |----------|-----|------|
