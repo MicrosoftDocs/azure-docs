@@ -43,7 +43,7 @@ ms.lastreviewed: 02/28/2019
   
    ![Select services](media/azure-stack-create-plan/services.png)
 
-6. Select the **Quotas** tab. Next to **Microsoft.Storage (local)**, choose either the default quota or select **Create New** to create a customized quota.
+6. Select the **Quotas** tab. Next to **Microsoft.Storage**, choose either the default quota or select **Create New** to create a customized quota.
   
    ![Quotas](media/azure-stack-create-plan/quotas.png)
 
@@ -51,7 +51,7 @@ ms.lastreviewed: 02/28/2019
 
    ![New quota](media/azure-stack-create-plan/new-quota.png)
 
-8. Repeat steps 6 and 7 to create and assign quotas for **Microsoft.Network (local)** and **Microsoft.Compute (local)**. When all three services have quotas assigned, they'll look like the next example.
+8. Repeat steps 6 and 7 to create and assign quotas for **Microsoft.Network** and **Microsoft.Compute**. When all three services have quotas assigned, they'll look like the next example.
 
    ![Complete quota assignments](media/azure-stack-create-plan/all-quotas-assigned.png)
 
