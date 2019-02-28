@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 02/28/2019
 ms.author: tomfitz
 
 ---
@@ -162,7 +162,7 @@ The section provides descriptions of how to handle complicated scenarios for mov
 
 ### Virtual Machines limitations
 
-From September 24, 2018, you can move managed disks. This support means you can move virtual machines with the managed disks, managed images, managed snapshots, and availability sets with virtual machines that use managed disks.
+You can move virtual machines with the managed disks, managed images, managed snapshots, and availability sets with virtual machines that use managed disks.
 
 The following scenarios aren't yet supported:
 
@@ -186,6 +186,8 @@ To move virtual machines configured with Azure Backup, use the following workaro
 ### Virtual Networks limitations
 
 When moving a virtual network, you must also move its dependent resources. For VPN Gateways, you must move IP addresses, virtual network gateways, and all associated connection resources. Local network gateways can be in a different resource group.
+
+To move a virtual machine with a network interface card, you must move all dependent resources. You must move the virtual network for the network interface card, all other network interface cards for the virtual network, and the VPN gateways.
 
 To move a peered virtual network, you must first disable the virtual network peering. Once disabled, you can move the virtual network. After the move, reenable the virtual network peering.
 
