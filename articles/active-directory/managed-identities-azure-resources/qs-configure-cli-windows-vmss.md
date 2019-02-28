@@ -110,11 +110,8 @@ If you have a virtual machine that no longer needs system-assigned managed ident
 az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-To remove the managed identities for Azure resources VM extension (planned for deprecation in January 2019), use [az vmss identity remove](/cli/azure/vmss/identity/) command to remove the system-assigned managed identity from a VMSS:
-
-```azurecli-interactive
-az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
-```
+> [!NOTE]
+> If you have provisioned the managed identity for Azure resources VM extension (to be deprecated), you need to remove it using [az vmss extension delete](https://docs.microsoft.com/cli/azure/vm/). For more information, see [Migrate from VM extension to Azure IMDS for authentication](howto-migrate-vm-extension.md).
 
 ## user-assigned managed identity
 

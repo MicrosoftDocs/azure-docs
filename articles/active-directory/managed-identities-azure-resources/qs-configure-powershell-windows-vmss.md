@@ -57,17 +57,9 @@ To create a VMSS with the system-assigned managed identity enabled:
     ```powershell
     $VMSS = New-AzVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`
     ```
+> [!NOTE]
+> You may optionally provision the managed identities for Azure resources VMSS extension, but it will soon be deprecated. We recommend using the Azure Instance Metadata identity endpoint for authentication. For more information, see [Migrate from the VM extension to Azure IMDS endpoint for authentication](howto-migrate-vm-extension.md).
 
-2. (Optional) Add the managed identities for Azure resources virtual machine scale set extension using the `-Name` and `-Type` parameter on the [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet. You can pass either "ManagedIdentityExtensionForWindows" or "ManagedIdentityExtensionForLinux", depending on the type of virtual machine scale set, and name it using the `-Name` parameter. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition:
-
-    > [!NOTE]
-    > This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well.
-
-   ```powershell
-   $setting = @{ "port" = 50342 }
-   $vmss = Get-AzVmss
-   Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
-   ```
 
 ## Enable system-assigned managed identity on an existing Azure virtual machine scale set
 
@@ -85,13 +77,8 @@ If you need to enable a system-assigned managed identity on an existing Azure vi
    Update-AzVmss -ResourceGroupName myResourceGroup -Name -myVmss -IdentityType "SystemAssigned"
    ```
 
-3. Add the managed identities for Azure resources VMSS extension using the `-Name` and `-Type` parameter on the [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet. You can pass either "ManagedIdentityExtensionForWindows" or "ManagedIdentityExtensionForLinux", depending on the type of virtual machine scale set, and name it using the `-Name` parameter. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition:
-
-   ```powershell
-   $setting = @{ "port" = 50342 }
-   $vmss = Get-AzVmss
-   Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
-   ```
+> [!NOTE]
+> You may optionally provision the managed identities for Azure resources VMSS extension, but it will soon be deprecated. We recommend using the Azure Instance Metadata identity endpoint for authentication. For more information, see [Migrate from the VM extension to Azure IMDS endpoint for authentication](howto-migrate-vm-extension.md).
 
 ### Disable the system-assigned managed identity from an Azure virtual machine scale set
 
