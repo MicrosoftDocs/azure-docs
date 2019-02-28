@@ -5,7 +5,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 02/13/2019
+ms.date: 02/28/2019
 ms.topic: conceptual
 ms.author: mayg
 ---
@@ -261,6 +261,9 @@ Yes, both encryption-in-transit and [encryption in Azure](https://docs.microsoft
 
 
 ## Failover and failback
+### Can I use the process server at on-premises for failback?
+It is strongly recommended to create a process server in Azure for failback purpose to avoid data transfer latencies. Additionally, in case you separated the source VMs network with the Azure facing network at Configuration server, then it is essential to use the Process Server created in Azure for failback.
+
 ### How far back can I recover?
 For VMware to Azure the oldest recovery point you can use is 72 hours.
 

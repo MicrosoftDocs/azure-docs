@@ -2,12 +2,12 @@
 title: Set up disaster recovery to Azure for on-premises VMware VMs with Azure Site Recovery | Microsoft Docs
 description: Learn how to set up disaster recovery to Azure for on-premises VMware VMs with Azure Site Recovery.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2018
-ms.author: raynew
+ms.date: 2/28/2019
+ms.author: mayg
 ms.custom: MVC
 
 ---
@@ -121,7 +121,7 @@ To add an additional NIC to the configuration server, add it before you register
 
 ### Configure settings and add the VMware server
 
-1. In the configuration server management wizard, select **Setup connectivity**, and then select the NIC that the process server uses to receive replication traffic from VMs. Then select **Save**. You can't change this setting after it's configured.
+1. In the configuration server management wizard, select **Setup connectivity**. From the dropdowns, first select the NIC that the in-built process server uses for discovery and push installation of mobility service on source machines, and then select the NIC that Configuration Server uses for connectivity with Azure. Then select **Save**. You cannot change this setting after it's configured.
 2. In **Select Recovery Services vault**, select your Azure subscription and the relevant resource group and vault.
 3. In **Install third-party software**, accept the license agreement. Select **Download and Install** to install MySQL Server. If you placed MySQL in the path, this step is skipped.
 4. Select **Install VMware PowerCLI**. Make sure all browser windows are closed before you do this. Then select **Continue**.
