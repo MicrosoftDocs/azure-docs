@@ -23,10 +23,10 @@ These features make up the Azure Speech Services. Use the links in this table to
 
 | Service | Feature | Description | SDK | REST |
 |---------|---------|-------------|-----|------|
-| [Speech-to-text](speech-to-text.md) | Speech recognition | Speech recognition, or speech-to-text, transcribes audio streams in real time to text that your applications, tools, or devices can consume or display. Use speech recognition with [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) to derive user intents from transcribed speech and act on voice commands. | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Speaker recognition](speech-to-text.md) | Speech recognition | Speech recognition, or speech-to-text, transcribes audio streams in real time to text that your applications, tools, or devices can consume or display. Use speech recognition with [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) to derive user intents from transcribed speech and act on voice commands. | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Batch Transcription](batch-transcription.md) | Batch transcription enables asynchronous speech-to-text transcription of large volumes of data. This is a REST-based service, which uses same endpoint as customization and model management. | No | [Yes](https://westus.cris.ai/swagger/ui/index) |
 | | [Customization](#customize-your-speech-experience) | If you are using speech recognition in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. | No | [Yes](https://westus.cris.ai/swagger/ui/index) |
-| [Text-to-Speech](text-to-speech.md) | Speech synthesis | Text-to-speech converts input text into human-like synthesized speech. Choose from standard voices and neural voices (see [Language support](language-support.md)). | No | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Text-to-Speech](text-to-speech.md) | Synthesize text-to-speech | Text-to-speech converts input text into human-like synthesized speech. Choose from standard voices and neural voices (see [Language support](language-support.md)). | No | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Customization](#customize-your-speech-experience) | Create custom voice fonts unique to your brand or product. | No | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Speech Translation](speech-translation.md) | Speech translation | Speech translation enables real-time, multi-language translation of speech to your applications, tools, and devices. Use this service for speech-to-speech and speech-to-text translation. | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | No |
 
@@ -58,7 +58,7 @@ After you've had a chance to use the Speech Services, try our tutorial that teac
 Sample code is available on GitHub for each of the Azure Speech Services. These samples cover common scenarios like reading audio from a file or stream, continuous and single-shot recognition, and working with custom models. Use these links to view SDK and REST samples:
 
 * [Speech Recognition and Translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-* [Speech Synthesis samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+* [Text-to-speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
 ## Customize your speech experience
 
