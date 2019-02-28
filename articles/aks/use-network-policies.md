@@ -12,7 +12,7 @@ ms.author: iainfou
 
 # Secure traffic between pods using network policies in Azure Kubernetes Service (AKS)
 
-When you run modern, microservices-based applications in Kubernetes, you often want to control which components can communicate with each other. The principle of least privilege should be applied to how traffic can flow between pods in an Azure Kubernetes Service (AKS) cluster. For example, you likely want to block traffic directly to backend applications. In Kubernetes, the *Network Policy* feature lets you define rules for ingress and egress traffic between pods in a cluster.
+When you run modern, microservices-based applications in Kubernetes, you often want to control which components can communicate with each other. The principle of least privilege should be applied to how traffic can flow between pods in an Azure Kubernetes Service (AKS) cluster. Let's say you likely want to block traffic directly to backend applications. The *Network Policy* feature in Kubernetes lets you define rules for ingress and egress traffic between pods in a cluster.
 
 This article shows you how to use network policies to control the flow of traffic between pods in AKS.
 
@@ -43,9 +43,9 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Overview of network policy
 
-By default, all pods in an AKS cluster can send and receive traffic without limitations. To improve security, you can define rules that control the flow of traffic. For example, backend applications are often only exposed to required frontend services, or database components are only accessible to the application tiers that connect to them.
+All pods in an AKS cluster can send and receive traffic without limitations, by default. To improve security, you can define rules that control the flow of traffic. Backend applications are often only exposed to required frontend services, for example. Or, database components are only accessible to the application tiers that connect to them.
 
-Network policies are Kubernetes resources that let you control the traffic flow between pods. You can choose to allow or deny traffic based on settings like assigned labels, namespace, or traffic port. Network policies are defined as YAML manifests and can be included as part of a wider manifest that also creates a deployment or service.
+Network policies are Kubernetes resources that let you control the traffic flow between pods. You can choose to allow or deny traffic based on settings like assigned labels, namespace, or traffic port. Network policies are defined as YAML manifests. These policies can be included as part of a wider manifest that also creates a deployment or service.
 
 To see network policies in action, let's create and then expand on a policy that defines traffic flow:
 
@@ -66,7 +66,7 @@ The following example script:
 * Assigns *Contributor* permissions for the AKS cluster service principal on the virtual network.
 * Creates an AKS cluster in the defined virtual network and enables network policy.
 
-Provide your own secure *SP_PASSWORD*. If desired, replace the *RESOURCE_GROUP_NAME* and *CLUSTER_NAME* variables:
+Provide your own secure *SP_PASSWORD*. You can replace the *RESOURCE_GROUP_NAME* and *CLUSTER_NAME* variables:
 
 ```azurecli-interactive
 SP_PASSWORD=mySecurePassword
@@ -127,7 +127,7 @@ az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAM
 
 ## Deny all inbound traffic to a pod
 
-Before you define rules to allow specific network traffic, first create a network policy to deny all traffic. This policy gives you a starting point to begin to whitelist only the desired traffic. You can also clearly see that traffic is dropped when the network policy is applied.
+Before you define rules to allow specific network traffic, first create a network policy to deny all traffic. This policy gives you a starting point to begin to whitelist only the  traffic you want. You can also clearly see that traffic is dropped when the network policy is applied.
 
 For the sample application environment and traffic rules, let's first create a namespace called *development* to run the example pods:
 
@@ -196,13 +196,14 @@ kubectl apply -f backend-policy.yaml
 
 ### Test the network policy
 
+
 Let's see if you can use the NGINX webpage on the backend pod again. Create another test pod and attach a terminal session:
 
 ```console
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-At the shell prompt, use `wget` to see if you can use the default NGINX web page. This time set a timeout value to *two* seconds. The network policy now blocks all inbound traffic, so the page cannot be loaded, as shown in the following example:
+At the shell prompt, use `wget` to see if you can use the default NGINX web page. This time set a timeout value to *two* seconds. The network policy now blocks all inbound traffic, so the page can't be loaded, as shown in the following example:
 
 ```console
 $ wget -qO- --timeout=2 http://backend
@@ -287,7 +288,7 @@ The network policy allows traffic from pods labeled *app: webapp,role: frontend*
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-At the shell prompt, use `wget` to see if you can use the default NGINX web page. The network policy blocks the inbound traffic, so the page cannot be loaded, as shown in the following example:
+At the shell prompt, use `wget` to see if you can use the default NGINX web page. The network policy blocks the inbound traffic, so the page can't be loaded, as shown in the following example:
 
 ```console
 $ wget -qO- --timeout=2 http://backend
@@ -303,7 +304,7 @@ exit
 
 ## Allow traffic only from within a defined namespace
 
-In the previous examples, you created a network policy that denied all traffic, then updated the policy to allow traffic from pods with a specific label. Another common need is to limit traffic to only within a given namespace. If the previous examples were for traffic in a *development* namespace, you may want to then create a network policy that prevents traffic from another namespace, like *production*, from reaching the pods.
+In the previous examples, you created a network policy that denied all traffic, then updated the policy to allow traffic from pods with a specific label. Another common need is to limit traffic to only within a given namespace. If the previous examples were for traffic in a *development* namespace, create a network policy that prevents traffic from another namespace, such as *production*, from reaching the pods.
 
 First, create a new namespace to simulate a production namespace:
 
@@ -408,7 +409,7 @@ At the shell prompt, use `wget` to see that the network policy allows the traffi
 wget -qO- http://backend
 ```
 
-Because the pod is scheduled in the namespace that matches what is permitted in the network policy, the traffic is allowed. The following sample output shows the default NGINX web page returned:
+Traffic is allowed because the pod is scheduled in the namespace that matches what's permitted in the network policy. The following sample output shows the default NGINX web page returned:
 
 ```
 <!DOCTYPE html>
