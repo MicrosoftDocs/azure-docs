@@ -98,7 +98,9 @@ NSG flow logging requires the **Microsoft.Insights** provider. To register the p
 6. From the list of NSGs, select the NSG named **myVm-nsg**.
 7. Under **Flow logs settings**, select **On**.
 8. Select the flow logging version. Version 2 contains flow-session statistics (Bytes and Packets)
-    a. ![Select flow Logs version](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+
+   ![Select flow Logs version](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+
 9. Select the storage account that you created in step 3.
 10. Set **Retention (days)** to 5, and then select **Save**.
 
@@ -115,6 +117,7 @@ NSG flow logging requires the **Microsoft.Insights** provider. To register the p
    https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 
    ![Flow log](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
+
 6. Select **...** to the right of the PT1H.json file and select **Download**.
 
 ## View flow log
