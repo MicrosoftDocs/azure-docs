@@ -104,7 +104,7 @@ If you are running the Azure Stack Monthly Update Verification workflow and the 
 
   - Interactive test category
 
-    The **Interactive** test category has been added. These tests let partners to exercise interactive, non-automated Azure Stack scenarios.
+    The **Interactive** test category has been added. These tests exercise interactive, non-automated Azure Stack scenarios.
 
   - Interactive Feature Verification
 

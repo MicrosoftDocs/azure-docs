@@ -40,7 +40,7 @@ After scheduling tests against your Azure Stack solution, Validation as a Servic
 
 ## Change workflow parameters
 
-Each workflow type lets you to edit the [Test parameters](azure-stack-vaas-parameters.md#test-parameters) specified during workflow creation.
+You may edit the [Test parameters](azure-stack-vaas-parameters.md#test-parameters) specified during workflow creation for any type of workflow.
 
 1. On the tests summary page, select the **Edit** button.
 

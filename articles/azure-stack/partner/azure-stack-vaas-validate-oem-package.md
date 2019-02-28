@@ -110,11 +110,13 @@ Use this option if the access level of your storage container is set to **Privat
 1. Select **Start time** as current time and **End time** to at least 14 days from **Start time**. The validity time should last for the duration of your tests.
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
-    The URL should look similar to this format:
-    <pre>https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https</pre>
+    The format should appear as follows:
+    `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
 
-1. Modify the generated SAS URL to include the container name and the name of your package blob. Use this value when providing package blob URLs to the portal.
-    <pre>https://storageaccountname.blob.core.windows.net/<b>containername</b>/<b>mypackage.zip</b>?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https</pre>
+1. Modify the generated SAS URL to include the package container, `{containername}`, and the name of your package blob, `{mypackage.zip}`, as follows:
+    `https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+
+    Use this value when providing package blob URLs to the portal.
 
 #### Option 3: Grant public read access
 

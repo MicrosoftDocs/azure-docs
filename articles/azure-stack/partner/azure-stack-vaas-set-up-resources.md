@@ -27,7 +27,7 @@ ROBOTS: NOINDEX
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-You will need to create a solution. A Validation as a service (VaaS) solution represents an Azure Stack solution with a particular hardware bill of materials. You will use the solution  to check if your hardware can support run Azure Stack. Follow this tutorial to get ready to use the service with your solution.
+Validation as a Service (VaaS) is an Azure service that is used to validate and support Azure Stack solutions in the market. Follow this article before using the service to validate your solution.
 
 In this tutorial, you learn how to:
 
