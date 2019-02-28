@@ -1,5 +1,5 @@
 ---
-title: Understand the charges on your billing profile's invoice - Azure| Microsoft Docs
+title: Understand the charges on your Microsoft Customer Agreement's invoice - Azure| Microsoft Docs
 description: Learn how to read and understand the charges on your invoice
 services: ''
 documentationcenter: ''
@@ -18,13 +18,13 @@ ms.date: 02/19/2019
 ms.author: banders
 
 ---
-# Understand the charges on your billing profile's invoice
+# Understand the charges on your Microsoft Customer Agreement's invoice
 
-You can reconcile the charges on your invoice by analyzing the individual transactions that got billed on the invoice.
+You can reconcile the charges on your invoice by analyzing the individual transactions on the invoice.
 
-In the billing account for a Microsoft Customer Agreement, an invoice is generated each month for every billing profile. The invoice includes all charges from the previous month. You can view your invoices in the Azure portal. For more information, see [Understand your invoice](billing-understand-your-bill-mca.md).
+In the billing account for a Microsoft Customer Agreement, an invoice is generated each month for every billing profile. The invoice includes all charges from the previous month. You can view your invoices in the Azure portal. For more information, see [Download or view your invoice](billing-download-azure-invoice-daily-usage-date.md#download-or-view-your-invoice).
 
-This article applies to a billing account for a Microsoft Customer Agreement. Check if you have a [Microsoft Customer Agreement](billing-mca-overview.md#check-your-access-to-a-microsoft-customer-agreement).
+This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-your-access-to-a-microsoft-customer-agreement).
 
 ## View transactions for an invoice in the Azure portal
 
@@ -43,7 +43,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. Ch
     |Column  |Definition  |
     |---------|---------|
     |Date     | The date of transaction  |
-    |Invoice ID     | The identifier for the invoice on which the transaction got billed |
+    |Invoice ID     | The identifier for the invoice on which the transaction got billed. If you submit a support request, share the ID with Azure support to expedite your support request |
     |Transaction type     |  The type of transaction like purchase, cancel, and usage charges  |
     |Product family     | The category of product like compute for Virtual machines or database for Azure SQL database|
     |Product sku     | A unique code identifying the instance of your product |
@@ -55,7 +55,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. Ch
 
 ## View transactions by invoice sections
 
-Invoice sections let you organize the costs on a billing profile's invoice. For more information, see [Understand invoice section](billing-mca-overview.md#understand-invoice-sections). When an invoice is generated, charges for all sections associated with the billing profile show up on the invoice.
+Invoice sections let you organize the costs on a billing profile's invoice. For more information, see [Understand invoice section](billing-mca-overview.md#understand-invoice-sections). When an invoice is generated, charges for all the sections  in the billing profile show up on the invoice.
 
 The following image shows the charges for IT Department invoice section on a sample invoice.
 
@@ -65,7 +65,7 @@ Once you have identified the charges for an invoice section, you can view the tr
 
 1. Go to the All transactions page in the Azure portal to view transactions for an invoice. For more information, see [View transactions for an invoice in the Azure portal](#view-transactions-for-an-invoice-in-the-azure-portal).
 
-2. Filter by invoice section to view transactions for the invoice section.
+2. Filter by invoice section name to view transactions for the invoice section.
 
 ## Understand pending charges to estimate your next invoice
 
@@ -131,7 +131,9 @@ Use the Azure usage and charges csv file to analyze the usage charges. You can d
 
 ### View detailed usage by invoice section
 
-You can filter the usage and charges file to reconcile the usage charges by sections on an invoice
+You can filter the usage and charges file to reconcile the usage charges by sections on an invoice.
+
+The following steps walk you through reconciling storage charges for IT department on an invoice:
 
 ![Example image showing the details by invoice section information](./media/billing-understand-your-bill-mca/invoicesection-details.png)
 
@@ -140,8 +142,6 @@ You can filter the usage and charges file to reconcile the usage charges by sect
  |IT Department |invoiceSectionName |
  |Usage Charges - Azure Standard |productOrderName |
  |Storage |serviceFamily |
-
-The following steps walk you through finding daily usage for the example IT department in the detailed usage CSV file:
 
 1. Filter the **invoiceSectionName** column in the CSV file to **IT Department**.
 2. Filter the **productOrderName** column in the CSV file to **Usage Charges - Azure Standard**.
@@ -153,7 +153,7 @@ The following steps walk you through finding daily usage for the example IT depa
 
 You can filter the usage and charges file to analyze usage charges by subscriptions.
 
-The following screenshot displays the list of subscriptions with their usage charges. 
+The following screenshot displays the list of subscriptions with their usage charges.
 
 ![Screenshot that shows the Azure subscriptions list for billing profile](./media/billing-understand-your-bill-mca/mca-billing-profile-subscriptions-list-highlighted.png)
 
@@ -165,7 +165,7 @@ Instructions for paying your bill are shown at the bottom of the invoice. [Learn
 
 If you've already paid your bill, you can check the status of the payment on the Invoices page in the Azure portal. 
 
-## Check your access to a Microsoft Customer Agreement
+## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## Need help? Contact us

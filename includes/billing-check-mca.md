@@ -12,8 +12,12 @@ Check the agreement type to determine whether you have access to a billing accou
 
 2. Search on **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search](./media/billing-understand-mca-roles/billing-search-cost-management-billing.png)
+   ![Screenshot that shows Azure portal search](./media/billing-check-mca/billing-search-cost-management-billing.png)
 
-3. If you have access to just one billing account, select **Properties** from the left-hand side. You have access to a billing account for a Microsoft customer agreement when the agreement type of the billing account is Microsoft Customer Agreement.
+3. If you have access to just one billing account, select **Properties** from the left-hand side. You have access to a billing account for a Microsoft customer agreement if the billing account type is **Microsoft Customer Agreement**.
 
-4. If you have access to multiple billing accounts, check the agreement type of the billing account in the list. You have access to a billing account for a Microsoft customer agreement if the agreement type of any of the billing accounts is Microsoft Customer Agreement.
+    ![Screenshot that shows microsoft customer agreement in properties page](./media/billing-check-mca/billing-mca-property.png)
+
+4. If you have access to multiple billing accounts, check the type in the billing account column. You have access to a billing account for a Microsoft customer agreement if the type for any of the billing account is **Microsoft Customer Agreement**.
+
+    ![Screenshot that shows microsoft customer agreement in billing account list page](./media/billing-check-mca/billing-mca-in-the-list.png)

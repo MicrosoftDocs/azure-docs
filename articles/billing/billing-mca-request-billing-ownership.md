@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2019
+ms.date: 02/28/2019
 ms.author: banders
 
 ---
@@ -21,11 +21,11 @@ ms.author: banders
 
 You might want to take ownership of Azure subscriptions if the existing billing owner is leaving your organization, or you want to pay for the subscriptions through your billing account.
 
-You can send a request to take ownership of Azure subscriptions from existing owners in other billing accounts. Taking ownership transfers billing ownership of subscriptions to your invoice section. After ownership is transferred, your invoice section is responsible for all charges for the subscriptions.
+You can send a request to take ownership of Azure subscriptions from existing owners in other billing accounts. Taking ownership transfers billing responsibilities of subscriptions to your invoice section.
 
-To request the billing ownership, you must be an **Owner** or **Contributor** on the invoice section. To learn more, see [Invoice section tasks](billing-understand-mca-roles.md#invoice-section-tasks).
+To request the billing ownership, you must be an **invoice section owner** or **invoice section contributor**. To learn more, see [Invoice section roles tasks](billing-understand-mca-roles.md#invoice-section-roles-and-tasks).
 
-This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-your-access-to-a-microsoft-customer-agreement).
+This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
 ## Request billing ownership in the Azure portal
 
@@ -33,7 +33,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 2. Search on **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-mca-request-billing-ownership/billing-search-costmanagement+billing.png)
+   ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
 3. Go to the invoice section. Depending on your access, you may need to select a billing account or billing profile. From the billing account or profile, select **Invoice sections** and then an invoice section.
    <!-- Todo - Add a screenshot -->
@@ -49,6 +49,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 7. Select **Send transfer request**.
 
 8. The user gets an email with instructions to review your transfer request.
+
    ![Screenshot that shows review transfer request email](./media/billing-mca-request-billing-ownership/mca-review-transfer-request-email.png)
 
 9. To approve the transfer request, the user selects the link in the email and follows the instructions.
@@ -61,7 +62,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 2. Search on **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-mca-request-billing-ownership/billing-search-costmanagement+billing.png)
+   ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
 3. Go to the invoice section. Depending on your access, you may need to select a billing account or billing profile. From the billing account or profile, select **Invoice sections** and then an invoice section.
    <!-- Todo - Add a screenshot -->
@@ -96,20 +97,20 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
    |Column  |Definition|
    |---------|---------|
-   |Transfer request ID|The unique ID for your transfer request|
+   |Transfer request ID|The unique ID for your transfer request. If you submit a support request, share the ID with Azure support to expedite your support request|
    |Transfer requested on|The date when the transfer request was sent|
    |Transfer requested by|The email address of the user who sent the transfer request|
    |Transfer request expires on| The date when the transfer request expires|
    |Recipient's email address|The email address of the user that you sent the request to transfer billing ownership|
    |Transfer link sent to recipient|The url that was sent to the user to review the transfer request|
 
-## Useful information
+## Additional information
 
-The following section provides helpful information about transferring subscriptions.
+The following section provides additional information about transferring subscriptions.
 
-### Service downtime
+### No service downtime
 
-There is no impact to the services running in the transferred subscriptions.
+Azure services in the subscription keep running without any interruption. We only transition the billing relationship for the Azure subscriptions that the user selects to transfer.
 
 ### Disabled subscriptions
 
@@ -123,17 +124,17 @@ All resources from the subscriptions like VMs, disks, and websites transfer.
 
 Azure Marketplace products transfer along with their respective subscriptions.
 
-### Azure reservations transfer
+### Azure Reservations transfer
 
-The user that you send the transfer request can select Azure reservations to transfer. When the transfer is completed, reservation discount can be applied to subscriptions in the billing profile of your invoice section.
+Azure Reservations don't automatically move with subscriptions. [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to move Reservations.
 
 ### Access to Azure services
 
-User access to Azure services in the transferred subscriptions does not change.
+Access to Azure resources that was set using Azure RBAC (role-based access control) is not affected during the transition.
 
 ### Azure support plan
 
-Azure support doesn't transfer with the subscriptions. If the user selects all subscriptions and reservations to transfer, ask them to cancel their support plan.
+Azure support doesn't transfer with the subscriptions. If the user transfers all Azure subscriptions, ask them to cancel their support plan.
 
 ### Charges for transferred subscription
 
@@ -147,13 +148,18 @@ Subscription of any types or offers, except CSP offers can be transferred.
 
 You can cancel the transfer request until the request is approved or declined. To cancel the transfer request, [go to the transfer details page](#check-status-of-your-transfer-request-in-the-Azure-portal) and select cancel from the bottom of the page.
 
-## Check your access to a Microsoft Customer Agreement
+### Software as a Service (SaaS) transfer
+
+SaaS products don't transfer with the subscriptions. Ask the user to [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to transfer billing ownership of SaaS products. Along with the billing ownership, the user can also transfer resource ownership. Resource ownership lets you perform management operations like deleting and viewing the details of the product. User must be a resource owner on the SaaS product to transfer resource ownership.
+
+## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+
+## Need help? Contact support
+
+If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
 ## Next steps
 
 - The billing ownership of the Azure subscriptions is transferred to your invoice section. Keep track of the charges for these subscriptions in the [Azure portal](https://portal.azure.com).
-- Give others permissions to view and manage billing for these subscriptions. For more information, see [Invoice section roles and tasks](billing-understand-mca-roles.md#invoice-section-tasks)
-
-## Need help? Contact support
-If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+- Give others permissions to view and manage billing for these subscriptions. For more information, see [Invoice section roles and tasks](billing-understand-mca-roles.md#invoice-section-tasks).

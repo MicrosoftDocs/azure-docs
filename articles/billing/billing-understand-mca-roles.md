@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2019
-ms.author: cwatson
+ms.date: 02/28/2019
+ms.author: banders
 ---
 # Understand Microsoft Customer Agreement administrative roles in Azure
 
-To help manage your billing account for a Microsoft Customer Agreement, use the roles described in the following sections. These roles are in addition to the built-in roles Azure has to control access to resources. For more information, see [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md).
+To manage your billing account for a Microsoft Customer Agreement, use the roles described in the following sections. These roles are in addition to the built-in roles Azure has to control access to resources. For more information, see [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md).
 
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-your-access-to-a-microsoft-customer-agreement).
 
@@ -31,7 +31,7 @@ The following table describes the billing roles you use to manage your billing a
 |Billing account contributor|Manage everything except permissions on the billing account|
 |Billing account reader|Read-only view of everything on billing account|
 |Billing profile owner|Manage everything for billing profile|
-|Billing profile contributor|Manage everything except permissions for billing profile|
+|Billing profile contributor|Manage everything except permissions on the billing profile|
 |Billing profile reader|Read-only view of everything on billing profile|
 |Invoice manager|View and pay invoices for billing profile|
 |Invoice section owner|Manage everything on invoice section|
@@ -87,7 +87,7 @@ The following tables show what role you need to complete tasks in the context of
 
 ## Billing profile roles and tasks
 
-A billing profile lets you manage your invoices and payment methods. A monthly invoice is generated for the Azure subscriptions and other products purchased using the billing profile. You can change the settings of your invoice such as purchase order number and invoice email preferences. For more information, see [Understand billing profiles](billing-mca-overview.md#understand-billing-profiles).
+A billing profile lets you manage your invoices and payment methods. A monthly invoice is generated for the Azure subscriptions and other products purchased using the billing profile. You use the payments methods to pay the invoice. For more information, see [Understand billing profiles](billing-mca-overview.md#understand-billing-profiles).
 
 The following tables show what role you need to complete tasks in the context of the billing profile.
 
@@ -188,7 +188,7 @@ The following table shows what role you need to complete tasks in the context of
 
    ![Screenshot that shows list of admins for billing account](./media/billing-understand-mca-roles/billing-list-admins.png)
 
-5. To give access to a user, Select **Add** from the top of the page. In the Role drop-down list, select a role. Enter the email address of the user to whom to you want to give access. Click **Save** to assign the role.
+5. To give access to a user, Select **Add** from the top of the page. In the Role drop-down list, select a role. Enter the email address of the user to whom you want to give access. Select **Save** to assign the role.
 
    ![Screenshot that shows adding an admin to a billing account](./media/billing-understand-mca-roles/billing-add-admin.png)
 
@@ -196,7 +196,7 @@ The following table shows what role you need to complete tasks in the context of
 
    ![Screenshot that shows removing an admin from a billing account](./media/billing-understand-mca-roles/billing-remove-admin.png)
 
-## Check your access to a Microsoft Customer Agreement
+## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## Need help? Contact support
