@@ -236,7 +236,34 @@ The name of this setting is `ttlSettings`
 
 ### Configure Auto-tiering and Auto-expiration via Azure portal
 
-Below is the Json for auto-tiering and auto-expiration
+Set the desired properties to enable auto-tiering and auto-expiration, you can set these values:
+
+1. **During the initial deployment**: Copy the JSON in **Set module twin's desired properties** box. Configure each property with appropriate value, save it and continue with the deployment.
+
+```json
+{
+  "properties.desired": {
+		  "ttlSettings": {
+            "ttlOn": <true, false>, 
+            "timeToLiveInMinutes": <timeToLiveInMinutes> 
+          },
+          "tieringSettings": {
+              "tieringOn": <true, false>,
+              "backlogPolicy": "<NewestFirst, OldestFirst>",
+              "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+              "tieredContainers": {
+                  "<source container name1>": {
+                      "target": "<target container name1>"
+                  }
+              }
+          }
+  }
+}
+```
+
+ ![tiering+ttl iotedge_custom_module](./media/how-to-store-data-blob/iotedge_custom_module.png)
+
+2. **After the module is deployed via "Module Identity Twin" feature**: Go to "Module Identity Twin" of this module, copy the JSON under properties desired, configure each property with appropriate value, and save.
 
 ```json
           "ttlSettings": {
@@ -254,13 +281,6 @@ Below is the Json for auto-tiering and auto-expiration
               }
           }
 ```
-
-Set the desired properties to enable auto-tiering and auto-expiration, you can set these values:
-1. **During the initial deployment**: Copy the JSON in **Set module twin's desired properties** box, inside `"properties.desired"`. Configure each property with appropriate value, save it and continue with the deployment.
-
- ![tiering+ttl iotedge_custom_module](./media/how-to-store-data-blob/iotedge_custom_module.png)
-
-2. **After the module is deployed via "Module Identity Twin" feature**: Go to "Module Identity Twin" of this module, copy the JSON under properties desired, configure each property with appropriate value, and save.
 
 ![tiering+ttl module_identity_twin](./media/how-to-store-data-blob/module_identity_twin.png) 
 
