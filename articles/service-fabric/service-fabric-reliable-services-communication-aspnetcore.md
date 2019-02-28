@@ -366,7 +366,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 ### Default Key Mapping
-By default, Service Fabric configuraiton provider includes package name, section name and property name together to form the asp.net core configuration Key using following function:
+By default, Service Fabric configuraiton provider includes package name, section name, and property name together to form the asp.net core configuration Key using following function:
 ```csharp
 $"{this.PackageName}{ConfigurationPath.KeyDelimiter}{section.Name}{ConfigurationPath.KeyDelimiter}{property.Name}"
 ```
@@ -384,7 +384,7 @@ For example, if you have a Configuration packages named `MyConfigPackage` with b
 Service Fabric Configuration Provider also supports `ServiceFabricConfigurationOptions` to change the default behavior of key mapping.
 
 #### Encrypted settings
-Service Fabric supports to encrypt the settings, Service Fabric Configuration Provider also supports this. To follow secure by default principle, the encrypted settings are not descrypted by default when store to ASP.NET Core `IConfiguration` and its encrypted value are stored there. However, if you want to decrypt the value to store in ASP.NET Core `IConfiguration` you could set DecryptValue flag of `ServiceFabricConfigurationOptions` to false in `AddServiceFabricConfiguration` extensions as follow:
+Service Fabric supports to encrypt the settings, Service Fabric Configuration Provider also supports this. To follow secure by default principle, the encrypted settings are't descrypted by default to ASP.NET Core `IConfiguration`, the encrypted value are stored there instead. However, if you want to decrypt the value to store in ASP.NET Core IConfiguration you could set DecryptValue flag to false in `AddServiceFabricConfiguration` extensions as follows:
 
 ```csharp
 public Startup()
@@ -396,7 +396,7 @@ public Startup()
 }
 ```
 #### Multiple Configuration Packages
-Service Fabric supports multiple configuration packages, and by default the package name is included in the configuration Key, you could set the IncludePackageName flag to change this behavior.
+Service Fabric supports multiple configuration packages. By default, the package name is included in the configuration Key. You could set the `IncludePackageName` flag to change the default behavior.
 ```csharp
 public Startup()
 {
@@ -407,8 +407,8 @@ public Startup()
     Configuration = builder.Build();
 }
 ```
-#### Custom Key Mapping, Value Extraction and Data Population
-In addition to above 2 flags to change the default behavior, Service Fabric Configuration Provider also supports more advanced scenarios to custom the key mapping via `ExtractKeyFunc` and to custom extract the values via `ExtractValueFunc`. You could even change the whole process to populate data from Service Fabric configuration to ASP.NET Core configuration via `ConfigAction`.
+#### Custom Key Mapping, Value Extraction, and Data Population
+Besides above 2 flags to change the default behavior, Service Fabric Configuration Provider also supports more advanced scenarios to custom the key mapping via `ExtractKeyFunc` and to custom extract the values via `ExtractValueFunc`. You could even change the whole process to populate data from Service Fabric configuration to ASP.NET Core configuration via `ConfigAction`.
 
 The following examples illustrate to use `ConfigAction` to customize data population.
 ```csharp
@@ -444,7 +444,7 @@ public Startup()
 }
 ```
 ### Configuration Update
-Service Fabric Configuration Provider also supports Configuration Update and you could use ASP.NET Core `IOptionsMonitor` to receive change notifications and also with `IOptionsSnapshot` to reload configuration data. See [ASP.NET Core Options](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options) for more details on general support by ASP.NET CORE.
+Service Fabric Configuration Provider also supports Configuration Update and you could use ASP.NET Core `IOptionsMonitor` to receive change notifications and also with `IOptionsSnapshot` to reload configuration data. For more information, see [ASP.NET Core Options](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options).
 
 This is supported by default and no further coding are needed to enable configuration update.
 
