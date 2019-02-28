@@ -73,7 +73,7 @@ Dynamic Packaging supports MP4 files, which contain audio encoded with [AAC](htt
 
 ## Manifests 
  
-Media Services supports HLS, MPEG DASH, Smooth Streaming protocols. As part of **Dynamic Packaging**, the streaming client manifests (HLS Master Playlist, DASH Media Presentation Description (MPD)) are dynamically generated based on the format selector in the URL. See the delivery protocols in [this section](#delivery-protocols). 
+Media Services supports HLS, MPEG DASH, Smooth Streaming protocols. As part of **Dynamic Packaging**, the streaming client manifests (HLS Master Playlist, DASH Media Presentation Description (MPD), and Smooth Streaming) are dynamically generated based on the format selector in the URL. See the delivery protocols in [this section](#delivery-protocols). 
 
 A manifest file includes streaming metadata such as: track type (audio, video, or text), track name, start and end time, bitrate (qualities), track languages, presentation window (sliding window of fixed duration), video codec (FourCC). It also instructs the player to retrieve the next fragment by providing information about the next playable video fragments available and their location. Fragments (or segments) are the actual "chunks" of a video content.
 
