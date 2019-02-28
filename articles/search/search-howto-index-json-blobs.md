@@ -2,7 +2,7 @@
 title: Index JSON blobs from Azure Blob indexer for full text search - Azure Search
 description: Crawl Azure JSON blobs for text content using the Azure Search Blob indexer. Indexers automate data ingestion for selected data sources like Azure Blob storage.
 
-ms.date: 02/27/2019
+ms.date: 02/28/2019
 author: HeidiSteen
 manager: cgronlun
 ms.author: heidist
@@ -20,9 +20,6 @@ This article shows you how to configure an Azure Search blob indexer to extract 
 You can use the [portal](#json-indexer-portal), [REST APIs](#json-indexer-rest), or [.NET SDK](#json-indexer-dotnet) to index JSON content. Common to all approaches is that JSON documents are located in a blob container in an Azure Storage account. For guidance on pushing JSON documents from other non-Azure platforms, see [Data import in Azure Search](search-what-is-data-import.md).
 
 JSON blobs in Azure Blob storage are typically either a single JSON document or a JSON array. The blob indexer in Azure Search can parse either construction depending on how you set the **parsingMode** parameter on the request.
-
-> [!IMPORTANT]
-> JSON blob indexing is generally available, but JsonArray parsing is in public preview and should not be used in production environments. For more information, see [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md). 
 
 <a name="json-indexer-portal"></a>
 
