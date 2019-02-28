@@ -20,7 +20,7 @@ ms.author: magoedte
 When you configure monitoring of your Azure Kubernetes Service (AKS) cluster with Azure Monitor for containers, you may encounter an issue preventing data collection or reporting status. This article details some common issues and troubleshooting steps.
 
 ## Azure Monitor for containers is enabled but not reporting any information
-If Azure Monitor for containers is successfully enabled and configured, but you cannot view status information or no results are returned from a Log Analytics log query, you diagnose the problem by following these steps: 
+If Azure Monitor for containers is successfully enabled and configured, but you cannot view status information or no results are returned from a log query, you diagnose the problem by following these steps: 
 
 1. Check the status of the agent by running the command: 
 
