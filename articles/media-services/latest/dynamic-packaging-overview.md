@@ -71,11 +71,13 @@ Dynamic Packaging supports MP4 files, which contain audio encoded with [AAC](htt
 > [!NOTE]
 > Dynamic Packaging does not support files that contain [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (it is a legacy codec).
 
-## Streaming client manifests
+## Manifests 
+ 
+Media Services supports HLS, MPEG DASH, Smooth Streaming protocols. As part of **Dynamic Packaging**, the streaming client manifests (HLS Master Playlist, DASH Media Presentation Description (MPD)) are dynamically generated based on the format selector in the URL. See the delivery protocols in [this section](#delivery-protocols). 
 
-Media Services supports HLS, MPEG DASH, Smooth Streaming protocols. As part of **Dynamic Packaging**, the streaming client manifests are dynamically generated based on the format selector in the URL. See the delivery protocols in [this section](#delivery-protocols). 
+A manifest file includes streaming metadata such as: track type (audio, video, or text), track name, start and end time, bitrate (qualities), track languages, presentation window (sliding window of fixed duration), video codec (FourCC). It also instructs the player to retrieve the next fragment by providing information about the next playable video fragments available and their location. Fragments (or segments) are the actual "chunks" of a video content.
 
-A manifest file (text-based or XML-based) includes streaming metadata such as: track type (audio, video, or text), track name, start and end time, bitrate (qualities), track languages, presentation window (sliding window of fixed duration), video codec (FourCC). It also instructs the player to retrieve the next fragment by providing information about the next playable video fragments available and their location. Fragments (or segments) are the actual "chunks" of a video content.
+### HLS Master Playlist
 
 Here is an example of an HLS manifest file: 
 
@@ -101,6 +103,8 @@ QualityLevels(3579827)/Manifest(video,format=m3u8-aapl)
 #EXT-X-STREAM-INF:BANDWIDTH=139017,CODECS="mp4a.40.2",AUDIO="audio"
 QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
 ```
+
+### DASH Media Presentation Description (MPD)
 
 Here is an example of a DASH manifest:
 
@@ -133,6 +137,8 @@ Here is an example of a DASH manifest:
    </Period>
 </MPD>
 ```
+### Smooth Streaming
+
 Here is an example of a Smooth Streaming manifest:
 
 ```xml
