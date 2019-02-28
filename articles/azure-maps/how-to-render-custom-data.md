@@ -52,7 +52,7 @@ To render push pins with labels and custom image follow the steps below:
 > [!Note]
 > This example requires Azure Maps account with pricing tier S1.
 
-The path and pins location information can also be obtained through [Data Upload API](https://docs.microsoft.com/rest/api/maps/mapdata/upload). Follow the steps below to upload the path and pins data.
+The path and pins location information can also be obtained through [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview). Follow the steps below to upload the path and pins data.
 
 1. In the Postman app, open a new tab in the same collection you created above. Select POST HTTP method on the builder tab and enter the following URL to make a POST request:
 
@@ -149,7 +149,7 @@ The path and pins location information can also be obtained through [Data Upload
 > [!Note]
 > This example requires Azure Maps account with pricing tier S1.
 
-You can modify the appearance of a polygon by using style modifiers with the [path parameter](https://docs.microsoft.com/rest-staging/api/maps/render/getmapimage).
+You can modify the appearance of a polygon by using style modifiers with the [path parameter](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
 
 1. In the Postman app, open a new tab in the same collection you created above. Select GET HTTP method on the builder tab and enter the following URL to make a GET request to render a polygon with color and opacity:
     
