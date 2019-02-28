@@ -68,11 +68,11 @@ To configure Group Claims for a Gallery or Non-Gallery SAML application, open En
 
 Select the edit icon next to "Groups returned in token"
 
-![claims UI](media/how-to-connect-fed-group-claims/groupclaimsui1.png)
+![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
 
 Use the radio buttons to select which groups should be included in the token
 
-![claims UI](media/how-to-connect-fed-group-claims/groupclaimsui2.png)
+![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
 
 | Selection | Description |
 |----------|-------------|
@@ -83,7 +83,7 @@ Use the radio buttons to select which groups should be included in the token
 
 For example, to emit all the Security Groups the user is a member of, select Security Groups
 
-![claims UI](media/how-to-connect-fed-group-claims/groupclaimsui3.png)
+![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
 
 ### Advanced options
 
@@ -91,15 +91,15 @@ The way group claims are emitted can be modified by the settings under Advanced 
 
 Customize the name of the group claim:  If selected, a different claim type can be specified for group claims.   Enter the claim type in the Name field and the optional namespace for the claim in the namespace field.
 
-![claims UI](media/how-to-connect-fed-group-claims/groupclaimsui4.png)
+![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
 
 To emit groups using Active Directory attributes instead of Azure AD objectIDs check the 'Return groups as names instead of IDs' box, and select the format from the drop-down.  This replaces the object ID in the claims with string values containing group names.   Only groups synchronized from Active Directory will be included in the claims.
 
-![claims UI](media/how-to-connect-fed-group-claims/groupclaimsui5.png)
+![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
 
 Some applications require the group membership information to appear in the 'role' claim. You can optionally emit the user's groups as roles by checking the 'Emit groups a role claims' box.  
 
-![claims UI](media/how-to-connect-fed-group-claims/groupclaimsui6.png)
+![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
 
 >[!NOTE]
 >If the option to emit group data as roles is used, only groups will appear in the role claim.  Any Application Roles the user is assigned will not appear in the role claim.
