@@ -15,7 +15,7 @@ ms.date: 01/31/2019
 ---
 # Key differences between Machine Learning Services in Azure SQL Database (preview) and SQL Server
 
-The functionality of Azure SQL Database Machine Learning Services (with R) in  (preview) is similar to [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Below are some key differences between these.
+The functionality of Azure SQL Database Machine Learning Services (with R) in  (preview) is similar to [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Below are some key differences.
 
 > [!IMPORTANT]
 > Azure SQL Database Machine Learning Services is currently in public preview.
@@ -35,12 +35,15 @@ SQL Server has support for R and Python through the [extensibility framework](ht
 R package management and installation work different between SQL Database and SQL Server. These differences are:
 
 - R packages are installed via [sqlmlutils](https://github.com/Microsoft/sqlmlutils) or [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql).
-- Packages cannot perform outbound network calls. This limitation is similar to the [default firewall rules for Machine Learning Services](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration) in SQL Server, but cannot be changed in SQL Database.
+- Packages cannot perform outbound network calls. This limitation is similar to the [default firewall rules for Machine Learning Services](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration) in SQL Server, but can't be changed in SQL Database.
 - There is no support for packages that depend on external runtimes (like Java) or need access to OS APIs for installation or usage.
 
 ## Resource governance
 
-It is not possible to limit R resources through [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) and external resource pools. R resources are maximum 20% of the SQL Database resources, and depend on which service tier you choose. For more information, see [Azure SQL Database purchasing models](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
+It is not possible to limit R resources through [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) and external resource pools.
+
+R resources are maximum 20% of the SQL Database resources, and depend on which service tier you choose. For more information, see [Azure SQL Database purchasing models](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
+
 
 ### Insufficient memory error
 
@@ -50,7 +53,7 @@ If there is insufficient memory available for R, you will get an error message. 
 * 'R' script error occurred during execution of 'sp_execute_external_script' with HRESULT 0x80004004. ...an external script error occurred: "..could not allocate memory (0 Mb) in C function 'R_AllocStringBuffer'"
 * An external script error occurred: Error: cannot allocate vector of size.
 
-Currently, a maximum of 20% of the SQL memory (in a given database tier) is made available to R. Depending on the memory used in your R scripts and number of parallel queries being executed, this can become insufficient. To remedy this, please scale your database to a higher service tier.
+Memory usage depends on the amount used in your R scripts and the number of parallel queries being executed. To resolve this, scale your database to a higher service tier.
 
 ## Security isolation
 
