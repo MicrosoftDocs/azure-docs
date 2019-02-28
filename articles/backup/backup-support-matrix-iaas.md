@@ -16,7 +16,7 @@ You can use the [Azure Backup service](backup-overview.md) to back up on-premise
 Other support matrices:
 
 - [General support matrix](backup-support-matrix.md) for Azure Backup
-- [Support matrix](backup-support-matrix-mabs-dpm.md) for Azure Backup server/Data Protection Manager backup
+- [Support matrix](backup-support-matrix-mabs-dpm.md) for Azure Backup server/Data Protection Manager (DPM) backup
 - [Support matrix](backup-support-matrix-mars-agent.md) for backup with the Microsoft Azure Recovery Services (MARS) agent
 
 ## Supported scenarios
@@ -25,11 +25,11 @@ Here's how you can back up and restore Azure VMs with the Azure Backup service.
 
 **Scenario** | **Backup** | **Agent** |**Restore**
 --- | --- | --- | ---
-Direct backup of Azure VMs | Back up the entire VM.  | No agent is needed on the Azure VM. Azure Backup installs and uses an extension to the [Azure VM agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) that is running on the VM. | Restore as follows:<br/><br/> - **Create a basic VM**. This is useful if the VM has no special configuration such as multiple IP addresses.<br/><br/> - **Restore the VM disk**. Restore the disk. Then attach it to an existing VM, or create a new VM from the disk by using PowerShell.<br/><br/> - **Replace VM disk**. If a VM exists and it uses managed disks (unencrypted), you can restore a disk and use it to replace an existing disk on the VM.<br/><br/> - **Restore specific files/folders**. You can restore files/folders from a VM instead of from the entire VM.
-Direct backup of Azure VMs (Windows only) | Back up specific files/folders/volume. | Install the [Azure Recovery Services agent](backup-azure-file-folder-backup-faq.md).<br/><br/> You can run the MARS agent alongside the backup extension for the Azure VM agent to back up the VM at file/folder level. | Restore specific folders/files.
-Back up Azure VM to backup server |  Back up files/folders/volumes; system state/bare metal files; app data to System Center Data Protection Manager or to Microsoft Azure Backup Server (MABS).<br/><br/> Data Protection Manager/MABS then backs up to the backup vault. | Install the MABS/Data Protection Manager protection agent on the VM. The MARS agent is installed on Data Protection Manager/MABS.| Restore files/folders/volumes; system state/bare metal files; app data.
+Direct backup of Azure VMs  | Back up the entire VM.  | No agent is needed on the Azure VM. Azure Backup installs and uses an extension to the [Azure VM agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) that is running on the VM. | Restore as follows:<br/><br/> - **Create a basic VM**. This is useful if the VM has no special configuration such as multiple IP addresses.<br/><br/> - **Restore the VM disk**. Restore the disk. Then attach it to an existing VM, or create a new VM from the disk by using PowerShell.<br/><br/> - **Replace VM disk**. If a VM exists and it uses managed disks (unencrypted), you can restore a disk and use it to replace an existing disk on the VM.<br/><br/> - **Restore specific files/folders**. You can restore files/folders from a VM instead of from the entire VM.
+Direct backup of Azure VMs (Windows only)  | Back up specific files/folders/volume. | Install the [Azure Recovery Services agent](backup-azure-file-folder-backup-faq.md).<br/><br/> You can run the MARS agent alongside the backup extension for the Azure VM agent to back up the VM at file/folder level. | Restore specific folders/files.
+Back up Azure VM to backup server  | Back up files/folders/volumes; system state/bare metal files; app data to System Center DPM or to Microsoft Azure Backup Server (MABS).<br/><br/> DPM/MABS then backs up to the backup vault. | Install the DPM/MABS protection agent on the VM. The MARS agent is installed on DPM/MABS.| Restore files/folders/volumes; system state/bare metal files; app data.
 
-Learn more about backup [using a backup server](backup-architecture.md#architecture-back-up-to-dpmmabs), and [support requirements](backup-support-matrix-mabs-dpm.md).
+Learn more about backup [using a backup server](backup-architecture.md#architecture-back-up-to-dpmmabs) and about [support requirements](backup-support-matrix-mabs-dpm.md).
 
 ## Supported backup actions
 
@@ -45,7 +45,7 @@ Cancel a backup job	| Supported during snapshot process.<br/><br/> Not supported
 Back up the VM to a different region or subscription |	Not supported.
 Backups per day (via the Azure VM extension) | One scheduled backup per day.<br/><br/> You can make up to four on-demand backups per day.
 Backups per day (via the MARS agent) | Three scheduled backups per day. 
-Backups per day (via Data Protection Manager/MABS) | Two scheduled backups per day.
+Backups per day (via DPM/MABS) | Two scheduled backups per day.
 Monthly/yearly backup	| Not supported when backing up with Azure VM extension. Only daily and weekly is supported.<br/><br/> You can set up the policy to retain daily/weekly backups for monthly/yearly retention period.
 Automatic clock adjustment | Not supported.<br/><br/> Azure Backup doesn't automatically adjust for daylight saving time changes when backing up a VM.<br/><br/>  Modify the policy manually as needed.
 [Security features for hybrid backup](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) |	Disabling security features isn't supported.
@@ -58,7 +58,7 @@ The following table summarizes the supported operating systems when backing up W
 --- | ---
 Back up with Azure VM agent extension | Windows Client: Not supported<br/><br/> Windows Server: Windows Server 2008 R2 or later 
 Back up with MARS agent | [Supported](backup-support-matrix-mars-agent.md#support-for-direct-backups) operating systems.
-Back up with Data Protection Manager/MABS | Supported operating systems for backup with [MABS](backup-mabs-protection-matrix.md) and [Data Protection Manager](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
+Back up with DPM/MABS | Supported operating systems for backup with [MABS](backup-mabs-protection-matrix.md) and [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 
 ## Support for Linux backup
 
@@ -68,7 +68,7 @@ Here's what's supported if you want to back up Linux machines.
 --- | --- 
 Back up Linux Azure VMs with the Linux Azure VM agent | File consistent backup.<br/><br/> App-consistent backup using [custom scripts](backup-azure-linux-app-consistent.md).<br/><br/> During restore, you can create a new VM, restore a disk and use it to create a VM, or restore a disk and use it to replace a disk on an existing VM. You can also restore individual files and folders.
 Back up Linux Azure VMs with MARS agent | Not supported.<br/><br/> The MARS agent can only be installed on Windows machines.
-Back up Linux Azure VMs with Data Protection Manager/MABS | Not supported.
+Back up Linux Azure VMs with DPM/MABS | Not supported.
 
 ## Operating system support (Linux)
 
@@ -88,15 +88,15 @@ Maximum recovery points per protected instance (machine/workload) | 9999.
 Maximum expiry time for a recovery point | No limit.
 Maximum backup frequency to vault (Azure VM extension) | Once a day.
 Maximum backup frequency to vault (MARS agent) | Three backups per day.
-Maximum backup frequency to Data Protection Manager/MABS | Every 15 minutes for SQL Server.<br/><br/> Once an hour for other workloads.
+Maximum backup frequency to DPM/MABS | Every 15 minutes for SQL Server.<br/><br/> Once an hour for other workloads.
 Recovery point retention | Daily, weekly, monthly, and yearly.
 Maximum retention period | Depends on backup frequency.
-Recovery points on Data Protection Manager/MABS disk | 64 for file servers, and 448 for app servers.<br/><br/> Tape recovery points are unlimited for on-premises Data Protection Manager.
+Recovery points on DPM/MABS disk | 64 for file servers, and 448 for app servers.<br/><br/> Tape recovery points are unlimited for on-premises DPM.
 
 ## Supported restore methods
 
-**Restore method** | **Details**
---- | ---
+**Restore method** | **Details** 
+--- | --- 
 Create a new VM | You can create a VM during the restore process. <br/><br/> This option gets a basic VM up and running. You can specify the VM name, resource group,  virtual network, subnet, and storage.  
 Restore a disk | You can restore a disk and use it to create a VM.<br/><br/> When you select this option, Azure Backup copies data from the vault to a storage account that you select. The restore job generates a template. You can download this template, use it to specify custom VM settings, and create a VM.<br/><br/> This option allows you to specify more settings that the previous option to create a VM.<br/><br/>
 Replace an existing disk | You can restore a disk and then use the restored disk to replace a disk that's currently on a VM.
@@ -204,9 +204,9 @@ Data security:
 
 **Machine** | **In transit** | **At rest**
 --- | --- | ---
-On-premises Windows machines without Data Protection Manager/MABS | ![Yes][green] | ![Yes][green]
+On-premises Windows machines without DPM/MABS | ![Yes][green] | ![Yes][green]
 Azure VMs | ![Yes][green] | ![Yes][green] 
-On-premises/Azure VMs with Data Protection Manager | ![Yes][green] | ![Yes][green]
+On-premises/Azure VMs with DPM | ![Yes][green] | ![Yes][green]
 On-premises/Azure VMs with MABS | ![Yes][green] | ![Yes][green]
 
 
@@ -216,13 +216,13 @@ On-premises/Azure VMs with MABS | ![Yes][green] | ![Yes][green]
 Backup supports the compression of backup traffic, as summarized in the following table. Note the following:
 
 - For Azure VMs, the VM extension reads the data directly from the Azure storage account over the storage network. It is not necessary to compress this traffic.
-- If you're using Data Protection Manager or MABS, you can save bandwidth by compressing the data before it's backed up to Data Protection Manager/MABS.
+- If you're using DPM or MABS, you can save bandwidth by compressing the data before it's backed up to DPM/MABS.
 
-**Machine** | **Compress to MABS/Data Protection Manager (TCP)** | **Compress (HTTPS) to vault**
+**Machine** | **Compress to MABS/DPM (TCP)** | **Compress to vault (HTTPS)**
 --- | --- | ---
-On-premises Windows machines without Data Protection Manager/MABS | NA | Yes
+On-premises Windows machines without DPM/MABS | NA | ![Yes][green]
 Azure VMs | NA | NA
-On-premises/Azure VMs with Data Protection Manager | ![Yes][green] | ![Yes][green]
+On-premises/Azure VMs with DPM | ![Yes][green] | ![Yes][green]
 On-premises/Azure VMs with MABS | ![Yes][green] | ![Yes][green]
 
 
@@ -231,7 +231,7 @@ On-premises/Azure VMs with MABS | ![Yes][green] | ![Yes][green]
 - [Back up Azure VMs](backup-azure-arm-vms-prepare.md)
 - [Back up Windows machines directly](tutorial-backup-windows-server-to-azure.md), without a backup server.
 - [Set up MABS](backup-azure-microsoft-azure-backup.md) for backup to Azure, and then back up workloads to MABS.
-- [Set up Data Protection Manager](backup-azure-dpm-introduction.md) for backup to Azure, and then back up workloads to Data Protection Manager.
+- [Set up DPM](backup-azure-dpm-introduction.md) for backup to Azure, and then back up workloads to DPM.
 
 [green]: ./media/backup-support-matrix/green.png
 [yellow]: ./media/backup-support-matrix/yellow.png
