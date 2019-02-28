@@ -63,8 +63,6 @@ ms.lastreviewed: 02/28/2019
 
 11. To see the new plan, select **All resources**, then search for the plan and select its name. If your list of resources is long, use **Search** to locate your plan by name.
 
-   ![Review the plan](media/azure-stack-create-plan/plan-overview.png)
-
 ## Next steps
 
 * [Create an offer](azure-stack-create-offer.md)
