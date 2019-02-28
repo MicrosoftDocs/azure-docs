@@ -1,22 +1,16 @@
 ---
 title: "Tutorial: Azure Stream Analytics JavaScript user-defined functions | Microsoft Docs "
 description: In this tutorial, you perform advanced query mechanics with JavaScript user-defined functions
-keywords: javascript, user defined functions, udf
 services: stream-analytics
 author: rodrigoamicrosoft
-manager: kfile
-
-ms.assetid:
+ms.author: rodrigoa
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.workload: data-services
-ms.author: rodrigoa
 
 #Customer intent: "As an IT admin/developer I want to run JavaScript user-defined functions within Stream Analytics jobs."
-
 ---
 
 # Tutorial: Azure Stream Analytics JavaScript user-defined functions
@@ -52,8 +46,8 @@ Although functions like **Date.GetDate()** or **Math.random()** are not blocked 
 To create a simple JavaScript user-defined function under an existing Stream Analytics job, do these steps:
 
 1.	In the Azure portal, find your Stream Analytics job.
-2.  Under **JOB TOPOLOGY**, select your function. An empty list of functions appears.
-3.	To create a new user-defined function, select **Add**.
+2. Under the **Job topology** heading, select **Functions**. An empty list of functions appears.
+3.	To create a new user-defined function, select **+ Add**.
 4.	On the **New Function** blade, for **Function Type**, select **JavaScript**. A default function template appears in the editor.
 5.	For the **UDF alias**, enter **hex2Int**, and change the function implementation as follows:
 
@@ -69,7 +63,7 @@ To create a simple JavaScript user-defined function under an existing Stream Ana
 
 ## Call a JavaScript user-defined function in a query
 
-1. In the query editor, under **JOB TOPOLOGY**, select **Query**.
+1. In the query editor, under the **Job topology** heading, select **Query**.
 2.	Edit your query, and then call the user-defined function, like this:
 
     ```SQL
