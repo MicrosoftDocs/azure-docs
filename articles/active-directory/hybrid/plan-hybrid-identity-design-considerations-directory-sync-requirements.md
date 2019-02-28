@@ -17,6 +17,7 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
+ms.collection: M365-identity-device-management
 ---
 # Determine directory synchronization requirements
 Synchronization is all about providing users an identity in the cloud based on their on-premises identity. Whether or not they will use synchronized account for authentication or federated authentication, the users will still need to have an identity in the cloud.  This identity will need to be maintained and updated periodically.  The updates can take many forms, from title changes to password changes.  

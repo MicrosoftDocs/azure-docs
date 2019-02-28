@@ -33,6 +33,6 @@ ms.author: ramkris
 |**SDK download**|[Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)|
 |**BulkExecutor library in GitHub**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
 | **API documentation**| [.Net API reference documentation](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
-|**Get started**|Get started with the bulk executor library Java SDK](bulk-executor-java.md)|
+|**Get started**|[Get started with the bulk executor library Java SDK](bulk-executor-java.md)|
 |**Minimum supported runtime**|[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)|
 

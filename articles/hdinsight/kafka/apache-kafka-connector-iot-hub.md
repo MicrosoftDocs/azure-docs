@@ -123,7 +123,7 @@ From an SSH connection to the edge node, use the following steps to configure Ka
 
     * Change the `key.converter=` and `value.converter=` lines to the following values:
 
-        ```text
+        ```ini
         key.converter=org.apache.kafka.connect.storage.StringConverter
         value.converter=org.apache.kafka.connect.storage.StringConverter
         ```
@@ -185,7 +185,7 @@ To retrieve IoT hub information used by the connector, use the following steps:
 
         Replace `myhubname` with the name of your IoT hub. The response is similar to the following text:
 
-        ```text
+        ```json
         "EventHubCompatibleEndpoint": "sb://ihsuprodbnres006dednamespace.servicebus.windows.net/",
         "EventHubCompatibleName": "iothub-ehub-myhub08-207673-d44b2a856e",
         "Partitions": 2
@@ -345,7 +345,7 @@ To send messages through the connector, use the following steps:
     > [!IMPORTANT]  
     > You must set the value of the `"deviceId"` entry to the ID of your device. In the following example, the device is named `fakepi`:
 
-    ```text
+    ```json
     {"messageId":"msg1","message":"Turn On","deviceId":"fakepi"}
     ```
 

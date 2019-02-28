@@ -18,6 +18,7 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect in Microsoft Cloud Germany - Public Preview
 ## Introduction

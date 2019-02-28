@@ -59,7 +59,7 @@ Premium Storage Caching:  Not Supported
 | Standard_L32s <sup>1</sup> | 32   | 256  | 5,630 | 64   | 160,000 / 1,600   | 40,000 / 1,000     | 8 / 20,000 | 
  
 
-The maximum disk throughput possible with Ls-series VMs may be limited by the number, size, and striping of any attached disks. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md).
+The maximum disk throughput possible with Ls-series VMs may be limited by the number, size, and striping of any attached disks. For details, see [Designing for high performance](../articles/virtual-machines/windows/premium-storage-performance.md).
 
 <sup>1</sup> Instance is isolated to hardware dedicated to a single customer.
 

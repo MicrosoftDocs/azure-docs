@@ -20,7 +20,7 @@ ms.custom: mvc
 
 ---
 
-# Create a single-zone virtual machine scale set with PowerShell
+# Create a single-zone virtual machine scale set with the Azure CLI
 This script creates a virtual machine scale set running Ubuntu in a single Availability Zone. After running the script, you can access the virtual machine over RDP.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]

@@ -4,7 +4,7 @@ description: This document helps to troubleshoot issues in Azure Security Center
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd

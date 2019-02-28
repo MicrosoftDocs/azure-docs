@@ -21,7 +21,7 @@ ms.author: jroth
 | Live channels per AMS account |5|
 | Programs in stopped state per channel |50|
 | Programs in running state per channel |3|
-| Streaming endpoints in running state per AMS account|2|
+| Streaming Endpoints (stopped or running) per Media Services account|2|
 | Streaming units per streaming endpoint |10 |
 | Storage accounts | 1,000<sup>(5)</sup> (fixed) |
 | Policies | 1,000,000<sup>(6)</sup> |

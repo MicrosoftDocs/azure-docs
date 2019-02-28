@@ -73,7 +73,7 @@ In this section, you will add the [Secret Manager tool](https://docs.microsoft.c
 
 1. Add a reference to the `Microsoft.Azure.SignalR` NuGet package by executing the following command:
 
-        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-*
+        dotnet add package Microsoft.Azure.SignalR
 
 2. Execute the following command to restore packages for your project.
 
@@ -86,7 +86,7 @@ In this section, you will add the [Secret Manager tool](https://docs.microsoft.c
     This command must be executed in the same directory as the *.csproj* file.
 
     ```
-    dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
+    dotnet user-secrets set Azure:SignalR:ConnectionString "<Your connection string>"    
     ```
 
     Secret Manager will only be used for testing the web app while it is hosted locally. In a later tutorial, you will deploy the chat web app to Azure. Once the web app is deployed to Azure, you will use an application setting instead of storing the connection string with Secret Manager.

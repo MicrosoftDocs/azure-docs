@@ -17,11 +17,11 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-You can add your own JavaScript client-side code to your Azure Active Directory (Azure AD) B2C applications. This article describes how you can change your [custom policy](active-directory-b2c-overview-custom.md) to enable script execution.
+You can add your own JavaScript client-side code to your Azure Active Directory (Azure AD) B2C applications. This article describes how you can change your [user flow](user-flow-javascript-overview.md) or [custom policy](active-directory-b2c-overview-custom.md) to enable script execution.
 
 ## Prerequisites
 
-Select a [page contract](page-contract.md) for the user interface elements of your application. If you intend to use JavaScript, you need to define a page contract version for all of your content definitions in your custom policy.
+Select a [page contract](page-contract.md) for the user interface elements of your application. If you intend to use JavaScript, you need to define a page contract version for all of your content definitions in your user flow or custom policy.
 
 ## Add the ScriptExecution element
 

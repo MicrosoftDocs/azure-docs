@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 1/16/2019
+ms.date: 2/20/2019
 ms.author: chlandsi
 ---
 
@@ -21,16 +21,16 @@ This article shows how to use the Speech service through the Speech SDK for Pyth
 ## Prerequisites
 
 * An Azure subscription key for the Speech service. [Get one for free](get-started.md).
-* [Python 3.5 or later](https://www.python.org/downloads/), 64-bit.
+* [Python 3.5 or later](https://www.python.org/downloads/).
 * The Python Speech SDK package is available for these operating systems: 
-    * Windows: x64.
+    * Windows: x64 and x86.
     * Mac: macOS X version 10.12 or later.
     * Linux: Ubuntu 16.04 or 18.04 on x64.
 * On Ubuntu, run these commands to install the required packages:
 
   ```sh
   sudo apt-get update
-  sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+  sudo apt-get install build-essential libssl1.0.0 libasound2 wget
   ```
 
 * On Windows, you also need the [Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform.

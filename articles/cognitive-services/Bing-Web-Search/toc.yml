@@ -93,8 +93,6 @@
     href: Use-display-requirements.md
 - name: Resources
   items:
-  - name: FAQ
-    href: bing-web-search-resource-faq.md
   - name: Get API key
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api
   - name: Bing Web Search endpoint

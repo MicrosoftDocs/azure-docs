@@ -16,6 +16,7 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 
 # Remove personal data for Azure Active Directory Application Proxy  

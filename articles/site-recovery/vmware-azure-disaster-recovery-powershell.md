@@ -483,4 +483,4 @@ In this step, we fail over the virtual machine Win2K12VM1 to a specific recovery
 2. Once failed over successfully, you can commit the failover operation, and set up reverse replication from Azure back to the on-premises VMware site.
 
 ## Next steps
-Learn how to automate more tasks using the [Azure Site Recovery PowerShell reference ](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery).
+Learn how to automate more tasks using the [Azure Site Recovery PowerShell reference](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery).

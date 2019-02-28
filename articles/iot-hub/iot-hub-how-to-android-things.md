@@ -9,13 +9,13 @@ ms.date: 1/30/2019
 ms.author: yizhon
 ---
 
-# Develop for mobile devices using Azure IoT SDKs
-[Azure IoT Hub SDKs](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) provide first tier support for a wide range of popular platforms, including Windows, Linux, OSX, MBED, and mobile platforms like Android and iOS.  As part of our commitment to enable greater choice and flexibility in IoT deployments, the Java SDK also supports [Android Things](https://developer.android.com/things/) platform.  Developers can leverage the benefits of Android Things operating system on the device side, while using [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) as the central message hub that scales to millions of simultaneously connected devices. 
+# Develop for Android Things platform using Azure IoT SDKs
+[Azure IoT Hub SDKs](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) provide first tier support for popular platforms such as Windows, Linux, OSX, MBED, and mobile platforms like Android and iOS.  As part of our commitment to enable greater choice and flexibility in IoT deployments, the Java SDK also supports [Android Things](https://developer.android.com/things/) platform.  Developers can leverage the benefits of Android Things operating system on the device side, while using [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) as the central message hub that scales to millions of simultaneously connected devices. 
 
 This tutorial outlines the steps to build a device side application on Android Things using the Azure IoT Java SDK.
 
 ## Prerequisites
-* An Android Things supported hardware with Android Things OS running.  You can follow [Android Things documentation](https://developer.android.com/things/get-started/kits#flash-at) on how to flash Android Things.  Make sure your Android Things device is connected to the internet with essential peripherals such as keyboard, display and mouse attached.  This tutorial uses Raspberry Pi 3.
+* An Android Things supported hardware with Android Things OS running.  You can follow [Android Things documentation](https://developer.android.com/things/get-started/kits#flash-at) on how to flash Android Things OS.  Make sure your Android Things device is connected to the internet with essential peripherals such as keyboard, display, and mouse attached.  This tutorial uses Raspberry Pi 3.
 * Latest version of [Android Studio](https://developer.android.com/studio/)
 * Latest version of [Git](https://git-scm.com/)
 
@@ -70,7 +70,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 ## Read the telemetry from your hub
 
-The sample app that you ran on the XCode emulator shows data about messages sent from the device. You can also view the data through your IoT hub as it is received. The IoT Hub CLI extension can connect to the service-side **Events** endpoint on your IoT Hub. The extension receives the device-to-cloud messages sent from your simulated device. An IoT Hub back-end application typically runs in the cloud to receive and process device-to-cloud messages.
+You can view the data through your IoT hub as it is received. The IoT Hub CLI extension can connect to the service-side **Events** endpoint on your IoT Hub. The extension receives the device-to-cloud messages sent from your simulated device. An IoT Hub back-end application typically runs in the cloud to receive and process device-to-cloud messages.
 
 Run the following commands in Azure Cloud Shell, replacing `YourIoTHubName` with the name of your IoT hub:
 

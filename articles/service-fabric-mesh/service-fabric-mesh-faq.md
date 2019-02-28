@@ -96,7 +96,7 @@ Outgoing DNS queries from a container to the Service Fabric DNS service may fail
 - If the service name alone doesn't work, try the fully qualified name: ServiceName.ApplicationName.
 - In the Docker file for your service, add `EXPOSE <port>` where port is the port you are exposing your service on. For example:
 
-```DockerFile
+```Dockerfile
 EXPOSE 80
 ```
 

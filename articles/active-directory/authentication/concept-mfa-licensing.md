@@ -12,6 +12,7 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
+ms.collection: M365-identity-device-management
 ---
 # How to get Azure Multi-Factor Authentication
 
@@ -60,6 +61,9 @@ The following table provides a list of the features that are available in the va
 | Trusted IPs | | |● |
 | Remember MFA for trusted devices |● |● |● |
 | MFA for on-premises applications | | |● |
+
+> [!IMPORTANT]
+> Starting in March of 2019 the phone call options will not be available to MFA and SSPR users in free/trial Azure AD tenants. SMS messages are not impacted by this change. Phone call will continue to be available to users in paid Azure AD tenants. This change only impacts free/trial Azure AD tenants.
 
 ## How to turn on Azure Multi-Factor Authentication for Azure AD Administrators
 

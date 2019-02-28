@@ -10,6 +10,7 @@ ms.topic: overview
 ms.date: 12/05/2018
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # What is password hash synchronization with Azure AD?

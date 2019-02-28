@@ -17,6 +17,7 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
 
+ms.collection: M365-identity-device-management
 ---
 
 # Kerberos Constrained Delegation for single sign-on to your apps with Application Proxy

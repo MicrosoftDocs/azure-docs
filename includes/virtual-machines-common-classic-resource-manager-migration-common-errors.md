@@ -157,9 +157,9 @@ After you complete the migration process, you may want to move the VM to another
 
 #### PowerShell
 ```powershell
-$vm = Get-AzureRmVM -ResourceGroupName "MyRG" -Name "MyVM"
-Remove-AzureRmVMSecret -VM $vm
-Update-AzureRmVM -ResourceGroupName "MyRG" -VM $vm
+$vm = Get-AzVM -ResourceGroupName "MyRG" -Name "MyVM"
+Remove-AzVMSecret -VM $vm
+Update-AzVM -ResourceGroupName "MyRG" -VM $vm
 ```
 #### Azure CLI
 
