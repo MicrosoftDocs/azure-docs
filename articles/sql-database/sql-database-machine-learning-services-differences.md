@@ -49,11 +49,11 @@ R resources are maximum 20% of the SQL Database resources, and depend on which s
 
 If there is insufficient memory available for R, you will get an error message. Common error messages are:
 
-* Unable to communicate with the runtime for 'R' script for request id: *******. Please check the requirements of 'R' runtime
-* 'R' script error occurred during execution of 'sp_execute_external_script' with HRESULT 0x80004004. ...an external script error occurred: "..could not allocate memory (0 Mb) in C function 'R_AllocStringBuffer'"
-* An external script error occurred: Error: cannot allocate vector of size.
+* `Unable to communicate with the runtime for 'R' script for request id: *******. Please check the requirements of 'R' runtime`
+* `'R' script error occurred during execution of 'sp_execute_external_script' with HRESULT 0x80004004. ...an external script error occurred: "..could not allocate memory (0 Mb) in C function 'R_AllocStringBuffer'"`
+* `An external script error occurred: Error: cannot allocate vector of size.`
 
-Memory usage depends on the amount used in your R scripts and the number of parallel queries being executed. To resolve this, scale your database to a higher service tier.
+Memory usage depends on the amount used in your R scripts and the number of parallel queries being executed. If you receive the errors above, you can scale your database to a higher service tier to resolve this.
 
 ## Security isolation
 
