@@ -21,11 +21,17 @@ This article shows you how to use the API server IP address whitelist to limit r
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+API server IP address whitelisting only works for new AKS clusters that you create. You can create an AKS cluster [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
 ### Azure CLI requirements
 
 You need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+
+To use the API server IP address whitelist, you also need the *aks-preview* Azure CLI extension. Install this extension using the [az extension add][az-extension-add] command, as shown in the following example:
+
+```azurecli-interactive
+az extension add --name aks-preview
+```
 
 ### Register feature flag for your subscription
 
@@ -51,7 +57,9 @@ az provider register --namespace Microsoft.ContainerService
 
 The Kubernetes API server is how the underlying Kubernetes APIs are exposed. This component provides the interaction for management tools, such as `kubectl` or the Kubernetes dashboard. AKS provides a single-tenant cluster master, with a dedicated API server. By default, the API server is assigned a public IP address, and you should control access using role-based access controls (RBAC).
 
-To run a more secure AKS cluster, you can enable and use an IP address whitelist. This whitelist only allows defined IP address ranges to communicate with the API server. A request made to the API server from an IP address that is not part of this whitelist is blocked. You should continue to use RBAC to then authorize users and the actions they request.
+To secure access to the otherwise publicly accessible AKS control plane / API server, you can enable and use an IP address whitelist. This whitelist only allows defined IP address ranges to communicate with the API server. A request made to the API server from an IP address that is not part of this whitelist is blocked. You should continue to use RBAC to then authorize users and the actions they request.
+
+To use the IP address whitelist functionality, a public IP address is exposed on the node pool by deploying a basic NGINX service. The API server communicates with the node pool through this whitelisted public IP address. You then define additional IP address ranges that can access the API server.
 
 For more information about the API server and other cluster components, see [Kubernetes core concepts for AKS][concepts-clusters-workloads].
 
