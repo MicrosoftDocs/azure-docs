@@ -40,7 +40,7 @@ Many experienced template developers use this method to generate templates when 
 3. Enter the following information:
 
     - **Resource group**: Select **Create new**, and specify a resource group name of your choice. On the screenshot, the resource group name is *mystorage1016rg*. Resource group is a container for Azure resources. Resource group makes it easier to manage Azure resources.
-    - **Name**: Give your storage account a unique name. The storage account name must be unique across all of Azure, and it contain only lowercase letters and numbers. Name must be between 3 and 24 characters. If you get an error message saying "The storage account name 'mystorage1016' is already taken", try using **<your name>storage<MMDD>**, for example **johndolestorage1016**. For more information, see [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions.md#naming-rules-and-restrictions).
+    - **Name**: Give your storage account a unique name. The storage account name must be unique across all of Azure, and it contain only lowercase letters and numbers. Name must be between 3 and 24 characters. If you get an error message saying "The storage account name 'mystorage1016' is already taken", try using **<your name>storage<Today's date in MMDD>**, for example **johndolestorage1016**. For more information, see [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions.md#naming-rules-and-restrictions).
 
     You can use the default values for the rest of the properties.
 
