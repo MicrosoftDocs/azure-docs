@@ -21,7 +21,7 @@ Dependency visualization in Azure Migrate allows you to create high-confidence g
 
 ## How does it work?
 
-Azure Migrate uses the [Service Map](../operations-management-suite/operations-management-suite-service-map.md) solution in [Log Analytics](../log-analytics/log-analytics-overview.md) for dependency visualization.
+Azure Migrate uses the [Service Map](../operations-management-suite/operations-management-suite-service-map.md) solution in [Azure Monitor logs](../log-analytics/log-analytics-overview.md) for dependency visualization.
 - To leverage dependency visualization, you need to associate a Log Analytics workspace, either new or existing, with an Azure Migrate project.
 - You can only create or attach a workspace in the same subscription where the migration project is created.
 - To attach a Log Analytics workspace to a project, go to **Essentials** section of the project **Overview** page and click **Requires configuration**

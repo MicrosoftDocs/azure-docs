@@ -5,7 +5,7 @@ description: Use PowerShell to create and manage Azure Machine Learning Studio w
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs

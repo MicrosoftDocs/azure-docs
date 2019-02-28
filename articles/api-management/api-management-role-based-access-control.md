@@ -45,6 +45,9 @@ The following table provides brief descriptions of the built-in roles. You can a
 ## Custom roles
 If none of the built-in roles meet your specific needs, custom roles can be created to provide more granular access management for API Management entities. For example, you can create a custom role that has read-only access to an API Management service, but only has write access to one specific API. To learn more about custom roles, see [Custom roles in Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). 
 
+> [!NOTE]
+> To be able to see an API Management instance in the Azure portal, a custom role must include the ```Microsoft.ApiManagement/service/read``` action.
+
 When you create a custom role, it's easier to start with one of the built-in roles. Edit the attributes to add **Actions**, **NotActions**, or **AssignableScopes**, and then save the changes as a new role. The following example begins with the "Azure API Management Service Reader" role and creates a custom role called "Calculator API Editor." You can assign the custom role to a specific API. Consequently, this role only has access to that API. 
 
 ```
