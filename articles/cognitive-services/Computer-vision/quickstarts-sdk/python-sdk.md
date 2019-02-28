@@ -91,7 +91,7 @@ Once you create your Computer Vision resource, you need its **region**, and one 
 
 Use these values when you create the instance of the [ComputerVisionAPI][ref_computervisionclient] client object. 
 
-<!--
+
 
 For example, use the Bash terminal to set the environment variables:
 
@@ -122,7 +122,7 @@ export ACCOUNT_KEY=$(az cognitiveservices account keys list \
     --query key1 \
     --output tsv)
 ```
--->
+
 
 ### Create client
 
@@ -133,14 +133,21 @@ from azure.cognitiveservices.vision.computervision import ComputerVisionAPI
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
 from msrest.authentication import CognitiveServicesCredentials
 
-region = "westcentralus"
-key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+# Get region and key from environment variables
+import os
+region = os.environ['ACCOUNT_REGION']
+key = os.environ['ACCOUNT_KEY']
 
+# Set credentials
 credentials = CognitiveServicesCredentials(key)
+
+# Create client
 client = ComputerVisionAPI(region, credentials)
 ```
 
 You need a [ComputerVisionAPI][ref_computervisionclient] client object before using any of the following tasks.
+
+## Examples
 
 ### Analyze an image
 
