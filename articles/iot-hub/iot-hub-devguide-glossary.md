@@ -92,7 +92,7 @@ In the context of a [device twin](iot-hub-devguide-device-twins.md), desired pro
 Refers to messages sent from a connected device to [IoT Hub](#iot-hub). These messages may be [data-point](#data-point-message) or [interactive](#interactive-message) messages. For more information, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
 
 ## Device
-In the context of IoT, a device is typically a small-scale, standalone computing device that may collect data or control other devices. For example, a device might be an environmental monitoring device, or a controller for the watering and ventilation systems in a greenhouse. The [device catalog](https://catalog.azureiotsuite.com/) provides a list of hardware devices certified to work with [IoT Hub](#iot-hub).
+In the context of IoT, a device is typically a small-scale, standalone computing device that may collect data or control other devices. For example, a device might be an environmental monitoring device, or a controller for the watering and ventilation systems in a greenhouse. The [device catalog](https://catalog.azureiotsolutions.com/) provides a list of hardware devices certified to work with [IoT Hub](#iot-hub).
 
 ## Device app
 A device app runs on your [device](#device) and handles the communication with your [IoT hub](#iot-hub). Typically, you use one of the [Azure IoT device SDKs](#azure-iot-device-sdks) when you implement a device app. In many of the IoT tutorials, you use a [simulated device](#simulated-device) for convenience.
