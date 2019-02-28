@@ -35962,8 +35962,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cognitive-services/computer-vision/concept-extracting-text-ocr.md",
-      "redirect_url": "/azure/cognitive-services/computer-vision/concept-recognizing-text#ocr-optical-character-recognition-api",
+      "source_path": "articles/cognitive-services/Computer-vision/concept-extracting-text-ocr.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/concept-recognizing-text#ocr-optical-character-recognition-api",
       "redirect_document_id": false
     },
     {
