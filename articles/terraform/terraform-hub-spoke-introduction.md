@@ -13,7 +13,7 @@ ms.date: 2/28/2019
 
 # Hub and spoke network topology
 
-This tutorial shows how to implement one of the popular [Hybrid network topology](/azure/architecture/reference-architectures/hybrid-networking/). In this artilce, you learn how to connect an on-premises network to an Azure virtual network. A hub and spoke network topology is a way to isolate workloads while sharing common services like identity and security. The hub is a virtual network in Azure that acts as a central point of connectivity to on-premises network. The spokes are VNets that peer with the hub. Shared services are deployed in the hub, while individual workloads are deployed inside spoke networks.  
+This tutorial shows how to implement one of the popular [Hybrid network topology](/azure/architecture/reference-architectures/hybrid-networking/). In this article, you learn how to connect an on-premises network to an Azure virtual network (Vnet). A hub and spoke network topology is a way to isolate workloads while sharing common services. These services include identity and security. The hub is a virtual network that acts as a central connection point to an on-premises network. The spokes are VNets that peer with the hub. Shared services are deployed in the hub, while individual workloads are deployed inside spoke networks.  
 
 To learn about the recommendations and considerations for this topology, refer [hub and spoke reference architecture](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 
@@ -30,8 +30,9 @@ To learn about the recommendations and considerations for this topology, refer [
 Some of the typical uses for a hub and spoke architecture include:
 
 - Many customers have workloads that are deployed in different environments. These environments include development, testing, and production. Many times, these workloads need to share services such as DNS, IDS, NTP, or AD DS. These shared services can be placed in the hub VNet. That way, each environment is deployed to a spoke to maintain isolation.
-- Workloads that do not require connectivity to each other, but require access to shared services.
-- Enterprises that require central control over security aspects, such as a firewall in the hub as a DMZ, and segregated management for the workloads in each spoke.
+- Workloads that don't require connectivity to each other, but require access to shared services.
+- Enterprises that require central control over security aspects.
+- Enterprises that require segregated management for the workloads in each spoke.
 
 In this tutorial, you learn how to do the following tasks in creating a [Hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke):
 
@@ -162,9 +163,9 @@ Create the Terraform configuration file for common variables that are used acros
 
 The architecture consists of the following components. Each one is implemented as a separate Terraform script and to complete this reference architecture all the scripts need to be deployed.
 
-- **On-Premises network**. A private local-area network running with an Organization. For hub and spoke reference architecture, we will use a VNet in Azure to simulate On-premises network.
+- **On-Premises network**. A private local-area network running with an Organization. For hub and spoke reference architecture, we use a VNet in Azure to simulate On-premises network.
 
-- **VPN Device**. A device or service that provides external connectivity to the on-premises network. The VPN device may be a hardware appliance or a software solution. An example is the Routing and Remote Access Service (RRAS) in Windows Server 2012. For more information about configuring selected VPN appliances for connecting to Azure, see [About VPN devices for Site-to-Site VPN Gateway connections](/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
+- **VPN Device**. A device or service that provides external connectivity to the on-premises network. The VPN device may be a hardware appliance or a software solution. An example is the Routing and Remote Access Service (RRAS) in Windows Server 2012. For more information about configuring VPN appliances on Azure, see [About VPN devices for Site-to-Site VPN Gateway connections](/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
 
 - **Hub Virtual Network**. Azure Virtual Network used as the hub in the hub and spoke topology. The hub is the central point of connectivity to your on-premises network and a place to host services. These services can be consumed by the different workloads hosted in the spoke VNets.
 
