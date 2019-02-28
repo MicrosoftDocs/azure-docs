@@ -102,7 +102,7 @@ A P2S configuration defines the parameters for connecting remote clients.
   *  **Root Certificate Name** - A descriptive name for the certificate.
   *  **Root Certificate Data** - Base-64 encoded X.509 certificate data.
 
-5. Click **Create** to create the configuration.
+6. Click **Create** to create the configuration.
 
 ## <a name="hub"></a>5. Edit hub assignment
 
@@ -110,15 +110,16 @@ A P2S configuration defines the parameters for connecting remote clients.
 2. Select the hub that you want to assign the point-to-site configuration to.
 3. Click **"..."** and pick **Edit virtual hub**
 4. Check **Include point-to-site gateway**.
-5. Pick the **Gateway scale units** and the **Point-to-site configuration** along with an **Address pool** for the clients.
-6. Click **Confirm**. 
-7. The operation can take up to 30 minutes to complete.
+5. From the dropdown, select the **Gateway scale units**.
+6. From the dropdown, select the **Point-to-site configuration** that you created.
+7. Configure the **Address pool** for the clients.
+8. Click **Confirm**. The operation can take up to 30 minutes to complete.
 
 ## <a name="vnet"></a>6. Connect your VNet to a hub
 
 In this step, you create the peering connection between your hub and a VNet. Repeat these steps for each VNet that you want to connect.
 
-1. On the page for your virtual WAN, click **Virtual network connection**.
+1. On the page for your virtual WAN, click **Virtual network connections**.
 2. On the virtual network connection page, click **+Add connection**.
 3. On the **Add connection** page, fill in the following fields:
 
@@ -126,6 +127,7 @@ In this step, you create the peering connection between your hub and a VNet. Rep
     * **Hubs** - Select the hub you want to associate with this connection.
     * **Subscription** - Verify the subscription.
     * **Virtual network** - Select the virtual network you want to connect to this hub. The virtual network cannot have an already existing virtual network gateway.
+4. Click **OK** to add the connection.
 
 ## <a name="device"></a>7. Download VPN profile
 
