@@ -27,7 +27,7 @@ Computers that are managed by Update Management use the following configurations
 
 The following diagram shows a conceptual view of the behavior and data flow with how the solution assesses and applies security updates to all connected Windows Server and Linux computers in a workspace:
 
-![Update Management process flow](media/automation-update-management/update-mgmt-updateworkflow.png)
+![Update Management process flow](./media/automation-update-management/update-mgmt-updateworkflow.png)
 
 Update Management can be used to natively onboard machines in multiple subscriptions in the same tenant.
 
