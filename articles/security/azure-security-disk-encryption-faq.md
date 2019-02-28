@@ -69,6 +69,14 @@ To get started, read the [Azure Disk Encryption overview](azure-security-disk-en
 
 Yes, you can encrypt boot and data volumes for Windows and Linux IaaS VMs. For Windows VMs, you can't encrypt the data without first encrypting the OS volume. For Linux VMs, it's possible to encrypt the data volume without having to encrypt the OS volume first. After you've encrypted the OS volume for Linux, disabling encryption on an OS volume for Linux IaaS VMs isn't supported.
 
+## How do I rotate secrets or encryption keys?
+
+To rotate secrets, just call the same command you used originally to enable disk encryption. If you specified a key encryption key, specify a new on to rotate it. 
+
+## How do I add a key encryption key if I didn't originally use one?
+
+If you didn't specify a key encryption key and want to add one, simple call the enable command again passing the key encryption key parameter.
+
 ## Does Azure Disk Encryption allow you to bring your own key (BYOK)?
 
 Yes, you can supply your own key encryption keys. These keys are safeguarded in Azure Key Vault, which is the key store for Azure Disk Encryption. For more information on the key encryption keys support scenarios, see [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites.md).
