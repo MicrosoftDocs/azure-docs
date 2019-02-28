@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 2/28/2019
+ms.date: 3/2/2019
 ms.author: victorh
 ---
 
@@ -18,7 +18,7 @@ Threat intelligence-based filtering can be enabled for your firewall to alert an
 > [!IMPORTANT]
 > Threat intelligence based filtering is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities.  See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 >
->Threat intelligence filtering (and the associated portal user interface) is being added to regions incrementally, and will be available in all regions in the near future.
+>Threat intelligence filtering is available in all public regions. The associated portal configuration user interface is being added to regions incrementally, and will be available in all regions in the near future.
 
 If threat intelligence-based filtering is enabled, the associated rules are processed before any of the NAT rules, network rules, or application rules. During the preview, only highest confidence records are included.
 
@@ -26,7 +26,7 @@ You can choose to just log an alert when a rule is triggered, or you can choose 
 
 By default, threat intelligence-based filtering is enabled in alert mode. You can’t turn off this feature or change the mode until the portal interface becomes available in your region.
 
-![Threat intelligence based filtering portal interface](media/overview/threat-intel-ui.png)
+![Threat intelligence based filtering portal interface](media/threat-intel/threat-intel-ui.png)
 
 ## Logs
 
