@@ -31820,6 +31820,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-api-node.md",
+      "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-tutorials-spa",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-native-dotnet.md",
+      "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-support-create-directory.md",
       "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-faqs",
       "redirect_document_id": false
