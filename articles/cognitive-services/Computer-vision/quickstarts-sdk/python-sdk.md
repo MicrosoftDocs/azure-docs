@@ -224,15 +224,17 @@ raw = True
 custom_headers = None
 numberOfCharsInOperationId = 36
 
-# SDK call
+# Async SDK call
+# Timeout is in place of async await logic
 rawHttpResponse = client.recognize_text(url, mode, custom_headers,  raw)
+time.sleep(2)
 
 # Get ID from returned headers
 operationLocation = rawHttpResponse.headers["Operation-Location"]
 idLocation = len(operationLocation) - numberOfCharsInOperationId
 operationId = operationLocation[idLocation:]
 
-# SDK call
+# Sync SDK call - call within loop for retry logic until success
 result = client.get_text_operation_result(operationId)
 
 # Get data
