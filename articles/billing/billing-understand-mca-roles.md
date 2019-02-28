@@ -166,13 +166,15 @@ The following tables show what role you need to complete tasks in the context of
 |Change invoice section for the subscriptions|✔|✔|✘|✘|✘|✘|✘|
 |Request billing ownership of subscriptions from users in other billing accounts|✔|✔|✘|✘|✘|✘|✘|
 
-## Subscription roles and tasks
+## Subscription billing roles and tasks
 
 The following table shows what role you need to complete tasks in the context of a subscription.
 
 |Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Azure subscription creator|
 |---|---|---|---|---|
 |Create Azure subscriptions|✔|✔|✘|✔|
+|Update cost center for the subscription|✔|✔|✘|✘|
+|Change invoice section for the subscription|✔|✔|✘|✘|
 
 ## Manage billing roles in the Azure portal
 

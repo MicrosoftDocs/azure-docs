@@ -17,9 +17,9 @@ ms.date: 02/24/2018
 ms.author: banders
 
 ---
-# Complete  Enterprise Agreement tasks in your billing account for a Microsoft Customer Agreement
+# Complete Enterprise Agreement tasks in your billing account for a Microsoft Customer Agreement
 
-If your organization has signed a Microsoft Customer Agreement to renew your Enterprise Agreement enrollment, then you must set up the new billing account created for the agreement. Your new billing account provides you enhanced billing and cost management capabilities through a new streamlined, unified management experience. For more information, see [Set up your billing account for a Microsoft Customer Agreement](billing-mca-setup-account.md) <!-- Todo update the link to billing-mca-setup-account.md -->
+If your organization has signed a Microsoft Customer Agreement to renew your Enterprise Agreement enrollment, then you must set up the new billing account created for the agreement. Your new billing account provides you enhanced billing and cost management capabilities through a new streamlined, unified management experience. For more information, see [Set up your billing account for a Microsoft Customer Agreement](billing-mca-setup-account.md).
 
 This article describes how to use your new billing account to complete tasks that you performed in your Enterprise Agreement enrollment.
 
@@ -59,7 +59,7 @@ An invoice section is created for each department you had in your Enterprise Agr
 
 The accounts that were created in your Enterprise Agreement enrollment are not supported in the new billing account. The account's subscriptions belong to the respective invoice section for their department. Account owners can create and manage subscriptions for their invoice sections.
 
-To analyze cost for subscriptions that belong to an account, you must set up cost analysis for the subscriptions. For more information, see [Set up cost analysis for subscriptions](billing-mca-overview.md). <!--Todo update the link -->
+To view aggregate cost for subscriptions that belonged to an account, you must set a cost center for each subscription. Then you can use the Azure usage and charges csv file to filter the subscriptions by the cost center.
 
 ### Download usage and charges csv, price sheet, and tax documents
 
@@ -89,7 +89,7 @@ If you are a department administrator on an Enterprise Agreement that renewed to
 
 **Invoice section owner** - You are assigned the invoice section owner role on the invoice section that is created for the departments you had in Enterprise Agreement. The role lets you view and track charges, and control who can create Azure subscriptions and buy other products for the invoice section.
 
-If you were a department administrator on multiple departments in Enterprise Agreement, you are assigned invoice section owner role on all the invoice sections created for the departments.
+If you are a department administrator on multiple departments in Enterprise Agreement, you are assigned invoice section owner role on all the invoice sections created for the departments.
 
 ### View charges for your department
 
@@ -99,7 +99,7 @@ An invoice section is created for each department you had in your Enterprise Agr
 
 An invoice section is created for each department you had in your Enterprise Agreement. You can use the **Access Control(IAM)** page in the Azure portal to give others access to view and manage the invoice section. To learn more about invoice section roles, see [Invoice profile roles and tasks](billing-understand-mca-roles.md#invoice-section-roles-and-tasks).
 
-To learn how to provide,  access to your invoice section, see [Manage billing roles in the Azure portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+To learn how to provide, access to your invoice section, see [Manage billing roles in the Azure portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
 ### Create a new account in your department
 
@@ -107,7 +107,9 @@ The account billing context in your Enterprise Agreement isn't supported in the 
 
 ### View charges for accounts in your departments
 
-The account billing context in your Enterprise Agreement isn't supported in the new billing account. The account's subscriptions belong to the invoice section created for your department. Account owners can create and manage subscriptions for the invoice sections. To analyze aggregate cost for subscriptions that belong to an account, you must set up cost analysis for the subscriptions. For more information, see [Set up cost analysis for subscriptions](billing-mca-overview.md). <!-- Todo update the link -->
+The account billing context in your Enterprise Agreement isn't supported in the new billing account. The account's subscriptions belong to the invoice section created for your department. Account owners can create and manage subscriptions for the invoice sections.
+
+To view aggregate cost for subscriptions that belonged to an account in your department, you must set a cost center for each subscription. Then you can use the Azure usage and charges file to filter the subscriptions by the cost center.
 
 ## Tasks performed by an account owner
 
@@ -117,7 +119,9 @@ If you are an account owner on an Enterprise Agreement that got renewed to a Mic
 
 ### View charges for your account
 
-The account billing context in your Enterprise Agreement isn't supported in the new billing account. The account's subscriptions belong to the invoice section created for your account's department. To analyze aggregate cost for subscriptions that belong to your account, you must set up cost analysis for the subscriptions. For more information, see [Set up cost analysis for subscriptions](billing-mca-overview.md). <!-- Todo update the link -->
+The account billing context in your Enterprise Agreement isn't supported in the new billing account. The account's subscriptions belong to the invoice section created for your account's department.
+
+To view aggregate cost for subscriptions that belonged to an account, go to the **Subscriptions page** in the Azure portal. The subscriptions page displays charges for each  subscription.
 
 ### View charges for a subscription
 
