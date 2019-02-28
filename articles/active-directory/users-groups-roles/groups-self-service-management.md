@@ -29,8 +29,8 @@ For self-service security groups created in the Azure portal or using Azure AD P
 
 Groups created in… | Security group default behavior | Office 365 group default behavior
 ------------------ | ------------------------------- | ---------------------------------
-Azure AD PowerShell | Only owners can add members<br>Visible but not available to join in Apps access panel | Open to join for all users
-Azure portal | Only owners can add members<br>Visible but not available to join in Apps access panel<br>Owner is not assigned automatically at group creation | Open to join for all users
+[Azure AD PowerShell](groups-settings-cmdlets.md) | Only owners can add members<br>Visible but not available to join in Apps access panel | Open to join for all users
+[Azure portal](https://portal.azure.com) | Only owners can add members<br>Visible but not available to join in Apps access panel<br>Owner is not assigned automatically at group creation | Open to join for all users
 [Apps access panel](https://account.activedirectory.windowsazure.com/r#/joinGroups) | Open to join for all users<br>Membership options can be changed when the group is created | Open to join for all users<br>Membership options can be changed when the group is created
 
 ## Self-service group management scenarios
