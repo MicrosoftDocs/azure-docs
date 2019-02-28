@@ -37,7 +37,7 @@ Learn more about [what you can back up](backup-overview.md) and about [supported
 
 Azure Backup stores backed-up data in a Recovery Services vault. A vault is an online-storage entity in Azure that's used to hold data, such as backup copies, recovery points, and backup policies.
 
-### Recovery Services vault features
+Recovery Services vaults have the following features:
 
 - Vaults make it easy to organize your backup data, while minimizing management overhead.
 - In each Azure subscription, you can create up to 500 vaults.
@@ -48,9 +48,9 @@ Azure Backup stores backed-up data in a Recovery Services vault. A vault is an o
     - **Geo-redundant storage (GRS)**: To protect against region-wide outages, you can use GRS. GRS replicates your data to a secondary region. [Learn more](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). 
     - By default, Recovery Services vaults use GRS. 
 
-### Backup agents
+## Backup agents
 
-Azure Backup provides different agents, depending on what type of machine is being backed up:
+Azure Backup provides different backup agents, depending on what type of machine is being backed up:
 
 **Agent** | **Details** 
 --- | --- 
@@ -73,7 +73,7 @@ The following table explains the different types of backups used for SQL Server 
 
 **Backup type** | **Details** | **Usage**
 --- | --- | ---
-**Full backup** | A full database backup backs up the entire database. It contains all of the data in a specific database or in a set of filegroups or files. A full backup also contains enough logs to recover that data. | At most, you can trigger one full backup per day.<br/><br/> You can choose to make a full backup on a daily or weekly interval.
+**Full backup** | A full database backup backs up the entire database. It contains all the data in a specific database or in a set of filegroups or files. A full backup also contains enough logs to recover that data. | At most, you can trigger one full backup per day.<br/><br/> You can choose to make a full backup on a daily or weekly interval.
 **Differential backup** | A differential backup is based on the most recent, previous full-data backup.<br/><br/> It captures only the data that's changed since the full backup. |  At most, you can trigger one differential backup per day.<br/><br/> You can't configure a full backup and a differential backup on the same day.
 **Transaction log backup** | A log backup enables point-in-time restoration up to a specific second. | At most, you can configure transactional log backups every 15 minutes.
 
@@ -84,15 +84,15 @@ Storage consumption, recovery time objective (RTO), and network consumption vari
 - Data source A is composed of 10 storage blocks, A1-A10, which are backed up monthly.
 - Blocks A2, A3, A4, and A9 change in the first month, and block A5 changes in the next month.
 - For differential backups, in the second month, changed blocks A2, A3, A4, and A9 are backed up. In the third month, these same blocks are backed up again, along with changed block A5. The changed blocks continue to be backed up until the next full backup happens.
-- For incremental backups, in the second month, block A2, A3, A4, and A9 are marked as changed and transferred. In the third month, only changed block A5 is marked and transferred. 
+- For incremental backups, in the second month, blocks A2, A3, A4, and A9 are marked as changed and transferred. In the third month, only changed block A5 is marked and transferred. 
 
 ![Image showing comparisons of backup methods](./media/backup-architecture/backup-method-comparison.png)
 
 ## Backup features
 
-The following table summarizes the features for the different types of backup:
+The following table summarizes the supported features for the different types of backup:
 
-**Feature** | **On-premises Windows Server machines (direct)** | **Azure VMs** | **Machines/apps with DPM/MABS**
+**Feature** | **On-premises Windows Server machines (direct)** | **Azure VMs** | **Machines or apps with DPM/MABS**
 --- | --- | --- | ---
 Back up to vault | ![Yes][green] | ![Yes][green] | ![Yes][green] 
 Back up to DPM/MABS disk, then to Azure | | | ![Yes][green] 
@@ -109,12 +109,12 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
     - For Windows VMs, the VMSnapshot extension is installed.
     - For Linux VMs, the VMSnapshot Linux extension is installed.
 1. The extension takes a storage-level snapshot. 
-    - For Windows VMs that are running, Backup coordinates with the Windows Volume Shadow Copy (VSS) service to take an app-consistent snapshot of the VM. By default, Backup takes full VSS backups. If Backup is unable to take an app-consistent snapshot, then it takes a file-consistent snapshot.
+    - For Windows VMs that are running, Backup coordinates with the Windows Volume Shadow Copy Service (VSS) to take an app-consistent snapshot of the VM. By default, Backup takes full VSS backups. If Backup is unable to take an app-consistent snapshot, then it takes a file-consistent snapshot.
     - For Linux VMs, Backup takes a file-consistent snapshot. For app-consistent snapshots, you need to manually customize pre/post scripts.
     - Backup is optimized by backing up each VM disk in parallel. For each disk being backed up, Azure Backup reads the blocks on disk and stores only the changed data. 
 1. After the snapshot is taken, the data is transferred to the vault. 
     - Only blocks of data that changed since the last backup are copied.
-    - Data isn't encrypted. Azure Backup can back up Azure VMs that are encrypted by using Azure Disk Encryption.
+    - Data isn't encrypted. Azure Backup can back up Azure VMs that were encrypted by using Azure Disk Encryption.
     - Snapshot data might not be immediately copied to the vault. At peak times, the backup might take some hours. Total backup time for a VM will be less than 24 hours for daily backup policies.
 1. After the data is sent to the vault, the snapshot is removed, and a recovery point is created.
 
@@ -150,7 +150,7 @@ Azure VMs need internet access for control commands. If you're backing up worklo
 
 ## Azure VM storage
 
-Azure VMs use disks to store their operating system, apps, and data. Each Azure VM has at least two disks: one for the operating system and a temporary disk. Azure VMs can also have data disks for app data. Disks are stored as VHDs.
+Azure VMs use disks to store their operating system, apps, and data. Each Azure VM has at least two disks: a disk for the operating system and a temporary disk. Azure VMs can also have data disks for app data. Disks are stored as VHDs.
 
 - VHDs are stored as page blobs in standard or premium storage accounts in Azure:
     - **Standard storage:** Reliable, low-cost disk support for VMs running workloads that aren't sensitive to latency. Standard storage can use standard solid-state drive (SSD) disks or standard hard disk drive (HDD) disks.
@@ -173,7 +173,7 @@ For more information about disk storage and the available disk types for VMs, se
 
 You can back up Azure VMs by using premium storage with Azure Backup:
 
-- During the process of backing up VMs with premium storage, the Backup service creates a temporary staging location, named "AzureBackup-", in the storage account. The size of the staging location is equal to the size of the recovery point snapshot.
+- During the process of backing up VMs with premium storage, the Backup service creates a temporary staging location, named *AzureBackup-*, in the storage account. The size of the staging location equals the size of the recovery point snapshot.
 - Make sure that the premium storage account has adequate free space to accommodate the temporary staging location. [Learn more](../storage/common/storage-scalability-targets.md#premium-storage-account-scale-limits). Don't modify the staging location.
 - After the backup job finishes, the staging location is deleted.
 - The price of storage used for the staging location is consistent with [premium storage pricing](../virtual-machines/windows/disks-types.md#billing).
@@ -190,7 +190,7 @@ You can back up Azure VMs with managed disks:
 
 When you restore VMs with managed disks, you can restore to a complete VM with managed disks or to a storage account:
 
-- During the restore process, Azure handles the managed disks. If you're using the storage account option, you manage the storage account that's created during the restore.
+- During the restore process, Azure handles the managed disks. If you're using the storage account option, you manage the storage account that's created during the restore process.
 - If you restore a managed VM that's encrypted, make sure the VM's keys and secrets exist in the key vault before you start the restore process.
 
 ## Next steps
