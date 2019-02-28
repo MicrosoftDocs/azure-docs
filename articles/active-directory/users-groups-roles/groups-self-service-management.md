@@ -28,6 +28,7 @@ You can enable users to create and manage their own security groups or Office 36
 For self-service security groups created in the Azure portal or using Azure AD PowerShell, only the group owners can update membership. Security groups created in the [Apps access panel](https://account.activedirectory.windowsazure.com/r#/joinGroups) and all Office 365 groups are available to join for all users, whether owner-approved or auto-approved. In the Apps access panel, you can change membership options when you create the group.
 
 Groups created in… | Security group default behavior | Office 365 group default behavior
+------------------ | ------------------------------- | ---------------------------------
 Azure AD PowerShell | Only owners can add members (visible but not available to join in Apps access panel) | Open to join for all users
 Azure portal | Only owners can add members (visible but not available to join in Apps access panel)<br>Owner is not assigned automatically at group creation | Open to join for all users
 [Apps access panel](https://account.activedirectory.windowsazure.com/r#/joinGroups) | Open to join for all users<br>(Can specify different behavior prior to group creation) | Open to join for all users<br>(Can specify different behavior prior to group creation)
