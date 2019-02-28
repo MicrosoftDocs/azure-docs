@@ -453,7 +453,7 @@
     - name: Find unattached disks
       href: find-unattached-disks.md
     - name: Use File storage
-      href: ../../storage/files/storage-files-quick-create-use-windows.md
+      href: mount-azure-file-storage-on-linux-using-smb.md
     - name: Disks FAQs
       href: faq-for-disks.md
   - name: Manage networking
