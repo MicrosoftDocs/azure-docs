@@ -128,16 +128,15 @@ Copy the **RelativeDnsName** value. The DNS name of your Traffic Manager profile
 
     > [!NOTE]
     > In this quickstart scenario, all requests route to the primary endpoint. It is set to **Priority 1**.
- 
-2. To view Traffic Manager failover in action, disable your primary site using `Disable-AzTrafficManagerEndpoint`.
+ 2. To view Traffic Manager failover in action, disable your primary site using `Disable-AzTrafficManagerEndpoint`.
 
-```azurepowershell-interactive
-Disable-AzTrafficManagerEndpoint -Name $App1Name-$Location1 `
--Type AzureEndpoints `
--ProfileName $ResourceGroupName-tmp `
--ResourceGroupName $ResourceGroupName `
--Force
-```
+    ```azurepowershell-interactive
+    Disable-AzTrafficManagerEndpoint -Name $App1Name-$Location1 `
+    -Type AzureEndpoints `
+    -ProfileName $ResourceGroupName-tmp `
+    -ResourceGroupName $ResourceGroupName `
+    -Force
+    ```
 3. Copy the DNS name of your Traffic Manager profile (*http://<*relativednsname*>.trafficmanager.net*) to view the website in a new web browser session.
 4. Verify that the web app is still available.
 
