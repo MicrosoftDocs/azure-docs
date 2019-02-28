@@ -13,7 +13,7 @@ ms.author: byvinyal
 
 ---
 # Azure subscription and service limits, quotas, and constraints
-This document lists some of the most common Microsoft Azure limits, which are also sometimes called quotas. This document doesn't currently cover all Azure services. Over time, the list will be expanded and updated to cover more of the platform.
+This document lists some of the most common Microsoft Azure limits, which are also sometimes called quotas. This document doesn't currently cover all Azure services. Over time, the list will be expanded and updated to cover more services.
 
 To learn more about Azure pricing, see [Azure pricing overview](https://azure.microsoft.com/pricing/). There, you can estimate your costs by using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/). You also can go to the pricing details page for a particular service, for example, [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). For tips to help manage your costs, see [Prevent unexpected costs with Azure billing and cost management](billing/billing-getting-started.md).
 
@@ -68,11 +68,11 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Event Grid](#event-grid-limits)
 * [Event Hubs](#event-hubs-limits)
 * [Front Door Service](#azure-front-door-service-limits)
+* [Identity Manager](#identity-manager-limits)
 * [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
 * [Log Analytics](#log-analytics-limits)
-* [Managed Identity](#managed-identity-limits)
 * [Media Services](#media-services-limits)
 * [Mobile Services](#mobile-services-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication)
@@ -332,7 +332,7 @@ To learn more about limits on a more granular level, such as document size, quer
 ### Automation limits
 [!INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
 
-### Managed Identity limits
+### Identity Manager limits
 [!INCLUDE [automation-limits](~/includes/managed-identity-limits.md)]
 
 ### Role-based access control limits

@@ -23,7 +23,7 @@ ms.custom: include file
 | Geo-replication | N/A | N/A | [Supported][geo-replication] |
 | Content trust (preview) | N/A | N/A | [Supported][content-trust] |
 
-<sup>1</sup>The specified storage limits are the amount of *included* storage for each tier. You're charged an additional daily rate per GiB for image storage above these limits. For rate information, see [Container Registry pricing][pricing].
+<sup>1</sup>The specified storage limits are the amount of *included* storage for each tier. You're charged an additional daily rate per GiB for image storage above these limits. For rate information, see [Azure Container Registry pricing][pricing].
 
 <sup>2</sup>*ReadOps*, *WriteOps*, and *Bandwidth* are minimum estimates. Azure Container Registry strives to improve performance as usage requires.
 

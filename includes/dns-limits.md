@@ -12,4 +12,4 @@ ms.author: jroth
 | Record sets per zone |5,000 <sup>1</sup> |
 | Records per record set |20 |
 
-<sup>1</sup>If you need to increase these limits, contact Azure support.
+<sup>1</sup>If you need to increase these limits, contact Azure Support.

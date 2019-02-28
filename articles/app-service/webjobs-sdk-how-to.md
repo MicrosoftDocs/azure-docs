@@ -4,7 +4,7 @@ description: Learn more about how to write code for the WebJobs SDK. Create  eve
 services: app-service\web, storage
 documentationcenter: .net
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: 
 
 ms.service: app-service-web
@@ -12,26 +12,32 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/19/2019
+ms.date: 02/18/2019
 ms.author: glenga
 #Customer intent: As an App Services developer, I want use the WebJobs SDK to be able to execute event-driven code in Azure.
 ---
 
 # How to use the Azure WebJobs SDK for event-driven background processing
 
-This article provides guidance on how to write code for [the Azure WebJobs SDK](webjobs-sdk-get-started.md). The documentation applies to both version 3.x and 2.x of the WebJobs SDK. Where API differences exist, examples of both are provided. The main change introduced by version 3.x is the use of .NET Core instead of .NET Framework.
+This article provides guidance on how to work with the Azure WebJobs SDK. To get started with WebJobs right away, see [Get started with the Azure WebJobs SDK for event-driven background processing](webjobs-sdk-get-started.md). 
 
->[!NOTE]
-> [Azure Functions](../azure-functions/functions-overview.md) is built on the WebJobs SDK, and this article links to Azure Functions documentation for some topics. Note the following differences between Functions and the WebJobs SDK:
+## WebJobs SDK versions
+
+The following are key differences in version 3.x of the WebJobs SDK compared to version 2.x:
+
+* Version 3.x adds support for .NET Core.
+* In version 3.x, you must explicitly install the Storage binding extension required by the WebJobs SDK. In version 2.x, the Storage bindings were included in the SDK.
+* Visual Studio tooling for .NET Core (3.x) projects differs from .NET Framework (2.x) projects. For more information, see [Develop and deploy WebJobs using Visual Studio - Azure App Service](webjobs-dotnet-deploy-vs.md).
+
+When possible, examples are provides for both version 3.x and version 2.x.
+
+> [!NOTE]
+> [Azure Functions](../azure-functions/functions-overview.md) is built on the WebJobs SDK, and this article links to Azure Functions documentation for some topics. The following are differences between Functions and the WebJobs SDK:
 > * Azure Functions version 2.x corresponds to WebJobs SDK version 3.x, and Azure Functions 1.x corresponds to WebJobs SDK 2.x. Source code repositories follow the WebJobs SDK numbering.
 > * Sample code for Azure Functions C# class libraries is like WebJobs SDK code except you don't need a `FunctionName` attribute in a WebJobs SDK project.
 > * Some binding types are only supported in Functions, such as HTTP, webhook, and Event Grid (which is based on HTTP).
-> 
+>
 > For more information, see [Compare the WebJobs SDK and Azure Functions](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
-
-## Prerequisites
-
-This article assumes you have read and completed the tasks in [Get started with the WebJobs SDK](webjobs-sdk-get-started.md).
 
 ## WebJobs host
 
@@ -39,7 +45,7 @@ The host is a runtime container for functions.  It listens for triggers and call
 
 This is a key difference between using the WebJobs SDK directly and using it indirectly by using Azure Functions. In Azure Functions, the service controls the host, and you can't customize it by writing code. Azure Functions lets you customize host behavior through settings in the *host.json* file. Those settings are strings, not code, which limits the kinds of customizations you can do.
 
-### Host connection strings 
+### Host connection strings
 
 The WebJobs SDK looks for Azure Storage and Azure Service Bus connection strings in the *local.settings.json* file when you run locally, or in the WebJob's environment when you run in Azure. By default, a Storage connection string setting named `AzureWebJobsStorage` is required.  
 
@@ -148,7 +154,20 @@ Functions must be public methods and must have one trigger attribute or the [NoA
 
 ### Automatic trigger
 
-Automatic triggers call a function in response to an event. For an example, see the queue trigger in the [Get started article](webjobs-sdk-get-started.md).
+Automatic triggers call a function in response to an event. Consider the following example of a function triggered by a message added to Azure Queue storage that reads a blob from Azure Blog storage:
+
+```cs
+public static void Run(
+    [QueueTrigger("myqueue-items")] string myQueueItem,
+    [Blob("samples-workitems/{myQueueItem}", FileAccess.Read)] Stream myBlob,
+    ILogger log)
+{
+    log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+}
+```
+
+The `QueueTrigger` attribute tells the runtime to call the function whenever a queue message appears in the `myqueue-items` queue. The `Blob` attribute tells the runtime to use the queue message to read a blob in the *sample-workitems* container. The content of the queue message, passed into the function in the `myQueueItem` parameter, is the name of the blob.
+
 
 ### Manual trigger
 
@@ -209,7 +228,7 @@ static void Main(string[] args)
 
 Input bindings provide a declarative way to make data from Azure or third-party services available to your code. Output bindings provide a way to update data. The [Get started article](webjobs-sdk-get-started.md) shows an example of each.
 
-You can use a method return value for an output binding, by applying the attribute to the method return value. See the example in the Azure Functions [Triggers and bindings](../azure-functions/functions-triggers-bindings.md#using-the-function-return-value) article.
+You can use a method return value for an output binding, by applying the attribute to the method return value. See the example in the Azure Functions [Triggers and bindings](../azure-functions/functions-bindings-return-value.md) article.
 
 ## Binding types
 
@@ -342,9 +361,78 @@ Some trigger and bindings let you configure their behavior. The way that you con
 * **Version 3.x:** Configuration is set when the `Add<Binding>` method is called in `ConfigureWebJobs`.
 * **Version 2.x:** By setting properties in a configuration object that you pass in to the `JobHost`.
 
+These binding-specific settings are equivalent to settings in the [host.json project file](../azure-functions/functions-host-json.md) in Azure Functions.
+
+You can configure the following bindings:
+
+* [Azure CosmosDB trigger](#azure-cosmosdb-trigger-configuration-version-3x)
+* [Event Hubs trigger](#event-hubs-trigger-configuration-version-3x)
+* [Queue storage trigger](#queue-trigger-configuration)
+* [SendGrid binding](#sendgrid-binding-configuration-version-3x)
+* [Service Bus trigger](#service-bus-trigger-configuration-version-3x)
+
+### Azure CosmosDB trigger configuration (version 3.x)
+
+The following example shows how to configure the Azure Cosmos DB trigger:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddCosmosDB(a =>
+        {
+            a.ConnectionMode = ConnectionMode.Gateway;
+            a.Protocol = Protocol.Https;
+            a.LeaseOptions.LeasePrefix = "prefix1";
+
+        });
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+For more details, see the [Azure CosmosDB binding article](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings).
+
+### Event Hubs trigger configuration (version 3.x)
+
+The following example shows how to configure the Event Hubs trigger:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddEventHubs(a =>
+        {
+            a.BatchCheckpointFrequency = 5;
+            a.EventProcessorOptions.MaxBatchSize = 256;
+            a.EventProcessorOptions.PrefetchCount = 512;
+        });
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+For more details, see the [Event Hubs binding article](../azure-functions/functions-bindings-event-hubs.md#hostjson-settings).
+
 ### Queue trigger configuration
 
-The settings you can configure for the Storage queue trigger are explained in the Azure Functions [host.json reference](../azure-functions/functions-host-json.md#queues). The following examples show how to set them in your configuration:
+The following examples show how to configure the Storage queue trigger:
 
 #### Version 3.x
 
@@ -371,6 +459,8 @@ static void Main()
 }
 ```
 
+For more details, see the [Queue storage binding article](../azure-functions/functions-bindings-storage-queue.md#hostjson-settings).
+
 #### Version 2.x
 
 ```cs
@@ -385,6 +475,64 @@ static void Main(string[] args)
     host.RunAndBlock();
 }
 ```
+
+For more details, see the [host.json v1.x reference](../azure-functions/functions-host-json-v1.md#queues).
+
+### SendGrid binding configuration (version 3.x)
+
+The following example shows how to configure the SendGrid output binding:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddSendGrid(a =>
+        {
+            a.FromAddress.Email = "samples@functions.com";
+            a.FromAddress.Name = "Azure Functions";
+        });
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+For more details, see the [SendGrid binding article](../azure-functions/functions-bindings-sendgrid.md#hostjson-settings).
+
+### Service Bus trigger configuration (version 3.x)
+
+The following example shows how to configure the Service Bus trigger:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddServiceBus(sbOptions =>
+        {
+            sbOptions.MessageHandlerOptions.AutoComplete = true;
+            sbOptions.MessageHandlerOptions.MaxConcurrentCalls = 16;
+        });
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+For more details, see the [Service Bus binding article](../azure-functions/functions-bindings-service-bus.md#hostjson-settings).
 
 ### Configuration for other bindings
 
@@ -442,7 +590,7 @@ public static void CreateThumbnail(
 }
 ```
 
-For more information about binding expressions, see [Binding expressions and patterns](../azure-functions/functions-triggers-bindings.md#binding-expressions-and-patterns) in the Azure Functions documentation.
+For more information about binding expressions, see [Binding expressions and patterns](../azure-functions/functions-bindings-expressions-patterns.md) in the Azure Functions documentation.
 
 ### Custom binding expressions
 

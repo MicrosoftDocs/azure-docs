@@ -19,7 +19,7 @@ ms.author: danlep
 | Container deletes per 5 minutes | 100<sup>1</sup> |
 
 
-<sup>1</sup>To request a limit increase, create an [Azure support request][azure-support].<br />
+<sup>1</sup>To request a limit increase, create an [Azure Support request][azure-support].<br />
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

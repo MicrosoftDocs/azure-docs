@@ -16,7 +16,7 @@ ms.custom: include file
 | Maximum clusters per subscription | 100 |
 | Maximum nodes per cluster | 100 |
 | Maximum pods per node: [Basic networking][basic-networking] with Kubenet | 110 |
-| Maximum pods per node: [Advanced networking][advanced-networking] with Azure Container Networking Interface | Azure CLI deployment: 30<sup>1</sup><br />Resource Manager template: 30<sup>1</sup><br />Portal deployment: 30 |
+| Maximum pods per node: [Advanced networking][advanced-networking] with Azure Container Networking Interface | Azure CLI deployment: 30<sup>1</sup><br />Azure Resource Manager template: 30<sup>1</sup><br />Portal deployment: 30 |
 
 <sup>1</sup>When you deploy an Azure Kubernetes Service (AKS) cluster with the Azure CLI or a Resource Manager template, this value is configurable up to 110 pods per node. You can't configure maximum pods per node after you've already deployed an AKS cluster, or if you deploy a cluster by using the Azure portal.<br />
 

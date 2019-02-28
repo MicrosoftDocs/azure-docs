@@ -85,5 +85,5 @@ The following limits apply only for networking resources managed through Azure R
 | Back-end resources per load balancer, Standard<sup>1</sup> | 150 |
 | High-availability ports, Standard | 1 per internal front-end |
 
-<sup>1</sup>Up to 150 resources, in any combination of standalone virtual machine resources, availability set resources, and virtual machine scale-set resources
+<sup>1</sup>The limit is up to 150 resources, in any combination of standalone virtual machine resources, availability set resources, and virtual machine scale-set resources.
 

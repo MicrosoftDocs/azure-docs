@@ -10,14 +10,14 @@ ms.topic: tutorial
 author: cforbe
 ms.author: cforbe
 ms.reviewer: trbye
-ms.date: 02/04/2018
+ms.date: 02/04/2019
 ms.custom: seodec18
 # As a Pro Data Scientist, I want to prepare data for regression modeling.
 ---
 
 # Tutorial: Prepare data for regression modeling
 
-In this tutorial, you learn how to prepare data for regression modeling by using the Azure Machine Learning Data Prep SDK. You run various transformations to filter and combine two different NYC taxi data sets.
+In this tutorial, you learn how to prepare data for regression modeling by using the [Azure Machine Learning Data Prep SDK for Python](https://aka.ms/data-prep-sdk). You run various transformations to filter and combine two different NYC taxi data sets.
 
 This tutorial is **part one of a two-part tutorial series**. After you complete the tutorial series, you can predict the cost of a taxi trip by training a model on data features. These features include the pickup day and time, the number of passengers, and the pickup location.
 
@@ -45,7 +45,7 @@ Get all these prerequisites from either of the sections below.
 
 ### <a name="azure"></a>Use Azure Notebooks: Free Jupyter notebooks in the cloud
 
-It's easy to get started with Azure Notebooks! The [Azure Machine Learning Data Prep SDK for Python](https://aka.ms/data-prep-sdk) is already installed and configured for you on [Azure Notebooks](https://notebooks.azure.com/). The installation and future updates are automatically managed via Azure services.
+It's easy to get started with Azure Notebooks! The Azure Machine Learning Data Prep SDK is already installed and configured for you on [Azure Notebooks](https://notebooks.azure.com/). The installation and future updates are automatically managed via Azure services.
 
 After you complete the steps below, run the **tutorials/regression-part1-data-prep.ipynb** notebook in your **Getting Started** project.
 
@@ -662,7 +662,7 @@ Notice that the data profile output in the `store_forward` column shows that the
 replaced_stfor_vals_df = latlong_filtered_df.replace(columns="store_forward", find="0", replace_with="N").fill_nulls("store_forward", "N")
 ```
 
-Execute the `replace` function on the `distance` field. The function reformats distance values that are incorrectly labeled as `.00`, and fills any nulls with zeros. Convert the `distance` field to numerical format. These incorrect data points are likely anomolies in the data collection system on the taxi cabs.
+Execute the `replace` function on the `distance` field. The function reformats distance values that are incorrectly labeled as `.00`, and fills any nulls with zeros. Convert the `distance` field to numerical format. These incorrect data points are likely anomalies in the data collection system on the taxi cabs.
 
 
 ```python
