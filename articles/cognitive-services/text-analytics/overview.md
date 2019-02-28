@@ -35,7 +35,7 @@ You can detect which language the input text is written in and report a single l
 ## [**Entity Recognition (Preview)**](how-tos/text-analytics-how-to-entity-linking.md)
 Identify and categorize entities in your text as people, places, organizations, date/time, quantities, percentages, currencies, and more. Well-known entities are also recognized and linked to more information on the web. You can use the  [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) API.
 
-### Use containers
+## Use containers
 
 [Use the Text Analytics containers](how-tos/text-analytics-how-to-install-containers.md) to extract key phrases, detect language, and analyze sentiment locally, by installing standardized Docker containers closer to your data.
 
