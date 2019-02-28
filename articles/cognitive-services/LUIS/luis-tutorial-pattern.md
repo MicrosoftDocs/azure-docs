@@ -461,7 +461,7 @@ This uses a **group** around the required verb tense and the optional `in` and `
 
 ## Use the utterance beginning and ending anchors
 
-The pattern syntax provides beginning and ending utterance anchor syntax of a carot, `^`. The beginning and ending utterance anchors can be used together to target very specific and possibly literal utterance or used separately to target intents. 
+The pattern syntax provides beginning and ending utterance anchor syntax of a caret, `^`. The beginning and ending utterance anchors can be used together to target very specific and possibly literal utterance or used separately to target intents. 
 
 ## Clean up resources
 

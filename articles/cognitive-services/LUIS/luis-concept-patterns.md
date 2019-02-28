@@ -62,7 +62,7 @@ Pattern syntax supports the following syntax:
 |optional|[] - square brackets<BR><BR>There is a limit of 3 on nesting levels of any combination of optional and grouping |2|The question mark is optional [?]|
 |grouping|() - parentheses|2|is (a \| b)|
 |or| \| - vertical bar (pipe)<br><br>There is a limit of 2 on the vertical bars (Or) in one group |-|Where is form ({form-name-short} &#x7c; {form-name-long} &#x7c; {form-number})| 
-|beginning and/or end of utterance|^ - carrot|-|^begin the utterance<br>the utterance is done^<br>^strict literal match of entire utterance with {number} entity^|
+|beginning and/or end of utterance|^ - caret|-|^begin the utterance<br>the utterance is done^<br>^strict literal match of entire utterance with {number} entity^|
 
 ## Nesting syntax in patterns
 
