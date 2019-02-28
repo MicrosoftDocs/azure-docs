@@ -51,6 +51,10 @@ The button launches an interactive shell that you can use to run the steps in th
 
 You can also install and use the Azure CLI locally. This quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
 
+# [Template](#tab/template)
+
+None.
+
 ---
 
 ## Log in to Azure
@@ -76,6 +80,10 @@ To log into your local installation of the CLI, run the login command:
 ```cli
 az login
 ```
+
+# [Template](#tab/template)
+
+N/A
 
 ---
 
@@ -166,6 +174,27 @@ To create a general-purpose v2 storage account with zone-redundant storage (ZRS 
 |Geo-redundant storage (GRS)     |Standard_GRS         |
 |Read-access geo-redundant storage (GRS)     |Standard_RAGRS         |
 
+# [Template](#tab/template)
+
+You can use either Azure Powershell or Azure CLI to deploy a template to create a storage account. The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-storage-account-create/). To run the scripts, select **Try it** to open Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**.
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
+New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+```
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the location (i.e. centralus):" &&
+read location &&
+az group create --name $resourceGroupName --location "$location" &&
+az group deployment create --resource-group $resourceGroupName --template-file "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+```
+
 ---
 
 For more information about available replication options, see [Storage replication options](storage-redundancy.md).
@@ -196,6 +225,21 @@ To remove the resource group and its associated resources, including the new sto
 
 ```azurecli-interactive
 az group delete --name storage-quickstart-resource-group
+```
+
+# [Template](#tab/template)
+
+To remove the resource group and its associated resources, including the new storage account, use either Azure PowerShell or Azure CLI.
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+```
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName
 ```
 
 ---
