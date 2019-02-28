@@ -38,6 +38,7 @@
 
 ### [Support for Azure Marketplace and AppSource](./support-azure-marketplace.md)
 #### [Marketplace FAQs](./marketplace-faq-publisher-guide.md)
+#### [Geographic availability and currencies](./marketplace-geo-availability-currencies.md)
 
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 
