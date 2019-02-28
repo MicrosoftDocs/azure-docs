@@ -548,6 +548,9 @@
   - name: Security Center
     tocHref: /azure/security-center/
     topicHref: /azure/security-center/
+  - name: Azure Sentinel
+    tocHref: /azure/sentinel/
+    topicHref: /azure/sentinel/
   - name: Service Bus
     tocHref: /azure/service-bus/
     topicHref: /azure/service-bus/
