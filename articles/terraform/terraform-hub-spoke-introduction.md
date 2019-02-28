@@ -22,8 +22,8 @@ To learn about the recommendations and considerations for this topology, refer [
 ## The benefits of hub and spoke topology
 
 - **Cost savings** by centralizing services in a single location that can be shared by multiple workloads. These workloads include network virtual appliances and DNS servers.
-- **Overcome subscriptions limits** : by peering VNets from different subscriptions to the central hub.
-- **Separation of concerns** : between central IT (SecOps, InfraOps) and workloads (DevOps).
+- **Overcome subscriptions limits** by peering VNets from different subscriptions to the central hub.
+- **Separation of concerns** between central IT (SecOps, InfraOps) and workloads (DevOps).
 
 ## Typical uses for this architecture
 
