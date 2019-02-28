@@ -37,7 +37,7 @@ Looking for more documentation?
 
 ### If you don't have an Azure Subscription
 
-Create a free key valid for 7 days with the **Try It** experience. When the key is created, copy the key and region name. You will need this to [create the client](#create-client).
+Create a free key valid for 7 days with the **[Try It][computervision_resource]** experience. When the key is created, copy the key and region name. You will need this to [create the client](#create-client).
 
 Keep the following after the key is created:
 
@@ -91,8 +91,6 @@ Once you create your Computer Vision resource, you need its **region**, and one 
 
 Use these values when you create the instance of the [ComputerVisionAPI][ref_computervisionclient] client object. 
 
-
-
 For example, use the Bash terminal to set the environment variables:
 
 ```Bash
@@ -100,7 +98,7 @@ ACCOUNT_REGION=<resourcegroup-name>
 ACCT_NAME=<computervision-account-name>
 ```
 
-### For Azure subscription usrs, get credentials for key and region
+### For Azure subscription users, get credentials for key and region
 
 If you do not remember your region and key, you can use the following method to find them. If you need to create a key and region, you can use the method for [Azure subscription holders](#if-you-have-an-azure-subscription) or for [users without an Azure subscription](#if-you-dont-have-an-azure-subscription).
 
@@ -344,7 +342,7 @@ Several Computer Vision Python SDK samples are available to you in the SDK's Git
 [ref_httpfailure]: https://docs.microsoft.com/python/api/msrest/msrest.exceptions.httpoperationerror?view=azure-python
 
 
-[computervision_resource]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe
+[computervision_resource]: https://azure.microsoft.com/en-us/try/cognitive-services/?
 
 [computervision_docs]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/home
 
