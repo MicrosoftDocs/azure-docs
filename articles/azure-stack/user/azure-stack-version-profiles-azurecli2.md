@@ -121,28 +121,27 @@ Use the following steps to connect to Azure Stack:
     a. To register the *cloud administrative* environment, use:
 
       ```azurecli
-      az cloud register \ 
-        -n AzureStackAdmin \ 
+      az cloud register -n AzureStackAdmin \ 
         --endpoint-resource-manager "https://adminmanagement.local.azurestack.external" \ 
         --suffix-storage-endpoint "local.azurestack.external" \ 
         --suffix-keyvault-dns ".adminvault.local.azurestack.external" \ 
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+        --profile 2018-03-01-hybrid
       ```
     b. To register the *user* environment, use:
 
       ```azurecli
-      az cloud register \ 
-        -n AzureStackUser \ 
+      az cloud register -n AzureStackUser \ 
         --endpoint-resource-manager "https://management.local.azurestack.external" \ 
         --suffix-storage-endpoint "local.azurestack.external" \ 
         --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+        --profile 2018-03-01-hybrid
       ```
     c. To register the *user* in a Multitenancy environment, use:
 
       ```azurecli
-      az cloud register \ 
-        -n AzureStackUser \ 
+      az cloud register -n AzureStackUser \ 
         --endpoint-resource-manager "https://management.local.azurestack.external" \ 
         --suffix-storage-endpoint "local.azurestack.external" \ 
         --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
@@ -153,38 +152,34 @@ Use the following steps to connect to Azure Stack:
     d. To register the user in an AD FS environment, use:
 
       ```azurecli
-      az cloud register \
-        -n AzureStack  \
+      az cloud register -n AzureStack  \
         --endpoint-resource-manager "https://management.local.azurestack.external" \
         --suffix-storage-endpoint "local.azurestack.external" \
         --suffix-keyvault-dns ".vault.local.azurestack.external"\
-        --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" \
-        --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/"\
-        --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/"\
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases> \
         --profile "2018-03-01-hybrid"
       ```
+    >[!NOTE]  
+    > The parameter endpoint-vm-image-alias-doc is optional. The operator sets up a URL similar to https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json for azurestack images and provides this URL to its users. If this url is not provided only functionality missing would be auto completion of available images with the command `az vm image`. The user can get the available images by doing `az vm image list`
+
 1. Set the active environment by using the following commands.
    
     a. For the *cloud administrative* environment, use:
 
       ```azurecli
-      az cloud set \
-        -n AzureStackAdmin
+      az cloud set -n AzureStackAdmin
       ```
 
     b. For the *user* environment, use:
 
       ```azurecli
-      az cloud set \
-        -n AzureStackUser
+      az cloud set -n AzureStackUser
       ```
 
 1. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
 
     ```azurecli
-    az cloud update \
-      --profile 2018-03-01-hybrid
+    az cloud update --profile 2018-03-01-hybrid
    ```
 
     >[!NOTE]  
@@ -196,8 +191,7 @@ Use the following steps to connect to Azure Stack:
       * Sign in as a *user*: You can either specify the username and password directly within the `az login` command, or authenticate by using a browser. You must do the latter if your account has multi-factor authentication enabled:
 
       ```azurecli
-      az login \
-        -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> \
+      az login -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> \
         --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
       ```
 
@@ -207,10 +201,8 @@ Use the following steps to connect to Azure Stack:
       * Sign in as a *service principal*: Before you sign in, [create a service principal through the Azure portal](azure-stack-create-service-principals.md) or CLI and assign it a role. Now, sign in by using the following command:
 
       ```azurecli  
-      az login \
-        --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
-        --service-principal \
-        -u <Application Id of the Service Principal> \
+      az login --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
+        --service-principal -u <Application Id of the Service Principal> \
         -p <Key generated for the Service Principal>
       ```
     * AD FS environments
@@ -233,11 +225,9 @@ Use the following steps to connect to Azure Stack:
 
           2.  Sign in to the CLI:
             ```azurecli  
-            az login --service-principal \
-              -u <Client ID from the Service Principal details> \
-              -p <Certificate's fully qualified name, such as, C:\certs\spn.pem>
-              --tenant <Tenant ID> \
-              --debug 
+            az login --service-principal -u <Client ID from the Service Principal details> \
+              -p <Certificate's fully qualified name, such as, C:\certs\spn.pem> \
+              --tenant <Tenant ID> --debug 
             ```
 
 ## Test the connectivity
@@ -245,8 +235,7 @@ Use the following steps to connect to Azure Stack:
 With everything set up, use CLI to create resources within Azure Stack. For example, you can create a resource group for an application and add a virtual machine. Use the following command to create a resource group named "MyResourceGroup":
 
 ```azurecli
-az group create \
-  -n MyResourceGroup -l local
+az group create -n MyResourceGroup -l local
 ```
 
 If the resource group is created successfully, the previous command outputs the following properties of the newly created resource:
