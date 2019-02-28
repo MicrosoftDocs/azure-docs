@@ -45,7 +45,9 @@ These quickstarts enable you to quickly create, configure, and restore database 
 
 ## Customize network environment
 
-Although the VNet/subnet can be automatically configured when the instance is created using the Azure portal, you may want to create the VNet/subnet before you start creating managed instances so that you can configure the parameters of VNet and subnet. The easiest way to create and configure the network environment is to use an [Azure Resource deployment](sql-database-managed-instance-create-vnet-subnet.md) template to create and configure the network and subnet for the managed instance. You just need to press the Azure Resource Manager deploy button and populate the form with parameters. 
+Although the VNet/subnet can be automatically configured when the instance is created using [the Azure portal](sql-database-managed-instance-get-started.md), it might be good to create it before you start creating Managed Instances because you can configure the parameters of VNet and subnet. The easiest way to create and configure the network environment is to use [Azure Resource deployment](sql-database-managed-instance-create-vnet-subnet.md) template that will create and configure you network and subnet where the instance will be placed. You just need to press the Azure Resource Manager deploy button and populate the form with parameters.
+
+As an alternative, you can use [PowerShell script](https://www.powershellmagazine.com/20../../configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) to automate creation of the network.
 
 As an alternative, you can also use this [PowerShell script](https://www.powershellmagazine.com/2018/07/23/configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) to automate creation of the network.
 
