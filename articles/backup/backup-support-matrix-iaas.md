@@ -172,9 +172,9 @@ Multiple reserved IP addresses |	Supported. <br/><br/> [Learn more](backup-azure
 VMs with multiple network adapters	| Supported. <br/><br/> [Learn more](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) about restoring VMs with special network settings.
 VMs with public IP addresses	| Supported.<br/><br/> Associate an existing public IP address with the NIC, or create an address and associate it with the NIC after restore is done.
 Network security group (NSG) on NIC/subnet. |	Supported.
-Reserved IP address (static) | Not Supported.<br/><br/> You can't back up a VM with a reserved IP address and no defined endpoint.
+Reserved IP address (static) | Not supported.<br/><br/> You can't back up a VM with a reserved IP address and no defined endpoint.
 Dynamic IP address |	Supported.<br/><br/> If the NIC on the source VM uses dynamic IP addressing, by default the NIC on the restored VM will use it too.
-Traffic Manager	| Supported.<br/><br/>If the backed-up VM is in Traffic Manager, manually add the restored VM to the same Traffic Manager. 
+Azure Traffic Manager	| Supported.<br/><br/>If the backed-up VM is in Traffic Manager, manually add the restored VM to the same Traffic Manager instance. 
 Azure DNS |	Supported.
 Custom DNS |	Supported.
 Outbound connectivity via HTTP proxy | Supported.<br/><br/> An authenticated proxy isn't supported.	
@@ -192,8 +192,9 @@ Network traffic to Azure:
 - Backup data is sent over a secure HTTPS link.
 - The backup data is stored in the Recovery Services vault in encrypted form.
 - Only you have the passphrase to unlock this data. Microsoft can't decrypt the backup data at any point.
-    > [!WARNING]
-    > After setting up the vault, only you have access to the encryption key. Microsoft never maintains a copy and doesn't have access to the key. If the key is misplaced, Microsoft can't recover the backup data.
+    
+  > [!WARNING]
+  > After you set up the vault, only you have access to the encryption key. Microsoft never maintains a copy and doesn't have access to the key. If the key is misplaced, Microsoft can't recover the backup data.
 
 Data security:
 
