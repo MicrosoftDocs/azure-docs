@@ -176,7 +176,7 @@ To create a general-purpose v2 storage account with zone-redundant storage (ZRS 
 
 # [Template](#tab/template)
 
-You can use either Azure Powershell or Azure CLI to deploy a template to create a storage account. The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-storage-account-create/). To run the scripts, select **Try it** to open Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**.
+You can use either Azure Powershell or Azure CLI to deploy a Resource Manager template to create a storage account. The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-storage-account-create/). To run the scripts, select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -194,6 +194,12 @@ read location &&
 az group create --name $resourceGroupName --location "$location" &&
 az group deployment create --resource-group $resourceGroupName --template-file "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
+
+To learn how to create templates, see:
+
+- [Azure Resource Manager documentation](/azure/azure-resource-manager/). 
+- [Storage account template reference](/azure/templates/microsoft.storage/allversions).
+- [Additional storage account template samples](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)
 
 ---
 
@@ -263,4 +269,8 @@ In this quick start, you've created a general-purpose v2 standard storage accoun
 > [!div class="nextstepaction"]
 > [Work with blobs using the Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
 
+# [Template](#tab/template)
+
+> [!div class="nextstepaction"]
+> [Work with blobs using the Azure portal](../blobs/storage-quickstart-blobs-portal.md)
 ---

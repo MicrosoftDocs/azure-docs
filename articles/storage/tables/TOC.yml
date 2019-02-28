@@ -11,6 +11,7 @@
 - name: Quickstarts
   items:
   - name: Create a storage account
+    displayName: resource manager, resource manager template, template, ARM
     href: /azure/storage/common/storage-quickstart-create-account  
     maintainContext: true 
   - name: Create a table in the Azure portal
