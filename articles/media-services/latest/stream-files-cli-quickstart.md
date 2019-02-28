@@ -19,7 +19,7 @@ ms.author: juliako
 
 # Quickstart: Stream video files - CLI
 
-This quickstart shows how to easily encode and stream videos on a variety of browsers and devices by using Azure Media Services. You can specify input content by using HTTPS or SAS URLs or paths to files in Azure Blob storage.
+This quickstart shows how to easily encode and stream videos on a variety of browsers and devices by using Azure Media Services and the Azure CLI . You can specify input content by using HTTPS or SAS URLs or paths to files in Azure Blob storage.
 
 The example in this article encodes content that you make accessible via an HTTPS URL. Media Services v3 doesn't currently support chunked transfer encoding over HTTPS URLs.
 
@@ -43,15 +43,15 @@ az group create -n amsResourceGroup -l westus2
 
 ### Create an Azure storage account
 
-In this example, we create a general-purpose v2 Standard LRS account.
+In this example, we create a General-Purpose v2 Standard LRS account.
 
-If you want to experiment with storage accounts, use `--sku Standard_LRS`. However, when picking a SKU for production, consider using `--sku Standard_RAGRS`, which provides geographic replication for business continuity. For more information, see [storage accounts](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
+If you want to experiment with storage accounts, use `--sku Standard_LRS`. When you're picking a SKU for production, consider using `--sku Standard_RAGRS`, which provides geographic replication for business continuity. For more information, see [storage accounts](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
  
 ```azurecli
 az storage account create -n amsstorageaccount --kind StorageV2 --sku Standard_LRS -l westus2 -g amsResourceGroup
 ```
 
-### Create an Azure Media Service account
+### Create an Azure Media Services account
 
 ```azurecli
 az ams account create --n amsaccount -g amsResourceGroup --storage-account amsstorageaccount -l westus2
@@ -86,7 +86,7 @@ The following Azure CLI command starts the default *streaming endpoint*.
 az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
 ```
 
-You get a response similar to this:
+You get a response like this:
 
 ```
 az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
@@ -130,7 +130,7 @@ Create a *transform* to configure common tasks for encoding or analyzing videos.
 az ams transform create --name testEncodingTransform --preset AdaptiveStreaming --description 'a simple Transform for Adaptive Bitrate Encoding' -g amsResourceGroup -a amsaccount
 ```
 
-You get a response similar to this:
+You get a response like this:
 
 ```
 {
@@ -196,7 +196,7 @@ When you run `az ams job start`, you can set a label on the job's output. You ca
 az ams job start --name testJob001 --transform-name testEncodingTransform --base-uri 'https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/' --files 'Ignite-short.mp4' --output-assets testOutputAssetName= -a amsaccount -g amsResourceGroup 
 ```
 
-You get a response similar to this:
+You get a response like this:
 
 ```
 {
@@ -249,7 +249,7 @@ After the encoding is complete, the next step is to make the video in the output
 az ams streaming-locator create -n testStreamingLocator --asset-name testOutputAssetName --streaming-policy-name Predefined_ClearStreamingOnly  -g amsResourceGroup -a amsaccount 
 ```
 
-You get a response similar to this:
+You get a response like this:
 
 ```
 {
@@ -275,7 +275,7 @@ You get a response similar to this:
 az ams streaming-locator get-paths -a amsaccount -g amsResourceGroup -n testStreamingLocator
 ```
 
-You get a response similar to this:
+You get a response like this:
 
 ```
 {
@@ -321,7 +321,7 @@ Copy the `hostName` value. In this case, it's `amsaccount-usw22.streaming.media.
 
 "https:// " + &lt;hostName value&gt; + &lt;Hls path value&gt;
 
-#### Example
+Here's an example:
 
 `https://amsaccount-usw22.streaming.media.azure.net/7f19e783-927b-4e0a-a1c0-8a140c49856c/ignite.ism/manifest(format=m3u8-aapl)`
 
@@ -331,15 +331,15 @@ Copy the `hostName` value. In this case, it's `amsaccount-usw22.streaming.media.
 > If a player is hosted on an HTTPS site, make sure to start the URL with "https".
 
 1. Open a web browser and go to [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
-2. In the **URL** box, paste the URL that you built in the previous section. You can paste the URL in HLS, Dash, or Smooth format, and Azure Media Player will automatically use an appropriate streaming protocol for playback on your device.
+2. In the **URL** box, paste the URL that you built in the previous section. You can paste the URL in HLS, Dash, or Smooth format. Azure Media Player will automatically use an appropriate streaming protocol for playback on your device.
 3. Select **Update Player**.
 
->!NOTE
+>[!NOTE]
 >Azure Media Player can be used for testing but should not be used in a production environment.
 
 ## Clean up resources
 
-If you no longer need any of the resources in your resource group, including the Media Services and storage accounts that you created for this Quickstart, delete the resource group.
+If you no longer need any of the resources in your resource group, including the Media Services and storage accounts that you created for this quickstart, delete the resource group.
 
 Run this CLI command:
 
@@ -353,5 +353,4 @@ See [Job error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberro
 
 ## Next steps
 
-> [!div class="nextstepaction"]
 > [CLI samples](cli-samples.md)
