@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 02/28/2019
 ms.author: magoedte
 ---
 
@@ -296,7 +296,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
     * Use the following PowerShell commands in the folder that contains the template:
 
         ```powershell
-        New-AzResourceGroupDeployment -Name OnboardCluster -ClusterResourceGroupName ClusterResourceGroupName -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
+        New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
         ```
         The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 
