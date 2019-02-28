@@ -369,10 +369,10 @@ Supported:
 * Get container properties and metadata
 * List blobs
 * Get and set container ACL
+* Set container metadata
 
 Unsupported:
 * Lease container
-* Set container metadata
 
 ### Blobs
 
