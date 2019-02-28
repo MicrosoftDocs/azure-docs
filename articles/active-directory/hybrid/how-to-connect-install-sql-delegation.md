@@ -55,8 +55,7 @@ To provision the database out of band and install Azure AD Connect with database
 
 ## Additional information
 Once the database is provisioned, the Azure AD Connect administrator can install and configure on-premises synchronization at their convenience.  
-
-For more information on installing Azure AD Connect with an existing database, see [Install Azure AD Connect using an existing ADSync database](how-to-connect-install-existing-database.md)
+In case the SQL Administrator has restored ADSync database from a previous Azure AD Connect backup, you will need to install the new AAD Connect server using an existing database. For more information on installing Azure AD Connect with an existing database, see [Install Azure AD Connect using an existing ADSync database](how-to-connect-install-existing-database.md).
 
 ## Next steps
 - [Getting started with Azure AD Connect using express settings](how-to-connect-install-express.md)
