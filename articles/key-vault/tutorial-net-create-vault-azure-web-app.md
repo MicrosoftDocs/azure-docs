@@ -167,7 +167,7 @@ You can also watch the following video:
                         .ConfigureAwait(false);
                 Message = secret.Value;
 
-                /* The below do while logic is to handle throttling errors thrown by Azure Key Vault. It shows how to do exponential backoff, which is the recommended client side throttling*/
+                /* The following *do while* logic is to handle throttling errors thrown by Azure Key Vault. It shows how to do exponential backoff, which is the recommended client side throttling*/
                 do
                 {
                     long waitTime = Math.Min(getWaitTime(retries), 2000000);
@@ -260,7 +260,7 @@ When you run the application, you should see that it can retrieve your secret va
 Now, you've successfully created a web app in .NET that stores and fetches its secrets from your key vault.
 
 ## Clean up resources
-When they are no longer needed, delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the VM, and then select **Delete**.
+When they are no longer needed, you can delete the virtual machine and your key vault.
 
 ## Next steps
 
