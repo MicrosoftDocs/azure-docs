@@ -28,7 +28,7 @@ As a result, you only need to store and pay for the files in single storage form
 
 In Media Services, Dynamic Packaging is used whether you are streaming live or on-demand. The following diagram shows the on-demand streaming with dynamic packaging workflow.
 
-![Dynamic Encoding](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
+![Dynamic Encoding](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
 ## Common video on-demand workflow
 
