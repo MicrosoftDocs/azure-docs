@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/26/2019
+ms.date: 02/28/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -243,7 +243,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Cisco Webex Meetings test user
 
-The objective of this section is to create a user called Britta Simon in Cisco Webex Meetings. Cisco Webex Meetings supports **just-in-time** provisioning and automatic user provisioning, which is by default enabled. There is no action item for you in this section. If a user doesn't already exist in Cisco Webex Meetings, a new one is created when you attempt to access Cisco Webex Meetings.
+The objective of this section is to create a user called Britta Simon in Cisco Webex Meetings. Cisco Webex Meetings supports **just-in-time** provisioning, which is by default enabled. There is no action item for you in this section. If a user doesn't already exist in Cisco Webex Meetings, a new one is created when you attempt to access Cisco Webex Meetings.
 
 ### Test single sign-on
 
