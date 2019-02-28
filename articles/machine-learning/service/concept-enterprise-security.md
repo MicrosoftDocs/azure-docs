@@ -9,7 +9,6 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 02/26/2018
-# As a DevOps professional, I need to understand the security features available with the Azure Machine Learning service
 ---
 
 # Enterprise security for the Azure Machine Learning service
@@ -76,7 +75,7 @@ If the built-in roles are insufficient for your needs, you can also create custo
 Owners and contributors can use all compute targets and data stores that are attached to the workspace.  
 Each workspace also has an associated system-assigned Managed Identity (with the same name as the workspace) with the following permissions on attached resources used in the workspace:
 
-For more information on managed identities, see [Managed identities for Azure resources](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)
+For more information on managed identities, see [Managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
 | Resource | Permissions |
 | ----- | ----- |
@@ -104,7 +103,7 @@ For more information, see [How to run experiments and inferencing in a virtual n
 #### Azure Blob Storage
 Azure Machine Learning service stores snapshots, outputs, and logs in the Azure Blob Storage account that is tied to the Azure Machine Learning service workspace and lives in user’s subscription. All the data stored in Azure Blob Storage is encrypted at rest using Microsoft-Managed Keys.
 
-For more information on how to bring your own keys for the data stored in Azure Blob Storage, see [Storage Service Encryption using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption-customer-managed-keys).
+For more information on how to bring your own keys for the data stored in Azure Blob Storage, see [Storage Service Encryption using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
 
 Training data is typically also stored in Azure Blob storage so that it is accessible to training compute. This storage is not managed by Azure Machine Learning but mounted to compute as a remote file system.
 
@@ -117,11 +116,11 @@ All container images in your registry (ACR) are encrypted at rest. Azure automat
 #### Machine Learning Compute
 The OS disk for each compute node is stored in Azure Storage is encrypted using Microsoft Managed Keys in Azure Machine Learning service storage accounts. This compute is ephemeral, and clusters are typically scaled down when there are no runs queued. The underlying virtual machine is de-provisioned and OS disk deleted. Azure disk encryption is not supported for the OS disk.
 Each virtual machine also has a local temporary disk for OS operations. This disk can also be optionally used to stage training data. This disk is not encrypted. 
-For more information on how encryption at rest works in Azure, see [Azure Data Encryption-at-Rest](https://docs.microsoft.com/en-us/azure/security/azure-security-encryption-atrest). 
+For more information on how encryption at rest works in Azure, see [Azure Data Encryption-at-Rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest). 
 
 ### Encryption in transit
 Both internal communication between various Azure Machine Learning micro services and external communication of calling the scoring endpoint are supported using SSL. All Azure Storage access is also over a secure channel. 
-For more information, see [Secure Azure Machine Learning web services using SSL](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-secure-web-service).
+For more information, see [Secure Azure Machine Learning web services using SSL](https://docs.microsoft.com/azure/machine-learning/service/how-to-secure-web-service).
 
 ### Using Azure Key Vault
 Key Vault instance associated with the workspace is used by Azure Machine Learning service to store credentials of various kinds:
