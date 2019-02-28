@@ -204,11 +204,8 @@ There are several advantages to using Azure IMDS to request tokens.
 
 For these reasons, the Azure IMDS service will be the defacto way to request tokens, once the VM extension is deprecated. 
 
-## Sample HTTP requests to Azure Instance Metadata Service
 
-The following table lists commonly used HTTP requests on both the VM extension and Azure IMDS endpoint. 
+## Next Steps
 
-* If system assigned managed identity is enabled and no identity is specified in the request, IMDS will default to the system assigned managed identity.
-* If system assigned managed identity is not enabled, and only one user assigned managed identity exists, IMDS will default to that single user assigned managed identity.
-* If system assigned managed identity is not enabled, and multiple user assigned managed identities exist, then specifying a managed identity in the request is required.
-
+* [How to use managed identities for Azure resources on an Azure VM to acquire an access token](how-to-use-vm-token.md)
+* [Azure Instance Metadata Service](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
