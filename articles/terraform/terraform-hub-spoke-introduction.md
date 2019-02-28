@@ -1,6 +1,6 @@
 ---
-title: Create a Hub and Spoke hybrid network topology using Terraform 
-description: Tutorial illustrating how to create an entire hybrid network reference architecture using Terraform
+title: Create a hub and spoke hybrid network topology in Azure
+description: Tutorial illustrating how to create an entire hybrid network reference architecture in Azure using Terraform
 services: terraform
 ms.service: terraform
 keywords: terraform, hub and spoke, networks, hybrid networks, devops, virtual machine, azure,  vnet peering, network virtual appliance
@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.date: 2/28/2019
 ---
 
-# Hub and Spoke Network Topology
+# Hub and spoke network topology
 
-This is a tutorial for implementing one of the popular [Hybrid network topology](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/) for connecting an on-premises network to an Azure virtual network. A hub-spoke network topology is a way to isolate workloads while sharing common services like identity and security. The hub is a virtual network in Azure that acts as a central point of connectivity to on-premises network. The spokes are VNets that peer with the hub. Shared services are deployed in the hub, while individual workloads are deployed inside spoke networks.  
+This is a tutorial for implementing one of the popular [Hybrid network topology](/azure/architecture/reference-architectures/hybrid-networking/) for connecting an on-premises network to an Azure virtual network. A hub-spoke network topology is a way to isolate workloads while sharing common services like identity and security. The hub is a virtual network in Azure that acts as a central point of connectivity to on-premises network. The spokes are VNets that peer with the hub. Shared services are deployed in the hub, while individual workloads are deployed inside spoke networks.  
 
-To learn about the recommendations and considerations for this topology, refer [hub and spoke reference architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
+To learn about the recommendations and considerations for this topology, refer [hub and spoke reference architecture](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 
-![Hub and Spoke Topology in Azure](./media/hub-spoke/hub-spoke-architecture.png)
+![Hub and spoke topology architecture in Azure](./media/terraform-hub-spoke-introduction/hub-spoke-architecture.png)
 
 ## The benefits of hub-spoke topology
 
@@ -31,7 +31,7 @@ To learn about the recommendations and considerations for this topology, refer [
 - Workloads that do not require connectivity to each other, but require access to shared services.
 - Enterprises that require central control over security aspects, such as a firewall in the hub as a DMZ, and segregated management for the workloads in each spoke.
 
-In this tutorial, you learn how to do the following tasks in creating a [Hub and spoke network topology](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke):
+In this tutorial, you learn how to do the following tasks in creating a [Hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke):
 
 > [!div class="checklist"]
 
@@ -64,7 +64,7 @@ The first step is to create the directory that holds your Terraform configuratio
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). If you didn't select an environment previously, select **Bash** as your environment.
 
-    ![Cloud Shell prompt](./media/hub-spoke/azure-portal-cloud-shell-button-min.png)
+    ![Cloud Shell prompt](./media/common/azure-portal-cloud-shell-button-min.png)
 
 1. Change directories to the `clouddrive` directory.
 
@@ -162,7 +162,7 @@ The architecture consists of the following components. Each one is implemented a
 
 - **On-Premises network**. A private local-area network running with an Organization. For hub-spoke reference architecture, we will use a VNet in Azure to simulate On-premises network.
 
-- **VPN Device**. A device or service that provides external connectivity to the on-premises network. The VPN device may be a hardware appliance, or a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. For a list of supported VPN appliances and information on configuring selected VPN appliances for connecting to Azure, see [About VPN devices for Site-to-Site VPN Gateway connections](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
+- **VPN Device**. A device or service that provides external connectivity to the on-premises network. The VPN device may be a hardware appliance, or a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. For a list of supported VPN appliances and information on configuring selected VPN appliances for connecting to Azure, see [About VPN devices for Site-to-Site VPN Gateway connections](/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
 
 - **Hub Virtual Network**. Azure Virtual Network used as the hub in the hub-spoke topology. The hub is the central point of connectivity to your on-premises network and a place to host services. These services can be consumed by the different workloads hosted in the spoke VNets.
 
@@ -174,16 +174,16 @@ The architecture consists of the following components. Each one is implemented a
 
 This tutorial is implemented in multiple articles to cover all the details. Implement all the articles to complete the entire hub-spoke topology.
 
-- [Complete the prerequisites and variables section in this tutorial](./hub-spoke-introduction.md)
-- [On premises network](./on-prem.md)
-- [Hub virtual network](./hub-network.md)
-- [Hub network virtual appliance](./hub-nva.md)
-- [Spoke networks](./spoke-networks.md)
-- [Validation of the topology](./hub-spoke-validation.md)
+- [Complete the prerequisites and variables section in this tutorial](./terraform-hub-spoke-introduction.md)
+- [On premises network](./terraform-hub-spoke-on-prem.md)
+- [Hub virtual network](./terraform-hub-spoke-hub-network.md)
+- [Hub network virtual appliance](./terraform-hub-spoke-hub-nva.md)
+- [Spoke networks](./terraform-hub-spoke-spoke-networks.md)
+- [Validation of the topology](./terraform-hub-spoke-validation.md)
 
 ## Next steps
 
-In this article, you learned the introduction to Hub and Spoke Topology for Hybrid networks. To start implementing this architecture, continue to implement on premises network tutorial.
+In this article, you learned the introduction to hub and spoke topology for Hybrid networks. To start implementing this architecture, continue to implement on premises network tutorial.
 
  > [!div class="nextstepaction"] 
  > [On-Premises network](./terraform-hub-spoke-on-prem.md)
