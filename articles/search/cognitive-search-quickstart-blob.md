@@ -93,7 +93,9 @@ The enrichment pipeline pulls from Azure data sources supported by [Azure Search
 
 1. [Download sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consisting of a small file set of different types. 
 
-1. Sign up for Azure Blob storage, create a storage account, open the Blob services pages, and create a container. On the container, set the public access level to **Container**. For more information, see ["Create a container" section](../storage/blobs/storage-unstructured-search.md#create-a-container) in the *Search unstructured data* tutorial.
+1. Sign up for Azure Blob storage, create a storage account, open the Blob services pages, and create a container. 
+
+1. On the container, set the public access level to **Container (anonymous read access for containers and blobs)**. For more information, see ["Create a container" section](../storage/blobs/storage-unstructured-search.md#create-a-container) in the *Search unstructured data* tutorial.
 
 1. In the container you created, click **Upload** to upload the sample files you downloaded in a previous step.
 
