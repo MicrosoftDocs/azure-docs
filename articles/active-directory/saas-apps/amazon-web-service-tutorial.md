@@ -179,7 +179,7 @@ To configure Azure AD single sign-on with Amazon Web Services (AWS), perform the
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Azure AD Identifier
 
 	c. Logout URL
 
