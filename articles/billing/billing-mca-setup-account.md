@@ -171,7 +171,7 @@ Any Azure Reservations in your Enterprise Agreement enrollment is moved to your 
 
 ### Azure Marketplace products
 
-Any Azure Marketplace products in your Enterprise agreement enrollment is moved along with the subscriptions. There won't be any changes to the service access of the Marketplace products during the transition.
+Any Azure Marketplace products in your Enterprise agreement enrollment are moved along with the subscriptions. There won't be any changes to the service access of the Marketplace products during the transition.
 
 ### Support plan
 
@@ -249,7 +249,7 @@ All Azure Reservations that are moved from your Enterprise Agreement enrollment 
 
 Enterprise administrators are listed as billing profile owners while the enterprise administrators with read-only permissions are listed as billing profile readers. If the access for any enterprise administrators is missing, provide access to the them in the Azure portal. For more information, see [Manage billing roles in the Azure portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
-### Access of enterprise administrators, department administrators and account owners on invoice sections
+### Access of enterprise administrators, department administrators, and account owners on invoice sections
 
 1. Sign in to the [Azure portal](http://portal.azure.com).
 

@@ -127,7 +127,7 @@ You can view the detailed usage charges using the Azure usage and charges file. 
 
 ## Analyze your Azure usage charges
 
-Use the Azure usage and charges csv file to analyze the usage charges. You can download the file either for an for an invoice or for pending charges. For more information, see [Get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md).
+Use the Azure usage and charges csv file to analyze the usage charges. You can download the file either for an invoice or for pending charges. For more information, see [Get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md).
 
 ### View detailed usage by invoice section
 

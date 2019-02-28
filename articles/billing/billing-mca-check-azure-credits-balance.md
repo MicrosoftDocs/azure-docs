@@ -66,7 +66,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 In a billing account for a Microsoft customer agreement, you use billing profiles to manage your invoices and payment methods. A monthly invoice is generated for each billing profile and you use the payment methods to pay the invoice.
 
-Azure credits are one of the payment methods. You gets credit from Microsoft like promotional credit and service level credit. These credits are assigned to a billing profile. When an invoice is generated for the billing profile, credits are automatically applied to the total billed amount to calculate the amount that you need to pay. You pay the remaining amount with another payment method like check or wire transfer.
+Azure credits are one of the payment methods. You get credit from Microsoft like promotional credit and service level credit. These credits are assigned to a billing profile. When an invoice is generated for the billing profile, credits are automatically applied to the total billed amount to calculate the amount that you need to pay. You pay the remaining amount with another payment method like check or wire transfer.
 
 ## Products that aren't covered by Azure credits
 

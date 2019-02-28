@@ -73,7 +73,7 @@ To learn how to download price sheet and tax documents, see [Download tax docume
 
 Use the **Access Control(IAM)** page in the Azure portal to give others access to view and manage the billing profile. To learn more about billing profile roles, see [Billing profile roles and tasks](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
-To learn how to provide access to your billing profile, see [Manage billing roles in the Azure portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+To learn how to provide,  access to your billing profile, see [Manage billing roles in the Azure portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
 ### Create a new department
 
@@ -99,7 +99,7 @@ An invoice section is created for each department you had in your Enterprise Agr
 
 An invoice section is created for each department you had in your Enterprise Agreement. You can use the **Access Control(IAM)** page in the Azure portal to give others access to view and manage the invoice section. To learn more about invoice section roles, see [Invoice profile roles and tasks](billing-understand-mca-roles.md#invoice-section-roles-and-tasks).
 
-To learn how to provide access to your invoice section, see [Manage billing roles in the Azure portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+To learn how to provide,  access to your invoice section, see [Manage billing roles in the Azure portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
 ### Create a new account in your department
 
