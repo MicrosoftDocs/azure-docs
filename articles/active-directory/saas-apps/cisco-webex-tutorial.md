@@ -159,7 +159,7 @@ To configure Azure AD single sign-on with Cisco Webex Meetings, perform the foll
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Azure AD Identifier
 
 	c. Logout URL
 
