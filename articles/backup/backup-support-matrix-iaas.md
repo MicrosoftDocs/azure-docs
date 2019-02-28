@@ -228,7 +228,7 @@ On-premises/Azure VMs with MABS | ![Yes][green] | ![Yes][green]
 
 ## Next steps
 
-- [Back up Azure VMs](backup-azure-arm-vms-prepare.md)
+- [Back up Azure VMs](backup-azure-arm-vms-prepare.md).
 - [Back up Windows machines directly](tutorial-backup-windows-server-to-azure.md), without a backup server.
 - [Set up MABS](backup-azure-microsoft-azure-backup.md) for backup to Azure, and then back up workloads to MABS.
 - [Set up DPM](backup-azure-dpm-introduction.md) for backup to Azure, and then back up workloads to DPM.
