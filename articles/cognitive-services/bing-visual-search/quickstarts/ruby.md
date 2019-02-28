@@ -90,7 +90,7 @@ post_body << BuildFormDataEnd(batchNumber)
 
 ```
 
-# Create the HTTP objects
+## Create the HTTP request
 
 Set the subscription key header.  Create the request.  Then, assign the header and content type.  Join the Post body created previously to the request.
 
