@@ -491,9 +491,9 @@ Use the information in section to install and configure Windows container hosts.
 
 Before you install agents on computers running Windows, you need to configure the Docker service. The configuration allows the Windows agent or the Azure Monitor virtual machine extension to use the Docker TCP socket so that the agents can access the Docker daemon remotely and to capture data for monitoring.
 
-##### To start Docker and verify its configuration
+##### To configure the Docker service  
 
-To enable TCP pipe and named pipe for Windows Server, in Windows PowerShell run the following commands:
+Perform the following PowerShell commands to enable TCP pipe and named pipe for Windows Server:
 
 ```
 Stop-Service docker
