@@ -34,7 +34,7 @@ If you are unsure if your data is time series, here is what you should know.  Ti
 
 In this video, we provide an overview of Time Series Insights, a cloud-based IoT analytics platform.
 
-> [!VIDEO https://youtu.be/embed/GaARrFfjoss]
+> [!VIDEO https://youtube.com/embed/GaARrFfjoss]
 
 ## Primary scenarios
 
