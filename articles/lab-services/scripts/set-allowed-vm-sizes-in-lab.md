@@ -36,7 +36,7 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [Find-AzResource](/powershell/module/az.resources/find-azresource) | Searches for resources based on specified parameters. |
+| Find-AzResource | Searches for resources based on specified parameters. |
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Gets resources. |
 | [Set-AzResource](/powershell/module/az.resources/set-azresource) | Modifies a resource. |
 | [New-AzResource](/powershell/module/az.resources/new-azresource) | Create a resource. |

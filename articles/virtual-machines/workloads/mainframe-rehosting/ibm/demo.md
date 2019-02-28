@@ -189,5 +189,5 @@ Congratulations! You are now running an IBM mainframe environment on Azure.
 [microfocus-setup]: /microfocus/set-up-micro-focus-on-azure.md
 [microfocus-demo]: /microfocus/demo.md
 [ibm-get-started]: /ibm/get-started.md
-[ibm-install-z]: /ibm/install-ibm-z-environment.md
+[ibm-install-z]: install-ibm-z-environment.md
 [ibm-demo]: /ibm/demo.md
