@@ -142,7 +142,7 @@ Now create an example backend pod that runs NGINX. This backend pod can be used 
 kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace development --expose --port 80 --generator=run-pod/v1
 ```
 
-To test that you can successfully reach the default NGINX web page, create another pod, and attach a terminal session:
+Create another pod and attach a terminal session to test that you can successfully reach the default NGINX web page:
 
 ```console
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
