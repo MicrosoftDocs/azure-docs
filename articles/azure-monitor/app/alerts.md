@@ -20,13 +20,12 @@ ms.author: mbullwin
 
 Application Insights monitors your live app on a [wide variety of platforms][platforms] to help you diagnose performance issues and understand usage patterns.
 
-There are three kinds of alerts:
+There are multiple types of alerts:
 
-* **Metric alerts** tell you when a metric crosses a threshold value for some period - such as response times, exception counts, CPU usage, or page views. 
+* [**Metric alerts**](../../azure-monitor/app/alerts-metric-overview.md) tell you when a metric crosses a threshold value for some period - such as response times, exception counts, CPU usage, or page views.
+* [**Log Alerts**](../../azure-monitor/app/alerts-unified-log.md) is used to describe alerts where the alert signal is based on a custom Kusto query.
 * [**Web tests**][availability] tell you when your site is unavailable on the internet, or responding slowly. [Learn more][availability].
 * [**Proactive diagnostics**](../../azure-monitor/app/proactive-diagnostics.md) are configured automatically to notify you about unusual performance patterns.
-
-We focus on metric alerts in this article.
 
 ## Set a Metric alert
 Open the Alert rules tab, and then use the add button.
@@ -41,12 +40,12 @@ Open the Alert rules tab, and then use the add button.
 * Set a [webhook address](../../azure-monitor/platform/alerts-webhooks.md) if you have set up a web app that responds to alerts. It is called both when the alert is Activated and when it is Resolved. (But note that at present, query parameters are not passed through as webhook properties.)
 * You can Disable or Enable the alert: see the buttons at the top.
 
-*I don't see the Add Alert button.* 
+*I don't see the Add Alert button.*
 
 * Are you using an organizational account? You can set alerts if you have owner or contributor access to this application resource. Take a look at the Access Control tab. [Learn about access control][roles].
 
 > [!NOTE]
-> In the alerts blade, you see that there's already an alert set up: [Proactive Diagnostics](../../azure-monitor/app/proactive-failure-diagnostics.md). The automatic alert monitors one particular metric, request failure rate. Unless you decide to disable the proactive alert, you don't need to set your own alert on request failure rate. 
+> In the alerts blade, you see that there's already an alert set up: [Proactive Diagnostics](../../azure-monitor/app/proactive-failure-diagnostics.md). The automatic alert monitors one particular metric, request failure rate. Unless you decide to disable the proactive alert, you don't need to set your own alert on request failure rate.
 > 
 > 
 
@@ -109,16 +108,14 @@ In this section, we will go through how to set a query based exception alert. Fo
 
 6. In the custom log search tab, enter your query in the "Search query" box. For this example, we will use the below Kusto query.
 	```kusto
-     exceptions 
-    | where timestamp >ago(24h) 
-    | summarize exceptionsCount = sum(itemCount) 
-    | extend t = "" 
-    | join (requests 
-    | where timestamp >ago(24h) 
-    | summarize requestsCount = sum(itemCount) 
-    | extend t = "") on t 
-    | project isPassed = 1.0 * exceptionsCount / requestsCount > 0.1 | project iff(isPassed, "PASSED", "FAILED") 
-    | where Column1 == "FAILED"
+    let percentthreshold = 10;
+    requests
+    | where timestamp >ago(24h)
+    | summarize requestsCount = sum(itemCount)
+    | project requestsCount, exceptionsCount = toscalar(exceptions | where timestamp >ago(24h) | summarize sum(itemCount))
+    | extend exceptionsRate = toreal(exceptionsCount)/toreal(requestsCount) * 100
+    | where exceptionsRate > percentthreshold
+
     ```
 
     ![Type query in search query box](./media/alerts/5searchquery.png)
@@ -126,7 +123,7 @@ In this section, we will go through how to set a query based exception alert. Fo
     > [!NOTE]
     > You can also apply these steps to other types of query-based alerts. You can learn more about the Kusto query language from this  [Kusto getting started doc](https://docs.microsoft.com/azure/kusto/concepts/) or this [SQL to Kusto cheat sheet](https://docs.microsoft.com/azure/kusto/query/sqlcheatsheet)
 
-7. Under "Alert logic", choose whether it's based on number of results or metric measurement. Then pick the condition (greater than, equal to, less than) and a threshold. While you are changing these values, you may notice the condition preview sentence changes.  
+7. Under "Alert logic", choose whether it's based on number of results or metric measurement. Then pick the condition (greater than, equal to, less than) and a threshold. While you are changing these values, you may notice the condition preview sentence changes.
 
     ![Under Alert logic choose from the options provided for based on and condition, then type a threshold](./media/alerts/6alertlogic.png)
 
@@ -158,10 +155,6 @@ Use the new alert experience/near-realtime alerts if you need to notify users ba
 ## Automation
 * [Use PowerShell to automate setting up alerts](../../azure-monitor/app/powershell-alerts.md)
 * [Use webhooks to automate responding to alerts](../../azure-monitor/platform/alerts-webhooks.md)
-
-## Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## See also
 * [Availability web tests](../../azure-monitor/app/monitor-web-app-availability.md)
