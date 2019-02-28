@@ -328,8 +328,6 @@
       href: detach-disk.md
     - name: Deploy disks with template
       href: using-managed-disks-template-deployments.md
-    - name: Find and delete unattached disks
-      href: find-unattached-disks.md
     - name: Resize a disk
       href: expand-os-disk.md
     - name: Snapshot a disk
@@ -350,6 +348,8 @@
       href: how-to-enable-write-accelerator.md
     - name: Enable ultra SSDs
       href: disks-enable-ultra-ssd.md
+    - name: Find unattached disks
+      href: find-unattached-disks.md
     - name: Use File storage
       href: ../../storage/files/storage-files-quick-create-use-windows.md
     - name: Disks FAQs
