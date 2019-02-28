@@ -350,7 +350,7 @@ This topic provides a reference for the following API Management policies. For i
 > [!IMPORTANT]
 >  The `validate-jwt` policy requires that the `exp` registered claim is included in the JWT token, unless `require-expiration-time` attribute is specified and set to `false`.  
 > The `validate-jwt` policy supports HS256 and RS256 signing algorithms. For HS256 the key must be provided inline within the policy in the base64 encoded form. For RS256 the key has to be provide via an Open ID configuration endpoint.
-> The `validate-jwt` policy supports tokens encrypted wtih symmetric keys using the following encryption algorithms A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
+> The `validate-jwt` policy supports tokens encrypted with symmetric keys using the following encryption algorithms A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
   
 ### Policy statement  
   
@@ -507,7 +507,7 @@ This topic provides a reference for the following API Management policies. For i
 |header-name|The name of the HTTP header holding the token.|Either `header-name` or `query-parameter-name` must be specified; but not both.|N/A|  
 |id|The `id` attribute on the `key` element allows you to specify the string that will be matched against `kid` claim in the token (if present) to find out the appropriate key to use for signature validation.|No|N/A|  
 |match|The `match` attribute on the `claim` element specifies whether every claim value in the policy must be present in the token for validation to succeed. Possible values are:<br /><br /> -                          `all` - every claim value in the policy must be present in the token for validation to succeed.<br /><br /> -                          `any` - at least one claim value must be present in the token for validation to succeed.|No|all|  
-|query-paremeter-name|The name of the query parameter holding the token.|Either `header-name` or `query-paremeter-name` must be specified; but not both.|N/A|  
+|query-parameter-name|The name of the query parameter holding the token.|Either `header-name` or `query-parameter-name` must be specified; but not both.|N/A|  
 |require-expiration-time|Boolean. Specifies whether an expiration claim is required in the token.|No|true|
 |require-scheme|The name of the token scheme, e.g. "Bearer". When this attribute is set, the policy will ensure that specified scheme is present in the Authorization header value.|No|N/A|
 |require-signed-tokens|Boolean. Specifies whether a token is required to be signed.|No|true|  

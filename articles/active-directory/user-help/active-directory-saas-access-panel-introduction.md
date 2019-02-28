@@ -7,12 +7,13 @@ manager: daveba
 
 ms.assetid: c0252d01-7e6e-4f79-a70e-600479577dfd
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
+ms.collection: M365-identity-device-management
 ---
 
 # What is the MyApps portal?

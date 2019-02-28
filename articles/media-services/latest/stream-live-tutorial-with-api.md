@@ -1,5 +1,5 @@
 ---
-title: Stream live with Azure Media Services v3 | Microsoft Docs
+title: Stream live with Azure Media Services v3 using .NET | Microsoft Docs
 description: This tutorial walks you through the steps of streaming live with Media Services v3 using .NET Core.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/27/2019
+ms.date: 01/28/2019
 ms.author: juliako
 
 ---
 
-# Tutorial: Stream live with Media Services v3 using APIs
+# Tutorial: Stream live with Media Services v3 using .NET
 
 In Azure Media Services, [Live Events](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for processing live streaming content. A Live Event provides an input endpoint (ingest URL) that you then provide to a live encoder. The Live Event receives live input streams from the live encoder and makes it available for streaming through one or more [Streaming Endpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). Live Events also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery. This tutorial shows how to use .NET Core to create a **pass-through** type of a live event. 
 
@@ -45,7 +45,7 @@ The following are required to complete the tutorial.
 - A camera or a device (like laptop) that is used to broadcast an event.
 - An on-premises live encoder that converts signals from the camera to streams that are sent to the Media Services live streaming service. The stream has to be in **RTMP** or **Smooth Streaming** format.
 
-## Download the sample
+## Download and configure the sample
 
 Clone a GitHub repository that contains the streaming .NET sample to your machine using the following command:  
 
@@ -55,10 +55,10 @@ Clone a GitHub repository that contains the streaming .NET sample to your machin
 
 The live streaming sample is located in the [Live](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live/MediaV3LiveApp) folder.
 
-Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/appsettings.json) and replace the values with credentials that you got from [accessing APIs](access-api-cli-how-to.md)
+Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/appsettings.json) in you downloaded project. Replace the values with credentials that you got from [accessing APIs](access-api-cli-how-to.md).
 
 > [!IMPORTANT]
-> This sample uses unique suffix for each resource. If you cancel the debugging or terminate the app without running it through, you will end up with multiple LiveEvents in your account. <br/>Make sure to stop the running Live Events. Otherwise, you will be **billed**!
+> This sample uses unique suffix for each resource. If you cancel the debugging or terminate the app without running it through, you will end up with multiple Live Events in your account. <br/>Make sure to stop the running Live Events. Otherwise, you will be **billed**!
 
 ## Examine the code that performs live streaming
 
@@ -123,7 +123,7 @@ Live Outputs start on creation and stop when deleted. When you delete the Live O
 #### Create a Streaming Locator
 
 > [!NOTE]
-> When your Media Services account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
+> When your Media Services account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of [dynamic packaging](dynamic-packaging-overview.md) and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
 When you publish the Live Output asset using a Streaming Locator, the Live Event (up to the DVR window length) will continue to be viewable until the Streaming Locator's expiry or deletion, whichever comes first.
 
@@ -163,7 +163,7 @@ The following code shows how to clean up your account of all Live Events:
 
 ## Watch the event
 
-To watch the event, copy the streaming URL that you got when you ran code described in [Create a Streaming Locator](#create-a-streaminglocator) and use a player of your choice. You can use [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) to test your stream at http://ampdemo.azureedge.net. 
+To watch the event, copy the streaming URL that you got when you ran code described in Create a Streaming Locator and use a player of your choice. You can use [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) to test your stream at http://ampdemo.azureedge.net. 
 
 Live Event automatically converts events to on-demand content when stopped. Even after you stop and delete the event, the users would be able to stream your archived content as a video on demand, for as long as you do not delete the asset. An asset cannot be deleted if it is used by an event; the event must be deleted first. 
 

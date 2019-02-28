@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use a Linux VM system-assigned managed identity to access Azure Storage using a SAS credential
 description: A tutorial that shows you how to use a Linux VM system-assigned managed identity to access Azure Storage, using a SAS credential instead of a storage account access key.
 services: active-directory
@@ -8,13 +8,14 @@ manager: daveba
 editor: daveba
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: priyamo
+ms.collection: M365-identity-device-management
 ---
 
 

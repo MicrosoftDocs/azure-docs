@@ -5,7 +5,7 @@ keywords:
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 07/25/2018
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -48,19 +48,20 @@ There are five steps to create a deployment. The following sections walk through
 ### Step 1: Name and Label
 
 1. Give your deployment a unique name that is up to 128 lowercase letters. Avoid spaces and the following invalid characters: `& ^ [ ] { } \ | " < > /`.
-1. Add labels to help track your deployments. Labels are **Name**, **Value** pairs that describe your deployment. For example, `HostPlatform, Linux` or `Version, 3.0.1`.
+1. You can add labels as key-value pairs to help track your deployments. For example, **HostPlatform** and **Linux**, or **Version** and **3.0.1**.
 1. Select **Next** to move to step two. 
 
 ### Step 2: Add Modules (optional)
 
-There are two types of modules that you can add to a deployment. The first is a module based off of an Azure service, like Storage Account or Stream Analytics. The second is a module based off of your own code. You can add multiple modules of either type to a deployment. 
+There are two types of modules that you can add to a deployment. The first is a module based on an Azure service, like Storage Account or Stream Analytics. The second is a module using your own code. You can add multiple modules of either type to a deployment. 
 
 If you create a deployment with no modules, it removes any current modules from the devices. 
 
 >[!NOTE]
->Azure Machine Learning and Azure Functions don't support the automated Azure service deployment yet. Use the custom module deployment to manually add those services to your deployment. 
+>Azure Functions doesn't support the automated Azure service deployment yet. Use the custom module deployment to manually add that service to your deployment. 
 
 To add a module from Azure Stream Analytics, follow these steps:
+
 1. In the **Deployment Modules** section of the page, click **Add**.
 1. Select **Azure Stream Analytics module**.
 1. Choose your **Subscription** from the drop-down menu.
@@ -68,7 +69,8 @@ To add a module from Azure Stream Analytics, follow these steps:
 1. Select **Save** to add your module to the deployment. 
 
 To add custom code as a module, or to manually add an Azure service module, follow these steps:
-1. In the **Registry Settings** section of the page, provide the names and credentials for any private container registries that contain the module images for this deployment. The Edge Agent will report error 500 if it can't find the contrainer registry credential for a docker image.
+
+1. In the **Container Registry Settings** section of the page, provide the names and credentials for any private container registries that contain the module images for this deployment. The Edge Agent will report error 500 if it can't find the container registry credential for a Docker image.
 1. In the **Deployment Modules** section of the page, click **Add**.
 1. Select **IoT Edge Module**.
 1. Give your module a **Name**.
@@ -82,8 +84,8 @@ To add custom code as a module, or to manually add an Azure service module, foll
 1. Use the drop-down menu to select the **Desired Status** for the module. Choose from the following options:
    * **Running** - This is the default option. The module will start running immediately after being deployed.
    * **Stopped** - After being deployed, the module will remain idle until called upon to start by you or another module.
-1. Select **Enable** if you want to add any tags or desired properties to the module twin. 
-1. Enter **Environment variables** for this module. Environment variables provide supplement information to a module facilitating the configuration process.
+1. Select **Set module twin's desired properties** if you want to add tags or other properties to the module twin.
+1. Enter **Environment Variables** for this module. Environment variables provide supplement information to a module facilitating the configuration process.
 1. Select **Save** to add your module to the deployment. 
 
 Once you have all the modules for a deployment configured, select **Next** to move to step three.
@@ -94,8 +96,22 @@ Routes define how modules communicate with each other within a deployment. By de
 
 Add or update the routes with information from [Declare routes](module-composition.md#declare-routes), then select **Next** to continue to the review section.
 
+### Step 4: Specify Metrics (optional)
 
-### Step 4: Target Devices
+Metrics provide summary counts of the various states that a device may report back as a result of applying configuration content.
+
+1. Enter a name for **Metric Name**.
+
+1. Enter a query for **Metric Criteria**. The query is based on IoT Edge hub module twin [reported properties](module-edgeagent-edgehub.md#edgehub-reported-properties). The metric represents the number of rows returned by the query.
+
+For example:
+
+```sql
+SELECT deviceId FROM devices
+  WHERE properties.reported.lastDesiredStatus.code = 200
+```
+
+### Step 5: Target Devices
 
 Use the tags property from your devices to target the specific devices that should receive this deployment. 
 
@@ -105,9 +121,32 @@ Since multiple deployments may target the same device, you should give each depl
 1. Enter a **Target condition** to determine which devices will be targeted with this deployment. The condition is based on device twin tags or device twin reported properties and should match the expression format. For example, `tags.environment='test'` or `properties.reported.devicemodel='4000x'`. 
 1. Select **Next** to move on to the final step.
 
-### Step 5: Review Template
+### Step 6: Review Deployment
 
 Review your deployment information, then select **Submit**.
+
+## Deploy modules from Azure Marketplace
+
+Azure Marketplace is an online applications and services marketplace where you can browse through a wide range of enterprise applications and solutions that are certified and optimized to run on Azure, including [IoT Edge modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Azure Marketplace can also be accessed through the Azure portal under **Create a Resource**.
+
+You can install an IoT Edge module from either Azure Marketplace or the Azure portal:
+
+1. Find a module and begin the deployment process.
+
+   * Azure portal: Find a module and select **Create**.
+
+   * Azure Marketplace:
+
+     1. Find a module and select **Get it now**.
+     1. Acknowledge the provider's terms of use and privacy policy by selecting **Continue**.
+
+1. Choose your subscription and the IoT Hub to which the target device is attached.
+
+1. Choose **Deploy at Scale**.
+
+1. Choose whether to add the module to a new deployment or to a clone of an existing deployment; if cloning, select the existing deployment from the list.
+
+1. Select **Create** to continue the process of creating a deployment at scale. You'll be able to specify the same details as you would for any deployment.
 
 ## Monitor a deployment
 
@@ -125,15 +164,17 @@ To view the details of a deployment and monitor the devices running it, use the 
    * **Priority** - the priority number assigned to the deployment.
    * **System metrics** - **Targeted** specifies the number of device twins in IoT Hub that match the targeting condition, and **Applied** specifies the number of devices that have had the deployment content applied to their module twins in IoT Hub. 
    * **Device metrics** - the number of Edge devices in the deployment reporting success or errors from the IoT Edge client runtime.
+   * **Custom metrics** - the number of Edge devices in the deployment reporting data for any metrics that you defined for the deployment.
    * **Creation time** - the timestamp from when the deployment was created. This timestamp is used to break ties when two deployments have the same priority. 
-2. Select the deployment that you want to monitor.  
-3. Inspect the deployment details. You can use tabs to review the details of the deployment.
+1. Select the deployment that you want to monitor.  
+1. Inspect the deployment details. You can use tabs to review the details of the deployment.
 
 ## Modify a deployment
 
 When you modify a deployment, the changes immediately replicate to all targeted devices. 
 
 If you update the target condition, the following updates occur:
+
 * If a device didn't meet the old target condition, but meets the new target condition and this deployment is the highest priority for that device, then this deployment is applied to the device. 
 * If a device currently running this deployment no longer meets the target condition, it uninstalls this deployment and takes on the next highest priority deployment. 
 * If a device currently running this deployment no longer meets the target condition and doesn't meet the target condition of any other deployments, then no change occurs on the device. The device continues running its current modules in their current state, but is not managed as part of this deployment anymore. Once it meets the target condition of any other deployment, it uninstalls this deployment and takes on the new one. 
@@ -148,9 +189,10 @@ To modify a deployment, use the following steps:
 
 1. Select the deployment that you want to modify. 
 1. Make updates to the following fields: 
-   * Target condition 
-   * Labels 
-   * Priority 
+   * Target condition
+   * Metrics - you can modify or delete metrics you've defined, or add new ones.
+   * Labels
+   * Priority
 1. Select **Save**.
 1. Follow the steps in [Monitor a deployment](#monitor-a-deployment) to watch the changes roll out. 
 

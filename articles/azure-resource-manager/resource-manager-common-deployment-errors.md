@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/16/2018
+ms.date: 02/15/2019
 ms.author: tomfitz
 
 ---
 # Troubleshoot common Azure deployment errors with Azure Resource Manager
 
 This article describes some common Azure deployment errors, and provides information to resolve the errors. If you can't find the error code for your deployment error, see [Find error code](#find-error-code).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Error codes
 
@@ -30,7 +32,7 @@ This article describes some common Azure deployment errors, and provides informa
 | AccountPropertyCannotBeSet | Check available storage account properties. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | AllocationFailed | The cluster or region doesn't have resources available or can't support the requested VM size. Retry the request at a later time, or request a different VM size. | [Provisioning and allocation issues for Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Provisioning and allocation issues for Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) and [Troubleshoot allocation failures](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Wait for concurrent operation to complete. | |
-| AuthorizationFailed | Your account or service principal doesn't have sufficient access to complete the deployment. Check the role your account belongs to, and its access for the deployment scope. | [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md) |
+| AuthorizationFailed | Your account or service principal doesn't have sufficient access to complete the deployment. Check the role your account belongs to, and its access for the deployment scope.<br><br>You may receive this error when a required resource provider isn't registered. | [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md)<br><br>[Resolve registration](resource-manager-register-provider-errors.md) |
 | BadRequest | You sent deployment values that don't match what is expected by Resource Manager. Check the inner status message for help with troubleshooting. | [Template reference](/azure/templates/) and [Supported locations](resource-manager-templates-resources.md#location) |
 | Conflict | You're requesting an operation that isn't allowed in the resource's current state. For example, disk resizing is allowed only when creating a VM or when the VM is deallocated. | |
 | DeploymentActive | Wait for concurrent deployment to this resource group to complete. | |
@@ -67,7 +69,7 @@ This article describes some common Azure deployment errors, and provides informa
 | RequestDisallowedByPolicy | Your subscription includes a resource policy that prevents an action you are trying to perform during deployment. Find the policy that blocks the action. If possible, modify your deployment to meet the limitations from the policy. | [Resolve policies](resource-manager-policy-requestdisallowedbypolicy-error.md) |
 | ReservedResourceName | Provide a resource name that doesn't include a reserved name. | [Reserved resource names](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Wait for deletion to complete. | |
-| ResourceGroupNotFound | Check the name of the target resource group for the deployment. It must already exist in your subscription. Check your subscription context. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/az.profile/set-azcontext) |
+| ResourceGroupNotFound | Check the name of the target resource group for the deployment. It must already exist in your subscription. Check your subscription context. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
 | ResourceNotFound | Your deployment references a resource that can't be resolved. Verify that your use of the **reference** function includes the parameters required for your scenario. | [Resolve references](resource-manager-not-found-errors.md) |
 | ResourceQuotaExceeded | The deployment is trying to create resources that exceed the quota for the subscription, resource group, or region. If possible, revise your infrastructure to stay within the quotas. Otherwise, consider requesting a change to your quotas. | [Resolve quotas](resource-manager-quota-errors.md) |
 | SkuNotAvailable | Select SKU (such as VM size) that is available for the location you've selected. | [Resolve SKU](resource-manager-sku-not-available-errors.md) |

@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk  
 
 # Customer intent: As an IT administrator, I want to learn how to set up a script to download sign-in activity logs periodically, so that I can indefinitely retain all the sign-ins data in my tenant without manual intervention.
 
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: How to download and use a script to access sign-in logs

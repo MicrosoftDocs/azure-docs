@@ -13,9 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: justini
+ms.lastreviewed: 02/28/2019
 
 ---
 
@@ -126,20 +127,21 @@ This update also contains the mitigation for the speculative execution side chan
 
 ### Prerequisites
 
-- Install the Azure Stack [1807 Update](azure-stack-update-1807.md) before you apply the Azure Stack 1808 update. 
+- Install the Azure Stack 1807 update before you apply the Azure Stack 1808 update. 
 
-- Install the latest available [update or hotfix for version 1807](azure-stack-update-1807.md#post-update-steps).  
+- Install the latest available update or hotfix for version 1807.  
   > [!TIP]  
   > Subscribe to the following *RRS* or *Atom* feeds to keep up with Azure Stack Hotfixes:
   > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … 
   > - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …
 
-
 - Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action.  
 
   ```PowerShell
   Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
-  ```   
+  ```
+
+- When Azure Stack is managed by System Center Operations Manager (SCOM), be sure to update the Management Pack for Microsoft Azure Stack to version 10.0.3.11 before applying 1808.
 
 ### Known issues with the update process
 

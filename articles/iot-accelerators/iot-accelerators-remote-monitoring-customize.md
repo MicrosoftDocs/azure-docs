@@ -79,7 +79,7 @@ Because the panels manage their own layout and sizing, you can easily modify the
 * Swap the positions of the map and telemetry panels.
 * Change the relative widths of the map and analytics panels.
 
-```nodejs
+```javascript
 <PageContent className="dashboard-container">
   <Grid>
     <Cell className="col-1 devices-overview-cell">
@@ -151,7 +151,7 @@ Because the panels manage their own layout and sizing, you can easily modify the
 
 You can also add several instances of the same panel, or several versions if you [duplicate and customize a panel](#duplicate-and-customize-an-existing-control). The following example shows you how to add two instances of the telemetry panel. To make these changes, edit the `src/components/pages/dashboard/dashboard.js` file:
 
-```nodejs
+```javascript
 <PageContent className="dashboard-container">
   <Grid>
     <Cell className="col-1 devices-overview-cell">
@@ -242,19 +242,19 @@ The following steps outline how to duplicate an existing panel, modify it, and t
 
 1. In the **alertsPanel.js** file in the **cust_alerts** folder, edit the name of the class to be **CustAlertsPanel**:
 
-    ```nodejs
+    ```javascript
     export class CustAlertsPanel extends Component {
     ```
 
 1. Add the following line to the `src/components/pages/dashboard/panels/index.js` file:
 
-    ```nodejs
+    ```javascript
     export * from './cust_alerts';
     ```
 
 1. Replace `alertsPanel` with `CustAlertsPanel` in the `src/components/pages/dashboard/dashboard.js` file:
 
-    ```nodejs
+    ```javascript
     import {
       OverviewPanel,
       CustAlertsPanel,
@@ -282,7 +282,7 @@ You've now replaced the original **alerts** panel with a copy called **CustAlert
 
 1. Modify the column definitions as shown in the following code snippet:
 
-    ```nodejs
+    ```javascript
     this.columnDefs = [
       rulesColumnDefs.severity,
       {
@@ -307,7 +307,7 @@ The files in the `src/components/pages/dashboard/panels/telemtry` folder define 
 
 1. In the `src/services/telemetryService.js` file, locate the function called **getTelemetryByDeviceIdP15M**. Make a copy of this function and modify the copy as follows:
 
-    ```nodejs
+    ```javascript
     static getTelemetryByDeviceIdP5M(devices = []) {
       return TelemetryService.getTelemetryByMessages({
         from: 'NOW-PT5M',
@@ -320,7 +320,7 @@ The files in the `src/components/pages/dashboard/panels/telemtry` folder define 
 
 1. To use this new function to populate the telemetry chart, open the `src/components/pages/dashboard/dashboard.js` file. Locate the line that initializes the telemetry stream and modify it as follows:
 
-    ```node.js
+    ```javascript
     const getTelemetryStream = ({ deviceIds = [] }) => TelemetryService.getTelemetryByDeviceIdP5M(deviceIds)
     ```
 
@@ -334,7 +334,7 @@ The **Dashboard** page displays KPIs in the **Analytics** panel. These KPIs are 
 
 1. Open the `src/components/pages/dashboard/dashboard.js` file. Modify the **initialState** object to include a **warningAlertsChange** property as follows:
 
-    ```nodejs
+    ```javascript
     const initialState = {
       ...
 
@@ -354,7 +354,7 @@ The **Dashboard** page displays KPIs in the **Analytics** panel. These KPIs are 
 
 1. Modify the **currentAlertsStats** object to include **totalWarningCount** as a property:
 
-    ```nodejs
+    ```javascript
     return {
       openWarningCount: (acc.openWarningCount || 0) + (isWarning && isOpen ? 1 : 0),
       openCriticalCount: (acc.openCriticalCount || 0) + (isCritical && isOpen ? 1 : 0),
@@ -366,7 +366,7 @@ The **Dashboard** page displays KPIs in the **Analytics** panel. These KPIs are 
 
 1. Calculate the new KPI. Find the calculation for the critical alerts count. Duplicate the code and modify the copy as follows:
 
-    ```nodejs
+    ```javascript
     // ================== Warning Alerts Count - START
     const currentWarningAlerts = currentAlertsStats.totalWarningCount;
     const previousWarningAlerts = previousAlerts.reduce(
@@ -379,7 +379,7 @@ The **Dashboard** page displays KPIs in the **Analytics** panel. These KPIs are 
 
 1. Include the new **warningAlertsChange** KPI in the KPI stream:
 
-    ```nodejs
+    ```javascript
     return ({
       analyticsIsPending: false,
       analyticsVersion: this.state.analyticsVersion + 1,
@@ -397,7 +397,7 @@ The **Dashboard** page displays KPIs in the **Analytics** panel. These KPIs are 
 
 1. Include the new **warningAlertsChange** KPI in the state data used to render the UI:
 
-    ```nodejs
+    ```javascript
     const {
       ...
 
@@ -416,7 +416,7 @@ The **Dashboard** page displays KPIs in the **Analytics** panel. These KPIs are 
 
 1. Update the data passed to the KPIs panel:
 
-    ```node.js
+    ```javascript
     <AnalyticsPanel
       timeSeriesExplorerUrl={timeSeriesParamUrl}
       topAlerts={topAlertsWithName}
@@ -434,13 +434,13 @@ You've now finished the changes in the `src/components/pages/dashboard/dashboard
 
 1. Modify the following line of code to retrieve the new KPI value as follows:
 
-    ```nodejs
+    ```javascript
     const { t, isPending, criticalAlertsChange, warningAlertsChange, alertsPerDeviceId, topAlerts, timeSeriesExplorerUrl, error } = this.props;
     ```
 
 1. Modify the markup to display the new KPI value as follows:
 
-    ```nodejs
+    ```javascript
     <div className="analytics-cell">
       <div className="analytics-header">{t('dashboard.panels.analytics.criticalAlerts')}</div>
       <div className="critical-alerts">

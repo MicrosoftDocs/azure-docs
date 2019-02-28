@@ -19,6 +19,8 @@ ms.author: jgao
 
 # Tutorial: Use Azure Deployment Manager with Resource Manager templates (Private preview)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Learn how to use [Azure Deployment Manager](./deployment-manager-overview.md) to deploy your applications across multiple regions. To use Deployment Manager, you need to create two templates:
 
 * **A topology template**: describes the Azure resources the make up your applications and where to deploy them.
@@ -290,7 +292,6 @@ Azure PowerShell can be used to deploy the templates.
 1. Run the script to deploy the service topology.
 
     ```azurepowershell-interactive
-    $deploymentName = "<Enter a Deployment Name>"
     $resourceGroupName = "<Enter a Resource Group Name>"
     $location = "Central US"  
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
@@ -300,7 +301,6 @@ Azure PowerShell can be used to deploy the templates.
     
     # Create the service topology
     New-AzureRmResourceGroupDeployment `
-        -Name $deploymentName `
         -ResourceGroupName $resourceGroupName `
         -TemplateFile "$filePath\ADMTemplates\CreateADMServiceTopology.json" `
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMServiceTopology.Parameters.json"
@@ -317,7 +317,6 @@ Azure PowerShell can be used to deploy the templates.
     ```azurepowershell-interactive
     # Create the rollout
     New-AzureRmResourceGroupDeployment `
-        -Name $deploymentName `
         -ResourceGroupName $resourceGroupName `
         -TemplateFile "$filePath\ADMTemplates\CreateADMRollout.json" `
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMRollout.Parameters.json"
@@ -333,7 +332,7 @@ Azure PowerShell can be used to deploy the templates.
         -Name $rolloutName
     ```
 
-    The Deployment Manager PowerShell cmdlets must be installed before you can run this cmdlet. See [Prerequisites](#prerequisite).
+    The Deployment Manager PowerShell cmdlets must be installed before you can run this cmdlet. See Prerequisites.
 
     The following sample shows the running status:
     

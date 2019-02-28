@@ -19,7 +19,9 @@ ms.author: juliako
 
 # CLI example: Create an Azure Media Services account
 
-The Azure CLI script in this topic shows how to create an Azure Media Services account. The Media Services account and the storage account associated with it have to be part of the same datacenter and the same resource group.
+The Azure CLI script in this topic shows how to create an Azure Media Services account. 
+
+The Media Services account and all associated storage accounts must be in the same Azure subscription. It is recommended to use storage accounts in the same location as the Media Services account.
 
 [!INCLUDE [media-services-cli-instructions.md](../../../../includes/media-services-cli-instructions.md)]
 

@@ -6,14 +6,14 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ---
 
 # Backup and restore in Azure SQL Data Warehouse
-Learn how backup and restore works in Azure SQL Data Warehouse. Use data warehouse snapshots to recovery or copy your data warehouse to a previous restore point in the primary region. Use data warehouse geo-redundant backups to restore to a different geographical region. 
+Learn how backup and restore works in Azure SQL Data Warehouse. Use data warehouse restore points to recover or copy your data warehouse to a previous state in the primary region. Use data warehouse geo-redundant backups to restore to a different geographical region. 
 
 ## What is a data warehouse snapshot?
 A *data warehouse snapshot* creates a restore point you can leverage to recover or copy your data warehouse to a previous state.  Since SQL Data Warehouse is a distributed system, a data warehouse snapshot consists of many files that are located in Azure storage. Snapshots capture incremental changes from the data stored in your data warehouse.
@@ -57,7 +57,7 @@ When you drop a data warehouse, SQL Data Warehouse creates a final snapshot and 
 > If you delete a logical SQL server instance, all databases that belong to the instance are also deleted and cannot be recovered. You cannot restore a deleted server.
 >
 
-## Geo-backups
+## Geo-backups and disaster recovery
 SQL Data Warehouse performs a geo-backup once per day to a [paired data center](../best-practices-availability-paired-regions.md). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any other region where SQL Data Warehouse is supported. A geo-backup ensures you can restore data warehouse in case you cannot access the restore points in your primary region.
 
 Geo-backups are on by default. If your data warehouse is Gen1, you can [opt out](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) if you wish. You cannot opt out of geo-backups for Gen2 as data protection is a built-in guaranteed.
@@ -68,7 +68,7 @@ Geo-backups are on by default. If your data warehouse is Gen1, you can [opt out]
 
 
 ## Backup and restore costs
-You will notice the Azure bill has a line item for Storage and a line item for Disaster Recovery Storage. The Storage charge is the total cost for storing your data in the primary region along with the incremental changes captured by snapshots. For a more detailed explanation on how snapshots are currently taken, refer to this [documentation](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). The geo-redundant charge covers the cost for storing the geo-backups.  
+You will notice the Azure bill has a line item for Storage and a line item for Disaster Recovery Storage. The Storage charge is the total cost for storing your data in the primary region along with the incremental changes captured by snapshots. For a more detailed explanation of how snapshots are charged, refer to  [Understanding how Snapshots Accrue Charges](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). The geo-redundant charge covers the cost for storing the geo-backups.  
 
 The total cost for your primary data warehouse and seven days of snapshot changes is rounded to the nearest TB. For example, if your data warehouse is 1.5 TB and the snapshots captures 100 GB, you are billed for 2 TB of data at Azure Premium Storage rates. 
 

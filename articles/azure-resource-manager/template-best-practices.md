@@ -20,6 +20,8 @@ For recommendations about how to govern your Azure subscriptions, see [Azure ent
 
 For recommendations about how to build templates that work in all Azure cloud environments, see [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Parameters
 The information in this section can be helpful when you work with [parameters](resource-manager-templates-parameters.md).
 

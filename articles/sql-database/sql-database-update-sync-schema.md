@@ -11,7 +11,7 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 09/20/2018
+ms.date: 11/14/2018
 ---
 # Automate the replication of schema changes in Azure SQL Data Sync
 

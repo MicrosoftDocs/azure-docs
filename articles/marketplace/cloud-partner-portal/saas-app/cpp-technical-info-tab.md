@@ -38,7 +38,7 @@ To help you decide which type of SaaS app you’re building, read [Understand st
 To build this experience you need to configure the following pieces:
 
 - Connect your SaaS service website with Microsoft’s SaaS APIs. The [SaaS Sell through Azure – APIs](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis) article explains how to create this connection.
-- Enable Sell through Azure on Cloud Partner Portal in the Technical Configuration form and provide the required information. For more information about this billing model and how it’s implemented, see [SaaS – Sell through Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions#overview).
+- Enable Sell through Azure on Cloud Partner Portal in the Technical Configuration form and provide the required information. For more information about this billing model and how it’s implemented, see [SaaS – Sell through Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions).
 
  ![Sell through Microsoft form](./media/saas-techinfo-sellthrough-ms.png)
 

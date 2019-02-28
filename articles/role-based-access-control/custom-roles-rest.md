@@ -1,6 +1,6 @@
 ---
-title: Create custom roles using the REST API - Azure | Microsoft Docs
-description: Learn how to create custom roles for role-based access control (RBAC) using the REST API. This includes how to list, create, update, and delete custom roles.
+title: Create custom roles for Azure resources using the REST API - Azure | Microsoft Docs
+description: Learn how to create custom roles with role-based access control (RBAC) for Azure resources using the REST API. This includes how to list, create, update, and delete custom roles.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -13,14 +13,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
 ---
-# Create custom roles using the REST API
+# Create custom roles for Azure resources using the REST API
 
-If the [built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. This article describes how to create and manage custom roles using the REST API.
+If the [built-in roles for Azure resources](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. This article describes how to create and manage custom roles using the REST API.
 
 ## List roles
 
@@ -147,6 +147,7 @@ To create a custom role, use the [Role Definitions - Create Or Update](/rest/api
               "Microsoft.Compute/virtualMachines/start/action",
               "Microsoft.Compute/virtualMachines/restart/action",
               "Microsoft.Authorization/*/read",
+              "Microsoft.ResourceHealth/availabilityStatuses/read",
               "Microsoft.Resources/subscriptions/resourceGroups/read",
               "Microsoft.Insights/alertRules/*",
               "Microsoft.Support/*"
@@ -229,6 +230,7 @@ To update a custom role, use the [Role Definitions - Create Or Update](/rest/api
               "Microsoft.Compute/virtualMachines/start/action",
               "Microsoft.Compute/virtualMachines/restart/action",
               "Microsoft.Authorization/*/read",
+              "Microsoft.ResourceHealth/availabilityStatuses/read",
               "Microsoft.Resources/subscriptions/resourceGroups/read",
               "Microsoft.Insights/alertRules/*",
               "Microsoft.Insights/diagnosticSettings/*",
@@ -268,6 +270,6 @@ To delete a custom role, use the [Role Definitions - Delete](/rest/api/authoriza
 
 ## Next steps
 
-- [Custom roles in Azure](custom-roles.md)
-- [Manage access using RBAC and the REST API](role-assignments-rest.md)
+- [Custom roles for Azure resources](custom-roles.md)
+- [Manage access to Azure resources using RBAC and the REST API](role-assignments-rest.md)
 - [Azure REST API Reference](/rest/api/azure/)

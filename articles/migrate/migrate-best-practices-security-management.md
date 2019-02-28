@@ -396,8 +396,7 @@ Azure VMs are stored as page blobs in Azure Storage.
 - [Learn how to](https://docs.microsoft.com/azure/storage/blobs/storage-blob-snapshots) create a blob snapshot.
 - [Review a sample scenario](https://azure.microsoft.com/blog/microsoft-azure-block-blob-storage-backup) for blob storage backup.
 - [Read about](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) soft delete.
-- [Review](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) What to do if an Azure Storage outage occurs?
-
+- [Disaster recovery and forced failover (preview) in Azure Storage](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 #### Third-party backup
 
@@ -513,7 +512,7 @@ You can use failover groups and active geo-replication to provide resilience aga
 - [Read](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/) Azure SQL Databases 101 for disaster recovery.
 - [Get an overview](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) of active geo-replication and failover groups.
 - [Learn about](https://docs.microsoft.com/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery) designing for disaster recovery.
-- [Get best practices](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview#best-practices-of-using-failover-groups-for-business-continuity) for failover groups.
+- [Get best practices](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) for failover groups.
 - [Get best practices](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-security-config) for security after geo-restore or failover.
 - [Learn about](https://docs.microsoft.com/azure/sql-database/sql-database-high-availability#zone-redundant-configuration) zone redundancy
 - [Learn how to](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery-drills) perform a disaster recovery drill for SQL database.

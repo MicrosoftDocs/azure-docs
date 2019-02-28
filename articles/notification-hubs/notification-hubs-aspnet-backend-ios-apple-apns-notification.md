@@ -82,7 +82,7 @@ This tutorial assumes that you have created and configured your notification hub
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. In `ViewController.h`, add the following `#define` after your import statements. Substitute the `<Enter Your Backend Endpoint>` placeholder with the Destination URL you used to deploy your app backend in the previous section. For example, *http://your_backend.azurewebsites.net*.
+4. In `ViewController.h`, add the following `#define` after your import statements. Substitute the `<Enter Your Backend Endpoint>` placeholder with the Destination URL you used to deploy your app backend in the previous section. For example, `http://your_backend.azurewebsites.net`.
 
     ```objc
     #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"

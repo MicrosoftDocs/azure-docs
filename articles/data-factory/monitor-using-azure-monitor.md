@@ -37,11 +37,11 @@ You can use a storage account or event hub namespace that is not in the same sub
 ### Diagnostic Settings
 Diagnostic Logs for non-compute resources are configured using diagnostic settings. Diagnostic settings for a resource control:
 
-* Where diagnostic logs are sent (Storage Account, Event Hubs, or Log Analytics).
+* Where diagnostic logs are sent (Storage Account, Event Hubs, or Azure Monitor logs).
 * Which log categories are sent.
 * How long each log category should be retained in a storage account.
 * A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647.
-* If retention policies are set but storing logs in a storage account is disabled (for example, only Event Hubs or Log Analytics options are selected), the retention policies have no effect.
+* If retention policies are set but storing logs in a storage account is disabled (for example, only Event Hubs or Azure Monitor logs options are selected), the retention policies have no effect.
 * Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy are deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted.
 
 ### Enable diagnostic logs via REST APIs
@@ -56,7 +56,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 **Headers**
 * Replace `{api-version}` with `2016-09-01`.
-* Replace `{resource-id}` with the resource ID of the resource for which you would like to edit diagnostic settings. For more information [Using Resource groups to manage your Azure resources](../azure-resource-manager/resource-group-portal.md).
+* Replace `{resource-id}` with the resource ID of the resource for which you would like to edit diagnostic settings. For more information [Using Resource groups to manage your Azure resources](../azure-resource-manager/manage-resource-groups-portal.md).
 * Set the `Content-Type` header to `application/json`.
 * Set the authorization header to a JSON web token that you obtain from Azure Active Directory. For more information, see [Authenticating requests](../active-directory/develop/authentication-scenarios.md).
 
@@ -248,7 +248,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
    "activityName":"",
    "start":"",
    "end":"",
-   "properties:"
+   "properties":
        {
           "Input": "{
               "source": {

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage the configuration server for disaster recovery of on-premises physical servers to Azure with Azure Site Recovery | Microsoft Docs'
 description: This article describes how to manage the Azure Site Recovery configuration server for physical server disaster recovery to Azure.
 services: site-recovery
@@ -15,7 +15,7 @@ You set up an on-premises configuration server when you use the [Azure Site Reco
 
 ## Prerequisites
 
-The table summarizes the prerequistes for deploying the on-premises configuration server machine.
+The table summarizes the prerequisites for deploying the on-premises configuration server machine.
 
 | **Component** | **Requirement** |
 | --- |---|
@@ -123,15 +123,15 @@ Run the installation file as follows:
 ### Create file input for MYSQLCredsFilePath
 
 The MySQLCredsFilePath parameter takes a file as input. Create the file using the following format and pass it as input MySQLCredsFilePath parameter.
-```
+```ini
 [MySQLCredentials]
-MySQLRootPassword = "Password>"
+MySQLRootPassword = "Password"
 MySQLUserPassword = "Password"
 ```
 ### Create file input for ProxySettingsFilePath
 ProxySettingsFilePath parameter takes a file as input. Create the file using the following format and pass it as input ProxySettingsFilePath parameter.
 
-```
+```ini
 [ProxySettings]
 ProxyAuthentication = "Yes/No"
 Proxy IP = "IP Address"
@@ -152,9 +152,10 @@ You can modify proxy settings for the configuration server machine as follows:
 5. Provide the new proxy details and click the **Register** button.
 6. Open an Admin PowerShell command window.
 7. Run the following command:
-  ```
-  $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-  Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+
+  ```PowerShell
+  $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+  Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
   net stop obengine
   net start obengine
   ```
@@ -172,9 +173,9 @@ You can modify proxy settings for the configuration server machine as follows:
   6. Open an Admin PowerShell command window.
   7. Run the following command
 
-      ```
-      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+      ```PowerShell
+      $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
       net stop obengine
       net start obengine
       ```
@@ -200,9 +201,9 @@ You can modify proxy settings for the configuration server machine as follows:
 6. Provide the Proxy Server details and click the **Register** button.  
 7. Open an Admin PowerShell command window.
 8. Run the following command
-    ```
+    ```powershell
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $pwd
     net stop obengine
     net start obengine
     ```
@@ -268,16 +269,16 @@ Upgrade the server as follows:
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
 3.  Now set up your vault context
     
-    ```
-    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
-    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+    ```PowerShell
+    $Vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
+    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $Vault
     ```
 4. Get select your configuration server
 
-    `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+    `$Fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. Delete the Configuration Server
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force] `
+    `Remove-AzureRmSiteRecoveryFabric -Fabric $Fabric [-Force] `
 
 > [!NOTE]
 > The **-Force** option in the Remove-AzureRmSiteRecoveryFabric can be used to force the removal/deletion of the Configuration server.

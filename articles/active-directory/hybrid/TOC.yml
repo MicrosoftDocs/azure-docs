@@ -14,6 +14,8 @@
     href: tutorial-passthrough-authentication.md
   - name: Federate a single AD forest environment to the cloud
     href: tutorial-federation.md
+  - name: Set up PHS as backup for AD FS in Azure AD Connect 
+    href: tutorial-phs-backup.md
 - name: Concepts
   items:
    - name: Azure AD Connect and Connect Health
@@ -230,6 +232,8 @@
       href: how-to-connect-health-operations.md
     - name: Use Azure AD Connect Health with AD FS
       href: how-to-connect-health-adfs.md
+    - name: Risky IP report for Azure AD Connect Health with AD FS
+      href: how-to-connect-health-adfs-risky-ip.md
     - name: Use Azure AD Connect Health for sync
       href: how-to-connect-health-sync.md
     - name: Use Azure AD Connect Health with AD DS
@@ -256,6 +260,8 @@
       href: how-to-connect-sync-configure-filtering.md
     - name: Manage the scheduler
       href: how-to-connect-sync-feature-scheduler.md
+    - name: Create and customize a synchronization rule
+      href: how-to-connect-create-custom-sync-rule.md
     - name: Azure AD Connect Sync service manager
       items: 
        - name: Manage the service manager operations tab
@@ -290,6 +296,10 @@
       href: tshoot-connect-recover-from-localdb-10gb-limit.md
     - name: SQL connectivity
       href: tshoot-connect-tshoot-sql-connectivity.md
+    - name: Attribute synchronization
+      href: tshoot-connect-attribute-not-syncing.md
+    - name: Installation issues
+      href: tshoot-connect-install-issues.md
 - name: Reference
   items:
   - name: Hybrid Identity Required Ports and Protocols

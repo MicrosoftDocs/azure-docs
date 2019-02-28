@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Learn about Azure Machine Learning for Visual Studio Code and how to start training and deploying machine learning and deep learning models in Azure Machine Learning service using Visual Studio Code.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: shwinne
 author: swinner95
@@ -106,9 +106,9 @@ To use a remote compute target when training, you need to create a run configura
 
 #### The conda dependencies file
 
-By default, a new conda environment is created for you and your installation dependencies are managed. However, you must specify your dependencies in the `aml_config/conda_dependencies.yml` file.
+By default, a new conda environment is created for you and your installation dependencies are managed. However, you must specify your dependencies and their versions in the `aml_config/conda_dependencies.yml` file. 
 
-This is a snippet from the default 'aml_config/conda_dependencies.yml'.
+This is a snippet from the default 'aml_config/conda_dependencies.yml'. For example, you can specify 'tensorflow=1.12.0' as seen below. If you do not specify the version of the dependency, then the latest version will be used.  
 You can add additional dependencies in the config file.
 
 ```yaml
@@ -121,7 +121,7 @@ dependencies:
   # Currently Azure Machine Learning service only supports 3.5.2 and later.
 
 - python=3.6.2
-- tensorflow
+- tensorflow=1.12.0
 
 - pip:
     # Required packages for Azure Machine Learning service execution, history, and data preparation.

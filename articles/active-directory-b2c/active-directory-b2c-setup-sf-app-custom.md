@@ -1,4 +1,4 @@
-﻿---
+---
 title: Set up sign-in with a Salesforce SAML provider by using custom policies in Azure Active Directory B2C | Microsoft Docs
 description: Set up sign-in with a Salesforce SAML provider by using custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Set up sign-in with a Salesforce SAML provider by using custom policies in Azure Active Directory B2C

@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/30/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Quickstart: Set up sign-in for a desktop app using Azure Active Directory B2C 

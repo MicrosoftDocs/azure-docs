@@ -4,9 +4,9 @@ titleSuffix: Azure Cognitive Services
 description: Before you create your QnA Maker service, you should decide which tier of the above services is appropriate for you. 
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: tulasim

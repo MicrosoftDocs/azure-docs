@@ -10,14 +10,14 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Get started with custom policies in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-[Custom policies](active-directory-b2c-overview-custom.md) are configuration files that define the behavior of your Azure Active Directory (Azure AD) B2C tenant. In this article, you create a custom policy that supports local account sign-up or sign-in by using an email address and password. You also prepare your environment for adding identity providers, such as Facebook.
+[Custom policies](active-directory-b2c-overview-custom.md) are configuration files that define the behavior of your Azure Active Directory (Azure AD) B2C tenant. In this article, you create a custom policy that supports local account sign-up or sign-in by using an email address and password. You also prepare your environment for adding identity providers.
 
 ## Prerequisites
 
@@ -59,17 +59,32 @@ If you already have a [Facebook application secret](active-directory-b2c-setup-f
 5. For **Key usage**, select **Signature**.
 6. Click **Create**.
 
-## Register an application
+## Register applications
 
-An application is registered in Azure Active Directory (Azure AD) B2C to enable a user to sign up and sign in with a local account that exists in your tenant. Your users sign up with a unique email address and password to access the registered application.
+Azure AD B2C requires you to register two applications that are used to sign up and sign in users: IdentityExperienceFramework (a web app), and ProxyIdentityExperienceFramework (a native app) with delegated permission from the IdentityExperienceFramework app. Local accounts exist only in your tenant. Your users sign up with a unique email address/password combination to access your tenant-registered applications.
+
+### Register the IdentityExperienceFramework application
 
 1. Choose **All services** in the top-left corner of the Azure portal, search for and select **App registrations**.
 2. Select **New application registration**.
-3. For **Name**, enter `ProxyIdentityExperienceFramework`.
-4. For **Application type**, choose **Native**.
-5. For **Redirect URI**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, where `your-tenant-name` is the name of your Azure AD B2C tenant.
-6. Click **Create**. After it's created, copy the application ID and save it to use later.
-7. Select **Grant Permissions**, and then confirm by selecting **Yes**.
+3. For **Name**, enter `IdentityExperienceFramework`.
+4. For **Application type**, choose **Web app/API**.
+5. For **Sign-on URL**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, where `your-tenant-name` is your Azure AD B2C tenant domain name.
+6. Click **Create**. 
+7. After it's created, copy the application ID and save it to use later.
+
+### Register the ProxyIdentityExperienceFramework application
+
+1. Select **App registrations**, and then select **New application registration**.
+2. For **Name**, enter `ProxyIdentityExperienceFramework`.
+3. For **Application type**, choose **Native**.
+4. For **Redirect URI**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, where `yourtenant` is your Azure AD B2C tenant.
+5. Click **Create**. After it's created, copy the application ID and save it to use later.
+6. On the Settings page, select **Required permissions**, and then select **Add**.
+7. Select **Select an API**.
+8. Search for and select **IdentityExperienceFramework**, and then click **Select**.
+9. Select the check box next to **Access IdentityExperienceFramework**, click **Select**, and then click **Done**.
+10. Select **Grant Permissions**, and then confirm by selecting **Yes**.
 
 ## Download starter pack and modify policies
 
@@ -83,8 +98,8 @@ Custom policies are a set of XML files that need to be uploaded to your Azure AD
 Each starter pack contains:
 
 - The base file. Few modifications are required to the base.
-* The extension file.  This file is where most configuration changes are made.
-* The relying party files. Task-specific files called by your application.
+- The extension file.  This file is where most configuration changes are made.
+- The relying party files. Task-specific files called by your application.
 
 >[!NOTE]
 >If your XML editor supports validation, validate the files against the TrustFrameworkPolicy_0.3.0.0.xsd XML schema that is located in the root directory of the starter pack. XML schema validation identifies errors before uploading.
@@ -99,10 +114,10 @@ Each starter pack contains:
 
 ### Add application IDs to the custom policy
 
-Add the application ID to the extensions file *TrustFrameworkExtensions.xml*.
+Add the application IDs to the extensions file *TrustFrameworkExtensions.xml*.
 
 1. Open the *TrustFrameworkExtensions.xml* file and find the element `<TechnicalProfile Id="login-NonInteractive">`.
-2. Replace both the value of `client_id` and `resource_id` with the application ID of the ProxyIdentityExperienceFramework application that you created earlier.
+2. Replace both instances of `IdentityExperienceFrameworkAppId` with the application ID of the Identity Experience Framework application that you created earlier. Replace both instances of `ProxyIdentityExperienceFrameworkAppId` with the application ID of the Proxy Identity Experience Framework application that you created earlier.
 3. Save your extensions file.
 
 ## Upload the policies

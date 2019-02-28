@@ -7,7 +7,7 @@ author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018

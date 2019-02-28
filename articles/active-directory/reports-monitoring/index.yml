@@ -6,7 +6,7 @@ metadata:
   title: Azure Active Directory reports and monitoring documentation - Tutorials, quickstarts, concepts | Microsoft Docs
   description: Learn how to configure and test Azure Active Directory reports and monitoring solutions
   services: active-directory
-  ms.component: report-monitor
+  ms.subservice: report-monitor
   author: priyamohanram
   manager: daveba
   ms.service: active-directory

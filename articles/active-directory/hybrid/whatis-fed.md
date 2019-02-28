@@ -8,10 +8,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 11/28/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
+ms.topic: conceptual
+ms.collection: M365-identity-device-management
 ---
 
 # What is federation with Azure AD?

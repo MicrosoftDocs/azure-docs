@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
+ms.lastreviewed: 01/23/2019
 
 ---
 # Microsoft Azure Stack troubleshooting

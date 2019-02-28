@@ -12,11 +12,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
+ms.collection: M365-identity-device-management
 ---
 # Using connectors with the Azure AD Connect Sync Service Manager
 
@@ -37,7 +38,7 @@ The Connectors tab is used to manage all systems the sync engine is connected to
 | Import Connector |Do not use. |
 | Update Connector |Do not use. |
 | Refresh Schema |Refreshes the cached schema. It is preferred to use the option in the installation wizard instead, since that also updates sync rules. |
-| [Search Connector Space](#search-connector-space) |Used to find objects and to [Follow an object and its data through the system](#follow-an-object-and-its-data-through-the-system). |
+| [Search Connector Space](#search-connector-space) |Used to find objects and to Follow an object and its data through the system. |
 
 ### Delete
 The delete action is used for two different things.  

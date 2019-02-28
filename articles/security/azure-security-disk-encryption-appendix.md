@@ -323,7 +323,7 @@ Configure encryption to work with Azure by doing the following steps:
 
 1. Create a file under /usr/local/sbin/azure_crypt_key.sh, with the content in the following script. Pay attention to the KeyFileName, because it's the passphrase file name used by Azure.
 
-    ```
+    ```bash
     #!/bin/sh
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
@@ -403,7 +403,7 @@ To configure encryption to work with Azure, do the following steps:
     add_drivers+=" vfat ntfs nls_cp437 nls_iso8859-1"
     ```
 2. Comment out these lines by the end of the file /usr/lib/dracut/modules.d/90crypt/module-setup.sh:
- ```
+ ```bash
     #        inst_multiple -o \
     #        $systemdutildir/system-generators/systemd-cryptsetup-generator \
     #        $systemdutildir/systemd-cryptsetup \
@@ -416,20 +416,20 @@ To configure encryption to work with Azure, do the following steps:
  ```
 
 3. Append the following line at the beginning of the file /usr/lib/dracut/modules.d/90crypt/parse-crypt.sh:
- ```
+ ```bash
     DRACUT_SYSTEMD=0
  ```
 And change all occurrences of:
- ```
+ ```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
  ```
 to:
-```
+```bash
     if [ 1 ]; then
 ```
 4. Edit /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh and append it to “# Open LUKS device”:
 
-    ```
+    ```bash
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
     echo "Trying to get the key from disks ..." >&2
@@ -483,7 +483,7 @@ To configure encryption to work with Azure, do the following steps:
     ```
 
 2. Comment out these lines by the end of the file /usr/lib/dracut/modules.d/90crypt/module-setup.sh:
-```
+```bash
     #        inst_multiple -o \
     #        $systemdutildir/system-generators/systemd-cryptsetup-generator \
     #        $systemdutildir/systemd-cryptsetup \
@@ -496,19 +496,19 @@ To configure encryption to work with Azure, do the following steps:
 ```
 
 3. Append the following line at the beginning of the file /usr/lib/dracut/modules.d/90crypt/parse-crypt.sh:
-```
+```bash
     DRACUT_SYSTEMD=0
 ```
 And change all occurrences of:
-```
+```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
 ```
 to
-```
+```bash
     if [ 1 ]; then
 ```
 4. Edit /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh and append the following after the “# Open LUKS device”:
-    ```
+    ```bash
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
     echo "Trying to get the key from disks ..." >&2

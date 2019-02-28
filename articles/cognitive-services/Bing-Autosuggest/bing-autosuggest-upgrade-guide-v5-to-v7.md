@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Identifies the parts of your application that you need to update to use version 7.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: scottwhi

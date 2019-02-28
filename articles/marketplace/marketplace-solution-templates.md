@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 11/15/2018
 ms.author: ellacroi
 
----  
+---
 
 # Azure Applications: Solution Template Offer Publishing Guide
 

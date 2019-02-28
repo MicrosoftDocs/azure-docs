@@ -1,6 +1,6 @@
 ---
 
-title: Add Google as an identity provider for Azure Active Directory B2B | Microsoft Docs
+title: Add Google as an identity provider for B2B - Azure Active Directory | Microsoft Docs
 description: Federate with Google to enable guest users to sign in to your Azure AD apps with their own Gmail account
 
 services: active-directory
@@ -14,13 +14,14 @@ author: msmimart
 manager: daveba
 ms.reviewer: mal
 
+ms.collection: M365-identity-device-management
 ---
 
 # Add Google as an identity provider for B2B guest users
 
 By setting up federation with Google, you can allow invited users to sign in to your shared apps and resources with their own Google accounts, without having to create Microsoft Accounts (MSAs) or Azure AD accounts.  
 > [!NOTE]
-> Your Google guest users must sign in using a link that includes the tenant context, for example `https://myapps.microsoft.com/<tenant id>`. Direct links to applications and resources also work as long as they include the tenant context. Guest users are currently unable to sign in using endpoints that have no tenant context. For example, using `https://myapps.microsoft.com`, `https://portal.azure.com`, or the Teams common endpoint will result in an error.
+> Your Google guest users must sign in using a link that includes the tenant context (for example, `https://myapps.microsoft.com/?tenantid=<tenant id>` or `https://portal.azure.com/<tenant id>`, or in the case of a verified domain, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Direct links to applications and resources also work as long as they include the tenant context. Guest users are currently unable to sign in using endpoints that have no tenant context. For example, using `https://myapps.microsoft.com`, `https://portal.azure.com`, or the Teams common endpoint will result in an error.
  
 ## What is the experience for the Google user?
 When you send an invitation to a Google Gmail user, the guest user should access your shared apps or resources using a link that includes the tenant context. Their experience varies depending on whether they're already signed in to Google:
@@ -98,8 +99,8 @@ You can delete your Google federation setup. If you do so, Google guest users wh
 ### To delete Google federation in the Azure AD portal: 
 1. Go to the [Azure portal](https://portal.azure.com). In the left pane, select **Azure Active Directory**. 
 2. Select **Organizational Relationships**.
-3. Select **Identity providers**, and then click the **Google** button.
-4. Select **Google**, and then select **Delete**. 
+3. Select **Identity providers**.
+4. On the **Google** line, select the context menu (**...**) and then select **Delete**. 
    
    ![Deleted the social identity provider](media/google-federation/google-social-identity-providers.png)
 

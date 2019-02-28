@@ -42,17 +42,12 @@ The sample script used in this topic creates a Windows-based Solr cluster with a
 
     ![Use Script Action to customize a cluster](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "Use Script Action to customize a cluster")
 
-    <table border='1'>
-        <tr><th>Property</th><th>Value</th></tr>
-        <tr><td>Name</td>
-            <td>Specify a name for the script action. For example, <b>Install Solr</b>.</td></tr>
-        <tr><td>Script URI</td>
-            <td>Specify the Uniform Resource Identifier (URI) to the script that is invoked to customize the cluster. For example, <i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i></td></tr>
-        <tr><td>Node Type</td>
-            <td>Specify the nodes on which the customization script is run. You can choose <b>All nodes</b>, <b>Head nodes only</b>, or <b>Worker nodes only</b>.
-        <tr><td>Parameters</td>
-            <td>Specify the parameters, if required by the script. The script to install Solr does not require any parameters, so you can leave this blank.</td></tr>
-    </table>
+    |Property|Value|
+    |---|---|
+    |Name|Specify a name for the script action. For example, **Install Solr**.|
+    |Script URI|Specify the Uniform Resource Identifier (URI) to the script that is invoked to customize the cluster. For example, *https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1*|
+    |Node Type|Specify the nodes on which the customization script is run. You can choose **All nodes**, **Head nodes only**, or **Worker nodes only**.
+    |Parameters|Specify the parameters, if required by the script. The script to install Solr does not require any parameters, so you can leave this blank.|
 
     You can add more than one script action to install multiple components on the cluster. After you have added the scripts, click the checkmark to start creating the cluster.
 

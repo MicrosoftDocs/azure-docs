@@ -71,14 +71,16 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
 
 ## <a id="Connect"></a>Step 3: Connect to an Azure Cosmos DB account
 1. First, replace the references at the beginning of your C# application, in the **Program.cs** file with these references:
-    ```csharp
-    using System;
-    using System.Threading.Tasks;
-    using System.Configuration;
-    using Microsoft.Azure.Cosmos;
-    using System.Collections.Generic;
-    using System.Net;
-    ```
+
+   ```csharp
+   using System;
+   using System.Threading.Tasks;
+   using System.Configuration;
+   using Microsoft.Azure.Cosmos;
+   using System.Collections.Generic;
+   using System.Net;
+   ```
+
 1. Now, add these constants and variables into your public class ``Program``.
     ```csharp
     public class Program
@@ -291,7 +293,7 @@ A container can be created by using either the [**CreateContainerIfNotExistsAsyn
     ```csharp
     /*
         Create the container if it does not exist. 
-        Specifiy "/LastName" as the partition key since we're storing family information, to ensure good distribution of requests and storage.
+        Specify "/LastName" as the partition key since we're storing family information, to ensure good distribution of requests and storage.
     */
     private async Task CreateContainer()
     {
@@ -313,7 +315,7 @@ A container can be created by using either the [**CreateContainerIfNotExistsAsyn
         //ADD THIS PART TO YOUR CODE
         await this.CreateContainer();
     }
-    ´´´
+    ```
 Select **F5** to run your application.
 
 Congratulations! You have successfully created an Azure Cosmos DB container.  
@@ -592,7 +594,7 @@ Now, we will update an item in Azure Cosmos DB.
         //ADD THIS PART TO YOUR CODE
         await this.ReplaceFamilyItem();
     }
-    ´´´
+    ```
 Select **F5** to run your application.
 
 Congratulations! You have successfully replaced an Azure Cosmos DB item.

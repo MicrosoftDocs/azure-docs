@@ -10,7 +10,7 @@ ms.date: 01/23/2018
 ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Azure Active Directory B2C code samples

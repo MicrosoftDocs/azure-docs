@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Shows how to get started using the Bing Autosuggest API.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi

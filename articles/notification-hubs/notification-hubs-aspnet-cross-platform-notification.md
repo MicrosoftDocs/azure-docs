@@ -57,9 +57,9 @@ To send cross-platform notifications by using templates, do the following:
             var alertTemplate = "{\"aps\":{\"alert\":\"$(message)\"}}";
             registration = new AppleTemplateRegistrationDescription(deviceUpdate.Handle, alertTemplate);
             break;
-        case "gcm":
+        case "fcm":
             var messageTemplate = "{\"data\":{\"message\":\"$(message)\"}}";
-            registration = new GcmTemplateRegistrationDescription(deviceUpdate.Handle, messageTemplate);
+            registration = new FcmTemplateRegistrationDescription(deviceUpdate.Handle, messageTemplate);
             break;
         default:
             throw new HttpResponseException(HttpStatusCode.BadRequest);

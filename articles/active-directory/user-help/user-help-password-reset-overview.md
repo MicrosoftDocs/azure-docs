@@ -8,10 +8,11 @@ ms.reviewer: sahenry
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
+ms.collection: M365-identity-device-management
 ---
 
 # Reset password overview

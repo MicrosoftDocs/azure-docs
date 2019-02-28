@@ -3,7 +3,7 @@ title: Best practices for using Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Learn the best practices about data ingestion, date security, and performance related to using Azure Data Lake Storage Gen2 (previously known as Azure Data Lake Store) 
 services: storage
 author: sachinsbigdata
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: article
 ms.date: 12/06/2018

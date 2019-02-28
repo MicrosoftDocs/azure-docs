@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Azure AD B2C: Use the Azure AD Graph API
@@ -58,7 +58,7 @@ Now you need to configure your application to get all the required permissions t
 You now have an application that has permission to create, read and update users from your B2C tenant.
 
 > [!NOTE]
-> Granting permissions make take a few minutes to fully process.
+> Granting permissions may take a few minutes to fully process.
 > 
 > 
 

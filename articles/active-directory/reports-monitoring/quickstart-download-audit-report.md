@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
 # Customer intent: As an IT administrator, I want to learn how to download an audit report from the Azure portal so that I can understand what actions are being performed by users in my environment.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Download an audit report using the Azure portal

@@ -8,7 +8,7 @@ manager: daveba
 
 ms.assetid: e238b574-9e9b-43b7-ab98-d2a87ff89d48
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Kantega SSO for Bamboo
 
