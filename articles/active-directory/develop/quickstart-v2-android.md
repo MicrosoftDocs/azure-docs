@@ -3,7 +3,7 @@ title: Azure AD v2 Android quickstart | Microsoft Docs
 description: Learn how Android applications can call an API that require access tokens by Azure Active Directory v2.0 endpoint
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: danieldobalian
 manager: mtillman
 editor: ''
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/23/2018
-ms.author: andret
+ms.date: 02/28/2019
+ms.author: dadobali
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to learn how Android native apps can call an API that requires access tokens by Azure AD v2.0 endpoint.
 ---
@@ -58,7 +58,7 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 > 1. When the **Register an application page** appears, enter your application's registration information:
 >      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `Android-Quickstart`.
 >      - Hit the `Register` button.
-> 1. Go to `Authentication` > `Redirect URIs` > `Suggested Redirect URIs for public clients`, and select the Redirect URI of format **msal{AppId}://auth**. Save the change
+> 1. Go to `Authentication` > `Redirect URIs` > `Suggested Redirect URIs for public clients`, and select the Redirect URI of format **msal{AppId}://auth**. Save the change.
 
 
 > [!div renderon="portal" class="sxs-lookup"]
@@ -76,21 +76,27 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 
 #### Step 3: Configure your project
 
+> [!div renderon="docs"]
+> If you selected Option 1 above, you can skip these steps. Open the project in Android Studio and run the app. 
+
 1. Extract and open the Project in Android Studio.
 1. Inside **app** > **res** > **raw**, open **auth_config.json**.
-1. Edit **auth_config.json** and replace the `client_id` and `tenant_id`:
 
-	> [!div renderon="portal" class="sxs-lookup"]
-    > ```javascript
-    > "client_id" : "ENTER_THE_APPLICATION_ID_HERE",
-    > "tenant_id" : "Enter_the_Tenant_Info_Here",
-    > ```
 
-	> [!div renderon="docs"]
-    > ```javascript
-    > "client_id" : "ENTER_THE_APPLICATION_ID_HERE",
-    > "tenant_id" : "Enter_the_Tenant_Info_Here",
-    > ```
+> [!div renderon="portal" class="sxs-lookup"]
+> 1. Edit **auth_config.json** and replace the `client_id` and `tenant_id`:
+> > ```javascript
+> > "client_id" : "Enter_the_Application_Id_Here",
+> > "type": "Enter_the_Audience_Info_Here",
+> > "tenant_id" : "Enter_the_Tenant_Info_Here"
+> > ```
+
+> [!div renderon="docs"]
+> 1. Edit **auth_config.json** and replace the `client_id`:
+> > ```javascript
+> > "client_id" : "ENTER_YOUR_APPLICATION_ID",
+> > "redirect_uri": "ENTER_YOUR_REDIRECT_URI",
+> > ```
 
 1. Inside **app** > **manifests**, open  **AndroidManifest.xml**.
 1. Add the following activity to the **manifest\application** node. This code snippet registers a **BrowserTabActivity** to allow the OS to resume your application after completing the authentication:
@@ -107,7 +113,7 @@ This quickstart contains a code sample that demonstrates how an Android applicat
     > 
     >         <!--Add in your scheme/host from registered redirect URI-->
     >         <!--By default, the scheme should be similar to 'msal[appId]' -->
-    >         <data android:scheme="msal<ENTER_THE_APPLICATION_ID_HERE>"
+    >         <data android:scheme="msal<ENTER_YOUR_APPLICATION_ID>"
     >             android:host="auth" />
     >     </intent-filter>
     > </activity>
@@ -125,7 +131,7 @@ This quickstart contains a code sample that demonstrates how an Android applicat
     > 
     >         <!--Add in your scheme/host from registered redirect URI-->
     >         <!--By default, the scheme should be similar to 'msal[appId]' -->
-    >         <data android:scheme="msalENTER_THE_APPLICATION_ID_HERE"
+    >         <data android:scheme="msalEnter_The_Application_Id_Here"
     >             android:host="auth" />
     >     </intent-filter>
     > </activity>
@@ -165,7 +171,7 @@ Then, initialize MSAL using the following code:
 
 > |Where: ||
 > |---------|---------|
-> |`CLIENT_ID` | The Application ID from the application registered in *portal.azure.com* |
+> |`R.raw.auth_config` | This file contains the configurations for your application including your App/Client ID, Sign-in audience, and several other customization options. |
 
 ### Requesting tokens
 
