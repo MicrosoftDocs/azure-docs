@@ -21,7 +21,7 @@ ms.custom: seodec18
 
 Azure Media Services enables you to encode your high-quality digital media files into adaptive bitrate MP4 files so your content can be played on a wide variety of browsers and devices. A successful Media Services encoding job creates an output Asset with a set of adaptive bitrate MP4s and streaming configuration files. The configuration files include .ism, .ismc, .mpi, and other files that you should not modify. Once the encoding job is done, you can take advantage of [Dynamic Packaging](dynamic-packaging-overview.md) and start streaming.
 
-To make videos in the output Asset available to clients for playback, you have to create a **Streaming Locator** and then build streaming URLs. Then, based on the specified format in the manifest, your clients receive the stream in the protocol they have chosen.
+To make videos in the output Asset available to clients for playback, you have to create a **Streaming Locator** and build streaming URLs. Then, based on the specified format in the manifest, your clients receive the stream in the protocol they have chosen.
 
 The following diagram shows the on-demand streaming with dynamic packaging workflow.
 
