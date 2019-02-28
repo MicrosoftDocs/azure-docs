@@ -25,12 +25,12 @@ Consider a Human Resources app that reports on the organizational chart in relat
 |Who is Tom's subordinate?|GetOrgChart|.30|
 |Who is the subordinate of Tom?|GetOrgChart|.30|
 
-If an app has between 10 and 20 utterances with different lengths of sentence, different word order, and even different words (synonyms of "subordinate", "manage", "report"), LUIS may return a low confidence score. In order to help LUIS understand the importance of the word order, create a pattern. 
+If an app has between 10 and 20 utterances with different lengths of sentence, different word order, and even different words (synonyms of "subordinate", "manage", "report"), LUIS may return a low confidence score. Create a pattern to help LUIS understand the importance of the word order, . 
 
 Patterns solve the following situations: 
 
-* When the intent score is low
-* When the correct intent is not the top score but too close to the top score. 
+* The intent score is low
+* The correct intent is not the top score but too close to the top score. 
 
 ## Patterns are not a guarantee of intent
 Patterns use a mix of prediction technologies. Setting an intent for a template utterance in a pattern is not a guarantee of the intent prediction but it is a strong signal. 
