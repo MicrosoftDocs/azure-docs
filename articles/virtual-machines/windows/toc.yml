@@ -322,8 +322,6 @@
         href: attach-disk-ps.md
       - name: Azure portal
         href: attach-managed-disk-portal.md
-    - name: Benchmark a disk
-      href: disks-benchmarks.md
     - name: Detach a disk
       href: detach-disk.md
     - name: Deploy disks with template
@@ -344,10 +342,14 @@
           href: migrate-to-managed-disks.md
         - name: Unmanaged VM to Managed Disks
           href: convert-unmanaged-to-managed-disks.md
-    - name: Enable write accelerator
-      href: how-to-enable-write-accelerator.md
-    - name: Enable ultra SSDs
-      href: disks-enable-ultra-ssd.md
+    - name: Performance
+      items:
+        - name: Benchmark a disk
+          href: disks-benchmarks.md
+        - name: Enable write accelerator
+          href: how-to-enable-write-accelerator.md
+        - name: Enable ultra SSDs
+          href: disks-enable-ultra-ssd.md
     - name: Find unattached disks
       href: find-unattached-disks.md
     - name: Use File storage

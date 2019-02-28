@@ -416,8 +416,6 @@
         href: add-disk.md
       - name: Azure portal
         href: attach-disk-portal.md
-    - name: Benchmark a disk
-      href: disks-benchmarks.md
     - name: Detach a disk
       href: detach-disk.md
     - name: Deploy disks with template
@@ -440,6 +438,8 @@
       href: copy-files-to-linux-vm-using-scp.md
     - name: Performance
       items:
+      - name: Benchmark a disk
+        href: disks-benchmarks.md
       - name: Optimizing performance
         href: optimization.md
       - name: Configure software RAID
