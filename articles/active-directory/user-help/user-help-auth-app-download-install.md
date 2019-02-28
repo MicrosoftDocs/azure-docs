@@ -24,11 +24,11 @@ The Microsoft Authenticator app helps you sign-in to your accounts if you use tw
 
 You can use the Microsoft Authenticator app in multiple ways, including:
 
-- Respond to a prompt for authentication after you sign in with your username and password.
+- **Two-factor verification.** The standard verification method, where one of the factors is your password. After you sign-in using your username and password, you can either approve a notification or enter a provided verification code.
 
-- Sign-in without entering a password, using your username, the authenticator app, and your mobile device with your fingerprint, face, or PIN.
+- **Phone sign-in.** A version of two-factor verification that lets you sign-in without requiring a password, using your username and your mobile device with your fingerprint, face, or PIN.
 
-- As a code generator for any other accounts that support authenticator apps.
+- **Code generation.** As a code generator for any other accounts that support authenticator apps.
 
 >[!Important]
 >The Microsoft Authenticator app works with any account that uses two-factor verification and supports the time-based one-time password (TOTP) standards.
