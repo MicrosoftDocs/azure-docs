@@ -1,6 +1,6 @@
 ---
-title: Getting started with Azure Metrics Explorer
-description: Learn how to create your first metric chart with Azure Metrics Explorer.
+title: Getting started with Azure metrics explorer
+description: Learn how to create your first metric chart with Azure metrics explorer.
 author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
@@ -12,50 +12,53 @@ ms.subservice: metrics
 
 # Getting started with Azure Metrics Explorer
 
-## Where do I start?
-> [!NOTE] 
-> This topic covers key concepts to help new users to get started with Azure Metrics Explorer. Use [this link](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts) if you are looking for detailed documentation and information about advanced chart settings and metrics.
+## Where do I start
 
-Use **Azure Metrics Explorer** to investigate health and utilization of your resources. Start in the following order:
-* Start by [picking a resource and a metric](#creating-your-first-metric-chart) and you will see a basic chart. Then [select a time range](#picking-time-range) that is relevant for your investigation.
+> [!NOTE]
+> This article covers key concepts to help new users get started with the Azure Monitor metrics explorer. For more detailed documentation and information about advanced chart settings and metrics, see [Azure Monitor metrics explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts).
 
-* After learning basic charts, you may want to try [applying dimension filters and splitting](#applying-dimension-filters-and-splitting). This allows analyzing which segments of the metric contribute to the overall metric value and identify possible outliers.
+Use the metrics explorer to investigate the health and utilization of your resources. Start in the following order:
 
-* Use [advanced settings](#advanced-chart-settings-and-next-steps) to customize the chart before pinning to  dashboards. [Configure alerts](alerts-metric-overview.md) to receive notifications when the metric value exceeds or drops below a threshold.
+1. Start by [picking a resource and a metric](#creating-your-first-metric-chart) and you see a basic chart. Then [select a time range](#picking-time-range) that is relevant for your investigation.
 
-## Creating your first metric chart
+1. After learning about basic charts, you may want to try [applying dimension filters and splitting](#applying-dimension-filters-and-splitting). The filters allow you to analyze which segments of the metric contribute to the overall metric value and identify possible outliers.
 
-To create a metric chart, from your resource, resource group, subscription, or Azure Monitor view, open **Metrics** tab and follow these steps:
+1. Use [advanced settings](#advanced-chart-settings-and-next-steps) to customize the chart before pinning to dashboards. [Configure alerts](alerts-metric-overview.md) to receive notifications when the metric value exceeds or drops below a threshold.
 
-1. Using a **resource picker**, select your resource for which you want to see metrics. (The resource is pre-selected if you opened the **Metrics** in the context of a specific resource):
+## Create your first metric chart
+
+To create a metric chart, from your resource, resource group, subscription, or Azure Monitor view, open the **Metrics** tab and follow these steps:
+
+1. Using the resource picker, select the resource for which you want to see metrics. (The resource is pre-selected if you opened **Metrics** in the context of a specific resource).
 
     > ![Select a resource](./media/metrics-getting-started/resource-picker.png)
 
 2. For some resources, you must pick a namespace. The namespace is just a way to organize metrics so that you can easily find them. For example, storage accounts have separate namespaces for storing Files, Tables, Blobs, and Queues metrics. Many resource types only have one namespace.
 
-3. Select a metric from a list of available metrics:
+3. Select a metric from a list of available metrics.
 
     > ![Select a metric](./media/metrics-getting-started/metric-picker.png)
 
-4. You can optionally change metric aggregation. For example, you might want your chart to show minimum, maximum or average values of the metric.
+4. Optionally, you can change the metric aggregation. For example, you might want your chart to show minimum, maximum, or average values of the metric.
 
-> [!NOTE] 
-> Use the **Add Metric** button and repeat these steps if you want to see multiple metrics plotted in the same chart. For multiple charts in one view, use the **Add Chart** button on top.
+> [!NOTE]
+> Use the **Add metric** button and repeat these steps if you want to see multiple metrics plotted in the same chart. For multiple charts in one view, select the **Add chart** button on top.
 
-## Picking time range
+## Pick a time range
 
-By default, the chart shows the most recent 24 hours of metrics data. Use the **Time Picker** panel to change the time range, or to zoom in and zoom out your chart:
+By default, the chart shows the most recent 24 hours of metrics data. Use the **time picker** panel to change the time range, zoom in, or zoom out on your chart. 
 
 ![Change time range panel](./media/metrics-getting-started/time-picker.png)
 
-## Applying dimension filters and splitting
-[Filtering](metrics-charts.md#apply-filters-to-charts) and [splitting](metrics-charts.md#segment-a-chart) are powerful diagnostic tools for the metrics that have dimensions. They bring visibility into how various metric segments (“dimension values”) impact the overall value of the metric, and allow to identify possible outliers.
+## Apply dimension filters and splitting
 
-* Filtering lets you choose which dimension values are included in the chart. For example, you might want to only account for successful requests when charting the “Server response time” metric. The “success of request” is a dimension on which you would need to apply the filter. 
+[Filtering](metrics-charts.md#apply-filters-to-charts) and [splitting](metrics-charts.md#segment-a-chart) are powerful diagnostic tools for the metrics that have dimensions. These feature show how various metric segments ("dimension values") impact the overall value of the metric, and allow you to identify possible outliers.
 
-* Splitting controls whether the chart displays separate lines for each value of a dimension, or aggregates the values into a single line. For example, you can see one line for an average response time across all server instances, or see separate lines for each server. The “server instance” is a dimension on which you would need to apply splitting.
+- **Filtering** lets you choose which dimension values are included in the chart. For example, you might want to show successful requests when charting the *server response time* metric. You would need to apply the filer on the *success of request* dimension. 
 
-See [examples of the charts](metric-chart-samples.md) that have filtering and splitting applied. You can find which steps were used to configure each of these charts.
+- **Splitting** controls whether the chart displays separate lines for each value of a dimension, or aggregates the values into a single line. For example, you can see one line for an average response time across all server instances, or see separate lines for each server. You would need to apply splitting on the *server instance* dimension to see separate lines.
+
+See [examples of the charts](metric-chart-samples.md) that have filtering and splitting applied. The article shows the steps were used to configure the charts.
 
 ## Advanced chart settings and next steps
 
