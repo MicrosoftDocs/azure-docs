@@ -870,7 +870,6 @@ Here are some guidelines to use when authoring the custom parameters file. The f
 ## Sample parameterization template
 
 ```
-json
 {
     "Microsoft.DataFactory/factories/pipelines": {
         "properties": {
@@ -932,25 +931,24 @@ json
 
 ### Explanation :
 1. Pipelines
-	1. Any property in the path activities/typeProperties/waitTimeInSeconds will get parameterized. This means any activity in a pipeline that has a code level property named waitTimeInSeconds (for ex, Wait activity) will get parameterized as a number, with default name, but it won't have any default value in the ARM template, and it will be a mandatory input during the ARM deployment.
-	2. Similarly property called headers (ex in Web activity) will get parameterized with type object,(JObject) and will have a default value which will be the value as in the source factory.
+	1. Any property in the path activities/typeProperties/waitTimeInSeconds will get parameterized. This means any activity in a pipeline that has a code level property named `waitTimeInSeconds` (for ex, Wait activity) will get parameterized as a number, with default name, but it won't have any default value in the ARM template, and it will be a mandatory input during the ARM deployment.
+	2. Similarly property called headers (ex in Web activity) will get parameterized with type `object` (JObject) and will have a default value which will be the value as in the source factory.
 2. IntegrationRuntimes
-	1. Only and all properties under the path typeProperties will get parameterized, with their respective default values. For ex. as of today's schema there are 2 properties under IR type properties, namely computeProperties and ssisProperties. They both will get created with their respective default values and types (Object)
+	1. Only and all properties under the path `typeProperties` will get parameterized, with their respective default values. For ex. as of today's schema there are 2 properties under IR type properties, namely `computeProperties` and `ssisProperties`. They both will get created with their respective default values and types (Object)
 3. Triggers
-	1. Under typeProperties, 2 properties will get parameterized. The first one is maxConcurrency, which is specified to have a default value, and the type would be string, having the default parameter name of <entityName>_properties_typeProperties_maxConcurrency
-	2. Along with that, the recurrence property also gets parameterized. Under it, all properties at that level are specified to be parameterized as strings with default values and parameter names. Except that, the interval property will get parameterized as number type, and with parameter name suffixed with <entityName>_properties_typeProperties_recurrence_triggerSuffix. Similarly the property freq is a string, and will get parameterized as a string, however without any default value. The name would be shortened and will be suffixed, for instance, <entityName>_freq.
+	1. Under `typeProperties`, 2 properties will get parameterized. The first one is maxConcurrency, which is specified to have a default value, and the type would be `string`, having the default parameter name of `<entityName>_properties_typeProperties_maxConcurrency`
+	2. Along with that, the recurrence property also gets parameterized. Under it, all properties at that level are specified to be parameterized as strings with default values and parameter names. Except that, the interval property will get parameterized as number type, and with parameter name suffixed with `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Similarly the property `freq` is a `string`, and will get parameterized as a `string`, however without any default value. The name would be shortened and will be suffixed, for instance, `<entityName>_freq`.
 4. LinkedServices
-	1. The special part demonstrated in linked services is since linked services and datasets can be potentially of several types, you can provide type specific customization. For ex, you can say for all linked services of type AzureDataLakeStore, a particular template will be applied, and for all others (via *) a different template will be applied.
-	2. In the above example, the connectionString property will be parameterized as a securestring, will not have any default value, and will have a shortened parameter name suffixed with connectionString.
-	3. The property secretAccessKey however happens to be a AzureKeyVaultSecret (for instance a AmazonS3 linked service), and thus it will automatically be parameterized as a AKV secret, fetched from the AKV that it is configured with in source factory. Once can ofcourse go beyond this and parameterize the AKV itself too.
+	1. The special part demonstrated in linked services is since linked services and datasets can be potentially of several types, you can provide type specific customization. For ex, you can say for all linked services of type AzureDataLakeStore, a particular template will be applied, and for all others (via \*) a different template will be applied.
+	2. In the above example, the `connectionString` property will be parameterized as a `securestring`, will not have any default value, and will have a shortened parameter name suffixed with `connectionString`.
+	3. The property `secretAccessKey` however happens to be a `AzureKeyVaultSecret` (for instance a `AmazonS3` linked service), and thus it will automatically be parameterized as a Azure KeyVault secret, fetched from the KeyVault that it is configured with in source factory. Once can ofcourse go beyond this and parameterize the AKV itself too.
 5. Datasets
-	1. Even though there is type specific customization available for datasets, configuration can be provided without explicitly having a * level configuration. So in the above example, all datasets will have all their properties under typePrpoerties parameterized.
+	1. Even though there is type specific customization available for datasets, configuration can be provided without explicitly having a * level configuration. So in the above example, all datasets will have all their properties under `typeProperties` parameterized.
 
 The default parameterization template can change, but as of today, this is the template. This will be useful, if you just need to add one additional property as parameter, but you don’t want to lose the existing ones and reauthor team that are already getting parameterized.
 
 
 ```
-json
 {
     "Microsoft.DataFactory/factories/pipelines": {
     },
