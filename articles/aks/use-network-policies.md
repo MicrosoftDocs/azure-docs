@@ -12,7 +12,7 @@ ms.author: iainfou
 
 # Secure traffic between pods using network policies in Azure Kubernetes Service (AKS)
 
-When you run modern, microservices-based applications in Kubernetes, you often want to control which components can communicate with each other. The principle of least privilege should be applied to how traffic can flow between pods in an AKS cluster. For example, you likely want to block traffic directly to backend applications. In Kubernetes, the *Network Policy* feature lets you define rules for ingress and egress traffic between pods in a cluster.
+When you run modern, microservices-based applications in Kubernetes, you often want to control which components can communicate with each other. The principle of least privilege should be applied to how traffic can flow between pods in an Azure Kubernetes Service (AKS) cluster. For example, you likely want to block traffic directly to backend applications. In Kubernetes, the *Network Policy* feature lets you define rules for ingress and egress traffic between pods in a cluster.
 
 This article shows you how to use network policies to control the flow of traffic between pods in AKS.
 
@@ -45,7 +45,7 @@ az provider register --namespace Microsoft.ContainerService
 
 By default, all pods in an AKS cluster can send and receive traffic without limitations. To improve security, you can define rules that control the flow of traffic. For example, backend applications are often only exposed to required frontend services, or database components are only accessible to the application tiers that connect to them.
 
-Network policies are Kubernetes resources that let you control the traffic flow between pods. You can choose to allow or deny traffic based on settings like assigned labels, namespace, or traffic port. Network policies are defined as a YAML manifests, and can be included as part of a wider manifest that also creates a deployment or service.
+Network policies are Kubernetes resources that let you control the traffic flow between pods. You can choose to allow or deny traffic based on settings like assigned labels, namespace, or traffic port. Network policies are defined as YAML manifests, and can be included as part of a wider manifest that also creates a deployment or service.
 
 To see network policies in action, let's create and then expand on a policy that defines traffic flow:
 
@@ -55,7 +55,7 @@ To see network policies in action, let's create and then expand on a policy that
 
 ## Create an AKS cluster and enable network policy
 
-Network policy can only be enabled when the cluster is created. You can't enable network policy on an existing AKS cluster. 
+Network policy can only be allowed when the cluster is created. You can't enable network policy on an existing AKS cluster. 
 
 To use network policy with an AKS cluster, you must use the [Azure CNI plugin][azure-cni] and define your own virtual network and subnets. For more detailed information on how to plan out the required subnet ranges, see [configure advanced networking][use-advanced-networking].
 
@@ -148,7 +148,7 @@ To test that you can successfully reach the default NGINX web page, create anoth
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-At the shell prompt, use `wget` to confirm you can use the default NGINX web page:
+At the shell prompt, use `wget` to confirm that you can use the default NGINX web page:
 
 ```console
 wget -qO- http://backend
@@ -202,7 +202,7 @@ Let's see if you can use the NGINX webpage on the backend pod again. Create anot
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-At the shell prompt, use `wget` to see if you can use the default NGINX web page. This time, set a timeout value to *2* seconds. The network policy now blocks all inbound traffic, so the page cannot be loaded, as shown in the following example:
+At the shell prompt, use `wget` to see if you can use the default NGINX web page. This time, set a timeout value to *two* seconds. The network policy now blocks all inbound traffic, so the page cannot be loaded, as shown in the following example:
 
 ```console
 $ wget -qO- --timeout=2 http://backend
@@ -220,7 +220,7 @@ exit
 
 In the previous section, a backend NGINX pod was scheduled, and a network policy was created to deny all traffic. Now let's create a frontend pod and update the network policy to allow traffic from frontend pods.
 
-Update the network policy to allow traffic from pods with the labels *app:webapp,role:frontend* and in any namespace. Edit the previous *backend-policy.yaml* file, and add a *matchLabels* ingress rules so that your manifest looks like the following example:
+Update the network policy to allow traffic from pods with the labels *app:webapp,role:frontend* and in any namespace. Edit the previous *backend-policy.yaml* file, and add *matchLabels* ingress rules so that your manifest looks like the following example:
 
 ```yaml
 kind: NetworkPolicy
@@ -243,7 +243,7 @@ spec:
 ```
 
 > [!NOTE]
-> This network policy uses a *namespaceSelector* and a *podSelector* element for the ingress rule. The YAML syntax is important for the ingress rules to be additive or not. In this example, both elements must match for the ingress rule to be applied. Kubernetes versions prior to *1.12* may not interpret these elements correctly and restrict the network traffic as you expect. For more about this behavior, see [Behavior of to and from selectors][policy-rules].
+> This network policy uses a *namespaceSelector* and a *podSelector* element for the ingress rule. The YAML syntax is important for the ingress rules to be additive. In this example, both elements must match for the ingress rule to be applied. Kubernetes versions prior to *1.12* may not interpret these elements correctly and may restrict the expected network traffic. For more about this behavior, see [Behavior of to and from selectors][policy-rules].
 
 Apply the updated network policy using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 
@@ -263,7 +263,7 @@ At the shell prompt, use `wget` to see if you can use the default NGINX web page
 wget -qO- http://backend
 ```
 
-Because the ingress rule lets traffic with pods that have the labels *app: webapp,role: frontend*, the traffic from the frontend pod is allowed. The following example output shows the default NGINX web page returned:
+Because the ingress rule allows traffic with pods that have the labels *app: webapp,role: frontend*, the traffic from the frontend pod is allowed. The following example output shows the default NGINX web page returned:
 
 ```
 <!DOCTYPE html>
@@ -281,7 +281,7 @@ exit
 
 ### Test a pod without a matching label
 
-The network policy lets traffic from pods labeled *app: webapp,role: frontend*, but should deny all other traffic. Let's test that another pod without those labels can't use the backend NGINX pod. Create another test pod and attach a terminal session:
+The network policy allows traffic from pods labeled *app: webapp,role: frontend*, but should deny all other traffic. Let's test to see whether another pod without those labels can use the backend NGINX pod. Create another test pod and attach a terminal session:
 
 ```console
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
@@ -318,13 +318,13 @@ Schedule a test pod in the *production* namespace that is labeled as *app=webapp
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
 ```
 
-At the shell prompt, use `wget` to confirm you can use the default NGINX web page:
+At the shell prompt, use `wget` to confirm that you can use the default NGINX web page:
 
 ```console
 wget -qO- http://backend.development
 ```
 
-Because the labels for the pod matches what is currently permitted in the network policy, the traffic is allowed. The network policy doesn't look at the namespaces, only the pod labels. The following example output shows the default NGINX web page returned:
+Because the labels for the pod match what is currently permitted in the network policy, the traffic is allowed. The network policy doesn't look at the namespaces, only the pod labels. The following example output shows the default NGINX web page returned:
 
 ```
 <!DOCTYPE html>
@@ -382,7 +382,7 @@ Now schedule another pod in the *production* namespace and attach a terminal ses
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
 ```
 
-At the shell prompt, use `wget` to see the network policy now deny traffic:
+At the shell prompt, use `wget` to see that the network policy now denies traffic:
 
 ```console
 $ wget -qO- --timeout=2 http://backend.development
@@ -402,7 +402,7 @@ With traffic denied from the *production* namespace, now schedule a test pod bac
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
 ```
 
-At the shell prompt, use `wget` to see the network policy allow the traffic:
+At the shell prompt, use `wget` to see that the network policy allows the traffic:
 
 ```console
 wget -qO- http://backend
@@ -426,7 +426,7 @@ exit
 
 ## Clean up resources
 
-In this article, we create two namespaces and applied a network policy. To clean up these resources, use the [kubectl delete][kubectl-delete] command and specify the resource names:
+In this article, we created two namespaces and applied a network policy. To clean up these resources, use the [kubectl delete][kubectl-delete] command and specify the resource names:
 
 ```console
 kubectl delete namespace production
