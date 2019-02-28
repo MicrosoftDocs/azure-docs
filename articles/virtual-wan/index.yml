@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/06/2018
+  ms.date: 10/01/2018
   ms.author: cherylmc
 abstract:
   description:  Learn how to configure, create, and manage an Azure Virtual WAN. Build secure global scale branch connectivity.
@@ -20,18 +20,22 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to configure, create, and manage a Site-to-Site connection using Azure Virtual WAN.
+    text: Learn how to configure, create, and manage connections using Azure Virtual WAN.
   - type: list
     style: unordered
-    className: spaced noBullet
+    className: spaced Bullet
     items:
-    - html: <a href="https://go.microsoft.com/fwlink/p/?linkid=2004900">Create and manage a Virtual WAN</a>
+    - html: <a href="/azure/virtual-wan/virtual-wan-site-to-site-portal">Site-to-Site connections</a>
+    - html: <a href="/azure/virtual-wan/virtual-wan-point-to-site-portal">Point-to-Site connections</a>
+    - html: <a href="/azure/virtual-wan/virtual-wan-expressroute-portal">ExpressRoute connections</a>
 - title: Reference
   items:
   - type: list
     style: cards
     className: cardsD
     items:
+    - title: Command-Line
+      html: <p><a href="/powershell/module/azurerm.network#networking">PowerShell</a></p><p><a href="/cli/azure/ext/virtual-wan">Azure CLI</a></p>
     - title: REST
       html: <p><a href="https://go.microsoft.com/fwlink/p/?linkid=2005000">REST API Reference</a></p>
       

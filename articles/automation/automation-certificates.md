@@ -3,10 +3,10 @@ title: Certificate assets in Azure Automation
 description: Certificates can be stored securely in Azure Automation so they can be accessed by runbooks or DSC configurations to authenticate against Azure and third-party resources.  This article explains the details of certificates and how to work with them in both textual and graphical authoring.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -16,7 +16,7 @@ manager: carmonm
 Certificates can be stored securely in Azure Automation so they can be accessed by runbooks or DSC configurations using the **Get-AzureRmAutomationCertificate** activity for Azure Resource Manager resources. This capability allows you to create runbooks and DSC configurations that use certificates for authentication or adds them to Azure or third-party resources.
 
 >[!NOTE]
->Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in Azure Automation using a unique key that is generated for each automation account. This key is stored in Key Vault. Before storing a secure asset, the key is loaded from Key Vault and then used to encrypt the asset.
+>Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in Azure Automation using a unique key that is generated for each automation account. This key is stored in a system managed Key Vault. Before storing a secure asset, the key is loaded from Key Vault and then used to encrypt the asset. This process is managed by Azure Automation.
 
 ## AzureRM PowerShell cmdlets
 For AzureRM, the cmdlets in the following table are used to create and manage automation credential assets with Windows PowerShell. They ship as part of the [AzureRM.Automation module](/powershell/azure/overview) which is available for use in Automation runbooks and DSC configurations.
@@ -87,7 +87,7 @@ The following sample code shows how to add a certificate to a cloud service in a
 ```powershell-interactive
 $serviceName = 'MyCloudService'
 $cert = Get-AutomationCertificate -Name 'MyCertificate'
-$certPwd = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" `
+$certPwd = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" `
 –AutomationAccountName "MyAutomationAccount" –Name 'MyCertPassword'
 Add-AzureCertificate -ServiceName $serviceName -CertToDeploy $cert
 ```
@@ -100,7 +100,7 @@ You add a **Get-AutomationCertificate** to a graphical runbook by right-clicking
 
 The following image shows an example of using a certificate in a graphical runbook. This is the same as the preceding example for adding a certificate to a cloud service from a textual runbook.
 
-![Example Graphical Authoring ](media/automation-certificates/graphical-runbook-add-certificate.png)
+![Example Graphical Authoring](media/automation-certificates/graphical-runbook-add-certificate.png)
 
 ### Python2 sample
 The following sample shows how to access certificates in Python2 runbooks.
@@ -116,3 +116,4 @@ print cert
 ## Next steps
 
 - To learn more about working with links to control the logical flow of activities your runbook is designed to perform, see [Links in graphical authoring](automation-graphical-authoring-intro.md#links-and-workflow). 
+

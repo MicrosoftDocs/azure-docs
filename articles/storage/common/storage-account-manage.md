@@ -23,6 +23,14 @@ The **Access control** settings in the Azure portal offer a simple way to assign
 > [!NOTE]
 > Authenticating users or applications using Azure AD credentials provides superior security and ease of use over other means of authorization. While you can continue to use Shared Key authorization with your applications, using Azure AD circumvents the need to store your account access key with your code. You can also continue to use shared access signatures (SAS) to grant fine-grained access to resources in your storage account, but Azure AD offers similar capabilities without the need to manage SAS tokens or worry about revoking a compromised SAS. 
 
+## Tags
+
+Azure Storage supports Azure Resource Manager tags for organizing your Azure resources with a customized taxonomy. You can apply tags to your storage accounts so that you can group them within your subscription in a logical manner. 
+
+For storage accounts, a tag name is limited to 128 characters, and a tag value is limited to 256 characters.
+
+For more information, see [Use tags to organize your Azure resources](../../azure-resource-manager/resource-group-using-tags.md).
+
 ## Access keys
 
 When you create a storage account, Azure generates two 512-bit storage account access keys. These keys can be used to authorize access to your storage account via Shared Key. You can rotate and regenerate the keys without interruption to your applications, and Microsoft recommends that you do so regularly.

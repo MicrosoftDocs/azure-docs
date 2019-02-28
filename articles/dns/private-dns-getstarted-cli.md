@@ -1,5 +1,5 @@
 ---
-title: Create an Azure DNS private zone using Azure CLI
+title: Create an Azure DNS private zone using the Azure CLI
 description: In this tutorial, you create and test a private DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first private DNS zone and record using Azure CLI.
 services: dns
 author: vhorne
@@ -10,9 +10,9 @@ ms.author: victorh
 #Customer intent: As an experienced network administrator I want to create an  Azure DNS private zone, so I can resolve host names on my private virtual networks.
 ---
 
-# Create an Azure DNS private zone using Azure CLI
+# Create an Azure DNS private zone using the Azure CLI
 
-This tutorial walks you through the steps to create your first private DNS zone and record using Azure CLI.
+This tutorial walks you through the steps to create your first private DNS zone and record using the Azure CLI.
 
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
@@ -54,7 +54,7 @@ az network vnet create \
   --location eastus \
   --address-prefix 10.2.0.0/16 \
   --subnet-name backendSubnet \
-  --subnet-prefix 10.2.0.0/24
+  --subnet-prefixes 10.2.0.0/24
 
 az network dns zone create -g MyAzureResourceGroup \
    -n contoso.local \

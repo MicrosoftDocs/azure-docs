@@ -1,151 +1,178 @@
 ---
-title: Get started with Azure Scheduler in Azure portal | Microsoft Docs
-description: Get started with Azure Scheduler in Azure portal
+title: Create scheduled jobs with Azure Scheduler - Azure portal | Microsoft Docs
+description: Learn how to create, schedule, and run your first automated job with Azure Scheduler in the Azure portal
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-
-ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 08/10/2016
+ms.suite: infrastructure-services
+author: derek1ee
 ms.author: deli
-
+ms.reviewer: klam
+ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
+ms.topic: hero-article
+ms.date: 09/17/2018
 ---
-# Get started with Azure Scheduler in Azure portal
-It's easy to create scheduled jobs in Azure Scheduler. In this tutorial, you'll learn how to create a job. You'll also learn Scheduler's monitoring and management capabilities.
 
-## Create a job
-1. Sign in to [Azure portal](https://portal.azure.com/).  
-2. Click **+New** > type *Scheduler* in the search box >  select **Scheduler** in results > click **Create**.
-   
-    ![][marketplace-create]
-3. Let’s create a job that simply hits http://www.microsoft.com/ with a GET request. In the **Scheduler Job** screen, enter the following information:
-   
-   1. **Name:** `getmicrosoft`  
-   2. **Subscription:** Your Azure subscription   
-   3. **Job Collection:** Select an existing job collection, or click **Create New** > enter a name.
-4. Next, in **Action Settings**, define the following values:
-   
-   1. **Action Type:** ` HTTP`  
-   2. **Method:** `GET`  
-   3. **URL:** ` http://www.microsoft.com`  
-      
-      ![][action-settings]
-5. Finally, let's define a schedule. The job could be defined as a one-time job, but let’s pick a recurrence schedule:
-   
-   1. **Recurrence**: `Recurring`
-   2. **Start**: Today's date
-   3. **Recur every**: `12 Hours`
-   4. **End by**: Two days from today's date  
-      
-      ![][recurrence-schedule]
-6. Click **Create**
+# Create and schedule your first job with Azure Scheduler - Azure portal
 
-## Manage and monitor jobs
-Once a job is created, it appears in the main Azure dashboard. Click the job and a new window opens with the following tabs:
+> [!IMPORTANT]
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
+> is replacing Azure Scheduler, which is being retired. 
+> To schedule jobs, [try Azure Logic Apps instead](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
-1. Properties  
-2. Action Settings  
-3. Schedule  
-4. History
-5. Users
+This tutorial shows how easily you can create and schedule a job, 
+and then monitor and manage that job. 
+
+If you don't have an Azure subscription, 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+
+## Create job
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).  
+
+1. On the main Azure menu, select **Create a resource**. 
+In the search box, enter "scheduler". From the results list, 
+select **Scheduler**, and then choose **Create**.
+
+   ![Create Scheduler resource](./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png)
+
+   Now create a job that sends a GET request to this URL: 
+   `http://www.microsoft.com/` 
+
+1. Under **Scheduler Job**, enter this information:
+
+   | Property | Example value | Description |
+   |----------|---------------|-------------| 
+   | **Name** | getMicrosoft | The name for your job | 
+   | **Job collection** | <*job-collection-name*> | Create a job collection, or select an existing collection. | 
+   | **Subscription** | <*Azure-subscription-name*> | The name for your Azure subscription | 
+   |||| 
+
+1. Select **Action settings - Configure**, provide this information, 
+and then choose **OK** when you're done:
+
+   | Property | Example value | Description |
+   |----------|---------------|-------------| 
+   | **Action** | **Http** | The type of action to run | 
+   | **Method** | **Get** | The method to call | 
+   | **URL** | **http://www.microsoft.com** | The destination URL | 
+   |||| 
    
-   ![][job-overview]
+   ![Define job](./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png)
+
+1. Select **Schedule - Configure**, define the schedule, 
+and then select **OK** when you're done:
+
+   Although you can create a one-time job, 
+   this example sets up a recurrence schedule.
+
+   | Property | Example value | Description |
+   |----------|---------------|-------------| 
+   | **Recurrence** | **Recurring** | Either a one-time or recurring job | 
+   | **Start on** | <*today's-date*> | The job's start date | 
+   | **Recur every** | **1 Hours** | The recurrence interval and frequency | 
+   | **End** | **End by** two days from today's date | The job's end date | 
+   | **UTC offset** | **UTC +08:00** | The difference in time between Coordinated Universal Time (UTC) and your location's observed time | 
+   |||| 
+
+   ![Define schedule](./media/scheduler-get-started-portal/scheduler-v2-portal-recurrence-schedule.png)
+
+1. When you're ready, choose **Create**.
+
+   After you create your job, Azure deploys 
+   your job, which appears on the Azure dashboard. 
+
+1. When Azure shows a notification that deployment succeeded, 
+choose **Pin to dashboard**. Otherwise, choose the **Notifications** 
+icon (bell) on the Azure toolbar, and then choose **Pin to dashboard**.
+
+## Monitor and manage jobs
+
+To review, monitor, and manage your job, 
+on the Azure dashboard, choose your job. 
+Under **Settings**, here are the areas 
+you can review and manage for your job:
+
+![Job settings](./media/scheduler-get-started-portal/scheduler-v2-portal-job-overview-1.png)
+
+For more information about these areas, select an area:
+
+* [**Properties**](#properties)
+* [**Action settings**](#action-settings)
+* [**Schedule**](#schedule)
+* [**History**](#history)
+* [**Users**](#users)
+
+<a name="properties"></a>
 
 ### Properties
-These read-only properties describe the management metadata for the Scheduler job.
 
-   ![][job-properties]
+To view read-only properties that describe 
+the management metadata for your job, 
+select **Properties**.
+
+![View job properties](./media/scheduler-get-started-portal/scheduler-v2-portal-job-properties.png)
+
+<a name="action-settings"></a>
 
 ### Action settings
-Clicking on a job in the **Jobs** screen allows you to configure that job. This lets you configure advanced settings, if you didn't configure them in the quick-create wizard.
 
-For all action types, you may change the retry policy and the error action.
+To change your job's advanced settings, 
+select **Action settings**. 
 
-For HTTP and HTTPS job action types, you may change the method to any allowed HTTP verb. You may also add, delete, or change the headers and basic authentication information.
+![Review action settings](./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png)
 
-For storage queue action types, you may change the storage account, queue name, SAS token, and body.
+| Action type | Description | 
+|-------------|-------------| 
+| All types | You can change the **Retry policy** and the **Error action** settings. | 
+| HTTP and HTTPS | You can change **Method** to any permitted method. You can also add, delete, or change the headers and basic authentication information. | 
+| Storage queue| You can change the storage account, queue name, SAS token, and body. | 
+| Service Bus | You can change the namespace, topic or queue path, authentication settings, transport type, message properties, and message body. | 
+||| 
 
-For service bus action types, you may change the namespace, topic/queue path, authentication settings, transport type, message properties, and message body.
-
-   ![][job-action-settings]
+<a name="schedule"></a>
 
 ### Schedule
-This lets you reconfigure the schedule, if you'd like to change the schedule you created in the quick-create wizard.
 
-This is an opportunity to build [complex schedules and advanced recurrence in your job](scheduler-advanced-complexity.md)
+If you set up a schedule through the job wizard, 
+you can change that schedule, such as the start date and time, 
+recurrence schedule, and the end date and time for recurring jobs.
+You can also build more [complex schedules and advanced recurrences](scheduler-advanced-complexity.md).
 
-You may change the start date and time, recurrence schedule, and the end date and time (if the job is recurring.)
+To change view or change your job's schedule, 
+select **Schedule**:
 
-   ![][job-schedule]
+![View job schedule](./media/scheduler-get-started-portal/scheduler-v2-portal-job-schedule.png)
+
+<a name="history"></a>
 
 ### History
-The **History** tab displays selected metrics for every job execution in the system for the selected job. These metrics provide real-time values regarding the health of your Scheduler:
 
-1. Status  
-2. Details  
-3. Retry attempts
-4. Occurrence: 1st, 2nd, 3rd, etc.
-5. Start time of execution  
-6. End time of execution
-   
-   ![][job-history]
+To view metrics about every run for a selected job, 
+select **History**. These metrics provide real-time 
+values about your job's health, such as status, 
+number of retries, number of occurrences, start time, 
+and end time.
 
-You can click on a run to view its **History Details**, including the whole response for every execution. This dialog box also allows you to copy the response to the clipboard.
+![View job history and metrics](./media/scheduler-get-started-portal/scheduler-v2-portal-job-history.png)
 
-   ![][job-history-details]
+To view the history details for each run, 
+such as the complete response for each run, 
+under **History**, select each run. 
+
+![View job history details](./media/scheduler-get-started-portal/scheduler-v2-portal-job-history-details.png)
+
+<a name="users"></a>
 
 ### Users
-Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure Scheduler. To learn how to use the Users tab, refer to [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md)
 
-## See also
- [What is Scheduler?](scheduler-intro.md)
+You can manage access to Azure Scheduler for each user at a 
+granular level by using Azure Role-Based Access Control (RBAC). 
+To learn how to set up access based on roles, see 
+[Manage access using RBAC](../role-based-access-control/role-assignments-portal.md)
 
- [Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
+## Next steps
 
- [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
-
- [How to build complex schedules and advanced recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
-
- [Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
-
- [Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
-
- [Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
-
- [Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
-
- [Scheduler outbound authentication](scheduler-outbound-authentication.md)
-
-[marketplace-create]: ./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png
-[action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png
-[recurrence-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-recurrence-schedule.png
-[job-properties]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-properties.png
-[job-overview]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-overview-1.png
-[job-action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png
-[job-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-schedule.png
-[job-history]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history.png
-[job-history-details]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history-details.png
-
-
-[1]: ./media/scheduler-get-started-portal/scheduler-get-started-portal001.png
-[2]: ./media/scheduler-get-started-portal/scheduler-get-started-portal002.png
-[3]: ./media/scheduler-get-started-portal/scheduler-get-started-portal003.png
-[4]: ./media/scheduler-get-started-portal/scheduler-get-started-portal004.png
-[5]: ./media/scheduler-get-started-portal/scheduler-get-started-portal005.png
-[6]: ./media/scheduler-get-started-portal/scheduler-get-started-portal006.png
-[7]: ./media/scheduler-get-started-portal/scheduler-get-started-portal007.png
-[8]: ./media/scheduler-get-started-portal/scheduler-get-started-portal008.png
-[9]: ./media/scheduler-get-started-portal/scheduler-get-started-portal009.png
-[10]: ./media/scheduler-get-started-portal/scheduler-get-started-portal010.png
-[11]: ./media/scheduler-get-started-portal/scheduler-get-started-portal011.png
-[12]: ./media/scheduler-get-started-portal/scheduler-get-started-portal012.png
-[13]: ./media/scheduler-get-started-portal/scheduler-get-started-portal013.png
-[14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
-[15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
+* Learn about [concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
+* [Build complex schedules and advanced recurrence](scheduler-advanced-complexity.md)
+* Learn about [high-availability and reliability for Scheduler](scheduler-high-availability-reliability.md)
+* Learn about [Limits, quotas, default values, and error codes](scheduler-limits-defaults-errors.md)

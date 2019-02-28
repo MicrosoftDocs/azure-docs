@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with KnowledgeOwl | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and KnowledgeOwl.
 services: active-directory
@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: 2ae30996-864d-4872-90bc-f770e1ea159a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with KnowledgeOwl
 
@@ -183,7 +184,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![KnowledgeOwl Configuration](./media/knowledgeowl-tutorial/configure1.png)
 
-1. Scroll down upto the **SAML SSO Integration** and perform the following steps:
+1. Scroll to **SAML SSO Integration** and perform the following steps:
 	
 	![KnowledgeOwl Configuration](./media/knowledgeowl-tutorial/configure2.png)
 

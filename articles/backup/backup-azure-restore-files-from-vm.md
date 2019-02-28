@@ -7,7 +7,7 @@ manager: shivamg
 keywords: item level recovery; file recovery from Azure VM backup; restore files from Azure VM
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/22/2018
+ms.date: 2/26/2019
 ms.author: pullabhk
 ---
 # Recover files from Azure virtual machine backup
@@ -39,7 +39,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
 4. From the **Select recovery point** drop-down menu, select the recovery point that holds the files you want. By default, the latest recovery point is already selected.
 
-5. To download the software used to copy files from the recovery point, click **Download Executable** (for Windows Azure VM) or **Download Script** (for Linux Azure VM).
+5. To download the software used to copy files from the recovery point, click **Download Executable** (for Windows Azure VM) or **Download Script** (for Linux Azure VM, a python script is generated).
 
     ![Generated password](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
@@ -67,11 +67,17 @@ To restore files or folders from the recovery point, go to the virtual machine a
         - <https://pod01-rec2.geo-name.backup.windowsazure.de> (For Azure Germany)
     - outbound port 3260
 
-    For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If the components do not exist on the computer where the script is run, the script asks for permission to install the components. Provide consent to install the necessary components.
+> [!Note]
+> The downloaded script file name will have the "geo-name" to be filled in the URL. 
+> For eg: The downloaded script name begins with \'VMname\'\_\'geoname\'_\'GUID\', like ContosoVM_wcus_12345678....... 
+> The URL would be "https://pod01-rec2.wcus.backup.windowsazure.com"
+> 
 
-    The access to download.microsoft.com is required to download components used to build a secure channel between the machine where the script is run and the data in the recovery point.
-
-    You can run the script on any machine that has the same (or compatible) operating system as the backed-up VM. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#system-requirements) for compatible operating systems. If the protected Azure virtual machine uses Windows Storage Spaces (for Windows Azure VMs) or LVM/RAID Arrays (for Linux VMs), you can't run the executable or script on the same virtual machine. Instead, run the executable or script on any other machine with a compatible operating system.
+   For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If the components do not exist on the computer where the script is run, the script asks for permission to install the components. Provide consent to install the necessary components.
+   
+   The access to download.microsoft.com is required to download components used to build a secure channel between the machine where the script is run and the data in the recovery point.
+   
+   You can run the script on any machine that has the same (or compatible) operating system as the backed-up VM. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#system-requirements) for compatible operating systems. If the protected Azure virtual machine uses Windows Storage Spaces (for Windows Azure VMs) or LVM/RAID Arrays (for Linux VMs), you can't run the executable or script on the same virtual machine. Instead, run the executable or script on any other machine with a compatible operating system.
 
 ### Identifying Volumes
 
@@ -193,6 +199,11 @@ In Linux, the OS of the computer used to restore files must support the file sys
 | Oracle Linux | 6.4 and above |
 | SLES | 12 and above |
 | openSUSE | 42.2 and above |
+
+> [!Note]
+> We have found some issues in running the file recovery script on machines with SLES 12 SP4 OS. Investigating with SLES team.
+> Currently, running the file recovery script is working on machines with SLES 12 SP2 and SP3 OS versions.
+>
 
 The script also requires Python and bash components to execute and connect securely to the recovery point.
 

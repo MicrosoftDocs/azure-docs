@@ -1,17 +1,16 @@
 ---
-title: On-premises data gateway | Microsoft Docs
+title: On-premises data gateway
 description: An On-premises gateway is necessary if your Analysis Services server in Azure will connect to on-premises data sources.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-
 ---
-# Connecting to on-premises data sources with Azure On-premises Data Gateway
-The on-premises data gateway acts as a bridge, providing secure data transfer between on-premises data sources and your Azure Analysis Services servers in the cloud. In addition to working with multiple Azure Analysis Services servers in the same region, the latest version of the gateway also works with Azure Logic Apps, Power BI, Power Apps, and Microsoft Flow. You can associate multiple services in the same subscription and same region with a single gateway. 
+# Connecting to on-premises data sources with On-premises Data Gateway
+The on-premises data gateway provides secure data transfer between on-premises data sources and your Azure Analysis Services servers in the cloud. In addition to working with multiple Azure Analysis Services servers in the same region, the latest version of the gateway also works with Azure Logic Apps, Power BI, Power Apps, and Microsoft Flow. You can associate multiple services in the same subscription and same region with a single gateway. 
 
 Getting setup with the gateway the first time is a four-part process:
 
@@ -139,6 +138,9 @@ the service runs with the Service SID, NT SERVICE\PBIEgwService.
 
 ### <a name="high-availability"></a>High availability and disaster recovery
 
+**Q**: How can we have high-availability?  
+**A**: You can install a gateway on another computer to create a cluster. To learn more, see [High availability clusters for On-premises data gateway](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters) in the Power BI Gateway docs.
+
 **Q**: What options are available for disaster recovery? <br/>
 **A**: You can use the recovery key to restore or move a gateway. 
 When you install the gateway, specify the recovery key.
@@ -186,8 +188,6 @@ Log files are an important resource when troubleshooting.
 #### Configuration logs
 
 `C:\Users\<username>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator.log`
-
-
 
 
 #### Event logs

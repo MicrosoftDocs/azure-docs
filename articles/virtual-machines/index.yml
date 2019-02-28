@@ -71,6 +71,29 @@ sections:
         src: https://docs.microsoft.com/azure/virtual-machines/windows/media/index/cli.svg
       text: Azure CLI
       href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=/azure/virtual-machines/windows/toc.json
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Introduction to Azure compute
+      href: /learn/modules/intro-to-azure-compute/
+      image: 
+        src: /learn/achievements/intro-to-azure-compute.svg
+        href: /learn/modules/intro-to-azure-compute/
+    - title: Introduction to Azure Virtual Machines
+      href: /learn/modules/intro-to-azure-virtual-machines/
+      image: 
+        src: /learn/achievements/intro-to-azure-virtual-machines.svg
+        href: /learn/modules/intro-to-azure-virtual-machines/
+    - title:  Add and size disks in Azure Virtual Machines
+      href: /learn/modules/add-and-size-disks-in-azure-virtual-machines/
+      image: 
+        src: /learn/achievements/add-and-size-disks-in-azure-virtual-machines.svg
+        href: /learn/modules/add-and-size-disks-in-azure-virtual-machines/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-virtual-machines">More interactive learning...</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list

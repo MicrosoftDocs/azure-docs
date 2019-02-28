@@ -42,7 +42,7 @@ In this tutorial series you learn how to:
 Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Install the Service Fabric SDK for [Mac](service-fabric-get-started-mac.md) or [Linux](service-fabric-get-started-linux.md)
 * [Install Python 3](https://wiki.python.org/moin/BeginnersGuide/Download)
 
@@ -244,7 +244,6 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Create a secure Linux cluster in Azure
 > * Create resources necessary for monitoring with ELK
-> * Optional: How to use party clusters to try out Service Fabric
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]

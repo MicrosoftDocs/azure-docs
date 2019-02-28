@@ -3,8 +3,8 @@ title: Tutorial - Access storage blobs using an Azure CDN custom domain over HTT
 description: 
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/15/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
 
 ---

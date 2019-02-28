@@ -1,3 +1,10 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: cynthn
+---
 | Resource | Default Limit | Maximum Limit |
 | --- | --- | --- |
 | Maximum number of VMs in a scale set |1000 |1000 |

@@ -39,7 +39,7 @@ In this tutorial series, you learn how to:
 ## Prerequisites
 
 * Linux development environment set up for Service Fabric. Follow the instructions [here](service-fabric-get-started-linux.md) to set up your Linux environment.
-* This tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+* This tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 * Additionally, it requires that you have an Azure subscription available. For more information on a free trial version, go [here](https://azure.microsoft.com/free/).
 
 ## Get application code
@@ -185,7 +185,7 @@ The docker push commands take a couple of minutes to complete.
 
 ## List images in registry
 
-To return a list of images that have been pushed to your Azure Container registry, use the [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list) command. Update the command with the ACR instance name.
+To return a list of images that have been pushed to your Azure Container registry, use the [az acr repository list](/cli/azure/acr/repository) command. Update the command with the ACR instance name.
 
 ```bash
 az acr repository list --name <acrName> --output table
@@ -203,7 +203,7 @@ At tutorial completion, the container image has been stored in a private Azure C
 
 ## Next steps
 
-In this tutorial, an application was pulled from Github and container images were created and pushed to a registry. The following steps were completed:
+In this tutorial, an application was pulled from GitHub and container images were created and pushed to a registry. The following steps were completed:
 
 > [!div class="checklist"]
 > * Clone application source from GitHub

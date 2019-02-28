@@ -32,13 +32,13 @@ Azure virtual machines provide a fully configurable and flexible computing envir
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## Prepare the environment
 
 ### Create a resource group
 
-To create a resource group, use the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container in which Azure resources are deployed and managed. In this example, a resource group named *myResourceGroup* in the *eastus* region.
+To create a resource group, use the [az group create](/cli/azure/group) command. An Azure resource group is a logical container in which Azure resources are deployed and managed. In this example, a resource group named *myResourceGroup* in the *eastus* region.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -46,7 +46,7 @@ az group create --name myResourceGroup --location eastus
 
 ### Create a VM
 
-To create a virtual machine based on the Oracle Database image and configure it to use Oracle ASM, use the [az vm create](/cli/azure/vm#az_vm_create) command. 
+To create a virtual machine based on the Oracle Database image and configure it to use Oracle ASM, use the [az vm create](/cli/azure/vm) command. 
 
 The following example creates a VM named myVM that is a Standard_DS2_v2 size with four attached data disks of 50 GB each. If they do not already exist in the default key location, it also creates SSH keys.  To use a specific set of keys, use the `--ssh-key-value` option.  
 

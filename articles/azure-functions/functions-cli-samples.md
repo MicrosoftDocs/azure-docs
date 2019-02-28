@@ -20,7 +20,7 @@ The following table includes links to bash scripts for Azure Functions that use 
 
 | | |
 |-|-|
-|**Create app**||
+|<a name="create"></a>**Create app**||
 | [Create a function app for serverless execution](scripts/functions-cli-create-serverless.md) | Creates a function app in a Consumption plan.  |
 | [Create a function app in an App Service plan](scripts/functions-cli-create-app-service-plan.md) | Create a function app in a dedicated App Service plan. |
 | | |

@@ -22,11 +22,11 @@ Embedding Cloud Shell enables developers and content writers to directly open Cl
 
 Regular sized button
 
-[![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+[![Regular launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 
 Large sized button
 
-[![](https://shell.azure.com/images/launchcloudshell@2x.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+[![Large launch](https://shell.azure.com/images/launchcloudshell@2x.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 
 ## How-to
 

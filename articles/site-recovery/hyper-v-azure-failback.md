@@ -1,12 +1,12 @@
 ---
-title: Run a failback to an on-premises site for Hyper-v virtual machines | Microsoft Docs
-description: Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers. Learn about failback from Azure to on-premises datacenter.
+title: Run a failback during disaster of  Hyper-v VMs from Azure to on-premises | Microsoft Docs
+description: Learn how to fail back Hyper-V VMs to an on-premises site during disaster recovery to Azure with the Azure Site Recovery service.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: rajanaki
 
 ---
@@ -27,7 +27,7 @@ After failover from the primary to secondary location, replicated virtual machin
 3. If you're failing back from Azure select settings in **Data Synchronization**:
 	- **Synchronize data before failover(Synchronize delta changes only)**—This option minimizes downtime for virtual machines as it synchronizes without shutting them down. It does the following steps:
 		- Phase 1: Takes snapshot of the virtual machine in Azure and copies it to the on-premises Hyper-V host. The machine continues running in Azure.
-		- Phase 2: Shuts down the virtual machine in Azure so that no new changes occur there. The final set of delta changes are transferred to the on-premises server and the on-premises virtual machine is started up.
+		- Phase 2: Shuts down the virtual machine in Azure so that no new changes occur there. The final set of delta changes is transferred to the on-premises server and the on-premises virtual machine is started up.
 
 	- **Synchronize data during failover only(full download)**—This option is faster.
 		- This option is faster because we expect that most of the disk has changed and we don't want to spend time in checksum calculation. It performs a download of the disk. It is also useful when the on-prem virtual machine has been deleted.
@@ -36,10 +36,10 @@ After failover from the primary to secondary location, replicated virtual machin
 
 4. If data encryption is enabled for the cloud, in **Encryption Key** select the certificate that was issued when you enabled data encryption during Provider installation on the VMM server.
 5. Initiate the failover. You can follow the failover progress on the **Jobs** tab.
-6. If you selected the option to synchronize the data before the failover, once the initial data synchronization is complete and you're ready to shut down the virtual machines in Azure, click **Jobs** planned failover job name **Complete Failover**. This shuts down the Azure machine, transfers the latest changes to the on-premises virtual machine, and starts the VM on-premises.
-7. You can now log onto the virtual machine to validate it's available as expected.
+6. If you selected the option to synchronize the data before the failover, once the initial data synchronization is complete and you're ready to shut down the virtual machines in Azure, click **Jobs** > job name > **Complete Failover**. This shuts down the Azure machine, transfers the latest changes to the on-premises virtual machine, and starts the VM on-premises.
+7. You can now log into the virtual machine to validate it's available as expected.
 8. The virtual machine is in a commit pending state. Click **Commit** to commit the failover.
-9. Now in order to complete the failback click **Reverse Replicate** to start protecting the virtual machine in the primary site.
+9. To complete the failback, click **Reverse Replicate** to start protecting the virtual machine in the primary site.
 
 
 Follow these procedures to fail back to the original primary site. This procedure describes how to run a planned failover for a recovery plan. Alternatively you can run the failover for a single virtual machine on the **Virtual Machines** tab.
@@ -53,14 +53,14 @@ If you've deployed protection between a [Hyper-V site and Azure](site-recovery-h
 3. Select **Protected Items** -> **Protection Group** -> <ProtectionGroupName> -> <VirtualMachineName> you want to fail back, and select **Planned Failover**.
 4. In **Confirm Planned Failover** select **Create on-premises virtual machine if it does not exist**.
 5. In Host Name,** select the new Hyper-V host server on which you want to place the virtual machine.
-6. In Data Synchronization, we recommend you select  the option **Synchronize the data before the failover**. This minimizes downtime for virtual machines as it synchronizes without shutting them down. It does the following:
+6. In Data Synchronization, we recommend you select  the option to synchronize the data before the failover. This minimizes downtime for virtual machines as it synchronizes without shutting them down. It does the following:
 
 	- Phase 1: Takes snapshot of the virtual machine in Azure and copies it to the on-premises Hyper-V host. The machine continues running in Azure.
-	- Phase 2: Shuts down the virtual machine in Azure so that no new changes occur there. The final set of changes are transferred to the on-premises server and the on-premises virtual machine is started up.
+	- Phase 2: Shuts down the virtual machine in Azure so that no new changes occur there. The final set of changes is transferred to the on-premises server and the on-premises virtual machine is started up.
 	
 7. Click the checkmark to begin the failover (failback).
 8. After the initial synchronization finishes and you're ready to shut down the virtual machine in Azure, click **Jobs** > <planned failover job> > **Complete Failover**. This shuts down the Azure machine, transfers the latest changes to the on-premises virtual machine, and starts it.
-9. You can log on to the on-premises virtual machine to verify everything is working as expected. Then click **Commit** to finish the failover. Commit deletes the Azure virtual machine and its disks and prepares the VM to be protected again.
+9. You can log into the on-premises virtual machine to verify everything is working as expected. Then click **Commit** to finish the failover. Commit deletes the Azure virtual machine and its disks and prepares the VM to be protected again.
 10. Click **Reverse Replicate** to start protecting the on-premises virtual machine.
 
     > [!NOTE]

@@ -1,4 +1,4 @@
---- 
+---
 title: How to use the Anomaly Finder API with Python - Microsoft Cognitive Services | Microsoft Docs
 description: Get information and code samples to help you quickly get started using Anomaly Finder with Python in Cognitive Services.
 services: cognitive-services
@@ -6,13 +6,15 @@ author: chliang
 manager: bix
 
 ms.service: cognitive-services
-ms.technology: anomaly-detection
+ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
 ---
 
 # Use the Anomaly Finder API with Python
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 This article provides information and code samples to help you quickly get started using the Anomaly Finder API with Python to accomplish task of getting anomaly result for time series data.
 

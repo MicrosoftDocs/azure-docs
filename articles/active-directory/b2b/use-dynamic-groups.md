@@ -1,18 +1,19 @@
 ---
-title: Dynamic groups and Azure Active Directory B2B collaboration | Microsoft Docs
+title: Dynamic groups and B2B collaboration - Azure Active Directory | Microsoft Docs
 description: Shows how to use Azure AD dynamic groups with Azure Active Directory B2B collaboration 
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 12/14/2017
 
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
 
+ms.collection: M365-identity-device-management
 ---
 
 # Dynamic groups and Azure Active Directory B2B collaboration

@@ -1,20 +1,22 @@
 ---
-title: Azure Content Moderator - Create reviews using .NET | Microsoft Docs
-description: How to create reviews using Azure Content Moderator SDK for .NET
+title: "Quickstart: Create reviews using .NET - Content Moderator"
+titlesuffix: Azure Cognitive Services
+description: How to create reviews using Azure Content Moderator SDK for .NET.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: nitinme
+
 ms.service: cognitive-services
-ms.component: content-moderator
-ms.topic: article
-ms.date: 09/10/2018
+ms.subservice: content-moderator
+ms.topic: quickstart
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
 
-# Create reviews using .NET
+# Quickstart: Create reviews using .NET
 
-This article provides information and code samples to help you get started using 
-the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:
+This article provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:
  
 - Create a set of reviews for human moderators
 - Get the status of existing reviews for human moderators
@@ -23,15 +25,14 @@ Generally, content goes through some automated moderation before
 being scheduled for human review. This article only covers how to create
 the review for human moderation. For a more complete scenario, see the 
 [Facebook content moderation](facebook-post-moderation.md) and
-[eCommerce catalog moderation](ecommerce-retail-catalog-moderation.md)
+[Moderate e-commerce product images](ecommerce-retail-catalog-moderation.md)
 tutorials.
 
 This article assumes that you are already familiar with Visual Studio and C#.
 
 ## Sign up for Content Moderator
 
-Before you can use Content Moderator services through the REST API or the SDK, you need a subscription key.
-Refer to the [Quickstart](quick-start.md) to learn how you can obtain the key.
+Before you can use Content Moderator services through the REST API or the SDK, you need a subscription key. Follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Content Moderator and get your key.
 
 ## Sign up for a review tool account if not completed in the previous step
 
@@ -120,7 +121,7 @@ Add the following code to create a Content Moderator client for your subscriptio
             // Create and initialize an instance of the Content Moderator API wrapper.
             ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
 
-            client.BaseUrl = AzureBaseURL;
+            client.Endpoint = AzureBaseURL;
             return client;
         }
     }
@@ -183,7 +184,7 @@ your internal content ID for the item.
     /// <summary>
     /// The name of the log file to create.
     /// </summary>
-    /// <remarks>Relative paths are ralative the execution directory.</remarks>
+    /// <remarks>Relative paths are relative to the execution directory.</remarks>
     private const string OutputFile = "OutputLog.txt";
 
 #### Add the following constants and static fields to the **Program** class in Program.cs.
@@ -202,7 +203,7 @@ Update these values to contain information specific to your subscription and tea
     /// </summary>
     /// <remarks>This must be the team name you used to create your 
     /// Content Moderator account. You can retrieve your team name from
-    /// the Conent Moderator web site. Your team name is the Id associated 
+    /// the Content Moderator web site. Your team name is the Id associated 
     /// with your subscription.</remarks>
     private const string TeamName = "YOUR REVIEW TEAM ID";
 
@@ -214,7 +215,7 @@ Update these values to contain information specific to your subscription and tea
     /// <summary>
     /// The callback endpoint for completed reviews.
     /// </summary>
-    /// <remarks>Revies show up for reviewers on your team. 
+    /// <remarks>Reviews show up for reviewers on your team. 
     /// As reviewers complete reviews, results are sent to the
     /// callback endpoint using an HTTP POST request.</remarks>
     private const string CallbackEndpoint = "YOUR API ENDPOINT";

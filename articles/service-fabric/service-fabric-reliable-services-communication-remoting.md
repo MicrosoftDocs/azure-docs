@@ -94,7 +94,7 @@ Service proxy creation is a lightweight operation, so you can create as many as 
 
 ### Service proxy factory lifetime
 
-[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) is a factory that creates proxy instances for different remoting interfaces. If you use the API `ServiceProxy.Create` to create a proxy, the framework creates a singleton service proxy.
+[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) is a factory that creates proxy instances for different remoting interfaces. If you use the API `ServiceProxyFactory.CreateServiceProxy` to create a proxy, the framework creates a singleton service proxy.
 It is useful to create one manually when you need to override [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory) properties.
 Factory creation is an expensive operation. A service proxy factory maintains an internal cache of the communication client.
 A best practice is to cache the service proxy factory for as long as possible.
@@ -235,7 +235,7 @@ This step makes sure that the service is listening only on the V2 listener.
 
 ## Use the remoting V2 (interface compatible) stack
 
- The remoting V2 (interface compatible, known as V2_1) stack has all the features of the V2 remoting stack. Its interface stack is compatible with the remoting V1 stack, but it is not backward compatible with V2 and V1. To upgrade from V1 to V2_1 without affecting service availability, follow the steps in the article [Upgrade from V1 to V2 (interface compatible)](#upgrade-from-remoting-v1-to-remoting-v2interfacecompatible).
+ The remoting V2 (interface compatible, known as V2_1) stack has all the features of the V2 remoting stack. Its interface stack is compatible with the remoting V1 stack, but it is not backward compatible with V2 and V1. To upgrade from V1 to V2_1 without affecting service availability, follow the steps in the article Upgrade from V1 to V2 (interface compatible).
 
 
 ### Use an assembly attribute to use the remoting V2 (interface compatible) stack

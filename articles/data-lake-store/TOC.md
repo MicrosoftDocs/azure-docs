@@ -1,5 +1,5 @@
 # [Data Lake Storage Gen1 Documentation](index.md)
-# [Switch to Data Lake Storage Gen2 (preview) documentation](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
+# [Switch to Data Lake Storage Gen2 documentation](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
 
 # Overview
 ## [Overview of Data Lake Storage Gen1](data-lake-store-overview.md)
@@ -11,8 +11,7 @@
 # Get started
 ## [Using Azure Portal](data-lake-store-get-started-portal.md)
 ## [Using Azure PowerShell](data-lake-store-get-started-powershell.md)
-## [Using Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
-
+## [Using Azure CLI](data-lake-store-get-started-cli-2.0.md)
 
 # How to
 ## Load and move data
@@ -29,6 +28,7 @@
 ### [Access control](data-lake-store-access-control.md)
 ### [Securing stored data](data-lake-store-secure-data.md)
 ### [Encryption](data-lake-store-encryption.md)
+### [Virtual network integration](data-lake-store-network-security.md)
 
 ## Authenticate with Data Lake Storage Gen1
 ### [Authentication options](data-lakes-store-authentication-using-azure-active-directory.md)
@@ -59,7 +59,7 @@
 ### [Using Azure PowerShell](data-lake-store-performance-tuning-powershell.md)
 ### [Using Spark on HDInsight](data-lake-store-performance-tuning-spark.md)
 ### [Using Hive on HDInsight](data-lake-store-performance-tuning-hive.md)
-### [Using on HDInsight](data-lake-store-performance-tuning-mapreduce.md)
+### [Using MapReduce on HDInsight](data-lake-store-performance-tuning-mapreduce.md)
 ### [Using Storm on HDInsight](data-lake-store-performance-tuning-storm.md)
 
 ## Integrate with Azure services
@@ -92,15 +92,15 @@
 ## [Python (Account Mgmt.)](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python)
 ## [Python (Filesystem Mgmt.)](http://azure-datalake-store.readthedocs.io/en/latest)
 ## [REST](/rest/api/datalakestore)
+## [Resource Manager template](/azure/templates/microsoft.datalakestore/allversions)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/dls)
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure roadmap](https://azure.microsoft.com/updates/?product=data-lake-store)
 ## [Data Lake Store Blog](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Give feedback on UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Pricing](https://azure.microsoft.com/pricing/details/data-lake-store/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
-## [Service updates](https://azure.microsoft.com/updates/?product=data-lake-store)
 ## [Stack Overflow Forum](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)

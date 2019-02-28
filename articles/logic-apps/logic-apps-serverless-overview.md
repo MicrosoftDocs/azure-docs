@@ -14,7 +14,7 @@ ms.date: 03/30/2017
 
 # Overview: Azure Serverless with Azure Logic Apps and Azure Functions
 
-Serverless applications offer benefits of an increase in speed of development, reduction in required code, and simplicity with scale.  This article goes into the different attributes of serverless solutions, and Azure serverless offerings.
+[Serverless](https://azure.microsoft.com/solutions/serverless/) applications offer benefits of an increase in speed of development, reduction in required code, and simplicity with scale.  This article goes into the different attributes of serverless solutions, and Azure serverless offerings.
 
 ## What is serverless?
 

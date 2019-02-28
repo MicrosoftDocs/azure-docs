@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 Samples | Microsoft Docs
-description: Azure CLI 2.0 Samples
+title: Azure CLI Samples | Microsoft Docs
+description: Azure CLI Samples
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -19,9 +19,9 @@ ms.author: cynthn
 ms.custom: mvc
 
 ---
-# Azure CLI 2.0 samples for virtual machine scale sets
+# Azure CLI samples for virtual machine scale sets
 
-The following table includes links to bash scripts built using the Azure CLI 2.0.
+The following table includes links to bash scripts built using the Azure CLI.
 
 | | |
 |---|---|

@@ -73,7 +73,7 @@ After you have created your workspace collection, you will need to create a work
 
 ## Create Power BI datasets and reports to embed into an app using Power BI Desktop
 
-Now that you have created an instance of Power BI for your application, and have **Access Keys**, you need to create the Power BI datasets and reports that you want to embed. Datasets and reports can be created by using **Power BI Desktop**. You can download [Power BI Desktop for free](https://go.microsoft.com/fwlink/?LinkId=521662). Or, to quickly get started, you can download the [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
+Now that you have created an instance of Power BI for your application, and have **Access Keys**, you need to create the Power BI datasets and reports that you want to embed. Datasets and reports can be created by using **Power BI Desktop**. You can download [Power BI Desktop for free](https://go.microsoft.com/fwlink/?LinkId=521662). Or, to quickly get started, you can download the [Retail Analysis Sample PBIX](https://go.microsoft.com/fwlink/?LinkID=780547).
 
 > [!NOTE]
 > To learn more about how to use **Power BI Desktop**, see [Getting Started with Power BI Desktop](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).

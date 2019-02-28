@@ -1,14 +1,17 @@
 ---
-title: Azure Content Moderator - Create video transcript reviews using .NET | Microsoft Docs
-description: How to create video transcript reviews using Azure Content Moderator SDK for .NET
+title: Create video transcript reviews using .NET - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Create video transcript reviews using the Content Moderator SDK for .NET
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: nitinme
+
 ms.service: cognitive-services
-ms.component: content-moderator
-ms.topic: article
-ms.date: 01/19/2018
+ms.subservice: content-moderator
+ms.topic: conceptual
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
 
 # Create video transcript reviews using .NET
@@ -27,8 +30,7 @@ This article also assumes that you are already familiar with Visual Studio and C
 
 ## Sign up for Content Moderator
 
-Before you can use Content Moderator services through the REST API or the SDK, you need a subscription key.
-Refer to the [Quickstart](quick-start.md) to learn how you can obtain the key.
+Before you can use Content Moderator services through the REST API or the SDK, you need a subscription key. Follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Content Moderator and get your key.
 
 ## Sign up for a review tool account if not completed in the previous step
 
@@ -111,9 +113,9 @@ Where indicated, replace the example values for these properties.
 	        /// </summary>
 	        /// <remarks>This must be the team name you used to create your 
 	        /// Content Moderator account. You can retrieve your team name from
-	        /// the Conent Moderator web site. Your team name is the Id associated 
+	        /// the Content Moderator web site. Your team name is the Id associated 
 	        /// with your subscription.</remarks>
-	        public static readonly string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
+	        private const string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
 
 	        /// <summary>
 	        /// The base URL fragment for Content Moderator calls.
@@ -143,7 +145,7 @@ Add the following method definition to namespace VideoTranscriptReviews, class P
     {
     	return new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey))
         {
-        	BaseUrl = AzureBaseURL
+        	Endpoint = AzureBaseURL
         };
     }
 
@@ -352,7 +354,7 @@ Add the **Main** method definition to namespace VideoTranscriptReviews, class Pr
 
             Console.WriteLine("Open your Content Moderator Dashboard and select Review > Video to see the review.");
             Console.WriteLine("Press any key to close the application.");
-            Console.Read();
+            Console.ReadKey();
 		}
 	}
 
