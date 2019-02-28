@@ -59,8 +59,8 @@ The following steps walk you through finding daily usage for the example IT depa
 
 To learn more, see:
 
-- [Understand your Azure invoice](billing-understand-your-invoice-mca.md)
-- [Understand your Azure detailed usage](billing-understand-your-invoice.md)
+- [Understand your Azure invoice](billing-mca-understand-your-invoice.md)
+<!-- - [Understand your Azure detailed usage](billing-understand-your-invoice.md) -->
 
 ## Option 2: Compare the usage and costs in the Azure portal
 
@@ -93,7 +93,7 @@ When the VM is created, each of the meters begins emitting usage records. This u
 
 ## <a name="payment"></a>Pay your bill
 
-Instructions for paying your bill are shown at the bottom of the invoice. [Learn how to pay](billing-understand-your-invoice-mca.md#how-to-pay).
+Instructions for paying your bill are shown at the bottom of the invoice. [Learn how to pay](billing-mca-understand-your-invoice.md#how-to-pay).
 
 If you've already paid your bill and want to check the status of the payment, [create a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
@@ -106,5 +106,6 @@ If you have questions or need help, [create a support request](https://portal.az
 To learn more about your invoice and detailed usage, see:
 
 - [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md)
-- [Understand terms on your Microsoft Customer Agreement invoice](billing-understand-your-invoice-mca.md)
-- [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md)
+- [Understand terms on your Microsoft Customer Agreement invoice](billing-mca-understand-your-invoice.md)
+
+<!-- - [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md) -->
