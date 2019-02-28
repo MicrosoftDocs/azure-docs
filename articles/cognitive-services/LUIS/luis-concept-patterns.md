@@ -131,35 +131,42 @@ To add a **Pattern.any** entity into the pattern template, surround the Pattern.
 |How much does **ask** cost and what format is it available in?|
 |How much does **The Curious Incident of the Dog in the Night-Time** cost and what format is it available in?| 
 
-In these book title examples, the contextual words of the book title are not confusing to LUIS. LUIS knows where the book title ends because it is in a pattern and marked with a Pattern.any entity.
+The words of the book title are not confusing to LUIS because LUIS knows where the book title ends, based on the Pattern.any entity.
 
 ## Explicit lists
-If your pattern contains a Pattern.any, and the pattern syntax allows for the possibility of an incorrect entity extraction based on the utterance, create an [Explicit List](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8) through the authoring API to allow the exception. 
+
+create an [Explicit List](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8) through the authoring API to allow the exception when:
+
+* Your pattern contains a [Pattern.any](luis-concept-entity-types.md#patternany-entity)
+* And that pattern syntax allows for the possibility of an incorrect entity extraction based on the utterance. 
 
 For example, suppose you have a pattern containing both optional syntax, `[]`, and entity syntax, `{}`, combined in a way to extract data incorrectly.
 
-Consider the pattern `[find] email about {subject} [from {person}]'. In the following utterances, the **subject** and **person** entity are extracted correctly and incorrectly:
+Consider the pattern `[find] email about {subject} [from {person}]'.
+
+In the following utterances, the **subject** and **person** entity are extracted correctly and incorrectly:
 
 |Utterance|Entity|Correct extraction|
 |--|--|:--:|
 |email about dogs from Chris|subject=dogs<br>person=Chris|✔|
 |email about the man from La Mancha|subject=the man<br>person=La Mancha|X|
 
-In the preceding table, the utterance `email about the man from La Mancha`, the subject should be `the man from La Mancha` (a book title) but because the subject includes the optional word `from`, the title is incorrectly predicted. 
+In the preceding table, the subject should be `the man from La Mancha` (a book title) but because the subject includes the optional word `from`, the title is incorrectly predicted. 
 
 To fix this exception to the pattern, add `the man from la mancha` as an explicit list match for the {subject} entity using the [authoring API for explicit list](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8).
 
 ## Syntax to mark optional text in a template utterance
 Mark optional text in the utterance using the regular expression square bracket syntax, `[]`. The optional text can nest square brackets up to two brackets only.
 
-|Pattern with optional text|
-|--|
-|`[find] email about {subject} [from {person}]`|
+|Pattern with optional text|Meaning|
+|--|--|
+|`[find] email about {subject} [from {person}]`|`find` and `from {person}` are optional|
+|`Can you help me[?]|The punctuation mark is optional|
 
-Punctuation marks such as `.`, `!`, and `?` can be ignored using the square brackets. In order to ignore these marks, each mark must be in a separate pattern. The optional syntax doesn't currently support ignoring an item in a list of several items.
+Punctuation marks (`?`, `!`, `.`) should be ignored and you need to ignore them using the square bracket syntax in patterns. 
 
-## Patterns only
-LUIS allows an app without any example utterances in intent. This usage is allowed only if patterns are used. Patterns require at least one entity in each pattern. For a pattern-only app, the pattern should not contain machine-learned entities because these do require example utterances. 
+## Pattern-only apps
+You can build an app with intents that have no example utterances, as long as there's a pattern for each intent. For a pattern-only app, the pattern shouldn't contain machine-learned entities because these do require example utterances. 
 
 ## Best practices
 Learn [best practices](luis-concept-best-practices.md).
