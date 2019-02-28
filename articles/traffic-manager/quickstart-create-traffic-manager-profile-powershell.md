@@ -27,57 +27,19 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
-## Prerequisites
-
-For this quickstart, you'll need two instances of a web application deployed in two different Azure regions (*East US* and *West Europe*). Each will serve as primary and failover endpoints for Traffic Manager.
-
-### Create Web App Service plans
-Create Web App service plans for the two instances of the web application that you will deploy in two different Azure regions.
+## Create a Resource Group
+Create a resource group using `New-AzResourceGroup`.
 
 ```azurepowershell-interactive
-
 # Generates a random value
 $Random=(New-Guid).ToString().Substring(0,8)
 
 # Variables
 $ResourceGroupName="myResourceGroup$Random"
-$App1Name="AppServiceTM1$Random"
-$App2Name="AppServiceTM2$Random"
-$Location1="eastus"
-$Location2="westeurope"
+$Location1="WestUS"
 
-# Create a resource group
+# Create a Resource Group
 New-AzResourceGroup -Name $ResourceGroupName -Location $Location1
-
-# Create App service plans
-New-AzAppservicePlan `
--Name "$App1Name-Plan" `
--ResourceGroupName $ResourceGroupName-tmp `
--Location $Location1 
--Tier Standard
-
-New-AzAppservicePlan `
--Name "$App2Name-Plan" `
--ResourceGroupName $ResourceGroupName-tmp `
--Location $Location2
--Tier Standard
-```
-### Create Web Apps
-Create two instances the web application that in *East US* and *West Europe* Azure regions.
-
-```azurepowershell-interactive
-$App1ResourceId=(New-AzWebApp `
--Name $App1Name `
--ResourceGroupName MyResourceGroupTM1
--Location $Location1 `
--AppServicePlan "$App1Name-Plan").Id
-
-$App2ResourceId=(New-AzWebApp `
--Name $App2Name `
--ResourceGroupName $ResourceGroupName `
--Location $Location2 `
--AppServicePlan "$App2Name-Plan").Id
-
 ```
 
 ## Create a Traffic Manager profile
@@ -96,29 +58,54 @@ New-AzTrafficManagerProfile `
 -MonitorPort 80
 ```
 
+## Create Web Apps
+
+For this quickstart, you'll need two instances of a web application deployed in two different Azure regions (*West US* and *East US*). Each will serve as primary and failover endpoints for Traffic Manager.
+
+### Create Web App Service plans
+Create Web App service plans for the two instances of the web application that you will deploy in two different Azure regions.
+
+```azurepowershell-interactive
+$App1Name="AppServiceTM1$Random"
+$App2Name="AppServiceTM2$Random"
+$Location1="WestUS"
+$Location2="EastUS"
+
+
+
+# Create an App service plan
+New-AzAppservicePlan -Name "$App1Name-Plan" -ResourceGroupName $ResourceGroupName -Location $Location1 -Tier Standard
+New-AzAppservicePlan -Name "$App2Name-Plan" -ResourceGroupName $ResourceGroupName -Location $Location2 -Tier Standard
+
+```
+### Create a Web App in the App Service Plan
+Create two instances the web application in the App Service plans in the *West US* and *East US* Azure regions.
+
+```azurepowershell-interactive
+$App1ResourceId=(New-AzWebApp -Name $App1Name -ResourceGroupName $ResourceGroupName -Location $Location1 -AppServicePlan "$App1Name-Plan").Id
+$App2ResourceId=(New-AzWebApp -Name $App2Name -ResourceGroupName $ResourceGroupName -Location $Location2 -AppServicePlan "$App2Name-Plan").Id
+
+```
 
 ## Add Traffic Manager endpoints
 
-Add the website in the *East US* as primary endpoint to route all the user traffic. Add the website in *West Europe* as a failover endpoint. When the primary endpoint is unavailable, traffic automatically routes to the failover endpoint.
+Add the website in the *West US* as primary endpoint to route all the user traffic. Add the website in *East US* as a failover endpoint. When the primary endpoint is unavailable, traffic automatically routes to the failover endpoint.
 
 ```azurepowershell-interactive
-New-AzTrafficManagerEndpoint `
--Name "$App1Name-$Location1" `
+New-AzTrafficManagerEndpoint -Name "$App1Name-$Location1" `
 -ResourceGroupName $ResourceGroupName `
 -ProfileName "$ResourceGroupName-tmp" `
 -Type AzureEndpoints `
--Priority 1 `
 -TargetResourceId $App1ResourceId `
 -EndpointStatus "Enabled"
 
-New-AzTrafficManagerEndpoint `
--Name "$App2Name-$Location2" `
+New-AzTrafficManagerEndpoint -Name "$App2Name-$Location2" `
 -ResourceGroupName $ResourceGroupName `
 -ProfileName "$ResourceGroupName-tmp" `
 -Type AzureEndpoints `
--Priority 2 `
 -TargetResourceId $App2ResourceId `
 -EndpointStatus "Enabled"
+
 ```
 
 ## Test Traffic Manager profile
@@ -130,8 +117,7 @@ In this section, you'll check the domain name of your Traffic Manager profile. Y
 Determine the DNS name of the Traffic Manager profile using `Get-AzTrafficManagerProfile`.
 
 ```azurepowershell-interactive
-Get-AzTrafficManagerProfile `
--Name $ResourceGroupName-tmp `
+Get-AzTrafficManagerProfile -Name $ResourceGroupName-tmp `
 -ResourceGroupName $ResourceGroupName
 ```
 
@@ -146,8 +132,7 @@ Copy the relativednsname value. The DNS name of your Traffic Manager profile is 
 2. To view Traffic Manager failover in action, disable your primary site using `Disable-AzTrafficManagerEndpoint`.
 
 ```azurepowershell-interactive
-Disable-AzTrafficManagerEndpoint `
--Name $App1Name-$Location1 `
+Disable-AzTrafficManagerEndpoint -Name $App1Name-$Location1 `
 -Type AzureEndpoints `
 -ProfileName $ResourceGroupName-tmp `
 -ResourceGroupName $ResourceGroupName `
