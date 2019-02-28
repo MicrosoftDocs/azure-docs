@@ -1,6 +1,6 @@
 ---
-title: App Service on Azure Stack update 4 release notes | Microsoft Docs
-description: Learn about what's in update four for App Service on Azure Stack, the known issues, and where to download the update.
+title: App Service on Azure Stack update 5 release notes | Microsoft Docs
+description: Learn about what's in update five for App Service on Azure Stack, the known issues, and where to download the update.
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -13,32 +13,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 02/27/2019
 ms.author: anwestg
-ms.reviewer: anwestg
-ms.lastreviewed: 11/13/2018
+ms.reviewer: 
 
 ---
-# App Service on Azure Stack update 4 release notes
+# App Service on Azure Stack update 5 release notes
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-These release notes describe the improvements and fixes in Azure App Service on Azure Stack Update 4 and any known issues. Known issues are divided into issues directly related to the deployment, update process, and issues with the build (post-installation).
+These release notes describe the improvements and fixes in Azure App Service on Azure Stack Update 5 and any known issues. Known issues are divided into issues directly related to the deployment, update process, and issues with the build (post-installation).
 
 > [!IMPORTANT]
-> Apply the 1809 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.4.
->
->
+> Apply the 1901 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.5.
+
 
 ## Build reference
 
-The App Service on Azure Stack Update 4 build number is **78.0.13698.5**
+The App Service on Azure Stack Update 5 build number is **80.0.2.15**
 
 ### Prerequisites
 
 Refer to the [Before You Get Started documentation](azure-stack-app-service-before-you-get-started.md) before beginning deployment.
 
-Before you begin the upgrade of Azure App Service on Azure Stack to 1.4:
+Before you begin the upgrade of Azure App Service on Azure Stack to 1.5:
 
 - Ensure all roles are Ready in the Azure App Service Administration in the Azure Stack Admin Portal
 
@@ -49,57 +47,34 @@ Before you begin the upgrade of Azure App Service on Azure Stack to 1.4:
 
 - Back up the Tenant App content file share
 
-- Syndicate the Custom Script Extension version 1.9 from the Marketplace
+- Syndicate the **Custom Script Extension** version **1.9.1** from the Marketplace
 
 ### New features and fixes
 
-Azure App Service on Azure Stack Update 4 includes the following improvements and fixes:
-
-- Resolution for [CVE 2018-8600](https://aka.ms/CVE20188600) Cross Site Scripting Vulnerability.
-
-- Added support for App Service 2018-02-01 API version
+Azure App Service on Azure Stack Update 5 includes the following improvements and fixes:
 
 - Updates to **App Service Tenant, Admin, Functions portals and Kudu tools**. Consistent with Azure Stack Portal SDK version.
+
+- Updates to **Kudu tools** to resolve issues with styling and functionality for customers operating **disconnected** Azure Stack. 
 
 - Updates to core service to improve reliability and error messaging enabling easier diagnosis of common issues.
 
 - **Updates to the following application frameworks and tools**:
-  - Added NodeJS 10.6.0
-  - Added NPM 6.1.0
-  - Added Zulu OpenJDK 8.31.0.2
-  - Added Tomcat 8.5.34 and 9.0.12
-  - Added PHP Versions:
-    - 5.6.37
-    - 7.0.31
-    - 7.1.20
-    - 7.2.8
-  - Update to Python Versions:
-    - 2.7.15
-    - 3.6.6
-  - Updated Git for Windows to v 2.17.1.2
-  - Updated Kudu to 78.11022.3613
+  - Added NodeJS 10.14.1
+  - Added NPM 6.4.1
+  - Updated Kudu to 79.20129.3767
   
 - **Updates to underlying operating system of all roles**:
-  - [2018-10 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4462928)](https://support.microsoft.com/help/4462928/windows-10-update-kb4462928)
+  - [2019-02 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4487006)](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006)
 
-- Resolved template validation issue when deploying Wordpress; DNN; and Orchard CMS gallery items
-
-- Resolved configuration issue when Azure Stack rotates the Azure Resource Manager client certificate
-
-- Restored functionality in the Cross Origin Resource Sharing settings in the App Service tenant portal
-
-- Display error message in App Service Admin portal experience when the resource provider control plane cannot connect to the configured SQL Server instance
-
-- Ensure endpoint is specified in custom storage connection string when specified in new Function application
-
-### Post-deployment steps
+### Post-deployment Steps
 
 > [!IMPORTANT]  
 > If you have provided the App Service RP with a SQL Always On Instance you MUST [add the appservice_hosting and appservice_metering databases to an availability group](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) and synchronize the databases to prevent any loss of service in the event of a database failover.
 
-### Post-update steps (optional)
+### Post-update steps
 
-For customers wishing to migrate to contained database for existing Azure App Service on Azure Stack deployments, execute these steps after the Azure App Service on Azure Stack 1.4 update has completed:
+For customers wishing to migrate to contained database for existing Azure App Service on Azure Stack deployments, execute these steps after the Azure App Service on Azure Stack 1.5 update has completed:
 
 > [!IMPORTANT]
 > The migration procedure takes approximately 5-10 minutes.  The procedure involves killing the existing database login sessions.  Plan for downtime to migrate and validate Azure App Service on Azure Stack post migration.  If you completed these steps after updating to Azure App Service on Azure Stack 1.3 then these steps are not required.
