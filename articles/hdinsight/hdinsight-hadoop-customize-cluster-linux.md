@@ -51,7 +51,7 @@ A script action is Bash script that runs on the nodes in an HDInsight cluster. C
 
     * An Azure Data Lake Storage account that's accessible by the HDInsight cluster. For information on using Azure Data Lake Storage with HDInsight, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
-        The URI format for scripts stored in Data Lake Storage is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
+        The URI format for scripts stored in Data Lake Storage Gen1 is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
 
         > [!NOTE]  
         > The service principal HDInsight uses to access Data Lake Storage must have read access to the script.

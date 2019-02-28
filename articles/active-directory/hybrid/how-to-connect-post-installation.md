@@ -17,6 +17,7 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Next steps and how to manage Azure AD Connect
 Use the operational procedures in this article to customize Azure Active Directory (Azure AD) Connect to meet your organization's needs and requirements.  

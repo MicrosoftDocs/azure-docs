@@ -20,6 +20,7 @@ ROBOTS: NOINDEX,NOFOLLOW
 #ms.tgt_pltfrm:
 #ms.custom: 
 #Do not delete this file. It compiles all the include files used in the Application Registration Portal but not rendered on docs.
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory guided setup steps
 

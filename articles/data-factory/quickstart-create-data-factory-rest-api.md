@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 01/22/2018
+ms.date: 02/20/2019
 ms.author: jingwang
-
 ---
-# Create an Azure data factory and pipeline by using the REST API
+# Quickstart: Create an Azure data factory and pipeline by using the REST API
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Current version](quickstart-create-data-factory-rest-api.md)
@@ -63,7 +63,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     $subsId = "<your subscription ID to create the factory>"
     $resourceGroup = "<your resource group to create the factory>"
     $dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>"
-    $apiVersion = "2017-09-01-preview"
+    $apiVersion = "2018-06-01"
     ```
 
 ## Authenticate with Azure AD
@@ -121,7 +121,7 @@ Here is the sample response:
         "provisioningState":  "Succeeded",
         "loggingStorageAccountKey":  "**********",
         "createTime":  "2017-09-14T06:22:59.9106216Z",
-        "version":  "2017-09-01-preview"
+        "version":  "2018-06-01"
     },
     "identity":  {
         "type":  "SystemAssigned",

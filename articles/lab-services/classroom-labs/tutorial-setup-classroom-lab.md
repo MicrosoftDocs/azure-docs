@@ -24,7 +24,7 @@ In this tutorial, you do the following actions:
 
 > [!div class="checklist"]
 > * Create a classroom lab
-> * Configure the classroom lab
+> * Add users to the lab
 > * Send registration link to students
 
 ## Prerequisites
@@ -65,14 +65,12 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
 
     ![Configure template page after it's done](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. On the **Configure template** page, do the following steps: These steps are **optional** for the tutorial.
-    1. Start the template VM by selecting **Start**.
     2. Connect to the template VM by selecting **Connect**. 
-    3. Install and configure software on your template VM. 
-    4. **Stop** the VM.  
+    3. Install and configure software on your template VM.     
     5. Enter a **description** for the template
 9. Select **Next** on the template page. 
 10. On **Publish the template** page, do the following actions. 
-    1. To publish the template immediately, select the checkbox for *I understand I can't modify the template after publishing. This process can only be done once and can take up to an hour*, and select **Publish**.  
+    1. To publish the template immediately, and select **Publish**.  
 
         > [!WARNING]
         > Once you publish, you can't unpublish. 

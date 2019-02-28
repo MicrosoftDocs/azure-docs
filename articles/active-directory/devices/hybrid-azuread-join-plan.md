@@ -18,6 +18,7 @@ ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
 
+ms.collection: M365-identity-device-management
 ---
 # How To: Plan your hybrid Azure Active Directory join implementation
 
@@ -87,7 +88,7 @@ As a first planning step, you should review your environment and determine wheth
 
 You can't use a hybrid Azure AD join if your environment consists of a single forest that synchronized identity data to more than one Azure AD tenant.
 
-If you are relying on the System Preparation Tool (Sysprep), make sure you create images from an installation of Windows that has not been configured for hybrid Azure AD join.
+If you are relying on the System Preparation Tool (Sysprep), make sure images created from an installation of Windows 10 1803 or earlier have not been configured for hybrid Azure AD join.
 
 If you are relying on a Virtual Machine (VM) snapshot to create additional VMs, make sure you use a VM snapshot that has not been configured for hybrid Azure AD join.
 
@@ -111,6 +112,7 @@ If your Windows 10 domain joined devices are already [Azure AD registered](https
  - Any existing Azure AD registered state would be automatically removed after the device is Hybrid Azure AD joined. 
  - You can prevent your domain joined device from being Azure AD registered by adding this registry key - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001
 
+FIPS-compliant TPMs aren't supported for Hybrid Azure AD join. If your devices have FIPS-compliant TPMs, you must disable them before proceeding with Hybrid Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support.
 
 ## Review how to control the hybrid Azure AD join of your devices
 
@@ -141,7 +143,7 @@ Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to
 - [Configure hybrid Azure Active Directory join for managed domains](hybrid-azuread-join-managed-domains.md)
 
 
- If installing the required version of Azure AD Connect is not an option for you, see [how to manually configure device registration](https://docs.microsoft.com/en-us/azure/active-directory/devices/hybrid-azuread-join-manual). 
+ If installing the required version of Azure AD Connect is not an option for you, see [how to manually configure device registration](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual). 
 
 
 ## On-premises AD UPN support in Hybrid Azure AD join

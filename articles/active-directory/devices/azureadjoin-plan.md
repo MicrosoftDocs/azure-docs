@@ -18,6 +18,7 @@ ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Plan your Azure AD join implementation

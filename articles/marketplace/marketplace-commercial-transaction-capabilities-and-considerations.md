@@ -1,4 +1,4 @@
----  
+---
 title: Marketplace ‎Commercial Transaction Capabilities and Considerations | Azure
 description: This article describes the Transact pricing, billing, invoicing, and payout considerations for an offer type.
 services:  Azure, Marketplace, Compute, Storage, Networking, Transact Offer Type
@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
 
----  
+---
 # Azure Marketplace ‎commercial transaction capabilities and considerations
 
 Azure Marketplace publishing options offer unique ways to connect cloud software and service providers with customers. This article covers the following commerce-related topics in the Azure Marketplace:
@@ -182,9 +182,9 @@ If the customer purchases using an Enterprise Agreement:
 |Billing Date | Oct 15, 2018 |
 |Escrow Period (credit cards only, 30 days) | n/a |
 |Collection Period Start | Oct 15, 2018 |
-|Collection Period End (maximum, 90 days) | Jan 15, 2018 |
+|Collection Period End (maximum, 90 days) | Jan 15, 2019 |
 |Customer Payment Date | Dec 30, 2018 |
-|Payout Calculation Date (monthly on the 15th) | Jan 15, 2018 |
+|Payout Calculation Date (monthly on the 15th) | Jan 15, 2019 |
 |Payout Date | Feb 15, 2019 |
 
 **Free credits and monetary commitment** 
@@ -222,7 +222,7 @@ The transact requirements for different offer types are covered in this section.
 
 * Both a Dev Center and a Microsoft account are required for the transact publishing option, regardless of the offer’s pricing model.
 * The Dev Center account holds all relevant financial details required for Microsoft to collect fees from the customer on the publisher’s behalf and pay out the publisher.
-* Although you may use the same organizational or Microsoft sign-in details across both accounts, Dev Center is a separate account from the Cloud Publisher Portal account. To use the transact publishing option, the publisher must complete the Dev Center account sign-up process, in addition to signing up for access to the Cloud Partner Portal.
+* Although you may use the same organizational or Microsoft sign-in details across both accounts, Dev Center is a separate account from the Cloud Partner Portal account. To use the transact publishing option, the publisher must complete the Dev Center account sign-up process, in addition to signing up for access to the Cloud Partner Portal.
 
 *For more information on setting up these accounts, see [Become a Cloud Marketplace Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher).*
 

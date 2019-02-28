@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: celested
 ms.reviewer: arvindh
+ms.collection: M365-identity-device-management
 ---
 
 # End-user experiences for applications in Azure Active Directory

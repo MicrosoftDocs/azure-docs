@@ -21,6 +21,7 @@ ms.reviewer: dhanyahk
 
 # Customer intent: As an IT administrator, I want to learn how to set up a script to download sign-in activity logs periodically, so that I can indefinitely retain all the sign-ins data in my tenant without manual intervention.
 
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: How to download and use a script to access sign-in logs
