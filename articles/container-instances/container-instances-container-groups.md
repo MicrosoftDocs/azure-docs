@@ -37,17 +37,17 @@ This example container group:
 
 ## Deployment
 
-There are two methods for specifying the container and group properties when deploying a multi-container group: a [Resource Manager template][resource-manager template] and a [YAML file][yaml-file]. Deployment with a Resource Manager template is recommended when you need to deploy additional Azure service resources (for example, an [Azure Files share][azure-files]) at the time of container instance deployment. Due to the YAML format's more concise nature, deployment with a YAML file is recommended when your deployment includes only container instances.
+Here are two common ways to deploy a multi-container group: use a [Resource Manager template][resource-manager template] or a [YAML file][yaml-file]. Use a Resource Manager template when you need to deploy additional Azure service resources (for example, an [Azure Files share][azure-files]) at the time you deploy the container instances. Due to the YAML format's more concise nature, a YAML file is recommended when your deployment includes only container instances.
 
 ## Resource allocation
 
-Azure Container Instances allocates resources such as CPU and memory for a container group by adding the *resource requests* of the instances in the group. Taking CPU resources as an example, if you create a container group with two instances, each requesting 1 CPU, then the container group is allocated 2 CPUs.
+Azure Container Instances allocates resources such as CPUs, memory, and optionally [GPUs][gpus] (preview) to a container group by adding the *resource requests* of the instances in the group. Taking CPU resources as an example, if you create a container group with two instances, each requesting 1 CPU, then the container group is allocated 2 CPUs.
 
 ### Resource requests and limits
 
 * By default, container instances in a group share the requested resources of the group. In a group with two instances requesting 1 CPU, each instance can use up to the 2 CPUs allocated to the group. The instances might compete for CPU resources while they're running.
 
-* To limit resource usage by an instance in a group, optionally set a *resource limit* for the instance along with the resource request. In a group with two instances requesting 1 CPU, one of your containers might require more CPUs to run than the other.
+* To limit resource usage by an instance in a group, optionally set a *resource limit* for the instance. In a group with two instances requesting 1 CPU, one of your containers might require more CPUs to run than the other.
 
   In this scenario, you could set a resource limit of 1 CPU for one instance, and a limit of 2 CPUs for the second. This configuration limits the first container's resource usage to 1 CPU, allowing the second container to use up to the full 2 CPUs.
 
@@ -55,13 +55,15 @@ For more information, see the [ResourceRequirements][resource-requirements] prop
 
 ### Minimum and maximum resources
 
-* The **minimum resource allocation** of a container group is 1 CPU and 1 GB of memory. Individual container instances within a group can be provisioned with less than 1 CPU and 1 GB of memory. 
+* Allocate a **minimum** of 1 CPU and 1 GB of memory to a container group. Individual container instances within a group can be provisioned with less than 1 CPU and 1 GB of memory. 
 
-* The **maximum resource allocation** of a container group is the [resource limits][aci-region-availability] for Azure Container Instances in the region.
+* For the **maximum** resources in a container group, see the [resource availability][aci-region-availability] for Azure Container Instances in the deployment region.
 
 ## Networking
 
-Container groups share an IP address and a port namespace on that IP address. To enable external clients to reach a container within the group, you must expose the port on the IP address and from the container. Because containers within the group share a port namespace, port mapping isn't supported. Containers within a group can reach each other via localhost on the ports that they have exposed, even if those ports are not exposed externally on the group's IP address.
+Container groups share an IP address and a port namespace on that IP address. To enable external clients to reach a container within the group, you must expose the port on the IP address and from the container. Because containers within the group share a port namespace, port mapping isn't supported. Containers within a group can reach each other via localhost on the ports that they have exposed, even if those ports aren't exposed externally on the group's IP address.
+
+Optionally deploy container groups into an [Azure virtual network](virtual-network) (preview) to allow containers to communicate securely with other resources in the virtual network.
 
 ## Storage
 
@@ -98,4 +100,5 @@ Learn how to deploy a multi-container container group with an Azure Resource Man
 [aci-region-availability]: https://aka.ms/aci/regions
 [resource-requirements]: /rest/api/container-instances/containergroups/createorupdate#resourcerequirements
 [azure-files]: container-instances-volume-azure-files.md
-
+[virtual-network]: container-instances-vnet.md
+[gpus]: container-instances-gpu.md
