@@ -42,6 +42,7 @@ Environment parameters describe the Azure Stack environment under test. These va
 
 1. Log in to the DVM or any machine that has access to the Azure Stack environment.
 2. Run the following commands in an elevated PowerShell window:
+
     ```PowerShell  
     $CloudAdminUser = "<cloud admin username>"
     $CloudAdminPassword = ConvertTo-SecureString "<cloud admin password>" -AsPlainText -Force
