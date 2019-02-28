@@ -22,8 +22,8 @@ Application Insights monitors your live app on a [wide variety of platforms][pla
 
 There are multiple types of alerts:
 
-* [**Metric alerts**](../../azure-monitor/app/alerts-metric-overview.md) tell you when a metric crosses a threshold value for some period - such as response times, exception counts, CPU usage, or page views.
-* [**Log Alerts**](../../azure-monitor/app/alerts-unified-log.md) is used to describe alerts where the alert signal is based on a custom Kusto query.
+* [**Metric alerts**](../../azure-monitor/platform/alerts-metric-overview.md) tell you when a metric crosses a threshold value for some period - such as response times, exception counts, CPU usage, or page views.
+* [**Log Alerts**](../../azure-monitor/platform/alerts-unified-log.md) is used to describe alerts where the alert signal is based on a custom Kusto query.
 * [**Web tests**][availability] tell you when your site is unavailable on the internet, or responding slowly. [Learn more][availability].
 * [**Proactive diagnostics**](../../azure-monitor/app/proactive-diagnostics.md) are configured automatically to notify you about unusual performance patterns.
 
