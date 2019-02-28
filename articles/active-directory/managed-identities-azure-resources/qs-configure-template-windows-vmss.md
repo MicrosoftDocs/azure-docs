@@ -68,29 +68,9 @@ In this section, you will enable and disable the system-assigned managed identit
    }
    ```
 
-3. (Optional) Add the virtual machine scale set managed identities for Azure resources extension as an `extensionsProfile` element. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity, to retrieve tokens as well.  Use the following syntax:
+> [!NOTE]
+> You may optionally provision the managed identities for Azure resources VMSS extension by specifying it in the `extensionProfile` element of the template. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well.  For more information, see [Migrate from VM extension to Azure IMDS for authentication](howto-migrate-vm-extension.md).
 
-   >[!NOTE] 
-   > The following example assumes a Windows virtual machine scale set extension (`ManagedIdentityExtensionForWindows`) is being deployed. You can also configure for Linux by using `ManagedIdentityExtensionForLinux` instead, for the `"name"` and `"type"` elements.
-   >
-
-   ```json
-   "extensionProfile": {
-        "extensions": [
-            {
-                "name": "ManagedIdentityWindowsExtension",
-                "properties": {
-                    "publisher": "Microsoft.ManagedIdentity",
-                    "type": "ManagedIdentityExtensionForWindows",
-                    "typeHandlerVersion": "1.0",
-                    "autoUpgradeMinorVersion": true,
-                    "settings": {
-                        "port": 50342
-                    },
-                    "protectedSettings": {}
-                }
-            }
-   ```
 
 4. When you're done, the following sections should added to the resource section of your template  and should resemble the following:
 
@@ -109,6 +89,7 @@ In this section, you will enable and disable the system-assigned managed identit
                 //other resource provider properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
+                    //The following appears only if you provisioned the optional VMSS extension (to be deprecated)
                     "extensionProfile": {
                         "extensions": [
                             {
@@ -211,26 +192,8 @@ In this section, you assign a user-assigned managed identity to a virtual machin
 
    }
    ``` 
-
-2. (Optional) Add the following entry under the `extensionProfile` element to assign the managed identities for Azure resources extension to your VMSS. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well. Use the following syntax:
-   
-    ```JSON
-       "extensionProfile": {
-            "extensions": [
-                {
-                    "name": "ManagedIdentityWindowsExtension",
-                    "properties": {
-                        "publisher": "Microsoft.ManagedIdentity",
-                        "type": "ManagedIdentityExtensionForWindows",
-                        "typeHandlerVersion": "1.0",
-                        "autoUpgradeMinorVersion": true,
-                        "settings": {
-                            "port": 50342
-                        },
-                        "protectedSettings": {}
-                    }
-                }
-    ```
+> [!NOTE]
+> You may optionally provision the managed identities for Azure resources VMSS extension by specifying it in the `extensionProfile` element of the template. This step is optional as you can use the Azure Instance Metadata Service (IMDS) identity endpoint, to retrieve tokens as well.  For more information, see [Migrate from VM extension to Azure IMDS for authentication](howto-migrate-vm-extension.md).
 
 3. When you are done, your template should look similar to the following:
    
@@ -254,6 +217,7 @@ In this section, you assign a user-assigned managed identity to a virtual machin
                 //other virtual machine properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
+                    //The following appears only if you provisioned the optional VMSS extension (to be deprecated)
                     "extensionProfile": {
                         "extensions": [
                             {
@@ -296,6 +260,7 @@ In this section, you assign a user-assigned managed identity to a virtual machin
                 //other virtual machine properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
+                    //The following appears only if you provisioned the optional VMSS extension (to be deprecated)    
                     "extensionProfile": {
                         "extensions": [
                             {

@@ -29,7 +29,7 @@ The virtual machine (VM) extension for managed identities is used to request tok
 
 Due to several limitations as outlined in the next section, the VM extension is planned to be deprecated in favor of using the Azure Instance Metadata Service (IMDS) endpoint. 
 
-### Provision the VM extension 
+### Provision the extension 
 
 When you create a system-assigned managed identity or a user-assigned managed identity, you may optionally choose to provision the managed identities for Azure resources VM extension using the `-Type` parameter on the [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet. You can pass either `ManagedIdentityExtensionForWindows` or `ManagedIdentityExtensionForLinux`, depending on the type of VM, and name it using the `-Name` parameter. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition:
 
@@ -38,6 +38,30 @@ When you create a system-assigned managed identity or a user-assigned managed id
    Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
 ```
 
+You can also use the Azure Resource Manager deployment template to provision the VM extension, by adding the following JSON to the `resources` section to the template (use `ManagedIdentityExtensionForLinux` for the name and type elements for the Linux version).
+
+    ```json
+    {
+        "type": "Microsoft.Compute/virtualMachines/extensions",
+        "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
+        "apiVersion": "2018-06-01",
+        "location": "[resourceGroup().location]",
+        "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+        ],
+        "properties": {
+            "publisher": "Microsoft.ManagedIdentity",
+            "type": "ManagedIdentityExtensionForWindows",
+            "typeHandlerVersion": "1.0",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+                "port": 50342
+            }
+        }
+    }
+    ```
+    
+    
 If you're working with virtual machine scale sets (VMSS), you can also provision the managed identities for Azure resources VMSS extension using the [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet. You can pass either `ManagedIdentityExtensionForWindows` or `ManagedIdentityExtensionForLinux`, depending on the type of virtual machine scale set, and name it using the `-Name` parameter. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition:
 
    ```powershell
@@ -45,9 +69,29 @@ If you're working with virtual machine scale sets (VMSS), you can also provision
    $vmss = Get-AzVmss
    Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
    ```
- 
+To provision the VMSS extension with the Azure Resource Manager deployment template, add the following JSON to the `extensionpProfile` section to the template (use `ManagedIdentityExtensionForLinux` for the name and type elements for the Linux version).
+
+    ```json
+    "extensionProfile": {
+        "extensions": [
+            {
+                "name": "ManagedIdentityWindowsExtension",
+                "properties": {
+                    "publisher": "Microsoft.ManagedIdentity",
+                    "type": "ManagedIdentityExtensionForWindows",
+                    "typeHandlerVersion": "1.0",
+                    "autoUpgradeMinorVersion": true,
+                    "settings": {
+                        "port": 50342
+                    },
+                    "protectedSettings": {}
+                }
+            }
+    ```
+
 Provisioning of the VM extension might fail due to DNS lookup failures. If this happens, restart the VM, and try again. 
 
+### Remove the extension 
 To remove the extension, use `-n ManagedIdentityExtensionForWindows` or `-n ManagedIdentityExtensionForLinux` switch (depending on the type of VM) with [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/), or [az vmss extension delete](https://docs.microsoft.com/cli/azure/vmss) for virtual machine scale sets using Azure CLI, or `Remove-AzVMExtension` for Powershell:
 
 ```azurecli-interactive
