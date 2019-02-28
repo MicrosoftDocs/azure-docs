@@ -32,7 +32,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 For this quickstart, you'll need two instances of a web application deployed in two different Azure regions (*East US* and *West Europe*). Each will serve as primary and failover endpoints for Traffic Manager.
 
 ### Create Web App Service plans
-Create Web App service plans for the two instances of a web application that you will deploy in two different Azure regions.
+Create Web App service plans for the two instances of the web application that you will deploy in two different Azure regions.
 
 ```azurepowershell-interactive
 
@@ -43,8 +43,8 @@ $Random=(New-Guid).ToString().Substring(0,8)
 $ResourceGroupName="myResourceGroup$Random"
 $App1Name="AppServiceTM1$Random"
 $App2Name="AppServiceTM2$Random"
-$Location1="WestUS"
-$Location2="EastUS"
+$Location1="eastus"
+$Location2="westeurope"
 
 # Create a resource group
 New-AzResourceGroup -Name $ResourceGroupName -Location $Location1
@@ -63,7 +63,7 @@ New-AzAppservicePlan `
 -Tier Standard
 ```
 ### Create Web Apps
-Create two instances web applications that you will deploy in two different Azure regions.
+Create two instances the web application that in *East US* and *West Europe* Azure regions.
 
 ```azurepowershell-interactive
 $App1ResourceId=(New-AzWebApp `
@@ -97,7 +97,7 @@ New-AzTrafficManagerProfile `
 ```
 
 
-## Create Traffic Manager endpoints
+## Add Traffic Manager endpoints
 
 Add the website in the *East US* as primary endpoint to route all the user traffic. Add the website in *West Europe* as a failover endpoint. When the primary endpoint is unavailable, traffic automatically routes to the failover endpoint.
 
@@ -143,10 +143,15 @@ Copy the relativednsname value. The DNS name of your Traffic Manager profile is 
     > [!NOTE]
     > In this quickstart scenario, all requests route to the primary endpoint. It is set to **Priority 1**.
  
-2. To view Traffic Manager failover in action, disable your primary site using 
+2. To view Traffic Manager failover in action, disable your primary site using `Disable-AzTrafficManagerEndpoint`.
 
 ```azurepowershell-interactive
-Disable-AzTrafficManagerEndpoint -Name $App1Name-$Location1 -Type AzureEndpoints -ProfileName $ResourceGroupName-tmp -ResourceGroupName $ResourceGroupName -Force
+Disable-AzTrafficManagerEndpoint `
+-Name $App1Name-$Location1 `
+-Type AzureEndpoints `
+-ProfileName $ResourceGroupName-tmp `
+-ResourceGroupName $ResourceGroupName `
+-Force
 ```
 3. Copy the DNS name of your Traffic Manager profile (*http://<*relativednsname*>.trafficmanager.net*) to view the website in a new web browser session.
 4. Verify that the web app is still available.
