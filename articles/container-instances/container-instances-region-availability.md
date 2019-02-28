@@ -11,16 +11,16 @@ ms.author: danlep
 ---
 # Region availability for Azure Container Instances
 
-The following sections detail the availability of Azure Container Instances features and resources in Azure regions. For information about service quotas, see [Quotas and limits for Azure Container Instances](container-instances-quotas.md).
+The following sections detail the availability of Azure Container Instances features and resources in Azure regions. For information about resource quotas, see [Quotas and limits for Azure Container Instances](container-instances-quotas.md).
 
-## Feature availability
+## Operating system support
 
 Azure Container Instances can schedule both Windows and Linux containers with the same API. However, the following features are currently available only in Linux container groups. Windows support is planned.
 
 * Multiple containers per container group
-* Volume mounting (Azure Files, emptyDir, GitRepo, secret)
-* Virtual network (preview)
-* GPU resources (preview)
+* Volume mounting ([Azure Files](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [secret](container-instances-volume-secret.md))
+* [Virtual network deployment](container-instances-vnet.md) (preview)
+* [GPU resources](container-instances-gpu.md) (preview)
 
 ## Region availability
 
