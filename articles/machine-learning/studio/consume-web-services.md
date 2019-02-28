@@ -5,7 +5,7 @@ description: Once a machine learning service is deployed from Azure Machine Lear
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs

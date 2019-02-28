@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/27/2019
+ms.date: 2/25/2019
 ms.author: monhaber
 
 ---
@@ -222,7 +222,11 @@ If you want to set all existing scale sets to install the Microsoft Monitoring A
 |Machine|30|Install a vulnerability assessment solution on your virtual machines|Install a vulnerability assessment solution on your virtual machines|
 |Machine|1|Migrate virtual machines to new Azure Resource Manager resources|Use  Azure Resource Manager for your virtual machines to provide security enhancements such as: stronger access control (RBAC), better auditing, Resource Manager-based deployment and governance, access to managed identities, access to key vault for secrets, Azure AD-based authentication and support for tags and resource groups for easier security management. |
 |Machine|30|Remediate vulnerabilities using a vulnerability assessment solution|Virtual machines for which a vulnerability assessment 3rd party solution is deployed are being continuously assessed against application and OS vulnerabilities. Whenever such vulnerabilities are found, these are available for more information as part of the recommendation.|
-
+|Virtual machine scale set |4|Enable diagnostics logs in Virtual Machine Scale Sets|Enable logs and retain them for up to a year. This enables you to recreate activity trails for investigation purposes. This is useful when a security incident occurs, or your network is compromised.|
+|Virtual machine scale set|35|Remediate vulnerabilities in security configuration on your virtual machine scale sets|Remediate vulnerabilities in security configuration on your virtual machine scale sets to protect them from attacks. |
+|Virtual machine scale set|5|Remediate endpoint protection health failures on virtual machine scale sets|Remediate endpoint protection health failures on your virtual machine scale sets to protect them from threats and vulnerabilities. |
+|Virtual machine scale set|10|Install endpoint protection solution on virtual machine scale sets|Install an endpoint protection solution on your virtual machine scale sets, to protect them from threats and vulnerabilities. |
+|Virtual machine scale set|40|Install system updates on virtual machine scale sets|Install missing system security and critical updates to secure your Windows and Linux virtual machine scale sets. |
  
 
 

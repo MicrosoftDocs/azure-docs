@@ -60,7 +60,7 @@ In order to back up Azure VMs, Azure Backup installs an extension on the VM agen
 
   ![Backup status](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
-10. After enabling backup, an [initial backup](#run-the-initial-backup) runs. You can start the initial backup immediately, or wait until it starts in accordance with the backup schedule.
+10. After enabling backup, an initial backup runs. You can start the initial backup immediately, or wait until it starts in accordance with the backup schedule.
     - Until the initial backup completes, the **Last backup status** shows as **Warning (Initial backup pending)**.
     - To see when the next scheduled backup will run, click the backup policy name.
     
