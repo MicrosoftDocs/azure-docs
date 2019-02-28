@@ -19,9 +19,9 @@ You can use the [Azure Backup service](backup-overview.md) to back up on-premise
 Azure Backup uses the MARS agent to back up data from on-premises machines and Azure VMs to a backup Recovery Services vault in Azure. The MARS agent can:
 - Run on on-premises Windows machines so that they can back up directly to a backup Recovery Services vault in Azure.
 - Run on Windows VMs so that they can back up directly to a vault.
-- Run on Microsoft Azure Backup Server (MABS) or a System Center Data Protection Manager server. In this scenario, machines and workloads back up to MABS or to the Data Protection Manager server. The MARS agent then backs up this server to a vault in Azure. 
+- Run on Microsoft Azure Backup Server (MABS) or a System Center Data Protection Manager (DPM) server. In this scenario, machines and workloads back up to MABS or to the DPM server. The MARS agent then backs up this server to a vault in Azure. 
 
-Your backup options depend on where the agent is installed. For more information, see [Azure Backup architecture using the MARS agent](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders). For information about MABS and Data Protection Manager backup architecture, see [Back up to Data Protection Manager or MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Also see [requirements](backup-support-matrix-mabs-dpm.md) for the backup architecture.
+Your backup options depend on where the agent is installed. For more information, see [Azure Backup architecture using the MARS agent](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders). For information about MABS and DPM backup architecture, see [Back up to DPM or MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Also see [requirements](backup-support-matrix-mabs-dpm.md) for the backup architecture.
 
 
 ## Supported installations
@@ -29,8 +29,8 @@ Your backup options depend on where the agent is installed. For more information
 **Installation** | **Details**
 --- | ---
 Download the latest MARS agent | You can download the latest version of the agent from the vault, or [download it directly](https://aka.ms/azurebackup_agent).
-Install directly on a machine | You can install the MARS agent directly on an on-premises Windows server or on a Windows VM that's running any of the supported operating systems.
-Install on a backup server | When you set up Data Protection Manager or MABS to back up to Azure, you download and install the MARS agent on the server. You can install the agent on [supported operating systems](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) in the backup server support matrix.
+Install directly on a machine | You can install the MARS agent directly on an on-premises Windows server or on a Windows VM that's running any of the [supported operating systems](https://docs.microsoft.com/en-us/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
+Install on a backup server | When you set up DPM or MABS to back up to Azure, you download and install the MARS agent on the server. You can install the agent on [supported operating systems](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) in the backup server support matrix.
 
 > [!NOTE]
 > By default, Azure VMs that are enabled for backup have an Azure Backup extension installation. This extension backs up the entire VM. You can install and run the MARS agent on an Azure VM alongside the extension if you want to back up specific folders and files, rather than the complete VM.
@@ -84,7 +84,7 @@ Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Yes | Ye
 Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Yes | No
 Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Yes | No
 
-For more information, see [Supported MABS and Data Protection Manager operating systems](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
+For more information, see [Supported MABS and DPM operating systems](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 
 ## Backup limits
 
@@ -131,7 +131,7 @@ Deduplicated drives | Supported | Azure Backup converts deduplicated data to nor
 Azure Backup supports *offline seeding* to transfer initial backup data to Azure by using disks. This support is helpful if your initial backup is likely to be in the size range of terabytes (TBs). Offline backup is supported for:
 
 - Direct backup of files and folders on on-premises machines that are running the MARS agent.
-- Backup of workloads and files from a Data Protection Manager server or MABS.
+- Backup of workloads and files from a DPM server or MABS.
 
 Offline backup can't be used for system state files.
 
@@ -145,4 +145,4 @@ Backups can't be restored to a target machine that's running an earlier version 
 
 ## Next steps
 - Learn more about [backup architecture that uses the MARS agent](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders).
-- Learn what's supported when you [run the MARS agent on MABS or a Data Protection Manager server](backup-support-matrix-mabs-dpm.md).
+- Learn what's supported when you [run the MARS agent on MABS or a DPM server](backup-support-matrix-mabs-dpm.md).
