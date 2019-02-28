@@ -13,7 +13,7 @@ ms.date: 2/28/2019
 
 # Implementing on-premises Virtual Network
 
-In this tutorial, you learn how to implement a simulation of an on-premises network using an Azure Virtual network (VNet). An Azure VNet could be replaced by your own private virtual network in a private data center. To do so, map the appropriate IP addresses in the subnets.
+In this tutorial, you implement an on-premises network using an Azure Virtual network (VNet). An Azure VNet could be replaced by your own private virtual network. To do so, map the appropriate IP addresses in the subnets.
 
 [!div class="checklist"]
 
