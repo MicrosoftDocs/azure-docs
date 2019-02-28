@@ -1,5 +1,5 @@
 ---
-title: Integrated solutions | Azure
+title: Integrated Solutions | Azure
 description: Integrated Solutions in Azure Marketplace and AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
 documentationcenter:
@@ -12,7 +12,7 @@ ms.date: 02/27/2019
 ms.author: ellacroi
 
 ---
-# Integrated solutions in Azure Marketplace and AppSource
+# Integrated Solutions in Azure Marketplace and AppSource
 
 An Integrated Solution brings together best-of-breed technologies from Microsoft partners, along with consultation, deployment, and supports provided by expert Systems Integrators (SI).
 
@@ -24,6 +24,6 @@ Advantages of an integrated approach are:
 * *Time to value*: Integrated deployment approach to help you realize immediate benefits
 * *Best-of-breed solutions*: Discover the ease of an integrated buying and implementation experience
 
-You can discover integrated solutions, and connect with these valued partners by visiting the Consulting Services section of [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services).
+You can discover Integrated Solutions, and connect with these valued partners by visiting the Consulting Services section of [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services).
 
 ---

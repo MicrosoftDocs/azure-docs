@@ -34,7 +34,7 @@
 ### [Your marketplace benefits](./gtm-your-marketplace-benefits.md)
 #### [Promote your business with Microsoft](./gtm-promote-your-business.md)
 #### [Preferred solutions](./preferred-solutions.md) 
-#### [Integrated solutions](./integrated-solutions.md)
+#### [Integrated Solutions](./integrated-solutions.md)
 
 ### [Support for Azure Marketplace and AppSource](./support-azure-marketplace.md)
 #### [Marketplace FAQs](./marketplace-faq-publisher-guide.md)
