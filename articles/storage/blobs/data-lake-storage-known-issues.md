@@ -6,7 +6,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 02/28/2019
 ms.author: normesta
 
 ---
@@ -14,9 +14,9 @@ ms.author: normesta
 
 This article contains known issues and temporary limitations with Data Lake Storage Gen2.
 
-## Data Lake Storage Gen2 APIs
+## SDK support for Data Lake Storage Gen2 accounts
 
-APIs aren't yet available for Data Lake Storage Gen2 accounts.
+There aren’t SDKs available that will work with Data Lake Storage Gen2 accounts.
 
 ## Blob storage APIs
 
