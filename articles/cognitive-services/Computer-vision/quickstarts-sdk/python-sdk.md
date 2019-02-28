@@ -37,7 +37,7 @@ Looking for more documentation?
 
 ### If you don't have an Azure Subscription
 
-Create a free key valid for 7 days with the **[Try It][computervision_resource]** experience. When the key is created, copy the key and region name. You will need this to [create the client](#create-client).
+Create a free key valid for 7 days with the **[Try It][computervision_resource]** experience for the Computer Vision service. When the key is created, copy the key and region name. You will need this to [create the client](#create-client).
 
 Keep the following after the key is created:
 
@@ -46,7 +46,7 @@ Keep the following after the key is created:
 
 ### If you have an Azure Subscription
 
-If you need a Computer Vision API account, the easiest method to create one in your subscription is to use the following [Azure CLI][azure_cli] command. You need to choose the resource group name, for example, "my-cogserv-group" and the computer vision resource name, such as "my-computer-vision-resource". 
+The easiest method to create a resource in your subscription is to use the following [Azure CLI][azure_cli] command. This creates a Cognitive Service key that can be used across many cognitive services. You need to choose the _existing_ resource group name, for example, "my-cogserv-group" and the new computer vision resource name, such as "my-computer-vision-resource". 
 
 ```Bash
 RES_REGION=westeurope 
@@ -57,8 +57,8 @@ az cognitiveservices account create \
     --resource-group $RES_GROUP \
     --name $ACCT_NAME \
     --location $RES_REGION \
-    --kind ComputerVision \
-    --sku S1 \
+    --kind CognitiveServices \
+    --sku S0 \
     --yes
 ```
 
@@ -323,7 +323,7 @@ Several Computer Vision Python SDK samples are available to you in the SDK's Git
 [pip]: https://pypi.org/project/pip/
 [python]: https://www.python.org/downloads/
 
-[azure_cli]: https://docs.microsoft.com/cli/azure
+[azure_cli]: https://docs.microsoft.com/en-us/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create
 [azure_pattern_circuit_breaker]: https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker
 [azure_pattern_retry]: https://docs.microsoft.com/azure/architecture/patterns/retry
 [azure_portal]: https://portal.azure.com
