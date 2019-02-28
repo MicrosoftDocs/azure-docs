@@ -6,7 +6,7 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 02/27/2019
 ms.author: kgremban
 ---
 
@@ -442,7 +442,7 @@ class Program 
     { 
         Console.WriteLine("Monitoring. Press Enter key to exit.\n"); 
         eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, monitoringEndpointName); 
-        var d2cPartitions = eventHubClient.GetRuntimeInformation().PartitionIds; 
+        var d2cPartitions = eventHubClient.GetRuntimeInformationAsync().PartitionIds; 
         CancellationTokenSource cts = new CancellationTokenSource(); 
         var tasks = new List<Task>(); 
         foreach (string partition in d2cPartitions) 
