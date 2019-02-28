@@ -53,7 +53,7 @@ You must have a function app to host the execution of your functions. A function
     | **[Resource Group](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Name for the new resource group in which to create your function app. |
    | **[App Service Plan/Location](./functions-scale.md)** | New | The hosting plan that controls what region your function app is deployed to and the density of your resources. Multiple Function Apps deployed to the same plan will all share the same single free instance. This is a restriction of the Student Starter plan. The full hosting options are [explained here.](./functions-scale.md)|
     | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language. Choose **.NET** for C# and F# functions. |
-    |**[Application Insights](./functions-monitoring.md)**| Enabled | Application Insights is used to store and analyse your function app's logs. It is enabled by default if you choose a location which supports Application Insights. Application Insights can be enabled for any function by manually choosing a nearby region to deploy Application Insights. Without Application Insights, you will only be able to view live streaming logs.
+    |**[Application Insights](./functions-monitoring.md)**| Enabled | Application Insights is used to store and analyze your function app's logs. It is enabled by default if you choose a location that supports Application Insights. Application Insights can be enabled for any function by manually choosing a nearby region to deploy Application Insights. Without Application Insights, you will only be able to view live streaming logs.
 
 3. Select **App Service plan/Location** above to choose a different location
 
