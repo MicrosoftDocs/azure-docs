@@ -21,7 +21,7 @@ Building an app is free; it doesn't require an Azure subscription. When you are 
 
 ## Create app 
 
-1. Open the LUIS portal in a browser and sign in. If this is your first time signing in, you need to create a free LUIS portal account.
+1. Open the LUIS portal in a browser and sign in. If this is your first-time signing in, you need to create a free LUIS portal account.
 
 1. Select **Create new app** from the context toolbar.
 
@@ -91,7 +91,7 @@ In order to get the form number as part of the runtime prediction response, the 
 
 1. Select **Create new entity** on the Entities page.
 
-1. Enter the name `Human Resources Form Number`, select the **Regex** entity type, and enter the regular expression, `hrf-[0-9]{6}`. This matches the literal characters, `hrf-` and allows for exactly 6 digits. 
+1. Enter the name `Human Resources Form Number`, select the **Regex** entity type, and enter the regular expression, `hrf-[0-9]{6}`. This matches the literal characters, `hrf-`, and allows for exactly 6 digits. 
 
 ![Enter entity information for the regular expression entity](./media/get-started-portal-build-app/create-regular-expression-entity.png)
 

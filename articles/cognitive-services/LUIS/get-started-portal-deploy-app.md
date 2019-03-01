@@ -22,7 +22,8 @@ In this quickstart, you learn to deploy an application by creating a prediction 
 ## Prerequisites
 
 * [Azure subscription](https://azure.microsoft.com/free).
-* Complete the [previous portal quickstart](get-started-portal-build-app.md) which builds the app used in this quickstart or [download and import the app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json). Remember to train the imported app before beginning this quickstart. 
+* Complete the [previous portal quickstart](get-started-portal-build-app.md) or [download and import the app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json). 
+
 
 ## Create prediction endpoint runtime resource
 
@@ -32,44 +33,92 @@ The prediction endpoint runtime resource is created in the Azure portal. This re
 
 1. Select the green **+** sign in the upper left-hand panel and search for `Cognitive Services` in the marketplace, then select it and follow the **Create experience** to create a resource. 
 
-1. Configure the subscription with settings including account name, pricing tiers, etc. 
+1. Configure the subscription the following settings:
+
+    |Setting|Value|Purpose|
+    |--|--|--|
+    |Name|`my-cognitive-servce-resource`|The name of the Azure resource. You need this name when you assign the resource to the app in the LUIS portal.|
+    |Subscription|Your subscription.|Select one of the subscriptions associated with your account.|
+    |Location|**West US**|The azure region for this resource.|
+    |Pricing tier|**S0**|The default pricing tier for this resource.|
+    |Resource group|`my-cognitive-service-resource-group`|Create a new resource group for all your cognitive service resources. When you are done with the resources, you can delete the resource group to clean up your subscription. | 
 
     ![Azure API Choice](./media/get-started-portal-deploy-app/create-cognitive-services-resource.png) 
 
-1. Once you create the resource, you can view the access keys under the **Resource Management** section in the **Keys** page. The next section will show you how to connect this new resource to a LUIS app in the LUIS portal. You need the name of the LUIS resource from step 3.
-
-    ![Azure Keys](./media/get-started-portal-deploy-app/azure-resource-keys.png)
+    In the next section, you learn how to connect this new resource to a LUIS app in the LUIS portal. 
 
 ## Assign resource key to LUIS app in LUIS Portal
+
+You need to assign the resource every time you create one. Once it is assigned, you won't need to do this step again unless you create a new resource. You might create a new resource to expand the regions of your app or to support a higher number of prediction queries. 
 
 1. Sign in to the [LUIS portal](https://www.luis.ai), choose the **myEnglishApp** app from the apps list.
 
 1. Select **Manage** in the top-right menu, then select **Keys and endpoints**.
 
-    [![Keys and endpoints page](./media/luis-manage-keys/keys-and-endpoints.png)](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
-
 1. In order to add the LUIS, select **Assign Resource +**.
 
-    ![Assign a resource to your app](./media/luis-manage-keys/assign-key.png)
+    [![Assign a resource to your app](./media/get-started-portal-deploy-app/assign-resource-button.png)](./media/get-started-portal-deploy-app/assign-resource-button.png#lightbox)
 
-1. Select a Tenant in the dialog associated with the email address you used to sign in with to the LUIS website.  
+1. Select your tenant, subscription, and resource name then select **Assign resource**. 
 
-1. Choose the **Subscription Name** associated with the Azure resource you want to add.
-
-1. Select the **LUIS resource name** you created in the previous section. 
-
-1. Select **Assign resource**. 
+    ![Assign a resource to your app](./media/get-started-portal-deploy-app/assign-resource.png)
 
 1. Find the new row in the table and copy the endpoint URL. It is correctly constructed to make an HTTP GET request to the LUIS endpoint for a prediction. 
 
-## Train the app
+## Train and publish the app 
 
-## Publish the app 
+You should train whenever you are ready to test it. You should publish the app whenever you want the currently trained version to be available to client applications from the prediction endpoint runtime. 
 
-Tag entity in example utterance
-`HRF-number regular express
+1. If the app is untrained, select **Train** from the top, right menu.
 
-// add example utterance with 1 entity to intent
+1. Select **Publish** from the top, right menu. Don't change the default environment settings, and select **Publish**.
+
+1. When the green success notification bar appears at the top of the browser window, select the **Refer to the list of endpoints** link. 
+
+    ![Successfully published app notification bar in browser](./media/get-started-portal-deploy-app/successfully-published-notification.png)
+
+1. This takes you to the **Keys and Endpoint settings** page. The list of assigned resources and corresponding endpoint URLs is at the bottom of the page. 
+
+1. Select the endpoint URL associated with your new resource name. This opens a web browser with a correctly constructed URL to make a **GET** request to the prediction endpoint runtime. 
+
+1. At the end of the URL, after the `q=`, enter the same user utterance used at the end of the previous quickstart:
+
+    ```Is there a form named hrf-234098```
+
+    The browser response is the same JSON your client application will receive:
+
+    ```JSON
+    {
+    "query": "Is there a form named hrf-234098",
+    "topScoringIntent": {
+        "intent": "FindForm",
+        "score": 0.9768753
+    },
+    "intents": [
+        {
+        "intent": "FindForm",
+        "score": 0.9768753
+        },
+        {
+        "intent": "None",
+        "score": 0.0216071066
+        }
+    ],
+    "entities": [
+        {
+        "entity": "hrf-234098",
+        "type": "Human Resources Form Number",
+        "startIndex": 22,
+        "endIndex": 31
+        }
+      ]
+    }
+    ```
+
+## Clean up resources
+When you are done with this quickstart, select **My apps** from the top navigation menu. Then select the app's left-hand checkbox from the list, and select  **Delete** from the context toolbar above the list. 
+
+[![Delete app from My apps list](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
 ## Next Steps
 
