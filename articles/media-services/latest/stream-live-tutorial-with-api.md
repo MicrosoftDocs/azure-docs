@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 02/28/2019
 ms.author: juliako
 
 ---
@@ -78,9 +78,12 @@ To start using Media Services APIs with .NET, you need to create an **AzureMedia
 
 ### Create a live event
 
-This section shows how to create a **pass-through** type of Live Event (LiveEventEncodingType set to None). If you want to create a Live Event that is enabled for live encoding set LiveEventEncodingType to **Standard**. 
+This section shows how to create a **pass-through** type of Live Event (LiveEventEncodingType set to None). If you want to create a Live Event that is enabled for live encoding set LiveEventEncodingType to **Standard**. For information about live encoding presets, see [System presets](live-event-types-comparison.md#system-preset).
 
-Some other things that you might want to specify when creating the live event are:
+> [!NOTE]
+> Currently, the only allowed value for a Standard type of Live Event is **Default720p**. If you need a custom preset, you should contact amshelp@microsoft.com. 
+
+Some things that you might want to specify when creating the live event are:
 
 * Media Services location 
 * The streaming protocol for the Live Event (currently, the RTMP and Smooth Streaming protocols are supported).<br/>You cannot change the protocol option while the Live Event or its associated Live Outputs are running. If you require different protocols, you should create separate Live Event for each streaming protocol.  
