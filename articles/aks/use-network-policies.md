@@ -23,7 +23,7 @@ This article shows you how to use network policies to control the flow of traffi
 
 You need the Azure CLI version 2.0.56 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-To create AKS with network policy, first enable a feature flag on your subscription. To register the *EnableNetworkPolicy* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
+To create an AKS cluster with network policy, first enable a feature flag on your subscription. To register the *EnableNetworkPolicy* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
 
 ```azurecli-interactive
 az feature register --name EnableNetworkPolicy --namespace Microsoft.ContainerService
@@ -55,7 +55,7 @@ To see network policies in action, let's create and then expand on a policy that
 
 ## Create an AKS cluster and enable network policy
 
-Network policy can only be allowed when the cluster is created. You can't enable network policy on an existing AKS cluster. 
+Network policy can only be enabled when the cluster is created. You can't enable network policy on an existing AKS cluster. 
 
 To use network policy with an AKS cluster, you must use the [Azure CNI plug-in][azure-cni] and define your own virtual network and subnets. For more detailed information on how to plan out the required subnet ranges, see [configure advanced networking][use-advanced-networking].
 
@@ -119,7 +119,7 @@ az aks create \
     --network-policy calico
 ```
 
-It takes a few minutes to create the cluster. When the cluster is finished, configure `kubectl` to connect to your Kubernetes cluster by using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them:
+It takes a few minutes to create the cluster. When the cluster is ready, configure `kubectl` to connect to your Kubernetes cluster by using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
