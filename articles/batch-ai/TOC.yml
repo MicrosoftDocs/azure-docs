@@ -6,6 +6,8 @@
   - name: What's happening to Batch AI?
     displayName: retire, retired, retiring, deprecate, deprecated, deprecating, happening
     href: overview-what-happened-batch-ai.md
+  - name: Migrate to Azure Machine Learning
+    href: how-to-migrate.md
   - name: What is Batch AI?
     href: overview.md
 - name: Quickstarts
