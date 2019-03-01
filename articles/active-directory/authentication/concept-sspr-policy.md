@@ -47,7 +47,7 @@ The two-gate policy requires two pieces of authentication data, such as an **ema
   * CRM service administrator
   * Power BI service administrator
   * Authentication administrator
-  * Privileged Authentication Administrator
+  * Privileged Authentication administrator
 
 * If 30 days have elapsed in a trial subscription; or
 * A vanity domain is present, such as contoso.com; or
