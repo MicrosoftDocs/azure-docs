@@ -123,6 +123,7 @@ The properties for schedule resources are described in the following table.
 The schedule resource should depend on the saved search so that it's created before the schedule.
 > [!NOTE]
 > Schedule Name must be unique in a given workspace; two schedules cannot have the same ID even if they are associated with different saved searches. Also name for all saved searches, schedules, and actions created with the Log Analytics API must be in lowercase.
+
 ### Actions
 A schedule can have multiple actions. An action may define one or more processes to perform such as sending a mail or starting a runbook, or it may define a threshold that determines when the results of a search match some criteria. Some actions will define both so that the processes are performed when the threshold is met.
 Actions can be defined using [action group] resource or action resource.
@@ -187,6 +188,7 @@ This section is optional. Include it for a metric measurement alert.
 
 > [!NOTE]
 > Metric measurement alerts are currently in public preview.
+
 | Element name | Required | Description |
 |:--|:--|:--|
 | TriggerCondition | Yes | Specifies whether the threshold is for total number of breaches or consecutive breaches from the following values:<br><br>**Total<br>Consecutive** |
@@ -218,6 +220,7 @@ Every schedule has one **Alert** action. This defines the details of the alert a
 
 > [!NOTE]
 > Beginning May 14, 2018, all alerts in an Azure public cloud instance of Log Analytics workspace began to automatically extend into Azure. For more information, see [Extend Alerts into Azure](../../azure-monitor/platform/alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group - Azure Resource Manager Template](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
+
 ##### EmailNotification
  This section is optional Include it if you want the alert to send mail to one or more recipients.
 
@@ -228,7 +231,7 @@ Every schedule has one **Alert** action. This defines the details of the alert a
 | Attachment | No | Attachments are not currently supported. If this element is included, it should be **None**. |
 
 ##### Remediation
-This section is optional Include it if you want a runbook to start in response to the alert. |
+This section is optional Include it if you want a runbook to start in response to the alert. 
 
 | Element name | Required | Description |
 |:--|:--|:--|
