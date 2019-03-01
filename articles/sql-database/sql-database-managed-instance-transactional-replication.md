@@ -84,7 +84,7 @@ In general, the publisher and the distributor must be either in the cloud or on-
 
 ### Publisher with local Distributor on a Managed Instance
 
-![Single instance as Publisher and Distributor ](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
+![Single instance as Publisher and Distributor](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
 
 Publisher and distributor are configured within a single Managed Instance and distributing changes to other Managed Instance, single database, pooled database, or SQL Server on-premises. In this configuration, publisher/distributor Managed Instance cannot be configured with [Geo-replication and auto failover-groups](sql-database-auto-failover-group.md).
 

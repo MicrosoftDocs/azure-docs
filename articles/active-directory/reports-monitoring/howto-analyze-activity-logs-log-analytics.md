@@ -27,6 +27,8 @@ After you [integrate Azure AD activity logs with Azure Monitor logs](howto-integ
 
 In this article, you learn how to analyze the Azure AD activity logs in your Log Analytics workspace. 
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## Prerequisites 
 
 To follow along, you need:

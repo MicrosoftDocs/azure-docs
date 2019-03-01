@@ -23,8 +23,8 @@ Make sure that your cluster is always running a supported Service Fabric version
 
 Refer to the following documents on details on how to keep your cluster running a supported Service Fabric version.
 
-- [Upgrade Service Fabric version on an Azure cluster ](service-fabric-cluster-upgrade.md)
-- [Upgrade Service Fabric version on a standalone windows server cluster ](service-fabric-cluster-upgrade-windows-server.md)
+- [Upgrade Service Fabric version on an Azure cluster](service-fabric-cluster-upgrade.md)
+- [Upgrade Service Fabric version on a standalone windows server cluster](service-fabric-cluster-upgrade-windows-server.md)
 
 Here are the list of the Service Fabric versions that are supported and their support end dates.
 
@@ -39,5 +39,5 @@ Here are the list of the Service Fabric versions that are supported and their su
 | 6.0.* | 5.6.205.* |Less than or equal to version  2.8 |March 30,2018     |
 | 6.1.* | 5.7.221.* |Less than or equal to version  3.0 |July 15,2018      |
 | 6.2.* | 6.0.232.* |Less than or equal to version  3.1 |October 26,2018   |
-| 6.3.* | 6.1.480.* |Less than or equal to version  3.2 |February 28,2019  |
+| 6.3.* | 6.1.480.* |Less than or equal to version  3.2 |March 31,2019  |
 | 6.4.* | 6.2.301.* |Less than or equal to version  3.3 |Current version and so no end date |
