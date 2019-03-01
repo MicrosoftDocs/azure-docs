@@ -24,6 +24,9 @@ An HTTP trigger can be customized to respond to [webhooks](https://en.wikipedia.
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
+> [!NOTE]
+> HTTP triggered functions running in Azure are subject to a 230 second timeout. When this timeout occurs the function will continue to run but the client making the HTTP request will recieve a timeout error. See [Avoid long running functions](./functions-best-practices.md#avoid-long-running-functions) for potential solutions.
+
 The code in this article defaults to Functions 2.x syntax which uses .NET Core. For information on the 1.x syntax, see the [1.x functions templates](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
 ## Packages - Functions 1.x
