@@ -118,9 +118,9 @@ The following table has a brief description of the commands available for `docke
 |`system`     | Manage Docker         |
 |`top`     | Display the running processes of a container         |
 
-To get help for any of the preceding commands, you can use the `dockerdbe <command-name> --help`.
+To get help for any available command, use `dockerdbe <command-name> --help`.
 
-For example, to understand the usage of the port command, type:
+For example, to understand the usage of the `port` command, type:
 
 ```powershell
 [10.128.47.126]: P> dockerdbe port --help
