@@ -30,7 +30,7 @@ In this tutorial, you implement two separate spoke networks to demonstrate separ
 
 ## Create the directory structure
 
-Two spoke scripts are created in this section. Each script defines a spoke virtual network as well as a virtual machine for the workload. A peered virtual network from hub to spoke is then created.
+Two spoke scripts are created in this section. Each script defines a spoke virtual network and a virtual machine for the workload. A peered virtual network from hub to spoke is then created.
 
 1. Browse to the [Azure portal](http://portal.azure.com).
 

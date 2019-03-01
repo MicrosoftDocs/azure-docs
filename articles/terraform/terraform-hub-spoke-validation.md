@@ -13,7 +13,7 @@ ms.date: 2/28/2019
 
 # Tutorial: Validate a hub and spoke network with Terraform in Azure
 
-This article is the final step of hub-spoke tutorial. Here we will execute all the terraform files created in the earlier steps and verify the connectivity between various virtual networks.
+In this article, you execute the terraform files created in the previous article in this series. The result is a validation of the connectivity between the demo virtual networks.
 
 [!div class="checklist"]
 
@@ -57,52 +57,39 @@ After completing the [prerequisites][#prerequisites], verify that the appropriat
 
 ## Deploying the resources
 
-### Initialize
-
-In this step, we will initialize the Terraform Azure Resource Manager provider using the following steps.
+1. Initialize the Terraform provider:
     
-```bash
+    ```bash
     terraform init
-```
+    ```
+    
+    ![Example results of "terraform init" command](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-init.jpg)
+    
+1. Run the `terraform plan` command to see the effect of the deployment before execution:
 
-![Example resuults of "terraform init" command](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-init.jpg)
-
-
-### Plan
-
-One of the benefits of Terraform is to visualize all the deployment actions before execution. The following steps explain the terraform plan command.
-
-```bash
+    ```bash
     terraform plan
-```
+    ```
+    
+    ![Example results of "terraform plan" command](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-plan.jpg)
 
-![Example results of "terraform plan" command](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-plan.jpg)
+1. Deploy the solution:
 
-### Apply
-
-The final step of the deployment is the apply command. 
-
-```bash
+    ```bash
     terraform apply
-```
+    ```
+    
+1. Enter `yes` when prompted to confirm the deployment.
 
+    ![Example results of "terraform apply" command](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-apply.jpg)
+    
+## Test connectivity to the hub VNet and Linux deployment
 
-Type **yes** when prompted.
+This section shows how to test connectivity from the simulated on-premises environment to the hub VNet.
 
-![Example results of "terraform apply" command](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-apply.jpg)
+1. Use the Azure portal to locate the VM named `onprem-vm` in the `onprem-vnet-rg` resource group.
 
-The above command should complete and deploy all the resources for the hub-spoke network.
-
-## Validation
-
-
-### Test connectivity to the hub VNet &mdash; Linux deployment
-
-To test conectivity from the simulated on-premises environment to the hub VNet using Linux VMs, follow these steps:
-
-1. Use the Azure portal to find the VM named `onprem-vm` in the `onprem-vnet-rg` resource group.
-
-2. Click `Connect` and copy the `ssh` command shown in the portal.
+2. Select `Connect` and copy to the clipboard the displayed `ssh` command.
 
 3. From a Linux prompt, run `ssh` to connect to the simulated on-premises environment. Use the password that you specified in the `on-prem.tf` parameter file.
 
@@ -112,13 +99,13 @@ To test conectivity from the simulated on-premises environment to the hub VNet u
    ping 10.0.0.68
    ```
 
-### Test connectivity to the spoke VNets &mdash; Linux deployment
+## Test connectivity to the spoke VNets and Linux deployment
 
-To test conectivity from the simulated on-premises environment to the spoke VNets using Linux VMs, perform the following steps:
+This section shows how to test connectivity from the simulated on-premises environment to the spoke VNets.
 
-1. Use the Azure portal to find the VM named `onprem-vm` in the `onprem-vnet-rg` resource group.
+1. Use the Azure portal to locate the VM named `onprem-vm` in the `onprem-vnet-rg` resource group.
 
-2. Click `Connect` and copy the `ssh` command shown in the portal.
+2. Select `Connect` and copy to the clipboard the displayed `ssh`.
 
 3. From a Linux prompt, run `ssh` to connect to the simulated on-premises environment. Use the password that you specified in the `on-prem.tf` parameter file.
 
@@ -131,8 +118,7 @@ To test conectivity from the simulated on-premises environment to the spoke VNet
 
 ## How to troubleshoot issues
 
-To troubleshoot a hybrid azure network please follow the troubleshooting tips in this [Troubleshoot a hybrid VPN connection](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn) article.
-
+For information about troubleshooting a hybrid azure network, [Troubleshoot a hybrid VPN connection](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn).
 
 ## Next steps
 
