@@ -103,9 +103,9 @@ This command lists the activity logs for the Authorization resource provider sin
 az monitor activity-log list --resource-provider "Microsoft.Authorization" --start-time 2018-04-20T00:00:00Z
 ```
 
-## Azure Log Analytics
+## Azure Monitor logs
 
-[Azure Log Analytics](../log-analytics/log-analytics-overview.md) is another tool you can use to collect and analyze RBAC changes for all your Azure resources. Log Analytics has the following benefits:
+[Azure Monitor logs](../log-analytics/log-analytics-overview.md) is another tool you can use to collect and analyze RBAC changes for all your Azure resources. Azure Monitor logs has the following benefits:
 
 - Write complex queries and logic
 - Integrate with alerts, Power BI, and other tools

@@ -19,15 +19,13 @@ ms.author: banders
 ---
 # Understand terms on your Microsoft Customer Agreement invoice
 
-This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-your-access-to-a-microsoft-customer-agreement).
+This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
 The invoice provides a summary of your charges and provides instructions for payment. It’s available for download in the Portable Document Format (.pdf) from the [Azure portal](https://portal.azure.com/) or can be sent via email. For more information, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md).
 
-A few things to note:
+<!-- ## When am I billed?
 
-## When am I billed?
-
-You are invoiced on a monthly basis. You can find out which day of the month you receive invoices by checking *invoice date* under billing profile properties in the [Azure portal](https://portal.azure.com/). Charges that occur between the end of the billing period and the invoice date are included in the next month's invoice, since they are in the next billing period. The billing period start and end dates for each invoice are listed in the invoice PDF above **Billing Summary**.
+You are invoiced on a monthly basis. You can find out which day of the month you receive invoices by checking *invoice date* under billing profile properties in the [Azure portal](https://portal.azure.com/). Charges that occur between the end of the billing period and the invoice date are included in the next month's invoice, since they are in the next billing period. The billing period start and end dates for each invoice are listed in the invoice PDF above **Billing Summary**. -->
 
 ## Invoice terms and descriptions
 
@@ -59,7 +57,7 @@ The **Billing Summary**  shows the charges against the billing profile since the
 | --- | --- |
 | Charges|Total number of Microsoft charges for this billing profile since the last billing period |
 | Credits |Credits you received from returns |
-| Azure credits applied |Your Azure credits that are automatically applied to Azure charges each billing period |
+| Azure credits applied | Azure credits that are automatically applied to Azure charges each billing period |
 | Subtotal |The pre-tax amount due |
 | Tax |The type and amount of tax that you pay, depending on the country of your billing profile. If you don't have to pay tax, then you won't see tax on your invoice. |
 | Estimated total savings |The estimated total amount you saved from effective discounts. If applicable, effective discount rates are listed beneath the purchase line items in Details by Invoice Section. |
@@ -98,12 +96,7 @@ At the bottom of the invoice, there are instructions for paying your bill. You c
 
 If you have third-party services in your bill, the name and address of each publisher is listed at the bottom of your invoice.
 
-### Exchange rate
-
-If prices were converted to your local currency, the exchange rates are listed in this section at the bottom of the invoice. All Azure charges are priced in USD and third-party services are priced in the seller's currency.
-
-## Check your access to a Microsoft Customer Agreement
-
+## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## Need help? Contact us

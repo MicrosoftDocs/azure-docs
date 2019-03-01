@@ -9,8 +9,10 @@
     href: billing-understand-your-bill-ea.md
   - name: Understand your bill - Microsoft Customer Agreement only
     href: billing-mca-understand-your-bill.md
-  - name: Get invoice and usage data
-    href: billing-download-azure-invoice-daily-usage-date.md
+  - name: View and download your Microsoft Azure invoice
+    href: billing-download-azure-invoice.md
+  - name: View and download your Microsoft Azure usage and charges
+    href: billing-download-azure-daily-usage.md
   - name: View and download tax documents for your billing profile
     href: billing-mca-download-tax-document.md
   - name: Third-party service charges
@@ -101,16 +103,20 @@
     href: billing-manage-access.md
   - name: EA roles in Azure
     href: billing-understand-ea-roles.md 
-  - name: Roles for Microsoft Customer Agreements
+  - name: Microsoft Customer Agreements roles in Azure
     href: billing-understand-mca-roles.md
   - name: Link partner ID
     href: billing-partner-admin-link-started.md
   - name: View billing accounts
     href: billing-view-all-accounts.md
-  - name: Group charges with invoice sections
+  - name: Organize costs with invoice sections
     href: billing-mca-section-invoice.md
+  - name: EA tasks in Microsoft Customer Agreement
+    href: billing-mca-enterprise-operations.md
   - name: Resolve past due balance
     href: billing-azure-subscription-past-due-balance.md
+  - name: Set up billing account for Microsoft Customer Agreement
+    href: billing-mca-setup-account.md
   - name: Sign up with Office 365 account
     href: billing-use-existing-office-365-account-azure-subscription.md
   - name: Sign up for Office 365 with Azure account

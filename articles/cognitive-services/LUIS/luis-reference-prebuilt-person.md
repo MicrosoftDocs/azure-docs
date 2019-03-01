@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: This article contains personName prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding

@@ -18,9 +18,9 @@ ms.author: banders
 ms.custom: seodec18
 
 ---
-# View the tax documents for your billing profile
+# View the tax documents for your Microsoft Customer Agreement
 
-This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-your-access-to-a-microsoft-customer-agreement).
+This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
 ## View and download tax documents
 
@@ -34,11 +34,12 @@ You must be the Owner, Contributor, Reader, or Invoice Manager of the billing pr
 5. Click on the ellipsis (`...`) at the end of the row.
 6. Select **Tax document**.
 
-## Check your access to a Microsoft Customer Agreement
+## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## Next steps
 
 - [View your organization's Azure pricing](billing-ea-pricing.md)
-- [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md)
+- [View and download your Microsoft Azure invoice](billing-download-azure-invoice.md)
+- [View and download your Microsoft Azure usage and charges](billing-download-azure-daily-usage.md)
 - [Understand the charges on your billing profile's invoice](billing-understand-your-bill-mca.md).
