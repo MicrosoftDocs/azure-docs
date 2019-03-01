@@ -16972,7 +16972,12 @@
     },
     {
       "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-operations.md",
-      "redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-operations",
+      "redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-staging-server",
+      "redirect_document_id": false
+    },
+	    {
+      "source_path": "articles/active-directory/hybrid/how-to-connect-sync-operations.md",
+      "redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-staging-server",
       "redirect_document_id": false
     },
     {
@@ -36094,6 +36099,11 @@
     {
       "source_path": "articles/hdinsight/hadoop/apache-hadoop-dotnet-avro-serialization.md",
       "redirect_url": "/dotnet/api/overview/azure/hdinsight?view=azure-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/concept-extracting-text-ocr.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/concept-recognizing-text#ocr-optical-character-recognition-api",
       "redirect_document_id": false
     },
     {
