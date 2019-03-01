@@ -37,7 +37,7 @@ To develop functions using Java, you must have the following installed:
 
 In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
-### Linux/MacOS
+### Linux/macOS
 
 ```bash
 mvn archetype:generate \
