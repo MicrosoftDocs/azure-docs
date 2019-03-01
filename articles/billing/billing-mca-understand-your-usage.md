@@ -31,11 +31,11 @@ can open in a spreadsheet application.
 Usage charges are the total **monthly** charges on a subscription. The
 usage charges don’t take into account any credits or discounts.
 
-## Changes in the Azure usage and charges CSV
+## Changes in the Enterprise Agreement detailed usage CSV
 
 If you were an EA customer, you'll notice that the terms in the billing profile Azure usage CSV file are different than the terms in the EA Azure usage CSV file. Here's a mapping of EA usage terms to billing profile usage terms:
 
-| EA Azure usage CSV | Billing profile Azure usage CSV |
+| EA Azure usage CSV | Microsoft Customer Agreement Azure usage CSV |
 | --- | --- |
 | Date | date |
 | Month| date |
@@ -66,7 +66,7 @@ If you were an EA customer, you'll notice that the terms in the billing profile 
 
 <!-- TO DO: Marketplace CSV? -->
 
-## Detailed terms and descriptions of your detailed usage file
+## Detailed terms and descriptions of your usage file
 
 The following sections describe the important terms shown in detailed Azure usage and charges file.
 
@@ -119,7 +119,7 @@ serviceInfo2 | Legacy field that captures optional service-specific metadata
 additionalInfo | Additional service-specific metadata.
 tags | Tags you assign to the resource
 
-## How do I make sure that the charges in my detailed usage file are correct?
+### How do I make sure that the charges in my detailed usage file are correct?
 If there is a charge on your detailed usage file that you would like
 more details on, see [Understand the charges on your billing profile's invoice](billing-understand-your-bill-mca.md)
 

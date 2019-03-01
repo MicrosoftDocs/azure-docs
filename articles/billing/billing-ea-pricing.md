@@ -1,5 +1,5 @@
 ---
-title: View your organization's Azure pricing | Microsoft Docs
+title: View and download your organization's Azure pricing | Microsoft Docs
 description: Learn how to view and download pricing or estimate costs with your organization's pricing.
 services: ''
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: banders
 ms.custom: seodec18
 
 ---
-# View your organization's Azure pricing
+# View and download your organization's Azure pricing
 
 Azure customers with an Enterprise Agreement (EA) or [Microsoft Customer Agreement](#check-your-access-to-a-microsoft-customer-agreement) may view and download their pricing from the Azure portal. If you have a Microsoft Customer Agreement, see [View and download pricing for your Microsoft Customer Agreement](#View-and-download-pricing-for-your-billing-profile).
 

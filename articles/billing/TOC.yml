@@ -9,11 +9,13 @@
     href: billing-understand-your-bill-ea.md
   - name: Understand your bill - Microsoft Customer Agreement only
     href: billing-mca-understand-your-bill.md
+  - name: View and download your Microsoft Azure invoice and daily usage
+    href: billing-download-azure-invoice-daily-usage-date.md
   - name: View and download your Microsoft Azure invoice
     href: billing-download-azure-invoice.md
   - name: View and download your Microsoft Azure usage and charges
     href: billing-download-azure-daily-usage.md
-  - name: View and download tax documents for your billing profile
+  - name: View and download tax documents for your Microsoft Customer Agreement
     href: billing-mca-download-tax-document.md
   - name: Third-party service charges
     href: billing-understand-your-azure-marketplace-charges.md
@@ -31,7 +33,7 @@
   items:
   - name: Prevent unexpected costs
     href: billing-getting-started.md
-  - name: View your organization's pricing
+  - name: View and download your organization's pricing
     href: billing-ea-pricing.md
   - name: Use resource tags
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
