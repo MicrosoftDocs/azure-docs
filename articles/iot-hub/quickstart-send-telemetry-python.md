@@ -27,13 +27,11 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-The two sample applications you run in this quickstart are written using Python.
+The two sample applications you run in this quickstart are written using Python. Currently, the Microsoft Azure IoT SDKs for Python support only specific versions of Python for each platform. To learn more, see the [Python SDK Readme](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
 
-You can download Python for multiple platforms from [Python.org](https://www.python.org/downloads/).
-The Python installer you choose should be based on the architecture of the system that you are working with. If your system CPU architecture is 32 bit then download x86, which is the default installer on Python.org and for the 64bit architecture you need to download x86-64 installer.
+This quickstart assumes you are using a Windows development machine. For Windows systems, only [Python 3.6.x](https://www.python.org/downloads/release/python-368/) is supported. The Python installer you choose should be based on the architecture of the system that you are working with. If your system CPU architecture is 32 bit, then download the x86 installer; for the 64bit architecture, download the x86-64 installer. Additionally, make sure the [Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) is installed for your architecture (x86 or x64).
 
-> [!IMPORTANT]
-> Currently, the IoT Python SDK supports only specific versions of Python without rebuilding. This quickstart assumes you are using a Windows development machine. For Windows systems, only Python 3.6.x is supported. Additionally, you need to ensure that the appropriate [Microsoft Visual C++ Redistributable](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) is installed for your architecture (x86 or x64). For requirements on other platforms, see the [Python SDK Readme](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
+You can download Python for other platforms from [Python.org](https://www.python.org/downloads/).
 
 You can verify the current version of Python on your development machine using one of the following commands:
 
