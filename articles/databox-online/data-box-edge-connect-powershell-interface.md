@@ -65,7 +65,7 @@ If the compute role is configured on your device, you can also get the compute l
     The following example shows the usage of this cmdlet:
 
     ```
-    Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "mypassword" -RoleInstanceName "lotRole" -FullLogCollection
+    Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username/password" -RoleInstanceName "lotRole" -FullLogCollection
     ```
     Here is a description of the parameters used for the cmdlet: 
     - `Path`: Provide a network path to the share where you want to create the compute log package.
