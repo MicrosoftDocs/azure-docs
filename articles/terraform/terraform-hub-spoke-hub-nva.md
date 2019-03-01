@@ -49,7 +49,7 @@ Azure supports a broad variety of network virtual appliances from which to selec
     cd hub-spoke
     ```
 
-## Declare the hub network appliance Terraform configuration files
+## Declare the hub network appliance
 
 Create the Terraform configuration file that declares On-Premises Virtual network.
 

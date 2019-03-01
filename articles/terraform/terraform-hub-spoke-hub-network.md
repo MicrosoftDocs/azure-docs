@@ -54,7 +54,7 @@ The following Terraform configuration file defines the resources:
     cd hub-spoke
     ```
 
-## Declare the Hub VNet Terraform configuration files
+## Declare the hub VNet
 
 Create the Terraform configuration file that declares Hub virtual network.
 

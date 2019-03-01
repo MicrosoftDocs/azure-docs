@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ---
 
-# Tutorial: Create a spoke virtual networks with Terraform in Azure
+# Tutorial: Create a spoke virtual network with Terraform in Azure
 
 In this tutorial, you implement two separate spoke networks to demonstrate separation of workloads. The networks share common resources using hub virtual network. Spokes can be used to isolate workloads in their own VNets, managed separately from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers.
 
@@ -49,7 +49,7 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
     cd hub-spoke
     ```
 
-## Declare the Hub network appliance Terraform configuration files
+## Declare the Hub network appliance
 
 Create the Terraform configuration file that declares two spoke virtual networks.
 

@@ -82,7 +82,7 @@ After completing the [prerequisites][#prerequisites], verify that the appropriat
 
     ![Example results of "terraform apply" command](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-apply.jpg)
     
-## Test connectivity to the hub VNet and Linux deployment
+## Test the hub VNet
 
 This section shows how to test connectivity from the simulated on-premises environment to the hub VNet.
 
@@ -98,7 +98,7 @@ This section shows how to test connectivity from the simulated on-premises envir
    ping 10.0.0.68
    ```
 
-## Test connectivity to the spoke VNets and Linux deployment
+## Test the spoke VNets
 
 This section shows how to test connectivity from the simulated on-premises environment to the spoke VNets.
 

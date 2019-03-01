@@ -47,7 +47,7 @@ To simulate an on-premises network, create an Azure virtual network. The demo VN
     cd hub-spoke
     ```
 
-## Declare the on-premises Terraform configuration files
+## Declare the on-premises VNet
 
 Create the Terraform configuration file that declares an on-premises VNet.
 
