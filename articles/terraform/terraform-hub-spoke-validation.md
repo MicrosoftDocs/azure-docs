@@ -115,11 +115,7 @@ This section shows how to test connectivity from the simulated on-premises envir
    ping 10.2.0.68
    ```
 
-## How to troubleshoot issues
-
-For information about troubleshooting a hybrid azure network, [Troubleshoot a hybrid VPN connection](/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn).
-
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Terraform in Azure](/azure/terraform/)
+> [Troubleshoot a hybrid VPN connection](/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn)
