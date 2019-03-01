@@ -108,12 +108,18 @@ ws.set_default_datastore('your datastore name')
 ```
 
 ## Upload and download data
+The [`upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) and [`download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) methods described in the following examples are specific to and operate identically for the [AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py) and [AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py) classes.
+
 ### Upload
-Upload either a directory or individual files to the datastore using the Python SDK.
+
+ Upload either a directory or individual files to the datastore using the Python SDK.
 
 To upload a directory to a datastore `ds`:
 
 ```Python
+import azureml.data
+from azureml.data import AzureFileDatastore, AzureBlobDatastore
+
 ds.upload(src_dir='your source directory',
           target_path='your target path',
           overwrite=True,

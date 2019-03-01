@@ -23,6 +23,9 @@ The [built-in monitoring and alerting article](backup-azure-monitoring-built-in-
 
 ## Using Log Analytics Workspace
 
+> [!NOTE]
+> Data from Azure VM backups, MAB Agent, System Center DPM (SC-DPM) is being pumped to the Log Analytics workspace via diagnostic settings. Support for SQL backups in Azure VMs, Azure File share backups, Microsoft Azure Backup Server (MABS) is coming soon.
+
 We are leveraging the capabilities of two Azure services - **Diagnostic settings** (to send data from multiple Azure Resource Manager resources to another resource) and **Log Analytics** (LA - to generate custom alerts where you can define other notification channels using Action groups) for monitoring at scale. The following sections detail on how to use LA to monitor Azure Backup at scale.
 
 ### Configuring Diagnostic settings
@@ -34,7 +37,7 @@ An Azure Resource Manager resource such as Azure Recovery services vault records
 You can select an LA workspace from another subscription as the target. *By selecting the same LA workspace for multiple RS vaults, you can monitor vaults across subscriptions in a single place.* Select 'AzureBackupReport' as the log to channel all Azure Backup related information to the LA workspace.
 
 > [!IMPORTANT]
-> After you have completed the configuration, you should wait for 24 hours for initial data push to complete. Thereafter all the events are pushed whenever they are generated (which might translate to an overall lag of 15-20 mins). For very frequent operations like log backups of DB workloads such as SQL, they are batched and sent every X mins
+> After you have completed the configuration, you should wait for 24 hours for initial data push to complete. Thereafter all the events are pushed as mentioned in the [frequency section](#diagnostic-data-update-frequency).
 
 ### Deploying solution to Log Analytics workspace
 
