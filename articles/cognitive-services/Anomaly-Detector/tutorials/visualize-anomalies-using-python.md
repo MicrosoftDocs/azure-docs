@@ -1,18 +1,18 @@
 ---
-title: Anomaly Finder Python app - Microsoft Cognitive Services | Microsoft Docs
+title: Visualize data anomalies using the Anomaly Finder API and Python | Microsoft Docs
 description: Explore a Python notebook that uses the Anomaly Finder API in Microsoft Cognitive Services. Send original data points to API and get the expected value and anomaly points.
 services: cognitive-services
-author: chliang
-manager: bix
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: anomaly-detection
 ms.topic: article
-ms.date: 05/01/2018
-ms.author:  chliang
+ms.date: 03/01/2019
+ms.author:  aahi
 ---
 
-# Anomaly Finder Python application
+# Visualize data anomalies using the Anomaly Finder API and Python
 
 The tutorial shows how to use the Anomaly Finder API in Python and how to visualize your results using popular libraries. Using Jupyter to run the tutorial and trying your own data with your subscription key. To learn how to get started
 with interactive Jupyter notebooks, refer to [Jupyter Documentation](http://jupyter.readthedocs.io/en/latest/index.html).

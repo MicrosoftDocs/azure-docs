@@ -1,18 +1,17 @@
 ---
-title: Detect latest point anomaly status  - C# - Anomaly Finder - Microsoft Cognitive Services | Microsoft Docs
-description: Get information and code samples to help you quickly get started using C# and the Anomaly Finder API in Cognitive Services.
+title: Determine the anomaly status of your latest data point using the Anomaly Detector REST API and C# | Microsoft Docs
+description: Use your past data points from your time series to determine if later ones are anomalies.
 services: cognitive-services
-author: chliang, tonyxing
-manager: bix
-
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detection
 ms.topic: article
-ms.date: 02/20/2019
-ms.author: chliang, tonyxing
+ms.date: 03/01/2019
+ms.author: aahi
 ---
 
-# Detect anomaly status of latest point   - C# - Anomaly Finder
+# Determine the anomaly status of your latest data point using the Anomaly Detector REST API and C# 
 
 This article provides information and code samples to help you get started using the Anomaly Finder API. With the [Detect latest point anomaly status](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyFinderV2/operations/post-timeseries-last-detect) method, you can accomplish task of detecting latest point anomaly status.
 
@@ -120,4 +119,7 @@ A successful response is returned in JSON. Click TBD to see the response from th
 
 ## Next steps
 
-> [C# app](../tutorials/csharp-tutorial.md)
+> [!div class="nextstepaction"]
+> [Visualize anomalies using Python](../tutorials/visualize-anomalies-using-python.md)
+
+> [REST API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyFinderV2/operations/post-timeseries-entire-detect)

@@ -1,18 +1,18 @@
 ---
-title: Detect latest point anomaly status  - PHP - Anomaly Finder - Microsoft Cognitive Services | Microsoft Docs
-description: Get information and code samples to help you quickly get started using Anomaly Finder with PHP in Cognitive Services.
+title: Determine the anomaly status of your latest data point using the Anomaly Detector REST API and PHP | Microsoft Docs
+description: Use your past data points from your time series to determine if later ones are anomalies.
 services: cognitive-services
-author: chliang
-manager: bix
-
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detection
 ms.topic: article
-ms.date: 05/01/2018
-ms.author: chliang
+ms.date: 03/01/2019
+ms.author: aahi
 ---
 
-# Detect latest point anomaly status  - PHP - Anomaly Finder
+# Determine the anomaly status of your latest data point using the Anomaly Detector REST API and PHP 
+
 
 This article provides information and code samples to help you get started using the Anomaly Finder API. With the [Detect latest point anomaly status](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyFinderV2/operations/post-timeseries-last-detect) method, you can detect latest point anomaly status.
 
@@ -77,4 +77,7 @@ A successful response is returned in JSON. Click TBD to see the response from th
 
 ## Next steps
 
-> [REST API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyFinderV2/operations/post-timeseries-last-detect)
+> [!div class="nextstepaction"]
+> [Visualize anomalies using Python](../tutorials/visualize-anomalies-using-python.md)
+
+> [REST API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyFinderV2/operations/post-timeseries-entire-detect)

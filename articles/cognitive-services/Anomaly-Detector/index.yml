@@ -55,7 +55,7 @@ sections:
         text: "Java"
       - image:
           src: media/logo_nodejs.svg
-        href:   quickstarts/find-data-anomalies-batch-javascript
+        href:   quickstarts/find-data-anomalies-batch-nodejs
         text: "Node.js"
       - image:
           src: media/logo_python.svg
@@ -76,7 +76,7 @@ sections:
         text: "Java"
       - image:
           src: media/logo_nodejs.svg
-        href:   quickstarts/find-data-anomalies-streaming-javascript
+        href:   quickstarts/find-data-anomalies-streaming-nodejs
         text: "Node.js"
       - image:
           src: media/logo_python.svg

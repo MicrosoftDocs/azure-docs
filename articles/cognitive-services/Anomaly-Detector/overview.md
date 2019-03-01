@@ -40,7 +40,7 @@ To run the demo, complete the following steps:
 1.	Sign in, and click **Clone**, in the upper right corner.
 3.	click **Run on free compute**
 4.	Open one of the notebook, for example, Anomaly Finder API Example Private Preview (Batch Method).ipynb
-5.	Fill in the key in cell containing:  subscription_key = '' #Here you have to paste your primary key. You can get the key by creating a [Cognitive Services account](../cognitive-services-apis-create-account.md). following the instructions on [obtaining a subscription key](How-to/get-subscription-key.md)
+5.	Fill in the key in cell containing:  subscription_key = '' #Here you have to paste your primary key. You can get the key by creating a [Cognitive Services account](../cognitive-services-apis-create-account.md).
 6.	In the Notebook main menu, Cell->run all
 
 ## Workflow

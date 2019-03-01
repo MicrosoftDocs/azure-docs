@@ -1,18 +1,17 @@
 ---
-title: Find time series anomalies in batch  - Python - Anomaly Finder - Microsoft Cognitive Services | Microsoft Docs
-description: Get information and code samples to help you quickly get started using Anomaly Finder with Python in Cognitive Services.
+title: Find anomalies as a batch using the Anomaly Finder REST API and Python | Microsoft Docs
+description: Use the Anomaly Detection API to detect abnormalities in your data series as a batch.
 services: cognitive-services
-author: chliang
-manager: bix
-
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detection
 ms.topic: article
-ms.date: 05/01/2018
-ms.author: chliang
+ms.date: 03/01/2019
+ms.author: aahi
 ---
 
-# Find time series anomalies in batch  - Python - Anomaly Finder
+# Find anomalies as a batch using the Anomaly Finder REST API and Python
 
 This article provides information and code samples to help you get started using the Anomaly Finder API. With the [Find time series anomalies in batch](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyFinderV2/operations/post-timeseries-entire-detect) method, you can get anomalies of time series in batch.
 
@@ -68,4 +67,7 @@ A successful response is returned in JSON. Click TBD to see the response from th
 
 ## Next steps
 
-> [Python app](../tutorials/python-tutorial.md)
+> [!div class="nextstepaction"]
+> [Visualize anomalies using Python](../tutorials/visualize-anomalies-using-python.md)
+
+> [REST API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyFinderV2/operations/post-timeseries-entire-detect)

@@ -31,19 +31,19 @@ Anomaly Finder API returns default results on whether a data point is anomaly or
 
 ### Examples with 99/95/85 as sensitivity
 
-![Default Sensitivity](./media/sensitivity_99.png)
+![Default Sensitivity](../media/sensitivity_99.png)
 
-![99 Sensitivity](./media/sensitivity_95.png)
+![99 Sensitivity](../media/sensitivity_95.png)
 
-![85 Sensitivity](./media/sensitivity_85.png)
+![85 Sensitivity](../media/sensitivity_85.png)
 
 Request with sample data
 
-[Sample Request](./includes/request.md)
+[Sample Request](../includes/request.md)
 
 Sample JSON response
 
-[Sample Response](./includes/response.md)
+[Sample Response](../includes/response.md)
 
 ## How to use the APIs to do continuous monitoring 
 
