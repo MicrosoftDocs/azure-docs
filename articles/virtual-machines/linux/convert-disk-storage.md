@@ -21,19 +21,19 @@ ms.subservice: disks
 
 # Convert Azure managed disks storage from Standard to Premium or Premium to Standard
 
-Managed disks offers four [disk type](disks-types.md) options: Ultra solid state drive (SSD), Premium SSD, Standards SSD, and Standard hard disk drive (HDD). You can easily switch between these options with minimal downtime based on your performance needs. This functionality is not supported for unmanaged disks. But you can easily [convert to managed disks](convert-unmanaged-to-managed-disks.md) to switch between disk types.
+There are four Azure managed disks [disk types](disks-types.md): Azure Ultra Disk Storage, Premium SSD, Standard SSD, and Standard HDD. You can easily switch managed disks between these options based on your performance needs with little downtime. This functionality is not supported for unmanaged disks. But you can easily [convert unmanaged to managed disks](convert-unmanaged-to-managed-disks.md) to be able to switch between disk types.
 
-This article shows you how to convert managed disks from standard to premium or premium to standard by using Azure CLI. If you need to install or upgrade the tool, [Install Azure CLI](/cli/azure/install-azure-cli).
+This article shows how to convert managed disks from Standard to Premium or Premium to Standard by using Azure CLI. To install or upgrade the tool: [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Before you begin
 
-* The conversion requires a restart of the VM, so schedule the migration of your disks storage during a pre-existing maintenance window.
-* If you're using unmanaged disks, first [convert to managed disks](convert-unmanaged-to-managed-disks.md) so you can switch between storage options.
+* Disk conversion requires a restart of the Virtual Machine (VM), so schedule the migration of your disk storage during a pre-existing maintenance window.
+* For unmanaged disks, first [convert to managed disks](convert-unmanaged-to-managed-disks.md) so you can switch between storage options.
 
 
-## Convert all the managed disks of a VM from standard to premium or premium to standard
+## Convert all managed disks of a VM between Premium and Standard
 
-The following example shows how to switch all the disks of a VM from standard to premium storage or premium to standard. To use premium managed disks, your VM must use a [VM size](sizes.md) that supports premium storage. This example also switches to a size that supports premium storage.
+This example shows how to convert all of a VM's disks from Standard to Premium storage or from Premium to Standard storage. To use Premium-managed disks, your VM must use a [VM size](sizes.md) that supports Premium storage. This example also switches to a size that supports Premium storage.
 
  ```azurecli
 
@@ -44,7 +44,7 @@ rgName='yourResourceGroup'
 vmName='yourVM'
 
 #Premium capable size 
-#Required only if converting from standard to premium
+#Required only if converting from Standard to Premium
 size='Standard_DS2_v2'
 
 #Choose between Standard_LRS and Premium_LRS based on your scenario
@@ -53,8 +53,8 @@ sku='Premium_LRS'
 #Deallocate the VM before changing the size of the VM
 az vm deallocate --name $vmName --resource-group $rgName
 
-#Change the VM size to a size that supports premium storage 
-#Skip this step if converting storage from premium to standard
+#Change the VM size to a size that supports Premium storage 
+#Skip this step if converting storage from Premium to Standard
 az vm resize --resource-group $rgName --name $vmName --size $size
 
 #Update the SKU of all the data disks 
@@ -68,9 +68,9 @@ az vm show -n $vmName -g $rgName --query storageProfile.osDisk.managedDisk -o ts
 az vm start --name $vmName --resource-group $rgName
 
 ```
-## Convert invidiual managed disks from standard to premium or premium to standard
+## Convert individual managed disks between Standard and Premium
 
-For your dev/test workload, you may want to have mixture of standard and premium disks to reduce your costs. You can choose to upgrade to premium only certain disks that require better performance. The following example shows how to switch a single disk of a VM from standard to premium storage or from premium to standard. To use premium managed disks, your VM must use a [VM size](sizes.md) that supports premium storage. This example also switches to a size that supports premium storage.
+For your dev/test workload, you may want to have a mix of Standard and Premium disks to reduce your costs. You can choose to upgrade only those disks that need better performance. This example shows how to convert a single VM disk from Standard to Premium storage or from Premium to Standard storage. To use Premium managed disks, your VM must use a [VM size](sizes.md) that supports Premium storage. This example also switches to a size that supports Premium storage.
 
  ```azurecli
 
@@ -81,7 +81,7 @@ rgName='yourResourceGroup'
 diskName='yourManagedDiskName'
 
 #Premium capable size 
-#Required only if converting from standard to premium
+#Required only if converting from Standard to Premium
 size='Standard_DS2_v2'
 
 #Choose between Standard_LRS and Premium_LRS based on your scenario
@@ -93,19 +93,19 @@ vmId=$(az disk show --name $diskName --resource-group $rgName --query managedBy 
 #Deallocate the VM before changing the size of the VM
 az vm deallocate --ids $vmId 
 
-#Change the VM size to a size that supports premium storage 
-#Skip this step if converting storage from premium to standard
+#Change the VM size to a size that supports Premium storage 
+#Skip this step if converting storage from Premium to Standard
 az vm resize --ids $vmId --size $size
 
-# Update the sku
+# Update the SKU
 az disk update --sku $sku --name $diskName --resource-group $rgName 
 
 az vm start --ids $vmId 
 ```
 
-## Convert a managed disk from standard HDD to standard SSD or standard SSD to standard HDD
+## Convert managed disks between Standard HDD and Standard SSD
 
-The following example shows how to switch a single disk of a VM from standard HDD to standard SSD.
+This example shows how to convert a single VM disk from Standard HDD to Standard SSD or from Standard SSD to Standard HDD.
 
  ```azurecli
 
@@ -118,33 +118,33 @@ diskName='yourManagedDiskName'
 #Choose between Standard_LRS and StandardSSD_LRS based on your scenario
 sku='StandardSSD_LRS'
 
-#Get the parent VM Id 
+#Get the parent VM ID 
 vmId=$(az disk show --name $diskName --resource-group $rgName --query managedBy --output tsv)
 
 #Deallocate the VM before changing the disk type
 az vm deallocate --ids $vmId 
 
-# Update the sku
+# Update the SKU
 az disk update --sku $sku --name $diskName --resource-group $rgName 
 
 az vm start --ids $vmId 
 ```
 
-## Convert managed disks between standard and premium in Azure portal
+## Convert managed disks between Standard and Premium in Azure portal
 
-You can convert managed disks between standard and premium in the Azure portal.
+Follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select the VM from the list of **Virtual machines** in the portal.
-3. If the VM is not stopped, click **Stop** on the top of the VM **Overview** pane, and wait for the VM to stop.
-3. In the blade for the VM, select **Disks** from the menu.
-4. Select the disk that you want to convert.
-5. Select **Configuration** from the menu.
-6. Change the **Account type** from **Standard HDD** to **Premium SSD** (or from **Premium SSD to **Standard HDD**).
-7. Click **Save**, and close the disk blade.
+2. Select the VM from the list of **Virtual machines**.
+3. If the VM isn't stopped, select **Stop** at the top of the VM **Overview** pane, and wait for the VM to stop.
+4. In the pane for the VM, select **Disks** from the menu.
+5. Select the disk that you want to convert.
+6. Select **Configuration** from the menu.
+7. Change the **Account type** from **Standard HDD** to **Premium SSD** or from **Premium SSD** to **Standard HDD**.
+8. Select **Save**, and close the disk pane.
 
-The update of the disk type is instantaneous. You can restart your VM after the conversion.
+The disk type update is instantaneous. You can restart your VM after the conversion.
 
 ## Next steps
 
-Take a read-only copy of a VM by using [snapshots](snapshot-copy-managed-disk.md).
+Make a read-only copy of a VM by using [snapshots](snapshot-copy-managed-disk.md).
