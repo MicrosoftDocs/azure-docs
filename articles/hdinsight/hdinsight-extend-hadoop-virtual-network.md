@@ -13,6 +13,9 @@ ms.date: 11/06/2018
 
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
+> [!IMPORTANT]  
+> After Feb 28, 2019, the networking resources (such as NICs, LBs, etc) for NEW clusters created in a VNET will be provisioned in the same HDInsight cluster resource group. Previously, these resources were provisioned in the VNET resource group. There is no change to the current running clusters and those clusters created without a VNET.
+
 Learn how to use HDInsight with an [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Using an Azure Virtual Network enables the following scenarios:
 
 * Connecting to HDInsight directly from an on-premises network.
