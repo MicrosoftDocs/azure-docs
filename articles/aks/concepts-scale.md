@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 02/28/2019
 ms.author: iainfou
 ---
 
@@ -47,7 +47,7 @@ You may need to tune these cooldown values. The default cooldown values may give
 
 ## Cluster autoscaler
 
-To respond to changing pod demands, Kubernetes has a cluster autoscaler that adjusts the number of nodes based on the requested compute resources in the node pool. By default, the cluster autoscaler checks the API server every 10 seconds for any required changes in node count. If the cluster autoscale determines that a change is required, the number of nodes in your AKS cluster is increased or decreased accordingly. The cluster autoscaler works with RBAC-enabled AKS clusters that run Kubernetes 1.10.x or higher.
+To respond to changing pod demands, Kubernetes has a cluster autoscaler that adjusts the number of nodes based on the requested compute resources in the node pool. The cluster autoscaler uses startup parameters for things like time intervals between scale events and resource thresholds. If the cluster autoscale determines that a change is required, the number of nodes in your AKS cluster is increased or decreased accordingly. AKS clusters that use the cluster autoscaler run on virtual machine scale sets to manage the scale up and scale down events of the AKS nodes.
 
 ![Kubernetes cluster autoscaler](media/concepts-scale/cluster-autoscaler.png)
 
