@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/21/2019
+ms.date: 02/28/2019
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -57,7 +57,7 @@ A named location has the following components:
 
 - **Name** - The display name of a named location.
 
-- **IP ranges** - One or more IPv4 address ranges in CIDR format. Specifying an Ipv6 address range is not supported.
+- **IP ranges** - One or more IPv4 address ranges in CIDR format. Specifying an IPv6 address range is not supported.
 
 - **Mark as trusted location** - A flag you can set for a named location to indicate a trusted location. Typically, trusted locations are network areas that are controlled by your IT department. In addition to conditional access, trusted named locations are also used by Azure Identity Protection and Azure AD security reports to reduce [false positives](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 
@@ -140,7 +140,7 @@ By default, Azure AD issues a token on an hourly basis. After moving off the cor
 
 ### User IP address
 
-The IP address that is used in policy evaluation is the public IP address of the user. For devices on a private network, this is not the client IP of the user’s device on the intranet, it is the address used by the network to connect to the public internet. 
+The IP address that is used in policy evaluation is the public IP address of the user. For devices on a private network, this is not the client IP of the user’s device on the intranet, it is the address used by the network to connect to the public internet. If your device has only a IPv6 address, configuring the location condition is not supported.
 
 ### Bulk uploading and downloading of named locations
 

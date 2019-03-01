@@ -90,7 +90,7 @@ Looking for a region we don't support yet? Let us know by filing a feature reque
 
  Cognitive Services supports a wide range of cultural languages at the service level. You can find the language availability for each API in the [supported languages list](language-support.md).
 
- ## Container support
+## Container support
 
  Cognitive Services provides containers for deployment in the Azure cloud or on-premises. Learn more about [Cognitive Services Containers](cognitive-services-container-support.md).
 
