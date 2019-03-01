@@ -56,6 +56,11 @@ You will build and test the Azure Functions app locally. The app will access a S
 
 1. Click **Create**.
 
+1. After the instance is deployed, open it in the portal and locate its Settings page. Change the Service Mode setting to *Serverless*.
+
+    ![SignalR Service Service Mode](media/signalr-concept-azure-functions/signalr-service-mode.png)
+
+
 ## Initialize the function app
 
 ### Create a new Azure Functions project
