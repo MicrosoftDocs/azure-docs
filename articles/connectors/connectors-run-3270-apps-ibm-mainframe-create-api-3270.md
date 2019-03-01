@@ -42,28 +42,29 @@ and how the connector runs 3270 screen-driven apps
 
 To access apps on IBM mainframes, you typically use a 
 3270 terminal emulator, often called a "green screen". 
-This method is a time-hardened way but has many limitations. 
-Although Host Integration Server (HIS) lets you work directly 
-with these apps, sometimes, separating the screen and business 
-logic isn't possible. Or maybe you no longer have information 
-about how the host applications work.
+This method is a time-tested way but has limitations. 
+Although Host Integration Server (HIS) helps you work 
+directly with these apps, sometimes, separating the 
+screen and business logic might not be possible. Or, 
+maybe you no longer have information for how the host 
+applications work.
 
 To extend these scenarios, the IBM 3270 connector in 
 Azure Logic Apps works with the IBM 3270 Design Tool, 
 which you use to record, or "capture", the host screens 
-used for a specific task, define the navigation flow through 
-your mainframe app for that task, and define the methods with 
-input and output parameters for that task. The design tool 
-converts that information into metadata that the 3270 
-connector uses when calling an action that represents 
-that task from your logic app. 
+used for a specific task, define the navigation flow for 
+that task through your mainframe app, and define the methods 
+with input and output parameters for that task. The design 
+tool converts that information into metadata that the 3270 
+connector uses when calling an action that represents that 
+task from your logic app.
 
 After you generate the metadata file from the design tool, 
-you add the file to an integration account in Azure. That way, 
-your logic app can access the metadata about your app when you 
-add a 3270 connector action. The connector reads the metadata 
-file from your integration account, handles navigation through 
-the 3270 screens, and dynamically presents the parameters for 
+you add that file to an integration account in Azure. That way, 
+your logic app can access your app's metadata when you add a 
+3270 connector action. The connector reads the metadata file 
+from your integration account, handles navigation through the 
+3270 screens, and dynamically presents the parameters for 
 the 3270 connector action. You can then provide data to the 
 host application, and the connector returns the results to 
 your logic app. That way, you can integrate your legacy apps 
@@ -85,7 +86,7 @@ that Azure Logic Apps supports.
   to resources that are protected inside Azure virtual networks.
 
 * The logic app to use for automating and running 
-your 3270 screen-driven app 
+your 3270 screen-driven app
 
   The IBM 3270 connector doesn't have triggers, 
   so use another trigger to start your logic app, 
@@ -132,8 +133,8 @@ your app, which you can provide as metadata. This metadata describes
 information that helps your logic app identify and recognize screens, 
 describes how to navigate between screens, where to input data, 
 and where to expect results. To specify and generate this metadata, 
-you use the standalone 3270 Design Tool, which walks you through 
-these specific *modes*, or stages, as described later in more details:
+you use the 3270 Design Tool, which walks you through these specific 
+*modes*, or stages, as described later in more details:
 
 * **Capture**: In this mode, you record the screens required for completing 
 a specific task with your mainframe app, for example, getting a bank balance.
@@ -392,9 +393,9 @@ Connect plan, Disconnect plan, and a combined plan might look:
 
 #### Example: Identify repeated screens
 
-For the connector to navigate and differentiate between screens, 
-you usually find unique text on a screen that you can use as an 
-identifier among the captured screens. For repeated screens, 
+For the connector to navigate and differentiate screens, 
+you usually find unique text on a screen that you can use as 
+an identifier across the captured screens. For repeated screens, 
 you might need more identification methods. The example plan has a 
 fork where you can get screens that look similar. One screen returns 
 an account balance, while the other screen returns an error message.
