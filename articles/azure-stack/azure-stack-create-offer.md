@@ -25,8 +25,10 @@ ms.lastreviewed: 02/28/2019
 1. Sign in to the [Azure Stack administrator portal](https://adminportal.local.azurestack.external) and select **+ Create a resource**, then **Tenant Offers + Plans**, and then **Offer**.
 
    ![Create an offer](media/azure-stack-create-offer/offers.png)
-  
-2. In the **Basics** tab, under **New Offer**, enter a **Display Name** and a **Resource Name**, and then under **Resource Group**, select **Create new** or **Use existing**. The display name is the friendly name for the offer. This friendly name is the only information about the offer that users see when they subscribe to an offer. Use an intuitive name that helps users understand what comes with the offer. Only the admin can see the resource name. It's the name that admins use to work with the offer as an Azure Resource Manager resource.
+
+2. You are presented with a tabbed user interface that enables you to define the offer name, and add existing or create new base plans and add-on plans. Most importantly, you can review the details of the offer you create, before you decide to create it.
+
+   In the **Basics** tab, under **New Offer**, enter a **Display Name** and a **Resource Name**, and then under **Resource Group**, select **Create new** or **Use existing**. The display name is the friendly name for the offer. This friendly name is the only information about the offer that users see when they subscribe to an offer in the user portal. Use an intuitive name that helps users understand what comes with the offer. Only the admin can see the resource name. It's the name that admins use to work with the offer as an Azure Resource Manager resource. In this tab, you can also choose to make this offer public or keep it private, which is the default. You can [change the public or private state of the offer](#change-the-state-of-an-offer) later, as well.
 
    ![New Offer](media/azure-stack-create-offer/new-offer.png)
   
@@ -36,11 +38,15 @@ ms.lastreviewed: 02/28/2019
 
 4. At this point you can create an add-on plan to modify the base plan, but skip that step for now. We will create an add-on plan in the next article, [Azure Stack add-on plans](create-add-on-plan.md).
 
-5. Select the **Review + create** tab. Review the offer summary to ensure that all values are correct. Then select **Create** to create the offer.
+5. Select the **Review + create** tab. Review the offer summary to ensure that all values are correct. Note that you are now able to expand the quotas in the chosen plans, one at a time, to view the details of each quota in a plan, and go back to make any necessary edits.
+
+6. Select **Create** to create the offer.
 
    ![Review and create](media/azure-stack-create-offer/review-offer.png)
   
-6. After creating the offer, you can change its state. Offers must be made **Public** for users to get the full view when they subscribe. Offers can be:
+## Change the state of an offer
+
+After creating the offer, you can change its state. Offers must be made **Public** for users to get the full view when they subscribe. Offers can be:
 
    - **Public**: Visible to users.
    - **Private**: Only visible to cloud administrators. This setting is useful while drafting the plan or offer, or if the cloud administrator wants to [create each subscription for users](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
@@ -49,17 +55,18 @@ ms.lastreviewed: 02/28/2019
    > [!TIP]  
    > Changes to the offer are not immediately visible to the user. To see the changes, users might have to sign out and sign in again to the user portal to see the new offer.
 
-   There are two ways to change the state of an offer:
-   1. In **All resources**, select the name of the offer. On the **Overview** screen for the offer, select **Change state**. Choose the state you want to use (for example, **Public**).
+There are two ways to change the state of an offer:
 
-      ![Choose the state](media/azure-stack-create-offer/change-state.png)
+1. In **All resources**, select the name of the offer. On the **Overview** screen for the offer, select **Change state**. Choose the state you want to use (for example, **Public**).
 
-   2. In **All resources**, select the name of the offer. Then select **Offer settings**. Choose the state you want to use (for example, **Public**), then select **Save**.
+   ![Choose the state](media/azure-stack-create-offer/change-state.png)
 
-     ![Select Accessibility state](media/azure-stack-create-offer/offer-settings.png)
+2. In **All resources**, select the name of the offer. Then select **Offer settings**. Choose the state you want to use (for example, **Public**), then select **Save**.
 
-   > [!NOTE]
-   > You can also use PowerShell to create default offers, plans, and quotas. For more information, see [Azure Stack PowerShell Module 1.4.0](/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0).
+   ![Select Accessibility state](media/azure-stack-create-offer/offer-settings.png)
+
+> [!NOTE]
+> You can also use PowerShell to create default offers, plans, and quotas. For more information, see [Azure Stack PowerShell Module 1.4.0](/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0).
 
 ## Next steps
 
