@@ -1,6 +1,6 @@
 ---
-title: Migrate data from an on-premises Hadoop cluster to Azure Data Lake Storage Gen2
-description: Migrate data from an on-premises Hadoop cluster to Azure Data Lake Storage Gen2
+title: Migrate data from an on-premises Hadoop cluster to Azure Storage
+description: Migrate data from an on-premises Hadoop cluster to Azure Storage
 services: storage
 author: normesta
 ms.service: storage
@@ -9,9 +9,9 @@ ms.author: normesta
 ms.component: data-lake-storage-gen2
 ---
 
-# Use Azure Data Box to migrate data from an on-premises Hadoop cluster to Azure Data Lake Storage Gen2
+# Use Azure Data Box to migrate data from an on-premises Hadoop cluster to Azure Storage
 
-You can migrate data from an on-premises Hadoop cluster by using a Data Box device and a few scripts. 
+You can migrate data from an on-premises Hadoop cluster into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device and a few scripts. 
 
 This article helps you complete these tasks:
 
@@ -21,15 +21,11 @@ This article helps you complete these tasks:
 
 :heavy_check_mark: Move the data onto your Data Lake Storage Gen2 storage account.
 
-:heavy_check_mark: Apply file permissions and map identities.
-
 ## Prerequisites
 
 You need these things to complete the migration.
 
 * An on-premises Hadoop cluster that contains your source data.
-
-* Python version 2.7 or greater installed onto each head or edge node of the cluster.
 
 * An [Azure Data Box device](https://azure.microsoft.com/services/storage/databox/). 
 
@@ -49,9 +45,9 @@ If you are ready, let's start.
 
 To copy the data from your on-premises Hadoop cluster to a Data Box device, you'll set a few things up, and then use the [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) tool.
 
-Follow these steps to copy data to your Data Box via the REST.
+Follow these steps to copy data to your Data Box via the REST APIs.
 
-1. Before you copy the data via REST, you need to connect to the REST. Sign in to the local web UI of Data Box and go to **Connect and copy** page. Against the Azure storage account for your Data Box, under **Access settings**, locate and select REST(Preview).
+1. Before you copy the data via REST, you need to connect to the REST interface on the Data Box. Sign in to the local web UI of Data Box and go to **Connect and copy** page. Against the Azure storage account for your Data Box, under **Access settings**, locate and select REST(Preview).
 
     !["Connect and copy" page](media/data-lake-storage-migrate-on-prem-HDFS-cluster/data-box-connect-rest.png)
 
@@ -67,7 +63,7 @@ Follow these steps to copy data to your Data Box via the REST.
     10.128.5.42  mystorageaccount.blob.mydataboxno.microsoftdatabox.com
     ```
         
-3. Set a shell variable `azjars` to point to the `hadoop-azure` and the `microsoft-windowsazure-storage-sdk` jar files. These files are under the Hadoop installation directory. Use the full paths, separated with a comma. 
+3. Set a shell variable `azjars` to point to the `hadoop-azure` and the `microsoft-windowsazure-storage-sdk` jar files. These files are under the Hadoop installation directory (You can check if these files exist by using this command `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure` where <hadoop_install_dir> is the directory where you have installed Hadoop  ) Use the full paths. 
     
     ```
     # azjars=$hadoop_install_dir/share/hadoop/tools/lib/hadoop-azure-2.6.0-cdh5.14.0.jar
@@ -114,6 +110,8 @@ Follow these steps to prepare and ship the Data Box device to Microsoft.
 
 ## Move the data onto your Data Lake Storage Gen2 storage account
 
+This step is needed if you are using Azure Data Lake Storage Gen2 as your data store. If you are using just a blob storage account without hierarchical namespace as your data store, you do not need to do this step.
+
 From your Azure-based Hadoop cluster, run this DiscCp command:
 
 ```bash
@@ -121,106 +119,6 @@ hadoop distcp -Dfs.azure.account.key.{source_account}.dfs.windows.net={source_ac
 ```
 
 This command copies both data and metadata from your storage account into your Data Lake Storage Gen2 storage account.
-
-## Apply file permissions and map identities
-
-Perform these tasks to complete the migration.
-
-:heavy_check_mark: Create a service principle for your Azure Data Lake Storage Gen2 account.
-
-:heavy_check_mark: Download helper scripts and set up your local computer to run them.
-
-:heavy_check_mark: Generate a list of copied files with their permissions.
-
-:heavy_check_mark: Generate a list of identities and map them to Azure Active Directory (ADD) identities.
-
-:heavy_check_mark: Apply permissions to copied files and apply identity mappings.
-
-Let's go through each task.
-
-### Create a service principle for your Azure Data Lake Storage Gen2 account
-
-Before you create one, find the file system endpoint URI of your Data Lake Storage Gen2 account.
-
-1. In the Azure Portal, choose **All Services** and filter on the term *storage*. Then, select **Storage accounts** and locate your storage account.
-
-2. Then, choose **Properties**, and in the properties pane find the value of the **Primary ADLS FILE SYSTEM ENDPOINT** field. Paste that value into a text file for later.
-
-3. Create a service principal by following the guidance in this article: [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-
-   There's a few specific things that you have to do as you perform the steps in that article.
-
-   * Make sure to set the **Sign-on URL** field of the **Create** dialog box to the endpoint URI that you just collected.
-
-   * Make sure to assign your application to the **Blob Storage Data Owner Role**.
-
-   * Paste the application ID, and authentication key values into a text file. You'll need those soon.
-
-### Download helper scripts and set up your local computer to run them
-
-1. From your edge or head node of your on-premises Hadoop cluster, run this command:
-
-   ```bash
-   git clone https://github.com/jamesbak/databox-adls-loader.git
-   cd databox-adls-loader
-   ```
-
-   This command clones the Github repository that contains the helper scripts.
-
-2. Make sure that have the [jq](https://stedolan.github.io/jq/) package installed on your local computer.
-
-   ```bash
-   sudo apt-get install jq
-   ```
-
-3. Install the [Requests](http://docs.python-requests.org/en/master/) python package.
-
-   ```bash
-   pip install requests
-   ```
-
-4. Set execute permissions on the required scripts.
-
-   ```bash
-   chmod +x *.py *.sh
-   ```
-
-### Generate a list of copied files with their permissions
-
-From the on-premises Hadoop cluster, run this command:
-
-```bash
-sudo -u hdfs ./copy-acls.sh -s /{hdfs_path} > ./filelist.json
-```
-
-This command generates a list of copied files with their permissions.
-
-> [!NOTE]
-> Depending on the number of files in the HDFS, this command can take a long time to run.
-
-### Generate a list of identities and map them to Azure Active Directory (ADD) identities
-
-1. Run this command to generate a list of unique identities.
-
-   ```bash
-   ./copy-acls.py -s ./filelist.json -i id_map.json -g
-   ```
-
-   This script generates a file named `id_map.json` that contains the identities that you need to map to ADD-based identities.
-
-2. Open the `id_map.json` file in a text editor such as Notepad.
-
-3. For each JSON object that appears in the file, update the `target` attribute of either an AAD User Principal Name (UPN) or ObjectId (OID), with the appropriate mapped identity. After you're done, save the file. You'll need this file in the next step.
-
-### Apply permissions to copied files and apply identity mappings
-
-Run this command to apply permissions to the data that you copied into the Data Lake Storage Gen2 account:
-
-```bash
-./copy-acls.py -s ./filelist.json -i ./id_map.json  -A adlsgen2hnswestus2 -C databox1 --dest-spn-id {application-id}  --dest-spn-secret {authentication-key}
-```
-
-Replace the `application-id` and `authentication-key` placeholders with the application ID and authentication key that you collected when you created the service principle.
 
 ## Next steps
 
