@@ -115,8 +115,8 @@ If you want virtual networks to communicate sometimes, but not always, rather th
 - Gateway Transit support across regions is in preview in all Azure regions. To use remote gateways or allow gateway transit when globally peered, you must run the following commands:
 - The virtual networks can be in the same, or different subscriptions. When you peer virtual networks in different subscriptions, both subscriptions can be associated to the same or different Azure Active Directory tenant. If you don't already have an AD tenant, you can [create one](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). Support for peering across virtual networks from subscriptions associated to different Azure Active Directory tenants is not available in Portal. You can use CLI, PowerShell, or Templates.	
 
-`azfeatureregister --name AllowGlobalPeeringTransit--namespace Microsoft.Network`
-`azproviderregister --namespace Microsoft.Network`
+`az feature register --name AllowGlobalPeeringTransit --namespace Microsoft.Network`
+`az provider register --namespace Microsoft.Network`
 
 - The virtual networks can be in the same or different subscriptions. When you peer virtual networks in different subscriptions, both subscriptions can be associated to the same or different Azure Active Directory tenant. If you don't already have an AD tenant, you can [create one](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). Support for peering across virtual networks from subscriptions associated to different Azure Active Directory tenants is not available in Portal. You can use CLI, PowerShell, or Templates.
 - The virtual networks you peer must have non-overlapping IP address spaces.
