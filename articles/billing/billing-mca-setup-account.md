@@ -32,9 +32,9 @@ When you set up the billing account, you transition the billing of your existing
 - **Understand changes to your billing hierarchy**
     - You new billing account is organized differently than your Enterprise Agreement enrollment. For more information, see [Understand changes to your billing hierarchy](#understand-changes-to-your-billing-hierarchy).
 - **Understand changes to your billing administrators' access**
-    - Administrators from your Enterprise Agreement enrollment get access to the billing scopes in the new account. For more information, see [Understand changes to your billing administrators' access](#understand-changes-to-your-billing-administrators'-access).
+    - Administrators from your Enterprise Agreement enrollment get access to the billing scopes in the new account. For more information, see [Understand changes to your billing administrators' access](#understand-changes-to-your-billing-administrators-access).
 - **Review Enterprise Agreement features that are replaced by the new account**
-    - View features of Enterprise Agreement enrollment that are replaced with upgraded features in the new account. [Features replaced by the new billing account](#features-replaced-by-the-new-billing-account).
+    - View features of Enterprise Agreement enrollment that are replaced with upgraded features in the new account. [Review features replaced by the new billing account](#review-features-replaced-by-the-new-billing-account).
 - **View answers to most common questions**
     - View additional information to learn more about the setup. Go to [Additional information](#additional-information).
 
