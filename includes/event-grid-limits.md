@@ -10,8 +10,6 @@
  ms.custom: include file
 ---
 
-####
-
 The following limits apply to Azure Event Grid system topics and custom topics, *not* event domains.
 
 | Resource | Limit |
@@ -19,8 +17,6 @@ The following limits apply to Azure Event Grid system topics and custom topics, 
 | Custom topics per Azure subscription | 100 |
 | Event subscriptions per topic | 500 |
 | Publish rate for a custom topic (ingress) | 5,000 events per second per topic |
-
-####
 
 The following limits apply to event domains only.
 

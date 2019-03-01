@@ -46,6 +46,10 @@ import os
 graph_def = tf.GraphDef()
 labels = []
 
+# These are set to the default names from exported models, update as needed.
+filename = "model.pb"
+labels_filename = "labels.txt"
+
 # Import the TF graph
 with tf.gfile.FastGFile(filename, 'rb') as f:
     graph_def.ParseFromString(f.read())

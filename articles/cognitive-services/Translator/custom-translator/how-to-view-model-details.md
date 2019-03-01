@@ -16,7 +16,7 @@ ms.topic: conceptual
 
 The Models tab under project shows all models in that project. All models trained for that project is listed in this tab.
 
-For each model in the project, following model details are displayed.
+For each model in the project, these details are displayed.
 
 1.  Model Name: Shows the model name of a given model.
 
