@@ -25,7 +25,7 @@ To learn about the recommendations and considerations for this topology, refer [
 - **Overcome subscriptions limits** by peering VNets from different subscriptions to the central hub.
 - **Separation of concerns** between central IT (SecOps, InfraOps) and workloads (DevOps).
 
-## Typical uses for this architecture
+## Typical uses for hub and spoke architecture
 
 Some of the typical uses for a hub and spoke architecture include:
 
@@ -87,7 +87,7 @@ Create the directory that holds your Terraform configuration files for the demo.
     cd hub-spoke
     ```
 
-### Declare the Azure provider
+## Declare the Azure provider
 
 Create the Terraform configuration file that declares the Azure provider.
 
@@ -115,7 +115,7 @@ Create the Terraform configuration file that declares the Azure provider.
     :wq
     ```
 
-### Declare the variables file
+## Declare the variables file
 
 Create the Terraform configuration file for common variables that are used across different scripts.
 
@@ -159,30 +159,21 @@ Create the Terraform configuration file for common variables that are used acros
     :wq
     ```
 
-## Components
+## Understand the demo components created during this tutorial series
 
-The architecture consists of the following components. Each one is implemented as a separate Terraform script and to complete this reference architecture all the scripts need to be deployed.
+As you work through each tutorial in this series, various components are defined in distinct Terraform scripts. The demo architecture created and deployed consists of the following components:
 
-- **On-Premises network**. A private local-area network running with an Organization. For hub and spoke reference architecture, we use a VNet in Azure to simulate On-premises network.
+- **On-premises network**. A private local-area network running with an organization. For hub and spoke reference architecture, a VNet in Azure is utilized to simulate an on-premises network.
 
-- **VPN Device**. A device or service that provides external connectivity to the on-premises network. The VPN device may be a hardware appliance or a software solution. An example is the Routing and Remote Access Service (RRAS) in Windows Server 2012. For more information about configuring VPN appliances on Azure, see [About VPN devices for Site-to-Site VPN Gateway connections](/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
+- **VPN device**. A VPN device or service provides external connectivity to the on-premises network. The VPN device may be a hardware appliance or a software solution. 
 
-- **Hub Virtual Network**. Azure Virtual Network used as the hub in the hub and spoke topology. The hub is the central point of connectivity to your on-premises network and a place to host services. These services can be consumed by the different workloads hosted in the spoke VNets.
+- **Hub virtual network**. The hub is the central point of connectivity to your on-premises network and a place to host services. These services can be consumed by the different workloads hosted in the spoke VNets.
 
 - **Gateway subnet**. The virtual network gateways are held in the same subnet.
 
-- **Spoke Virtual Networks**. One or more Azure VNets that are used as spokes in the hub and spoke topology. Spokes can be used to isolate workloads in their own VNets, managed separately from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers. For more information about the application infrastructure, see Running Windows VM workloads and Running Linux VM workloads.
+- **Spoke virtual networks**. Spokes can be used to isolate workloads in their own VNets, managed separately from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers. 
 
-- **VNet peering**. Two VNets can be connected using a peering connection. Peering connections are non-transitive, low latency connections between VNets. Once peered, the VNets exchange traffic by using the Azure backbone, without the need for a router. In a hub and spoke network topology, you use VNet peering to connect the hub to each spoke. You can peer virtual networks in the same region, or different regions.
-
-This tutorial is implemented in multiple articles to cover all the details. Implement all the articles to complete the entire hub and spoke topology.
-
-- [Complete the prerequisites and variables section in this tutorial](./terraform-hub-spoke-introduction.md)
-- [On premises network](./terraform-hub-spoke-on-prem.md)
-- [Hub virtual network](./terraform-hub-spoke-hub-network.md)
-- [Hub network virtual appliance](./terraform-hub-spoke-hub-nva.md)
-- [Spoke networks](./terraform-hub-spoke-spoke-network.md)
-- [Validation of the topology](./terraform-hub-spoke-validation.md)
+- **VNet peering**. Two VNets can be connected using a peering connection. Peering connections are non-transitive, low latency connections between VNets. Once peered, the VNets exchange traffic by using the Azure backbone, without needing a router. In a hub and spoke network topology, VNet peering is used to connect the hub to each spoke. You can peer virtual networks in the same region, or different regions.
 
 ## Next steps
 
