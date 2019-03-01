@@ -42,7 +42,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 5. From the top of the page, select **Add**.
 
-6. Enter the email address of the user you're requesting billing ownership from. The user must be an account administrator on an individual billing account or an account owner on an Enterprise Agreement.
+6. Enter the email address of the user you're requesting billing ownership from. The user must be an account administrator on a Microsoft Online Service Program billing account or an account owner on an Enterprise Agreement. For more information, see [View your billing accounts in Azure portal](billing-view-all-accounts.md).
 
    ![Screenshot that shows adding a new transfer request](./media/billing-mca-request-billing-ownership/mca-new-transfer-request.png)
 

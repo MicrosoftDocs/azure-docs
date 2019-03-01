@@ -4,7 +4,7 @@ description: Learn how to collect Fortinet data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: add92907-0d7c-42b8-a773-f570f2d705ff
