@@ -36,9 +36,8 @@ The main benefits of offline migration when using a Data Box are as follows:
 ## Plan your offline data transfer
 Before you begin, review the following information:
 
-- Complete your bulk migration to one or multiple Azure file shares prior to enabling sync with Azure File Sync.
 - If you plan to use Data Box for your bulk migration: Review the [deployment prerequisites for Data Box](../../databox/data-box-deploy-ordered.md#prerequisites).
-- Planning your final Azure File Sync topology: [Plan for an Azure File Sync deployment](storage-sync-files-planning.md)
+- Plan your final Azure File Sync topology: [Plan for an Azure File Sync deployment](storage-sync-files-planning.md)
 - Select Azure storage account(s) that will hold the file shares you want to sync with. Ensure that your bulk migration happens to temporary staging shares in the same Storage Account(s). Bulk migration can only be enabled utilizing a final- and a staging- share that reside in the same storage account.
 - A bulk migration can only be utilized when you create a new sync relationship with a server location. You can't enable a bulk migration with an existing sync relationship.
 
