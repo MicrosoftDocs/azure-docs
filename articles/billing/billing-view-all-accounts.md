@@ -22,7 +22,7 @@ A billing account is created for each agreement you sign with Microsoft to use A
 
 Azure portal currently supports the following type of billing accounts:
 
-- **Microsoft Online Services Program**: A billing account for a Microsoft Online Services Program is created when you sign up for Azure through Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/en-us/offers/ms-azr-0044p/), [Azure pay as you go offer](https://azure.microsoft.com/en-us/offers/ms-azr-0003p/) or as a [Visual studio subscriber](https://azure.microsoft.com/en-us/pricing/member-offers/credit-for-visual-studio-subscribers/).
+- **Microsoft Online Services Program**: A billing account for a Microsoft Online Services Program is created when you sign up for Azure through Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/), [Azure pay as you go offer](https://azure.microsoft.com/offers/ms-azr-0003p/) or as a [Visual studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
 - **Enterprise Agreement**: A billing account for an Enterprise Agreement is created when your organization signs an Enterprise Agreement to use Azure. Administrators in the billing account for an Enterprise Agreement use departments and accounts billing scopes to manage and organize billing for their organization.
 
