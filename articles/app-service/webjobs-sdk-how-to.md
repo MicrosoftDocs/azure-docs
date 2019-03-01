@@ -663,11 +663,11 @@ Pass your `NameResolver` class in to the `JobHost` object, as shown here:
 }
 ```
 
-Azure Functions implements `INameResolver` to get values from app settings, as shown in the example. When you use the WebJobs SDK directly, you can write a custom implementation that gets placeholder replacement values from whatever source you prefer. 
+Azure Functions implements `INameResolver` to get values from app settings, as shown in the example. When you use the WebJobs SDK directly, you can write a custom implementation that gets placeholder replacement values from whatever source you prefer.
 
 ## Binding at runtime
 
-If you need to do some work in your function before using a binding attribute such as `Queue`, `Blob`, or `Table`, you can use the `IBinder` interface.
+If you need to do some work in your function before you use a binding attribute like `Queue`, `Blob`, or `Table`, you can use the `IBinder` interface.
 
 The following example takes an input queue message and creates a new message with the same content in an output queue. The output queue name is set by code in the body of the function.
 
