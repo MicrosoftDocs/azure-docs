@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: alkohli
 ---
-# Manage Azure Data Box Edge via Windows PowerShell
+# Manage an Azure Data Box Edge device via Windows PowerShell
 
 Azure Data Box Edge solution lets you process data and send it over the network to Azure. This article describes some of the configuration and management tasks for your Data Box Edge device. You can use the Azure portal, local web UI, or the Windows PowerShell interface to manage your device.
 
@@ -73,7 +73,7 @@ If the compute role is configured on your device, you can also get the compute l
     - `RoleInstanceName`: Provide this string `lotRole` for this parameter.
     - `FullLogCollection`: This parameter ensures that the log package will contain all the compute logs. By default, the log package contains only a subset of logs.
 
-## Monitor and troubleshoot compute-enabled device
+## Monitor and troubleshoot compute
 
 On a Data Box Edge device that has the compute role configured, a subset of docker commands are available to monitor device status, or troubleshoot device issues. To see a list of available commands, connect to the PowerShell interface and use the `dockerdbe` function.
 
