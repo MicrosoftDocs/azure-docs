@@ -99,7 +99,7 @@ Commands:
 
 [10.128.26.24]: PS>
 ```
-The following table has a brief description of the available commands:
+The following table has a brief description of the commands available for `dockerdbe`:
 
 |command  |Description |
 |---------|---------|
@@ -142,6 +142,7 @@ Options:
 [10.128.47.126]: PS>
 ```
 
+The available commands for the dockerdbe function use the same parameters as the ones used for the normal docker commands. For the options and parameters used with the docker command, go to [Use the Docker commandline](https://docs.docker.com/engine/reference/commandline/docker/).
 
 ### To check if the module deployed successfully
 
