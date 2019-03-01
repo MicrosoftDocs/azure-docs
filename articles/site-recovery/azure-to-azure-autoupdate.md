@@ -28,7 +28,7 @@ The default runbook schedule recurs daily at 12:00 AM in the time zone of the re
 > [!NOTE]
 > Automation account job billing is based on the number of job runtime minutes used in a month. By default, 500 minutes are included as free units for an automation account. Job execution takes a few seconds to about a minute each day and is covered as free units.
 
-| Free units included (every month) | Price |
+| Free units included (each month) | Price |
 |---|---|
 | Job runtime 500 minutes | ₹0.14/minute
 
@@ -511,7 +511,7 @@ If there's an issue with the automatic updates, you'll see an error notification
 
 If you couldn't turn on automatic updates, see the following common errors and recommended actions:
 
-**Error**: You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal. 
+**Error**: You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.
 
 **Recommended action**: Make sure that the signed-in account is assigned as Contributor and try again. Refer to the required permissions section in [Use the portal to create an Azure AD application and service principal that can access resources ](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) for more info about assigning permissions.
  
