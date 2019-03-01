@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 You can enable users to create and manage their own security groups or Office 365 groups in Azure Active Directory (Azure AD). The owner of the group can approve or deny membership requests, and can delegate control of group membership. Self-service group management features are not available for mail-enabled security groups or distribution lists. 
 
-## Group membership defaults
+## Self-service group membership defaults
 
 When self-service security groups are created in the Azure portal or using Azure AD PowerShell, only the group owners can update membership. Security groups created in the [Access panel](https://account.activedirectory.windowsazure.com/r#/joinGroups) and all Office 365 groups are available to join for all users, whether owner-approved or auto-approved. In the Access panel, you can change membership options when you create the group.
 
