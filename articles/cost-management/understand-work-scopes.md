@@ -22,7 +22,7 @@ A _scope_ is a node in the Azure resource hierarchy where Azure AD users access 
 - Billing data, such as payments and invoices
 - Cloud services, such as cost and policy governance
 
-Scopes are where you manage billing data, have roles specific to payments, view invoices, and conduct general account management. Billing and account roles are managed separately from those used for resource management, which use [Azure RBAC](../role-based-access-control.md). To clearly distinguish the intent of the separate scopes, including the access control differences, these are referred to as _billing scopes_ and _RBAC scopes_, respectively.
+Scopes are where you manage billing data, have roles specific to payments, view invoices, and conduct general account management. Billing and account roles are managed separately from those used for resource management, which use [Azure RBAC](../role-based-access-control). To clearly distinguish the intent of the separate scopes, including the access control differences, these are referred to as _billing scopes_ and _RBAC scopes_, respectively.
 
 ## How Cost Management uses scopes
 
@@ -32,7 +32,7 @@ Cost Management works at all scopes above resources to allow organizations to ma
 
 Azure supports three scopes for resource management. Each scope supports managing access and governance, including but not limited to, cost management.
 
-- [**Management groups**](../governance/management-groups) - Hierarchical containers, up to eight levels, to organize Azure subscriptions.
+- [**Management groups**](../governance/management-groups/) - Hierarchical containers, up to eight levels, to organize Azure subscriptions.
 
     Resource type: [Microsoft.Management/managementGroups](/rest/api/resources/managementgroups)
 
@@ -53,7 +53,7 @@ Granting access to view costs and optionally manage cost configuration, such as 
 Cost Management supports the following built-in roles for each of the following scopes:
 
 - [**Owner**](../role-based-access-control/built-in-roles.md#owner) – Can view costs and manage everything, including cost configuration.
-- [**Contributor**](../role-based-access-control.md/built-in-roles.md#contributor) – Can view costs and manage everything, including cost configuration, but excluding access control.
+- [**Contributor**](../role-based-access-control/built-in-roles.md#contributor) – Can view costs and manage everything, including cost configuration, but excluding access control.
 - [**Reader**](../role-based-access-control/built-in-roles.md#reader) – Can view everything, including cost data and configuration, but cannot make any changes.
 - [**Cost Management Contributor**](../role-based-access-control/built-in-roles.md#cost-management-contributor) – Can view costs and manage cost configuration.
 - [**Cost Management Reader**](../role-based-access-control/built-in-roles.md#cost-management-reader) – Can view cost data and configuration.
@@ -140,7 +140,7 @@ Billing users don't have access to management groups because they don't explicit
 
 ## Cloud Solution Provider (CSP) scopes
 
-Cloud Solution Provider (CSP) partners aren't supported in Cost Management today. Instead, you can use [Partner Center](../cloud-solution-provider/overview/partner-center-overview.md).
+Cloud Solution Provider (CSP) partners aren't supported in Cost Management today. Instead, you can use [Partner Center](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
 
 ## Identify the ARM resource ID for a scope
 
