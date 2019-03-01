@@ -11,7 +11,7 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 08/09/2018
+ms.date: 02/28/2019
 ms.author: glenga
 
 ms.custom: H1Hack27Feb2017
@@ -122,7 +122,8 @@ The unit of scale is the function app. When the function app is scaled out, addi
 Scaling can vary on a number of factors, and scale differently based on the trigger and language selected. However there are a few aspects of scaling that exist in the system today:
 
 * A single function app only scales up to a maximum of 200 instances. A single instance may process more than one message or request at a time though, so there isn't a set limit on number of concurrent executions.
-* New instances will only be allocated at most once every 10 seconds.
+* For HTTP triggers, new instances will only be allocated at most once every 1 second.
+* For non-HTTP triggers, new instances will only be allocated at most once every 30 seconds.
 
 Different triggers may also have different scaling limits as well as documented below:
 
