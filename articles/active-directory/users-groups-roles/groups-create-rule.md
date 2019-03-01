@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/01/2019
 ms.author: curtand
 ms.reviewer: krbain
 
@@ -40,10 +40,15 @@ This article details how to set up a rule in the Azure portal for dynamic member
 6. After creating the rule, select **Add query** at the bottom of the blade.
 7. Select **Create** on the **Group** blade to create the group.
 
-> [!TIP]
-> Group creation fails if the rule you entered was incorrectly formed or not valid. A notification is displayed in the upper-right hand corner of the portal, containing an explanation of why the rule could not be processed. Read it carefully to understand how you need to adjust the rule to make it valid.
+Group creation fails if the rule you entered was incorrectly formed or not valid. A notification is displayed in the upper-right hand corner of the portal, containing an explanation of why the rule could not be processed. Read it carefully to understand how you need to adjust the rule to make it valid.
 
-## Check processing status for a membership rule
+Yes, welcome mail is sent  I cover this in self help deflection docs.
+​
+## Turn on or off welcome email
+
+When any new Office 365 group is created, whether with dynamic or static membership, a welcome notification sent to all users who are added to the group. When any attributes of a user or device change, all dynamic group rules in the organization are processed for potential membership changes. Any users who are added to an Office 365 group also receive the welcome notification. You can turn this off in [Exchange Powershell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
+
+## Check processing status for a rule
 
 You can see the membership processing status and the last updated date on the **Overview** page for the group.
   
