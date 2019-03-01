@@ -223,7 +223,7 @@ The preceding code shows you how to do operations with Azure Key Vault in a Wind
 
 ## Clean up resources
 
-When they are no longer needed, delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the VM, and then select **Delete**.
+When they are no longer needed, delete the virtual machine and your key vault.
 
 ## Next steps
 
