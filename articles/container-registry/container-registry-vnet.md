@@ -36,7 +36,7 @@ The following limitations currently apply to the preview:
 
 An Azure container registry by default accepts connections over the internet from hosts on any network. However, you can take advantage of a virtual network to allow only Azure resources such as an AKS cluster or Azure VM to securely access the registry, without crossing a network boundary. You can also configure network firewall rules to whitelist specific public internet IP address ranges. 
 
-To limit access to a registry, you first change the default action of the registry so that it denies all network connections. Then, configure specific network rules to allow access.
+To limit access to a registry, first change the default action of the registry so that it denies all network connections. Then, configure specific network rules to allow access.
 
 The network rules you add to a container registry can allow requests from specific subnets in a virtual network, from specific IP addresses, or both. Clients granted access via these network rules must continue to [authenticate to the container registry](https://docs.microsoft.com/azure/container-registry/container-registry-authentication) and be authorized to access the data.
 
@@ -193,14 +193,11 @@ Docker successfully pulls the image to the VM.
 
 Although you are able to access the private container registry from the VM over the virtual network, the registry can't be accessed from other networks. For example, you can't login to the registry over the internet from a different login host (such as your local computer) using the `az acr login` command or `docker login` command. 
 
-Output indicates that the registry can't be accessed in this case:
+Output indicates that the registry can't be accessed from a host outside the virtual network:
 
 ```Console
-...
 Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ failed with status: 403 Forbidden
 ```
-
-This example demonstrates that only a Docker host in the virtual network is able to access the registry.
 
 ## Grant access from an IP address
 
@@ -248,16 +245,15 @@ Docker successfully pulls the image to the VM.
 
 Although you are able to access the private container registry from the VM's public IP address, the registry can't be accessed from other hosts. For example, you can't login to the registry from a different login host (such as your local computer) using the `az acr login` command or `docker login` command. 
 
-Output indicates that the registry can't be accessed in this case:
+Output indicates that the registry can't be accessed from a host with an IP address outside the allowed range:
 
 ```Console
-...
 Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ failed with status: 403 Forbidden
 ```
 
 ## Restore default registry access
 
-If you want the registry to revert to allow access by default. Substitute the name of your registry in the following [az acr update][az-acr-update] command:
+If you want to revert the registry to allow access by default, substitute the name of your registry in the following [az acr update][az-acr-update] command:
 
 ```azurecli
 az acr update --name myContainerRegistry --default-action Allow
