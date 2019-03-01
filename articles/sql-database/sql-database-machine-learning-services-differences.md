@@ -11,7 +11,7 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 01/31/2019
+ms.date: 03/01/2019
 ---
 # Key differences between Machine Learning Services in Azure SQL Database (preview) and SQL Server
 
