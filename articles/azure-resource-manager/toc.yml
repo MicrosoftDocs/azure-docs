@@ -58,7 +58,7 @@
     - name: Parameters
       href: resource-manager-templates-parameters.md
     - name: Variables
-      href: resource-manager-templates-variables.md
+      href: resource-group-authoring-templates.md#variables
     - name: Functions
       href: resource-group-authoring-templates.md#functions
     - name: Resources
