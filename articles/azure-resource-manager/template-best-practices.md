@@ -125,7 +125,7 @@ The information in this section can be helpful when you work with [parameters](r
 
 ## Variables
 
-The following information can be helpful when you work with [variables](resource-manager-templates-variables.md):
+The following information can be helpful when you work with [variables](resource-group-authoring-templates.md#variables):
 
 * Use variables for values that you need to use more than once in a template. If a value is used only once, a hard-coded value makes your template easier to read.
 

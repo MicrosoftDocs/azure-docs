@@ -4,7 +4,7 @@ description: This article describes how to run a playbook in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: e4afc5c8-ffad-4169-8b73-98d00155fa5a

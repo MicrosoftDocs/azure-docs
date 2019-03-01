@@ -82,7 +82,7 @@ To add a new device template to your application, you need to go to the **Device
 
 The following steps show you how to create a new **Connected Air Conditioner** device template for devices that send temperature telemetry to your application:
 
-1. On the **Device Templates** page, click **+ New**:
+1. On the **Device Templates** page, click **+**:
 
     ![Device Templates page, Create Device Template](./media/tutorial-define-device-type-experimental/newtemplate.png)
 
@@ -392,7 +392,7 @@ Now you've defined your **Connected Air Conditioner** device template, you can c
     | Time Range   | Past 30 minutes |
     | Measures     | Fan Motor Error (click **Visibility** next to **Fan Motor Error**) |
 
-    ![Line chart settings](./media/tutorial-define-device-type-experimental/dashboardeventchartsetting.png)
+    ![Event chart settings](./media/tutorial-define-device-type-experimental/dashboardeventchartsetting.png)
 
     Then click **Save**.
 
