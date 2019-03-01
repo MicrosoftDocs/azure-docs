@@ -66,9 +66,9 @@ If you were an EA customer, you'll notice that the terms in the billing profile 
 
 <!-- TO DO: Marketplace CSV? -->
 
-## Detailed terms and descriptions of your Azure usage and charges file
+## Detailed terms and descriptions in your Azure usage and charges file
 
-The following sections describe the important terms shown in the Azure usage and charges file.
+The following section describes the important terms shown in the Azure usage and charges file.
 
 Term | Description
 --- | ---
@@ -131,7 +131,7 @@ more details on, see [Understand the charges on your billing profile's invoice](
 
 If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-# Next steps
+## Next steps
 
 - [View and download your Microsoft Azure invoice](billing-download-azure-invoice.md)
 - [View and download your Microsoft Azure usage and charges](billing-download-azure-daily-usage.md)

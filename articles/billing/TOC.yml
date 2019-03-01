@@ -33,6 +33,8 @@
     href: billing-getting-started.md
   - name: View and download your organization's pricing
     href: billing-ea-pricing.md
+  - name: Pricesheet terms explained - Microsoft Customer Agreement only
+    href: billing-mca-understand-pricesheet.md
   - name: Use resource tags
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
   - name: Start analyzing costs
