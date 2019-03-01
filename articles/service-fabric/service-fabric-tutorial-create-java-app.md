@@ -25,14 +25,6 @@ This tutorial is part one of a series. When you are finished, you have a Voting 
 
 ![Voting App Local](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
 
-In part one of the series, you learn how to:
-
-> [!div class="checklist"]
-> * Create a Java stateful reliable service
-> * Create a Java stateless web application service
-> * Use service remoting to communicate with the stateful service
-> * Deploy application on a local Service Fabric cluster
-
 In this tutorial series you learn how to:
 > [!div class="checklist"]
 > * Build a Java Service Fabric Reliable Services application
@@ -40,6 +32,15 @@ In this tutorial series you learn how to:
 > * [Deploy application to an Azure cluster](service-fabric-tutorial-java-deploy-azure.md)
 > * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-java-elk.md)
 > * [Set up CI/CD](service-fabric-tutorial-java-jenkins.md)
+
+
+In part one of the series, you learn how to:
+
+> [!div class="checklist"]
+> * Create a Java stateful reliable service
+> * Create a Java stateless web application service
+> * Use service remoting to communicate with the stateful service
+> * Deploy application on a local Service Fabric cluster
 
 ## Prerequisites
 

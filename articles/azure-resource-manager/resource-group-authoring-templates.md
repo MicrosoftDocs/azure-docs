@@ -419,6 +419,8 @@ The next example shows how to conditionally return the resource ID for a public 
 }
 ```
 
+For a simple example of conditional output, see [conditional output template](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json).
+
 After the deployment, you can retrieve the value with script. For PowerShell, use:
 
 ```powershell
