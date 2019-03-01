@@ -226,7 +226,7 @@ FC disk | Not supported. | Check fails if unsupported.
 BitLocker | Not supported. | BitLocker must be disabled before you enable replication for a machine. |
 VM name | From 1 to 63 characters.<br/><br/> Restricted to letters, numbers, and hyphens.<br/><br/> The machine name must start and end with a letter or number. |  Update the value in the machine properties in Site Recovery.
 
-## Azure Site Recovery limits
+## Azure Site Recovery churn limits
 
 The following table provides the Azure Site Recovery limits. These limits are based on our tests, but they cannot cover all possible application I/O combinations. Actual results can vary based on your application I/O mix. For best results, we strongly recommend to [run deployment planner tool](site-recovery-deployment-planner.md) and perform extensive application testing by issuing a test failover to get the true performance picture of the application.
 
