@@ -59,6 +59,9 @@ Save the scene by selecting **File** -> **Save**.
 
 Follow the instructions in the app to place and recall an anchor.
 
+> [!NOTE]
+> When running the app, if you don't see the camera as the background (for instance you instead see a blank, blue or other textures) then you likely need to re-import assets in Unity. Stop the app. From the top menu in Unity, choose **Assets -> Re-import all**. Then, run the app again.
+
 In Xcode, stop the app by pressing **Stop**.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
