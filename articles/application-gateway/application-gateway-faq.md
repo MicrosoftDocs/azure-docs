@@ -121,7 +121,7 @@ Network Security Groups (NSGs) are supported on the application gateway subnet w
 
 * Exceptions must be put in for incoming traffic on ports 65503-65534 for the Application Gateway v1 SKU and ports 65200 - 65535 for the v2 SKU. This port-range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, are not able to initiate any changes on those endpoints.
 
-* Outbound internet connectivity can't be blocked.
+* Outbound internet connectivity can't be blocked. Default outbound rules in the NSG already allow internet connectivity. It is recommended you neither remove the default outbound rules or create other outbound rules that deny outbound internet connectivity.
 
 * Traffic from the AzureLoadBalancer tag must be allowed.
 
