@@ -14,10 +14,10 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.custom: mvc
-ms.date: 01/09/2019
+ms.date: 03/02/2019
 ms.author: sethm
 ms.reviewer: efemmano
-ms.lastreviewed: 01/09/2019
+ms.lastreviewed: 03/02/2019
 ---
 
 # Azure Stack add-on plans
@@ -26,12 +26,12 @@ As an Azure Stack operator, you create add-on plans to modify a [base plan](azur
 
 There are times when combining everything in a single plan is optimal. Other times you might want to have a base plan and then offer the additional services by using add-on plans. For instance, you could decide to offer IaaS services as part of a base plan, with all PaaS services treated as add-on plans.
 
-Another reason to use add-on plans is to help users be mindful of their resource usage. To do so, you could start with a base plan that includes relatively small quotas (depending on the services required). Then, as users reach capacity, they would be alerted that they've consumed the allocation of resources based on their assigned plan. From there, the users can select an add-on plan that provides the additional resources.
+Another reason to use add-on plans is to help monitor resource usage. To do so, you could start with a base plan that includes relatively small quotas (depending on the services required). Then, as users reach capacity, they would be alerted that they've consumed the allocation of resources based on their assigned plan. From there, the users can select an add-on plan that provides the additional resources.
 
 > [!NOTE]
 > When you do not want to use an add-on plan to extend a quota, you can also choose to [edit the original configuration of the quota](azure-stack-quota-types.md#edit-a-quota).
 
-When a user adds an add-on plan to an existing offer subscription, the additional resources can take up to an hour to appear.
+When you add an add-on plan to an existing offer subscription, the additional resources can take up to an hour to appear.
 
 ## Create an add-on plan
 
