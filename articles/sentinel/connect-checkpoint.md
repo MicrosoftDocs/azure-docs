@@ -4,7 +4,7 @@ description: Learn how to collect Check Point data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 3229233d-400d-4971-8d76-eaa0d6591d75
