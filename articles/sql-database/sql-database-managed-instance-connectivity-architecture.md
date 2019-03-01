@@ -33,7 +33,7 @@ The following diagram shows entities that connect to a managed instance. It also
 
 A managed instance is a platform as a service (PaaS) offering. Microsoft uses automated agents (management, deployment, and maintenance) to manage this service based on telemetry data streams. Because Microsoft is responsible for management, customers can't access the managed instance virtual cluster machines through Remote Desktop Protocol (RDP).
 
-You might need a managed instance when users or applications start a SQL Server operation that needs to interact with the platform. For example, when you create a managed instance database, you expose it through the Azure portal, PowerShell, the Azure CLI, and the REST API.
+Some SQL Server operations started by end users or applications might require managed instances to interact with the platform. One case is the creation of a managed instance database. This resource is exposed through the Azure portal, PowerShell, Azure CLI, and the REST API.
 
 Managed instances depend on Azure services such as Azure Storage for backups, Azure Service Bus for telemetry, Azure Active Directory for authentication, and Azure Key Vault for Transparent Data Encryption (TDE). The managed instances make connections to these services.
 
