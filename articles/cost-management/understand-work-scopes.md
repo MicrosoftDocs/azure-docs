@@ -22,7 +22,7 @@ A _scope_ is a node in the Azure resource hierarchy where Azure AD users access 
 - Billing data, such as payments and invoices
 - Cloud services, such as cost and policy governance
 
-Scopes are where you manage billing data, have roles specific to payments, view invoices, and conduct general account management. Billing and account roles are managed separately from those used for resource management, which use [Azure RBAC](../role-based-access-control/). To clearly distinguish the intent of the separate scopes, including the access control differences, these are referred to as _billing scopes_ and _RBAC scopes_, respectively.
+Scopes are where you manage billing data, have roles specific to payments, view invoices, and conduct general account management. Billing and account roles are managed separately from those used for resource management, which use [Azure RBAC](../role-based-access-control/index.md). To clearly distinguish the intent of the separate scopes, including the access control differences, these are referred to as _billing scopes_ and _RBAC scopes_, respectively.
 
 ## How Cost Management uses scopes
 
