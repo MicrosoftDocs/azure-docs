@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/28/2019
 ms.author: jeffgilb
 ms.reviewer: scottnap
-ms.lastreviewed: 09/17/2018
+ms.lastreviewed: 02/28/2019
 
 ---
 # Add Public IP Addresses

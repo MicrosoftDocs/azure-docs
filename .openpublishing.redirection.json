@@ -2700,6 +2700,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-resource-manager/resource-manager-templates-outputs.md",
+      "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates#outputs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-templates-variables.md",
+      "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates#variables",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-resource-manager/resource-manager-export-template.md",
       "redirect_url": "/azure/azure-resource-manager/manage-resources-portal",
       "redirect_document_id": false
@@ -16972,7 +16982,12 @@
     },
     {
       "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-operations.md",
-      "redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-operations",
+      "redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-staging-server",
+      "redirect_document_id": false
+    },
+	    {
+      "source_path": "articles/active-directory/hybrid/how-to-connect-sync-operations.md",
+      "redirect_url": "/azure/active-directory/hybrid/how-to-connect-sync-staging-server",
       "redirect_document_id": false
     },
     {
@@ -27059,6 +27074,26 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/tutorials/autosuggest-source.md",
+      "redirect_url": "/azure/cognitive-services/bing-autosuggest/tutorials/autosuggest",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/autosuggest-endpoint.md",
+      "redirect_url": "/azure/cognitive-services/bing-autosuggest/concepts/sending-requests",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/quick-start.md",
+      "redirect_url": "/azure/cognitive-services/bing-autosuggest/concepts/sending-requests",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/bing-autosuggest-resource-faq.md",
+      "redirect_url": "/azure/cognitive-services/bing-autosuggest/concepts/sending-requests",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-understanding-resource-access.md",
       "redirect_url": "/azure/role-based-access-control/rbac-and-directory-admin-roles",
       "redirect_document_id": true
@@ -36074,6 +36109,11 @@
     {
       "source_path": "articles/hdinsight/hadoop/apache-hadoop-dotnet-avro-serialization.md",
       "redirect_url": "/dotnet/api/overview/azure/hdinsight?view=azure-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/concept-extracting-text-ocr.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/concept-recognizing-text#ocr-optical-character-recognition-api",
       "redirect_document_id": false
     },
     {
