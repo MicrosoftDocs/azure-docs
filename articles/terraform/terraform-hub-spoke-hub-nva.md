@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 2/28/2019
 ---
 
-# Implement a Hub Network virtual appliance device
+# Tutorial: Create a hub virtual network appliance with Terraform in Azure
 
-**VPN Device** is a device that provides external connectivity to the on-premises network. The VPN device may be a hardware device, or a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. For a list of supported VPN appliances and information on configuring selected VPN appliances for connecting to Azure, see [About VPN devices for Site-to-Site VPN Gateway connections](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
+A **VPN device** is a device that provides external connectivity to an on-premises network. The VPN device may be a hardware device or a software solution. One example of a software solution is Routing and Remote Access Service (RRAS) in Windows Server 2012. For more information about VPN appliances, see [About VPN devices for Site-to-Site VPN Gateway connections](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
 
-Azure supports a broad variety of network virtual appliances that you can pick from. For the sake of demo, we are using a standard ubuntu image as a network virtual appliance device. Azure currently supports a broad variety of device solutions that you can learn [here](https://azure.microsoft.com/en-us/solutions/network-appliances/).
+Azure supports a broad variety of network virtual appliances from which to select. For this tutorial, an Ubuntu image is used. To learn more about the broad variety of device solutions supported in Azure, see the [Network Appliances home page](https://azure.microsoft.com/solutions/network-appliances/).
 
 [!div class="checklist"]
 
@@ -26,11 +26,9 @@ Azure supports a broad variety of network virtual appliances that you can pick f
 
 ## Prerequisites
 
-To implement this tutorial, complete the following articles in order
-
-* [Prerequisites in the Introduction to Hub and Spoke topology article](./hub-spoke-introduction.md)
-* [On Premises virtual network article](./on-prem.md)
-* [Hub virtual network article](./hub-network.md)
+- [Create a hub and spoke hybrid network topology with Terraform in Azure](./hub-spoke-introduction.md).
+- [Create on-premises virtual network with Terraform in Azure](./hub-spoke-on-prem.md).
+- [Create a hub virtual network with Terraform in Azure](./hub-spoke-hub-network.md).
 
 ## Components
 
@@ -249,8 +247,5 @@ Create the Terraform configuration file that declares On-Premises Virtual networ
 
 ## Next steps
 
-In this article, we created a virtual machine image acting like a network virtual appliance. We used CustomScript Virtual machine extension to enable IP forwarding. To continue with the entire hub-spoke topology tutorial, complete the remaining steps.
-
- > [!div class="nextstepaction"]
-
- > [Spoke Networks](./terraform-hub-spoke-spoke-network.md)
+> [!div class="nextstepaction"]
+> [Create a spoke virtual networks with Terraform in Azure](./terraform-hub-spoke-spoke-network.md)

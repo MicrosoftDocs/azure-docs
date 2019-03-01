@@ -1,5 +1,5 @@
 ---
-title: Implement on-premises virtual network using Terraform in Azure
+title: Create on-premises virtual network with Terraform in Azure
 description: Tutorial illustrating how to implement an on-premises VNet in Azure that houses local resources
 services: terraform
 ms.service: terraform
@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 2/28/2019
 ---
 
-# Tutorial: Create on-premises virtual network in Azure using hub and spoke network topology
+# Tutorial: Create on-premises virtual network with Terraform in Azure
 
 In this tutorial, you implement an on-premises network using an Azure Virtual network (VNet). An Azure VNet could be replaced by your own private virtual network. To do so, map the appropriate IP addresses in the subnets.
 
@@ -228,7 +228,5 @@ Create the Terraform configuration file that declares an on-premises VNet.
 
 ## Next steps
 
-In this article, we created a simulation of on-premises network on Azure using a virtual network. To continue with the entire hub-spoke topology tutorial, complete the remaining steps.
-
- > [!div class="nextstepaction"] 
- > [Implement a hub virtual network with Terraform in Azure](./terraform-hub-spoke-hub-network.md)
+> [!div class="nextstepaction"]
+> [Create a hub virtual network with Terraform in Azure](./terraform-hub-spoke-hub-network.md)

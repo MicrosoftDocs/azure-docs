@@ -1,5 +1,5 @@
 ---
-title: Validate Hub Spoke network topology connectivity 
+title: Validate a hub and spoke network with Terraform in Azure
 description: Tutorial to validate hub and spoke network topology with all virtual networks connected to one another. 
 services: terraform
 ms.service: terraform
@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 2/28/2019
 ---
 
-# Hub and spoke network validation 
+# Tutorial: Validate a hub and spoke network with Terraform in Azure
 
 This article is the final step of hub-spoke tutorial. Here we will execute all the terraform files created in the earlier steps and verify the connectivity between various virtual networks.
 
@@ -25,13 +25,11 @@ This article is the final step of hub-spoke tutorial. Here we will execute all t
 
 ## Prerequisites
 
-To implement this tutorial, complete the following articles in order
-
-* [Prerequisites in the Introduction to Hub and Spoke topology article](./hub-spoke-introduction.md)
-* [On Premises virtual network article](./on-prem.md)
-* [Hub virtual network article](./hub-network.md)
-* [Hub network virtual appliance article](./hub-nva.md)
-* [Spoke networks article](./spoke-networks.md)
+- [Create a hub and spoke hybrid network topology with Terraform in Azure](./hub-spoke-introduction.md).
+- [Create on-premises virtual network with Terraform in Azure](./hub-spoke-on-prem.md).
+- [Create a hub virtual network with Terraform in Azure](./hub-spoke-hub-network.md).
+- [Create a hub virtual network appliance with Terraform in Azure](./hub-spoke-hub-nva.md).
+- [Create a spoke virtual networks with Terraform in Azure](./hub-spoke-spoke-network.md).
 
 After completing the above prerequisites, you should have following config files.
 
@@ -131,13 +129,12 @@ To test conectivity from the simulated on-premises environment to the spoke VNet
    ping 10.2.0.68
    ```
 
-## Troubleshooting
+## How to troubleshoot issues
 
-To trouble shoot a hybrid azure network please follow the troubleshooting tips in this [Troubleshoot a hybrid VPN connection](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn) article.
+To troubleshoot a hybrid azure network please follow the troubleshooting tips in this [Troubleshoot a hybrid VPN connection](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn) article.
 
 
 ## Next steps
-In this tutorial, you learned how to use Terraform to lay out an entire hybrid network architecture by using various azure resources. Here are some additional resources to help you learn more about Terraform on Azure.
- 
- > [!div class="nextstepaction"] 
- > [Terraform Hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)
+
+> [!div class="nextstepaction"] 
+> [Terraform in Azure](/azure/terraform/)

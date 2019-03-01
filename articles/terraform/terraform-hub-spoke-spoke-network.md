@@ -1,6 +1,6 @@
 ---
-title: Create Spoke networks to house separate individual workloads 
-description: Tutorial implements creation of two spoke VNets connected to a hub in hub-spoke topology
+title: Create a spoke network with Terraform in Azure 
+description: Learn how to implement two spoke VNets connected to a hub in a hub-spoke topology
 services: terraform
 ms.service: terraform
 keywords: terraform, hub and spoke, networks, hybrid networks, devops, virtual machine, azure, VNet peering, spoke, hub-spoke
@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 2/28/2019
 ---
 
-# Implement Spoke Virtual Networks
+# Tutorial: Create a spoke virtual networks with Terraform in Azure
 
 In this tutorial, we will implement two separate spoke networks to demonstrate separation of workloads. These networks share the common resources using hub virtual network. Spokes can be used to isolate workloads in their own VNets, managed separately from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers.
 
@@ -24,12 +24,11 @@ In this tutorial, we will implement two separate spoke networks to demonstrate s
 
 ## Prerequisites
 
-To implement this tutorial, complete the following articles in order
+- [Create a hub and spoke hybrid network topology with Terraform in Azure](./hub-spoke-introduction.md).
+- [Create on-premises virtual network with Terraform in Azure](./hub-spoke-on-prem.md).
+- [Create a hub virtual network with Terraform in Azure](./hub-spoke-hub-network.md).
+- [Create a hub virtual network appliance with Terraform in Azure](./hub-spoke-hub-nva.md).
 
-* [Prerequisites in the Introduction to Hub and Spoke topology article](./hub-spoke-introduction.md)
-* [On Premises virtual network article](./on-prem.md)
-* [Hub virtual network article](./hub-network.md)
-* [Hub network virtual appliance article](./hub-nva.md)
 
 ## Components
 
@@ -326,9 +325,5 @@ Create the Terraform configuration file that declares two spoke virtual networks
   
 ## Next steps
 
-In this article, we created a two spoke networks with one virtual machine each. We also established VNet peerings between hub and spoke networks. To continue with the entire hub-spoke topology tutorial, complete the remaining steps.
-
- > [!div class="nextstepaction"] 
-
- > [Hub and spoke validation](./terraform-hub-spoke-validation.md)
-
+> [!div class="nextstepaction"] 
+> [Validate a hub and spoke network with Terraform in Azure](./terraform-hub-spoke-validation.md)
