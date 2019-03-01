@@ -25,6 +25,7 @@ However, Maps does not have the same level of information and accuracy for all r
 |Bahrain     |         |✓         |
 |Belgium     |✓         |✓         |
 |Brazil     |✓         |✓         |
+|Brunei     |✓         |✓         |
 |Bulgaria     |✓         |✓         |
 |Canada     |✓         |✓         |
 |Chile     |✓         |✓         |
@@ -60,6 +61,7 @@ However, Maps does not have the same level of information and accuracy for all r
 |Morocco     |         |✓         |
 |Netherlands     |✓         |✓         |
 |New Zealand     |✓         |✓         |
+|Nigeria     |✓         |✓         |
 |Norway     |✓         |✓         |
 |Oman     |         |✓         |
 |Poland     |✓         |✓         |
@@ -91,5 +93,6 @@ However, Maps does not have the same level of information and accuracy for all r
 |Isle of Man     |✓         |✓         |
 |United States     |✓         |✓        |
 |+Puerto Rico     |✓         |✓         |
+|Uruguay     |✓        |✓         |
 
 For more information about Azure Maps traffic data, see the [Traffic](https://docs.microsoft.com/rest/api/maps/traffic) reference pages.
