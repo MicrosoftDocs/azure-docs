@@ -19,20 +19,20 @@ ms.author: banders
 ---
 # Set up your billing account for a Microsoft Customer Agreement
 
-If your organization has signed a Microsoft Customer Agreement to renew your Enterprise Agreement enrollment, then you must set up your billing account. Your new billing account provides you enhanced billing and cost management capabilities through a new streamlined, unified management experience:  
+If your organization has signed a Microsoft Customer Agreement to renew your Enterprise Agreement enrollment, you must set up your billing account. Your new billing account provides enhanced billing and cost management capabilities through a new streamlined, unified management experience:  
 
-- Manage your organization’s Azure services and billing, including invoices, in the Azure portal.
+- Manage your organization’s Azure services and billing, including invoices, in the Azure portal
 
-- Organize the costs on your invoice based on your needs for easy tracking and cost allocation.
+- Organize the costs on your invoice based on your needs for easy tracking and cost allocation
 
-- Review and analyze your monthly, digital invoice in the Azure Cost Management + Billing page.
+- Review and analyze your monthly, digital invoice in the Azure Cost Management + Billing page
 
 When you set up the billing account, you transition the billing of your existing Azure subscriptions to the new account. The way you'll manage billing for your subscriptions in the new account is different from how you managed in your Enterprise Agreement enrollment. We recommend you do the following, before you start the setup:
 
 - **Understand changes to your billing hierarchy**
-    - You new billing account is organized differently than your Enterprise Agreement enrollment. For more information, see [Understand changes to your billing hierarchy](#understand-changes-to-your-billing-hierarchy).
+    - You new billing account is organized differently than your Enterprise Agreement enrollment. For more information, see [understand changes to your billing hierarchy](#understand-changes-to-your-billing-hierarchy).
 - **Understand changes to your billing administrators' access**
-    - Administrators from your Enterprise Agreement enrollment get access to the billing scopes in the new account. For more information, see [Understand changes to your billing administrators' access](#understand-changes-to-your-billing-administrators'-access).
+    - Administrators from your Enterprise Agreement enrollment get access to the billing scopes in the new account. For more information, see [understand changes to your billing administrators' access](#understand-changes-to-your-billing-administrators'-access).
 - **Review Enterprise Agreement features that are replaced by the new account**
     - View features of Enterprise Agreement enrollment that are replaced with upgraded features in the new account. [Features replaced by the new billing account](#features-replaced-by-the-new-billing-account).
 - **View answers to most common questions**
@@ -44,7 +44,7 @@ To complete the setup, you need access to both the new billing account and the E
 
 1. Sign in to the Azure portal using the link in the email that was sent to you when you signed the Microsoft Customer Agreement.
 
-2. If someone else in your organization signed the agreement or you don't have the email, sign in using the following link. Replace **enrollmentNumber** with the enrollment number of your enterprise agreement that was renewed.
+2. If someone else in your organization signed the agreement or you don't have the email, sign in using the following link. Replace **enrollmentNumber** with the enrollment number of your Enterprise Agreement that was renewed.
 
    `https://portal.azure.com/#blade/Microsoft_Azure_Billing/EATransitionToMCA/enrollmentId/enrollmentNumber`
 
@@ -54,7 +54,7 @@ To complete the setup, you need access to both the new billing account and the E
 
     - A billing hierarchy corresponding to your Enterprise Agreement hierarchy is created in the new billing account. For more information, see [Understand changes to your billing hierarchy](#understand-changes-to-your-billing-hierarchy).
     - Administrators from your Enterprise Agreement enrollment are given access to the new billing account so that they continue to manage billing for your organization.
-    - The billing of your Azure subscriptions is transitioned to the new account. There won’t be any impact on your Azure services during this transition. They’ll keep running without any disruption.
+    - The billing of your Azure subscriptions is transitioned to the new account. **There won’t be any impact on your Azure services during this transition. They’ll keep running without any disruption**.
     - If you have Azure Reservations, they are moved to your new billing account with the same discount and term. Your reservation discount will continue to be applied during the transition.
 
 4. You can monitor the status of the transition on the **Transition status** page.
@@ -120,7 +120,7 @@ An Azure Active Directory tenant is selected for the new billing account while s
 
 Your new account only supports users from the tenant that was selected while signing the Microsoft Customer Agreement. If users with administrative permission on your Enterprise Agreement are part of the tenant, they’ll get access to the new billing account during the transition. If they’re not part of the tenant, they won’t be able to access the new billing account unless you invite them.
 
-When you invite the users, they are added to the tenant as guest users and get access to the billing account. To invite the users, guest access must be turned on for the tenant. For more information, see [Control guest access in Azure Active Directory](https://docs.microsoft.com/en-us/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). If the guest access is turned off, contact the Global Administrator of your tenant to turn it on. <!-- Todo - How can they find their global administrator -->
+When you invite the users, they are added to the tenant as guest users and get access to the billing account. To invite the users, guest access must be turned on for the tenant. For more information, see [Control guest access in Azure Active Directory](https://docs.microsoft.com/en-us/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). If the guest access is turned off, contact the global administrators of your tenant to turn it on. <!-- Todo - How can they find their global administrator -->
 
 ## Features replaced by the new billing account
 
@@ -134,11 +134,11 @@ The accounts that were created in your Enterprise Agreement enrollment aren't su
 
 Notification contacts are sent email communications about the Azure Enterprise Agreement. They are not supported in the new billing account. Emails about Azure credits and invoices are sent to users who have access to billing profiles in your billing account.
 
-### Spending quota
+### Spending quotas
 
 Spending quotas that were set for departments in your Enterprise Agreement enrollment are replaced with budgets in the new billing account. A budget is created for each spending quota set on departments in your enrollment. For more information on budgets, see [Create and manage Azure budgets](../cost-management/manage-budgets.md).
 
-### Cost center
+### Cost centers
 
 Cost center that were set on the Azure subscriptions in your Enterprise Agreement enrollment are carried over in the new billing account. However, cost centers for departments and Enterprise Agreement accounts aren't supported.
 
@@ -170,17 +170,17 @@ Support benefits don't transfer as part of the transition. Purchase a new suppor
 
 Charges and credits balance prior to transition can be viewed in your Enterprise Agreement enrollment through the Azure portal. <!--Todo - Add a link for this-->
 
-### When should the setup be completed
+### When should the setup be completed?
 
 Complete the setup of your billing account before your Enterprise Agreement enrollment expires. If your enrollment expires, services in your Azure subscriptions will still keep on running without disruption. However, you'll be charged retail rates for the services.
 
-### Changes to the Enterprise agreement enrollment after the setup
+### Changes to the Enterprise Agreement enrollment after the setup
 
 Azure subscriptions that are created for the Enterprise Agreement enrollment after the transition can be manually moved to the new billing account. For more information, see [Get billing ownership of Azure subscriptions from other users](billing-mca-request-billing-ownership.md). To move Azure Reservations that are purchased after the transition, [contact Azure Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). You can also provide users access to the billing account after the transition. For more information, see [Manage billing roles in the Azure portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 
 ### Revert the transition
 
-The transition is irreversible. Once the billing of your Azure subscriptions is transitioned to the new billing account, you can't revert it back to your Enterprise Agreement enrollment.
+The transition can't be reverted. Once the billing of your Azure subscriptions is transitioned to the new billing account, you can't revert it back to your Enterprise Agreement enrollment.
 
 ### Closing your browser during setup
 
@@ -204,7 +204,7 @@ Before you click on **Start transition**, you can close the browser. You can com
 
    ![Screenshot that shows list of subscriptions](./media/billing-mca-setup-account/billing-mca-subscriptions-post-transition.png)
 
-All Azure subscriptions that are transitioned from your Enterprise Agreement enrollment to the new billing account are displayed on the Azure subscriptions page. If any subscription is missing, transition the billing of the subscription manually in the Azure portal. For more information, see [Get billing ownership of Azure subscriptions from other users](billing-mca-request-billing-ownership.md)
+All Azure subscriptions that are transitioned from your Enterprise Agreement enrollment to the new billing account are displayed on the Azure subscriptions page. If you believe any subscription is missing, transition the billing of the subscription manually in the Azure portal. For more information, see [Get billing ownership of Azure subscriptions from other users](billing-mca-request-billing-ownership.md)
 
 ### Azure Reservations
 
@@ -224,7 +224,7 @@ All Azure subscriptions that are transitioned from your Enterprise Agreement enr
 
     ![Screenshot that shows list of subscriptions post transition](./media/billing-mca-setup-account/billing-mca-azure-reservations-post-transition.png)
 
-All Azure Reservations that are moved from your Enterprise Agreement enrollment to the new billing account are displayed on the All products page. Repeat the steps for all the invoice sections to verify that all Azure Reservations are moved from your Enterprise Agreement enrollment. If any Azure Reservation is missing, [contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to move the Reservation to the new billing account.
+All Azure Reservations that are moved from your Enterprise Agreement enrollment to the new billing account are displayed on the All products page. Repeat the steps for all the invoice sections to verify that all Azure Reservations are moved from your Enterprise Agreement enrollment. If you believe any Azure Reservation is missing, [contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to move the Reservation to the new billing account.
 
 ### Access of enterprise administrators on the billing profile
 
