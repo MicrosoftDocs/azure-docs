@@ -80,7 +80,7 @@ You get a response like this:
 
 ## Start the streaming endpoint
 
-The following Azure CLI command starts the default *streaming endpoint*.
+The following Azure CLI command starts the default **Sstreaming Endpoint**.
 
 ```azurecli
 az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
@@ -124,7 +124,7 @@ If the streaming endpoint is already running, you get this message:
 
 ## Create a transform for adaptive bitrate encoding
 
-Create a **transform** to configure common tasks for encoding or analyzing videos. In this example, we do adaptive bitrate encoding. We then submit a job under the transform that we created. The job is the request to Media Services to apply the transform to the given video or audio content input.
+Create a **Transform** to configure common tasks for encoding or analyzing videos. In this example, we do adaptive bitrate encoding. We then submit a job under the transform that we created. The job is the request to Media Services to apply the transform to the given video or audio content input.
 
 ```azurecli
 az ams transform create --name testEncodingTransform --preset AdaptiveStreaming --description 'a simple Transform for Adaptive Bitrate Encoding' -g amsResourceGroup -a amsaccount
@@ -156,7 +156,7 @@ You get a response like this:
 
 ## Create an output asset
 
-Create an output *asset* to use as the encoding job's output.
+Create an output **Asset** to use as the encoding job's output.
 
 ```azurecli
 az ams asset create -n testOutputAssetName -a amsaccount -g amsResourceGroup
@@ -233,7 +233,7 @@ You get a response like this:
 
 ### Check status
 
-In five minutes, check the status of the job. It should be "Finished." It's not finished, check again in a few minutes. When it's finished, go to the next step and create a *streaming locator*.
+In five minutes, check the status of the job. It should be "Finished." It's not finished, check again in a few minutes. When it's finished, go to the next step and create a **Streaming Locator**.
 
 ```azurecli
 az ams job show -a amsaccount -g amsResourceGroup -t testEncodingTransform -n testJob001
@@ -241,7 +241,7 @@ az ams job show -a amsaccount -g amsResourceGroup -t testEncodingTransform -n te
 
 ## Create a streaming locator and get a path
 
-After the encoding is complete, the next step is to make the video in the output asset available to clients for playback. To do this, first create a *streaming locator*. Then, build streaming URLs that clients can use.
+After the encoding is complete, the next step is to make the video in the output asset available to clients for playback. To do this, first create a Streaming Locator. Then, build streaming URLs that clients can use.
 
 ### Create a streaming locator
 
