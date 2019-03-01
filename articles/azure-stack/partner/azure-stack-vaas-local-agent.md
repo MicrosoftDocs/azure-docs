@@ -26,10 +26,10 @@ ROBOTS: NOINDEX
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Learn how to use the Validation as a Service (VaaS) local agent to check your hardware. The local agent must be deployed on the Azure Stack solution being validated prior to running validation tests.
+Learn how to use the Validation as a Service (VaaS) local agent to run validation tests. The local agent must be deployed prior to running validation tests.
 
 > [!Note]  
-> You must make sure that the machine on which the local agent is running doesn't lose out-bound access to the internet. This machine must be accessible only to users who you have authorized to use VaaS on behalf of your tenant.
+> Make sure that the machine on which the local agent is running doesn't lose outbound access to the internet. This machine should be accessible only to users who are authorized to use VaaS on behalf of your tenant.
 
 To deploy the local agent:
 
@@ -39,7 +39,7 @@ To deploy the local agent:
 
 ## Download and start the local agent
 
-Download the agent to a machine that meets the prerequisites in your datacenter that is not part of the Azure Stack system, but one that has access to all the Azure Stack endpoints.
+Download the agent to a machine that meets the prerequisites in your datacenter. This machine should not part of the Azure Stack system or hosted in the Azure Stack cloud, but should have access to all the Azure Stack endpoints.
 
 ### Machine prerequisites
 
@@ -51,8 +51,6 @@ Check that your machine meets the following criteria:
 - Minimum 8 core processors
 - Minimum 200-GB disk space
 - Stable network connectivity to the internet
-
-Azure Stack is the system under test. The machine should not be part of Azure Stack or hosted in the Azure Stack cloud.
 
 ### Download and install the agent
 
