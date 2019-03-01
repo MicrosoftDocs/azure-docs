@@ -16,15 +16,15 @@ ms.custom: seodec2018
 
 This article shows you how to configure an Azure Cosmos DB [indexer](search-indexer-overview.md) to extract content and make it searchable in Azure Search. This workflow creates an Azure Search index and loads it with existing text extracted from Azure Cosmos DB. 
 
-Because terminology can be confusing, it's worth noting that an [Azure Cosmos DB index](https://docs.microsoft.com/azure/cosmos-db/index-overview) and an [Azure Search index](search-what-is-an-index.md) are completely different data structures, unique to each service. Before you start indexing data in Azure Search, your Azure Cosmos DB database must already exist (with or without indexes) and contain data.
+Because terminology can be confusing, it's worth noting that [Azure Cosmos DB indexing](https://docs.microsoft.com/azure/cosmos-db/index-overview) and [Azure Search indexing](search-what-is-an-index.md) are distinct operations, unique to each service. Before you start Azure Search indexing, your Azure Cosmos DB database must already exist and contain data.
 
-You can use the [portal](#cosmos-indexer-portal), [REST APIs](#cosmos-indexer-rest), or [.NET SDK](#cosmos-indexer-dotnet) to index content from Azure Cosmos DB. The Cosmos DB indexer in Azure Search can crawl the following [Azure Cosmos items](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items):
+You can use the [portal](#cosmos-indexer-portal), [REST APIs](#cosmos-indexer-rest), or [.NET SDK](#cosmos-indexer-dotnet) to index Cosmos content. The Cosmos DB indexer in Azure Search can crawl [Azure Cosmos items](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) accessed through these protocols:
 
 * [SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
 * [MongoDB API](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) (Azure Search support for this API is in public preview)  
 
 > [!Note]
-> User Voice has existing items for additional API support. You can cast a vote for the APIs you would like to see supported in Azure Search: [Table API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab), [Graph API](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4), 
+> User Voice has existing items for additional API support. You can cast a vote for the Cosmos APIs you would like to see supported in Azure Search: [Table API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab), [Graph API](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4), 
 [Apache Cassandra API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu).
 >
 
@@ -169,7 +169,7 @@ The body of the request contains the data source definition, which should includ
 |---------|-------------|
 | **name** | Required. Choose any name to represent your data source object. |
 |**type**| Required. Must be `documentdb`. |
-|**credentials** | Required. Must be a Cosmos DB connection string.<br/>For SQL collections, composition includes `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>For MongoDB collections, add **ApiKind=MongoDb** to the connection string:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Avoid port numbers in the endpoint url. If you include the port number, Azure Search will be unable to index your Azure Cosmos DB database.|
+|**credentials** | Required. Must be a Cosmos DB connection string.<br/>For SQL collections, connection strings are in this format: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>For MongoDB collections, add **ApiKind=MongoDb** to the connection string:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Avoid port numbers in the endpoint url. If you include the port number, Azure Search will be unable to index your Azure Cosmos DB database.|
 | **container** | Contains the following elements: <br/>**name**: Required. Specify the ID of the database collection to be indexed.<br/>**query**: Optional. You can specify a query to flatten an arbitrary JSON document into a flat schema that Azure Search can index.<br/>For MongoDB collections, queries are not supported. |
 | **dataChangeDetectionPolicy** | Recommended. See [Indexing Changed Documents](#DataChangeDetectionPolicy) section.|
 |**dataDeletionDetectionPolicy** | Optional. See [Indexing Deleted Documents](#DataDeletionDetectionPolicy) section.|
@@ -274,58 +274,14 @@ This indexer runs every two hours (schedule interval is set to "PT2H"). To run a
 
 For more details on the Create Indexer API, check out [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-<a id="RunIndexer"></a>
+## Use .NET
 
-### Running indexer on-demand
+The .NET SDK has fully parity with the REST API. We recommend that you review the previous REST API section to learn concepts, workflow, and requirements. You can then refer to following .NET API reference documentation to implement a JSON indexer in managed code.
 
-In addition to running periodically on a schedule, an indexer can also be invoked on demand:
-
-    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2017-11-11
-    api-key: [Search service admin key]
-
-> [!NOTE]
-> When Run API returns successfully, the indexer invocation has been scheduled, but the actual processing happens asynchronously. 
-
-You can monitor the indexer status in the portal or using the Get Indexer Status API, which we describe next. 
-
-<a name="GetIndexerStatus"></a>
-
-### Getting indexer status
-
-You can retrieve the status and execution history of an indexer:
-
-    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2017-11-11
-    api-key: [Search service admin key]
-
-The response contains overall indexer status, the last (or in-progress) indexer invocation, and the history of recent indexer invocations.
-
-    {
-        "status":"running",
-        "lastResult": {
-            "status":"success",
-            "errorMessage":null,
-            "startTime":"2014-11-26T03:37:18.853Z",
-            "endTime":"2014-11-26T03:37:19.012Z",
-            "errors":[],
-            "itemsProcessed":11,
-            "itemsFailed":0,
-            "initialTrackingState":null,
-            "finalTrackingState":null
-         },
-        "executionHistory":[ {
-            "status":"success",
-             "errorMessage":null,
-            "startTime":"2014-11-26T03:37:18.853Z",
-            "endTime":"2014-11-26T03:37:19.012Z",
-            "errors":[],
-            "itemsProcessed":11,
-            "itemsFailed":0,
-            "initialTrackingState":null,
-            "finalTrackingState":null
-        }]
-    }
-
-Execution history contains up to the 50 most recent completed executions, which are sorted in reverse chronological order (so the latest execution comes first in the response).
++ [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
++ [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
++ [microsoft.azure.search.models.index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
++ [microsoft.azure.search.models.indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
 
 <a name="DataChangeDetectionPolicy"></a>
 
@@ -395,10 +351,6 @@ The following example creates a data source with a soft-deletion policy:
             "softDeleteMarkerValue": "true"
         }
     }
-
-## Use .NET
-
-[Index class](/dotnet/api/microsoft.azure.search.models.index) to create an index
 
 ## Watch this video
 
