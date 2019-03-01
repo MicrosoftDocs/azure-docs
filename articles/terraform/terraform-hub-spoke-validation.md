@@ -117,7 +117,7 @@ This section shows how to test connectivity from the simulated on-premises envir
 
 ## How to troubleshoot issues
 
-For information about troubleshooting a hybrid azure network, [Troubleshoot a hybrid VPN connection](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn).
+For information about troubleshooting a hybrid azure network, [Troubleshoot a hybrid VPN connection](/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn).
 
 ## Next steps
 
