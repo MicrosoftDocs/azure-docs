@@ -38,7 +38,7 @@ A [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) can be one 
 
 ### Pass-through
 
-![pass-through](./media/live-streaming/pass-through.png)
+![pass-through](./media/live-streaming/pass-through.svg)
 
 When using the pass-through **Live Event**, you rely on your on-premises live encoder to generate a multiple bitrate video stream and send that as the contribution feed to the Live Event (using RTMP or fragmented-MP4 protocol). The Live Event then carries through the incoming video streams without any further processing. Such a pass-through LiveEvent is optimized for long-running live events or 24x365 linear live streaming. When creating this type of Live Event, specify None (LiveEventEncodingType.None).
 
@@ -52,7 +52,7 @@ See a .NET code example in [MediaV3LiveApp](https://github.com/Azure-Samples/med
 
 ### Live encoding  
 
-![live encoding](./media/live-streaming/live-encoding.png)
+![live encoding](./media/live-streaming/live-encoding.svg)
 
 When using live encoding with Media Services, you would configure your on-premises live encoder to send a single bitrate video as the contribution feed to the Live Event (using RTMP or Fragmented-Mp4 protocol). The Live Event encodes that incoming single bitrate stream to a [multiple bitrate video stream](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), makes it available for delivery to play back devices via protocols like MPEG-DASH, HLS, and Smooth Streaming. When creating this type of Live Event, specify the encoding type as **Standard** (LiveEventEncodingType.Standard).
 
