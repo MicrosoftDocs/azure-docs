@@ -33,7 +33,7 @@ To complete the steps in this article:
 
 * [Install Visual Studio 2017 version 15.6 or later](https://docs.microsoft.com/visualstudio/install/) with the **Azure development** workload.
 
-  If you already have Visual Studio, but don't have that workload, add the workload by selecting **Tools > Get Tools and Features**.
+  If you already have Visual Studio, but don't have that workload, add the workload by selecting **Tools** > **Get Tools and Features**.
 
   (You can use [Visual Studio Code](https://code.visualstudio.com/) instead, but some of the instructions are specific to Visual Studio.)
 
@@ -202,7 +202,7 @@ This section provides an overview of how to run the [sample project](https://git
 
 1. Create a web app and a storage account.
 
-1. In the web app, save the Storage connection string in an app setting named `AzureWebJobsStorage`.
+1. In the web app, save the storage connection string in an app setting named `AzureWebJobsStorage`.
 
 1. Create an Application Insights resource, and use the **General** app type for it.
 
@@ -223,7 +223,7 @@ The main change introduced is the use of .NET Core instead of .NET Framework. To
     * `Microsoft.Azure.WebJobs.Extensions`
     * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
-1. Get the Storage connection string and the Application Insights instrumentation key from an *appsettings.json* file, by using the .NET Core configuration framework. Change the `Main` method code to do this. Here's an example:
+1. Get the storage connection string and the Application Insights instrumentation key from an *appsettings.json* file, by using the .NET Core configuration framework. Change the `Main` method code to do this. Here's an example:
 
    ```cs
    static void Main(string[] args)
