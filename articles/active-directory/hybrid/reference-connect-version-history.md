@@ -1098,7 +1098,7 @@ Changed name from Azure AD Sync to Azure AD Connect.
 * Can [configure AD FS](how-to-connect-install-custom.md#configuring-federation-with-ad-fs)
 * Can [upgrade from DirSync](how-to-dirsync-upgrade-get-started.md)
 * [Prevent accidental deletes](how-to-connect-sync-feature-prevent-accidental-deletes.md)
-* Introduced [staging mode](how-to-connect-sync-operations.md#staging-mode)
+* Introduced [staging mode](how-to-connect-sync-staging-server.md)
 
 **New preview features:**
 
