@@ -38,7 +38,7 @@ An Azure container registry by default accepts connections over the internet fro
 
 To limit access to a registry, first change the default action of the registry so that it denies all network connections. Then, configure specific network rules to allow access.
 
-The network rules you add to a container registry can allow requests from specific subnets in a virtual network, from specific IP addresses, or both. Clients granted access via these network rules must continue to [authenticate to the container registry](https://docs.microsoft.com/azure/container-registry/container-registry-authentication) and be authorized to access the data.
+The network rules you add to a container registry can allow requests from specific subnets in virtual networks, from specific IP addresses, or both. Clients granted access via these network rules must continue to [authenticate to the container registry](https://docs.microsoft.com/azure/container-registry/container-registry-authentication) and be authorized to access the data.
 
 ### Service endpoint for subnets
 
@@ -56,7 +56,7 @@ IP network rules are only allowed for *public* internet IP addresses. IP address
 
 For this article, use a Docker-enabled Ubuntu virtual machine in a virtual network to access an Azure container registry. To use Azure Active Directory authentication to the registry, also install the [Azure CLI][azure-cli]. If you already have an Azure virtual machine, skip this section to create the virtual machine.
 
-If you want to, use the same resource group for your virtual machine and your container registry. This setup simplifies clean-up at the end but isn't required. If you choose to create a resource group to contain the virtual machine and virtual network, run [az group create][az-group-create]. The following example creates a resource group named *myResourceGroup* in the *westcentralus* location:
+If you want to, use the same resource group for your virtual machine and your container registry. This setup simplifies clean-up at the end but isn't required. If you choose to create a separate resource group for the virtual machine and virtual network, run [az group create][az-group-create]. The following example creates a resource group named *myResourceGroup* in the *westcentralus* location:
 
 ```azurecli
 az group create --name myResourceGroup --location westcentralus
