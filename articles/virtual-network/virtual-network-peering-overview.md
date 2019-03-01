@@ -58,7 +58,7 @@ When virtual networks are peered in the same region, you can also configure the 
 
 ![virtual network peering transit](./media/virtual-networks-peering-overview/figure04.png)
 
-Gateway transit support between virtual networks created in different regions is in preview. To use remote gateways or allow gateway transit when globally peered, you must run the following commands:
+Gateway transit support between globally peered virtual networks is in preview. To use remote gateways or allow gateway transit when globally peered, you must run the following commands:
 
  `az feature register --name AllowGlobalPeeringTransit --namespace Microsoft.Network`
 `az provider register --namespace Microsoft.Network`
