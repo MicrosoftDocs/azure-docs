@@ -16,7 +16,7 @@ ms.author: diberry
 
 # Get answers to a question from a knowledge base with Java
 
-This quickstart walks you through programmatically getting an answer from a published QnA Maker knowledge base. The knowledge base contains questions and answers from [data sources](../Concepts/data-sources-supported.md) such as FAQs. The [question](metadata-generateanswer-usage.md#generateanswer-request-configuration) is sent to the QnA Maker service. The [response](metadata-generateanswer-usage.md#generateanswer-response-properties) includes the top-predicted answer. 
+This quickstart walks you through programmatically getting an answer from a published QnA Maker knowledge base. The knowledge base contains questions and answers from [data sources](../Concepts/data-sources-supported.md) such as FAQs. The [question](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) is sent to the QnA Maker service. The [response](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) includes the top-predicted answer. 
 
 ## Prerequisites
 
