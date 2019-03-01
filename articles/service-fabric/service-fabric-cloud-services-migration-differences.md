@@ -92,7 +92,7 @@ Despite cloud services API being publically accessible longer than Service Fabri
 | --- | --- | --- |
 | RoleInstance.GetID | FabricRuntime.GetNodeContext.NodeId or .NodeName | ID is a party of the NodeName |
 | RoleInstance.GetFaultDomain | FabricClient.QueryManager.GetNodeList | Filter on NodeName and use FD Property |
-| RoleInstance.GetUpgradeDomain | FabricClient.QueryManager.GetNodeList | Filteri on NodeName, and use Upgrade property |
+| RoleInstance.GetUpgradeDomain | FabricClient.QueryManager.GetNodeList | Filter on NodeName, and use Upgrade property |
 | RoleInstance.GetInstanceEndpoints | FabricRuntime.GetActivationContext or Naming (ResolveService) | CodePackageActivationContext which is provided both by FabricRuntime.GetActivationContext and within the replicas via ServiceInitializationParameters.CodePackageActivationContext provided during .Initialize |
 | RoleEnvironment.GetRoles | FabricClient.QueryManager.GetNodeList | If you want to do the same sort of filtering by type you can get the list of node types from the cluster manifest via FabricClient.ClusterManager.GetClusterManifest and grab the role/node types from there. |
 | RoleEnvironment.GetIsAvailable | Connect-WindowsFabricCluster or create a FabricRuntime pointed to a particular node | * |
