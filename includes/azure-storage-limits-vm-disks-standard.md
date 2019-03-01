@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 11/09/2018	
 ms.author: rogarana
 ---
-**Standard unmanaged virtual machine disks: Per disk limits**
+**Standard unmanaged virtual machine disks: Per-disk limits**
 
 | VM tier | Basic tier VM | Standard tier VM |
 | --- | --- | --- |

@@ -8,10 +8,10 @@ ms.author: jroth
 
 | Tier | Free | Basic | Standard |
 | --- | --- | --- | --- |
-| API calls |500 K |1.5 M per unit |15 M per unit |
+| API calls |500,000 |1.5 million per unit |15 million per unit |
 | Active devices |500 |Unlimited |Unlimited |
 | Scale |N/A |Up to 6 units |Unlimited units |
-| Push notifications |Azure Notification Hubs Free tier included, up to 1 M pushes |Notification Hubs Basic tier included, up to 10 M pushes |Notification Hubs Standard tier included, up to 10 M pushes |
+| Push notifications |Azure Notification Hubs Free tier included, up to 1 million pushes |Notification Hubs Basic tier included, up to 10 million pushes |Notification Hubs Standard tier included, up to 10 million pushes |
 | Real-time messaging/<br/>Web Sockets |Limited |350 per mobile service |Unlimited |
 | Offline synchronizations |Limited |Included |Included |
 | Scheduled jobs |Limited |Included |Included |

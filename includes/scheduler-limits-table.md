@@ -24,7 +24,7 @@ The following table describes each of the major quotas, limits, defaults, and th
 | **Request URL size** | The maximum size for a request URL is 2,048 chars. |
 | **Header count** | The maximum header count is 50 headers. | 
 | **Aggregate header size** | The maximum aggregate header size is 4,096 chars. |
-| **Timeout** | The request timeout is static (not configurable) and is 60 seconds for HTTP actions. For longer running operations, follow the HTTP asynchronous protocols. For example, return a 202 immediately but continue working in the background. | 
+| **Timeout** | The request timeout is static, that is, not configurable. and is 60 seconds for HTTP actions. For longer running operations, follow the HTTP asynchronous protocols. For example, return a 202 immediately but continue working in the background. | 
 | **Job history** | The maximum response body stored in job history is 2,048 bytes. |
 | **Job history retention** | Job history is kept for up to two months or up to the last 1,000 executions. | 
 | **Completed and faulted job retention** | Completed and faulted jobs are kept for 60 days. |

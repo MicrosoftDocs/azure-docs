@@ -13,7 +13,7 @@ ms.author: tamram
 | Maximum number of files in a file share | No limit | No limit |
 | Maximum IOPS per share | 1,000 IOPS | 5,120 IOPS baseline<br />15,360 IOPS with burst |
 | Maximum number of stored access policies per file share | 5 | 5 |
-| Target throughput for a single file share | Up to 60 MiB/second | Up to 612 MiB/sec (provisioned) |
+| Target throughput for a single file share | Up to 60 MiB/sec | Up to 612 MiB/sec (provisioned) |
 | Maximum open handles per file | 2,000 open handles | 2,000 open handles |
 | Maximum number of share snapshots | 200 share snapshots | 200 share snapshots |
 | Maximum object (directories and files) name length | 2,048 characters | 2,048 characters |

@@ -8,7 +8,7 @@ ms.author: jroth
 
 | Resource | Default limit | Maximum limit | 
 | --- | --- | --- |
-| Content Delivery Network profiles |25 |25 |
+| Azure Content Delivery Network profiles |25 |25 |
 | Content Delivery Network endpoints per profile |10 |25 |
 | Custom domains per endpoint |10 |25 |
 
