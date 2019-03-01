@@ -19,19 +19,19 @@ ms.custom: "it-pro;seo-update-azuread-jan"
 
 ms.collection: M365-identity-device-management
 ---
-# Set up Azure Active Directory for self-service group management
+# Set up self-service group management in Azure Active Directory 
 
 You can enable users to create and manage their own security groups or Office 365 groups in Azure Active Directory (Azure AD). The owner of the group can approve or deny membership requests, and can delegate control of group membership. Self-service group management features are not available for mail-enabled security groups or distribution lists. 
 
-## Security group and Office 365 group membership defaults
+## Group membership defaults
 
-For self-service security groups created in the Azure portal or using Azure AD PowerShell, only the group owners can update membership. Security groups created in the [Apps access panel](https://account.activedirectory.windowsazure.com/r#/joinGroups) and all Office 365 groups are available to join for all users, whether owner-approved or auto-approved. In the Apps access panel, you can change membership options when you create the group.
+When self-service security groups are created in the Azure portal or using Azure AD PowerShell, only the group owners can update membership. Security groups created in the [Access panel](https://account.activedirectory.windowsazure.com/r#/joinGroups) and all Office 365 groups are available to join for all users, whether owner-approved or auto-approved. In the Access panel, you can change membership options when you create the group.
 
 Groups created in | Security group default behavior | Office 365 group default behavior
 ------------------ | ------------------------------- | ---------------------------------
-[Azure AD PowerShell](groups-settings-cmdlets.md) | Only owners can add members<br>Visible but not available to join in Apps access panel | Open to join for all users
-[Azure portal](https://portal.azure.com) | Only owners can add members<br>Visible but not available to join in Apps access panel<br>Owner is not assigned automatically at group creation | Open to join for all users
-[Apps access panel](https://account.activedirectory.windowsazure.com/r#/joinGroups) | Open to join for all users<br>Membership options can be changed when the group is created | Open to join for all users<br>Membership options can be changed when the group is created
+[Azure AD PowerShell](groups-settings-cmdlets.md) | Only owners can add members<br>Visible but not available to join in Access panel | Open to join for all users
+[Azure portal](https://portal.azure.com) | Only owners can add members<br>Visible but not available to join in Access panel<br>Owner is not assigned automatically at group creation | Open to join for all users
+[Access panel](https://account.activedirectory.windowsazure.com/r#/joinGroups) | Open to join for all users<br>Membership options can be changed when the group is created | Open to join for all users<br>Membership options can be changed when the group is created
 
 ## Self-service group management scenarios
 
