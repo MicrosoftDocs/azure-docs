@@ -216,15 +216,11 @@ Until now, definitions for the data source and index have been parsingMode agnos
 
 + Set **parsingMode** to `jsonArray` if your blobs consist of JSON arrays, and you need each element of the array to become a separate document in Azure Search. 
 
-<<<<<<< HEAD
 + Set **parsingMode** to `jsonLines` if your blobs consist of multiple JSON entities, that are separated by a new line, and you need each entity to become a separate document in Azure Search.
 
 You can think of a document as a single item in search results. If you want each element in the array to show up in search results as an independent item, then use the `jsonArray` or `jsonLines` option as appropriate.
 
 Within the indexer definition, you can optionally use [field mappings](search-indexer-field-mappings.md) to choose which properties of the source JSON document are used to populate your target search index. For `jsonArray` parsing mode, if the array exists as a lower-level property, you can set a document root indicating where the array is placed within the blob.
-=======
-For JSON arrays, if the array exists as a lower-level property, you can set a document root indicating where the array is placed within the blob.
->>>>>>> f671cc6c85b404d0b040e7123ef0e35651c343be
 
 > [!IMPORTANT]
 > When you use `json`, `jsonArray` or `jsonLines` parsing mode, Azure Search assumes that all blobs in your data source contain JSON. If you need to support a mix of JSON and non-JSON blobs in the same data source, let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
@@ -295,7 +291,6 @@ Use this configuration to index the array contained in the `level2` property:
         "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
     }
 
-<<<<<<< HEAD
 ### How to parse blobs with multiple JSON entities separated by newlines
 
 If your blob contains multiple JSON entities separated by a newline, and you want each element to become a separate Azure Search document, you can opt for the JSON lines feature. For example, given the following blob (where there are three different JSON entities), you can populate your Azure Search index with three seprate documents, each with "id" and "text" fields.
@@ -321,9 +316,6 @@ For a JSON lines, the indexer definition should look similar to the following ex
 Again, notice that field mappings can be omitted, similar to the `jsonArray` parsing mode.
 
 ### Using field mappings to build search documents
-=======
-### Field mappings
->>>>>>> f671cc6c85b404d0b040e7123ef0e35651c343be
 
 When source and target fields are not perfectly aligned, you can define a field mapping section in the request body for explicit field-to-field associations.
 
