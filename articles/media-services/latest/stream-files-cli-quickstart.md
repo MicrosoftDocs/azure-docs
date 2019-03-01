@@ -124,7 +124,7 @@ If the streaming endpoint is already running, you get this message:
 
 ## Create a transform for adaptive bitrate encoding
 
-Create a *transform* to configure common tasks for encoding or analyzing videos. In this example, we do adaptive bitrate encoding. We then submit a job under the transform that we created. The job is the request to Media Services to apply the transform to the given video or audio content input.
+Create a **transform** to configure common tasks for encoding or analyzing videos. In this example, we do adaptive bitrate encoding. We then submit a job under the transform that we created. The job is the request to Media Services to apply the transform to the given video or audio content input.
 
 ```azurecli
 az ams transform create --name testEncodingTransform --preset AdaptiveStreaming --description 'a simple Transform for Adaptive Bitrate Encoding' -g amsResourceGroup -a amsaccount
