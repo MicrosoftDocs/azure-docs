@@ -80,6 +80,12 @@ When deploying GPU resources, set CPU and memory resources appropriate for the w
   Pricing is higher for container groups with GPU resources than for container groups without. See [pricing details](https://azure.microsoft.com/pricing/details/container-instances/).
 
 * **CUDA drivers** - Container instances with GPU resources are pre-provisioned with NVIDIA CUDA drivers and container runtimes, so you can use container images developed for CUDA workloads.
+  Please note we support CUDA 9.0 at this stage. 
+  For example you can use following base images for your docker file
+  * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
+  * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
+    
+
 
 ## YAML example
 
