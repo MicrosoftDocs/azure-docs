@@ -687,21 +687,21 @@ For more information, see [Binding at runtime](../azure-functions/functions-dotn
 
 ## Binding reference information
 
-Reference information about each binding type is provided in the Azure Functions documentation. Using Storage queue as an example, you'll find the following information in each binding reference article:
+Reference information about each binding type is provided in the Azure Functions documentation. You'll find the following information in each binding reference article. (Storage queue is used in this example.)
 
-* [Packages](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x) - What package to install in order to include support for the binding in a WebJobs SDK project.
-* [Examples](../azure-functions/functions-bindings-storage-queue.md#trigger---example) - The C# class library example applies to the WebJobs SDK; just omit the `FunctionName` attribute.
-* [Attributes](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes) - The attributes to use for the binding type.
-* [Configuration](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration) - Explanations of the attribute properties and constructor parameters.
-* [Usage](../azure-functions/functions-bindings-storage-queue.md#trigger---usage) - What types you can bind to and information about how the binding works. For example: polling algorithm, poison queue processing.
+* [Packages](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x). The package you need to install to include support for the binding in a WebJobs SDK project.
+* [Examples](../azure-functions/functions-bindings-storage-queue.md#trigger---example). Code samples. The C# class library example applies to the WebJobs SDK. Just omit the `FunctionName` attribute.
+* [Attributes](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes). The attributes to use for the binding type.
+* [Configuration](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration). Explanations of the attribute properties and constructor parameters.
+* [Usage](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). The types you can bind to and information about how the binding works. For example: polling algorithm, poison queue processing.
   
-For a list of binding reference articles, see **Supported bindings** in the [Triggers and bindings](../azure-functions/functions-triggers-bindings.md#supported-bindings) article for Azure Functions. In that list, the HTTP, webhook, and Event Grid bindings are supported only by Azure Functions, not by the WebJobs SDK.
+For a list of binding reference articles, see "Supported bindings" in the [Triggers and bindings](../azure-functions/functions-triggers-bindings.md#supported-bindings) article for Azure Functions. In that list, the HTTP, Webhooks, and Event Grid bindings are supported only by Azure Functions, not by the WebJobs SDK.
 
 ## Disable attribute 
 
 The [Disable](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) attribute lets you control whether a function can be triggered. 
 
-In the following example, if the app setting `Disable_TestJob` has a value of "1" or "True" (case insensitive), the function will not run. In that case, the runtime creates a log message *Function 'Functions.TestJob' is disabled*.
+In the following example, if the app setting `Disable_TestJob` has a value of "1" or "True" (case insensitive), the function won't run. In that case, the runtime creates a log message *Function 'Functions.TestJob' is disabled*.
 
 ```cs
 [Disable("Disable_TestJob")]
@@ -711,13 +711,13 @@ public static void TestJob([QueueTrigger("testqueue2")] string message)
 }
 ```
 
-When you change app setting values in the Azure portal, it causes the WebJob to be restarted, picking up the new setting.
+When you change app setting values in the Azure portal, the WebJob restarts to pick up the new setting.
 
 The attribute can be declared at the parameter, method, or class level. The setting name can also contain binding expressions.
 
 ## Timeout attribute
 
-The [Timeout](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TimeoutAttribute.cs) attribute causes a function to be canceled if it doesn't complete within a specified amount of time. In the following example, the function would run for one day without the timeout. With the timeout, the function is canceled after 15 seconds.
+The [Timeout](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TimeoutAttribute.cs) attribute causes a function to be canceled if it doesn't finish within a specified amount of time. In the following example, the function would run for one day without the timeout. The timeout causes the function to be canceled after 15 seconds.
 
 ```cs
 [Timeout("00:00:15")]
@@ -732,11 +732,11 @@ public static async Task TimeoutJob(
 }
 ```
 
-You can apply the Timeout attribute at class or method level, and you can specify a global timeout by using `JobHostConfiguration.FunctionTimeout`. Class or method level timeouts override the global timeout.
+You can apply the Timeout attribute at the class or method level, and you can specify a global timeout by using `JobHostConfiguration.FunctionTimeout`. Class-level or method-level timeouts override global timeouts.
 
 ## Singleton attribute
 
-Use the [Singleton](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonAttribute.cs) attribute to ensure that only one instance of a function runs even when there are multiple instances of the host web app. It does this by implementing [distributed locking](#viewing-lease-blobs).
+Use the [Singleton](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonAttribute.cs) attribute to ensure that only one instance of a function runs, even when there are multiple instances of the host web app. It does this by using [distributed locking](#viewing-lease-blobs).
 
 In the following example, only a single instance of the `ProcessImage` function runs at any given time:
 
