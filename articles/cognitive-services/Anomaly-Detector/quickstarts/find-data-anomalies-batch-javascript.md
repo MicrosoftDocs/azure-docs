@@ -19,7 +19,7 @@ This article provides information and code samples to help you get started using
 
 ## Prerequisites
 
-- You must have a subscription key, refer to [Obtaining Subscription Keys](../How-to/get-subscription-key.md).
+[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
 
 ## Find time series anomalies in batch
 

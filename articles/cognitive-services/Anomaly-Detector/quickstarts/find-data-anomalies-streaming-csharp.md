@@ -20,7 +20,7 @@ This article provides information and code samples to help you get started using
 
 - You must have [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) or later.
 
-- You must have a subscription key to use the Anomaly Finder service, refer to [Obtaining Subscription Keys](../How-to/get-subscription-key.md).
+[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
 
 ## Detect anomaly status of latest point 
 
