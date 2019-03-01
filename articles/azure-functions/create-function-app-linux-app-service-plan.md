@@ -31,7 +31,7 @@ Sign in to the Azure portal at <https://portal.azure.com> with your Azure accoun
 
 You must have a function app to host the execution of your functions on Linux. The function app provides an environment for execution of your function code. It lets you group functions as a logic unit for easier management, deployment, and sharing of resources. In this article, you create an App Service plan when you create your function app.
 
-1. Select the **New** button found on the upper left-hand corner of the Azure portal, then select **Compute** > **Function App**.
+1. Select the **Create a resource** button found on the upper left-hand corner of the Azure portal, then select **Compute** > **Function App**.
 
     ![Create a function app in the Azure portal](./media/create-function-app-linux-app-service-plan/function-app-create-flow.png)
 
@@ -45,7 +45,7 @@ You must have a function app to host the execution of your functions on Linux. T
     | **Subscription** | Your subscription | The subscription under which this new function app is created. | 
     | **[Resource Group](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Name for the new resource group in which to create your function app. |
     | **OS** | Linux | The function app runs on Linux. |
-    | **Publish** | Code | The default Linux container for your **Runtime Stack** is used. All you need to provide is your function app project code. |
+    | **Publish** | Code | The default Linux container for your **Runtime Stack** is used. All you need to provide is your function app project code. Another option is to publish a custom [Docker image](functions-create-function-linux-custom-image.md). |
     | **[Hosting plan](functions-scale.md)** | App Service plan | Hosting plan that defines how resources are allocated to your function app. When you run in an App Service plan, you can control the [scaling of your function app](functions-scale.md).  |
     | **App Service plan/Location** | Create plan | Choose **Create new** and supply an **App Service plan** name. Choose a **Location** in a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. Choose your desired **[Pricing tier](https://azure.microsoft.com/pricing/details/app-service/linux/)**. <br/>You can't run both Linux and Windows function apps in the same App Service plan. |
     | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language. Choose **.NET** for C# and F# functions. [Python support](functions-reference-python.md) is in preview at this time. |
