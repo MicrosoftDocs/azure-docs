@@ -1,7 +1,7 @@
 ---
 title: Azure PowerShell Script Sample -  Copy (move) snapshot of a managed disk to same or different subscription | Microsoft Docs
 description: Azure PowerShell Script Sample -  Copy (move) snapshot of a managed disk to same or different subscription
-services: virtual-machines-windows
+services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
@@ -9,12 +9,12 @@ editor: tysonn
 tags: azure-service-management
 
 ms.assetid:
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: sample
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/28/2019
+ms.date: 06/06/2017
 ms.author: ramankum
 ---
 
@@ -47,8 +47,8 @@ This script uses following commands to create a snapshot in the target subscript
 
 ## Next steps
 
-[Create a virtual machine from a snapshot](./virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Create a virtual machine from a snapshot](./virtual-machines-linux-powershell-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
 
-Additional virtual machine PowerShell script samples can be found in the [Azure Windows VM documentation](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Additional virtual machine PowerShell script samples can be found in the [Azure Linux VM documentation](../linux/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
