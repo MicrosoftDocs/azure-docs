@@ -8,7 +8,7 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 02/28/2019
 ms.author: carlrab
 ---
 # SQL Database release notes
@@ -20,12 +20,17 @@ This article lists the new features and improvements in the SQL Database service
 ### Service improvements
 
 | Service improvements | Details |
-| --- | --- | 
+| --- | --- |
+|Creating a resumable online index is now generally available| For more information, see [Create Index](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql)|
+|Managed instance support for route tables improved| For more information, see [Network requirements](sql-database-managed-instance-connectivity-architecture.md#network-requirements)|
 
 ### Documentation improvements
 
 | Documentation improvements | Details |
 | --- | --- |
+|Adding managed instance deployment option clarifications|Updated many articles to clarify applicability to single database, elastic pool, and managed instance deployment options |
+|Updated tempdb sizes for DTU-based purchasing model | For more information, see [Tempdb database in SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)|
+|Updated import and export with bacpac file for managed instance support| For more information, see [Import from BACPAC](sql-database-import.md) and [Export to BACPAC](sql-database-export.md) |
 
 ## January 2019
 
