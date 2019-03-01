@@ -35,13 +35,13 @@ Let's review the parts of the template to understand how the template works. You
 
 * The [parameters](resource-manager-templates-parameters.md) section, which shows the values you can specify during deployment to customize the infrastructure that is deployed. 
 
-* The [variables](resource-manager-templates-variables.md) section, which shows values that are used throughout the template.
+* The [variables](resource-group-authoring-templates.md#variables) section, which shows values that are used throughout the template.
 
 * The [functions](resource-group-authoring-templates.md#functions) section, which shows customized template expressions that are used in your template.
 
 * The [resources](resource-manager-templates-resources.md) section, which shows the Azure resources that are deployed to your subscription.
 
-* The [outputs](resource-manager-templates-outputs.md) section, which shows the values that are returned after deployment has finished.
+* The [outputs](resource-group-authoring-templates.md#outputs) section, which shows the values that are returned after deployment has finished.
 
 ## Look for similar templates
 
