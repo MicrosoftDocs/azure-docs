@@ -27,12 +27,14 @@ All other network, compute, and storage limitations apply to the provisioned inf
 Azure Kubernetes Service (AKS) is available in the following regions:
 
 - Australia East
+- Australia Southeast
 - Canada Central
 - Canada East
 - Central US
 - East Asia
 - East US
 - East US2
+- France Central
 - Japan East
 - North Europe
 - Southeast Asia
