@@ -23,7 +23,7 @@ This article shows you how to use network policies to control the flow of traffi
 
 You need the Azure CLI version 2.0.56 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-To create an AKS cluster with network policy, first enable a feature flag on your subscription. To register the *EnableNetworkPolicy* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
+To create an AKS cluster that can use network policy, first enable a feature flag on your subscription. To register the *EnableNetworkPolicy* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
 
 ```azurecli-interactive
 az feature register --name EnableNetworkPolicy --namespace Microsoft.ContainerService
