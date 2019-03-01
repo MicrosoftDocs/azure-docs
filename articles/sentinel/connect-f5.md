@@ -4,7 +4,7 @@ description: Learn how to collect F5 data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 0001cad6-699c-4ca9-b66c-80c194e439a5
