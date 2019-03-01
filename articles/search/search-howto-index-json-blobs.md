@@ -14,8 +14,8 @@ ms.topic: conceptual
 ms.custom: seodec2018
 ---
 
-# Indexing JSON blobs with Azure Search Blob indexer
-This article shows you how to configure an Azure Search blob indexer to extract structured content from JSON documents in Azure Blob storage and make it searchable in Azure Search. This workflow creates an Azure Search index and loads it with existing text extracted from JSON blobs. 
+# How to index JSON blobs using Azure Search Blob indexer
+This article shows you how to configure an Azure Search blob [indexer](search-indexer-overview.md) to extract structured content from JSON documents in Azure Blob storage and make it searchable in Azure Search. This workflow creates an Azure Search index and loads it with existing text extracted from JSON blobs. 
 
 You can use the [portal](#json-indexer-portal), [REST APIs](#json-indexer-rest), or [.NET SDK](#json-indexer-dotnet) to index JSON content. Common to all approaches is that JSON documents are located in a blob container in an Azure Storage account. For guidance on pushing JSON documents from other non-Azure platforms, see [Data import in Azure Search](search-what-is-data-import.md).
 
@@ -34,10 +34,10 @@ We recommend using the same Azure subscription for both Azure Search and Azure s
 
 ### 1 - Prepare source data
 
-You should have an Azure storage account, with Blob storage, and a container of JSON documents. If you are unfamiliar with any of these tasks, review the prerequisite "Set up Azure Blob service and load sample data" in the [cognitive search-quickstart](cognitive-search-quickstart-blob.md#set-up-azure-blob-service-and-load-sample-data).
+You should have an Azure storage account, with Blob storage, and a container of JSON documents. If you are unfamiliar with any of these requirements, review "Set up Azure Blob service and load sample data" in the [cognitive search-quickstart](cognitive-search-quickstart-blob.md#set-up-azure-blob-service-and-load-sample-data).
 
 > [!Important]
-> On the container, be sure that **Public access level** is set to "Container (anonymous read access for containers and blobs)".
+> On the container, be sure that **Public access level** is set to "Container (anonymous read access for containers and blobs)". Azure storage and Azure Search should be under the same subscription, and if possible, in the same region. 
 
 ### 2 - Start Import data wizard
 
@@ -75,11 +75,11 @@ From that page you can skip ahead to index customization.
 
 ### 5 - Set index attributes
 
-In the **Index** page, you should see a list of fields with a data type and a series of checkboxes for setting index attributes. The wizard can generate a default index based on metadata and by sampling the source data. 
+In the **Index** page, you should see a list of fields with a data type and a series of checkboxes for setting index attributes. The wizard can generate a fields list based on metadata and by sampling the source data. 
 
-The defaults often produce a workable solution: selecting a field (cast as string) to serve as the key or document ID to uniquely identify each document, as well as fields that are good candidates for full text search and retrievable in a result set. For blobs, the `content` field is the best candidate for searchable content.
+You can bulk-select attributes by clicking the checkbox at the top of an attribute column. Choose **Retrievable** and **Searchable** for every field that should be returned to a client app and subject to full text search processing. You'll notice that integers are not full text or fuzzy searchable (numbers are evaluated verbatim and are often useful in filters).
 
-You can accept the defaults, or review the description of [index attributes](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib) and [language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) to override or supplement the initial values. 
+Review the description of [index attributes](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib) and [language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) for more information. 
 
 Take a moment to review your selections. Once you run the wizard, physical data structures are created and you won't be able to edit these fields without dropping and recreating all objects.
 
@@ -106,7 +106,9 @@ When indexing is complete, you can use [Search explorer](search-explorer.md) to 
 
 ## Use REST APIs
 
-You can use the REST API to index JSON blobs, following a three-part workflow common to all indexers in Azure Search: create a data source, create an index, create an indexer. Data extraction from blob storage occurs when you submit the Create Indexer request. After this request is finished, you will have a queryable index. To view example requests that create all three objects, see [REST Example](#rest-example) at the end of this section.
+You can use the REST API to index JSON blobs, following a three-part workflow common to all indexers in Azure Search: create a data source, create an index, create an indexer. Data extraction from blob storage occurs when you submit the Create Indexer request. After this request is finished, you will have a queryable index. 
+
+You can review [REST example code](#rest-example) at the end of this section that shows how to create all three objects. This section also contains details about [JSON parsing modes](#parsing-modes), [single blobs](#parsing-single-blobs), [JSON arrays](#parsing-arrays), and [nested arrays](#nested-json-arrays).
 
 For code-based JSON indexing, use [Postman](search-fiddler.md) and the REST API to create these objects:
 
@@ -114,7 +116,7 @@ For code-based JSON indexing, use [Postman](search-fiddler.md) and the REST API 
 + [data source](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
 + [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
-In contrast with the portal wizard, a code approach requires that you have an index in-place, ready to accept the JSON documents when you send the **Create Indexer** request.
+Order of operations requires that you create and call objects in this order. In contrast with the portal workflow, a code approach requires an available indexto accept the JSON documents sent through the **Create Indexer** request.
 
 JSON blobs in Azure Blob storage are typically either a single JSON document or a JSON array. The blob indexer in Azure Search can parse either construction, depending on how you set the **parsingMode** parameter on the request.
 
@@ -202,6 +204,8 @@ Schedule and parameters are optional. If you omit them, the indexer runs immedia
 
 This particular indexer does not include [field mappings](#field-mappings). Within the indexer definition, you can leave out **field mappings** if the properties of the source JSON document match the fields of your target search index. 
 
+<a name="parsing-modes"></a>
+
 ### Parsing modes
 
 Until now, definitions for the data source and index have been parsingMode agnostic. However, in the step for Indexer configuration, the path diverges depending on how you want the JSON blob content to be parsed and structured in an Azure Search index. Choices include `json` or `jsonArray`:
@@ -215,6 +219,8 @@ For JSON arrays, if the array exists as a lower-level property, you can set a do
 > [!IMPORTANT]
 > When you use `json` or `jsonArray` parsing mode, Azure Search assumes that all blobs in your data source contain JSON. If you need to support a mix of JSON and non-JSON blobs in the same data source, let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
 
+
+<a name="parsing-single-blobs"></a>
 
 ### How to parse single JSON blobs
 
@@ -231,6 +237,8 @@ By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage
 The blob indexer parses the JSON document into a single Azure Search document. The indexer loads an index by matching "text", "datePublished", and "tags" from the source against identically named and typed target index fields.
 
 As noted, field mappings are not required. Given an index with "text", "datePublished, and "tags" fields, the blob indexer can infer the correct mapping without a field mapping present in the request.
+
+<a name="parsing-arrays"></a>
 
 ### How to parse JSON arrays
 
