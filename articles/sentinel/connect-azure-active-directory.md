@@ -4,7 +4,7 @@ description: Learn how to collect Azure Active Directory data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 0a8f4a58-e96a-4883-adf3-6b8b49208e6a
