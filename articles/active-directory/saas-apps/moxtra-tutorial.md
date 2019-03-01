@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/25/2019
+ms.date: 03/01/2019
 ms.author: jeedes
 
 ---
@@ -113,10 +113,10 @@ To configure Azure AD single sign-on with Moxtra, perform the following steps:
 	| ------------------- | -------------------- |    
 	| firstname | user.givenname |
 	| lastname | user.surname |
-	| idpid    | < SAML Entity ID >
+	| idpid    | < Azure AD Identifier >
 
 	> [!Note]
-	> The value of **idpid** attribute is not real. You can get the actual value from **Quick reference** section under **Moxtra Configuration**. 
+	> The value of **idpid** attribute is not real. You can get the actual value from **Set up Moxtra** section from step#8. 
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
