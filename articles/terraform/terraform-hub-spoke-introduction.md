@@ -4,9 +4,9 @@ description: Tutorial illustrating how to create an entire hybrid network refere
 services: terraform
 ms.service: terraform
 keywords: terraform, hub and spoke, networks, hybrid networks, devops, virtual machine, azure,  vnet peering, network virtual appliance
-author: tomarcher
+author: VaijanathB
 manager: jeconnoc
-ms.author: tarcher
+ms.author: vaangadi
 ms.topic: tutorial
 ms.date: 2/28/2019
 ---
@@ -163,7 +163,7 @@ Create the Terraform configuration file for common variables that are used acros
 
 As you work through each tutorial in this series, various components are defined in distinct Terraform scripts. The demo architecture created and deployed consists of the following components:
 
-- **On-premises network**. A private local-area network running with an organization. For hub and spoke reference architecture, a VNet in Azure is utilized to simulate an on-premises network.
+- **On-premises network**. A private local-area network running with an organization. For hub and spoke reference architecture, a VNet in Azure is used to simulate an on-premises network.
 
 - **VPN device**. A VPN device or service provides external connectivity to the on-premises network. The VPN device may be a hardware appliance or a software solution. 
 
