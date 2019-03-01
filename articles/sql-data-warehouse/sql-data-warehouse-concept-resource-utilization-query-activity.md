@@ -44,9 +44,6 @@ To view the list of DMVs that SQL Data Warehouse provides, refer to this [docume
 Both metrics and logs can be exported to Azure Monitor, specifically the [Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) component and can be programmatically accessed through [Log Search](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata).
 
 
-> [!NOTE]
-> As of November 2018, logs are currently being deployed for SQL Data Warehouse
-
 ## Next steps
 The following How-to guides describe common scenarios and use cases when monitoring and managing your data warehouse:
 
