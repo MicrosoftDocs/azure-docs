@@ -43,10 +43,10 @@ Here's what's supported if you want to back up on-premises machines:
 
 **Machine** | **What's backed up** | **Location** | **Features**
 --- | --- | --- | ---
-**Direct backup of Windows machine with MARS agent** | Files, folders, system state | Backup to Recovery Services vault. | Backup three times a day<br/><br/> No app-aware backup<br/><br/> Restore file, folder, volume
+**Direct backup of Windows machine with MARS agent** | Files, folders, system state | Back up to Recovery Services vault. | Back up three times a day<br/><br/> No app-aware backup<br/><br/> Restore file, folder, volume
 **Direct backup of Linux machine with MARS agent** | Backup not supported
-**Backup to DPM** | Files, folders, volumes, system state, app data | Backup to local DPM storage. DPM then backs up to vault. | App-aware snapshots<br/><br/> Full granularity for backup and recovery<br/><br/> Linux supported for VMs (Hyper-V/VMware)<br/><br/> Oracle not supported
-**Backup to MABS** | Files, folders, volumes, system state, app data | Backup to MABS local storage. MABS then backs up to the vault. | App-aware snapshots<br/><br/> Full granularity for backup and recovery<br/><br/> Linux supported for VMs (Hyper-V/VMware)<br/><br/> Oracle not supported
+**Back up to DPM** | Files, folders, volumes, system state, app data | Back up to local DPM storage. DPM then backs up to vault. | App-aware snapshots<br/><br/> Full granularity for backup and recovery<br/><br/> Linux supported for VMs (Hyper-V/VMware)<br/><br/> Oracle not supported
+**Back up to MABS** | Files, folders, volumes, system state, app data | Back up to MABS local storage. MABS then backs up to the vault. | App-aware snapshots<br/><br/> Full granularity for backup and recovery<br/><br/> Linux supported for VMs (Hyper-V/VMware)<br/><br/> Oracle not supported
 
 ## Azure VM backup support
 
@@ -63,10 +63,10 @@ Here's what's supported if you want to back up Azure VMs:
 
 **Machine** | **What's backed up** | **Location** | **Features**
 --- | --- | --- | ---
-**Azure VM backup by using VM extension** | Entire VM | Backup to vault. | Extension installed when you enable backup for a VM.<br/><br/> Backup once a day.<br/><br/> App-aware backup for Windows VMs; file-consistent backup for Linux VMs. You can configure app-consistency for Linux machines by using custom scripts.<br/><br/> Restore VM or disk.<br/><br/> Can't back up an Azure VM to an on-premises location.
-**Azure VM backup by using MARS agent** | Files, folders | Backup to vault. | Backup three times a day.<br/><br/> If you want to back up specific files or folders rather than the entire VM, the MARS agent can run alongside the VM extension.
-**Azure VM with DPM** | Files, folders, volumes, system state, app data | Backup to local storage of Azure VM that's running DPM. DPM then backs up to vault. | App-aware snapshots.<br/><br/> Full granularity for backup and recovery.<br/><br/> Linux supported for VMs (Hyper-V/VMware).<br/><br/> Oracle not supported.
-**Azure VM with MABS** | Files, folders, volumes, system state, app data | Backup to local storage of Azure VM that's running MABS. MABS then backs up to the vault. | App-aware snapshots.<br/><br/> Full granularity for backup and recovery.<br/><br/> Linux supported for VMs (Hyper-V/VMware).<br/><br/> Oracle not supported.
+**Azure VM backup by using VM extension** | Entire VM | Back up to vault. | Extension installed when you enable backup for a VM.<br/><br/> Back up once a day.<br/><br/> App-aware backup for Windows VMs; file-consistent backup for Linux VMs. You can configure app-consistency for Linux machines by using custom scripts.<br/><br/> Restore VM or disk.<br/><br/> Can't back up an Azure VM to an on-premises location.
+**Azure VM backup by using MARS agent** | Files, folders | Back up to vault. | Back up three times a day.<br/><br/> If you want to back up specific files or folders rather than the entire VM, the MARS agent can run alongside the VM extension.
+**Azure VM with DPM** | Files, folders, volumes, system state, app data | Back up to local storage of Azure VM that's running DPM. DPM then backs up to vault. | App-aware snapshots.<br/><br/> Full granularity for backup and recovery.<br/><br/> Linux supported for VMs (Hyper-V/VMware).<br/><br/> Oracle not supported.
+**Azure VM with MABS** | Files, folders, volumes, system state, app data | Back up to local storage of Azure VM that's running MABS. MABS then backs up to the vault. | App-aware snapshots.<br/><br/> Full granularity for backup and recovery.<br/><br/> Linux supported for VMs (Hyper-V/VMware).<br/><br/> Oracle not supported.
 
 ## Linux backup support
 
@@ -76,8 +76,8 @@ Here's what's supported if you want to back up Linux machines:
 --- | ---
 **Direct backup of on-premises machine that's running Linux** | Not supported. The MARS agent can be installed only on Windows machines.
 **Using agent extension to back up Azure VM that's running Linux** | App-consistent backup by using [custom scripts](backup-azure-linux-app-consistent.md).<br/><br/> File-level recovery.<br/><br/> Restore by creating a VM from a recovery point or disk.
-**Using DPM to back up on-premises or Azure VM that's running Linux** | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare.<br/><br/> VM restore of Hyper-V and VMWare Linux Guest VMs.<br/><br/> File-consistent backup not available for Azure VM.
-**Using MABS to back up on-premises machine or Azure VM that's running Linux** | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare.<br/><br/> VM restore of Hyper-V and VMWare Linux guest VMs.<br/><br/> File-consistent backup not available for Azure VMs.
+**Using DPM to back up on-premises or Azure VM that's running Linux** | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare.<br/><br/> VM restoration of Hyper-V and VMWare Linux Guest VMs.<br/><br/> File-consistent backup not available for Azure VM.
+**Using MABS to back up on-premises machine or Azure VM that's running Linux** | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare.<br/><br/> VM restoration of Hyper-V and VMWare Linux guest VMs.<br/><br/> File-consistent backup not available for Azure VMs.
 
 ## Daylight saving time support
 
@@ -90,7 +90,7 @@ Disk deduplication support is as follows:
 - Disk deduplication is supported on-premises when you use DPM or MABs to back up Hyper-V VMs that are running Windows. Windows Server performs data deduplication (at the host level) on virtual hard disks (VHDs) that are attached to the VM as backup storage.
 - Deduplication isn't supported in Azure for any Backup component. When DPM and MABS are deployed in Azure, the storage disks attached to the VM can't be deduplicated.
 
-## Security/encryption support
+## Security and encryption support
 
 Azure Backup supports encryption for in-transit and at-rest data.
 
