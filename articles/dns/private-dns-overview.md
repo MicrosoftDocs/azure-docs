@@ -24,7 +24,7 @@ If you specify a registration virtual network, the DNS records for the VMs from 
 ![DNS overview](./media/private-dns-overview/scenario.png)
 
 > [!NOTE]
-> Do not use a .local domain if you want to use Ubuntu 18.04 LTS virtual machines in your virtual network. By default, this operating system does not use external DNS servers to resolve .local names unless manually configured to do so. For more information, see <Ubuntu docs>.
+> As a best practice, do not use a .local domain for your private DNS zone. Not all operating systems support this.
 
 ## Benefits
 
