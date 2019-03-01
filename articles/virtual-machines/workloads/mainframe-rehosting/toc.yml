@@ -27,4 +27,4 @@
     - name: IBM Db2 pureScale
       href: https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
     - name: Deploy IBM DB2 pureScale
-      href: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/deploy-ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/deploy-ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
