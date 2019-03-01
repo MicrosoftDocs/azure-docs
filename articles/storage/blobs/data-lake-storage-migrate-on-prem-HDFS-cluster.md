@@ -11,7 +11,7 @@ ms.component: data-lake-storage-gen2
 
 # Use Azure Data Box to migrate data from an on-premises Hadoop cluster to Azure Storage
 
-You can migrate data from an on-premises Hadoop cluster into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device and a few scripts. 
+You can migrate data from an on-premises Hadoop cluster into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device and a few scripts.
 
 This article helps you complete these tasks:
 
@@ -47,11 +47,11 @@ To copy the data from your on-premises Hadoop cluster to a Data Box device, you'
 
 Follow these steps to copy data to your Data Box via the REST APIs.
 
-1. Before you copy the data via REST, you need to connect to the REST interface on the Data Box. Sign in to the local web UI of Data Box and go to **Connect and copy** page. Against the Azure storage account for your Data Box, under **Access settings**, locate and select REST(Preview).
+1. Before you copy the data via REST, you need to connect to the REST interface on the Data Box. Sign in to the local web UI of Data Box and go to **Connect and copy** page. Against the Azure storage account for your Data Box, under **Access settings**, locate and select **REST(Preview)**.
 
     !["Connect and copy" page](media/data-lake-storage-migrate-on-prem-HDFS-cluster/data-box-connect-rest.png)
 
-2. In the Access storage account and upload data dialog, copy the **Blob service endpoint** and the **Storage account key**. From the blob service endpoint, omit the https:// and the trailing slash. 
+2. In the Access storage account and upload data dialog, copy the **Blob service endpoint** and the **Storage account key**. From the blob service endpoint, omit the `https://` and the trailing slash.
 
     In this case, the endpoint is: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`. The host portion of the URI that you'll use is: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. For an example, see how to [Connect to REST over http](/azure/databox/data-box-deploy-copy-data-via-rest.md). 
 
@@ -63,7 +63,7 @@ Follow these steps to copy data to your Data Box via the REST APIs.
     10.128.5.42  mystorageaccount.blob.mydataboxno.microsoftdatabox.com
     ```
         
-3. Set a shell variable `azjars` to point to the `hadoop-azure` and the `microsoft-windowsazure-storage-sdk` jar files. These files are under the Hadoop installation directory (You can check if these files exist by using this command `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure` where <hadoop_install_dir> is the directory where you have installed Hadoop  ) Use the full paths. 
+3. Set a shell variable `azjars` to point to the `hadoop-azure` and the `microsoft-windowsazure-storage-sdk` jar files. These files are under the Hadoop installation directory (You can check if these files exist by using this command `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure` where `<hadoop_install_dir>` is the directory where you have installed Hadoop  ) Use the full paths. 
     
     ```
     # azjars=$hadoop_install_dir/share/hadoop/tools/lib/hadoop-azure-2.6.0-cdh5.14.0.jar
@@ -81,7 +81,7 @@ Follow these steps to copy data to your Data Box via the REST APIs.
     [source_directory] \
            wasb://[container_name]@[blob_service_endpoint]/[destination_folder]       
     ```
-   The -libjars option is used to make the `hadoop-azure*.jar` and the dependent `azure-storage*.jar` files available to `distcp`. This    may already occur for some clusters.
+   The `-libjars` option is used to make the `hadoop-azure*.jar` and the dependent `azure-storage*.jar` files available to `distcp`. This    may already occur for some clusters.
    
    The following example shows how the `distcp` command is used to copy data.
    
