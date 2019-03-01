@@ -16,7 +16,7 @@ ms.author: diberry
 
 # Get answers to a question from a knowledge base with Python
 
-This quickstart walks you through programmatically getting an answer from a published QnA Maker knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/data-sources-supported.md). The question, in JSON format, is sent in the body of the API request. 
+This quickstart walks you through programmatically getting an answer from a published QnA Maker knowledge base. The knowledge base contains questions and answers from [data sources](../Concepts/data-sources-supported.md) such as FAQs. The [question](metadata-generateanswer-usage.md#generateanswer-request-configuration) is sent to the QnA Maker service. The [response](metadata-generateanswer-usage.md#generateanswer-response-properties) includes the top-predicted answer. 
 
 ## Prerequisites
 
