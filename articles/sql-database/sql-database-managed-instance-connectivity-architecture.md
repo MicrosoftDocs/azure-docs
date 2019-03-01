@@ -115,7 +115,7 @@ Deploy a managed instance in a dedicated subnet inside the virtual network. The 
 
 ### User defined routes
 
-|Name|Address prefix|Net Hop|
+|Name|Address prefix|Next Hop|
 |----|--------------|-------|
 |subnet_to_vnetlocal|[mi_subnet]|Virtual network|
 |mi-0-5-next-hop-internet|0.0.0.0/5|Internet|
