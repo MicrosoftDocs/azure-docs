@@ -80,6 +80,28 @@ Depending on the level of access that you have, you can edit a budget to change 
 
 ![Example of editing a budget to change various properties](./media/tutorial-acm-create-budgets/edit-budget.png)
 
+## Trigger an action group
+
+When you create or edit a budget, you can configure it to call an action group to perform a variety of different actions when your budget threshold is met. For more information about Action Groups, see [Create and manage action groups in the Azure portal](../azure-monitor/platform/action-groups.md). For more information about using budget-based automation with action groups, see [Manage costs with Azure budgets](../billing/billing-cost-management-budget-scenario.md).
+
+To create or update action groups, click **Manage action groups** while you're creating or editing a budget.
+
+![Example of creating a budget to show Manage action groups](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
+
+Next, click **Add action group** and create the action group.
+
+
+![Image of the Add action group box](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
+
+After the action group is created, close the box to return to your budget.
+
+Configure your budget to use your action group when an individual threshold is met. Up to five different thresholds are supported.
+
+![Example showing action group selection for an alert condition](./media/tutorial-acm-create-budgets/manage-action-groups03.png)
+
+The following example shows budget thresholds set to 50%, 75% and 100%. Each is configured to trigger the specified actions within the designated action group.
+
+![Example showing alert conditions configured with various action groups and type of actions](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
 
 ## Next steps
 
