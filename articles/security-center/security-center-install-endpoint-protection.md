@@ -80,7 +80,7 @@ In this example, we will use **Compute**.  We will look at how to install antima
 
    ![Select Endpoint protection not installed on non-Azure computers][4]
 
-2. Under **Endpoint protection not installed on non-Azure computers**, select a workspace. A Azure Monitor logs search query filtered to the workspace opens and lists computers missing antimalware. Select a computer from the list for more information.
+2. Under **Endpoint protection not installed on non-Azure computers**, select a workspace. An Azure Monitor logs search query filtered to the workspace opens and lists computers missing antimalware. Select a computer from the list for more information.
 
    ![Azure Monitor logs search][5]
 

@@ -59,7 +59,7 @@ In this example, we will use **Compute**.
 
    ![Missing security update][3]
 
-4. Select the **Search** icon in the top ribbon.  A Azure Monitor logs search query opens filtered to the computers missing the update.
+4. Select the **Search** icon in the top ribbon.  An Azure Monitor logs search query opens filtered to the computers missing the update.
 
    ![Azure Monitor logs search][4]
 
