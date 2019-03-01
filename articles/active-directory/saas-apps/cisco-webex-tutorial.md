@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/28/2019
+ms.date: 03/01/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -186,7 +186,7 @@ To configure Azure AD single sign-on with Cisco Webex Meetings, perform the foll
 	e. Select **Auto Account Creation**.
 
 	>[!NOTE]
-	>For enabling **just-in-time** user provisioning you need check the **Auto Account Creation**. In addition to that SAML token attributes need to be passed in the SAML response.
+	>For enabling **just-in-time** user provisioning you need to check the **Auto Account Creation**. In addition to that SAML token attributes need to be passed in the SAML response.
 
 	f. Click **Save**. 
 
