@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to authenticate Azure SignalR Servi
 author: sffamily
 ms.service: signalr
 ms.topic: tutorial
-ms.date: 01/31/2018
+ms.date: 03/01/2018
 ms.author: zhshang
 ---
 # Tutorial: Azure SignalR Service authentication with Azure Functions
