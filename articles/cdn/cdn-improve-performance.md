@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 02/28/2018
 ms.author: magattus
 
 ---
@@ -99,9 +99,9 @@ The standard and premium CDN tiers provide the same compression functionality, b
 ### Azure CDN Standard from Microsoft profiles
 
 For **Azure CDN Standard from Microsoft** profiles, only eligible files are compressed. To be eligible for compression, a file must:
--Be of a MIME type that has been [configured for compression](#enabling-compression).
--Be larger than 1 KB
--Be smaller than 8 MB
+- Be of a MIME type that has been [configured for compression](#enabling-compression).
+- Be larger than 1 KB
+- Be smaller than 8 MB
 
 These profiles support the following compression encodings:
 - gzip (GNU zip)
@@ -115,7 +115,7 @@ When a request for an asset specifies gzip compression and the request results i
 
 For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, only eligible files are compressed. To be eligible for compression, a file must:
 - Be larger than 128 bytes
-- Be smaller than 1 MB
+- Be smaller than 3 MB
  
 These profiles support the following compression encodings:
 - gzip (GNU zip)
