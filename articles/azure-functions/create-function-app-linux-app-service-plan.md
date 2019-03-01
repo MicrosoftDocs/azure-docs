@@ -1,5 +1,5 @@
 ---
-title: Create a function app on Linux from the Azure Portal | Microsoft Docs
+title: Create a function app on Linux from the Azure portal | Microsoft Docs
 description: Learn how to create your first Azure Function for serverless execution using the Azure portal.
 services: functions
 documentationcenter: na
@@ -23,7 +23,7 @@ Azure Functions lets you host your functions on Linux in a default Azure App Ser
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Log in to Azure
+## Sign in to Azure
 
 Sign in to the Azure portal at <https://portal.azure.com> with your Azure account.
 
@@ -69,7 +69,7 @@ Next, you create a function in the new function app.
 
 1. Expand your new function app, then select the **+** button next to **Functions**, choose **In-portal**, and select **Continue**.
 
-    ![Functions quickstart choose platform.](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
+    ![Choose your function development platform.](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
 
 1. Choose **WebHook + API** and then select **Create**.
 
