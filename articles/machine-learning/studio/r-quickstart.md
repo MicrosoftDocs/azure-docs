@@ -86,8 +86,10 @@ If an error occurs in Machine Learning Studio while running your R code, your fi
 
 For example, I ran the following R code, with an undefined variable y, in an [Execute R Script][execute-r-script] module:
 
-    x <- 1.0
-    z <- x + y
+```R
+x <- 1.0
+z <- x + y
+```
 
 This code fails to execute, resulting in an error condition. Clicking on **View error log** on the **properties pane** produces the display shown in Figure 2.
 
@@ -113,8 +115,10 @@ To inspect the value of any object in R, you can print these values to the outpu
 
 Studio comes with over 350 preinstalled R language packages. You can use the following code in the [Execute R Script][execute-r-script] module to retrieve a list of the preinstalled packages.
 
+```r
     data.set <- data.frame(installed.packages())
     maml.mapOutputPort("data.set")
+```
 
 If you don't understand the last line of this code at the moment, read on. In the rest of this document we will extensively discuss using R in the Studio environment.
 
