@@ -130,7 +130,7 @@ The [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started
 
 ## Build and deploy the example
 
-You can skip the steps 1 and 2 for build and download the pre-built jars(kafka-producer-consumer.jar) from [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars). You can then copy this jar to your HDInsight cluster.
+You can skip the steps 1 and 2 for build, and download the pre-built jars(kafka-producer-consumer.jar) from [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars). You can then copy this jar to your HDInsight cluster.
 
 1. Download the examples from [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
 
