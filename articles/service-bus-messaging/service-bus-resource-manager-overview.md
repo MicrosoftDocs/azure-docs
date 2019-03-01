@@ -177,7 +177,7 @@ Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
 ### Set the resource group
 
-If you do not have an existing resource group, create a new resource group with the **New-AzureRmResourceGroup ** command. Provide the name of the resource group and location you want to use. For example:
+If you do not have an existing resource group, create a new resource group with the **New-AzureRmResourceGroup** command. Provide the name of the resource group and location you want to use. For example:
 
 ```powershell
 New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
