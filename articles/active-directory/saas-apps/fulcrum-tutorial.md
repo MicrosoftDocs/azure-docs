@@ -103,7 +103,7 @@ To configure Azure AD single sign-on with Fulcrum, perform the following steps:
     ![Fulcrum Domain and URLs single sign-on information](common/both-replyurl.png)
 
 	In the **Reply URL** text box, type a URL using the following pattern:
-    `https://web.fulcrumapp.com/saml/consume?organization={DOMAIN}`
+    `https://web.fulcrumapp.com/saml/consume?organization=<DOMAIN>`
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
