@@ -9,7 +9,7 @@ services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/22/2019
+ms.date: 02/28/2019
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
 
@@ -27,10 +27,13 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-The two sample applications you run in this quickstart are written using Python. You need either Python 2.7.x or 3.5.x on your development machine.
+The two sample applications you run in this quickstart are written using Python.
 
 You can download Python for multiple platforms from [Python.org](https://www.python.org/downloads/).
 The Python installer you choose should be based on the architecture of the system that you are working with. If your system CPU architecture is 32 bit then download x86, which is the default installer on Python.org and for the 64bit architecture you need to download x86-64 installer.
+
+> [!IMPORTANT]
+> At the time of writing, the IoT Python SDK supports only specific versions of Python without rebuilding. This quickstart assumes you are using a Windows development machine. For Windows systems, Python 3.6.x is supported. You also need to ensure that the appropriate [Microsoft Visual C++ Redistributable](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) is installed for your architecture (x86 or x64). For versions of Python that the SDK supports on other platforms, see the [Python SDK Readme](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
 
 You can verify the current version of Python on your development machine using one of the following commands:
 
