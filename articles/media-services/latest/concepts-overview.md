@@ -34,7 +34,7 @@ Once you upload your high-quality digital media files into Assets, you can encod
 
 To encode with Media Services v3, you need to create **Transforms** and **Jobs**.
 
-![Transforms](./media/concepts/transforms-jobs.png)
+![Transforms](./media/encoding/transforms-jobs.png)
 
 - [Transforms and Jobs](transforms-jobs-concept.md)
 - [Encoding with Media Services](encoding-concept.md)
