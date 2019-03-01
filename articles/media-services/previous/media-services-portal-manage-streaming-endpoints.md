@@ -20,7 +20,7 @@ ms.author: juliako
 
 ---
 
-# Manage streaming endpoints with the Azure portal (legacy)
+# Manage streaming endpoints with the Azure portal 
 
 This article shows  how to use the Azure portal to manage streaming endpoints. 
 
