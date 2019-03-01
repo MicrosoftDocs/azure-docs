@@ -61,7 +61,7 @@ You can send the contribution feed at up to 1080p resolution at a frame rate of 
 For information about live encoding presets, see [System presets](live-event-types-comparison.md#system-preset).
 
 > [!NOTE]
-> Currently, the only allowed value is **Default720p**. If you need a custom preset, you should contact amshelp@microsoft.com. 
+> Currently, the only allowed value for the Standard type of Live Event is **Default720p**. If you need a custom preset, you should contact amshelp@microsoft.com. 
 
 ## Live Event creation options
 
