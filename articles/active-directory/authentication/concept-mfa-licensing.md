@@ -62,6 +62,9 @@ The following table provides a list of the features that are available in the va
 | Remember MFA for trusted devices |● |● |● |
 | MFA for on-premises applications | | |● |
 
+> [!IMPORTANT]
+> Starting in March of 2019 the phone call options will not be available to MFA and SSPR users in free/trial Azure AD tenants. SMS messages are not impacted by this change. Phone call will continue to be available to users in paid Azure AD tenants. This change only impacts free/trial Azure AD tenants.
+
 ## How to turn on Azure Multi-Factor Authentication for Azure AD Administrators
 
 Users assigned the Global Administrator role in Azure AD tenants can enable two-step verification for their Azure AD Global Admin accounts at no additional cost. If you are using a Microsoft Account, you can register for multi-factor authentication using the guidance found in the Microsoft account support article, [About two-step verification](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification). If you are not using a Microsoft Account, turn on multi-factor authentication for Global Admins using the guidance found in the article [How to require two-step verification for a user or group](howto-mfa-userstates.md).

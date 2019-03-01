@@ -58,7 +58,7 @@ This upgrade applies to Compute Optimized Gen1 tier data warehouses in [supporte
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> Migration from GEN1 to GEN2 through the Azure portal is permanent. There is not a process for returning to GEN1.  
+> Migration from Gen1 to Gen2 through the Azure portal is permanent. There is not a process for returning to Gen1.  
 
 ## Sign in to the Azure portal
 

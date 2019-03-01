@@ -19,6 +19,13 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 + The Azure Machine Learning's  [**main SDK for Python**](https://aka.ms/aml-sdk)
 + The Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
 
+## 2019-02-27
+
+### Azure Machine Learning Data Prep SDK v1.0.16
+
++ **Bug fix**
+  + Fixed a Service Principal authentication issue that was caused by an API change.
+
 ## 2019-02-25
 
 ### Azure Machine Learning SDK for Python v1.0.17
@@ -26,8 +33,13 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 + **New features**
 
   + Azure Machine Learning SDK now supports a [`Chainer`](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) estimator class to streamline the process of training and deploying a model using custom Chainer code.
+  + Azure Machine Learning Pipelines added ability trigger a Pipeline run based on datastore modifications. The pipeline [schedule notebook](https://aka.ms/pl-schedule) is updated to showcase this feature.
+  
++ **Bug fixes and improvements**
+  + We have added support Azure Machine Learning Pipelines for setting the source_directory_data_store property to a desired datastore (such as a blob storage) on [RunConfigurations](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) that are supplied to the [PythonScriptStep](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). By default Steps use Azure File store as the backing datastore which may run into throttling issues when a large number of steps are executed concurrently.
 
 ### Azure portal
+
 + **New features**
 	+ New drag and drop table editor experience for reports. Users can drag a column from the well to the table area where a preview of the table will be displayed. The columns can be rearranged.
 	+ New Run button for runs submitted with ScriptRunConfig. Users can re-run an existing run on a remote compute cluster of their choice.

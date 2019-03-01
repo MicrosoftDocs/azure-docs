@@ -140,7 +140,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 ## Available regions
 
-Hyperscale service tier is currently in public preview and available in following Azure regions: EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
+Hyperscale service tier is currently in public preview and available in following Azure regions: East US 1, East US 2, West US2 , Central US, North CentralU S, West Europe, North Europe, Australia East, Australia SouthEast, SouthEast Asia, Japan East, and Korea Central
 
 ## Known limitations
 

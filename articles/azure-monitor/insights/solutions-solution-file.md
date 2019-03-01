@@ -225,13 +225,6 @@ The **plan** entity of the solution resource has the properties in the following
 
 
 
-## Sample
-You can view samples of solution files with a solution resource at the following locations.
-
-- [Automation resources](solutions-resources-automation.md#sample)
-- [Search and alert resources](solutions-resources-searches-alerts.md#sample)
-
-
 ## Next steps
 * [Add saved searches and alerts](solutions-resources-searches-alerts.md) to your management solution.
 * [Add views](solutions-resources-views.md) to your management solution.
