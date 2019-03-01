@@ -1,6 +1,6 @@
 ---
-title: Migrate data from an on-premises Hadoop cluster to Azure Storage
-description: Migrate data from an on-premises Hadoop cluster to Azure Storage
+title: Migrate data from an on-premises HDFS store to Azure Storage
+description: Migrate data from an on-premises HDFS store to Azure Storage
 services: storage
 author: normesta
 ms.service: storage
@@ -9,9 +9,9 @@ ms.author: normesta
 ms.component: data-lake-storage-gen2
 ---
 
-# Use Azure Data Box to migrate data from an on-premises Hadoop cluster to Azure Storage
+# Use Azure Data Box to migrate data from an on-premises HDFS store to Azure Storage
 
-You can migrate data from an on-premises Hadoop cluster into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device and a few scripts.
+You can migrate data from an on-premises HDFS store of your Hadoop cluster into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device.
 
 This article helps you complete these tasks:
 
@@ -43,9 +43,12 @@ If you are ready, let's start.
 
 ## Copy your data to a Data Box device
 
-To copy the data from your on-premises Hadoop cluster to a Data Box device, you'll set a few things up, and then use the [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) tool.
+To copy the data from your on-premises HDFS store to a Data Box device, you'll set a few things up, and then use the [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) tool.
 
-Follow these steps to copy data to your Data Box via the REST APIs.
+If the amount of data that you are copying is more than the capacity of a single Data Box, you might have to break up your data set into sizes that do fit into your Data Boxes.
+
+Follow these steps to copy data to your Data Box via the REST APIs. The REST API interface will make the Data Box appear as a HDFS store to your cluster. 
+
 
 1. Before you copy the data via REST, you need to connect to the REST interface on the Data Box. Sign in to the local web UI of Data Box and go to **Connect and copy** page. Against the Azure storage account for your Data Box, under **Access settings**, locate and select **REST(Preview)**.
 
@@ -112,11 +115,15 @@ Follow these steps to prepare and ship the Data Box device to Microsoft.
 
 This step is needed if you are using Azure Data Lake Storage Gen2 as your data store. If you are using just a blob storage account without hierarchical namespace as your data store, you do not need to do this step.
 
-From your Azure-based Hadoop cluster, run this DiscCp command:
+You can do this in 2 ways. 
 
-```bash
-hadoop distcp -Dfs.azure.account.key.{source_account}.dfs.windows.net={source_account_key} abfs://{source_container}@{source_account}.dfs.windows.net/[path] abfs://{dest_container}@{dest_account}.dfs.windows.net/[path]
-```
+- Use [Azure Data Factory to move data to ADLS Gen2](https://docs.microsoft.com/en-us/azure/data-factory/load-azure-data-lake-storage-gen2). You will have to specify **Azure Blob Storage** as the source.
+
+- Use your Azure-based Hadoop cluster. You can run this DistCp command:
+
+    ```bash
+    hadoop distcp -Dfs.azure.account.key.{source_account}.dfs.windows.net={source_account_key} abfs://{source_container} @{source_account}.dfs.windows.net/[path] abfs://{dest_container}@{dest_account}.dfs.windows.net/[path]
+    ```
 
 This command copies both data and metadata from your storage account into your Data Lake Storage Gen2 storage account.
 
