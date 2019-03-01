@@ -5,7 +5,7 @@ description: Use the Anomaly Detector API's advanced algorithms to identify anom
 services: cognitive-services 
 author: aahill
 ms.service: cognitive-services 
-ms.technology: anomaly-detection 
+ms.subservice: anomaly-detection 
 ms.topic: article
 ms.date: 02/26/2019 
 ms.author: aahi

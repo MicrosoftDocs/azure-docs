@@ -6,7 +6,7 @@ author: chliang, tonyxing
 manager: bix
 
 ms.service: cognitive-services
-ms.technology: anomaly-detection
+ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: chliang, tonyxing

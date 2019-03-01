@@ -1,4 +1,15 @@
-
+---
+title: How to identify anomalies with the Anomaly Detector API
+description: How to identify anomalies with the Anomaly Detector API
+services: cognitive-services
+author: aahill
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: anomaly-finder
+ms.topic: article
+ms.date: 03/01/2019
+ms.author: aahi
+---
 ## How to: Identify anomalies
 
 Using [Anomaly Finder API](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyFinderV2/operations/post-timeseries-entire-detect), you can select the most appropriate method to match your scenario. The detection model returns anomaly results along with expectedValue, upperMargin and lowerMargin. ExpectedValue, UpperMargin and LowerMargin can be used to generate a band around actual time series to visualize the range of normal values in the client's side. Any values out of the boundary are detected aas anomalies. 
