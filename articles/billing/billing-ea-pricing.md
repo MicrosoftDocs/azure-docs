@@ -98,6 +98,7 @@ If you're an EA customer, see:
 
 If you have a Microsoft Customer Agreement, see:
 
+- [Understand the terms in your price sheet for a Microsoft Customer Agreement](billing-mca-understand-pricesheet.md)
 - [View and download your Microsoft Azure invoice](billing-download-azure-invoice.md)
 - [View and download your Microsoft Azure usage and charges](billing-download-azure-daily-usage.md)
 - [View and download tax documents for your billing profile](billing-mca-download-tax-document.md)
