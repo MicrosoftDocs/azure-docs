@@ -52,7 +52,7 @@ In this quickstart, you learn how to set an [Azure Event Grid](/azure/event-grid
 
 ## Create a target table in Azure Data Explorer
 
-Create a table in Azure Data Explorer where the event hub will send data. Create the table in the cluster and database prepared in the prerequisites.
+Create a table in Azure Data Explorer where Event Hubs will send data. Create the table in the cluster and database prepared in the prerequisites.
 
 1. In the Azure portal, under your cluster, select **Query**.
 
