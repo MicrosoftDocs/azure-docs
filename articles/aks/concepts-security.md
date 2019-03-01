@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 03/01/2019
 ms.author: iainfou
 ---
 
@@ -24,13 +24,13 @@ This article introduces the core concepts that secure your applications in AKS:
 
 ## Master security
 
-In AKS, the Kubernetes master components are part of the managed service provided by Microsoft. Each AKS cluster has their own single-tenanted, dedicated Kubernetes master to provide the API Server, Scheduler, etc. This master is managed and maintained by Microsoft
+In AKS, the Kubernetes master components are part of the managed service provided by Microsoft. Each AKS cluster has their own single-tenanted, dedicated Kubernetes master to provide the API Server, Scheduler, etc. This master is managed and maintained by Microsoft.
 
 By default, the Kubernetes API server uses a public IP address and with fully qualified domain name (FQDN). You can control access to the API server using Kubernetes role-based access controls and Azure Active Directory. For more information, see [Azure AD integration with AKS][aks-aad].
 
 ## Node security
 
-AKS nodes are Azure virtual machines that you manage and maintain. The nodes run an optimized Ubuntu Linux distribution with the Docker container runtime. When an AKS cluster is created or scaled up, the nodes are automatically deployed with the latest OS security updates and configurations.
+AKS nodes are Azure virtual machines that you manage and maintain. The nodes run an optimized Ubuntu Linux distribution using the Moby container runtime. When an AKS cluster is created or scaled up, the nodes are automatically deployed with the latest OS security updates and configurations.
 
 The Azure platform automatically applies OS security patches to the nodes on a nightly basis. If an OS security update requires a host reboot, that reboot is not automatically performed. You can manually reboot the nodes, or a common approach is to use [Kured][kured], an open-source reboot daemon for Kubernetes. Kured runs as a [DaemonSet][aks-daemonsets] and monitors each node for the presence of a file indicating that a reboot is required. Reboots are managed across the cluster using the same [cordon and drain process](#cordon-and-drain) as a cluster upgrade.
 
@@ -61,7 +61,7 @@ For connectivity and security with on-premises networks, you can deploy your AKS
 
 ### Azure network security groups
 
-To filter the flow of traffic in virtual networks, Azure uses network security group rules. These rules define the source and destination IP ranges, ports, and protocols that are allowed or denied access to resources. Default rules are created to allow TLS traffic to the Kubernetes API server and for SSH access to the nodes. As you create services with load balancers, port mappings, or ingress routes, AKS automatically modifies the network security group for traffic to flow appropriately.
+To filter the flow of traffic in virtual networks, Azure uses network security group rules. These rules define the source and destination IP ranges, ports, and protocols that are allowed or denied access to resources. Default rules are created to allow TLS traffic to the Kubernetes API server. As you create services with load balancers, port mappings, or ingress routes, AKS automatically modifies the network security group for traffic to flow appropriately.
 
 ## Kubernetes Secrets
 
@@ -72,6 +72,8 @@ The use of Secrets reduces the sensitive information that is defined in the pod 
 ## Next steps
 
 To get started with securing your AKS clusters, see [Upgrade an AKS cluster][aks-upgrade-cluster].
+
+For associated best practices, see [Best practices for cluster security and upgrades in AKS][operator-best-practices-cluster-security].
 
 For additional information on core Kubernetes and AKS concepts, see the following articles:
 
@@ -95,3 +97,4 @@ For additional information on core Kubernetes and AKS concepts, see the followin
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
+[operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
