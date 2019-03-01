@@ -49,6 +49,18 @@ sections:
           src: media/logo_Csharp.svg
         href:   quickstarts/find-data-anomalies-batch-csharp
         text: "C#"
+      - image:
+          src: media/logo_Java.svg
+        href:   quickstarts/find-data-anomalies-batch-java
+        text: "Java"
+      - image:
+          src: media/logo_nodejs.svg
+        href:   quickstarts/find-data-anomalies-batch-javascript
+        text: "Node.js"
+      - image:
+          src: media/logo_python.svg
+        href:   quickstarts/find-data-anomalies-batch-python
+        text: "Python"
   - type: paragraph
     text: 'Detect anomalies in your streaming data using:'
   - type: list
@@ -56,5 +68,17 @@ sections:
     items:
       - image:
           src: media/logo_Csharp.svg
-        href:   quickstarts/find-data-anomalies-batch-csharp
+        href:   quickstarts/find-data-anomalies-streaming-csharp
         text: "C#"
+      - image:
+          src: media/logo_Java.svg
+        href:   quickstarts/find-data-anomalies-streaming-java
+        text: "Java"
+      - image:
+          src: media/logo_nodejs.svg
+        href:   quickstarts/find-data-anomalies-streaming-javascript
+        text: "Node.js"
+      - image:
+          src: media/logo_python.svg
+        href:   quickstarts/find-data-anomalies-streaming-python
+        text: "Python"
