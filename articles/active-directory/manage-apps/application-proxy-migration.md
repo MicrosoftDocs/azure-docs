@@ -16,6 +16,7 @@ ms.date: 07/27/2017
 ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 # Compare remote access solutions
 

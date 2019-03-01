@@ -18,6 +18,7 @@ ms.date: 11/28/2018
 ms.author: celested
 ms.reviewer: hirsin, andret, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali, negoe
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Comparing the Azure AD v2.0 endpoint with the v1.0 endpoint

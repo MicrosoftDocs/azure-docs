@@ -15,6 +15,7 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # User Privacy and Azure AD Seamless Single Sign-On

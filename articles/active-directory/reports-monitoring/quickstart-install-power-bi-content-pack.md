@@ -17,6 +17,7 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 #Customer intent: As an IT administrator, I want to install Active Directory Power BI content pack so I can use the pre-configured reports to get insights about my environment.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Install Azure Active Directory Power BI Content pack

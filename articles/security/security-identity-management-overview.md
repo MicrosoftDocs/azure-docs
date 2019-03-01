@@ -4,7 +4,7 @@ description: " This article provides an overview of the core Azure security feat
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 5aa0a7ac-8f18-4ede-92a1-ae0dfe585e28

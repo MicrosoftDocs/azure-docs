@@ -4,7 +4,7 @@ description: Scenarios demonstrating a range of options for creating, monitoring
 services: key-vault
 documentationcenter:
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid: 0d0995aa-b60d-4811-be12-ba0a45390197

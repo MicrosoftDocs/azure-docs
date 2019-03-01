@@ -86,7 +86,9 @@ The steps in this section assume that you are familiar with using Pig on HDInsig
 >
 > * If your cluster uses Azure Storage, use a `wasb://` path. For example, `register wasb:///example/jars/datafu-pig-1.4.0.jar`.
 >
-> * If your cluster uses Azure Data Lake Store, use an `adl://` path. For example, `register adl://home/example/jars/datafu-pig-1.4.0.jar`.
+> * If your cluster uses Azure Data Lake Store Gen2, use an `abfs://` path. For example, `register abfs://home/example/jars/datafu-pig-1.4.0.jar`.
+>
+> * If your cluster uses Azure Data Lake Store Gen1, use an `adl://` path. For example, `register adl://home/example/jars/datafu-pig-1.4.0.jar`.
 
 You often define an alias for DataFu functions. The following example defines an alias of `SHA`:
 

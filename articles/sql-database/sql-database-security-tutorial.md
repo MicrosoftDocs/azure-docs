@@ -84,7 +84,7 @@ You can now connect to any database in the server with the specified IP address 
 
 ### Setup database firewall rules
 
-Database-level firewall rules only apply to individual databases. These rules are portable and will follow the database during a server failover. Database-level firewall rules can only be configured using Transact-SQL (T-SQL) statements, and only after you've configured a server-level firewall rule.
+Database-level firewall rules only apply to individual databases. The database will retain these rules during a server failover. Database-level firewall rules can only be configured using Transact-SQL (T-SQL) statements, and only after you've configured a server-level firewall rule.
 
 To setup a database-level firewall rule:
 

@@ -200,7 +200,7 @@ Set-AzureRmVmssStorageProfile $vmssConfig `
   -ImageReferencePublisher MicrosoftWindowsServer `
   -ImageReferenceOffer WindowsServer `
   -ImageReferenceSku 2016-Datacenter `
-  -ImageReferenceVersion latest
+  -ImageReferenceVersion latest `
   -OsDiskCreateOption FromImage
 
 Set-AzureRmVmssOsProfile $vmssConfig `
@@ -243,7 +243,7 @@ Update-AzureRmVmss `
 
 ## Create a storage account and configure diagnostics
 
-In this tutorial, the application gateway uses a storage account to store data for detection and prevention purposes. You could also use Log Analytics or Event Hub to record data.
+In this tutorial, the application gateway uses a storage account to store data for detection and prevention purposes. You could also use Azure Monitor logs or Event Hub to record data.
 
 ### Create the storage account
 

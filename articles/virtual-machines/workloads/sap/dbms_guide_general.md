@@ -103,12 +103,12 @@ Though discussing IaaS, in general the Windows, Linux, and DBMS installation and
 
 
 ## <a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Storage structure of a VM for RDBMS Deployments
-In order to follow this chapter, it is necessary to understand what was presented in [this][deployment-guide-3] chapter of the [Deployment Guide][deployment-guide]. Knowledge about the different VM-Series and their differences and differences of Azure Standard and [Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) should be understood and known before reading this chapter.
+In order to follow this chapter, it is necessary to understand what was presented in [this][deployment-guide-3] chapter of the [Deployment Guide][deployment-guide]. Knowledge about the different VM-Series and their differences and differences of standard storage and premium storage should be understood and known before reading this chapter. For
 
 In terms of Azure Storage for Azure VMs, you should be familiar with the articles:
 
-- [About disks storage for Azure Windows VMs](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds)
-- [About disks storage for Azure Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/about-disks-and-vhds)
+- [Introduction to managed disks for Azure Windows VMs](../../windows/managed-disks-overview.md)
+- [Introduction to managed disks for Azure Linux VMs](../../linux/managed-disks-overview.md)
 
 In a basic configuration, we usually recommend a structure of deployment where the operating system, DBMS, and eventual SAP binaries are separate from the database files. Therefore, we recommend SAP systems running in Azure Virtual Machines to have the base VHD (or disk) installed with the operating system, database management system executables, and SAP executables. The DBMS data and log files are stored in Azure Storage (Standard or Premium Storage) in separate disks and attached as logical disks to the original Azure operating system image VM. Especially in Linux deployments, there can be different recommendations documented. Especially around SAP HANA.
 
@@ -131,10 +131,8 @@ Azure enforces an IOPS quota per data disk. These quotas are different for disks
 > [!NOTE]
 > In order to benefit from Azure's unique [single VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) all disks attached need to be of the type Azure Premium Storage, including the base VHD.
 
-
 > [!NOTE]
 > It is not supported to host main database files (data and log files) of SAP databases on storage hardware that is located in co-located third party datacenters adjacent to Azure datacenters. For SAP workload only storage that is represented as native Azure service is supported for the data and transaction log files of SAP databases.
-> 
 
 The placement of the database files and log/redo files and the type of Azure Storage used, should be defined by IOPS, latency, and throughput requirements. In order to have enough IOPS, you might be forced to leverage multiple disks or use a larger Premium Storage disk. In case of using multiple disks, you would build a software stripe across the disks, which contain the data files or log/redo files. In such cases, the IOPS and the disk throughput SLAs of the underlying Premium Storage disks or the maximum achievable IOPS of Azure Standard Storage disks are accumulative for the resulting stripe set.
 

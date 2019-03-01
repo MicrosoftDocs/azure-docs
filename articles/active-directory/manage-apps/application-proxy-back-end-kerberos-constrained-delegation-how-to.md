@@ -17,6 +17,7 @@ ms.date: 05/24/2018
 ms.author: celested
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # Troubleshoot Kerberos constrained delegation configurations for Application Proxy

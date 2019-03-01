@@ -18,6 +18,7 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
 
+ms.collection: M365-identity-device-management
 ---
 # Enable Enterprise State Roaming in Azure Active Directory
 Enterprise State Roaming is available to any organization with an Azure AD Premium or Enterprise Mobility + Security

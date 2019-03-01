@@ -4,7 +4,7 @@ description: This article provides basic explanations about core network securit
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: bedf411a-0781-47b9-9742-d524cf3dbfc1
@@ -175,7 +175,7 @@ One way to accomplish this is to use a [site-to-site VPN](https://www.techopedia
 Learn more:
 
 * [Create a Resource Manager VNet with a site-to-site VPN connection using the Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-* [Planning and design for VPN gateway](../vpn-gateway/vpn-gateway-plan-design.md)
+* [About VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 ### Connect your on-premises network to a virtual network with a dedicated WAN link
 

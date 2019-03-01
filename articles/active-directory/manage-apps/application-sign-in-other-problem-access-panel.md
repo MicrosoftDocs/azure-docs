@@ -16,6 +16,7 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: japere
+ms.collection: M365-identity-device-management
 ---
 
 # Problems signing in to an application from the access panel
@@ -245,13 +246,13 @@ To download the application metadata or certificate from Azure AD, follow the st
 
 To configure a non-gallery application, you need to have Azure AD premium and the application supports SAML 2.0. For more information about Azure AD versions, visit [Azure AD pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 
--   [Configure the application’s metadata values in Azure AD (Sign on URL, Identifier, Reply URL)](#configuring-single-sign-on)
+-   Configure the application’s metadata values in Azure AD (Sign on URL, Identifier, Reply URL)
 
 -   [Select User Identifier and add user attributes to be sent to the application](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
 
 -   [Retrieve Azure AD metadata and certificate](#download-the-azure-ad-metadata-or-certificate)
 
--   [Configure Azure AD metadata values in the application (Sign on URL, Issuer, Logout URL and certificate)](#configuring-single-sign-on)
+-   Configure Azure AD metadata values in the application (Sign on URL, Issuer, Logout URL and certificate)
 
 ### Configure the application’s metadata values in Azure AD (Sign on URL, Identifier, Reply URL)
 

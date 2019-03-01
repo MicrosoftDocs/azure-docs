@@ -19,6 +19,7 @@ ms.author: celested
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
 
+ms.collection: M365-identity-device-management
 ---
 # Permissions and consent in the Azure Active Directory v2.0 endpoint
 
@@ -54,13 +55,13 @@ In OAuth 2.0, these types of permissions are called *scopes*. They also often si
 * Write to a user's calendar by using `Calendars.ReadWrite`
 * Send mail as a user using by `Mail.Send`
 
-An app most commonly requests these permissions by specifying the scopes in requests to the v2.0 authorize endpoint. However, certain high privilege permissions can only be granted through administrator consent and generally requested/granted using the [administrator consent endpoint](v2-permissions-and-consent.md#admin-restricted-scopes). Read on to learn more.
+An app most commonly requests these permissions by specifying the scopes in requests to the v2.0 authorize endpoint. However, certain high privilege permissions can only be granted through administrator consent and generally requested/granted using the [administrator consent endpoint](v2-permissions-and-consent.md#admin-restricted-permissions). Read on to learn more.
 
 ## Permission types
 
 Microsoft identity platform supports two types of permissions: **delegated permissions** and **application permissions**.
 
-* **Delegated permissions** are used by apps that have a signed-in user present. For these apps, either the user or an administrator consents to the permissions that the app requests and the app is delegated permission to act as the signed-in user when making calls to the target resource. Some delegated permissions can be consented to by non-administrative users, but some higher-privileged permissions require [administrator consent](v2-permissions-and-consent.md#admin-restricted-scopes). To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* **Delegated permissions** are used by apps that have a signed-in user present. For these apps, either the user or an administrator consents to the permissions that the app requests and the app is delegated permission to act as the signed-in user when making calls to the target resource. Some delegated permissions can be consented to by non-administrative users, but some higher-privileged permissions require [administrator consent](v2-permissions-and-consent.md#admin-restricted-permissions). To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
 * **Application permissions** are used by apps that run without a signed-in user present; for example, apps that run as background services or daemons.  Application permissions can only be [consented by an administrator](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 

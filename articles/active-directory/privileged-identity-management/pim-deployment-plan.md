@@ -14,6 +14,7 @@ ms.subservice: pim
 ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: 
+ms.collection: M365-identity-device-management
 ---
 
 # Deploy Azure AD Privileged Identity Management (PIM)
@@ -115,7 +116,7 @@ The following section helps you identify all the stakeholders that are involved 
 
 As part of the planning process, you must first consent to and enable PIM by following our [start using PIM document](pim-getting-started.md). Enabling PIM gives you access to some features that are specifically designed to help with your deployment.
 
-If your objective is to deploy PIM for Azure resources, you should follow our [discover Azure resources to manage in PIM document](pim-resource-roles-discover-resources.md). Only owners of each resource, resource group, and subscription will be able to discover them inside PIM. If you are a Global Administrator trying to deploy PIM for your Azure resources, you can [elevate access to manage all Azure subscriptions ](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) to give yourself access to all Azure resources in the directory for discovery. However, we advise that you get approval from each of your subscription owners before managing their resources with PIM.
+If your objective is to deploy PIM for Azure resources, you should follow our [discover Azure resources to manage in PIM document](pim-resource-roles-discover-resources.md). Only owners of each resource, resource group, and subscription will be able to discover them inside PIM. If you are a Global Administrator trying to deploy PIM for your Azure resources, you can [elevate access to manage all Azure subscriptions](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) to give yourself access to all Azure resources in the directory for discovery. However, we advise that you get approval from each of your subscription owners before managing their resources with PIM.
 
 ### Enforce principle of least privilege
 
@@ -156,7 +157,7 @@ Access reviews rely on emails to notify people to review their access to the rol
 
 For Azure subscriptions and resources, you can set up a similar Access review process to review the roles in each subscription or resource. The goal of this process is to minimize Owner and User Access Administrator assignments attached to each subscription or resource as well as to remove unnecessary assignments. However, organizations often delegate such tasks to the owner of each subscription or resource because they have a better understanding of the specific roles (especially custom roles).
 
-If you are an IT administrator with the Global Administrator role trying to deploy PIM for Azure resources in your organization, you can [elevate access to manage all Azure subscriptions ](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) to get access to each subscription. You can then find each subscription owner and work with them to remove unnecessary assignments and minimize owner role assignment.
+If you are an IT administrator with the Global Administrator role trying to deploy PIM for Azure resources in your organization, you can [elevate access to manage all Azure subscriptions](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) to get access to each subscription. You can then find each subscription owner and work with them to remove unnecessary assignments and minimize owner role assignment.
 
 Users with the Owner role for an Azure subscription can also utilize [access reviews for Azure resources](pim-resource-roles-start-access-review.md) to audit and remove unnecessary role assignments similar to the process described earlier for Azure AD roles.
 

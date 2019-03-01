@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 01/25/2019
+ms.lastreviewed: 02/28/2019
 
 ---
 
@@ -84,6 +84,8 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
 
     During the installation of this update, the Azure Stack user portal is unavailable while the extension host is being configured. The configuration of the extension host can take up to 5 hours. During that time, you can check the status of an update, or resume a failed update installation using [Azure Stack Administrator PowerShell or the privileged endpoint](azure-stack-monitor-update.md).
 
+- When Azure Stack is managed by System Center Operations Manager (SCOM), be sure to update the Management Pack for Microsoft Azure Stack to version 10.0.3.11 before applying 1811.
+
 ## New features
 
 This update includes the following new features and improvements for Azure Stack:
@@ -115,6 +117,18 @@ This update includes the following new features and improvements for Azure Stack
 - Managed Disks is now enabled by default when creating virtual machines using the Azure Stack portal. See the [known issues](#known-issues-post-installation) section for the additional steps required for Managed Disks to avoid VM creation failures.
 
 - This release introduces alert **Repair** actions for the Azure Stack operator. Some alerts in 1811 provide a **Repair** button in the alert that you can select to resolve the issue. For more information, see [Monitor health and alerts in Azure Stack](azure-stack-monitor-health.md).
+
+- Updates to the update experience in Azure Stack. The update enhancements include: 
+    - Tabs that split the Updates from Update history for better tracking updates in progress and completed updates.
+    - Enhanced state visualizations in the essentials section with new icons and layout for Current and OEM versions as well as Last updated date.
+    - **View** link for the Release notes column takes the user directly to the documentation specific to that update rather than the generic update page.
+    - The **Update history** tab used to determine run times for each of the updates as well as enhanced filtering capabilities.  
+    - Azure Stack scale units that are connected will still automatically receive **Update available** as they become available.
+    - Azure Stack scale units that are not connected can import the updates just like before. 
+    - There are no changes in the process to download the JSON logs from the portal. Azure Stack operators will see expanding steps expressing progress.
+
+    For more information, see [Apply updates in Azure Stack](azure-stack-apply-updates.md).
+
 
 ## Fixed issues
 

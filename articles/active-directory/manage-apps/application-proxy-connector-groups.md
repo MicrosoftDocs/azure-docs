@@ -15,6 +15,7 @@ ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: japere
 
+ms.collection: M365-identity-device-management
 ---
 
 # Publish applications on separate networks and locations using connector groups

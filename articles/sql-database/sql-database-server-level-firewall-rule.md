@@ -1,6 +1,6 @@
 ---
 title: 'Create a server-level firewall rule - Azure SQL Database| Microsoft Docs'
-description: Create a SQL Database server-level firewall rule for a single or pooled database
+description: Create a SQL Database server-level firewall rule for single and pooled databases
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,11 +11,11 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/11/2019
 ---
-# Quickstart: Create a server-level firewall rule in Azure SQL Database using the Azure portal
+# Quickstart: Create a server-level firewall rule for single and pooled databases using the Azure portal
 
-This quickstart walks through how to create a server-level firewall rule in Azure SQL Database using the Azure portal to enable you to connect to it from an on-premises resource.
+This quickstart walks through how to create a [server-level firewall rule](sql-database-firewall-configure.md) for single and pooled databases in Azure SQL Database using the Azure portal to enable you to connect to database servers, single databases, and elastic pools and their databases. A firewall rule is required to connect from other Azure resources and from on-premises resources.
 
 ## Prerequisites
 

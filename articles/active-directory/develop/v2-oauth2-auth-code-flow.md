@@ -18,6 +18,7 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # v2.0 Protocols - OAuth 2.0 authorization code flow
@@ -317,6 +318,6 @@ A successful token response will look like:
 | `error_codes` |A list of STS-specific error codes that can help in diagnostics. |
 | `timestamp` | The time at which the error occurred. |
 | `trace_id` | A unique identifier for the request that can help in diagnostics. |
-| c`orrelation_id` | A unique identifier for the request that can help in diagnostics across components. |
+| `correlation_id` | A unique identifier for the request that can help in diagnostics across components. |
 
 For a description of the error codes and the recommended client action, see [Error codes for token endpoint errors](#error-codes-for-token-endpoint-errors).

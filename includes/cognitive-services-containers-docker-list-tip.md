@@ -1,10 +1,10 @@
---- 
+---
 author: diberry
 ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/24/2019
---- 
+ms.date: 02/11/2019
+---
 
 
 > [!TIP]
@@ -13,6 +13,6 @@ ms.date: 01/24/2019
 >  ```
 >  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
 >
->  IMAGE ID            REPOSITORY                                                                TAG
->  ebbee78a6baa        mcr.microsoft.com/azure-cognitive-services/luis                           latest
+>  IMAGE ID            REPOSITORY              TAG
+>  ebbee78a6baa       <container-name>         latest
 >  ``` 

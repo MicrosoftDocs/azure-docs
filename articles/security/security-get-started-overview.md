@@ -4,7 +4,7 @@ description: The Microsoft Azure Security Information site on Azure.com is your 
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 2fd82e9f-7072-4548-a888-82bd7e9c729c

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/12/2019
 ms.author: diberry
 ms.custom: seodec18 
 ---
@@ -17,6 +17,8 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 
 
 ## Model boundaries
+
+If your app exceeds the LUIS model limits and boundaries, consider using a [LUIS dispatch](luis-concept-enterprise.md#dispatch-tool-and-model) app or using a [LUIS container](luis-container-howto.md). 
 
 |Area|Limit|
 |--|:--|--|
