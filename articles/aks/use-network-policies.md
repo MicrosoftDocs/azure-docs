@@ -136,7 +136,7 @@ kubectl create namespace development
 kubectl label namespace/development purpose=development
 ```
 
-Now create an example backend pod that runs NGINX. This backend pod can be used to simulate a sample backend web-based application. Create this pod in the *development* namespace, and open port *80* to serve web traffic. Label the pod with *app=webapp,role=backend* so that we can target it with a network policy in the next section:
+Create an example backend pod that runs NGINX. This backend pod can be used to simulate a sample backend web-based application. Create this pod in the *development* namespace, and open port *80* to serve web traffic. Label the pod with *app=webapp,role=backend* so that we can target it with a network policy in the next section:
 
 ```console
 kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace development --expose --port 80 --generator=run-pod/v1
@@ -219,7 +219,7 @@ exit
 
 ## Allow inbound traffic based on a pod label
 
-In the previous section, a backend NGINX pod was scheduled, and a network policy was created to deny all traffic. Now let's create a frontend pod and update the network policy to allow traffic from frontend pods.
+In the previous section, a backend NGINX pod was scheduled, and a network policy was created to deny all traffic. Let's create a frontend pod and update the network policy to allow traffic from frontend pods.
 
 Update the network policy to allow traffic from pods with the labels *app:webapp,role:frontend* and in any namespace. Edit the previous *backend-policy.yaml* file, and add *matchLabels* ingress rules so that your manifest looks like the following example:
 
@@ -252,7 +252,7 @@ Apply the updated network policy using the [kubectl apply][kubectl-apply] comman
 kubectl apply -f backend-policy.yaml
 ```
 
-Now schedule a pod that is labeled as *app=webapp,role=frontend* and attach a terminal session:
+Schedule a pod that is labeled as *app=webapp,role=frontend* and attach a terminal session:
 
 ```console
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
@@ -343,7 +343,7 @@ exit
 
 ### Update the network policy
 
-Now let's update the ingress rule *namespaceSelector* section to only allow traffic from within the *development* namespace. Edit the *backend-policy.yaml* manifest file as shown in the following example:
+Let's update the ingress rule *namespaceSelector* section to only allow traffic from within the *development* namespace. Edit the *backend-policy.yaml* manifest file as shown in the following example:
 
 ```yaml
 kind: NetworkPolicy
@@ -377,7 +377,7 @@ kubectl apply -f backend-policy.yaml
 
 ### Test the updated network policy
 
-Now schedule another pod in the *production* namespace and attach a terminal session:
+Schedule another pod in the *production* namespace and attach a terminal session:
 
 ```console
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
@@ -397,7 +397,7 @@ Exit out of the test pod:
 exit
 ```
 
-With traffic denied from the *production* namespace, now schedule a test pod back in the *development* namespace and attach a terminal session:
+With traffic denied from the *production* namespace, schedule a test pod back in the *development* namespace and attach a terminal session:
 
 ```console
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
