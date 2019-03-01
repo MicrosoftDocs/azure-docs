@@ -22,7 +22,7 @@ ms.author: banders
 
 You can reconcile the charges on your invoice by analyzing the individual transactions on the invoice.
 
-In the billing account for a Microsoft Customer Agreement, an invoice is generated each month for every billing profile. The invoice includes all charges from the previous month. You can view your invoices in the Azure portal. For more information, see [Download or view your invoice](billing-download-azure-invoice.md).
+In the billing account for a Microsoft Customer Agreement, an invoice is generated each month for every billing profile. The invoice includes all charges from the previous month. You can view your invoices in the Azure portal. For more information, see [View and download your Microsoft Azure invoice](billing-download-azure-invoice.md).
 
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
@@ -137,7 +137,7 @@ The following steps walk you through reconciling storage charges for IT departme
 
 ![Example image showing the details by invoice section information](./media/billing-understand-your-bill-mca/invoicesection-details.png)
 
- | Invoice PDF value | Usage CSV key|
+ | Invoice PDF | Azure usage and charges CSV |
  | --- | --- |
  |IT Department |invoiceSectionName |
  |Usage Charges - Azure Standard |productOrderName |

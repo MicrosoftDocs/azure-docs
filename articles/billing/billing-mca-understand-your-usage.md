@@ -1,6 +1,6 @@
 ---
-title: Understand terms on your Microsoft Customer Agreement usage CSV | Microsoft Docs
-description: Learn how to read and understand the sections of your detailed usage CSV for your billing profile
+title: Understand terms on your Azure usage and charges CSV for a Microsoft Customer Agreement | Microsoft Docs
+description: Learn how to read and understand the sections of the Azure usage and charges CSV for your billing profile
 services: ''
 documentationcenter: ''
 author: bandersmsft
@@ -17,25 +17,25 @@ ms.date: 08/31/2017
 ms.author: banders
 
 ---
-# Understand terms on your Microsoft Customer Agreement usage CSV
+# Understand terms on your Azure usage and charges CSV for a Microsoft Customer Agreement
 
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
-The detailed usage charges CSV file contains daily and meter level usage charges for the current billing period.
+The Azure usage and charges CSV file contains daily and meter level usage charges for the current billing period.
 
-To get your detailed usage file,
-see [View and download Azure usage for your Microsoft Customer Agreement](billing-download-azure-daily-usage.md).
+To get your Azure usage and charges file,
+see [View and download Azure usage and charges for your Microsoft Customer Agreement](billing-download-azure-daily-usage.md).
 It’s available in a comma-separated values (.csv) file format that you
 can open in a spreadsheet application.
 
 Usage charges are the total **monthly** charges on a subscription. The
 usage charges don’t take into account any credits or discounts.
 
-## Changes in the Enterprise Agreement detailed usage CSV
+## Changes in the Enterprise Agreement Azure usage and charges CSV
 
 If you were an EA customer, you'll notice that the terms in the billing profile Azure usage CSV file are different than the terms in the EA Azure usage CSV file. Here's a mapping of EA usage terms to billing profile usage terms:
 
-| EA Azure usage CSV | Microsoft Customer Agreement Azure usage CSV |
+| EA Azure usage CSV | Microsoft Customer Agreement Azure usage and charges CSV |
 | --- | --- |
 | Date | date |
 | Month| date |
@@ -66,9 +66,9 @@ If you were an EA customer, you'll notice that the terms in the billing profile 
 
 <!-- TO DO: Marketplace CSV? -->
 
-## Detailed terms and descriptions of your usage file
+## Detailed terms and descriptions of your Azure usage and charges file
 
-The following sections describe the important terms shown in detailed Azure usage and charges file.
+The following sections describe the important terms shown in the Azure usage and charges file.
 
 Term | Description
 --- | ---
@@ -119,7 +119,8 @@ serviceInfo2 | Legacy field that captures optional service-specific metadata
 additionalInfo | Additional service-specific metadata.
 tags | Tags you assign to the resource
 
-### How do I make sure that the charges in my detailed usage file are correct?
+### How do I make sure that the charges in my Azure usage and charges file are correct?
+
 If there is a charge on your detailed usage file that you would like
 more details on, see [Understand the charges on your billing profile's invoice](billing-mca-understand-your-bill.md)
 

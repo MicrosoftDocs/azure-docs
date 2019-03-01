@@ -53,7 +53,7 @@ You must be the billing profile owner, contributor, reader, or invoice manager t
 1. Select **Azure price sheet**.
 ![Screenshot that shows download from Overview](./media/billing-ea-pricing/open-pricing.png)
 
- ### Download price sheets for billed charges
+### Download price sheets for billed charges
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search on **Cost Management + Billing**.

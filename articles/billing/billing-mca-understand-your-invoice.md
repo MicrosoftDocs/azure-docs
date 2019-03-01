@@ -21,7 +21,7 @@ ms.author: banders
 
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
-The invoice provides a summary of your charges and provides instructions for payment. It’s available for download in the Portable Document Format (.pdf) from the [Azure portal](https://portal.azure.com/) or can be sent via email. For more information, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md).
+Your invoice provides a summary of your charges and instructions for payment. It’s available for download in the Portable Document Format (.pdf) from the [Azure portal](https://portal.azure.com/) or can be sent via email. For more information, see [View and download your Microsoft Azure invoice](billing-download-azure-invoice.md).
 
 <!-- ## When am I billed?
 
@@ -70,11 +70,11 @@ For each invoice section under your billing profile, you'll see the charges, the
 
 ### Details by invoice section
 
-The details show the cost for each invoice section broken down by product order name. Within each product order, cost is broken down by service family.
+The details show the cost for each invoice section broken down by product order. Within each product order, cost is broken down by the type of service. You can find daily charges for your products and services in the Azure portal and Azure usage and charges CSV. To learn more see [Understand the charges on your invoice for a Microsoft Customer Agreement](billing-mca-understand-your-bill.md).
 
-The total amount due for each service family is calculated by subtracting Azure credits from credits/charges and adding tax:
+The total amount due for each service family is calculated by subtracting *Azure credits* from *Credits/charges* and adding *Tax*:
 
-`Total = Charges/Credits - Azure Credit + Tax`
+<!-- `Total = Charges/Credits - Azure Credit + Tax` -->
 
 ![Details by invoice section](./media/billing-understand-your-invoice-mca/invoicesectiondetails.png)
 
