@@ -31,7 +31,9 @@ ms.lastreviewed: 02/28/2019
   
    ![Select a plan](media/azure-stack-create-plan/select-plan.png)
 
-3. Under the **Basics** tab of the **New plan** window, enter a **Display name** and a **Resource name**. The display name is the plan's friendly name that users can see. Only the administrator can see the resource name, which is used to work with the plan as an Azure Resource Manager resource.
+3. You are presented with a tabbed user interface that enables you to specify the plan name, add services, and define quotas for each of the selected services. Most importantly, you can review the details of the offer you create, before you decide to create it.
+
+   Under the **Basics** tab of the **New plan** window, enter a **Display name** and a **Resource name**. The display name is the plan's friendly name that users can see. Only the administrator can see the resource name, which is used to work with the plan as an Azure Resource Manager resource.
 
    ![Specify details](media/azure-stack-create-plan/plan-name.png)
 
@@ -55,13 +57,13 @@ ms.lastreviewed: 02/28/2019
 
    ![Complete quota assignments](media/azure-stack-create-plan/all-quotas-assigned.png)
 
-9. Select **Review + create** to review the plan. Review all values and quotas to ensure they are correct. Note the expansion arrows to the left of each service/quota pair. Click each one to expand the selection and get more information about the service quota.
+9. Select **Review + create** to review the plan. Review all values and quotas to ensure they are correct. Note the expansion arrows to the left of each service/quota pair. A new feature enables you to expand the quotas in the selected plans, one at a time, to view the details of each quota in a plan and go back to make any necessary edits.
 
    ![Create the plan](media/azure-stack-create-plan/create.png)
 
 10. When you are ready, select **Create** to create the plan.
 
-11. To see the new plan, select **All resources**, then search for the plan and select its name. If your list of resources is long, use **Search** to locate your plan by name.
+11. To see the new plan, select **Plans**, then search for the plan and select its name. If your list of resources is long, use **Search** to locate your plan by name.
 
 ## Next steps
 
