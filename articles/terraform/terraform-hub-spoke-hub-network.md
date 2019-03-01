@@ -1,5 +1,5 @@
 ---
-title: Create a hub virtual network in Azure using a hub-spoke network topology
+title: Implement a hub virtual network with Terraform in Azure
 description: Tutorial illustrating how to create a hub VNet in Azure that acts as a common connection point between other networks
 services: terraform
 ms.service: terraform
@@ -11,9 +11,9 @@ ms.topic: tutorial
 ms.date: 2/28/2019
 ---
 
-# Implementing Hub Virtual Network
+# Tutorial: Create a hub virtual network in Azure using a hub-spoke network topology
 
-The Hub virtual network acts as the central point of connectivity to the On-premises network. It is a place to host shared services that can be consumed by the different workloads hosted in the spoke VNets. For the sake of simplicity, we are not implementing any shared services in this tutorial.
+The hub virtual network (VNet) acts as the central point of connectivity to the on-premises network. The VNet allows you to host shared services that are consumed by the different workloads hosted in the spoke VNets. For demo purposes, no shared services are implemented in this tutorial.
 
 [!div class="checklist"]
 
@@ -43,7 +43,7 @@ To following Terraform configuration file defines these resources.
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). If you didn't select an environment previously, select **Bash** as your environment.
 
-    ![Cloud Shell prompt](./media/hub-spoke/azure-portal-cloud-shell-button-min.png)
+    ![Cloud Shell prompt](./media/common/azure-portal-cloud-shell-button-min.png)
 
 1. Change directories to the `clouddrive` directory.
 
@@ -237,7 +237,7 @@ Create the Terraform configuration file that declares Hub virtual network.
 
 ## Next steps
 
-In this article, we created a central virtual network with its subnets. This network acts as central point and establishes gateway connections between hub and the on premises network. To continue with the entire hub-spoke topology tutorial, complete the remaining steps.
+In this article, you created a central virtual network with subnets. The network acts as central point and establishes gateway connections between hub and the on-premises network. To continue with the entire hub and spoke topology tutorial, complete the remaining steps.
 
  > [!div class="nextstepaction"] 
 

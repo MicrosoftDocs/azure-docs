@@ -1,6 +1,6 @@
 ---
-title: Create on-premises virtual network in Azure using hub and spoke network topology
-description: Tutorial illustrating how to implement an on-premises VNet on Azure that houses local resources
+title: Implement on-premises virtual network using Terraform in Azure
+description: Tutorial illustrating how to implement an on-premises VNet in Azure that houses local resources
 services: terraform
 ms.service: terraform
 keywords: terraform, hub and spoke, networks, hybrid networks, devops, virtual machine, azure, VNet peering, on-premises 
@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 2/28/2019
 ---
 
-# Implementing on-premises Virtual Network
+# Tutorial: Create on-premises virtual network in Azure using hub and spoke network topology
 
 In this tutorial, you implement an on-premises network using an Azure Virtual network (VNet). An Azure VNet could be replaced by your own private virtual network. To do so, map the appropriate IP addresses in the subnets.
 
@@ -24,11 +24,11 @@ In this tutorial, you implement an on-premises network using an Azure Virtual ne
 
 ## Prerequisites
 
-To implement this tutorial, complete the [prerequisites in the Introduction to Hub and Spoke topology](./hub-spoke-introduction.md) article.
+- [Create a hub and spoke hybrid network topology in Azure](./hub-spoke-introduction.md).
 
-## Components
+## Create the demo working directory
 
-To simulate an on-premises network, we create an Azure virtual network for demo purpose. This demo VNet takes the place of an actual private on-premises network. To do the same with your existing on-premises network, map the appropriate IP addresses in the subnets.
+To simulate an on-premises network, create an Azure virtual network. This demo VNet takes the place of an actual private on-premises network. To do the same with your existing on-premises network, map the appropriate IP addresses in the subnets.
 
 1. Browse to the [Azure portal](http://portal.azure.com).
 
@@ -231,4 +231,4 @@ Create the Terraform configuration file that declares an on-premises VNet.
 In this article, we created a simulation of on-premises network on Azure using a virtual network. To continue with the entire hub-spoke topology tutorial, complete the remaining steps.
 
  > [!div class="nextstepaction"] 
- > [Hub network](./terraform-hub-spoke-hub-network.md)
+ > [Implement a hub virtual network with Terraform in Azure](./terraform-hub-spoke-hub-network.md)
