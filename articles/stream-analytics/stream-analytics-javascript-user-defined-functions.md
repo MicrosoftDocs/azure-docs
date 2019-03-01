@@ -43,12 +43,19 @@ Here are some things that you cannot do with a JavaScript user-defined function 
 Although functions like **Date.GetDate()** or **Math.random()** are not blocked in the functions definition, you should avoid using them. These functions **do not** return the same result every time you call them, and the Azure Stream Analytics service does not keep a journal of function invocations and returned results. If a function returns different result on the same events, repeatability is not guaranteed when a job is restarted by you or by the Stream Analytics service.
 
 ## Add a JavaScript user-defined function in the Azure portal
-To create a simple JavaScript user-defined function under an existing Stream Analytics job, do these steps:
+To create a simple JavaScript user-defined function under an existing Stream Analytics job, follow these steps:
+
+> [!NOTE]
+> These steps work on the Stream Analytics jobs configured to run in the cloud. If your Stream Analytics job is configured to run on Azure IoT Edge, instead use Visual Studio and [write the user-defined function using C#](stream-analytics-edge-csharp-udf.md).
 
 1.	In the Azure portal, find your Stream Analytics job.
+
 2. Under the **Job topology** heading, select **Functions**. An empty list of functions appears.
+
 3.	To create a new user-defined function, select **+ Add**.
+
 4.	On the **New Function** blade, for **Function Type**, select **JavaScript**. A default function template appears in the editor.
+
 5.	For the **UDF alias**, enter **hex2Int**, and change the function implementation as follows:
 
     ```javascript
