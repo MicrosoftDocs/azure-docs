@@ -58,7 +58,7 @@ When using live encoding with Media Services, you would configure your on-premis
 
 You can send the contribution feed at up to 1080p resolution at a frame rate of 30 frames/second, with H.264/AVC video codec and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec. See the [Live Event types comparison](live-event-types-comparison.md) article for more details.
 
-When using the Live Event **Standard** type, the encoding preset defines how the incoming stream is encoded into multiple bitrates or layers. For information, see [System presets](live-event-types-comparison.md#system-presets).
+When using live encoding (Live Event set to **Standard**), the encoding preset defines how the incoming stream is encoded into multiple bitrates or layers. For information, see [System presets](live-event-types-comparison.md#system-presets).
 
 > [!NOTE]
 > Currently, the only allowed preset value for the Standard type of Live Event is *Default720p*. If you need to use a custom live encoding preset, please contact amshelp@microsoft.com. You should specify the desired table of resolution and bitrates. Do verify that there is only one layer at 720p, and at most 6 layers.
