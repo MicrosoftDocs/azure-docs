@@ -51,7 +51,7 @@ The following table compares features of the two Live Event types.
 | Support for variable frame rate input|Yes|No – input must be fixed frame rate. Minor variations are tolerated, for example, during high motion scenes. But the contribution feed cannot drop the frame rate (for example, to 15 frames/sec).|
 | Auto-shutoff of Live Event when input feed is lost|No|After 12 hours, if there is no LiveOutput running|
 
-## System preset
+## System presets
 
 Specifies the preset to be used by the Standard type of Live Event. Currently, the only allowed value is **Default720p** (default).
 
