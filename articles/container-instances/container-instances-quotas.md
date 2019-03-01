@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-instances
 ms.topic: overview
-ms.date: 02/27/2019
+ms.date: 03/01/2019
 ms.author: danlep
 ---
 # Quotas and limits for Azure Container Instances
