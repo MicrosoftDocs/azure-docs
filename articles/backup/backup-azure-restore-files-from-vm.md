@@ -261,6 +261,6 @@ We use mutual CHAP authentication mechanism so that each component authenticates
 
 The data flow between the recovery service and the machine is protected by building a secure SSL tunnel over TCP ([TLS 1.2 should be supported](#system-requirements) in the machine where script is run)
 
-Any file ackles present in the parent/backed up VM are preserved in the mounted file system also.
+Any file Access Control List (ACL) present in the parent/backed up VM are preserved in the mounted file system also.
 
 The script gives read-only access to a recovery point and is valid for only 12 hours. If the user wishes to remove the access earlier, then sign into Azure Portal/PowerShell/CLI and perform the **unmount disks** for that particular recovery point. The script will be invalidated immediately.
