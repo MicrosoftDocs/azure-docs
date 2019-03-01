@@ -13,8 +13,7 @@ ms.date: 2/28/2019
 
 # Tutorial: Create a spoke virtual networks with Terraform in Azure
 
-In this tutorial, we will implement two separate spoke networks to demonstrate separation of workloads. These networks share the common resources using hub virtual network. Spokes can be used to isolate workloads in their own VNets, managed separately from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers.
-
+In this tutorial, you implement two separate spoke networks to demonstrate separation of workloads. The networks share common resources using hub virtual network. Spokes can be used to isolate workloads in their own VNets, managed separately from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers.
 
 [!div class="checklist"]
 
@@ -24,21 +23,20 @@ In this tutorial, we will implement two separate spoke networks to demonstrate s
 
 ## Prerequisites
 
-- [Create a hub and spoke hybrid network topology with Terraform in Azure](./hub-spoke-introduction.md).
-- [Create on-premises virtual network with Terraform in Azure](./hub-spoke-on-prem.md).
-- [Create a hub virtual network with Terraform in Azure](./hub-spoke-hub-network.md).
-- [Create a hub virtual network appliance with Terraform in Azure](./hub-spoke-hub-nva.md).
+- [Create a hub and spoke hybrid network topology with Terraform in Azure](./terraform-hub-spoke-introduction.md).
+- [Create on-premises virtual network with Terraform in Azure](./terraform-hub-spoke-on-prem.md).
+- [Create a hub virtual network with Terraform in Azure](./terraform-hub-spoke-hub-network.md).
+- [Create a hub virtual network appliance with Terraform in Azure](./terraform-hub-spoke-hub-nva.md).
 
+## Create the directory structure
 
-## Components
-
-We will create two spoke scripts in this section. Each script creates a spoke virtual network and also a virtual machine for the workload. We then create a virtual network peering from hub to spoke networks.
+Two spoke scripts are created in this section. Each script defines a spoke virtual network as well as a virtual machine for the workload. A peered virtual network from hub to spoke is then created.
 
 1. Browse to the [Azure portal](http://portal.azure.com).
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). If you didn't select an environment previously, select **Bash** as your environment.
 
-    ![Cloud Shell prompt](./media/hub-spoke/azure-portal-cloud-shell-button-min.png)
+    ![Cloud Shell prompt](./media/terraform-common/azure-portal-cloud-shell-button-min.png)
 
 1. Change directories to the `clouddrive` directory.
 

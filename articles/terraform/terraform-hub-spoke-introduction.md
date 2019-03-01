@@ -17,7 +17,7 @@ This tutorial shows how to implement one of the popular [Hybrid network topology
 
 To learn about the recommendations and considerations for this topology, refer [hub and spoke reference architecture](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 
-![Hub and spoke topology architecture in Azure](./media/terraform-hub-spoke-introduction/hub-spoke-architecture.png)
+![Hub and spoke topology architecture in Azure](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-architecture.png)
 
 ## The benefits of hub and spoke topology
 
@@ -59,15 +59,15 @@ for all resources
         az ad sp list --display-name <displayName>
     ```
 
-### Create the directory structure
+## Create the directory structure
 
-The first step is to create the directory that holds your Terraform configuration files for the exercise.
+Create the directory that holds your Terraform configuration files for the demo.
 
 1. Browse to the [Azure portal](http://portal.azure.com).
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). If you didn't select an environment previously, select **Bash** as your environment.
 
-    ![Cloud Shell prompt](./media/common/azure-portal-cloud-shell-button-min.png)
+    ![Cloud Shell prompt](./media/terraform-common/azure-portal-cloud-shell-button-min.png)
 
 1. Change directories to the `clouddrive` directory.
 

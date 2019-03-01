@@ -24,17 +24,17 @@ In this tutorial, you implement an on-premises network using an Azure Virtual ne
 
 ## Prerequisites
 
-- [Create a hub and spoke hybrid network topology in Azure](./hub-spoke-introduction.md).
+- [Create a hub and spoke hybrid network topology in Azure](./terraform-hub-spoke-introduction.md).
 
-## Create the demo working directory
+## Create the directory structure
 
-To simulate an on-premises network, create an Azure virtual network. This demo VNet takes the place of an actual private on-premises network. To do the same with your existing on-premises network, map the appropriate IP addresses in the subnets.
+To simulate an on-premises network, create an Azure virtual network. The demo VNet takes the place of an actual private on-premises network. To do the same with your existing on-premises network, map the appropriate IP addresses in the subnets.
 
 1. Browse to the [Azure portal](http://portal.azure.com).
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). If you didn't select an environment previously, select **Bash** as your environment.
 
-    ![Cloud Shell prompt](./media/common/azure-portal-cloud-shell-button-min.png)
+    ![Cloud Shell prompt](./media/terraform-common/azure-portal-cloud-shell-button-min.png)
 
 1. Change directories to the `clouddrive` directory.
 

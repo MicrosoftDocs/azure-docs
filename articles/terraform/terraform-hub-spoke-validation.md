@@ -25,20 +25,21 @@ This article is the final step of hub-spoke tutorial. Here we will execute all t
 
 ## Prerequisites
 
-- [Create a hub and spoke hybrid network topology with Terraform in Azure](./hub-spoke-introduction.md).
-- [Create on-premises virtual network with Terraform in Azure](./hub-spoke-on-prem.md).
-- [Create a hub virtual network with Terraform in Azure](./hub-spoke-hub-network.md).
-- [Create a hub virtual network appliance with Terraform in Azure](./hub-spoke-hub-nva.md).
-- [Create a spoke virtual networks with Terraform in Azure](./hub-spoke-spoke-network.md).
+- [Create a hub and spoke hybrid network topology with Terraform in Azure](./terraform-hub-spoke-introduction.md).
+- [Create on-premises virtual network with Terraform in Azure](./terraform-hub-spoke-on-prem.md).
+- [Create a hub virtual network with Terraform in Azure](./terraform-hub-spoke-hub-network.md).
+- [Create a hub virtual network appliance with Terraform in Azure](./terraform-hub-spoke-hub-nva.md).
+- [Create a spoke virtual networks with Terraform in Azure](./terraform-hub-spoke-spoke-network.md).
 
-After completing the above prerequisites, you should have following config files.
+## Verify your configuration
 
+After completing the [prerequisites][#prerequisites], verify that the appropriate config files are present.
 
 1. Browse to the [Azure portal](http://portal.azure.com).
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). If you didn't select an environment previously, select **Bash** as your environment.
 
-    ![Cloud Shell prompt](./media/hub-spoke/azure-portal-cloud-shell-button-min.png)
+    ![Cloud Shell prompt](./media/terraform-common/azure-portal-cloud-shell-button-min.png)
 
 1. Change directories to the `clouddrive` directory.
 
@@ -52,8 +53,7 @@ After completing the above prerequisites, you should have following config files
     cd hub-spoke
     ```
 
-   ![Hub spoke Terraform config files](./media/hub-spoke/hub-spoke-config-files.jpg
-)
+   ![Terraform demo config files](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-config-files.jpg)
 
 ## Deploying the resources
 
@@ -65,7 +65,7 @@ In this step, we will initialize the Terraform Azure Resource Manager provider u
     terraform init
 ```
 
-![Terraform init](./media/hub-spoke/hub-spoke-terraform-init.jpg)
+![Example resuults of "terraform init" command](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-init.jpg)
 
 
 ### Plan
@@ -76,7 +76,7 @@ One of the benefits of Terraform is to visualize all the deployment actions befo
     terraform plan
 ```
 
-![Terraform plan](./media/hub-spoke/hub-spoke-terraform-plan.jpg)
+![Example results of "terraform plan" command](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-plan.jpg)
 
 ### Apply
 
@@ -89,7 +89,7 @@ The final step of the deployment is the apply command.
 
 Type **yes** when prompted.
 
-![0](./media/hub-spoke/hub-spoke-terraform-apply.jpg)
+![Example results of "terraform apply" command](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-apply.jpg)
 
 The above command should complete and deploy all the resources for the hub-spoke network.
 

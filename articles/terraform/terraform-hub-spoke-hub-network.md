@@ -24,25 +24,24 @@ The hub virtual network (VNet) acts as the central point of connectivity to the 
 
 ## Prerequisites
 
-- [Create a hub and spoke hybrid network topology with Terraform in Azure](./hub-spoke-introduction.md).
-- [Create on-premises virtual network with Terraform in Azure](./hub-spoke-on-prem.md).
+- [Create a hub and spoke hybrid network topology with Terraform in Azure](./terraform-hub-spoke-introduction.md).
+- [Create on-premises virtual network with Terraform in Azure](./terraform-hub-spoke-on-prem.md).
 
+## Create the directory structure
 
-## Components
+The hub network consists of the following components:
 
-The hub network consists of the following components. 
+- Hub virtual network
+- Hub virtual network gateway
+- Hub gateway connections 
 
-* Hub virtual network
-* Hub virtual network gateway
-* Hub gateway connections 
-
-To following Terraform configuration file defines these resources.
+The following Terraform configuration file defines the resources:
 
 1. Browse to the [Azure portal](http://portal.azure.com).
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). If you didn't select an environment previously, select **Bash** as your environment.
 
-    ![Cloud Shell prompt](./media/common/azure-portal-cloud-shell-button-min.png)
+    ![Cloud Shell prompt](./media/terraform-common/azure-portal-cloud-shell-button-min.png)
 
 1. Change directories to the `clouddrive` directory.
 

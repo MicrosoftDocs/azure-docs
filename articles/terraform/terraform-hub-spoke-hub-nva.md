@@ -26,17 +26,17 @@ Azure supports a broad variety of network virtual appliances from which to selec
 
 ## Prerequisites
 
-- [Create a hub and spoke hybrid network topology with Terraform in Azure](./hub-spoke-introduction.md).
-- [Create on-premises virtual network with Terraform in Azure](./hub-spoke-on-prem.md).
-- [Create a hub virtual network with Terraform in Azure](./hub-spoke-hub-network.md).
+- [Create a hub and spoke hybrid network topology with Terraform in Azure](./terraform-hub-spoke-introduction.md).
+- [Create on-premises virtual network with Terraform in Azure](./terraform-hub-spoke-on-prem.md).
+- [Create a hub virtual network with Terraform in Azure](./terraform-hub-spoke-hub-network.md).
 
-## Components
+## Create the directory structure
 
 1. Browse to the [Azure portal](http://portal.azure.com).
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). If you didn't select an environment previously, select **Bash** as your environment.
 
-    ![Cloud Shell prompt](./media/hub-spoke/azure-portal-cloud-shell-button-min.png)
+    ![Cloud Shell prompt](./media/terraform-common/azure-portal-cloud-shell-button-min.png)
 
 1. Change directories to the `clouddrive` directory.
 
