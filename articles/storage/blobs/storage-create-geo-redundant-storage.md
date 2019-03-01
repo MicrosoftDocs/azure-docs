@@ -70,18 +70,18 @@ Follow these steps to create a read-access geo-redundant storage account:
 1. Select the **Create a resource** button found on the upper left-hand corner of the Azure portal.
 2. Select **Storage** from the **New** page.
 3. Select **Storage account - blob, file, table, queue** under **Featured**.
-4. Fill out the storage account form with the following information, as shown in the following image and select **Create**:
+4. Fill out the storage account form with the following information, as shown in the following image, and select **Create**:
 
    | Setting       | Suggested value | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Name** | mystorageaccount | A unique value for your storage account |
-   | **Deployment model** | Resource Manager  | Resource Manager contains the latest features.|
-   | **Account kind** | StorageV2 | For details on the types of accounts, see [types of storage accounts](../common/storage-introduction.md#types-of-storage-accounts) |
+   | **Subscription** | your subscription |For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
+   | **Resource group** | myResourceGroup |For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   | **Storage account name** | mystorageaccount | A unique value for your storage account |
+   | **Location** | East US | Choose a location. |
    | **Performance** | Standard | Standard is sufficient for the example scenario. |
+   | **Account kind** | StorageV2 | For details on the types of accounts, see [types of storage accounts](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Replication**| Read-access geo-redundant storage (RA-GRS) | This is necessary for the sample to work. |
-   |**Subscription** | your subscription |For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-   |**ResourceGroup** | myResourceGroup |For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   |**Location** | East US | Choose a location. |
+   | **Access tier** | Hot | Hot is sufficient for the example scenario. |
 
 ![create storage account](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
@@ -161,7 +161,7 @@ setx accountkey "<youraccountkey>"
 
 # [Java V10 SDK](#tab/java-v10)
 
-This sample requires that you securely store the name and key of your storage account. Store them in environment variables local to the machine that will run the sample. Use either the Linux or the Windows example, depending on your operating system, to create the environment variables. In Windows, the environment variable is not available until you reload the **Command Prompt** or shell you are using.
+This sample requires that you securely store the name and key of your storage account. Store them in environment variables local to the machine that will run the sample. Use either the Linux or the Windows example, depending on your operating system, to create the environment variables. 
 
 ### Linux example
 
@@ -176,6 +176,8 @@ export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
 setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 ```
+
+You can find this information in the Azure portal by navigating to your storage account and selecting **Access keys** in the **Settings** section. 
 
 # [Node.js](#tab/nodejs)
 
@@ -220,7 +222,7 @@ Prior to the download, the Service object [retry_callback](https://docs.microsof
 
 To run the sample, use Maven at the command line.
 
-1. open a shell and browse to **storage-blobs-java-v10-quickstart** inside your cloned directory.
+1. open a shell and browse to **storage-blobs-java-v10-tutorial-master** inside your cloned directory.
 2. Enter `mvn compile exec:java`.
 
 This sample creates a test file in your default directory, for windows users this directory is **AppData\Local\Temp**. The sample then presents you with the following options of commands which you can enter:
