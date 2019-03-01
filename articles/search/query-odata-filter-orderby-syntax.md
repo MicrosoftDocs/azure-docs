@@ -176,6 +176,13 @@ $filter=tags/all(t: t ne 'motel')
 $filter=tags/any()  
 ```  
 
+Find all hotels with no tags:  
+
+```  
+$filter=not tags/any()  
+```  
+
+
  Find all hotels within 10 kilometers of a given reference point (where location is a field of type Edm.GeographyPoint):  
 
 ```  
