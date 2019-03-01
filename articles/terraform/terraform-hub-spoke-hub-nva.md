@@ -17,8 +17,7 @@ A **VPN device** is a device that provides external connectivity to an on-premis
 
 Azure supports a broad variety of network virtual appliances from which to select. For this tutorial, an Ubuntu image is used. To learn more about the broad variety of device solutions supported in Azure, see the [Network Appliances home page](https://azure.microsoft.com/solutions/network-appliances/).
 
-[!div class="checklist"]
-
+> [!div class="checklist"]
 > * Use HCL (HashiCorp Language) to implement the Hub VNet in hub-spoke topology
 > * Use Terraform to create Hub Network Virtual Machine which acts as appliance
 > * Use Terraform to enable routes using CustomScript extensions

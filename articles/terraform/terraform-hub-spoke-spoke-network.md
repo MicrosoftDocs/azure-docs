@@ -15,8 +15,7 @@ ms.date: 2/28/2019
 
 In this tutorial, you implement two separate spoke networks to demonstrate separation of workloads. The networks share common resources using hub virtual network. Spokes can be used to isolate workloads in their own VNets, managed separately from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers.
 
-[!div class="checklist"]
-
+> [!div class="checklist"]
 > * Use HCL (HashiCorp Language) to implement the Spoke VNets in hub-spoke topology
 > * Use Terraform to create Virtual machines in the spoke networks
 > * Use Terraform to establish virtual network peerings with the hub networks

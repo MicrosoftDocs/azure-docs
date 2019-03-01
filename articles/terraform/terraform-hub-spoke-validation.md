@@ -15,8 +15,7 @@ ms.date: 2/28/2019
 
 In this article, you execute the terraform files created in the previous article in this series. The result is a validation of the connectivity between the demo virtual networks.
 
-[!div class="checklist"]
-
+> [!div class="checklist"]
 > * Use HCL (HashiCorp Language) to implement the Hub VNet in hub-spoke topology
 > * Use Terraform plan to verify the resources to be deployed
 > * Use Terraform apply to create the resources in Azure

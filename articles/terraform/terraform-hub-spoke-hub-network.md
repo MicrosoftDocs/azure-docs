@@ -15,8 +15,7 @@ ms.date: 2/28/2019
 
 The hub virtual network (VNet) acts as the central point of connectivity to the on-premises network. The VNet hosts shared services consumed by workloads hosted in the spoke VNets. For demo purposes, no shared services are implemented in this tutorial.
 
-[!div class="checklist"]
-
+> [!div class="checklist"]
 > * Use HCL (HashiCorp Language) to implement the hub VNet in hub-spoke topology
 > * Use Terraform to create Hub Jump box virtual machine
 > * Use Terraform to create Hub virtual private network gateway
