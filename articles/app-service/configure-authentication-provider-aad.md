@@ -36,6 +36,9 @@ This article shows you how to configure Azure App Services to use Azure Active D
 5. (Optional) To restrict access to your site to only users authenticated by Azure Active Directory, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Azure Active Directory for authentication.
 6. Click **Save**.
 
+### Configure for multiple subdomains
+If you would like to use the same Registered App with multiple subdomains you can by adding additional **Reply URLs** under **Settings**. For example, you may want to protect `https://mysite-staging.azurewebsites.net` used as a staging site and `https://mysite.azurewebsites.net` used as a production site. The easiest way to achieve this is to copy and paste the existing **Reply URL** and edit the subdomain.
+
 You are now ready to use Azure Active Directory for authentication in your App Service app.
 
 ## <a name="advanced"> </a>Configure with advanced settings
