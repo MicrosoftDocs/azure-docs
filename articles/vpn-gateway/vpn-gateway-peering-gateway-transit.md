@@ -34,7 +34,7 @@ There are two scenarios described in this document:
 2. The spoke virtual network is classic, and the hub virtual network with gateway is in Resource Manager
 
 > [!IMPORTANT]
-> Gateway transit is currently not supported with global virtual network peering.
+> Gateway transit support for Global VNet Peering is in preview in all Azure regions. To use remote gateways or allow gateway transit when globally peered, you must run the following commands in CLI: `az feature register --name AllowGlobalPeeringTransit --namespace Microsoft.Network` and `az provider register --namespace Microsoft.Network`
 
 ## Requirements
 
