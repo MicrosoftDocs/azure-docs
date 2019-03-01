@@ -28,7 +28,7 @@ Azure portal currently supports the following type of billing accounts:
 
 - **Microsoft Customer Agreement**: A billing account for a Microsoft Customer Agreement is created when your organization signs a Microsoft Customer Agreement to use Azure. Administrators in the billing account for a Microsoft Customer Agreement use billing profiles and invoice sections  billing scopes to manage and organize billing for their organization. For more information, see [Get started with your billing account for Microsoft Customer Agreement](billing-mca-overview.md).
 
-## View billing accounts in the Azure portal
+## Change billing account view
 
 1. Log in to the [Azure portal](https://portal.azure.com).
 
