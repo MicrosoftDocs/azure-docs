@@ -13,17 +13,15 @@ ms.author: diberry
 #Customer intent: As a new user, I want to quickly get a LUIS app created in the LUIS portal so I can understand the different models of intent, entity and example utterances. 
 ---
 
-# Quickstart: Create new app in LUIS portal
+# Quickstart: 1. Create new app in LUIS portal
 
-The first step to using LUIS is to build a LUIS app. The LUIS portal is the most common method, but you can also use programmatic methods. Creating the app in the portal begins with setting the name and language, then adding intents with example utterances. If there is data in the utterances that need to be extracted, this needs to be tagged with entities. 
+In this quickstart, you create a new app in the [LUIS portal](https://www.luis.ai). The basic parts of an app are an intent and an entity. Once the intent and entity are created, you test the app with the interactive test panel, providing a sample user utterance and getting the predicted intent.
 
-In this quickstart, you create an app, create an intent, add an example utterance and create an entity to extract that entity. The [LUIS portal](https://www.luis.ai) is free to use and doesn't require a Cognitive Service or Language Understanding key. 
-
-If you don’t have a free LUIS portal account, you can create the free account the first time you visit the LUIS portal.  
+Building an app is free; it doesn't require an Azure subscription. When you are ready to deploy your app, then you create an Azure Cognitive Service Resource and assign it to the app. This deployment process is in the [next quickstart](get-started-portal-deploy-model.md).
 
 ## Create app 
 
-1. Open the LUIS portal in a browser and sign in. 
+1. Open the LUIS portal in a browser and sign in. If this is your first time signing in, you need to create a free LUIS portal account.
 
 1. Select **Create new app** from the context toolbar.
 
@@ -147,4 +145,4 @@ When you are done with this quickstart, select **My apps** from the top navigati
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Deploy model](get-started-portal-deploy-model.md)
+> [Deploy model](get-started-portal-deploy-app.md)
