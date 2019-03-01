@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 02/28/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
@@ -34,7 +34,7 @@ Budgets are supported for a variety of Azure account types. To view the full lis
 
  For Azure EA subscriptions, you must have read access to view budgets. To create and manage budgets, you must have contributor permission. You can create individual budgets for EA subscriptions and resource groups. However, you cannot create budgets for EA billing accounts.
 
-The following Azure permissions are supported per subscription for budgets by user and group:
+The following Azure permissions, or scopes, are supported per subscription for budgets by user and group. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
 - Owner – Can create, modify, or delete budgets for a subscription.
 - Contributor and Cost Management contributor – Can create, modify, or delete their own budgets. Can modify the budget amount for budgets created by others.
@@ -48,7 +48,7 @@ For more information about assigning permission to Cost Management data, see [As
 
 ## Create a budget in the Azure portal
 
-You can create an Azure subscription budget for a monthly, quarterly, or annual period. Your navigational content in the Azure portal determines whether you create a budget for a subscription or for a resource group. For example, in the Azure portal, navigate to **Subscriptions** &gt; select a subscription &gt; **Budgets**. In this example, the budget that you create is for the subscription that you selected. If you want to create a budget for a resource group, navigate to **Resource groups** > select a resource group > **Budgets**.
+You can create an Azure subscription budget for a monthly, quarterly, or annual period. Your navigational content in the Azure portal determines whether you create a budget for a subscription or for a resource group. For example, in the Azure portal, navigate to **Subscriptions** &gt; select a subscription &gt; **Budgets**. In this example, the budget that you create is for the subscription that you selected. If you want to create a budget for a resource group, navigate to **Resource groups** > select a resource group > **Budgets**..
 
 After you create budgets, they show a simple view of your current spending against them.
 
