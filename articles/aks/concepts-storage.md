@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 03/01/2019
 ms.author: iainfou
 ---
 
@@ -117,6 +117,8 @@ spec:
 
 ## Next steps
 
+For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
+
 To see how to create dynamic and static volumes that use Azure Disks or Azure Files, see the following how-to articles:
 
 - [Create a static volume using Azure Disks][aks-static-disks]
@@ -144,3 +146,4 @@ For additional information on core Kubernetes and AKS concepts, see the followin
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-network]: concepts-network.md
+[operator-best-practices-storage]: operator-best-practices-storage.md

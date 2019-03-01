@@ -264,11 +264,11 @@ As an operator in your Azure IoT Central application, for your real device you c
 
     ![View telemetry](media/howto-connect-nodejs/viewtelemetry.png)
 
-* View the device property values sent from your device on the **Properties** page. The device properties tiles will be updated if the connection is successful. 
+* View the device property values sent from your device on the **Properties** page. The device properties tiles are updated if the connection is successful.
 
     ![View device properties](media/howto-connect-nodejs/viewproperties.png)
 
-* Set the fan speed and target temperature from the **Settings** page. The settings values will sync if the connection is successful. 
+* Set the fan speed and target temperature from the **Settings** page. The settings values sync if the connection is successful.
 
     ![Set fan speed](media/howto-connect-nodejs/setfanspeed.png)
 
