@@ -58,13 +58,13 @@
     - name: Parameters
       href: resource-manager-templates-parameters.md
     - name: Variables
-      href: resource-manager-templates-variables.md
+      href: resource-group-authoring-templates.md#variables
     - name: Functions
       href: resource-group-authoring-templates.md#functions
     - name: Resources
       href: resource-manager-templates-resources.md
     - name: Outputs
-      href: resource-manager-templates-outputs.md
+      href: resource-group-authoring-templates.md#outputs
   - name: Template best practices
     href: template-best-practices.md
   - name: Templates for cloud consistency

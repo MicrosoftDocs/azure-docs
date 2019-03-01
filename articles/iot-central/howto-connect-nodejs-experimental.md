@@ -88,7 +88,7 @@ Enter field name exactly as shown in the table into the device template. If the 
 
 ## Add a real device
 
-In your Azure IoT Central application, add a real device from the device template you create and make a note of the device connection string. For step-by-step instructions on how to connect a Node.js application to IoT Central, see [Generate connection string for real device from application](tutorial-add-device-experimental.md#generate-connection-string-for-real-device-from-application) and [Prepare the client code](tutorial-add-device-experimental.md#prepare-the-client-code) in the Tutorials > Add a device.
+In your Azure IoT Central application, add a real device from the device template you create and make a note of the device connection string. For step-by-step instructions on how to connect a Node.js application to IoT Central, see [Generate connection string for real device from application](tutorial-add-device-experimental.md#generate-connection-string) and [Prepare the client code](tutorial-add-device-experimental.md#prepare-the-client-code) in the Tutorials > Add a device.
 
 ### Create a Node.js application
 
@@ -263,11 +263,11 @@ As an operator in your Azure IoT Central application, for your real device you c
 
     ![View telemetry](media/howto-connect-nodejs-experimental/viewtelemetry.png)
 
-* View the device property values sent from your device on the **Properties** page. The device properties tiles will be updated if the connection is successful. 
+* View the device property values sent from your device on the **Properties** page. The device properties tiles update if the connection is successful.
 
     ![View device properties](media/howto-connect-nodejs-experimental/viewproperties.png)
 
-* Set the fan speed and target temperature from the **Settings** page. The settings values will sync if the connection is successful. 
+* Set the fan speed and target temperature from the **Settings** page. The settings values sync if the connection is successful.
 
     ![Set fan speed](media/howto-connect-nodejs-experimental/setfanspeed.png)
 
