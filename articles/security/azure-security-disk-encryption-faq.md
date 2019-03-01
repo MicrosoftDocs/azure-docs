@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/25/2019
+ms.date: 03/01/2019
 
 ms.custom: seodec18
 ---
@@ -69,9 +69,13 @@ To get started, read the [Azure Disk Encryption overview](azure-security-disk-en
 
 Yes, you can encrypt boot and data volumes for Windows and Linux IaaS VMs. For Windows VMs, you can't encrypt the data without first encrypting the OS volume. For Linux VMs, it's possible to encrypt the data volume without having to encrypt the OS volume first. After you've encrypted the OS volume for Linux, disabling encryption on an OS volume for Linux IaaS VMs isn't supported.
 
+## Can I encrypt an unmounted volume with Azure Disk Encryption?
+
+No, Azure Disk Encryption only encrypts mounted volumes.
+
 ## How do I rotate secrets or encryption keys?
 
-To rotate secrets, just call the same command you used originally to enable disk encryption. To rotate the key encryption key, call the same command you used originally to enable disk encryption, specifying the new key encryption. 
+To rotate secrets, just call the same command you used originally to enable disk encryption, specifying a different Key Vault. To rotate the key encryption key, call the same command you used originally to enable disk encryption, specifying the new key encryption. 
 
 ## How do I add or remove a key encryption key if I didn't originally use one?
 
