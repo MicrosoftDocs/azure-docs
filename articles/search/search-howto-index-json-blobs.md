@@ -121,7 +121,7 @@ For code-based JSON indexing, use [Postman](search-fiddler.md) and the REST API 
 + [data source](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
 + [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
-Order of operations requires that you create and call objects in this order. In contrast with the portal workflow, a code approach requires an available indexto accept the JSON documents sent through the **Create Indexer** request.
+Order of operations requires that you create and call objects in this order. In contrast with the portal workflow, a code approach requires an available index to accept the JSON documents sent through the **Create Indexer** request.
 
 JSON blobs in Azure Blob storage are typically either a single JSON document or a JSON "array". The blob indexer in Azure Search can parse either construction, depending on how you set the **parsingMode** parameter on the request.
 
@@ -301,13 +301,13 @@ Use this configuration to index the array contained in the `level2` property:
 
 ### How to parse blobs with multiple JSON entities separated by newlines
 
-If your blob contains multiple JSON entities separated by a newline, and you want each element to become a separate Azure Search document, you can opt for the JSON lines feature. For example, given the following blob (where there are three different JSON entities), you can populate your Azure Search index with three seprate documents, each with "id" and "text" fields.
+If your blob contains multiple JSON entities separated by a newline, and you want each element to become a separate Azure Search document, you can opt for the JSON lines option. For example, given the following blob (where there are three different JSON entities), you can populate your Azure Search index with three separate documents, each with "id" and "text" fields.
 
     { "id" : "1", "text" : "example 1" }
     { "id" : "2", "text" : "example 2" }
     { "id" : "3", "text" : "example 3" }
 
-For a JSON lines, the indexer definition should look similar to the following example. Notice that the parsingMode parameter specifies the `jsonLines` parser. 
+For JSON lines, the indexer definition should look similar to the following example. Notice that the parsingMode parameter specifies the `jsonLines` parser. 
 
     POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
