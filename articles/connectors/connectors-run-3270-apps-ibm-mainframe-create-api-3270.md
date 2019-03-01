@@ -46,15 +46,10 @@ This method is a time-hardened way but has many limitations.
 Although Host Integration Server (HIS) lets you work directly 
 with these apps, sometimes, separating the screen and business 
 logic isn't possible. Or maybe you no longer have information 
-about how the host applications work. For these scenarios, 
-you can create .NET apps that programmatically drive the 3270 
-screens without making changes to the host. To create these 
-apps, you can use the Session Integrator feature, which is 
-a .NET library for writing custom apps that can access 3270 
-screen-driven data, also known as "screen scraping".
+about how the host applications work.
 
-To extend these scenarios, the IBM 3270 connector in Azure 
-Logic Apps works with the standalone IBM 3270 Design Tool, 
+To extend these scenarios, the IBM 3270 connector in 
+Azure Logic Apps works with the IBM 3270 Design Tool, 
 which you use to record, or "capture", the host screens 
 used for a specific task, define the navigation flow through 
 your mainframe app for that task, and define the methods with 
@@ -99,15 +94,15 @@ your 3270 screen-driven app
   [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
   If you use an ISE, select that ISE as your logic app's location.
 
-* [Download and install the standalone IBM 3270 Design Tool](https://aka.ms/3270-design-tool-download).
-The only prerequisite is Microsoft .NET Framework 4.6.1.
+* [Download and install the IBM 3270 Design Tool](https://aka.ms/3270-design-tool-download).
+The only prerequisite is [Microsoft .NET Framework 4.6.1](https://aka.ms/net-framework-download).
 
   This tool helps you record the screens, navigation paths, 
   methods, and parameters for the tasks in your app that you 
   add and run as 3270 connector actions. The tool generates 
   a Host Integration Designer XML (HIDX) file that provides 
   the necessary metadata for the connector to use for driving 
-  your mainframe app. 
+  your mainframe app.
   
   After downloading and installing this tool, 
   follow these steps for connecting to your host:
