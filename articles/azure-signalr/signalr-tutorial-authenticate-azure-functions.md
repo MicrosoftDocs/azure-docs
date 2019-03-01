@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to authenticate Azure SignalR Servi
 author: sffamily
 ms.service: signalr
 ms.topic: tutorial
-ms.date: 01/31/2018
+ms.date: 03/01/2018
 ms.author: zhshang
 ---
 # Tutorial: Azure SignalR Service authentication with Azure Functions
@@ -55,6 +55,11 @@ You will build and test the Azure Functions app locally. The app will access a S
     | Pricing Tier | Free |
 
 1. Click **Create**.
+
+1. After the instance is deployed, open it in the portal and locate its Settings page. Change the Service Mode setting to *Serverless*.
+
+    ![SignalR Service Service Mode](media/signalr-concept-azure-functions/signalr-service-mode.png)
+
 
 ## Initialize the function app
 
