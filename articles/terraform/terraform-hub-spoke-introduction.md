@@ -8,14 +8,14 @@ author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
-ms.date: 2/28/2019
+ms.date: 03/01/2019
 ---
 
 # Tutorial: Create a hub and spoke hybrid network topology with Terraform in Azure
 
 This tutorial shows how to implement one of the popular [Hybrid network topology](/azure/architecture/reference-architectures/hybrid-networking/). In this article, you learn how to connect an on-premises network to an Azure virtual network (Vnet). A hub and spoke network topology is a way to isolate workloads while sharing common services. These services include identity and security. The hub is a virtual network that acts as a central connection point to an on-premises network. The spokes are VNets that peer with the hub. Shared services are deployed in the hub, while individual workloads are deployed inside spoke networks.  
 
-To learn about the recommendations and considerations for this topology, refer [hub and spoke reference architecture](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
+To learn about the recommendations and considerations for this topology, see the [Hub and Spoke Reference architecture](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 
 ![Hub and spoke topology architecture in Azure](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-architecture.png)
 
