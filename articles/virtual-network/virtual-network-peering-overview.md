@@ -60,8 +60,8 @@ When virtual networks are peered in the same region, you can also configure the 
 
 Gateway transit support between virtual networks created in different regions is in preview. To use remote gateways or allow gateway transit when globally peered, you must run the following commands:
 
- `azfeatureregister --name AllowGlobalPeeringTransit--namespace Microsoft.Network`
-`azproviderregister --namespace Microsoft.Network`
+ `az feature register --name AllowGlobalPeeringTransit --namespace Microsoft.Network`
+`az provider register --namespace Microsoft.Network`
 
  Gateway transit between virtual networks created through different deployment models (Resource Manager and classic), is supported only if the gateway is in the virtual network (Resource Manager). To learn more about using a gateway for transit, see [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
