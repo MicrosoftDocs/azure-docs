@@ -88,7 +88,7 @@ Enter field name exactly as shown in the table into the device template. If the 
 
 ## Add a real device
 
-In your Azure IoT Central application, add a real device from the device template you create and make a note of the device connection string. For step-by-step instructions on how to connect a Node.js application to IoT Central, see [Generate connection string for real device from application](tutorial-add-device-experimental.md#generate-connection-string-for-real-device-from-application) and [Prepare the client code](tutorial-add-device-experimental.md#prepare-the-client-code) in the Tutorials > Add a device.
+In your Azure IoT Central application, add a real device from the device template you create and make a note of the device connection string. For step-by-step instructions on how to connect a Node.js application to IoT Central, see [Generate connection string for real device from application](tutorial-add-device-experimental.md#generate-connection-string) and [Prepare the client code](tutorial-add-device-experimental.md#prepare-the-client-code) in the Tutorials > Add a device.
 
 ### Create a Node.js application
 
