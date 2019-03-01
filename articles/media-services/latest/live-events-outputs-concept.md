@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 02/28/2019
 ms.author: juliako
 
 ---
@@ -57,6 +57,11 @@ See a .NET code example in [MediaV3LiveApp](https://github.com/Azure-Samples/med
 When using live encoding with Media Services, you would configure your on-premises live encoder to send a single bitrate video as the contribution feed to the Live Event (using RTMP or Fragmented-Mp4 protocol). The Live Event encodes that incoming single bitrate stream to a [multiple bitrate video stream](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), makes it available for delivery to play back devices via protocols like MPEG-DASH, HLS, and Smooth Streaming. When creating this type of Live Event, specify the encoding type as **Standard** (LiveEventEncodingType.Standard).
 
 You can send the contribution feed at up to 1080p resolution at a frame rate of 30 frames/second, with H.264/AVC video codec and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec. See the [Live Event types comparison](live-event-types-comparison.md) article for more details.
+
+For information about live encoding presets, see [System presets](live-event-types-comparison.md#system-preset).
+
+> [!NOTE]
+> Currently, the only allowed value is **Default720p**. If you need a custom preset, you should contact amshelp@microsoft.com. 
 
 ## Live Event creation options
 
