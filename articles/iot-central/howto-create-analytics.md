@@ -18,8 +18,6 @@ manager: peterpr
 
 Azure IoT Central provides rich analytics capabilities to make sense of large amounts of data from your devices. To get started, visit **Analytics** on the left navigation menu. 
 
-  ![IoT Central navigation to analytics](media/howto-create-analytics/analytics-navigation.png)
-
 ## Querying your data
 
 You'll need to choose a **device set**, add a **filter** (optional), and select a **time period** to get started. Once you're done, click on *Show results* to start visualizing your data.
@@ -48,7 +46,6 @@ to-do: confirm if 10 is the max number of measurements
 * **Measurements:** You can choose to show/hide up to 10 different telemetry items being reported by your devices at a time. Measurements are things such as temperature and humidity. 
 * **Aggregation:** By default we aggregate data by its average, but you can choose to change the data aggregation to something else to fit your needs. 
 
-   ![Analytics visualization](media/howto-create-analytics/analytics-visualize.png) <br/><br/>
    ![Analytics visualization split by](media/howto-create-analytics/analytics-splitby.png)
 
 ## Interacting with your data

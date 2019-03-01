@@ -3,7 +3,7 @@ title: Create and manage event rules in your Azure IoT Central application | Mic
 description: Azure IoT Central event rules enable you to monitor your devices in near real time and to automatically invoke actions, such as sending an email, when the rule triggers.
 author: ankitscribbles
 ms.author: ankitgup
-ms.date: 08/14/2018
+ms.date: 02/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -24,7 +24,7 @@ To create an event rule, the device template must have at least one event measur
 
 1. Using Device Explorer, navigate to the device template for which you are adding the rule for.
 
-1. Under the selected template, click on an existing device. 
+1. Under the selected template, click on an existing device.
 
     >[!TIP] 
     >If the template doesn't have any devices then add a new device first.
@@ -58,7 +58,7 @@ Condition defines the criteria that is monitored by the rule.
 
 1. Choose the event that you want to monitor from the Measurement dropdown. In this example, **Fan Motor Error** event has been selected.
 
-   ![Condition](media/howto-create-event-rules/Condition_Filled_Out.png) 
+   ![Condition](media/howto-create-event-rules/Condition_Filled_Out.png)
 
 
 1. Optionally, you can also set **Count** as **Aggregation** and provide the corresponding threshold.
@@ -77,7 +77,7 @@ Condition defines the criteria that is monitored by the rule.
 
 This section shows you how to set up actions to take when the rule is fired. Actions get invoked when all the conditions specified in the rule evaluate to true.
 
-1. Choose the **+** next to **Actions**. Here you see the list of available actions. 
+1. Choose the **+** next to **Actions**. Here you see the list of available actions.
 
     ![Add Action](media/howto-create-event-rules/Add_Action.png)
 
@@ -89,8 +89,6 @@ This section shows you how to set up actions to take when the rule is fired. Act
    ![Configure Action](media/howto-create-event-rules/Configure_Action.png)
 
 1. To save the rule, choose **Save**. The rule goes live within a few minutes and starts monitoring the events being sent to your application. When the condition specified in the rule matches, the rule triggers the configured email action.
-
-1. Choose **Done** to exit the **Edit Template** mode.
 
 You can add other actions to the rule such as Microsoft Flow and webhooks. You can add up to 5 actions per rule.
 

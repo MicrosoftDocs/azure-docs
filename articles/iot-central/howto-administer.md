@@ -3,7 +3,7 @@ title: Administer an Azure IoT Central application | Microsoft Docs
 description: As an adminstrator, how to administer your Azure IoT Central application
 author: viv-liu
 ms.author: viviali
-ms.date: 04/16/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -136,11 +136,11 @@ To complete this self-service process, follow these steps:
 
 ## Export data
 
-You can enable **Continuous data export** to export measurements, devices, and device templates data to your Azure Blob storage account. Learn more about how to export your data.
+You can enable **Continuous data export** to export measurements, devices, and device templates data to your Azure Blob storage account. Learn more about how to [export your data](#export-data).
 
 ## Manage device connection
 
-Connect devices at scale in your application using the keys and certificates here. Learn more about connecting devices.
+Connect devices at scale in your application using the keys and certificates here. Learn more about [connecting devices](/azure/iot-central/concepts-connectivity).
 
 ## Use access tokens
 

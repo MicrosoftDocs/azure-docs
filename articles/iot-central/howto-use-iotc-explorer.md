@@ -44,7 +44,7 @@ Below are some commands and common options that you can run when using
 Before you get going, you need to have an administrator of your IoT Central application to get an access token for you to use. The administrator takes the following steps:
 1. Go to **Administration/Access Tokens**. 
 1. Click **Generate**.
-![Access token page screenshot](media/howto-use-iotc-explorer/accesstokenspage.png)
+    ![Access token page screenshot](media/howto-use-iotc-explorer/accesstokenspage.png)
 
 1. Enter a Token name, click **Next**, and **copy the Token value**.
     > [!NOTE]
@@ -76,8 +76,10 @@ To watch all devices in your application, run the following command:
 ```
 iotc-explorer monitor-messages
 ```
+
 Output:
-![monitor-messages command output](media/howto-use-iotc-explorer/monitormessages.PNG)
+
+![monitor-messages command output](media/howto-use-iotc-explorer/monitormessages.png)
 
 To watch a specific device, just add the Device ID to the end of the command:
 
@@ -102,7 +104,8 @@ iotc-explorer get-twin <your-device-id>
 ```
 
 Output:
-![get-twin command output](media/howto-use-iotc-explorer/getdevicetwin.PNG)
+
+![get-twin command output](media/howto-use-iotc-explorer/getdevicetwin.png)
 
 As with `monitor-messages`, you can get a more machine-friendly output by
 passing the `--raw` option:
