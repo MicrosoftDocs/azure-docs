@@ -1,7 +1,7 @@
 ---
 title: Azure CLI Script Sample - Copy (move) snapshot of a managed disk to same or different subscription with CLI| Microsoft Docs
 description: Azure CLI Script Sample - Copy (move) snapshot of a managed disk to same or different subscription with CLI
-services: virtual-machines-linux
+services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
@@ -9,10 +9,10 @@ editor: tysonn
 tags: azure-service-management
 
 ms.assetid:
-ms.service: virtual-machines-linux
+ms.service: virtual-machines-windows
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
@@ -35,7 +35,6 @@ This script copies a snapshot of a managed disk to same or different subscriptio
 
 [!code-azurecli[main](../../../cli_scripts/virtual-machine/copy-snapshot-to-same-or-different-subscription/copy-snapshot-to-same-or-different-subscription.sh "Copy snapshot")]
 
-
 ## Script explanation
 
 This script uses following commands to create a snapshot in the target subscription using the Id of the source snapshot. Each command in the table links to command specific documentation.
@@ -47,8 +46,6 @@ This script uses following commands to create a snapshot in the target subscript
 
 ## Next steps
 
-[Create a virtual machine from a snapshot](./virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
 
-Additional virtual machine and managed disks CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Additional virtual machine and managed disks CLI script samples can be found in the [Azure Windows VM documentation](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
