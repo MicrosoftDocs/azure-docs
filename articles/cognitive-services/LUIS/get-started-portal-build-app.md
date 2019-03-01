@@ -17,7 +17,7 @@ ms.author: diberry
 
 In this quickstart, you create a new app in the [LUIS portal](https://www.luis.ai). The basic parts of an app are an intent and an entity. Once the intent and entity are created, you test the app with the interactive test panel, providing a sample user utterance and getting the predicted intent.
 
-Building an app is free; it doesn't require an Azure subscription. When you are ready to deploy your app, then you create an Azure Cognitive Service Resource and assign it to the app. This deployment process is in the [next quickstart](get-started-portal-deploy-model.md).
+Building an app is free; it doesn't require an Azure subscription. When you are ready to deploy your app, then you create an Azure Cognitive Service Resource and assign it to the app. This deployment process is in the [next quickstart](get-started-portal-deploy-app.md).
 
 ## Create app 
 

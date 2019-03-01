@@ -34,11 +34,11 @@ The prediction endpoint runtime resource is created in the Azure portal. This re
 
 1. Configure the subscription with settings including account name, pricing tiers, etc. 
 
-    ![Azure API Choice](./media/get-started-poral-deploy-app/create-cognitive-services-resource.png) 
+    ![Azure API Choice](./media/get-started-portal-deploy-app/create-cognitive-services-resource.png) 
 
-1. Once you create the Language Understanding resource, you can view the access keys generated in **Resource Management->Keys**. The next section will show you how to connect this new resource to a LUIS app in the LUIS portal. You need the name of the LUIS resource from step 3.
+1. Once you create the resource, you can view the access keys under the **Resource Management** section in the **Keys** page. The next section will show you how to connect this new resource to a LUIS app in the LUIS portal. You need the name of the LUIS resource from step 3.
 
-    ![Azure Keys](./media/luis-azure-subscription/azure-keys.png)
+    ![Azure Keys](./media/get-started-portal-deploy-app/azure-resource-keys.png)
 
 ## Assign resource key to LUIS app in LUIS Portal
 
