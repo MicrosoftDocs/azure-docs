@@ -68,20 +68,23 @@ You can manage backups using the dashboard, and by drilling down to individual V
 You can take an on-demand backup of a VM once it is configured for protection.
 - If the initial backup is pending, on-demand backup creates a full copy of the virtual machine in the Recovery Services vault.
 - If the initial backup is completed, an on-demand backup will only send changes from the previous snapshot, to the Recovery Services vault. That is, subsequent backups are always incremental.
-- The retention range for an on-demand backup is the retention value specified for the Daily backup point in the policy. If no Daily backup point is selected, then the weekly backup point is used.
+- The retention range for an on-demand backup is the retention value specified at the time of triggering backup job.
 
 To trigger an on-demand backup:
 
-1. On the [vault item dashboard](#view-vms-in-the-dashboard), click **Backup now**.
+1. On the [vault item dashboard](#view-vms-in-the-dashboard), click **Backup Item** under the **Protected Item** section.
 
     ![Backup now button](./media/backup-azure-manage-vms/backup-now-button.png)
 
- 2. Click **Yes** to start the backup job.
+2. Click **Azure Virtual Machine** from **Backup Management Type**. The **Backup Item (Azure Virtual Machine)** blade appears.
+3. Select a VM and click **Backup Now** to create an on-demand backup. The **Backup Now blade** appears.
+4. In the **Retain Backup Till** option, specify a date for backup to be retained.
 
     ![Backup now button](./media/backup-azure-manage-vms/backup-now-check.png)
 
+5. Click **OK**, to run the backup job.
 
- The backup job creates a recovery point. The retention range of the recovery point is the same as retention range specified in the policy associated with the virtual machine. To track the progress for the job, in the vault dashboard, click the **Backup Jobs** tile.  
+To track the progress for the job, in the vault dashboard, click the **Backup Jobs** tile.
 
 ## Stop protecting a VM
 

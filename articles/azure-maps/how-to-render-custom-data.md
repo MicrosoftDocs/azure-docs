@@ -152,7 +152,6 @@ You can also obtain the path and pin location information by using the [Data Upl
 
 You can modify the appearance of a polygon by using style modifiers with the [path parameter](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
 
-
 1. In the Postman app, open a new tab in the collection you created earlier. Select the GET HTTP method on the builder tab and enter the following URL to configure a GET request to render a polygon with color and opacity:
     
     ```HTTP

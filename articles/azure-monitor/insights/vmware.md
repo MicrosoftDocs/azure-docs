@@ -15,7 +15,7 @@ ms.date: 05/04/2018
 ms.author: magoedte
 ---
 
-# VMware Monitoring (Preview) solution in Azure Monitor
+# VMware Monitoring (Deprecated) solution in Azure Monitor
 
 ![VMware symbol](./media/vmware/vmware-symbol.png)
 
