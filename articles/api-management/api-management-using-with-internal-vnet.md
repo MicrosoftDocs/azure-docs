@@ -71,7 +71,7 @@ You can also enable virtual network connectivity by using PowerShell cmdlets.
 
 * Create an API Management service inside a virtual network: Use the cmdlet [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) to create an Azure API Management service inside a virtual network and configure it to use the internal virtual network type.
 
-* Deploy an existing API Management service inside a virtual network: Use the cmdlet [Update-AzApiManagementDeployment](/powershell/module/az.apimanagement/update-azapimanagementdeployment) to move an existing API Management service inside a virtual network and configure it to use the internal virtual network type.
+* Update an existing deployment of an API Management service inside a virtual network: Use the cmdlet [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) to move an existing API Management service inside a virtual network and configure it to use the internal virtual network type.
 
 ## <a name="apim-dns-configuration"></a>DNS configuration
 When API Management is in external virtual network mode, the DNS is managed by Azure. For internal virtual network mode, you have to manage your own routing.

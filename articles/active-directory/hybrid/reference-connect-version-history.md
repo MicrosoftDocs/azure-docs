@@ -130,7 +130,7 @@ Azure AD Connect Upgrade fails if SQL Always On Availability is configured for t
 ### New features and improvements
 
 - The Ping Federate integration in Azure AD Connect is now available for General Availability. [Learn more about how to federated Azure AD with Ping Federate](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#federation-with-pingfederate)
-- Azure AD Connect now creates the backup of Azure AD trust in AD FS every time an update is made and stores it in a separate file for easy restore if required. [Learn more about the new functionality and Azure AD trust management in Azure AD Connect ](https://aka.ms/fedtrustinaadconnect).
+- Azure AD Connect now creates the backup of Azure AD trust in AD FS every time an update is made and stores it in a separate file for easy restore if required. [Learn more about the new functionality and Azure AD trust management in Azure AD Connect](https://aka.ms/fedtrustinaadconnect).
 - New troubleshooting tooling helps troubleshoot changing primary email address and hiding account from global address list
 - Azure AD Connect was updated to include the latest SQL Server 2012 Native Client
 - When you switch user sign-in to Password Hash Synchronization or Pass-through Authentication in the "Change user sign-in" task, the Seamless Single Sign-On checkbox is enabled by default.
@@ -1098,7 +1098,7 @@ Changed name from Azure AD Sync to Azure AD Connect.
 * Can [configure AD FS](how-to-connect-install-custom.md#configuring-federation-with-ad-fs)
 * Can [upgrade from DirSync](how-to-dirsync-upgrade-get-started.md)
 * [Prevent accidental deletes](how-to-connect-sync-feature-prevent-accidental-deletes.md)
-* Introduced [staging mode](how-to-connect-sync-operations.md#staging-mode)
+* Introduced [staging mode](how-to-connect-sync-staging-server.md)
 
 **New preview features:**
 

@@ -246,12 +246,12 @@
       href: sql-database-aad-authentication.md
     - name: Auditing
       items:
-      - name: Auditing - Single databases and elastic pools
+      - name: Get started with SQL Database auditing
         href: sql-database-auditing.md
       - name: Auditing - Managed instance
         href: sql-database-managed-instance-auditing.md
-      - name: Table auditing (deprecated)
-        href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
+      - name: Audit Log Format
+        href: sql-database-audit-log-format.md
     - name: Dynamic data masking
       href: sql-database-dynamic-data-masking-get-started.md
     - name: Always encrypted

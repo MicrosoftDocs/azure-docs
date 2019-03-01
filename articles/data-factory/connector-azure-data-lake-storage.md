@@ -9,7 +9,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 02/25/2019
 ms.author: jingwang
 
 ---
@@ -94,10 +94,16 @@ To use service principal authentication, follow these steps:
     - Application key
     - Tenant ID
 
-2. Grant the service principal proper permission in Azure storage.
+2. Grant the service principal proper permission.
 
-    - **As source**, in Access control (IAM), grant at least **Storage Blob Data Reader** role.
-    - **As sink**, in Access control (IAM), grant at least **Storage Blob Data Contributor** role.
+    - **As source**, in Storage Explorer, grant at least **Read + Execute** permission to list and copy the files in folders and subfolders or grant **Read** permission to copy a single file. Alternatively, in Access control (IAM), grant at least **Storage Blob Data Reader** role.
+    - **As sink**, in Storage Explorer, grant at least **Write + Execute** permission to create child items in the folder. Alternatively, in Access control (IAM), grant at least **Storage Blob Data Contributor** role.
+
+>[!NOTE]
+>To list folders starting from the root, you need to set the permission of the service principal being granted to **at root level with "Execute" permission** or permission on IAM. This is true when you use the:
+>- **Copy Data Tool** to author copy pipeline.
+>- **Data Factory UI** to test connection and navigating folders during authoring. 
+>If you have concern on granting permission at root level, you can skip test connection and input path manually during authoring. Copy activity will still work as long as the service principal is granted with proper permission at the files to be copied.
 
 These properties are supported in linked service:
 
@@ -142,10 +148,16 @@ To use managed identities for Azure resources authentication, follow these steps
 
 1. [Retrieve data factory managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of "SERVICE IDENTITY APPLICATION ID" generated along with your factory.
 
-2. Grant the managed identity proper permission in Azure storage. 
+2. Grant the managed identity proper permission. 
 
-    - **As source**, in Access control (IAM), grant at least **Storage Blob Data Reader** role.
-    - **As sink**, in Access control (IAM), grant at least **Storage Blob Data Contributor** role.
+    - **As source**, in Storage Explorer, grant at least **Read + Execute** permission to list and copy the files in folders and subfolders or grant **Read** permission to copy a single file. Alternatively, in Access control (IAM), grant at least **Storage Blob Data Reader** role.
+    - **As sink**, in Storage Explorer, grant at least **Write + Execute** permission to create child items in the folder. Alternatively, in Access control (IAM), grant at least **Storage Blob Data Contributor** role.
+
+>[!NOTE]
+>To list folders starting from the root, you need to set the permission of the managed identity being granted to **at root level with "Execute" permission** or permission on IAM. This is true when you use the:
+>- **Copy Data Tool** to author copy pipeline.
+>- **Data Factory UI** to test connection and navigating folders during authoring. 
+>If you have concern on granting permission at root level, you can skip test connection and input path manually during authoring. Copy activity will still work as long as the managed identity is granted with proper permission at the files to be copied.
 
 These properties are supported in linked service:
 
