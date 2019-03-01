@@ -13,7 +13,7 @@ ms.date: 2/28/2019
 
 # Tutorial: Create a hub virtual network in Azure using a hub-spoke network topology
 
-The hub virtual network (VNet) acts as the central point of connectivity to the on-premises network. The VNet allows you to host shared services that are consumed by the different workloads hosted in the spoke VNets. For demo purposes, no shared services are implemented in this tutorial.
+The hub virtual network (VNet) acts as the central point of connectivity to the on-premises network. The VNet hosts shared services consumed by workloads hosted in the spoke VNets. For demo purposes, no shared services are implemented in this tutorial.
 
 [!div class="checklist"]
 
@@ -237,8 +237,5 @@ Create the Terraform configuration file that declares Hub virtual network.
 
 ## Next steps
 
-In this article, you created a central virtual network with subnets. The network acts as central point and establishes gateway connections between hub and the on-premises network. To continue with the entire hub and spoke topology tutorial, complete the remaining steps.
-
  > [!div class="nextstepaction"] 
-
- > [Hub network virtual appliance](./terraform-hub-spoke-hub-nva.md))
+ > [Create a hub virtual network appliance with Terraform in Azure](./terraform-hub-spoke-hub-nva.md))

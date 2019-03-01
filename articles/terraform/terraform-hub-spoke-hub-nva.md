@@ -1,5 +1,5 @@
 ---
-title: Create a Hub virtual network appliance in hub and spoke network topology
+title: Create a hub virtual network appliance with Terraform in Azure
 description: Tutorial implements creation of Hub VNet that acts as a common connection point between all the other networks
 services: terraform
 ms.service: terraform
