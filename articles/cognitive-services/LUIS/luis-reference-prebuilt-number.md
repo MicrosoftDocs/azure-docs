@@ -66,6 +66,7 @@ The following example shows a JSON response from LUIS, that includes the resolut
       "startIndex": 6,
       "endIndex": 14,
       "resolution": {
+        "subtype": "integer",
         "value": "24"
       }
     }

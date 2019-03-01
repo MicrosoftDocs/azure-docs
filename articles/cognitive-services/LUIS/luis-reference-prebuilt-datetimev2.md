@@ -28,8 +28,8 @@ The following example JSON response has a `datetimeV2` entity with a subtype of 
   {
     "entity": "8am on may 2nd 2017",
     "type": "builtin.datetimeV2.datetime",
-    "startIndex": 15,
-    "endIndex": 30,
+    "startIndex": 0,
+    "endIndex": 18,
     "resolution": {
       "values": [
         {

@@ -37,7 +37,10 @@ The following example shows the resolution of the **builtin.email** entity.
       "entity": "patti.owens@microsoft.com",
       "type": "builtin.email",
       "startIndex": 31,
-      "endIndex": 55
+      "endIndex": 55,
+      "resolution": {
+        "value": "patti.owens@microsoft.com"
+      }
     }
   ]
 }
