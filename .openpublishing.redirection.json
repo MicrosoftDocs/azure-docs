@@ -2705,6 +2705,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-resource-manager/resource-manager-templates-variables.md",
+      "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates#variables",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-resource-manager/resource-manager-export-template.md",
       "redirect_url": "/azure/azure-resource-manager/manage-resources-portal",
       "redirect_document_id": false

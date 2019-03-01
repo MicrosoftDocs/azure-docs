@@ -16,7 +16,7 @@ ms.author: jdial
 ---
 # Virtual network peering
 
-Virtual network peering enables you to seamlessly connect two Azure [virtual networks](virtual-networks-overview.md). Once peered, the virtual networks appear as one, for connectivity purposes. The traffic between virtual machines in the peered virtual networks is routed through the Microsoft backbone infrastructure, much like traffic is routed between virtual machines in the same virtual network, through *private* IP addresses only. Azure supports:
+Virtual network peering enables you to seamlessly connect Azure [virtual networks](virtual-networks-overview.md). Once peered, the virtual networks appear as one, for connectivity purposes. The traffic between virtual machines in the peered virtual networks is routed through the Microsoft backbone infrastructure, much like traffic is routed between virtual machines in the same virtual network, through *private* IP addresses only. Azure supports:
 * VNet peering - connecting VNets within the same Azure region
 * Global VNet peering - connecting VNets across Azure regions
 

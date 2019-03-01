@@ -17,7 +17,7 @@ ms.date: 02/08/2019
 ms.author: juliako
 
 ---
-# Get started with the Java client SDK for Azure Media Services (legacy)
+# Get started with the Java client SDK for Azure Media Services  
 
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
