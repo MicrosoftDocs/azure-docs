@@ -11,10 +11,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/28/2019
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.lastreviewed: 10/16/2018
+ms.lastreviewed: 02/28/2019
 
 ---
 
@@ -40,7 +40,9 @@ Make sure you have the credentials for an account with system admin privileges. 
 4. Provide the connection details of your MySQL Server instance.
 
    * For **MySQL Hosting Server Name**, provide the fully qualified domain name (FQDN) or a valid IPv4 address. Don't use the short VM name.
-   * A default MySQL instance isn't provided, so you have to specify the **Size of Hosting Server in GB**. Enter a size that's close to the capacity of the database server.
+   - The default administrator **Username** for the Bitnami MySQL images available in the Azure Stack marketplace is *root*. 
+   - If you do not know the root **Password**, see the [Bitnami documentation](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) to learn how to get it. 
+   - A default MySQL instance isn't provided, so you have to specify the **Size of Hosting Server in GB**. Enter a size that's close to the capacity of the database server.
    * Keep the default setting for **Subscription**.
    * For **Resource group**, create a new one, or use an existing group.
 

@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/20/2019
+ms.date: 02/22/2019
 ms.author: juliako
 ms.custom: 
 ---
@@ -91,6 +91,7 @@ Explore the Media Services [.NET ref](https://aka.ms/ams-v3-dotnet-ref) document
 - [Use DRM dynamic encryption and license delivery service - .NET](protect-with-drm.md)
 - [Get a signing key from the existing policy - .NET](get-content-key-policy-dotnet-howto.md)
 - [Create filters with Media Services - .NET](filters-dynamic-manifest-dotnet-howto.md)
+- [Advanced video on-demand examples of Azure Functions v2 with Media Services v3](http://aka.ms/ams3functions)
 
 ## Java
 

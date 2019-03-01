@@ -77,6 +77,7 @@ sections:
     - html: (Preview) <a href="https://aka.ms/managed-instance-tde-byok">Bring your own encryption keys</a> while migrating on-premises databases that already have enabled Transparent Data Encryption (TDE).
     - html: Managed Instances are protected with <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">built-in firewall</a>.
     - html: (Preview) <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/2019/01/21/recreate-dropped-database-on-azure-sql-managed-instance/">Recreate dropped databases</a>.
+    - html: Database name can be changed using sp_renamedb procedure or ALTER DATABASE statement.
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph

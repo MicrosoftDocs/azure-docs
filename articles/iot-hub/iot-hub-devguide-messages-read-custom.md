@@ -1,13 +1,13 @@
 ---
 title: Understand Azure IoT Hub custom endpoints | Microsoft Docs
 description: Developer guide - using routing queries to route device-to-cloud messages to custom endpoints.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.author: dobett
 ---
 
 # Use message routes and custom endpoints for device-to-cloud messages
