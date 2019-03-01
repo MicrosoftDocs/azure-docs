@@ -22,10 +22,6 @@ By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage
 
 In this article, you will learn how to parse CSV blobs with an Azure Search blob indexer. 
 
-> [!IMPORTANT]
-> CSV blob indexing is currently in public preview and should not be used in production environments. For more information, see [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md). 
-> 
-
 > [!NOTE]
 > Follow the indexer configuration recommendations in [One-to-many indexing](search-howto-index-one-to-many-blobs.md) to output multiple search documents from one Azure blob.
 
