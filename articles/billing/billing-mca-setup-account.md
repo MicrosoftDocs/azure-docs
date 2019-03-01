@@ -46,7 +46,7 @@ To complete the setup, you need access to both the new billing account and the E
 
 2. If someone else in your organization signed the agreement or you don't have the email, sign in using the following link. Replace **enrollmentNumber** with the enrollment number of your enterprise agreement that was renewed.
 
-   <https://portal.azure.com/#blade/Microsoft_Azure_Billing/EATransitionToMCA/enrollmentId/enrollmentNumber>
+   `https://portal.azure.com/#blade/Microsoft_Azure_Billing/EATransitionToMCA/enrollmentId/enrollmentNumber`
 
 3. Select **Start transition** in the last step of the setup. Once you select start transition:
 
