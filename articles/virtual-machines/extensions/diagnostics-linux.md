@@ -132,7 +132,11 @@ sinksConfig | (optional) Details of alternative destinations to which metrics an
 
 
 > [!NOTE]
-> When deploying the extension with an Azure deployment template, the storage account and SAS token must be created beforehand and then passed to the template. You can't deploy a VM, storage account, and configure the extension in a single template. Creating a SAS token within a template is not currently supported.
+> When deploying the extension with an Azure deployment template, you can now provide the storage account SAS token by recovering it using the "listAccountSas" function, which takes 3 parameters: 
+> 1. The name of the storage account to generate the token for
+> 1. The API version to use
+> 1. The SAS token properties object
+> You can find more details here: https://github.com/sam-cogan/Demos/blob/master/SaSToken/SaSToken.json
 
 You can easily construct the required SAS token through the Azure portal.
 
