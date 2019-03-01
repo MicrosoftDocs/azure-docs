@@ -53,7 +53,7 @@ The following table compares features of the two Live Event types.
 
 ## System presets
 
-When using a Live Event with live encoding enabled (encodingType set to Standard), the encoding preset defines how the incoming stream is encoded into multiple bitrates or layers. Currently, the only allowed value for the preset is *Default720p* (default).
+When using live encoding (Live Event set to **Standard**), the encoding preset defines how the incoming stream is encoded into multiple bitrates or layers. Currently, the only allowed value for the preset is *Default720p* (default).
 
 **Default720p** will encode the video into the following 6 layers.
 
