@@ -42,7 +42,7 @@ Depending on the policies set for your organization by the Enterprise Admin, onl
 
 ## View and download pricing for your Microsoft Customer Agreement
 
-You must be the billing profile owner, contributor, reader, or invoice manager to view and download pricing. To learn more about billing roles for Microsoft Customer Agreements, see [Understand billing profile tasks](billing-understand-mca-roles.md#billing-profile-tasks).
+You must be the billing profile owner, contributor, reader, or invoice manager to view and download pricing. To learn more about billing roles for Microsoft Customer Agreements, see [Billing profile roles and tasks](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ### Download price sheets for the current billing period
 
@@ -70,9 +70,7 @@ You must be the billing profile owner, contributor, reader, or invoice manager t
 
 ## Estimate costs with the Azure pricing calculator
 
-<!-- ### Estimate costs for your Enterprise Agreement -->
-
-If you're an EA customer, you may also use your organization’s EA pricing to estimate costs with the Azure pricing calculator.
+You may also use your organization’s pricing to estimate costs with the Azure pricing calculator.
 
 1. Go to the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 1. On the top right, select **Sign in**.
@@ -85,9 +83,6 @@ If you're an EA customer, you may also use your organization’s EA pricing to e
 1. Select **Apply**.
 1. Search and add products to your estimate.
 1. Estimated prices shown are based on pricing for the organization you selected.
-
-<!-- ### Estimate costs for your Microsoft Customer Agreement 
-Get info from Alex  -->
 
 ## Check your access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
@@ -106,4 +101,4 @@ If you have a Microsoft Customer Agreement, see:
 - [View and download your Microsoft Azure invoice](billing-download-azure-invoice.md)
 - [View and download your Microsoft Azure usage and charges](billing-download-azure-daily-usage.md)
 - [View and download tax documents for your billing profile](billing-mca-download-tax-document.md)
-- [Understand the charges on your billing profile's invoice](billing-understand-your-bill-mca.md)
+- [Understand the charges on your billing profile's invoice](billing-mca-understand-your-bill.md)

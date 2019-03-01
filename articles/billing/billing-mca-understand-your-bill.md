@@ -22,7 +22,7 @@ ms.author: banders
 
 You can reconcile the charges on your invoice by analyzing the individual transactions on the invoice.
 
-In the billing account for a Microsoft Customer Agreement, an invoice is generated each month for every billing profile. The invoice includes all charges from the previous month. You can view your invoices in the Azure portal. For more information, see [Download or view your invoice](billing-download-azure-invoice-daily-usage-date.md#download-or-view-your-invoice).
+In the billing account for a Microsoft Customer Agreement, an invoice is generated each month for every billing profile. The invoice includes all charges from the previous month. You can view your invoices in the Azure portal. For more information, see [Download or view your invoice](billing-download-azure-invoice.md).
 
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
@@ -178,5 +178,4 @@ To learn more about your invoice and detailed usage, see:
 
 - [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md)
 - [Understand terms on your Microsoft Customer Agreement invoice](billing-mca-understand-your-invoice.md)
-
-<!-- - [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md) -->
+- [Understand terms on your Microsoft Customer Agreement usage CSV](billing-mca-understand-your-usage.md)
