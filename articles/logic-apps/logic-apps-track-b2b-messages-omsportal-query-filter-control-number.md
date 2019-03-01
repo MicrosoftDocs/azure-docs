@@ -1,5 +1,5 @@
 ---
-title: Create tracking queries for B2B messages in Log Analytics - Azure Logic Apps  | Microsoft Docs
+title: Create tracking queries for B2B messages in Azure Monitor logs - Azure Logic Apps  | Microsoft Docs
 description: Create queries that track AS2, X12, and EDIFACT messages in Azure Log Analytics for Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 10/19/2018
 ---
 
-# Create tracking queries for B2B messages in Azure Log Analytics for Azure Logic Apps
+# Create tracking queries for B2B messages in Azure Monitor logs for Azure Logic Apps
 
 To find AS2, X12, or EDIFACT messages that you're tracking with 
-[Azure Log Analytics](../log-analytics/log-analytics-overview.md), 
+[Azure Monitor logs](../log-analytics/log-analytics-overview.md), 
 you can create queries that filter actions based on specific criteria. 
 For example, you can find messages based on a specific interchange control number.
 
@@ -23,6 +23,8 @@ For example, you can find messages based on a specific interchange control numbe
 > with the Microsoft Operations Management Suite (OMS), which is 
 > [retiring in January 2019](../azure-monitor/platform/oms-portal-transition.md), 
 > replaces those steps with Azure Log Analytics instead. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Prerequisites
 
@@ -34,8 +36,8 @@ and [how to set up logging for that logic app](../logic-apps/logic-apps-monitor-
 [how to create an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
 and [how to set up monitoring and logging for that account](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* If you haven't already, [publish diagnostic data to Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) 
-and [set up message tracking in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* If you haven't already, [publish diagnostic data to Azure Monitor logs](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) 
+and [set up message tracking in Azure Monitor logs](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 ## Create queries with filters
 
@@ -70,7 +72,7 @@ and operations you can use. After you create your query, choose **Run**
 or press the Enter key.
 
    This example searches for matches on **LogicAppB2B**. 
-   Learn more about [how to find data in Log Analytics](../log-analytics/log-analytics-log-searches.md).
+   Learn more about [how to find data in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
 
    ![Start typing query string](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/create-query.png)
 
