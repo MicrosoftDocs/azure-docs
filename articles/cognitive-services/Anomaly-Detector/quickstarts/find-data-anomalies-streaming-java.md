@@ -27,7 +27,7 @@ This article provides information and code samples to help you quickly get start
 
 ### Example of time series data
 
-To see the time series data used in the example click [here](../includes/request.md).
+To see the time series data used in the example click TBD.
 
 ### Detect latest point anomaly status example
 
@@ -109,7 +109,7 @@ public class Main {
 
 ### Example response
 
-A successful response is returned in JSON. Click [here](../includes/response-latest.md) to see the response from the example.
+A successful response is returned in JSON. Click TBD to see the response from the example.
 
 ## Next steps
 

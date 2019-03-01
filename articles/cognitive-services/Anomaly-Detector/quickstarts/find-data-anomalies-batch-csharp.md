@@ -1,18 +1,17 @@
 ---
-title: Find time series anomalies in batch  - C# - Anomaly Finder - Microsoft Cognitive Services | Microsoft Docs
-description: Get information and code samples to help you quickly get started using C# and the Anomaly Finder API in Cognitive Services.
+title: Find anomalies as a batch using the Anomaly Finder REST API and C# | Microsoft Docs
+description: Use the Anomaly Detection API to detect abnormalities in your data series as a batch.
 services: cognitive-services
-author: chliang
-manager: bix
-
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detection
 ms.topic: article
-ms.date: 05/01/2018
-ms.author: chliang
+ms.date: 03/01/2019
+ms.author: aahi
 ---
 
-# Find time series anomalies in batch  - C# - Anomaly Finder
+# Find anomalies as a batch using the Anomaly Finder REST API and C# 
 
 This article provides information and code samples to help you get started using the Anomaly Finder API. With the [Find time series anomalies in batch](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyFinderV2/operations/post-timeseries-entire-detect) method, you can get anomalies of time series in batch.
 
@@ -24,10 +23,6 @@ This article provides information and code samples to help you get started using
 
 
 ## Find time series anomalies in batch
-
-### Example of time series data points
-
-To see the time series data used in the example click [here](../includes/request.md).
 
 ### Find time series anomalies in batch C# example
 
@@ -117,7 +112,7 @@ namespace Console
 
 ### Example response
 
-A successful response is returned in JSON. Click [here](../includes/response.md) to see the response from the example .
+A successful response is returned in JSON. Click TBD to see the response from the example .
 
 ## Next steps
 

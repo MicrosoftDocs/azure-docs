@@ -27,7 +27,7 @@ This article provides information and code samples to help you get started using
 
 ### Example of time series data
 
-To see the time series data used in the example click [here](../includes/request.md).
+To see the time series data used in the example click TBD.
 
 ### Analyze data and get anomaly points Ruby example
 
@@ -75,7 +75,7 @@ print response_detect_entire.body
 
 ### Example response
 
-A successful response is returned in JSON. Click [here](../includes/response.md) to see the response from the example.
+A successful response is returned in JSON. Click TBD to see the response from the example.
 
 ## Next steps
 

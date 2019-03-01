@@ -2,14 +2,14 @@
 title: include file
 description: include file
 services: cognitive-services
-author: chliang
-manager: bix
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: anomaly-finder
 ms.topic: include
-ms.date: 04/13/2018
-ms.author: chliang
+ms.date: 03/01/2019
+ms.author: aahi
 ms.custom: include file
 ---
 ``` json
