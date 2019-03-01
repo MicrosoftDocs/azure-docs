@@ -110,7 +110,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Workday Domain and URLs single sign-on information](./media/workday-tutorial/tutorial_workday_url.png)
 
-	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://impl.workday.com/<tenant>/login-saml2.htmld`
+	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://impl.workday.com/<tenant>/login-saml2.flex`
 
     b. In the **Identifier** textbox, type a URL: `https://www.workday.com`
 
@@ -163,7 +163,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     >[!NOTE]
     > The value of the Environment attribute is tied to the value of the tenant URL:  
-    >-If the domain name of the Workday tenant URL starts with impl for example: *https://impl.workday.com/\<tenant\>/login-saml2.htmld*), the **Environment** attribute must be set to Implementation.  
+    >-If the domain name of the Workday tenant URL starts with impl for example: *https://impl.workday.com/\<tenant\>/login-saml2.flex*), the **Environment** attribute must be set to Implementation.  
     >-If the domain name starts with something else, you need to contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get the matching **Environment** value.
 
 12. In the **SAML Setup** section, perform the following steps:

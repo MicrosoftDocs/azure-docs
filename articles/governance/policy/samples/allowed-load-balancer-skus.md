@@ -1,6 +1,6 @@
 ---
 title: Sample - Allowed load balancer SKUs
-description: This sample policy requires that load balancers use an approved SKU.
+description: This sample policy definition requires that load balancers use an approved SKU.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ---
-# Allowed load balancer SKUs
+# Sample - Allowed load balancer SKUs
 
 This policy requires that load balancers use an approved SKU. You specify an array of allowed SKUs.
 

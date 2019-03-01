@@ -22,7 +22,7 @@ There are three methods of exporting Application Insights data to Power BI:
 
 * [**Export Analytics queries**](#export-analytics-queries). This is the preferred method. Write any query you want and export it to Power BI. You can place this query on a dashboard, along with any other data.
 * [**Continuous export and Azure Stream Analytics**](../../azure-monitor/app/export-stream-analytics.md). This method is useful if you want to store your data for long periods of time. If you don't have an extended data retention requirement, use the export analytics query method. Continuous export and Stream Analytics involves more work to set up and additional storage overhead.
-* [**Power BI adapter**](#power-pi-adapter). The set of charts is predefined, but you can add your own queries from any other sources.
+* **Power BI adapter**. The set of charts is predefined, but you can add your own queries from any other sources.
 
 > [!NOTE]
 > The Power BI adapter is now **deprecated**. The predefined charts for this solution are populated by static uneditable queries. You do not have the ability to edit these queries and depending on certain properties of your data it is possible for the connection to Power BI to be successful, but no data is populated. This is due to exclusion criteria that are set within the hardcoded query. While this solution may still work for some customers, due to the lack of flexibility of the adapter the recommended solution is to use the [**export Analytics query**](#export-analytics-queries) functionality.

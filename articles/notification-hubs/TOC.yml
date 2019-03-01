@@ -4,6 +4,12 @@
   items:
   - name: About Notification Hubs
     href: notification-hubs-push-notification-overview.md
+- name: Quickstarts
+  items:
+  - name: Create a notification hub - Azure portal
+    href: create-notification-hub-portal.md  
+  - name: Configure a notification hub - Azure portal
+    href: configure-notification-hub-portal-pns-settings.md  
 - name: Tutorials
   items:
   - name: 1 - Push notifications to all registered devices
@@ -121,6 +127,8 @@
   items:
   - name: FAQ
     href: notification-hubs-push-notification-faq.md
+  - name: SDKs
+    href: notification-hubs-sdks.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing

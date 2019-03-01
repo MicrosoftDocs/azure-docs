@@ -125,7 +125,7 @@ The information in this section can be helpful when you work with [parameters](r
 
 ## Variables
 
-The following information can be helpful when you work with [variables](resource-manager-templates-variables.md):
+The following information can be helpful when you work with [variables](resource-group-authoring-templates.md#variables):
 
 * Use variables for values that you need to use more than once in a template. If a value is used only once, a hard-coded value makes your template easier to read.
 
@@ -271,7 +271,7 @@ The following information can be helpful when you work with [resources](resource
 
 ## Outputs
 
-If you use a template to create public IP addresses, include an [outputs section](resource-manager-templates-outputs.md) that returns details of the IP address and the fully qualified domain name (FQDN). You can use output values to easily retrieve details about public IP addresses and FQDNs after deployment.
+If you use a template to create public IP addresses, include an [outputs section](resource-group-authoring-templates.md#outputs) that returns details of the IP address and the fully qualified domain name (FQDN). You can use output values to easily retrieve details about public IP addresses and FQDNs after deployment.
 
 ```json
 "outputs": {

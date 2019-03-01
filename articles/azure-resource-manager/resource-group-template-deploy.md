@@ -90,6 +90,32 @@ To paste the code into the shell, right-click inside the shell and then select *
 
 Typically, you deploy all the resources in your template to a single resource group. However, there are scenarios where you want to deploy a set of resources together but place them in different resource groups or subscriptions. You can deploy to only five resource groups in a single deployment. For more information, see [Deploy Azure resources to multiple resource groups and subscriptions](resource-manager-cross-resource-group-deployment.md).
 
+## Redeploy when deployment fails
+
+When a deployment fails, you can automatically redeploy an earlier, successful deployment from your deployment history. To specify redeployment, use either the `-RollbackToLastDeployment` or `-RollBackDeploymentName` parameter in the deployment command.
+
+To use this option, your deployments must have unique names so they can be identified in the history. If you don't have unique names, the current failed deployment might overwrite the previously successful deployment in the history. You can only use this option with root level deployments. Deployments from a nested template aren't available for redeployment.
+
+To redeploy the last successful deployment, add the `-RollbackToLastDeployment` parameter as a flag.
+
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -Name ExampleDeployment02 `
+  -ResourceGroupName $resourceGroupName `
+  -TemplateFile c:\MyTemplates\azuredeploy.json `
+  -RollbackToLastDeployment
+```
+
+To redeploy a specific deployment, use the `-RollBackDeploymentName` parameter and provide the name of the deployment.
+
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -Name ExampleDeployment02 `
+  -ResourceGroupName $resourceGroupName `
+  -TemplateFile c:\MyTemplates\azuredeploy.json `
+  -RollBackDeploymentName ExampleDeployment01
+```
+
+The specified deployment must have succeeded.
+
 ## Pass parameter values
 
 To pass parameter values, you can use either inline parameters or a parameter file. The preceding examples in this article show inline parameters.
