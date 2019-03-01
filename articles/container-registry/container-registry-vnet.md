@@ -12,15 +12,15 @@ ms.author: danlep
 
 # Restrict access to an Azure container registry using an Azure virtual network or firewall rules
 
-[Azure Virtual Network](../virtual-network/virtual-networks-overview.md) provides secure, private networking including filtering, routing, and peering for your Azure and on-premises resources. By deploying your private Azure container registry into an Azure virtual network, you can ensure that only resources in the virtual network access the registry.
+[Azure Virtual Network](../virtual-network/virtual-networks-overview.md) provides secure, private networking including filtering, routing, and peering for your Azure and on-premises resources. By deploying your private Azure container registry into an Azure virtual network, you can ensure that only resources in the virtual network access the registry. For cross-premises scenarios, you can also configure firewall rules to allow registry access only from specific IP addresses.
 
-For example, use a virtual network to allow Azure resources such as an [Azure Kubernetes Service](../aks/intro-kubernetes.md) cluster or Azure [virtual machine](../virtual-machines/linux/overview.md) to securely access the container registry without crossing a network boundary. You can also configure network firewall rules to restrict access to specific public internet IP address ranges. 
+This article shows two scenarios to limit access to an Azure container registry: from a virtual machine deployed in the same network, or from the VM's public IP address.
 
 > [!IMPORTANT]
 > This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 >
 
-This article shows you how to restrict access to an Azure container registry from a virtual machine deployed in the same network, or from the virtual machine's public IP address.
+
 
 This article requires that you are running the Azure CLI (version 2.0.58 or later). If you need to install or upgrade, see [Install Azure CLI][azure-cli]. If you don't already have a Premium container registry, create one and push a sample image. For example, use the [Azure portal][quickstart-portal] or the [Azure CLI][quickstart-cli] to create a registry.
 
@@ -30,27 +30,33 @@ The following limitations currently apply to the preview:
 
 * During preview, only a **Premium** container registry can be configured with network access rules. For information about registry service tiers, see [Azure Container Registry SKUs](container-registry-skus.md). Each registry supports a maximum of 100 virtual network rules.
 
-* Only an Azure virtual machine or AKS cluster can be used as a host to access a container registry in a virtual network. *Other Azure services including Azure Container Instances aren't currently supported.*
+* Only an [Azure Kubernetes Service](../aks/intro-kubernetes.md) cluster or Azure [virtual machine](../virtual-machines/linux/overview.md) can be used as a host to access a container registry in a virtual network. *Other Azure services including Azure Container Instances aren't currently supported.*
 
 ## About network rules for a container registry
 
-By default, an Azure container registry accepts connections from hosts on any network. To limit access to a selected subnet in a virtual network, or to an IP address range, you must first change the default action to deny connections, and then configure specific network rules that allow access.
+An Azure container registry by default accepts connections over the internet from hosts on any network. However, you can take advantage of a virtual network to allow only Azure resources such as an AKS cluster or Azure VM to securely access the registry, without crossing a network boundary. You can also configure network firewall rules to whitelist specific public internet IP address ranges. 
 
-For example, to change the default action so that all connections are denied, use the Azure CLI command [az acr update][az-acr-update].
+To limit access to a registry, you first change the default action of the registry so that it denies all network connections. Then, configure specific network rules to allow access.
 
-Then, add network rules to a container registry that allow requests to be received only from specific subnets in a virtual network, from specific IP addresses, or both. For example, add rules using the [az acr network-rule add][az-acr-network-rule-add] command. Clients granted access via these network rules must continue to [authenticate to the container registry](https://docs.microsoft.com/azure/container-registry/container-registry-authentication) and be authorized to access the data.
+The network rules you add to a container registry can allow requests from specific subnets in a virtual network, from specific IP addresses, or both. Clients granted access via these network rules must continue to [authenticate to the container registry](https://docs.microsoft.com/azure/container-registry/container-registry-authentication) and be authorized to access the data.
 
 ### Service endpoint for subnets
 
-To allow access from a subnet in a virtual network, additional subnet configuration is needed. You need to configure the subnet with a [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) for the Azure Container Registry service. For example, configure the endpoint with the [az network vnet subnet update][az-network-vnet-subnet-update] command.
+To allow access from a subnet in a virtual network, additional subnet configuration is needed. You need to configure the subnet with a [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) for the Azure Container Registry service. 
 
 Multi-tenant services, like Azure Container Registry, use a single set of IP addresses for all customers. A service endpoint assigns an endpoint to configure access to a registry. This endpoint gives traffic an optimal route to the service over the Azure backbone network. The identities of the virtual network and the subnet are also transmitted with each request.
 
+### Firewall rules
+
+For IP network rules, provide allowed internet address ranges using CIDR notation such as *16.17.18.0/24* or as individual IP addresses like *16.17.18.19*.
+
+IP network rules are only allowed for *public* internet IP addresses. IP address ranges reserved for private networks (as defined in RFC 1918) aren't allowed in IP rules. Private networks include addresses that start with 10.\*, 172.16.\* - 172.31.\*, and 192.168.\*.
+
 ## Create a Docker-enabled virtual machine
 
-For this article, use a Docker-enabled Ubuntu virtual machine in a virtual network to access an Azure container registry. If you already have an Azure virtual machine, skip this section to create the virtual machine.
+For this article, use a Docker-enabled Ubuntu virtual machine in a virtual network to access an Azure container registry. To use Azure Active Directory authentication to the registry, also install the [Azure CLI][azure-cli]. If you already have an Azure virtual machine, skip this section to create the virtual machine.
 
-First, create a resource group to contain the virtual machine and virtual network. Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *westcentralus* location:
+If you want to, use the same resource group for your virtual machine and your container registry. This setup simplifies clean-up at the end but isn't required. If you choose to create a resource group to contain the virtual machine and virtual network, run [az group create][az-group-create]. The following example creates a resource group named *myResourceGroup* in the *westcentralus* location:
 
 ```azurecli
 az group create --name myResourceGroup --location westcentralus
@@ -97,6 +103,10 @@ This message shows that your installation appears to be working correctly.
 [...]
 ```
 
+### Install the Azure CLI
+
+Follow the steps in [Install Azure CLI with apt](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) to install the Azure CLI on your Ubuntu virtual machine. For this article, ensure that you install version 2.0.58 or later.
+
 Exit the SSH connection.
 
 ## Grant access from a virtual network
@@ -130,67 +140,132 @@ az network vnet subnet update \
   --service-endpoints Microsoft.ContainerRegistry
 ```
 
-Use the [az network vnet subnet show][az-network-vnet-subnet-show] command to retrieve the resource ID of the subnet. You need this in a later step to configure a network access rule. Substitute the name of your container registgry in the following command:
+Use the [az network vnet subnet show][az-network-vnet-subnet-show] command to retrieve the resource ID of the subnet. You need this in a later step to configure a network access rule.
 
 ```azurecli
-
-
+az network vnet subnet show \
+  --name myDockerVMSubnet \
+  --vnet-name myDockerVMVNET \
+  --resource-group myResourceGroup \
+  --query "id"
+  --output tsv
 ``` 
+
+Output:
+
+```
+/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
+```
 
 ### Change default network access to registry
 
-By default, an Azure container registry accepts connections from hosts on any network. To limit access to a selected network, you must change the default action. The following example creates a resource group named *myResourceGroup* in the *westcentralus* location:
+By default, an Azure container registry allows connections from hosts on any network. To limit access to a selected network, change the default action to deny access. Substitute the name of your registry in the following [az acr update][az-acr-update] command:
 
 ```azurecli
-
+az acr update --name myContainerRegistry --default-action Deny
 ```
 
-### Configure registry authentication
+### Add network rule to registry
 
-For this example, you configure registry access using [service principal authentication](https://docs.microsoft.com/azure/container-registry/container-registry-auth-service-principal). 
+Use the [az acr network-rule add][az-acr-network-rule-add] command to add a network rule to your registry that allows access from the VM's subnet. Substitute the container registry's name and the resource ID of the subnet you retrieved in an earlier step in the following command: 
 
-To create a service principal, use the [service-principal-create.sh](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh) script on GitHub. For this example, assign the `acrpull` role to the service principal, to allow pulling images. 
 
-The script returns values for the service principal application ID and password. Take note of these values for a later step.
+```azurecli
+az acr network-rule add --name mycontainerregistry --subnet <subnet-resource-id>
+```
 
 
 ### Verify access to the registry
 
-Now verify that the VM in the virtual network can access the container registry. Make an SSH connection to your VM, and run the following command to login to your registry. When prompted, supply the user name (service principal application ID) and service principal password:
+After waiting a few minutes for the configuration to update, verify that the VM in the virtual network can access the container registry. Make an SSH connection to your VM, and run the [az acr login][az-acr-login] command to login to your registry. 
 
 ```bash
-docker login  mycontainerregistryxxx.azurecr.io
+az acr login --name mycontainerregistry
 ```
 
-You can pull the sample image in your registry to your VM. Substitute the image and tag that you pushed in an earlier step.
+You can pull a sample image in your registry to your VM. Substitute an image and tag value appropriate for your registry, prefixed with the registry login server name (all lowercase).
 
 ```bash
-sudo docker pull mycontainerregistryxxx.azurecr.io/aci-helloworld:v1
+docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ``` 
 
 Docker successfully pulls the image to the VM.
 
-Although you are able to access the private container registry from the VM over the virtual network, the registry can't be accessed from other networks. For example, you can't login to the registry over the internet from a different login host (such as your local computer) using the `docker login` command. 
+Although you are able to access the private container registry from the VM over the virtual network, the registry can't be accessed from other networks. For example, you can't login to the registry over the internet from a different login host (such as your local computer) using the `az acr login` command or `docker login` command. 
 
 Output indicates that the registry can't be accessed in this case:
 
 ```Console
-Error response from daemon: Get https://mycontainerregistryxxx.azurecr.io/v2/ failed with status: 404 Not Found
+...
+Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ failed with status: 403 Forbidden
 ```
 
 This example demonstrates that only a Docker host in the virtual network is able to access the registry.
 
-## Grant access from an IP address range
+## Grant access from an IP address
 
-Alternatively, or in addition, configure a container registry to allow access from specific public internet IP address (IPv4) ranges. This configuration grants access to specific internet-based services and on-premises networks and blocks general internet traffic.
+In this section, configure your container registry to allow access from the public internet IP address of your virtual machine.
 
-Provide allowed internet address ranges using CIDR notation such as *16.17.18.0/24* or as individual IP addresses like *16.17.18.19*.
+### Change default network access to registry
 
-IP network rules are only allowed for public internet IP addresses. IP address ranges reserved for private networks (as defined in RFC 1918) aren't allowed in IP rules. Private networks include addresses that start with 10.\*, 172.16.\* - 172.31.\*, and 192.168.\*
+If you haven't already done so, update the registry configuration to deny access by default. Substitute the name of your registry in the following [az acr update][az-acr-update] command:
+
+```azurecli
+az acr update --name myContainerRegistry --default-action Deny
+```
+
+### Remove network rule from registry
+
+If you previously added a network rule to allow access from the VM's subnet, first remove it. Substitute the container registry's name and the resource ID of the subnet you retrieved in an earlier step in the following command: 
+
+```azurecli
+az acr network-rule remove --name mycontainerregistry --subnet <subnet-resource-id>
+``` 
+
+### Add network rule to registry
+
+Use the [az acr network-rule add][az-acr-network-rule-add] command to add a network rule to your registry that allows access from the VM's IP address. Substitute the container registry's name and the public IP address of the VM you retrieved in an earlier step in the following command. You can also substitute an address range in CIDR notation.
+
+```azurecli
+az acr network-rule add --name mycontainerregistry --ip-address <public-IP-address>
+```
+
+### Verify access to the registry
+
+After waiting a few minutes for the configuration to update, verify that the VM can access the container registry. Make an SSH connection to your VM, and run the [az acr login][az-acr-login] command to login to your registry. 
+
+```bash
+az acr login --name mycontainerregistry
+```
+
+You can pull a sample image in your registry to your VM. Substitute an image and tag value appropriate for your registry, prefixed with the registry login server name (all lowercase).
+
+```bash
+docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
+``` 
+
+Docker successfully pulls the image to the VM.
+
+Although you are able to access the private container registry from the VM's public IP address, the registry can't be accessed from other hosts. For example, you can't login to the registry from a different login host (such as your local computer) using the `az acr login` command or `docker login` command. 
+
+Output indicates that the registry can't be accessed in this case:
+
+```Console
+...
+Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ failed with status: 403 Forbidden
+```
+
+## Restore default registry access
+
+If you want the registry to revert to allow access by default. Substitute the name of your registry in the following [az acr update][az-acr-update] command:
+
+```azurecli
+az acr update --name myContainerRegistry --default-action Allow
+```
 
 ## Clean up resources
 
-If you followed the steps in this article to create the Azure resources in the same resource group, you can delete the resources when done by using the [az group delete](/cli/azure/group#az_group_delete) command:
+If you created all the Azure resources in the same resource group, you can delete the resources when done by using a single [az group delete](/cli/azure/group#az_group_delete) command:
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -228,6 +303,7 @@ Several virtual network resources and features were discussed in this article, t
 [az-acr-run]: /cli/azure/acr#az-acr-run
 [az-acr-update]: /cli/azure/acr#az-acr-update
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
+[az-group-create]: /cli/azure/group#az_group_create
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-vm-create]: /cli/azure/vm#az-vm-create
 [az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet/#az-network-vnet-subnet-show
