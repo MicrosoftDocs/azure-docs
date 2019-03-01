@@ -270,7 +270,7 @@ First, create a namespace using the [kubectl create namespace][kubectl-create] c
 kubectl create namespace gpu-resources
 ```
 
-Create a file named *nvidia-device-plugin-ds.yaml* and paste the following YAML manifest. Update the `image: nvidia/k8s-device-plugin:1.10` half-way down the manifest to match your Kubernetes version. For example, if your AKS cluster runs Kubernetes version 1.11, update the tag to `image: nvidia/k8s-device-plugin:1.11`.
+Create a file named *nvidia-device-plugin-ds.yaml* and paste the following YAML manifest. Update the `image: nvidia/k8s-device-plugin:1.11` half-way down the manifest to match your Kubernetes version. For example, if your AKS cluster runs Kubernetes version 1.12, update the tag to `image: nvidia/k8s-device-plugin:1.12`.
 
 ```yaml
 apiVersion: extensions/v1beta1
