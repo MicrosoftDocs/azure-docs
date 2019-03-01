@@ -6,15 +6,9 @@
   - name: What is Azure Machine Learning service?
     displayName: AML services overview
     href: overview-what-is-azure-ml.md
-  - name: How the service works
-    displayName: architecture concepts definitions
-    href: concept-azure-machine-learning-architecture.md
-  - name: What happened to Workbench?
+  - name: What happened to Workbench
     displayName: desktop ui Workbench upgrade update transfer
     href: overview-what-happened-to-workbench.md
-  - name: Release notes
-    displayName: what's new issues bugs
-    href: azure-machine-learning-release-notes.md
 - name: Quickstarts
   items:
   - name: Get started - Portal
@@ -45,6 +39,9 @@
   href: samples-notebooks.md
 - name: Concepts
   items:
+  - name: How the service works
+    displayName: architecture concepts definitions
+    href: concept-azure-machine-learning-architecture.md
   - name: Automated machine learning
     displayName: automl, auto ml
     href: concept-automated-ml.md
@@ -55,10 +52,18 @@
     href: concept-accelerate-with-fpgas.md
   - name: Machine learning pipelines
     href: concept-ml-pipelines.md
+  - name: Enterprise security
+    href: concept-enterprise-security.md
 - name: How-to guides
   items:
   - name: Manage workspaces
-    href: how-to-manage-workspace.md
+    items:
+    - name: Use portal for workspaces
+      href: how-to-manage-workspace.md
+    - name: Use a Resource Manager template
+      href: how-to-create-workspace-template.md
+    - name: Manage users and roles
+      href: how-to-assign-roles.md
   - name: Set up development environment 
     items:
     - name: Configure dev environments
@@ -80,19 +85,19 @@
       href: how-to-transform-data.md
     - name: Write data
       href: how-to-write-data.md
+  - name: Access data
+    displayName: blob get fileshare
+    href: how-to-access-data.md
   - name: Train models
     items:
     - name: Set up training environments
       displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, Databricks, data lake, lake, hdi, hdinsights
       href: how-to-set-up-training-targets.md
-    - name: Access data in training
-      displayName: blob
-      href: how-to-access-data.md
     - name: Create estimators in training
       href: how-to-train-ml-models.md
     - name: Use PyTorch
       href: how-to-train-pytorch.md
-    - name: Use TensorFlow
+    - name: Use TensorFlow & Keras
       href: how-to-train-tensorflow.md
     - name: Tune hyperparameters
       displayName: parameter
@@ -118,8 +123,6 @@
       href: how-to-deploy-fpga-web-service.md
     - name: Troubleshoot
       href: how-to-troubleshoot-deployment.md
-    - name: Secure web services with SSL
-      href: how-to-secure-web-service.md
   - name: Consume web services
     items:
     - name: Consume in real-time
@@ -135,25 +138,27 @@
       href: how-to-enable-data-collection.md
     - name: Monitor with Application Insights
       href: how-to-enable-app-insights.md
+  - name: Security
+    items: 
+    - name: Use virtual networks
+      displayName: vnet
+      href: how-to-enable-virtual-network.md
+    - name: Secure web services with SSL
+      href: how-to-secure-web-service.md
   - name: Create your first pipeline
     href: how-to-create-your-first-pipeline.md
+  - name: Enable logging
+    displayName: logging
+    href: how-to-enable-logging.md
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
-  - name: Secure with virtual networks
-    displayName: vnet
-    href: how-to-enable-virtual-network.md
   - name: Use the Machine Learning CLI
     displayName: cli extension command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
   - name: Export and delete data
     displayName: gdpr
     href: how-to-export-delete-data.md
-  - name: Use a Resource Manager template
-    href: how-to-create-workspace-template.md
-  - name: Enable logging
-    displayName: logging
-    href: how-to-enable-logging.md
 - name: Reference
   items:
   - name: Machine learning SDK
@@ -165,10 +170,11 @@
   - name: Monitoring SDK
     displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk
-  - name: Resource Manager template
-    href: /azure/templates/microsoft.machinelearningservices/allversions
 - name: Resources
   items:
+  - name: Release notes
+    displayName: what's new issues bugs
+    href: azure-machine-learning-release-notes.md
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing

@@ -7,9 +7,9 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
---- 
+---
 
-# Azure Data Factory Data Flow Transformation Optimize Tab
+# Mapping Data Flow Transformation Optimize Tab
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 

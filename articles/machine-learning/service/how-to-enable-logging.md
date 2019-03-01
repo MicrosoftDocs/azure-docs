@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
-ms.date: 02/11/2019
+ms.date: 02/20/2019
 ---
 
 # Enable logging in Azure Machine Learning service
@@ -107,7 +107,7 @@ logs = service.get_logs()
 You can also log custom stack traces for your web service by enabling Application Insights, which allows you to monitor request/response times, failure rates, and exceptions. Call the `update()` function on an existing web service to enable Application Insights.
 
 ```python
-service..update(enable_app_insights=True)
+service.update(enable_app_insights=True)
 ```
 
 See the [how-to](how-to-enable-app-insights.md#enable-and-disable-in-the-portal) for more information on how to work with Application Insights in the Azure portal.

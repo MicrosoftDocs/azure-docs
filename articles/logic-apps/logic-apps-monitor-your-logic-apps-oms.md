@@ -1,5 +1,5 @@
 ---
-title: Monitor logic apps with Log Analytics - Azure Logic Apps | Microsoft Docs
+title: Monitor logic apps with Azure Monitor logs - Azure Logic Apps | Microsoft Docs
 description: Get insights and debugging data for troubleshooting and diagnosing your logic app runs with Azure Log Analytics
 services: logic-apps
 ms.service: logic-apps
@@ -11,26 +11,28 @@ ms.topic: article
 ms.date: 10/19/2018
 ---
 
-# Monitor logic apps with Azure Log Analytics
+# Monitor logic apps with Azure Monitor logs
 
 To monitor and get richer debugging details about your logic apps, 
-turn on [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 
-when you create your logic app. Log Analytics provides diagnostics 
+turn on [Azure Monitor logs](../log-analytics/log-analytics-overview.md) 
+when you create your logic app. Azure Monitor logs provides diagnostics 
 logging and monitoring for your logic apps when you install the 
 Logic Apps Management solution in the Azure portal. This solution 
 also provides aggregated information for your logic app runs with 
 specific details such as status, execution time, resubmission status, 
-and correlation IDs. This article shows how to turn on Log Analytics 
+and correlation IDs. This article shows how to turn on Azure Monitor logs 
 so you can view runtime events and data for your logic app runs.
 
-To turn on Azure Log Analytics for existing logic apps, follow these steps to 
-[turn on diagnostic logging and send logic app runtime data to Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+To turn on Azure Monitor logs for existing logic apps, follow these steps to 
+[turn on diagnostic logging and send logic app runtime data to Azure Monitor logs](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 > [!NOTE]
 > This page previously described steps for how to perform these tasks 
 > with the Microsoft Operations Management Suite (OMS), which is 
 > [retiring in January 2019](../azure-monitor/platform/oms-portal-transition.md), 
 > replaces those steps with Azure Log Analytics instead. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Prerequisites
 
@@ -70,7 +72,7 @@ Choose **Create a resource** > **Integration** > **Logic App**.
 
 ## Install Logic Apps Management solution
 
-If you already turned on Log Analytics when you created your logic app, 
+If you already turned on Azure Monitor logs when you created your logic app, 
 skip this step. You already have the Logic Apps Management solution installed.
 
 1. In the [Azure portal](https://portal.azure.com), 
@@ -188,12 +190,12 @@ choose **See All**, which opens the Log Search page.
 
      ![View actions and details for a logic app run](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
      
-     On the Azure Log Analytics page, you can update queries and 
+     On the log analytics page, you can update queries and 
      view the results from the table. This query uses 
      [Kusto query language](https://aka.ms/LogAnalyticsLanguageReference), 
      which you can edit if you want to view different results. 
 
-     ![Azure Log Analytics - query view](media/logic-apps-monitor-your-logic-apps-oms/query.png)
+     ![log analytics - query view](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 
 ## Next steps
 

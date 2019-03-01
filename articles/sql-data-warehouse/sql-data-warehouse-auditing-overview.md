@@ -69,10 +69,13 @@ The following section describes the configuration of auditing using the Azure po
     ![Navigation pane][8]
 
     > [!IMPORTANT]
-    > Server-level audit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription.
+    > Audit logs are written to **Append Blobs** in Azure Blob storage on your Azure subscription.
     >
-    > * **Premium Storage** is currently **not supported** by Append Blobs.
-    > * **Storage in VNet** is currently **not supported**.
+    > - All storage kinds (v1, v2, blob) are supported.
+    > - All storage replication configurations are supported.
+    > - **Premium storage** is currently **not supported**.
+    > - **Storage in VNet** is currently **not supported**.
+    > - **Storage behind a Firewall** is currently **not supported**
 
 8. Click **Save**.
 
@@ -124,7 +127,7 @@ There are several methods you can use to view blob auditing logs:
 
     4. The merged file opens in SSMS, where you can view and analyze it, as well as export it to an XEL or CSV file or to a table.
 
-* Use the [sync application](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) that we have created. It runs in Azure and utilizes Log Analytics public APIs to push SQL audit logs into Log Analytics. The sync application pushes SQL audit logs into Log Analytics for consumption via the Log Analytics dashboard.
+* Use the [sync application](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) that we have created. It runs in Azure and utilizes log analytics public APIs to push SQL audit logs into Azure Monitor logs. The sync application pushes SQL audit logs into Azure Monitor logs for consumption via the log analytics dashboard.
 
 * Use Power BI. You can view and analyze audit log data in Power BI. Learn more about [Power BI, and access a downloadable template](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 

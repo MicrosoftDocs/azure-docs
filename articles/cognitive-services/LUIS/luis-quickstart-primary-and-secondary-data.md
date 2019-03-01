@@ -9,10 +9,10 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the simple entity.  
---- 
+---
 
 # Tutorial: Extract names with simple entity and a phrase list
 
@@ -229,7 +229,9 @@ Open the [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-servi
 
     [![Screenshot of create new phrase list dialog pop-up](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Screenshot of create new phrase list dialog pop-up")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-    If you want more words added to the phrase list, review the **Related Values** and add any that are relevant. 
+    If you want more words added to the phrase list, select **Recommand** then review the new **Related Values** and add any that are relevant. 
+
+    Make sure to keep the **These values are interchangeable** checked because these values should all be treated as synonyms for jobs. Learn more about interchangeable and noninterchangeable [phrase list concepts](luis-concept-feature.md#how-to-use-phrase-lists).
 
 1. Select **Save** to activate the phrase list.
 

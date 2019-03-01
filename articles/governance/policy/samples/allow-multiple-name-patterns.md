@@ -1,6 +1,6 @@
 ---
 title: Sample - multiple name patterns
-description: This sample policy requires that resource match one of the provided name patterns.
+description: This sample policy definition requires that resource match one of the provided name patterns.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ---
-# Allow multiple name patterns
+# Sample - Allow multiple name patterns
 
 Allow one of many name patterns to be used for resources. Specify the allowed name patterns in the policy rule.
 

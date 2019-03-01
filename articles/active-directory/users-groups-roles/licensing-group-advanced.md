@@ -15,7 +15,7 @@ ms.subservice: users-groups-roles
 ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: sumitp
-ms.custom: 
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 

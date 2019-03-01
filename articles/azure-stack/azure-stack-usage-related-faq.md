@@ -12,10 +12,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 02/26/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.lastreviewed: 11/08/2018
+ms.lastreviewed: 02/26/2019
 
 ---
 
@@ -411,6 +411,10 @@ Currently, you can query only by *Reported Time*.
 | 400/Bad Request |*SubscriptionIdMissingInRequest* |The subscription ID of the caller is missing. |
 | 400/Bad Request |*InvalidAggregationGranularity* |An invalid aggregation granularity was requested. Valid values are daily and hourly. |
 | 503 |*ServiceUnavailable* |A retryable error occurred because the service is busy or the call is being throttled. |
+
+## What is the policy for charging for VMs?
+
+Running and stopped VMs generate usage data. Consistent with Azure, deallocation is needed to stop the emission of usage data. In the case in which the portal is unavailable, but the compute resource provider is still running, usage will be emitted.
 
 ## Next Steps
 [Customer billing and chargeback in Azure Stack](azure-stack-billing-and-chargeback.md)

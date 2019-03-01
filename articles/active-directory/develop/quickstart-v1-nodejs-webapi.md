@@ -42,21 +42,20 @@ To begin, add the following code into a file named `package.json`:
 
 ```Shell
 {
-  "name": "node-aad-demo",
+  "name": "active-directory-webapi-nodejs",
   "version": "0.0.1",
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
     "passport": "0.4.0",
-    "passport-azure-ad": "3.0.8",
-    "restify": "6.0.1",
-    "restify-plugins": "1.6.0"
+    "passport-azure-ad": "4.0.0",
+    "restify": "7.7.0"
   }
 }
 ```
 
-Once `package.json` is created, run `npm install` in your command prompt to install the package dependencies. 
+Once `package.json` is created, run `npm install` in your command prompt to install the package dependencies.
 
 #### Configure the project to use Active Directory
 
@@ -113,7 +112,7 @@ Create a new file named `app.js` and paste in the following text:
 ```JavaScript
 const
       restify = require('restify')
-    , restifyPlugins = require('restify-plugins')
+    , restifyPlugins = require ('restify').plugins
     , passport = require('passport')
     , BearerStrategy = require('passport-azure-ad').BearerStrategy
     , config = require('./config')
@@ -124,7 +123,7 @@ const
 
 In this section of code:
 
-- The `restify` and `restify-plugins` modules are referenced in order to set up a Restify server.
+- The `restify` and plugins modules are referenced in order to set up a Restify server.
 - The `passport` and `passport-azure-ad` modules are responsible for communicating with Azure AD.
 - The `config` variable is initialized with values from the `config.js` file created in the previous step.
 - An array is created for `authenticatedUserTokens` to store user tokens as they are passed into secured endpoints.

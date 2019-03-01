@@ -4,7 +4,7 @@ description: Get your Service Fabric application and cluster production ready by
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft 
-manager: timlt
+manager: chakdan
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
-ms.author: aljo-microsoft 
+ms.author: aljo
 ---
 
 # Production readiness checklist
