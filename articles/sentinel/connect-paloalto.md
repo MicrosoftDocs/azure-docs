@@ -4,7 +4,7 @@ description: Learn how to collect Palo Alto data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: a4b21d67-1a72-40ec-bfce-d79a8707b4e1
