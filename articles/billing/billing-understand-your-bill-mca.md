@@ -133,7 +133,7 @@ Use the Azure usage and charges csv file to analyze your usage based charges. Yo
 
 You can filter the Azure usage and charges file to reconcile the usage charges for your invoice sections.
 
-The following steps walk you through reconciling storage charges for the IT department invoice section:
+The following steps walk you through reconciling compute charges for the Accounting Dept invoice section:
 
 ![Example image showing the details by invoice section information](./media/billing-understand-your-bill-mca/invoicesection-details.png)
 
@@ -143,9 +143,11 @@ The following steps walk you through reconciling storage charges for the IT depa
  |Usage Charges - Azure Standard |productOrderName |
  |Storage |serviceFamily |
 
-1. Filter the **invoiceSectionName** column in the CSV file to **IT Department**.
-2. Filter the **productOrderName** column in the CSV file to **Usage Charges - Azure Standard**.
-3. Filter the **serviceFamily** column in the CSV file to **Storage**.
+1. Filter the **invoiceSectionName** column in the CSV file to **Accounting Dept**.
+2. Filter the **productOrderName** column in the CSV file to **Microsoft Azure Plan**.
+3. Filter the **serviceFamily** column in the CSV file to **Microsoft.Compute**.
+
+![Screenshot that shows the usage and charges file filtered by invoice section](./media/billing-understand-your-bill-mca/billing-usage-file-filtered-by-invoice-section.png)
 
 <!--Todo Add screenshot of usage file -->
 
