@@ -6,7 +6,11 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
+<<<<<<< HEAD
 ms.date: 03/04/2019
+=======
+ms.date: 03/01/2019
+>>>>>>> 7630ad381d04366694406ec9099b78d1354db459
 
 ms.custom: seodec18
 
@@ -346,6 +350,8 @@ Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable disk 
 
 ## <a name="bkmk_KEK"></a> Set up a key encryption key (optional)
 If you want to use a key encryption key (KEK) for an additional layer of security for encryption keys, add a KEK to your key vault. Use the [Add-AzureKeyVaultKey](/powershell/module/az.keyvault/add-azurekeyvaultkey) cmdlet to create a key encryption key in the key vault. You can also import a KEK from your on-premises key management HSM. For more information, see [Key Vault Documentation](../key-vault/key-vault-hsm-protected-keys.md). When a key encryption key is specified, Azure Disk Encryption uses that key to wrap the encryption secrets before writing to Key Vault. 
+
+* When generating keys, use an RSA key type. Azure Disk Encryption does not yet support using Elliptic Curve keys.
 
 * Your key vault secret and KEK URLs must be versioned. Azure enforces this restriction of versioning. For valid secret and KEK URLs, see the following examples:
 
