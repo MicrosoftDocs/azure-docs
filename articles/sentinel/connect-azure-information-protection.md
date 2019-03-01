@@ -4,7 +4,7 @@ description: Learn how to collect Azure Information Protection data in Azure Sen
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd

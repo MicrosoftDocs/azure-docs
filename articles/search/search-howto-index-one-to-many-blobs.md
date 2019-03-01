@@ -21,7 +21,7 @@ By default, a blob indexer will treat the contents of a blob as a single search 
 + `jsonLines`
 
 > [!IMPORTANT]
-> These parsing modes are in public preview and should not be used in production environments. For more information, see [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md). 
+> `jsonLines` parsing mode is in public preview and should not be used in production environments. For more information, see [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md). 
 
 ## One-to-many document key
 Each document that shows up in an Azure Search index is uniquely identified by a document key. 
