@@ -116,15 +116,20 @@ Use the following table to help you configure the binding in the **SSL Bindings*
 
 Visit your app using `HTTPS://<domain_name>` instead of `HTTP://<domain_name>` to verify that the certificate has been configured correctly.
 
-## Rekey and sync certificate
+## Rekey certificate
 
-If you ever need to rekey your certificate, select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then select **Rekey and Sync** from the left navigation.
+If you think your certificate's private key is compromised, you can rekey your certificate. Select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then select **Rekey and Sync** from the left navigation.
 
-Click **Rekey** Button to start the process. This process can take 1-10 minutes to complete.
+Click **Rekey** to start the process. This process can take 1-10 minutes to complete.
 
 ![insert image of Rekey SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 
 Rekeying your certificate rolls the certificate with a new certificate issued from the certificate authority.
+
+Once the rekey operation is complete, click **Sync**. The sync operation automatically updates the hostname bindings for the certificate in App Service without causing any downtime to your apps.
+
+> [!NOTE]
+> If you don't click **Sync**, App Service automatically syncs your certificate within 48 hours.
 
 ## Renew certificate
 
@@ -136,7 +141,10 @@ Select **On** and click **Save**. Certificates can start automatically renewing 
 
 To manually renew the certificate instead, click **Manual Renew**. You can request to manually renew your certificate 60 days before expiration.
 
-An automatically or manually renewed certificate is bound to your app automatically within 48 hours. To bind it to your app manually, see [Renew certificates](./app-service-web-tutorial-custom-ssl.md#renew-certificates).
+Once the renew operation is complete, click **Sync**. The sync operation automatically updates the hostname bindings for the certificate in App Service without causing any downtime to your apps.
+
+> [!NOTE]
+> If you don't click **Sync**, App Service automatically syncs your certificate within 48 hours.
 
 ## Automate with scripts
 
