@@ -53,7 +53,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 5. Search on invoice ID to filter the transactions for the invoice.
 
-## View transactions by invoice sections
+### View transactions by invoice sections
 
 Invoice sections let you organize the costs on a billing profile's invoice. For more information, see [Understand invoice section](billing-mca-overview.md#understand-invoice-sections). When an invoice is generated, charges for all the sections  in the billing profile show up on the invoice.
 
@@ -127,13 +127,13 @@ You can view the detailed usage charges using the Azure usage and charges file. 
 
 ## Analyze your Azure usage charges
 
-Use the Azure usage and charges csv file to analyze the usage charges. You can download the file either for an invoice or for pending charges. For more information, see [Get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md).
+Use the Azure usage and charges csv file to analyze your usage based charges. You can download the file either for an invoice or for pending charges. For more information, see [Get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md).
 
 ### View detailed usage by invoice section
 
-You can filter the usage and charges file to reconcile the usage charges by sections on an invoice.
+You can filter the Azure usage and charges file to reconcile the usage charges for your invoice sections.
 
-The following steps walk you through reconciling storage charges for IT department on an invoice:
+The following steps walk you through reconciling compute charges for the Accounting Dept invoice section:
 
 ![Example image showing the details by invoice section information](./media/billing-understand-your-bill-mca/invoicesection-details.png)
 
@@ -143,21 +143,27 @@ The following steps walk you through reconciling storage charges for IT departme
  |Usage Charges - Azure Standard |productOrderName |
  |Storage |serviceFamily |
 
-1. Filter the **invoiceSectionName** column in the CSV file to **IT Department**.
-2. Filter the **productOrderName** column in the CSV file to **Usage Charges - Azure Standard**.
-3. Filter the **serviceFamily** column in the CSV file to **Storage**.
+1. Filter the **invoiceSectionName** column in the CSV file to **Accounting Dept**.
+2. Filter the **productOrderName** column in the CSV file to **Microsoft Azure Plan**.
+3. Filter the **serviceFamily** column in the CSV file to **Microsoft.Compute**.
+
+![Screenshot that shows the usage and charges file filtered by invoice section](./media/billing-understand-your-bill-mca/billing-usage-file-filtered-by-invoice-section.png)
 
 <!--Todo Add screenshot of usage file -->
 
 ### View detailed usage by subscription
 
-You can filter the usage and charges file to analyze usage charges by subscriptions.
+You can filter the Azure usage and charges csv file to reconcile usage charges for your subscriptions. To view all subscriptions in a billing profile, see [View pending usage charges](#view-pending-usage-charges).
 
-The following screenshot displays the list of subscriptions with their usage charges.
+Once you identify charges for a subscription, use the Azure usage and charges csv file to analyze the charges.
+
+The following screenshot displays the list of subscriptions in the Azure portal.
 
 ![Screenshot that shows the Azure subscriptions list for billing profile](./media/billing-understand-your-bill-mca/mca-billing-profile-subscriptions-list-highlighted.png)
 
-You can filter the **subscriptionName** column in the CSV file to **WA_Subscription** to view the daily usage charges for WA_Subscription.
+Filter the **subscriptionName** column in the Azure usage and charges CSV file to **WA_Subscription** to view the detailed usage charges for WA_Subscription.
+
+![Screenshot that shows the usage and charges file filtered by subscription](./media/billing-understand-your-bill-mca/billing-usage-file-filtered-by-subscription.png)
 
 ## Pay your bill
 

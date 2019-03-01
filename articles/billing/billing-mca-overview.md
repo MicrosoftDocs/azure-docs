@@ -1,6 +1,6 @@
 ---
-title: Get started with your billing account for Microsoft Customer Agreement - Azure | Microsoft Docs
-description: Understand billing account for Microsoft Customer Agreement
+title: Get started with your billing account for a Microsoft Customer Agreement - Azure | Microsoft Docs
+description: Understand billing account for a Microsoft Customer Agreement
 services: 'billing'
 documentationcenter: ''
 author: amberbhargava
@@ -16,9 +16,9 @@ ms.date: 02/28/2019
 ms.author: banders    
 ---
 
-# Get started with your billing account for Microsoft Customer Agreement
+# Get started with your billing account for a Microsoft Customer Agreement
 
-A billing account is created for each agreement you sign with Microsoft to use Azure. You use your billing account to manage billing and track costs. You can have access to multiple billing accounts. For example, you might have signed up for Azure for your personal projects. You could also have access to Azure through your organization's Enterprise Agreement or Microsoft Customer Agreement.
+A billing account is created for each agreement you sign with Microsoft to use Azure. You use your billing account to manage billing and track costs. You can have access to multiple billing accounts. For example, you might have signed up for Azure for your personal projects. You could also have access to Azure through your organization's Enterprise Agreement or Microsoft Customer Agreement. For each of these scenarios, you would have a separate billing account.
 
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
@@ -34,7 +34,7 @@ Roles on the billing account have the highest level of permissions. Assign these
 
 ## Understand billing profiles
 
-Use a billing profile to manage your invoice and payment methods. A monthly invoice is generated for the Azure subscriptions and other products purchased using the billing profile. You use the payments methods to pay the invoice.
+Use a billing profile to manage your invoice and payment methods. A monthly invoice is generated for Azure subscriptions and other products purchased using the billing profile. You use the payments methods to pay the invoice.
 
 A billing profile is automatically created for your billing account. You can create new billing profiles to set up additional invoices. For example, you may want different invoices for each department or project in your organization.
 
@@ -46,7 +46,7 @@ Roles on the billing profiles have permissions to view and manage invoices and p
 
 A monthly invoice is generated on the invoice date for each billing profile. The invoice contains all charges for previous month.
 
-You can view the invoice, download documents and change setting to get future invoices by email, in the Azure portal. For more information, see [Get your invoice in email](billing-download-azure-invoice-daily-usage-date.md#get-your-invoice-in-email-pdf)
+You can view the invoice, download documents and change setting to get future invoices by email, in the Azure portal. For more information, see [Get your invoice in email](billing-download-azure-invoice-daily-usage-date.md#get-your-invoice-in-email-pdf).
 
 ### Invoices paid through payment methods
 
@@ -74,7 +74,7 @@ Azure plans are automatically enabled when you create a billing profile. All inv
 
 Create invoice sections to organize the costs on a billing profile's invoice. For example, you may need a single invoice for your organization but want to organize costs by department, team, or project. For this scenario, you have a single billing profile where you create an invoice section for each department, team, or project.
 
-When an invoice section is created, give others permission to create Azure subscriptions for the section. Any usage charges and purchases for the subscriptions then show on the section of the invoice.
+When an invoice section is created, you can give others permission to create Azure subscriptions for the section. Any usage charges and purchases for the subscriptions are then reflected on the appropriate section of the invoice.
 
 Roles on the invoice section have permissions to control who creates Azure subscriptions. Assign these roles to users who set up Azure environment for teams in our organization like engineering leads and technical architects. For more information, see [Invoice section roles and tasks](billing-understand-mca-roles.md#invoice-section-roles-and-tasks).
 
