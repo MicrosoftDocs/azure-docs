@@ -46,7 +46,7 @@ Roles on the billing profiles have permissions to view and manage invoices and p
 
 A monthly invoice is generated on the invoice date for each billing profile. The invoice contains all charges for previous month.
 
-You can view the invoice, download documents and change setting to get future invoices by email, in the Azure portal. For more information, see [Get your invoice in email](billing-download-azure-invoice-daily-usage-date.md#get-your-invoice-in-email-pdf)
+You can view the invoice, download documents and change setting to get future invoices by email, in the Azure portal. For more information, see [Get your invoice in email](billing-download-azure-invoice-daily-usage-date.md#get-your-invoice-in-email-pdf).
 
 ### Invoices paid through payment methods
 
