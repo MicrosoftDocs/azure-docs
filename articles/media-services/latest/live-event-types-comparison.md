@@ -51,6 +51,30 @@ The following table compares features of the two Live Event types.
 | Support for variable frame rate input|Yes|No – input must be fixed frame rate. Minor variations are tolerated, for example, during high motion scenes. But the contribution feed cannot drop the frame rate (for example, to 15 frames/sec).|
 | Auto-shutoff of Live Event when input feed is lost|No|After 12 hours, if there is no LiveOutput running|
 
+## System preset
+
+Specifies the preset to be used by the Standard type of Live Event. Currently, the only allowed value is **Default720p** (default).
+
+**Default720p** will encode the video into the following 6 layers.
+
+### Output Video Stream
+
+| BitRate | Width | Height | MaxFPS | Profile | Output Stream Name |
+| --- | --- | --- | --- | --- | --- |
+| 3500 |1280 |720 |30 |High |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |High |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |High |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |High |Video_512x288_850kbps |
+| 550 |384 |216 |30 |High |Video_384x216_550kbps |
+| 200 |340 |192 |30 |High |Video_340x192_200kbps |
+
+> [!NOTE]
+> If you need a custom preset, you should contact amshelp@microsoft.com. 
+
+### Output Audio Stream
+
+Audio is encoded to stereo AAC-LC at 128 kbps, sampling rate of 48 kHz.
+
 ## Next steps
 
 [Live streaming overview](live-streaming-overview.md)
