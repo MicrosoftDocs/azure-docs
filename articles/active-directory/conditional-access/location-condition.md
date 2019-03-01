@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/28/2019
+ms.date: 03/01/2019
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -65,7 +65,7 @@ A named location has the following components:
 
 - **Include unknown areas** - Some IP addresses are not mapped to a specific country. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
 
-The number of named locations you can configure is constrained by the size of the related object in Azure AD. You can configure:
+The number of named locations you can configure is constrained by the size of the related object in Azure AD. You can configure one of the following:
 
 - One named location with up to 1200 IP ranges.
 
