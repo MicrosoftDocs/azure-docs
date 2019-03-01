@@ -46,7 +46,7 @@ Yes, welcome mail is sent  I cover this in self help deflection docs.
 ​
 ## Turn on or off welcome email
 
-When any new Office 365 group is created, whether with dynamic or static membership, a welcome notification sent to all users who are added to the group. When any attributes of a user or device change, all dynamic group rules in the organization are processed for potential membership changes and users who are added at that time also receive the welcome notification. You can turn this off in [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
+When any new Office 365 group is created, whether with dynamic or static membership, a welcome notifications is sent to all users who are added to the group. When any attributes of a user or device change, all dynamic group rules in the organization are processed for potential membership changes and users who are added at that time also receive the welcome notification. You can turn this off in [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
 
 ## Check processing status for a rule
 
