@@ -135,6 +135,10 @@ DISKPART> list vol
 If the expected encryption state does not match what is being reported in the portal, see the following support article:
 [Encryption status is displayed incorrectly on the Azure Management Portal](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por) --> 
 
+## Troubleshooting Encryption Status 
+
+If after decrypting a disk within the VM, the portal still displays status of the disk as encrypted, it is likely that the supported commands for fully disabling Azure Disk Encryption were not used.  At time of enable, Azure Disk Encryption stores encryption settings in the form of platform metadata that is associated with the VM and its disks.  Manually disabling encryption from within the VM without also updating this metadata leaves the system in an inconsistent state.  To properly disable and remove encryption from a VM, start from a known good state with encryption enabled, and then use the [Disable-AzureRmVmDiskEncryption](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) and [Remove-AzureRmVmDiskEncryption](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/remove-azurermvmdiskencryption) Powershell commands, or the [az vm disable] CLI command to properly disable Azure Disk Encryption.
+
 ## Next steps
 
 In this document, you learned more about some common problems in Azure Disk Encryption and how to troubleshoot those problems. For more information about this service and its capabilities, see the following articles:
