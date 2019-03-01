@@ -4,7 +4,7 @@ description: Learn how to collect DNS data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 77af84f9-47bc-418e-8ce2-4414d7b58c0c
