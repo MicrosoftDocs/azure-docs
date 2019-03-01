@@ -4,7 +4,7 @@ description: Use this tutorial to learn how to investigate cases with Azure Sent
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: a493cd67-dc70-4163-81b8-04a9bc0232ac

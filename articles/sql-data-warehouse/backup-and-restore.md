@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 09/06/2018
+ms.date: 03/01/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ---
@@ -92,6 +92,10 @@ You can either keep the restored data warehouse and the current one, or delete o
 To restore a data warehouse, see [Restore a data warehouse using the Azure portal](sql-data-warehouse-restore-database-portal.md), [Restore a data warehouse using PowerShell](sql-data-warehouse-restore-database-powershell.md), or [Restore a data warehouse using REST APIs](sql-data-warehouse-restore-database-rest-api.md).
 
 To restore a deleted or paused data warehouse, you can [create a support ticket](sql-data-warehouse-get-started-create-support-ticket.md).
+
+## Cross subscription restore
+
+If you need to directly restore across subscription, vote for this capability [here](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Restore to a different logical server and ['Move'](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources) the server across subscriptions to perform a cross subscription restore. 
 
 ## Geo-redundant restore
 

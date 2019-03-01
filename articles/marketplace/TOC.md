@@ -30,13 +30,16 @@
 #### [Offer listing best practices](./gtm-offer-listing-best-practices.md)
 #### [How to get featured](./gtm-how-to-get-featured.md)
 #### [Marketplace content validation](./marketplace-criteria-content-validation.md)
+#### [Cloud Solution Providers](./cloud-solution-providers.md)
 
 ### [Your marketplace benefits](./gtm-your-marketplace-benefits.md)
 #### [Promote your business with Microsoft](./gtm-promote-your-business.md)
 #### [Preferred solutions](./preferred-solutions.md) 
+#### [Integrated solutions](./integrated-solutions.md)
 
 ### [Support for Azure Marketplace and AppSource](./support-azure-marketplace.md)
 #### [Marketplace FAQs](./marketplace-faq-publisher-guide.md)
+#### [Geographic availability and currencies](./marketplace-geo-availability-currencies.md)
 
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 
