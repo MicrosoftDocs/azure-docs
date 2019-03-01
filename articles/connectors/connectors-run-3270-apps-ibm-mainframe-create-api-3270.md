@@ -50,7 +50,7 @@ maybe you no longer have information for how the host
 applications work.
 
 To extend these scenarios, the IBM 3270 connector in 
-Azure Logic Apps works with the IBM 3270 Design Tool, 
+Azure Logic Apps works with the 3270 Design Tool, 
 which you use to record, or "capture", the host screens 
 used for a specific task, define the navigation flow for 
 that task through your mainframe app, and define the methods 
@@ -95,7 +95,7 @@ your 3270 screen-driven app
   [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
   If you use an ISE, select that ISE as your logic app's location.
 
-* [Download and install the IBM 3270 Design Tool](https://aka.ms/3270-design-tool-download).
+* [Download and install the 3270 Design Tool](https://aka.ms/3270-design-tool-download).
 The only prerequisite is [Microsoft .NET Framework 4.6.1](https://aka.ms/net-framework-download).
 
   This tool helps you record the screens, navigation paths, 
@@ -108,8 +108,8 @@ The only prerequisite is [Microsoft .NET Framework 4.6.1](https://aka.ms/net-fra
   After downloading and installing this tool, 
   follow these steps for connecting to your host:
 
-  1. Open the IBM 3270 Design Tool. 
-  From the **Session** menu, select **Host Sessions**.
+  1. Open the 3270 Design Tool. From the 
+  **Session** menu, select **Host Sessions**.
   
   1. Provide your TN3270 host server information.
 
