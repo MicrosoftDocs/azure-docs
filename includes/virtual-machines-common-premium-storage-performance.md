@@ -128,7 +128,7 @@ Learn more about [iostat](https://linux.die.net/man/1/iostat) and [PerfMon](http
 
 The main factors that influence performance of an application running on Premium Storage are Nature of IO requests, VM size, Disk size, Number of disks, disk caching, multithreading, and queue depth. You can control some of these factors with knobs provided by the system. Most applications may not give you an option to alter the IO size and Queue Depth directly. For example, if you are using SQL Server, you cannot choose the IO size and queue depth. SQL Server chooses the optimal IO size and queue depth values to get the most performance. It is important to understand the effects of both types of factors on your application performance, so that you can provision appropriate resources to meet performance needs.
 
-Throughout this section, refer to the application requirements checklist that you created, to identify how much you need to optimize your application performance. Based on that, you will be able to determine which factors from this section you will need to tune. To witness the effects of each factor on your application performance, run benchmarking tools on your application setup. Refer to the [Benchmarking](#Benchmarking) section at the end of this article for steps to run common benchmarking tools on Windows and Linux VMs.
+Throughout this section, refer to the application requirements checklist that you created, to identify how much you need to optimize your application performance. Based on that, you will be able to determine which factors from this section you will need to tune. To witness the effects of each factor on your application performance, run benchmarking tools on your application setup. Refer to the Benchmarking section at the end of this article for steps to run common benchmarking tools on Windows and Linux VMs.
 
 ### Optimize IOPS, throughput, and latency at a glance
 
@@ -183,7 +183,7 @@ To get IOPS and Bandwidth higher than the maximum value of a single premium stor
 > [!NOTE]
 > As you increase either IOPS or Throughput the other also increases, make sure you do not hit throughput or IOPS limits of the disk or VM when increasing either one.
 
-To witness the effects of IO size on application performance, you can run benchmarking tools on your VM and disks. Create multiple test runs and use different IO size for each run to see the impact. Refer to the [Benchmarking](#Benchmarking) section at the end of this article for more details.
+To witness the effects of IO size on application performance, you can run benchmarking tools on your VM and disks. Create multiple test runs and use different IO size for each run to see the impact. Refer to the Benchmarking section at the end of this article for more details.
 
 ## High scale VM sizes
 

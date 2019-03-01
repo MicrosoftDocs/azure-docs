@@ -91,7 +91,7 @@ az storage account create --name hdinsightadlsgen2 \
     --kind StorageV2 --hierarchical-namespace true
 ```
 
-Next, log in to the portal. Add the new user-assigned managed identity to the **Storage Blob Data Contributor (Preview)** role on the storage account, as described in step 3 under [Using the Azure portal](hdinsight-hadoop-use-data-lake-storage-gen2.md#using-the-azure-portal).
+Next, log in to the portal. Add the new user-assigned managed identity to the **Storage Blob Data Contributor (Preview)** role on the storage account, as described in step 3 under [Using the Azure portal](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 After you've assigned the role for the user-assigned managed identity, deploy the template by using the following code snippet.
 

@@ -65,6 +65,9 @@ Use the virtual machine offer type when you deploy a virtual appliance to the su
 | Billing and metering | Your VM must support either BYOL or Pay-As-You-Go monthly billing. |  
 | Azure-compatible virtual hard disk (VHD) | VMs must be built on Windows or Linux. <ul> <li>For more information about creating a Linux VHD, see [Linux distributions endorsed on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>For more information about creating a Windows VHD, see [Create an Azure-compatible VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
 
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](./cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
+
 ## Next steps
 
 If you haven't already done so, 
