@@ -11,7 +11,7 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 12/03/2018
+ms.date: 02/20/2019
 ---
 # Configure and manage Azure Active Directory authentication with SQL
 
@@ -137,7 +137,7 @@ Your Managed Instance needs permissions to read Azure AD to successfully accompl
 
     The process of changing the administrator may take several minutes. Then the new administrator appears in the Active Directory admin box.
 
-After provisioning an Azure AD admin for your Managed Instance, you can begin to create Azure AD logins (**public preview**) with the <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> syntax. For more information, see [Managed Instance Overview](sql-database-managed-instance.md#azure-active-directory-integration).
+After provisioning an Azure AD admin for your Managed Instance, you can begin to create Azure AD server principals (logins) (**public preview**) with the <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> syntax. For more information, see [Managed Instance Overview](sql-database-managed-instance.md#azure-active-directory-integration).
 
 > [!TIP]
 > To later remove an Admin, at the top of the Active Directory admin page, select **Remove admin**, and then select **Save**.
@@ -260,7 +260,7 @@ You can meet these requirements by:
 ## Create contained database users in your database mapped to Azure AD identities
 
 >[!IMPORTANT]
->Managed Instance now supports Azure AD logins (**public preview**), which enables you to create logins from Azure AD users, groups, or applications. Azure AD logins provides the ability to authenticate to your Managed Instance without requiring database users to be created as a contained database user. For more information, see [Managed Instance Overview](sql-database-managed-instance.md#azure-active-directory-integration). For syntax on creating Azure AD logins, see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
+>Managed Instance now supports Azure AD server principals (logins) (**public preview**), which enables you to create logins from Azure AD users, groups, or applications. Azure AD server principals (logins) provides the ability to authenticate to your Managed Instance without requiring database users to be created as a contained database user. For more information, see [Managed Instance Overview](sql-database-managed-instance.md#azure-active-directory-integration). For syntax on creating Azure AD server principals (logins), see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
 
 Azure Active Directory authentication requires database users to be created as contained database users. A contained database user based on an Azure AD identity, is a database user that does not have a login in the master database, and which maps to an identity in the Azure AD directory that is associated with the database. The Azure AD identity can be either an individual user account or a group. For more information about contained database users, see [Contained Database Users- Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
 
@@ -322,14 +322,11 @@ To confirm the Azure AD administrator is properly set up, connect to the **maste
 To provision an Azure AD-based contained database user (other than the server administrator that owns the database), connect to the database with an Azure AD identity that has access to the database.
 
 > [!IMPORTANT]
-> Support for Azure Active Directory authentication is available with [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) and [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) in Visual Studio 2015. The August 2016 release of SSMS also includes support for Active Directory Universal Authentication, which allows administrators to require Multi-Factor Authentication using a phone call, text message, smart cards with pin, or mobile app notification. Using Azure AD logins and users (**public preview**) with SSDT is currently not supported.
+> Support for Azure Active Directory authentication is available with [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) and [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) in Visual Studio 2015. The August 2016 release of SSMS also includes support for Active Directory Universal Authentication, which allows administrators to require Multi-Factor Authentication using a phone call, text message, smart cards with pin, or mobile app notification.
 
 ## Using an Azure AD identity to connect using SSMS or SSDT
 
 The following procedures show you how to connect to a SQL database with an Azure AD identity using SQL Server Management Studio or SQL Server Database Tools.
-
->[!IMPORTANT]
->Using Azure AD logins and users (**public preview**) with SSDT is currently not supported.
 
 ### Active Directory integrated authentication
 

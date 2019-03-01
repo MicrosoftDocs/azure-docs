@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Bing Visual Search provides details or insights about an image such as similar images or shopping sources.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-visual-search

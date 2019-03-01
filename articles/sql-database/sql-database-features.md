@@ -3,7 +3,7 @@ title: Azure SQL Database feature comparison | Microsoft Docs
 description: This article compares the features of SQL Server that are available in different flavors of Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/08/2019
 ---
 
 # Feature comparison: Azure SQL Database versus SQL Server
@@ -30,7 +30,7 @@ The following table lists the major features of SQL Server and provides informat
 | **SQL Feature** | **Supported in single databases/elastic pools** | **Supported in Azure SQL Database/Managed Instance** |
 | --- | --- | --- |
 | [Active geo-replication](sql-database-active-geo-replication.md) | Yes - General Purpose and Business Critical service tiers only| No, see [Auto-failover groups](sql-database-auto-failover-group.md) |
-| [Auto-failover groups](sql-database-auto-failover-group.md) | Yes - General Purpose and Business Critical service tiers only| [Yes- preview](sql-database-auto-failover-group.md)|
+| [Auto-failover groups](sql-database-auto-failover-group.md) | Yes - General Purpose and Business Critical service tiers only| Yes, in [public preview](sql-database-auto-failover-group.md)|
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Yes - see [Cert store](sql-database-always-encrypted.md) and [Key vault](sql-database-always-encrypted-azure-key-vault.md) | Yes - see [Cert store](sql-database-always-encrypted.md) and [Key vault](sql-database-always-encrypted-azure-key-vault.md) |
 | [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [High availability](sql-database-high-availability.md) is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md) | [High availability](sql-database-high-availability.md) is included with every database. Disaster recovery is discussed in [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md) |
 | [Attach a database](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | No | No |
@@ -47,7 +47,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Change data capture](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | No | Yes |
 | [Change tracking](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Yes |Yes |
 | [Collation - database](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation) | Yes | Yes |
-| [Collation - server/instance](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | No | [Yes (preview)](/scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|
+| [Collation - server/instance](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | No | Yes, in [public preview](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|
 | [Columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Yes - [Premium tier, Standard tier - S3 and above, General Purpose tier, and Business Critical tiers](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Yes |
 | [Common language runtime (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | No | Yes - see [CLR differences](sql-database-managed-instance-transact-sql-information.md#clr) |
 | [Contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Yes | Yes |
@@ -105,7 +105,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Policy-based management](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | No | No |
 | [Predicates](https://docs.microsoft.com/sql/t-sql/queries/predicates) | Yes | Yes |
 | [Query Notifications](https://docs.microsoft.com/sql/relational-databases/native-client/features/working-with-query-notifications) | No | Yes |
-| [R Services](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Preview release; see [What's new in machine learning](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | No |
+| [R Services](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Yes, in [public preview](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | No |
 | [Resource governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | No | Yes |
 | [RESTORE statements](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | No | Yes - see [Restore differences](sql-database-managed-instance-transact-sql-information.md#restore-statement) |
 | [Restore database from backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | From automated backups only - see [SQL Database recovery](sql-database-recovery-using-backups.md) | From automated backups - see [SQL Database recovery](sql-database-recovery-using-backups.md) and from full backups - see [Backup differences](sql-database-managed-instance-transact-sql-information.md#backup) |
@@ -126,7 +126,7 @@ The following table lists the major features of SQL Server and provides informat
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Yes | Yes |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Yes | Yes |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | No - see [Extended events](sql-database-xevent-db-diff-from-svr.md) | Yes |
-| [SQL Server Replication](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Transactional and snapshot replication subscriber only](sql-database-cloud-migrate.md) | Yes (public preview) - [Replication with SQL Database Managed Instance](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
+| [SQL Server Replication](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Transactional and snapshot replication subscriber only](sql-database-single-database-migrate.md) | Yes, in [public preview](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
 | [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | No - [see Power BI](https://docs.microsoft.com/power-bi/) | No - [see Power BI](https://docs.microsoft.com/power-bi/) |
 | [Stored procedures](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) | Yes | Yes |
 | [System stored functions](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | Most - see individual functions | Yes - see [Stored procedures, functions, triggers differences](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |

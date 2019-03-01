@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication
 

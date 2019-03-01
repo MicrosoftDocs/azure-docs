@@ -10,7 +10,7 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
@@ -18,6 +18,7 @@ ms.author: nacanuma
 ms.custom: aaddev
 
 #Customer intent: As an app developer, I want to learn how to get access tokens using the Azure AD v2.0 endpoint so that my JavaScript app can sign in personal and work and school accounts.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Sign in users and acquire an access token from a JavaScript application
@@ -71,14 +72,15 @@ You can choose one of these options suitable to your development environment.
 * [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
 
 Extract the zip file to a local folder, for example, **C:\Azure-Samples**.
+To open the files in the folder, use an editor like [Visual Studio Code](https://code.visualstudio.com/).
 
 #### Step 3: Configure your JavaScript app
 
 > [!div renderon="docs"]
-> Edit `index.html` and set the `clientID` and `authority` values under `applicationConfig`.
+> Under the folder *JavaScriptSPA*, edit `index.html` and set the `clientID` and `authority` values under `applicationConfig`.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> Edit `index.html` and replace `applicationConfig` with:
+> Under the folder *JavaScriptSPA*, edit `index.html` and replace `applicationConfig` with:
 
 ```javascript
 var applicationConfig = {
@@ -100,13 +102,9 @@ var applicationConfig = {
 > > [!TIP]
 > > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
 
-> [!NOTE]
-> The server is configured to listen on port 30662 in the *server.js* file in [Node.js](https://nodejs.org/en/download/) project and the *.csproj* file in  [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) project.
->
-
 #### Step 4: Run the project
 
-* If you're using Node.js:
+* If you're using [Node.js](https://nodejs.org/en/download/):
 
     1. Run the following command from the project's directory to start the server:
 
@@ -119,7 +117,7 @@ var applicationConfig = {
     1. Click **Sign In** button to start sign-in and then call Microsoft Graph API.
 
 
-* If using Visual Studio, make sure to select the project solution and then press **F5** to run your project.
+* If using [Visual Studio](https://visualstudio.microsoft.com/downloads/), make sure to select the project solution and then press **F5** to run your project.
 
 ## More Information
 
@@ -214,9 +212,9 @@ For a more detailed step-by-step guide on how to build the application for this 
 ### Learn the steps to create the application for this quickstart
 
 > [!div class="nextstepaction"]
-> [Call Graph API tutorial](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-javascriptspa)
+> [Tutorial to sign in and call MS Graph](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-javascriptspa)
 
 ### Browse the MSAL repo for documentation, FAQ, issues, and more
 
 > [!div class="nextstepaction"]
-> [msal.js GitHub repo](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+> [MSAL.js GitHub repo](https://github.com/AzureAD/microsoft-authentication-library-for-js)

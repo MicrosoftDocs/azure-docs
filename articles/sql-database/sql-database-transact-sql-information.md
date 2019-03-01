@@ -3,7 +3,7 @@ title: Resolving T-SQL differences-migration-Azure SQL Database | Microsoft Docs
 description: Transact-SQL statements that are less than fully supported in Azure SQL Database
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: single-database
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
@@ -15,7 +15,7 @@ ms.date: 12/03/2018
 ---
 # Resolving Transact-SQL differences during migration to SQL Database
 
-When [migrating your database](sql-database-cloud-migrate.md) from SQL Server to Azure SQL Server, you may discover that your database requires some re-engineering before the SQL Server can be migrated. This article provides guidance to assist you in both performing this re-engineering and understanding the underlying reasons why the re-engineering is necessary. To detect incompatibilities, use the [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
+When [migrating your database](sql-database-single-database-migrate.md) from SQL Server to Azure SQL Server, you may discover that your database requires some re-engineering before the SQL Server can be migrated. This article provides guidance to assist you in both performing this re-engineering and understanding the underlying reasons why the re-engineering is necessary. To detect incompatibilities, use the [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 
 ## Overview
 

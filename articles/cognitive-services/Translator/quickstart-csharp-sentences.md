@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to determine sentence length using .NET Core and the Translator Text API.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 11/26/2018
+ms.date: 02/21/2019
 ms.author: erhopf
 ---
 

@@ -95,6 +95,8 @@
       href: how-to-install-iot-edge-linux-arm.md
     - name: Windows X64
       href: how-to-install-iot-edge-windows.md
+    - name: Ubuntu VM
+      href: how-to-install-iot-edge-ubuntuvm.md
     - name: Update the runtime version
       href: how-to-update-iot-edge.md
   - name: Auto-provision with DPS
@@ -184,7 +186,7 @@
   - name: Azure IoT Samples for iOS Platform
     href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
   - name: Azure Certified for IoT device catalog
-    href: https://catalog.azureiotsuite.com/
+    href: https://catalog.azureiotsolutions.com/
   - name: Azure IoT Developer Center
     href: https://azure.microsoft.com/develop/iot/
   - name: Azure Roadmap

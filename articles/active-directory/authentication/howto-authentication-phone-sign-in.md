@@ -1,18 +1,21 @@
 ---
-title: Password-less Azure AD sign-in with the Microsoft Authenticator app (public preview)
+title: Password-less Azure AD sign-in with the Microsoft Authenticator app (preview)
 description: Sign-in to Azure AD using the Microsoft Authenticator app without using your password (public preview)
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 02/01/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 
+ms.custom: seo-update-azuread-jan
+
+ms.collection: M365-identity-device-management
 ---
 # Password-less phone sign-in with the Microsoft Authenticator app (public preview)
 

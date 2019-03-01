@@ -2,25 +2,17 @@
 title: Create and Manage Azure S2S VPN connections using PowerShell | Microsoft Docs
 description: Tutorial - Create and Manage S2S VPN connections with the Azure PowerShell module
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: infrastructure
-ms.date: 05/08/2018
+ms.date: 02/11/2019
 ms.author: yushwang
 ms.custom: mvc
 #Customer intent: I want to create an S2S VPN connection so that I can connect my VNet and on-premises network.
 ---
 
-# Create and Manage S2S VPN connections with the Azure PowerShell module
+# Tutorial: Create and manage S2S VPN connections using PowerShell
 
 Azure S2S VPN connections provide secure, cross-premises connectivity between customer premises and Azure. This tutorial walks through IPsec S2S VPN connection life cycles such as creating and managing a S2S VPN connection. You learn how to:
 
@@ -38,16 +30,18 @@ The following diagram shows the topology for this tutorial:
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
-
 ## Requirements
 
-Complete the first tutorial: "[Create VPN gateway with Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md)" to create the following resources:
+Complete the first tutorial: [Create VPN gateway with Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md) to create the following resources:
 
-1. Resource group (TestRG1), virtual network (VNet1), and GatewaySubnet
+1. Resource group (TestRG1), virtual network (VNet1), and the GatewaySubnet
 2. VPN gateway (VNet1GW)
 
-The virtual network parameter values are listed below. Note the additional values for the local network gateway to represent your on-premises network. Change the values based on your environment and network setup.
+The virtual network parameter values are listed below. Note the additional values for the local network gateway which represent your on-premises network. Change the values below based on your environment and network setup, then copy and paste to set the variables for this tutorial. If your Cloud Shell session times out, or you need to use a different PowerShell window, copy and paste the variables to your new session and continue the tutorial.
+
+>[!NOTE]
+> If you are using this to make a connection, be sure to change the values to match your on-premises network. If you are just running these steps as a tutorial, you don't need to make changes, but the connection will not work.
+>
 
 ```azurepowershell-interactive
 # Virtual network
@@ -58,11 +52,11 @@ $VNet1Prefix = "10.1.0.0/16"
 $VNet1ASN    = 65010
 $Gw1         = "VNet1GW"
 
-# On-premises network
+# On-premises network - LNGIP1 is the VPN device public IP address
 $LNG1        = "VPNsite1"
 $LNGprefix1  = "10.101.0.0/24"
 $LNGprefix2  = "10.101.1.0/24"
-$LNGIP1      = "YourDevicePublicIP"
+$LNGIP1      = "5.4.3.2"
 
 # Optional - on-premises BGP properties
 $LNGASN1     = 65011
@@ -139,7 +133,9 @@ Azure VPN gateway supports BGP dynamic routing protocol. You can enable BGP on e
 * On-premises local network gateway ASN
 * On-premises local network gateway BGP peer IP address
 
-If you have not configured the BGP properties, use the following commands to add these properties to your VPN gateway and local network gateway: [Set-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgateway?view=azurermps-6.8.1) and [Set-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azlocalnetworkgateway?view=azurermps-6.8.1).
+If you have not configured the BGP properties, the following commands add these properties to your VPN gateway and local network gateway: [Set-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgateway?view=azurermps-6.8.1) and [Set-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azlocalnetworkgateway?view=azurermps-6.8.1).
+
+Use the following example to configure BGP properties:
 
 ```azurepowershell-interactive
 $vng1 = Get-AzVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
@@ -185,15 +181,15 @@ Refer to [IPsec/IKE policy for S2S or VNet-to-VNet connections](vpn-gateway-ipse
 
 ## Add another S2S VPN connection
 
-To add an additional S2S VPN connection to the same VPN gateway, create another local network gateway, and create a new connection between the new local network gateway and the VPN gateway. Following the example in this article.
+Add an additional S2S VPN connection to the same VPN gateway, create another local network gateway, and create a new connection between the new local network gateway and the VPN gateway. Use the following examples, making sure to modify the variables to reflect your own network configuration.
 
 ```azurepowershell-interactive
-# On-premises network
+# On-premises network - LNGIP2 is the VPN device public IP address
 $LNG2        = "VPNsite2"
 $Location2   = "West US"
 $LNGprefix21 = "10.102.0.0/24"
 $LNGprefix22 = "10.102.1.0/24"
-$LNGIP2      = "YourDevicePublicIP"
+$LNGIP2      = "4.3.2.1"
 $Connection2 = "VNet1ToSite2"
 
 New-AzLocalNetworkGateway -Name $LNG2 -ResourceGroupName $RG1 `
@@ -223,6 +219,14 @@ Delete the local network gateway if you no longer need it. You cannot delete a l
 
 ```azurepowershell-interactive
 Remove-AzVirtualNetworkGatewayConnection -Name $LNG2 -ResourceGroupName $RG1
+```
+
+## Clean up resources
+
+If this configuration is part of a prototype, test, or proof-of-concept deployment, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, the VPN gateway, and all related resources.
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name $RG1
 ```
 
 ## Next steps

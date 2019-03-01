@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 02/13/2019
 ms.author: cherylmc
 
 ---
@@ -45,7 +45,7 @@ You can generate client configuration files using PowerShell, or by using the Az
 
 1. When generating VPN client configuration files, the value for '-AuthenticationMethod' is 'EapTls'. Generate the VPN client configuration files using the following command:
 
-  ```powershell
+  ```azurepowershell-interactive
   $profile=New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls"
 
   $profile.VPNProfileSASUrl

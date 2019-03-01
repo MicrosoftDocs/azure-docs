@@ -25,7 +25,7 @@ The result is a private and isolated relationship between the workloads bound to
 >[!WARNING]
 > Implementing Virtual Networks integration can prevent other Azure services from interacting with Service Bus.
 >
-> Trusted Microsoft services are not supported when Virtual Networks are implemented, and will be made available soon.
+> Trusted Microsoft services are not supported when Virtual Networks are implemented.
 >
 > Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
 > - Azure Monitor

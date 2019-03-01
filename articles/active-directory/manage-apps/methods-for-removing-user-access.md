@@ -3,8 +3,8 @@ title: How to remove a user's access to an application | Microsoft Docs
 description: Understand how to remove a user's access to an application
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 
 ms.assetid:
 ms.service: active-directory
@@ -14,8 +14,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2018
-ms.author: barbkess
+ms.author: celested
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to remove a user's access to an application

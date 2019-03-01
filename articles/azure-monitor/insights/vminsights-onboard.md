@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2019
+ms.date: 02/22/2019
 ms.author: magoedte
 ---
 
@@ -31,7 +31,7 @@ Before you start, make sure that you understand the information in the following
 
 ### Log Analytics
 
-A Log Analytics workspace is currently supported in the following regions:
+Azure Monitor for VMs supports a Log Analytics workspace in the following regions:
 
 - West Central US
 - East US
@@ -57,7 +57,7 @@ To enable the solution for the at-scale scenario, first configure the following 
 * Install the ServiceMap and InfrastructureInsights solutions. You can complete this installation only by using an Azure Resource Manager template that's provided in this article.
 * Configure the Log Analytics workspace to collect performance counters.
 
-To configure your workspace for the at-scale scenario, see [Set up Log Analytics workspace for an at-scale deployment](#setup-log-analytics-workspace).
+To configure your workspace for the at-scale scenario, see Set up Log Analytics workspace for an at-scale deployment.
 
 ### Supported operating systems
 
@@ -65,6 +65,7 @@ The following table lists the Windows and Linux operating systems that are suppo
 
 |OS version |Performance |Maps |Health |
 |-----------|------------|-----|-------|
+|Windows Server 2019 | X | X |  |
 |Windows Server 2016 1803 | X | X | X |
 |Windows Server 2016 | X | X | X |
 |Windows Server 2012 R2 | X | X | |
@@ -97,6 +98,7 @@ The following table lists the Windows and Linux operating systems that are suppo
 | 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
 | 7.5 | 3.10.0-862 |
+| 7.6 | 3.10.0-957 |
 
 #### Red Hat Linux 6
 
@@ -112,6 +114,7 @@ The following table lists the Windows and Linux operating systems that are suppo
 | 6.7 | 2.6.32-573 |
 | 6.8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
+| 6.10 | 2.6.32-754 |
 
 #### Ubuntu Server
 
@@ -328,7 +331,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
         provisioningState       : Succeeded
 
 ### Enable by using Azure Policy
-To enable Azure Monitor for VMs at scale in a way that helps ensure consistent compliance and the automatic enabling of the newly provisioned VMs, we recommend [Azure Policy](../../azure-policy/azure-policy-introduction.md). These policies:
+To enable Azure Monitor for VMs at scale in a way that helps ensure consistent compliance and the automatic enabling of the newly provisioned VMs, we recommend [Azure Policy](../../governance/policy/overview.md). These policies:
 
 * Deploy the Log Analytics agent and the Dependency agent.
 * Report on compliance results.

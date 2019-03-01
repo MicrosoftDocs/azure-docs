@@ -49,14 +49,14 @@ sections:
     - html: <a href="/azure/iot-dps">IoT Hub Device Provisioning Services</a>
     - html: <a href="/azure/azure-maps">Azure Maps</a>
     - html: <a href="/azure/time-series-insights">Azure Time Series Insights</a>
-    - html: <a href="/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks">IoT Service SDKs</a>
+    - html: <a href="/azure/iot-hub/iot-hub-devguide-sdks">IoT Service SDKs</a>
   - type: paragraph
     text: Build solutions with IoT devices and edge computing.
   - type: list
     style: unordered
     items:
     - html: <a href="/azure/iot-edge">IoT Edge</a>
-    - html: <a href="/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks">IoT Device SDKs</a>
+    - html: <a href="/azure/iot-hub/iot-hub-devguide-sdks">IoT Device SDKs</a>
 
 - title: Samples
   items:

@@ -5,13 +5,12 @@ author: rimman
 ms.author: rimman
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
 
 ---
-# Build a Flask app using Azure Cosmos DB's API for MongoDB
+# Quickstart: Build a Python app using Azure Cosmos DB's API for MongoDB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)

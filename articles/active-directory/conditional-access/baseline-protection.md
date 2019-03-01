@@ -19,6 +19,7 @@ ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
 
+ms.collection: M365-identity-device-management
 ---
 # What is baseline protection (preview)?  
 

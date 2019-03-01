@@ -22,7 +22,7 @@ In this article, you learn how to configure a HDInsight cluster with ESP by usin
 ## Enable Azure AD-DS
 
 > [!NOTE]  
-> Only tenant administrators have the privileges to enable Azure AD-DS. If the cluster storage is Azure Data Lake Storage (ADLS) Gen1 or Gen2, you must disable Multi-Factor Authentication (MFA) only for users who will need to access the cluster using basic Kerberose authentications. You can use [trusted IPs](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips) or [conditional access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview) to disable MFA for specific users ONLY when they are accessing the HDInsight cluster VNET IP range. If you are using conditional access please make sure that AD service endpoint in enabled on the HDInsight VNET.
+> Only tenant administrators have the privileges to enable Azure AD-DS. If the cluster storage is Azure Data Lake Storage (ADLS) Gen1 or Gen2, you must disable Multi-Factor Authentication (MFA) only for users who will need to access the cluster using basic Kerberose authentications. You can use [trusted IPs](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips) or [conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) to disable MFA for specific users ONLY when they are accessing the HDInsight cluster VNET IP range. If you are using conditional access please make sure that AD service endpoint in enabled on the HDInsight VNET.
 >
 >If the cluster storage is Azure Blob Storage (WASB), do not disable MFA.
 
@@ -81,7 +81,7 @@ After the VNETs are peered, configure the HDInsight VNET to use a custom DNS ser
 
 ![Configuring Custom DNS Servers for Peered VNET](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
-If you are using Network Security Groups (NSG) rules in your HDInsight subnet, you should allow the [required IPs](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip-1) for both Inbound and Outbound traffic. 
+If you are using Network Security Groups (NSG) rules in your HDInsight subnet, you should allow the [required IPs](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip-1) for both Inbound and Outbound traffic. 
 
 **To test** if your networking is set up correctly, join a windows VM to the HDInsight VNET/Subnet and ping the domain name (it should resolve to an IP), then run **ldp.exe** to access Azure AD-DS domain. Then **join this windows VM to the domain to confirm** that all the required RPC calls succeed between the client and server. You can also use **nslookup** to confirm networking access to your storage account or any external DB you might use (for example, external Hive metastore or Ranger DB).
 You should make sure that all of the [required ports](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) are whitelisted in the AAD-DS subnet Network Security Group rules, if AAD-DS is secured by an NSG. If the domain joining of this windows VM is successful, then you can proceed to the next step and create ESP clusters.
@@ -89,6 +89,10 @@ You should make sure that all of the [required ports](https://docs.microsoft.com
 ## Create a HDInsight cluster with ESP
 
 After setting up the previous steps correctly, the next step is to create the HDInsight cluster with ESP enabled. When you create an HDInsight cluster, you can enable Enterprise Security Package in the **custom** tab. If you prefer to use an Azure Resource Manager template for deployment, use the portal experience once and download the pre-filled template on the last "Summary" page for future reuse.
+
+> [!NOTE]  
+> The first six characters of the ESP cluster names must be unique in your environment. For example, if you have multiple ESP clusters in different VNETs, you should choose a naming convension that ensures the first six characters on the cluster names are unique.
+
 
 ![Azure HDInsight Enterprise security package domain validation](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate.png)
 

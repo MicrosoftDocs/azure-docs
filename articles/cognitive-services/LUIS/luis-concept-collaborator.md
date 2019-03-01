@@ -4,7 +4,7 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS apps require a single owner and optional collaborators allowing multiple people to author a single app.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding

@@ -1,12 +1,14 @@
+- name: Azure Storage Documentation
+  href: /azure/storage/
 - name: Overview
+  expanded: true
   items:
   - name: What is Azure Files?
     href: storage-files-introduction.md
-  - name: Choose Blobs, Files, or Disks
-    href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
 - name: Quickstarts
-  expanded: true
   items:
+  - name: Create / use file shares - Windows
+    href: storage-files-quick-create-use-windows.md
   - name: Create file shares - Portal
     href: storage-how-to-use-files-portal.md
   - name: Create file shares - PowerShell
@@ -69,7 +71,7 @@
       href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Metrics in Azure Monitor
       href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json  
-  - name: Disaster recovery
+  - name: Disaster recovery and failover
     href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Limits
     items: 
@@ -105,6 +107,8 @@
       href: storage-sync-files-server-endpoint.md
     - name: Manage storage in Azure independent clouds
       href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Initiate an account failover
+      href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Monitor
     items:
     - name: Monitor Azure File Sync
@@ -117,6 +121,8 @@
         href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Migrate
     items:
+    - name: Migrate to Azure File Sync
+      href: storage-sync-offline-data-transfer.md
     - name: Move data to and from Azure Storage
       href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
     - name: AzCopy on Windows

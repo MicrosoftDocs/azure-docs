@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/28/2019
 ms.author: juliako
 
 ---
@@ -29,7 +29,7 @@ The following table compares features of the two Live Event types.
 | Single bitrate input is encoded into multiple bitrates in the cloud |No |Yes |
 | Maximum video resolution for contribution feed |4K (4096x2160 at 60 frames/sec) |1080p (1920x1088 at 30 frames/sec)|
 | Recommended maximum layers in contribution feed|Up to 12|One audio|
-| Maximum layers in output| Same as input|Up to 7|
+| Maximum layers in output| Same as input|Up to 6|
 | Maximum aggregate bandwidth of contribution feed|60 Mbps|N/A|
 | Maximum bitrate for a single layer in the contribution |20 Mbps|20 Mbps|
 | Support for multiple language audio tracks|Yes|No|
@@ -41,7 +41,7 @@ The following table compares features of the two Live Event types.
 | Maximum video resolution of output video|Same as input|720p (at 30 frames/second)|
 | Input protocols|RTMP, fragmented-MP4 (Smooth Streaming)|RTMP, fragmented-MP4 (Smooth Streaming)|
 | Price|See the [pricing page](https://azure.microsoft.com/pricing/details/media-services/) and click on "Live Video" tab|See the [pricing page](https://azure.microsoft.com/pricing/details/media-services/) and click on "Live Video" tab|
-| Maximum run time|24x365 live linear|24x7|
+| Maximum run time| 24 hrs x 365 days, live linear | Up to 24 hours|
 | Ability to pass through embedded CEA 608/708 captions data|Yes|Yes|
 | Support for inserting slates|No|No|
 | Support for ad signaling via API| No|No|

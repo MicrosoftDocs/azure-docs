@@ -55,11 +55,9 @@ Azure Disk Encryption is supported on the following Linux server distributions a
 | CentOS | 6.7 | Data disk |
 | CentOS | 6.6 | Data disk |
 | CentOS | 6.5 | Data disk |
-| openSUSE | SUSE:openSUSE-Leap:42.3:latest | Data disk |
-| SLES | SUSE:SLES-Priority:12-SP4:latest | Data disk |
-| SLES | SUSE:SLES-HPC:12-SP3:latest | Data disk |
-| SLES | SUSE:SLES-Priority:12-SP3:latest | Data disk |
-
+| openSUSE | 42.3 | Data disk |
+| SLES | 12-SP4 | Data disk |
+| SLES | 12-SP3 | Data disk |
 
 *__New ADE implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images. ADE is currently not supported for RHEL Bring-Your-Own-Subscription (BYOS) images. Please also refer to the [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) article for more information.__
 
@@ -70,6 +68,14 @@ To get started, read the [Azure Disk Encryption overview](azure-security-disk-en
 ## Can I encrypt both boot and data volumes with Azure Disk Encryption?
 
 Yes, you can encrypt boot and data volumes for Windows and Linux IaaS VMs. For Windows VMs, you can't encrypt the data without first encrypting the OS volume. For Linux VMs, it's possible to encrypt the data volume without having to encrypt the OS volume first. After you've encrypted the OS volume for Linux, disabling encryption on an OS volume for Linux IaaS VMs isn't supported.
+
+## How do I rotate secrets or encryption keys?
+
+To rotate secrets, just call the same command you used originally to enable disk encryption. To rotate the key encryption key, call the same command you used originally to enable disk encryption, specifying the new key encryption. 
+
+## How do I add or remove a key encryption key if I didn't originally use one?
+
+To add a key encryption key, call the enable command again passing the key encryption key parameter. To remove a key encryption key, call the enable command again without the key encryption key parameter.
 
 ## Does Azure Disk Encryption allow you to bring your own key (BYOK)?
 

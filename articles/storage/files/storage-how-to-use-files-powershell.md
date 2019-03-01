@@ -116,8 +116,8 @@ You can use the [Get-AzStorageFileContent](/powershell/module/az.storage/Get-AzS
 
 ```azurepowershell-interactive
 # Delete an existing file by the same name as SampleDownload.txt, if it exists because you've run this example before.
-Remove-Item 
-    `-Path "C:\Users\ContainerAdministrator\CloudDrive\SampleDownload.txt" `
+Remove-Item `
+     -Path "C:\Users\ContainerAdministrator\CloudDrive\SampleDownload.txt" `
      -Force `
      -ErrorAction SilentlyContinue
 

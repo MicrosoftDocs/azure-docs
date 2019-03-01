@@ -241,17 +241,6 @@
       href: ./blueprints/ffiec-iaaswa-overview.md
     - name: PaaS web application
       href: ./blueprints/ffiec-paaswa-overview.md
-  - name: GDPR
-    displayName: blueprint, privacy, certifications
-    items:
-    - name: Data analytics
-      href: ./blueprints/gdpr-analytics-overview.md
-    - name: Data warehouse
-      href: ./blueprints/gdpr-datawarehouse-overview.md
-    - name: IaaS web application
-      href: ./blueprints/gdpr-iaaswa-overview.md
-    - name: PaaS web application
-      href: ./blueprints/gdpr-paaswa-overview.md
   - name: HIPAA/HITRUST
     displayName: blueprint, privacy, certifications
     items:

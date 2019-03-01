@@ -24,7 +24,7 @@ The following options are available for machine learning in the Azure cloud.
 
 | Cloud&nbsp;options | What it is | What you can do with it |
 |-|-|-|
-| [Azure Machine Learning service](#azure-machine-learning-services) | Managed cloud service for ML  | Train, deploy, and manage models in Azure using Python and CLI |
+| [Azure Machine Learning service](#azure-machine-learning-service) | Managed cloud service for ML  | Train, deploy, and manage models in Azure using Python and CLI |
 | [Azure Machine Learning Studio](#azure-machine-learning-studio) | Drag&ndash;and&ndash;drop visual interface for ML | Build, experiment, and deploy models using preconfigured algorithms  (Python and R)|
 | [Azure Databricks](#azure-databricks) | Spark-based analytics platform | Build and deploy models and data workflows |
 | [Azure Cognitive Services](#azure-cognitive-services) | Azure services with pre-built AI and ML models | Easily add intelligent features to your apps |
