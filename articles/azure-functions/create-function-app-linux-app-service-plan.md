@@ -69,11 +69,11 @@ Next, you create a function in the new function app.
 
 1. Expand your new function app, then select the **+** button next to **Functions**, choose **In-portal**, and select **Continue**.
 
-    ![Choose your function development platform.](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
+    ![Choose your function development platform.](./media/create-function-app-linux-app-service-plan/function-app-quickstart-choose-portal.png)
 
 1. Choose **WebHook + API** and then select **Create**.
 
-    ![Functions quickstart in the Azure portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
+    ![Functions quickstart in the Azure portal.](./media/create-function-app-linux-app-service-plan/function-app-quickstart-node-webhook.png)
 
 A function is created using a language-specific template for an HTTP triggered function.
 
@@ -83,19 +83,19 @@ Now, you can run the new function by sending an HTTP request.
 
 1. In your new function, click **</> Get function URL** at the top right, select **default (Function key)**, and then click **Copy**. 
 
-    ![Copy the function URL from the Azure portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
+    ![Copy the function URL from the Azure portal](./media/create-function-app-linux-app-service-plan/function-app-develop-tab-testing.png)
 
 2. Paste the function URL into your browser's address bar. Add the query string value `&name=<yourname>` to the end of this URL and press the `Enter` key on your keyboard to execute the request. You should see the response returned by the function displayed in the browser.  
 
     The following example shows the response in the browser:
 
-    ![Function response in the browser.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
+    ![Function response in the browser.](./media/create-function-app-linux-app-service-plan/function-app-browser-testing.png)
 
     The request URL includes a key that is required, by default, to access your function over HTTP.
 
 3. When your function runs, trace information is written to the logs. To see the trace output from the previous execution, return to your function in the portal and click the arrow at the bottom of the screen to expand the **Logs**.
 
-   ![Functions log viewer in the Azure portal.](./media/functions-create-first-azure-function/function-view-logs.png)
+   ![Functions log viewer in the Azure portal.](./media/create-function-app-linux-app-service-plan/function-view-logs.png)
 
 ## Clean up resources
 
