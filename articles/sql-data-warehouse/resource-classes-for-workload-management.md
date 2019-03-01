@@ -18,7 +18,7 @@ Guidance for using resource classes to manage memory and concurrency for queries
 
 ## What is workload management
 
-Workload management is the ability to optimize the overall performance of all queries. A well-tuned workload runs queries and load operations efficiently regardless of whether they are compute-intensive or IO-intensive.  SQL Data Warehouse provides workload management capabilities for multi-user environments. A data warehouse is not intended for multi-tenant workloads.
+Workload management provides you the ability to optimize the overall performance of all queries. A well-tuned workload runs queries and load operations efficiently, whether they are compute-intensive or IO-intensive. SQL Data Warehouse provides workload management capabilities for multi-user environments. A data warehouse is not intended for multi-tenant workloads.
 
 The performance capacity of a data warehouse is determined by the [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md).
 
@@ -29,15 +29,15 @@ The performance capacity of a query is determined by the query's resource class.
 
 ## What are resource classes
 
-The performance capacity of a query is determined by the user's resource class.  Resource classes are pre-determined resource limits in Azure SQL Data Warehouse that govern compute resources and concurrency for query execution. Resource classes can help you manage your workload by setting limits on the number of queries that run concurrently and the compute-resources assigned to each query. There is a trade off between memory and concurrency.
+The performance capacity of a query is determined by the user's resource class.  Resource classes are pre-determined resource limits in Azure SQL Data Warehouse that govern compute resources and concurrency for query execution. Resource classes can help you manage your workload by setting limits on the number of queries that run concurrently and on the compute-resources assigned to each query.  There's a trade-off between memory and concurrency.
 
 - Smaller resource classes reduce the maximum memory per query, but increase concurrency.
-- Larger resource classes increases the maximum memory per query, but reduce concurrency.
+- Larger resource classes increase the maximum memory per query, but reduce concurrency.
 
 There are two types of resource classes:
 
 - Static resources classes, which are well suited for increased concurrency on a data set size that is fixed.
-- Dynamic resource classes, which are well suited for data sets that are growing in size and increasing performance as the service level is scaled up.
+- Dynamic resource classes, which are well suited for data sets that are growing in size and need increased performance as the service level is scaled up.
 
 Resource classes use concurrency slots to measure resource consumption.  [Concurrency slots](#concurrency-slots) are explained later in this article.
 
@@ -155,7 +155,7 @@ Concurrency slots are a convenient way to track the resources available for quer
 - A query running with 10 concurrency slots can access 5 times more compute resources than a query running with 2 concurrency slots.
 - If each query requires 10 concurrency slots and there are 40 concurrency slots, then only 4 queries can run concurrently.
 
-Only resource governed queries consume concurrency slots. System queries and some trivial queries do not consume any slots.The exact number of concurrency slots consumed is determined by the query's resource class.
+Only resource governed queries consume concurrency slots. System queries and some trivial queries don't consume any slots. The exact number of concurrency slots consumed is determined by the query's resource class.
 
 ## View the resource classes
 
@@ -169,7 +169,7 @@ WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
 
 ## Change a user's resource class
 
-Resource classes are implemented by assigning users to database roles. When a user runs a query, the query runs with the user's resource class. For example, when a user is a member of the smallrc or staticrc10 database role, their queries run with small amounts of memory. When a database user is a member of the xlargerc or staticrc80 database roles, their queries run with large amounts of memory.
+Resource classes are implemented by assigning users to database roles. When a user runs a query, the query runs with the user's resource class. For example, if a user is a member of the smallrc or staticrc10 database role, their queries run with small amounts of memory. If a database user is a member of the xlargerc or staticrc80 database roles, their queries run with large amounts of memory.
 
 To increase a user's resource class, use the stored procedure [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
 
@@ -192,47 +192,47 @@ Users can be members of multiple resource classes. When a user belongs to more t
 
 ## Recommendations
 
-We recommend creating a user that is dedicated to running a specific type of query or load operations. Then give that user a permanent resource class instead of changing the resource class on a frequent basis. Given that static resource classes afford greater overall control on the workload we also suggest using those first before considering dynamic resource classes.
+We recommend creating a user that is dedicated to running a specific type of query or load operation. Give that user a permanent resource class instead of changing the resource class on a frequent basis. Static resource classes afford greater overall control on the workload, so we suggest using static resource classes before considering dynamic resource classes.
 
 ### Resource classes for load users
 
-`CREATE TABLE` uses clustered columnstore indexes by default. Compressing data into a columnstore index is a memory-intensive operation, and memory pressure can reduce the index quality. Therefore, you are most likely to require a higher resource class when loading data. To ensure loads have enough memory, you can create a user that is designated for running loads and assign that user to a higher resource class.
+`CREATE TABLE` uses clustered columnstore indexes by default. Compressing data into a columnstore index is a memory-intensive operation, and memory pressure can reduce the index quality. Memory pressure can lead to needing a higher resource class when loading data. To ensure loads have enough memory, you can create a user that is designated for running loads and assign that user to a higher resource class.
 
 The memory needed to process loads efficiently depends on the nature of the table loaded and the data size. For more information on memory requirements, see [Maximizing rowgroup quality](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 Once you have determined the memory requirement, choose whether to assign the load user to a static or dynamic resource class.
 
 - Use a static resource class when table memory requirements fall within a specific range. Loads run with appropriate memory. When you scale the data warehouse, the loads do not need more memory. By using a static resource class, the memory allocations stay constant. This consistency conserves memory and allows more queries to run concurrently. We recommend that new solutions use the static resource classes first as these provide greater control.
-- Use a dynamic resource class when table memory requirements vary widely. Loads might require more memory than the current DWU or cDWU level provides. Therefore, scaling the data warehouse adds more memory to load operations, which allows loads to perform faster.
+- Use a dynamic resource class when table memory requirements vary widely. Loads might require more memory than the current DWU or cDWU level provides. Scaling the data warehouse adds more memory to load operations, which allows loads to perform faster.
 
 ### Resource classes for queries
 
-Some queries are compute-intensive and some are not.  
+Some queries are compute-intensive and some aren't.  
 
-- Choose a dynamic resource class when queries are complex, but do not need high concurrency.  For example, generating daily or weekly reports is an occasional need for resources. If the reports are processing large amounts of data, scaling the data warehouse provides more memory to the user's existing resource class.
-- Choose a static resource class when resource expectations vary throughout the day. For example, a static resource class works well when the data warehouse is queried by many people. When scaling the data warehouse, the amount of memory allocated to the user does not change. Consequently, more queries can be executed in parallel on the system.
+- Choose a dynamic resource class when queries are complex, but don't need high concurrency.  For example, generating daily or weekly reports is an occasional need for resources. If the reports are processing large amounts of data, scaling the data warehouse provides more memory to the user's existing resource class.
+- Choose a static resource class when resource expectations vary throughout the day. For example, a static resource class works well when the data warehouse is queried by many people. When scaling the data warehouse, the amount of memory allocated to the user doesn't change. Consequently, more queries can be executed in parallel on the system.
 
-Selecting a proper memory grant depends on many factors, such as the amount of data queried, the nature of the table schemas, and various join, select, and group predicates. In general, allocating more memory allows queries to complete faster, but reduces the overall concurrency. If concurrency is not an issue, over-allocating memory does not harm throughput.
+Proper memory grants depend on many factors, such as the amount of data queried, the nature of the table schemas, and various joins, select, and group predicates. In general, allocating more memory allows queries to complete faster, but reduces the overall concurrency. If concurrency is not an issue, over-allocating memory does not harm throughput.
 
 To tune performance, use different resource classes. The next section gives a stored procedure that helps you figure out the best resource class.
 
 ## Example code for finding the best resource class
 
-You can use the following specified stored procedure for [Gen1](#Stored procedure definition for Gen1) or [Gen2](#Stored procedure definition for Gen2)-to figure out concurrency and memory grant per resource class at a given SLO and the closest best resource class for memory intensive CCI operations on non-partitioned CCI table at a given resource class:
+You can use the following specified stored procedure for [Gen1](#stored-procedure-definition-for-gen1) or [Gen2](#stored-procedure-definition-for-gen2)-to figure out concurrency and memory grant per resource class at a given SLO and the best resource class for memory intensive CCI operations on non-partitioned CCI table at a given resource class:
 
 Here's the purpose of this stored procedure:
 
 1. To see the concurrency and memory grant per resource class at a given SLO. User needs to provide NULL for both schema and tablename as shown in this example.  
-2. To see the closest best resource class for the memory-intensive CCI operations (load, copy table, rebuild index, etc.) on non partitioned CCI table at a given resource class. The stored proc uses table schema to find out the required memory grant.
+2. To see the best resource class for the memory-intensive CCI operations (load, copy table, rebuild index, etc.) on non-partitioned CCI table at a given resource class. The stored proc uses table schema to find out the required memory grant.
 
 ### Dependencies & Restrictions
 
-- This stored procedure is not designed to calculate the memory requirement for a partitioned cci table.
-- This stored procedure doesn't take memory requirement into account for the SELECT part of CTAS/INSERT-SELECT and assumes it is a SELECT.
+- This stored procedure isn't designed to calculate the memory requirement for a partitioned cci table.
+- This stored procedure doesn't take memory requirements into account for the SELECT part of CTAS/INSERT-SELECT and assumes it's a SELECT.
 - This stored procedure uses a temp table, which is available in the session where this stored procedure was created.
-- This stored procedure depends on the current offerings (for example, hardware configuration, DMS config), and if any of that changes then this stored proc does not work correctly.  
-- This stored procedure depends on existing offered concurrency limit and if that changes then this stored procedure would not work correctly.  
-- This stored procedure depends on existing resource class offerings and if that changes then this stored procedure would not work correctly.  
+- This stored procedure depends on the current offerings (for example, hardware configuration, DMS config), and if any of that changes then this stored proc won't work correctly.  
+- This stored procedure depends on existing concurrency limit offerings and if these change then this stored procedure won't work correctly.  
+- This stored procedure depends on existing resource class offerings and if these change then this stored procedure won't work correctly.  
 
 >[!NOTE]  
 >If you are not getting output after executing stored procedure with parameters provided, then there could be two cases.
