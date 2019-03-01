@@ -164,7 +164,7 @@ The following sample output shows that the default NGINX webpage returned:
 [...]
 ```
 
-Exit out of the attached terminal session. The test pod is automatically deleted:
+Exit out of the attached terminal session. The test pod is automatically deleted.
 
 ```console
 exit
@@ -211,7 +211,7 @@ $ wget -qO- --timeout=2 http://backend
 wget: download timed out
 ```
 
-Exit out of the attached terminal session. The test pod is automatically deleted:
+Exit out of the attached terminal session. The test pod is automatically deleted.
 
 ```console
 exit
@@ -296,7 +296,7 @@ $ wget -qO- --timeout=2 http://backend
 wget: download timed out
 ```
 
-Exit out of the attached terminal session. The test pod is automatically deleted:
+Exit out of the attached terminal session. The test pod is automatically deleted.
 
 ```console
 exit
@@ -335,7 +335,7 @@ Because the labels for the pod match what is currently permitted in the network 
 [...]
 ```
 
-Exit out of the attached terminal session. The test pod is automatically deleted:
+Exit out of the attached terminal session. The test pod is automatically deleted.
 
 ```console
 exit
@@ -419,7 +419,7 @@ Traffic is allowed because the pod is scheduled in the namespace that matches wh
 [...]
 ```
 
-Exit out of the attached terminal session. The test pod is automatically deleted:
+Exit out of the attached terminal session. The test pod is automatically deleted.
 
 ```console
 exit
