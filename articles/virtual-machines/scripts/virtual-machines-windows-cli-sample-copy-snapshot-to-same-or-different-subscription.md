@@ -21,7 +21,11 @@ ms.custom: mvc
 
 # Copy snapshot of a managed disk to same or different subscription with CLI
 
-This script copies a snapshot of a managed disk to same or different subscription. Use this script to move a snapshot to different subscription in the same region as the parent snapshot.
+This script copies a snapshot of a managed disk to same or different subscription. Use this script for the following scenarios:
+
+1. Migrate a snapshot in Premium storage (Premium_LRS) to Standard storage (Standard_LRS or Standard_ZRS) to reduce your cost.
+1. Migrate a snapshot from locally redundant storage (Premium_LRS, Standard_LRS) to zone redundant storage (Standard_ZRS) to benefit from the higher reliability of ZRS storage.
+1. Move a snapshot to different subscription in the same region for longer retention.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
