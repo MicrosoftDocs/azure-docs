@@ -41,7 +41,7 @@ Let's review the parts of the template to understand how the template works. You
 
 * The [resources](resource-manager-templates-resources.md) section, which shows the Azure resources that are deployed to your subscription.
 
-* The [outputs](resource-manager-templates-outputs.md) section, which shows the values that are returned after deployment has finished.
+* The [outputs](resource-group-authoring-templates.md#outputs) section, which shows the values that are returned after deployment has finished.
 
 ## Look for similar templates
 
