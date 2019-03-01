@@ -24,7 +24,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 The detailed usage charges CSV file contains daily and meter level usage charges for the current billing period.
 
 To get your detailed usage file,
-see [View and download Azure usage for your Microsoft Customer Agreement](billing-download-azure-daily-usage-date.md).
+see [View and download Azure usage for your Microsoft Customer Agreement](billing-download-azure-daily-usage.md).
 It’s available in a comma-separated values (.csv) file format that you
 can open in a spreadsheet application.
 
@@ -121,7 +121,7 @@ tags | Tags you assign to the resource
 
 ### How do I make sure that the charges in my detailed usage file are correct?
 If there is a charge on your detailed usage file that you would like
-more details on, see [Understand the charges on your billing profile's invoice](billing-understand-your-bill-mca.md)
+more details on, see [Understand the charges on your billing profile's invoice](billing-mca-understand-your-bill.md)
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
