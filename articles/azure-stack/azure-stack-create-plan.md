@@ -55,7 +55,7 @@ ms.lastreviewed: 02/28/2019
 
    ![Complete quota assignments](media/azure-stack-create-plan/all-quotas-assigned.png)
 
-9. Select **Review + create** to review the plan. Review all values and quotas to ensure they are correct.
+9. Select **Review + create** to review the plan. Review all values and quotas to ensure they are correct. Note the expansion arrows to the left of each service/quota pair. Click each one to expand the selection and get more information about the service quota.
 
    ![Create the plan](media/azure-stack-create-plan/create.png)
 
