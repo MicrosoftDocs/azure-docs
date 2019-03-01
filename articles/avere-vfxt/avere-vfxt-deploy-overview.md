@@ -4,7 +4,7 @@ description: Overview of deploying Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
 ---
 
@@ -47,10 +47,12 @@ Here is an overview of all of the steps.
 
      The cluster controller is a simple VM that resides in the same virtual network as the Avere vFXT cluster and has the custom software needed to create and manage the cluster. The controller creates the vFXT nodes and forms the cluster, and it also provides a command-line interface to manage the cluster during its lifetime.
 
-     If you configure your controller with a public IP address, it also can serve as a jump host for connecting to the cluster from outside the vnet.
+     If you create a new vnet during the deployment, your controller will have a public IP address. This means the controller can serve as a jump host for connecting to the cluster from outside the vnet.
 
    * Creating the cluster node VMs
-   * Configuring the cluster node VMs as the cluster
+
+   * Configuring the cluster node VMs to form the cluster
+
    * Optionally, creating a new Blob container and configuring it as back-end storage for the cluster
 
 1. Configure the cluster 

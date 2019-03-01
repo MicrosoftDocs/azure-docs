@@ -114,7 +114,7 @@ The following steps show how to prepare the [Node.js](https://nodejs.org/) sampl
 1. Return to the command line environment and generate your connection string by executing:
 
     ```cmd/sh
-    dps_keygen <scope_id> <device_id> <Primary Key>
+    dps-keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
     ```
 
    Copy the output and save in a new file (for example, connection.txt).
