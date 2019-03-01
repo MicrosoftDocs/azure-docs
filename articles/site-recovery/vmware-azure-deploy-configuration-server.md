@@ -32,13 +32,14 @@ Minimum hardware requirements for a configuration server are summarized in the f
 You require a user with **one of the following** permissions set in AAD (Azure Active Directory) to register configuration server with Azure Site Recovery services.
 
 1. User should have “Application developer” role to create application.
-    a. To verify, Sign in to Azure portal</br>
-    b. Navigate to Azure Active Directory > Roles and administrators</br>
-    c. Verify if "Application developer" role is assigned to the user. If not, use a user with this permission or reach out to [administrator to enable the permission](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).</br>
-2. If the "Application developer" role cannot be assigned, ensure that "User can register application” flag is set as true for user to create identity. To enable above permissions,
-    a. Sign in to Azure portal
-    b. Navigate to Azure Active Directory > User settings
-    c. Under **App registrations", "Users can register applications" should be chosen as "Yes".
+   1. To verify, Sign in to Azure portal</br>
+   1. Navigate to Azure Active Directory > Roles and administrators</br>
+   1. Verify if "Application developer" role is assigned to the user. If not, use a user with this permission or reach out to [administrator to enable the permission](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
+    
+1. If the "Application developer" role cannot be assigned, ensure that "User can register application” flag is set as true for user to create identity. To enable above permissions,
+   1. Sign in to Azure portal
+   1. Navigate to Azure Active Directory > User settings
+   1. Under **App registrations", "Users can register applications" should be chosen as "Yes".
 
     ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
