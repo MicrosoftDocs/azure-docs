@@ -13,7 +13,7 @@ ms.author: aahi
  
 # What is the Anomaly Detector API?
 
-The Anomaly Detector API enables you to easily monitor and gain insights from your data over time. Using machine learning, the Anomaly Detector will automatically apply the correct statistical model for your data regardless of your data volume, industry, or scenario. By submitting a time series as input, the Anomaly Finder API determines which data points are anomalies, their expected values, and upper/lower bounds for data visualization.
+Anomaly Finder enables you to monitor data over time and detect anomalies with machine learning. Anomaly Finder adapts to your unique data by automatically applying the right statistical model regardless of industry, scenario, or data volume. Use a time series as input, the Anomaly Finder API returns whether a data point is an anomaly, determines the expected value, and upper and lower bounds for visualization.
 
 Using the Anomaly Detector doesn't require any prior experience in machine learning. The RESTful API enables you to easily integrate the service into your applications and processes, and it accepts any data set taken at uniform intervals of time.
 
@@ -30,6 +30,18 @@ With the Anomaly Detector, you can automatically find anomalies throughout your 
 |Find anomalies throughout your data set. | Use your data series to detect any anomalies that might exist. The operation will generate a model using the entire series, each point will be detected with the same model. In this method, points before and after a certain point will be used to determine whether it's an anomaly. The entire detection can give user an overall status of the time series.         |
 | Visualize the range of normal values for your data | Visualize your data, including expected values, anomaly boundaries, and anomalies themselves. |
 | Adjust the sensitivity of anomaly detection for better results. | Increase or decrease the sensitivity of the anomaly detection boundaries. |
+
+## Demo
+
+To quickly see how the API works, this [Anomaly Detector demo](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalyfinder) will run in a web-hosted Jupyter notebook and show you how to send an API request, and visualize the result.
+
+To run the demo, complete the following steps:
+  
+1.	Sign in, and click **Clone**, in the upper right corner.
+3.	click **Run on free compute**
+4.	Open one of the notebook, for example, Anomaly Finder API Example Private Preview (Batch Method).ipynb
+5.	Fill in the key in cell containing:  subscription_key = '' #Here you have to paste your primary key. You can get the key by creating a [Cognitive Services account](../cognitive-services-apis-create-account.md). following the instructions on [obtaining a subscription key](How-to/get-subscription-key.md)
+6.	In the Notebook main menu, Cell->run all
 
 ## Workflow
 

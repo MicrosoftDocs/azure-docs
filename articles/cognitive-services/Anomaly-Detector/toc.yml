@@ -1,0 +1,36 @@
+- name: Anomaly Detector Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+    - name: What is the Anomaly Detector API?
+      href: overview.md  
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: Detect Anomalies
+      items:
+      - name: On streaming data
+        items:
+          - name: Using C#
+            href: quickstarts/find-data-anomalies-streaming-csharp.md
+          - name: Using Java
+            href: quickstarts/find-data-anomalies-streaming-java.md
+          - name: Using Node.js
+            href: quickstarts/find-data-anomalies-streaming-nodejs.md
+      - name: As a batch
+        items:
+          - name: Using C#
+            href: quickstarts/find-data-anomalies-batch-csharp.md
+          - name: Using Java
+            href: quickstarts/find-data-anomalies-batch-java.md
+          - name: Using Node.js
+            href: quickstarts/find-data-anomalies-batch-nodejs.md
+- name: Tutorials
+  items:
+    - name: Visualize Anomalies Using Python.md
+      href: ./tutorials/visualize-anomalies-using-python.md
+- name: How-to guides
+  items:
+    - name: Identifying Anomalies
+      href: how-to/identify-anomalies.md
