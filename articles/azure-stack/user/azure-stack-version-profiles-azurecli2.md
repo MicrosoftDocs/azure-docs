@@ -115,7 +115,7 @@ You should see the version of Azure CLI and other dependent libraries that are i
     sudo -H pip3 install --upgrade pip
     ```
 
-3. Install the **certifi** module. [Certifi](https://pypi.org/project/certifi/) a modulepi and a collection of Root Certificates for validating the trustworthiness of SSL certificates while verifying the identity of TLS hosts. Open a cmd prompt or an elevated PowerShell prompt, and type the following command:
+3. Install the **certifi** module. [Certifi](https://pypi.org/project/certifi/) is a collection of Root Certificates for validating the trustworthiness of SSL certificates while verifying the identity of TLS hosts. Open a cmd prompt or an elevated PowerShell prompt, and type the following command:
 
     ```bash
     pip3 install certifi
@@ -123,7 +123,7 @@ You should see the version of Azure CLI and other dependent libraries that are i
 
 ### Install Python on macOS
 
-1. Install [Python 3 on your system](https://www.python.org/downloads/). For Python 3.7 releases, Python.org provide two binary installer options for download. The default variant is 64-bit-only and works on macOS 10.9 (Mavericks) and later systems. Check your python version by opening the terminal, and typing the following command:
+1. Install [Python 3 on your system](https://www.python.org/downloads/). For Python 3.7 releases, Python.org provides two binary installer options for download. The default variant is 64-bit-only and works on macOS 10.9 (Mavericks) and later systems. Check your python version by opening the terminal, and typing the following command:
 
     ```bash  
     python3 --version
@@ -382,7 +382,7 @@ This section will walk you through setting up CLI if you are using Azure AD as y
 
 Trust the Azure Stack CA root certificate by appending it to the existing Python certificate.
 
-1. Find the certificate location on your machine. The location may vary depending on where you have installed Python. You will need to have [pip](https://pip.pypa.io) and the [certifi](https://pypi.org/project/certifi/) module installed. You can use the following Python command from the bash prompt:
+1. Find the certificate location on your machine. The location may vary depending on where you have installed Python. You will need to have pip and the certifi [module installed](#install-python-on-linux). You can use the following Python command from the bash prompt:
 
     ```bash  
     python3 -c "import certifi; print(certifi.where())"
@@ -421,7 +421,7 @@ Use the following steps to connect to Azure Stack:
       az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
 
-3. Set the active environment 
+3. Set the active environment. 
 
       ```azurecli
         az cloud set -n <environmentname>
@@ -483,7 +483,7 @@ This section will walk you through setting up CLI if you are using Active Direct
 
 Trust the Azure Stack CA root certificate by appending it to the existing Python certificate.
 
-1. Find the certificate location on your machine. The location may vary depending on where you have installed Python. You will need to have [pip](https://pip.pypa.io) and the [certifi](https://pypi.org/project/certifi/) module installed. You can use the following Python command from the bash prompt:
+1. Find the certificate location on your machine. The location may vary depending on where you have installed Python. You will need to have pip and the certifi [module installed](#install-python-on-linux). You can use the following Python command from the bash prompt:
 
     ```bash  
     python3 -c "import certifi; print(certifi.where())"
@@ -522,7 +522,7 @@ Use the following steps to connect to Azure Stack:
       az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
 
-3. Set the active environment 
+3. Set the active environment. 
 
       ```azurecli
         az cloud set -n <environmentname>
