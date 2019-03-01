@@ -85,6 +85,23 @@ The same communication model can be used in Service Fabric. This can be useful w
 
 ![Service Fabric direct communication][8]
 
+## Parity
+Despite cloud services API being publically accessible longer than Service Fabric, it is recommended you migrate away from cloud services, and the following are cloud service parity features for Service Fabric API's:
+
+| **Cloud Service API** | **Service Fabric API** | **Notes** |
+| --- | --- | --- |
+| RoleInstance.GetID | FabricRuntime.GetNodeContext.NodeId or .NodeName | ID is a party of the NodeName |
+| RoleInstance.GetFaultDomain | FabricClient.QueryManager.GetNodeList | Filter on NodeName and use FD Property |
+| RoleInstance.GetUpgradeDomain | FabricClient.QueryManager.GetNodeList | Filteri on NodeName, and use Upgrade property |
+| RoleInstance.GetInstanceEndpoints | FabricRuntime.GetActivationContext or Naming (ResolveService) | CodePackageActivationContext which is provided both by FabricRuntime.GetActivationContext and within the replicas via ServiceInitializationParameters.CodePackageActivationContext provided during .Initialize |
+| RoleEnvironment.GetRoles | FabricClient.QueryManager.GetNodeList | If you want to do the same sort of filtering by type you can get the list of node types from the cluster manifest via FabricClient.ClusterManager.GetClusterManifest and grab the role/node types from there. |
+| RoleEnvironment.GetIsAvailable | Connect-WindowsFabricCluster or create a FabricRuntime pointed to a particular node | * |
+| RoleEnvironment.GetLocalResource | CodePackageActivationContext.Log/Temp/Work | * |
+| RoleEnvironment.GetCurrentRoleInstance | CodePackageActivationContext.Log/Temp/Work | * |
+| LocalResource.GetRootPath | CodePackageActivationContext.Log/Temp/Work | * |
+| Role.GetInstances | FabricClient.QueryManager.GetNodeList or ResolveService | * |
+| RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime.GetActivationContext or Naming (ResolveService) | * |
+
 ## Next Steps
 The simplest migration path from Cloud Services to Service Fabric is to replace only the Cloud Services deployment with a Service Fabric application, keeping the overall architecture of your application roughly the same. The following article provides a guide to help convert a Web or Worker Role to a Service Fabric stateless service.
 
