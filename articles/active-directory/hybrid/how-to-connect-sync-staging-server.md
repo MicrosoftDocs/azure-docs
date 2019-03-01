@@ -6,21 +6,20 @@ documentationcenter: ''
 author: billmath
 manager: daveba
 editor: ''
-
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
 ms.service: active-directory
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2017
+ms.date: 02/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD Connect sync: Operational tasks and consideration
-The objective of this topic is to describe operational tasks for Azure AD Connect sync.
+# Azure AD Connect: Staging server and disaster recovery
+With a server in staging mode, you can make changes to the configuration and preview the changes before you make the server active. It also allows you to run full import and full synchronization to verify that all changes are expected before you make these changes into your production environment.
 
 ## Staging mode
 Staging mode can be used for several scenarios, including:
@@ -28,8 +27,6 @@ Staging mode can be used for several scenarios, including:
 * High availability.
 * Test and deploy new configuration changes.
 * Introduce a new server and decommission the old.
-
-With a server in staging mode, you can make changes to the configuration and preview the changes before you make the server active. It also allows you to run full import and full synchronization to verify that all changes are expected before you make these changes into your production environment.
 
 During installation, you can select the server to be in **staging mode**. This action makes the server active for import and synchronization, but it does not run any exports. A server in staging mode is not running password sync or password writeback, even if you selected these features during installation. When you disable staging mode, the server starts exporting, enables password sync, and enables password writeback.
 
@@ -55,7 +52,7 @@ To apply this method, follow these steps:
 
 #### Prepare
 1. Install Azure AD Connect, select **staging mode**, and unselect **start synchronization** on the last page in the installation wizard. This mode allows you to run the sync engine manually.
-   ![ReadyToConfigure](./media/how-to-connect-sync-operations/readytoconfigure.png)
+   ![ReadyToConfigure](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
 2. Sign off/sign in and from the start menu select **Synchronization Service**.
 
 #### Configuration
@@ -92,7 +89,7 @@ The export.csv file contains all changes that are about to be exported. Each row
 #### Switch active server
 1. On the currently active server, either turn off the server (DirSync/FIM/Azure AD Sync) so it is not exporting to Azure AD or set it in staging mode (Azure AD Connect).
 2. Run the installation wizard on the server in **staging mode** and disable **staging mode**.
-   ![ReadyToConfigure](./media/how-to-connect-sync-operations/additionaltasks.png)
+   ![ReadyToConfigure](./media/how-to-connect-sync-staging-server/additionaltasks.png)
 
 ## Disaster recovery
 Part of the implementation design is to plan for what to do in case there is a disaster where you lose the sync server. There are different models to use and which one to use depends on several factors including:
