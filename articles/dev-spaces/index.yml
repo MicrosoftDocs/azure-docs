@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Azure Dev Spaces
 metadata:
-  title: Azure Dev Spaces | Microsoft Docs
+  title: Azure Dev Spaces
   meta.description: Rapid Kubernetes development with containers and microservices on Azure.
   services: azure-dev-spaces
   author: zr-msft
