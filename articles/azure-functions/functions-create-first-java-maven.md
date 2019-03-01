@@ -68,7 +68,14 @@ mvn archetype:generate \
 	-DarchetypeArtifactId=azure-functions-archetype 
 ```
 
-### Windows (CMD)
+### Windows
+
+```powershell
+mvn archetype:generate `
+    "-DarchetypeGroupId=com.microsoft.azure" `
+    "-DarchetypeArtifactId=azure-functions-archetype"
+```
+
 ```cmd
 mvn archetype:generate ^
 	-DarchetypeGroupId=com.microsoft.azure ^
