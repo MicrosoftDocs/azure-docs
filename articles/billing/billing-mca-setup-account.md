@@ -122,7 +122,7 @@ Your new account only supports users from the tenant that was selected while sig
 
 When you invite the users, they are added to the tenant as guest users and get access to the billing account. To invite the users, guest access must be turned on for the tenant. For more information, see [Control guest access in Azure Active Directory](https://docs.microsoft.com/en-us/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). If the guest access is turned off, contact the global administrators of your tenant to turn it on. <!-- Todo - How can they find their global administrator -->
 
-## Features replaced by the new billing account
+## Review features replaced by the new billing account
 
 The following Enterprise Agreement's features are replaced with new features in the billing account for a Microsoft Customer Agreement.
 
