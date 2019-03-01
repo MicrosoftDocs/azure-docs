@@ -23,7 +23,7 @@ These actions are performed during migration:
 * At any point, the BLEU score migrated from the Hub training can be found in the TrainingDetails page of the model in the “Bleu score in MT Hub” heading.
 
 >[!Note]
->For a training to succeed, Custom Translator requires minimum 10,000 extracted sentences. For less number of extracted sentences than the [suggested minimum](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences), Custom Translator can't conduct a training.
+>For a training to succeed, Custom Translator requires a minimum of 10,000 unique extracted sentences. Custom Translator can't conduct a training with fewer extracted sentences than the [suggested minimum](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences).
 
 ## Enable account migration
 
