@@ -147,4 +147,4 @@ When you are done with this quickstart, select **My apps** from the top navigati
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Deploy model](./get-started-portal-deploy-model.md)
+> [Deploy model](get-started-portal-deploy-model.md)

@@ -42,4 +42,4 @@ Tag entity in example utterance
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Deploy model](./get-started-portal-deploy-model.md)
+> [Identify common intents and entities](/luis-tutorial-prebuilt-intents-entities.md)
