@@ -1,5 +1,5 @@
 ---
-title: Understand the terms in your price sheet for a Microsoft Customer Agreement | Microsoft Docs
+title: Understand the terms in your price sheet for a Microsoft Customer Agreement - Azure | Microsoft Docs
 description: Learn how to read and understand your usage and bill for your Azure subscription
 services: ''
 documentationcenter: ''

@@ -96,7 +96,7 @@ meterCategory | Name of the classification category for the meter. For example, 
 meterSubCategory | Name of the meter sub-classification category
 meterRegion | Name of the region where the meter for the service is available. Identifies the location of the data center for certain services that are priced based on data center location.
 offer | Name of the offer purchased
-productId | Unique identifier for the product accruing the charges (TBD if available in invoiced)
+productId | Unique identifier for the product accruing the charges
 product | Name of the product accruing the charges
 subscription ID | Unique identifier for the subscription accruing the charges
 subscriptionName | Name of the subscription accruing the charges

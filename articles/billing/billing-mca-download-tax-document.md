@@ -1,5 +1,5 @@
 ---
-title: View tax documents for your billing profile | Microsoft Docs
+title: View tax documents for your Microsoft Customer Agreement- Azure | Microsoft Docs
 description: Learn how to view and download tax receipts for your Microsoft Customer Agreement billing profile.
 services: ''
 documentationcenter: ''
