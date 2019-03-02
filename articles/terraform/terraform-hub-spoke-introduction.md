@@ -13,11 +13,20 @@ ms.date: 03/01/2019
 
 # Tutorial: Create a hub and spoke hybrid network topology with Terraform in Azure
 
-This tutorial shows how to implement one of the popular [Hybrid network topology](/azure/architecture/reference-architectures/hybrid-networking/). In this article, you learn how to connect an on-premises network to an Azure virtual network (Vnet). A hub and spoke network topology is a way to isolate workloads while sharing common services. These services include identity and security. The hub is a virtual network that acts as a central connection point to an on-premises network. The spokes are VNets that peer with the hub. Shared services are deployed in the hub, while individual workloads are deployed inside spoke networks.  
+This tutorial series shows how to use Terraform to implement in Azure a [hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). 
 
-To learn about the recommendations and considerations for this topology, see the [Hub and Spoke Reference architecture](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
+A hub and spoke topology is a way to isolate workloads while sharing common services. These services include identity and security. The hub is a virtual network (VNet) that acts as a central connection point to an on-premises network. The spokes are VNets that peer with the hub. Shared services are deployed in the hub, while individual workloads are deployed inside spoke networks.
 
-![Hub and spoke topology architecture in Azure](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-architecture.png)
+In this first tutorial of the series, you perform the following tasks:
+
+> [!div class="checklist"]
+> * Use HCL (HashiCorp Language) to lay out hub and spoke hybrid network reference architecture resources
+> * Use Terraform to create hub network appliance resources
+> * Use Terraform to create hub network in Azure to act as common point 
+for all resources
+> * Use Terraform to create individual workloads as spoke virtual networks in Azure
+> * Use Terraform to establish gateways and connections between on premises and Azure networks
+> * Use Terraform to create virtual network peerings to spoke networks
 
 ## Prerequisites
 
@@ -33,13 +42,21 @@ To learn about the recommendations and considerations for this topology, see the
         az ad sp list --display-name <displayName>
         ```
 
-## The benefits of hub and spoke topology
+## Hub and spoke topology architecture
+
+The hub and spoke topology - also called a *star network topology* - resembles a spoked wheel. The hub is a virtual network (VNet) that acts as a central point of connectivity to your on-premises network. The spokes are VNets that peer with the hub, and can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through an ExpressRoute or VPN gateway connection. The following image demonstrates the components in a hub and spoke topology:
+
+![Hub and spoke topology architecture in Azure](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-architecture.png)
+
+## Benefits of the hub and spoke topology
+
+A hub and spoke network topology is a way to isolate workloads while sharing common services. These services include identity and security. The hub is a virtual network that acts as a central connection point to an on-premises network. The spokes are VNets that peer with the hub. Shared services are deployed in the hub, while individual workloads are deployed inside spoke networks. Here are some benefits of the hub and spoke network topology:
 
 - **Cost savings** by centralizing services in a single location that can be shared by multiple workloads. These workloads include network virtual appliances and DNS servers.
 - **Overcome subscriptions limits** by peering VNets from different subscriptions to the central hub.
 - **Separation of concerns** between central IT (SecOps, InfraOps) and workloads (DevOps).
 
-## Typical uses for hub and spoke architecture
+## Typical uses for the hub and spoke architecture
 
 Some of the typical uses for a hub and spoke architecture include:
 
@@ -47,18 +64,6 @@ Some of the typical uses for a hub and spoke architecture include:
 - Workloads that don't require connectivity to each other, but require access to shared services.
 - Enterprises that require central control over security aspects.
 - Enterprises that require segregated management for the workloads in each spoke.
-
-In this tutorial, you learn how to do the following tasks in creating a [Hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke):
-
-> [!div class="checklist"]
-
-> * Use HCL (HashiCorp Language) to lay out hub and spoke hybrid network reference architecture resources
-> * Use Terraform to create hub network appliance resources
-> * Use Terraform to create hub network in Azure to act as common point 
-for all resources
-> * Use Terraform to create individual workloads as spoke virtual networks in Azure
-> * Use Terraform to establish gateways and connections between on premises and Azure networks
-> * Use Terraform to create VNet peerings to spoke networks
 
 ## Preview the demo components
 
