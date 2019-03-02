@@ -13,15 +13,15 @@ ms.author: diberry
 #Customer intent: As a new user, I want to quickly get a LUIS app created in the LUIS portal so I can understand the different models of intent, entity and example utterances. 
 ---
 
-# Quickstart: 1. Create new app in LUIS portal
+# Quickstart: Create a new app in LUIS portal
 
-In this quickstart, you create a new app in the [LUIS portal](https://www.luis.ai). The basic parts of an app are an intent and an entity. Once the intent and entity are created, you test the app with the interactive test panel, providing a sample user utterance and getting the predicted intent.
+In this quickstart, you create a new app in the [LUIS portal](https://www.luis.ai). The basic parts of an app are an intent and an entity. Once the intent and entity are created, you test the app with the interactive test panel, providing a sample user utterance to get the predicted intent.
 
 Building an app is free; it doesn't require an Azure subscription. When you are ready to deploy your app, then you create an Azure Cognitive Service Resource and assign it to the app. This deployment process is in the [next quickstart](get-started-portal-deploy-app.md).
 
 ## Create app 
 
-1. Open the LUIS portal in a browser and sign in. If this is your first-time signing in, you need to create a free LUIS portal account.
+1. Open the [LUIS portal(https://www.luis.ai) in a browser and sign in. If this is your first-time signing in, you need to create a free LUIS portal user account.
 
 1. Select **Create new app** from the context toolbar.
 
@@ -40,7 +40,7 @@ Building an app is free; it doesn't require an Azure subscription. When you are 
 
 ## Create intent 
 
-After the app is created, the next step is to create intents. Intents are a way to categorize text from users. If you have a human resources app that has two functions: first to help people find and apply for jobs and second to find forms to apply for jobs, these two different _intentions_ align to the following custom intents:
+After this app is created, the next step is to create intents. Intents are a way to categorize text from users. If you have a human resources app that has two functions: first to help people find and apply for jobs and second to find forms to apply for jobs, these two different _intentions_ align to the following custom intents:
 
 |Intent|Example text from user<br>known as an _utterance_|
 |--|--|
@@ -57,9 +57,9 @@ After the app is created, the next step is to create intents. Intents are a way 
 
 ## Add example utterance 
 
-After creating the intent, the next step is to add example utterances. This is text, entered by the user in a chat bot or other client application, that maps a user's intention to a LUIS intent. 
+After creating the intent, the next step is to add example utterances. This is text, entered by the user in a chat bot or other client application, that maps the intention of the user's text to a LUIS intent. 
 
-For this `FindForm` intent, example utterances need to include the form number, for example: `hrf-123456`. The text hrf is an abbreviation for `human resources form`. The form number is important information within the utterance that the client application needs in order to fullfil the user's request. 
+For this example application's `FindForm` intent, example utterances will include the form number, which is important information within the utterance that the client application needs in order to fullfil the user's request. 
 
 Add the following fifteen example utterances to the `FindForm` intent. 
 
@@ -85,7 +85,7 @@ Add the following fifteen example utterances to the `FindForm` intent.
 
 ## Create regular expression entity 
 
-In order to get the form number as part of the runtime prediction response, the form has to be marked as an entity. Since the form number text is highly structured, it can be marked using a regular expression entity. Create the entity with the following steps. 
+In order to get the form number returned as part of the runtime prediction response, the form has to be marked as an entity. Since the form number text is highly structured, it can be marked using a regular expression entity. Create the entity with the following steps. 
 
 1. Select **Entities** from the left-navigation menu. 
 
@@ -93,19 +93,17 @@ In order to get the form number as part of the runtime prediction response, the 
 
 1. Enter the name `Human Resources Form Number`, select the **Regex** entity type, and enter the regular expression, `hrf-[0-9]{6}`. This matches the literal characters, `hrf-`, and allows for exactly 6 digits. 
 
-![Enter entity information for the regular expression entity](./media/get-started-portal-build-app/create-regular-expression-entity.png)
+    ![Enter entity information for the regular expression entity](./media/get-started-portal-build-app/create-regular-expression-entity.png)
 
 1. Select **Done**. 
 
 ## Add example utterances to None intent
 
-The **None** intent is the fallback intent and shouldn't be left empty. This intent should have 1 utterance for every 10 in the rest of the intents. 
+The **None** intent is the fallback intent and shouldn't be left empty. This intent should have 1 utterance for every 10 in the rest of the intents of the app. 
 
-Good example utterances for the None intent should not have utterances that you intend to capture in the other intents. None intent utterances should be outside of your client application domain. 
+The **None** intent's example utterances should be outside of your client application domain. 
 
-A LUIS app developer should have enough knowledge about the app domain to be able to select utterances that are outside the domain. 
-
-1. Select **Intents** from the left menu, then select **None**.
+1. Select **Intents** from the left menu, then select **None** from the Intents list.
 
 1. Add the following example utterances to the intent:
 
@@ -115,19 +113,21 @@ A LUIS app developer should have enough knowledge about the app domain to be abl
     |Order a pizza for me|
     |Penguins in the ocean|
 
+    For this human resources app, these example utterances are outside the domain. If your human resources domain including, animals, food, or the ocean, then these example utterances should not be used for the **None** intent. 
+
 ## Train the app
 
 1. In the top-right navigation, select **Train** to apply the intent and entity model changes to the current version of the app. 
 
-1. Verify the entity is found in the FindForm intent. Select **Intents** from left menu, then select **FindForm** intent. 
+1. Verify the entity is found in the **FindForm**  intent by selecting **Intents** from the left menu, then select **FindForm** intent. 
 
-    The entity is marked where it appears in the example utterances. 
+    The entity is marked where it appears in the example utterances. If you want to see the original text, instead of the entity name, toggle **Entities View** from the toolbar.
 
     [![All example utterances marked with entities](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
 
 ## Test new app
 
-Use the interactive Test pane in the LUIS portal to validate the entity is extracted from new utterances.
+Use the interactive **Test** pane in the LUIS portal to validate the entity is extracted from new utterances the app hasn't seen yet.
 
 1. Select **Test** from the top-right menu.
 
@@ -137,12 +137,14 @@ Use the interactive Test pane in the LUIS portal to validate the entity is extra
 
     ![Test new utterance in test pane](./media/get-started-portal-build-app/test-new-utterance.png)
 
+    The top predicted intent is correctly **FindForm** with over 90% confidence (0.977) and the **Human Resources Form Number** entity is extracted with a value of hrf-234098. 
+
 ## Clean up resources
-When you are done with this quickstart, select **My apps** from the top navigation menu. Then select the app's left-hand checkbox from the list, and select  **Delete** from the context toolbar above the list. 
+When you are done with this quickstart and you are not moving on to the next quickstart, select **My apps** from the top navigation menu. Then select the app's left-hand checkbox from the list, and select  **Delete** from the context toolbar above the list. 
 
 [![Delete app from My apps list](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Deploy model](get-started-portal-deploy-app.md)
+> [Deploy this app](get-started-portal-deploy-app.md)

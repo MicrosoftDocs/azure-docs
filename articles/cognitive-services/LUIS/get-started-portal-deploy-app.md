@@ -13,11 +13,11 @@ ms.author: diberry
 #Customer intent: As a new user, I want to deploy a LUIS app in the LUIS portal so I can understand the process of putting the model on the prediction endpoint. 
 ---
 
-# Quickstart: 2. Deploy app in LUIS portal
+# Quickstart: Deploy an app in LUIS portal
 
-Once the app is ready to return predictions for utterances to a client application, such as a chat bot, you need to deploy the app to the prediction endpoint. 
+Once the app is ready to return utterance predictions to a client application, such as a chat bot, you need to deploy the app to the prediction endpoint. 
 
-In this quickstart, you learn to deploy an application by creating a prediction endpoint runtime key, assigning the key to the app, training the app, and publishing the app. 
+In this quickstart, you learn to deploy an application by creating a prediction endpoint resource, assigning the resource to the app, training the app, and publishing the app. 
 
 ## Prerequisites
 
@@ -25,20 +25,20 @@ In this quickstart, you learn to deploy an application by creating a prediction 
 * Complete the [previous portal quickstart](get-started-portal-build-app.md) or [download and import the app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json). 
 
 
-## Create prediction endpoint runtime resource
+## Create endpoint resource
 
-The prediction endpoint runtime resource is created in the Azure portal. This resource should only be used for endpoint prediction queries. Do not use this resource for authoring changes to the app. 
+The prediction endpoint resource is created in the Azure portal. This resource should only be used for endpoint prediction queries. Do not use this resource for authoring changes to the app. 
 
 1. Sign in to the **[Azure portal](https://ms.portal.azure.com/)**. 
 
-1. Select the green **+** sign in the upper left-hand panel and search for `Cognitive Services` in the marketplace, then select it and follow the **Create experience** to create a resource. 
+1. Select the green **+** sign in the upper left-hand panel and search for `Cognitive Services` in the marketplace, then select it. 
 
-1. Configure the subscription the following settings:
+1. Configure the subscription with the following settings:
 
     |Setting|Value|Purpose|
     |--|--|--|
-    |Name|`my-cognitive-servce-resource`|The name of the Azure resource. You need this name when you assign the resource to the app in the LUIS portal.|
-    |Subscription|Your subscription.|Select one of the subscriptions associated with your account.|
+    |Name|`my-cognitive-service-resource`|The name of the Azure resource. You need this name when you assign the resource to the app in the LUIS portal.|
+    |Subscription|Your subscription|Select one of the subscriptions associated with your account.|
     |Location|**West US**|The azure region for this resource.|
     |Pricing tier|**S0**|The default pricing tier for this resource.|
     |Resource group|`my-cognitive-service-resource-group`|Create a new resource group for all your cognitive service resources. When you are done with the resources, you can delete the resource group to clean up your subscription. | 
@@ -49,7 +49,7 @@ The prediction endpoint runtime resource is created in the Azure portal. This re
 
 ## Assign resource key to LUIS app in LUIS Portal
 
-You need to assign the resource every time you create one. Once it is assigned, you won't need to do this step again unless you create a new resource. You might create a new resource to expand the regions of your app or to support a higher number of prediction queries. 
+Every time you create a new resource for LUIS, you need to assign the resource to the LUIS app. Once it is assigned, you won't need to do this step again unless you create a new resource. You might create a new resource to expand the regions of your app or to support a higher number of prediction queries. 
 
 1. Sign in to the [LUIS portal](https://www.luis.ai), choose the **myEnglishApp** app from the apps list.
 
@@ -71,7 +71,7 @@ You should train whenever you are ready to test it. You should publish the app w
 
 1. If the app is untrained, select **Train** from the top, right menu.
 
-1. Select **Publish** from the top, right menu. Don't change the default environment settings, and select **Publish**.
+1. Select **Publish** from the top, right menu. Accept the default environment settings, and select **Publish**.
 
 1. When the green success notification bar appears at the top of the browser window, select the **Refer to the list of endpoints** link. 
 
@@ -81,7 +81,7 @@ You should train whenever you are ready to test it. You should publish the app w
 
 1. Select the endpoint URL associated with your new resource name. This opens a web browser with a correctly constructed URL to make a **GET** request to the prediction endpoint runtime. 
 
-1. At the end of the URL, after the `q=`, enter the same user utterance used at the end of the previous quickstart:
+1. The `q=` at the end of the URL is short for **query** and is where the user's utterance is appended to the GET request. After the `q=`, enter the same user utterance used at the end of the previous quickstart:
 
     ```Is there a form named hrf-234098```
 
@@ -114,6 +114,11 @@ You should train whenever you are ready to test it. You should publish the app w
       ]
     }
     ```
+
+    This response gives you more information than the default **Test** pane in the previous tutorial. If you want to see this same level of information in the Test pane, the app must be published. Then, in the Test pane, select **Compare with published**. Use **Show JSON view** in the publised test pane to see the same JSON as the previous step. This allows you to compare the current app you are working on and the app that is published to the endpoint.
+
+    [![Compare currently editing versus published version of app](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
+
 
 ## Clean up resources
 When you are done with this quickstart, select **My apps** from the top navigation menu. Then select the app's left-hand checkbox from the list, and select  **Delete** from the context toolbar above the list. 
