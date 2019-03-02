@@ -115,7 +115,7 @@ az monitor diagnostic-settings create \
   --resource-group myWorkspaces
 ```
 
-If you don't have an existing workspace, you can create one using the [Azure portal](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [PowerShell](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace). There are two categories of logging you can enable logs for. 
+If you don't have an existing workspace, you can create one using the [Azure portal](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [PowerShell](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace). There are two categories of logging you can enable logs for.
 
 If you only want to log data for one category or the other, remove the category you don't want to log data for in the previous command. If you want to log to a different [destination](#log-destinations) than a Log Analytics workspace, use the appropriate parameters for an Azure [Storage account](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Event Hub](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -126,7 +126,7 @@ View and analyze logs. For more information, see [View and analyze logs](#view-a
 Diagnostics data can be:
 - [Written to an Azure Storage account](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), for auditing or manual inspection. You can specify the retention time (in days) using resource diagnostic settings.
 - [Streamed to an Event hub](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for ingestion by a third-party service, or custom analytics solution, such as PowerBI.
-- [Written to Azure Azure Monitor logs](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
+- [Written to Azure Monitor logs](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
 
 ## Log categories
 
@@ -150,7 +150,7 @@ The event log contains information about which NSG rules are applied to VMs, bas
 		"primaryIPv4Address":"192.168.1.4",
 		"ruleName":"[SECURITY-RULE-NAME]",
 		"direction":"[DIRECTION-SPECIFIED-IN-RULE]",
-		"priority":[PRIORITY-SPECIFIED-IN-RULE],
+		"priority":"[PRIORITY-SPECIFIED-IN-RULE]",
 		"type":"[ALLOW-OR-DENY-AS-SPECIFIED-IN-RULE]",
 		"conditions":{
 			"protocols":"[PROTOCOLS-SPECIFIED-IN-RULE]",
