@@ -24,11 +24,14 @@ ms.collection: M365-identity-device-management
 
 The objective of this tutorial is to show you the steps you need to perform in Velpic and Azure AD to automatically provision and de-provision user accounts from Azure AD to Velpic. 
 
+> [!NOTE]
+> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following items:
 
-*   An Azure Active Active directory tenant
+*   An Azure Active Directory tenant
 *   A Velpic tenant with the [Enterprise plan](https://www.velpic.com/pricing.html) or better enabled 
 *   A user account in Velpic with Admin permissions 
 
@@ -38,7 +41,7 @@ Azure Active Directory uses a concept called "assignments" to determine which us
 
 Before configuring and enabling the provisioning service, you will need to decide what users and/or groups in Azure AD represent the users who need access to your Velpic app. Once decided, you can assign these users to your Velpic app by following the instructions here:
 
-[Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
+[Assign a user or group to an enterprise app](../manage-apps/active-directory-coreapps-assign-user-azure-portal.md)
 
 ### Important tips for assigning users to Velpic
 
@@ -51,7 +54,8 @@ Before configuring and enabling the provisioning service, you will need to decid
 
 This section guides you through connecting your Azure AD to Velpic's user account provisioning API, and configuring the provisioning service to create, update and disable assigned user accounts in Velpic based on user and group assignment in Azure AD.
 
-**Tip:** You may also choose to enabled SAML-based Single Sign-On for Velpic, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
+>[!TIP]
+>You may also choose to enabled SAML-based Single Sign-On for Velpic, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
 
 ### To configure automatic user account provisioning to Velpic in Azure AD:
@@ -64,11 +68,11 @@ This section guides you through connecting your Azure AD to Velpic's user accoun
 
 4.	Set the **Provisioning Mode** to **Automatic**.
 
-    ![Velpic Provisioning](./media/active-directory-saas-velpic-provisioning-tutorial/Velpic1.png)
+    ![Velpic Provisioning](./media/velpic-provisioning-tutorial/Velpic1.png)
 
-5.	Under the **Admin Credentials** section, input the **Tenant URL&Secret Token** of Velpic.(You can find these values under you Velpic account: **Manage** > **Intergration** > **Plugin** > **SCIM**)
+5.	Under the **Admin Credentials** section, input the **Tenant URL&Secret Token** of Velpic.(You can find these values under your Velpic account: **Manage** > **Integration** > **Plugin** > **SCIM**)
 
-    ![Authorization Values](./media/active-directory-saas-velpic-provisioning-tutorial/Velpic2.png)
+    ![Authorization Values](./media/velpic-provisioning-tutorial/Velpic2.png)
 
 6. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Velpic app. If the connection fails, ensure your Velpic account has Admin permissions and try step 5 again.
 
@@ -84,16 +88,16 @@ This section guides you through connecting your Azure AD to Velpic's user accoun
 
 12. Click **Save**. 
 
-This will start the initial synchronization of any users and/or groups assigned to Velpic in the Users and Groups section. Note that the initial sync will take longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service.
+This will start the initial synchronization of any users and/or groups assigned to Velpic in the Users and Groups section. Note that the initial sync will take longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 
 ## Additional Resources
 
-* [Managing user account provisioning for Enterprise Apps](active-directory-enterprise-apps-manage-provisioning.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Managing user account provisioning for Enterprise Apps](../manage-apps/active-directory-enterprise-apps-manage-provisioning.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/active-directory-appssoaccess-whatis.md)
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](active-directory-saas-provisioning-reporting.md)
+* [Learn how to review logs and get reports on provisioning activity](../manage-apps/active-directory-saas-provisioning-reporting.md)
