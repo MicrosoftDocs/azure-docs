@@ -26,13 +26,13 @@ In its simplest structure, a template has the following elements:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "",
-    "parameters": {  },
-    "variables": {  },
-    "functions": [  ],
-    "resources": [  ],
-    "outputs": {  }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "",
+  "parameters": {  },
+  "variables": {  },
+  "functions": [  ],
+  "resources": [  ],
+  "outputs": {  }
 }
 ```
 
@@ -50,106 +50,106 @@ Each element has properties you can set. The following example shows the full sy
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "",
-    "parameters": {  
-        "<parameter-name>" : {
-            "type" : "<type-of-parameter-value>",
-            "defaultValue": "<default-value-of-parameter>",
-            "allowedValues": [ "<array-of-allowed-values>" ],
-            "minValue": <minimum-value-for-int>,
-            "maxValue": <maximum-value-for-int>,
-            "minLength": <minimum-length-for-string-or-array>,
-            "maxLength": <maximum-length-for-string-or-array-parameters>,
-            "metadata": {
-                "description": "<description-of-the parameter>" 
-            }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "",
+  "parameters": {  
+    "<parameter-name>" : {
+      "type" : "<type-of-parameter-value>",
+      "defaultValue": "<default-value-of-parameter>",
+      "allowedValues": [ "<array-of-allowed-values>" ],
+      "minValue": <minimum-value-for-int>,
+      "maxValue": <maximum-value-for-int>,
+      "minLength": <minimum-length-for-string-or-array>,
+      "maxLength": <maximum-length-for-string-or-array-parameters>,
+      "metadata": {
+        "description": "<description-of-the parameter>" 
+      }
+    }
+  },
+  "variables": {
+    "<variable-name>": "<variable-value>",
+    "<variable-object-name>": {
+      <variable-complex-type-value>
+    },
+    "<variable-object-name>": {
+      "copy": [
+        {
+          "name": "<name-of-array-property>",
+          "count": <number-of-iterations>,
+          "input": <object-or-value-to-repeat>
         }
+      ]
     },
-    "variables": {
-        "<variable-name>": "<variable-value>",
-        "<variable-object-name>": {
-            <variable-complex-type-value>
-        },
-        "<variable-object-name>": {
-            "copy": [
-                {
-                    "name": "<name-of-array-property>",
-                    "count": <number-of-iterations>,
-                    "input": <object-or-value-to-repeat>
-                }
-            ]
-        },
-        "copy": [
-            {
-                "name": "<variable-array-name>",
-                "count": <number-of-iterations>,
-                "input": <object-or-value-to-repeat>
-            }
-        ]
-    },
-    "functions": [
+    "copy": [
       {
-        "namespace": "<namespace-for-your-function>",
-        "members": {
-          "<function-name>": {
-            "parameters": [
-              {
-                "name": "<parameter-name>",
-                "type": "<type-of-parameter-value>"
-              }
-            ],
-            "output": {
-              "type": "<type-of-output-value>",
-              "value": "<function-expression>"
+        "name": "<variable-array-name>",
+        "count": <number-of-iterations>,
+        "input": <object-or-value-to-repeat>
+      }
+    ]
+  },
+  "functions": [
+    {
+      "namespace": "<namespace-for-your-function>",
+      "members": {
+        "<function-name>": {
+          "parameters": [
+            {
+              "name": "<parameter-name>",
+              "type": "<type-of-parameter-value>"
             }
+          ],
+          "output": {
+            "type": "<type-of-output-value>",
+            "value": "<function-expression>"
           }
         }
       }
-    ],
-    "resources": [
-      {
-          "condition": "<boolean-value-whether-to-deploy>",
-          "apiVersion": "<api-version-of-resource>",
-          "type": "<resource-provider-namespace/resource-type-name>",
-          "name": "<name-of-the-resource>",
-          "location": "<location-of-resource>",
-          "tags": {
-              "<tag-name1>": "<tag-value1>",
-              "<tag-name2>": "<tag-value2>"
-          },
-          "comments": "<your-reference-notes>",
-          "copy": {
-              "name": "<name-of-copy-loop>",
-              "count": "<number-of-iterations>",
-              "mode": "<serial-or-parallel>",
-              "batchSize": "<number-to-deploy-serially>"
-          },
-          "dependsOn": [
-              "<array-of-related-resource-names>"
-          ],
-          "properties": {
-              "<settings-for-the-resource>",
-              "copy": [
-                  {
-                      "name": ,
-                      "count": ,
-                      "input": {}
-                  }
-              ]
-          },
-          "resources": [
-              "<array-of-child-resources>"
-          ]
-      }
-    ],
-    "outputs": {
-        "<outputName>" : {
-            "condition": "<boolean-value-whether-to-output-value>",
-            "type" : "<type-of-output-value>",
-            "value": "<output-value-expression>"
-        }
     }
+  ],
+  "resources": [
+    {
+      "condition": "<boolean-value-whether-to-deploy>",
+      "apiVersion": "<api-version-of-resource>",
+      "type": "<resource-provider-namespace/resource-type-name>",
+      "name": "<name-of-the-resource>",
+      "location": "<location-of-resource>",
+        "tags": {
+          "<tag-name1>": "<tag-value1>",
+          "<tag-name2>": "<tag-value2>"
+        },
+        "comments": "<your-reference-notes>",
+        "copy": {
+          "name": "<name-of-copy-loop>",
+          "count": "<number-of-iterations>",
+          "mode": "<serial-or-parallel>",
+          "batchSize": "<number-to-deploy-serially>"
+        },
+        "dependsOn": [
+          "<array-of-related-resource-names>"
+        ],
+        "properties": {
+          "<settings-for-the-resource>",
+          "copy": [
+            {
+              "name": ,
+              "count": ,
+              "input": {}
+            }
+          ]
+        },
+        "resources": [
+          "<array-of-child-resources>"
+        ]
+    }
+  ],
+  "outputs": {
+    "<outputName>" : {
+      "condition": "<boolean-value-whether-to-output-value>",
+      "type" : "<type-of-output-value>",
+      "value": "<output-value-expression>"
+    }
+  }
 }
 ```
 
@@ -165,7 +165,7 @@ The following example shows how to use several functions when constructing a val
 
 ```json
 "variables": {
-    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
 }
 ```
 
@@ -179,7 +179,7 @@ You're limited to 256 parameters in a template. You can reduce the number of par
 
 ### Available properties
 
-The preceding example showed only some of the properties you can use in the parameter section. The available properties are:
+The available properties for a parameter are:
 
 ```json
 "parameters": {
@@ -191,9 +191,9 @@ The preceding example showed only some of the properties you can use in the para
     "maxValue": <maximum-value-for-int>,
     "minLength": <minimum-length-for-string-or-array>,
     "maxLength": <maximum-length-for-string-or-array-parameters>,
-      "metadata": {
-        "description": "<description-of-the parameter>" 
-      }
+    "metadata": {
+      "description": "<description-of-the parameter>" 
+    }
   }
 }
 ```
