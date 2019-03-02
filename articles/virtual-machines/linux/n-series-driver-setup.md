@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/09/2019
+ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 
@@ -50,21 +50,29 @@ Then run installation commands specific for your distribution.
 
 ### Ubuntu 
 
-1. Download and install the CUDA drivers from the NVIDIA website. For example, for Ubuntu 16.04 LTS:
+1. Download and install the CUDA drivers from the NVIDIA website.
   ```bash
-  CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
+# Ubuntu 16.04
+# CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
+# NVIDIA_DOWNLOAD_LINK=http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/
+# NVIDIA_KEY_SERVER=http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub
 
-  wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
+# Ubuntu 18.04
+# CUDA_REPO_PKG=cuda-repo-ubuntu1804_10.1.105-1_amd64.deb
+# NVIDIA_DOWNLOAD_LINK=http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/
+# NVIDIA_KEY_SERVER=http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
 
-  sudo dpkg -i /tmp/${CUDA_REPO_PKG}
+wget -O /tmp/${CUDA_REPO_PKG} ${NVIDIA_DOWNLOAD_LINK}${CUDA_REPO_PKG} 
 
-  sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
+sudo dpkg -i /tmp/${CUDA_REPO_PKG}
 
-  rm -f /tmp/${CUDA_REPO_PKG}
+sudo apt-key adv --fetch-keys  
 
-  sudo apt-get update
+rm -f /tmp/${CUDA_REPO_PKG} ${NVIDIA_KEY_SERVER}
 
-  sudo apt-get install cuda-drivers
+sudo apt-get update
+
+sudo apt-get install cuda-drivers
 
   ```
 
@@ -120,19 +128,20 @@ sudo reboot
 3. Reconnect to the VM and continue installation with the following commands:
 
   ```bash
-  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+CUDA_REPO_PKG=cuda-repo-rhel7-10.1.105-1.x86_64.rpm
+NVIDIA_DOWNLOAD_LINK=http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/
 
-  sudo yum install dkms
+sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
-  CUDA_REPO_PKG=cuda-repo-rhel7-10.0.130-1.x86_64.rpm
+sudo yum install dkms
 
-  wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
+wget ${NVIDIA_DOWNLOAD_LINK}${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
-  sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
+sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
 
-  rm -f /tmp/${CUDA_REPO_PKG}
+rm -f /tmp/${CUDA_REPO_PKG}
 
-  sudo yum install cuda-drivers
+sudo yum install cuda-drivers
   ```
 
   The installation can take several minutes. 
