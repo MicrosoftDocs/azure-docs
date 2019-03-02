@@ -56,7 +56,7 @@ The API Management service in an internal virtual network is hosted behind an in
 
 4. Select **Save**.
 
-After the deployment succeeds, you should see the internal virtual IP address of your service on the dashboard.
+After the deployment succeeds, you should see private virtual ip address and public virtual ip address of your API Management service on the overview blade. The private virtual ip address is a load balanced ip address from within the API Management delegated subnet over which gateway, portal, management and scm can be accessed. The public virtual ip address is used only for control plane traffic to management endpoint over port 3443 and can be locked down to the [ApiManagement][ServiceTags].
 
 ![API Management dashboard with an internal virtual network configured][api-management-internal-vnet-dashboard]
 
@@ -123,10 +123,12 @@ To learn more, see the following articles:
 * [Virtual network FAQs](../virtual-network/virtual-networks-faq.md)
 * [Creating a record in DNS](https://msdn.microsoft.com/library/bb727018.aspx)
 
-[api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-menu.png
+[api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-using-with-internal-vnet.png
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png
 [api-management-custom-domain-name]: ./media/api-management-using-with-internal-vnet/api-management-custom-domain-name.png
 
 [Create API Management service]: get-started-create-service-instance.md
 [Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
+
+[ServiceTags]: ../virtual-network/security-overview.md#service-tags
 
