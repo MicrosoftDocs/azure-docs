@@ -4,8 +4,9 @@ description: Migrate data from an on-premises HDFS store to Azure Storage
 services: storage
 author: normesta
 ms.service: storage
-ms.date: 02/22/2019
+ms.date: 03/01/2019
 ms.author: normesta
+ms.topic: article
 ms.component: data-lake-storage-gen2
 ---
 
@@ -117,7 +118,7 @@ This step is needed if you are using Azure Data Lake Storage Gen2 as your data s
 
 You can do this in 2 ways. 
 
-- Use [Azure Data Factory to move data to ADLS Gen2](https://docs.microsoft.com/en-us/azure/data-factory/load-azure-data-lake-storage-gen2). You will have to specify **Azure Blob Storage** as the source.
+- Use [Azure Data Factory to move data to ADLS Gen2](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2). You will have to specify **Azure Blob Storage** as the source.
 
 - Use your Azure-based Hadoop cluster. You can run this DistCp command:
 
