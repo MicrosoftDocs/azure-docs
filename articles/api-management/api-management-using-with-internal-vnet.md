@@ -80,25 +80,25 @@ When API Management is in external virtual network mode, the DNS is managed by A
 > API Management service does not listen to requests coming from IP addresses. It only responds to requests to the host name configured on its service endpoints. These endpoints include gateway, the Azure portal and the Developer portal, direct management endpoint, and Git.
 
 ### Access on default host names
-When you create an API Management service, named "contoso" for example, the following service endpoints are configured by default:
+When you create an API Management service, named "contosointernalvnet" for example, the following service endpoints are configured by default:
 
-   * Gateway or proxy: contoso.azure-api.net
+   * Gateway or proxy: contosointernalvnet.azure-api.net
 
-   * The Azure portal and the Developer portal: contoso.portal.azure-api.net
+   * The Azure portal and the Developer portal: contosointernalvnet.portal.azure-api.net
 
-   * Direct management endpoint: contoso.management.azure-api.net
+   * Direct management endpoint: contosointernalvnet.management.azure-api.net
 
-   * Git: contoso.scm.azure-api.net
+   * Git: contosointernalvnet.scm.azure-api.net
 
-To access these API Management service endpoints, you can create a virtual machine in a subnet connected to the virtual network in which API Management is deployed. Assuming the internal virtual IP address for your service is 10.0.0.5, you can map the hosts file, %SystemDrive%\drivers\etc\hosts, as follows:
+To access these API Management service endpoints, you can create a virtual machine in a subnet connected to the virtual network in which API Management is deployed. Assuming the internal virtual IP address for your service is 10.1.0.5, you can map the hosts file, %SystemDrive%\drivers\etc\hosts, as follows:
 
-   * 10.0.0.5     contoso.azure-api.net
+   * 10.1.0.5     contosointernalvnet.azure-api.net
 
-   * 10.0.0.5     contoso.portal.azure-api.net
+   * 10.1.0.5     contosointernalvnet.portal.azure-api.net
 
-   * 10.0.0.5     contoso.management.azure-api.net
+   * 10.1.0.5     contosointernalvnet.management.azure-api.net
 
-   * 10.0.0.5     contoso.scm.azure-api.net
+   * 10.1.0.5     contosointernalvnet.scm.azure-api.net
 
 You can then access all the service endpoints from the virtual machine you created. 
 If you use a custom DNS server in a virtual network, you can also create A DNS records and access these endpoints from anywhere in your virtual network. 
