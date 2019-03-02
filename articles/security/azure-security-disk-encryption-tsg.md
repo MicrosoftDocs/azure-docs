@@ -137,9 +137,9 @@ If the expected encryption state does not match what is being reported in the po
 
 ## Troubleshooting Encryption Status 
 
-If a drive has been decrypted without using the supported commands, the portal may report that an unencrypted disk is encrypted.  Azure Disk Encryption associates encryption settings metadata with the VM and its disks at time of encryption. These settings must be maintained and kept in alignment in order for the platform to report encryption status and provision the VM properly.  
+The portal may display a disk as encrypted even after it has been unencrypted within the VM.  This can occur if low-level commands were used to disable Bitlocker directly from within the VM, instead of using the higher level Azure commands outside of the VM.  Although the Azure commands will call into these same low-level commands on the VM, they also maintain encryption settings metadata outside of the VM and add or remove the Azure Disk Encryption extension from the VM as needed. When these additional components are not kept in alignment, the platform is no longer able to report encryption status and provision the VM properly.   
 
-To properly disable Azure Disk Encryption, start from a known good state with encryption enabled, and then use the [Disable-AzureRmVmDiskEncryption](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) and [Remove-AzureRmVmDiskEncryptionExtension](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/remove-azurermvmdiskencryptionextension)  Powershell commands, or the [az vm encryption disable](https://docs.microsoft.com/en-us/cli/azure/vm/encryption) CLI command.
+To properly disable Azure Disk Encryption, start from a known good state with encryption enabled, and then use the [Disable-AzureRmVmDiskEncryption](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) and [Remove-AzureRmVmDiskEncryptionExtension](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/remove-azurermvmdiskencryptionextension)  Powershell commands, or the [az vm encryption disable](https://docs.microsoft.com/en-us/cli/azure/vm/encryption) CLI command. 
 
 ## Next steps
 
