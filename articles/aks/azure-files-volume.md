@@ -181,6 +181,7 @@ For more information about AKS clusters interact with Azure Files, see the [Kube
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
 [smb-overview]: /windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
+[kubernetes-security-context]: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 
 <!-- LINKS - internal -->
 [az-group-create]: /cli/azure/group#az-group-create
