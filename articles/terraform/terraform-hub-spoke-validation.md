@@ -24,11 +24,11 @@ In this article, you execute the terraform files created in the previous article
 
 ## Prerequisites
 
-- [Create a hub and spoke hybrid network topology with Terraform in Azure](./terraform-hub-spoke-introduction.md).
-- [Create on-premises virtual network with Terraform in Azure](./terraform-hub-spoke-on-prem.md).
-- [Create a hub virtual network with Terraform in Azure](./terraform-hub-spoke-hub-network.md).
-- [Create a hub virtual network appliance with Terraform in Azure](./terraform-hub-spoke-hub-nva.md).
-- [Create a spoke virtual networks with Terraform in Azure](./terraform-hub-spoke-spoke-network.md).
+1. [Create a hub and spoke hybrid network topology with Terraform in Azure](./terraform-hub-spoke-introduction.md).
+1. [Create on-premises virtual network with Terraform in Azure](./terraform-hub-spoke-on-prem.md).
+1. [Create a hub virtual network with Terraform in Azure](./terraform-hub-spoke-hub-network.md).
+1. [Create a hub virtual network appliance with Terraform in Azure](./terraform-hub-spoke-hub-nva.md).
+1. [Create a spoke virtual networks with Terraform in Azure](./terraform-hub-spoke-spoke-network.md).
 
 ## Verify your configuration
 

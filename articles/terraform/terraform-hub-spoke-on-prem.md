@@ -23,7 +23,7 @@ In this tutorial, you implement an on-premises network using an Azure Virtual ne
 
 ## Prerequisites
 
-- [Create a hub and spoke hybrid network topology in Azure](./terraform-hub-spoke-introduction.md).
+1. [Create a hub and spoke hybrid network topology with Terraform in Azure](./terraform-hub-spoke-introduction.md).
 
 ## Create the directory structure
 

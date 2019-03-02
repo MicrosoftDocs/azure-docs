@@ -25,9 +25,9 @@ Azure supports a broad variety of network virtual appliances from which to selec
 
 ## Prerequisites
 
-- [Create a hub and spoke hybrid network topology with Terraform in Azure](./terraform-hub-spoke-introduction.md).
-- [Create on-premises virtual network with Terraform in Azure](./terraform-hub-spoke-on-prem.md).
-- [Create a hub virtual network with Terraform in Azure](./terraform-hub-spoke-hub-network.md).
+1. [Create a hub and spoke hybrid network topology with Terraform in Azure](./terraform-hub-spoke-introduction.md).
+1. [Create on-premises virtual network with Terraform in Azure](./terraform-hub-spoke-on-prem.md).
+1. [Create a hub virtual network with Terraform in Azure](./terraform-hub-spoke-hub-network.md).
 
 ## Create the directory structure
 

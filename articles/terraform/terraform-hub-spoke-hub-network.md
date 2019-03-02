@@ -23,8 +23,8 @@ The hub virtual network (VNet) acts as the central point of connectivity to the 
 
 ## Prerequisites
 
-- [Create a hub and spoke hybrid network topology with Terraform in Azure](./terraform-hub-spoke-introduction.md).
-- [Create on-premises virtual network with Terraform in Azure](./terraform-hub-spoke-on-prem.md).
+1. [Create a hub and spoke hybrid network topology with Terraform in Azure](./terraform-hub-spoke-introduction.md).
+1. [Create on-premises virtual network with Terraform in Azure](./terraform-hub-spoke-on-prem.md).
 
 ## Create the directory structure
 
