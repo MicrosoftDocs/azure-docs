@@ -90,6 +90,8 @@ The following information identifies the Azure Government boundary for Azure Cac
 For details on this service and how to use it, see [Azure Database for PostgreSQL documentation](../postgresql/index.yml).
 
 ### Variations
+Advanced Threat Protection for Azure Database for PostgreSQL is **not** available in Azure Government.
+
 The URLs for accessing and managing Azure Database for PostgreSQL in Azure Government are different:
 
 | Service Type | Azure Public | Azure Government |
@@ -107,6 +109,8 @@ The following information identifies the Azure Government boundary for Azure Dat
 For details on this service and how to use it, see [Azure Database for MariaDB documentation](../mariadb/index.yml).
 
 ### Variations
+Advanced Threat Protection for Azure Database for MariaDB is **not** available in Azure Government.
+
 The URLs for accessing and managing Azure Database for MariaDB in Azure Government are different:
 
 | Service Type | Azure Public | Azure Government |
@@ -124,6 +128,8 @@ The following information identifies the Azure Government boundary for Azure Dat
 For details on this service and how to use it, see [Azure Database for MySQL documentation](../mysql/index.yml).
 
 ### Variations
+Advanced Threat Protection for Azure Database for MySQL is **not** available in Azure Government.
+
 The URLs for accessing and managing Azure Database for MySQL in Azure Government are different:
 
 | Service Type | Azure Public | Azure Government |
