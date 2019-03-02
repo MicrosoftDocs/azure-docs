@@ -144,7 +144,7 @@ Default *fileMode* and *dirMode* values differ between Kubernetes versions as de
 | v1.9.0 | 0700 |
 | v1.9.1 or above | 0755 |
 
-If using a cluster of version 1.8.5 or greater and statically creating the persistent volume object, mount options need to be specified on the *PersistentVolume* object. for more information on statically creating a persistent volume, see [Static Persistent Volumes][pv-static].
+If using a cluster of version 1.8.5 or greater and statically creating the persistent volume object, mount options need to be specified on the *PersistentVolume* object.
 
 ```yaml
 apiVersion: v1
