@@ -41,7 +41,7 @@ Azure Active Directory uses a concept called "assignments" to determine which us
 
 Before configuring and enabling the provisioning service, you will need to decide what users and/or groups in Azure AD represent the users who need access to your Velpic app. Once decided, you can assign these users to your Velpic app by following the instructions here:
 
-[Assign a user or group to an enterprise app](../manage-apps/active-directory-coreapps-assign-user-azure-portal.md)
+[Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### Important tips for assigning users to Velpic
 
@@ -90,14 +90,14 @@ This section guides you through connecting your Azure AD to Velpic's user accoun
 
 This will start the initial synchronization of any users and/or groups assigned to Velpic in the Users and Groups section. Note that the initial sync will take longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
 
 ## Additional Resources
 
-* [Managing user account provisioning for Enterprise Apps](../manage-apps/active-directory-enterprise-apps-manage-provisioning.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/active-directory-appssoaccess-whatis.md)
+* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/active-directory-saas-provisioning-reporting.md)
+* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)

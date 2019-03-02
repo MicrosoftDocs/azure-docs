@@ -55,7 +55,7 @@ Before configuring MerchLogix for automatic user provisioning with Azure AD, you
 
 5. In the results panel, select **MerchLogix**, and then click the **Add** button to add MerchLogix to your list of SaaS applications.
 
-	![MerchLogix Provisioning](./media/merchlogix-tutorial/tutorial_merchlogix_app.PNG)
+	![MerchLogix Provisioning][4]
 
 ## Assigning users to MerchLogix
 
@@ -130,6 +130,7 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 * [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
-[1]: ./media/merchlogix-tutorial/tutorial_general_01.png
-[2]: ./media/merchlogix-tutorial/tutorial_general_02.png
-[3]: ./media/merchlogix-tutorial/tutorial_general_03.png
+[1]: common/select-azuread.png
+[2]: common/enterprise-applications.png
+[3]: common/add-new-app.png
+[4]: common/search-new-app.png
