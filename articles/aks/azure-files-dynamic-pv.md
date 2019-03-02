@@ -221,29 +221,6 @@ parameters:
   skuName: Standard_LRS
 ```
 
-If using a cluster of version 1.8.5 or greater and statically creating the persistent volume object, mount options need to be specified on the *PersistentVolume* object. for more information on statically creating a persistent volume, see [Static Persistent Volumes][pv-static].
-
-```yaml
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: azurefile
-spec:
-  capacity:
-    storage: 5Gi
-  accessModes:
-    - ReadWriteMany
-  azureFile:
-    secretName: azure-secret
-    shareName: azurefile
-    readOnly: false
-  mountOptions:
-  - dir_mode=0777
-  - file_mode=0777
-  - uid=1000
-  - gid=1000
-```
-
 If using a cluster of version 1.8.0 - 1.8.4, a security context can be specified with the *runAsUser* value set to *0*. For more information on Pod security context, see [Configure a Security Context][kubernetes-security-context].
 
 ## Next steps
