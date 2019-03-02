@@ -15,7 +15,7 @@ ms.date: 03/01/2019
 
 In this tutorial, you implement an on-premises network using an Azure Virtual network (VNet). An Azure VNet could be replaced by your own private virtual network. To do so, map the appropriate IP addresses in the subnets.
 
-The following tasks are presented in this article:
+The following tasks are presented in this tutorial:
 
 > [!div class="checklist"]
 > * Use HCL (HashiCorp Language) to implement an on-premises VNet in hub-spoke topology

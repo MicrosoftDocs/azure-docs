@@ -15,7 +15,7 @@ ms.date: 03/01/2019
 
 In this article, you execute the terraform files created in the previous article in this series. The result is a validation of the connectivity between the demo virtual networks.
 
-The following tasks are presented in this article:
+The following tasks are presented in this tutorial:
 
 > [!div class="checklist"]
 > * Use HCL (HashiCorp Language) to implement the Hub VNet in hub-spoke topology

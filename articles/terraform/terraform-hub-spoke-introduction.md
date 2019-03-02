@@ -17,7 +17,7 @@ This tutorial series shows how to use Terraform to implement in Azure a [hub and
 
 A hub and spoke topology is a way to isolate workloads while sharing common services. These services include identity and security. The hub is a virtual network (VNet) that acts as a central connection point to an on-premises network. The spokes are VNets that peer with the hub. Shared services are deployed in the hub, while individual workloads are deployed inside spoke networks.
 
-In this first tutorial of the series, you perform the following tasks:
+The following tasks are presented in this tutorial:
 
 > [!div class="checklist"]
 > * Use HCL (HashiCorp Language) to lay out hub and spoke hybrid network reference architecture resources
