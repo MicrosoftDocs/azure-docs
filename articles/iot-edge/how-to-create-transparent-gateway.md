@@ -40,7 +40,10 @@ An Azure IoT Edge device to configure as a gateway. You can use your development
 * [Linux x64](./how-to-install-iot-edge-linux.md)
 * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
 
-You can use any machine to generate the certificates, and then copy them over to your IoT Edge device. 
+You can use any machine to generate the certificates, and then copy them over to your IoT Edge device.
+
+>[!NOTE]
+>The "gateway name" used  to create the certificates in this instruction, needs to be the same name as used as hostname in your IoT Edge config.yaml file and as GatewayHostName in the connection string of the downstream device. The "gateway name" needs to be resolvable to an IP Address, either using DNS or a host file entry. Communication based on the protocol used (MQTTS:8883/AMQPS:5671/HTTPS:433) must be possible between downstream device and the transparant IoT Edge. If a firewall is in between, the respective port needs to be open.
 
 ## Generate certificates with Windows
 
