@@ -41,7 +41,7 @@ When possible, examples are provided for both version 3.*x* and version 2.*x*.
 
 ## WebJobs host
 
-The host is a runtime container for functions.  It listens for triggers and calls functions. In version 3.*x*, the host is an implementation of `IHost`, and in version 2.*x*, you use the `JobHost` object. You create a host instance in your code and write code to customize its behavior.
+The host is a runtime container for functions.  It listens for triggers and calls functions. In version 3.*x*, the host is an implementation of `IHost`. In version 2.*x*, you use the `JobHost` object. You create a host instance in your code and write code to customize its behavior.
 
 This is a key difference between using the WebJobs SDK directly and using it indirectly through Azure Functions. In Azure Functions, the service controls the host, and you can't customize the host by writing code. Azure Functions lets you customize host behavior through settings in the host.json file. Those settings are strings, not code, and this limits the kinds of customizations you can do.
 
@@ -69,7 +69,7 @@ static void Main(string[] args)
 }
 ```
 
-Because it uses the default .NET Core configuration APIs, there is no API in version 3.*x* to change connection string names.
+Because version 3.*x* uses the default .NET Core configuration APIs, there is no API to change connection string names.
 
 ### Host development settings
 
@@ -166,7 +166,7 @@ public static void Run(
 }
 ```
 
-The `QueueTrigger` attribute tells the runtime to call the function whenever a queue message appears in the `myqueue-items` queue. The `Blob` attribute tells the runtime to use the queue message to read a blob in the *sample-workitems* container. The content of the queue message, passed into the function in the `myQueueItem` parameter, is the name of the blob.
+The `QueueTrigger` attribute tells the runtime to call the function whenever a queue message appears in the `myqueue-items` queue. The `Blob` attribute tells the runtime to use the queue message to read a blob in the *sample-workitems* container. The content of the queue message, passed in to the function in the `myQueueItem` parameter, is the name of the blob.
 
 
 ### Manual triggers
@@ -736,7 +736,7 @@ You can apply the Timeout attribute at the class or method level, and you can sp
 
 ## Singleton attribute
 
-Use the [`Singleton`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonAttribute.cs) attribute to ensure that only one instance of a function runs, even when there are multiple instances of the host web app. The attribute does this by using [distributed locking](#viewing-lease-blobs).
+The [`Singleton`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonAttribute.cs) attribute ensures that only one instance of a function runs, even when there are multiple instances of the host web app. It does this by using [distributed locking](#viewing-lease-blobs).
 
 In this example, only a single instance of the `ProcessImage` function runs at any given time:
 
@@ -756,7 +756,7 @@ Some triggers have built-in support for concurrency management:
 * **ServiceBusTrigger**. Set `ServiceBusConfiguration.MessageOptions.MaxConcurrentCalls` to `1`.
 * **FileTrigger**. Set `FileProcessor.MaxDegreeOfParallelism` to `1`.
 
-You can use these settings to ensure that your function runs as a singleton on a single instance. To ensure that only a single instance of the function is running when the web app scales out to multiple instances, apply a listener-level singleton lock on the function (`[Singleton(Mode = SingletonMode.Listener)]`). Listener locks are acquired on startup of the JobHost. If three scaled-out instances all start at the same time, only one of the instances acquires the lock and only one listener starts.
+You can use these settings to ensure that your function runs as a singleton on a single instance. To ensure that only a single instance of the function is running when the web app scales out to multiple instances, apply a listener-level singleton lock on the function (`[Singleton(Mode = SingletonMode.Listener)]`). Listener locks are acquired when the JobHost starts. If three scaled-out instances all start at the same time, only one of the instances acquires the lock and only one listener starts.
 
 ### Scope values
 
@@ -798,7 +798,7 @@ public static void RemoveItem([QueueTrigger("remove-item")] string message)
 
 ### Viewing lease blobs
 
-The WebJobs SDK uses [Azure blob leases](../storage/common/storage-concurrency.md#pessimistic-concurrency-for-blobs) under the covers to implement distributed locking. The lease blobs used by Singleton can be found in the `azure-webjobs-host` container in the `AzureWebJobsStorage` storage account under path "locks". For example, the lease blob path for the first `ProcessImage` example shown earlier might be `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`. All paths include the JobHost ID, in this case 061851c758f04938a4426aa9ab3869c0.
+The WebJobs SDK uses [Azure blob leases](../storage/common/storage-concurrency.md#pessimistic-concurrency-for-blobs) under the covers to implement distributed locking. The lease blobs used by Singleton can be found in the `azure-webjobs-host` container in the `AzureWebJobsStorage` storage account under the path "locks". For example, the lease blob path for the first `ProcessImage` example shown earlier might be `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`. All paths include the JobHost ID, in this case 061851c758f04938a4426aa9ab3869c0.
 
 ## Async functions
 
@@ -992,7 +992,7 @@ private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
 }
 ```
 
-The SamplingPercentageEstimatorSettings object configures [adaptive sampling](https://docs.microsoft.com/azure/application-insights/app-insights-sampling#adaptive-sampling-at-your-web-server). This means that in certain high-volume scenarios, Applications Insights sends a selected subset of telemetry data to the server.
+The `SamplingPercentageEstimatorSettings` object configures [adaptive sampling](https://docs.microsoft.com/azure/application-insights/app-insights-sampling#adaptive-sampling-at-your-web-server). This means that in certain high-volume scenarios, Applications Insights sends a selected subset of telemetry data to the server.
 
 After you create the telemetry factory, you pass it in to the Application Insights logging provider:
 
