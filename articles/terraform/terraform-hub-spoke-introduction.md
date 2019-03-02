@@ -24,9 +24,9 @@ The following tasks are presented in this tutorial:
 > * Use Terraform to create hub network appliance resources
 > * Use Terraform to create hub network in Azure to act as common point 
 for all resources
-> * Use Terraform to create individual workloads as spoke virtual networks in Azure
+> * Use Terraform to create individual workloads as spoke VNets in Azure
 > * Use Terraform to establish gateways and connections between on premises and Azure networks
-> * Use Terraform to create virtual network peerings to spoke networks
+> * Use Terraform to create VNet peerings to spoke networks
 
 ## Prerequisites
 
@@ -44,13 +44,13 @@ for all resources
 
 ## Hub and spoke topology architecture
 
-In the hub and spoke topology, the hub is a virtual network (VNet) that acts as a central point of connectivity to your on-premises network. The spokes are VNets that peer with the hub, and can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through an ExpressRoute or VPN gateway connection. The following image demonstrates the components in a hub and spoke topology:
+In the hub and spoke topology, the hub is a VNet. The VNet acts as a central point of connectivity to your on-premises network. The spokes are VNets that peer with the hub, and can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through an ExpressRoute or VPN gateway connection. The following image demonstrates the components in a hub and spoke topology:
 
 ![Hub and spoke topology architecture in Azure](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-architecture.png)
 
 ## Benefits of the hub and spoke topology
 
-A hub and spoke network topology is a way to isolate workloads while sharing common services. These services include identity and security. The hub is a virtual network that acts as a central connection point to an on-premises network. The spokes are VNets that peer with the hub. Shared services are deployed in the hub, while individual workloads are deployed inside spoke networks. Here are some benefits of the hub and spoke network topology:
+A hub and spoke network topology is a way to isolate workloads while sharing common services. These services include identity and security. The hub is a VNet that acts as a central connection point to an on-premises network. The spokes are VNets that peer with the hub. Shared services are deployed in the hub, while individual workloads are deployed inside spoke networks. Here are some benefits of the hub and spoke network topology:
 
 - **Cost savings** by centralizing services in a single location that can be shared by multiple workloads. These workloads include network virtual appliances and DNS servers.
 - **Overcome subscriptions limits** by peering VNets from different subscriptions to the central hub.
@@ -73,13 +73,13 @@ As you work through each tutorial in this series, various components are defined
 
 - **VPN device**. A VPN device or service provides external connectivity to the on-premises network. The VPN device may be a hardware appliance or a software solution. 
 
-- **Hub virtual network**. The hub is the central point of connectivity to your on-premises network and a place to host services. These services can be consumed by the different workloads hosted in the spoke VNets.
+- **Hub VNet**. The hub is the central point of connectivity to your on-premises network and a place to host services. These services can be consumed by the different workloads hosted in the spoke VNets.
 
-- **Gateway subnet**. The virtual network gateways are held in the same subnet.
+- **Gateway subnet**. The VNet gateways are held in the same subnet.
 
-- **Spoke virtual networks**. Spokes can be used to isolate workloads in their own VNets, managed separately from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers. 
+- **Spoke VNets**. Spokes can be used to isolate workloads in their own VNets, managed separately from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers. 
 
-- **VNet peering**. Two VNets can be connected using a peering connection. Peering connections are non-transitive, low latency connections between VNets. Once peered, the VNets exchange traffic by using the Azure backbone, without needing a router. In a hub and spoke network topology, VNet peering is used to connect the hub to each spoke. You can peer virtual networks in the same region, or different regions.
+- **VNet peering**. Two VNets can be connected using a peering connection. Peering connections are non-transitive, low latency connections between VNets. Once peered, the VNets exchange traffic by using the Azure backbone, without needing a router. In a hub and spoke network topology, VNet peering is used to connect the hub to each spoke. You can peer VNets in the same region, or different regions.
 
 ## Create the directory structure
 
