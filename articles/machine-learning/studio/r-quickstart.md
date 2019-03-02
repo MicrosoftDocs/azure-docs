@@ -60,15 +60,15 @@ Referring to Figure 1, let's look at some of the key parts of the Machine Learni
 
 * The modules in the experiment are shown in the center pane.
 * The upper part of the right pane contains a window to view and edit your R scripts.  
-* The lower part of right pane shows some properties of the [Execute R Script][execute-r-script]. You can view the error and output logs by clicking on the appropriate spots of this pane.
+* The lower part of right pane shows some properties of the [Execute R Script][execute-r-script]. You can view the error and output logs by selecting the appropriate spots of this pane.
 
-We will, of course, be discussing the [Execute R Script][execute-r-script] in greater detail in the rest of this document.
+We will, of course, be discussing the [Execute R Script][execute-r-script] in greater detail in the rest of this article.
 
 When working with complex R functions, I recommend that you edit, test and debug in RStudio. As with any software development, extend your code incrementally and test it on small simple test cases. Then cut and paste your functions into the R script window of the [Execute R Script][execute-r-script] module. This approach allows you to harness both the RStudio integrated development environment (IDE) and the power of Azure Machine Learning Studio.  
 
 #### Execute R code
 
-Any R code in the [Execute R Script][execute-r-script] module will execute when you run the experiment by clicking on the **Run** button. When execution has completed, a check mark will appear on the [Execute R Script][execute-r-script] icon.
+Any R code in the [Execute R Script][execute-r-script] module will execute when you run the experiment by selecting the **Run** button. When execution has completed, a check mark will appear on the [Execute R Script][execute-r-script] icon.
 
 #### Defensive R coding for Azure Machine Learning
 
@@ -82,7 +82,7 @@ To reiterate, I recommend you test and debug your R code on a small scale in RSt
 
 Output from the execution of your R code and on the Azure Machine Learning Studio platform is found primarily in output.log. Some additional information will be seen in error.log.  
 
-If an error occurs in Machine Learning Studio while running your R code, your first course of action should be to look at error.log. This file can contain useful error messages to help you understand and correct your error. To view error.log, click on **View error log** on the **properties pane** for the [Execute R Script][execute-r-script] containing the error.
+If an error occurs in Machine Learning Studio while running your R code, your first course of action should be to look at error.log. This file can contain useful error messages to help you understand and correct your error. To view error.log, select **View error log** on the **properties pane** for the [Execute R Script][execute-r-script] containing the error.
 
 For example, I ran the following R code, with an undefined variable y, in an [Execute R Script][execute-r-script] module:
 
@@ -91,13 +91,13 @@ x <- 1.0
 z <- x + y
 ```
 
-This code fails to execute, resulting in an error condition. Clicking on **View error log** on the **properties pane** produces the display shown in Figure 2.
+This code fails to execute, resulting in an error condition. Selecting **View error log** on the **properties pane** produces the display shown in Figure 2.
 
   ![Error message pop up](./media/r-quickstart/fig2.png)
 
 *Figure 2. Error message pop-up.*
 
-It looks like we need to look in output.log to see the R error message. Click on the [Execute R Script][execute-r-script] and then click on the **View output.log** item on the **properties pane** to the right. A new browser window opens, and I see the following.
+It looks like we need to look in output.log to see the R error message. Select the [Execute R Script][execute-r-script] and then select the **View output.log** item on the **properties pane** to the right. A new browser window opens, and I see the following.
 
     [Critical]     Error: Error 0063: The following error occurred during evaluation of R script:
     ---------- Start of error message from R ----------
@@ -115,12 +115,12 @@ To inspect the value of any object in R, you can print these values to the outpu
 
 Studio comes with over 350 preinstalled R language packages. You can use the following code in the [Execute R Script][execute-r-script] module to retrieve a list of the preinstalled packages.
 
-```r
-    data.set <- data.frame(installed.packages())
-    maml.mapOutputPort("data.set")
+```R
+data.set <- data.frame(installed.packages())
+maml.mapOutputPort("data.set")
 ```
 
-If you don't understand the last line of this code at the moment, read on. In the rest of this document we will extensively discuss using R in the Studio environment.
+If you don't understand the last line of this code at the moment, read on. In the rest of this article we will extensively discuss using R in the Studio environment.
 
 ### Introduction to RStudio
 
@@ -138,7 +138,7 @@ I provide some additional information on using RStudio in [Guide to RStudio docu
 
 In this section we will discuss how you get data into and out of the [Execute R Script][execute-r-script] module. We will review how to handle various data types read into and out of the [Execute R Script][execute-r-script] module.
 
-The complete code for this section is in the zip file you downloaded earlier.
+The complete code for this section is in [MachineLearningSamples-Notebooks/studio-samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples).
 
 ### Load and check data in Machine Learning Studio
 
@@ -147,24 +147,24 @@ The complete code for this section is in the zip file you downloaded earlier.
 We will start by loading the **csdairydata.csv** file into Azure Machine Learning Studio.
 
 * Start your Azure Machine Learning Studio environment.
-* Click on **+ NEW** at the lower left of your screen and select **Dataset**.
+* Select **+ NEW** at the lower left of your screen and select **Dataset**.
 * Select **From Local File**, and then **Browse** to select the file.
 * Make sure you have selected **Generic CSV file with header (.csv)** as the type for the dataset.
-* Click the check mark.
-* After the dataset has been uploaded, you should see the new dataset by clicking on the **Datasets** tab.  
+* Select the check mark.
+* After the dataset has been uploaded, you should see the new dataset by selecting the **Datasets** tab.  
 
 #### Create an experiment
 
 Now that we have some data in Machine Learning Studio, we need to create an experiment to do the analysis.  
 
-* Click on **+ NEW** at the lower left and select **Experiment**, then **Blank Experiment**.
+* Select **+ NEW** at the lower left and select **Experiment**, then **Blank Experiment**.
 * You can name your experiment by selecting, and modifying, the **Experiment created on ...** title at the top of the page. For example, changing it to **CA Dairy Analysis**.
 * On the left of the experiment page, expand **Saved Datasets**, and then **My Datasets**. You should see the **cadairydata.csv** that you uploaded earlier.
 * Drag and drop the **csdairydata.csv dataset** onto the experiment.
 * In the **Search experiment items** box on the top of the left pane, type [Execute R Script][execute-r-script]. You will see the module appear in the search list.
 * Drag and drop the [Execute R Script][execute-r-script] module onto your pallet.  
 * Connect the output of the **csdairydata.csv dataset** to the leftmost input (**Dataset1**) of the [Execute R Script][execute-r-script].
-* **Don't forget to click on 'Save'!**  
+* **Don't forget to select 'Save'!**  
 
 At this point your experiment should look something like Figure 3.
 
@@ -174,7 +174,7 @@ At this point your experiment should look something like Figure 3.
 
 #### Check on the data
 
-Let's have a look at the data we have loaded into our experiment. In the experiment, click on the output of the **cadairydata.csv dataset** and select **visualize**. You should see something like Figure 4.  
+Let's have a look at the data we have loaded into our experiment. In the experiment, select the output of the **cadairydata.csv dataset** and select **visualize**. You should see something like Figure 4.  
 
 ![Summary of the cadairydata.csv dataset](./media/r-quickstart/fig4.png)
 
@@ -186,7 +186,7 @@ In this view we see a lot of useful information. We can see the first several ro
 
 Let's create a simple first R script to experiment with in Azure Machine Learning Studio. I have created and tested the following script in RStudio.  
 
-```r
+```R
 ## Only one of the following two lines should be used
 ## If running in Machine Learning Studio, use the first line with maml.mapInputPort()
 ## If in RStudio, use the second line with read.csv()
@@ -213,7 +213,7 @@ Let's look at each of these inputs, going from left to right. You can see the na
 
 The Script Bundle input allows you to pass the contents of a zip file into [Execute R Script][execute-r-script] module. You can use one of the following commands to read the contents of the zip file into your R code.
 
-```r
+```R
 source("src/yourfile.R") # Reads a zipped R script
 load("src/yourData.rdata") # Reads a zipped R data file
 ```
@@ -221,11 +221,11 @@ load("src/yourData.rdata") # Reads a zipped R data file
 > [!NOTE]
 > Azure Machine Learning Studio treats files in the zip as if they are in the src/ directory, so you need to prefix your file names with this directory name. For example, if the zip contains the files `yourfile.R` and `yourData.rdata` in the root of the zip, you would address these as `src/yourfile.R` and `src/yourData.rdata` when using `source` and `load`.
 
-We already discussed loading datasets in [Loading the dataset](#loading). Once you have created and tested the R script shown in the previous section, do the following:
+We already discussed loading datasets in [Load the dataset](#loading). Once you have created and tested the R script shown in the previous section, do the following:
 
 1. Save the R script into a .R file. I call my script file "simpleplot.R". Here's the contents.
 
-   ```r
+   ```R
    ## Only one of the following two lines should be used
    ## If running in Machine Learning Studio, use the first line with maml.mapInputPort()
    ## If in RStudio, use the second line with read.csv()
@@ -238,7 +238,7 @@ We already discussed loading datasets in [Loading the dataset](#loading). Once y
    maml.mapOutputPort('cadairydata')
    ```
 
-1. Create a zip file and copy your script into this zip file. On Windows, you can right-click on the file and select **Send to**, and then **Compressed folder**. This will create a new zip file containing the "simpleplot.R" file.
+1. Create a zip file and copy your script into this zip file. On Windows, you can right-click the file and select **Send to**, and then **Compressed folder**. This will create a new zip file containing the "simpleplot.R" file.
 
 1. Add your file to the **datasets** in Machine Learning Studio, specifying the type as **zip**. You should now see the zip file in your datasets.
 
@@ -248,7 +248,7 @@ We already discussed loading datasets in [Loading the dataset](#loading). Once y
 
 1. Type the `source()` function with your zip file name into the code window for the [Execute R Script][execute-r-script] module. In my case I typed `source("src/simpleplot.R")`.  
 
-1. Make sure you click **Save**.
+1. Make sure you select **Save**.
 
 Once these steps are complete, the [Execute R Script][execute-r-script] module will execute the R script in the zip file when the experiment is run. At this point your experiment should look something like Figure 5.
 
@@ -260,11 +260,11 @@ Once these steps are complete, the [Execute R Script][execute-r-script] module w
 
 You can pass a rectangular table of data to your R code by using the Dataset1 input. In our simple script the `maml.mapInputPort(1)` function reads the data from port 1. This data is then assigned to a dataframe variable name in your code. In our simple script the first line of code performs the assignment.
 
-```r
+```R
 cadairydata <- maml.mapInputPort(1)
 ```
 
-Execute your experiment by clicking on the **Run** button. When the execution finishes, click on the [Execute R Script][execute-r-script] module and then click **View output log** on the properties pane. A new page should appear in your browser showing the contents of the output.log file. When you scroll down you should see something like the following.
+Execute your experiment by selecting the **Run** button. When the execution finishes, select the [Execute R Script][execute-r-script] module and then select **View output log** on the properties pane. A new page should appear in your browser showing the contents of the output.log file. When you scroll down you should see something like the following.
 
     [ModuleOutput] InputDataStructure
     [ModuleOutput]
@@ -318,7 +318,7 @@ You can output the contents of an R dataframe as a rectangular table through the
 maml.mapOutputPort('cadairydata')
 ```
 
-After running the experiment, click on the Result Dataset1 output port and then click on **Visualize**. You should see something like Figure 6.
+After running the experiment, select the Result Dataset1 output port and then select **Visualize**. You should see something like Figure 6.
 
 ![The visualization of the output of the California dairy data](./media/r-quickstart/fig7.png)
 
@@ -330,7 +330,7 @@ This output looks identical to the input, exactly as we expected.
 
 The Device output of the [Execute R Script][execute-r-script] module contains messages and graphics output. Both standard output and standard error messages from R are sent to the R Device output port.  
 
-To view the R Device output, click on the port and then on **Visualize**. We see the standard output and standard error from the R script in Figure 7.
+To view the R Device output, select the port and then on **Visualize**. We see the standard output and standard error from the R script in Figure 7.
 
 ![Standard output and standard error from the R Device port](./media/r-quickstart/fig8.png)
 
@@ -348,7 +348,7 @@ In this section we will perform some basic data filtering and transformation ope
 
 More specifically, in this section we will perform several common data cleaning and transformation tasks: type transformation, filtering on dataframes, adding new computed columns, and value transformations. This background should help you deal with the many variations encountered in real-world problems.
 
-The complete R code for this section is available in the zip file you downloaded earlier.
+The complete R code for this section is available in [MachineLearningSamples-Notebooks/studio-samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples).
 
 ### Type transformations
 
@@ -371,7 +371,7 @@ Looking at the data types of the columns we input in the previous section: all c
 
 I have deleted the line that created the scatterplot matrix and added a line converting the 'Month' column to a factor. In my experiment I will just cut and paste the R code into the code window of the [Execute R Script][execute-r-script] Module. You could also update the zip file and upload it to Azure Machine Learning Studio, but this takes several steps.  
 
-```r
+```R
 ## Only one of the following two lines should be used
 ## If running in Machine Learning Studio, use the first line with maml.mapInputPort()
 ## If in RStudio, use the second line with read.csv()
@@ -419,9 +419,9 @@ The type for Month should now say '**Factor w/ 14 levels**'. This is a problem s
 
 The problem is that the 'Month' column has not been coded systematically. In some cases a month is called April and in others it is abbreviated as Apr. We can solve this problem by trimming the string to 3 characters. The line of code now looks like the following:
 
-```r
-    ## Ensure the coding is consistent and convert column to a factor
-    cadairydata$Month <- as.factor(substr(cadairydata$Month, 1, 3))
+```R
+## Ensure the coding is consistent and convert column to a factor
+cadairydata$Month <- as.factor(substr(cadairydata$Month, 1, 3))
 ```
 
 Rerun the experiment and view the output log. The expected results are shown in Figure 10.  
@@ -467,9 +467,9 @@ There is one bit of filtering we should do on our dataset. If you look at the co
 
 I add the following line to my R code in the [Execute R Script][execute-r-script] module.
 
-```r
-    # Remove two columns we do not need
-    cadairydata <- cadairydata[, c(-1, -2)]
+```R
+# Remove two columns we do not need
+cadairydata <- cadairydata[, c(-1, -2)]
 ```
 
 Run this code in your experiment and check the result from the output log. These results are shown in Figure 11.
@@ -506,7 +506,7 @@ To create time series models it will be convenient to have a column containing t
 
 To help organize the code we will create our first simple function, `num.month()`. We will then apply this function to create a new column in the dataframe. The new code is as follows.
 
-```r
+```R
 ## Create a new column with the month count
 ## Function to find the number of months from the first
 ## month of the time series
@@ -562,7 +562,7 @@ For our forecasting model we use a multiplicative model for trend and seasonal a
 
 In the following code, I define a new function, `log.transform()`, and apply it to the rows containing the numerical values. The R `Map()` function is used to apply the `log.transform()` function to the selected columns of the dataframe. `Map()` is similar to `apply()` but allows for more than one list of arguments to the function. Note that a list of multipliers supplies the second argument to the `log.transform()` function. The `na.omit()` function is used as a bit of cleanup to ensure we do not have missing or undefined values in the dataframe.
 
-```r
+```R
 log.transform <- function(invec, multiplier = 1) {
   ## Function for the transformation, which is the log
   ## of the input value times a multiplier
@@ -642,7 +642,7 @@ At this point our data is cleaned up and we are ready for some modeling. Looking
 
 In this section we will explore a few basic R time series objects and analyze the correlations between some of the variables. Our goal is to output a dataframe containing the pairwise correlation information at several lags.
 
-The complete R code for this section is in the zip file you downloaded earlier.
+The complete R code for this section is in [MachineLearningSamples-Notebooks/studio-samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples).
 
 ### Time series objects in R
 
@@ -660,7 +660,7 @@ As I did for the first examples, as we progress through the example, at some poi
 
 As a first step, let's read in a dataframe and make sure we get the expected results. The following code should do the job.
 
-```r
+```R
 # Comment the following if using RStudio
 cadairydata <- maml.mapInputPort(1)
 str(cadairydata) # Check the results
@@ -696,7 +696,7 @@ This data is of the expected types and format. Note that the 'Month' column is o
 
 We need to add a time series object to our dataframe. Replace the current code with the following, which adds a new column of class POSIXct.
 
-```r
+```R
 # Comment the following if using RStudio
 cadairydata <- maml.mapInputPort(1)
 
@@ -739,7 +739,7 @@ We can see from the summary that the new column is in fact of class POSIXct.
 
 Let's explore some of the variables in this dataset. A scatterplot matrix is a good way to produce a quick look. I am replacing the `str()` function in the previous R code with the following line.
 
-```r
+```R
 pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = cadairydata, main = "Pairwise Scatterplots of dairy time series")
 ```
 
@@ -757,7 +757,7 @@ To perform correlation analysis we need to both de-trend and standardize the var
 
 The `ts.detrend()` function shown below performs both of these operations. The following two lines of code de-trend the data and then standardize the values.
 
-```r
+```R
 ts.detrend <- function(ts, Time, min.length = 3){
   ## Function to de-trend and standardize a time series
 
@@ -820,7 +820,7 @@ You can compare these results to those shown in Figure 16. With the trend remove
 
 The code to compute the correlations as R ccf objects is as follows.
 
-```r
+```R
 ## A function to compute pairwise correlations from a
 ## list of time series value vectors
 pair.cor <- function(pair.ind, ts.list, lag.max = 1, plot = FALSE){
@@ -899,7 +899,7 @@ We have computed the pairwise correlations as a list of R ccf objects. This pres
 
 The following code extracts the lag values from the list of ccf objects, which are themselves lists.
 
-```r
+```R
 df.correlations <- data.frame(do.call(rbind, lapply(cadairycorrelations, '[[', 1)))
 
 c.names <- c("correlation pair", "-1 lag", "0 lag", "+1 lag")
@@ -943,7 +943,7 @@ Our data is now in a form suitable for analysis, and we have determined there ar
 
 Our forecasting model will have two components, a trend component and a seasonal component. The complete forecast is the product of these two components. This type of model is known as a multiplicative model. The alternative is an additive model. We have already applied a log transformation to the variables of interest, which makes this analysis tractable.
 
-The complete R code for this section is in the zip file you downloaded earlier.
+The complete R code for this section is in [MachineLearningSamples-Notebooks/studio-samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples).
 
 ### Creating the dataframe for analysis
 
@@ -955,7 +955,7 @@ Start by adding a **new** [Execute R Script][execute-r-script] module to your ex
 
 As with the correlation analysis we just completed, we need to add a column with a POSIXct time series object. The following code will do just this.
 
-```r
+```R
 # If running in Machine Learning Studio, uncomment the first line with maml.mapInputPort()
 cadairydata <- maml.mapInputPort(1)
 
@@ -998,7 +998,7 @@ With this result, we are ready to start our analysis.
 
 With the dataframe constructed we need to create a training dataset. This data will include all of the observations except the last 12, of the year 2013, which is our test dataset. The following code subsets the dataframe and creates plots of the dairy production and price variables. I then create plots of the four production and price variables. An anonymous function is used to define some augments for plot, and then iterate over the list of the other two arguments with `Map()`. If you are thinking that a for loop would have worked fine here, you are correct. But, since R is a functional language I am showing you a functional approach.
 
-```r
+```R
 cadairytrain <- cadairydata[1:216, ]
 
 Ylabs  <- list("Log CA Cotage Cheese Production, 1000s lb",
@@ -1029,7 +1029,7 @@ Given the small scale of the data, I will build the model for trend in RStudio a
 
 As a first attempt, I will try a polynomial regression with powers up to 3. There is a real danger of over-fitting these kinds of models. Therefore, it is best to avoid high order terms. The `I()` function inhibits interpretation of the contents (interprets the contents 'as is') and allows you to write a literally interpreted function in a regression equation.
 
-```r
+```R
 milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^2) + I(Month.Count^3), data = cadairytrain)
 summary(milk.lm)
 ```
@@ -1058,9 +1058,9 @@ This generates the following.
     ## Multiple R-squared:  0.941,    Adjusted R-squared:  0.94
     ## F-statistic: 1.12e+03 on 3 and 212 DF,  p-value: <2e-16
 
-From P values (Pr(>|t|)) in this output, we can see that the squared term may not be significant. I will use the `update()` function to modify this model by dropping the squared term.
+From P values (`Pr(>|t|)`) in this output, we can see that the squared term may not be significant. I will use the `update()` function to modify this model by dropping the squared term.
 
-```r
+```R
 milk.lm <- update(milk.lm, . ~ . - I(Month.Count^2))
 summary(milk.lm)
 ```
@@ -1091,7 +1091,7 @@ This looks better. All of the terms are significant. However, the 2e-16 value is
 
 As a sanity test, let's make a time series plot of the California dairy production data with the trend curve shown. I have added the following code in the Azure Machine Learning Studio [Execute R Script][execute-r-script] model (not RStudio) to create the model and make a plot. The result is shown in Figure 23.
 
-```r
+```R
 milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
 
 plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Milk Production 1000s lb", type = "l")
@@ -1110,7 +1110,7 @@ With a trend model in hand, we need to push on and include the seasonal effects.
 
 Since we have a satisfactory trend model we can use the `update()` function to add the new terms to the existing model. The -1 in the update formula drops the intercept term. Continuing in RStudio for the moment:
 
-```r
+```R
 milk.lm2 <- update(milk.lm, . ~ . + Month - 1)
 summary(milk.lm2)
 ```
@@ -1153,7 +1153,7 @@ We see that the model no longer has an intercept term and has 12 significant mon
 
 Let's make another time series plot of the California dairy production data to see how well the seasonal model is working. I have added the following code in the Azure Machine Learning Studio [Execute R Script][execute-r-script] to create the model and make a plot.
 
-```r
+```R
 milk.lm2 <- lm(Milk.Prod ~ Time + I(Month.Count^3) + Month - 1, data = cadairytrain)
 
 plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Milk Production 1000s lb", type = "l")
@@ -1170,7 +1170,7 @@ The fit to the data shown in Figure 24 is rather encouraging. Both the trend and
 
 As another check on our model, let's have a look at the residuals. The following code computes the predicted values from our two models, computes the residuals for the seasonal model, and then plots these residuals for the training data.
 
-```r
+```R
 ## Compute predictions from our models
 predict1  <- predict(milk.lm, cadairydata)
 predict2  <- predict(milk.lm2, cadairydata)
@@ -1192,7 +1192,7 @@ The plot shown in Figure 25 is useful for detecting any time-dependent patterns 
 
 You can also use `plot.lm()` to produce a series of diagnostic plots.
 
-```r
+```R
 ## Show the diagnostic plots for the model
 plot(milk.lm2, ask = FALSE)
 ```
@@ -1217,7 +1217,7 @@ There is just one more thing to do to complete our example. We need to compute f
 
 A number of metrics are used to measure the performance of time series models. In our case we will use the root mean square (RMS) error. The following function computes the RMS error between two series.  
 
-```r
+```R
 RMS.error <- function(series1, series2, is.log = TRUE, min.length = 2){
   ## Function to compute the RMS error or difference between two
   ## series or vectors
@@ -1267,7 +1267,7 @@ As with the `log.transform()` function we discussed in the "Value transformation
 
 Equipped with a function to measure the RMS error, let's build and output a dataframe containing the RMS errors. We will include terms for the trend model alone and the complete model with seasonal factors. The following code does the job by using the two linear models we have constructed.
 
-```r
+```R
 ## Compute the RMS error in a dataframe
 ## Include the row names in the first column so they will
 ## appear in the output of the Execute R Script
@@ -1299,7 +1299,7 @@ From these results, we see that adding the seasonal factors to the model reduces
 
 RStudio is quite well documented. Here are some links to the key sections of the RStudio documentation to get you started.
 
-1. **Creating projects** - You can organize and manage your R code into projects by using RStudio. See [Using Projects](https://support.rstudio.com/hc/articles/200526207-Using-Projects) for details. I recommend that you follow these directions and create a project for the R code examples in this document.  
+1. **Creating projects** - You can organize and manage your R code into projects by using RStudio. See [Using Projects](https://support.rstudio.com/hc/articles/200526207-Using-Projects) for details. I recommend that you follow these directions and create a project for the R code examples in this article.  
 2. **Editing and executing R code** - RStudio provides an integrated environment for editing and executing R code. See [Editing and Executing Code](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code) for details.
 3. **Debugging** - RStudio includes powerful debugging capabilities. See [Debugging with RStudio](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio) for more information about these features. For information about breakpoint troubleshooting features, see [Breakpoint Troubleshooting](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting).
 
@@ -1324,10 +1324,10 @@ The book **Introductory Time Series** with R by Paul Cowpertwait and Andrew Metc
 
 Here are some great internet resources:
 
-* **DataCamp**: DataCamp teaches R in the comfort of your browser with video lessons and coding exercises. There are interactive tutorials on the latest R techniques and packages. Take the free [interactive R tutorial](https://www.datacamp.com/courses/introduction-to-r).
+* DataCamp teaches R in the comfort of your browser with video lessons and coding exercises. There are interactive tutorials on the latest R techniques and packages. Take the free [interactive R tutorial](https://www.datacamp.com/courses/introduction-to-r).
 * [Learn R Programming, The Definitive Guide](https://www.programiz.com/r-programming) from Programiz.
 * A quick [R Tutorial](http://www.cyclismo.org/tutorial/R/) by Kelly Black from Clarkson University.
-* 60+ R resources listed at [Top R language resources to improve your data skills](http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html).
+* There are over 60 R resources listed at [Top R language resources to improve your data skills](http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html).
 
 <!-- Module References -->
-[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script.md
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
