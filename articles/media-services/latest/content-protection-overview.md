@@ -23,7 +23,7 @@ You can use Azure Media Services to secure your media from the time it leaves yo
 
 The following image illustrates the Media Services content protection workflow: 
 
-![Protect content](./media/content-protection/content-protection.png)
+![Protect content](./media/content-protection/content-protection.svg)
 
 &#42; *dynamic encryption supports AES-128 "clear key", CBCS, and CENC. For details see the support matrix [here](#streaming-protocols-and-encryption-types).*
 

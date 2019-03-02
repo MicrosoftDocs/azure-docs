@@ -69,7 +69,7 @@ When TDE is first configured to use a TDE protector from Key Vault, the server s
  > [!NOTE]
  > If TDE encrypted SQL databases lose access to the key vault because they cannot bypass the firewall, the databases are inaccessible within 24 hours.
 
-- Enable auditing and reporting on all encryption keys: Key Vault provides logs that are easy to inject into other security information and event management (SIEM) tools. Operations Management Suite (OMS) [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) is one example of a service that is already integrated.
+- Enable auditing and reporting on all encryption keys: Key Vault provides logs that are easy to inject into other security information and event management (SIEM) tools. Operations Management Suite (OMS) [Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) is one example of a service that is already integrated.
 - To ensure high-availability of encrypted databases, configure each SQL Database server with two Azure Key Vaults that reside in different regions.
 
 ### Guidelines for configuring the TDE Protector (asymmetric key)

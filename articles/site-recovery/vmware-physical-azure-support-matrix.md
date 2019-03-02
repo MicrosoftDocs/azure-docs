@@ -6,7 +6,7 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 03/01/2019
 ms.author: raynew
 
 ---
@@ -226,6 +226,26 @@ FC disk | Not supported. | Check fails if unsupported.
 BitLocker | Not supported. | BitLocker must be disabled before you enable replication for a machine. |
 VM name | From 1 to 63 characters.<br/><br/> Restricted to letters, numbers, and hyphens.<br/><br/> The machine name must start and end with a letter or number. |  Update the value in the machine properties in Site Recovery.
 
+## Azure Site Recovery churn limits
+
+The following table provides the Azure Site Recovery limits. These limits are based on our tests, but they cannot cover all possible application I/O combinations. Actual results can vary based on your application I/O mix. For best results, we strongly recommend to [run deployment planner tool](site-recovery-deployment-planner.md) and perform extensive application testing by issuing a test failover to get the true performance picture of the application.
+
+**Replication storage target** | **Average source disk I/O size** |**Average source disk data churn** | **Total source disk data churn per day**
+---|---|---|---
+Standard storage | 8 KB	| 2 MB/s | 168 GB per disk
+Premium P10 or P15 disk | 8 KB	| 2 MB/s | 168 GB per disk
+Premium P10 or P15 disk | 16 KB | 4 MB/s |	336 GB per disk
+Premium P10 or P15 disk | 32 KB or greater | 8 MB/s | 672 GB per disk
+Premium P20 or P30 or P40 or P50 disk | 8 KB	| 5 MB/s | 421 GB per disk
+Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |10 MB/s | 842 GB per disk
+
+**Source data churn** | **Maximum Limit**
+---|---
+Average data churn per VM| 25 MB/s
+Peak data churn across all disks on a VM | 54 MB/s
+Maximum data churn per day supported by a Process Server | 2 TB
+
+These are average numbers assuming a 30 percent I/O overlap. Site Recovery is capable of handling higher throughput based on overlap ratio, larger write sizes, and actual workload I/O behavior. The preceding numbers assume a typical backlog of approximately five minutes. That is, after data is uploaded, it is processed and a recovery point is created within five minutes.
 
 ## Vault tasks
 

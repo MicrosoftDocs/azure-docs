@@ -17,7 +17,7 @@ ms.date: 02/08/2019
 ms.author: willzhan;juliako
 
 ---
-# Hybrid design of DRM subsystems (legacy)
+# Hybrid design of DRM subsystems 
 
 This topic discusses hybrid design of DRM subsystem(s) using Azure Media Services.
 
