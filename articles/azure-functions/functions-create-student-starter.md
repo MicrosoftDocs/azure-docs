@@ -24,11 +24,11 @@ Microsoft *Azure for Students Starter* gets you started with the Azure products 
 
 Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application. [Learn more about Functions here.](./functions-overview.md)
 
-## Create an HTTP triggered hello world Function
+## Create a Function
 
- In this topic, learn how to use Functions to create a "hello world" function in the Azure portal.
+ In this topic, learn how to use Functions to create an HTTP triggered "hello world" function in the Azure portal.
 
-![Create function app in the Azure portal](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
+![Create function app in the Azure portal](../media/functions-create-student-starter/function-app-in-portal-editor.png)
 
 ## Sign in to Azure
 
@@ -40,7 +40,7 @@ You must have a function app to host the execution of your functions. A function
 
 1. Select the **New** button found on the upper left-hand corner of the Azure portal, then select **Compute** > **Function App**.
 
-    ![Create a function app in the Azure portal](../../includes/media/functions-create-function-app-portal/function-app-create-flow.png)
+    ![Create a function app in the Azure portal](./media/functions-create-student-starter/function-app-create-flow.png)
 
 2. Use the function app settings as specified in the table below the image.
 
@@ -61,15 +61,15 @@ You must have a function app to host the execution of your functions. A function
 
 5. Select the location closest to you. [See a full map of Azure regions here.](https://azure.microsoft.com/global-infrastructure/regions/) 
 
-<img src="./media/functions-create-student-starter/Create-ASP.png" width="800">
+    <img src="./media/functions-create-student-starter/Create-ASP.png" width="800">
 
 6. Select **Create** to provision and deploy the function app.
 
-<img src="./media/functions-create-student-starter/Function-create-end.png" width="315">
+    <img src="./media/functions-create-student-starter/Function-create-end.png" width="315">
 
 7. Select the Notification icon in the upper-right corner of the portal and watch for the **Deployment succeeded** message.
 
-    ![Define new function app settings](../../includes/media/functions-create-function-app-portal/function-app-create-notification.png)
+    ![Define new function app settings](./media/functions-create-student-starter/function-app-create-notification.png)
 
 8. Select **Go to resource** to view your new function app.
 
@@ -81,11 +81,11 @@ Next, you create a function in the new function app.
 
 1. Expand your new function app, then select the **+** button next to **Functions**, choose **In-portal**, and select **Continue**.
 
-    ![Functions quickstart choose platform.](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
+    ![Functions quickstart choose platform.](./media/functions-create-student-starter/function-app-quickstart-choose-portal.png)
 
 1. Choose **WebHook + API** and then select **Create**.
 
-    ![Functions quickstart in the Azure portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
+    ![Functions quickstart in the Azure portal.](./media/functions-create-student-starter/function-app-quickstart-node-webhook.png)
 
 A function is created using a language-specific template for an HTTP triggered function.
 
@@ -95,19 +95,19 @@ Now, you can run the new function by sending an HTTP request.
 
 1. In your new function, click **</> Get function URL** at the top right, select **default (Function key)**, and then click **Copy**. 
 
-    ![Copy the function URL from the Azure portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
+    ![Copy the function URL from the Azure portal](./media/functions-create-student-starter/function-app-develop-tab-testing.png)
 
 2. Paste the function URL into your browser's address bar. Add the query string value `&name=<yourname>` to the end of this URL and press the `Enter` key on your keyboard to execute the request. You should see the response returned by the function displayed in the browser.  
 
     The following example shows the response in the browser:
 
-    ![Function response in the browser.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
+    ![Function response in the browser.](./media/functions-create-student-starter/function-app-browser-testing.png)
 
     The request URL includes a key that is required, by default, to access your function over HTTP.
 
 3. When your function runs, trace information is written to the logs. To see the trace output from the previous execution, return to your function in the portal and click the arrow at the bottom of the screen to expand the **Logs**.
 
-   ![Functions log viewer in the Azure portal.](./media/functions-create-first-azure-function/function-view-logs.png)
+   ![Functions log viewer in the Azure portal.](./media/functions-create-student-starter/function-view-logs.png)
 
 ## Clean up resources
 
