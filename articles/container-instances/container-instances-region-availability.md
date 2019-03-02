@@ -34,9 +34,13 @@ For information about quotas and other limits in your deployments, see [Quotas a
 
 ## Availability - Virtual network deployment (preview)
 
+The following regions and resources are available to a container group deployed in an [Azure virtual network](container-instances-vnet.md) (preview),
+
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 ## Availability - GPU resources (preview)
+
+The following regions and resources are available to a container group deployed with [GPU resources](container-instances-gpu.md) (preview),
 
 [!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]

@@ -38,8 +38,6 @@ Certain limitations apply when you deploy container groups to a virtual network.
 
 While this feature is in preview, the following limitations apply when deploying container groups to a virtual network. 
 
-### Supported regions and resource availability
-
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 Container resource limits may differ from limits for non-networked container instances in these regions. Currently only Linux containers are supported for this feature. Windows support is planned.
