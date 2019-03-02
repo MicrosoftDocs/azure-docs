@@ -151,9 +151,9 @@ Spring Boot developers can use the [Azure Active Directory Spring Boot starter](
 
 Follow the instructions in the [Bind an existing custom SSL certificate](/azure/app-service/app-service-web-tutorial-custom-ssl) to upload an existing SSL certificate and bind it to your application's domain name. By default your application will still allow HTTP connections-follow the specific steps in the tutorial to enforce SSL and TLS.
 
-## Tomcat
+## Data Sources
 
-### Connecting to data sources
+### Tomcat
 
 >[!NOTE]
 > If your application uses the Spring Framework or Spring Boot, you can set database connection information for Spring Data JPA as environment variables [in your application properties file]. Then use [app settings](/azure/app-service/web-sites-configure#app-settings) to define these values for your application in the Azure portal or CLI.
@@ -267,6 +267,25 @@ Next, determine if the data source should be available to one application or to 
 
 2. If you created a server-level data source, restart the App Service Linux application. Tomcat will reset `CATALINA_HOME` to `/home/tomcat/conf` and use the updated configuration.
 
+### Spring Boot
+
+To connect to data sources in Spring Boot applications, we suggest creating connection strings and injecting them into your `application.properties` file.
+
+1. In the "Application Settings" section of the App Service blade, set a name for the string, paste your JDBC connection string into the value field, and set the type to "Custom". You can optionally set this connection string as slot setting.
+
+    ![Creating a connection string in the Portal.][1]
+
+    This connection string is accessible to our application as an environment variable named `CUSTOMCONNSTR_<your-string-name>`. For example, the connection string we created above will be named `CUSTOMCONNSTR_exampledb`.
+
+2. In your `application.properties` file, reference this connction string with the environment variable name. For our example, we would use the following.
+
+    ```yml
+    app.datasource.url=${CUSTOMCONNSTR_exampledb}
+    ```
+
+Please see the [Spring Boot documentation on data access](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-data-access.html
+) and [externalized configurations](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html) for more information on this topic.
+
 ## Docker containers
 
 To use the Azure-supported Zulu JDK in your containers, make sure to pull and use the pre-built images as documented from the [supported Azul Zulu Enterprise for Azure download page](https://www.azul.com/downloads/azure-only/zulu/) or use the `Dockerfile` examples from the [Microsoft Java GitHub repo](https://github.com/Microsoft/java/tree/master/docker).
@@ -311,3 +330,6 @@ Developers can [open an issue](/azure/azure-supportability/how-to-create-azure-s
 ## Next steps
 
 Visit the [Azure for Java Developers](/java/azure/) center to find Azure quickstarts, tutorials, and Java reference documentation.
+
+<!--Image references-->
+[1]: ./media/app-service-linux-java/connection-string.png
