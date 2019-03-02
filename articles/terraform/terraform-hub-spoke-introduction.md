@@ -34,7 +34,7 @@ for all resources
 
 - **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Azure service principal**: Follow the directions create a service principal in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli#create-the-service-principal?view=azure-cli-latest). 
+- **Azure service principal**: Follow the directions to create a service principal in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli#create-the-service-principal?view=azure-cli-latest). 
 
     - Make note of the values for **appId**, **displayName**, and **password**.
     - Get the value for service principal's **Object ID** property:
