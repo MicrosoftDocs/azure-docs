@@ -21,10 +21,10 @@ ms.collection: M365-identity-device-management
 
 # SAML single sign-on for on-premises applications with Application Proxy (Preview)
 
-You can provide single sign-on (SSO) for on-premises applications published through Application Proxy that are secured with SAML authentication. With SAML single sign-on, Azure AD authenticates to the application by using the user's Azure AD account. Azure AD communicates the sign-on information to the application through a connection protocol. With SAML-based single sign-on, you can map users to specific application roles based on rules you define in your SAML claims.
+You can provide single sign-on (SSO) for on-premises applications published through Application Proxy that are secured with SAML authentication. With SAML single sign-on, Azure Active Directory (Azure AD) authenticates to the application by using the user's Azure AD account. Azure AD communicates the sign-on information to the application through a connection protocol. With SAML-based single sign-on, you can map users to specific application roles based on rules you define in your SAML claims.
 
-The applications must be able to consume SAML tokens issued by **Azure Active Directory** (Azure AD). 
-This configuration does not apply to applications using an on-premises identity provider. For these scenarios we recommend reviewing [Resources for migrating applications to Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/migration-resources).
+The applications must be able to consume SAML tokens issued by **Azure Active Directory**. 
+This configuration does not apply to applications using an on-premises identity provider. For these scenarios we recommend reviewing [Resources for migrating applications to Azure AD](migration-resources.md).
 
 SAML SSO with Application Proxy also works with the SAML token encryption feature. For more info, see [Configure Azure AD SAML token encryption](howto-saml-token-encryption.md).
 
@@ -37,13 +37,12 @@ Keep the following in mind when you're going through the tutorial:
 * Publish your application according to the instructions in the tutorial. Make sure to select **Azure Active Directory** as the **Pre Authentication** method for your application (step 4 in [Add an on-premises app to Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad
 )).
 * Copy the **External URL** for the application.
-* As a best practice use custom domains whenever possible for an optimized user experience. Learn more about [Working with custom domains in Azure AD Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy-configure-custom-domain).
+* As a best practice, use custom domains whenever possible for an optimized user experience. Learn more about [Working with custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
 * Add at least one user to the application and make sure the test account has access to the on-premises application.
 
 ## Set up SAML SSO
 
 1. In the Azure portal, select **Azure Active Directory > Enterprise applications** and select the application from the list.
-
 1. From the app's **Overview** page, select **Single sign-on**.
 1. Select **SAML** as the single sign-on method.
 1. In the **Set up Single Sign-On with SAML** page, edit the **Basic SAML Configuration** data and follow the steps in [Enter basic SAML configuration](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) to configure SAML-based authentication for the application.
