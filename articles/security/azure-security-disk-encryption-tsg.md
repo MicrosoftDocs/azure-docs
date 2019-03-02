@@ -137,7 +137,7 @@ If the expected encryption state does not match what is being reported in the po
 
 ## Troubleshooting Encryption Status 
 
-If the supported commands for removing Azure Disk Encryption are not used, the portal may still report that an unencrypted disk is encrypted.  At time of encryption, Azure Disk Encryption stores encryption settings metadata with the VM and its disks.  If a drive has only been decrypted, without this metadata also being updated, an inconsistent status will be reported.
+If a drive has been decrypted without using the supported commands, the portal may report that an unencrypted disk is encrypted.  Azure Disk Encryption associates encryption settings metadata with the VM and its disks at time of encryption. These settings must be maintained and kept in alignment in order for the platform to report encryption status and provision the VM properly.  
 
 To properly disable Azure Disk Encryption, start from a known good state with encryption enabled, and then use the [Disable-AzureRmVmDiskEncryption](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) and [Remove-AzureRmVmDiskEncryptionExtension](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/remove-azurermvmdiskencryptionextension)  Powershell commands, or the [az vm encryption disable](https://docs.microsoft.com/en-us/cli/azure/vm/encryption) CLI command.
 
