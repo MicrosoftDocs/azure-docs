@@ -15,7 +15,7 @@ ms.date: 03/01/2019
 
 In this tutorial, you implement two separate spoke networks to demonstrate separation of workloads. The networks share common resources using hub virtual network. Spokes can be used to isolate workloads in their own VNets, managed separately from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers.
 
-The following tasks are presented in this tutorial:
+This tutorial covers the following tasks:
 
 > [!div class="checklist"]
 > * Use HCL (HashiCorp Language) to implement the Spoke VNets in hub-spoke topology

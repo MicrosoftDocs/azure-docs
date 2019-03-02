@@ -15,7 +15,7 @@ ms.date: 03/01/2019
 
 The hub virtual network (VNet) acts as the central point of connectivity to the on-premises network. The VNet hosts shared services consumed by workloads hosted in the spoke VNets. For demo purposes, no shared services are implemented in this tutorial.
 
-The following tasks are presented in this tutorial:
+This tutorial covers the following tasks:
 
 > [!div class="checklist"]
 > * Use HCL (HashiCorp Language) to implement the hub VNet in hub-spoke topology
