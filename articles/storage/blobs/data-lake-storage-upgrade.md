@@ -42,7 +42,7 @@ In addition, there are cross-cutting components to provision, manage and monitor
 
 **Figure 2** shows an example of how those components will be implemented by using specific technologies.
 
-The Storing functionality in **Figure1** is provided by Data Lake Storage Gen1 (**Figure 2**). Note how the various components in the data flow interact with Data Lake Storage Gen1 by using REST APIs or Java SDK. Also note how the cross-cutting functionality components interact with Data Lake Storage Gen1. The Provisioning component uses Azure Resource templates, whereas the Monitoring component which uses Log Analytics utilizes operational data that comes from Data Lake Storage Gen1.
+The Storing functionality in **Figure1** is provided by Data Lake Storage Gen1 (**Figure 2**). Note how the various components in the data flow interact with Data Lake Storage Gen1 by using REST APIs or Java SDK. Also note how the cross-cutting functionality components interact with Data Lake Storage Gen1. The Provisioning component uses Azure Resource templates, whereas the Monitoring component which uses Azure Monitor logs utilizes operational data that comes from Data Lake Storage Gen1.
 
 To upgrade a solution from using Data Lake Storage Gen1 to Data Lake Storage Gen2, you'll need to copy the data and meta-data, re-hook the data-flows, and then, all of the components will need to be able to work with Data Lake Storage Gen2.
 
