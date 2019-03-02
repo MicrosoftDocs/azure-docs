@@ -96,4 +96,4 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 ## Next steps
 
 - [Understand billing account for Microsoft Customer Agreement](billing-mca-overview.md)
-- [Understand terms on your Microsoft Customer Agreement invoice](billing-understand-your-invoice-mca.md)
+- [Understand terms on your Microsoft Customer Agreement invoice](billing-mca-understand-your-invoice.md)

@@ -23,7 +23,7 @@ To understand your Azure bill, compare your invoice with the detailed daily usag
 
 This article doesn't apply to Azure customers with an Enterprise Agreement (EA customers). If you're an EA customer, see [Understand your bill for Azure customers with an Enterprise Agreement](billing-understand-your-bill-ea.md).
 
-This article doesn't apply to Azure customers with a Microsoft Customer Agreement. If you have a billing account for a Microsoft Customer Agreement, see [Understand the Azure charges on your Microsoft Customer Agreement invoice](billing-understand-your-bill-mca.md).
+This article doesn't apply to Azure customers with a Microsoft Customer Agreement. If you have a billing account for a Microsoft Customer Agreement, see [Understand the Azure charges on your Microsoft Customer Agreement invoice](billing-mca-understand-your-bill.md).
 
 For an explanation of how billing works in the Azure Cloud Solution Provider (Azure CSP) program, including the billing cycle, pricing, and usage, see [Azure CSP Billing Overview](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/).
 

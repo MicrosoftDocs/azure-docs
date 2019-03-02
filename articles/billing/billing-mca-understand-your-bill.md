@@ -22,9 +22,9 @@ ms.author: banders
 
 You can reconcile the charges on your invoice by analyzing the individual transactions on the invoice.
 
-In the billing account for a Microsoft Customer Agreement, an invoice is generated each month for every billing profile. The invoice includes all charges from the previous month. You can view your invoices in the Azure portal. For more information, see [Download or view your invoice](billing-download-azure-invoice-daily-usage-date.md#download-or-view-your-invoice).
+In the billing account for a Microsoft Customer Agreement, an invoice is generated each month for every billing profile. The invoice includes all charges from the previous month. You can view your invoices in the Azure portal. For more information, see [View and download your Microsoft Azure invoice](billing-download-azure-invoice.md).
 
-This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-your-access-to-a-microsoft-customer-agreement).
+This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
 ## View transactions for an invoice in the Azure portal
 
@@ -137,7 +137,7 @@ The following steps walk you through reconciling compute charges for the Account
 
 ![Example image showing the details by invoice section information](./media/billing-understand-your-bill-mca/invoicesection-details.png)
 
- | Invoice PDF value | Usage CSV key|
+ | Invoice PDF | Azure usage and charges CSV |
  | --- | --- |
  |IT Department |invoiceSectionName |
  |Usage Charges - Azure Standard |productOrderName |
@@ -167,7 +167,7 @@ Filter the **subscriptionName** column in the Azure usage and charges CSV file t
 
 ## Pay your bill
 
-Instructions for paying your bill are shown at the bottom of the invoice. [Learn how to pay](billing-understand-your-invoice-mca.md#how-to-pay).
+Instructions for paying your bill are shown at the bottom of the invoice. [Learn how to pay](billing-mca-understand-your-invoice.md#how-to-pay).
 
 If you've already paid your bill, you can check the status of the payment on the Invoices page in the Azure portal. 
 
@@ -183,5 +183,5 @@ If you have questions or need help, [create a support request](https://portal.az
 To learn more about your invoice and detailed usage, see:
 
 - [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md)
-- [Understand terms on your Microsoft Customer Agreement invoice](billing-understand-your-invoice-mca.md)
-- [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md)
+- [Understand terms on your Microsoft Customer Agreement invoice](billing-mca-understand-your-invoice.md)
+- [Understand terms on your Microsoft Customer Agreement usage CSV](billing-mca-understand-your-usage.md)
