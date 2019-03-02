@@ -44,7 +44,7 @@ for all resources
 
 ## Hub and spoke topology architecture
 
-The hub and spoke topology - also called a *star network topology* - resembles a spoked wheel. The hub is a virtual network (VNet) that acts as a central point of connectivity to your on-premises network. The spokes are VNets that peer with the hub, and can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through an ExpressRoute or VPN gateway connection. The following image demonstrates the components in a hub and spoke topology:
+In the hub and spoke topology, the hub is a virtual network (VNet) that acts as a central point of connectivity to your on-premises network. The spokes are VNets that peer with the hub, and can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through an ExpressRoute or VPN gateway connection. The following image demonstrates the components in a hub and spoke topology:
 
 ![Hub and spoke topology architecture in Azure](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-architecture.png)
 
