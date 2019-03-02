@@ -6,11 +6,7 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-<<<<<<< HEAD
 ms.date: 03/04/2019
-=======
-ms.date: 03/01/2019
->>>>>>> 7630ad381d04366694406ec9099b78d1354db459
 
 ms.custom: seodec18
 ---
