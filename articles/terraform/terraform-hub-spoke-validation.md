@@ -118,4 +118,4 @@ This section shows how to test connectivity from the simulated on-premises envir
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Troubleshoot a hybrid VPN connection](/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn)
+> [Troubleshoot a hybrid VPN connection](/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn?toc=/azure/terraform/toc.json&bc=/azure/bread/toc.json)
