@@ -305,7 +305,7 @@ Within the indexer definition, you can optionally use [field mappings](search-in
 
 <a name="parsing-single-blobs"></a>
 
-## Parsing single JSON blobs
+## Parse single JSON blobs
 
 By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage.md) parses JSON blobs as a single chunk of text. Often, you want to preserve the structure of your JSON documents. For example, assume you have the following JSON document in Azure Blob storage:
 
@@ -323,9 +323,9 @@ As noted, field mappings are not required. Given an index with "text", "datePubl
 
 <a name="parsing-arrays"></a>
 
-## Parsing JSON arrays in a well-formed JSON document
+## Parse JSON arrays
 
-Alternatively, you can opt for the JSON array feature. This capability is useful when blobs contain an *array of JSON objects*, and you want each element to become a separate Azure Search document. For example, given the following JSON blob, you can populate your Azure Search index with three separate documents, each with "id" and "text" fields.  
+Alternatively, you can use the JSON array option. This option is useful when blobs contain an *array of well-formed JSON objects*, and you want each element to become a separate Azure Search document. For example, given the following JSON blob, you can populate your Azure Search index with three separate documents, each with "id" and "text" fields.  
 
     [
         { "id" : "1", "text" : "example 1" },
@@ -351,8 +351,8 @@ Again, notice that field mappings can be omitted. Assuming an index with identic
 
 <a name="nested-json-arrays"></a>
 
-## Nested JSON arrays
-What if you wish to index an array of JSON objects, but that array is nested somewhere within the document? You can pick which property contains the array using the `documentRoot` configuration property. For example, if your blobs look like this:
+## Parse nested arrays
+For JSON arrays having nested elements, you can specify a `documentRoot` to indicate a multi-level structure. For example, if your blobs look like this:
 
     {
         "level1" : {
@@ -372,7 +372,7 @@ Use this configuration to index the array contained in the `level2` property:
         "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
     }
 
-## Parsing blobs with multiple JSON entities separated by newlines
+## Parse blobs separated by newlines
 
 If your blob contains multiple JSON entities separated by a newline, and you want each element to become a separate Azure Search document, you can opt for the JSON lines option. For example, given the following blob (where there are three different JSON entities), you can populate your Azure Search index with three separate documents, each with "id" and "text" fields.
 
@@ -396,7 +396,7 @@ For JSON lines, the indexer definition should look similar to the following exam
 
 Again, notice that field mappings can be omitted, similar to the `jsonArray` parsing mode.
 
-## Use field mappings to structure search document
+## Add field mappings
 
 When source and target fields are not perfectly aligned, you can define a field mapping section in the request body for explicit field-to-field associations.
 
