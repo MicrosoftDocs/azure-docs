@@ -14,6 +14,7 @@
 #### [Lead management](./lead-management-for-cloud-marketplace.md)
 #### [Transacting in Azure Marketplace](./marketplace-commercial-transaction-capabilities-and-considerations.md)
 #### [Private Offers](./private-offers.md)
+#### [Standard Contract](./standard-contract.md)
 
 ### [Publishing guide by offer type](./publisher-guide-by-offer-type.md)
 #### [Virtual Machines](./marketplace-virtual-machines.md)
