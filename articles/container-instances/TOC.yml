@@ -31,7 +31,7 @@
   items:
   - name: Quotas and limits
     href: container-instances-quotas.md
-  - name: Resource availability
+  - name: Region availability
     href: container-instances-region-availability.md
   - name: Relationship to orchestrators
     href: container-instances-orchestrator-relationship.md
