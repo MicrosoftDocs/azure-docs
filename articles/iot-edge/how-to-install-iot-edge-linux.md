@@ -28,7 +28,7 @@ This article lists the steps to install the Azure IoT Edge runtime on your Linux
 Prepare your device for the IoT Edge runtime installation.
 
 
-Install the repository configuration. Replace **<release>** with **16.04** or **18.04** as appropriate for your release of Ubuntu.
+Install the repository configuration. Replace **\<release\>** with **16.04** or **18.04** as appropriate for your release of Ubuntu.
 
    ```bash
    curl https://packages.microsoft.com/config/ubuntu/<release>/prod.list > ./microsoft-prod.list
