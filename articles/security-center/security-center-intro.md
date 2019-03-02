@@ -135,7 +135,7 @@ recommendations for how to mitigate them.
 
 ## Get secure faster
 
-Native Azure integration (including Azure Policy and Log Analytics) combined with seamless integration with other Microsoft security solutions, such as Microsoft Cloud App Security and Windows Defender Advanced Threat Protection help make sure your security solution is comprehensive as well as simple to
+Native Azure integration (including Azure Policy and Azure Monitor logs) combined with seamless integration with other Microsoft security solutions, such as Microsoft Cloud App Security and Windows Defender Advanced Threat Protection help make sure your security solution is comprehensive as well as simple to
 onboard and roll out.
 
 In addition, you can extend the full solution beyond Azure to workloads running on other clouds and in on-premises data centers.
