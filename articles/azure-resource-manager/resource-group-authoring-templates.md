@@ -272,7 +272,7 @@ When specifying the default value for a parameter, you can use most template fun
 
 You can't use the `reference` function in the parameters section. Parameters are evaluated before deployment so the `reference` function can't get the runtime state of a resource. 
 
-## Objects as parameters
+### Objects as parameters
 
 It can be easier to organize related values by passing them in as an object. This approach also reduces the number of parameters in the template.
 
@@ -340,7 +340,7 @@ Then, reference the subproperties of the parameter by using the dot operator.
 ]
 ```
 
-## Parameter example templates
+### Parameter example templates
 
 These example templates demonstrate some scenarios for using parameters. Deploy them to test how parameters are handled in different scenarios.
 
@@ -443,7 +443,7 @@ You retrieve the current settings with:
 "[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
 ```
 
-### Variables example templates
+### Variable example templates
 
 These example templates demonstrate some scenarios for using variables. Deploy them to test how variables are handled in different scenarios. 
 
