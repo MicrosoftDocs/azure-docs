@@ -223,7 +223,7 @@ Create the Terraform configuration file that declares Hub virtual network.
     }
     ```
     
-1. Save the file and exit the editor.:
+1. Save the file and exit the editor.
 
 ## Next steps
 
