@@ -11,7 +11,7 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 01/17/2019
+ms.date: 01/25/2019
 ---
 # Use PowerShell to sync between a SQL Database and a SQL Server on-premises database
 
@@ -31,8 +31,8 @@ For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-pr
 
 ```powershell-interactive
 # prerequisites: 
-# 1. Create an Azure Database from AdventureWorksLT sample database as hub database
-# 2. Create an Azure Database in the same region as sync database
+# 1. Create an Azure SQL Database from AdventureWorksLT sample database as hub database
+# 2. Create an Azure SQL Database in the same region as sync database
 # 3. Create an on premises SQL Server Database as member database
 # 4. Update the parameters below before running the sample
 #
@@ -393,7 +393,7 @@ For more info about SQL Data Sync, see:
         -  [Use PowerShell to sync between multiple Azure SQL databases](sql-database-sync-data-between-sql-databases.md)
 -   Data Sync Agent - [Data Sync Agent for Azure SQL Data Sync](../sql-database-data-sync-agent.md)
 -   Best practices - [Best practices for Azure SQL Data Sync](../sql-database-best-practices-data-sync.md)
--   Monitor - [Monitor SQL Data Sync with Log Analytics](../sql-database-sync-monitor-oms.md)
+-   Monitor - [Monitor SQL Data Sync with Azure Monitor logs](../sql-database-sync-monitor-oms.md)
 -   Troubleshoot - [Troubleshoot issues with Azure SQL Data Sync](../sql-database-troubleshoot-data-sync.md)
 -   Update the sync schema
     -   With Transact-SQL - [Automate the replication of schema changes in Azure SQL Data Sync](../sql-database-update-sync-schema.md)

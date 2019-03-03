@@ -7,7 +7,7 @@ author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
@@ -86,7 +86,7 @@ Run the following code to create the compute target from a pre-existing Linux DS
 from azureml.core.compute import ComputeTarget, RemoteCompute 
 
 attach_config = RemoteCompute.attach_configuration(username='<username>',
-                                                   address='<ip_adress_or_fqdn>',
+                                                   address='<ip_address_or_fqdn>',
                                                    ssh_port=22,
                                                    private_key_file='./.ssh/id_rsa')
 compute_target = ComputeTarget.attach(workspace=ws,

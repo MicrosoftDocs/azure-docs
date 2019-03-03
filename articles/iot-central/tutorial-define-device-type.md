@@ -38,6 +38,8 @@ In this tutorial, you learn how to:
 > * Use commands
 > * View your simulated device in the dashboard
 
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
+
 ## Prerequisites
 
 To complete this tutorial, you need an Azure IoT Central application. If you completed the [Create an Azure IoT Central application](quick-deploy-iot-central.md) quickstart, you can reuse the application you created in the quickstart. Otherwise, complete the following steps to create an empty Azure IoT Central application:
@@ -70,7 +72,7 @@ To complete this tutorial, you need an Azure IoT Central application. If you com
 
 ## Create a new custom device template
 
-As a builder, you can create and edit the device templates in your application. When you create a device template, Azure IoT Central generates a simulated device from the template. The simulated device generates telemetry that enables you to test the behavior of your application before you connect a physical device.
+As a builder, you can create and edit the device templates in your application. When you create a device template, Azure IoT Central generates a simulated device from the template. The simulated device generates telemetry that enables you to test the behavior of your application before you connect a real device.
 
 To add a new device template to your application, you need to go to the **Application Builder** page. To do so choose the **Application builder** on the left navigation menu.
 
@@ -150,7 +152,7 @@ The following steps show you how to create a new **Connected Air Conditioner** d
 
 ## Define Event measurement
 
-You can use Event to define point-in-time data that is sent by the device to signify something of significance like an error or a component failure. Like telemetry measurements, Azure IoT Central can simulate device events to enable you to test the behavior of your application before you connect a physical device. You define event measurements for your device type in the **Measurements** view.
+You can use Event to define point-in-time data that is sent by the device to signify something of significance like an error or a component failure. Like telemetry measurements, Azure IoT Central can simulate device events to enable you to test the behavior of your application before you connect a real device. You define event measurements for your device type in the **Measurements** view.
 
 1. To add the **Fan Motor Error** event measurement, choose **New Measurement**. Then choose **Event** as the measurement type:
 
@@ -186,7 +188,7 @@ You can use Event to define point-in-time data that is sent by the device to sig
 
 ## Define State measurement
 
-You can use State to define and visualize the state of the device or its component over a period of time. Like telemetry measurements, Azure IoT Central can simulate device state to enable you to test the behavior of your application before you connect a physical device. You define state measurements for your device type in the **Measurements** view.
+You can use State to define and visualize the state of the device or its component over a period of time. Like telemetry measurements, Azure IoT Central can simulate device state to enable you to test the behavior of your application before you connect a real device. You define state measurements for your device type in the **Measurements** view.
 
 1. To add **Fan Mode** measurement, choose **New Measurement**. Then choose **State** as the measurement type:
 

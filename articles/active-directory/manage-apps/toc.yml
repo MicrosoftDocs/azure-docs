@@ -67,6 +67,8 @@
         href: manage-certificates-for-federated-single-sign-on.md
       - name: Tenant restrictions
         href: tenant-restrictions.md
+      - name: Configure SAML token encryption (Preview)
+        href: howto-saml-token-encryption.md
     - name: Single sign-on
       href: what-is-single-sign-on.md
     - name: End-user portals
@@ -99,6 +101,8 @@
         href: application-proxy-configure-custom-home-page.md
       - name: Translate inline links
         href: application-proxy-configure-hard-coded-link-translation.md
+      - name: Configure cookie settings
+        href: application-proxy-configure-cookie-settings.md
       - name: Publish using wildcards
         href: application-proxy-wildcard.md
       - name: Remove personal data

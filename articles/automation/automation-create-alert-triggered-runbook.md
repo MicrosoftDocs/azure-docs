@@ -3,7 +3,7 @@ title: Use an alert to trigger an Azure Automation runbook
 description: Learn how to trigger a runbook to run when an Azure alert is raised.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/18/2018
@@ -226,3 +226,4 @@ To create a classic alert:
 * For details about different ways to start a runbook, see [Starting a runbook](automation-starting-a-runbook.md).
 * To learn how to create an activity log alert, see [Create activity log alerts](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
 * To learn how to create a near real-time alert, see [Create an alert rule in the Azure portal](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
+

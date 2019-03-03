@@ -23,21 +23,21 @@ If you are running the CLI locally, you need to log in to your account using the
 az login
 ```
 
-If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select the specific subscription ID under your account using [az account set](/cli/azure/account#az_account_set) command. Substitute the **id** property from the **az login** output for your subscription into the subscription id placeholder.
+If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select the specific subscription ID under your account using [az account set](/cli/azure/account) command. Substitute the **id** property from the **az login** output for your subscription into the subscription id placeholder.
 ```azurecli-interactive
 az account set --subscription <subscription id>
 ```
 
 ## Create a resource group
 
-Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [az group create](/cli/azure/group#az_group_create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. You should provide a unique name. The following example creates a resource group named `myresourcegroup` in the `westus` location.
+Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [az group create](/cli/azure/group) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. You should provide a unique name. The following example creates a resource group named `myresourcegroup` in the `westus` location.
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
 
 ## Create an Azure Database for PostgreSQL server
 
-Create an [Azure Database for PostgreSQL server](overview.md) using the [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) command. A server can contain multiple databases.
+Create an [Azure Database for PostgreSQL server](overview.md) using the [az postgres server create](/cli/azure/postgres/server) command. A server can contain multiple databases.
 
 
 **Setting** | **Sample value** | **Description**
@@ -73,9 +73,9 @@ az postgres server create --resource-group myresourcegroup --name mydemoserver  
 
 ## Configure a server-level firewall rule
 
-Create an Azure PostgreSQL server-level firewall rule with the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) command. A server-level firewall rule allows an external application, such as [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) or [PgAdmin](https://www.pgadmin.org/) to connect to your server through the Azure PostgreSQL service firewall. 
+Create an Azure PostgreSQL server-level firewall rule with the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule) command. A server-level firewall rule allows an external application, such as [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) or [PgAdmin](https://www.pgadmin.org/) to connect to your server through the Azure PostgreSQL service firewall. 
 
-You can set a firewall rule that covers an IP range to be able to connect from your network. The following example uses [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) to create a firewall rule `AllowMyIP` for a single IP address.
+You can set a firewall rule that covers an IP range to be able to connect from your network. The following example uses [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule) to create a firewall rule `AllowMyIP` for a single IP address.
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowMyIP --start-ip-address 192.168.0.1 --end-ip-address 192.168.0.1
 ```
@@ -203,7 +203,7 @@ Clean up all resources you created in the quickstart by deleting the [Azure reso
 az group delete --name myresourcegroup
 ```
 
-If you would just like to delete the one newly created server, you can run [az postgres server delete](/cli/azure/postgres/server#az_postgres_server_delete) command.
+If you would just like to delete the one newly created server, you can run [az postgres server delete](/cli/azure/postgres/server) command.
 ```azurecli-interactive
 az postgres server delete --resource-group myresourcegroup --name mydemoserver
 ```

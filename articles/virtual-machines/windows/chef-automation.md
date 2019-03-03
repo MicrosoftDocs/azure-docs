@@ -53,7 +53,7 @@ First, prep your workstation by creating a directory to store Chef configuration
 
 Create a directory called C:\chef.
 
-Download your Azure PowerShell [publish settings](https://docs.microsoft.com/en-us/dynamics-nav/how-to--download-and-import-publish-settings-and-subscription-information).
+Download your Azure PowerShell [publish settings](https://docs.microsoft.com/dynamics-nav/how-to--download-and-import-publish-settings-and-subscription-information).
 
 ## Setup Chef Server
 

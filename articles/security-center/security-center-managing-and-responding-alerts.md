@@ -4,7 +4,7 @@ description: This document helps you to use Azure Security Center capabilities t
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: b88a8df7-6979-479b-8039-04da1b8737a7

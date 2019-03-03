@@ -2,21 +2,20 @@
 title: Restore Key Vault key and secret for encrypted VMs using Azure Backup
 description: Learn how to restore Key Vault key and secret in Azure Backup using PowerShell
 services: backup
-author: sogup
+author: geetha
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/28/2017
-ms.author: sogup
-ms.custom: H1Hack27Feb2017
+ms.author: geetha
 ---
 
 # Restore Key Vault key and secret for encrypted VMs using Azure Backup
 This article talks about using Azure VM Backup to perform restore of encrypted Azure VMs, if your key and secret do not exist in the key vault. These steps can also be used if you want to maintain a separate copy of key (Key Encryption Key) and secret (BitLocker Encryption Key) for the restored VM.
 
 ## Prerequisites
-* **Backup encrypted VMs** - Encrypted Azure VMs have been backed up using Azure Backup. Refer the article [Manage backup and restore of Azure VMs using PowerShell](backup-azure-vms-automation.md) for details about how to backup encrypted Azure VMs.
-* **Configure Azure Key Vault** – Ensure that key vault to which keys and secrets need to be restored is already present. Refer the article [Get Started with Azure Key Vault](../key-vault/key-vault-get-started.md) for details about key vault management.
+* **Backup encrypted VMs** - Encrypted Azure VMs have been backed up using Azure Backup. Refer to the article [Manage backup and restore of Azure VMs using PowerShell](backup-azure-vms-automation.md) for details about how to backup encrypted Azure VMs.
+* **Configure Azure Key Vault** – Ensure that key vault to which keys and secrets need to be restored is already present. Refer to the article [What is Azure Key Vault?](../key-vault/key-vault-overview.md) for details about key vault management.
 * **Restore disk** - Ensure that you have triggered restore job for restoring disks for encrypted VM using [PowerShell steps](backup-azure-vms-automation.md#restore-an-azure-vm). This is because this job generates a JSON file in your storage account containing keys and secrets for the encrypted VM to be restored.
 
 ## Get key and secret from Azure Backup

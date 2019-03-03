@@ -4,10 +4,10 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: An intent represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's utterance.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry

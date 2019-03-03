@@ -1,4 +1,4 @@
-﻿---
+---
 title: Tutorial - Manage Azure disks with Azure PowerShell | Microsoft Docs
 description: In this tutorial, you learn how to use Azure PowerShell to create and manage Azure disks for virtual machines
 services: virtual-machines-windows
@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/05/2018
+ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
+ms.subservice: disks
 
 #Customer intent: As an IT administrator, I want to learn about Azure Managed Disks so that I can create and manage storage for Windows VMs in Azure.
 ---
@@ -78,10 +79,10 @@ To complete the example in this tutorial, you must have an existing virtual mach
 Set the username and password needed for the administrator account on the virtual machine with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 
-Create the virtual machine with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). You'll be prompted to enter a username and password for the administrators account for the VM.
+Create the virtual machine with [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). You'll be prompted to enter a username and password for the administrators account for the VM.
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroupDisk" `
     -Name "myVM" `
     -Location "East US" `
@@ -92,34 +93,34 @@ New-AzureRmVm `
 ```
 
 
-Create the initial configuration with [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig). The following example configures a disk that is 128 gigabytes in size.
+Create the initial configuration with [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig). The following example configures a disk that is 128 gigabytes in size.
 
 ```azurepowershell-interactive
-$diskConfig = New-AzureRmDiskConfig `
+$diskConfig = New-AzDiskConfig `
     -Location "EastUS" `
     -CreateOption Empty `
     -DiskSizeGB 128
 ```
 
-Create the data disk with the [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk) command.
+Create the data disk with the [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-Azdisk) command.
 
 ```azurepowershell-interactive
-$dataDisk = New-AzureRmDisk `
+$dataDisk = New-AzDisk `
     -ResourceGroupName "myResourceGroupDisk" `
     -DiskName "myDataDisk" `
     -Disk $diskConfig
 ```
 
-Get the virtual machine that you want to add the data disk to with the [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) command.
+Get the virtual machine that you want to add the data disk to with the [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) command.
 
 ```azurepowershell-interactive
-$vm = Get-AzureRmVM -ResourceGroupName "myResourceGroupDisk" -Name "myVM"
+$vm = Get-AzVM -ResourceGroupName "myResourceGroupDisk" -Name "myVM"
 ```
 
-Add the data disk to the virtual machine configuration with the [Add-AzureRmVMDataDisk](/powershell/module/azurerm.compute/add-azurermvmdatadisk) command.
+Add the data disk to the virtual machine configuration with the [Add-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/add-azvmdatadisk) command.
 
 ```azurepowershell-interactive
-$vm = Add-AzureRmVMDataDisk `
+$vm = Add-AzVMDataDisk `
     -VM $vm `
     -Name "myDataDisk" `
     -CreateOption Attach `
@@ -127,10 +128,10 @@ $vm = Add-AzureRmVMDataDisk `
     -Lun 1
 ```
 
-Update the virtual machine with the [Update-AzureRmVM](/powershell/module/azurerm.compute/add-azurermvmdatadisk) command.
+Update the virtual machine with the [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/add-azvmdatadisk) command.
 
 ```azurepowershell-interactive
-Update-AzureRmVM -ResourceGroupName "myResourceGroupDisk" -VM $vm
+Update-AzVM -ResourceGroupName "myResourceGroupDisk" -VM $vm
 ```
 
 ## Prepare data disks

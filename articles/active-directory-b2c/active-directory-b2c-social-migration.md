@@ -3,14 +3,14 @@ title: Migrate users with social identities in Azure Active Directory B2C | Micr
 description: Discuss core concepts on the migration of users with social identities into Azure AD B2C using Graph API.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Azure Active Directory B2C: Migrate users with social identities
@@ -43,7 +43,7 @@ This article is a continuation of the user migration article, and focuses on soc
 
 ## Use Graph API to migrate users
 You create the Azure AD B2C user account via [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). 
-To communicate with the Graph API, you first must have a service account with administrative privileges. In Azure AD, you register an application and authentication to Azure AD. The application credentials are Application ID and Application Secret. The application acts as itself, not as a user, to call the Graph API. Follow the instructions in step 1 in [User migration](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration#step-1-use-graph-api-to-migrate-users) article.
+To communicate with the Graph API, you first must have a service account with administrative privileges. In Azure AD, you register an application and authentication to Azure AD. The application credentials are Application ID and Application Secret. The application acts as itself, not as a user, to call the Graph API. Follow the instructions in step 1 in [User migration](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration) article.
 
 ## Required properties
 The following list shows the properties that are required when you create a user.
@@ -136,7 +136,7 @@ The issuer name, or the identity provider name, is configured in your policy. If
 1. Sign in with one of the social accounts
 2. From the JWT token, copy the `sub` value. The `sub` usually contains the user's object ID in Azure AD B2C. Or from Azure portal, open the user's properties and copy the object ID.
 3. Open [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net)
-4. Sign in with your administrator. N
+4. Sign in with your administrator.
 5. Run following GET request. Replace the userObjectId with the user ID you copied. **GET** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 6. Locate the `userIdentities` element inside the JSON return from Azure AD B2C.
 7. [Optional] You may also want to decode the `issuerUserId` value.

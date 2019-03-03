@@ -3,15 +3,15 @@ title: Profile live Azure App Service apps with Application Insights | Microsoft
 description: Profile live apps on Azure App Service with Application Insights Profiler.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: cweining
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: cawa
+ms.reviewer: mbullwin
 ms.date: 08/06/2018
-ms.author: mbullwin
+ms.author: cweining
 ---
 # Profile live Azure App Service apps with Application Insights
 
@@ -19,8 +19,8 @@ Profiler currently works for ASP.NET and ASP.NET Core apps that are running on A
 
 ## <a id="installation"></a> Enable Profiler for your app
 To enable Profiler for an app, follow the instructions below. If you are running a different type of Azure service, here are instructions for enabling Profiler on other supported platforms:
-* [Cloud Services](../../azure-monitor/app/profiler-cloudservice.md ?toc=/azure/azure-monitor/toc.json)
-* [Service Fabric Applications](../../azure-monitor/app/profiler-servicefabric.md ?toc=/azure/azure-monitor/toc.json)
+* [Cloud Services](../../azure-monitor/app/profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Service Fabric Applications](../../azure-monitor/app/profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Virtual Machines](../../azure-monitor/app/profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 Application Insights Profiler is pre-installed as part of the App Services runtime, but you need to turn it on to get profiles for your App Service app. Once you have deployed an app, even if you have included the App Insights SDK in the source code, follow the steps below to enable the profiler.

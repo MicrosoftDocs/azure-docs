@@ -12,7 +12,7 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/05/2018
+ms.date: 02/12/2019
 ---
 # Quickstart: Use the Azure portal's SQL query editor to connect and query data
 
@@ -22,7 +22,15 @@ The SQL query editor is an Azure portal browser tool providing an easy way to ex
 
 To complete this tutorial, you need:
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+- An Azure SQL database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
+
+  || Single database |
+  |:--- |:--- |
+  | Create| [Portal](sql-database-single-database-get-started.md) | 
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | 
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | 
+  | Configure | [Server-level IP firewall rule](sql-database-server-level-firewall-rule.md)| 
+  |||
 
 > [!NOTE]
 > Make sure that the **Allow access to Azure Services** option is set to **ON** in your SQL server firewall settings. This option gives the SQL query editor access to your databases and data warehouses.

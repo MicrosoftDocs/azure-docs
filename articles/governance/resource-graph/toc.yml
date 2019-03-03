@@ -32,10 +32,21 @@
   - name: Explore your Azure resources with Resource Graph
     displayName: vms, public ip
     href: ./concepts/explore-resources.md
+  - name: Work with large data sets
+    displayName: page, first, skip, token
+    href: ./concepts/work-with-data.md
 - name: Reference
   items:
-  - name: REST API
+  - name: Azure PowerShell
+    href: /powershell/module/az.resourcegraph/
+  - name: Azure CLI
+    href: /cli/azure/ext/resource-graph/graph
+  - name: Azure SDK for .NET
+    href: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
+  - name: REST
     href: /rest/api/azureresourcegraph/resources/resources
+  - name: OpenAPI
+    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview
 - name: Resources
   items:
   - name: Azure roadmap

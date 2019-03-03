@@ -4,15 +4,16 @@ description: Learn about the supported scenarios and the requirements for config
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: article
 ms.date: 01/15/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: annaba
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory certificate-based authentication on Android
 

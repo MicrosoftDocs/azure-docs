@@ -4,9 +4,9 @@ description: Learn how to set up diagnostic logs for Service Bus in Azure.
 keywords:
 documentationcenter: .net
 services: service-bus-messaging
-author: spelluru
+author: axisc
 manager: timlt
-editor:
+editor: spelluru
 
 ms.assetid:
 ms.service: service-bus-messaging
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/05/2018
-ms.author: spelluru
+ms.date: 01/23/2019
+ms.author: aschhab
 
 ---
 # Service Bus diagnostic logs
@@ -42,7 +42,7 @@ Diagnostics logs are disabled by default. To enable diagnostic logs, perform the
 
 	![change status diagnostic logs](./media/service-bus-diagnostic-logs/image3.png)
 
-5.	Set the archive target that you want; for example, a storage account, an event hub, or Azure Log Analytics.
+5.	Set the archive target that you want; for example, a storage account, an event hub, or Azure Monitor logs.
 
 6.	Save the new diagnostics settings.
 

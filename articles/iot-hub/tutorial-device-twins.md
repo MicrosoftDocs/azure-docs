@@ -3,18 +3,15 @@ title: Synchronize device state from Azure IoT Hub | Microsoft Docs
 description: Use device twins to synchronize state between your devices and your IoT hub
 services: iot-hub
 documentationcenter: 
-author: dominicbetts
-manager: timlt
-
-
-ms.assetid: 
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/14/2018
-ms.author: dobett
+ms.date: 01/18/2019
 ms.custom: mvc
 #Customer intent: As a developer, I want to be able to configure my devices from the cloud and receive status and compliance data from my devices.
 ---

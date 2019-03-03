@@ -20,6 +20,8 @@ For recommendations about how to govern your Azure subscriptions, see [Azure ent
 
 For recommendations about how to build templates that work in all Azure cloud environments, see [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Parameters
 The information in this section can be helpful when you work with [parameters](resource-manager-templates-parameters.md).
 
@@ -76,7 +78,7 @@ The information in this section can be helpful when you work with [parameters](r
 
 * Use `allowedValues` sparingly. Use it only when you must make sure some values aren't included in the permitted options. If you use `allowedValues` too broadly, you might block valid deployments by not keeping your list up-to-date.
 
-* When a parameter name in your template matches a parameter in the PowerShell deployment command, Resource Manager resolves this naming conflict by adding the postfix **FromTemplate** to the template parameter. For example, if you include a parameter named **ResourceGroupName** in your template, it conflicts with the **ResourceGroupName** parameter in the [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet. During deployment, you're prompted to provide a value for **ResourceGroupNameFromTemplate**.
+* When a parameter name in your template matches a parameter in the PowerShell deployment command, Resource Manager resolves this naming conflict by adding the postfix **FromTemplate** to the template parameter. For example, if you include a parameter named **ResourceGroupName** in your template, it conflicts with the **ResourceGroupName** parameter in the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet. During deployment, you're prompted to provide a value for **ResourceGroupNameFromTemplate**.
 
 ### Security recommendations for parameters
 
@@ -123,7 +125,7 @@ The information in this section can be helpful when you work with [parameters](r
 
 ## Variables
 
-The following information can be helpful when you work with [variables](resource-manager-templates-variables.md):
+The following information can be helpful when you work with [variables](resource-group-authoring-templates.md#variables):
 
 * Use variables for values that you need to use more than once in a template. If a value is used only once, a hard-coded value makes your template easier to read.
 
@@ -269,7 +271,7 @@ The following information can be helpful when you work with [resources](resource
 
 ## Outputs
 
-If you use a template to create public IP addresses, include an [outputs section](resource-manager-templates-outputs.md) that returns details of the IP address and the fully qualified domain name (FQDN). You can use output values to easily retrieve details about public IP addresses and FQDNs after deployment.
+If you use a template to create public IP addresses, include an [outputs section](resource-group-authoring-templates.md#outputs) that returns details of the IP address and the fully qualified domain name (FQDN). You can use output values to easily retrieve details about public IP addresses and FQDNs after deployment.
 
 ```json
 "outputs": {

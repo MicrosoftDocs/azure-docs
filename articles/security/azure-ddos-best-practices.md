@@ -4,7 +4,7 @@ title: Azure DDoS Protection best practices and reference architectures | Micros
 description: Learn about how you can use logging data to gain deep insights about your application.
 services: security
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 
@@ -127,7 +127,7 @@ The Azure DDoS Protection Basic service helps protect customers and prevent impa
 
 #### DDoS Protection telemetry, monitoring, and alerting
 
-DDoS Protection Standard exposes rich telemetry via [Azure Monitor](../azure-monitor/overview.md) for the duration of a DDoS attack. You can configure alerts for any of the Azure Monitor metrics that DDoS Protection uses. You can integrate logging with Splunk (Azure Event Hubs), Azure Log Analytics, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
+DDoS Protection Standard exposes rich telemetry via [Azure Monitor](../azure-monitor/overview.md) for the duration of a DDoS attack. You can configure alerts for any of the Azure Monitor metrics that DDoS Protection uses. You can integrate logging with Splunk (Azure Event Hubs), Azure Monitor logs, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
 
 ##### DDoS mitigation policies
 

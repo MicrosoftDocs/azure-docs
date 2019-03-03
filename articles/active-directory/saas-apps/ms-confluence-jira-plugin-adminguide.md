@@ -4,7 +4,7 @@ description: Admin guide to use Atlassian Jira and Confluence with Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 
 ms.service: active-directory
@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Atlassian Jira and Confluence admin guide for Azure Active Directory
 

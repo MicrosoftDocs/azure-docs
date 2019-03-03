@@ -66,7 +66,7 @@ When you first create a Recovery Services vault you determine how storage is rep
 
     ![Select the new vault from the list of Recovery Services vault](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault.png)
 
-    When you select the vault, the Recovery Services vault blade narrows, and the **Overview** blade (*which has the name of the vault at the top*) the vault details blade open.
+    When you select the vault, the Recovery Services vault blade narrows, and the **Overview** blade (*which has the name of the vault at the top*) and the vault details blade open.
 
     ![View the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-overview.png)
 

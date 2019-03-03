@@ -1,6 +1,6 @@
 ---
-title: Load data into Azure Data Lake Storage Gen2 (Preview) with Azure Data Factory
-description: 'Use Azure Data Factory to copy data into Azure Data Lake Storage Gen2 (Preview)'
+title: Load data into Azure Data Lake Storage Gen2 with Azure Data Factory
+description: 'Use Azure Data Factory to copy data into Azure Data Lake Storage Gen2'
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,13 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/29/2018
+ms.date: 02/15/2019
 ms.author: jingwang
 ---
 
-# Load data into Azure Data Lake Storage Gen2 (Preview) with Azure Data Factory
+# Load data into Azure Data Lake Storage Gen2 with Azure Data Factory
 
-Azure Data Lake Storage Gen2 Preview is a set of capabilities dedicated to big data analytics, built into [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). It allows you to interface with your data using both file system and object storage paradigms.
+Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built into [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). It allows you to interface with your data using both file system and object storage paradigms.
 
 Azure Data Factory is a fully managed cloud-based data integration service. You can use the service to populate the lake with data from a rich set of on-premises and cloud-based data stores and save time when building your analytics solutions. For a detailed list of supported connectors, see the table of [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -88,7 +88,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
     ![Specify output folder](./media/load-azure-data-lake-storage-gen2/specify-binary-copy.png)
 	
-7. In the **Destination data store** page, click **+ Create new connection**, and then select **Azure Data Lake Storage Gen2 (Preview)**, and select **Continue**:
+7. In the **Destination data store** page, click **+ Create new connection**, and then select **Azure Data Lake Storage Gen2**, and select **Continue**:
 
     ![Destination data store page](./media/load-azure-data-lake-storage-gen2/destination-data-storage-page.png)
 

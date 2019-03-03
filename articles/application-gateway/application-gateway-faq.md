@@ -36,7 +36,7 @@ HTTP/2 protocol support is available to clients connecting to application gatewa
 
 By default, HTTP/2 support is disabled. The following Azure PowerShell code snippet example shows how you can enable it:
 
-```
+```powershell
 $gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
 $gw.EnableHttp2 = $true
 Set-AzureRmApplicationGateway -ApplicationGateway $gw
@@ -100,8 +100,6 @@ Application Gateway also inserts X-Original-Host header that contains the origin
 New Application Gateway v1 SKU deployments can take up to 20 minutes to provision. Changes to instance size/count are not disruptive, and the gateway remains active during this time.
 
 V2 SKU deployments can take about five to six minutes to provision.
-
-Does Application Gateway support x-forwarded-for headers?
 
 ## Configuration
 
@@ -217,7 +215,7 @@ Yes, Azure distributes instances across update and fault domains to ensure that 
 
 ### What certificates are supported on Application Gateway?
 
-Self-Signed certs, CA certs, and wild-card certs are supported. EV certs are not supported.
+Self-Signed certs, CA certs, EV certs, and wild-card certs are supported.
 
 ### What are the current cipher suites supported by Application Gateway?
 
@@ -343,7 +341,7 @@ You can use the PowerShell cmdlet `Get-AzureRmApplicationGatewayBackendHealth` o
 
 ### What is the retention policy on the diagnostics logs?
 
-Diagnostic logs flow to the customers storage account and customers can set the retention policy based on their preference. Diagnostic logs can also be sent to an Event Hub or Log Analytics. See [Application Gateway Diagnostics](application-gateway-diagnostics.md) for more details.
+Diagnostic logs flow to the customers storage account and customers can set the retention policy based on their preference. Diagnostic logs can also be sent to an Event Hub or Azure Monitor logs. See [Application Gateway Diagnostics](application-gateway-diagnostics.md) for more details.
 
 ### How do I get audit logs for Application Gateway?
 
@@ -355,7 +353,7 @@ Yes, Application Gateway does support alerts. Alerts are configured on metrics. 
 
 ### How do I analyze traffic statistics for Application Gateway?
 
-You can view and analyze Access logs via several mechanisms such as Azure Log Analytics, Excel, Power BI etc.
+You can view and analyze Access logs via several mechanisms such as Azure Monitor logs, Excel, Power BI etc.
 
 We have also published a Resource Manager template that installs and runs the popular [GoAccess](https://goaccess.io/) log analyzer for Application Gateway Access Logs. GoAccess provides valuable HTTP traffic statistics such as Unique Visitors, Requested Files, Hosts, Operating Systems, Browsers, HTTP Status codes and more. For more details, please see the [Readme file in the Resource Manager template folder in GitHub](https://aka.ms/appgwgoaccessreadme).
 

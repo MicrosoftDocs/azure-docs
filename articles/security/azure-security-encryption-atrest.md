@@ -4,7 +4,7 @@ description: This article provides an overview of Microsoft Azure data  encrypti
 services: security
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
@@ -264,7 +264,7 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | Azure Storage (Tables, Queues)   | Yes                | -                  | Yes                |
 | Cosmos DB (Document DB)          | Yes                | -                  | -                  |
 | StorSimple                       | Yes                | -                  | Yes                |
-| Backup                           | -                  | -                  | Yes                |
+| Backup                           | Yes                | -                  | Yes                |
 | **Intelligence and Analytics**   |                    |                    |                    |
 | Azure Data Factory               | Yes                | -                  | -                  |
 | Azure Machine Learning           | -                  | Preview, RSA 2048-bit | -                  |

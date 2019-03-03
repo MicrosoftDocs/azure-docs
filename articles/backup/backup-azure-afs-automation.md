@@ -29,7 +29,7 @@ To view the **AzureRm.RecoveryServices.Backup** PowerShell cmdlet reference, see
 ## Setup and registration
 
 > [!NOTE]
-> As noted in [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), support for new features in the AzureRM module ends in November 2018. Support is provided for backup of Azure file shares with the new Az PowerShell module that's now generally available.
+> As noted in [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0), support for new features in the AzureRM module ends in November 2018. Support is provided for backup of Azure file shares with the new Az PowerShell module that's now generally available.
 
 Follow these steps to begin.
 
@@ -287,17 +287,17 @@ Identify the alternate location by providing the following information:
 
 Provide these parameters to the restore command to restore a backed-up file share to an alternate location.
 
-````powershell
+```powershell
 Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -TargetStorageAccountName "TargetStorageAcct" -TargetFileShareName "DestAFS" -TargetFolder "testAzureFS_restored" -ResolveConflict Overwrite
-````
+```
 
 The command returns a job with an ID to be tracked, as shown in the following example.
 
-````powershell
+```powershell
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
 ------------     ---------            ------               ---------                 -------                   -----
 testAzureFS        Restore              InProgress           12/10/2018 9:56:38 AM                               9fd34525-6c46-496e-980a-3740ccb2ad75
-````
+```
 
 #### Restore an Azure file
 

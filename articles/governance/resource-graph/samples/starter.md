@@ -1,10 +1,10 @@
 ---
 title: Starter query samples
-description: Use Azure Resource Graph to run some starter queries.
+description: Use Azure Resource Graph to run some starter queries, including counting resources, ordering resources, or by a specific tag.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/22/2018
+ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
@@ -33,6 +33,8 @@ We'll walk through the following starter queries:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+
 ## Language support
 
 Azure CLI (through an extension) and Azure PowerShell (through a module) support Azure Resource
@@ -56,7 +58,7 @@ az graph query -q "summarize count()"
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "summarize count()"
+Search-AzGraph -Query "summarize count()"
 ```
 
 ## <a name="list-resources"></a>List resources sorted by name
@@ -75,7 +77,7 @@ az graph query -q "project name, type, location | order by name asc"
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "project name, type, location | order by name asc"
+Search-AzGraph -Query "project name, type, location | order by name asc"
 ```
 
 ## <a name="show-vms"></a>Show all virtual machines ordered by name in descending order
@@ -95,7 +97,7 @@ az graph query -q "project name, location, type| where type =~ 'Microsoft.Comput
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
+Search-AzGraph -Query "project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
 ```
 
 ## <a name="show-sorted"></a>Show first five virtual machines by name and their OS type
@@ -115,7 +117,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | project n
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
+Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
 ```
 
 ## <a name="count-os"></a>Count virtual machines by OS type
@@ -137,7 +139,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | summarize
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
+Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
 ```
 
 A different way to write the same query is to `extend` a property and give it a temporary name for
@@ -155,7 +157,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | extend os
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
+Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
 ```
 
 > [!NOTE]
@@ -175,7 +177,7 @@ az graph query -q "where type contains 'storage' | distinct type"
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type contains 'storage' | distinct type"
+Search-AzGraph -Query "where type contains 'storage' | distinct type"
 ```
 
 ## <a name="list-publicip"></a>List all public IP addresses
@@ -196,7 +198,7 @@ az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddr
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
+Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
 ```
 
 ## <a name="count-resources-by-ip"></a>Count resources that have IP addresses configured by subscription
@@ -213,7 +215,7 @@ az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddr
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
+Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
 ```
 
 ## <a name="list-tag"></a>List resources with a specific tag value
@@ -232,7 +234,7 @@ az graph query -q "where tags.environment=~'internal' | project name"
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name"
+Search-AzGraph -Query "where tags.environment=~'internal' | project name"
 ```
 
 To also provide what tags the resource has and their values, add the property **tags** to the
@@ -248,7 +250,7 @@ az graph query -q "where tags.environment=~'internal' | project name, tags"
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name, tags"
+Search-AzGraph -Query "where tags.environment=~'internal' | project name, tags"
 ```
 
 ## <a name="list-specific-tag"></a>List all storage accounts with specific tag value
@@ -267,7 +269,7 @@ az graph query -q "where type =~ 'Microsoft.Storage/storageAccounts' | where tag
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type =~ 'Microsoft.Storage/storageAccounts' | where tags['tag with a space']=='Custom value'"
+Search-AzGraph -Query "where type =~ 'Microsoft.Storage/storageAccounts' | where tags['tag with a space']=='Custom value'"
 ```
 
 > [!NOTE]

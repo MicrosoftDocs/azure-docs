@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 02/26/2019
 ms.author: juliako;anilmur
 
 ---
@@ -74,7 +74,7 @@ or
 | Apple ProRes Proxy |Yes |
 | Apple ProRes 4444 |Yes |
 | Apple ProRes 4444 XQ |Yes |
-| HEVC/H.265| Main Profile|
+| HEVC/H.265| Main and Main 10 (&#42;) Profiles<br/>Main 10 Profile support is intended for 8bit 4:2:0 content. |
 
 ## Input audio codecs
 | Input Audio Codecs | Supported |

@@ -1,5 +1,5 @@
 # [Data Lake Storage Gen1 Documentation](index.md)
-# [Switch to Data Lake Storage Gen2 (preview) documentation](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
+# [Switch to Data Lake Storage Gen2 documentation](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
 
 # Overview
 ## [Overview of Data Lake Storage Gen1](data-lake-store-overview.md)
@@ -28,7 +28,7 @@
 ### [Access control](data-lake-store-access-control.md)
 ### [Securing stored data](data-lake-store-secure-data.md)
 ### [Encryption](data-lake-store-encryption.md)
-### [Virtual network integration (preview)](data-lake-store-network-security.md)
+### [Virtual network integration](data-lake-store-network-security.md)
 
 ## Authenticate with Data Lake Storage Gen1
 ### [Authentication options](data-lakes-store-authentication-using-azure-active-directory.md)
@@ -87,7 +87,7 @@
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=data-lake-store)
 ## [Azure PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
-## [Java](/java/api/com.microsoft.azure.datalake.store)
+## [Java](https://docs.microsoft.com/java/api/overview/azure/datalake?view=azure-java-stable)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
 ## [Python (Account Mgmt.)](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python)
 ## [Python (Filesystem Mgmt.)](http://azure-datalake-store.readthedocs.io/en/latest)

@@ -11,7 +11,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: 
 manager: craigg
-ms.date: 10/22/2018
+ms.date: 12/04/2018
 ---
 # Managing scaled-out cloud databases
 

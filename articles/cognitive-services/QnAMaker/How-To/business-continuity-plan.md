@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: The primary objective of the business continuity plan is to create a resilient knowledge base endpoint, which would ensure no down time for the Bot or the application consuming it.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2018
+ms.date: 01/14/2019
 ms.author: tulasim
 ---
 

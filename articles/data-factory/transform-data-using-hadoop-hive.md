@@ -48,7 +48,7 @@ If you are new to Azure Data Factory, read through [Introduction to Azure Data F
         "defines": {
             "param1": "param1Value"
         }
-    }   
+    }
 }
 ```
 ## Syntax details
@@ -63,7 +63,7 @@ If you are new to Azure Data Factory, read through [Introduction to Azure Data F
 | getDebugInfo        | Specifies when the log files are copied to the Azure Storage used by HDInsight cluster (or) specified by scriptLinkedService. Allowed values: None, Always, or Failure. Default value: None. | No       |
 | arguments           | Specifies an array of arguments for a Hadoop job. The arguments are passed as command-line arguments to each task. | No       |
 | defines             | Specify parameters as key/value pairs for referencing within the Hive script. | No       |
-| queryTimeout        | Query timeout value (in minutes).  Applicable when the HDInsight cluster is with Enterprise Security Package enabled. | No       |
+| queryTimeout        | Query timeout value (in minutes). Applicable when the HDInsight cluster is with Enterprise Security Package enabled. | No       |
 
 ## Next steps
 See the following articles that explain how to transform data in other ways: 
@@ -76,4 +76,3 @@ See the following articles that explain how to transform data in other ways:
 * [.NET custom activity](transform-data-using-dotnet-custom-activity.md)
 * [Machine Learning Batch Execution activity](transform-data-using-machine-learning.md)
 * [Stored procedure activity](transform-data-using-stored-procedure.md)
-

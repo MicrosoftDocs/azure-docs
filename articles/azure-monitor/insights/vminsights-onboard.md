@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/07/2018
+ms.date: 02/22/2019
 ms.author: magoedte
 ---
 
@@ -31,7 +31,7 @@ Before you start, make sure that you understand the information in the following
 
 ### Log Analytics
 
-A Log Analytics workspace is currently supported in the following regions:
+Azure Monitor for VMs supports a Log Analytics workspace in the following regions:
 
 - West Central US
 - East US
@@ -57,7 +57,7 @@ To enable the solution for the at-scale scenario, first configure the following 
 * Install the ServiceMap and InfrastructureInsights solutions. You can complete this installation only by using an Azure Resource Manager template that's provided in this article.
 * Configure the Log Analytics workspace to collect performance counters.
 
-To configure your workspace for the at-scale scenario, see [Set up Log Analytics workspace for an at-scale deployment](#setup-log-analytics-workspace).
+To configure your workspace for the at-scale scenario, see Set up Log Analytics workspace for an at-scale deployment.
 
 ### Supported operating systems
 
@@ -65,6 +65,7 @@ The following table lists the Windows and Linux operating systems that are suppo
 
 |OS version |Performance |Maps |Health |
 |-----------|------------|-----|-------|
+|Windows Server 2019 | X | X |  |
 |Windows Server 2016 1803 | X | X | X |
 |Windows Server 2016 | X | X | X |
 |Windows Server 2012 R2 | X | X | |
@@ -97,6 +98,7 @@ The following table lists the Windows and Linux operating systems that are suppo
 | 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
 | 7.5 | 3.10.0-862 |
+| 7.6 | 3.10.0-957 |
 
 #### Red Hat Linux 6
 
@@ -112,6 +114,7 @@ The following table lists the Windows and Linux operating systems that are suppo
 | 6.7 | 2.6.32-573 |
 | 6.8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
+| 6.10 | 2.6.32-754 |
 
 #### Ubuntu Server
 
@@ -298,22 +301,37 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 
 1. Save this file as *installsolutionsforvminsights.json* to a local folder.
 
-1. Edit the values for *WorkspaceName*, *ResourceGroupName*, and *WorkspaceLocation*. The value for *WorkspaceName* is the full resource ID of your Log Analytics workspace, which includes the workspace name. The value for *WorkspaceLocation* is the region the workspace is defined in.
+1. Capture the values for *WorkspaceName*, *ResourceGroupName*, and *WorkspaceLocation*. The value for *WorkspaceName* is the name of your Log Analytics workspace. The value for *WorkspaceLocation* is the region the workspace is defined in.
 
-1. You're ready to deploy this template by using the following PowerShell command:
+1. You're ready to deploy this template.
+ 
+    * Use the following PowerShell commands in the folder that contains the template:
 
-    ```powershell
-    New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName <ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
-    ```
+        ```powershell
+        New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName <ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
+        ```
 
-    The configuration change can take a few minutes to complete. When it's complete, a message is displayed that's similar to the following and includes the result:
+        The configuration change can take a few minutes to complete. When it's complete, a message is displayed that's similar to the following and includes the result:
 
-    ```powershell
-    provisioningState       : Succeeded
-    ```
+        ```powershell
+        provisioningState       : Succeeded
+        ```
+
+    * To run the following command by using the Azure CLI:
+    
+        ```azurecli
+        az login
+        az account set --subscription "Subscription Name"
+        az group deployment create --name DeploySolutions --resource-group <ResourceGroupName> --template-file InstallSolutionsForVMInsights.json --parameters WorkspaceName=<workspaceName> WorkspaceLocation=<WorkspaceLocation - example: eastus>
+        ```
+
+        The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
+
+        ```azurecli
+        provisioningState       : Succeeded
 
 ### Enable by using Azure Policy
-To enable Azure Monitor for VMs at scale in a way that helps ensure consistent compliance and the automatic enabling of the newly provisioned VMs, we recommend [Azure Policy](../../azure-policy/azure-policy-introduction.md). These policies:
+To enable Azure Monitor for VMs at scale in a way that helps ensure consistent compliance and the automatic enabling of the newly provisioned VMs, we recommend [Azure Policy](../../governance/policy/overview.md). These policies:
 
 * Deploy the Log Analytics agent and the Dependency agent.
 * Report on compliance results.
@@ -403,7 +421,7 @@ Based on the results of the policies included with the initiative, VMs are repor
 ### Enable with PowerShell
 To enable Azure Monitor for VMs for multiple VMs or virtual machine scale sets, you can use the PowerShell script [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0), available from the Azure PowerShell Gallery. This script iterates through every virtual machine and virtual machine scale set in your subscription, in the scoped resource group that's specified by *ResourceGroup*, or to a single VM or virtual machine scale set that's specified by *Name*. For each VM or virtual machine scale set, the script verifies whether the VM extension is already installed. If the VM extension is not installed, the script tries to reinstall it. If the VM extension is installed, the script installs the Log Analytics and Dependency agent VM extensions.
 
-This script requires Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). If you're running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
+This script requires Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). If you're running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
 To get a list of the script's argument details and example usage, run `Get-Help`.
 

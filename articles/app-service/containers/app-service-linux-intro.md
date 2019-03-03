@@ -22,7 +22,7 @@ ms.custom: seodec18
 ---
 # Introduction to Azure App Service on Linux
 
-[Web App](../overview.md) is a fully managed compute platform that is optimized for hosting websites and web applications. Customers can use App Service on Linux to host web apps natively on Linux for supported application stacks. The following sections lists the application stacks that are currently supported.
+[Azure App Service](../overview.md) is a fully managed compute platform that is optimized for hosting websites and web applications. Customers can use App Service on Linux to host web apps natively on Linux for supported application stacks. The [Languages](#languages) section lists the application stacks that are currently supported.
 
 ## Languages
 
@@ -36,8 +36,6 @@ App Service on Linux supports a number of Built-in images in order to increase d
 | Python (Preview) | 2.7, 3.6, 3.7 |
 | .NET Core | 1.0, 1.1, 2.0, 2.1 |
 | Ruby | 2.3 |
-
-See [Create a Java web app in App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-java) for more details.
 
 ## Deployments
 
@@ -70,9 +68,9 @@ Check the [Azure Status Dashboard](https://azure.microsoft.com/status).
 
 The Azure portal shows only features that currently work for Web App for Containers. As we enable more features, they will become visible on the portal.
 
-Some features, such as virtual network integration, Azure Active Directory/third-party authentication, or Kudu site extensions, are not available yet. Once these features are available, we will update our documentation and blog about the changes.
+App Service on Linux is only supported with [Basic, Standard, and Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) app service plans and does not have a [Free or Shared](https://azure.microsoft.com/pricing/details/app-service/plans/) tier. You cannot create Web App for Containers in an App Service plan already hosting non-Linux Web Apps.  
 
-App Service on Linux is only supported with [Basic, Standard, and Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) app service plans and does not have a [Free or Shared](https://azure.microsoft.com/pricing/details/app-service/plans/) tier. You cannot create Web App for Containers in an App Service plan already hosting non-Linux Web Apps. There is a current limitation in regards to not mixing Windows and Linux apps in the same resource group as well.
+Also, based on a current limitation, don't mix Windows and Linux apps in the same resource group.
 
 ## Troubleshooting
 
@@ -81,9 +79,11 @@ To log the `stdout` and `stderr` from your container, you need to enable **Docke
 
 ![Enabling Logging][2]
 
-![Using Kudu to view Docker logs][1]
+The setting takes effect immediately. App Service detects the settings change and restarts the container for you automatically.
 
 You can access the SCM site from **Advanced Tools** in the **Development Tools** menu.
+
+![Using Kudu to view Docker logs][1]
 
 ## Next steps
 
@@ -98,7 +98,7 @@ The following articles get you started with App Service on Linux with web apps w
 * [Go](quickstart-docker-go.md)
 * [Multi-container apps](quickstart-multi-container.md)
 
-Also see the following articles for more details on App Service on Linux:
+For more information on App Service on Linux, see:
 
 * [App Service for Linux FAQ](app-service-linux-faq.md)
 * [SSH support for App Service on Linux](app-service-linux-ssh-support.md)
