@@ -50,7 +50,7 @@ Before you can complete the steps in this tutorial, you must first create a CDN 
 
    ![CDN Caching rules button](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
 
-   The **Caching rules** page appears.
+   The **Caching rules** page appears. Default cache expiration duration is 7 days.
 
    ![CDN Caching rules page](./media/cdn-caching-rules/cdn-caching-rules-page.png)
 
