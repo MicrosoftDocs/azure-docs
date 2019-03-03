@@ -23,7 +23,7 @@ This article explains how to create a SaaS offer with APIs. The APIs are necessa
 through Azure selected.  
 
 > [!WARNING]
-> This initial version of the SaaS Fulfillment API is deprecated; instead, use [SaaS Fulfillment API V2](./cpp-saas-fulfillment-apiv2.md).
+> This initial version of the SaaS Fulfillment API is deprecated; instead, use [SaaS Fulfillment API V2](./cpp-saas-fulfillment-api-v2.md).
 
 
 This article is divided into two sections:
@@ -40,7 +40,7 @@ The following APIs are provided to help you integrate your SaaS service with Azu
 
 The following diagram shows the subscription flow of a new customer and when these APIs are used:
 
-![SaaS offer API flow](./media/saas-offer-publish-api-flowv1.png)
+![SaaS offer API flow](./media/saas-offer-publish-api-flow-v1.png)
 
 
 ## Service to service authentication between SaaS service and Azure marketplace
@@ -71,7 +71,7 @@ To register a new application using the Azure portal, perform the following step
 3.  In the left-hand navigation pane, click the **Azure Active
     Directory** service, click **App registrations**, and click **New application registration**.
 
-    ![SaaS AD App Registrations](./media/saas-offer-app-registrationv1.png)
+    ![SaaS AD App Registrations](./media/saas-offer-app-registration-v1.png)
 
 4.  On the Create page, enter your application\'s registration
     information:
@@ -93,7 +93,7 @@ To register a new application using the Azure portal, perform the following step
         by Azure AD to return token responses. Enter a value specific to
         your application, for example **http://MyFirstAADApp**.
 
-        ![SaaS AD App Registrations](./media/saas-offer-app-registrationv1-2.png)
+        ![SaaS AD App Registrations](./media/saas-offer-app-registration-v1-2.png)
 
         For specific examples for web applications or native
         applications, check out the quick start guided setups that are
