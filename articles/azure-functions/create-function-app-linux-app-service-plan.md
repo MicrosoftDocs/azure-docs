@@ -63,11 +63,15 @@ You must have a function app to host the execution of your functions on Linux. T
 > [!TIP]
 > Having trouble finding your function apps in the portal, try [adding Function Apps to your favorites in the Azure portal](functions-how-to-use-azure-function-app-settings.md#favorite).
 
-Next, you create a function in the new function app.
+Next, you create a function in the new function app. Even after your function app is available, it may take a few minutes to be fully initialized.
 
 ## <a name="create-function"></a>Create an HTTP triggered function
 
-1. Expand your new function app, then select the **+** button next to **Functions**, choose **In-portal**, and select **Continue**.
+1. In your new function app, choose the **Overview** tab, and after it loads completely choose **+ New function**.
+
+    ![Create a new function from the Overview tab](./media/create-function-app-linux-app-service-plan/overview-create-function.png)
+
+1. In the **Quickstart** tab, choose **In-portal**, and select **Continue**.
 
     ![Choose your function development platform.](./media/create-function-app-linux-app-service-plan/function-app-quickstart-choose-portal.png)
 
