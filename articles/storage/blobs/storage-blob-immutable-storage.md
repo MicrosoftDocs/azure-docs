@@ -13,15 +13,15 @@ ms.subservice: blobs
 
 # Store business-critical data in Azure Blob storage
 
-Immutable storage for Azure Blob (object) storage enables users to store business-critical data in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval. Blobs can be created and read, but not modified or deleted, for the duration of the retention interval. Immutable storage is enabled in all Azure regions.
+Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval. Blob Objects can be created and read, but not modified or deleted, for the duration of the retention interval. Immutable storage is enabled for General Purpose v2 and Blob Storage accounts in all Azure regions.
 
 ## Overview
 
-Immutable storage helps healthcare organization, financial institutions, and related industries--particularly broker-dealer organizations--to store data securely. It can also be leveraged in any scenario to protect critical data against modification or deletion.  
+Immutable storage helps healthcare organization, financial institutions, and related industries--particularly broker-dealer organizations--to store data securely. It can also be leveraged in any scenario to protect critical data against modification or deletion. 
 
 Typical applications include:
 
-- **Regulatory compliance**: Immutable storage for Azure Blob storage helps organizations address SEC 17a-4(f), CFTC 1.31(d), FINRA, and other regulations.
+- **Regulatory compliance**: Immutable storage for Azure Blob storage helps organizations address SEC 17a-4(f), CFTC 1.31(d), FINRA, and other regulations. A technical whitepaper by Cohasset Associates details how Immutable storage addresses these regulatory requirements is downloadable via the [Microsoft Service Trust Portal](https://aka.ms/AzureWormStorage). The [Azure Trust Center](https://www.microsoft.com/trustcenter/compliance/compliance-overview) contains detailed information about our compliance certifications.
 
 - **Secure document retention**: Immutable storage for Azure Blob storage ensures that data can't be modified or deleted by any user, including users with account administrative privileges.
 
@@ -120,7 +120,7 @@ The most recent releases of the [Azure portal](http://portal.azure.com), [Azure 
 
     !["Tag name" box under the policy type](media/storage-blob-immutable-storage/portal-image-set-legal-hold-tags.png)
 
-8. To clear a legal hold, simply remove the applied legal hold idenitifer tag.
+8. To clear a legal hold, simply remove the applied legal hold identifier tag.
 
 ### Azure CLI
 
@@ -159,9 +159,9 @@ The following client libraries support immutable storage for Azure Blob storage:
 
 ## FAQ
 
-**Can you provide documenation of WORM compliance?**
+**Can you provide documentation of WORM compliance?**
 
-To document compliance, Microsoft retained a leading independent assessment firm that specializes in records management and information governance, Cohasset Associates, to evaluate Azure Immutable Blob Storage and its compliance with requirements specific to the financial services industry. Cohasset validated that Azure Immutable Blob Storage, when used to retain time-based Blobs in a WORM state, meets the relevant storage requirements of CFTC Rule 1.31(c)-(d), FINRA Rule 4511, and SEC Rule 17a-4. Microsoft targeted this set of rules, as they represent the most prescriptive guidance globally for records retention for financial institutions. [The Cohasset report is available here in the Microsft Trust Center](https://aka.ms/AzureWormStorage).
+Yes. To document compliance, Microsoft retained a leading independent assessment firm that specializes in records management and information governance, Cohasset Associates, to evaluate Azure Immutable Blob Storage and its compliance with requirements specific to the financial services industry. Cohasset validated that Azure Immutable Blob Storage, when used to retain time-based Blobs in a WORM state, meets the relevant storage requirements of CFTC Rule 1.31(c)-(d), FINRA Rule 4511, and SEC Rule 17a-4. Microsoft targeted this set of rules, as they represent the most prescriptive guidance globally for records retention for financial institutions. The Cohasset report is available in the [Microsoft Service Trust Center](https://aka.ms/AzureWormStorage).
 
 **Does the feature apply to only block blobs, or to page and append blobs as well?**
 
