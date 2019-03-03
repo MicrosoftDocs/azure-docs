@@ -13,17 +13,30 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 3/3/2019
 ms.author: pbutlerm
 ---
 
 
 Seller Insights release notes 
 ===============================
-(Release date: July 28, 2018)
+(Release date: March 11, 2019)
 
 This article provides information on changes to the Seller Insights feature in the [Cloud Partner Portal](https://cloudpartner.azure.com/#insights).
 
+Release highlights
+------------------
+
+* *Customer Trend* added to Summary
+* *Top 5 Customers* on Summary reflects all Azure subscriptions a customer has
+* *Normalized Usage Trend & Active Orders Trend* on Summary moved under *Monthly Orders at a Glance*
+* *Payout Reconciliation Report* updated
+* *Top 5 Customers* on Payout reflects all Azure subscriptions a customer has
+* *Usage Report* updated with Customer Id
+* *Customer Tenure* on Orders & Usage reflects all Azure subscriptions a customer has
+
+
+(Release date: July 28, 2018)
 
 Release highlights
 ------------------
