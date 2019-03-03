@@ -63,13 +63,10 @@ Create the Terraform configuration file that declares Hub virtual network.
 1. In Cloud Shell, create a file named `hub-vnet.tf`.
 
     ```bash
-    vi hub-vnet.tf
+    code hub-vnet.tf
     ```
 
-1. Enter insert mode by selecting the I key.
-
 1. Paste the following code into the editor:
-
 
     ```JSON
     locals {
@@ -226,13 +223,7 @@ Create the Terraform configuration file that declares Hub virtual network.
     }
     ```
     
-1. Exit insert mode by selecting the **Esc** key.
-
-1. Save the file and exit the vi editor by entering the following command:
-
-    ```bash
-    :wq
-    ```
+1. Save the file and exit the editor.:
 
 ## Next steps
 

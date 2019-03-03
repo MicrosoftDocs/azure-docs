@@ -55,13 +55,11 @@ This tutorial covers the following tasks:
 
 Create the Terraform configuration file that declares On-Premises Virtual network.
 
-1. In Cloud Shell, create a file named `hub-nva.tf`.
+1. In Cloud Shell, create a new file named `hub-nva.tf`.
 
     ```bash
-    vi hub-nva.tf
+    code hub-nva.tf
     ```
-
-1. Enter insert mode by selecting the I key.
 
 1. Paste the following code into the editor:
     
@@ -238,13 +236,7 @@ Create the Terraform configuration file that declares On-Premises Virtual networ
     }
     ```
 
-1. Exit insert mode by selecting the **Esc** key.
-
-1. Save the file and exit the vi editor by entering the following command:
-
-    ```bash
-    :wq
-    ```
+1. Save the file and exit the editor.
 
 ## Next steps
 

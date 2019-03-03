@@ -51,23 +51,15 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
     cd hub-spoke
     ```
 
-## Declare the Hub network appliance
+## Declare the two spoke networks
 
-Create the Terraform configuration file that declares two spoke virtual networks.
-
-### Spoke 1
-
-1. In Cloud Shell, create a file named `spoke1.tf`.
+1. In Cloud Shell, open a new file named `spoke1.tf`.
 
     ```bash
-    vi spoke1.tf
+    code spoke1.tf
     ```
 
-1. Enter insert mode by selecting the I key.
-
 1. Paste the following code into the editor:
-
-
 
     ```JSON
     locals {
@@ -177,29 +169,14 @@ Create the Terraform configuration file that declares two spoke virtual networks
     }
     ```
 
-1. Exit insert mode by selecting the **Esc** key.
+1. Save the file and exit the editor.
 
-1. Save the file and exit the vi editor by entering the following command:
-
-    ```bash
-    :wq
-    ```
-
-
-
-
-
-
-### Spoke 2
-
-1. In Cloud Shell, create a file named `spoke2.tf`.
+1. Create a new file named `spoke2.tf`.
 
       ```bash
-      vi spoke2.tf
+      code spoke2.tf
       ```
     
-1. Enter insert mode by selecting the I key.
-
 1. Paste the following code into the editor:
     
     ```JSON
@@ -314,13 +291,7 @@ Create the Terraform configuration file that declares two spoke virtual networks
     }
     ```
      
-1. Exit insert mode by selecting the **Esc** key.
-
-1. Save the file and exit the vi editor by entering the following command:
-
-    ```bash
-    :wq
-    ```
+1. Save the file and exit the editor.
   
 ## Next steps
 

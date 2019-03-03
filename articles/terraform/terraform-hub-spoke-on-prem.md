@@ -53,13 +53,11 @@ To simulate an on-premises network, create an Azure virtual network. The demo VN
 
 Create the Terraform configuration file that declares an on-premises VNet.
 
-1. In Cloud Shell, create a file named `on-prem.tf`.
+1. In Cloud Shell, open a new file named `on-prem.tf`.
 
     ```bash
-    vi on-prem.tf
+    code on-prem.tf
     ```
-
-1. Enter insert mode by selecting the I key.
 
 1. Paste the following code into the editor:
 
@@ -219,13 +217,7 @@ Create the Terraform configuration file that declares an on-premises VNet.
     }
     ```
 
-1. Exit insert mode by selecting the **Esc** key.
-
-1. Save the file and exit the vi editor by entering the following command:
-
-    ```bash
-    :wq
-    ```
+1. Save the file and exit the editor.
 
 ## Next steps
 
