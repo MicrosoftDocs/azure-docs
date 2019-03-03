@@ -19,7 +19,7 @@ The WAImportExport tool is the drive preparation and repair tool that you can us
 
 - **Machine configuration**
   - Windows 7, Windows Server 2008 R2, or a newer Windows operating system
-  - .NET Framework 4 must be installed. See [FAQ](#faq) on how to check if .Net Framework is installed on the machine.
+  - .NET Framework 4 must be installed. See [FAQ](#faq) on how to check if .NET Framework is installed on the machine.
 - **Storage account key** - You need at least one of the account keys for the storage account.
 
 ### Preparing disk for import job
@@ -73,7 +73,7 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 | Field | Description |
 | --- | --- |
 | BasePath | **[Required]**<br/>The value of this parameter represents the source where the data to be imported is located. The tool will recursively copy all data located under this path.<br><br/>**Allowed Values**: This has to be a valid path on local computer or a valid share path and should be accessible by the user. The directory path must be an absolute path (not a relative path). If the path ends with "\\", it represents a directory else a path ending without "\\" represents a file.<br/>No regex is allowed in this field. If the path contains spaces, put it in "".<br><br/>**Example**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
-| DstBlobPathOrPrefix | **[Required]**<br/> The path to the destination virtual directory in your Windows Azure storage account. The virtual directory may or may not already exist. If it does not exist, Import/Export service will create one.<br/><br/>Be sure to use valid container names when specifying destination virtual directories or blobs. Keep in mind that container names must be lowercase. For container naming rules, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). If only root is specified, the directory structure of the source is replicated in the destination blob container. If a different directory structure is desired than the one in source, multiple rows of mapping in CSV<br/><br/>You can specify a container, or a blob prefix like music/70s/. The destination directory must begin with the container name, followed by a forward slash "/", and optionally may include a virtual blob directory that ends with "/".<br/><br/>When the destination container is the root container, you must explicitly specify the root container, including the forward slash, as $root/. Since blobs under the root container cannot include "/" in their names, any subdirectories in the source directory will not be copied when the destination directory is the root container.<br/><br/>**Example**<br/>If the destination blob path is https://mystorageaccount.blob.core.windows.net/video, the value of this field can be video/  |
+| DstBlobPathOrPrefix | **[Required]**<br/> The path to the destination virtual directory in your Windows Azure storage account. The virtual directory may or may not already exist. If it does not exist, Import/Export service will create one.<br/><br/>Be sure to use valid container names when specifying destination virtual directories or blobs. Keep in mind that container names must be lowercase. For container naming rules, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). If only root is specified, the directory structure of the source is replicated in the destination blob container. If a different directory structure is desired than the one in source, multiple rows of mapping in CSV<br/><br/>You can specify a container, or a blob prefix like music/70s/. The destination directory must begin with the container name, followed by a forward slash "/", and optionally may include a virtual blob directory that ends with "/".<br/><br/>When the destination container is the root container, you must explicitly specify the root container, including the forward slash, as $root/. Since blobs under the root container cannot include "/" in their names, any subdirectories in the source directory will not be copied when the destination directory is the root container.<br/><br/>**Example**<br/>If the destination blob path is https://mystorageaccount.blob.core.windows.net/video, the value of this field can be video/ |
 | BlobType | **[Optional]** block &#124; page<br/>Currently Import/Export service supports 2 kinds of Blobs. Page blobs and Block BlobsBy default all files will be imported as Block Blobs. And \*.vhd and \*.vhdx will be imported as Page BlobsThere is a limit on the block-blob and page-blob allowed size. See [Storage scalability targets](storage-scalability-targets.md) for more information.  |
 | Disposition | **[Optional]** rename &#124; no-overwrite &#124; overwrite <br/> This field specifies the copy-behavior during import i.e when data is being uploaded to the storage account from the disk. Available options are: rename&#124;overwrite&#124;no-overwrite.Defaults to "rename" if nothing specified. <br/><br/>**Rename**: If an object with same name is present, creates a copy in destination.<br/>Overwrite: overwrites the file with newer file. The file with last-modified wins.<br/>**No-overwrite**: Skips writing the file if already present.|
 | MetadataFile | **[Optional]** <br/>The value to this field is the metadata file which can be provided if the one needs to preserve the metadata of the objects or provide custom metadata. Path to the metadata file for the destination blobs. See [Import/Export service Metadata and Properties File Format](../storage-import-export-file-format-metadata-and-properties.md) for more information |
@@ -109,7 +109,7 @@ H,Format,SilentMode,Encrypt,
 | Encryption | **[Required]** Encrypt &#124; AlreadyEncrypted<br/> The value of this field decides which disk to encrypt and which not to. <br/><br/>**Encrypt**: Tool will format the drive. If value of "FormatOption" field is "Format" then this value is required to be "Encrypt". If "AlreadyEncrypted" is specified in this case, it will result into an error "When Format is specified, Encrypt must also be specified".<br/>**AlreadyEncrypted**: Tool will decrypt the drive using the BitLockerKey provided in "ExistingBitLockerKey" Field. If value of "FormatOption" field is "AlreadyFormatted", then this value can be either "Encrypt" or "AlreadyEncrypted" |
 | ExistingBitLockerKey | **[Required]** If value of "Encryption" field is "AlreadyEncrypted"<br/> The value of this field is the BitLocker key that is associated with the particular disk. <br/><br/>This field should be left blank if the value of "Encryption" field is "Encrypt".  If BitLocker Key is specified in this case, it will result into an error "BitLocker Key should not be specified".<br/>  **Example**: 060456-014509-132033-080300-252615-584177-672089-411631|
 
-##  Preparing disk for import job
+## Preparing disk for import job
 
 To prepare drives for an import job, call the WAImportExport tool with the **PrepImport** command. Which parameters you include depends on whether this is the first copy session, or a subsequent copy session.
 
@@ -125,7 +125,7 @@ WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDire
 **Example:**
 
 ```
-WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:\*\*\*\*\*\*\*\*\*\*\*\*\* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
+WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:\*\*\*\*\*\*\*\*\*\*\*\*\* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
 ```
 
 ### Add data in subsequent session
@@ -133,20 +133,20 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:\*\*\*\*\*\*
 In subsequent copy sessions, you do not need to specify the initial parameters. You need to use the same journal file in order for the tool to remember where it left in the previous session. The state of the copy session is written to the journal file. Here is the syntax for a subsequent copy session to copy additional directories and or files:
 
 ```
-WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<DifferentSessionId>  [DataSet:<differentdataset.csv>]
+WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<DifferentSessionId> [DataSet:<differentdataset.csv>]
 ```
 
 **Example:**
 
 ```
-WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
+WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /DataSet:dataset-2.csv
 ```
 
 ### Add drives to latest session
 
-If the data did not fit in specified drives in InitialDriveset, one can use the tool to add additional drives to same copy session. 
+If the data did not fit in specified drives in InitialDriveset, one can use the tool to add additional drives to same copy session.
 
->[!NOTE] 
+>[!NOTE]
 >The session id should match the previous session id. Journal file should match the one specified in previous session.
 >
 ```
@@ -156,7 +156,7 @@ WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /Addition
 **Example:**
 
 ```
-WAImportExport.exe PrepImport /j:SameJournalTest.jrn /id:session#2  /AdditionalDriveSet:driveset-2.csv
+WAImportExport.exe PrepImport /j:SameJournalTest.jrn /id:session#2 /AdditionalDriveSet:driveset-2.csv
 ```
 
 ### Abort the latest session:
@@ -170,7 +170,7 @@ WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AbortSes
 **Example:**
 
 ```
-WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /AbortSession
+WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /AbortSession
 ```
 
 Only the last copy session, if terminated abnormally, can be aborted. Note that you cannot abort the first copy session for a drive. Instead you must restart the copy session with a new journal file.
@@ -189,7 +189,7 @@ WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /ResumeSe
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 ```
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > When you resume a copy session, do not modify the source data files and directories by adding or removing files.
 
 ## WAImportExport parameters
@@ -346,8 +346,8 @@ It is possible that your machine does not have TPM chip. If you do not get an ou
 
 #### How to disable Trusted Platform Module (TPM) in BitLocker?
 > [!NOTE]
-> Only if there is no TPM in their servers, you need to disable TPM policy. It is not necessary to disable TPM if there is a trusted TPM in user's server. 
-> 
+> Only if there is no TPM in their servers, you need to disable TPM policy. It is not necessary to disable TPM if there is a trusted TPM in user's server.
+>
 
 In order to disable TPM in BitLocker, go through the following steps:<br/>
 1. Launch **Group Policy Editor** by typing gpedit.msc on a command prompt. If **Group Policy Editor** appears to be unavailable, for enabling BitLocker first. See previous FAQ.
@@ -355,7 +355,7 @@ In order to disable TPM in BitLocker, go through the following steps:<br/>
 3. Edit **Require additional authentication at startup** policy.
 4. Set the policy to **Enabled** and make sure **Allow BitLocker without a compatible TPM** is checked.
 
-####  How to check if .NET 4 or higher version is installed on my machine?
+#### How to check if .NET 4 or higher version is installed on my machine?
 
 All Microsoft .NET Framework versions are installed in following directory: %windir%\Microsoft.NET\Framework\
 
