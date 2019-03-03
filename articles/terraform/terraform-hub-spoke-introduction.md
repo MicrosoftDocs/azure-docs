@@ -121,13 +121,11 @@ Create the directory that holds your Terraform configuration files for the demo.
 
 Create the Terraform configuration file that declares the Azure provider.
 
-1. In Cloud Shell, create a file named `main.tf`.
+1. In Cloud Shell, open a new file named `main.tf`.
 
     ```bash
-    vi main.tf
+    code main.tf
     ```
-
-1. Enter insert mode by selecting the I key.
 
 1. Paste the following code into the editor:
 
@@ -137,25 +135,17 @@ Create the Terraform configuration file that declares the Azure provider.
     }
     ```
 
-1. Exit insert mode by selecting the **Esc** key.
-
-1. Save the file and exit the vi editor by entering the following command:
-
-    ```bash
-    :wq
-    ```
+1. Save the file and exit the editor.
 
 ## Create the variables file
 
 Create the Terraform configuration file for common variables that are used across different scripts.
 
-1. In Cloud Shell, create a file named `variables.tf`.
+1. In Cloud Shell, open a new file named `variables.tf`.
 
     ```bash
-    vi variables.tf
+    code variables.tf
     ```
-
-1. Enter insert mode by selecting the I key.
 
 1. Paste the following code into the editor:
 
@@ -181,13 +171,7 @@ Create the Terraform configuration file for common variables that are used acros
     }
     ```
 
-1. Exit insert mode by selecting the **Esc** key.
-
-1. Save the file and exit the vi editor by entering the following command:
-
-    ```bash
-    :wq
-    ```
+1. Save the file and exit the editor.
 
 ## Next steps
 
