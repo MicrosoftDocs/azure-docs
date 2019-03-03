@@ -38,6 +38,7 @@ for all resources
 
     - Make note of the values for **appId**, **displayName**, and **password**.
     - Get the value for service principal's **Object ID** property:
+    
         ```bash
         az ad sp list --display-name <displayName>
         ```
