@@ -93,7 +93,7 @@ With the Type I class of SKUs, the volume the boot LUN is stored on, is encrypte
 ## Required settings for larger HANA instances on HANA Large Instances
 The storage used in HANA Large Instances has a file size limitation. The [size limitation is 16TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) per file. Unlike in cases of file size limitations like in EXT3 file systems, HANA is not aware implicitly of the storage limitation enforced by the HANA Large Instances storage. as a result HANA will not automatically create a new data file when the file size limit of 16TB is reached. As HANA attempts to grow the file beyond 16TB, HANA will report errors and the index server will crash at the end.
 
-![IMPORTANT]
+> [!IMPORTANT]
 > In order to prevent HANA trying to grow data files beyond the 16TB file size limit of HANA Large Instance storage, you need to set the following parameters in the global.ini configuration file of HANA
 > 
 - datavolume_striping=true
