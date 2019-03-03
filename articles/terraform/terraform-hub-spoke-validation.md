@@ -88,13 +88,17 @@ After completing the [prerequisites][#prerequisites], verify that the appropriat
 
 This section shows how to test connectivity from the simulated on-premises environment to the hub VNet.
 
-1. Use the Azure portal to locate the VM named `onprem-vm` in the `onprem-vnet-rg` resource group.
+1. In the Azure portal, browse to the **onprem-vnet-rg** resource group.
 
-2. Select `Connect` and copy to the clipboard the displayed `ssh` command.
+1. In the **onprem-vnet-rg** tab, select the VM named **onprem-vm**.
 
-3. From a Linux prompt, run `ssh` to connect to the simulated on-premises environment. Use the password that you specified in the `on-prem.tf` parameter file.
+1. Select **Connect**.
 
-4. Use the `ping` command to test connectivity to the jumpbox VM in the hub VNet:
+1. Locate the **ssh** command, and copy its value to the clipboard.
+
+1. From a Linux prompt, run `ssh` to connect to the simulated on-premises environment. Use the password specified in the `on-prem.tf` parameter file.
+
+1. Run the `ping` command to test connectivity to the jumpbox VM in the hub VNet:
 
    ```shell
    ping 10.0.0.68
@@ -104,13 +108,17 @@ This section shows how to test connectivity from the simulated on-premises envir
 
 This section shows how to test connectivity from the simulated on-premises environment to the spoke VNets.
 
-1. Use the Azure portal to locate the VM named `onprem-vm` in the `onprem-vnet-rg` resource group.
+1. In the Azure portal, browse to the **onprem-vnet-rg** resource group.
 
-2. Select `Connect` and copy to the clipboard the displayed `ssh`.
+1. In the **onprem-vnet-rg** resource group tab, select the VM named **onprem-vm**.
 
-3. From a Linux prompt, run `ssh` to connect to the simulated on-premises environment. Use the password that you specified in the `on-prem.tf` parameter file.
+1. Select `Connect`
 
-4. Use the `ping` command to test connectivity to the jumpbox VMs in each spoke:
+1. Locate the **ssh** command, and copy its value to the clipboard.
+
+1. From a Linux prompt, run `ssh` to connect to the simulated on-premises environment. Use the password specified in the `on-prem.tf` parameter file.
+
+1. Run the `ping` command to test connectivity to the jumpbox VMs in each spoke:
 
    ```bash
    ping 10.1.0.68
