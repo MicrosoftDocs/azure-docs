@@ -17,15 +17,13 @@ ms.date: 3/3/2019
 ms.author: pbutlerm
 ---
 
+# Seller Insights release notes 
 
-Seller Insights release notes 
-===============================
 (Release date: March 11, 2019)
 
 This article provides information on changes to the Seller Insights feature in the [Cloud Partner Portal](https://cloudpartner.azure.com/#insights).
 
-Release highlights March 11, 2019
-------------------
+## Release highlights for March 11, 2019
 
 * *Customer Trend* added to Summary
 * *Top 5 Customers* on Summary reflects all Azure subscriptions a customer has
@@ -38,8 +36,8 @@ Release highlights March 11, 2019
 
 (Release date: July 28, 2018)
 
-Release highlights July 28, 2018
-------------------
+## Release highlights for July 28, 2018
+
 
 -   *Estimated prices* provide a view of customer charges with currency conversion implications.
 -   *Forecasted payouts* provide an earlier view into potential payouts.
@@ -47,8 +45,7 @@ Release highlights July 28, 2018
 -   *Usage at a daily grain* provides more granularity and better insights into customer usage.
 
 
-Changes to data structure and taxonomy
---------------------------------------
+### Changes to data structure and taxonom
 
 The following table lists the metrics that have been added or substantially changed with this release. 
 
