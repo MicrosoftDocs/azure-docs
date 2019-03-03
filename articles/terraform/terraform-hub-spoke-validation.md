@@ -94,7 +94,7 @@ This section shows how to test connectivity from the simulated on-premises envir
 
 1. Select **Connect**.
 
-1. Locate the **ssh** command, and copy its value to the clipboard.
+1. Next to the text **Login using VM local account**, copy the **ssh** command to the clipboard.
 
 1. From a Linux prompt, run `ssh` to connect to the simulated on-premises environment. Use the password specified in the `on-prem.tf` parameter file.
 
@@ -114,7 +114,7 @@ This section shows how to test connectivity from the simulated on-premises envir
 
 1. Select `Connect`
 
-1. Locate the **ssh** command, and copy its value to the clipboard.
+1. Next to the text **Login using VM local account**, copy the **ssh** command to the clipboard.
 
 1. From a Linux prompt, run `ssh` to connect to the simulated on-premises environment. Use the password specified in the `on-prem.tf` parameter file.
 
