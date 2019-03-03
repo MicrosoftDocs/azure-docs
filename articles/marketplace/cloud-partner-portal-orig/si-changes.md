@@ -24,7 +24,7 @@ Seller Insights release notes
 
 This article provides information on changes to the Seller Insights feature in the [Cloud Partner Portal](https://cloudpartner.azure.com/#insights).
 
-Release highlights
+Release highlights March 11, 2019
 ------------------
 
 * *Customer Trend* added to Summary
@@ -38,7 +38,7 @@ Release highlights
 
 (Release date: July 28, 2018)
 
-Release highlights
+Release highlights July 28, 2018
 ------------------
 
 -   *Estimated prices* provide a view of customer charges with currency conversion implications.
