@@ -34,15 +34,6 @@ for all resources
 
 - **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Azure service principal**: Follow the directions to create a service principal in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli#create-the-service-principal?view=azure-cli-latest). 
-
-    - Make note of the values for **appId**, **displayName**, and **password**.
-    - Get the value for service principal's **Object ID** property:
-    
-        ```bash
-        az ad sp list --display-name <displayName>
-        ```
-
 ## Hub and spoke topology architecture
 
 In the hub and spoke topology, the hub is a VNet. The VNet acts as a central point of connectivity to your on-premises network. The spokes are VNets that peer with the hub, and can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through an ExpressRoute or VPN gateway connection. The following image demonstrates the components in a hub and spoke topology:
@@ -81,6 +72,22 @@ As you work through each tutorial in this series, various components are defined
 - **Spoke VNets**. Spokes can be used to isolate workloads in their own VNets, managed separately from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers. 
 
 - **VNet peering**. Two VNets can be connected using a peering connection. Peering connections are non-transitive, low latency connections between VNets. Once peered, the VNets exchange traffic by using the Azure backbone, without needing a router. In a hub and spoke network topology, VNet peering is used to connect the hub to each spoke. You can peer VNets in the same region, or different regions.
+
+## Create an Azure service principal
+
+1. Follow the directions to create a service principal in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli#create-the-service-principal?view=azure-cli-latest). 
+
+1. Make note of the following values:
+
+    - **appId**
+    - **displayName**
+    - **password**
+
+1. Get the value for service principal's **Object ID** property:
+    
+    ```bash
+    az ad sp list --display-name <displayName>
+    ```
 
 ## Create the directory structure
 
@@ -138,7 +145,7 @@ Create the Terraform configuration file that declares the Azure provider.
     :wq
     ```
 
-## Declare the variables file
+## Create the variables file
 
 Create the Terraform configuration file for common variables that are used across different scripts.
 
