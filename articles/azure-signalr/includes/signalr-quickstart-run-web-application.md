@@ -27,5 +27,5 @@ ms.custom: include file
 
 1. Open another instance of the web application in a different browser window. You will see that any messages sent will appear in all instances of the application.
 
-> [!IMPORTANT] Troubleshooting mixed content issues
-> Because the HTML page is served using HTTPS, but the local Azure Functions runtime is using HTTP by default, your browser (such as Firefox) may block the requests from the web page to your functions. To solve this, use a browser that does not have this restriction or start a local HTTP server such as [http-server](https://www.npmjs.com/package/http-server) in the */docs/demo/chat-v2* directory. Ensure the origin is added to the `CORS` setting in *local.settings.json*.
+> [!IMPORTANT]
+> Because the HTML page is served using HTTPS, but the local Azure Functions runtime is using HTTP by default, your browser (such as Firefox) may enforce a mixed-content policy that blocks the requests from the web page to your functions. To solve this, use a browser that does not have this restriction or start a local HTTP server such as [http-server](https://www.npmjs.com/package/http-server) in the */docs/demo/chat-v2* directory. Ensure the origin is added to the `CORS` setting in *local.settings.json*.
