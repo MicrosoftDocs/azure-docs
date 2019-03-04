@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.author: orspod
 ---
 
@@ -132,6 +132,9 @@ To copy data from Azure Data Explorer, set the **type** property in the Copy act
 | type | The **type** property of the copy activity source must be set to: **AzureDataExplorerSource** | Yes |
 | query | A read-only request given in a [KQL format](/azure/kusto/query/). Use the custom KQL query as a reference. | Yes |
 | queryTimeout | The wait time before the query request times out. Default value is 10 min (00:10:00); allowed max value is 1 hour (01:00:00). | No |
+
+>[!NOTE]
+>Azure Data Explorer source by default has a size limit of 500,000 records or 64 MB. To retrieve all the records without truncation, you can specify `set notruncation;` at the begining of your query. Refer to [Query limits](https://docs.microsoft.com/en-us/azure/kusto/concepts/querylimits) on more details.
 
 **Example:**
 
