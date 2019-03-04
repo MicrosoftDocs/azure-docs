@@ -48,6 +48,7 @@ The following shows an example [RankingResponse](https://docs.microsoft.com/rest
                     "name" : "Customer Racing",
                     "url" : "http:\/\/www.bing.com\/cr?IG=96C4CF214A0A43...",
                     "snippet" : "Customer racing news; General news..."
+                }]
             },
             . . .
         ]
