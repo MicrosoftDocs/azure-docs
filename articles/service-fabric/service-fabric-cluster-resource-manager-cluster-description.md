@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 
 ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
@@ -177,7 +177,7 @@ The Cluster Resource Manager supports another version of the Fault and Upgrade D
 
 > [!NOTE]
 >For a stateful service, we define *quorum loss* in a situation when a majority of the partition replicas are down at the same time. For example, if TargetReplicaSetSize is five, a set of any three replicas represents quorum. Similarly, if TargetReplicaSetSize is 6, four replicas are necessary for quorum. In both cases no more than two replicas can be down at the same time if the partition wants to continue functioning normally. 
-For a stateless service, there is no such thing as *quorum loss* as stateless services conitnue to functionate normally even if a majority of instances go down at the same time. 
+For a stateless service, there is no such thing as *quorum loss* as stateless services continue to function normally even if a majority of instances go down at the same time. 
 Hence, we will focus on stateful services in the rest of the text.
 >
 
@@ -602,7 +602,7 @@ LoadMetricInformation     :
 ```
 
 ## Next steps
-* For information on the architecture and information flow within the Cluster Resource Manager, check out [this article ](service-fabric-cluster-resource-manager-architecture.md)
+* For information on the architecture and information flow within the Cluster Resource Manager, check out [this article](service-fabric-cluster-resource-manager-architecture.md)
 * Defining Defragmentation Metrics is one way to consolidate load on nodes instead of spreading it out. To learn how to configure defragmentation, refer to [this article](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 * Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
 * To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)

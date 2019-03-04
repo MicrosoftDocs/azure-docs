@@ -13,10 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 2/17/2019
 ms.author: sethm
-ms.reviewer: ''
+ms.reviewer: unknown
+ms.lastreviewed: 12/27/2018
 ---
+
 # Guest operating systems supported on Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
@@ -40,14 +42,14 @@ Azure Stack supports the Windows guest operating systems listed in the following
 
 Marketplace images are available for Pay-as-you-use or BYOL (EA/SPLA) licensing. Use of both on a single Azure Stack instance isn't supported. During deployment, Azure Stack injects a suitable version of the guest agent into the image.
 
-Datacenter editions are available in the marketplace for downloading; customers can bring their own server images including other editions. Windows client images aren't available in the Marketplace.
+Datacenter editions are available in the marketplace for downloading; customers can bring their own server images including other editions. Windows client images are not available in the Marketplace.
 
 ## Linux
 
 Linux distributions listed as available in the Marketplace include the necessary Windows Azure Linux Agent (WALA). If you bring your own image to Azure Stack, follow the guidelines in [Add Linux images to Azure Stack](azure-stack-linux.md).
 
 > [!NOTE]
-> Custom images should be built with the latest public WALA version. Versions older than 2.2.18 may not function properly on Azure Stack.
+> Custom images should be built with the latest public WALA version or with version 2.2.20. Versions older than 2.2.20 and between 2.2.20 and 2.2.36 may not function properly on Azure Stack. 
 >
 > [cloud-init](https://cloud-init.io/) is not supported on Azure Stack at this time.
 
@@ -66,11 +68,11 @@ Linux distributions listed as available in the Marketplace include the necessary
 | Ubuntu 16.04-LTS | 64-bit | Canonical | Yes |
 | Ubuntu 18.04-LTS | 64-bit | Canonical | Yes |
 
-For Red Hat Enterprise Linux support information, refer to [Red Hat and Azure Stack: Frequently Asked Questions](https://access.redhat.com/articles/3413531).
+For Red Hat Enterprise Linux support information, see [Red Hat and Azure Stack: Frequently Asked Questions](https://access.redhat.com/articles/3413531).
 
 ## Next steps
 
 For more information about the Azure Stack Marketplace, see the following articles:
 
-[Download Marketplace items](azure-stack-download-azure-marketplace-item.md)  
-[Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md)
+- [Download Marketplace items](azure-stack-download-azure-marketplace-item.md)  
+- [Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md)

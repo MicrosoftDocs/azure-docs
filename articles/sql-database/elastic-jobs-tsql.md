@@ -3,21 +3,21 @@ title: "Create and manage Azure SQL Elastic Database Jobs using Transact-SQL (T-
 description: Run scripts across many databases with Elastic Database Job agent using Transact-SQL (T-SQL).
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
 ms.author: jaredmoo
 author: jaredmoo
-ms.reviewer: 
+ms.reviewer: sstein
 manager: craigg
-ms.date: 06/14/2018
+ms.date: 01/25/2019
 ---
 # Use Transact-SQL (T-SQL) to create and manage Elastic Database Jobs
 
 This article provides many example scenarios to get started working with Elastic Jobs using T-SQL.
 
-The examples use the [stored procedures](#job-stored-procedures) and [views](#job-views) available in the [*job database*](elastic-jobs-overview.md#job-database).
+The examples use the [stored procedures](#job-stored-procedures) and [views](#job-views) available in the [*job database*](sql-database-job-automation-overview.md#job-database).
 
 Transact-SQL (T-SQL) is used to create, configure, execute, and manage jobs. Creating the Elastic Job agent is not supported in T-SQL, so you must first create an *Elastic Job agent* using the portal, or [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
 
@@ -47,7 +47,7 @@ GO
 ## Create a target group (servers)
 
 The following example shows how to execute a job against all databases in a server.  
-Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run the following command:
+Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 
 ```sql
@@ -69,10 +69,10 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 ```
 
 
-## Exclude a single database
+## Exclude an individual database
 
-The following example shows how to execute a job against all databases in a server, except for the database named *MappingDB*.  
-Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run the following command:
+The following example shows how to execute a job against all databases in a SQL Database server, except for the database named *MappingDB*.  
+Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -97,7 +97,7 @@ EXEC [jobs].sp_add_target_group_member
 @server_name='server2.database.windows.net'
 GO
 
---Excude a database target member from the server target group
+--Exclude a database target member from the server target group
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @membership_type = N'Exclude',
@@ -115,7 +115,7 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name = N'ServerGrou
 ## Create a target group (pools)
 
 The following example shows how to target all the databases in one or more elastic pools.  
-Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run the following command:
+Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -140,7 +140,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name = N'PoolGroup';
 ## Deploy new schema to many databases
 
 The following example shows how to deploy new schema to all databases.  
-Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run the following command:
+Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 
 ```sql
@@ -189,7 +189,7 @@ By default the job agent will look to create the table to store the returned res
 2. Additional column for internal_execution_id with the data type of uniqueidentifier.
 3. A nonclustered index named "IX_<TableName>_Internal_Execution_ID" on the internal_execution_id column.
 
-Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run the following commands:
+Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following commands:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -204,9 +204,9 @@ EXEC jobs.sp_add_jobstep
 @credential_name='myjobcred',
 @target_group_name='PoolGroup',
 @output_type='SqlDatabase',
-@output_credential_name=’myjobcred’,
-@output_server_name=’server1.database.windows.net',
-@output_database_name=’<resultsdb>',
+@output_credential_name='myjobcred',
+@output_server_name='server1.database.windows.net',
+@output_database_name='<resultsdb>',
 @output_table_name='<resutlstable>'
 Create a job to monitor pool performance
 --Connect to the job database specified when creating the job agent
@@ -251,8 +251,8 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
 @target_group_name='MasterGroup',
 @output_type='SqlDatabase',
 @output_credential_name='myjobcred',
-@output_server_name=’server1.database.windows.net',
-@output_database_name=’resultsdb',
+@output_server_name='server1.database.windows.net',
+@output_database_name='resultsdb',
 @output_table_name='resutlstable'
 ```
 
@@ -260,7 +260,7 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
 ## View job definitions
 
 The following example shows how to view current job definitions.  
-Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run the following command:
+Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -281,7 +281,7 @@ select * from jobs.jobsteps
 ## Begin ad-hoc execution of a job
 
 The following example shows how to start a job immediately.  
-Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run the following command:
+Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -304,7 +304,7 @@ exec jobs.sp_start_job 'CreateTableTest', 1
 ## Schedule execution of a job
 
 The following example shows how to schedule a job for future execution.  
-Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run the following command:
+Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -319,12 +319,12 @@ EXEC jobs.sp_update_job
 ## Monitor job execution status
 
 The following example shows how to view execution status details for all jobs.  
-Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run the following command:
+Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
---View top-level execution status for the job named ‘ResultsPoolJob’
+--View top-level execution status for the job named 'ResultsPoolJob'
 SELECT * FROM jobs.job_executions 
 WHERE job_name = 'ResultsPoolsJob' and step_id IS NULL
 ORDER BY start_time DESC
@@ -333,7 +333,7 @@ ORDER BY start_time DESC
 SELECT * FROM jobs.job_executions WHERE step_id IS NULL
 ORDER BY start_time DESC
 
---View all execution statuses for job named ‘ResultsPoolsJob’
+--View all execution statuses for job named 'ResultsPoolsJob'
 SELECT * FROM jobs.job_executions 
 WHERE job_name = 'ResultsPoolsJob' 
 ORDER BY start_time DESC
@@ -348,7 +348,7 @@ ORDER BY start_time DESC
 ## Cancel a job
 
 The following example shows how to cancel a job.  
-Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run the following command:
+Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -367,7 +367,7 @@ EXEC jobs.sp_stop_job '01234567-89ab-cdef-0123-456789abcdef'
 ## Delete old job history
 
 The following example shows how to delete job history prior to a specific date.  
-Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run the following command:
+Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -381,7 +381,7 @@ EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-
 ## Delete a job and all its job history
 
 The following example shows how to delete a job and all related job history.  
-Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run the following command:
+Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -396,14 +396,14 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 
 ## Job stored procedures
 
-The following stored procedures are in the [jobs database](elastic-jobs-overview.md#job-database).
+The following stored procedures are in the [jobs database](sql-database-job-automation-overview.md#job-database).
 
 
 
 |Stored procedure  |Description  |
 |---------|---------|
 |[sp_add_job](#spaddjob)     |     Adds a new job.    |
-|[sp_update_job ](#spupdatejob)    |      Updates an existing job.   |
+|[sp_update_job](#spupdatejob)    |      Updates an existing job.   |
 |[sp_delete_job](#spdeletejob)     |      Deletes an existing job.   |
 |[sp_add_jobstep](#spaddjobstep)    |    Adds a step to a job.     |
 |[sp_update_jobstep](#spupdatejobstep)     |     Updates a job step.    |
@@ -414,7 +414,7 @@ The following stored procedures are in the [jobs database](elastic-jobs-overview
 |[sp_delete_target_group](#spdeletetargetgroup)     |    Deletes a target group.     |
 |[sp_add_target_group_member](#spaddtargetgroupmember)     |    Adds a database or group of databases to a target group.     |
 |[sp_delete_target_group_member](#spdeletetargetgroupmember)     |     Removes a target group member from a target group.    |
-|[sp_purge_jobhistory ](#sppurgejobhistory)    |    Removes the history records for a job.     |
+|[sp_purge_jobhistory](#sppurgejobhistory)    |    Removes the history records for a job.     |
 
 
 
@@ -638,10 +638,10 @@ If specified, the value must be Inline.
 [ **@command =** ] 'command'  
 The command must be valid T-SQL script and is then executed by this job step. command is nvarchar(max), with a default of NULL.
 
-[ **@credential_name =** ] ‘credential_name’  
+[ **@credential_name =** ] 'credential_name'  
 The name of the database scoped credential stored in this job control database that is used to connect to each of the target databases within the target group when this step is executed. credential_name is nvarchar(128).
 
-[ **@target_group_name =** ] ‘target-group_name'  
+[ **@target_group_name =** ] 'target-group_name'  
 The name of the target group that contains the target databases that the job step will be executed on. target_group_name is nvarchar(128).
 
 [ **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
@@ -768,10 +768,10 @@ If specified, the value must be Inline.
 [ **@command =** ] 'command'  
 The command(s) must be valid T-SQL script and is then executed by this job step. command is nvarchar(max), with a default of NULL.
 
-[ **@credential_name =** ] ‘credential_name’  
+[ **@credential_name =** ] 'credential_name'  
 The name of the database scoped credential stored in this job control database that is used to connect to each of the target databases within the target group when this step is executed. credential_name is nvarchar(128).
 
-[ **@target_group_name =** ] ‘target-group_name'  
+[ **@target_group_name =** ] 'target-group_name'  
 The name of the target group that contains the target databases that the job step will be executed on. target_group_name is nvarchar(128).
 
 [ **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
@@ -1006,14 +1006,14 @@ Adds a database or group of databases to a target group.
 
 ```sql
 [jobs].sp_add_target_group_member [ @target_group_name = ] 'target_group_name'
-         [ @membership_type = ] ‘membership_type’ ]   
-        [ , [ @target_type = ] ‘target_type’ ]   
-        [ , [ @refresh_credential_name = ] ‘refresh_credential_name’ ]   
-        [ , [ @server_name = ] ‘server_name’ ]   
-        [ , [ @database_name = ] ‘database_name’ ]   
-        [ , [ @elastic_pool_name = ] ‘elastic_pool_name’ ]   
-        [ , [ @shard_map_name = ] ‘shard_map_name’ ]   
-        [ , [ @target_id = ] ‘target_id’ OUTPUT ]
+         [ @membership_type = ] 'membership_type' ]   
+        [ , [ @target_type = ] 'target_type' ]   
+        [ , [ @refresh_credential_name = ] 'refresh_credential_name' ]   
+        [ , [ @server_name = ] 'server_name' ]   
+        [ , [ @database_name = ] 'database_name' ]   
+        [ , [ @elastic_pool_name = ] 'elastic_pool_name' ]   
+        [ , [ @shard_map_name = ] 'shard_map_name' ]   
+        [ , [ @target_id = ] 'target_id' OUTPUT ]
 ```
 
 #### Arguments
@@ -1027,18 +1027,18 @@ Specifies if the target group member will be included or excluded. target_group_
 The type of target database or collection of databases including all databases in a server, all databases in an Elastic pool, all databases in a shard map, or an individual database. target_type is nvarchar(128), with no default. Valid values for target_type are ‘SqlServer’, ‘SqlElasticPool’, ‘SqlDatabase’, or ‘SqlShardMap’. 
 
 [ **@refresh_credential_name =** ] 'refresh_credential_name'  
-The name of the logical server. refresh_credential_name is nvarchar(128), with no default.
+The name of the SQL Database server. refresh_credential_name is nvarchar(128), with no default.
 
 [ **@server_name =** ] 'server_name'  
-The name of the logical server that should be added to the specified target group. server_name should be specified when target_type is ‘SqlServer’. server_name is nvarchar(128), with no default.
+The name of the SQL Database server that should be added to the specified target group. server_name should be specified when target_type is ‘SqlServer’. server_name is nvarchar(128), with no default.
 
 [ **@database_name =** ] 'database_name'  
 The name of the database that should be added to the specified target group. database_name should be specified when target_type is ‘SqlDatabase’. database_name is nvarchar(128), with no default.
 
-[ **@elastic_pool_name =** ] ‘elastic_pool_name'  
+[ **@elastic_pool_name =** ] 'elastic_pool_name'  
 The name of the Elastic pool that should be added to the specified target group. elastic_pool_name should be specified when target_type is ‘SqlElasticPool’. elastic_pool_name is nvarchar(128), with no default.
 
-[ **@shard_map_name =** ] ‘shard_map_name'  
+[ **@shard_map_name =** ] 'shard_map_name'  
 The name of the shard map pool that should be added to the specified target group. elastic_pool_name should be specified when target_type is ‘SqlSqlShardMap’. shard_map_name is nvarchar(128), with no default.
 
 [ **@target_id =** ] target_group_id OUTPUT  
@@ -1047,7 +1047,7 @@ Return Code Values
 0 (success) or 1 (failure)
 
 #### Remarks
-A job executes on all databases within a server or Elastic pool at time of execution, when a logical server or Elastic pool is included in the target group.
+A job executes on all single databases within a SQL Database server or in an elastic pool at time of execution, when a SQL Database server or Elastic pool is included in the target group.
 
 #### Permissions
 By default, members of the sysadmin fixed server role can execute this stored procedure. They restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
@@ -1097,7 +1097,7 @@ Removes a target group member from a target group.
 
 ```sql
 [jobs].sp_delete_target_group_member [ @target_group_name = ] 'target_group_name'
-     	[ , [ @target_id = ] ‘target_id’]
+     	[ , [ @target_id = ] 'target_id']
 ```
 
 
@@ -1189,7 +1189,7 @@ GO
 
 ## Job views
 
-The following views are available in the [jobs database](elastic-jobs-overview.md#job-database).
+The following views are available in the [jobs database](sql-database-job-automation-overview.md#job-database).
 
 
 |View  |Description  |
@@ -1218,7 +1218,7 @@ Shows job execution history.
 |**job_version**	|int	|Version of the job (automatically updated each time the job is modified).
 |**step_id**	|int|	Unique (for this job) identifier for the step. NULL indicates this is the parent job execution.
 |**is_active**|	bit	|Indicates whether information is active or inactive. 1 indicates active jobs, and 0 indicates inactive.
-|**lifecycle**|	nvarchar(50)|Value indicating the status of the job:‘Created’,‘In Progress’, ‘Failed’, ‘Succeeded’, ‘Skipped’,'SucceededWithSkipped’|
+|**lifecycle**|	nvarchar(50)|Value indicating the status of the job:‘Created’, ‘In Progress’, ‘Failed’, ‘Succeeded’, ‘Skipped’, ‘SucceededWithSkipped’|
 |**create_time**|	datetime2(7)|	Date and time the job was created.
 |**start_time**	|datetime2(7)|	Date and time the job started execution. NULL if the job has not yet been executed.
 |**end_time**|	datetime2(7)	|Date and time the job finished execution. NULL if the job has not yet been executed or has not yet completed execution.
@@ -1228,7 +1228,7 @@ Shows job execution history.
 |**target_type**|	nvarchar(128)	|Type of target database or collection of databases including all databases in a server, all databases in an Elastic pool or a database. Valid values for target_type are ‘SqlServer’, ‘SqlElasticPool’ or ‘SqlDatabase’. NULL indicates this is the parent job execution.
 |**target_id**	|uniqueidentifier|	Unique ID of the target group member.  NULL indicates this is the parent job execution.
 |**target_group_name**	|nvarchar(128)	|Name of the target group. NULL indicates this is the parent job execution.
-|**target_server_name**|	nvarchar(256)|	Name of the logical server contained in the target group. Specified only if target_type is ‘SqlServer’. NULL indicates this is the parent job execution.
+|**target_server_name**|	nvarchar(256)|	Name of the SQL Database server contained in the target group. Specified only if target_type is ‘SqlServer’. NULL indicates this is the parent job execution.
 |**target_database_name**	|nvarchar(128)|	Name of the database contained in the target group. Specified only when target_type is ‘SqlDatabase’. NULL indicates this is the parent job execution.
 
 
@@ -1252,7 +1252,7 @@ Shows all jobs.
 
 ### job_versions view
 
-[jobs].[job_verions]
+[jobs].[job_versions]
 
 Shows all job versions.
 
@@ -1331,7 +1331,7 @@ Shows all members of all target groups.
 |**refresh_credential_name**	|nvarchar(128)	|Name of the database scoped credential used to connect to the target group member.|
 |**subscription_id**	|uniqueidentifier|	Unique ID of the subscription.|
 |**resource_group_name**	|nvarchar(128)|	Name of the resource group in which the target group member resides.|
-|**server_name**	|nvarchar(128)	|Name of the logical server contained in the target group. Specified only if target_type is ‘SqlServer’. |
+|**server_name**	|nvarchar(128)	|Name of the SQL Database server contained in the target group. Specified only if target_type is ‘SqlServer’. |
 |**database_name**	|nvarchar(128)	|Name of the database contained in the target group. Specified only when target_type is ‘SqlDatabase’.|
 |**elastic_pool_name**	|nvarchar(128)|	Name of the Elastic pool contained in the target group. Specified only when target_type is ‘SqlElasticPool’.|
 |**shard_map_name**	|nvarchar(128)|	Name of the shard map contained in the target group. Specified only when target_type is ‘SqlShardMap’.|

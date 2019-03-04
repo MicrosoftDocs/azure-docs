@@ -1,17 +1,16 @@
 ---
-title: "How to manage secrets when working with an Azure Dev Space | Microsoft Docs"
+title: "How to manage secrets when working with an Azure Dev Space"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
-author: ghogen
-ms.author: ghogen
+ms.subservice: azds-kubernetes
+author: zr-msft
+ms.author: zarhoads
 ms.date: "05/11/2018"
-ms.topic: "article"
+ms.topic: "conceptual"
 ms.technology: "azds-kubernetes"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
-manager: douge
 ---
 # How to manage secrets when working with an Azure Dev Space
 
@@ -107,5 +106,5 @@ Azure Dev Spaces provides two recommended options for storing secrets: in the va
 
 ## Next steps
 
-With these methods, you can now securely connect to a database, a Redis cache, or access secure Azure services.
+With these methods, you can now securely connect to a database, an Azure Cache for Redis, or access secure Azure services.
  

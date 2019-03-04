@@ -1,13 +1,14 @@
 ---
-title: Explore your Azure resources with Resource Graph
+title: Explore your Azure resources
 description: Learn to use the Resource Graph query language to explore your resources and discover how they are connected.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
+ms.custom: seodec18
 ---
 # Explore your Azure resources with Resource Graph
 
@@ -15,9 +16,11 @@ Azure Resource Graph provides the ability to explore and discover your Azure res
 at scale. Engineered for fast responses, it's a great way to learn about your environment and also
 about the properties that make up your Azure resources.
 
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+
 ## Explore virtual machines
 
-A common resource in Azure is a virtual machine. As a resource type, virtual machines have numerous
+A common resource in Azure is a virtual machine. As a resource type, virtual machines have many
 properties that can be queried. Each property provides an option for filtering or finding exactly
 the resource you're looking for.
 
@@ -35,9 +38,14 @@ where type =~ 'Microsoft.Compute/virtualMachines'
 az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1"
 ```
 
-```powershell
-Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1"
+```azurepowershell-interactive
+Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1" | ConvertTo-Json -Depth 100
 ```
+
+> [!NOTE]
+> The Azure PowerShell `Search-AzGraph` cmdlet returns a **PSCustomObject** by default. To have the
+> output look the same as what is returned by Azure CLI, the `ConvertTo-Json` cmdlet is used. The
+> default value for **Depth** is _2_. Setting it to _100_ should convert all returned levels.
 
 The JSON results are structured similar to the following example:
 
@@ -177,8 +185,8 @@ where type =~ 'Microsoft.Compute/virtualMachines'
 az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by location"
 ```
 
-```powershell
-Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by location"
+```azurepowershell-interactive
+Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by location"
 ```
 
 The JSON results are structured similar to the following example:
@@ -218,14 +226,14 @@ where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile
 az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | project name, resourceGroup"
 ```
 
-```powershell
-Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | project name, resourceGroup"
+```azurepowershell-interactive
+Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | project name, resourceGroup"
 ```
 
-### Virtual machines connected to premium managed disks
+### Virtual machines connected to premium-managed disks
 
-If we wanted to get the details of premium managed disks that are attached to these
-**Standard_B2s** virtual machines, we can expand the query to give us the resource id of those
+If we wanted to get the details of premium-managed disks that are attached to these
+**Standard_B2s** virtual machines, we can expand the query to give us the resource ID of those
 managed disks.
 
 ```Query
@@ -243,17 +251,17 @@ where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile
 az graph query -q "where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
 ```
 
-```powershell
-Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
+```azurepowershell-interactive
+  Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
 ```
 
-The result is a list of disk ID's.
+The result is a list of disk IDs.
 
 ### Managed disk discovery
 
-Taking the first record from the previous query, we'll explore the properties that exist on the
-managed disk that was attached to the first virtual machine. The updated query uses the disk id and
-change the type.
+With the first record from the previous query, we'll explore the properties that exist on the
+managed disk that was attached to the first virtual machine. The updated query uses the disk ID and
+changes the type.
 
 Example output from the previous query for example:
 
@@ -263,7 +271,7 @@ Example output from the previous query for example:
     "disk_id": "/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166"
   }
 ]
-````
+```
 
 ```Query
 where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'
@@ -282,8 +290,8 @@ only one record would be returned and the **type** property on it provides that 
 az graph query -q "where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'"
 ```
 
-```powershell
-Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'"
+```azurepowershell-interactive
+Search-AzGraph -Query "where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'"
 ```
 
 The JSON results are structured similar to the following example:
@@ -330,10 +338,10 @@ The JSON results are structured similar to the following example:
 
 ## Explore virtual machines to find public IP addresses
 
-This Azure CLI multi-step set of queries first finds and stores all the network interfaces (NIC)
-resources connected to virtual machines, uses the list of NICs to find each IP address resource
-that is a public IP address and store those values, and finally provides a list of the actual
-public IP addresses.
+This Azure CLI set of queries first finds and stores all the network interfaces (NIC) resources
+connected to virtual machines. Then it uses the list of NICs to find each IP address resource that
+is a public IP address and store those values. Finally, it provides a list of the public IP
+addresses.
 
 ```azurecli-interactive
 # Use Resource Graph to get all NICs and store in the 'nic' variable
@@ -343,8 +351,8 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | project n
 cat nics.txt
 ```
 
-Once we have the `nics.txt` file, we'll use it in the next query to get the related network
-interface resources details where there's a public IP address attached to the NIC.
+Use the `nics.txt` file in the next query to get the related network interface resources details
+where there's a public IP address attached to the NIC.
 
 ```azurecli-interactive
 # Use Resource Graph with the 'nics.txt' file to get all related public IP addresses and store in 'publicIp.txt' file

@@ -5,11 +5,12 @@ services: azure-stack
 keywords: 
 author: mattbriggs
 manager: femila
-ms.date: 08/02/2018
+ms.date: 01/25/2019
 ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
+ms.lastreviewed: 01/25/2019
 
 ---
 
@@ -50,7 +51,6 @@ This article provides an overview of the unique considerations for Azure Stack n
 |  | Default Gateway Site | Azure supports configuration of a default site for forced tunneling. | Not yet supported. |
 |  | Gateway Resizing | Azure supports resizing the gateway after deployment. | Re-sizing not supported. |
 |  | Active/Active Configuration | Supported | Not yet supported. |
-|  | IKE/IPSec Policies | Azure Supports custom IPSec policy configurations. | Not yet supported. |
 |  | UsePolicyBasedTrafficSelectors | Azure supports using policy-based traffic selectors with route-based gateway connections. | Not yet supported. |
 | Load balancer | SKU | Basic and Standard Load Balancers are supported | Only the Basic Load Balancer is supported.  The SKU property is not supported. |
 |  | Zones | Availability Zones are Supported. | Not yet supported |
@@ -61,11 +61,9 @@ This article provides an overview of the unique considerations for Azure Stack n
 |  | Get Effective ACLs | Supported | Not yet supported. |
 |  | Enable Accelerated Networking | Supported | Not yet supported. |
 |  | IP Forwarding | Disabled by default.  Can be enabled. | Toggling this setting is not supported.  On by default. |
-|  | Multiple IP Configurations per interface | Supported | Not yet supported. |
 |  | Application Security Groups | Supported | Not yet supported. |
 |  | Internal DNS Name Label | Supported | Not yet supported. |
 |  | Private IP Address Version | Both IPv6 and IPv4 are supported. | Only IPv4 is supported. |
-|  | Primary IP Configuration | Supported. Identifies the primary IP configuration on the interface. | Not yet supported. |
 | Network Watcher | Network Watcher tenant network monitoring capabilities | Supported | Not yet supported. |
 | CDN | Content Delivery Network profiles | Supported | Not yet supported. |
 | Application gateway | Layer-7 load balancing | Supported | Not yet supported. |

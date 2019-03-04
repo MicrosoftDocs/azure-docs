@@ -1,16 +1,16 @@
 ---
 title: Data platforms for the Data Science Virtual Machine - Azure | Microsoft Docs
-description: Data platforms for the Data Science Virtual Machine.
+description: Learn about the data platforms and tools supported on the Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-
+ms.custom: seodec18
 
 ms.assetid: 
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -20,7 +20,7 @@ ms.author: gokuma
 
 ---
 
-# Data platforms
+# Data platforms supported on the Data Science Virtual Machine
 
 The Data Science Virtual Machine (DSVM) allows you to build your analytics against a wide range of data platforms. In addition to interfaces to remote data platforms, the DSVM provides a local instance for rapid development and prototyping. 
 
@@ -92,7 +92,7 @@ Before running in Spark context in Microsoft R Server on Ubuntu Linux DSVM editi
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-You can stop the Hadoop related services when you do not need them by running ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn````
+You can stop the Hadoop related services when you do not need them by running ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```
 A sample demonstrating how to develop and test MRS in remote Spark context (which is the standalone Spark instance on the DSVM) is provided and available in the `/dsvm/samples/MRS` directory. 
 
 
@@ -103,5 +103,5 @@ A sample demonstrating how to develop and test MRS in remote Spark context (whic
 |Linux   | /dsvm/tools/spark-X.X.X-bin-hadoopX.X|
 
 
-Libraries to access data from Azure Blob or Azure Data Lake storage (ADLS) and using Microsoft's MMLSpark machine learning libraries are preinstalled  in $SPARK_HOME/jars. These JARs are automatically loaded when Spark starts up. By default Spark uses data on the local disk. In order for the Spark  instance on the DSVM to access data stored on Azure blob or ADLS you need to create/configure the `core-site.xml` file based on template found in $SPARK_HOME/conf/core-site.xml.template (where there are placeholders for Blob and ADLS configurations) with proper credentials to Azure blob and Azure Data Lake Storage. You find more detailed steps on creating the ADLS service credentials [here](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory#create-an-active-directory-application). Once the credentials for Azure blob or ADLS are entered in the core-site.xml file, you can reference the data stored in those sources with the URI prefix of wasb:// or adl://. 
+Libraries to access data from Azure Blob or Azure Data Lake storage (ADLS) and using Microsoft's MMLSpark machine learning libraries are preinstalled  in $SPARK_HOME/jars. These JARs are automatically loaded when Spark starts up. By default Spark uses data on the local disk. In order for the Spark  instance on the DSVM to access data stored on Azure blob or ADLS you need to create/configure the `core-site.xml` file based on template found in $SPARK_HOME/conf/core-site.xml.template (where there are placeholders for Blob and ADLS configurations) with proper credentials to Azure blob and Azure Data Lake Storage. You find more detailed steps on creating the ADLS service credentials [here](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory). Once the credentials for Azure blob or ADLS are entered in the core-site.xml file, you can reference the data stored in those sources with the URI prefix of wasb:// or adl://. 
 

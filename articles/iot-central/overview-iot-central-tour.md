@@ -1,14 +1,14 @@
 ---
 title: Take a tour of the Azure IoT Central UI | Microsoft Docs
 description: As a builder, become familiar with the key areas of the Azure IoT Central UI that you use to create an IoT solution.
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 04/13/2018
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: peterpr
+manager: philmea
 ---
 
 # Take a tour of the Azure IoT Central UI
@@ -28,13 +28,15 @@ As an _operator_, you use the Azure IoT Central UI to manage your Azure IoT Cent
 - Troubleshoot and remediate issues with your devices.
 - Provision new devices.
 
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
+
 ## Use the left navigation menu
 
 Use the left navigation menu to access the different areas of the application:
 
 | Menu | Description |
 | ---- | ----------- |
-| ![Left navigation menu](media/overview-iot-central-tour/navigationbar.png) | <ul><li>The **Home** button displays the home page of your application. As a builder, you can customize this home page for your operators.</li><li>The **Device Explorer** button lists both the device templates defined in your application, and the simulated and real devices associated with each device template. As an operator, you use the **Device Explorer** to manage your connected devices.</li><li>The **Device Sets** button enables you to view and create device sets. As an operator, you can create device sets as a logical collection of devices specified by a query.</li><li>The **Analytics** button shows analytics derived from device telemetry for devices and device sets. As an operator, you can create custom views on top of device data to derive insights from your application.</li><li>The **Jobs** button enables bulk device management by having you create and run jobs to perform updates at scale.</li><li>The **Application Builder** button shows the tools a builder uses, such as the **Create Device Template** tool.</li><li>The **Administration** button shows the application administration pages where an administrator can manage application settings, users, and roles.</li></ul> |
+| ![Left navigation menu](media/overview-iot-central-tour/navigationbar.png) | <ul><li>The **Dashboard** button displays your application dashboard. As a builder, you can customize the dashboard for your operators. Users can also create their own  dashboards.</li><li>The **Device Explorer** button lists both the device templates defined in your application, and the simulated and real devices associated with each device template. As an operator, you use the **Device Explorer** to manage your connected devices.</li><li>The **Device Sets** button enables you to view and create device sets. As an operator, you can create device sets as a logical collection of devices specified by a query.</li><li>The **Analytics** button shows analytics derived from device telemetry for devices and device sets. As an operator, you can create custom views on top of device data to derive insights from your application.</li><li>The **Jobs** button enables bulk device management by having you create and run jobs to perform updates at scale.</li><li>The **Application Builder** button shows the tools a builder uses, such as the **Create Device Template** tool.</li><li>The **Administration** button shows the application administration pages where an administrator can manage application settings, users, and roles.</li></ul> |
 
 ## Search, help, and support
 
@@ -50,11 +52,11 @@ You can choose between a light theme or a dark theme for the UI:
 
 ![Choose a theme for the UI](media/overview-iot-central-tour/themes.png)
 
-## Home page
+## Dashboard
 
-![Home page](media/overview-iot-central-tour/homepage.png)
+![Dashboard](media/overview-iot-central-tour/homepage.png)
 
-The home page is the first page you see when you sign in to your Azure IoT Central application. As a builder, you can customize the home page for other users of the application by adding tiles. To learn more, see the [Customize the Azure IoT Central operator's view](tutorial-customize-operator.md) tutorial.
+The home page is the first page you see when you sign in to your Azure IoT Central application. The dashboard is the first page you see when you sign in to your Azure IoT Central application. As a builder, you can customize the application dashboard for other users by adding tiles. To learn more, see the [Customize the Azure IoT Central operator's view](tutorial-customize-operator.md) tutorial. Users can also [create their own personal dashboards](howto-personalize-dashboard.md).
 
 ## Device explorer
 

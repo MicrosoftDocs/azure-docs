@@ -45,13 +45,31 @@ Use the filter controls to select virtual machines from different subscriptions,
 
 ![Onboard Update management solution](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Review the choices for the Log analytics workspace and Automation account. An existing workspace and Automation Account are selected by default. If you want to use a different Log Analytics workspace and Automation Account, click **CUSTOM** to select them from the **Custom Configuration** page. When you choose a Log Analytics workspace, a check is made to determine if it is linked with an Automation Account. If a linked Automation Account is found, you will see the following screen. When done, click **OK**.
+Review the choices for the Log Analytics workspace and Automation account. An existing workspace and Automation Account are selected by default. If you want to use a different Log Analytics workspace and Automation Account, click **CUSTOM** to select them from the **Custom Configuration** page. When you choose a Log Analytics workspace, a check is made to determine if it is linked with an Automation Account. If a linked Automation Account is found, you will see the following screen. When done, click **OK**.
 
 ![Select workspace and account](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
 
 If the workspace selected is not linked to an Automation Account, you'll see the following screen. Select an Automation Account and click **OK** when complete.
 
 ![No workspace](media/automation-onboard-solutions-from-browse/no-workspace.png)
+
+When enabling solutions, only certain regions are supported for linking a Log Analytics workspace and an Automation Account.
+
+The following table shows the supported mappings:
+
+|**Log Analytics Workspace Region**|**Azure Automation Region**|
+|---|---|
+|AustraliaSoutheast|AustraliaSoutheast|
+|CanadaCentral|CanadaCentral|
+|CentralIndia|CentralIndia|
+|EastUS|EastUS2|
+|JapanEast|JapanEast|
+|SoutheastAsia|SoutheastAsia|
+|WestCentralUS|WestCentralUS|
+|WestEurope|WestEurope|
+|UKSouth|UKSouth|
+|USGovVirginia|USGovVirginia|
+|EastUS2EUAP|CentralUSEUAP|
 
 Deselect the checkbox next to any virtual machine that you don't want to enable. Virtual machines that can't be enabled are already deselected.
 
@@ -65,7 +83,7 @@ The following solutions are dependent on a Log Analytics workspace:
 * [Change Tracking](automation-change-tracking.md)
 * [Start/Stop VMs during off-hours](automation-solution-vm-management.md)
 
-If you decide you no longer wish to integrate your Automation account with Log Analytics, you can unlink your account directly from the Azure portal. Before you proceed, you first need to remove the solutions mentioned earlier, otherwise this process will be prevented from proceeding. Review the article for the particular solution you have imported to understand the steps required to remove it.
+If you decide you no longer wish to integrate your Automation account with a Log Analytics workspace, you can unlink your account directly from the Azure portal. Before you proceed, you first need to remove the solutions mentioned earlier, otherwise this process will be prevented from proceeding. Review the article for the particular solution you have imported to understand the steps required to remove it.
 
 After you remove these solutions, you can perform the following steps to unlink your Automation account.
 
@@ -74,13 +92,13 @@ After you remove these solutions, you can perform the following steps to unlink 
 
 1. From the Azure portal, open your Automation account, and on the Automation account page  select **Linked workspace** under the section **Related Resources** on the left.
 
-1. On the Unlink workspace page, click **Unlink workspace**.
+2. On the Unlink workspace page, click **Unlink workspace**.
 
    ![Unlink workspace page](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
 
    You will receive a prompt verifying you wish to proceed.
 
-1. While Azure Automation attempts to unlink the account your Log Analytics workspace, you can track the progress under **Notifications** from the menu.
+3. While Azure Automation attempts to unlink the account your Log Analytics workspace, you can track the progress under **Notifications** from the menu.
 
 If you used the Update Management solution, optionally you may want to remove the following items that are no longer needed after you remove the solution.
 

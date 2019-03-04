@@ -34,4 +34,4 @@ Azure Data Explorer supports several bulk delete approaches, which we cover in t
 
     For more information, see [Retention policy](https://docs.microsoft.com/azure/kusto/concepts/retentionpolicy).
 
-If you need assistance with data deletion issues, please open a support request in the [Azure portal](https://portal.azure.com).
+If you need assistance with data deletion issues, please open a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

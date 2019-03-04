@@ -13,9 +13,10 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
+ms.lastreviewed: 08/30/2018
 ---
 
 # Border connectivity 
@@ -25,9 +26,9 @@ Network integration planning is an important prerequisite for successful Azure S
 > The top of rack (TOR) switches require Layer 3 uplinks with Point-to-Point IPs (/30 networks) configured on the physical interfaces. It is not supported to use Layer 2 uplinks with TOR switches supporting Azure Stack operations. 
 
 ## BGP routing
-Using a dynamic routing protocol like BGP guarantees that your system is always aware of network changes and facilitates administration. 
+Using a dynamic routing protocol like BGP guarantees that your system is always aware of network changes and facilitates administration. For enhanced security, a password may be set on the BGP peering between the TOR and the Border. 
 
-As shown in the following diagram, advertising of the private IP space on the TOR switch is restricted using a prefix-list. The prefix list defines the private IP subnets and applying it as a route-map on the connection between the TOR and the border.
+As shown in the following diagram, advertising of the private IP space on the TOR switch is blocked using a prefix-list. The prefix list denies the advertisement of the Private Network and it is applied as a route-map on the connection between the TOR and the border.
 
 The Software Load Balancer (SLB) running inside the Azure Stack solution peers to the TOR devices so it can dynamically advertise the VIP addresses.
 

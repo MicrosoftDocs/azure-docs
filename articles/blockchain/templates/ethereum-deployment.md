@@ -1,21 +1,21 @@
 ---
 title: Ethereum proof-of-work consortium solution template
-description: Use the Etherereum Proof-of-Work Consortium solution template to deploy and configure a multi-member consortium Ethereum network
+description: Use the Ethereum Proof-of-Work Consortium solution template to deploy and configure a multi-member consortium Ethereum network
 services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/21/2018
+ms.date: 01/28/2019
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: coborn
 manager: femila
 ---
 # Ethereum proof-of-work consortium solution template
 
 The Ethereum Proof-of-Work Consortium solution template is designed to make it easier and quicker to deploy and configure a multi-member consortium Ethereum network with minimal Azure and Ethereum knowledge.
 
-With a handful of user inputs and a single-click deployment through the Azure portal, each member can provision their network footprint, using Microsoft Azure Compute, networking, and storage services across the globe. Each member's network footprint consists of a set of load-balanced transaction nodes with which an application or user can interact to submit transactions, a set of mining nodes to record transactions, and a VPN gateway. A subsequent connection step connects the gateways to create a fully configured multi-member blockchain network.
+Using an Azure Resource Manager template, each member can provision their network footprint, using Microsoft Azure Compute, networking, and storage services. Each member's network footprint consists of a set of load-balanced transaction nodes with which an application or user interacts to submit transactions, a set of mining nodes to record transactions, and a VPN gateway. After deployment, you connect the gateways to create a fully configured multi-member blockchain network.
 
 ## About blockchain
 
@@ -29,7 +29,7 @@ A consortium member can provision up to five regions containing one or more mini
 
 All nodes have a stable version of the Go Ethereum (Geth) client and are configured to be mining nodes. If you did not supply a custom genesis block, all nodes use the same Ethereum address and key pair that is protected by the Ethereum account password. The Ethereum passphrase you provided is used to generate the default account (coinbase) for each mining node. As mining nodes, mine, they collect fees that are added to this account.
 
-The number of mining nodes per consortium member depends on the overall size of the network desired and the amount of hashing power dedicated to each member. The larger the network, the more nodes that need to be compromised to gain an unfair advantage. The template supports up to 15 mining nodes per region provisioned using virtual machine scale sets.
+The number of mining nodes per consortium member depends on the overall size of the network desired and the amount of hashing power that is dedicated to each member. Larger networks require more nodes to be compromised to gain an unfair advantage. The template supports up to 15 mining nodes per region provisioned using virtual machine scale sets.
 
 ### Transaction node details
 
@@ -37,9 +37,9 @@ A consortium member also has a set of load-balanced transaction nodes. These nod
 
 Transaction nodes are load-balanced within an availability set to maintain high availability. The template supports up to five transaction nodes provisioned using virtual machine scale sets.
 
-### Log analytics details
+### Azure Monitor logs details
 
-Each deployment also creates a new Log Analytics instance or can join an existing instance. This allows the monitoring of various performance metrics of each virtual machine that makes up the deployed network.
+Each deployment also creates a new Azure Monitor logs instance or can join an existing instance. Azure Monitor logs allows the monitoring of various performance metrics of each virtual machine that makes up the deployed network.
 
 ## Deployment architecture
 
@@ -82,17 +82,15 @@ Subscription| The subscription to which to deploy the consortium network||NA
 Resource Group| The resource group to which to deploy the consortium network.||NA
 Location| The Azure region for resource group. ||NA
 
-
-
 ### Operations Management Suite
 
-The Operations Management Suite (OMS) blade allows you to configure an OMS resource for your network. OMS will collect and surface useful metrics and logs from your network, providing the ability to quickly check the network health or debug issues. The free offering of OMS will fail gracefully once capacity is reached.
+Operations Management Suite (OMS) allows you to configure an OMS resource for your network. OMS will collect and surface useful metrics and logs from your network, providing the ability to quickly check the network health or debug issues. The free offering of OMS will fail gracefully once capacity is reached.
 
 ![Creating new OMS](./media/ethereum-deployment/new-oms.png)
 
 Parameter Name|Description| Allowed Values|Default Values
 ---|---|---|---
-Connect to existing OMS|Create a new Log Analytics instance or join an existing instance|Create new Join existing|Create new Log Analytics Location|The region where the new Log Analytics will be deployed (Visible if *Create new* is selected)
+Connect to existing OMS|Create a new Azure Monitor logs instance or join an existing instance|Create new Join existing|Create new Azure Monitor logs location|The region where the new Azure Monitor logs will be deployed (Visible if *Create new* is selected)
 Existing OMS Workspace Id|Workspace ID of the existing instance (Visible if *Join Existing* is selected) OMS Service Tier|Choose the pricing tier for the new instance. More Info at https://azure.microsoft.com/pricing/details/log-analytics/ (Visible if *Join Existing* is selected)|Free Standalone Per Node|Free
 Existing OMS Primary Key|The primary key used to connect to the existing OMS instance (Visible if *Join Existing* is selected)
 
@@ -113,7 +111,7 @@ Fifth region| Fifth region to deploy the consortium network (Visible only when n
 
 ### Network size and performance
 
-Next, under **Network size and performance** specify inputs for the size of the consortium network, such as number and size of mining nodes and transaction nodes.
+Next, under **Network size and performance** specify inputs for the size of the consortium network. Such as, number and size of mining nodes and transaction nodes.
 
 ![Network size and performance](./media/ethereum-deployment/network-size-performance.png)
 
@@ -137,8 +135,8 @@ Parameter Name |Description |Allowed Values|Default Values
 ConsortiumMember ID|The ID associated with each member participating in the consortium network used to configure IP address spaces to avoid collision. <br /><br />Member ID should be unique across different organizations in the same network. A unique member ID is needed even when the same organization deploys to multiple regions.<br /><br />Make note of the value of this parameter since you will need to share it with other joining members.|0 - 255
 Ethereum Network ID|The network ID for the consortium Ethereum network being deployed. Each Ethereum network has its own Network ID, with 1 being the ID for the public network. While network access is restricted for mining nodes, we still recommend using a large number to prevent collisions.|5 - 999,999,999| 10101010
 Custom genesis block|Option to either automatically generate a genesis block or provide a custom one.|Yes/No| No
-Ethereum Account Password (Custom genesis block = No)|The administrator password used to secure the Ethereum account imported into each node. The password must contain the following: 1 upper case character, 1 lower case character, and 1 number.|12 or more characters|NA
-Ethereum private key passphrase (Custom genesis block = No)|The passphrase used to generate the ECC private key associated with the default Ethereum account that is generated. A pre-generated private key does not need to be explicitly passed in.<br /><br />Consider a passphrase with sufficient randomness to ensure a strong private key and no overlap with other consortium members. The passphrase must contain the following at a minimum: 1 upper case character, 1 lower case character, and 1 number.<br /><br />Note if two members use the same passphrase the accounts generated will be the same. The same passphrase is useful if a single organization is trying to deploy across regions and wants to share a single account (coin base) across all nodes.|12 or more characters|NA
+Ethereum Account Password (Custom genesis block = No)|The administrator password used to secure the Ethereum account imported into each node. The password must contain: 1 upper case character, 1 lower case character, and 1 number.|12 or more characters|NA
+Ethereum private key passphrase (Custom genesis block = No)|The passphrase used to generate the ECC private key associated with the default Ethereum account that is generated. A pre-generated private key does not need to be explicitly passed in.<br /><br />Consider a passphrase with sufficient randomness to ensure a strong private key and no overlap with other consortium members. The passphrase must contain at a minimum: 1 upper case character, 1 lower case character, and 1 number.<br /><br />Note if two members use the same passphrase the accounts generated will be the same. The same passphrase is useful if a single organization is trying to deploy across regions and wants to share a single account (coin base) across all nodes.|12 or more characters|NA
 Genesis block(Custom genesis block = Yes)|JSON string representing custom genesis block. You can find more details on the format of the genesis block here, under Custom Networks.<br /><br />An Ethereum account is still created when providing a custom genesis block. Consider specifying a prefunded Ethereum account in the genesis block to not wait for mining.|Valid JSON |NA
 Shared Key for Connection|A Shared key for connection between VNET gateways.| 12 or more characters|NA
 Consortium Data URL|The URL pointing to the relevant consortium configuration data provided by another member's deployment. <br /><br />This information is provided by an already connected member who has a deployment. If you deployed the rest of the network, the URL is the template deployment output, named CONSORTIUM-DATA.||NA
@@ -148,7 +146,7 @@ Key of Peer information registrar|Peer info primary key provided by another memb
 
 ### Summary
 
-Click through the summary blade to review the inputs specified and to run basic pre-deployment validation.
+Click through the summary to review the inputs specified and to run basic pre-deployment validation.
 
 ![Summary](./media/ethereum-deployment/summary.png)
 
@@ -271,13 +269,13 @@ Next, import the module:
 
 Finally, run the function with the appropriate input:
 
-- **MyGatewayResourceId** : Resource path of your Gateway. This is the template deployment
+- **MyGatewayResourceId:** Resource path of your Gateway. This is the template deployment
     output parameter named **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId** : Resource path of the joining member's gateway. This is
+- **OtherGatewayResourceId:** Resource path of the joining member's gateway. This is
     provided by the joining member and is the template deployment output parameter of also
     named **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName** : A name for you to identify this Gateway connection.
-- **Shared Key** : The pre-established secret between the two members of the consortium
+- **ConnectionName:** A name for you to identify this Gateway connection.
+- **Shared Key:** The pre-established secret between the two members of the consortium
     network that are establishing a connection.
 
 **CreateConnection** - MyGatewayResourceId <resource path of your Gateway> -OtherGatewayResourceId
@@ -290,15 +288,15 @@ Download the Azure CLI script and store it locally. The location of the Azure CL
 
 Run the script with the appropriate input:
 
-- **MyGatewayResourceId** : Resource path of your Gateway. This is the template deployment
+- **MyGatewayResourceId:** Resource path of your Gateway. This is the template deployment
     output parameter named **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId** : Resource path of the joining member's gateway. This is
+- **OtherGatewayResourceId:** Resource path of the joining member's gateway. This is
     provided by the joining member and is the template deployment parameter of their
     deployment also named **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName** : A name for you to identify this Gateway connection.
-- **Shared Key** : The pre-established secret between the two members of the consortium
+- **ConnectionName:** A name for you to identify this Gateway connection.
+- **Shared Key:** The pre-established secret between the two members of the consortium
     network that are establishing a connection.
-- **Location** : The Azure region where your gateway resource is deployed.
+- **Location:** The Azure region where your gateway resource is deployed.
 
 ``` powershell
 az network vpn-connection create --name $ConnectionName --resource-group
@@ -336,7 +334,7 @@ To install the extension in Chrome, go to Customize and control Google Chrome (o
 
 ![MetaMask extension](./media/ethereum-deployment/metamask-extension.png)
 
-Once installed, open MetaMask and create a new vault. By default, the vault will be connected to the Morden Test Network. You will need to change this to connect to the deployed private consortium network, specifically to the load balancer in front of the transaction nodes. From the template output, retrieve the exposed Ethereum RPC endpoint at port 8545, named as `ETHEREUM-RPC-ENDPOINT`, and enter it in custom RPC as shown below.
+Once installed, open MetaMask and create a new vault. By default, the vault will be connected to the Morden Test Network. Change this to connect to the deployed private consortium network, specifically to the load balancer in front of the transaction nodes. From the template output, retrieve the exposed Ethereum RPC endpoint at port 8545, named as `ETHEREUM-RPC-ENDPOINT`, and enter it in custom RPC as shown below.
 
 ![MetaMask settings](./media/ethereum-deployment/metamask-settings.png)
 

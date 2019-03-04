@@ -1,19 +1,20 @@
 ---
-title: Add your organization's privacy info in Azure Active Directory | Microsoft Docs
-description: How to add your organization's privacy info to the Azure Active Directory (Azure AD) Properties area.
+title: Add your organization's privacy info - Azure Active Directory | Microsoft Docs
+description: Instructions about how to add your organization's privacy info to the Azure Active Directory Properties area.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: lizross
 ms.reviewer: bpham
-ms.custom: it-pro
+ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
-# How-to: Add your privacy info using Azure Active Directory
+# Add your organization's privacy info using Azure Active Directory
 This article explains how a tenant admin can add privacy-related info to an organization’s Azure Active Directory (Azure AD) tenant, through the Azure portal.
 
 We strongly recommend you add both your global privacy contact and your organization’s privacy statement, so your internal employees and external guests can review your policies. Because privacy statements are uniquely created and tailored for each business, we strongly recommend you contact a lawyer for assistance.

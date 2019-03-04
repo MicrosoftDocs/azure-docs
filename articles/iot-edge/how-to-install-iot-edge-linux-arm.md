@@ -2,13 +2,13 @@
 title: Install Azure IoT Edge on Linux ARM32 | Microsoft Docs
 description: Azure IoT Edge installation instructions on Linux on ARM32 devices, like a Raspberry PI
 author: kgremban
-manager: timlt
+manager: philmea
 # this is the PM responsible
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 12/10/2018
 ms.author: kgremban
 ---
 # Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)
@@ -24,7 +24,7 @@ This article lists the steps to install the Azure IoT Edge runtime on a Linux AR
 
 ## Install the container runtime
 
-Azure IoT Edge relies on an [OCI-compatible][lnk-oci] container runtime. For production scenarios, it is highly recommended you use the [Moby-based][lnk-moby] engine provided below. It is the only container engine officially supported with Azure IoT Edge. Docker CE/EE container images are compatible with the Moby-based runtime.
+Azure IoT Edge relies on an [OCI-compatible](https://www.opencontainers.org/) container runtime. For production scenarios, it is highly recommended you use the [Moby-based](https://mobyproject.org/) engine provided below. It is the only container engine officially supported with Azure IoT Edge. Docker CE/EE container images are compatible with the Moby-based runtime.
 
 Commands below install both the Moby-based engine and command-line interface (CLI). The CLI is useful for development but optional for production deployments.
 
@@ -73,7 +73,7 @@ A single IoT Edge device can be provisioned manually using a device connections 
 
 ### Option 1: Manual provisioning
 
-To manually provision a device, you need to provide it with a [device connection string][lnk-dcs] that you can create by registering a new device in your IoT hub.
+To manually provision a device, you need to provide it with a [device connection string](how-to-register-device-portal.md) that you can create by registering a new device in your IoT hub.
 
 
 Open the configuration file. 
@@ -108,7 +108,7 @@ sudo systemctl restart iotedge
 
 ### Option 2: Automatic provisioning
 
-To automatically provision a device, [set up Device Provisioning Service and retrieve your device registration ID][lnk-dps]. Automatic provisioning only works with devices that have a Trusted Platform Module (TPM) chip. For example, Raspberry Pi devices do not come with TPM by default. 
+To automatically provision a device, [set up Device Provisioning Service and retrieve your device registration ID](how-to-auto-provision-simulated-device-linux.md). Automatic provisioning only works with devices that have a Trusted Platform Module (TPM) chip. For example, Raspberry Pi devices do not come with TPM by default. 
 
 Open the configuration file. 
 
@@ -166,17 +166,43 @@ sudo iotedge list
 
 You need elevated privileges to run `iotedge` commands. After installing the runtime, sign out of your machine and sign back in to update your permissions automatically. Until then, use **sudo** in front of any `iotedge` the commands.
 
-On resource constrained devices, it is highly recommended that you set the *OptimizeForPerformance* environment variable to *false* as per instructions in the [troubleshooting guide][lnk-trouble].
+On resource constrained devices, it is highly recommended that you set the *OptimizeForPerformance* environment variable to *false* as per instructions in the [troubleshooting guide](troubleshoot.md#stability-issues-on-resource-constrained-devices).
 
 If your network that has a proxy server, follow the steps in [Configure your IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md).
 
+## Uninstall IoT Edge
+
+If you want to remove the IoT Edge installation from your Linux device, use the following commands from the command line. 
+
+Remove the IoT Edge runtime. 
+
+```bash
+sudo apt-get remove --purge iotedge
+```
+
+When the IoT Edge runtime is removed, the container that it created are stopped but still exist on your device. View all containers to see which ones remain. 
+
+```bash
+sudo docker ps -a
+```
+
+Delete the containers from your device, including the two runtime containers. 
+
+```bash
+sudo docker rm -f <container name>
+```
+
+Finally, remove the container runtime from your device. 
+
+```bash 
+sudo apt-get remove --purge moby-cli
+sudo apt-get remove --purge moby-engine
+```
+
 ## Next steps
 
-If you are having problems with the Edge runtime installing properly, refer to the [troubleshooting][lnk-trouble] page.
+Now that you have an IoT Edge device provisioned with the runtime installed, you can [deploy IoT Edge modules](how-to-deploy-modules-portal.md).
 
-<!-- Links -->
-[lnk-dcs]: how-to-register-device-portal.md
-[lnk-dps]: how-to-auto-provision-simulated-device-linux.md
-[lnk-trouble]: https://docs.microsoft.com/azure/iot-edge/troubleshoot#stability-issues-on-resource-constrained-devices
-[lnk-oci]: https://www.opencontainers.org/
-[lnk-moby]: https://mobyproject.org/
+If you are having problems with the Edge runtime installing properly, refer to the [troubleshooting](troubleshoot.md#stability-issues-on-resource-constrained-devices) page.
+
+To update an existing installation to the newest version of IoT Edge, see [Update the IoT Edge security daemon and runtime](how-to-update-iot-edge.md).

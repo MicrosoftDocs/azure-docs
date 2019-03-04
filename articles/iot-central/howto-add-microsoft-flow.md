@@ -16,31 +16,33 @@ manager: peterpr
 
 Use Microsoft Flow to automate workflows across the many applications and services that business users rely on. Using the IoT Central connector in Microsoft Flow, you can trigger workflows when a rule is triggered in IoT Central. In a workflow triggered by IoT Central or any other application, you can use the actions in the IoT Central connector to create a device, update a device's properties and settings, or delete a device. Check out [these Microsoft Flow templates](https://aka.ms/iotcentralflowtemplates) that connect IoT Central to other services such as mobile notifications and Microsoft Teams.
 
-> [!NOTE] 
-> You'll need to sign into Microsoft Flow with a Microsoft personal or work or school account. Learn more about Microsoft Flow plans [here](https://aka.ms/microsoftflowplans).
+## Prerequisites
+
+- A Pay-As-You-Go application
+- A Microsoft personal or work or school account to sign into Flow ([learn more about Microsoft Flow plans](https://aka.ms/microsoftflowplans))
 
 ## Trigger a workflow when a rule is triggered
 
 This section shows you how to trigger a mobile notification in the Flow mobile app when a rule is triggered in IoT Central.
 
-1. Start by [creating a rule in IoT Central](howto-create-telemetry-rules.md). After you save the rule conditions, click the **Microsoft Flow action** as a new action. A new tab or window should open in your browser, taking you into Microsoft Flow.
+1. Start by [creating a rule in IoT Central](howto-create-telemetry-rules.md). After you save the rule conditions, select the **Microsoft Flow action** as a new action. A new tab or window should open in your browser, taking you into Microsoft Flow.
 
     ![Create a new Microsoft Flow action](media/howto-add-microsoft-flow/createflowaction.PNG)
 
 1. Sign into Microsoft Flow. This doesn't need to be the same account as the one that you use in IoT Central. You'll land on an overview page showing an IoT Central connector connecting to a custom action.
 
-1. Sign into the IoT Central connector and click **Continue**. You are taken to the Microsoft Flow designer to build your workflow. The workflow has an IoT Central trigger that has your Application and Rule already filled in.
+1. Sign into the IoT Central connector and select **Continue**. You are taken to the Microsoft Flow designer to build your workflow. The workflow has an IoT Central trigger that has your Application and Rule already filled in.
 
 1. Choose **+ New Step** and **Add an action**. At this point you can add any action you want to your workflow. As an example, let's send a mobile notification. Search for **notification**, and choose **Notifications - Send me a mobile notification**.
 
 1. In the action, fill in the Text field with what you want your notification to say. You can include *Dynamic content* from your IoT Central rule, passing along important information such as device name and timestamp to your notification.
 
     > [!NOTE]
-    > Click the "See more" text in the Dynamic content window to get measurement and property values that triggered the rule.
+    > Select the **See more** text in the Dynamic content window to get measurement and property values that triggered the rule.
 
     ![Flow editing action with dynamic pane open](./media/howto-add-microsoft-flow/flowdynamicpane.PNG)
 
-1. When you are done editing your action, click **Save**. You'll be directed to your workflow's overview page. Here you can see the run history and share it with other colleagues.
+1. When you are done editing your action, select **Save**. You'll be directed to your workflow's overview page. Here you can see the run history and share it with other colleagues.
 
     > [!NOTE]
     > If you want other users in your IoT Central app to edit this rule, you must share it with them in Microsoft Flow. Add their Microsoft Flow accounts as owners in your workflow.
@@ -91,6 +93,8 @@ This section shows you how to update device settings and properties in IoT Centr
     ![IoT Central device explorer device ID](./media/howto-add-microsoft-flow/iotcdeviceid.PNG)
 
 1. You can update the device name. To update any of the device's properties and settings, you must select the device template of the device you want to update in the **Device Template** dropdown. The action tile expands to show all the properties and settings you can update.
+
+    ![Flow update device workflow](./media/howto-add-microsoft-flow/flowupdatedevice.PNG)
 
 1. Select each of the properties and settings you want to update. From the dynamic content pane, choose the corresponding input from the trigger. In this example, the Location value is propagated down to update the device's Location property.
 

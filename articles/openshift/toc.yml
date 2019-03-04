@@ -4,7 +4,7 @@
   expanded: true
   items:
   - name: 'OpenShift:  Community template'
-    href: https://azure.microsoft.com/en-us/resources/templates/openshift-origin-rhel/
+    href: https://azure.microsoft.com/resources/templates/openshift-origin-rhel/
 - name: Tutorials
   items:
   - name: Deploy to Azure VMs

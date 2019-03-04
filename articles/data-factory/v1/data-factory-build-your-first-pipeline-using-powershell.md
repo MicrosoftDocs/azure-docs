@@ -11,7 +11,7 @@ ms.assetid: 22ec1236-ea86-4eb7-b903-0e79a58b90c7
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
@@ -78,7 +78,7 @@ Note the following points:
 
 * The name of the Azure Data Factory must be globally unique. If you receive the error **Data factory name “FirstDataFactoryPSH” is not available**, change the name (for example, yournameFirstDataFactoryPSH). Use this name in place of ADFTutorialFactoryPSH while performing steps in this tutorial. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
 * To create Data Factory instances, you need to be a contributor/administrator of the Azure subscription
-* The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
+* The name of the data factory may be registered as a DNS name in the future and hence become publicly visible.
 * If you receive the error: "**This subscription is not registered to use namespace Microsoft.DataFactory**", do one of the following and try publishing again:
 
   * In Azure PowerShell, run the following command to register the Data Factory provider:

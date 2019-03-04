@@ -26,9 +26,11 @@ In this article, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Log in to Azure
 
-Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
+Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
 
 ## Create a self-signed certificate
 
@@ -128,7 +130,7 @@ In this example, you create two virtual machines to be used as backend servers f
 2. Run the following command to install IIS on the virtual machine: 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -139,12 +141,12 @@ In this example, you create two virtual machines to be used as backend servers f
       -Location EastUS
     ```
 
-3. Create a second virtual machine and install IIS using the steps that you just finished. Enter *myVM2* for its name and for VMName in Set-AzureRmVMExtension.
+3. Create a second virtual machine and install IIS using the steps that you just finished. Enter *myVM2* for its name and for VMName in Set-AzVMExtension.
 
 ### Add backend servers
 
 3. Click **All resources**, and then click **myAppGateway**.
-4. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGateayBackendPool**.
+4. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGatewayBackendPool**.
 5. Click **Add target** to add each virtual machine that you created to the backend pool.
 
     ![Add backend servers](./media/create-ssl-portal/application-gateway-backend.png)

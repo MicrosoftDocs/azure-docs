@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: renash
-ms.component: files
+ms.subservice: files
 ---
 
 # Use Azure Files with Linux
@@ -19,7 +19,7 @@ ms.component: files
 ## Prerequisites for mounting an Azure file share with Linux and the cifs-utils package
 <a id="smb-client-reqs"></a>
 * **Pick a Linux distribution to suit your mounting needs.**  
-      Azure Files can be mounted either via SMB 2.1 and SMB 3.0. For connections coming from clients on-premises or in other Azure regions, Azure Files will reject SMB 2.1 (or SMB 3.0 without encryption). If *secure transfer required* is enabled for a storage account, Azure Files will only allow connections using SMB 3.0 with encryption.
+      Azure Files can be mounted either via SMB 2.1 and SMB 3.0. For connections coming from clients on-premises or in other Azure regions, you must use SMB 3.0; Azure Files will reject SMB 2.1 (or SMB 3.0 without encryption). If you're accessing the Azure file share from a VM within the same Azure region, you may access your file share using SMB 2.1, if and only if, *secure transfer required* is disabled for the storage account hosting the Azure file share. We always recommend requiring secure transfer and using only SMB 3.0 with encryption.
     
     SMB 3.0 encryption support was introduced in Linux kernel version 4.11 and has been backported to older kernel versions for popular Linux distributions. At the time of this document's publication, the following distributions from the Azure gallery support mounting option specified in the table headers. 
 
@@ -112,7 +112,7 @@ ms.component: files
     fi
     ```
 
-4. **Change permissions on the credential file so only root can read or modify the password file.** Since the storage account key is essentially a super-administrator password for the storage account, setting the permissions on the file such that only root can access is important so that lower privilege users cannot retrive the storage account key.   
+4. **Change permissions on the credential file so only root can read or modify the password file.** Since the storage account key is essentially a super-administrator password for the storage account, setting the permissions on the file such that only root can access is important so that lower privilege users cannot retrieve the storage account key.   
 
     ```bash
     sudo chmod 600 /etc/smbcredentials/<storage-account-name>.cred

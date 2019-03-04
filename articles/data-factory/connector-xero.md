@@ -10,9 +10,9 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
 
 ---
@@ -88,7 +88,12 @@ Include all the text from the .pem file including the Unix line endings(\n).
 
 For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Xero dataset.
 
-To copy data from Xero, set the type property of the dataset to **XeroObject**. There is no additional type-specific property in this type of dataset.
+To copy data from Xero, set the type property of the dataset to **XeroObject**. The following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the dataset must be set to: **XeroObject** | Yes |
+| tableName | Name of the table. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -100,7 +105,8 @@ To copy data from Xero, set the type property of the dataset to **XeroObject**. 
         "linkedServiceName": {
             "referenceName": "<Xero linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -116,7 +122,7 @@ To copy data from Xero, set the source type in the copy activity to **XeroSource
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **XeroSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Contacts"`. | Yes |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Contacts"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 

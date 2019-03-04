@@ -1,4 +1,10 @@
-<!--author=alkohli last changed: 07/05/2017-->
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 
 > [!NOTE] 
 > You cannot modify the encryption settings and the storage account credentials associated with a volume container after it is created.

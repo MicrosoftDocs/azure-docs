@@ -2,16 +2,16 @@
 title: Delete a Recovery Services vault in Azure '
 description: This article explains how to delete a Recovery Services vault. The article includes troubleshooting steps when you try to delete a vault, but can't.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/6/2018
-ms.author: markgal
+ms.date: 01/31/2019
+ms.author: raynew
 ---
 # Delete a Recovery Services vault
 
-This article explains how to remove all items from a Recovery Services vault, and then delete it. You can't delete a Recovery Services vault if it is registered to a server and holds backup data. If you try to delete a vault, but can't, the vault is still configured to receive backup data.
+This article describes how to remove all items from a Recovery Services vault, and then delete it. You can't delete a Recovery Services vault if it is registered to a server and holds backup data. If you try to delete a vault, but can't, the vault is still configured to receive backup data.
 
 To learn how to delete a vault, see the section, [Delete a vault from Azure portal](backup-azure-delete-vault.md#delete-a-vault-from-azure-portal). If you don't want to retain any data in the Recovery Services vault, and want to delete the vault, see the section, [Delete the vault by force](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). If you aren't sure what's in the vault, and you need to make sure that you can delete the vault, see the section, [Remove vault dependencies and delete vault](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
 
@@ -25,7 +25,7 @@ If you already have the Recovery Services vault open, skip to the second step.
 
    ![Create Recovery Services Vault step 1](./media/backup-azure-delete-vault/open-recovery-services-vault.png) <br/>
 
-   The list of Recovery Services vaults is displayed. 
+   The list of Recovery Services vaults is displayed.
 
    ![choose vault from list](./media/backup-azure-delete-vault/choose-vault-to-delete-.png)
 
@@ -44,7 +44,7 @@ If you already have the Recovery Services vault open, skip to the second step.
 
 ## Delete the Recovery Services vault by force
 
-You can use PowerShell to delete a Recovery Services vault by force. By force means the Recovery Services vault, and all associated backup data, is permanently deleted. 
+You can use PowerShell to delete a Recovery Services vault by force. By force means the Recovery Services vault, and all associated backup data, is permanently deleted.
 
 > [!Warning]
 > When using PowerShell to delete a Recovery Services vault, be certain that you want to permanently delete all backup data in the vault.
@@ -89,7 +89,7 @@ To delete a Recovery Services vault:
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
-   
+
 1. Sign in to your subscription in the Azure portal and verify the vault is deleted.
 
 
@@ -100,7 +100,6 @@ To manually remove the vault dependencies, delete the configuration between each
 * Azure Storage (Azure Files) backups
 * SQL Server in Azure VM backups
 * Azure virtual machines backups
-* Microsoft Azure Recovery Services agent backups
 
 Use the **Backup Infrastructure** menu (see image) for:
 
@@ -119,7 +118,7 @@ Use the **Backup Infrastructure** menu (see image) for:
 
 1. For all items in the list, right-click the item, and from the context menu, select **Stop backup**.
 
-    ![select the backup type](./media/backup-azure-delete-vault/stop-backup-item.png) 
+    ![select the backup type](./media/backup-azure-delete-vault/stop-backup-item.png)
 
     The Stop Backup menu opens.
 
@@ -148,9 +147,9 @@ Use the **Backup Infrastructure** menu (see image) for:
 
 ## Removing Azure Backup Server or DPM
 
-1. In the vault dashboard menu, scroll down to the Manage section, and click **Backup Infrastructure**. 
+1. In the vault dashboard menu, scroll down to the Manage section, and click **Backup Infrastructure**.
 
-1. In the submenu, click **Backup Management Servers** to view the Azure Backup Servers and System Center DPM server. you can stop and delete Azure File Servers, SQL Servers in Azure VM, and Azure virtual machines. 
+1. In the submenu, click **Backup Management Servers** to view the Azure Backup Servers and System Center DPM server. you can stop and delete Azure File Servers, SQL Servers in Azure VM, and Azure virtual machines.
 
     ![select your vault to open its dashboard](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 

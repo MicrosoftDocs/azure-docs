@@ -1,16 +1,17 @@
 ---
 title: API reference - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Learn about the content moderation and review APIs for Content Moderator.
+description: Learn about the various content moderation and review APIs for Content Moderator.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: reference
 ms.date: 06/25/2017
 ms.author: sajagtap
+
 ---
 
 # Content Moderator API reference
@@ -18,7 +19,7 @@ ms.author: sajagtap
 You get started with Azure Content Moderator APIs in the following ways: (Also see [Managing credentials](review-tool-user-guide/credentials.md).)
 
 - In the Azure portal, [subscribe to the Content Moderator APIs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator).
-- Sign up for the [Content Moderator Review tool](http://contentmoderator.cognitive.microsoft.com/). See [Quickstart](quick-start.md).
+- Sign up for the [Content Moderator Review tool](https://contentmoderator.cognitive.microsoft.com/). See [Try Content Moderator on the web](quick-start.md).
 
 ## Moderation APIs
 

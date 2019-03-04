@@ -35,7 +35,7 @@ It takes about 20 minutes to do these steps.
 
 ## Create a Maven project
 
-1. If you haven't already done so, install [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+1. If you haven't already done so, install [Java](https://aka.ms/azure-jdks).
 2. Install [Maven](http://maven.apache.org/download.cgi).
 3. Create a new folder and the project:
     
@@ -113,7 +113,7 @@ It takes about 20 minutes to do these steps.
 
 ## Create credentials
 
-Before you start this step, make sure that you have access to an [Active Directory service principal](../../azure-resource-manager/resource-group-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you need in a later step.
+Before you start this step, make sure that you have access to an [Active Directory service principal](../../active-directory/develop/howto-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you need in a later step.
 
 ### Create the authorization file
 

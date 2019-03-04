@@ -14,5 +14,5 @@ ms.custom: include file
 
 |  |  |
 |---------|---------|
-| [Allowed resource types](../articles/governance/policy/samples/allowed-res-types.md) | Ensures only approved resource types are deployed. You specify an array of resource types that are permitted.  |
-| [Not allowed resource types](../articles/governance/policy/samples/not-allowed-res-type.md) | Prohibits the deployment of specified resource types. You specify an array of the resource types to block.  |
+| [Allowed resource types](../articles/governance/policy/samples/allowed-resource-types.md) | Ensures only approved resource types are deployed. You specify an array of resource types that are permitted.  |
+| [Not allowed resource types](../articles/governance/policy/samples/not-allowed-resource-types.md) | Prohibits the deployment of specified resource types. You specify an array of the resource types to block.  |

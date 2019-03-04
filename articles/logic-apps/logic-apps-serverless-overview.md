@@ -14,7 +14,7 @@ ms.date: 03/30/2017
 
 # Overview: Azure Serverless with Azure Logic Apps and Azure Functions
 
-Serverless applications offer benefits of an increase in speed of development, reduction in required code, and simplicity with scale.  This article goes into the different attributes of serverless solutions, and Azure serverless offerings.
+[Serverless](https://azure.microsoft.com/solutions/serverless/) applications offer benefits of an increase in speed of development, reduction in required code, and simplicity with scale.  This article goes into the different attributes of serverless solutions, and Azure serverless offerings.
 
 ## What is serverless?
 
@@ -36,7 +36,7 @@ To get started with Logic Apps, start with [creating your first logic app](quick
 
 ## How can I build and deploy Serverless applications in Azure?
 
-Azure provides a rich set of tools across development, deployment, and management of Serverless apps.  Apps can be built directly in the Azure portal, or with [tooling from Visual Studio](logic-apps-serverless-get-started-vs.md).  Once an application has been developed it can be [deployed instantly](logic-apps-create-deploy-template.md).  Azure also provides monitoring for serverless apps.  This monitoring can be accessed from the Azure portal, through the API or SDKs, or with integrated tooling to Log Analytics and Application Insights.
+Azure provides a rich set of tools across development, deployment, and management of Serverless apps.  Apps can be built directly in the Azure portal, or with [tooling from Visual Studio](logic-apps-serverless-get-started-vs.md).  Once an application has been developed it can be [deployed instantly](logic-apps-create-deploy-template.md).  Azure also provides monitoring for serverless apps.  This monitoring can be accessed from the Azure portal, through the API or SDKs, or with integrated tooling to Azure Monitor logs and Application Insights.
 
 ## Next steps
 

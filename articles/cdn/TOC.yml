@@ -147,13 +147,15 @@
       - name: X-EC-Debug headers
         href: cdn-http-debug-headers.md       
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.cdn
+    href: /powershell/module/az.cdn
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.cdn
   - name: Java
     href: /java/api/com.microsoft.azure.management.cdn
   - name: REST
     href: /rest/api/cdn/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.cdn/allversions
 - name: Resources
   items:
   - name: Azure CDN POP locations

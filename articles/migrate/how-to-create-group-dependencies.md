@@ -4,7 +4,7 @@ description: Describes how to refine an assessment using group dependency mappin
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 12/05/2018
 ms.author: raynew
 ---
 
@@ -17,9 +17,13 @@ This article describes how to refine a group by visualizing dependencies of all 
 > [!NOTE]
 > Groups for which you want to visualize dependencies shouldn't contain more than 10 machines. If you have more than 10 machines in the group, we recommend you to split it into smaller groups to leverage the dependency visualization functionality.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Prepare for dependency visualization
-Azure Migrate leverages Service Map solution in Log Analytics to enable dependency visualization of machines.
+Azure Migrate leverages Service Map solution in Azure Monitor logs to enable dependency visualization of machines.
+
+> [!NOTE]
+> The dependency visualization functionality is not available in Azure Government.
 
 ### Associate a Log Analytics workspace
 To leverage dependency visualization, you need to associate a Log Analytics workspace, either new or existing, with an Azure Migrate project. You can only create or attach a workspace in the same subscription where the migration project is created.
@@ -28,14 +32,15 @@ To leverage dependency visualization, you need to associate a Log Analytics work
 
     ![Associate Log Analytics workspace](./media/concepts-dependency-visualization/associate-workspace.png)
 
-- When you create a new workspace, you need to specify a name for the workspace. The workspace is then created in the same subscription as the migration project and in a region in the same [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) as the migration project.
-- The **Use existing** option lists only those workspaces that are created in regions where Service Map is available. If you have a workspace in a region where Service Map is not available, it will not be listed in the drop-down.
+- While associating a workspace, you will get the option to create a new workspace or attach an existing one:
+    - When you create a new workspace, you need to specify a name for the workspace. The workspace is then created in a region in the same [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) as the migration project.
+    - When you attach an existing workspace, you can pick from all the available workspaces in the same subscription as the migration project. Note that only those workspaces are listed which were created in a region where [Service Map is supported](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). To be able to attach a workspace, ensure that you have 'Reader' access to the workspace.
 
 > [!NOTE]
 > You cannot change the workspace associated to a migration project.
 
 ### Download and install the VM agents
-To view dependencies of a group, you need to download and install agents on each on-premises machine that is part of the group. In addition, if you have machines with no internet connectivity, you need to download and install [OMS gateway](../log-analytics/log-analytics-oms-gateway.md) on them.
+To view dependencies of a group, you need to download and install agents on each on-premises machine that is part of the group. In addition, if you have machines with no internet connectivity, you need to download and install [Log Analytics gateway](../azure-monitor/platform/gateway.md) on them.
 
 1. In **Overview**, click **Manage** > **Groups**, go to the required group.
 2. In the list of machines, in the **Dependency agent** column, click **Requires installation** to see instructions regarding how to download and install the agents.
@@ -43,6 +48,8 @@ To view dependencies of a group, you need to download and install agents on each
 4. Copy the workspace ID and key. You need these when you install the MMA on the on-premises machines.
 
 ### Install the MMA
+
+#### Install the agent on a Windows machine
 
 To install the agent on a Windows machine:
 
@@ -52,6 +59,9 @@ To install the agent on a Windows machine:
 4. In **Agent Setup Options**, select **Azure Log Analytics** > **Next**.
 5. Click **Add** to add a new Log Analytics workspace. Paste in the workspace ID and key that you copied from the portal. Click **Next**.
 
+You can install the agent from the command line or using an automated method such as Azure Automation DSC, System Center Configuration Manager, or with an Azure Resource Manager template if you have deployed Microsoft Azure Stack in your datacenter. [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) about using these methods to install the MMA agent.
+
+#### Install the agent on a Linux machine
 
 To install the agent on a Linux machine:
 
@@ -60,6 +70,9 @@ To install the agent on a Linux machine:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
+#### Install the agent on a machine monitored by System Center Operations Manager
+
+For machines monitored by Operations Manager 2012 R2 or later, there is no need to install the MMA agent. Service Map has an integration with Operations Manager that leverages the Operations Manager MMA to gather the necessary dependency data. You can enable the integration using the guidance [here](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Note, however, that the dependency agent needs to installed on these machines.
 
 ### Install the Dependency agent
 1. To install the Dependency agent on a Windows machine, double-click the setup file and follow the wizard.
@@ -67,7 +80,9 @@ To install the agent on a Linux machine:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-Learn more about the Dependency agent support for the [Windows](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) and [Linux](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems) operating systems.
+Learn more about the Dependency agent support for the [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) and [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) operating systems.
+
+[Learn more](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) about how you can use scripts to install the Dependency agent.
 
 ## Refine the group based on dependency visualization
 Once you have installed agents on all the machines of the group, you can visualize the dependencies of the group and refine it by following the below steps.
@@ -84,6 +99,10 @@ Once you have installed agents on all the machines of the group, you can visuali
      ![View group dependencies](./media/how-to-create-group-dependencies/view-group-dependencies.png)
 
 3. To view more granular dependencies, click the time range to modify it. By default, the range is an hour. You can modify the time range, or specify start and end dates, and duration.
+
+    > [!NOTE]
+      Currently, the dependency visualization UI does not support selection of a time range longer than an hour. Use Azure Monitor logs to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) over a longer duration.
+
 4. Verify the dependent machines, the process running inside each machine and identify the machines that should be added or removed from the group.
 5. Use Ctrl+Click to select machines on the map to add or remove them from the group.
     - You can only add machines that have been discovered.
@@ -94,6 +113,20 @@ Once you have installed agents on all the machines of the group, you can visuali
     ![Add or remove machines](./media/how-to-create-group-dependencies/add-remove.png)
 
 If you want to check the dependencies of a specific machine that appears in the group dependency map, [set up machine dependency mapping](how-to-create-group-machine-dependencies.md).
+
+## Query dependency data from Azure Monitor logs
+
+Dependency data captured by Service Map is available for querying in the Log Analytics workspace associated with your Azure Migrate project. [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) about the Service Map data tables to query in Azure Monitor logs. 
+
+To run the Kusto queries:
+
+1. After you install the agents, go to the portal and click **Overview**.
+2. In **Overview**, go to **Essentials** section of the project and click on workspace name provided next to **OMS Workspace**.
+3. On the Log Analytics workspace page, click **General** > **Logs**.
+4. Write your query to gather dependency data using Azure Monitor logs. Sample queries to gather dependency data are available [here](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+5. Run your query by clicking on Run. 
+
+[Learn more](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) about how to write Kusto queries. 
 
 
 ## Next steps

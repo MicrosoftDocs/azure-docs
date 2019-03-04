@@ -1,6 +1,6 @@
 ---
-title: Receive events from Azure Event Hubs using Node.js | Microsoft Docs
-description: Learn how to receive events from Event Hubs using Node.js.
+title: Receive events using Node.js - Azure Event Hubs | Microsoft Docs
+description: This article provides a walkthrough for creating a Node.js application that receives events from Azure Event Hubs.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
@@ -8,7 +8,8 @@ manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 09/18/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---
@@ -40,12 +41,12 @@ The first step is to use the Azure portal to create an Event Hubs namespace with
 To use the EventProcessorHost, you must have an Azure Storage account. The state information such as leases on partitions and checkpoints in the event stream are shared between receivers using an Azure Storage container. You can create an Azure Storage account by following the instructions in [this article](../storage/common/storage-quickstart-create-account.md).
 
 ## Clone the Git repository
-Download or clone the [sample](https://github.com/Azure/azure-event-hubs-node/tree/master/processor/examples/) from Github. 
+Download or clone the [sample](https://github.com/Azure/azure-event-hubs-node/tree/master/processor/examples/) from GitHub. 
 
 ## Install the EventProcessorHost
 Install the EventProcessorHost for Event Hubs module. 
 
-```nodejs
+```shell
 npm install @azure/event-processor-host
 ```
 
@@ -54,23 +55,23 @@ The SDK you have cloned contains multiple samples that show you how to receive e
 
 1. Open the project on Visual Studio Code. 
 2. Create a file named **.env** under the **processor** folder. Copy and paste sample environmental variables from the **sample.env** in the root folder.
-3. Configure your event hub connection string, event hub name, and storage endpoint. You can copy connection string for your event hub from **Connection string-primary** key under **RootManageSharedAccessKey** on the Event Hub page in the Azure portal. For detailed steps, see [Get connection string](event-hubs-quickstart-portal.md#create-an-event-hubs-namespace).
+3. Configure your event hub connection string, event hub name, and storage endpoint. You can copy connection string for your event hub from **Connection string-primary** key under **RootManageSharedAccessKey** on the Event Hub page in the Azure portal. For detailed steps, see [Get connection string](event-hubs-create.md#create-an-event-hubs-namespace).
 4. On your Azure CLI, navigate to the **processor** folder path. Install node packages and build the project by running the following commands:
 
-    ```nodejs
+    ```shell
     npm i
     npm run build
     ```
 5. Receive events with your event processor host by running the following command:
 
-    ```nodejs
+    ```shell
     node dist/examples/singleEph.js
     ```
 
 ## Review the sample code 
 Here is the sample code to receive events from an event hub using node.js. You can manually create a sampleEph.js file, and run it to receive events to an event hub. 
 
-  ```nodejs
+  ```javascript
   const { EventProcessorHost, delay } = require("@azure/event-processor-host");
 
   const path = process.env.EVENTHUB_NAME;
@@ -79,18 +80,18 @@ Here is the sample code to receive events from an event hub using node.js. You c
   const storageContainerName = "test-container";
   
   async function main() {
-    // Create the Event Processo Host
+    // Create the Event Processor Host
     const eph = EventProcessorHost.createFromConnectionString(
       EventProcessorHost.createHostName("my-host"),
       storageCS,
       storageContainerName,
       ehCS,
       {
-        eventHubPath: path
-      },
-      onEphError: (error) => {
-        console.log("This handler will notify you of any internal errors that happen " +
-        "during partition and lease management: %O", error);
+        eventHubPath: path,
+        onEphError: (error) => {
+          console.log("This handler will notify you of any internal errors that happen " +
+          "during partition and lease management: %O", error);
+        }
       }
     );
     let count = 0;
@@ -123,7 +124,7 @@ Here is the sample code to receive events from an event hub using node.js. You c
 
 Remember to set your environment variables before running the script. You can either configure this in the command line as shown in the following example, or use the [dotenv package](https://www.npmjs.com/package/dotenv#dotenv). 
 
-```
+```shell
 // For windows
 set EVENTHUB_CONNECTION_STRING="<your-connection-string>"
 set EVENTHUB_NAME="<your-event-hub-name>"
@@ -138,12 +139,7 @@ You can find more samples [here](https://github.com/Azure/azure-event-hubs-node/
 
 ## Next steps
 
-Visit the following pages to learn more about Event Hubs:
-
-* [Send events using Node.js](event-hubs-go-get-started-send.md)
-* [Event Hubs samples](https://github.com/Azure/azure-event-hubs-node/tree/master/processor/examples/)
-* [Capture events to Azure Storage or Data Lake Store](event-hubs-capture-overview.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
+In this quickstart, you created a Node.js application that received messages from an event hub. To learn how to send events to an event hub using Node.js, see [Send events from event hub - Node.js](event-hubs-node-get-started-send.md).
 
 <!-- Links -->
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
