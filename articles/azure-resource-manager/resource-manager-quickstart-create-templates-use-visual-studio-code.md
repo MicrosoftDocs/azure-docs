@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.topic: quickstart
 ms.author: jgao
 
@@ -89,15 +89,24 @@ To experience how to edit a template using Visual Studio Code, you add one more 
 
 ## Deploy the template
 
-There are many methods for deploying templates.  In this quickstart, you use the Azure Cloud shell. The Cloud shell is a web application, which doesn't require any configuration. It supports both Azure CLI and Azure PowerShell.
+There are many methods for deploying templates. Azure Cloud shell is used in this quickstart. The cloud shell supports both Azure CLI and Azure PowerShell. Use the tab selector to choose between CLI and PowerShell.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-
 1. Sign in to the [Azure Cloud shell](https://shell.azure.com)
 
+2. Choose your preferred environment by selecting either **PowerShell** or **Bash**(CLI) on the upper left corner.  Restarting the shell is required when you switch.
+
+    # [CLI](#tab/CLI)
+
     ![Azure portal Cloud shell CLI](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
-2. Choose your preferred environment by selecting either **PowerShell** or **Bash** on the upper left corner. To use CLI, you need to open a Bash session. To run Azure PowerShell, you need to open a PowerShell session. Select the down arrow to toggle between the Bash and PowerShell. See the previous screenshot. Restarting the shell is required when you switch.
+
+    # [PowerShell](#tab/PowerShell)
+
+    ![Azure portal Cloud shell PowerShell](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-powershell.png)
+
+    ---
+
 3. Select **Upload/download files**, and then select **Upload**.
 
     # [CLI](#tab/CLI)
