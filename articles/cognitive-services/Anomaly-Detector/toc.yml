@@ -18,14 +18,8 @@
             href: quickstarts/find-data-anomalies-streaming-java.md
           - name: Using Node.js
             href: quickstarts/find-data-anomalies-streaming-nodejs.md
-          - name: Using PHP
-            href: quickstarts/find-data-anomalies-streaming-php.md
           - name: Using Python
             href: quickstarts/find-data-anomalies-streaming-python.md
-          - name: Using Ruby
-            href: quickstarts/find-data-anomalies-streaming-ruby.md
-          - name: Using cURL
-            href: quickstarts/find-data-anomalies-streaming-curl.md
       - name: As a batch
         items:
           - name: Using C#
@@ -34,14 +28,8 @@
             href: quickstarts/find-data-anomalies-batch-java.md
           - name: Using Node.js
             href: quickstarts/find-data-anomalies-batch-nodejs.md
-          - name: Using PHP
-            href: quickstarts/find-data-anomalies-batch-php.md
           - name: Using Python
             href: quickstarts/find-data-anomalies-batch-python.md
-          - name: Using Ruby
-            href: quickstarts/find-data-anomalies-batch-ruby.md
-          - name: Using cURL
-            href: quickstarts/find-data-anomalies-batch-curl.md
 - name: Tutorials
   items:
     - name: Visualize Anomalies Using Python.md
