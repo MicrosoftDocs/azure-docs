@@ -46,7 +46,7 @@ az account list
 
 2. Set your preferred subscription: <br>
 ```azurecli-interactive
-az account set --subscription my-subscription-name`
+az account set --subscription 'my-subscription-name'
 ```
 
 > [!TIP]
