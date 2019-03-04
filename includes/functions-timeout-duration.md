@@ -9,7 +9,7 @@ ms.date: 02/21/2018
 ms.author: nzthiago
 ms.custom: include file
 ---
-## <a name="timeout"></a>Default and Maximum Timeout Duration 
+## <a name="timeout"></a>Function app timeout duration 
 
 Azure Functions in the Consumption plan have a default timeout of 5 minutes, and a maximum configurable timeout of 10 minutes for both 1.x and 2.x runtime versions.
 
