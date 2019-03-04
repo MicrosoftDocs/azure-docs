@@ -33,16 +33,41 @@ Microsoft SaaS Service manages the entire lifecycle of a SaaS subscription purch
 
 The following table lists the provisioning states for a SaaS subscription, including a description and sequence diagram for each (if applicable). 
 
-|      State         |       Details     |  Sequence diagram                                                                                                 |
-|  ---------------   |  ---------------  |  --------------------------------------------------------------------------------------------------------------   |
-|   Provisioning                |  When a customer initiates a purchase, the ISV receives this information in an AuthCode on a customer interactive web page using a URL parameter. The AuthCode can be validated and exchanged for the details of what needs to be provisioned.  When the SaaS service finishes provisioning, it sends an activate call to signal that the fulfillment is complete and the customer can be billed.  The following diagram shows the sequence of API calls for a provisioning scenario.  |  ![API calls for provisioning a SaaS service.](./media/saas-post-provisioning-api-v2-calls.png)                 |
-|   Provisioned      |  This state is the steady state of a provisioned service.                 |       | 
-|  Provisioning for update  <b/> (from marketplace) |   This state represents an update to an existing service is pending. Such an update can be initiated by the customer either on the marketplace, or on the SaaS service (only for direct to customer transactions.) The following diagram shows the actions when an update is initiated from the marketplace.  | ![API calls when update is initiated from marketplace.](./media/saas-update-api-v2-calls-from-marketplace-a.png)  |
-|   Provisioning for update  <b/> (from SaaS service) |  The following diagram shows the actions when an update is initiated by SaaS service. (The webhook call is replaced by an update to the subscription initiated by the SaaS Service. |  ![API calls when update is initiated by SaaS service.](./media/saas-update-api-v2-calls-from-saas-service-a.png)  |
-|  Suspended         |  This state indicates that a customer’s payment hasn't  been received. By policy, we will provide the customer a grace period before unfulfilling the subscription. When a subscription is in this state: <br/>- As an ISV, you may choose to degrade or block the user’s access to the service. <br/>- The subscription must be kept in a recoverable state that can restore full functionality without any loss of data or settings. <br/>You can expect to get a reinstate request for this subscription via the fulfillment API, or a deprovisioning request at the end of the grace period.                 |
-|    Unsubscribed                |    Subscriptions reach this state in response to an explicit customer request or as a response to non-payment of dues. The expectation from the ISV is that the customer’s data is retained for recovery on request for a minimum of X days and then deleted.    |
-|  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  |    |  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  |
+#### Provisioning
 
+When a customer initiates a purchase, the ISV receives this information in an AuthCode on a customer interactive web page using a URL parameter. The AuthCode can be validated and exchanged for the details of what needs to be provisioned.  When the SaaS service finishes provisioning, it sends an activate call to signal that the fulfillment is complete and the customer can be billed.  The following diagram shows the sequence of API calls for a provisioning scenario.  
+
+![API calls for provisioning a SaaS service.](./media/saas-post-provisioning-api-v2-calls.png)
+
+#### Provisioned
+
+This state is the steady state of a provisioned service.
+
+#### Provisioning for update
+(from marketplace) 
+
+This state represents an update to an existing service is pending. Such an update can be initiated by the customer either on the marketplace, or on the SaaS service (only for direct to customer transactions.) The following diagram shows the actions when an update is initiated from the marketplace.
+
+![API calls when update is initiated from marketplace.](./media/saas-update-api-v2-calls-from-marketplace-a.png)
+
+#### Provisioning for update  
+(from SaaS service) 
+
+The following diagram shows the actions when an update is initiated by SaaS service. (The webhook call is replaced by an update to the subscription initiated by the SaaS Service. 
+
+![API calls when update is initiated by SaaS service.](./media/saas-update-api-v2-calls-from-saas-service-a.png) 
+
+#### Suspended
+
+This state indicates that a customer’s payment hasn't  been received. By policy, we will provide the customer a grace period before unfulfilling the subscription. When a subscription is in this state: 
+
+- As an ISV, you may choose to degrade or block the user’s access to the service. 
+- The subscription must be kept in a recoverable state that can restore full functionality without any loss of data or settings. 
+- You can expect to get a reinstate request for this subscription via the fulfillment API, or a de-provisioning request at the end of the grace period. 
+
+#### Unsubscribed 
+
+Subscriptions reach this state in response to an explicit customer request or as a response to non-payment of dues. The expectation from the ISV is that the customer’s data is retained for recovery on request for a minimum of X days and then deleted. 
 
 ## API reference
 

@@ -105,9 +105,8 @@ To register a new application using the Azure portal, perform the following step
     application is a web or native application, different options are
     provided to add additional capabilities to your application.
 
-    **Note:**By default, the newly registered application is configured
-    to allow only users from the same tenant to sign in to your
-    application.
+>[!Note]
+>By default, the newly registered application is configured to allow only users from the same tenant to sign in to your application.
 
 API Methods and Endpoints
 -------------------------
