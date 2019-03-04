@@ -33,7 +33,7 @@ For a tutorial of installing the Resource Manager tools extension and how to use
 
 Let's review the parts of the template to understand how the template works. Your template may not have every section. The sections you want to focus on are:
 
-* The [parameters](resource-manager-templates-parameters.md) section, which shows the values you can specify during deployment to customize the infrastructure that is deployed. 
+* The [parameters](resource-group-authoring-templates.md#parameters) section, which shows the values you can specify during deployment to customize the infrastructure that is deployed. 
 
 * The [variables](resource-group-authoring-templates.md#variables) section, which shows values that are used throughout the template.
 

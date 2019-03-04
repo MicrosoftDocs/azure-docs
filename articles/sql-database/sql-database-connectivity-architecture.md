@@ -120,6 +120,8 @@ To change the Azure SQL Database connection policy for an Azure SQL Database ser
 
 ## Script to change connection settings via PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
 > This script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
 
@@ -127,16 +129,16 @@ The following PowerShell script shows how to change the connection policy.
 
 ```powershell
 # Get SQL Server ID
-$sqlserverid=(Get-AzureRmSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).ResourceId
+$sqlserverid=(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).ResourceId
 
 # Set URI
 $id="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy
-(Get-AzureRmResource -ResourceId $id).Properties.connectionType
+(Get-AzResource -ResourceId $id).Properties.connectionType
 
 # Update connection policy
-Set-AzureRmResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
+Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 ```
 
 ## Script to change connection settings via Azure CLI
