@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 03/01/2018
 ms.author: genli
 ms.custom: seodec18
 
@@ -131,7 +131,7 @@ You can't add a new host name to an app to assign a subdomain.
 #### Solution
 
 - Check with subscription administrator to make sure that you have permissions to add a host name to the app.
-- If you need more subdomains, we recommend that you change the domain hosting to Azure DNS. By using Azure DNS, you can add 500 host names to your app. For more information, see [Add a subdomain](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
+- If you need more subdomains, we recommend that you change the domain hosting to Azure Domain Name Service (DNS). By using Azure DNS, you can add 500 host names to your app. For more information, see [Add a subdomain](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
 
 ### DNS can't be resolved
 
@@ -161,7 +161,7 @@ Your domain is no longer visible in the Azure portal.
 The owner of the subscription might have accidentally deleted the domain.
 
 #### Solution
-If your domain was deleted fewer than seven days ago, the domain has not yet started the deletion process. In this case, you can buy the same domain again on the Azure portal under the same subscription. (Be sure to type the exact domain name in the search box.) You won't be charged again for this domain. If the domain was deleted more than seven days ago, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for help to restore the domain.
+If your domain was deleted fewer than seven days ago, the domain has not yet started the deletion process. In this case, you can buy the same domain again on the Azure portal under the same subscription. (Be sure to type the exact domain name in the search box.) You won't be charged again for this domain. If the domain was deleted more than seven days ago, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for help with restoring the domain.
 
 ## Domain problems
 
@@ -270,31 +270,31 @@ This problem occurs for one of the following reasons:
 
 **Do I have to configure my custom domain for my website once I buy it?**
 
-When you purchase a domain from the Azure portal, the App Service application is automatically configured to use that custom domain. You don’t have to take any additional steps. Watch how to configure domain on Channel9.
+When you purchase a domain from the Azure portal, the App Service application is automatically configured to use that custom domain. You don’t have to take any additional steps. For more information, watch [Azure App Service Self Help: Add a Custom Domain Name](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name) on Channel9.
 
 **Can I use a domain purchased in the Azure portal to point to an Azure VM instead?**
 
-Yes you can point the domain to an IaaS VM, Storage etc. See How to assign domain to a Virtual machine or Azure Storage.
+Yes, you can point the domain to a VM, Storage etc. For more information, see [Create a custom FQDN in the Azure portal for a Windows VM](../virtual-machines/windows/portal-create-fqdn.md).
 
 **Is my domain hosted by GoDaddy or Azure DNS?**
 
-Your domain is registered with GoDaddy service but hosted on Azure DNS.
+App Service Domains use GoDaddy for domain registration and Azure DNS to host the domains. 
 
-**I have autorenew enabled  but still received a renewal notice for my domain via email. What should I do?**
+**I have auto-renew enabled but still received a renewal notice for my domain via email. What should I do?**
 
-You do not need to take any action in this case if you have auto -renew enabled. The notice email if to just inform you that the domain is close to expiring and to  renew manually if autorenew is not enabled.
+If you have auto-renew enabled, you do not need to take any action. The notice email is provided to inform you that the domain is close to expiring and to renew manually if auto-renew is not enabled.
 
 **Will I be charged for Azure DNS hosting  my domain?**
 
-The  initial cost of domain purchase applies to domain registration only. In addition to the registration cost, there will be incurring charges for Azure DNS based on your usage. See Azure DNS pricing for more details.
+The initial cost of domain purchase applies to domain registration only. In addition to the registration cost, there are incurring charges for Azure DNS based on your usage. For more information, see [Azure DNS pricing](https://azure.microsoft.com/en-us/pricing/details/dns/) for more details.
 
 **I purchased my domain earlier from the Azure portal and want to move from GoDaddy hosting to Azure DNS hosting. How can I do this？**
 
-It is not mandatory to migrate to Azure DNS hosting. If you do wish to migrate to Azure DNS, you will see a message in domain management experience within the Azure portal about next steps to move to Azure DNS. Migration from GoDaddy hosting to Azure DNS is a few clicks away and seamless as long as the domain was purchased from App Service.
+It is not mandatory to migrate to Azure DNS hosting. If you do want to migrate to Azure DNS, the domain management experience in the Azure portal about provides information on steps necessary to move to Azure DNS. If the domain was purchased through App Service, migration from GoDaddy hosting to Azure DNS is relatively seamless procedure.
 
 **I would like to purchase my domain from App Service Domain but can I host my domain on GoDaddy instead of Azure DNS?**
 
-For every new App Service domain purchased in the portal since July 24 2017, will be hosted on Azure DNS. If you prefer to choose a different hosting provider, you need to go to their website to procure domain hosting solution.
+Beginning July 24, 2017, App Service domains purchased in the portal are hosted on Azure DNS. If you prefer to use a different hosting provider, you must go to their website to obtain a domain hosting solution.
 
 **Do I have to pay for privacy protection for my domain?**
 
@@ -302,39 +302,23 @@ When you purchase a domain through the Azure portal, you can choose to add priva
 
 **If I decide I no longer want my domain, can I get my money back?**
 
-When you purchase a domain, you are not charged for a period of 5 days, during which time you can decide that you do not want the domain. If you do decide you don’t want the domain within that 5-day period, you will not be charged. (.uk domains are an exception to this. If you purchase a uk domain, you will be charged immediately and you cannot be refunded.)
+When you purchase a domain, you are not charged for a period of five days, during which time you can decide that you do not want the domain. If you do decide you don’t want the domain within that five-day period, you are not charged. (.uk domains are an exception to this. If you purchase a .uk domain, you are charged immediately and you cannot be refunded.)
 
 **Can I use the domain in another Azure App Service app in my subscription?**
 
-Yes. When you access the Custom Domains and SSL blade in the Azure portal, you will see any domains that you have purchased and you can configure your app to use any of those domains.
+Yes. When you access the Custom Domains and SSL blade in the Azure portal, you see the domains that you have purchased. You can configure your app to use any of those domains.
 
 **Can I transfer a domain from one subscription to another subscription?**
 
-You can move a domain to another subscription/resource group by using ‘Move-AzureRmResource‘ PowerShell cmdlet.
+You can move a domain to another subscription/resource group using the [Move-AzureRmResource](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Resources/Move-AzureRmResource?view=azurermps-6.13.0) PowerShell cmdlet.
 
 **How can I manage my custom domain if I don’t currently have an Azure App Service app that is not a free app?**
 
 You can manage your domain even if you don’t have an App Service Web App. Domain can be used for Azure services like Virtual machine, Storage etc. If you intend to use the domain for App Service Web Apps, then you need to include a Web App that is not on the Free App Service plan in order to bind the domain to your web app.
 
-**Can I move web app with a custom domain to another subscription or from App Service Environment v1 to V2?**
+**Can I move a web app with a custom domain to another subscription or from App Service Environment v1 to V2?**
 
-Yes. you can move your web app across subscriptions. Follow the guidance in [How to move resources in Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-move-resources). There are a few limitations when moving the web app. For more information, see [Limitations for moving App Service resources](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations
+Yes, you can move your web app across subscriptions. Follow the guidance in [How to move resources in Azure](../azure-resource-manager/resource-group-move-resources). There are a few limitations when moving the web app. For more information, see [Limitations for moving App Service resources](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations
 ).
-For domains that are attached to your web app, if they are already added to your web app with a hostname binding, then after moving the web app, you should see the same host name binding within custom domains setting. No additional steps needed here.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+After moving the web app, the host name bindings of the domains within the custom domains setting should remain the same. No additional steps are required to configure the host name bindings.
