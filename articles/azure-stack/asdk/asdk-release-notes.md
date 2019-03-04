@@ -12,10 +12,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/07/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 02/09/2019
+ms.lastreviewed: 03/07/2019
 
 ---
 
@@ -29,16 +29,16 @@ Stay up-to-date with what's new in the ASDK by subscribing to the [![RSS](./medi
 
 ### Changes
 
-This build includes the following improvements for Azure Stack:
+None.
 
-### New features
+<!-- ### New features
 
 - For a list of new features in this release, see [this section](../azure-stack-update-1902.md#new-features) of the Azure Stack release notes.
 
 ### Fixed and known issues
 
 - For a list of issues fixed in this release, see [this section](../azure-stack-update-1902.md#fixed-issues) of the Azure Stack release notes. For a list of known issues, see [this section](../azure-stack-update-1902.md#known-issues-post-installation).
-- Note that [available Azure Stack hotfixes](../azure-stack-update-1902.md#azure-stack-hotfixes) are not applicable to the Azure Stack ASDK.
+- Note that [available Azure Stack hotfixes](../azure-stack-update-1902.md#azure-stack-hotfixes) are not applicable to the Azure Stack ASDK. -->
 
 ## Build 1.1901.0.95
 
