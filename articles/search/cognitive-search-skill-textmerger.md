@@ -38,17 +38,17 @@ A JSON document providing usable input for this skill could be:
 
 ```json
 {
-    "values": [
+  "values": [
+    {
+      "recordId": "1",
+      "data":
       {
-        "recordId": "1",
-        "data":
-           {
-             "text": "The brown fox jumps over the dog" ,
-             "itemsToInsert": ["quick", "lazy"],
-             "offsets": [3, 28],
-           }
+        "text": "The brown fox jumps over the dog" ,
+        "itemsToInsert": ["quick", "lazy"],
+        "offsets": [3, 28],
       }
-    ]
+    }
+  ]
 }
 ```
 
@@ -57,15 +57,15 @@ This example shows the output of the previous input, assuming that the *insertPr
 
 ```json
 {
-    "values": [
+  "values": [
+    {
+      "recordId": "1",
+      "data":
       {
-        "recordId": "1",
-        "data":
-           {
-             "mergedText": "The quick brown fox jumps over the lazy dog"
-           }
+        "mergedText": "The quick brown fox jumps over the lazy dog"
       }
-    ]
+    }
+  ]
 }
 ```
 
@@ -81,22 +81,22 @@ The following example skillset uses the OCR skill to extract text from images em
   "skills":
   [
     {
-        "description": "Extract text (plain and structured) from image.",
-        "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
-        "context": "/document/normalized_images/*",
-        "defaultLanguageCode": "en",
-        "detectOrientation": true,
-        "inputs": [
-          {
-            "name": "image",
-            "source": "/document/normalized_images/*"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "text"
-          }
-        ]
+      "description": "Extract text (plain and structured) from image.",
+      "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
+      "context": "/document/normalized_images/*",
+      "defaultLanguageCode": "en",
+      "detectOrientation": true,
+      "inputs": [
+        {
+          "name": "image",
+          "source": "/document/normalized_images/*"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text"
+        }
+      ]
     },
     {
       "@odata.type": "#Microsoft.Skills.Text.MergeSkill",
@@ -128,13 +128,13 @@ The example above assumes that a normalized-images field exists. To get normaliz
 
 ```json
 {
-   //...rest of your indexer definition goes here ...
-  "parameters":{
-      "configuration":{
-         "dataToExtract":"contentAndMetadata",
-         "imageAction":"generateNormalizedImages"
-      }
-   }
+  //...rest of your indexer definition goes here ...
+  "parameters": {
+    "configuration": {
+      "dataToExtract":"contentAndMetadata",
+      "imageAction":"generateNormalizedImages"
+    }
+  }
 }
 ```
 
