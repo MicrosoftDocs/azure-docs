@@ -28,7 +28,7 @@ Azure Functions lets you execute your code in a [serverless](https://azure.micro
 
  In this topic, learn how to use Functions to create an HTTP triggered "hello world" function in the Azure portal.
 
-![Create function app in the Azure portal](../media/functions-create-student-starter/function-app-in-portal-editor.png)
+![Create function app in the Azure portal](./media/functions-create-student-starter/function-app-in-portal-editor.png)
 
 ## Sign in to Azure
 
