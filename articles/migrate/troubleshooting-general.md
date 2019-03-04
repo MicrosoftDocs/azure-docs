@@ -167,22 +167,29 @@ This issue could occur due to an issue with VMware PowerCLI installation. Follow
 
 3. If the above does not resolve the issue, follow steps a to c above and then manually install PowerCLI in the appliance using the following steps:
 
-   a. Go to Start > Run > Open Windows Powershell(x86) in administrator mode
+   a. Clean up all incomplete PowerCLI installation files by following steps #a to #c in step #2 above.
 
-   b. Run the command:  Install-Module "VMWare.VimAutomation.Core" -RequiredVersion "6.5.2.6234650" (type 'A' when it asks for confirmation)
+   b. Go to Start > Run > Open Windows PowerShell(x86) in administrator mode
 
-   c. Restart the 'Azure Migrate Collector' service in Windows Service Manager (Open 'Run' and type services.msc to open Windows Service Manager). Right click on Azure Migrate Collector Service and click Start.
+   c. Run the command:  Install-Module "VMWare.VimAutomation.Core" -RequiredVersion "6.5.2.6234650" (type 'A' when it asks for confirmation)
 
-   d. Double-click the desktop shortcut 'Run collector' to start the collector application. The collector application should automatically download and install the required version of PowerCLI.
+   d. Restart the 'Azure Migrate Collector' service in Windows Service Manager (Open 'Run' and type services.msc to open Windows Service Manager). Right click on Azure Migrate Collector Service and click Start.
+
+   e. Double-click the desktop shortcut 'Run collector' to start the collector application. The collector application should automatically download and install the required version of PowerCLI.
 
 4. If you are unable to download the module in the appliance due to firewall issues, download and install the module in a machine that has access to internet using the following steps:
 
-    a. Go to Start > Run > Open Windows Powershell(x86) in administrator mode
+    a. Clean up all incomplete PowerCLI installation files by following steps #a to #c in step #2 above.
 
-    b. Run the command:  Install-Module "VMWare.VimAutomation.Core" -RequiredVersion "6.5.2.6234650" (type 'A' when it asks for confirmation)
+    b. Go to Start > Run > Open Windows PowerShell(x86) in administrator mode
 
-    c. Copy all modules starting with "VMware" from “C:\Program Files (x86)\WindowsPowerShell\Modules” to the same location on the collector VM.
+    c. Run the command:  Install-Module "VMWare.VimAutomation.Core" -RequiredVersion "6.5.2.6234650" (type 'A' when it asks for confirmation)
 
+    d. Copy all modules starting with "VMware" from “C:\Program Files (x86)\WindowsPowerShell\Modules” to the same location on the collector VM.
+
+    e. Restart the 'Azure Migrate Collector' service in Windows Service Manager (Open 'Run' and type services.msc to open Windows Service Manager). Right click on Azure Migrate Collector Service and click Start.
+
+    f. Double-click the desktop shortcut 'Run collector' to start the collector application. The collector application should automatically download and install the required version of PowerCLI.
 
 ### Error UnableToConnectToServer
 
