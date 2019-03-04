@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: quickstart
 ms.reviewer: sgilley
-author: hning86
-ms.author: haining
+author: sgilley
+ms.author: sgilley
 ms.date: 01/22/2019
 ms.custom: seodec18
 
