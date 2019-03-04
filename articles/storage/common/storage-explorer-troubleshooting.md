@@ -18,7 +18,7 @@ This guide summarizes solutions for common issues seen in Storage Explorer.
 
 ## Role-based Access Control Permission Issues
 
-[Role-based access control (RBAC)](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) provides fine-grained access management of Azure resources by combining sets of permissions into _roles_. Here are some suggestions you can follow to get RBAC working in Storage Explorer.
+[Role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) provides fine-grained access management of Azure resources by combining sets of permissions into _roles_. Here are some suggestions you can follow to get RBAC working in Storage Explorer.
 
 ### What do I need to see my resources in Storage Explorer?
 
@@ -35,7 +35,7 @@ You must have permission to list storage accounts. You can get this permission b
 Storage Explorer can also use account keys to authenticate requests. You can get access to keys with more powerful roles, such as the "Contributor" role.
 
 > [!NOTE]
-> Access keys grant unrestricted permissions to anyone who holds them. Therefore, it is generally not recommended they be handed out to account users. If you need to revoke access keys, you can regenerated them from the [Azure Portal](https://portal.azure.com/).
+> Access keys grant unrestricted permissions to anyone who holds them. Therefore, it is generally not recommended they be handed out to account users. If you need to revoke access keys, you can regenerate them from the [Azure Portal](https://portal.azure.com/).
 
 #### Data Roles
 
@@ -55,7 +55,7 @@ If you don’t have a role granting any management layer permissions, Storage Ex
 
 ### What if I can't get the management layer permissions I need from my administrator?
 
-We don't yet have an RBAC-related solution at this time. As a workaround, you can request a SAS URI to [attach to your resource](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#attach-a-service-by-using-a-shared-access-signature-sas).
+We don't yet have an RBAC-related solution at this time. As a workaround, you can request a SAS URI to [attach to your resource](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#attach-a-service-by-using-a-shared-access-signature-sas).
 
 ## Error: Self-Signed Certificate in Certificate Chain (and similar errors)
 
