@@ -17,7 +17,7 @@ This article provides information and code samples to help you get started using
 
 ## Prerequisites
 
-- You must have [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) or later.
+- Any edition of [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
 
 [!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
 
