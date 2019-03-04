@@ -12369,7 +12369,12 @@
     },
     {
       "source_path": "articles/machine-learning/machine-learning-r-quickstart.md",
-      "redirect_url": "/azure/machine-learning/studio/r-quickstart",
+      "redirect_url": "/azure/machine-learning/studio/r-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/r-quickstart.md",
+      "redirect_url": "/azure/machine-learning/studio/r-get-started",
       "redirect_document_id": false
     },
     {
@@ -31582,6 +31587,11 @@
     {
       "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md",
       "redirect_url": "/azure/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/myprofile-portal-recent-activity-page.md",
+      "redirect_url": "/azure/active-directory/user-help/myprofile-portal-overview",
       "redirect_document_id": false
     },
     {
