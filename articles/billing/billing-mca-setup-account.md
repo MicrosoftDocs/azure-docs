@@ -24,13 +24,13 @@ If your Enterprise Agreement enrollment has expired or about to be expired, you 
 1. Accept the new Microsoft Customer Agreement. Work with your Microsoft field representative to understand the details and accept the new agreement.
 2. Set up the new billing account that’s created for the new Microsoft Customer Agreement.
 
+This article describes the changes to your existing billing after the setup and walks you through the setup of your new billing account.
+
 To set up the billing account, you must transition the billing of Azure subscriptions from your Enterprise Agreement enrollment to the new account. The setup doesn’t impact Azure services that are running in your subscriptions. However, it changes the way you'll manage the billing for your subscriptions.
 
 - Instead of the [EA portal](https://ea.azure.com), you’ll manage your Azure services and billing, in the [Azure portal](https://portal.azure.com).
 - You’ll get a monthly, digital invoice for your charges. You can view and analyze the invoice in the Azure Cost Management + Billing page.
 - Instead of departments and account in your Enterprise Agreement enrollment, you'll use the billing structure and scopes from the new account to manage and organize your billing.
-
-This article describes the changes to your existing billing after the setup and walks you through setting up the new billing account.
 
 Before you start the setup, we recommend you do the following:
 
@@ -275,6 +275,6 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 
 - [Get started with your new billing account](billing-mca-overview.md)
 
-- [Learn how to perform common Enterprise Agreement tasks in your new billing account](billing-mca-enterprise-operations.md)
+- [Complete Enterprise Agreement tasks in your billing account for a Microsoft Customer Agreement](billing-mca-enterprise-operations.md)
 
 - [Manage access to your billing account](billing-understand-mca-roles.md)

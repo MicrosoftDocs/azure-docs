@@ -19,13 +19,11 @@ ms.author: banders
 ---
 # Complete Enterprise Agreement tasks in your billing account for a Microsoft Customer Agreement
 
-If your organization has signed a Microsoft Customer Agreement to renew your Enterprise Agreement enrollment, a new billing account is created for the agreement. The new billing account provides you enhanced billing and cost management capabilities through a new streamlined, unified management experience.
-
-The article describes how you can use the new billing account to perform tasks that you performed in your Enterprise Agreement enrollment.
+If your organization has signed a Microsoft Customer Agreement to renew your Enterprise Agreement enrollment, a new billing account is created for the agreement. The billing in your new account is organized differently than your Enterprise Agreement. This article describes how you can use the new billing account to perform tasks that you performed in your Enterprise Agreement.
 
 ## How billing is organized in the new account
 
-The billing in your new account is organized differently than your Enterprise Agreement enrollment. The following diagram describes how billing is organized in your new billing account.
+The following diagram describes how billing is organized in your new billing account.
 
 ![Image of ea-mca-post-transition-hierarchy](./media/billing-mca-setup-account/mca-post-transition-hierarchy.png)
 
