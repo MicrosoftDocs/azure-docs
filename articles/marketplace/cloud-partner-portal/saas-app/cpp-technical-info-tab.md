@@ -70,6 +70,9 @@ The Call to action field lets you pick the message that appears on your offer’
 
 For more information about the Call to action options, see Choose a publishing option.
 
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel opt-in now available.  Please see [Cloud Solution Providers](../../cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
+
 ## Next steps
 
 - [Plans tab (Optional)](./cpp-plans-tab.md)

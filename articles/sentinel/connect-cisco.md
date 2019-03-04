@@ -4,7 +4,7 @@ description: Learn how to collect Cisco data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 62029b5c-29d3-4336-8a22-a9db8214eb7e

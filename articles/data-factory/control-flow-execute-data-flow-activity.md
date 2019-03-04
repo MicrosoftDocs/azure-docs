@@ -34,9 +34,7 @@ Use the execute data flow activity to run your ADF data flow in pipeline debug (
       },
         "compute": {
           "computeType": "General",
-          "dataTransformationUnits": 4,
           "coreCount": 8,
-          "numberOfNodes": 0
       }
 }
 
@@ -46,6 +44,7 @@ Use the execute data flow activity to run your ADF data flow in pipeline debug (
 
 * ```dataflow``` is the name of the data flow entity that you wish to execute
 * ```compute``` describes the Spark execution environment
+* ```coreCount``` is the number of cores to assign to this activity execution of your data flow
 
 ![Execute Data Flow](media/data-flow/activity-data-flow.png "Execute Data Flow")
 
