@@ -17,7 +17,7 @@ ms.date: 02/09/2019
 ms.author: juliako
 
 ---
-# Publish content in the Azure portal (legacy)
+# Publish content in the Azure portal  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-publish.md)
 > * [.NET](media-services-deliver-streaming-content.md)

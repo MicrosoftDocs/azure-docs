@@ -2700,6 +2700,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-resource-manager/resource-manager-templates-parameters.md",
+      "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates#parameters",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-resource-manager/resource-manager-templates-outputs.md",
       "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates#outputs",
       "redirect_document_id": false

@@ -43,7 +43,7 @@ As a builder, you can define what information displays on a device dashboard. In
 
     ![Device Templates page](media/tutorial-customize-operator-experimental/devicetemplates.png)
 
-2. To customize your device dashboard, click the **Connected Air Conditioner (1.0.0)** device template device you created in the [Define a new device type in your application](tutorial-define-device-type-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) tutorial.
+2. To customize your device dashboard, select the **Connected Air Conditioner (1.0.0)** device template device you created in the [Define a new device type in your application](tutorial-define-device-type-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) tutorial.
 
 3. To edit the dashboard, select the **Dashboard** tab.
 
@@ -62,7 +62,7 @@ As a builder, you can define what information displays on a device dashboard. In
 
     ![Add KPI](media/tutorial-customize-operator-experimental/addkpi.png)
 
-5. Click **Save**. You can now see the KPI tile on the dashboard:
+5. Select **Save**. You can now see the KPI tile on the dashboard:
 
     ![KPI tile](media/tutorial-customize-operator-experimental/temperaturekpi.png)
 
@@ -96,7 +96,7 @@ You use the **Device Templates** page to customize the dashboard, settings, and 
 
     ![View and use the device template](media/tutorial-customize-operator-experimental/usetemplate.png)
 
-2. To update the Location of this device, choose **Properties** and edit the value in the Location tile. Then click **Save**:
+2. To update the Location of this device, choose **Properties** and edit the value in the Location tile. Then select **Save**:
 
     ![Edit a property value](media/tutorial-customize-operator-experimental/editproperty.png)
 
@@ -117,7 +117,7 @@ When a builder or operator signs in to an Azure IoT Central application, they se
 > [!NOTE]
 > Users can also create their own personal dashboards and choose one as their default.
 
-1. To customize the default application dashboard, navigate to the **Dashboard** page and click **Edit** on the top right of the page. A panel appears with a library of objects you can add to the dashboard.
+1. To customize the default application dashboard, navigate to the **Dashboard** page and select **Edit** on the top right of the page. A panel appears with a library of objects you can add to the dashboard.
 
     ![Dashboard page](media/tutorial-customize-operator-experimental/builderhome.png)
 
@@ -128,7 +128,7 @@ When a builder or operator signs in to an Azure IoT Central application, they se
     > [!NOTE]
     > You can also add links to pages within your Azure IoT Central application. For example, you could add a link to a device dashboard or settings page.
 
-3. Optionally, choose **Image** and upload an image to display on your dashboard. An image can have a URL to which you navigate when you click it:
+3. Optionally, choose **Image** and upload an image to display on your dashboard. An image can have a URL to which you navigate when you select it:
 
     ![Add an image to the dashboard](media/tutorial-customize-operator-experimental/addimage.png)
 
@@ -140,7 +140,7 @@ To preview the application dashboard as an operator, select **Done** on the top 
 
 ![Toggle Design Mode](media/tutorial-customize-operator-experimental/operatorviewhome.png)
 
-You can click on the link and image tiles to navigate to the URLs you set as a builder.
+You can select the link and image tiles to navigate to the URLs you set as a builder.
 
 ## Next steps
 
