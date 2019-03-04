@@ -91,7 +91,6 @@ Finally, you'll make a request to the service. If the request is successful, and
 // Make sure to update User-Agent with the name of your resource.
 // You can also change the voice and output formats. See:
 // https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech
-// Converts text to speech using the input from readline.
 function textToSpeech(accessToken, text) {
     // Create the SSML request.
     let xml_body = xmlbuilder.create('speak')
