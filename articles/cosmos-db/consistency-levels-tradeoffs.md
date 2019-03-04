@@ -25,11 +25,11 @@ Each model provides availability and performance tradeoffs and is backed by a co
 
 ## Consistency levels and latency
 
-- The read latency for all consistency levels is always guaranteed to be less than 10 milliseconds at the 99th percentile. This read latency is backed by the SLA. The average read latency, at the 50th percentile, is typically 2 milliseconds or less. Azure Cosmos accounts that span several regions and are configured with strong consistency are an exception to this guarantee.
+The read latency for all consistency levels is always guaranteed to be less than 10 milliseconds at the 99th percentile. This read latency is backed by the SLA. The average read latency, at the 50th percentile, is typically 2 milliseconds or less. Azure Cosmos accounts that span several regions and are configured with strong consistency are an exception to this guarantee.
 
-- The write latency for the remaining consistency levels is always guaranteed to be less than 10 milliseconds at the 99th percentile. This write latency is backed by the SLA. The average write latency, at the 50th percentile, is usually 5 milliseconds or less.
+The write latency for all consistency levels is always guaranteed to be less than 10 milliseconds at the 99th percentile. This write latency is backed by the SLA. The average write latency, at the 50th percentile, is usually 5 milliseconds or less.
 
-Some Azure Cosmos accounts might have several regions configured with strong consistency. In this case, the write latency is guaranteed to be less than two times round-trip time (RTT) plus 10 milliseconds at the 99th percentile. The RTT between any of the two farthest regions is associated with your Azure Cosmos account. It's equal to the RTT between any of the two farthest regions associated with your Azure Cosmos account. This option is currently in preview.
+For Azure Cosmos accounts configured with strong consistency with more than one region, the write latency is guaranteed to be less than two times round-trip time (RTT) between any of the two farthest regions, plus 10 milliseconds at the 99th percentile. This option is currently in preview.
 
 The exact RTT latency is a function of speed-of-light distance and the Azure networking topology. Azure networking doesn't provide any latency SLAs for the RTT between any two Azure regions. For your Azure Cosmos account, replication latencies are displayed in the Azure portal. You can use the Azure portal to monitor the replication latencies between various regions that are associated with your account.
 

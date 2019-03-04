@@ -222,4 +222,4 @@ You can [visualize dependencies for groups](https://docs.microsoft.com/azure/mig
 ## Next steps
 
 - Read the [Azure Migrate overview](migrate-overview.md)
-- Learn how you can [discover and assess](tutorial-assessment-vmware.md) a VMware environment
+- Learn how you can [assess](tutorial-assess-vmware.md) a VMware environment

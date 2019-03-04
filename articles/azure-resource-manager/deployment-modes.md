@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/13/2019
+ms.date: 02/27/2019
 ms.author: tomfitz
 ---
 # Azure Resource Manager deployment modes
@@ -31,6 +31,10 @@ For a list of how resource types handle deletion, see [Deletion of Azure resourc
 
 > [!NOTE]
 > Only root-level templates support the complete deployment mode. For [linked or nested templates](resource-group-linked-templates.md), you must use incremental mode. 
+>
+> [Subscription level deployments](deploy-to-subscription.md) don't support complete mode.
+>
+> Currently, the portal doesn't support complete mode.
 >
 
 ## Incremental mode
