@@ -66,6 +66,10 @@ Listeners are processed in the order they are shown. For that reason if a basic 
 
 When using a public IP address as an endpoint, this information can be found on the public IP address resource or on the Overview page for the application gateway in the portal. For internal IP addresses, this can be found on the Overview page.
 
+### What is Keep-Alive timeout and TCP idle timeout setting on Application Gateway?
+
+Keep-Alive timeout on v1 SKU is 120 sec. Keep-Alive timeout on v2 SKU is 75 sec. TCP idle timeout is 4 min default on the frontend VIP of Application Gateway.
+
 ### Does the IP or DNS name change over the lifetime of the Application Gateway?
 
 The VIP can change if the application gateway is stopped and started. The DNS name associated with the application gateway does not change over the lifecycle of the gateway. For this reason, it is recommended to use a CNAME alias and point it to the DNS address of the application gateway.
