@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-experimental: true
+experimental: false
 experiment_id: c80d19c3-428d-4b
 ---
 
@@ -21,6 +21,17 @@ experiment_id: c80d19c3-428d-4b
 Azure Functions Core Tools lets you develop and test your functions on your local computer from the command prompt or terminal. Your local functions can connect to live Azure services, and you can debug your functions on your local computer using the full Functions runtime. You can even deploy a function app to your Azure subscription.
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
+
+Developing functions on your local computer and publishing them to Azure using Core Tools follows these basic steps:
+
+> [!div class="checklist"]
+> * [Install the Core Tools and dependencies.](#v2)
+> * [Create a function app project from a language-specific template.](#create-a-local-functions-project)
+> * [Register trigger and binding extensions.](#register-extensions)
+> * [Define Storage and other connections.](#local-settings-file)
+> * [Create a function from a trigger and language-specific template.](#create-func)
+> * [Run the function locally](#start)
+> * [Publish the project to Azure](#publish)
 
 ## Core Tools versions
 
