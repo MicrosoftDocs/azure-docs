@@ -31,7 +31,7 @@ ms.lastreviewed: 03/05/2019
   
    ![Select a plan](media/azure-stack-create-plan/select-plan.png)
 
-3. You are presented with a tabbed user interface that enables you to specify the plan name, add services, and define quotas for each of the selected services. Most importantly, you can review the details of the offer you create, before you decide to create it.
+3. A tabbed user interface appears that enables you to specify the plan name, add services, and define quotas for each of the selected services. Most importantly, you can review the details of the offer you create, before you decide to create it.
 
    Under the **Basics** tab of the **New plan** window, enter a **Display name** and a **Resource name**. The display name is the plan's friendly name that operators can see. Note that in the administrator portal, plan details are only visible to operators.
 
