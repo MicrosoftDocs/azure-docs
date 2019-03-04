@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 03/04/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect find a Virtual WAN partner
 ---
@@ -17,8 +17,6 @@ This article provides information on Virtual WAN supported regions and preferred
 Azure Virtual WAN is a networking service that provides optimized and automated branch-to-branch connectivity through Azure. Virtual WAN lets you connect and configure branch devices to communicate with Azure. This can be done either manually, or by using preferred provider devices through a Virtual WAN preferred partner. Using preferred partner devices allows you ease of use, simplification of connectivity, and configuration management. Connectivity from the on-premises device is established in an automated way to the Virtual Hub. A virtual hub is a Microsoft-managed virtual network. The hub contains various service endpoints to enable connectivity from your on-premises network (vpnsite). You can only have one hub per region.
 
 ## Automation from connectivity partners
-
-This section describes the high-level details of automation from the connectivity providers.
 
 Devices that connect to Azure Virtual WAN have built-in automation to connect. This is typically set up in the device-management UI (or equivalent), which sets up the connectivity and configuration management between the VPN branch device to an Azure Virtual Hub VPN endpoint (VPN gateway).
 
@@ -33,9 +31,7 @@ Some connectivity partners may extend the automation to include creating the Azu
 
 ## Connectivity through preferred partners
 
-If your branch device partner is not listed in the section below, please contact your branch device provider and have them contact us by sending an email to azurevirtualwan@microsoft.com.
-
-You can check the following links to gather more information about services offered by the preferred partners.
+You can check the following links to gather more information about services offered by the preferred partners. If your branch device partner is not listed in this section, please contact your branch device provider and have them contact us by sending an email to azurevirtualwan@microsoft.com.
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
