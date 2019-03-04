@@ -26,10 +26,10 @@ This article provides information on changes to the Seller Insights feature in t
 ## Release highlights for March 11, 2019
 
 * *Customer Trend* added to Summary
-* *Top five Customers on Summary reflect all Azure subscriptions a customer has
+* *Top five Customers* on Summary reflect all Azure subscriptions a customer has
 * *Normalized Usage Trend & Active Orders Trend* on Summary moved under *Monthly Orders at a Glance*
 * *Payout Reconciliation Report* updated
-* *Top five Customers on Payout reflect all Azure subscriptions a customer has
+* *Top five Customers* on Payout reflect all Azure subscriptions a customer has
 * *Usage Report* updated with Customer ID
 * *Customer Tenure* on Orders & Usage reflects all Azure subscriptions a customer has
 
