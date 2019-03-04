@@ -30,7 +30,7 @@ Azure portal currently supports the following type of billing accounts:
 
 ## Change billing account view in the Azure portal
 
-A scope is a node within a billing account that users use to view and manage billing. For example, billing accounts for Microsoft Online Services Program has only scope - billing account, while billing accounts for Enterprise Agreement has billing account, department and account scopes. If you have access to multiple billing scopes, by default, one of the scopes is displayed in the Azure Cost Management + Billing page. You can change the scope by using the following instructions:
+A scope is a node within a billing account that users use to view and manage billing. For example, billing accounts for Microsoft Online Services Program has only scope - billing account, while billing accounts for Enterprise Agreement has billing account, department and account scopes. If you have access to multiple billing scopes, by default, one of the scopes is displayed in the Azure Cost Management + Billing page. You can change the scope by following the instructions below:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
