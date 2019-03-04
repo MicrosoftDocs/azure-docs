@@ -1,23 +1,24 @@
 ---
-title: How to edit your group information using Azure Active Directory | Microsoft Docs
-description: Learn how to edit a group's information using Azure Active Directory.
+title: Edit your group information - Azure Active Directory | Microsoft Docs
+description: Instructions about how to edit your group's information using Azure Active Directory.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: lizross
 ms.reviewer: krbain
-ms.custom: it-pro
+ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
-# How to: Edit your group information using Azure Active Directory
+# Edit your group information using Azure Active Directory
 
-Using Azure Active Directory, you can edit a group's settings, including updating its name, description, or membership type.
+Using Azure Active Directory (Azure AD), you can edit a group's settings, including updating its name, description, or membership type.
 
 ## To edit your group settings
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account for the directory.
@@ -46,7 +47,7 @@ Using Azure Active Directory, you can edit a group's settings, including updatin
 
     - **Group type.** You can't change the type of group after it's been created. To change the **Group type**, you must delete the group and create a new one.
     
-    - **Membership type.** Change the membership type. For more info about the various available membership types, see [How to: Create a basic group and add members using the Azure Active Directory portal](active-directory-groups-create-azure-portal.md)
+    - **Membership type.** Change the membership type. For more info about the various available membership types, see [How to: Create a basic group and add members using the Azure Active Directory portal](active-directory-groups-create-azure-portal.md).
     
     - **Object ID.** You can't change the Object ID, but you can copy it to use in your PowerShell commands for the group. For more info about using PowerShell cmdlets, see [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-v2-cmdlets.md).
 

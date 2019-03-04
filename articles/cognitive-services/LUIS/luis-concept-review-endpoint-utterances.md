@@ -1,18 +1,18 @@
 ---
-title: Review endpoint utterances to use active learning in Language Understanding (LUIS)
-titleSuffix: Azure Cognitive Services
-description: Active learning is one of three strategies to improve prediction accuracy and the easiest to implement. With active learning, your review endpoint utterances for correct intent and entity. LUIS chooses endpoint utterances it is unsure of.
+title: Review user utterance
+titleSuffix: Language Understanding - Azure Cognitive Services
+description:  With active learning, your review endpoint utterances for correct intent and entity. LUIS chooses endpoint utterances it is unsure of.
 services: cognitive-services
 author: diberry
-manager: cgronlun
-
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
-ms.topic: article
-ms.date: 10/07/2018
+ms.subservice: language-understanding
+ms.topic: conceptual
+ms.date: 01/24/2019
 ms.author: diberry
 ---
-# Enable active learning by reviewing endpoint utterances
+# Concepts for enabling active learning by reviewing endpoint utterances
 Active learning is one of three strategies to improve prediction accuracy and the easiest to implement. With active learning, your review endpoint utterances for correct intent and entity. LUIS chooses endpoint utterances it is unsure of.
 
 ## What is active learning

@@ -10,12 +10,12 @@
 - name: Quickstarts
   items:
   - name: Service Bus queues
-    items:     
-    - name: Send and receive messages - PowerShell
+    items:
+    - name: Create a Service Bus queue - Portal
+      href: service-bus-quickstart-portal.md     
+    - name: Create a Service Bus queue - PowerShell
       href: service-bus-quickstart-powershell.md
-    - name: Send and receive messages - Portal
-      href: service-bus-quickstart-portal.md
-    - name: Send and receive messages - CLI
+    - name: Create a Service Bus queue - CLI
       href: service-bus-quickstart-cli.md
     - name: Send and receive messages - .NET
       href: service-bus-dotnet-get-started-with-queues.md
@@ -29,8 +29,6 @@
       href: service-bus-python-how-to-use-queues.md
     - name: Send and receive messages - Ruby
       href: service-bus-ruby-how-to-use-queues.md
-    - name: Send and receive messages - REST
-      href: /rest/api/servicebus/queues    
   - name: Services Bus topics and subscriptions
     items:
     - name: Publish and subscribe for messages - .NET
@@ -125,7 +123,7 @@
         href: service-bus-amqp-request-response.md
     - name: Advanced features
       items:
-      - name: IP connection filters
+      - name: Use firewalls
         href: service-bus-ip-filtering.md
       - name: Virtual Network service endpoints
         href: service-bus-service-endpoints.md
@@ -145,8 +143,6 @@
         href: service-bus-auto-forwarding.md
       - name: Transaction processing
         href: service-bus-transactions.md
-      - name: Paired namespace implementation
-        href: service-bus-paired-namespaces.md
     - name: End-to-end tracing and diagnostics
       href: service-bus-end-to-end-tracing.md
     - name: Build a multi-tier Service Bus application
@@ -176,6 +172,10 @@
         href: service-bus-resource-manager-namespace-auth-rule.md
       - name: Create a namespace with topic, subscription, and rule
         href: service-bus-resource-manager-namespace-topic-with-rule.md
+  - name: Troubleshoot
+    items:
+    - name: Exceptions
+      href: service-bus-messaging-exceptions.md
 - name: Reference
   items:
   - name: .NET
@@ -186,12 +186,16 @@
       href: /dotnet/api/microsoft.azure.servicebus
   - name: Java
     href: /java/api/overview/azure/servicebus
+  - name: Python
+    href: /python/api/overview/azure/servicebus?view=azure-python
+  - name: Node.js
+    href: /javascript/api/overview/azure/service-bus
   - name: Azure PowerShell
     href: /powershell/module/azurerm.servicebus
   - name: REST
     href: /rest/api/servicebus
-  - name: Exceptions
-    href: service-bus-messaging-exceptions.md
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.servicebus/allversions
   - name: Quotas
     href: service-bus-quotas.md
   - name: SQLFilter syntax
@@ -216,8 +220,8 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Pricing details
     href: service-bus-pricing-billing.md
-  - name: ServiceBus360
-    href: https://www.servicebus360.com/
+  - name: Serverless360
+    href: https://www.serverless360.com/
   - name: Service Bus Explorer
     href: https://github.com/paolosalvatori/ServiceBusExplorer
   - name: Service updates

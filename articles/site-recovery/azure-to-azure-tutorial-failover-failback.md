@@ -1,12 +1,12 @@
 ---
-title: Fail over and fail back Azure VMs replicated to a secondary Azure region with Azure Site Recovery
-description: Learn how to fail over and fail back Azure VMs replication to a secondary Azure region with Azure Site Recovery
+title: Fail over and fail back Azure IaaS VMs replicated to a secondary Azure region for disaster recovery with the Azure Site Recovery service.
+description: Learn how to fail over and fail back Azure VMs replicated to a secondary Azure region for disaster recovery, with the Azure Site Recovery service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -23,13 +23,14 @@ This tutorial describes how to fail over a single Azure VM to a secondary Azure 
 > * Fail back the secondary VM
 > * Reprotect the primary VM back to the secondary region
 
-
+> [!NOTE]
+> This tutorial is intended to guide the user through the steps to fail over to a target region and back with minimum customization; in case you want to learn more about the various aspects associated with failover, including networking considerations, automation or troubleshooting, refer to the documents under 'How To' for Azure VMs.
 
 ## Prerequisites
 
-- Make that you've completed a [disaster recovery drill](azure-to-azure-tutorial-dr-drill.md) to check everything is working as
+- Make sure that you've completed a [disaster recovery drill](azure-to-azure-tutorial-dr-drill.md) to check everything is working as
 expected.
-- Verify the VM properties before you run the test failover. The VM must comply with [Azure requirements](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions).
+- Verify the VM properties before you run the test failover. The VM must comply with [Azure requirements](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 
 ## Run a failover to the secondary region
 
@@ -49,7 +50,7 @@ expected.
 
 3. Select **Shut down machine before beginning failover** if you want Site Recovery to attempt to
    do a shutdown of source virtual machines before triggering the failover. Failover continues even
-   if shutdown fails.
+   if shutdown fails. Note that Site Recovery does not clean up source after failover.
 
 4. Follow the failover progress on the **Jobs** page.
 
@@ -74,6 +75,16 @@ After failover of the VM, you need to reprotect it so that it replicates back to
    resources marked (new) are created as part of the reprotect operation.
 4. Click **OK** to trigger a reprotect job. This job seeds the target site with the latest data. Then, it replicates the deltas to the primary region. The VM is now in a protected state.
 
+> [!NOTE]
+> See the ["how to" section](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection) for more details about the reprotection work flow and what happens during reprotection.
+
+
 ## Fail back to the primary region
 
-After VMs are reprotected,  you can fail back to the primary region as you need to. To do this, set up a failover from the secondary to primary region, as described in this article.
+After VMs are reprotected, you can fail back to the primary region as you need to. To do this, set up a failover from the secondary region to the primary region, as described in this article.
+
+![Right-click to reprotect](./media/azure-to-azure-tutorial-failover-failback/failback.png)
+
+If you see the preceding screenshot, "ContosoWin2016" VM failed over from Central US to East US and failed back from East US to Central US.
+
+The failover shuts down the VM in the secondary region, that is, the disaster recovery region, and creates and boots the VM in the primary region. Please **note** that the DR VMs will remain in the shutdown deallocated state as shown above. This behavior is by design because Azure Site Recovery saves the information of the virtual machine, which may be useful in failover for the primary to the secondary region later. You aren't charged for the deallocated virtual machines, so it should be kept as it is.

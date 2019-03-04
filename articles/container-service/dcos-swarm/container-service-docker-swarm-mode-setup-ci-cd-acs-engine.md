@@ -1,5 +1,5 @@
 ---
-title: CI/CD with Azure Container Service Engine and Swarm Mode
+title: (DEPRECATED) CI/CD with Azure Container Service Engine and Swarm Mode
 description: Use Azure Container Service Engine with Docker Swarm Mode, an Azure Container Registry, and Azure DevOps to deliver continuously a multi-container .NET Core application
 services: container-service
 author: diegomrtnzg
@@ -12,7 +12,9 @@ ms.author: diegomrtnzg
 ms.custom: mvc
 ---
 
-# Full CI/CD pipeline to deploy a multi-container application on Azure Container Service with ACS Engine and Docker Swarm Mode using Azure DevOps
+# (DEPRECATED) Full CI/CD pipeline to deploy a multi-container application on Azure Container Service with ACS Engine and Docker Swarm Mode using Azure DevOps
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 *This article is based on 
 [Full CI/CD pipeline to deploy a multi-container application on Azure Container Service with Docker Swarm using Azure DevOps](container-service-docker-swarm-setup-ci-cd.md) documentation*
@@ -126,7 +128,7 @@ There are five container images to build for the *MyShop* application. Each imag
 * ProductsApi
 * Proxy
 * RatingsApi
-* RecommandationsApi
+* RecommendationsApi
 * ShopFront
 
 You need two Docker steps for each image, one to build the image, and one to push the image in the Azure container registry. 
@@ -222,7 +224,9 @@ The release workflow is composed of two tasks that you add.
 
 2. Configure a second task to execute a bash command to run `docker` and `docker stack deploy` commands on the master node. See the following screen for details.
 
-    ```docker login -u $(docker.username) -p $(docker.password) $(docker.registry) && export DOCKER_HOST=:2375 && cd deploy && docker stack deploy --compose-file docker-compose-v3.yml myshop --with-registry-auth```
+    ```
+    docker login -u $(docker.username) -p $(docker.password) $(docker.registry) && export DOCKER_HOST=:2375 && cd deploy && docker stack deploy --compose-file docker-compose-v3.yml myshop --with-registry-auth
+    ```
 
     ![Azure DevOps - Release Bash](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-bash.png)
 

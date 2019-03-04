@@ -74,7 +74,7 @@ HTTP endpoints are automatically ACL'd by Service Fabric.
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an
        independently updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -104,7 +104,7 @@ The HTTPS protocol provides server authentication and is also used for encryptin
 > 
 
 > [!WARNING] 
-> When using HTTPS, do not use the same port and certificate for different service instances (independant of the application) deployed to the same node. Upgrading two different services using the same port in different application instances will result in an upgrade failure. For more information, see [Upgrading multiple applications with HTTPS endpoints
+> When using HTTPS, do not use the same port and certificate for different service instances (independent of the application) deployed to the same node. Upgrading two different services using the same port in different application instances will result in an upgrade failure. For more information, see [Upgrading multiple applications with HTTPS endpoints
 ](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
 >
 

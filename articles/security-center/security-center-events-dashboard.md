@@ -3,8 +3,8 @@ title: Monitoring and processing security events in Azure Security Center | Micr
 description: Learn how you can use Security Center's events dashboard to see security events from your Azure VMs and non-Azure computers.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
-manager: MBaldwin
+author: rkarlin
+manager: barbkess
 editor: ''
 
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
-ms.author: terrylan
+ms.author: rkarlin
 
 ---
 # Monitoring and processing security events in Azure Security Center
@@ -24,6 +24,8 @@ The Events dashboard provides an overview of the number of security events colle
 > To use this feature, your workspace must be running Log Analytics version 2 and be on Security Center’s Standard tier. See the Security Center [pricing page](security-center-pricing.md) for more information about the Standard tier.
 >
 >
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## What is a security event?
 Security Center uses the Microsoft Monitoring Agent to collect various security related configurations and events from your machines and stores these events in your workspace(s). Examples of such data are: operating system logs (Windows event logs), running processes, and events from security solutions integrated with Security Center. The Microsoft Monitoring Agent also copies crash dump files to your workspace(s).
@@ -66,7 +68,7 @@ The **Events dashboard** provides an overview of the number of events processed 
   ![Log search][6]
 
 ## Add a notable event
-Security Center provides out-of-the-box notable events. You can add notable events based on your own query using the [Log Analytics query language](../log-analytics/log-analytics-search-reference.md). We’ll return to the **Events dashboard** to add a notable event.
+Security Center provides out-of-the-box notable events. You can add notable events based on your own query using the [Kusto query language](../log-analytics/log-analytics-search-reference.md). We’ll return to the **Events dashboard** to add a notable event.
 
 1. Select **Add Notable Event**.
 
@@ -90,7 +92,7 @@ If the workspace row:
 - Is blank - your workspace meets requirements and selecting a workspace takes you to the dashboard
 
 > [!NOTE]
-> Under **Events dashboard**, the **EVENTS** column indicates amount of events in each workspace.  This column is blank for some workspaces because Security Center’s Free tier is applied to that workspace. Under the Free tier, Security Center will collect events but the events are not saved in Log Analytics and are not available in the dashboard.
+> Under **Events dashboard**, the **EVENTS** column indicates amount of events in each workspace.  This column is blank for some workspaces because Security Center’s Free tier is applied to that workspace. Under the Free tier, Security Center will collect events but the events are not saved in Azure Monitor logs and are not available in the dashboard.
 >
 >
 
@@ -115,9 +117,9 @@ If the workspace row:
 ## Next steps
 In this article you learned how to use Security Center’s Event dashboard. To learn more about how the dashboard works and to write your own event queries, see:
 
-- [What is Log Analytics?](../log-analytics/log-analytics-overview.md) – Overview on Log Analytics
-- [Understanding log searches in Log Analytics](../log-analytics/log-analytics-log-search-new.md) - Describes how log searches are used in Log Analytics and provides concepts that should be understood before creating a log search
-- [Log Analytics search reference](../log-analytics/log-analytics-search-reference.md) – Learn how to write your own event queries using the query language in Log
+- [What is Azure Monitor logs?](../log-analytics/log-analytics-overview.md) – Overview on Azure Monitor logs
+- [Understanding log searches in Kusto](../log-analytics/log-analytics-log-search-new.md) - Describes how log searches are used in Azure Monitor logs and provides concepts that should be understood before creating a log search
+- [Kusto search reference](../log-analytics/log-analytics-search-reference.md) – Learn how to write your own event queries using the query language in Log
 
 To learn more about Security Center, see:
 

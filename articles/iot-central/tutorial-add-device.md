@@ -3,7 +3,7 @@ title: Add a real device to an Azure IoT Central application | Microsoft Docs
 description: As an operator, add a real device to your Azure IoT Central application.
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 04/16/2018
+ms.date: 10/12/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -97,41 +97,36 @@ The following steps show how to prepare the [Node.js](https://nodejs.org/) sampl
 1. In your command-line environment, navigate to the `connectedairconditioner` folder you created.
 
 1. Install the DPS key generator by using the following command:
-    
+
     ```cmd/sh
     npm i -g dps-keygen
     ```
 
    Learn more about the [command line tool here](https://www.npmjs.com/package/dps-keygen).
 
-1. Download and unzip (Windows) the dps_cstr tool from [GitHub](https://github.com/Azure/dps-keygen/tree/master/bin)
-
-    Make sure you choose the one that matches your platform. For example, on Windows the dps_cstr.exe and the dll files should be now available in your folder. 
-
 1. The connection string for a device instance in your application is generated from device information provided by the IoT Central.
 
-   Return to the IoT Central portal. On the device screen for your real connected air conditioner, choose **Connect**.
+    Return to the IoT Central portal. On the device screen for your real connected air conditioner, choose **Connect**.
 
-   ![Device page showing view connection information link](media/tutorial-add-device/connectionlink.png)
-
+    ![Device page showing view connection information link](media/tutorial-add-device/connectionlink.png)
 
 1. On the Device Connection page, copy and paste Scope ID, Device ID and Primary Key on to a text editor, then save. You use these values in the next step.
 
-   ![Connection details](media/tutorial-add-device/device-connect.PNG)
+    ![Connection details](media/tutorial-add-device/device-connect.PNG)
 
 1. Return to the command line environment and generate your connection string by executing:
 
-   ```cmd/sh
-   dps_cstr <scope_id> <device_id> <Primary Key>
-   ```
-   
-   Copy the output and save in a new file (for example, connection.txt).
+    ```cmd/sh
+     dps-keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
+    ```
+
+    Copy the output and save in a new file (for example, connection.txt).
 
 1. To initialize your Node.js project, run the following command accepting all the defaults:
 
-   ```cmd/sh
+    ```cmd/sh
     npm init
-   ```
+    ```
 
 1. To install the necessary packages, run the following command:
 

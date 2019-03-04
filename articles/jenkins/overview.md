@@ -1,9 +1,9 @@
 ---
 title: Overview of Jenkins and Azure
-description: Host the Jenkins build and deploy automation server in Azure and use Azure compute and storage resources to extend your continous integration and deployment (CI/CD) pipelines.
+description: Host the Jenkins build and deploy automation server in Azure and use Azure compute and storage resources to extend your continuous integration and deployment (CI/CD) pipelines.
 ms.service: jenkins
 keywords: jenkins, azure, devops, overview
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: overview
@@ -24,7 +24,7 @@ Host Jenkins in Azure to centralize your build automation and scale your deploym
 - [Azure virtual machines](/azure/virtual-machines/linux/overview). See our [tutorial](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd) to create a Jenkins instance on a VM.
 - On a Kubernetes cluster running in [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough), see our [how-to](/azure/container-service/kubernetes/container-service-kubernetes-jenkins).
 
-Monitor and manage your Azure Jenkins deployment using [Log Analytics](/azure/log-analytics/log-analytics-overview) and the [Azure CLI](/cli/azure).
+Monitor and manage your Azure Jenkins deployment using [Azure Monitor logs](/azure/log-analytics/log-analytics-overview) and the [Azure CLI](/cli/azure).
 
 ## Scale your build automation on demand
 
@@ -41,5 +41,5 @@ Use Jenkins plugins to deploy your applications to Azure as part of your Jenkins
 
  Plug-ins are available to deploy to the following services and environments:
 
-- [Azure Web App on Linux](/azure/app-service/containers/app-service-linux-intro). See the [tutorial](java-deploy-webapp-tutorial.md) to get started.
-- [Azure Web App](/azure/app-service/app-service-web-overview). See the [how-to](deploy-Jenkins-app-service-plugin.md) to get started.
+- [Azure App Service on Linux](/azure/app-service/containers/app-service-linux-intro). See the [tutorial](java-deploy-webapp-tutorial.md) to get started.
+- [Azure App Service](/azure/app-service/overview). See the [how-to](deploy-Jenkins-app-service-plugin.md) to get started.

@@ -1,22 +1,22 @@
 ---
-title: Analyze flight delay data with Hadoop in HDInsight - Azure 
+title: Analyze flight delay data with Apache Hadoop in HDInsight - Azure 
 description: Learn how to use one Windows PowerShell script to create an HDInsight cluster, run a Hive job, run a Sqoop job, and delete the cluster.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
 
 ---
-# Analyze flight delay data by using Hive in HDInsight
-Hive provides a means of running Hadoop MapReduce jobs through an SQL-like scripting language called *[HiveQL][hadoop-hiveql]*, which can be applied towards summarizing, querying, and analyzing large volumes of data.
+# Analyze flight delay data by using Apache Hive in HDInsight
+[Apache Hive](https://hive.apache.org/) provides a means of running [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html)  jobs through an SQL-like scripting language called *[HiveQL][hadoop-hiveql]*, which can be applied towards summarizing, querying, and analyzing large volumes of data.
 
-> [!IMPORTANT]
-> The steps in this document require a Windows-based HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). For steps that work with a Linux-based cluster, see [Analyze flight delay data by using Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
+> [!IMPORTANT]  
+> The steps in this document require a Windows-based HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). For steps that work with a Linux-based cluster, see [Analyze flight delay data by using Apache Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
 
 One of the major benefits of Azure HDInsight is the separation of data storage and compute. HDInsight uses Azure Blob storage for data storage. A typical job involves three parts:
 
@@ -39,8 +39,8 @@ The main portion of the tutorial shows you how to use one Windows PowerShell scr
 
 In the appendixes, you can find the instructions for uploading flight delay data, creating/uploading a Hive query string, and preparing the Azure SQL database for the Sqoop job.
 
-> [!NOTE]
-> The steps in this document are specific to Windows-based HDInsight clusters. For steps that work with a Linux-based cluster, see [Analyze flight delay data using Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
+> [!NOTE]  
+> The steps in this document are specific to Windows-based HDInsight clusters. For steps that work with a Linux-based cluster, see [Analyze flight delay data using Apache Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
 
 ### Prerequisites
 Before you begin this tutorial, you must have the following items:
@@ -48,7 +48,7 @@ Before you begin this tutorial, you must have the following items:
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **A workstation with Azure PowerShell**.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Azure PowerShell support for managing HDInsight resources using Azure Service Manager is **deprecated**, and was removed on January 1, 2017. The steps in this document use the new HDInsight cmdlets that work with Azure Resource Manager.
     >
     > Please follow the steps in [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) to install the latest version of Azure PowerShell. If you have scripts that need to be modified to use the new cmdlets that work with Azure Resource Manager, see [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) for more information.
@@ -64,18 +64,18 @@ If you want to learn how to get/upload the data to your own Storage account, and
 
 The following table lists the files used in this tutorial:
 
-<table border="1">
-<tr><th>Files</th><th>Description</th></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>The HiveQL script file used by the Hive job. This script has been uploaded to an Azure Blob storage account with the public access. <a href="#appendix-b">Appendix B</a> has instructions on preparing and uploading this file to your own Azure Blob storage account.</td></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Input data for the Hive job. The data has been uploaded to an Azure Blob storage account with the public access. <a href="#appendix-a">Appendix A</a> has instructions on getting the data and uploading the data to your own Azure Blob storage account.</td></tr>
-<tr><td>\tutorials\flightdelays\output</td><td>The output path for the Hive job. The default container is used for storing the output data.</td></tr>
-<tr><td>\tutorials\flightdelays\jobstatus</td><td>The Hive job status folder on the default container.</td></tr>
-</table>
+|Files|Description|  
+|----|----|   
+|wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql|The HiveQL script file used by the Hive job. This script has been uploaded to an Azure Blob storage account with the public access. <a href="#appendix-b">Appendix B</a> has instructions on preparing and uploading this file to your own Azure Blob storage account.|
+|wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data|Input data for the Hive job. The data has been uploaded to an Azure Blob storage account with the public access. <a href="#appendix-a">Appendix A</a> has instructions on getting the data and uploading the data to your own Azure Blob storage account.|
+|\tutorials\flightdelays\output|The output path for the Hive job. The default container is used for storing the output data.|
+|\tutorials\flightdelays\jobstatus|The Hive job status folder on the default container.|
+
 
 ## Create cluster and run Hive/Sqoop jobs
 Hadoop MapReduce is batch processing. The most cost-effective way to run a Hive job is to create a cluster for the job,
 and delete the job after the job is completed. The following script covers the whole process.
-For more information on creating an HDInsight cluster and running Hive jobs, see [Create Hadoop clusters in HDInsight][hdinsight-provision] and [Use Hive with HDInsight][hdinsight-use-hive].
+For more information on creating an HDInsight cluster and running Hive jobs, see [Create Apache Hadoop clusters in HDInsight][hdinsight-provision] and [Use Apache Hive with HDInsight][hdinsight-use-hive].
 
 **To run the Hive queries by Azure PowerShell**
 
@@ -87,7 +87,7 @@ For more information on creating an HDInsight cluster and running Hive jobs, see
     $nameToken = "<Enter an Alias>"
 
     ###########################################
-    # You must configure the follwing variables
+    # You must configure the following variables
     # for an existing Azure SQL Database
     ###########################################
     $existingSqlDatabaseServerName = "<Azure SQL Database Server>"
@@ -236,12 +236,12 @@ For more information on creating an HDInsight cluster and running Hive jobs, see
 - - -
 
 ## <a id="appendix-a"></a>Appendix A - Upload flight delay data to Azure Blob storage
-Uploading the data file and the HiveQL script files (see [Appendix B](#appendix-b)) requires some planning. The idea is to store the data files and the HiveQL file before creating an HDInsight cluster and running the Hive job. You have two options:
+Uploading the data file and the [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) script files (see [Appendix B](#appendix-b)) requires some planning. The idea is to store the data files and the HiveQL file before creating an HDInsight cluster and running the Hive job. You have two options:
 
 * **Use the same Azure Storage account that will be used by the HDInsight cluster as the default file system.** Because the HDInsight cluster will have the Storage account access key, you don't need to make any additional changes.
-* **Use a different Azure Storage account from the HDInsight cluster default file system.** If this is the case, you must modify the creation part of the Windows PowerShell script found in [Create HDInsight cluster and run Hive/Sqoop jobs](#runjob) to link the Storage account as an additional Storage account. For instructions, see [Create Hadoop clusters in HDInsight][hdinsight-provision]. The HDInsight cluster then knows the access key for the Storage account.
+* **Use a different Azure Storage account from the HDInsight cluster default file system.** If this is the case, you must modify the creation part of the Windows PowerShell script found in Create HDInsight cluster and run Apache Hive/Sqoop jobs to link the Storage account as an additional Storage account. For instructions, see [Create Apache Hadoop clusters in HDInsight][hdinsight-provision]. The HDInsight cluster then knows the access key for the Storage account.
 
-> [!NOTE]
+> [!NOTE]  
 > The Blob storage path for the data file is hard coded in the HiveQL script file. You must update it accordingly.
 
 **To download the flight data**
@@ -249,12 +249,11 @@ Uploading the data file and the HiveQL script files (see [Appendix B](#appendix-
 1. Browse to [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website].
 2. On the page, select the following values:
 
-    <table border="1">
-    <tr><th>Name</th><th>Value</th></tr>
-    <tr><td>Filter Year</td><td>2013 </td></tr>
-    <tr><td>Filter Period</td><td>January</td></tr>
-    <tr><td>Fields</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (clear all other fields)</td></tr>
-    </table>
+    |Name|Value|
+    |---|---|
+    |Filter Year|2013|
+    |Filter Period|January|
+    |Fields|*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (clear all other fields)|
 
 3. Click **Download**.
 4. Unzip the file to the **C:\Tutorials\FlightDelay\2013Data** folder. Each file is a CSV file and is approximately 60GB in size.
@@ -265,11 +264,10 @@ Uploading the data file and the HiveQL script files (see [Appendix B](#appendix-
 
 1. Prepare the parameters:
 
-    <table border="1">
-    <tr><th>Variable Name</th><th>Notes</th></tr>
-    <tr><td>$storageAccountName</td><td>The Azure Storage account where you want to upload the data to.</td></tr>
-    <tr><td>$blobContainerName</td><td>The Blob container where you want to upload the data to.</td></tr>
-    </table>
+    |Variable Name|Notes|
+    |---|---|
+    |$storageAccountName|The Azure Storage account where you want to upload the data to.|
+    |$blobContainerName|The Blob container where you want to upload the data to.|
     
 2. Open Azure PowerShell ISE.
 3. Paste the following script into the script pane:
@@ -350,7 +348,7 @@ If you choose to use a different method for uploading the files, please make sur
 
 The path tutorials/flightdelay/data is the virtual folder you created when you uploaded the files. Verify that there are 12 files, one for each month.
 
-> [!NOTE]
+> [!NOTE]  
 > You must update the Hive query to read from the new location.
 >
 > You must either configure the container access permission to be public or bind the Storage account to the HDInsight cluster. Otherwise, the Hive query string will not be able to access the data files.
@@ -358,7 +356,7 @@ The path tutorials/flightdelay/data is the virtual folder you created when you u
 - - -
 
 ## <a id="appendix-b"></a>Appendix B - Create and upload a HiveQL script
-Using Azure PowerShell, you can run multiple HiveQL statements one at a time, or package the HiveQL statement into a script file. This section shows you how to create a HiveQL script and upload the script to Azure Blob storage by using Azure PowerShell. Hive requires the HiveQL scripts to be stored in Azure Blob storage.
+Using Azure PowerShell, you can run multiple [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) statements one at a time, or package the HiveQL statement into a script file. This section shows you how to create a HiveQL script and upload the script to Azure Blob storage by using Azure PowerShell. Hive requires the HiveQL scripts to be stored in Azure Blob storage.
 
 The HiveQL script will perform the following:
 
@@ -368,17 +366,16 @@ The HiveQL script will perform the following:
 4. **Create the delays table**. It is helpful to clean up the data before further processing. This query creates a new table, *delays*, from the delays_raw table. Note that the TEMP columns (as mentioned previously) are not copied, and that the **substring** function is used to remove quotation marks from the data.
 5. **Compute the average weather delay and groups the results by city name.** It will also output the results to Blob storage. Note that the query will remove apostrophes from the data and will exclude rows where the value for **weather_delay** is null. This is necessary because Sqoop, used later in this tutorial, doesn't handle those values gracefully by default.
 
-For a full list of the HiveQL commands, see [Hive Data Definition Language][hadoop-hiveql]. Each HiveQL command must terminate with a semicolon.
+For a full list of the HiveQL commands, see [Apache Hive Data Definition Language][hadoop-hiveql]. Each [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) command must terminate with a semicolon.
 
 **To create a HiveQL script file**
 
 1. Prepare the parameters:
 
-    <table border="1">
-    <tr><th>Variable Name</th><th>Notes</th></tr>
-    <tr><td>$storageAccountName</td><td>The Azure Storage account where you want to upload the HiveQL script to.</td></tr>
-    <tr><td>$blobContainerName</td><td>The Blob container where you want to upload the HiveQL script to.</td></tr>
-    </table>
+    |Variable Name|Notes|
+    |---|---|
+    |$storageAccountName|The Azure Storage account where you want to upload the HiveQL script to.|
+    |$blobContainerName|The Blob container where you want to upload the HiveQL script to.|
     
 2. Open Azure PowerShell ISE.  
 
@@ -448,7 +445,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
     Write-Host "`nvalidating the folder structure on the workstation for saving the HQL script file ..."  -ForegroundColor Green
     if (test-path $hqlLocalFileName){
 
-        $isDelete = Read-Host 'The file, ' $hqlLocalFileName ', exists.  Do you want to overwirte it? (Y/N)'
+        $isDelete = Read-Host 'The file, ' $hqlLocalFileName ', exists.  Do you want to overwrite it? (Y/N)'
 
         if ($isDelete.ToLower() -ne "y")
         {
@@ -564,14 +561,14 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
 
 1. Prepare the parameters:
 
-    <table border="1">
-    <tr><th>Variable Name</th><th>Notes</th></tr>
-    <tr><td>$sqlDatabaseServerName</td><td>The name of the Azure SQL database server. Enter nothing to create a new server.</td></tr>
-    <tr><td>$sqlDatabaseUsername</td><td>The login name for the Azure SQL database server. If $sqlDatabaseServerName is an existing server, the login and login password are used to authenticate with the server. Otherwise they are used to create a new server.</td></tr>
-    <tr><td>$sqlDatabasePassword</td><td>The login password for the Azure SQL database server.</td></tr>
-    <tr><td>$sqlDatabaseLocation</td><td>This value is used only when you're creating a new Azure database server.</td></tr>
-    <tr><td>$sqlDatabaseName</td><td>The SQL database used to create the AvgDelays table for the Sqoop job. Leaving it blank will create a database called HDISqoop. The table name for the Sqoop job output is AvgDelays. </td></tr>
-    </table>
+    |Variable Name|Notes|
+    |---|---|
+    |$sqlDatabaseServerName|The name of the Azure SQL database server. Enter nothing to create a new server.|
+    |$sqlDatabaseUsername|The login name for the Azure SQL database server. If $sqlDatabaseServerName is an existing server, the login and login password are used to authenticate with the server. Otherwise they are used to create a new server.|
+    |$sqlDatabasePassword|The login password for the Azure SQL database server.|
+    |$sqlDatabaseLocation|This value is used only when you're creating a new Azure database server.|
+    |$sqlDatabaseName|The SQL database used to create the AvgDelays table for the Sqoop job. Leaving it blank will create a database called HDISqoop. The table name for the Sqoop job output is AvgDelays.|
+
     
 2. Open Azure PowerShell ISE.
 
@@ -615,7 +612,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
     #region - Constants and variables
 
     # IP address REST service used for retrieving external IP address and creating firewall rules
-    [String]$ipAddressRestService = "http://bot.whatismyipaddress.com"
+    [String]$ipAddressRestService = "https://bot.whatismyipaddress.com"
     [String]$fireWallRuleName = "FlightDelay"
 
     # SQL database variables
@@ -639,7 +636,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
     catch{Connect-AzureRmAccount}
     #EndRegion
 
-    #region - Create and validate Azure resouce group
+    #region - Create and validate Azure resource group
     try{
         Get-AzureRmResourceGroup -Name $resourceGroupName
     }
@@ -699,12 +696,12 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
     Write-host "`nEnd of the PowerShell script" -ForegroundColor Green
     ```
 
-   > [!NOTE]
-   > The script uses a representational state transfer (REST) service, http://bot.whatismyipaddress.com, to retrieve your external IP address. The IP address is used for creating a firewall rule for your SQL database server.
+   > [!NOTE]  
+   > The script uses a representational state transfer (REST) service, https://bot.whatismyipaddress.com, to retrieve your external IP address. The IP address is used for creating a firewall rule for your SQL database server.
 
     Here are some variables used in the script:
 
-   * **$ipAddressRestService** - The default value is http://bot.whatismyipaddress.com. It is a public IP address REST service for getting your external IP address. You can use other services if you want. The external IP address retrieved through the service will be used to create a firewall rule for your Azure SQL database server, so that you can access the database from your workstation (by using a Windows PowerShell script).
+   * **$ipAddressRestService** - The default value is https://bot.whatismyipaddress.com. It is a public IP address REST service for getting your external IP address. You can use other services if you want. The external IP address retrieved through the service will be used to create a firewall rule for your Azure SQL database server, so that you can access the database from your workstation (by using a Windows PowerShell script).
    * **$fireWallRuleName** - This is the name of the firewall rule for the Azure SQL database server. The default name is <u>FlightDelay</u>. You can rename it if you want.
    * **$sqlDatabaseMaxSizeGB** - This value is used only when you're creating a new Azure SQL database server. The default value is 10GB. 10GB is sufficient for this tutorial.
    * **$sqlDatabaseName** - This value is used only when you're creating a new Azure SQL database. The default value is HDISqoop. If you rename it, you must update the Sqoop Windows PowerShell script accordingly.
@@ -712,20 +709,20 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
 5. Validate the script output. Make sure the script ran successfully.
 
 ## <a id="nextsteps"></a> Next steps
-Now you understand how to upload a file to Azure Blob storage, how to populate a Hive table by using the data from Azure Blob storage, how to run Hive queries, and how to use Sqoop to export data from HDFS to an Azure SQL database. To learn more, see the following articles:
+Now you understand how to upload a file to Azure Blob storage, how to populate an Apache Hive table by using the data from Azure Blob storage, how to run Hive queries, and how to use Sqoop to export data from [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) to an Azure SQL database. To learn more, see the following articles:
 
 * [Get started with HDInsight][hdinsight-get-started]
-* [Use Hive with HDInsight][hdinsight-use-hive]
-* [Use Oozie with HDInsight][hdinsight-use-oozie]
-* [Use Sqoop with HDInsight][hdinsight-use-sqoop]
-* [Use Pig with HDInsight][hdinsight-use-pig]
+* [Use Apache Hive with HDInsight][hdinsight-use-hive]
+* [Use Apache Oozie with HDInsight][hdinsight-use-oozie]
+* [Use Apache Sqoop with HDInsight][hdinsight-use-sqoop]
+* [Use Apache Pig with HDInsight][hdinsight-use-pig]
 * [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-[rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
+[rita-website]: https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -739,9 +736,9 @@ Now you understand how to upload a file to Azure Blob storage, how to populate a
 [hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
-[hadoop-shell-commands]: http://hadoop.apache.org/docs/r0.18.3/hdfs_shell.html
+[hadoop-shell-commands]: https://hadoop.apache.org/docs/r0.18.3/hdfs_shell.html
 
-[technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
 [image-hdi-flightdelays-avgdelays-dataset]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.AvgDelays.DataSet.png
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png

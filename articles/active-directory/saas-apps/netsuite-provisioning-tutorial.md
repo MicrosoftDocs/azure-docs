@@ -1,14 +1,14 @@
 ---
-title: 'Tutorial: Configure Netsuite for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Netsuite.
+title: 'Tutorial: Configure Netsuite OneWorld for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Netsuite OneWorld.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 
 ms.assetid: 8a6d3994-ee33-4a6f-b0a2-9d0389467f16
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,20 +16,21 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configuring Netsuite for automatic user provisioning
 
-The objective of this tutorial is to show you the steps you need to perform in Netsuite and Azure AD to automatically provision and de-provision user accounts from Azure AD to Netsuite.
+The objective of this tutorial is to show you the steps you need to perform in Netsuite OneWorld and Azure AD to automatically provision and de-provision user accounts from Azure AD to Netsuite.
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 *   An Azure Active directory tenant.
-*   A Netsuite single-sign on enabled subscription.
-*   A user account in Netsuite with Team Admin permissions.
+*   A Netsuite OneWorld subscription. Note that automatic user provisioning is presently only supported with NetSuite OneWorld.
+*   A user account in Netsuite with administrator permissions.
 
-## Assigning users to Netsuite
+## Assigning users to Netsuite OneWorld
 
 Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user account provisioning, only the users and groups that have been "assigned" to an application in Azure AD are synchronized.
 
@@ -37,7 +38,7 @@ Before configuring and enabling the provisioning service, you need to decide wha
 
 [Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### Important tips for assigning users to Netsuite
+### Important tips for assigning users to Netsuite OneWorld
 
 *   It is recommended that a single Azure AD user is assigned to Netsuite to test the provisioning configuration. Additional users and/or groups may be assigned later.
 

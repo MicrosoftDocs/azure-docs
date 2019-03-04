@@ -9,15 +9,16 @@ editor: ''
 
 ms.assetid: adfc0569-dc91-48fe-92c3-b5b4833703de
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 02/27/2019
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
+ms.collection: M365-identity-device-management
 ---
 
 # Application and service principal objects in Azure Active Directory
@@ -97,6 +98,6 @@ In this example scenario:
 <!--Image references-->
 
 <!--Reference style links -->
-[AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
-[AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
+[AAD-Graph-App-Entity]: https://docs.microsoft.com/graph/api/resources/application
+[AAD-Graph-Sp-Entity]: https://docs.microsoft.com/graph/api/resources/serviceprincipal
 [AZURE-Portal]: https://portal.azure.com

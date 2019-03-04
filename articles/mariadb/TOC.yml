@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Azure DB for MariaDB
+  - name: What is Azure DB for MariaDB?
     href: overview.md
 - name: Quickstarts
   expanded: true
@@ -21,6 +21,12 @@
     items:
     - name: Azure portal
       href: tutorial-design-database-using-portal.md
+    - name: Azure CLI
+      href: tutorial-design-database-cli.md
+- name: Samples
+  items:
+  - name: Azure CLI
+    href: sample-scripts-azure-cli.md
 - name: Concepts
   items:
   - name: DB & Servers
@@ -29,8 +35,6 @@
       href: concepts-servers.md
     - name: Supported versions
       href: concepts-supported-versions.md
-    - name: Server logs
-      href: concepts-server-logs.md
     - name: High availability
       href: concepts-high-availability.md
   - name: Resources
@@ -45,12 +49,24 @@
       href: concepts-firewall-rules.md
     - name: Configuring SSL
       href: concepts-ssl-connection-security.md
+    - name: VNet
+      href: concepts-data-access-security-vnet.md 
   - name: Business continuity
     items:
     - name: Overview
       href: concepts-business-continuity.md
     - name: Backup and restore
       href: concepts-backup.md
+  - name: Monitor
+    items:
+    - name: Monitor
+      href: concepts-monitoring.md
+    - name: Server logs
+      href: concepts-server-logs.md
+  - name: Development
+    items:
+    - name: Connection resiliency
+      href: concepts-connectivity.md
   - name: Replication
     items:
     - name: Data-in replication
@@ -61,10 +77,14 @@
     items:
     - name: Azure portal
       href: howto-manage-firewall-portal.md
+    - name: Azure CLI
+      href: howto-manage-firewall-cli.md
   - name: Restore a server
     items:
     - name: Azure portal
       href: howto-restore-server-portal.md
+    - name: Azure CLI
+      href: howto-restore-server-cli.md
   - name: Migrate a database
     items:
     - name: Dump & restore
@@ -81,18 +101,46 @@
     items:
     - name: Azure portal
       href: howto-server-parameters.md
+    - name: Azure CLI
+      href: howto-configure-server-parameters-cli.md
   - name: Access server logs
     items:
     - name: Azure portal
       href: howto-configure-server-logs-portal.md
+    - name: Azure CLI
+      href: howto-configure-server-logs-cli.md
+  - name: Monitor
+    items:
+    - name: Create alerts on metrics
+      href: howto-alert-metric.md
   - name: Replication
     items:
     - name: Configure data-in replication
       href: howto-data-in-replication.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot connection errors
+      href: howto-troubleshoot-common-connection-issues.md
+    - name: Troubleshoot query performance
+      href: howto-troubleshoot-query-performance.md
+  - name: Virtual Network
+    items:
+    - name: Azure portal
+      href: howto-manage-vnet-portal.md
+    - name: Azure CLI
+      href: howto-manage-vnet-cli.md
+  - name: Restart server
+    items:
+    - name: Azure portal
+      href: howto-restart-server-portal.md
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/mariadb
   - name: REST API
     href: /rest/api/mariadb
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.dbformariadb/allversions
   - name: Data-in replication stored procedures
     href: reference-data-in-stored-procedures.md
 - name: Resources
@@ -106,9 +154,9 @@
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/forums/en-US/home?forum=AzureDatabaseforMariaDB
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-database-mariadb
+    href: https://stackoverflow.com/questions/tagged/azure-database-mariadb
   - name: Request a feature
-    href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
+    href: https://feedback.azure.com/forums/915439-azure-database-for-mariadb
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Support options

@@ -1,17 +1,18 @@
 ---
-title: Understanding intents in LUIS apps
-titleSuffix: Azure Cognitive Services
-description: An intent represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's utterance. Define a set of intents that corresponds to actions users want to take in your application.
+title: User intentions
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: An intent represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's utterance.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
-ms.topic: article
-ms.date: 09/10/2018
+ms.subservice: language-understanding
+ms.topic: conceptual
+ms.date: 01/02/2019
 ms.author: diberry
 ---
-# Intents in LUIS
+# Concepts about intents in your LUIS app
 
 An intent represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's [utterance](luis-concept-utterance.md).
 
@@ -52,7 +53,7 @@ Similarly intentioned [utterances](luis-concept-utterance.md) correspond to a si
 [Prebuilt domains](luis-how-to-use-prebuilt-domains.md) have intents with utterances.  
 
 ## None intent is fallback for app
-The **None** intent is a catch-all or fallback intent. It is used to teach LUIS utterances that are not important in the app domain (subject area). The **None** intent should have between 10 and 20 percent of the total utterances in the application. Do not leave it empty. 
+The **None** intent is a catch-all or fallback intent. It is used to teach LUIS utterances that are not important in the app domain (subject area). The **None** intent should have between 10 and 20 percent of the total utterances in the application. Do not leave the None empty. 
 
 ### None intent helps conversation direction
 When an utterance is predicted as the None intent and returned to the chatbot with that prediction, the bot can ask more questions or provide a menu to direct the user to valid choices in the chatbot. 

@@ -14,7 +14,7 @@ ms.date: 09/24/2018
 
 Azure Data Explorer enables you to control access to databases and tables, using a *role-based access control* model. Under this model, *principals* (users, groups, and apps) are mapped to *roles*. Principals can access resources according to the roles they're assigned.
 
-This article describes the available roles and how to assign principals to those roles.
+This article describes the available roles and how to assign principals to those roles using the Azure portal and Azure Data Explorer management commands.
 
 ## Roles and permissions
 

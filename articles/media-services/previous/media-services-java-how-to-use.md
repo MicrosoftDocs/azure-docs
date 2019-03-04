@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 09/18/2018
+ms.date: 02/08/2019
 ms.author: juliako
 
 ---
-# Get started with the Java client SDK for Azure Media Services
+# Get started with the Java client SDK for Azure Media Services  
+
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 This tutorial walks you through the steps of implementing a basic video content delivery service with Azure Media Services using the Java client SDK.
@@ -114,7 +115,7 @@ The code also relies on a locally stored video file. You must edit the code to p
         // This is using the default Adaptive Streaming encoding preset. 
         // You can choose to use a custom preset, or any other sample defined preset. 
         // In addition you can use other processors, like Speech Analyzer, or Redactor if desired.
-        private static String preferedEncoder = "Media Encoder Standard";
+        private static String preferredEncoder = "Media Encoder Standard";
         private static String encodingPreset = "Adaptive Streaming";
 
         public static void main(String[] args)
@@ -212,7 +213,7 @@ The code also relies on a locally stored video file. You must edit the code to p
 
             // Retrieve the list of Media Processors that match the name
             ListResult<MediaProcessorInfo> mediaProcessors = mediaService
-                            .list(MediaProcessor.list().set("$filter", String.format("Name eq '%s'", preferedEncoder)));
+                            .list(MediaProcessor.list().set("$filter", String.format("Name eq '%s'", preferredEncoder)));
 
             // Use the latest version of the Media Processor
             MediaProcessorInfo mediaProcessor = null;

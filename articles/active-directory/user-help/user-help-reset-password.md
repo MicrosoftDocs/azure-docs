@@ -3,15 +3,16 @@ title: Reset your password using security info - Azure Active Directory | Micros
 description: How to reset your own password if you forget it, using your security info and two-step verification.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
+ms.collection: M365-identity-device-management
 ---
 
 # Reset your work or school password
@@ -158,9 +159,6 @@ Here are some common error cases and their solutions:
 |After I enter my User ID, I get an error that says, "We couldn't verify your account."|The sign-in process was unable to verify your account info.|There are two reasons you could be seeing this message.<br><br>1. Your administrator turned on password reset for your organization, but you haven't registered to use the service. To register for password reset, see one of the following articles, based on your verification method: [Set up security info to use an authenticator app (preview)](security-info-setup-auth-app.md), [Set up security info to use a phone call (preview)](security-info-setup-phone-number.md), [Set up security info to use text messaging (preview)](security-info-setup-text-msg.md), [Set up security info to use email (preview)](security-info-setup-email.md), or [Set up security info to use security questions (preview)](security-info-setup-questions.md).<br><br>2. Your administrator hasn't turned on password reset for your organization. In this situation, you must select the "contact an administrator link" to send an email to your administrator, asking to reset your password.|
 
 ## Next steps
-
-- Edit your security info to add or change your verification methods in the [Manage your security info (preview)](security-info-manage-settings.md) article. 
-
 - Learn about security info in the [Security info (preview) overview](user-help-security-info-overview.md) article.
 
 - Learn about two-step verification in the [Two-step verification overview](user-help-two-step-verification-overview.md) article. 

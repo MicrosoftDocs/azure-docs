@@ -40,11 +40,9 @@
     href: tutorial-monitoring.md
   - name: 12 - Manage VM security
     href: tutorial-azure-security.md
-  - name: 13 - Azure Pipelines CI/CD
-    href: tutorial-vsts-iis-cicd.md
-  - name: 14 - Install a SQL\IIS\.NET stack
+  - name: 13 - Install a SQL\IIS\.NET stack
     href: tutorial-iis-sql.md
-  - name: 15 - Secure web server with SSL
+  - name: 14 - Secure web server with SSL
     href: tutorial-secure-web-server.md
 - name: Samples
   items:
@@ -94,28 +92,23 @@
     - name: Azure compute units (ACU)
       href: acu.md 
     - name: Benchmark scores
-      href: compute-benchmark-scores.md       
+      href: compute-benchmark-scores.md
+    - name: vCPU quotas
+      href: quotas.md
   - name: Maintenance and updates
     href: maintenance-and-updates.md
   - name: Disk storage
-    href: about-disks-and-vhds.md
     items:
-    - name: Managed Disks
+    - name: Introduction to managed disks
       href: managed-disks-overview.md
-    - name: Premium SSDs
-      href: premium-storage.md
-    - name: Standard SSDs
-      href: disks-standard-ssd.md
-    - name: Ultra SSDs
-      href: disks-ultra-ssd.md
-    - name: Premium storage performance
+    - name: Select a disk type for IaaS VMs
+      href: disks-types.md
+    - name: Designing for high performance
       href: premium-storage-performance.md
-    - name: Standard storage
-      href: standard-storage.md
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
-      href: backup-and-disaster-recovery-for-azure-iaas-disks.md           
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md     
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
@@ -132,12 +125,8 @@
     href: backup-recovery.md
   - name: High performance computing
     href: high-performance-computing.md
-  - name: Deployment considerations
-    items:
-    - name: Infrastructure guidelines
-      href: infrastructure-example.md
-    - name: vCPU quotas
-      href: quotas.md
+  - name: Infrastructure example
+    href: infrastructure-example.md
 - name: How-to guides
   items:
   - name: Create VMs
@@ -168,6 +157,8 @@
       href: windows-desktop-multitenant-hosting-deployment.md
   - name: Secure VMs
     items:
+    - name: Just-in-time access
+      href: ../../security-center/security-center-just-in-time.md
     - name: Encrypt
       href: encrypt-disks.md
       displayName: encryption
@@ -180,16 +171,29 @@
     - name: Create a Key Vault
       href: key-vault-setup.md
   - name: Protect VMs
-    href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     items:
+    - name: Back up VMs
+      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      items:
       - name: Back up a single VM
-        items:
-        - name: Azure portal
-          href: ../../backup/quick-backup-vm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Azure PowerShell
-          href: ../../backup/quick-backup-vm-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       - name: Back up multiple VMs
-        href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Restore a disk
+        href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Restore individual files
+        href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Set up disaster recovery for VMs
+      href: ../../site-recovery/site-recovery-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      items:
+      - name: Enable disaster recovery for a VM
+        href: ../../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Run a disaster recovery drill for a VM
+        href: ../../site-recovery/azure-to-azure-tutorial-dr-drill.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Fail over a VM to another region
+        href: ../../site-recovery/azure-to-azure-tutorial-failover-failback.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Move VMs to another region
+      href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Manage VMs
     items:
     - name: VM usage
@@ -245,6 +249,8 @@
       items: 
       - name: Overview
         href: shared-image-galleries.md
+      - name: Create shared images using PowerShell
+        href: shared-images.md
       - name: Create shared images using CLI
         href: ../linux/shared-images.md
       - name: Troubleshoot shared images
@@ -318,6 +324,8 @@
         href: attach-disk-ps.md
       - name: Azure portal
         href: attach-managed-disk-portal.md
+    - name: Benchmark a disk
+      href: disks-benchmarks.md
     - name: Detach a disk
       href: detach-disk.md
     - name: Resize a disk
@@ -338,15 +346,13 @@
       href: using-managed-disks-template-deployments.md
     - name: Enable write accelerator
       href: how-to-enable-write-accelerator.md
-    - name: Using Ultra SSD
+    - name: Enable ultra SSDs
       href: disks-enable-ultra-ssd.md
     - name: Migrate to Managed Disks
       href: migrate-to-managed-disks.md
       items:
       - name: Unmanaged VM to Managed Disks
         href: convert-unmanaged-to-managed-disks.md
-      - name: Single Classic VM to Resource Manager
-        href: migrate-single-classic-to-resource-manager.md
   - name: Manage networking
     href: ps-common-network-ref.md
     items:
@@ -430,6 +436,8 @@
     href: /rest/api/compute
   - name: Managed Disks REST
     href: /rest/api/compute/disks
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.compute/allversions
 - name: Resources
   items:
   - name: Author templates

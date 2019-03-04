@@ -4,8 +4,8 @@ description: Describes how you can do a pay as you go upgrade from a free subscr
 keywords: pay as you go upgrade
 services: ''
 documentationcenter: ''
-author: jlian
-manager: jlian
+author: bandersmsft
+manager: alherz
 editor: ''
 tags: billing
 
@@ -16,7 +16,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2017
-ms.author: cwatson
+ms.author: banders
 ms.custom: H1Hack27Feb2017
 ---
 # Upgrade your Free Trial or Microsoft Imagine Azure subscription to Pay-As-You-Go

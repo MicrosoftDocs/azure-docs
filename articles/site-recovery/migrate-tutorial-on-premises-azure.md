@@ -1,11 +1,10 @@
 ---
 title: Migrate on-premises machines to Azure with Azure Site Recovery | Microsoft Docs
 description: This article describes how to migrate on-premises machines to Azure, using Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/12/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -28,7 +27,7 @@ This tutorial shows you how to migrate on-premises VMs and physical servers to A
 This is the third tutorial in a series. This tutorial assumes that you have already completed the tasks in the previous tutorials:
 
 1. [Prepare Azure](tutorial-prepare-azure.md)
-2. Prepare on-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md) or [Hyper-V] (hyper-v-prepare-on-premises-tutorial.md) servers.
+2. Prepare on-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md) or [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) servers.
 
 Before you start, it's helpful to review the [VMware](vmware-azure-architecture.md) or [Hyper-V](hyper-v-azure-architecture.md) architectures for disaster recovery.
 
@@ -41,7 +40,7 @@ Devices exported by paravirtualized drivers aren't supported.
 ## Create a Recovery Services vault
 
 1. Sign in to the [Azure portal](https://portal.azure.com) > **Recovery Services**.
-2. Click **Create a resource** > **Monitoring & Management** > **Backup and Site Recovery**.
+2. Click **Create a resource** > **Management Tools** > **Backup and Site Recovery**.
 3. In **Name**, specify the friendly name **ContosoVMVault**. If you have more than one
    subscription, select the appropriate one.
 4. Create a resource group **ContosoRG**.
@@ -107,7 +106,10 @@ Run a failover for the machines you want to migrate.
 3. The encryption key setting isn't relevant for this scenario.
 4. Select **Shut down machine before beginning failover**. Site Recovery will attempt to shutdown virtual machines before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page.
 5. Check that the Azure VM appears in Azure as expected.
-6. In **Replicated items**, right-click the VM > **Complete Migration**. This finishes the migration process, stops replication for the VM, and stops Site Recovery billing for the VM.
+6. In **Replicated items**, right-click the VM > **Complete Migration**. This does the following:
+
+    - Finishes the migration process, stops replication for the AWS VM, and stops Site Recovery billing for the VM.
+    - This step cleans up the replication data. It doesn't delete the migrated VMs.
 
     ![Complete migration](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
 
@@ -129,7 +131,7 @@ Some steps can be automated as part of the migration process using the in-built 
 - Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations. 
 - Perform final application and migration acceptance testing on the migrated application now running in Azure.
 - The [Azure VM agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) manages VM interaction with the Azure Fabric Controller. It's required for some Azure services, such as Azure Backup, Site Recovery, and Azure Security.
-    - If you're migrating VMware machines and physical servers, the Mobility Service installer installs available Azure VM agent on Windows machines. On Linux VMs, we recommend that you install the agent after failover. a
+    - If you're migrating VMware machines and physical servers, the Mobility Service installer installs available Azure VM agent on Windows machines. On Linux VMs, we recommend that you install the agent after failover.
     - If you’re migrating Azure VMs to a secondary region, the Azure VM agent must be provisioned on the VM before the migration.
     - If you’re migrating Hyper-V VMs to Azure, install the Azure VM agent on the Azure VM after the migration.
 - Manually remove any Site Recovery provider/agent from the VM. If you migrate VMware VMs or physical servers, [uninstall the Mobility service][vmware-azure-install-mobility-service.md#uninstall-mobility-service-on-a-windows-server-computer] from the Azure VM.

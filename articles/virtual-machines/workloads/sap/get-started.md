@@ -3,8 +3,8 @@ title: Getting started with SAP on Azure VMs | Microsoft Docs
 description: Learn about SAP solutions running on virtual machines (VMs) in Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: jeconnoc
+author: msjuergent
+manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,8 +15,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/13/2018
-ms.author: rclaus
+ms.date: 02/05/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -24,24 +24,25 @@ ms.custom: H1Hack27Feb2017
 
 # Using Azure for hosting and running SAP workload scenarios
 
-By choosing Microsoft Azure as your SAP ready cloud partner, you are able to reliably run your mission critical SAP workloads and scenarios on a scalable, compliant, and enterprise-proven platform.  Get the scalability, flexibility, and cost savings of Azure. With the expanded partnership between Microsoft and SAP, you can run SAP applications across dev/test and production scenarios in Azure - and be fully supported. From SAP NetWeaver to SAP S4/HANA, SAP BI, Linux to Windows, SAP HANA to SQL, we have you covered.
+By choosing Microsoft Azure, you are able to reliably run your mission critical SAP workloads and scenarios on a scalable, compliant, and enterprise-proven platform.  Get the scalability, flexibility, and cost savings of Azure. With the expanded partnership between Microsoft and SAP, you can run SAP applications across dev/test and production scenarios in Azure - and be fully supported. From SAP NetWeaver to SAP S/4HANA, SAP BI, Linux to Windows, SAP HANA to SQL, we have you covered.
 
-Besides hosting SAP NetWeaver scenarios with the different DBMS on Azure, you can host different other SAP workload scenarios, like SAP BI on Azure. Documentation regarding SAP NetWeaver deployments on Azure native Virtual Machines can be found in the section "SAP NetWeaver on Azure Virtual Machines."
+Besides hosting SAP NetWeaver scenarios with the different DBMS on Azure, you can host different other SAP workload scenarios, like SAP BI on Azure. 
 
-The uniqueness of Azure for SAP HANA is a unique offer that sets Azure apart from competition. In order to enable hosting more memory and CPU resource demanding SAP scenarios involving SAP HANA, Azure offers the usage of customer dedicated bare-metal hardware for the purpose of running SAP HANA deployments that require up to 20 TB (60 TB scale-out) of memory for S/4HANA or other SAP HANA workload. This unique Azure solution of SAP HANA on Azure (Large Instances) allows you to run SAP HANA on the dedicated bare-metal hardware with the SAP application layer or workload middle-ware layer hosted in native Azure Virtual Machines. This solution is documented in several documents in the section "SAP HANA on Azure (Large Instances)."   
+The uniqueness of Azure for SAP HANA is an offer that sets Azure apart from competition. In order to enable hosting more memory and CPU resource demanding SAP scenarios involving SAP HANA, Azure offers the usage of customer dedicated bare-metal hardware for the purpose of running SAP HANA deployments that require up to 24 TB (120 TB scale-out) of memory for S/4HANA or other SAP HANA workload. This unique Azure solution of SAP HANA on Azure (Large Instances) allows you to run SAP HANA on the dedicated bare-metal hardware with the SAP application layer or workload middle-ware layer hosted in native Azure Virtual Machines. This solution is documented in several documents in the section "SAP HANA on Azure (Large Instances)."   
 
 Hosting SAP workload scenarios in Azure also can create requirements of Identity integration and Single-Sign-On using Azure Activity Directory to different SAP components and SAP SaaS or PaaS offers. A list of such integration and Single-Sign-On scenarios with Azure Active Directory (AAD) and SAP entities is described and documented in the section "AAD SAP Identity Integration and Single-Sign-On."
 
 ## Latest Changes
 
-Documentation around SAP HANA  Dynamic Tiering for Azure VMs
+Release of [SAP workload configurations with Azure Availability Zones](sap-ha-availability-zones.md)
 
-- [SAP HANA infrastructure configurations and operations on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations#sap-hana-dynamic-tiering-20-for-azure-virtual-machines)
+Release of [SAP workload planning and deployment checklist](sap-deployment-checklist.md)
 
-Documentation around SAP HANA Scale-out on Azure VM M128s got added to:
+Clarification around usage and configuration of [Azure Network Virtual Appliances](https://azure.microsoft.com/solutions/network-appliances/) in latency critical communication paths of SAP systems in:
 
-- [SAP HANA infrastructure configurations and operations on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations#configuring-azure-infrastructure-for-sap-hana-scale-out)
-- [SAP HANA availability within one Azure region](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region)
+- [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
+- [SAP HANA infrastructure configurations and operations on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
+
 
 
 ## SAP HANA on SAP HANA on Azure (Large Instances)
@@ -62,9 +63,9 @@ Next steps:
 
 
 ## SAP HANA on Azure Virtual Machines
-This section of the documentation covers different aspects of SAP HANA. As a prerequisite, you should be familiar with the principal services of Azure that provide elementary services of Azure IaaS, so mostly knowledge of Azure compute, storage, and networking. A lot of those topics are handled in the SAP NetWeaver related [Azure Planning Guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide). 
+This section of the documentation covers different aspects of SAP HANA. As a prerequisite, you should be familiar with the principal services of Azure that provide elementary services of Azure IaaS, so mostly knowledge of Azure compute, storage, and networking. Many of those topics are handled in the SAP NetWeaver related [Azure Planning Guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide). 
 
-The documentation specific for HANA on Azure consists of this list of articles and their sub-articles:
+The documentation specific for HANA on Azure consists of this list of articles and their subarticles:
 
 - [Quickstart: Manual installation of single-instance SAP HANA on Azure VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started)
 - [Deploy SAP S/4HANA or BW/4HANA on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h)
@@ -80,7 +81,7 @@ The documentation specific for HANA on Azure consists of this list of articles a
  
 
 ## SAP NetWeaver deployed on Azure Virtual Machines
-In this section you find planning and deployment documentation for SAP NetWeaver and Business One on Azure. The documentation in this chapter is focused mostly around the basics and the usage of non-HANA databases with SAP workload on Azure. Whereas the documents and articles for HA are foundation for HANA high availability in Azure as well. the articles list like:
+In this section, you find planning and deployment documentation for SAP NetWeaver and Business One on Azure. The documentation in this chapter is focused mostly around the basics and the usage of non-HANA databases with SAP workload on Azure. Whereas the documents and articles for HA are foundation for HANA high availability in Azure as well. the articles list like:
 
 - [SAP Business One on Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/business-one-azure)
 - [Deploy SAP IDES EHP7 SP3 for SAP ERP 6.0 on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-ides-erp6-erp7-sp3-sql)
@@ -101,7 +102,7 @@ Regarding non-HANA databases under SAP workload on azure the documents list like
 
 For SAP HANA databases on Azure, check the section SAP HANA on Azure Virtual Machines.
 
-For high availability of SAP workload on Azure the entry document is:
+For high availability of SAP workload on Azure, the entry document is:
 
 - [Azure Virtual Machines high availability for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-start)
 

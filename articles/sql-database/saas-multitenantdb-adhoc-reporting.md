@@ -8,10 +8,10 @@ ms.custom:
 ms.devlang: 
 ms.topic: conceptual
 author: AyoOlubeko
-ms.author: AyoOlubeko
+ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 10/30/2018
 ---
 # Run ad hoc analytics queries across multiple Azure SQL databases
 

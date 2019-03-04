@@ -5,7 +5,7 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: "include"
-ms.date: 09/11/2018
+ms.date: 10/19/2018
 ms.author: tamram
 ms.custom: "include file"
 ---
@@ -17,7 +17,7 @@ Storage costs are calculated according to the following factors: region/location
 * **Region** refers to the geographical region in which your account is based.
 * **Account type** refers to the type of storage account you are using. 
 * **Access tier** refers to the data usage pattern you have specified for your general-purpose v2 or Blob storage account.
-* Storage **capacity** refers to how much of your storage account allotment you are using to store data.
+* Storage **Capacity** refers to how much of your storage account allotment you are using to store data.
 * **Replication** determines how many copies of your data are maintained at one time, and in what locations.
 * **Transactions** refer to all read and write operations to Azure Storage.
 * **Data egress** refers to any data transferred out of an Azure region. When the data in your storage account is accessed by an application that is not running in the same region, you are charged for data egress. For information about using resource groups to group your data and services in the same region to limit egress charges, see [What is an Azure resource group?](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group). 

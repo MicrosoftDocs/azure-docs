@@ -12,9 +12,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
+ms.reviewer: anajod
+ms.lastreviewed: 01/14/2019
 ---
 
 # Tutorial: Configure hybrid cloud identity for Azure and Azure Stack applications
@@ -73,7 +74,7 @@ To connect to Azure Stack using code, use the Azure Resource Manager endpoints A
 [GitHub](https://github.com/shriramnat/HybridARMApplication).
 
 >[!Note]
->Unless the Azure SDK for your language of choice supports Azure API Profiles, the SDK may not work with Azure Stack. To learn more about Azure API Profiles, see the [manage API version profiles](https://docs.microsoft.com/da-dk/azure/azure-stack/user/azure-stack-version-profiles) article.
+>Unless the Azure SDK for your language of choice supports Azure API Profiles, the SDK may not work with Azure Stack. To learn more about Azure API Profiles, see the [manage API version profiles](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles) article.
 
 ## Next steps
 

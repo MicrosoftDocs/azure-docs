@@ -1,27 +1,28 @@
 ---
-title: LUIS Prebuilt entities ordinal reference - Azure | Microsoft Docs
+title: Ordinal Prebuilt entity
 titleSuffix: Azure
 description: This article contains ordinal prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 02/28/2019
 ms.author: diberry
 ---
 
-# Ordinal entity
+# Ordinal prebuilt entity for a LUIS app
 Ordinal number is a numeric representation of an object inside a set: `first`, `second`, `third`. Because this entity is already trained, you do not need to add example utterances containing ordinal to the application intents. Ordinal entity is supported in [many cultures](luis-reference-prebuilt-entities.md). 
 
 ## Types of ordinal
-Ordinal is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45) Github repository
+Ordinal is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45) GitHub repository
 
 ## Resolution for prebuilt ordinal entity
 The following example shows the resolution of the **builtin.ordinal** entity.
 
-```JSON
+```json
 {
   "query": "Order the second option",
   "topScoringIntent": {

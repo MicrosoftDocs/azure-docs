@@ -1,3 +1,10 @@
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+---
 ### Prerequisites
 * A [ProjectOnline](https://products.office.com/Project/project-online-with-project-for-office-365) account 
 

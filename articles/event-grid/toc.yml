@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Event Grid
+  - name: What is Event Grid?
     href: overview.md
   - name: Compare messaging services
     href: compare-messaging-services.md
@@ -93,6 +93,10 @@
     href: security-authentication.md
   - name: Delivery and retry
     href: delivery-and-retry.md
+  - name: Event filtering
+    href: event-filtering.md
+  - name: Event Domains
+    href: event-domains.md
   - name: Event sources
     href: event-sources.md
   - name: Event handlers
@@ -105,6 +109,8 @@
     href: receive-events.md
   - name: Dead letter and retry
     href: manage-event-delivery.md
+  - name: Filter events
+    href: how-to-filter-events.md
   - name: Monitor event delivery
     href: monitor-event-delivery.md
   - name: Query event subscriptions
@@ -115,6 +121,10 @@
     href: input-mappings.md
   - name: Use CloudEvents schema
     href: cloudevents-schema.md
+  - name: Manage topics with Event Domains
+    href: how-to-event-domains.md
+  - name: Implement client-side failover
+    href: custom-disaster-recovery.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -144,6 +154,8 @@
       href: event-schema-resource-groups.md
     - name: Service Bus
       href: event-schema-service-bus.md
+    - name: Azure Maps
+      href: event-schema-azure-maps.md
   - name: Template resources
     items:
     - name: Event subscriptions
