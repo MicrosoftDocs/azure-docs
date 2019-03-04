@@ -11,7 +11,7 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 03/04/2019
 ---
 # Use PowerShell to configure SQL Database auditing and threat detection
 
@@ -25,7 +25,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 ## Sample script
 
-[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.ps1?highlight=13-14 "Configure auditing and threat detection")]
+[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.ps1?highlight=15-16 "Configure auditing and threat detection")]
 
 ## Clean up deployment
 
