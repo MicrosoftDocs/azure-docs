@@ -24,18 +24,18 @@ To create a telemetry rule, the device template must have at least one telemetry
 
 1. Using Device Explorer, navigate to the device template for which you are adding the rule for.
 
-1. Under the selected template, click on an existing device. 
+1. Under the selected template, select an existing device.
 
-    >[!TIP] 
+    >[!TIP]
     >If the template doesn't have any devices then add a new device first.
 
 1. If you haven’t created any rules yet, you will see the following screen:
 
     ![No rules yet](media/howto-create-telemetry-rules/Rules_Landing_Page.png)
 
-1. On the **Rules** tab, click **Edit Template** and then **+ New Rule** to see the types of rules you can create.
+1. On the **Rules** tab, select **Edit Template** and then **+ New Rule** to see the types of rules you can create.
 
-1. Click **Telemetry** to create a rule to monitor device telemetry.
+1. Select **Telemetry** to create a rule to monitor device telemetry.
 
     ![Rule Types](media/howto-create-telemetry-rules/Rule_Types.png)
 
@@ -52,7 +52,7 @@ To create a telemetry rule, the device template must have at least one telemetry
 
 Condition defines the criteria that is monitored by the rule.
 
-1. Click **+** next to **Conditions** to add a new condition.
+1. Select **+** next to **Conditions** to add a new condition.
 
 1. Select the telemetry you want to monitor from the **Measurement** dropdown.
 

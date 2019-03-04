@@ -72,4 +72,4 @@ The app can verify that two anchors are connected by issuing a query for nearby 
 
 ### Sample code
 
-You can see sample code that shows you how to connect anchors and do nearby queries. Refer to the Azure Spatial Anchors sample apps on GitHub.
+You can see sample code that shows you how to connect anchors and do nearby queries. Refer to the [Azure Spatial Anchors sample apps](https://github.com/Azure/azure-spatial-anchors-samples) on GitHub.

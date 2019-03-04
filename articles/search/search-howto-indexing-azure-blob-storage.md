@@ -2,7 +2,7 @@
 title: Index Azure Blob storage content for full text search - Azure Search
 description: Learn how to index Azure Blob Storage and extract text from documents with Azure Search.
 
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein 
 manager: cgronlun
 ms.author: magottei
@@ -65,7 +65,8 @@ For more on the Create Datasource API, see [Create Datasource](https://docs.micr
 
 You can provide the credentials for the blob container in one of these ways:
 
-- **Full access storage account connection string**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. You can get the connection string from the Azure portal by navigating to the storage account blade > Settings > Keys (for Classic storage accounts) or Settings > Access keys (for Azure Resource Manager storage accounts).
+- **Full access storage account connection string**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`
+ You can get the connection string from the Azure portal by navigating to the storage account blade > Settings > Keys (for Classic storage accounts) or Settings > Access keys (for Azure Resource Manager storage accounts).
 - **Storage account shared access signature** (SAS) connection string: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`
  The SAS should have the list and read permissions on containers and objects (blobs in this case).
 -  **Container shared access signature**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`

@@ -34,6 +34,7 @@ The following table describes the purpose and content of these fields.
 | **Summary**               | Brief purpose or function of solution.  Maximum length of 100 characters. |
 | **Long Summary**          | Purpose or function of solution.  Maximum length of 256 characters. |
 | **Description**           | Description of solution.  Maximum length of 3000 characters, supports simple HTML formatting. |
+| **Microsoft CSP Reseller channel** | Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](../../cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels. |
 | **Marketing Identifier**  | A unique URL to associate to this offer, typically includes your organization and solution name, maximum length 50 characters.  For example: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **Preview Subscription IDs** | Add one to 100 subscription identifiers of previewers. These white-listed subscriptions will have access to the offer once it's published, before it goes live. |
 | **Useful Links**          | Add URLs to the documentations, release notes, FAQs, and so on. |
