@@ -100,6 +100,7 @@ There are two ways to stop protecting a VM:
 >* If you stop backup jobs and keep the backup data, the recovery points won't expire according to the backup policy because garbage collection (GC) doesn't run for inactive data sources. You'll be charged for the protected instances and the consumed storage. The recovery points will be cleaned up only after you resume backups (reenable protection) according to the policy or after you manually delete the backup data.
 >* If you delete a data source without stopping backups, new backups will fail. Old recovery points will expire according to the policy, but one last recovery point will always be kept until you stop the backups and delete the data.
 >
+
 To stop protection for a VM:
 
 1. On the [vault item's dashboard](#view-vms-in-the-dashboard), select **Stop backup**.
