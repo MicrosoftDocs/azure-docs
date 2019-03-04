@@ -88,7 +88,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![MerchLogix Provisioning](./media/merchlogix-provisioning-tutorial/Merchlogix1.PNG)
+	![MerchLogix Provisioning](./media/merchlogix-provisioning-tutorial/Merchlogix1.png)
 
 5. Under the **Admin Credentials** section:
 
