@@ -6,7 +6,7 @@ author: kuhussai
 
 ms.service: storage
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/05/2019
 ms.author: kuhussai
 ms.subservice: blobs
 ---
