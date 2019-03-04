@@ -30,8 +30,8 @@ Usually, when reading from relational stores, you want to read only the data cor
 
 ```json
 "source": {
-	"type": "SqlSource",
-	"sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm\\'', WindowStart, WindowEnd)"
+    "type": "SqlSource",
+    "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm\\'', WindowStart, WindowEnd)"
 },
 ```
 This query reads data that falls in the slice duration range (WindowStart -> WindowEnd) from the table MyTable. Rerun of this slice would also always ensure that the same data is read.
@@ -41,8 +41,8 @@ In other cases, you may wish to read the entire table and may define the sqlRead
 ```json
 "source":
 {
-	"type": "SqlSource",
-	"sqlReaderQuery": "select * from MyTable"
+    "type": "SqlSource",
+    "sqlReaderQuery": "select * from MyTable"
 },
 ```
 
@@ -114,22 +114,22 @@ This column is used by Azure Data Factory for repeatability purposes and in the 
 
 Source table:
 
-	```sql
-	CREATE TABLE [dbo].[Student](
+    ```sql
+    CREATE TABLE [dbo].[Student](
        [Id] [varchar](32) NOT NULL,
        [Name] [nvarchar](256) NOT NULL
-	)
-	```
+    )
+    ```
 
 Destination table:
 
-	```sql
-	CREATE TABLE [dbo].[Student](
+    ```sql
+    CREATE TABLE [dbo].[Student](
        [Id] [varchar](32) NOT NULL,
        [Name] [nvarchar](256) NOT NULL,
        [AdfSliceIdentifier] [binary](32) NULL
-	)
-	```
+    )
+    ```
 
 2. Use it in the copy activity as follows:
 
