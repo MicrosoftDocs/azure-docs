@@ -13,7 +13,7 @@ ms.custom: seodec2018
 ---
 # Deployment strategies and best practices for optimizing performance on Azure Search
 
-This article describes best practices for advanced scenarios with sophisticated requirements for scalability, multi-language support, or custom ranking. In addition, this document outlines internals and covers approaches that work effectively in real-world customer apps.
+This article describes best practices for advanced scenarios with sophisticated requirements for scalability and availability. 
 
 ## Develop baseline numbers
 When optimizing for search performance, you should focus on reducing query execution time. To do that, you need to know what a typical query load looks like. The following guidelines can help you arrive at baseline query numbers.
@@ -35,13 +35,13 @@ While creating these test workloads, there are some characteristics of Azure Sea
 > 
 > 
 
-## Scaling Azure Search for high query rates and throttled requests
+## Scaling for high query volume and throttled requests
 When you are receiving too many throttled requests, or exceed your target latency rates from an increased query load, you can look to decrease latency rates in one of two ways:
 
 1. **Increase Replicas:**  A replica is like a copy of your data allowing Azure Search to load balance requests against the multiple copies.  All load balancing and replication of data across replicas is managed by Azure Search and you can alter the number of replicas allocated for your service at any time.  You can allocate up to 12 replicas in a Standard search service and 3 replicas in a Basic search service. Replicas can be adjusted either from the [Azure portal](search-create-service-portal.md) or [PowerShell](search-manage-powershell.md).
 2. **Increase Search Tier:**  Azure Search comes in a [number of tiers](https://azure.microsoft.com/pricing/details/search/) and each of these tiers offers different levels of performance.  In some cases, you may have so many queries that the tier you are on cannot provide sufficiently low latency rates, even when replicas are maxed out. In this case, you may want to consider leveraging one of the higher search tiers such as the Azure Search S3 tier that is well-suited for scenarios with large numbers of documents and extremely high query workloads.
 
-## Scaling Azure Search for slow individual queries
+## Scaling for slow individual queries
 Another reason for high latency rates is a single query taking too long to complete. In this case, adding replicas will not help. Two options possible options that might help include the following:
 
 1. **Increase Partitions** A partition is a mechanism for splitting your data across extra resources. Adding a second partition splits data into two, a third partition splits it into three, and so forth. One positive side-effect is that slower queries sometimes perform faster due to parallel computing. We have noted parallelization on low selectivity queries, such as queries that match many documents, or facets providing counts over a large number of documents. Since significant computation is required to score the relevancy of the documents, or to count the numbers of documents, adding extra partitions helps queries complete faster.  
@@ -62,7 +62,7 @@ For more details on this, please visit the [Azure Search Service Level Agreement
 
 Since replicas are copies of your data, having multiple replicas allows Azure Search to do machine reboots and maintenance against one replica while allowing query execution to continue on other replicas. Conversely, if you take replicas away, you'll incur query performance degradation, assuming those replicas were an under-utilized resource.
 
-## Scaling geo-distributed workloads and provide geo-redundancy
+## Scaling for geo-distributed workloads and geo-redundancy
 For geo-distributed workloads, users who are located far from the data center hosting Azure Search will have higher latency rates. One mitigation is to provision multiple search services in regions with closer proximity to these users. Azure Search does not currently provide an automated method of geo-replicating Azure Search indexes across regions, but there are some techniques that can be used that can make this process simple to implement and manage. These are outlined in the next few sections.
 
 The goal of a geo-distributed set of search services is to have two or more indexes available in two or more regions where a user is routed to the Azure Search service that provides the lowest latency as seen in this example:
@@ -72,22 +72,23 @@ The goal of a geo-distributed set of search services is to have two or more inde
 ### Keeping data in sync across multiple Azure Search services
 There are two options for keeping your distributed search services in sync which consist of either using the [Azure Search Indexer](search-indexer-overview.md) or the Push API (also referred to as the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)).  
 
-### Azure Search indexers
-Indexers, which exist for specific Azure data sources, simplify and automate data ingestion through a combination of schedules and by leveraging the change tracking inherent to specific platforms (SQL Database and Cosmos DB). For data sources that have change tracking, an indexer can index only those documents that have changed since the last indexing job.  
+### Use indexers for updating content on multiple services
 
-Here is an example of what that architecture would look like.
+If you are already using indexer on one service, you can configure a second indexer on a second service to use the same data source object, pulling data from the same location. Each service in each region has its own indexer and a target index (your search corpus is not shared, which means data is duplicated), but each indexer references the same data source.
+
+Here is a high-level visual of what that architecture would look like.
 
    ![Single data source with distributed indexer and service combinations][2]
 
-### Push API
+### Use REST APIs for pushing content updates on multiple services
 If you are using the Azure Search REST API to [push content in your Azure Search index](https://docs.microsoft.com/rest/api/searchservice/update-index), you can keep your various search services in sync by pushing changes to all search services whenever an update is required. In your code, make sure to handle cases where an update to one search service fails but fails for other search services.
 
-## Leveraging Azure Traffic Manager
+## Leverage Azure Traffic Manager
 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) allows you to route requests to multiple geo-located websites that are then backed by multiple Azure Search Services. One advantage of the Traffic Manager is that it can probe Azure Search to ensure that it is available and route users to alternate search services in the event of downtime. In addition, if you are routing search requests through Azure Web Sites, Azure Traffic Manager allows you to load balance cases where the Website is up but not Azure Search. Here is an example of what the architecture that leverages Traffic Manager.
 
    ![Cross-tab of services by region, with central Traffic Manager][3]
 
-## Monitoring performance
+## Monitor performance
 Azure Search offers the ability to analyze and monitor the performance of your service through [search traffic analytics](search-traffic-analytics.md). When you enable this functionality and add instrumentation to your client app, you can optionally log the individual search operations as well as aggregated metrics to an Azure Storage account that can then be processed for analysis or visualized in Power BI. Metrics captures this way provide performance statistics such as average number of queries or query response times. In addition, the operation logging allows you to drill into details of specific search operations.
 
 Traffic analytics is useful for understanding latency rates from that Azure Search perspective. Since the query performance metrics logged are based on the time a query takes to be fully processed in Azure Search (from the time it is requested to when it is sent out), you are able to use this to determine if latency issues are from the Azure Search service side or outside of the service, such as from network latency.  
