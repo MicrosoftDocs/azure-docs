@@ -13,17 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2019
+ms.date: 03/05/2019
 ms.author: sethm
 ms.reviewer: efemmano
-ms.lastreviewed: 02/28/2019
+ms.lastreviewed: 03/05/2019
 
 ---
 # Create a plan in Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-[Plans](azure-stack-key-features.md) are groupings of one or more services. As a provider, you can create plans to offer to your users. In turn, your users subscribe to your offers to use the plans and services they include. This example shows you how to create a plan that includes the compute, network, and storage resource providers. This plan gives subscribers the ability to provision virtual machines.
+[Plans](azure-stack-key-features.md) are groupings of one or more services and their quotas. As a provider, you can create plans to offer to your users. In turn, your users subscribe to your offers to use the plans, services, and quotas they include. This example shows you how to create a plan that includes the compute, network, and storage resource providers. This plan gives subscribers the ability to provision virtual machines.
 
 1. Sign in to the [Azure Stack administrator portal](https://adminportal.local.azurestack.external).
 
@@ -33,7 +33,7 @@ ms.lastreviewed: 02/28/2019
 
 3. You are presented with a tabbed user interface that enables you to specify the plan name, add services, and define quotas for each of the selected services. Most importantly, you can review the details of the offer you create, before you decide to create it.
 
-   Under the **Basics** tab of the **New plan** window, enter a **Display name** and a **Resource name**. The display name is the plan's friendly name that users can see. Only the administrator can see the resource name, which is used to work with the plan as an Azure Resource Manager resource.
+   Under the **Basics** tab of the **New plan** window, enter a **Display name** and a **Resource name**. The display name is the plan's friendly name that operators can see. Note that in the administrator portal, plan details are only visible to operators.
 
    ![Specify details](media/azure-stack-create-plan/plan-name.png)
 
@@ -45,7 +45,7 @@ ms.lastreviewed: 02/28/2019
   
    ![Select services](media/azure-stack-create-plan/services.png)
 
-6. Select the **Quotas** tab. Next to **Microsoft.Storage**, choose either the default quota or select **Create New** to create a customized quota.
+6. Select the **Quotas** tab. Next to **Microsoft.Storage**, choose either the default quota from the dropdown box, or select **Create New** to create a customized quota.
   
    ![Quotas](media/azure-stack-create-plan/quotas.png)
 
