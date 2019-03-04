@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 02/15/2019
+ms.date: 03/06/2019
 ms.author: alkohli
 ---
 
@@ -33,7 +33,7 @@ Follow these steps to remotely connect from a Windows client.
 
     `Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell`
 
-6. Provide the password when prompted. Use the same password that is used to sign into the local web UI, *Password1*. When you successfully connect to the device using remote PowerShell, you see the following sample output:  
+6. Provide the password when prompted. Use the same password that is used to sign into the local web UI. The default local web UI password is *Password1*. When you successfully connect to the device using remote PowerShell, you see the following sample output:  
 
     ```
     Windows PowerShell
@@ -49,9 +49,9 @@ Follow these steps to remotely connect from a Windows client.
     [10.100.10.10]: PS>
     ```
 
-### Remotely connect from an NFS client
+### Remotely connect from a Linux client
 
-On the NFS client that you will use to connect:
+On the Linux client that you will use to connect:
 
 - [Install the latest PowerShell Core for Linux](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6) from GitHub to get the SSH remoting feature. 
 - [Install only the `gss-ntlmssp` package from the NTLM module](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). For Ubuntu clients, use the following command:

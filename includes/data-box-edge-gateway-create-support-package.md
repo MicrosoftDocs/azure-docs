@@ -33,4 +33,4 @@ If you experience any device issues, you can create a support package from the s
     - `-IncludeArchived` - Specify to include archived logs in the support package.
     - `-IncludePeriodicStats` - Specify to include periodic stat logs in the support package.
 
-    The support session stays enabled for 8 hours. To disable the support session anytime, use the `Disable-HcsSupportAccess` cmdlet.
+    

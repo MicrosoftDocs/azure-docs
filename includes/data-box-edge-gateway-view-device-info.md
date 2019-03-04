@@ -2,11 +2,11 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 02/15/2019
+ms.date: 03/04/2019
 ms.author: alkohli
 ---
 
-1. Connect to the Windows PowerShell interface.
+1. Connect to the PowerShell interface.
 2. Use the `Get-HcsApplianceInfo` to get the information for your device.
 
     The following example shows the usage of this cmdlet:

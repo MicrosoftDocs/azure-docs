@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 02/15/2019
+ms.date: 03/04/2019
 ms.author: alkohli
 ---
 
@@ -32,7 +32,7 @@ To troubleshoot any issues that you might experience with your device, you will 
 
 5. Send this key to the Support Engineer in email. Microsoft will send you an access key for the support session.
 
-6. Use the password in the following command:
+6. Use the access key as the password in the following command:
 
     ``` 
     $supportSession = New-PSSession -ComputerName $ip -Credential ~\EdgeSupport -ConfigurationName SupportSession
