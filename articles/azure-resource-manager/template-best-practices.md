@@ -23,7 +23,7 @@ For recommendations about how to build templates that work in all Azure cloud en
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Parameters
-The information in this section can be helpful when you work with [parameters](resource-manager-templates-parameters.md).
+The information in this section can be helpful when you work with [parameters](resource-group-authoring-templates.md#parameters).
 
 ### General recommendations for parameters
 

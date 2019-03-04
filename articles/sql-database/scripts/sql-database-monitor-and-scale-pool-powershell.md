@@ -18,6 +18,7 @@ ms.date: 03/01/2019
 This PowerShell script example monitors the performance metrics of an elastic pool, scales it to a higher compute size, and creates an alert rule on one of the performance metrics.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
 If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
@@ -40,15 +41,15 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
- [New-AzResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
-| [New-AzSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Creates a SQL Database server that hosts a single database or elastic pool. |
-| [New-AzSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool) | Creates an elastic pool. |
-| [New-AzSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | Creates a single database or database in an elastic pool. |
-| [Get-AzMetric](/powershell/module/azurerm.insights/get-azurermmetric) | Shows the size usage information for the database.|
-| [Add-AzureRMMetricAlertRule](/powershell/module/azurerm.insights/add-azurermmetricalertrule) | Adds or updates a metric-based alert rule. |
-| [Set-AzSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool) | Updates elastic pool properties |
-| [Add-AzureRMMetricAlertRule](/powershell/module/azurerm.insights/add-azurermmetricalertrule) | Sets an alert rule to automatically monitor DTUs in the future. |
-| [Remove-AzResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
+ [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a SQL Database server that hosts a single database or elastic pool. |
+| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Creates an elastic pool. |
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a single database or database in an elastic pool. |
+| [Get-AzMetric](/powershell/module/az.insights/get-azmetric) | Shows the size usage information for the database.|
+| [Add-AzMetricAlertRule](/powershell/module/az.insights/add-azmetricalertrule) | Adds or updates a metric-based alert rule. |
+| [Set-AzSqlElasticPool](/powershell/module/az.sql/set-azsqlelasticpool) | Updates elastic pool properties |
+| [Add-AzMetricAlertRule](/powershell/module/az.insights/add-azmetricalertrule) | Sets an alert rule to automatically monitor DTUs in the future. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 
 ## Next steps

@@ -18,6 +18,7 @@ ms.date: 03/01/2019
 This PowerShell script example monitors the performance metrics of a database, scales it to a higher compute size, and creates an alert rule on one of the performance metrics.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
 If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
@@ -27,7 +28,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 [!code-powershell-interactive[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=13-14 "Monitor and scale single database")]
 
 > [!TIP]
-> Use [Get-AzSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) to get the status of database operations and use [Stop-AzSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity) to cancels an update operation on the database.
+> Use [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) to get the status of database operations and use [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity) to cancels an update operation on the database.
 
 ## Clean up deployment
 
@@ -43,12 +44,12 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
- [New-AzResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
-| [New-AzSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Creates a SQL Database server that hosts a single database or elastic pool. |
-| [Get-AzMetric](/powershell/module/azurerm.insights/get-azurermmetric) | Shows the size usage information for the database.|
-| [Set-AzSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) | Updates database properties or moves a database into, out of, or between elastic pools. |
-| [Add-AzureRMMetricAlertRule](/powershell/module/azurerm.insights/add-azurermmetricalertrule) | Sets an alert rule to automatically monitor DTUs in the future. |
-| [Remove-AzResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
+ [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a SQL Database server that hosts a single database or elastic pool. |
+| [Get-AzMetric](/powershell/module/az.insights/get-azmetric) | Shows the size usage information for the database.|
+| [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Updates database properties or moves a database into, out of, or between elastic pools. |
+| [Add-AzMetricAlertRule](/powershell/module/az.insights/add-azmetricalertrule) | Sets an alert rule to automatically monitor DTUs in the future. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 
 ## Next steps
