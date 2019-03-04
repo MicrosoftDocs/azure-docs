@@ -191,6 +191,7 @@ featureFlags:
                                                 <h4>Relational Databases</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/sql-database/">SQL database as a service</a></li>
+                                                    <li><a class="barLink" href="/azure/virtual-machines/windows/sql/">SQL Server on an Azure VM</a></li>
                                                     <li><a class="barLink" href="/azure/sql-data-warehouse/">SQL Data Warehouse as a service</a></li>
                                                     <li><a class="barLink" href="/azure/postgresql/">PostgreSQL database as a service</a></li>
                                                     <li><a class="barLink" href="/azure/mysql/">MySQL database as a service</a></li>
@@ -1721,7 +1722,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://azure.microsoft.com/">
+                                            <a href="https://docs.microsoft.com/azure/azure-portal/">
                                                 <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="" />
                                                 <p>Microsoft Azure Portal</p>
                                             </a>

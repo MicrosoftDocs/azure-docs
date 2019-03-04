@@ -159,6 +159,8 @@
         href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
       - name: Cosmos DB indexer
         href: search-howto-index-cosmosdb.md
+      - name: One-to-many blob indexing
+        href: search-howto-index-one-to-many-blobs.md
       - name: CSV blob indexing
         href: search-howto-index-csv-blobs.md
       - name: JSON blob indexing
@@ -238,7 +240,7 @@
   - name: Azure CLI
     href: https://docs.microsoft.com/cli/azure/search?view=azure-cli-latest
   - name: Azure PowerShell
-    href: https://www.powershellgallery.com/packages/AzureRM.search/0.1.0-preview
+    href: /powershell/module/az.search 
   - name: .NET
     href: /dotnet/api/?term=microsoft.azure.search
   - name: .NET (Management)

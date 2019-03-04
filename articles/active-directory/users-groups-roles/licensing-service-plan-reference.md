@@ -5,18 +5,20 @@ description: Identifier map to manage Azure Active Directory licensing in the Az
 services: active-directory
 keywords: Azure Active Directory licensing service plans
 documentationcenter: ''
-author: curtand
+author: ajayanti1
 manager: mtillman
 editor: ''
 
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
+ms.subservice: users-groups-roles
 ms.date: 01/28/2019
 ms.author: curtand
-ms.reviewer: sumitp
+ms.reviewer: ajayanti1
 ms.custom: "it-pro;seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
+#Aruna Jayanti is minding this reference until it can be automated
 ---
 
 # Product names and service plan identifiers for licensing

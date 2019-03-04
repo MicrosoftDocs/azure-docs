@@ -101,7 +101,7 @@
     href: quickstarts-sdk/python-sdk.md
 - name: Tutorials
   items:
-  - name: Get metadata for Azure images
+  - name: Generate metadata for images
     href: Tutorials/storage-lab-tutorial.md
 - name: Concepts
   items:
@@ -125,9 +125,7 @@
     href: concept-detecting-color-schemes.md
   - name: Generating thumbnails
     href: concept-generating-thumbnails.md
-  - name: Extracting text with OCR
-    href: concept-extracting-text-ocr.md
-  - name: Recognizing printed and handwritten text
+  - name: Recognize printed and handwritten text
     href: concept-recognizing-text.md
   - name: Detecting adult and racy content
     href: concept-detecting-adult-content.md
