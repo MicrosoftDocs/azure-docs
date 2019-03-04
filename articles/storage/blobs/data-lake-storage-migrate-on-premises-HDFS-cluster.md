@@ -26,19 +26,16 @@ This article helps you complete these tasks:
 
 You need these things to complete the migration.
 
+* An Azure Storage account that **doesn't** have hierarchical namespaces enabled on it.
+
+* If you want to use Azure Data Lake Storage Gen2 account (A storage account that **does** have hierarchical namespaces enabled on it), then you might want to create it at this point.
+
 * An on-premises Hadoop cluster that contains your source data.
 
 * An [Azure Data Box device](https://azure.microsoft.com/services/storage/databox/). 
 
-    - [Order your Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered).
+    - [Order your Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered). While ordering your Box, remember to choose a storage account that **doesn't** have hierarchical namespaces enabled on it. This is because Data Box does not yet support direct ingestion into Azure Data Lake Storage Gen2. You will need to copy into a storage account and then do a second copy into the ADLS Gen2 account. Instructions for this are given in the steps below.
     - [Cable and connect your Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) to an on-premises network.
-
-* An Azure Storage account that **doesn't** have hierarchical namespaces enabled on it.
-
-* An Azure Data Lake Storage Gen2 account (A storage account that **does** have hierarchical namespaces enabled on it).
-A Hadoop cluster running in Azure (For example: An [HDInsight](https://azure.microsoft.com/services/hdinsight/) cluster).
-
-* The Azure-based Hadoop cluster is configured to use your Azure Data Lake Storage Gen2 account.
 
 If you are ready, let's start.
 
@@ -46,12 +43,12 @@ If you are ready, let's start.
 
 To copy the data from your on-premises HDFS store to a Data Box device, you'll set a few things up, and then use the [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) tool.
 
-If the amount of data that you are copying is more than the capacity of a single Data Box, you might have to break up your data set into sizes that do fit into your Data Boxes.
+If the amount of data that you are copying is more than the capacity of a single Data Box, you will have to break up your data set into sizes that do fit into your Data Boxes.
 
-Follow these steps to copy data to your Data Box via the REST APIs. The REST API interface will make the Data Box appear as a HDFS store to your cluster. 
+Follow these steps to copy data via the REST APIs of Blob/Object storage to your Data Box. The REST API interface will make the Data Box appear as a HDFS store to your cluster. 
 
 
-1. Before you copy the data via REST, you need to connect to the REST interface on the Data Box. Sign in to the local web UI of Data Box and go to **Connect and copy** page. Against the Azure storage account for your Data Box, under **Access settings**, locate and select **REST(Preview)**.
+1. Before you copy the data via REST, identify the security and connection primitives to connect to the REST interface on the Data Box. Sign in to the local web UI of Data Box and go to **Connect and copy** page. Against the Azure storage account for your Data Box, under **Access settings**, locate and select **REST(Preview)**.
 
     !["Connect and copy" page](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connect-rest.png)
 
@@ -61,12 +58,13 @@ Follow these steps to copy data to your Data Box via the REST APIs. The REST API
 
      !["Access storage account and upload data" dialog](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 
-3. Add the endpoint and the Data Box IP address to `/etc/hosts` on each node. 
+3. Add the endpoint and the Data Box IP address to `/etc/hosts` on each node.
 
     ```    
     10.128.5.42  mystorageaccount.blob.mydataboxno.microsoftdatabox.com
     ```
-        
+    If you are using some other mechanism for DNS, you should ensure that the Data Box endpoint can be resolved.
+    
 3. Set a shell variable `azjars` to point to the `hadoop-azure` and the `microsoft-windowsazure-storage-sdk` jar files. These files are under the Hadoop installation directory (You can check if these files exist by using this command `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure` where `<hadoop_install_dir>` is the directory where you have installed Hadoop  ) Use the full paths. 
     
     ```
