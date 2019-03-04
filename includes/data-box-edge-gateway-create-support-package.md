@@ -26,7 +26,7 @@ If you experience any device issues, you can create a support package from the s
 
     The parameters used are as follows:
 
-    - `-Path` - Specify the network or the local path to copy support package to. (Mandatory)
+    - `-Path` - Specify the network or the local path to copy support package to. (required)
     - `-Credential` - Specify the credentials to access the protected path.
     - `-Zip` - Specify to generate a zip file.
     - `-Include` - Specify to include the components to be included in the support package. If not specified, this includes `Default`.
