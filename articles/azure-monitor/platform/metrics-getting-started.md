@@ -52,7 +52,7 @@ By default, the chart shows the most recent 24 hours of metrics data. Use the **
 
 ## Apply dimension filters and splitting
 
-[Filtering](metrics-charts.md#apply-filters-to-charts) and [splitting](metrics-charts.md#segment-a-chart) are powerful diagnostic tools for the metrics that have dimensions. These feature show how various metric segments ("dimension values") impact the overall value of the metric, and allow you to identify possible outliers.
+[Filtering](metrics-charts.md#apply-filters-to-charts) and [splitting](metrics-charts.md#apply-splitting-to-a-chart) are powerful diagnostic tools for the metrics that have dimensions. These feature show how various metric segments ("dimension values") impact the overall value of the metric, and allow you to identify possible outliers.
 
 - **Filtering** lets you choose which dimension values are included in the chart. For example, you might want to show successful requests when charting the *server response time* metric. You would need to apply the filer on the *success of request* dimension. 
 
