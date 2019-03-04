@@ -1,33 +1,28 @@
 ---
-title: Azure Event Hubs bindings for Azure Functions
-description: Understand how to use Azure Event Hubs bindings in Azure Functions.
+title: Azure IoT Hub bindings for Azure Functions
+description: Understand how to use IoT Hub bindings in Azure Functions.
 services: functions
 documentationcenter: na
 author: craigshoemaker
 manager: jeconnoc
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
-ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 11/08/2017
+ms.date: 03/05/2019
 ms.author: cshoe
 
 ---
-# Azure IoT bindings for Azure Functions
+# Azure IoT Hub bindings for Azure Functions
 
-This article explains how to work with Azure Functions bindings for IoT devices. The IoT support is based on [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) triggers and output bindings.
-
-[Deploy Azure functions as IoT Edge modules](../iot-edge/tutorial-deploy-function.md)
-
-
+This article explains how to work with Azure Functions bindings for IoT Hub. The IoT Hub support is based on the [Azure Event Hubs Binding](link to event hub doc).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## Packages - Functions 1.x
 
-For Azure Functions version 1.x, the IoT bindings are provided in the [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet package, version 2.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs) GitHub repository.
+For Azure Functions version 1.x, the IoT Hub bindings are provided in the [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet package, version 2.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs) GitHub repository.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -39,7 +34,7 @@ For Functions 2.x, use the [Microsoft.Azure.WebJobs.Extensions.EventHubs](https:
 
 ## Trigger
 
-Use the IoT trigger to respond to an event sent to an event hub event stream. You must have read access to the underlying event hub to set up the trigger.
+Use the IoT Hub trigger to respond to an event sent to an IoT event hub event stream. You must have read access to the underlying event hub to set up the trigger.
 
 When an IoT function is triggered, the message passed to the function is typed as a string.
 
@@ -83,7 +78,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 [FunctionName("EventHubTriggerCSharp")]
 public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string myEventHubMessage, ILogger log)
 {
-    log.LogInformation($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
+    log.LogInformation($"C# IoT Hub trigger function processed a message: {myEventHubMessage}");
 }
 ```
 
@@ -121,7 +116,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 {
     foreach (var message in eventHubMessages)
     {
-        log.LogInformation($"C# Event Hub trigger function processed a message: {Encoding.UTF8.GetString(message.Body)}");
+        log.LogInformation($"C# IoT Hub trigger function processed a message: {Encoding.UTF8.GetString(message.Body)}");
         log.LogInformation($"EnqueuedTimeUtc={message.SystemProperties.EnqueuedTimeUtc}");
     }
 }
@@ -164,7 +159,7 @@ using System;
 
 public static void Run(string myEventHubMessage, TraceWriter log)
 {
-    log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
+    log.Info($"C# IoT Hub trigger function processed a message: {myEventHubMessage}");
 }
 ```
 
@@ -203,7 +198,7 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 {
     foreach (var message in eventHubMessages)
     {
-        log.Info($"C# Event Hub trigger function processed a message: {message}");
+        log.Info($"C# IoT Hub trigger function processed a message: {message}");
     }
 }
 ```
@@ -279,7 +274,7 @@ Here's the JavaScript code:
 
 ```javascript
 module.exports = function (context, eventHubMessage) {
-    context.log('Event Hubs trigger function processed message: ', myEventHubMessage);
+    context.log('IoT Hubs trigger function processed message: ', myEventHubMessage);
     context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
     context.log('SequenceNumber =', context.bindingData.sequenceNumber);
     context.log('Offset =', context.bindingData.offset);
@@ -356,7 +351,7 @@ import logging
 import azure.functions as func
 
 def main(event: func.EventHubEvent):
-    logging.info('Event Hubs trigger function processed message: ', event.get_body())
+    logging.info('IoT Hubs trigger function processed message: ', event.get_body())
     logging.info('  EnqueuedTimeUtc =', event.enqueued_time)
     logging.info('  SequenceNumber =', event.sequence_number)
     logging.info('  Offset =', event.offset)
@@ -522,7 +517,7 @@ Here's C# script code that creates multiple messages:
 ```cs
 public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessage, ILogger log)
 {
-    string message = $"Event Hub message created at: {DateTime.Now}";
+    string message = $"IoT Hub message created at: {DateTime.Now}";
     log.LogInformation(message);
     outputEventHubMessage.Add("1 " + message);
     outputEventHubMessage.Add("2 " + message);
@@ -594,8 +589,8 @@ Here's JavaScript code that sends a single message:
 ```javascript
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
-    context.log('Event Hub message created at: ', timeStamp);   
-    context.bindings.outputEventHubMessage = "Event Hub message created at: " + timeStamp;
+    context.log('IoT Hub message created at: ', timeStamp);   
+    context.bindings.outputEventHubMessage = "IoT Hub message created at: " + timeStamp;
     context.done();
 };
 ```
@@ -605,7 +600,7 @@ Here's JavaScript code that sends multiple messages:
 ```javascript
 module.exports = function(context) {
     var timeStamp = new Date().toISOString();
-    var message = 'Event Hub message created at: ' + timeStamp;
+    var message = 'IoT Hub message created at: ' + timeStamp;
 
     context.bindings.outputEventHubMessage = [];
 
@@ -640,8 +635,8 @@ import azure.functions as func
 
 def main(timer: func.TimerRequest) -> str:
     timestamp = datetime.datetime.utcnow()
-    logging.info('Event Hub message created at: %s', timestamp);   
-    return 'Event Hub message created at: {}'.format(timestamp)
+    logging.info('IoT Hub message created at: %s', timestamp);   
+    return 'IoT Hub message created at: {}'.format(timestamp)
 ```
 
 ### Output - Java example
