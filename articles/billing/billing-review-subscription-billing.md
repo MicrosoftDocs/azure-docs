@@ -73,8 +73,8 @@ Status code 200 (OK) is returned for a successful response, which contains a lis
         "meterDetails": "${meterDetails}"
       }
     }
-    ],
-    "nextLink": "${nextLinkURL}"
+  ],
+  "nextLink": "${nextLinkURL}"
 }
 ```
 
