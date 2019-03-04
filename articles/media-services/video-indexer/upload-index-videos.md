@@ -27,8 +27,8 @@ Once your video has been uploaded, Video Indexer, optionally encodes the video (
 ## Uploading considerations
 
 - When uploading your video based on the URL (preferred) the endpoint must be secured with TLS 1.2 (or higher)
-- The upload size with the URL option is limited to 30GB
-- The upload size with the byte array option is limited to 2GB
+- The upload size with the URL option is limited to 30 GB
+- The upload size with the byte array option is limited to 2 GB
 - The byte array option times out after 30 min
 - The URL provided in the `videoURL` param needs to be encoded
 
