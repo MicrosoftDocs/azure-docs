@@ -125,7 +125,11 @@ This section shows how to test connectivity from the simulated on-premises envir
    ping 10.2.0.68
    ```
 
+## Troubleshoot VPN issues
+
+For information about resolving VPN errors, see the article, [Troubleshoot a hybrid VPN connection](/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn).
+
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Troubleshoot a hybrid VPN connection](/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn?toc=/azure/terraform/toc.json&bc=/azure/bread/toc.json)
+> [Learn more about using Terraform in Azure](/azure/terraform)
