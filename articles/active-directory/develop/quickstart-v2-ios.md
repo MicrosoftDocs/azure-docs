@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.date: 09/23/2018
 ms.author: andret
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to learn how to sign in users and call Microsoft Graph from my iOS application.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Sign in users and call the Microsoft Graph API from an iOS native app

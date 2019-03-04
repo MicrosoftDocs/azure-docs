@@ -1,6 +1,6 @@
 ---
-title: Validate software updates from Microsoft in Azure Stack validation as a service | Microsoft Docs
-description: Learn how to validate software updates from Microsoft with validation as a service.
+title: Validate software updates from Microsoft in Azure Stack Validation as a Service | Microsoft Docs
+description: Learn how to validate software updates from Microsoft with Validation as a Service.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,9 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/24/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 01/14/2019
+
+
+
+ROBOTS: NOINDEX
 
 ---
 
@@ -21,40 +26,38 @@ ms.reviewer: johnhas
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Microsoft will periodically release updates to the Azure Stack software. These updates are provided to Azure Stack co-engineering partners in advance of being made publicly available so that they can validate the updates against their solutions and provide feedback to Microsoft.
+Microsoft will periodically release updates to the Azure Stack software. These updates are provided to Azure Stack coengineering partners. The updates are provided in advance of publicly available. You can check the updates against your solution and provide feedback to Microsoft.
 
-## Test an existing solution
+Microsoft software updates to Azure Stack are designated using a naming convention, for example, 1803 indicating the update is for March 2018. For information about the Azure Stack update policy, cadence and release notes are available, see [Azure Stack servicing policy](https://docs.microsoft.com/azure/azure-stack/azure-stack-servicing-policy).
 
-1. Sign in to the [validation portal](https://azurestackvalidation.com).
+## Prerequisites
 
-2. Select an existing solution where the updated from Microsoft has been deployed and select **Start** on the **Package Validation** tile.
+Before you exercise the monthly update process in VaaS, you should be familiar with the following items:
 
-    ![Package Validation](media/image3.png)
+- [Validation as a Service key concepts](azure-stack-vaas-key-concepts.md)
+- [Interactive feature verification testing](azure-stack-vaas-interactive-feature-verification.md)
 
-3. Enter the validation name.
+## Required tests
 
-4. Enter the URL to the OEM package that was installed on the solution at deployment time. Use the URL for the package stored on the Azure blob service. For more information, see [Create an Azure storage blob to store logs](azure-stack-vaas-set-up-account.md#create-an-azure-storage-blob-to-store-logs).
+The following tests should be executed in the following order for monthly software validation:
 
-5. Select **Upload** to add your deployment configuration file. Refer to the [Validating a New Azure Stack Solution](azure-stack-vaas-validate-solution-new.md) for information on uploading your deployment configuration file.
+1. Monthly Azure Stack Update Verification
+2. Cloud Simulation Engine
 
-6. The deployment configuration file must then be customized with the correct environment parameters file, see [Environment parameters](azure-stack-vaas-parameters.md#environment-parameters) for additional details.
+## Validating software updates
 
-    > [!Note]   
-    > The deployment configuration file can be further customized by adding common test parameters. For more information, see [Workflow common parameters for Azure Stack validation as a service](azure-stack-vaas-parameters.md)
+1. Create a new **Package Validation** workflow.
+1. For the required tests above, follow the instructions from [Run Package Validation tests](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests). See the section below for additional instructions on the **Monthly Azure Stack Update Verification** test.
 
-7. The user name and password for the tenant user, service admin, and cloud admin must be entered manually.
+### Apply the monthly update
 
-8. Provide the URL to the Azure Storage blob to store the diagnostic logs. For more information, see [Create an Azure storage blob to store logs](azure-stack-vaas-set-up-account.md#create-an-azure-storage-blob-to-store-logs).
+1. Select an agent to execute tests against.
+1. Schedule **Monthly Azure Stack Update Verification**.
+1. Provide the location to the OEM extension package currently deployed on the stamp, and the location to the OEM extension package that will be applied during the update. To configure the URLs for these packages, see [managing packages for validation](azure-stack-vaas-validate-oem-package.md#managing-packages-for-validation).
+1. Follow the steps in the UI from the selected agent.
 
-    > [!Note]  
-    > Descriptive tags may be entered to label the workflow.
-
-10. Select **Submit** to save the workflow.
-
-The solution workflow runs for approximately 24 hours. Add a link to or instruction on scheduling the tests. Clear in the tool.
-
-Find more information on monitoring the progress of a validation run, see [Monitor a test ](azure-stack-vaas-monitor-test.md).
+If you have questions or concerns, please contact [VaaS Help](mailto:vaashelp@microsoft.com).
 
 ## Next steps
 
-- To learn more about [Azure Stack validation as a service](https://docs.microsoft.com/azure/azure-stack/partner).
+- [Monitor and manage tests in the VaaS portal](azure-stack-vaas-monitor-test.md)

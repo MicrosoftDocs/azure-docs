@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/09/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -26,14 +26,15 @@ In this tutorial, you learn how to:
 Before you begin, make sure that:
 - You have completed the [Tutorial: Install and configure your Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - Your disks are unlocked and connected to a client computer.
-- Your client computer that is used to copy data to the disks must run a [Supported operating system](data-box-disk-system-requirements.md).
+- Your client computer that is used to copy data to the disks must run a [Supported operating system](data-box-disk-system-requirements.md##supported-operating-systems-for-clients).
+- Make sure that the intended storage type for your data matches [Supported storage types](data-box-disk-system-requirements.md#supported-storage-types).
 
 
 ## Copy data to disks
 
 Perform the following steps to connect and copy data from your computer to the Data Box Disk.
 
-1. View the contents of the unlocked drive. 
+1. View the contents of the unlocked drive.
 
     ![View drive content](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
  
@@ -142,89 +143,101 @@ Perform the following steps to connect and copy data from your computer to the D
     C:\Users>
     ```
  
+    To optimize the performance, use the following robocopy parameters when copying the data.
+
+    |    Platform    |    Mostly small files < 512 KB                           |    Mostly medium  files 512 KB-1 MB                      |    Mostly large files > 1 MB                             |   
+    |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
+    |    Data Box Disk        |    4 Robocopy sessions* <br> 16 threads per sessions    |    2 Robocopy sessions* <br> 16 threads per sessions    |    2 Robocopy sessions* <br> 16 threads per sessions    |  |
     
-7. Open the target folder to view and verify the copied files. If you have any errors during the copy process, download the log files for troubleshooting. The log files are located as specified in the robobopy command.
+    **Each Robocopy session can have a maximum of 7,000 directories and 150 million files.*
+    
+    >[!NOTE]
+    > The parameters suggested above are based on the environment used in inhouse testing.
+    
+    For more information on Robocopy command, go to [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
+
+6. Open the target folder to view and verify the copied files. If you have any errors during the copy process, download the log files for troubleshooting. The log files are located as specified in the robocopy command.
  
-
-
 > [!IMPORTANT]
 > - It is your responsibility to ensure that you copy the data to folders that correspond to the appropriate data format. For instance, copy the block blob data to the folder for block blobs. If the data format does not match the appropriate folder (storage type), then at a later step, the data upload to Azure fails.
-> -  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box Disk limits](data-box-disk-limits.md). 
+> -  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box Disk limits](data-box-disk-limits.md).
 > - If data, which is being uploaded by Data Box Disk, is concurrently uploaded by other applications outside of Data Box Disk, then this could result in upload job failures and data corruption.
 
 ### Split and copy data to disks
 
 This optional procedure may be used when you are using multiple disks and have a large dataset that needs to be split and copied across all the disks. The Data Box Split Copy tool helps split and copy the data on a Windows computer.
 
+>[!IMPORTANT]
+> Data Box Split Copy tool also validates your data. If you use Data Box Split Copy tool to copy data, you can skip the [validation step](#validate-data).
+
 1. On your Windows computer, ensure that you have the Data Box Split Copy tool downloaded and extracted in a local folder. This tool was downloaded when you downloaded the Data Box Disk toolset for Windows.
 2. Open File Explorer. Make a note of the data source drive and drive letters assigned to Data Box Disk. 
 
-     ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-1.png)
+     ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-1.png)
  
 3. Identify the source data to copy. For instance, in this case:
     - Following block blob data was identified.
 
-         ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
+         ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
 
     - Following page blob data was identified.
 
-         ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-3.png)
+         ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-3.png)
  
-4. Go to the folder where the software is extracted. Locate the SampleConfig.json file in that folder. This is a read-only file that you can modify and save.
+4. Go to the folder where the software is extracted. Locate the `SampleConfig.json` file in that folder. This is a read-only file that you can modify and save.
 
-   ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-4.png)
+   ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-4.png)
  
-5. Modify the SampleConfig.json file.
+5. Modify the `SampleConfig.json` file.
  
     - Provide a job name. This creates a folder in the Data Box Disk and eventually becomes the container in the Azure storage account associated with these disks. The job name must follow the Azure container naming conventions. 
-    - Supply a source path making note of the path format in the SampleConfigFile.json. 
+    - Supply a source path making note of the path format in the `SampleConfigFile.json`. 
     - Enter the drive letters corresponding to the target disks. The data is taken from the source path and copied across multiple disks.
-    - Provide a path for the log files. By default, it is sent to the current directory where the .exe is located.
+    - Provide a path for the log files. By default, it is sent to the current directory where the `.exe` is located.
 
-     ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-5.png)
+     ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 
-6. To validate the file format, go to JSONlint. Save the file as ConfigFile.json. 
+6. To validate the file format, go to `JSONlint`. Save the file as `ConfigFile.json`. 
 
-     ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-6.png)
+     ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-6.png)
  
 7. Open a Command Prompt window. 
 
-8. Run the DataBoxDiskSplitCopy.exe. Type
+8. Run the `DataBoxDiskSplitCopy.exe`. Type
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
-     ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-7.png)
+     ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-7.png)
  
 9. Enter to continue the script.
 
-    ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-8.png)
+    ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-8.png)
   
 10. When the dataset is split and copied, the summary of the Split Copy tool for the copy session is presented. A sample output is shown below.
 
-    ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-9.png)
+    ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-9.png)
  
 11. Verify that the data is split across the target disks. 
  
-    ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-10.png)
-    ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-11.png)
+    ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-10.png)
+    ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-11.png)
 	 
-    If you examine the contents of n: drive further, you will see that two sub-folders are created corresponding to block blob and page blob format data.
+    If you examine the contents of `n:` drive further, you will see that two sub-folders are created corresponding to block blob and page blob format data.
     
-     ![Split copy data ](media/data-box-disk-deploy-copy-data/split-copy-12.png)
+     ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-12.png)
 
 12. If the copy session fails, then to recover and resume, use the following command:
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
 
+After the data copy is complete, you can proceed to validate your data. If you used the Split Copy tool, skip the validation (Split Copy tool validates as well) and advance to the next tutorial.
 
-After the data copy is complete, next step is to validate data. 
 
+## Validate data
 
-## Validate data 
+If you did not use the Split Copy tool to copy data, you will need to validate your data. To verify the data, perform the following steps.
 
-To verify the data, perform the following steps.
-
-1. Run the `DataBoxDiskValidation.cmd` for checksum validation in the *AzureImportExport* folder of your drive. 
+1. Run the `DataBoxDiskValidation.cmd` for checksum validation in the *DataBoxDiskImport* folder of your drive.
     
     ![Data Box Disk validation tool output](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
@@ -233,8 +246,8 @@ To verify the data, perform the following steps.
     ![Checksum output](media/data-box-disk-deploy-copy-data/data-box-disk-checksum-output.png)
 
     > [!TIP]
-    > - Reset the tool beween two runs.
-    > - Use option 1 to validate the files only dealing with large data set containing small files (~ KBs). In these instances, checksum generation may take a very long time and the performance could be very slow.
+    > - Reset the tool between two runs.
+    > - Use option 1 if dealing with large data set containing small files (~ KBs). This option only validates the files, as checksum generation may take a very long time and the performance could be very slow.
 
 3. If using multiple disks, run the command for each disk.
 
@@ -250,4 +263,3 @@ Advance to the next tutorial to learn how to return the Data Box Disk and verify
 
 > [!div class="nextstepaction"]
 > [Ship your Azure Data Box back to Microsoft](./data-box-disk-deploy-picked-up.md)
-

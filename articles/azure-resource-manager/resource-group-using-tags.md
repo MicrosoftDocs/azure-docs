@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 11/20/2018
 ms.author: tomfitz
 
 ---
@@ -25,14 +25,20 @@ To apply tags to resources, the user must have write access to that resource typ
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
+## Policies
+
+You can use [Azure Policy](../governance/policy/overview.md) to enforce tagging rules and conventions. By creating a policy, you avoid the scenario of resources being deployed to your subscription that don't comply with the expected tags for your organization. Instead of manually applying tags or searching for resources that aren't compliant, you can create a policy that automatically applies the needed tags during deployment. The following section shows example policies for tags.
+
+[!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
+
 ## PowerShell
 
-The examples in this article require version 6.0 or later of Azure PowerShell. If you do not have version 6.0 or later, [update your version](/powershell/azure/install-azurerm-ps).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 To see the existing tags for a *resource group*, use:
 
-```powershell
-(Get-AzureRmResourceGroup -Name examplegroup).Tags
+```azurepowershell-interactive
+(Get-AzResourceGroup -Name examplegroup).Tags
 ```
 
 That script returns the following format:
@@ -46,84 +52,84 @@ Environment                    Test
 
 To see the existing tags for a *resource that has a specified resource ID*, use:
 
-```powershell
-(Get-AzureRmResource -ResourceId /subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>).Tags
+```azurepowershell-interactive
+(Get-AzResource -ResourceId /subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>).Tags
 ```
 
 Or, to see the existing tags for a *resource that has a specified name and resource group*, use:
 
-```powershell
-(Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
+```azurepowershell-interactive
+(Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
 ```
 
 To get *resource groups that have a specific tag*, use:
 
-```powershell
-(Get-AzureRmResourceGroup -Tag @{ Dept="Finance" }).ResourceGroupName
+```azurepowershell-interactive
+(Get-AzResourceGroup -Tag @{ Dept="Finance" }).ResourceGroupName
 ```
 
 To get *resources that have a specific tag*, use:
 
-```powershell
-(Get-AzureRmResource -Tag @{ Dept="Finance"}).Name
+```azurepowershell-interactive
+(Get-AzResource -Tag @{ Dept="Finance"}).Name
 ```
 
 To get *resources that have a specific tag name*, use:
 
-```powershell
-(Get-AzureRmResource -TagName Dept).Name
+```azurepowershell-interactive
+(Get-AzResource -TagName Dept).Name
 ```
 
 Every time you apply tags to a resource or a resource group, you overwrite the existing tags on that resource or resource group. Therefore, you must use a different approach based on whether the resource or resource group has existing tags.
 
 To add tags to a *resource group without existing tags*, use:
 
-```powershell
-Set-AzureRmResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
+```azurepowershell-interactive
+Set-AzResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
 ```
 
 To add tags to a *resource group that has existing tags*, retrieve the existing tags, add the new tag, and reapply the tags:
 
-```powershell
-$tags = (Get-AzureRmResourceGroup -Name examplegroup).Tags
+```azurepowershell-interactive
+$tags = (Get-AzResourceGroup -Name examplegroup).Tags
 $tags.Add("Status", "Approved")
-Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
+Set-AzResourceGroup -Tag $tags -Name examplegroup
 ```
 
 To add tags to a *resource without existing tags*, use:
 
-```powershell
-$r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
-Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId $r.ResourceId -Force
+```azurepowershell-interactive
+$r = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
+Set-AzResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId $r.ResourceId -Force
 ```
 
 To add tags to a *resource that has existing tags*, use:
 
-```powershell
-$r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
-$r.Tags.Add("Status", "Approved") 
-Set-AzureRmResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
+```azurepowershell-interactive
+$r = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
+$r.Tags.Add("Status", "Approved")
+Set-AzResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
 To apply all tags from a resource group to its resources, and *not retain existing tags on the resources*, use the following script:
 
-```powershell
-$groups = Get-AzureRmResourceGroup
+```azurepowershell-interactive
+$groups = Get-AzResourceGroup
 foreach ($g in $groups)
 {
-    Get-AzureRmResource -ResourceGroupName $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
+    Get-AzResource -ResourceGroupName $g.ResourceGroupName | ForEach-Object {Set-AzResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
 }
 ```
 
 To apply all tags from a resource group to its resources, and *retain existing tags on resources that are not duplicates*, use the following script:
 
-```powershell
-$group = Get-AzureRmResourceGroup "examplegroup"
-if ($group.Tags -ne $null) {
-    $resources = Get-AzureRmResource -ResourceGroupName $group.ResourceGroupName
+```azurepowershell-interactive
+$group = Get-AzResourceGroup "examplegroup"
+if ($null -ne $group.Tags) {
+    $resources = Get-AzResource -ResourceGroupName $group.ResourceGroupName
     foreach ($r in $resources)
     {
-        $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
+        $resourcetags = (Get-AzResource -ResourceId $r.ResourceId).Tags
         if ($resourcetags)
         {
             foreach ($key in $group.Tags.Keys)
@@ -133,11 +139,11 @@ if ($group.Tags -ne $null) {
                     $resourcetags.Add($key, $group.Tags[$key])
                 }
             }
-            Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
+            Set-AzResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
         }
         else
         {
-            Set-AzureRmResource -Tag $group.Tags -ResourceId $r.ResourceId -Force
+            Set-AzResource -Tag $group.Tags -ResourceId $r.ResourceId -Force
         }
     }
 }
@@ -145,8 +151,8 @@ if ($group.Tags -ne $null) {
 
 To remove all tags, pass an empty hash table:
 
-```powershell
-Set-AzureRmResourceGroup -Tag @{} -Name examplegroup
+```azurepowershell-interactive
+Set-AzResourceGroup -Tag @{} -Name examplegroup
 ```
 
 ## Azure CLI
@@ -204,7 +210,7 @@ To add tags to a *resource without existing tags*, use:
 az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-To add tags to a resource that already has tags, retrieve the existing tags, reformat that value, and reapply the existing and new tags: 
+To add tags to a resource that already has tags, retrieve the existing tags, reformat that value, and reapply the existing and new tags:
 
 ```azurecli
 jsonrtag=$(az resource show -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks" --query tags)
@@ -260,18 +266,13 @@ The Azure portal and PowerShell both use the [Resource Manager REST API](https:/
 
 ## Tags and billing
 
-You can use tags to group your billing data. For example, if you are running multiple VMs for different organizations, use the tags to group usage by cost center. You can also use tags to categorize costs by runtime environment, such as the billing usage for VMs running in the production environment.
+You can use tags to group your billing data. For example, if you're running multiple VMs for different organizations, use the tags to group usage by cost center. You can also use tags to categorize costs by runtime environment, such as the billing usage for VMs running in the production environment.
 
-You can retrieve information about tags through the [Azure Resource Usage and RateCard APIs](../billing/billing-usage-rate-card-overview.md) or the usage comma-separated values (CSV) file. You download the usage file from the [Azure account portal](https://account.windowsazure.com/) or [EA portal](https://ea.azure.com). For more information about programmatic access to billing information, see [Gain insights into your Microsoft Azure resource consumption](../billing/billing-usage-rate-card-overview.md). For REST API operations, see [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
+You can retrieve information about tags through the [Azure Resource Usage and RateCard APIs](../billing/billing-usage-rate-card-overview.md) or the usage comma-separated values (CSV) file. You download the usage file from the [Azure Account Center](https://account.azure.com/Subscriptions) or Azure portal. For more information, see [Download or view your Azure billing invoice and daily usage data](../billing/billing-download-azure-invoice-daily-usage-date.md). When downloading the usage file from the Azure Account Center, select **Version 2**. For services that support tags with billing, the tags appear in the **Tags** column.
 
-When you download the usage CSV for services that support tags with billing, the tags appear in the **Tags** column. For more information, see [Understand your bill for Microsoft Azure](../billing/billing-understand-your-bill.md).
-
-![See tags in billing](./media/resource-group-using-tags/billing_csv.png)
+For REST API operations, see [Azure Billing REST API Reference](/rest/api/billing/).
 
 ## Next steps
 
-* You can apply restrictions and conventions across your subscription by using customized policies. A policy that you define might require that all resources have a value for a particular tag. For more information, see [What is Azure Policy?](../azure-policy/azure-policy-introduction.md)
-* For an introduction to using Azure PowerShell when you're deploying resources, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
-* For an introduction to using the Azure CLI when you're deploying resources, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](xplat-cli-azure-resource-manager.md).
-* For an introduction to using the portal, see [Using the Azure portal to manage your Azure resources](resource-group-portal.md).  
-* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).
+* Not all resource types support tags. To determine if you can apply a tag to a resource type, see [Tag support for Azure resources](tag-support.md).
+* For an introduction to using the portal, see [Using the Azure portal to manage your Azure resources](manage-resource-groups-portal.md).  

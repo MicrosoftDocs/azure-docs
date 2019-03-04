@@ -53,6 +53,7 @@ Now that you have a desktop environment installed, configure a remote desktop se
 
 ```bash
 sudo apt-get install xrdp
+sudo systemctl enable xrdp
 ```
 
 Tell xrdp what desktop environment to use when you start your session. Configure xrdp to use xfce as your desktop environment as follows:

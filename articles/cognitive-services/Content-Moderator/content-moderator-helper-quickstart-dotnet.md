@@ -1,16 +1,17 @@
 ---
-title: "Quickstart: Content Moderator SDK for .NET helper method"
+title: "Quickstart: Create a moderation client for .NET - Content Moderator"
 titlesuffix: Azure Cognitive Services
 description: How to return a Content Moderator client using Azure Content Moderator SDK for .NET
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 01/04/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
 
 # Quickstart: Helper code to return a Content Moderator client
@@ -29,7 +30,7 @@ This article assumes that you are already familiar with Visual Studio and C#.
 ## Sign up for Content Moderator services
 
 Before you can use Content Moderator services through the REST API or the SDK, you need a subscription key.
-Refer to the [Quickstart](quick-start.md) to learn how you can obtain the key.
+Refer to the [Try Content Moderator on the web](quick-start.md) quickstart to learn how you can obtain the key.
 
 ## Create your Visual Studio project
 

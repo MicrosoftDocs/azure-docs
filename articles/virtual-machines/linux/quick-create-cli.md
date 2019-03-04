@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # Quickstart: Create a Linux virtual machine with the Azure CLI
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the Azure CLI to deploy a Linux virtual machine (VM) in Azure. In this tutorial, we will be installing Ubuntu 160.04 LTS. To show the VM in action, you'll connect to it using SSH and install the NGINX web server.
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the Azure CLI to deploy a Linux virtual machine (VM) in Azure. In this tutorial, we will be installing Ubuntu 16.04 LTS. To show the VM in action, you'll connect to it using SSH and install the NGINX web server.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -35,7 +35,7 @@ If you prefer to install and use the CLI locally, this quickstart requires Azure
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -43,9 +43,9 @@ az group create --name myResourceGroup --location eastus
 
 ## Create virtual machine
 
-Create a VM with the [az vm create](/cli/azure/vm#az_vm_create) command.
+Create a VM with the [az vm create](/cli/azure/vm) command.
 
-The following example creates a VM named *myVM* and adds a user account named *azureuser*. The `--generate-ssh-keys` parameter us used to automatically generate an SSH key, and put it in the default key location (*~/.ssh*). To use a specific set of keys instead, use the `--ssh-key-value` option.
+The following example creates a VM named *myVM* and adds a user account named *azureuser*. The `--generate-ssh-keys` parameter is used to automatically generate an SSH key, and put it in the default key location (*~/.ssh*). To use a specific set of keys instead, use the `--ssh-key-value` option.
 
 ```azurecli-interactive
 az vm create \
@@ -75,7 +75,7 @@ Note your own `publicIpAddress` in the output from your VM. This address is used
 
 ## Open port 80 for web traffic
 
-By default, only SSH connections are opened when you create a Linux VM in Azure. Use [az vm open-port](/cli/azure/vm#az_vm_open_port) to open TCP port 80 for use with the NGINX web server:
+By default, only SSH connections are opened when you create a Linux VM in Azure. Use [az vm open-port](/cli/azure/vm) to open TCP port 80 for use with the NGINX web server:
 
 ```azurecli-interactive
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -108,7 +108,7 @@ Use a web browser of your choice to view the default NGINX welcome page. Use the
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, VM, and all related resources. 
+When no longer needed, you can use the [az group delete](/cli/azure/group) command to remove the resource group, VM, and all related resources. 
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

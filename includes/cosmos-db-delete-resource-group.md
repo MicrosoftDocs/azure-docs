@@ -1,3 +1,10 @@
+---
+author: SnehaGunda
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: sngun
+---
 If you're not going to continue to use this app, delete all resources created by this quickstart with the following steps so you don't incur any charges:
 
 1. In the Azure portal, select **Resource groups** on the far left, and then select the resource group you created.  

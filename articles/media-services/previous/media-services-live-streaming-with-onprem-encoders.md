@@ -4,7 +4,7 @@ description: 'This topic describes how to set up a channel that receives a multi
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: d9f0912d-39ec-4c9c-817b-e5d9fcf1f7ea
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 02/10/2019
 ms.author: cenkd;juliako
 
 ---
@@ -50,7 +50,7 @@ The following diagram represents a live-streaming workflow that uses an on-premi
 ## <a id="scenario"></a>Common live-streaming scenario
 The following steps describe tasks involved in creating common live-streaming applications.
 
-1. Connect a video camera to a computer. Start and configure an on-premises live encoder that has a multi-bitrate RTMP or fragmented MP4 (Smooth Streaming) stream as output. For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connect a video camera to a computer. Start and configure an on-premises live encoder that has a multi-bitrate RTMP or fragmented MP4 (Smooth Streaming) stream as output. For more information, see [Azure Media Services RTMP Support and Live Encoders](https://go.microsoft.com/fwlink/?LinkId=532824).
 
     You can also perform this step after you create your channel.
 2. Create and start a channel.
@@ -101,7 +101,7 @@ Use the secondary URL if you want to improve the durability and fault tolerance 
 
     In this scenario, both encoders push data to both primary and secondary URLs. This provides the best reliability and fault tolerance, as well as data redundancy. This scenario can tolerate both encoder failures and disconnects, even if one encoder stops working. It assumes that encoders are time synced and provide exactly the same data.  
 
-For information about RTMP live encoders, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
+For information about RTMP live encoders, see [Azure Media Services RTMP Support and Live Encoders](https://go.microsoft.com/fwlink/?LinkId=532824).
 
 #### Ingest URLs (endpoints)
 A channel provides an input endpoint (ingest URL) that you specify in the live encoder, so the encoder can push streams to your channels.   
@@ -123,7 +123,7 @@ The following table shows how the segment duration is calculated:
 
 You can change the fragments-per-segment ratio by configuring the channel’s output and setting FragmentsPerSegment on ChannelOutputHls.
 
-You can also change the keyframe interval value by setting the KeyFrameInterval property on ChanneInput. If you explicitly set KeyFrameInterval, the HLS segment packaging ratio FragmentsPerSegment is calculated via the rules described previously.  
+You can also change the keyframe interval value by setting the KeyFrameInterval property on ChannelInput. If you explicitly set KeyFrameInterval, the HLS segment packaging ratio FragmentsPerSegment is calculated via the rules described previously.  
 
 If you explicitly set both KeyFrameInterval and FragmentsPerSegment, Media Services uses the values that you set.
 

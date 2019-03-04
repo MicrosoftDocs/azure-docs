@@ -1,18 +1,19 @@
 ---
-title: Migrate Azure Event Hubs data to SQL Data Warehouse | Microsoft Docs
+title: Migrate event data to SQL Data Warehouse - Azure Event Hubs | Microsoft Docs
 # event-hubs-tutorial-visualize-anomalies.md
 description: This tutorial shows you how to capture data from your event hub into a SQL data warehouse by using an Azure function triggered by an event grid. 
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: 
 ms.author: shvija
-ms.date: 08/27/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.topic: tutorial
 ms.service: event-hubs
 ---
 
 
-# Process and migrate captured Event Hubs data to a SQL Data Warehouse using Event Grid and Azure Functions
+# Migrate captured Event Hubs data to a SQL Data Warehouse using Event Grid and Azure Functions
 
 Event Hubs [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) is the easiest way to automatically deliver streamed data in Event Hubs to an Azure Blob storage or Azure Data Lake store. You can subsequently process and deliver the data to any other storage destinations of your choice, such as SQL Data Warehouse or Cosmos DB. In this tutorial, you learn how you to capture data from your event hub into a SQL data warehouse by using an Azure function triggered by an [event grid](https://docs.microsoft.com/azure/event-grid/overview).
 
@@ -32,6 +33,8 @@ In this tutorial, you do the following actions:
 > * Verify captured data in SQL Data Warehouse
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 - [Visual studio 2017 Version 15.3.2 or greater](https://www.visualstudio.com/vs/). While installing, ensure that you install the following workloads: .NET desktop development, Azure development, ASP.NET and web development, Node.js development, Python development
 - Download the [Git sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo). The sample solution contains the following components:
@@ -78,9 +81,9 @@ az group deployment create \
 To deploy the template using PowerShell, use the following commands:
 
 ```powershell
-New-AzureRmResourceGroup -Name rgDataMigration -Location westcentralus
+New-AzResourceGroup -Name rgDataMigration -Location westcentralus
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
+New-AzResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
 ```
 
 

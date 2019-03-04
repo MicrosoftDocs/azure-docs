@@ -13,8 +13,12 @@ ms.date: 08/08/2018
 ms.author: danlep
 ms.custom: mvc
 
+ROBOTS: NOINDEX
+
 ---
 # Batch AI service quotas and limits
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 As with other Azure services, there are limits on certain resources associated with the Batch AI service. In Batch AI, these limits are default quotas applied at the subscription level for each region where the service is [available](https://azure.microsoft.com/global-infrastructure/services/). This article discusses those defaults, and how you can request quota increases.
 

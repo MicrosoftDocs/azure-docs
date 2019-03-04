@@ -1,5 +1,5 @@
 ---
-title: Use a custom Docker image for Web App for Containers - Azure | Microsoft Docs
+title: Use a custom Docker image for Web App for Containers - Azure App Service | Microsoft Docs
 description: How to use a custom Docker image for Web App for Containers.
 keywords: azure app service, web app, linux, docker, container
 services: app-service
@@ -17,6 +17,7 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
+ms.custom: seodec18
 ---
 # Use a custom Docker image for Web App for Containers
 
@@ -54,7 +55,7 @@ cd docker-django-webapp-linux
 
 In the Git repository, take a look at _Dockerfile_. This file describes the Python environment that is required to run your application. Additionally, the image sets up an [SSH](https://www.ssh.com/ssh/protocol/) server for secure communication between the container and the host.
 
-```docker
+```Dockerfile
 FROM python:3.4
 
 RUN mkdir /code
@@ -188,7 +189,7 @@ v1.0.0: digest: sha256:21f2798b20555f4143f2ca0591a43b4f6c8138406041f2d32ec908974
 
 ## Deploy app to Azure
 
-You can host native Linux applications in the cloud by using Azure Web Apps. To create a Web App for Containers, you must run Azure CLI commands that create a group, then a service plan, and finally the web app itself. 
+To create a an app that uses the image you just pushed, you run Azure CLI commands that create a group, then a service plan, and finally the web app itself. 
 
 ### Create a resource group
 
@@ -249,7 +250,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 
 ### Test the web app
 
-Verify that the web app works by browsing to it (`http://<app_name>azurewebsites.net`). 
+Verify that the web app works by browsing to it (`http://<app_name>.azurewebsites.net`). 
 
 ![Test web app port configuration](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
 
@@ -275,7 +276,7 @@ SSH enables secure communication between a container and a client. In order for 
 
 * A [RUN](https://docs.docker.com/engine/reference/builder/#run) instruction that calls `apt-get`, then sets the password for the root account to `"Docker!"`.
 
-    ```docker
+    ```Dockerfile
     ENV SSH_PASSWD "root:Docker!"
     RUN apt-get update \
             && apt-get install -y --no-install-recommends dialog \
@@ -287,9 +288,9 @@ SSH enables secure communication between a container and a client. In order for 
     > [!NOTE]
     > This configuration does not allow external connections to the container. SSH is available only through the Kudu/SCM Site. The Kudu/SCM site is authenticated with the publishing credentials.
 
-* A [COPY](https://docs.docker.com/engine/reference/builder/#copy) instruction that instructs the Docker engine to copy the [sshd_config](http://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on [this sshd_config file](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
+* A [COPY](https://docs.docker.com/engine/reference/builder/#copy) instruction that instructs the Docker engine to copy the [sshd_config](https://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on [this sshd_config file](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
 
-    ```docker
+    ```Dockerfile
     COPY sshd_config /etc/ssh/
     ```
 
@@ -300,7 +301,7 @@ SSH enables secure communication between a container and a client. In order for 
 
 * An [EXPOSE](https://docs.docker.com/engine/reference/builder/#expose) instruction that exposes port 2222 in the container. Although the root password is known, port 2222 cannot be accessed from the internet. It is an internal port accessible only by containers within the bridge network of a private virtual network. After that, commands copy SSH configuration details and start the `ssh` service.
 
-    ```docker
+    ```Dockerfile
     EXPOSE 8000 2222
     ```
 

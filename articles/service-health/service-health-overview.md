@@ -2,19 +2,15 @@
 title: Service Health overview | Microsoft Docs
 description: Personalized information about how your Azure apps are affected by current and future Azure service problems and maintenance. 
 services: Resource health
-documentationcenter: ''
-author: rboucher
-manager: ''
-editor: ''
-
-ms.assetid: 
+author: stephbaron
+ms.author: stbaron
+services: service-health
+documentationcenter: service-health
 ms.service: service-health
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 03/27/2018
-ms.author: robb
+
 
 ---
 # Service Health
@@ -25,6 +21,9 @@ Service Health tracks three types of health events that may impact your resource
 1. **Service issues** - Problems in the Azure services that affect you right now. 
 2. **Planned maintenance** - Upcoming maintenance that can affect the availability of your services in the future.  
 3. **Health advisories** - Changes in Azure services that require your attention. Examples include when Azure features are deprecated or if you exceed a usage quota.
+
+> [!NOTE]
+> To view Service Health events, users must have the Reader role on a subscription.
 
 ## Get started with Service Health
 To launch your Service Health dashboard, select the Service Health tile on your portal dashboard. If you have previously removed the tile or you're using custom dashboard, search for Service Health service in "More services" (bottom left on your dashboard).
@@ -56,7 +55,7 @@ Filter Service Health to show your business-critical subscriptions, regions, and
 ![Pin a personalized health map](./media/service-health-overview/azure-service-health-overview-6b.png)
 
 ## Configure service health alerts
-Service Health integrates with Azure Monitor to alert you via emails, text messages, and webhook notifications when your business-critical resources are impacted. Set up an activity log alert for the appropriate service health event. Route that alert to the appropriate people in your organization using Action Groups. For more information, see [Configure Alerts for Service Health](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)
+Service Health integrates with Azure Monitor to alert you via emails, text messages, and webhook notifications when your business-critical resources are impacted. Set up an activity log alert for the appropriate service health event. Route that alert to the appropriate people in your organization using Action Groups. For more information, see [Configure Alerts for Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
 
 # Next Steps
-Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for Service Health](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 

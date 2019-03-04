@@ -1,15 +1,15 @@
 ---
-title: Create management groups to organize Azure resources
-description: Learn how to create Azure management groups to manage multiple resources. 
+title: Create management groups to organize Azure resources - Azure Governance
+description: Learn how to create Azure management groups to manage multiple resources using the portal, Azure PowerShell, and Azure CLI. 
 author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 11/20/2018
 ms.author: rithorn
+ms.topic: conceptual
 ---
 # Create management groups for resource organization and management
 
@@ -23,6 +23,8 @@ The first management group created in the directory could take up to 15 minutes 
 are processes that run the first time to set up the management groups service within Azure for your
 directory. You receive a notification when the process is complete.
 
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
+
 ## Create a management group
 
 You can create the management group by using the portal, PowerShell, or Azure CLI. Currently, you
@@ -30,7 +32,7 @@ can't use Resource Manager templates to create management groups.
 
 ### Create in portal
 
-1. Log into the [Azure portal](http://portal.azure.com).
+1. Log into the [Azure portal](https://portal.azure.com).
 
 1. Select **All services** > **Management groups**.
 
@@ -49,10 +51,10 @@ can't use Resource Manager templates to create management groups.
 
 ### Create in PowerShell
 
-Within PowerShell, you use the New-AzureRmManagementGroups cmdlets:
+Within PowerShell, you use the New-AzManagementGroup cmdlet:
 
 ```azurepowershell-interactive
-New-AzureRmManagementGroup -GroupName 'Contoso'
+New-AzManagementGroup -GroupName 'Contoso'
 ```
 
 The **GroupName** is a unique identifier being created. This ID is used by other commands to
@@ -64,7 +66,7 @@ group with the GroupName of Contoso and the display name of "Contoso Group", you
 following cmdlet:
 
 ```azurepowershell-interactive
-New-AzureRmManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group' -ParentId 'ContosoTenant'
+New-AzManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group' -ParentId '/providers/Microsoft.Management/managementGroups/ContosoTenant'
 ```
 
 Use the **ParentId** parameter to have this management group be created under a different
@@ -80,10 +82,10 @@ az account management-group create --name 'Contoso'
 
 ## Next steps
 
-To Learn more about management groups, see:
+To learn more about management groups, see:
 
-- [Organize your resources with Azure management groups](overview.md)
+- [Create management groups to organize Azure resources](create.md)
 - [How to change, delete, or manage your management groups](manage.md)
-- [Install the Azure Powershell module](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [Review the REST API Spec](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [Install the Azure CLI Extension](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)
+- [Review management groups in Azure PowerShell Resources Module](/powershell/module/az.resources#resources)
+- [Review management groups in REST API](/rest/api/resources/managementgroups)
+- [Review management groups in Azure CLI](/cli/azure/account/management-group)

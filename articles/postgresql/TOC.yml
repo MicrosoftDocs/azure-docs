@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Azure DB for PostgreSQL
+  - name: What is Azure DB for PostgreSQL?
     href: overview.md
 - name: Quickstarts
   expanded: true
@@ -36,7 +36,8 @@
     - name: Azure CLI
       href: tutorial-design-database-using-azure-cli.md
   - name: 2 - Design Web App - Python
-    href: ../app-service/containers/tutorial-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json 
+    href: ../app-service/containers/tutorial-python-postgresql-app.md
+    maintainContext: true
   - name: 3 - Monitor and tune
     href: tutorial-monitor-and-tune.md
 - name: Samples
@@ -99,10 +100,34 @@
     items:
     - name: Connection libraries
       href: concepts-connection-libraries.md
+    - name: Connection resiliency
+      href: concepts-connectivity.md
+    - name: Develop with Azure Kubernetes Service (AKS)
+      href: concepts-aks.md
+    - name: Java
+      items:
+      - name: Configure Spring Data JDBC
+        href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-postgresql
+      - name: Configure Spring Data JPA
+        href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-postgresql
+  - name: Replication
+    items:
+    - name: Read replicas
+      href: concepts-read-replicas.md
 - name: How-to guides
   items:
   - name: Create users 
     href: howto-create-users.md
+  - name: Optimize
+    items: 
+      - name: Bulk inserts
+        href: howto-optimize-bulk-inserts.md
+      - name: Autovacuum
+        href: howto-optimize-autovacuum.md
+      - name: Query stats collection
+        href: howto-optimize-query-stats-collection.md
+      - name: Toast table strategy
+        href: howto-optimize-query-time-with-toast-table-storage-strategy.md
   - name: Manage firewall
     items:
     - name: Azure portal
@@ -139,6 +164,10 @@
     items:
     - name: Create alerts on metrics
       href: howto-alert-on-metric.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot connection errors
+      href: howto-troubleshoot-common-connection-issues.md
   - name: Advanced Threat Protection
     items:
     - name: Azure portal
@@ -149,12 +178,22 @@
       href: howto-manage-vnet-using-portal.md
     - name: Azure CLI
       href: howto-manage-vnet-using-cli.md
+  - name: Restart server
+    items:
+    - name: Azure portal
+      href: howto-restart-server-portal.md
+  - name: Replication
+    items:
+    - name: Manage read replicas Azure portal
+      href: howto-read-replicas-portal.md
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/postgres
   - name: REST API
     href: /rest/api/postgresql
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.dbforpostgresql/allversions
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
@@ -168,7 +207,7 @@
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-database-postgresql
+    href: https://stackoverflow.com/questions/tagged/azure-database-postgresql
   - name: Videos
     items:
     - name: Product videos

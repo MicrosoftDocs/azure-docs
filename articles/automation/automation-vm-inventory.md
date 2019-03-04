@@ -3,17 +3,17 @@ title: Manage an Azure virtual machine with inventory collection | Microsoft Doc
 description: Manage a virtual machine with inventory collection
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 keywords: inventory, automation, change, tracking
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 03/30/2018
+ms.date: 02/06/2019
 ms.topic: conceptual
 manager: carmonm
 ---
 # Manage an Azure virtual machine with inventory collection
 
-You can enable inventory tracking for an Azure virtual machine from the virtual machine's resource page. This method provides a browser-based user interface for setting up and configuring inventory collection.
+You can enable inventory tracking for an Azure virtual machine from the virtual machine's resource page. You can collect and view inventory for software, files, Linux daemons, Windows Services, and Windows Registry keys on your computers. This method provides a browser-based user interface for setting up and configuring inventory collection.
 
 ## Before you begin
 
@@ -30,7 +30,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the left pane of the Azure portal, select **Virtual machines**.
 2. In the list of virtual machines, select a virtual machine.
 3. On the **Resource** menu, under **Operations**, select **Inventory**.
-4. Select a log analytics workspace for storing your data logs.
+4. Select a Log Analytics workspace for storing your data logs.
     If no workspace is available to you for that region, you are prompted to create a default workspace and automation account.
 5. To start onboarding your computer, select **Enable**.
 
@@ -85,7 +85,9 @@ The following tables provide information about each property that can be configu
 
 ## Manage machine groups
 
-Inventory allows you to create and view machine groups in Log Analytics. Machine groups are collections of machines defined by a query in Log Analytics.
+Inventory allows you to create and view machine groups in Azure Monitor logs. Machine groups are collections of machines defined by a query in Azure Monitor logs.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 To view your machine groups select the **Machine groups** tab on the Inventory page.
 
@@ -108,6 +110,10 @@ To remove your virtual machine from inventory management:
 1. In the left pane of the Azure portal, select **Log Analytics**, and then select the workspace that you used when you onboarded your virtual machine.
 2. In the **Log Analytics** window, on the **Resource** menu, under the **Workspace Data Sources** category, select **Virtual machines**.
 3. In the list, select the virtual machine that you want to disconnect. The virtual machine has a green check mark next to **This workspace** in the **OMS Connection** column.
+
+   >[!NOTE]
+   >OMS is now referred to as Azure Monitor logs.
+   
 4. At the top of the next page, select **Disconnect**.
 5. In the confirmation window, select **Yes**.
     This action disconnects the machine from management.
@@ -116,3 +122,4 @@ To remove your virtual machine from inventory management:
 
 * To learn about managing changes in files and registry settings on your virtual machines, see [Track software changes in your environment with the Change Tracking solution](../log-analytics/log-analytics-change-tracking.md).
 * To learn about managing Windows and package updates on your virtual machines, see [The Update Management solution in Azure](../operations-management-suite/oms-solution-update-management.md).
+

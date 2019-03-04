@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 01/28/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Gateway so I can use it to transfer data to Azure. 
 ---
@@ -38,7 +38,7 @@ To deploy your Data Box Gateway, refer to the following tutorials in the prescri
 | **#** | **In this step** | **Use these documents** |
 | --- | --- | --- | 
 | 1. |**[Prepare the Azure portal for Data Box Gateway](data-box-gateway-deploy-prep.md)** |Create and configure your Data Box Gateway resource prior to provisioning a Data Box Gateway virtual device. |
-| 2. |**[Provision the Data Box Gateway in Hyper-V](data-box-gateway-deploy-provision-hyperv.md)** <br><br><br>**[Provision the Data Box Gateway in VMware](data-box-gateway-deploy-provision-vmware.md)**|For Hyper-V, provision and connect to a Data Box Gateway virtual device on a host system running Hyper-V on Windows Server 2016 or Windows Server 2012 R2. <br><br><br> For VMware, provision and connect to a Data Box Gateway virtual device on a host system running VMware ESXi 6.0 or 6.5.<br></br> |
+| 2. |**[Provision the Data Box Gateway in Hyper-V](data-box-gateway-deploy-provision-hyperv.md)** <br><br><br>**[Provision the Data Box Gateway in VMware](data-box-gateway-deploy-provision-vmware.md)**|For Hyper-V, provision and connect to a Data Box Gateway virtual device on a host system running Hyper-V on Windows Server 2016 or Windows Server 2012 R2. <br><br><br> For VMware, provision and connect to a Data Box Gateway virtual device on a host system running VMware ESXi 6.0, 6.5, or 6.7.<br></br> |
 | 3. |**[Connect, set up, activate the Data Box Gateway](data-box-gateway-deploy-connect-setup-activate.md)** |Connect to the local web UI, complete the device setup, and activate the device. You can then provision SMB shares.  |
 | 4. |**[Transfer data with Data Box Gateway](data-box-gateway-deploy-add-shares.md)** |Add shares, connect to shares via SMB or NFS. |
 
@@ -59,7 +59,7 @@ Before you begin, make sure that:
 
 Before you deploy a virtual device, make sure that:
 
-* You have access to a host system running Hyper-V on Windows Server 2012 R2 or later or VMware (ESXi 6.0 or 6.5) that can be used to a provision a device.
+* You have access to a host system running Hyper-V on Windows Server 2012 R2 or later or VMware (ESXi 6.0, 6.5, or 6.7) that can be used to a provision a device.
 * The host system is able to dedicate the following resources to provision your Data Box virtual device:
   
   * A minimum of 4 cores.
@@ -122,7 +122,7 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/).
 4. In the quickstart in the right pane, click the link corresponding to the image that you want to download. The image files are approximately 4.8 GB.
    
    * [VHDX for Hyper-V on Windows Server 2012 R2 and later](https://aka.ms/dbe-vhdx-2012).
-   * [VMDK for VMWare ESXi 6.0 or 6.5](https://aka.ms/dbe-vmdk).
+   * [VMDK for VMWare ESXi 6.0, 6.5, or 6.7](https://aka.ms/dbe-vmdk).
 
 5. Download and unzip the file to a local drive, making a note of where the unzipped file is located.
 
@@ -143,7 +143,7 @@ The activation key is used to register all the Data Box Gateway devices that nee
 
 > [!IMPORTANT]
 > - The activation key expires 3 days after it is generated. 
-> - If the key has epxired, generate a new key. The older key is not valid.
+> - If the key has expired, generate a new key. The older key is not valid.
 
 ## Next steps
 

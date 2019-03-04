@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: FAQs on Personality Chat
 services: cognitive-services
 author: noellelacharite
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: personality-chat
+ms.subservice: personality-chat
 ms.topic: faq
 ms.date: 05/07/2018
 ms.author: nolachar

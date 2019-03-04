@@ -1,3 +1,10 @@
+---
+author: robinsh
+ms.author: robin.shahan
+ms.service: iot-hub
+ms.topic: include
+ms.date: 10/26/2018
+---
 The following table lists the limits associated with the different service tiers (S1, S2, S3, F1). For information about the cost of each *unit* in each tier, see [IoT Hub Pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 | Resource | S1 Standard | S2 Standard | S3 Standard | F1 Free |
@@ -35,6 +42,8 @@ The following table lists the limits that apply to IoT Hub resources:
 | Maximum concurrent jobs | 10 (for S3), 5 for (S2), 1 (for S1) |
 | Maximum additional endpoints | 10 (for S1, S2, S3) |
 | Maximum message routing rules | 100 (for S1, S2, S3) |
+| Maximum number of concurrently connected device streams | 50 (for S1, S2, S3, and F1 only) |
+| Maximum device stream data transfer | 300 MB per day (for S1, S2, S3, and F1 only) |
 
 
 > [!NOTE]
@@ -42,7 +51,7 @@ The following table lists the limits that apply to IoT Hub resources:
 
 
 > [!NOTE]
-> Currently, the maximum number of devices you can connect to a single IoT hub is 500,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
+> Currently, the maximum number of devices you can connect to a single IoT hub is 1,000,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
 
 The IoT Hub service throttles requests when the following quotas are exceeded:
 
@@ -59,3 +68,4 @@ The IoT Hub service throttles requests when the following quotas are exceeded:
 | Device twin updates | 50/sec/unit (for S3), Maximum of 10/sec or 1/sec/unit (for S2), 10/sec (for S1) |
 | Jobs operations <br/> (create, update, list, delete) | 83.33/sec/unit (5000/min/unit) (for S3), 1.67/sec/unit (100/min/unit) (for S2), 1.67/sec/unit (100/min/unit) (for S1) |
 | Jobs per-device operation throughput | 50/sec/unit (for S3), Maximum of 10/sec or 1/sec/unit (for S2), 10/sec (for S1) |
+| Device stream initiation rate | 5 new streams/sec (for S1, S2, S3, and F1 only) |

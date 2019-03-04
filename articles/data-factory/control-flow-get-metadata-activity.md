@@ -11,9 +11,9 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 02/22/2019
 ms.author: shlo
 
 ---
@@ -30,7 +30,7 @@ The following functionality is available in the control flow:
 
 ## Supported capabilities
 
-The GetMetadata Activity takes a dataset as a required input, and outputs metadata information available as activity output. Currently, the following connectors with corresponding retrievable meatadata are supported, and the maximum supported metadata size is up to **1MB**.
+The GetMetadata Activity takes a dataset as a required input, and outputs metadata information available as activity output. Currently, the following connectors with corresponding retrievable metadata are supported, and the maximum supported metadata size is up to **1MB**.
 
 >[!NOTE]
 >If you run GetMetadata activity on a Self-hosted Integration Runtime, the latest capability is supported on version 3.6 or above. 
@@ -42,14 +42,15 @@ The GetMetadata Activity takes a dataset as a required input, and outputs metada
 | Connector/Metadata | itemName<br>(file/folder) | itemType<br>(file/folder) | size<br>(file) | created<br>(file/folder) | lastModified<br>(file/folder) |childItems<br>(folder) |contentMD5<br>(file) | structure<br/>(file) | columnCount<br>(file) | exists<br>(file/folder) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | Amazon S3 | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| Google Cloud Storage | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | Azure Blob | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
-| Azure Data Lake Store | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| Azure Data Lake Storage Gen1 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Azure File Storage | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | File System | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | FTP | √/√ | √/√ | √ | x/x	| √/√ | √ | x | √ | √ | √/√ |
 
-- For Amazon S3, the `lastModified` applies to bucket and key but not virtual folder; ; and the `exists` applies to bucket and key but not prefix or virtual folder.
+- For Amazon S3 and Google Sloud Storage, the `lastModified` applies to bucket and key but not virtual folder; ; and the `exists` applies to bucket and key but not prefix or virtual folder.
 - For Azure Blob, the `lastModified` applies to container and blob but not virtual folder.
 
 **Relational database:**
@@ -57,6 +58,7 @@ The GetMetadata Activity takes a dataset as a required input, and outputs metada
 | Connector/Metadata | structure | columnCount | exists |
 |:--- |:--- |:--- |:--- |
 | Azure SQL Database | √ | √ | √ |
+| Azure SQL Database Managed Instance | √ | √ | √ |
 | Azure SQL Data Warehouse | √ | √ | √ |
 | SQL Server | √ | √ | √ |
 

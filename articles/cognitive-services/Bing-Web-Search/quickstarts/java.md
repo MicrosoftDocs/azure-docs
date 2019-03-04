@@ -1,31 +1,31 @@
 ---
-title: "Quickstart: Perform a search with Java - Bing Web Search API"
+title: "Quickstart: Perform a web search with Java - Bing Web Search REST API"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you will learn how to make your first call to the Bing Web Search API using Java and receive a JSON response.
+description: Use this quickstart to send requests to the Bing Web Search REST API using Java, and receive a JSON response
 services: cognitive-services
-author: erhopf
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 8/16/2018
-ms.author: erhopf
+ms.date: 02/12/2019
+ms.author: aahi
+ms.custom: seodec2018
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Java.
 ---
 
-# Quickstart: Use Java to call the Bing Web Search API  
+# Quickstart: Search the web using the Bing Web Search REST API and Java
 
-Use this quickstart to make your first call to the Bing Web Search API and receive a JSON response.  
-
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
+Use this quickstart to make your first call to the Bing Web Search API and receive the JSON response. This Java application sends a search request to the API, and displays the response. While this application is written in Java, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
-
 Here are a few things that you'll need before running this quickstart:
 
-* [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [JDK 7 or 8](https://aka.ms/azure-jdks)
 * [Gson library](https://github.com/google/gson)
 * A subscription key
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## Create a project and import dependencies
 

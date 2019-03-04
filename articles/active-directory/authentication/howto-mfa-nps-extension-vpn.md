@@ -4,15 +4,16 @@ description: Integrate your VPN infrastructure with Azure MFA by using the Netwo
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 
 # Integrate your VPN infrastructure with Azure MFA by using the Network Policy Server extension for Azure
@@ -436,7 +437,7 @@ A related event from the Azure Multi-Factor Authentication log is shown here:
 
 To do advanced troubleshooting, consult the NPS database format log files where the NPS service is installed. The log files are created in the _%SystemRoot%\System32\Logs_ folder as comma-delimited text files. For a description of the log files, see [Interpret NPS Database Format Log Files](https://technet.microsoft.com/library/cc771748.aspx). 
 
-The entries in these log files are difficult to interpret unless you export them to a spreadsheet or a database. You can find many Internet Authentication Service (IAS) parsing tools online to assist you in interpreting the log files. The output of one such downloadable [shareware application](http://www.deepsoftware.com/iasviewer) is shown here: 
+The entries in these log files are difficult to interpret unless you export them to a spreadsheet or a database. You can find many Internet Authentication Service (IAS) parsing tools online to assist you in interpreting the log files. The output of one such downloadable [shareware application](https://www.deepsoftware.com/iasviewer) is shown here: 
 
 ![Shareware application](./media/howto-mfa-nps-extension-vpn/image49.png)
 

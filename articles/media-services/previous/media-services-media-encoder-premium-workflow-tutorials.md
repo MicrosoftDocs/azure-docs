@@ -1,10 +1,10 @@
 ---
-title: Avanced Media Encoder Premium Workflow tutorials
+title: Advanced Media Encoder Premium Workflow tutorials
 description: This document contains walkthroughs that show how to perform advanced tasks with Media Encoder Premium Workflow and also how to create complex workflows with Workflow Designer.
 services: media-services
 documentationcenter: ''
 author: xstof
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 1ba52865-b4a8-4ca0-ac96-920d55b9d15b
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 02/10/2019
 ms.author: christoc;xpouyat;juliako
 
 ---
@@ -41,12 +41,12 @@ The following topics are covered:
   * [Adding a separate Audio Track](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_audio_tracks)
   * [Adding the "ISM" SMIL File](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_ism_file)
 * [Encoding MXF into multibitrate MP4 - enhanced blueprint](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4)
-  * [Workflow overview to enhance](#workflow-overview-to-enhance)
+  * Workflow overview to enhance
   * [File Naming Conventions](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_file_naming)
   * [Publishing component properties onto the workflow root](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_publishing)
   * [Have generated output file names rely on published property values](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_output_files)
 * [Adding thumbnails to multibitrate MP4 output](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)
-  * [Workflow overview to add thumbnails to](#workflow-overview-to-add-thumbnails-to)
+  * Workflow overview to add thumbnails to
   * [Adding JPG Encoding](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4__with_jpg)
   * [Dealing with Color Space conversion](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_color_space)
   * [Writing the thumbnails](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_writing_thumbnails)
@@ -937,9 +937,9 @@ With the below simple guard clause, we can check if trimming is required and dec
 ```
 
 ## Also see
-[Introducing Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+[Introducing Premium Encoding in Azure Media Services](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 
-[How to Use Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+[How to Use Premium Encoding in Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 
 [Encoding On-Demand Content with Azure Media Service](media-services-encode-asset.md#media-encoder-premium-workflow)
 
@@ -947,7 +947,7 @@ With the below simple guard clause, we can check if trimming is required and dec
 
 [Sample workflow files](http://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
 
-[Azure Media Services Explorer tool](http://aka.ms/amse)
+[Azure Media Services Explorer tool](https://aka.ms/amse)
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

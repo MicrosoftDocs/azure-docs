@@ -18,7 +18,7 @@ This article shows you how to deploy the prerequisites for AKS and Azure AD, the
 
 The following limitations apply:
 
-- Existing non-RBAC enabled AKS clusters cannot currently be updated for RBAC use.
+- Azure AD can only be enabled when you create a new, RBAC-enabled cluster. You can't enable Azure AD on an existing AKS cluster.
 - *Guest* users in Azure AD, such as if you are using a federated login from a different directory, are not supported.
 
 ## Authentication details
@@ -64,7 +64,9 @@ The first Azure AD application is used to get a users Azure AD group membership.
 
   ![Set application graph permissions](media/aad-integration/delegated-permissions.png)
 
-7. Select **Done**, choose *Microsoft Graph* from the list of APIs, then select **Grant Permissions**. This step will fail if the current account is not a tenant admin.
+  Select **Done**.
+
+7. Choose *Microsoft Graph* from the list of APIs, then select **Grant Permissions**. This step will fail if the current account is not a tenant admin.
 
   ![Set application graph permissions](media/aad-integration/grant-permissions.png)
 
@@ -94,7 +96,9 @@ The second Azure AD application is used when logging in with the Kubernetes CLI 
 
   ![Select AKS AAD server application endpoint](media/aad-integration/select-server-app.png)
 
-4. Select **Done** and **Grant Permissions** to complete this step.
+  Select **Done**
+
+4. Select your server API from the list and then choose **Grant Permissions**:
 
   ![Grant permissions](media/aad-integration/grant-permissions-client.png)
 
@@ -141,7 +145,7 @@ First, use the [az aks get-credentials][az-aks-get-credentials] command with the
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-Next, use the following manifest to create a ClusterRoleBinding for an Azure AD account. Update the user name with one from your Azure AD tenant. This example gives the account full access to all namespaces of the cluster:
+Next, use the following manifest to create a ClusterRoleBinding for an Azure AD account. This example gives the account full access to all namespaces of the cluster. Create a file, such as *rbac-aad-user.yaml*, and paste the following contents. Update the user name with one from your Azure AD tenant:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -158,7 +162,13 @@ subjects:
   name: "user@contoso.com"
 ```
 
-A role binding can also be created for all members of an Azure AD group. Azure AD groups are specified using the group object ID, as shown in the following example:
+Apply the binding using the [kubectl apply][kubectl-apply] command as shown in the following example:
+
+```console
+kubectl apply -f rbac-aad-user.yaml
+```
+
+A role binding can also be created for all members of an Azure AD group. Azure AD groups are specified using the group object ID, as shown in the following example. Create a file, such as *rbac-aad-group.yaml*, and paste the following contents. Update the group object ID with one from your Azure AD tenant:
 
  ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -173,6 +183,12 @@ subjects:
 - apiGroup: rbac.authorization.k8s.io
    kind: Group
    name: "894656e1-39f8-4bfe-b16a-510f61af6f41"
+```
+
+Apply the binding using the [kubectl apply][kubectl-apply] command as shown in the following example:
+
+```console
+kubectl apply -f rbac-aad-group.yaml
 ```
 
 For more information on securing a Kubernetes cluster with RBAC, see [Using RBAC Authorization][rbac-authorization].
@@ -200,7 +216,9 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.9.9
 
 Once complete, the authentication token is cached. You are only reprompted to log in when the token has expired or the Kubernetes config file re-created.
 
-If you are seeing an authorization error message after signing in successfully, check that the user you are signing in as is not a Guest in the Azure AD (this is often the case if you are using a federated login from a different directory).
+If you are seeing an authorization error message after signing in successfully, check whether:
+1. The user you are signing in as is not a Guest in the Azure AD instance (this is often the case if you are using a federated login from a different directory).
+2. The user is not a member of more than 200 groups.
 
 ```console
 error: You must be logged in to the server (Unauthorized)
@@ -213,6 +231,7 @@ Learn more about securing Kubernetes clusters with RBAC with the [Using RBAC Aut
 <!-- LINKS - external -->
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
 [rbac-authorization]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create

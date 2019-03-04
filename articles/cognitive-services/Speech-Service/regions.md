@@ -1,41 +1,38 @@
 ---
-title: Speech service regions
-description: Reference for regions of the Speech service.
+title: Regions - Speech Services
+titlesuffix: Azure Cognitive Services
+description: Reference for regions of the Speech Service.
 services: cognitive-services
 author: mahilleb-msft
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
-ms.date: 09/24/2018
+ms.subservice: speech-service
+ms.topic: conceptual
+ms.date: 01/14/2019
 ms.author: mahilleb
+ms.custom: seodec18
 ---
 
-# Regions of the Speech service
+# Speech Service supported regions
 
-The Speech service is available in different regions.
-When you create a subscription, you can select an available region based on your needs.
+The Speech service allows your application to convert audio to text, perform speech translation, and covert text to speech. The service is available in multiple regions with unique endpoints for the Speech SDK and REST APIs.
 
-When you use your subscription, you have to account for the region you selected.
-
-## REST API
-
-Use the REST API to select the correct region-specific endpoints.
-See [REST APIs](rest-apis.md) for details.
+Make sure that you use the endpoint that matches the region for your subscription.
 
 ## Speech SDK
 
 In the [Speech SDK](speech-sdk.md), regions are specified as a string
 (for example, as a parameter to `SpeechConfig.FromSubscription` in the Speech SDK for C#).
 
-### Regions for speech recognition and translation
+### Speech recognition and translation
 
-The following table lists the available regions for **speech recognition** and **translation**.
+The Speech SDK is available in these regions for **speech recognition** and **translation**:
 
-  Region | Speech SDK Parameter | Portal
+  Region | Speech SDK Parameter | Speech Customization Portal
  ------|-------|--------
  West US | `westus` | https://westus.cris.ai
- West US2 | `westus2` | https://westus2.cris.ai 
+ West US2 | `westus2` | https://westus2.cris.ai
  East US | `eastus` | https://eastus.cris.ai
  East US2 | `eastus2` | https://eastus2.cris.ai
  East Asia | `eastasia` | https://eastasia.cris.ai
@@ -44,8 +41,39 @@ The following table lists the available regions for **speech recognition** and *
  West Europe | `westeurope` | https://westeurope.cris.ai
 
 
-### Regions for intent recognition
+### Intent recognition
 
-Available regions for **intent recognition** via the Speech SDK are listed on the [Language Understanding service region page](/azure/cognitive-services/luis/luis-reference-regions).
-For each publishing region listed, the corresponding Speech SDK region parameter is determined as the first part of the domain name of the endpoint.
-For example, use `westus` to specify the West US publishing region.
+Available regions for **intent recognition** via the Speech SDK are the following:
+
+ Global region | Region | Speech SDK Parameter
+ ------|-------|--------
+ Asia | East Asia | `eastasia`
+ Asia | Southeast Asia | `southeastasia`
+ Australia | Australia East | `australiaeast`
+ Europe | North Europe | `northeurope`
+ Europe | West Europe | `westeurope`
+ North America | East US | `eastus`
+ North America | East US 2 | `eastus2`
+ North America | South Central US | `southcentralus`
+ North America | West Central US | `westcentralus`
+ North America | West US | `westus`
+ North America | West US 2 | `westus2`
+ South America | Brazil South | `brazilsouth`
+
+This is a subset of the publishing regions supported by the [Language Understanding service (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
+
+## REST APIs
+
+The Speech service also exposes REST endpoints for speech-to-text and text-to-speech requests.
+
+### Speech-to-text
+
+For speech-to-text reference documentation, see [REST APIs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+
+### Text-to-speech
+
+For text-to-speech reference documentation, see [REST APIs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]

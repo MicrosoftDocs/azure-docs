@@ -38,7 +38,7 @@ Many applications can benefit from time to prepare for virtual machine maintenan
 - Event logging
 - Graceful shutdown 
 
-Using Scheduled Events your application can discover when maintenance will occur and trigger tasks to limit its impact.  
+Using Scheduled Events your application can discover when maintenance will occur and trigger tasks to limit its impact. Enabling scheduled events gives your virtual machine a minimum amount of time before the maintenance activity is performed. See the Event Scheduling section below for details.
 
 Scheduled Events provides events in the following use cases:
 - Platform initiated maintenance (e.g. Host OS Update)
@@ -61,14 +61,14 @@ The Scheduled Events Service is versioned. Versions are mandatory and the curren
 
 | Version | Release Type | Regions | Release Notes | 
 | - | - | - | - |
-| 2017-08-01 | General Availability | All | <li> Removed prepended underscore from resource names for Iaas VMs<br><li>Metadata Header requirement enforced for all requests | 
+| 2017-08-01 | General Availability | All | <li> Removed prepended underscore from resource names for IaaS VMs<br><li>Metadata Header requirement enforced for all requests | 
 | 2017-03-01 | Preview | All |<li>Initial release
 
 > [!NOTE] 
 > Previous preview releases of scheduled events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
 
 ### Enabling and Disabling Scheduled Events
-Scheduled Events is enabled for your service the first time you make a request for events. You should expect a delayed response in your first call of up to two minutes.
+Scheduled Events is enabled for your service the first time you make a request for events. You should expect a delayed response in your first call of up to two minutes. You should query the endpoint periodically to detect upcoming maintenance events as well as the status of maintenance activities that are being performed.
 
 Scheduled Events is disabled for your service if it does not make a request for 24 hours.
 
@@ -107,6 +107,7 @@ In the case where there are scheduled events, the response contains an array of 
     ]
 }
 ```
+The DocumentIncarnation is an ETag and provides an easy way to inspect if the Events payload has changed since the last query.
 
 ### Event Properties
 |Property  |  Description |
@@ -221,6 +222,6 @@ foreach($event in $scheduledEvents.Events)
 ## Next steps 
 
 - Watch a [Scheduled Events Demo](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) on Azure Friday. 
-- Review the Scheduled Events code samples in the [Azure Instance Metadata Scheduled Events Github Repository](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
+- Review the Scheduled Events code samples in the [Azure Instance Metadata Scheduled Events GitHub Repository](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
 - Read more about the APIs available in the [Instance Metadata service](instance-metadata-service.md).
 - Learn about [planned maintenance for Windows virtual machines in Azure](planned-maintenance.md).

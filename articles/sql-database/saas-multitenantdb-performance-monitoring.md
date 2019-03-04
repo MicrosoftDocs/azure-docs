@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer:
 manager: craigg
-ms.date: 09/14/2018
+ms.date: 01/25/2019
 ---
 # Monitor and manage performance of sharded multi-tenant Azure SQL database in a multi-tenant SaaS app
 
 In this tutorial, several key performance management scenarios used in SaaS applications are explored. Using a load generator to simulate activity across sharded multi-tenant databases, the built-in monitoring and alerting features of SQL Database are demonstrated.
 
-The Wingtip Tickets SaaS Multi-tenant Database app uses a sharded multi-tenant data model, where venue (tenant) data is distributed by tenant ID across potentially multiple databases. Like many SaaS applications, the anticipated tenant workload pattern is unpredictable and sporadic. In other words, ticket sales may occur at any time. To take advantage of this typical database usage pattern, databases can be scaled up and down to optimize the cost of a solution. With this type of pattern, it's important to monitor database resource usage to ensure that loads are reasonably balanced across potentially multiple databases. You also need to ensure that individual databases have adequate resources and are not hitting their [DTU](sql-database-service-tiers.md#dtu-based-purchasing-model) limits. This tutorial explores ways to monitor and manage databases, and how to take corrective action in response to variations in workload.
+The Wingtip Tickets SaaS Multi-tenant Database app uses a sharded multi-tenant data model, where venue (tenant) data is distributed by tenant ID across potentially multiple databases. Like many SaaS applications, the anticipated tenant workload pattern is unpredictable and sporadic. In other words, ticket sales may occur at any time. To take advantage of this typical database usage pattern, databases can be scaled up and down to optimize the cost of a solution. With this type of pattern, it's important to monitor database resource usage to ensure that loads are reasonably balanced across potentially multiple databases. You also need to ensure that individual databases have adequate resources and are not hitting their [DTU](sql-database-purchase-models.md#dtu-based-purchasing-model) limits. This tutorial explores ways to monitor and manage databases, and how to take corrective action in response to variations in workload.
 
 In this tutorial you learn how to:
 
@@ -46,7 +46,7 @@ Managing database performance consists of compiling and analyzing performance da
 
 The [Azure portal](https://portal.azure.com) provides built-in monitoring and alerting on most resources. For SQL Database, monitoring and alerting is available on databases. This built-in monitoring and alerting is resource-specific, so it's convenient to use for small numbers of resources, but is not convenient when working with many resources.
 
-For high-volume scenarios, where you're working with many resources, [Log Analytics](https://azure.microsoft.com/services/log-analytics/) can be used. This is a separate Azure service that provides analytics over emitted diagnostic logs and telemetry gathered in a log analytics workspace. Log Analytics can collect telemetry from many services and be used to query and set alerts.
+For high-volume scenarios, where you're working with many resources, [Azure Monitor logs](https://azure.microsoft.com/services/log-analytics/) can be used. This is a separate Azure service that provides analytics over emitted diagnostic logs and telemetry gathered in a Log Analytics workspace. Azure Monitor logs can collect telemetry from many services and be used to query and set alerts.
 
 ## Get the Wingtip Tickets SaaS Multi-tenant Database application source code and scripts
 
@@ -155,7 +155,7 @@ If you already provisioned a new tenant in its own database, skip the next few s
 
 The script will provision this tenant in a separate database, register the database and the tenant with the catalog, and then open the tenant’s Events page in the browser. Refresh the Events Hub page and you will see "Salix Salsa" has been added as a venue.
 
-## Manage performance of a single database
+## Manage performance of an individual database
 
 If a single tenant within a multi-tenant database experiences a sustained high load, it may tend to dominate the database resources and impact other tenants in the same database. If the activity is likely to continue for some time, the tenant can be temporarily moved out of the database and into its own single-tenant database. This allows the tenant to have the extra resources it needs, and fully isolates it from the other tenants.
 

@@ -1,14 +1,10 @@
 ---
-title: Create and associate service endpoint policies - Azure portal | Microsoft Docs
+title: Create and associate service endpoint policies - Azure portal
+titlesuffix: Azure Virtual Network
 description: In this article, learn how to set up and associated service endpoint policies using the Azure portal.
 services: virtual-network
 documentationcenter: virtual-network
 author: anithaa
-manager: narayan
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -60,7 +56,7 @@ Sign in to the Azure portal at http://portal.azure.com.
    
    ![Create service endpoint policy definitions](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-policydefinitionspane.PNG)
    
-5. Optional: Enter or select, the following information in **Tabs**
+5. Optional: Enter or select, the following information in **Tags**:
    
    - Key     : Select your key for the policy. Ex: Dept     
    - Value   : Enter value pair for the key. Ex: Finance

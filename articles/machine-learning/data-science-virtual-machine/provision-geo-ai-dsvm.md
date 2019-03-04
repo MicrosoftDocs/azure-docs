@@ -1,15 +1,16 @@
 ---
 title: Provision a Geo Artificial Intelligence Virtual Machine on Azure - Azure | Microsoft Docs
-description: How to provision a Geo AI Virtual Machine on Azure.
+description: Learn how to create and configure the Geo AI Data Science Virtual Machine. The Geo AI Data Science Virtual Machine provides you with the tools to create AI and ML solutions using geographic data.
 keywords: deep learning, AI, data science tools, data science virtual machine, Geospatial analytics
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 
 ms.assetid: 
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -21,7 +22,7 @@ ms.author: gokuma
 
 # Provision a Geo Artificial Intelligence Virtual Machine on Azure 
 
-The Geo AI Data Science Virtual Machine (Geo-DSVM) is an extension of the popular [Azure Data Science Virtual Machine](http://aka.ms/dsvm) that is specially configured to combine AI and geospatial analytics. The geospatial analytics in the VM are powered by [ArcGIS Pro](https://www.arcgis.com/features/index.html). The Data Science VM enables the rapid training of machine learning models, and even of deep learning models, on data that is enriched with geographic information. It is supported on Windows 2016 DSVM only. ​
+The Geo AI Data Science Virtual Machine (Geo-DSVM) is an extension of the popular [Azure Data Science Virtual Machine](https://aka.ms/dsvm) that is specially configured to combine AI and geospatial analytics. The geospatial analytics in the VM are powered by [ArcGIS Pro](https://www.arcgis.com/features/index.html). The Data Science VM enables the rapid training of machine learning models, and even of deep learning models, on data that is enriched with geographic information. It is supported on Windows 2016 DSVM only. ​
 
 The Geo-DSVM contains several tools for AI including:
 
