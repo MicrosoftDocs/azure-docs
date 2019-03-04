@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 09/25/2018
+ms.date: 03/04/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
@@ -35,8 +35,15 @@ When you work with a Virtual WAN partner, the process is:
 2. The branch device (VPN/SDWAN) controller obtains the Azure connectivity configuration and updates the local device. This automates the configuration download, editing, and updating of the on-premises VPN device.
 3. Once the device has the right Azure configuration, a site-to-site connection (two active tunnels) is established to the Azure WAN. Azure supports both IKEv1 and IKEv2. BGP is optional.
 
-
 If you don't want to use a preferred partner, you can configure the connection manually, see [Create a Site-to-Site connection using Virtual WAN](virtual-wan-site-to-site-portal.md).
+
+### <a name="partner"></a>Preferred partners
+
+[!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
+
+### <a name="regions"></a>Available regions
+
+[!INCLUDE [regions](../../includes/virtual-wan-regions-include.md)]
 
 ## <a name="p2s"></a>Point-to-site connections (Preview)
 
@@ -47,7 +54,6 @@ To create the connection manually, see [Create a point-to-site connection using 
 ## <a name="er"></a>ExpressRoute connections (Preview)
 
 To create the connection manually, see [Create an ExpressRoute connection using Virtual WAN](virtual-wan-expressroute-portal.md).
-
 
 ## <a name="resources"></a>Virtual WAN resources
 
