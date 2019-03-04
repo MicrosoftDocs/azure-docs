@@ -38,7 +38,7 @@ ms.lastreviewed: 03/05/2019
 
 4. At this point you can create an add-on plan to modify the base plan, but this is optional. We will create an add-on plan in the next article, [Azure Stack add-on plans](create-add-on-plan.md).
 
-5. Select the **Review + create** tab. Review the offer summary to ensure that all values are correct. Note that you are now able to expand the quotas in the chosen plans, one at a time, to view the details of each quota in a plan, and go back to make any necessary edits.
+5. Select the **Review + create** tab. Review the offer summary to ensure that all values are correct. The interface enables you to expand the quotas in the chosen plans, one at a time, to view the details of each quota in a plan, and go back to make any necessary edits.
 
 6. Select **Create** to create the offer.
 
