@@ -1,5 +1,5 @@
 ---
-title: What is Azure SignalR Service
+title: What is Azure SignalR Service?
 description: An overview of the Azure SignalR Service.
 author: sffamily
 ms.service: signalr
@@ -8,7 +8,7 @@ ms.date: 09/13/2018
 ms.author: zhshang
 ---
 
-# What is Azure SignalR Service
+# What is Azure SignalR Service?
 
 Azure SignalR Service simplifies the process of adding real-time web functionality to applications over HTTP. This real-time functionality allows the service to push content updates to connected clients, such as a single page web or mobile application. As a result, clients are updated without the need to poll the server, or submit new HTTP requests for updates.
 
