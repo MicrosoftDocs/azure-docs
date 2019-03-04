@@ -23,8 +23,8 @@ In this tutorial, you learn how to:
 > * Configure your device settings layout
 > * Configure your device properties layout
 > * Preview the device as an operator
-> * Configure your default home page
-> * Preview the default home page as an operator
+> * Configure your default application dashboard
+> * Preview the default application dashboard as an operator
 
 [!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
@@ -43,7 +43,7 @@ As a builder, you can define what information displays on a device dashboard. In
 
     ![Device Templates page](media/tutorial-customize-operator-experimental/devicetemplates.png)
 
-2. To customize your device dashboard, click the **Connected Air Conditioner (1.0.0)** device template device you created in the [Define a new device type in your application](tutorial-define-device-type-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) tutorial.
+2. To customize your device dashboard, select the **Connected Air Conditioner (1.0.0)** device template device you created in the [Define a new device type in your application](tutorial-define-device-type-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) tutorial.
 
 3. To edit the dashboard, select the **Dashboard** tab.
 
@@ -62,7 +62,7 @@ As a builder, you can define what information displays on a device dashboard. In
 
     ![Add KPI](media/tutorial-customize-operator-experimental/addkpi.png)
 
-5. Click **Save**. You can now see the KPI tile on the dashboard:
+5. Select **Save**. You can now see the KPI tile on the dashboard:
 
     ![KPI tile](media/tutorial-customize-operator-experimental/temperaturekpi.png)
 
@@ -88,7 +88,7 @@ In addition to the dashboard and settings, you can also configure the operator's
 
     ![Edit the properties layout](media/tutorial-customize-operator-experimental/propertieslayout.png)
 
-## Preview the connected air conditioner device as an operator
+## Preview the device
 
 You use the **Device Templates** page to customize the dashboard, settings, and properties tabs for an operator. You use the **Device Explorer** page to view and use the device template.
 
@@ -96,7 +96,7 @@ You use the **Device Templates** page to customize the dashboard, settings, and 
 
     ![View and use the device template](media/tutorial-customize-operator-experimental/usetemplate.png)
 
-2. To update the Location of this device, choose **Properties** and edit the value in the Location tile. Then click **Save**:
+2. To update the Location of this device, choose **Properties** and edit the value in the Location tile. Then select **Save**:
 
     ![Edit a property value](media/tutorial-customize-operator-experimental/editproperty.png)
 
@@ -110,34 +110,37 @@ You use the **Device Templates** page to customize the dashboard, settings, and 
 
     ![Operator's view of the device dashboard](media/tutorial-customize-operator-experimental/operatordashboard.png)
 
-## Configure the default home page
+## Configure the default dashboard
 
-When a builder or operator signs in to an Azure IoT Central application, they see a home page. As a builder, you can configure the content of this home page to include the most useful and relevant content for an operator.
+When a builder or operator signs in to an Azure IoT Central application, they see the application dashboard. As a builder, you can configure the content of the default dashboard to include the most useful and relevant content for an operator.
 
-1. To customize the default home page, navigate to the **Home** page and edit **Edit** at the top right of the page. A panel slides out from the left with a list of objects you can add to the **Home** page:
+> [!NOTE]
+> Users can also create their own personal dashboards and choose one as their default.
 
-    ![Application Builder page](media/tutorial-customize-operator-experimental/builderhome.png)
+1. To customize the default application dashboard, navigate to the **Dashboard** page and select **Edit** on the top right of the page. A panel appears with a library of objects you can add to the dashboard.
 
-2. To customize the **Home** page, add tiles from the **Library**. Choose **Link**, and add details of your organization's web site. Then click **Save**:
+    ![Dashboard page](media/tutorial-customize-operator-experimental/builderhome.png)
 
-    ![Add link to home page](media/tutorial-customize-operator-experimental/addlink.png)
+2. To customize the dashboard, add tiles from the **Library**. Choose **Link**, and add details of your organization's web site. Then choose **Save**:
+
+    ![Add link to the dashboard](media/tutorial-customize-operator-experimental/addlink.png)
 
     > [!NOTE]
     > You can also add links to pages within your Azure IoT Central application. For example, you could add a link to a device dashboard or settings page.
 
-3. Optionally, choose **Image** and upload an image to display on your home page. An image can have a URL to which you navigate when you click on it:
+3. Optionally, choose **Image** and upload an image to display on your dashboard. An image can have a URL to which you navigate when you select it:
 
-    ![Add image to home page](media/tutorial-customize-operator-experimental/addimage.png)
+    ![Add an image to the dashboard](media/tutorial-customize-operator-experimental/addimage.png)
 
     To learn more, see [How to prepare and upload images to your Azure IoT Central application](howto-prepare-images-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
-## Preview the default home page as an operator
+## Preview the dashboard
 
-To preview the home page as an operator, click **Done** at the top right of the page:
+To preview the application dashboard as an operator, select **Done** on the top right of the page.
 
 ![Toggle Design Mode](media/tutorial-customize-operator-experimental/operatorviewhome.png)
 
-You can click on the link and image tiles to navigate to the URLs you set as a builder.
+You can select the link and image tiles to navigate to the URLs you set as a builder.
 
 ## Next steps
 
