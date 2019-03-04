@@ -176,7 +176,7 @@ $filter=tags/all(t: t ne 'motel')
 $filter=tags/any()  
 ```  
 
-Find all hotels with no tags:  
+Find all hotels that don't have tags:  
 
 ```  
 $filter=not tags/any()  
