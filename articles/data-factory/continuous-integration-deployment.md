@@ -845,8 +845,8 @@ else {
 
 If you are in GIT mode, you can override the default properties in your Resource Manager template to set properties that are parameterized in the template and properties that are hard-coded. You might want to override the default parameterization template in these scenarios:
 
-1. You use automated CI/CD, you want to change some properties during Resource Manager deployment, but the properties aren't parameterized by default.
-2. Your factory is so large that the default Resource Manager template is invalid because it has more than the maximum allowed parameters (256).
+* You use automated CI/CD, you want to change some properties during Resource Manager deployment, but the properties aren't parameterized by default.
+* Your factory is so large that the default Resource Manager template is invalid because it has more than the maximum allowed parameters (256).
 
 Under these conditions, to override the default parameterization template, create a file named *arm-template-parameters-definition.json* in the root folder of the repository. The file name must exactly match. Data Factory tries to read this file from whichever branch you are currently on in the Azure Data Factory portal, not just from the collaboration branch. You can create or edit the file from a private branch, where you can test your changes by using the **Export ARM template** in the UI. Then, you can merge the file into the collaboration branch. If no file is found, the default template is used.
 
@@ -865,7 +865,7 @@ Here are some guidelines to use when you author the custom parameters file. The 
    * `<stype>` is the type of parameter. If `<stype>` is blank, the default type is `string`. Supported values: `string`, `bool`, `number`, `object`, and `securestring`.
 4. When you specify an array in the definition file, you indicate that the matching property in the template is an array. Data Factory iterates through all the objects in the array by using the definition that's specified in the Integration Runtime object of the array. The second object, a string, becomes the name of the property, which is used as the name for the parameter for each iteration.
 5. It's not possible to have a definition that's specific for a resource instance. Any definition applies to all resources of that type.
-6. By default, all secure strings like Key Vault secrets, and secure strings like connection strings, keys, and tokens, are parameterized.
+6. By default, all secure strings, such as Key Vault secrets, and secure strings, such as connection strings, keys, and tokens, are parameterized.
  
 ## Sample parameterization template
 
@@ -933,29 +933,29 @@ Here are some guidelines to use when you author the custom parameters file. The 
 
 #### Pipelines
 	
-* Any property in the path activities/typeProperties/waitTimeInSeconds is parameterized. This means that any activity in a pipeline that has a code-level property named `waitTimeInSeconds` (for example, the Wait activity) is parameterized as a number, with a default name. But, it won't have a default value in the Resource Manager template. It will be a mandatory input during the Resource Manager deployment.
-* Similarly, a property called `headers` (example, in a Web activity) is parameterized with type `object` (JObject). It will have a default value, which will be the same value as in the source factory.
+* Any property in the path activities/typeProperties/waitTimeInSeconds is parameterized. This means that any activity in a pipeline that has a code-level property named `waitTimeInSeconds` (for example, the `Wait` activity) is parameterized as a number, with a default name. But, it won't have a default value in the Resource Manager template. It will be a mandatory input during the Resource Manager deployment.
+* Similarly, a property called `headers` (for example, in a `Web` activity) is parameterized with type `object` (JObject). It has a default value, which is the same value as in the source factory.
 
 #### IntegrationRuntimes
 
-* Only and all properties under the path `typeProperties` are parameterized, with their respective default values. For example, as of today's schema, there are two properties under **IntegrationRuntimes** type properties: `computeProperties` and `ssisProperties`. Both property types are created with their respective default values and types (Object).
+* Only properties, and all properties, under the path `typeProperties` are parameterized, with their respective default values. For example, as of today's schema, there are two properties under **IntegrationRuntimes** type properties: `computeProperties` and `ssisProperties`. Both property types are created with their respective default values and types (Object).
 
 #### Triggers
 
-* Under `typeProperties`, 2 properties will get parameterized. The first one is maxConcurrency, which is specified to have a default value, and the type would be `string`, having the default parameter name of `<entityName>_properties_typeProperties_maxConcurrency`
-* Along with that, the recurrence property also gets parameterized. Under it, all properties at that level are specified to be parameterized as strings with default values and parameter names. Except that, the interval property will get parameterized as number type, and with parameter name suffixed with `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Similarly the property `freq` is a `string`, and will get parameterized as a `string`, however without any default value. The name would be shortened and will be suffixed, for instance, `<entityName>_freq`.
+* Under `typeProperties`, two properties are parameterized. The first one is `maxConcurrency`, which is specified to have a default value, and the type would be `string`. It has the default parameter name of `<entityName>_properties_typeProperties_maxConcurrency`.
+* The `recurrence` property also is parameterized. Under it, all properties at that level are specified to be parameterized as strings, with default values and parameter names. An exception is the `interval` property, which is parameterized as number type, and with the parameter name suffixed with `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Similarly the `freq` property is a string and is parameterized as a string. However, the `freq` property is paramaterized without a default value. The name is shortened and is suffixed. For example, `<entityName>_freq`.
 
 #### LinkedServices
 
-* The special part demonstrated in linked services is since linked services and datasets can be potentially of several types, you can provide type specific customization. For ex, you can say for all linked services of type AzureDataLakeStore, a particular template will be applied, and for all others (via \*) a different template will be applied.
-* In the above example, the `connectionString` property will be parameterized as a `securestring`, will not have any default value, and will have a shortened parameter name suffixed with `connectionString`.
-* The property `secretAccessKey` however happens to be a `AzureKeyVaultSecret` (for instance a `AmazonS3` linked service), and thus it will automatically be parameterized as a Azure KeyVault secret, fetched from the KeyVault that it is configured with in source factory. Once can ofcourse go beyond this and parameterize the AKV itself too.
+* Linked services is unique. Because linked services and datasets can potentially be of several types, you can provide type-specific customization. For example, you might say that for all linked services of type `AzureDataLakeStore`, a specific template will be applied, and for all others (via \*) a different template will be applied.
+* In the preceding example, the `connectionString` property will be parameterized as a `securestring` value, it won't have a default value, and it will have a shortened parameter name that's suffixed with `connectionString`.
+* The property `secretAccessKey`, however, happens to be an `AzureKeyVaultSecret` (for instance, an `AmazonS3` linked service). Thus, it is automatically parameterized as an Azure KeyVault secret, and it's fetched from the key vault that it's configured with in the source factory. You can also parameterize the key vault, itself.
 
 #### Datasets
 
-* Even though there is type specific customization available for datasets, configuration can be provided without explicitly having a * level configuration. So in the above example, all datasets will have all their properties under `typeProperties` parameterized.
+* Even though type-specific customization is available for datasets, configuration can be provided without explicitly having a \*-level configuration. So, in the preceding example, all dataset properties under `typeProperties` are parameterized.
 
-The default parameterization template can change, but as of today, this is the template. This will be useful, if you just need to add one additional property as parameter, but you don’t want to lose the existing ones and reauthor team that are already getting parameterized.
+The default parameterization template can change, but as of today, this is the template. This will be useful if you just need to add one additional property as a parameter, but also if you don’t want to lose the existing ones and reauthor those that are already getting parameterized.
 
 
 ```json
