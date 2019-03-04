@@ -99,8 +99,6 @@ To stop protection for a database:
 
 1. On the vault dashboard, under **Usage**, select **Backup Items**.
 
-    ![Open the Backup Items menu](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png).
-
 1. Under **Backup Management Type**, select **SQL in Azure VM**.
 
     ![Select SQL in Azure VM](./media/backup-azure-sql-database/sql-restore-backup-items.png)

@@ -61,7 +61,7 @@ To bulk-register devices in your application:
     > [!NOTE]
     > If you don’t have a device template yet then you can import devices under **Unassociated devices** and register them without a template. After devices have been imported, you can then associate them with a template.
 
-1. Click **Import**.
+1. Select **Import**.
 
     ![Import Action](./media/howto-manage-devices-experimental/BulkImport1.png)
 
@@ -87,11 +87,11 @@ If you register devices by starting the import under **Unassociated devices**, t
 
 1. Select the devices you want to associate with a template:
 
-1. Click **Associate**:
+1. Select **Associate**:
 
     ![Associate Devices](./media/howto-manage-devices-experimental/UnassociatedDevices2.png)
 
-1. Choose the template from the list of available templates and click **Associate** button.
+1. Choose the template from the list of available templates and select **Associate**.
 
 1. The selected devices are associated with the device template you chose.
 
@@ -108,7 +108,7 @@ To bulk export devices from your application:
 
 1. On the left panel, choose the device template from which you want to export the devices.
 
-1. Select the devices that you want to export and then click the **Export** action.
+1. Select the devices that you want to export and then select the **Export** action.
 
     ![Export](./media/howto-manage-devices-experimental/Export1.png)
 
@@ -116,7 +116,7 @@ To bulk export devices from your application:
 
 1. When the export completes, a success message is shown along with a link to download the generated file.
 
-1. Click on the **success message** to download the file to a local folder on the disk.
+1. Select the **success message** to download the file to a local folder on the disk.
 
     ![Export Success](./media/howto-manage-devices-experimental/Export2.png)
 
