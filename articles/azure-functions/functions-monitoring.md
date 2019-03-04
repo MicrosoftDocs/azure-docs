@@ -35,7 +35,7 @@ You can set up this connection in the [Azure portal](https://portal.azure.com):
 * [Automatically connect a new function app](#new-function-app)
 * [Manually connect an Application Insights resource](#manually-connect-an-app-insights-resource)
 
-### Connect a new function app
+### New function app
 <!-- Add a transitional sentence to introduce the procedure. -->
 
 1. Go to the function app **Create** page.
@@ -50,7 +50,9 @@ You can set up this connection in the [Azure portal](https://portal.azure.com):
 
 The next step is to [disable built-in logging](#disable-built-in-logging).
 
-### Manually connect an Application Insights resource 
+
+<a id="manually-connect-an-app-insights-resource"></a>
+### Application Insights resource 
 <!-- Add a transitional sentence to introduce the procedure. -->
 
 1. Create the Application Insights resource. Set application type to **General**.
