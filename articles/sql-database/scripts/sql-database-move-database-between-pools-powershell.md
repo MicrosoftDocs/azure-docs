@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.reviewer: 
 ms.author: carlrab
 manager: craigg
-ms.date: 03/01/2019
+ms.date: 03/04/2019
 ---
 # Use PowerShell to create elastic pools and move databases between elastic pools
 
@@ -25,7 +25,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 ## Sample script
 
-[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/move-database-between-pools-and-standalone/move-database-between-pools-and-standalone.ps1?highlight=19-20 "Move database between pools")]
+[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/move-database-between-pools-and-standalone/move-database-between-pools-and-standalone.ps1?highlight=18-19 "Move database between pools")]
 
 ## Clean up deployment
 
