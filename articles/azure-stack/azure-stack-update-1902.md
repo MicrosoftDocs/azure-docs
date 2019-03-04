@@ -162,6 +162,10 @@ The following are post-installation known issues for this build version.
 
 - An Ubuntu 18.04 VM created with SSH authorization enabled will not allow you to use the SSH keys to log in. As a workaround, use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
 
+- In 1902, the memory required by the ERCS infrastructure VM was increased from 8 GB to 12 GB. On an ASDK, this results in a 4GB increase. On an Azure Stack integrated systems installation, it is a 12GB increase.
+
+   To make sure the patch and update process does not result in tenant downtime, make sure your Azure Stack stamp has more than 12 GB of available space in the **Capacity** blade. You can see this memory increase reflected in the **Capacity** blade after a successful installation of the update.
+
 ### Networking  
 
 <!-- 3239127 - IS, ASDK -->
