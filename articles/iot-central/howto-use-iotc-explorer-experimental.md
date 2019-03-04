@@ -45,10 +45,10 @@ The following sections describe common commands and options that you can use whe
 Before you get going, you need to have an administrator of your IoT Central application to get an access token for you to use. The administrator takes the following steps:
 
 1. Navigate to **Administration** then **Access Tokens**.
-1. Click **Generate Token**.
+1. Select **Generate Token**.
     ![Access token page screenshot](media/howto-use-iotc-explorer-experimental/accesstokenspage.png)
 
-1. Enter a Token name, click **Next**, and then **Copy**.
+1. Enter a Token name, select **Next**, and then **Copy**.
     > [!NOTE]
     > The token value is only shown once, so it must be copied before closing the dialog. After closing the dialog, it is never shown again.
 
