@@ -4,7 +4,7 @@ description: Learn about customer data in Key Vault
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.service: key-vault

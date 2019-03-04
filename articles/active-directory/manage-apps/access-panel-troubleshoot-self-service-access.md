@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: japere,asteen
+ms.collection: M365-identity-device-management
 ---
 
 # Problem using self-service application access

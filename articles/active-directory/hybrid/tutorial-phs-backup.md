@@ -12,6 +12,7 @@ ms.date: 01/30/2019
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial:  Setting up PHS as backup for AD FS in Azure AD Connect

@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 07/24/2018
 ms.author: celested
 
+ms.collection: M365-identity-device-management
 ---
 # Quickstart: Add an application to your Azure Active Directory tenant
 

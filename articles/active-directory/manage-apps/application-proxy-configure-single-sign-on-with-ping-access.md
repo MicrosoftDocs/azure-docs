@@ -16,6 +16,7 @@ ms.date: 10/11/2017
 ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Header-based authentication for single sign-on with Application Proxy and PingAccess

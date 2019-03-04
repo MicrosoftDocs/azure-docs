@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: conceptual
-ms.date: 06/21/2016
+ms.date: 02/20/2019
 ms.author: scottwhi
 ---
 

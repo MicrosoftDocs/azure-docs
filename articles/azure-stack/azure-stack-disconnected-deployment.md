@@ -13,16 +13,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
 
 ---
 # Azure disconnected deployment planning decisions for Azure Stack integrated systems
-After you've decided [how you will integrate Azure Stack into your hybrid cloud environment](azure-stack-connection-models.md), you can then finalize your Azure Stack deployment decisions.
+After you've decided [how you will integrate Azure Stack into your hybrid cloud environment](azure-stack-connection-models.md), you can finalize your Azure Stack deployment decisions.
 
-You can deploy and use Azure Stack without a connection to the internet. However, with a disconnected deployment, you are limited to an AD FS identity store and the capacity-based billing model. Because multitenancy requires the use of Azure AD, multitenancy is not supported for disconnected deployments. 
+You can deploy and use Azure Stack without a connection to the internet. However, with a disconnected deployment, you are limited to an AD FS identity store and the capacity-based billing model. Because multitenancy requires the use of Azure Active Directory (Azure AD), multitenancy is not supported for disconnected deployments. 
 
 Choose this option if you:
 - Have security or other restrictions that require you to deploy Azure Stack in an environment that is not connected to the Internet.
@@ -30,9 +30,9 @@ Choose this option if you:
 - Want to use Azure Stack purely as a private cloud solution that is deployed to your corporate Intranet, and aren’t interested in hybrid scenarios.
 
 > [!TIP]
-> Sometimes, this type of environment is also referred to as a “submarine scenario”.
+> Sometimes, this type of environment is also referred to as a *submarine scenario*.
 
-A disconnected deployment does not strictly mean that you can’t later connect your Azure Stack instance to Azure for hybrid tenant VM scenarios. It means that you don’t have connectivity to Azure during deployment or you don’t want to use Azure Active Directory as your identity store.
+A disconnected deployment does not restrict you from later connecting your Azure Stack instance to Azure for hybrid tenant VM scenarios. It means that you don’t have connectivity to Azure during deployment or you don’t want to use Azure AD as your identity store.
 
 ## Features that are impaired or unavailable in disconnected deployments 
 Azure Stack was designed to work best when connected to Azure, so it’s important to note that there are some features and functionality that are either impaired or completely unavailable in the Disconnected mode. 

@@ -25,7 +25,7 @@ If you already have the Recovery Services vault open, skip to the second step.
 
    ![Create Recovery Services Vault step 1](./media/backup-azure-delete-vault/open-recovery-services-vault.png) <br/>
 
-   The list of Recovery Services vaults is displayed. 
+   The list of Recovery Services vaults is displayed.
 
    ![choose vault from list](./media/backup-azure-delete-vault/choose-vault-to-delete-.png)
 
@@ -91,7 +91,7 @@ To delete a Recovery Services vault:
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
-   
+
 1. Sign in to your subscription in the Azure portal and verify the vault is deleted.
 
 
@@ -102,7 +102,6 @@ To manually remove the vault dependencies, delete the configuration between each
 * Azure Storage (Azure Files) backups
 * SQL Server in Azure VM backups
 * Azure virtual machines backups
-* Microsoft Azure Recovery Services agent backups
 
 Use the **Backup Infrastructure** menu (see image) for:
 
@@ -121,7 +120,7 @@ Use the **Backup Infrastructure** menu (see image) for:
 
 1. For all items in the list, right-click the item, and from the context menu, select **Stop backup**.
 
-    ![select the backup type](./media/backup-azure-delete-vault/stop-backup-item.png) 
+    ![select the backup type](./media/backup-azure-delete-vault/stop-backup-item.png)
 
     The Stop Backup menu opens.
 
@@ -150,9 +149,9 @@ Use the **Backup Infrastructure** menu (see image) for:
 
 ## Removing Azure Backup Server or DPM
 
-1. In the vault dashboard menu, scroll down to the Manage section, and click **Backup Infrastructure**. 
+1. In the vault dashboard menu, scroll down to the Manage section, and click **Backup Infrastructure**.
 
-1. In the submenu, click **Backup Management Servers** to view the Azure Backup Servers and System Center DPM server. you can stop and delete Azure File Servers, SQL Servers in Azure VM, and Azure virtual machines. 
+1. In the submenu, click **Backup Management Servers** to view the Azure Backup Servers and System Center DPM server. you can stop and delete Azure File Servers, SQL Servers in Azure VM, and Azure virtual machines.
 
     ![select your vault to open its dashboard](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 

@@ -4,7 +4,7 @@ description: This document helps to troubleshoot issues in Azure Security Center
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
@@ -36,7 +36,7 @@ This guide explains how to troubleshoot Security Center related issues. Most of 
 The audit log contains all write operations (PUT, POST, DELETE) performed on your resources, however it does not include read operations (GET).
 
 ## Microsoft Monitoring Agent
-Security Center uses the Microsoft Monitoring Agent – this is the same agent used by the Log Analytics service – to collect security data from your Azure virtual machines. After data collection is enabled and the agent is correctly installed in the target machine, the process below should be in execution:
+Security Center uses the Microsoft Monitoring Agent – this is the same agent used by the Azure Monitor service – to collect security data from your Azure virtual machines. After data collection is enabled and the agent is correctly installed in the target machine, the process below should be in execution:
 
 * HealthService.exe
 

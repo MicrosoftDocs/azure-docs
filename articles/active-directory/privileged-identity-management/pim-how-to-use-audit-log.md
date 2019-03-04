@@ -15,6 +15,7 @@ ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
 
+ms.collection: M365-identity-device-management
 ---
 # View audit history for Azure AD directory roles in PIM
 You can use the Privileged Identity Management (PIM) audit history to see all the user assignments and activations within a given time period for all privileged roles. If you want to see the full audit history of activity in your tenant, including administrator, end user, and synchronization activity, you can use the [Azure Active Directory access and usage reports.](../reports-monitoring/overview-reports.md)

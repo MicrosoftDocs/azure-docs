@@ -4,7 +4,7 @@ description: Learn about gaining tenant-wide visibility in Azure Security Center
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
@@ -105,15 +105,15 @@ To gain visibility to all subscriptions, tenant administrators need to assign th
 
 
 #### Assign RBAC roles to users with PowerShell: 
-1. Install [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+1. Install [Azure PowerShell](/powershell/azure/install-az-ps).
 2. Run the following commands: 
 
     ```azurepowershell
-    # Install Management Groups Powershell module
-    Install-Module AzureRM.Resources
-    
     # Login to Azure as a Global Administrator user
-    Login-AzureRmAccount
+    Connect-AzAccount
     ```
 
 3. When prompted, sign in with global admin credentials. 
@@ -125,12 +125,12 @@ To gain visibility to all subscriptions, tenant administrators need to assign th
     ```azurepowershell
     # Add Reader role to the required user on the Root Management Group
     # Replace "user@domian.com” with the user to grant access to
-    New-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
+    New-AzRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
     ```
 5. To remove the role, use the following command: 
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
+    Remove-AzRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
     ```
 
 ### Open or refresh Security Center
@@ -138,11 +138,16 @@ Once you have elevated access, open or refresh Azure Security Center to verify y
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. Make sure you select all the subscriptions in the subscription selector that you would like to view in Security Center.
+
     ![Subscription selector screenshot](./media/security-center-management-groups/subscription-selector.png)
+
 1. Select **All services** under the Azure main menu then select **Security Center**.
-2. In the **Overview**, there's a subscription coverage chart. 
+2. In the **Overview**, there's a subscription coverage chart.
+
     ![Subscription coverage chart screenshot](./media/security-center-management-groups/security-center-subscription-coverage.png)
+
 3. Click on **Coverage** to see the list of subscriptions covered. 
+
     ![Subscription coverage list screenshot](./media/security-center-management-groups/security-center-coverage.png)
 
 ### Remove elevated access 

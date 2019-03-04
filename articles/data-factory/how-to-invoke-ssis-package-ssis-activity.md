@@ -8,7 +8,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 02/09/2019
+ms.date: 02/12/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
@@ -120,73 +120,73 @@ In this step, you create a pipeline with an Execute SSIS Package activity. The a
 
    ```json
    {
-	   "name": "RunSSISPackagePipeline",
+       "name": "RunSSISPackagePipeline",
        "properties": {
-	       "activities": [{
-		       "name": "mySSISActivity",
-			   "description": "My SSIS package/activity description",
-			   "type": "ExecuteSSISPackage",
-			   "typeProperties": {
-				   "connectVia": {
-					   "referenceName": "myAzureSSISIR",
-					   "type": "IntegrationRuntimeReference"
-    			   },
-	    		   "runtime": "x64",
-		    	   "loggingLevel": "Basic",
-			       "packageLocation": {
-				       "packagePath": "FolderName/ProjectName/PackageName.dtsx"            
-    			   },
-	    		   "environmentPath": "FolderName/EnvironmentName",
-		    	   "projectParameters": {
-			    	   "project_param_1": {
-				           "value": "123"
-    				   }
-	    		   },
-		    	   "packageParameters": {
-			    	   "package_param_1": {
-				    	   "value": "345"
-					   }
-    			   },
-	    		   "projectConnectionManagers": {
-		    		   "MyAdonetCM": {
-			    		   "userName": {
-				    		   "value": "sa"
-					       },
-						   "passWord": {
-							   "value": {
-								   "type": "SecureString",
-    							   "value": "abc"
-	    				       }
-		    			   }
-			    	   }
-				   },
-    		       "packageConnectionManagers": {
-	    			   "MyOledbCM": {
-		    			   "userName": {
-			    			   "value": "sa"
-				    	   },
-					       "passWord": {
-						       "value": {
-							       "type": "SecureString",
-								   "value": "def"
-    						   }
-	    				   }
-		    		   }
-			       },
-				   "propertyOverrides": {
-					   "\\PackageName.dtsx\\MaxConcurrentExecutables": {
-    					   "value": 8,
-	    				   "isSensitive": false
-		    		   }
-			       }
+           "activities": [{
+               "name": "mySSISActivity",
+               "description": "My SSIS package/activity description",
+               "type": "ExecuteSSISPackage",
+               "typeProperties": {
+                   "connectVia": {
+                       "referenceName": "myAzureSSISIR",
+                       "type": "IntegrationRuntimeReference"
+                   },
+                   "runtime": "x64",
+                   "loggingLevel": "Basic",
+                   "packageLocation": {
+                       "packagePath": "FolderName/ProjectName/PackageName.dtsx"
+                   },
+                   "environmentPath": "FolderName/EnvironmentName",
+                   "projectParameters": {
+                       "project_param_1": {
+                           "value": "123"
+                       }
+                   },
+                   "packageParameters": {
+                       "package_param_1": {
+                           "value": "345"
+                       }
+                   },
+                   "projectConnectionManagers": {
+                       "MyAdonetCM": {
+                           "userName": {
+                               "value": "sa"
+                           },
+                           "passWord": {
+                               "value": {
+                                   "type": "SecureString",
+                                   "value": "abc"
+                               }
+                           }
+                       }
+                   },
+                   "packageConnectionManagers": {
+                       "MyOledbCM": {
+                           "userName": {
+                               "value": "sa"
+                           },
+                           "passWord": {
+                               "value": {
+                                   "type": "SecureString",
+                                   "value": "def"
+                               }
+                           }
+                       }
+                   },
+                   "propertyOverrides": {
+                       "\\Package.MaxConcurrentExecutables": {
+                           "value": 8,
+                           "isSensitive": false
+                       }
+                   }
                },
-    		   "policy": {
-	    		   "timeout": "0.01:00:00",
-		    	   "retry": 0,
-			       "retryIntervalInSeconds": 30
-    		   }
-	       }]
-	   }
+               "policy": {
+                   "timeout": "0.01:00:00",
+                   "retry": 0,
+                   "retryIntervalInSeconds": 30
+               }
+           }]
+       }
    }
    ```
 

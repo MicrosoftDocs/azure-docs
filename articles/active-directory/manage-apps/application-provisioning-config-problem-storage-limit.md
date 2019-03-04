@@ -17,6 +17,7 @@ ms.date: 02/21/2018
 ms.author: celested
 ms.reviewer: asmalser
 
+ms.collection: M365-identity-device-management
 ---
 
 # Problem saving administrator credentials while configuring user provisioning to an Azure Active Directory Gallery application 

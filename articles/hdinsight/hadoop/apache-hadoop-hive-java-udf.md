@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 02/15/2019
 ms.author: hrasheed
 
 ---
@@ -209,7 +209,7 @@ Learn how to create a Java-based user-defined function (UDF) that works with Apa
     ```
 
     > [!NOTE]
-    > This example assumes that Azure Storage is default storage for the cluster. If your cluster uses Data Lake Storage instead, change the `wasb:///` value to `adl:///`.
+    > This example assumes that Azure Storage is default storage for the cluster. If your cluster uses Data Lake Storage Gen2 instead, change the `wasb:///` value to `abfs:///`. If your cluster uses Data Lake Storage Gen1, change the `wasb:///` value to `adl:///`.
 
 3. Use the UDF to convert values retrieved from a table to lower case strings.
 

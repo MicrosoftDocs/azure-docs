@@ -4,7 +4,7 @@ description: Overview of Azure Key Vault REST interface and developer details fo
 services: key-vault
 documentationcenter:
 author: BryanLa
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid: abd1b743-1d58-413f-afc1-d08ebf93828a
