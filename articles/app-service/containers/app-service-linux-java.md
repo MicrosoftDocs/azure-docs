@@ -151,7 +151,7 @@ Spring Boot developers can use the [Azure Active Directory Spring Boot starter](
 
 Follow the instructions in the [Bind an existing custom SSL certificate](/azure/app-service/app-service-web-tutorial-custom-ssl) to upload an existing SSL certificate and bind it to your application's domain name. By default your application will still allow HTTP connections-follow the specific steps in the tutorial to enforce SSL and TLS.
 
-## Data Sources
+## Data sources
 
 ### Tomcat
 
