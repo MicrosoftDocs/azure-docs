@@ -5,7 +5,7 @@ author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/23/2018
+ms.date: 03/04/2019
 ms.author: zhshang
 ---
 # Quickstart: Create a chat room with Azure Functions and SignalR Service using C\#
