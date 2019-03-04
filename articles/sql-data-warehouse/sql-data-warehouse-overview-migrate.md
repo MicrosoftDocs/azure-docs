@@ -67,4 +67,4 @@ The CAT (Customer Advisory Team) also has some great SQL Data Warehouse guidance
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Migrating data to Azure SQL Data Warehouse in practice]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
+[Migrating data to Azure SQL Data Warehouse in practice]: https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
