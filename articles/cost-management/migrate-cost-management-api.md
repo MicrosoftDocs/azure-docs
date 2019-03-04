@@ -1,6 +1,6 @@
 ---
 title: Migrate from Enterprise Agreement to Microsoft Customer Agreement APIs - Azure | Microsoft Docs
-description: This article helps you understand impact to APIs when you migrate from a Microsoft Enterprise Agreement (EA) to a Microsoft Customer Agreement.
+description: This article helps you understand the impact to APIs when you migrate from a Microsoft Enterprise Agreement (EA) to a Microsoft Customer Agreement.
 services: cost-management
 keywords:
 author: bandersmsft
@@ -14,7 +14,7 @@ ms.custom:
 
 # Migrate from Enterprise Agreement to Microsoft Customer Agreement APIs
 
-This article helps you understand impact to APIs when you migrate from a Microsoft Enterprise Agreement (EA) to a Microsoft Customer Agreement. The following new APIs are used to view costs and pricing:
+This article helps you understand the impact to APIs when you migrate from a Microsoft Enterprise Agreement (EA) to a Microsoft Customer Agreement. The following new APIs are used to view costs and pricing:
 
 - Pricesheet API for Microsoft Customer Agreements
   - Pricesheet by Invoice
@@ -57,7 +57,7 @@ This article helps you understand impact to APIs when you migrate from a Microso
 
 ## Effect on automation
 
-The APIs used with a Microsoft customer agreement differ from ones used with an Enterprise Agreement. You might have set up API automation previously using enterprise key-based APIs or ARM-based APIs for enterprise enrollments. If so, update your automation configuration for newer APIs used with Microsoft Customer Agreements.
+The APIs used with a Microsoft customer agreement differ from ones used with an Enterprise Agreement. You might have set up API automation previously using enterprise key-based APIs or Azure Resource Manager-based APIs for enterprise enrollments. If so, update your automation configuration for newer APIs used with Microsoft Customer Agreements.
 
 To see a list of older unsupported APIs by Microsoft Customer Agreements, see [Unsupported APIs](#unsupported-apis).
 
@@ -132,17 +132,17 @@ Azure-AsyncOperation: https://managment.azure.com/providers/Microsoft.Consumptio
 The client can make a GET call to the location. The response to the GET call is the same as the example information shown previously, until the operation reaches a completion or failure state. When completed, the response to the call for the GET on Location returns the same response as if the operation was executed at the same time. Here's an example.
 
 ```
-                        HTTP Status 200
-                        i.e.
-                                    {
-                            “id”: “providers/Microsoft.Consumption/operationresults/{operationId}”,
-                            “name”: {operationId},
-                           “type”: “Microsoft.Consumption/operationResults”,
-                           “properties” : {
-                                  “downloadUrl”: {urltoblob},
-                                  “vaildTill”: “Date”
+HTTP Status 200
+i.e.
+            {
+    “id”: “providers/Microsoft.Consumption/operationresults/{operationId}”,
+    “name”: {operationId},
+    “type”: “Microsoft.Consumption/operationResults”,
+    “properties” : {
+          “downloadUrl”: {urltoblob},
+          “vaildTill”: “Date”
 }
-                     }
+}
 ```
 
 Additionally, the client can also make a GET call for the `Azure-AsyncOperation`. The endpoint returns the status for the operation. Here's an example:

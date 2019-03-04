@@ -1,5 +1,5 @@
 ---
-title: Understand and work with Cost Management scopes | Microsoft Docs
+title: Understand and work with Azure Cost Management scopes | Microsoft Docs
 description: This article helps you understand billing and resource management scopes available in Azure and how to use the scopes in Cost Management and APIs.
 services: cost-management
 keywords:
@@ -142,7 +142,7 @@ Billing users don't have access to management groups because they don't explicit
 
 Cloud Solution Provider (CSP) partners aren't supported in Cost Management today. Instead, you can use [Partner Center](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
 
-## Identify the ARM resource ID for a scope
+## Identify the resource ID for a scope
 
 When working with Cost Management APIs, knowing the scope is critical. Use the following information to build the proper scope URI for Cost Management APIs.
 
@@ -212,6 +212,6 @@ When working with Cost Management APIs, knowing the scope is critical. Use the f
 
 Cost Management is currently supported in Azure Global (https://management.azure.com) and Azure Government (https://management.usgovcloudapi.net). For more information about Azure Government, see [Azure Global and Government API endpoints](../azure-government/documentation-government-developer-guide.md#endpoint-mapping)_._
 
-## See also
+## Next steps
 
 - If you haven't already completed the first quickstart for Cost Management, read it at [Start analyzing costs](quick-acm-cost-analysis.md).
