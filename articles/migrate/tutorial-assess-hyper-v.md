@@ -10,7 +10,7 @@ ms.author: raynew
 ms.custom: mvc
 ---
 
-# Assess Hyper-V VMs for migration t
+# Assess Hyper-V VMs for migration
 
 As you move on-premises resources to the cloud, [Azure Migrate](migrate-overview.md) helps you to discover, assess, and migrate machines and workloads to Microsoft Azure. This article describes how to assess on-premises Hyper-V VMs before migrating them to Azure.
 
@@ -95,8 +95,7 @@ Create a group and run an assessment as follows:
 
 1. After the assessment is created, view it in **Overview** > **Dashboard**.
 2. Click **Export assessment**, to download it as an Excel file.
-
-Under **Migration goals**, click **Servers**.
+3. Under **Migration goals**, click **Servers**.
 4. Under **Assessment tools**, click **+Discover**.
 
 ## Review an assessment
