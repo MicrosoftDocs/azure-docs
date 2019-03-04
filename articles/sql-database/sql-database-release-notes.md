@@ -15,6 +15,22 @@ ms.author: carlrab
 
 This article lists the new features and improvements in the SQL Database service and in the SQL Database documentation. For improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates).
 
+## March 2019
+
+### Service improvements
+
+| Service improvements | Details |
+| --- | --- |
+
+### Documentation improvements
+
+| Documentation improvements | Details |
+| --- | --- |
+| Added log limits for single databases|For more information, see [Single database vCore resource limits](sql-database-vcore-resource-limits-single-databases.md)|
+| Added log limits for elastic pools and pooled databases|For more information, see [Elastic pools vCore resource limits](sql-database-vcore-resource-limits-elastic-pools.md)|
+| Added Transaction log rate governance| Added new content for [Transaction log rate governance](sql-database-resource-limits-database-server.md#transaction-log-rate-governance
+)|
+
 ## February 2019
 
 ### Service improvements
