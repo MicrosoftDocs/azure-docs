@@ -16,12 +16,6 @@ This article provides information on Virtual WAN supported regions and preferred
 
 Azure Virtual WAN is a networking service that provides optimized and automated branch-to-branch connectivity through Azure. Virtual WAN lets you connect and configure branch devices to communicate with Azure. This can be done either manually, or by using preferred provider devices through a Virtual WAN preferred partner. Using preferred partner devices allows you ease of use, simplification of connectivity, and configuration management. Connectivity from the on-premises device is established in an automated way to the Virtual Hub. A virtual hub is a Microsoft-managed virtual network. The hub contains various service endpoints to enable connectivity from your on-premises network (vpnsite). You can only have one hub per region.
 
-## Regions
-
-The list of regions supported and available are as follows:
-
-[!INCLUDE [regions](../../includes/virtual-wan-regions-include.md)]
- 
 ## Automation from connectivity partners
 
 This section describes the high-level details of automation from the connectivity providers.
@@ -45,6 +39,11 @@ You can check the following links to gather more information about services offe
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
+## Regions
+
+The list of regions supported and available are as follows:
+
+[!INCLUDE [regions](../../includes/virtual-wan-regions-include.md)]
 
 ## Next steps
 
