@@ -58,6 +58,9 @@ The patch orchestration app is composed of the following subcomponents:
 
 ## Prerequisites
 
+> [!NOTE]
+> Minimum .NET framework version required is 4.6.
+
 ### Enable the repair manager service (if it's not running already)
 
 The patch orchestration app requires the repair manager system service to be enabled on the cluster.
