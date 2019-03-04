@@ -5,7 +5,7 @@ author: sffamily
 ms.service: signalr
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 02/28/2019
+ms.date: 03/04/2019
 ms.author: zhshang
 ---
 
