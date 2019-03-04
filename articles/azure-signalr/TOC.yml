@@ -29,10 +29,10 @@
 
 - name: Samples
   items:
-  - name: Azure CLI samples
-    href: signalr-reference-cli.md
-  - name: More code samples
+  - name: Code samples
     href: https://github.com/aspnet/AzureSignalR-samples
+  - name: Azure CLI
+    href: signalr-reference-cli.md
 
 - name: Concepts
   items:
