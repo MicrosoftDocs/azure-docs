@@ -221,7 +221,7 @@ To troubleshoot issues where no passwords are synchronized for a user:
 ## No passwords are synchronized: manual troubleshooting steps
 Follow these steps to determine why no passwords are synchronized:
 
-1. Is the Connect server in [staging mode](how-to-connect-sync-operations.md#staging-mode)? A server in staging mode does not synchronize any passwords.
+1. Is the Connect server in [staging mode](how-to-connect-sync-staging-server.md)? A server in staging mode does not synchronize any passwords.
 
 2. Run the script in the [Get the status of password sync settings](#get-the-status-of-password-sync-settings) section. It gives you an overview of the password sync configuration.  
 
