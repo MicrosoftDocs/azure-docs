@@ -1,6 +1,6 @@
 ---
 title: Protect your content with Media Services - Azure | Microsoft Docs
-description: This articles give an overview of content protection with Media Services.
+description: This article gives an overview of content protection with Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 02/26/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -23,11 +23,11 @@ You can use Azure Media Services to secure your media from the time it leaves yo
 
 The following image illustrates the Media Services content protection workflow: 
 
-![Protect content](./media/content-protection/content-protection.png)
+![Protect content](./media/content-protection/content-protection.svg)
 
 &#42; *dynamic encryption supports AES-128 "clear key", CBCS, and CENC. For details see the support matrix [here](#streaming-protocols-and-encryption-types).*
 
-This article explains concepts and terminology relevant to understanding content protection with Media Services. The article also has the [FAQ](#faq) section and provides links to articles that show how to protect content. 
+This article explains concepts and terminology relevant to understanding content protection with Media Services.
 
 ## Main components of a content protection system
 
@@ -39,20 +39,27 @@ To successfully complete your "content protection" system/application design, yo
   
   The example shows how to:
 
-  1. Create and configure ContentKeyPolicies.
+  1. Create and configure [Content Key Policies](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
 
     * Define license delivery authorization, specifying the logic of authorization check based on claims in JWT.
     * Configure DRM encryption by specifying the content key.
-    * Configure [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), and [FairPlay](fairplay-license-overview.md) licenses. The templates let you configure rights and permissions for each of the used DRMs.
+    * Configure [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), and/or [FairPlay](fairplay-license-overview.md) licenses. The templates let you configure rights and permissions for each of the used DRMs.
 
         ```
         ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
         ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
         ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
         ```
-  2. Create a StreamingLocator that is configured to stream an encrypted asset. 
-
-    For example, you can set StreamingLocator.StreamingPolicyName to the "Predefined_MultiDrmCencStreaming" policy. This policy indicates that you want for two content keys (envelope and CENC) to get generated and set on the locator. Thus, the envelope, PlayReady, and Widevine encryptions are applied (the key is delivered to the playback client based on the configured DRM licenses). If you also want to encrypt your stream with CBCS (FairPlay), use "Predefined_MultiDrmStreaming".
+  2. Create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators) that is configured to stream the encrypted asset. 
+  
+    The **Streaming Locator** has to be associated with a [Streaming Policy]            (https://docs.microsoft.com/rest/api/media/streamingpolicies). In the example, we set 
+    StreamingLocator.StreamingPolicyName to the "Predefined_MultiDrmCencStreaming" policy. This policy indicates that we want 
+    for two content keys (envelope and CENC) to get generated and set on the locator. Thus, the envelope, PlayReady, and 
+    Widevine encryptions are applied (the key is delivered to the playback client based on the configured DRM licenses). If 
+    you also want to encrypt your stream with CBCS (FairPlay), use "Predefined_MultiDrmStreaming".
+    
+    Since we want to encrypt the video, the **Content Key Policy** that we configured earlier also has to be associated with the **Streaming Locator**. 
+    
   3. Create a test token.
 
     The **GetTokenAsync** method shows how to create a test token.
@@ -101,18 +108,49 @@ You can use Media Services to deliver your content encrypted dynamically with AE
 |Smooth Streaming|fMP4|AES|
 ||fMP4 | CENC (PlayReady) |
 
-## Dynamic encryption
+## AES-128 clear key vs. DRM
 
-In Media Services v3, a content key is associated with StreamingLocator (see [this example](protect-with-aes128.md)). If using the Media Services key delivery service, you should auto generate the content key. You should generate the content key yourself if you are using you own key delivery service, or if you need to handle a high availability scenario where you need to have the same content key in two datacenters.
+Customers often wonder whether they should use AES encryption or a DRM system. The primary difference between the two systems is that with AES encryption the content key is transmitted to the client over TLS so that the key is encrypted in transit but without any additional encryption ("in the clear"). As a result, the key used to decrypt the content is accessible to the client player and can be viewed in a network trace on the client in plain text. AES-128 clear key encryption is suitable for use cases where the viewer is a trusted party (for example, encrypting corporate videos distributed within a company to be viewed by employees).
+
+DRM systems like PlayReady, Widevine, and FairPlay all provide an additional level of encryption on the key used to decrypt the content compared to AES-128 clear key. The content key is encrypted to a key protected by the DRM runtime in additional to any transport level encryption provided by TLS. Additionally, decryption is handled in a secure environment at the operating system level, where it's more difficult for a malicious user to attack. DRM is recommended for use cases where the viewer might not be a trusted party and you require the highest level of security.
+
+## Dynamic encryption and key delivery service
+
+In Media Services v3, a content key is associated with Streaming Locator (see [this example](protect-with-aes128.md)). If using the Media Services key delivery service, you can let Azure Media Services generate the content key for you. You should generate the content key yourself if you are using you own key delivery service, or if you need to handle a high availability scenario where you need to have the same content key in two datacenters.
 
 When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content by using AES clear key or DRM encryption. To decrypt the stream, the player requests the key from Media Services key delivery service or the key delivery service you specified. To decide whether or not the user is authorized to get the key, the service evaluates the content key policy that you specified for the key.
 
-## AES-128 clear key vs. DRM
+Media Services provides a key delivery service for delivering DRM (PlayReady, Widevine, FairPlay) licenses and AES keys to authorized clients. You can use the REST API, or a Media Services client library to configure authorization and authentication policies for your licenses and keys.
 
-Customers often wonder whether they should use AES encryption or a DRM system. The primary difference between the two systems is that with AES encryption the content key is transmitted to the client in an unencrypted format ("in the clear"). As a result, the key used to encrypt the content can be viewed in a network trace on the client in plain text. AES-128 clear key encryption is suitable for use cases where the viewer is a trusted party (for example, encrypting corporate videos distributed within a company to be viewed by employees).
+### Custom key and license acquisition URL
 
-PlayReady, Widevine, and FairPlay all provide a higher level of encryption compared to AES-128 clear key encryption. The content key is transmitted in an encrypted format. Additionally, decryption is handled in a secure environment at the operating system level, where it's more difficult for a malicious user to attack. DRM is recommended for use cases where the viewer might not be a trusted party and you require the highest level of security.
+Use the following templates if you want to specify a different key and license delivery service (not Media Services). The two replaceable fields in the templates are there so that you can share your Streaming Policy across many Assets instead of creating a Streaming Policy per Asset. 
 
+* EnvelopeEncryption.CustomKeyAcquisitionUrlTemplate - Template for the URL of the custom service delivering keys to end-user players. Not required when using Azure Media Services for issuing keys. The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+* StreamingPolicyPlayReadyConfiguration.CustomLicenseAcquisitionUrlTemplate - Template for the URL of the custom service delivering licenses to end-user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested. 
+* StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate - Same as above, only for Widevine. 
+* StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate - Same as above, only for FairPlay.  
+
+For example:
+
+```csharp
+streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
+```
+
+The `ContentKeyId` has a value of the key being requested and the `AlternativeMediaId` can be used if you want to map the request to an entity on your side. For example, the `AlternativeMediaId` can be used to help you look up permissions.
+
+For REST examples that use custom key and license acquisition URLs, see [Streaming Policies - Create](https://docs.microsoft.com/rest/api/media/streamingpolicies/create)
+
+## Control content access
+
+You can control who has access to your content by configuring the content key policy. Media Services supports multiple ways of authorizing users who make key requests. You must configure the content key policy. The client (player) must meet the policy before the key can be delivered to the client. The content key policy can have **open** or **token** restriction. 
+
+With a token-restricted content key policy, the content key is sent only to a client that presents a valid JSON Web Token (JWT) or simple web token (SWT) in the key/license request. This token must be issued by a security token service (STS). You can use Azure Active Directory as an STS or deploy a custom STS. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. The Media Services key delivery service returns the requested key/license to the client if the token is valid and the claims in the token match those configured for the key/license.
+
+When you configure the token restricted policy, you must specify the primary verification key, issuer, and audience parameters. The primary verification key contains the key that the token was signed with. The issuer is the secure token service that issues the token. The audience, sometimes called scope, describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
+
+Customers often use a custom STS to include custom claims in the token to select between different ContentKeyPolicyOptions with different DRM license parameters (a subscription license versus a rental license) or to include a claim representing the content key identifier of the key that the token grants access to.
+ 
 ## Storage side encryption
 
 To protect your Assets at rest, the assets should be encrypted by the storage side encryption. The following table shows how the storage side encryption works in Media Services v3:
@@ -125,23 +163,10 @@ To protect your Assets at rest, the assets should be encrypted by the storage si
 
 <sup>1</sup> In Media Services v3, storage encryption (AES-256 encryption) is only supported for backwards compatibility when your Assets were created with Media Services v2. Meaning v3 works with existing storage encrypted assets but will not allow creation of new ones.
 
-## Licenses and keys delivery service
-
-Media Services provides a key delivery service for delivering DRM (PlayReady, Widevine, FairPlay) licenses and AES keys to authorized clients. You can use the REST API, or a Media Services client library to configure authorization and authentication policies for your licenses and keys.
-
-## Control content access
-
-You can control who has access to your content by configuring the content key policy. Media Services supports multiple ways of authenticating users who make key requests. You must configure the content key policy. The client (player) must meet the policy before the key can be delivered to the client. The content key policy can have **open** or **token** restriction. 
-
-With a token-restricted content key policy, the content key is sent only to a client that presents a valid JSON Web Token (JWT) or simple web token (SWT) in the key/license request. This token must be issued by a security token service (STS). You can use Azure Active Directory as an STS or deploy a custom STS. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. The Media Services key delivery service returns the requested key/license to the client if the token is valid and the claims in the token match those configured for the key/license.
-
-When you configure the token restricted policy, you must specify the primary verification key, issuer, and audience parameters. The primary verification key contains the key that the token was signed with. The issuer is the secure token service that issues the token. The audience, sometimes called scope, describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
-
 ## Next steps
 
 * [Protect with AES encryption](protect-with-aes128.md)
 * [Protect with DRM](protect-with-drm.md)
 * [Design multi-drm content protection system with access control](design-multi-drm-system-with-access-control.md)
 * [Frequently asked questions](frequently-asked-questions.md)
-
 

@@ -100,7 +100,7 @@
     items:
     - name: Collect logs using Application Insights
       href: active-directory-b2c-troubleshoot-custom.md
-    - name: Confgure ROPC
+    - name: Configure ROPC
       href: ropc-custom.md
     - name: Configure user input
       href: active-directory-b2c-configure-signup-self-asserted-custom.md
@@ -297,8 +297,6 @@
       href: active-directory-b2c-how-to-enable-billing.md
     - name: Threat management
       href: active-directory-b2c-reference-threat-management.md
-    - name: Issue when creating a directory
-      href: active-directory-b2c-support-create-directory.md
     - name: Extensions app
       href: active-directory-b2c-reference-extensions-app.md
     - name: User flow versions

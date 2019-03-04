@@ -80,13 +80,13 @@ In this example, we will use **Compute**.  We will look at how to install antima
 
    ![Select Endpoint protection not installed on non-Azure computers][4]
 
-2. Under **Endpoint protection not installed on non-Azure computers**, select a workspace. A Log Analytics search query filtered to the workspace opens and lists computers missing antimalware. Select a computer from the list for more information.
+2. Under **Endpoint protection not installed on non-Azure computers**, select a workspace. An Azure Monitor logs search query filtered to the workspace opens and lists computers missing antimalware. Select a computer from the list for more information.
 
-   ![Log Analytics search][5]
+   ![Azure Monitor logs search][5]
 
 Another search result opens with information filtered only for that computer.
 
-  ![Log Analytics search][6]
+  ![Azure Monitor logs search][6]
 
 > [!NOTE]
 > We recommend that endpoint protection be provisioned for all VMs and computers to help identify and remove viruses, spyware, and other malicious software.
