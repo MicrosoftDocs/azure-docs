@@ -67,7 +67,7 @@ To add Coralogix from the gallery, take the following steps:
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Coralogix based on a test user called **Britta Simon**.
+In this section, you configure and test Azure AD single sign-on with Coralogix based on a test user called Britta Simon.
 For single sign-on to work, you need to establish a link  between an Azure AD user and the related user in Coralogix.
 
 To configure and test Azure AD single sign-on with Coralogix, first complete the following building blocks:
@@ -76,7 +76,7 @@ To configure and test Azure AD single sign-on with Coralogix, first complete the
 2. **[Configure Coralogix single sign-on](#configure-coralogix-single-sign-on)** to configure the single sign-on settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Coralogix test user](#create-coralogix-test-user)** to have a counterpart of Britta Simon in Coralogix that is linked to the Azure AD representation of user.
+5. **[Create a Coralogix test user](#create-coralogix-test-user)** to have a counterpart of Britta Simon in Coralogix that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** to verify that the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -113,7 +113,7 @@ To configure Azure AD single sign-on with Coralogix, take the following steps:
 	> [!NOTE]
 	> The sign-on URL value is not real. Update the value with the actual sign-on URL. Contact [Coralogix Client support team](mailto:info@coralogix.com) to get the value. You can also refer to the patterns in the **Basic SAML Configuration** section in the Azure portal.
 
-5. Coralogix application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on the application integration page. On the **Set up Single Sign-On with SAML** page, select the **Edit** button to open the **User Attributes** dialog box.
+5. The Coralogix application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on the application integration page. On the **Set up Single Sign-On with SAML** page, select the **Edit** button to open the **User Attributes** dialog box.
 
 	![image](common/edit-attribute.png)
 
@@ -201,13 +201,13 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Coralogix test user
 
-In this section, you create a user called Britta Simon in Coralogix. Work with the [Coralogix support team](mailto:info@coralogix.com) to add the users in the Coralogix platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Coralogix. Work with the [Coralogix support team](mailto:info@coralogix.com) to add the users in the Coralogix platform. You must be create and activate users before you use single sign-on.
 
 ### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration by using the MyApps portal.
 
-When you click the Coralogix tile in the MyApps portal, you should be automatically signed in to Coralogix. For more information about the MyApps portal, see [What is the MyApps portal?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Coralogix tile in the MyApps portal, you should be automatically signed in to Coralogix. For more information about the MyApps portal, see [What is the MyApps portal?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
