@@ -16,7 +16,7 @@ The following table lists quota information specific to Service Bus messaging. F
 | Quota Name | Scope | Notes | Value |
 | --- | --- | --- | --- | --- |
 | Maximum number of basic / standard namespaces per Azure subscription |Namespace |Subsequent requests for additional basic / standard namespaces are rejected by the portal. |100|
-| Maximum number of premium namespaces per Azure subscription |Namespace |Subsequent requests for additional premium namespaces are rejected by the portal. |10 |
+| Maximum number of premium namespaces per Azure subscription |Namespace |Subsequent requests for additional premium namespaces are rejected by the portal. |25 |
 | Queue/topic size |Entity |Defined upon creation of the queue/topic. <br/><br/> Subsequent incoming messages are rejected and an exception is received by the calling code. |1, 2, 3, 4 GB or 5 GB.<br /><br />In the Premium SKU, as well as Standard with [partitioning](/azure/service-bus-messaging/service-bus-partitioning) enabled, the maximum queue/topic size is 80 GB. |
 | Number of concurrent connections on a namespace |Namespace |Subsequent requests for additional connections are rejected and an exception is received by the calling code. REST operations do not count towards concurrent TCP connections. |NetMessaging: 1,000<br /><br />AMQP: 5,000 |
 | Number of concurrent receive requests on a queue/topic/subscription entity |Entity |Subsequent receive requests are rejected and an exception is received by the calling code. This quota applies to the combined number of concurrent receive operations across all subscriptions on a topic. |5,000 |
