@@ -1046,7 +1046,7 @@ featureFlags:
                                                 <img src="media/index/digital_twin.svg" alt="" />
                                                 <p>Azure Digital Twins</p>
                                             </a>
-                                        </li>                                        
+                                        </li>
                                         <li>
                                             <a href="/azure/spatial-anchors/">
                                                 <img src="https://azure.microsoft.com/en-us/patterns/styles/glyphs-icons/hololens.svg" alt="" />
