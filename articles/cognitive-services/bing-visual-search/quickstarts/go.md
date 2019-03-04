@@ -18,13 +18,13 @@ ms.author: rosh
 This quickstart uses the Go programming language to call the Bing Visual Search API and display results. A Post request uploads an image to the API endpoint. The results include URLs and descriptive information about images similar to the uploaded image.
 
 ## Prerequisites
-* Install the [Go binaries](https://golang.org/dl/)
-* The go-spew deep pretty printer is useful for display of results
-    * Install this libarary: `$ go get -u https://github.com/davecgh/go-spew`
+* Install the [Go binaries](https://golang.org/dl/).
+* The go-spew deep pretty printer is useful for display of results.
+    * Install this libarary: `$ go get -u https://github.com/davecgh/go-spew`.
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-## Create a project and import libraries
+## Project and libraries
 
 Create a new Go project in your IDE or editor. Then import `net/http` for requests, `ioutil` to read the response, and `encoding/json` to handle the JSON text of results. The `go-spew` library is used to parse JSON results. 
 
@@ -46,7 +46,7 @@ import (
 
 ```
 
-## Create a struct to format the search results
+## Struct to format results
 
 The `BingAnswer` struct formats data returned in the JSON response, which is multilevel and quite complex.  The following implementation covers some of the essentials.
 
@@ -103,9 +103,9 @@ type BingAnswer struct {
 
 ```
 
-## Declare the main function and define variables  
+## Main function and variables  
 
-The following code declares the main function and assigns required variables. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account.  The `batchNumber` is a guid required for leading and trailing boundaries of the Post data.  The `fileName` variable identifies the image file for the Post.  Following sections explain the details of the code.
+The following code declares the main function and assigns required variables. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account.  The `batchNumber` is a GUID required for leading and trailing boundaries of the Post data.  The `fileName` variable identifies the image file for the Post.  Following sections explain the details of the code.
 
 ```
 func main() {
@@ -153,7 +153,7 @@ func main() {
 
 ```
 
-## Define functions to set boundaries of the Post body
+## Boundaries of Post body
 
 A Post request to the Visual Search endpoint requires leading and trailing boundaries enclosing the Post data.  The leading boundary includes a batch number, the content type identifier `Content-Disposition: form-data; name="image"; filename=`, plus the filename of the image to Post.  The trailing boundary is simply the batch number.  These functions are not included in the `main` block.
 
@@ -172,7 +172,7 @@ func BuildFormDataEnd(batNum string) string{
 }
 
 ```
-## Create Post request and add image bytes to Post body
+## Add image bytes to Post body
 
 This code segment creates the Post request that contains image data. 
 
