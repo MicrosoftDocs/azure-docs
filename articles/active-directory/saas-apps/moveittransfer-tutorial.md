@@ -96,21 +96,25 @@ To configure Azure AD single sign-on with MOVEit Transfer - Azure AD integration
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+4. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
+
+	a. Click **Upload metadata file**.
+
+    ![Upload metadata file](common/upload-metadata.png)
+
+	b. Click on **folder logo** to select the metadata file and click **Upload**.
+
+	![choose metadata file](common/browse-upload-metadata.png)
+
+	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** value gets auto populated in **Basic SAML Configuration** section:
 
     ![MOVEit Transfer - Azure AD integration Domain and URLs single sign-on information](common/sp-identifier-reply.png)
 
-    a. In the **Sign-on URL** text box, type a URL using the following pattern:
+    In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://contoso.com`
 
-    b. In the **Identifier** box, type a URL using the following pattern:
-    `https://contoso.com/<tenatid>`
-
-    c. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://contoso.com/<tenatid>/SAML/SSO/HTTP-Post`
-
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. You can refer these values later in **Service Provider Metadata URL** section or contact [MOVEit Transfer - Azure AD integration Client support team](https://community.ipswitch.com/s/support) to get these values.. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The **Sign-on URL** value is not real. Update the value with the actual Sign-On URL. Contact [MOVEit Transfer - Azure AD integration Client support](https://community.ipswitch.com/s/support) team to get the value. You can download the **Service Provider Metadata file** from the **Service Provider Metadata URL** which is explained later in the **Configure MOVEit Transfer - Azure AD integration Single Sign-On** section of the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -143,7 +147,7 @@ To configure Azure AD single sign-on with MOVEit Transfer - Azure AD integration
 	![Service Provider Metadata URL](./media/moveittransfer-tutorial/tutorial_moveittransfer_002.png)
 	
 	* Verify **entityID** matches **Identifier** in the **Basic SAML Configuration** section .
-	* Verify **AssertionConsumerService** Location URL matches **Basic SAML Configuration** section.
+	* Verify **AssertionConsumerService** Location URL matches **REPLY URL**  in the **Basic SAML Configuration** section.
 	
 	![Configure Single Sign-On On App side](./media/moveittransfer-tutorial/tutorial_moveittransfer_007.png)
 
