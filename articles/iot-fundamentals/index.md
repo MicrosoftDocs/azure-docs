@@ -48,7 +48,7 @@ ms.author: dkshir
                             </div>
                             <div class="cardText">
                                 <h3>Azure IoT services and technologies</h3>
-                                <p>Learn which SaaS and PaaS services, solutions and technologies, are available under the Azure IoT product portfolio.</p>
+                                <p>Learn which SaaS and PaaS services, solutions, and technologies, are available under the Azure IoT product portfolio.</p>
                             </div>
                         </div>
                     </div>
@@ -107,7 +107,7 @@ ms.author: dkshir
                                 </div>
                             </div>
                             <div class="cardText">
-                                <h3>Use Azure IoT Central to deploy a fully-managed IoT solution</h3><br>
+                                <h3>Use Azure IoT Central to deploy a fully managed IoT solution</h3><br>
                                 <p><a href="../iot-central/overview-iot-central.md">What is Azure IoT Central?</a></p>
                                 <p><a href="../iot-central/quick-deploy-iot-central.md">Create an IoT Central application</a></p>
                                 <p><a href="../iot-central/tutorial-define-device-type.md">Define the type for your device</a></p>
@@ -227,7 +227,7 @@ ms.author: dkshir
                                 </div>
                             </div>
                             <div class="cardText">
-                                <h3>Use Azure Maps as mapping service for your enterprise</h3><br>
+                                <h3>Use Azure Maps to actuate mobility in your enterprise</h3><br>
                                 <p><a href="../azure-maps/about-azure-maps.md">What is Azure Maps?</a></p>
                                 <p><a href="../azure-maps/quick-demo-map-app.md">Create an interactive search map</a></p>
                                 <p><a href="../azure-maps/tutorial-route-location.md">Route to your point of interest</a></p>
