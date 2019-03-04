@@ -40,7 +40,7 @@ If you use security questions, we recommend using them in conjunction with anoth
 
 2. Select **Security info** from the left navigation pane or from the link in the **Security info** block, and then select **Add method** from the **Security info** page.
 
-    ![Security info page with highlighted Add method option](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![Security info page with highlighted Add method option](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. On the **Add a method** page, select **Security questions** from the drop-down list, and then select **Add**.
 
