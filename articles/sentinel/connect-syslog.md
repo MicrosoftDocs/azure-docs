@@ -4,7 +4,7 @@ description: Learn how to collect Syslog data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 5dd59729-c623-4cb4-b326-bb847c8f094b

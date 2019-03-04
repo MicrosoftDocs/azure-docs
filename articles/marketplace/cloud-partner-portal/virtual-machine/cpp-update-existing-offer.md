@@ -31,6 +31,8 @@ There are a number of commonplace reasons for you to update your offer, includin
 
 To assist you in these modifications, the portal offers the **Compare** and **History** features.  
 
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](../../cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
 
 ## Unpermitted changes to VM offer or SKU
 

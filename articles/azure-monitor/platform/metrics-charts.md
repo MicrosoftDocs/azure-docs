@@ -71,16 +71,16 @@ You can apply filters to the charts that show metrics with dimensions. For examp
 
 5. You can repeat steps 1-4 to apply multiple filters to the same charts.
 
-## Segment a chart
+## Apply splitting to a chart
 
 You can split a metric by dimension to visualize how different segments of the metric compare against each other, and identify the outlying segments of a dimension. 
 
-### To segment a chart
+### To apply splitting
 
 1. Click on **Apply splitting** above the chart.
  
    > [!NOTE]
-   > You can have multiple filters but only one splitting/segmentation value on any single chart.
+   > Splitting cannot be used with charts that have multiple metrics. Also, you can have multiple filters but only one splitting dimension applied to any single chart.
 
 2. Choose a dimension on which you want to segment your chart:
 

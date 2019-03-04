@@ -22,7 +22,7 @@ ms.service: media-services
 # manager: MSFT-alias-manager-or-PM-counterpart
 ---
 
-# Configure localization (legacy)
+# Configure localization 
 
 Azure Media Clipper is available in 18 languages. To set the widget language, you must define the `language` parameter during initialization. Pass in the desired language code string from the following list:
 - Chinese (Simplified): zh-hans
