@@ -167,7 +167,7 @@ ms.author: dkshir
                                 </div>
                             </div>
                             <div class="cardText">
-                                <h3>Use Azure Digital Twins to create smart buildings</h3><br>
+                                <h3>Use Azure Digital Twins to create connected and smart infrastructures</h3><br>
                                 <p><a href="../digital-twins/about-digital-twins.md">What is Azure Digital Twins?</a></p>
                                 <p><a href="../digital-twins/quickstart-view-occupancy-dotnet.md">Find empty rooms in a building</a></p>
                                 <p><a href="../digital-twins/tutorial-facilities-setup.md">Monitor an office building</a></p>
