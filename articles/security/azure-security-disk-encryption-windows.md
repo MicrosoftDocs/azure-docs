@@ -168,7 +168,7 @@ Use the [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/set-az
 -  **Encrypt a running virtual machine scale set**:
     ```azurepowershell
      $KVRGname = 'MyKeyVaultResourceGroup';
-	$VMSSRGname = 'MyVMScaleSetResourceGroup';
+     $VMSSRGname = 'MyVMScaleSetResourceGroup';
      $VmssName = "MySecureVmss";
      $KeyVaultName= "MySecureVault";
      $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname;
@@ -180,8 +180,8 @@ Use the [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/set-az
 -  **Encrypt a running virtual machine scale set using KEK to wrap the key**:
 
     ```azurepowershell
-	$KVRGname = 'MyKeyVaultResourceGroup';
-	$VMSSRGname = 'MyVMScaleSetResourceGroup';
+     $KVRGname = 'MyKeyVaultResourceGroup';
+     $VMSSRGname = 'MyVMScaleSetResourceGroup';
      $VmssName = "MySecureVmss";
      $KeyVaultName= "MySecureVault";
      $keyEncryptionKeyName = "MyKeyEncryptionKey";
