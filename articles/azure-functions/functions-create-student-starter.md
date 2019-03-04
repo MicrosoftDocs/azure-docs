@@ -113,9 +113,9 @@ Now, you can run the new function by sending an HTTP request.
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
-## Capabilities of Functions in Azure for Students Starter
+## Supported Features in Azure for Students Starter
 
-In this offering, you have access to most of the features of the Azure Functions runtime, with several key limitations listed below:
+In Azure for Student Starter you have access to most of the features of the Azure Functions runtime, with several key limitations listed below:
 
 * The HTTP trigger is the only trigger type supported.
     * All input and all output bindings are supported! [See the full list here.](functions-triggers-bindings.md)
