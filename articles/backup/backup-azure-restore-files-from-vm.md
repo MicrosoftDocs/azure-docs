@@ -109,8 +109,8 @@ In Linux, after the connection to the recovery point is severed, the OS doesn't 
 
 If the protected Azure VM has volumes with one or both of the following characteristics, you can't run the executable script on the same VM.
 
-  - Volumes that span multiple disks (spanned and striped volumes)
-  - Fault-tolerant volumes (mirrored and RAID-5 volumes) on dynamic disks
+- Volumes that span multiple disks (spanned and striped volumes)
+- Fault-tolerant volumes (mirrored and RAID-5 volumes) on dynamic disks
 
 Instead, run the executable script on any other computer with a compatible operating system.
 

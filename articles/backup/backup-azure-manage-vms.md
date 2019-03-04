@@ -13,7 +13,6 @@ ms.author: sogup
 
 This article describes how to manage Azure VMs backed up with the [Azure Backup service](backup-overview.md) backups, and summarizes backup alerts information available in the portal dashboard.
 
-
 In the Azure portal, the Recovery Services vault dashboard provides access to information about the vault including:
 
 * The latest backup, which is also the latest restore point.
@@ -62,6 +61,7 @@ You can manage backups using the dashboard, and by drilling down to individual V
 
 
 ## Run an on-demand backup
+
 You can take an on-demand backup of a VM once it is configured for protection.
 
 - If the initial backup is pending, on-demand backup creates a full copy of the virtual machine in the Recovery Services vault.
