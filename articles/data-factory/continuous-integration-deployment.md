@@ -943,7 +943,7 @@ Here are some guidelines to use when you author the custom parameters file. The 
 #### Triggers
 
 * Under `typeProperties`, two properties are parameterized. The first one is `maxConcurrency`, which is specified to have a default value, and the type would be `string`. It has the default parameter name of `<entityName>_properties_typeProperties_maxConcurrency`.
-* The `recurrence` property also is parameterized. Under it, all properties at that level are specified to be parameterized as strings, with default values and parameter names. An exception is the `interval` property, which is parameterized as number type, and with the parameter name suffixed with `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Similarly the `freq` property is a string and is parameterized as a string. However, the `freq` property is paramaterized without a default value. The name is shortened and is suffixed. For example, `<entityName>_freq`.
+* The `recurrence` property also is parameterized. Under it, all properties at that level are specified to be parameterized as strings, with default values and parameter names. An exception is the `interval` property, which is parameterized as number type, and with the parameter name suffixed with `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Similarly, the `freq` property is a string and is parameterized as a string. However, the `freq` property is parameterized without a default value. The name is shortened and suffixed. For example, `<entityName>_freq`.
 
 #### LinkedServices
 
