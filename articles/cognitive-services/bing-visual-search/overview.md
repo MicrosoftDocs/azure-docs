@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: overview
-ms.date: 03/04/2019
+ms.date: 04/10/2018
 ms.author: scottwhi
 ---
 
