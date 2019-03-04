@@ -103,7 +103,13 @@
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
-  - name: Azure Databricks
+  - name: Azure Spatial Anchors
+    tocHref: /azure/spatial-anchors/
+    topicHref: /azure/spatial-anchors/
+    - name: Azure Digital Twins
+    tocHref: /azure/digital-twins/
+    topicHref: /azure/digital-twins/
+    - name: Azure Databricks
     tocHref: /azure/azure-databricks/
     topicHref: /azure/azure-databricks/
   - name: Azure Data Explorer
