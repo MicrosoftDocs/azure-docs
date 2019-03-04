@@ -20,18 +20,8 @@ Azure Virtual WAN is a networking service that provides optimized and automated 
 
 The list of regions supported and available are as follows:
 
-|Geopolitical region | Azure regions|
-|---|---|
-|North America | East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |
-|South America |Brazil South |
-| Europe | France Central, France South, North Europe, West Europe, UK West, UK South |
-| Asia | East Asia, Southeast Asia |
-| Japan  | Japan West, Japan East |
-| Australia | Australia Southeast, Australia East | 
-| Australia Government | Australia Central, Australia Central 2 |
-| India | India West, India Central, India South |
-| South Korea | Korea Central, Korea South | 
-
+[!INCLUDE [regions](../../includes/virtual-wan-regions-include.md)]
+ 
 ## Automation from connectivity partners
 
 This section describes the high-level details of automation from the connectivity providers.
@@ -51,17 +41,10 @@ Some connectivity partners may extend the automation to include creating the Azu
 
 If your branch device partner is not listed in the section below, please contact your branch device provider and have them contact us by sending an email to azurevirtualwan@microsoft.com.
 
-You can check the following links to gather more information about services offered by the preferred partners. 
+You can check the following links to gather more information about services offered by the preferred partners.
 
-|Preferred Partners|
-|---|
-|[Barracuda Networks](https://www.barracuda.com/AzurevWAN)|
-| [Check Point](https://www.checkpoint.com/solutions/microsoft-azure-virtual-wan/) |
-| [Citrix](https://www.citrix.com/global-partners/microsoft/sd-wan-for-azure-virtual-wan.html)|
-|[Netfoundry](https://netfoundry.io/solutions/netfoundry-for-microsoft-azure-virtual-wan/)|
-|[Palo Alto Networks](https://researchcenter.paloaltonetworks.com/2018/09/azure-vwan-integration/) |
-|[Riverbed Technology](https://www.riverbed.com/go/steelconnect-azurewan.html)|
-|[128 Technology](https://www.128technology.com/partners/azure) |
+[!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
+
 
 ## Next steps
 
