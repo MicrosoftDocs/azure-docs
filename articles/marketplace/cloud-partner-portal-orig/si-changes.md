@@ -19,11 +19,11 @@ ms.author: pbutlerm
 
 # Seller Insights release notes 
 
-(Release date: March 11, 2019)
+(Release date: March 1, 2019)
 
 This article provides information on changes to the Seller Insights feature in the [Cloud Partner Portal](https://cloudpartner.azure.com/#insights).
 
-## Release highlights for March 11, 2019
+## Release highlights for March 1, 2019
 
 * *Customer Trend* added to Summary
 * *Top five Customers* on Summary reflect all Azure subscriptions a customer has
