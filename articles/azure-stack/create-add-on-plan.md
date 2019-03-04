@@ -47,7 +47,7 @@ Add-on plans are created by modifying an existing offer:
 
     ![Create add-on plan](media/create-add-on-plan/add-on2.png)
 
-5. Select the plan to add. In this example, the plan is called **test-plan123**. After selecting the plan, click **Select** to add the plan to the offer. You should receive a notification that the plan was added to the offer successfully.
+5. Select the plan to add. In this example, the plan is called **test-plan234**. After selecting the plan, click **Select** to add the plan to the offer. You should receive a notification that the plan was added to the offer successfully.
 
     ![Create add-on plan](media/create-add-on-plan/add-on3.png)
 
