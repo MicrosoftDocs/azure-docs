@@ -67,6 +67,11 @@ Next, you create a function in the new function app. Even after your function ap
 
 ## <a name="create-function"></a>Create an HTTP triggered function
 
+This section shows you how to create a function in your new function app in the portal.
+
+> [!NOTE]
+> The portal development experience is recommended for trying out Azure Functions. You should consider developing your functions locally and publishing the project to your function app using either [Visual Studio Code](functions-create-first-function-vs-code.md#create-an-azure-functions-project) or the [Azure Functions Core Tools](functions-run-local.md#create-a-local-functions-project).  
+
 1. In your new function app, choose the **Overview** tab, and after it loads completely choose **+ New function**.
 
     ![Create a new function from the Overview tab](./media/create-function-app-linux-app-service-plan/overview-create-function.png)
