@@ -49,13 +49,13 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
     - **GetSignalRInfo** - Uses the *SignalRConnectionInfo* input binding to generate and return valid connection information.
     - **SendMessage** - Receives a chat message in the request body and uses the *SignalR* output binding to broadcast the message to all connected client applications.
 
-1. To start the Azure Function app locally
+1. Use one of the following options to start the Azure Function app locally.
 
-    1. **Visual Studio**: In the *Debug* menu, select *Start debugging* to run the application.
+    - **Visual Studio**: In the *Debug* menu, select *Start debugging* to run the application.
 
         ![Debug the application](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-debug-vs.png)
 
-    1. **Command line**: Execute the following command to start the function host:
+    - **Command line**: Execute the following command to start the function host.
 
         ```bash
         func start
