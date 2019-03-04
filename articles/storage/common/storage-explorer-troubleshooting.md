@@ -1,6 +1,6 @@
 ---
 title: Azure Storage Explorer troubleshooting guide | Microsoft Docs
-description: Overview of the two debugging feature of Azure
+description: Overview of debugging techniques for Azure Storage Explorer
 services: virtual-machines
 author: Deland-Han
 ms.service: virtual-machines
@@ -16,44 +16,46 @@ Microsoft Azure Storage Explorer is a stand-alone app that enables you to easily
 
 This guide summarizes solutions for common issues seen in Storage Explorer.
 
-## RBAC Access Permission Issues
+## Role-based Access Control Permission Issues
+
+[Role-based access control (RBAC)](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) provides fine-grained access management of Azure resources by combining sets of permissions into _roles_. Here are some suggestions you can follow to get RBAC working in Storage Explorer.
 
 ### What do I need to see my resources in Storage Explorer?
 
-If you're encountering problems accessing storage resources via RBAC due to lack of permissions, it may be because you do not have the appropriate roles assigned to you. The following sections describe the permissions Storage Explorer currently requires to access your storage resources.
+If you're having problems accessing storage resources using RBAC, it may be because you haven't been assigned the appropriate roles. The following sections describe the permissions Storage Explorer currently requires to access your storage resources.
 
-Contact your Azure account administrator if you are unsure if you have the appropriate roles or permissions.
+Contact your Azure account administrator if you're unsure you have the appropriate roles or permissions.
 
 #### Read: List/Get Storage Account(s)
 
-You must have permissions to list storage accounts. You can get this by being assigned the "Reader" role.
+You must have permission to list storage accounts. You can get this permission by being assigned the "Reader" role.
 
 #### List Storage Account Keys
 
-Alternatively, Storage Explorer can use account keys to authenticate requests. You can get this by being assigned more powerful roles, such as the "Contributor" role.
+Storage Explorer can also use account keys to authenticate requests. You can get access to keys with more powerful roles, such as the "Contributor" role.
 
 > [!NOTE]
 > Access keys grant unrestricted permissions to anyone who holds them. Therefore, it is generally not recommended they be handed out to account users. If you need to revoke access keys, you can regenerated them from the [Azure Portal](https://portal.azure.com/).
 
 #### Data Roles
 
-In addition, you must be assigned at least one role that grants access read data from resources. For example, if you need to list or download blobs, you will need at least the "Storage Blob Data Reader" role.
+You must be assigned at least one role that grants access read data from resources. For example, if you need to list or download blobs, you'll need at least the "Storage Blob Data Reader" role.
 
 ### Why do I need a management layer role to see my resources in Storage Explorer?
 
-Azure Storage has two layers of access: _management_ and _data_. Subscriptions and storage accounts are accessed through the management layer. Containers, blobs, and other data resources are accessed through the data layer. For example, if you want to get a list of your storage accounts from Azure, you send a request to the management endpoint. If you want a list of blob containers in an account or a list of blobs in a blob container, you send a request to the appropriate service endpoint.
+Azure Storage has two layers of access: _management_ and _data_. Subscriptions and storage accounts are accessed through the management layer. Containers, blobs, and other data resources are accessed through the data layer. For example, if you want to get a list of your storage accounts from Azure, you send a request to the management endpoint. If you want a list of blob containers in an account, you send a request to the appropriate service endpoint.
 
-[Role-based access control (RBAC)](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) provides fine-grained control to anyone accessing your Azure resources by combining sets of permissions into _roles_. The "Reader" role, for example, grants a user read-only access management layer resources.
+RBAC roles may contain permissions for management or data layer access. The "Reader" role, for example, grants you read-only access management layer resources.
 
-Strictly speaking, the "Reader" role provides no data layer permissions and is not necessary for accessing the data layer if users invoke the Azure APIs directly.
+Strictly speaking, the "Reader" role provides no data layer permissions and isn't necessary for accessing the data layer.
 
-Storage Explorer makes it easy to access your resources by gathering the necessary information to connect to your Azure resources for you. If you want to see the blob containers you have access to, Storage Explorer sends a request to the blob service endpoint for a list of containers. In order to get that endpoint, Storage Explorer searches the list of subscriptions and storage accounts you have access to. But, in order to find your subscriptions and storage accounts, Storage Explorer also needs access to the management layer.
+Storage Explorer makes it easy to access your resources by gathering the necessary information to connect to your Azure resources for you. For example, to display your blob containers, Storage Explorer sends a list containers request to the blob service endpoint. To get that endpoint, Storage Explorer searches the list of subscriptions and storage accounts you have access to. But, to find your subscriptions and storage accounts, Storage Explorer also needs access to the management layer.
 
 If you don’t have a role granting any management layer permissions, Storage Explorer can’t get the information it needs to connect to the data layer.
 
 ### What if I can't get the management layer permissions I need from my administrator?
 
-We do not yet have an RBAC-related solution at this time. As a workaround, you can request to receive a SAS URI to [attach to your resource](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#attach-a-service-by-using-a-shared-access-signature-sas).
+We don't yet have an RBAC-related solution at this time. As a workaround, you can request a SAS URI to [attach to your resource](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#attach-a-service-by-using-a-shared-access-signature-sas).
 
 ## Error: Self-Signed Certificate in Certificate Chain (and similar errors)
 
@@ -72,15 +74,13 @@ This issue may also be the result of multiple certificates (root and intermediat
 If you are unsure of where the certificate is coming from, you can try these steps to find it:
 
 1. Install Open SSL
-
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html) (any of the light versions should be sufficient)
     * Mac and Linux: should be included with your operating system
 2. Run Open SSL
-
     * Windows: open the installation directory, click **/bin/**, and then double-click **openssl.exe**.
     * Mac and Linux: run **openssl** from a terminal.
 3. Execute `s_client -showcerts -connect microsoft.com:443`
-4. Look for self-signed certificates. If you are unsure which are self-signed, look for anywhere the subject `("s:")` and issuer `("i:")` are the same.
+4. Look for self-signed certificates. If you are unsure of which certificates are self-signed, look for anywhere the subject `("s:")` and issuer `("i:")` are the same.
 5. When you have found any self-signed certificates, for each one, copy and paste everything from and including **-----BEGIN CERTIFICATE-----** to **-----END CERTIFICATE-----** to a new .cer file.
 6. Open Storage Explorer, click **Edit** > **SSL Certificates** > **Import Certificates**, and then use the file picker to find, select, and open the .cer files that you created.
 
@@ -88,19 +88,19 @@ If you cannot find any self-signed certificates using the preceding steps, conta
 
 ## Sign-in issues
 
-### Blank Sign In Dialog
+### Blank Sign-in Dialog
 
-Blank sign in dialogs are most often caused by ADFS asking Storage Explorer to perform a redirect which is unsupported by Electron. To work around this issue you can attempt to use Device Code Flow for sign-in. To do so, perform the following steps:
+Blank sign-in dialogs are most often caused by ADFS asking Storage Explorer to perform a redirect, which is unsupported by Electron. To work around this issue you can attempt to use Device Code Flow for sign-in. To do so, perform the following steps:
 
 1. "Go to Experimental" -> "Use Device Code Sign-In".
 2. Open the Connect Dialog (either via the plug icon on the left-hand vertical bar, or "Add Account" on the account panel).
-3. Choose what environment you want to sign-in to.
+3. Choose what environment you want to sign in to.
 4. Click the "Sign" In button.
 5. Follow the instructions on the next panel.
 
 Note: this feature is currently only available in 1.7.0 Preview.
 
-If you find yourself having issues signing into the account you want to use because your default browser is already signed into a different account you can either:
+If you find yourself having issues signing into the account you want to use because your default browser is already signed into a different account, you can either:
 
 1. Manually copy the link and code into a private session of your browser.
 2. Manually copy the link and code into a different browser.
@@ -119,7 +119,7 @@ Conditional access is not supported when Storage Explorer is being used on Windo
 
 ## Mac Keychain errors
 
-The macOS Keychain can sometimes get into a state that causes issues for Storage Explorer's authentication library. To get the keychain out of this state try the following steps:
+The macOS Keychain can sometimes get into a state that causes issues for Storage Explorer's authentication library. To get the keychain out of this state, try the following steps:
 
 1. Close Storage Explorer.
 2. Open keychain (**cmd+space**, type in keychain, hit enter).
@@ -134,11 +134,11 @@ The macOS Keychain can sometimes get into a state that causes issues for Storage
 
 ### General sign-in troubleshooting steps
 
-* If you are on macOS and the sign-in window never appears over the "Waiting for authentication..." dialog, then try [these steps](#mac-keychain-errors)
+* If you are on macOS, and the sign-in window never appears over the "Waiting for authentication..." dialog, then try [these steps](#mac-keychain-errors)
 * Restart Storage Explorer
 * If the authentication window is blank, wait at least one minute before closing the authentication dialog box.
 * Ensure that your proxy and certificate settings are properly configured for both your machine and Storage Explorer.
-* If you are on Windows and have access to Visual Studio 2017 on the same machine and login, try signing in to Visual Studio 2017. After a successful sign-in to Visual Studio 2017, you should be able to open Storage Explorer and see your account in the account panel.
+* If you are on Windows and have access to Visual Studio 2017 on the same machine and sign in, try signing in to Visual Studio 2017. After a successful sign-in to Visual Studio 2017, you should be able to open Storage Explorer and see your account in the account panel.
 
 If none of these methods work [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
@@ -146,7 +146,7 @@ If none of these methods work [open an issue on GitHub](https://github.com/Micro
 
 If you are unable to retrieve your subscriptions after you successfully sign in, try the following troubleshooting methods:
 
-* Verify that your account has access to the subscriptions you expect. You can verify that you have access by signing into portal for the Azure environment you are trying to use.
+* Verify that your account has access to the subscriptions you expect. You can verify your access by signing into portal for the Azure environment you are trying to use.
 * Make sure that you have signed in using the correct Azure environment (Azure, Azure China 21Vianet, Azure Germany, Azure US Government, or Custom Environment).
 * If you are behind a proxy, make sure that you have configured the Storage Explorer proxy properly.
 * Try removing and readding the account.
@@ -173,7 +173,8 @@ First, make sure that the following information you entered are all correct:
 * The proxy URL and port number
 * Username and password if required by the proxy
 
-Note that Storage Explorer does not support proxy auto-config files for configuring proxy settings.
+> [!NOTE]
+> Storage Explorer does not support proxy auto-config files for configuring proxy settings.
 
 ### Common solutions
 
@@ -204,15 +205,16 @@ If your proxy settings are correct, you may have to contact your proxy server ad
 
 ## "Unable to Retrieve Children" error message
 
-If you are connected to Azure through a proxy, verify that your proxy settings are correct. If you were granted access to a resource from the owner of the subscription or account, verify that you have read or list permissions for that resource.
+If you are connected to Azure through a proxy, verify that your proxy settings are correct. If you are granted access to a resource from the owner of the subscription or account, verify that you have read or list permissions for that resource.
 
 ## Connection String Does Not Have Complete Configuration Settings
 
-If you receive this error message, it is possible that you do not have the needed permissions to obtain the keys for your Storage account. To confirm if this is the case, go to the portal and locate your Storage account. You can quickly do this by right clicking on the node for your Storage account and clicking "Open in Portal". Once you do, go to the "Access Keys" blade. If you do not have permissions to view keys then you will see a page with the message "You do not have access". To workaround this issue, you can either obtain the account key from someone else and attach with name and key, or you can ask someone for a SAS to the Storage account and use it to attach the Storage account.
+If you receive this error message, it is possible that you do not have the needed permissions to obtain the keys for your Storage account. To confirm if this is the case, go to the portal and locate your Storage account. You can quickly do this by right-clicking on the node for your Storage account and clicking "Open in Portal". Once you do, go to the "Access Keys" blade. If you do not have permissions to view keys, then you will see a page with the message "You do not have access". To work around this issue, you can either obtain the account key from someone else and attach with name and key, or you can ask someone for a SAS to the Storage account and use it to attach the Storage account.
 
-If you do see the account keys, then please file an issue on GitHub so we can help you resolve the issue.
+If you do see the account keys, file an issue on GitHub so we can help you resolve the issue.
 
 ## Issues with SAS URL
+
 If you're connecting to a service using a SAS URL and experiencing this error:
 
 * Verify that the URL provides the necessary permissions to read or list resources.
