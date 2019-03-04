@@ -48,7 +48,7 @@ To create a new Azure IoT Central application:
     > [!Note]
     > Once you choose a region, you cannot later move your application to a different region.
 
-1. Click **Create**.
+1. Select **Create**.
 
 ## Next steps
 
