@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: CarlRabeler
 ms.author: carlrab
-ms.reviewer: sashan,moslake
+ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 03/01/2019
 ---
@@ -68,7 +68,7 @@ When encountering high session or worker utilization, mitigation options include
 - Increasing the service tier or compute size of the database or elastic pool. See [Scale single database resources](sql-database-single-database-scale.md) and [Scale elastic pool resources](sql-database-elastic-pool-scale.md).
 - Optimizing queries to reduce the resource utilization of each query if the cause of increased worker utilization is due to contention for compute resources. For more information, see [Query Tuning/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-### Transaction Log Rate Governance 
+## Transaction Log Rate Governance 
 Transaction log rate governance is a process in Azure SQL Database used to limit high ingestion rates for workloads such as bulk insert, SELECT INTO, and index builds. These limits are tracked and enforced at the sub-second level to the rate of log record generation, limiting throughput regardless of how many IOs may be issued against data files.  Transaction log generation rates currently scale linearly up to a point that is hardware dependent, with the maximum log rate allowed being 48 MB/s with the vCore purchasing model. 
 
 > [!NOTE]
