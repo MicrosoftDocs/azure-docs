@@ -13,9 +13,9 @@ ms.author: chliang
 ms.custom: include file
 ---
 ``` json
-{  
+{
     "Period":7,
-    "ExpectedValue":[  
+    "ExpectedValue":[
         32894418.9615615,
         29707932.24471988,
         22651867.032410353,
@@ -64,7 +64,7 @@ ms.custom: include file
         26128787.792423487,
         35344244.421857625
     ],
-    "IsAnomaly":[  
+    "IsAnomaly":[
         false,
         false,
         false,
@@ -113,7 +113,7 @@ ms.custom: include file
         false,
         false
     ],
-    "IsAnomaly_Neg":[  
+    "IsAnomaly_Neg":[
         false,
         false,
         false,
@@ -162,7 +162,7 @@ ms.custom: include file
         false,
         false
     ],
-    "IsAnomaly_Pos":[  
+    "IsAnomaly_Pos":[
         false,
         false,
         false,
@@ -211,7 +211,7 @@ ms.custom: include file
         false,
         false
     ],
-    "UpperMargin":[  
+    "UpperMargin":[
         1644720.9480780752,
         1485396.612235994,
         1132593.3516205177,
@@ -260,7 +260,7 @@ ms.custom: include file
         1306439.3896211744,
         1767212.2210928814
     ],
-    "LowerMargin":[  
+    "LowerMargin":[
         1644720.9480780752,
         1485396.612235994,
         1132593.3516205177,
