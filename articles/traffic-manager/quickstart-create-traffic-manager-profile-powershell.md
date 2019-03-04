@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/27/2019
+ms.date: 03/04/2019
 ms.author: kumud
 ---
 
@@ -31,15 +31,13 @@ If you choose to install and use PowerShell locally, this article requires the A
 Create a resource group using [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
 ```azurepowershell-interactive
-# Generates a random value
-$Random=(New-Guid).ToString().Substring(0,8)
+
 
 # Variables
-$ResourceGroupName="myResourceGroup$Random"
 $Location1="WestUS"
 
 # Create a Resource Group
-New-AzResourceGroup -Name $ResourceGroupName -Location $Location1
+New-AzResourceGroup -Name MyResourceGroup -Location $Location1
 ```
 
 ## Create a Traffic Manager profile
@@ -47,13 +45,18 @@ New-AzResourceGroup -Name $ResourceGroupName -Location $Location1
 Create a Traffic Manager profile using [New-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile) that directs user traffic based on endpoint priority.
 
 ```azurepowershell-interactive
+
+# Generates a random value
+$Random=(New-Guid).ToString().Substring(0,8)
+$mytrafficmanagerprofile="mytrafficmanagerprofile$Random"
+
 New-AzTrafficManagerProfile `
--Name $ResourceGroupName-tmp `
--ResourceGroupName $ResourceGroupName `
+-Name $mytrafficmanagerprofile `
+-ResourceGroupName MyResourceGroup `
 -TrafficRoutingMethod Priority `
 -MonitorPath '/' `
 -MonitorProtocol "HTTP" `
--RelativeDnsName $ResourceGroupName `
+-RelativeDnsName $mytrafficmanagerprofile `
 -Ttl 30 `
 -MonitorPort 80
 ```
@@ -74,16 +77,16 @@ $Location1="WestUS"
 $Location2="EastUS"
 
 # Create an App service plan
-New-AzAppservicePlan -Name "$App1Name-Plan" -ResourceGroupName $ResourceGroupName -Location $Location1 -Tier Standard
-New-AzAppservicePlan -Name "$App2Name-Plan" -ResourceGroupName $ResourceGroupName -Location $Location2 -Tier Standard
+New-AzAppservicePlan -Name "$App1Name-Plan" -ResourceGroupName MyResourceGroup -Location $Location1 -Tier Standard
+New-AzAppservicePlan -Name "$App2Name-Plan" -ResourceGroupName MyResourceGroup -Location $Location2 -Tier Standard
 
 ```
 ### Create a Web App in the App Service Plan
 Create two instances the web application using [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) in the App Service plans in the *West US* and *East US* Azure regions.
 
 ```azurepowershell-interactive
-$App1ResourceId=(New-AzWebApp -Name $App1Name -ResourceGroupName $ResourceGroupName -Location $Location1 -AppServicePlan "$App1Name-Plan").Id
-$App2ResourceId=(New-AzWebApp -Name $App2Name -ResourceGroupName $ResourceGroupName -Location $Location2 -AppServicePlan "$App2Name-Plan").Id
+$App1ResourceId=(New-AzWebApp -Name $App1Name -ResourceGroupName MyResourceGroup -Location $Location1 -AppServicePlan "$App1Name-Plan").Id
+$App2ResourceId=(New-AzWebApp -Name $App2Name -ResourceGroupName MyResourceGroup -Location $Location2 -AppServicePlan "$App2Name-Plan").Id
 
 ```
 
@@ -95,15 +98,15 @@ When the primary endpoint is unavailable, traffic automatically routes to the fa
 
 ```azurepowershell-interactive
 New-AzTrafficManagerEndpoint -Name "$App1Name-$Location1" `
--ResourceGroupName $ResourceGroupName `
--ProfileName "$ResourceGroupName-tmp" `
+-ResourceGroupName MyResourceGroup `
+-ProfileName "$mytrafficmanagerprofile" `
 -Type AzureEndpoints `
 -TargetResourceId $App1ResourceId `
 -EndpointStatus "Enabled"
 
 New-AzTrafficManagerEndpoint -Name "$App2Name-$Location2" `
--ResourceGroupName $ResourceGroupName `
--ProfileName "$ResourceGroupName-tmp" `
+-ResourceGroupName MyResourceGroup `
+-ProfileName "$mytrafficmanagerprofile" `
 -Type AzureEndpoints `
 -TargetResourceId $App2ResourceId `
 -EndpointStatus "Enabled"
@@ -118,8 +121,8 @@ In this section, you'll check the domain name of your Traffic Manager profile. Y
 Determine the DNS name of the Traffic Manager profile using [Get-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/get-aztrafficmanagerprofile).
 
 ```azurepowershell-interactive
-Get-AzTrafficManagerProfile -Name $ResourceGroupName-tmp `
--ResourceGroupName $ResourceGroupName
+Get-AzTrafficManagerProfile -Name $mytrafficmanagerprofile `
+-ResourceGroupName MyResourceGroup
 ```
 
 Copy the **RelativeDnsName** value. The DNS name of your Traffic Manager profile is *http://<*relativednsname*>.trafficmanager.net*. 
@@ -134,8 +137,8 @@ Copy the **RelativeDnsName** value. The DNS name of your Traffic Manager profile
    ```azurepowershell-interactive
     Disable-AzTrafficManagerEndpoint -Name $App1Name-$Location1 `
     -Type AzureEndpoints `
-    -ProfileName $ResourceGroupName-tmp `
-    -ResourceGroupName $ResourceGroupName `
+    -ProfileName $mytrafficmanagerprofile `
+    -ResourceGroupName MyResourceGroup `
     -Force
    ```
 3. Copy the DNS name of your Traffic Manager profile (*http://<*relativednsname*>.trafficmanager.net*) to view the website in a new web browser session.
@@ -146,7 +149,7 @@ Copy the **RelativeDnsName** value. The DNS name of your Traffic Manager profile
 When you're done, delete the resource groups, web applications, and all related resources using [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name $ResourceGroupName
+Remove-AzResourceGroup -Name MyResourceGroup
 ```
 
 ## Next steps
