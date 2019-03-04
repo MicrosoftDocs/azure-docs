@@ -12369,7 +12369,12 @@
     },
     {
       "source_path": "articles/machine-learning/machine-learning-r-quickstart.md",
-      "redirect_url": "/azure/machine-learning/studio/r-quickstart",
+      "redirect_url": "/azure/machine-learning/studio/r-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/r-quickstart.md",
+      "redirect_url": "/azure/machine-learning/studio/r-get-started",
       "redirect_document_id": false
     },
     {
