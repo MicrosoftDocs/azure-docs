@@ -47,7 +47,7 @@ To add a real device to your application, you use the **Connected Air Conditione
 
    The **Device Explorer** shows the **Connected Air Conditioner** device template and the simulated device that was automatically created when the builder created the device template.
 
-2. To start connecting a real connected air conditioner device, click **+**, then **Real**:
+2. To start connecting a real connected air conditioner device, select **+**, then **Real**:
 
    ![Start adding a new, real connected air conditioner device](media/tutorial-add-device-experimental/newreal.png)
 

@@ -56,6 +56,8 @@ The following code makes an HTTPS request to the QnA Maker API to send the quest
 
 The `Authorization` header's value includes the string `EndpointKey `. 
 
+Learn more about the [request](../how-to/metadata-generateanswer-usage.md#generateanswer-request) and [response](../how-to/metadata-generateanswer-usage.md#generateanswer-response). 
+
 ## Build and run the program
 
 Build and run the program from Visual Studio. It will automatically send the request to the QnA Maker API, then it will print to the console window.

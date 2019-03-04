@@ -31,15 +31,15 @@ Before you begin, you should complete the [Define a new device type in your appl
 
 ## Create a telemetry-based rule
 
-1. To add a new telemetry-based rule to your application, in the left navigation menu, choose **Device Templates**:
+1. To add a new telemetry-based rule to your application, in the left navigation menu, select **Device Templates**:
 
     ![Device Templates page](media/tutorial-configure-rules-experimental/templatespage1.png)
 
     You see the **Connected Air Conditioner (1.0.0)** device template you created in the previous tutorial.
 
-2. To customize your device template, click the **Connected Air Conditioner** template you created in the previous tutorial.
+2. To customize your device template, select the **Connected Air Conditioner** template you created in the previous tutorial.
 
-3. To add a telemetry-based rule in the **Rules** view, choose **Rules**, click **+ New Rule**, and then choose **Telemetry**:
+3. To add a telemetry-based rule in the **Rules** view, select **Rules**, select **+ New Rule**, and then select **Telemetry**:
 
     ![Rules view](media/tutorial-configure-rules-experimental/newrule.png)
 
@@ -54,7 +54,7 @@ Before you begin, you should complete the [Define a new device type in your appl
 
     ![Temperature rule condition](media/tutorial-configure-rules-experimental/temperaturerule.png)
 
-    Then click **Save**.
+    Then select **Save**.
 
 ## Add an action
 
@@ -76,7 +76,7 @@ When you define a rule, you also define an action to run when the rule condition
 
     ![Temperature action](media/tutorial-configure-rules-experimental/temperatureaction.png)
 
-3. Click **Save**. Your rule is listed on the **Rules** page.
+3. Select **Save**. Your rule is listed on the **Rules** page.
 
 ## Test the rule
 
