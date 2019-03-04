@@ -8,9 +8,9 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 10/18/2018
 ms.author: douglasl
 ---
 # Create a trigger that runs a pipeline in response to an event
@@ -25,7 +25,7 @@ For a ten-minute introduction and demonstration of this feature, watch the follo
 
 
 > [!NOTE]
-> The integration described in this article depends on [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Make sure that your subscription is registered with the Event Grid resource provider. For more info, see [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md#portal).
+> The integration described in this article depends on [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Make sure that your subscription is registered with the Event Grid resource provider. For more info, see [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
 
 ## Data Factory UI
 
@@ -65,23 +65,26 @@ The following table provides an overview of the schema elements that are related
 | **JSON Element** | **Description** | **Type** | **Allowed Values** | **Required** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
 | **scope** | The Azure Resource Manager resource ID of the Storage Account. | String | Azure Resource Manager ID | Yes |
-| **events** | The type of events that cause this trigger to fire. | Array    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Yes, any combination. |
-| **blobPathBeginsWith** | The blob path must begin with the pattern provided for trigger to fire. For example, '/records/blobs/december/' will only fire the trigger for blobs in the december folder under the records container. | String   | | At least one of these properties must be provided: blobPathBeginsWith, blobPathEndsWith. |
-| **blobPathEndsWith** | The blob path must end with the pattern provided for trigger to fire. For example, 'december/boxes.csv' will only fire the trigger for blobs named boxes in a december folder. | String   | | At least one of these properties must be provided: blobPathBeginsWith, blobPathEndsWith. |
+| **events** | The type of events that cause this trigger to fire. | Array    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Yes, any combination of these values. |
+| **blobPathBeginsWith** | The blob path must begin with the pattern provided for the trigger to fire. For example, `/records/blobs/december/` only fires the trigger for blobs in the `december` folder under the `records` container. | String   | | You have to provide a value for at least one of these properties: `blobPathBeginsWith` or `blobPathEndsWith`. |
+| **blobPathEndsWith** | The blob path must end with the pattern provided for the trigger to fire. For example, `december/boxes.csv` only fires the trigger for blobs named `boxes` in a `december` folder. | String   | | You have to provide a value for at least one of these properties: `blobPathBeginsWith` or `blobPathEndsWith`. |
 
 ## Examples of event-based triggers
 
 This section provides examples of event-based trigger settings.
 
--   **Blob path begins with**('/containername/') – Receives events for any blob in the container.
--   **Blob path begins with**('/containername/blobs/foldername') – Receives events for any blobs in the containername container and foldername folder. You can also reference a subfolder; for example, '/containername/blobs/foldername/subfoldername/'.
--   **Blob path begins with**('/containername/blobs/foldername/file.txt') – Receives events for a blob named file.txt in the foldername folder under the containername container.
--   **Blob path ends with**('file.txt') – Receives events for a blob named file.txt at any path.
--   **Blob path ends with**('/containername/blobs/file.txt') – Receives events for a blob named file.txt under container containername.
--   **Blob path ends with**('foldername/file.txt') – Receives events for a blob named file.txt in foldername folder under any container.
+> [!IMPORTANT]
+> You have to include the `/blobs/` segment of the path, as shown in the following examples, whenever you specify container and folder, container and file, or container, folder, and file.
 
-> [!NOTE]
-> You have to include the `/blobs/` segment of the path whenever you specify container and folder, container and file, or container, folder, and file.
+| Property | Example | Description |
+|---|---|---|
+| **Blob path begins with** | `/containername/` | Receives events for any blob in the container. |
+| **Blob path begins with** | `/containername/blobs/foldername/` | Receives events for any blobs in the `containername` container and `foldername` folder. |
+| **Blob path begins with** | `/containername/blobs/foldername/subfoldername/` | You can also reference a subfolder. |
+| **Blob path begins with** | `/containername/blobs/foldername/file.txt` | Receives events for a blob named `file.txt` in the `foldername` folder under the `containername` container. |
+| **Blob path ends with** | `file.txt` | Receives events for a blob named `file.txt` in any path. |
+| **Blob path ends with** | `/containername/blobs/file.txt` | Receives events for a blob named `file.txt` under container `containername`. |
+| **Blob path ends with** | `foldername/file.txt` | Receives events for a blob named `file.txt` in `foldername` folder under any container. |
 
 ## Next steps
 For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#triggers).

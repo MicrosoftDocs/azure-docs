@@ -9,9 +9,9 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 04/25/2017
+ms.date: 02/22/2019
 ms.author: jingwang
 ---
 
@@ -23,17 +23,14 @@ Currently, all activity types except custom activity support this feature. For c
 
 ## Prerequisites
 
-This feature relies on the data factory service identity. Learn how it works from [Data factory service identity](data-factory-service-identity.md) and make sure your data factory have an associated one.
-
->[!TIP]
->In Azure Key Vault, when you create a secret, **put the entire value of a secret property that ADF linked service asks for (e.g. connection string/password/service principal key/etc)**. For example, for Azure Storage linked service, put `DefaultEndpointsProtocol=http;AccountName=myAccount;AccountKey=myKey;` as AKV secret, then reference in "connectionString" field from ADF; for Dynamics linked service, put `myPassword` as AKV secret, then reference in "paassword" field from ADF. Refer to each connector/compute article on supported property details.
+This feature relies on the data factory managed identity. Learn how it works from [Managed identity for Data factory](data-factory-service-identity.md) and make sure your data factory have an associated one.
 
 ## Steps
 
 To reference a credential stored in Azure Key Vault, you need to:
 
-1. **Retrieve data factory service identity** by copying the value of "SERVICE IDENTITY APPLICATION ID" generated along with your factory. If you use ADF authoring UI, the service identity ID will be shown on the Azure Key Vault linked service creation window; you can also retrieve it from Azure portal, refer to [Retrieve data factory service identity](data-factory-service-identity.md#retrieve-service-identity).
-2. **Grant the service identity access to your Azure Key Vault.** In your key vault -> Access policies -> Add new -> search this service identity application ID to grant **Get** permission in Secret permissions dropdown. It allows this designated factory to access secret in key vault.
+1. **Retrieve data factory managed identity** by copying the value of "SERVICE IDENTITY APPLICATION ID" generated along with your factory. If you use ADF authoring UI, the managed identity application ID will be shown on the Azure Key Vault linked service creation window; you can also retrieve it from Azure portal, refer to [Retrieve data factory managed identity](data-factory-service-identity.md#retrieve-managed-identity).
+2. **Grant the managed identity access to your Azure Key Vault.** In your key vault -> Access policies -> Add new -> search this managed identity application ID to grant **Get** permission in Secret permissions dropdown. It allows this designated factory to access secret in key vault.
 3. **Create a linked service pointing to your Azure Key Vault.** Refer to [Azure Key Vault linked service](#azure-key-vault-linked-service).
 4. **Create data store linked service, inside which reference the corresponding secret stored in key vault.** Refer to [reference secret stored in key vault](#reference-secret-stored-in-key-vault).
 

@@ -1,22 +1,15 @@
 ---
-title: How to prepare your model for deployment in Azure Machine Learning Studio | Microsoft Docs
+title: Prepare model for deployment
+titleSuffix: Azure Machine Learning Studio
 description: How to prepare your trained model for deployment as a web service by converting your Machine Learning Studio training experiment to a predictive experiment.
 services: machine-learning
-documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
-manager: hjerez
-editor: cgronlun
-
-ms.assetid: eb943c45-541a-401d-844a-c3337de82da6
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/28/2017
+ms.subservice: studio
+ms.topic: conceptual
 
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.date: 03/28/2017
 ---
 # How to prepare your model for deployment in Azure Machine Learning Studio
 
@@ -24,11 +17,11 @@ Azure Machine Learning Studio gives you the tools you need to develop a predicti
 
 To do this, you use Studio to create an experiment - called a *training experiment* - where you train, score, and edit your model. Once you're satisfied, you get your model ready to deploy by converting your training experiment to a *predictive experiment* that's configured to score user data.
 
-You can see an example of this process in [Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning](walkthrough-develop-predictive-solution.md).
+You can see an example of this process in [Tutorial 1: Predict credit risk](tutorial-part1-credit-risk.md).
 
 This article takes a deep dive into the details of how a training experiment gets converted into a predictive experiment, and how that predictive experiment is deployed. By understanding these details, you can learn how to configure your deployed model to make it more effective.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## Overview 
 
@@ -52,11 +45,11 @@ After you run your experiment (click **RUN** at the bottom of the experiment can
 
 For example, the following experiment trains a two-class boosted decision tree model using sample census data:
 
-![Training experiment][figure1]
+![Training experiment](./media/convert-training-experiment-to-scoring-experiment/figure1.png)
 
 The modules in this experiment perform basically four different functions:
 
-![Module functions][figure2]
+![Module functions](./media/convert-training-experiment-to-scoring-experiment/figure2.png)
 
 When you convert this training experiment to a predictive experiment, some of these modules are no longer needed, or they now serve a different purpose:
 
@@ -72,7 +65,7 @@ When you convert this training experiment to a predictive experiment, some of th
 
 Here is how our example looks after clicking **Set Up Web Service**:
 
-![Converted predictive experiment][figure3]
+![Converted predictive experiment](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
 
 The work done by **Set Up Web Service** may be sufficient to prepare your experiment to be deployed as a web service. However, you may want to do some additional work specific to your experiment.
 
@@ -81,7 +74,7 @@ In your training experiment, you used a set of training data and then did some p
 
 For example, by default **Set Up Web Service** puts the **Web service input** module at the top of your data flow, as shown in the figure above. But we can manually position the **Web service input** past the data processing modules:
 
-![Moving the web service input][figure4]
+![Moving the web service input](./media/convert-training-experiment-to-scoring-experiment/figure4.png)
 
 The input data provided through the web service will now pass directly into the Score Model module without any preprocessing.
 
@@ -90,14 +83,14 @@ However, if you would prefer to return something different, then you can add add
 
 For example, to return only the scoring results and not the entire vector of input data, add a [Select Columns in Dataset][select-columns] module to exclude all columns except the scoring results. Then move the **Web service output** module to the output of the [Select Columns in Dataset][select-columns] module. The experiment looks like this:
 
-![Moving the web service output][figure5]
+![Moving the web service output](./media/convert-training-experiment-to-scoring-experiment/figure5.png)
 
 ### Add or remove additional data processing modules
 If there are more modules in your experiment that you know will not be needed during scoring, these can be removed. For example, because we moved the **Web service input** module to a point after the data processing modules, we can remove the [Clean Missing Data][clean-missing-data] module from the predictive experiment.
 
 Our predictive experiment now looks like this:
 
-![Removing additional module][figure6]
+![Removing additional module](./media/convert-training-experiment-to-scoring-experiment/figure6.png)
 
 
 ### Add optional Web Service Parameters
@@ -118,16 +111,6 @@ Now that the predictive experiment has been sufficiently prepared, you can deplo
 For more information on the complete deployment process, see [Deploy an Azure Machine Learning web service][deploy]
 
 [deploy]: publish-a-machine-learning-web-service.md
-
-
-<!-- Images -->
-[figure1]:./media/convert-training-experiment-to-scoring-experiment/figure1.png
-[figure2]:./media/convert-training-experiment-to-scoring-experiment/figure2.png
-[figure3]:./media/convert-training-experiment-to-scoring-experiment/figure3.png
-[figure4]:./media/convert-training-experiment-to-scoring-experiment/figure4.png
-[figure5]:./media/convert-training-experiment-to-scoring-experiment/figure5.png
-[figure6]:./media/convert-training-experiment-to-scoring-experiment/figure6.png
-
 
 <!-- Module References -->
 [clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/

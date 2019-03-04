@@ -1,15 +1,16 @@
 ---
 title: Samples and walkthroughs for Data Science Virtual Machines - Azure | Microsoft Docs
-description: Samples and walkthroughs for Data Science Virtual Machines.
+description: Learn about the samples and walkthroughs that teach you how to accomplish common tasks and scenarios with the Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 
 ms.assetid: 
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

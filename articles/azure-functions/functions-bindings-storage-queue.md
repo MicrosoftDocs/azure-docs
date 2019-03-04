@@ -3,7 +3,7 @@ title: Azure Queue storage bindings for Azure Functions
 description: Understand how to use the Azure Queue storage trigger and output binding in Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
@@ -11,7 +11,7 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
-ms.author: glenga
+ms.author: cshoe
 ms.custom: cc996988-fb4f-47
 ---
 
@@ -23,7 +23,7 @@ This article explains how to work with Azure Queue storage bindings in Azure Fun
 
 ## Packages - Functions 1.x
 
-The Queue storage bindings are provided in the [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Queue) GitHub repository.
+The Queue storage bindings are provided in the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Queue) GitHub repository.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -34,6 +34,9 @@ The Queue storage bindings are provided in the [Microsoft.Azure.WebJobs](http://
 The Queue storage bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues) GitHub repository.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
+
+## Encoding
+Functions expect a *base64* encoded string. Any adjustments to the encoding type (in order to prepare data as a *base64* encoded string) need to be implemented in the calling service.
 
 ## Trigger
 
@@ -58,9 +61,9 @@ public static class QueueFunctions
     [FunctionName("QueueTrigger")]
     public static void QueueTrigger(
         [QueueTrigger("myqueue-items")] string myQueueItem, 
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"C# function processed: {myQueueItem}");
+        log.LogInformation($"C# function processed: {myQueueItem}");
     }
 }
 ```
@@ -93,6 +96,7 @@ Here's the C# script code:
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
 
+using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage.Queue;
 using System;
 
@@ -104,9 +108,9 @@ public static void Run(CloudQueueMessage myQueueItem,
     string id,
     string popReceipt,
     int dequeueCount,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem.AsString}\n" +
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem.AsString}\n" +
         $"queueTrigger={queueTrigger}\n" +
         $"expirationTime={expirationTime}\n" +
         $"insertionTime={insertionTime}\n" +
@@ -193,7 +197,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the following at
   [FunctionName("QueueTrigger")]
   public static void Run(
       [QueueTrigger("myqueue-items")] string myQueueItem, 
-      TraceWriter log)
+      ILogger log)
   {
       ...
   }
@@ -205,7 +209,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the following at
   [FunctionName("QueueTrigger")]
   public static void Run(
       [QueueTrigger("myqueue-items", Connection = "StorageConnectionAppSetting")] string myQueueItem, 
-      TraceWriter log)
+      ILogger log)
   {
       ....
   }
@@ -266,7 +270,7 @@ In JavaScript, use `context.bindings.<name>` to access the queue item payload. I
 
 ## Trigger - message metadata
 
-The queue trigger provides several [metadata properties](functions-triggers-bindings.md#binding-expressions---trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. These are properties of the [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) class.
+The queue trigger provides several [metadata properties](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. These are properties of the [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) class.
 
 |Property|Type|Description|
 |--------|----|-----------|
@@ -325,9 +329,9 @@ public static class QueueFunctions
 {
     [FunctionName("QueueOutput")]
     [return: Queue("myqueue-items")]
-    public static string QueueOutput([HttpTrigger] dynamic input,  TraceWriter log)
+    public static string QueueOutput([HttpTrigger] dynamic input,  ILogger log)
     {
-        log.Info($"C# function processed: {input.Text}");
+        log.LogInformation($"C# function processed: {input.Text}");
         return input.Text;
     }
 }
@@ -375,7 +379,7 @@ public class CustomQueueMessage
     public string Title { get; set; }
 }
 
-public static CustomQueueMessage Run(CustomQueueMessage input, TraceWriter log)
+public static CustomQueueMessage Run(CustomQueueMessage input, ILogger log)
 {
     return input;
 }
@@ -387,7 +391,7 @@ You can send multiple messages at once by using an `ICollector` or `IAsyncCollec
 public static void Run(
     CustomQueueMessage input, 
     ICollector<CustomQueueMessage> myQueueItems, 
-    TraceWriter log)
+    ILogger log)
 {
     myQueueItems.Add(input);
     myQueueItems.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
@@ -472,7 +476,7 @@ The attribute applies to an `out` parameter or the return value of the function.
 ```csharp
 [FunctionName("QueueOutput")]
 [return: Queue("myqueue-items")]
-public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
+public static string Run([HttpTrigger] dynamic input,  ILogger log)
 {
     ...
 }
@@ -483,7 +487,7 @@ You can set the `Connection` property to specify the storage account to use, as 
 ```csharp
 [FunctionName("QueueOutput")]
 [return: Queue("myqueue-items", Connection = "StorageConnectionAppSetting")]
-public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
+public static string Run([HttpTrigger] dynamic input,  ILogger log)
 {
     ...
 }
@@ -491,7 +495,7 @@ public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 
 For a complete example, see [Output - C# example](#output---c-example).
 
-You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Trigger - attributes](#trigger---attribute).
+You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see Trigger - attributes.
 
 ## Output - configuration
 
@@ -533,6 +537,39 @@ In JavaScript functions, use `context.bindings.<name>` to access the output queu
 | Queue | [Queue Error Codes](https://docs.microsoft.com/rest/api/storageservices/queue-service-error-codes) |
 | Blob, Table, Queue | [Storage Error Codes](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Blob, Table, Queue |  [Troubleshooting](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
+
+<a name="host-json"></a>  
+
+## host.json settings
+
+This section describes the global configuration settings available for this binding in version 2.x. The example host.json file below contains only the version 2.x settings for this binding. For more information about global configuration settings in version 2.x, see [host.json reference for Azure Functions version 2.x](functions-host-json.md).
+
+> [!NOTE]
+> For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "queues": {
+            "maxPollingInterval": "00:00:02",
+            "visibilityTimeout" : "00:00:30",
+            "batchSize": 16,
+            "maxDequeueCount": 5,
+            "newBatchThreshold": 8
+        }
+    }
+}
+```  
+
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|maxPollingInterval|00:00:02|The maximum interval between queue polls. Minimum is 00:00:00.100 (100 ms). | 
+|visibilityTimeout|00:00:00|The time interval between retries when processing of a message fails. | 
+|batchSize|16|The number of queue messages that the Functions runtime retrieves simultaneously and processes in parallel. When the number being processed gets down to the `newBatchThreshold`, the runtime gets another batch and starts processing those messages. So the maximum number of concurrent messages being processed per function is `batchSize` plus `newBatchThreshold`. This limit applies separately to each queue-triggered function. <br><br>If you want to avoid parallel execution for messages received on one queue, you can set `batchSize` to 1. However, this setting eliminates concurrency only so long as your function app runs on a single virtual machine (VM). If the function app scales out to multiple VMs, each VM could run one instance of each queue-triggered function.<br><br>The maximum `batchSize` is 32. | 
+|maxDequeueCount|5|The number of times to try processing a message before moving it to the poison queue.| 
+|newBatchThreshold|batchSize/2|Whenever the number of messages being processed concurrently gets down to this number, the runtime retrieves another batch.| 
 
 ## Next steps
 

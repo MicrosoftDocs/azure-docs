@@ -1,3 +1,10 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+---
 > [!NOTE]
 > The Azure Storage Common Library for .NET (Preview) is required to complete this tutorial. You can find the latest version for download on [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/).
 > 

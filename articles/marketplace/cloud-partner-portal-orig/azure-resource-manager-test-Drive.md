@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager Test Drive | Microsoft Docs
-description: Build a Markeplace Test Drive using Azure Resource MAnager
+description: Build a Marketplace Test Drive using Azure Resource Manager
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
 author: pbutlerm
@@ -18,15 +18,14 @@ ms.author: pbutlerm
 ---
 
 
-Azure Resource Manager Test Drive
-=================================
+# Azure Resource Manager Test Drive
 
 This article is for Publishers who have their offer on the Azure
 Marketplace, or who are on AppSource but want to build their Test Drive
 with only Azure resources.
 
-An Azure Resource Manager (Azure Resource Manager) template is a coded container of Azure
-resources that you design to best represent your solution. If you are unfamiliar with what a Resource Manager template is, read up on [understanding ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) and [authoring ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) to make sure you know how to build and test your own templates.
+An Azure Resource Manager (Resource Manager) template is a coded container of Azure
+resources that you design to best represent your solution. If you are unfamiliar with what a Resource Manager template is, read up on [understanding Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) and [authoring Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) to make sure you know how to build and test your own templates.
 
 What Test Drive does is that it takes the provided Resource Manager template and makes a deployment of all the resources required from that Resource Manager template into a resource group.
 
@@ -36,8 +35,7 @@ If you choose to build an Azure Resource Manager Test Drive, the requirements ar
 - Configure all required metadata and settings to enable your Test Drive.
 - Republish your offer with Test Drive enabled.
 
-How to build an Azure Resource Manager Test Drive
-------------------------------
+## How to build an Azure Resource Manager Test Drive
 
 The most important part about building an Azure Resource Manager Test Drive is to define what scenario(s) you want your customers to experience. Are you a firewall product and you want to demo how well you handle script injection attacks? Are you a storage product and you want to demo how fast and easy your solution compresses files?
 
@@ -47,8 +45,7 @@ To continue with our firewall example, the architecture may be that you need a p
 
 Once you have architected the desired package of resources, now comes the writing and building of the Test Drive Resource Manager template.
 
-Writing Test Drive Resource Manager templates
---------------------------------
+## Writing Test Drive Resource Manager templates
 
 Test Drive runs deployments in a fully automated mode, and because of that, Test Drive templates have some restrictions described below.
 
@@ -62,24 +59,26 @@ However, Test Drive works in a fully automatic mode, without human interaction, 
 
 You can use any valid name for your parameters, Test Drive recognizes parameter category by using metadata-type value. You **must specify metadata-type for every template parameter**, otherwise your template will not pass validation:
 
-    "parameters": {
-      ...
-      "username": {
-        "type": "string",
-        "metadata": {
-          "type": "username"
-        }
-      },
-      ...
+```json
+"parameters": {
+  ...
+  "username": {
+    "type": "string",
+    "metadata": {
+      "type": "username"
     }
+  },
+  ...
+}
+```
 
 It is also important to note that **all parameters are optional**, so if you don\'t want to use any, you don\'t have to.
 
 ### Accepted Parameter Metadata Types
 
 | Metadata Type   | Parameter Type  | Description     | Sample Value    |
-|---|---|---|---|---|
-| **baseuri**     | string          | Base URI of your deployment package| [https://\<\..\>.blob.core.windows.net/\<\..\>](#) |
+|---|---|---|---|
+| **baseuri**     | string          | Base URI of your deployment package| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
 | **username**    | string          | New random user name.| admin68876      |
 | **password**    | secure string    | New random password | Lp!ACS\^2kh     |
 | **session id**   | string          | Unique Test Drive session ID (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
@@ -88,40 +87,46 @@ It is also important to note that **all parameters are optional**, so if you don
 
 Test Drive initializes this parameter with a **Base Uri** of your deployment package, so you can use this parameter to construct Uri of any file included into your package.
 
-    "parameters": {
-      ...
-      "baseuri": {
-        "type": "string",
-        "metadata": {
-          "type": "baseuri",
-          "description": "Base Uri of the deployment package."
-        }
-      },
-      ...
+```json
+"parameters": {
+  ...
+  "baseuri": {
+    "type": "string",
+    "metadata": {
+      "type": "baseuri",
+      "description": "Base Uri of the deployment package."
     }
+  },
+  ...
+}
+```
 
 Inside your template, you can use this parameter to construct a Uri of any file from your Test Drive deployment package. The example below shows how to construct a Uri of the linked template:
 
-    "templateLink": {
-      "uri": "[concat(parameters('baseuri'),'templates/solution.json')]",
-      "contentVersion": "1.0.0.0"
-    }
+```json
+"templateLink": {
+  "uri": "[concat(parameters('baseuri'),'templates/solution.json')]",
+  "contentVersion": "1.0.0.0"
+}
+```
 
 #### username
 
 Test Drive initializes this parameter with a new random user name:
 
-    "parameters": {
-      ...
-      "username": {
-        "type": "string",
-        "metadata": {
-          "type": "username",
-          "description": "Solution admin name."
-        }
-      },
-      ...
+```json
+"parameters": {
+  ...
+  "username": {
+    "type": "string",
+    "metadata": {
+      "type": "username",
+      "description": "Solution admin name."
     }
+  },
+  ...
+}
+```
 
 Sample value:
 
@@ -133,17 +138,19 @@ You can use either random or constant usernames for your solution.
 
 Test Drive initializes this parameter with a new random password:
 
-    "parameters": {
-      ...
-      "password": {
-        "type": "securestring",
-        "metadata": {
-          "type": "password",
-          "description": "Solution admin password."
-        }
-      },
-      ...
+```json
+"parameters": {
+  ...
+  "password": {
+    "type": "securestring",
+    "metadata": {
+      "type": "password",
+      "description": "Solution admin password."
     }
+  },
+  ...
+}
+```
 
 Sample value:
 
@@ -156,17 +163,19 @@ You can use either random or constant passwords for your solution.
 Test Drive initialize this parameter with a unique GUID representing
 Test Drive session ID:
 
-    "parameters": {
-      ...
-      "sessionid": {
-        "type": "string",
-        "metadata": {
-          "type": "sessionid",
-          "description": "Unique Test Drive session id."
-        }
-      },
-      ...
+```json
+"parameters": {
+  ...
+  "sessionid": {
+    "type": "string",
+    "metadata": {
+      "type": "sessionid",
+      "description": "Unique Test Drive session id."
     }
+  },
+  ...
+}
+```
 
 Sample value:
 
@@ -178,22 +187,24 @@ You can use this parameter to uniquely identify the Test Drive session, if it's 
 
 Some Azure resources, like storage accounts or DNS names, requires globally unique names.
 
-This means that every time Test Drive deploys the Resource Manager template, it creates a **new resource group with a unique name** for all its\' resources**.** Therefore it is required to use the [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) function concatenated with your variable names on resource group IDs to
+This means that every time Test Drive deploys the Resource Manager template, it creates a **new resource group with a unique name** for all its\' resources. Therefore it is required to use the [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) function concatenated with your variable names on resource group IDs to
 generate random unique values:
 
-      "variables": {
-      ...
-      "domainNameLabel": "[concat('contosovm',uniquestring(resourceGroup().id))]",
-      "storageAccountName": "[concat('contosodisk',uniquestring(resourceGroup().id))]",
-      ...
-    }
+```json
+"variables": {
+  ...
+  "domainNameLabel": "[concat('contosovm',uniquestring(resourceGroup().id))]",
+  "storageAccountName": "[concat('contosodisk',uniquestring(resourceGroup().id))]",
+  ...
+}
+```
 
 Make sure you concatenate your parameter/variable strings (\'contosovm\') with a unique string output (\'resourceGroup().id\'), because this guarantees the uniqueness and reliability of each variable.
 
 For example, most resource names cannot start with a digit, but unique string function can return a string, which starts with a digit. So, if you use raw unique string output, your deployments will fail. 
 
 You can find additional information about resource naming rules and
-restrictions in [this article] (https://docs.microsoft.com/azure/guidance/guidance-naming-conventions).
+restrictions in [this article](https://docs.microsoft.com/azure/guidance/guidance-naming-conventions).
 
 ### Deployment Location
 
@@ -201,41 +212,45 @@ You can make you Test Drive available in different Azure regions. The idea is to
 
 When Test Drive creates an instance of the Lab, it always creates a resource group in the region chose by a user, and then executes your deployment template in this group context. So, your template should pick the deployment location from resource group:
 
-    "variables": {
-      ...
-      "location": "[resourceGroup().location]",
-      ...
-    }
+```json
+"variables": {
+  ...
+  "location": "[resourceGroup().location]",
+  ...
+}
+```
 
 And then use this location for every resource for a specific Lab instance:
 
-    "resources": [
-      {
-        "type": "Microsoft.Storage/storageAccounts",
-        "location": "[variables('location')]",
-        ...
-      },
-      {
-        "type": "Microsoft.Network/publicIPAddresses",
-        "location": "[variables('location')]",
-        ...
-      },
-      {
-        "type": "Microsoft.Network/virtualNetworks",
-        "location": "[variables('location')]",
-        ...
-      },
-      {
-        "type": "Microsoft.Network/networkInterfaces",
-        "location": "[variables('location')]",
-        ...
-      },
-      {
-        "type": "Microsoft.Compute/virtualMachines",
-        "location": "[variables('location')]",
-        ...
-      }
-    ]
+```json
+"resources": [
+  {
+    "type": "Microsoft.Storage/storageAccounts",
+    "location": "[variables('location')]",
+    ...
+  },
+  {
+    "type": "Microsoft.Network/publicIPAddresses",
+    "location": "[variables('location')]",
+    ...
+  },
+  {
+    "type": "Microsoft.Network/virtualNetworks",
+    "location": "[variables('location')]",
+    ...
+  },
+  {
+    "type": "Microsoft.Network/networkInterfaces",
+    "location": "[variables('location')]",
+    ...
+  },
+  {
+    "type": "Microsoft.Compute/virtualMachines",
+    "location": "[variables('location')]",
+    ...
+  }
+]
+```
 
 You need to make sure that your subscription is allowed to deploy all the resources you want to deploy in each of the regions you are selecting. As well, you need to make sure that your virtual machine images are available in all the regions you are going to enable, otherwise your deployment template will not work for some regions.
 
@@ -249,20 +264,22 @@ There are no any restrictions related to template outputs. Just remember, Test D
 
 Example:
 
-    "outputs": {
-      "Host Name": {
-        "type": "string",
-        "value": "[reference(variables('pubIpId')).dnsSettings.fqdn]"
-      },
-      "User Name": {
-        "type": "string",
-        "value": "[parameters('adminName')]"
-      },
-      "Password": {
-        "type": "string",
-        "value": "[parameters('adminPassword')]"
-      }
-    }
+```json
+"outputs": {
+  "Host Name": {
+    "type": "string",
+    "value": "[reference(variables('pubIpId')).dnsSettings.fqdn]"
+  },
+  "User Name": {
+    "type": "string",
+    "value": "[parameters('adminName')]"
+  },
+  "Password": {
+    "type": "string",
+    "value": "[parameters('adminPassword')]"
+  }
+}
+```
 
 ### Subscription Limits
 
@@ -280,20 +297,18 @@ During the publishing certification, Test Drive unzips your deployment package a
 
 | package.zip                       | Test Drive blob container         |
 |---|---|
-main-template.json                | [https://\<\...\>.blob.core.windows.net/\<\...\>/main-template.json](#)  |
- templates/solution.json           | [https://\<\...\>.blob.core.windows.net/\<\...\>/templates/solution.json](#) |
-| scripts/warmup.ps1                | [https://\<\...\>.blob.core.windows.net/\<\...\>/scripts/warmup.ps1](#)  |
+| main-template.json                | https:\//\<\...\>.blob.core.windows.net/\<\...\>/main-template.json  |
+| templates/solution.json           | https:\//\<\...\>.blob.core.windows.net/\<\...\>/templates/solution.json |
+| scripts/warmup.ps1                | https:\//\<\...\>.blob.core.windows.net/\<\...\>/scripts/warmup.ps1  |
 
 
 We call a Uri of this blob container Base Uri. Every revision of your Lab has its own blob container, and, therefore, every revision of your Lab has its own Base Uri. Test Drive can pass a Base Uri of your unzipped deployment package into your template through template parameters.
 
-Transforming Template Examples for Test Drive
----------------------------------------------
+## Transforming Template Examples for Test Drive
 
 The process from turning an architecture of resources into a Test Drive Resource Manager template can be daunting. In order to help make this process easier, we\'ve made examples on how to best [transform current deployment templates here](./transforming-examples-for-test-drive.md).
 
-How to publish a Test Drive
----------------------------
+## How to publish a Test Drive
 
 Now that you have your Test Drive built, this section walks through each of the fields required for you to successfully publish your Test Drive.
 
@@ -393,22 +408,20 @@ Click Save. The last step is to grab the Application ID for this registered app 
 Given we are using the application to deploy to the subscription, we need to add the application as a contributor on the subscription. The instructions for these are as below:
 
 1. Navigate to the Subscriptions blade and select the appropriate subscription that you are using for the Test Drive only.
-2. Click on Access Control (IAM).
-3. Hit + Add in the new blade.
-4. Set the role as Contributor.
-5. Type in the name of the AAD application and select the AAD application to assign the role.
-6. Click on Save.
-
-![Add a new Access Control principal](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
-
-![Add the permissions](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Click **Access control (IAM)**.
+1. Click the **Role assignments** tab.
+    ![Add a new Access Control principal](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. Click **Add role assignment**.
+1. Set the role as **Contributor**.
+1. Type in the name of the Azure AD application and select the application to assign the role.
+    ![Add the permissions](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Click **Save**.
 
 **Azure AD App Key -** *Required* The final field is to generate an authentication key. Under keys, add a Key Description, set the duration to never expire, then select save. It is **important** to avoid having an expired key, which will break your test drive in production. Copy this value and paste it into your required Test Drive field.
 
 ![Shows the Keys for the Azure AD application](./media/azure-resource-manager-test-drive/subdetails8.png)
 
-Next steps
-----------
+## Next steps
 
 Now that you have all of your Test Drive fields filled out, go through and **Republish** your offer. Once your Test Drive has passed certification, you should go an extensively test the customer experience in the **preview** of your offer. Start a Test Drive in the UI and then
 open up your Azure Subscription inside the Azure portal and verify that your Test Drives are being fully deployed correctly.

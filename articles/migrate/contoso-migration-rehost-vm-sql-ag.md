@@ -90,7 +90,7 @@ In this scenario:
 
 ### Database considerations
 
-As part of the solution design process, Contoso did a feature comparison between Azure SQL Database and SQL Server. The following considerations helped them to decide to go with an Azure Iaas VM running SQL Server:
+As part of the solution design process, Contoso did a feature comparison between Azure SQL Database and SQL Server. The following considerations helped them to decide to go with an Azure IaaS VM running SQL Server:
 
  - Using an Azure VM running SQL Server seems to be an optimal solution if Contoso needs to customize the operating system or the database server, or if it might want to colocate and run third-party apps on the same VM.
  - Using the Data Migration Assistant, Contoso can easily assess and migrate to an Azure SQL Database.
@@ -102,7 +102,7 @@ Contoso evaluates their proposed design by putting together a pros and cons list
 
 **Consideration** | **Details**
 --- | ---
-**Pros** | WEBVM will be moved to Azure without changes, making the migration simple.<br/><br/> The SQL Server tier will run on SQL Server 2017 and Windows Server 2016. This retires their current Windows Server 2008 R2 operating system, and running SQL Server 2017 supports Contoso's technical requirements and goals. IT provides 100% compatibility while moving away from SQL Server 2008 R2.<br/><br/> Contoso can leverage their investment in Software Assurance, using the Azure Hybrid Benefit.<br/><br/> A high availability SQL Server deployment in Auzre provides fault tolerance so that the app data tier is no longer a single point of failover.
+**Pros** | WEBVM will be moved to Azure without changes, making the migration simple.<br/><br/> The SQL Server tier will run on SQL Server 2017 and Windows Server 2016. This retires their current Windows Server 2008 R2 operating system, and running SQL Server 2017 supports Contoso's technical requirements and goals. IT provides 100% compatibility while moving away from SQL Server 2008 R2.<br/><br/> Contoso can leverage their investment in Software Assurance, using the Azure Hybrid Benefit.<br/><br/> A high availability SQL Server deployment in Azure provides fault tolerance so that the app data tier is no longer a single point of failover.
 **Cons** | WEBVM is running Windows Server 2008 R2. The operating system is supported by Azure for specific roles (July 2018). [Learn more](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).<br/><br/> The web tier of the app will remain a single point of failover.</br><br/> Contoso will need to continue supporting the web tier as an Azure VM rather than moving to a managed service such as Azure App Service.<br/><br/> With the chosen solution, Contoso will need to continue managing two SQL Server VMs rather than moving to a managed platform such as Azure SQL Database Managed Instance. In addition, with Software Assurance, Contoso could exchange their existing licenses for discounted rates on Azure SQL Database Managed Instance.
 
 
@@ -181,7 +181,7 @@ Contoso admins set up the cluster as follows:
     - They place the machines in the production network of the EAST US 2 primary region (**VNET-PROD-EUS2**), in the database subnet (**PROD-DB-EUS2**).
     - They create a new availability set: **SQLAOGAVSET**, with two fault domains and five update domains.
 
-    ![SQL VM](media/contoso-migration-rehost-vm-sql-ag/sql-vm-settings.png)
+      ![SQL VM](media/contoso-migration-rehost-vm-sql-ag/sql-vm-settings.png)
 
 4. In **SQL Server settings**, they limit SQL connectivity to the virtual network (private), on default port 1433. For authentication they use the same credentials as they use onsite (**contosoadmin**).
 
@@ -230,11 +230,11 @@ Before setting up the cluster, Contoso admins take a snapshot of the OS disk on 
 
 ![snapshot](media/contoso-migration-rehost-vm-sql-ag/snapshot.png)
 
-2. Then, they run a script they've put together to create the Windows Failover Cluster.
+1. Then, they run a script they've put together to create the Windows Failover Cluster.
 
     ![Create cluster](media/contoso-migration-rehost-vm-sql-ag/create-cluster1.png)
 
-3. After they've created the cluster, they verify that the VMs appear as cluster nodes.
+2. After they've created the cluster, they verify that the VMs appear as cluster nodes.
 
      ![Create cluster](media/contoso-migration-rehost-vm-sql-ag/create-cluster2.png)
 
@@ -346,7 +346,7 @@ Contoso admins set these up as follows:
     - They use a general-purpose account, with standard storage, and LRS replication.
     - The account must be in the same region as the vault.
 
-    ![Site Recovery storage](media/contoso-migration-rehost-vm-sql-ag/asr-storage.png)
+      ![Site Recovery storage](media/contoso-migration-rehost-vm-sql-ag/asr-storage.png)
 
 3. With the network and storage account in place, they now create a Recovery Services vault (**ContosoMigrationVault**), and place it in the **ContosoFailoverRG** resource group, in the primary East US 2 region.
 
@@ -398,20 +398,20 @@ After failover, Contoso wants to be able to connect to Azure VMs. To do this, Co
 
 1. For access over the internet they:
 
- - Enable RDP on the on-premises VM before failover
- - Ensure that TCP and UDP rules are added for the **Public** profile.
- - Check that RDP is allowed in **Windows Firewall** > **Allowed Apps** for all profiles.
+   - Enable RDP on the on-premises VM before failover
+   - Ensure that TCP and UDP rules are added for the **Public** profile.
+   - Check that RDP is allowed in **Windows Firewall** > **Allowed Apps** for all profiles.
  
 2. For access over site-to-site VPN, they:
 
- - Enable RDP on the on-premises machine.
- - Allow RDP in the **Windows Firewall** -> **Allowed apps and features**, for **Domain and Private** networks.
- - Set the operating system's SAN policy on the on-premises VM to **OnlineAll**.
+   - Enable RDP on the on-premises machine.
+   - Allow RDP in the **Windows Firewall** -> **Allowed apps and features**, for **Domain and Private** networks.
+   - Set the operating system's SAN policy on the on-premises VM to **OnlineAll**.
 
 In addition, when they run a failover they need to check the following:
 
 - There should be no Windows updates pending on the VM when triggering a failover. If there are, users won't be able to log into the VM until the update completes.
-- After failover, they can check **Boot diagnostics** to view a screenshot of the VM. If this doesn't work, they should verify that the VM is running, and review these [troubleshooting tips](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- After failover, they can check **Boot diagnostics** to view a screenshot of the VM. If this doesn't work, they should verify that the VM is running, and review these [troubleshooting tips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 
 **Need more help?**
@@ -693,7 +693,7 @@ The Contoso security team reviews the Azure VMs WEBVM, SQLAOG1 and SQLAOG2 to de
 - The team considers securing the data on the disk using Azure Disk Encryption and KeyVault.
 - The team should evaluate transparent data encryption (TDE), and then enable it on the SmartHotel360 database running on the new SQL AOG. [Learn more](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017).
 
-[Read more](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control) about security practices for VMs.
+[Read more](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms) about security practices for VMs.
 
 
 ## BCDR

@@ -2,18 +2,13 @@
 title: Azure Traffic Manager endpoint monitoring | Microsoft Docs
 description: This article can help you understand how Traffic Manager uses endpoint monitoring and automatic endpoint failover to help Azure customers deploy high-availability applications
 services: traffic-manager
-documentationcenter: ''
 author: KumudD
-manager: jeconnoc
-editor: ''
-
-ms.assetid: fff25ac3-d13a-4af9-8916-7c72e3d64bc7
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/22/2017
+ms.date: 12/04/2018
 ms.author: kumud
 ---
 
@@ -135,7 +130,7 @@ When an endpoint has a Degraded status, it is no longer returned in response to 
 * **Weighted**. Any available endpoint is chosen at random based on their assigned weights and the weights of the other available endpoints.
 * **Performance**. The endpoint closest to the end user is returned. If that endpoint is unavailable, Traffic Manager moves traffic to the endpoints in the next closest Azure region. You can configure alternative failover plans for performance traffic-routing by using [nested Traffic Manager profiles](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Geographic**. The endpoint mapped to serve the geographic location based on the query request IP’s is returned. If that endpoint is unavailable, another endpoint will not be selected to failover to, since a geographic location can be mapped only to one endpoint in a profile (more details are in the [FAQ](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). As a best practice, when using geographic routing, we recommend customers to use nested Traffic Manager profiles with more than one endpoint as the endpoints of the profile.
-* **MultiValue** Mutliple endpoints mapped to IPv4/IPv6 addresses are returned. When a query is received for this profile, healthy endpoints are returned based on the **Maximum record count in response** value that you have specified. The default number of responses is two endpoints.
+* **MultiValue** Multiple endpoints mapped to IPv4/IPv6 addresses are returned. When a query is received for this profile, healthy endpoints are returned based on the **Maximum record count in response** value that you have specified. The default number of responses is two endpoints.
 * **Subnet** The endpoint mapped to a set of IP address ranges is returned. When a request is received from that IP address, the endpoint returned is the one mapped for that IP address. 
 
 For more information, see [Traffic Manager traffic-routing methods](traffic-manager-routing-methods.md).

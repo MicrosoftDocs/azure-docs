@@ -4,11 +4,11 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 
 ms.assetid: 418d0601-6e7a-4997-a683-73fa30a2cfb5
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Promapp
 
@@ -110,6 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/promapp-tutorial/tutorial_promapp_url.png)
 
     a. In the **Identifier** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `https://go.promapp.com/TENANTNAME/`|

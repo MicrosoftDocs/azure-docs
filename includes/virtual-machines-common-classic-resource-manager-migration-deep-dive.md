@@ -1,3 +1,10 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+---
 ## Migrate IaaS resources from the classic deployment model to Azure Resource Manager
 First, it's important to understand the difference between data-plane and management-plane operations on the infrastructure as a service (IaaS) resources.
 
@@ -69,7 +76,7 @@ After the prepare operation is complete, you have the option of visualizing the 
 > [!NOTE]
 > It is not possible to select the name of a resource group created for migrated resources (that is, "-Migrated"). After migration is complete, however, you can use the move feature of Azure Resource Manager to move resources to any resource group you want. For more information, see [Move resources to new resource group or subscription](../articles/resource-group-move-resources.md).
 
-The following two screenshots show the result after a succesful prepare operation. The first one shows a resource group that contains the original cloud service. The second one shows the new "-Migrated" resource group that contains the equivalent Azure Resource Manager resources.
+The following two screenshots show the result after a successful prepare operation. The first one shows a resource group that contains the original cloud service. The second one shows the new "-Migrated" resource group that contains the equivalent Azure Resource Manager resources.
 
 ![Screenshot that shows original cloud service](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-classic.png)
 

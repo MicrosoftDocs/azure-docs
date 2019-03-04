@@ -1,22 +1,21 @@
 ---
-title: Using bulk executor .NET library to perform bulk operations in Azure Cosmos DB | Microsoft Docs
-description: Use Azure Cosmos DB’s bulk executor .NET library to bulk import and update documents to Azure Cosmos DB containers.
-keywords: .Net bulk executor
-services: cosmos-db
+title: Using bulk executor .NET library to perform bulk import and update operations in Azure Cosmos DB
+description: Bulk import and update Azure Cosmos DB documents using bulk executor .NET library.
 author: tknandu
-manager: kfile
-
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 10/16/2018
 ms.author: ramkris
-
+ms.reviewer: sngun
 ---
 
 # Use bulk executor .NET library to perform bulk operations in Azure Cosmos DB
 
-This tutorial provides instructions on using the Azure Cosmos DB’s bulk executor .NET library to import and update documents to Azure Cosmos DB container. To learn about bulk executor library and how it helps you leverage massive throughput and storage, see [bulk executor library overview](bulk-executor-overview.md) article. This tutorial will walk you through a sample .NET application that bulk imports randomly generated documents into an Azure Cosmos DB container. After importing, it shows you how you can bulk update the imported data by specifying patches as operations to perform on specific document fields.
+This tutorial provides instructions on using the Azure Cosmos DB’s bulk executor .NET library to import and update documents to Azure Cosmos DB container. To learn about bulk executor library and how it helps you leverage massive throughput and storage, see [bulk executor library overview](bulk-executor-overview.md) article. In this tutorial, you will see a sample .NET application that bulk imports randomly generated documents into an Azure Cosmos DB container. After importing, it shows you how you can bulk update the imported data by specifying patches as operations to perform on specific document fields. 
+
+Currently, bulk executor library is supported by Azure Cosmos DB SQL API and Gremlin API accounts only. This article describes how to use bulk executor .NET library with SQL API accounts. To learn about using bulk executor .NET library with Gremlin API, see [perform bulk operations in Azure Cosmos DB Gremlin API](bulk-executor-graph-dotnet.md). 
 
 ## Prerequisites
 
@@ -24,7 +23,7 @@ This tutorial provides instructions on using the Azure Cosmos DB’s bulk execut
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin. 
 
-* You can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments. Or, you can use the [Azure Cosmos DB Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator) with  the `https://localhost:8081` URI. The Primary Key is provided in [Authenticating requests](local-emulator.md#authenticating-requests).
+* You can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments. Or, you can use the [Azure Cosmos DB Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator) with  the `https://localhost:8081` endpoint. The Primary Key is provided in [Authenticating requests](local-emulator.md#authenticating-requests).
 
 * Create an Azure Cosmos DB SQL API account by using the steps described in [create database account](create-sql-api-dotnet.md#create-a-database-account) section of the .NET quickstart article. 
 

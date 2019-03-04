@@ -2,17 +2,15 @@
 documentType: LandingData
 title: Azure Databricks Documentation
 metadata:
-  title: Azure Databricks Documentation - Tutorials | Microsoft Docs
+  title: Azure Databricks Documentation - Tutorials 
   description: Learn how to use Azure Databricks using the quickstart and other links provided here. Azure Databricks is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform.
   services: azure-databricks
-  author: nitinme
-  manager: cgronlun
+  author: mamccrea
+  
   ms.service: azure-databricks
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 03/19/2018
-  ms.author: nitinme
+  ms.author: mamccrea
 abstract:
   description: Learn how to use Azure Databricks using the quickstart and other links provided here. Azure Databricks is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Designed with the founders of Apache Spark, Databricks is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts.
   aside:

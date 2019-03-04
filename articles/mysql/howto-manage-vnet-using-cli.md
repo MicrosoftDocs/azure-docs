@@ -1,15 +1,13 @@
 ---
 title: Create and manage Azure Database for MySQL VNet service endpoints and rules using Azure CLI | Microsoft Docs
 description: This article describes how to create and manage Azure Database for MySQL VNet service endpoints and rules using Azure CLI command line.
-services: mysql
 author: mbolz
 ms.author: mbolz
 manager: jhubbard
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
-ms.topic: article
-ms.date: 08/15/2018
+ms.devlang: azurecli
+ms.topic: conceptual
+ms.date: 10/23/2018
 ---
 # Create and manage Azure Database for MySQL VNet service endpoints using Azure CLI
 Virtual Network (VNet) services endpoints and rules extend the private address space of a Virtual Network to your Azure Database for MySQL server. Using convenient Azure Command Line Interface (CLI) commands, you can create, update, delete, list, and show VNet service endpoints and rules to manage your server. For an overview of Azure Database for MySQL VNet service endpoints, including limitations, see [Azure Database for MySQL Server VNet service endpoints](concepts-data-access-and-security-vnet.md). VNet service endpoints are available in all supported regions for Azure Database for MySQL.
@@ -21,6 +19,7 @@ To step through this how-to guide, you need:
 
 > [!NOTE]
 > Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
+> In case of VNet peering, if traffic is flowing through a common VNet Gateway with service endpoints and is supposed to flow to the peer, please create an ACL/VNet rule to allow Azure Virtual Machines in the Gateway VNet to access the Azure Database for MySQL server.
 
 ## Configure Vnet service endpoints for Azure Database for MySQL
 The [az network vnet](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest) commands are used to configure Virtual Networks.
@@ -42,7 +41,7 @@ If you have multiple subscriptions, choose the appropriate subscription in which
 
 Service endpoints can be configured on virtual networks independently, by a user with write access to the virtual network.
 
-To secure Azure service resources to a VNet, the user must have permission to "Microsoft.Network/JoinServicetoaSubnet" for the subnets being added. This permission is included in the built-in service administrator roles, by default and can be modified by creating custom roles.
+To secure Azure service resources to a VNet, the user must have permission to "Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/" for the subnets being added. This permission is included in the built-in service administrator roles, by default and can be modified by creating custom roles.
 
 Learn more about [built-in roles](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) and assigning specific permissions to [custom roles](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
 

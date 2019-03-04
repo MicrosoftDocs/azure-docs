@@ -4,7 +4,7 @@
  services: active-directory
  author: daveba
  ms.service: active-directory
- ms.component: msi
+ ms.subservice: msi
  ms.topic: include
  ms.date: 05/31/2018
  ms.author: daveba

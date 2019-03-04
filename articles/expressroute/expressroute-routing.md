@@ -1,13 +1,14 @@
 ---
-title: Routing requirements for Azure ExpressRoute | Microsoft Docs
+title: 'Routing requirements - ExpressRoute: Azure | Microsoft Docs'
 description: This page provides detailed requirements for configuring and managing routing for ExpressRoute circuits.
 services: expressroute
 author: ganesr
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 01/11/2019
 ms.author: ganesr
+ms.custom: seodec18
 
 ---
 # ExpressRoute routing requirements
@@ -96,7 +97,7 @@ If your prefixes and AS number are not assigned to you in the preceding registri
 A Private AS Number is allowed with Microsoft Peering, but will also require manual validation. In addition, we remove private AS numbers in the AS PATH for the received prefixes. As a result, you can't append private AS numbers in the AS PATH to [influence routing for Microsoft Peering](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
-> Public IP addresses advertised to Microsoft over ExpressRoute must not be advertised to the Internet. This may break connectivity to other Microsoft services. However, Public IP addresses used by servers in your network that communicate with O365 endpoints within Microsoft may be advertised over ExpressRoute. 
+> Do not advertise the same public IP route to the public Internet and over ExpressRoute. To reduce the risk of incorrect configuration causing asymmetric routing, we strongly recommend that the [NAT IP addresses](expressroute-nat.md) advertised to Microsoft over ExpressRoute be from a range that is not advertised to the internet at all. If this is not possible to achieve, it is essential to ensure you advertise a more specific range over ExpressRoute than the one on the Internet connection. Besides the public route for NAT, you can also advertise over ExpressRoute the Public IP addresses used by the servers in your on-premises network that communicate with Office 365 endpoints within Microsoft. 
 > 
 > 
 
@@ -115,7 +116,7 @@ Routing exchange will be over eBGP protocol. EBGP sessions are established betwe
 ## Autonomous System numbers
 Microsoft uses AS 12076 for Azure public, Azure private and Microsoft peering. We have reserved ASNs from 65515 to 65520 for internal use. Both 16 and 32 bit AS numbers are supported.
 
-There are no requirements around data transfer symmetry. The forward and return paths may traverse different router pairs. Identical routes must be advertised from either sides across multiple circuit pairs belonging you. Route metrics are not required to be identical.
+There are no requirements around data transfer symmetry. The forward and return paths may traverse different router pairs. Identical routes must be advertised from either sides across multiple circuit pairs belonging to you. Route metrics are not required to be identical.
 
 ## Route aggregation and prefix limits
 We support up to 4000 prefixes advertised to us through the Azure private peering. This can be increased up to 10,000 prefixes if the ExpressRoute premium add-on is enabled. We accept up to 200 prefixes per BGP session for Azure public and Microsoft peering. 
@@ -130,11 +131,11 @@ Default routes are permitted only on Azure private peering sessions. In such a c
 
  To enable connectivity to other Azure services and infrastructure services, you must make sure one of the following items is in place:
 
-* Azure public peering is enabled to route traffic to public endpoints
+* Azure public peering is enabled to route traffic to public endpoints.
 * You use user-defined routing to allow internet connectivity for every subnet requiring Internet connectivity.
 
 > [!NOTE]
-> Advertising default routes will break Windows and other VM license activation. Follow instructions [here](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) to work around this.
+> Advertising default routes will break Windows and other VM license activation. Follow instructions [here](https://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) to work around this.
 > 
 > 
 
@@ -207,7 +208,11 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | SharePoint Online | 12076:5020 |
 | Skype For Business Online | 12076:5030 |
 | Dynamics 365 | 12076:5040 |
+| Azure Global Services* | 12076:5050 |
 | Other Office 365 Online services | 12076:5100 |
+
+*Azure Global Services includes only Azure DevOps at this time.
+
 
 > [!NOTE]
 > Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.

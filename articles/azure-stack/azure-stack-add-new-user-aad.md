@@ -3,7 +3,7 @@ title: Add a new Azure Stack tenant account in Azure Active Directory | Microsof
 description: After deploying Microsoft Azure Stack Development Kit, you’ll need to create at least one tenant user account so you can explore the tenant portal.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: patricka
 manager: femila
 editor: ''
 
@@ -13,9 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
-ms.author: jeffgilb
+ms.date: 02/12/2019
+ms.author: patricka
 ms.reviewer: unknown
+ms.lastreviewed: 09/17/2018
 ---
 
 # Add a new Azure Stack tenant account in Azure Active Directory
@@ -51,17 +52,15 @@ You must have an Azure subscription to use the Azure portal.
 7. Sign in to Microsoft Azure portal with the new account. Change the password when prompted.
 8. Sign in to `https://portal.local.azurestack.external` with the new account to see the tenant portal.
 
-## Create an Azure Stack tenant account using PowerShell
+## Create an Azure Stack user account using PowerShell
 
 If you don't have an Azure subscription, you can't use the Azure portal to add a tenant user account. In this case, you can use the Azure Active Directory Module for Windows PowerShell instead.
 
 > [!NOTE]
 > If you are using Microsoft Account (Live ID) to deploy Azure Stack Development Kit, you can't use AAD PowerShell to create tenant account. 
-> 
-> 
 
 1. Install the [Microsoft Online Services Sign-In Assistant for IT Professionals RTW](https://www.microsoft.com/en-us/download/details.aspx?id=41950).
-2. Install the [Azure Active Directory Module for Windows PowerShell (64-bit version)](http://go.microsoft.com/fwlink/p/?linkid=236297) and open it.
+2. Install the [Azure Active Directory Module for Windows PowerShell (64-bit version)](https://go.microsoft.com/fwlink/p/?linkid=236297) and open it.
 3. Run the following cmdlets:
 
     ```powershell
@@ -80,3 +79,6 @@ If you don't have an Azure subscription, you can't use the Azure portal to add a
 1. Sign in to Microsoft Azure with the new account. Change the password when prompted.
 2. Sign in to `https://portal.local.azurestack.external` with the new account to see the tenant portal.
 
+## Next steps
+
+[Add Azure Stack users in AD FS](azure-stack-add-users-adfs.md)

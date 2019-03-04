@@ -3,8 +3,8 @@ title: Azure Security Center Tutorial - Protect your resources with Azure Securi
 description: This tutorial shows you how to configure a just in time VM access policy and an application control policy.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: MBaldwin
+author: monhaber
+manager: barbkess
 editor: ''
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
-ms.author: rkarlin
+ms.date: 12/3/2018
+ms.author: monhaber
 
 ---
 # Tutorial: Protect your resources with Azure Security Center
-Security Center limits your exposure to threats by using access and application controls to block malicious activity. Just in time virtual machine (VM) access reduces your exposure to attacks by enabling you to deny persistent access to VMs. Instead, you provide controlled and audited access to VMs only when needed. Adaptive application controls help harden VMs against malware by controlling which applications can run on your VMs. Security Center uses machine learning to analyze the processes running in the VM and helps you apply whitelisting rules using this intelligence.
+Security Center limits your exposure to threats by using access and application controls to block malicious activity. Just-in-Time (JIT) virtual machine (VM) access reduces your exposure to attacks by enabling you to deny persistent access to VMs. Instead, you provide controlled and audited access to VMs only when needed. Adaptive application controls help harden VMs against malware by controlling which applications can run on your VMs. Security Center uses machine learning to analyze the processes running in the VM and helps you apply whitelisting rules using this intelligence.
 
 In this tutorial you learn how to:
 
@@ -30,18 +30,18 @@ In this tutorial you learn how to:
 If you don’t have an Azure subscription, create a  [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
 ## Prerequisites
-To step through the features covered in this tutorial, you must be on Security Center’s Standard pricing tier. You can try Security Center Standard at no cost for the first 60 days. The quickstart [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) walks you through how to upgrade to Standard.
+To step through the features covered in this tutorial, you must be on Security Center’s Standard pricing tier. You can try Security Center Standard at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). The quickstart [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) walks you through how to upgrade to Standard.
 
 ## Manage VM access
-Just in time VM access can be used to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
+JIT VM access can be used to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
 
 Management ports do not need to be open at all times. They only need to be open while you are connected to the VM, for example to perform management or maintenance tasks. When just in time is enabled, Security Center uses Network Security Group (NSG) rules, which restrict access to management ports so they cannot be targeted by attackers.
 
-1. In the Security Center main menu, select **Just in time VM access** under **ADVANCED CLOUD DEFENSE**.
+1. In the Security Center main menu, select **Just-in-Time VM access** under **ADVANCED CLOUD DEFENSE**.
 
   ![Just in time VM access][1]
 
-  **Just in time VM access** provides information on the state of your VMs:
+  **Just-in-Time VM access** provides information on the state of your VMs:
 
   - **Configured** - VMs that have been configured to support just in time VM access.
   - **Recommended** - VMs that can support just in time VM access but have not been configured to.

@@ -1,11 +1,13 @@
 ---
-title: Exclude disks from protection by using Azure Site Recovery | Microsoft Docs
-description: Describes why and how to exclude VM disks from replication for Hyper-V to Azure.
-author: nsoneji
+title: Exclude disks from replication when setting up disaster recovery with the Azure Site Recovery service | Microsoft Docs
+description: Describes how to exclude VM disks from replication during disaster recovery to Azure.
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.author: nisoneji
+ms.date: 01/19/2019
+ms.author: mayg
 
 ---
 # Exclude disks from replication
@@ -52,7 +54,7 @@ Let's consider two scenarios to understand the exclude disk feature:
 - SQL Server tempdb disk
 - Paging file (pagefile.sys) disk
 
-## Excample 1: Exclude the SQL Server tempdb disk
+## Example 1: Exclude the SQL Server tempdb disk
 Let's consider a SQL Server virtual machine that has a tempdb that can be excluded.
 
 The name of the virtual disk is SalesDB.

@@ -5,7 +5,7 @@ keywords: AD FS, ADFS, AD FS management, AAD Connect, Connect, sign-in, AD FS cu
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
@@ -13,11 +13,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/18/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
+ms.collection: M365-identity-device-management
 ---
 # Manage and customize Active Directory Federation Services by using Azure AD Connect
 This article describes how to manage and customize Active Directory Federation Services (AD FS) by using Azure Active Directory (Azure AD) Connect. It also includes other common AD FS tasks that you might need to do for a complete configuration of an AD FS farm.
@@ -26,7 +27,7 @@ This article describes how to manage and customize Active Directory Federation S
 |:--- |:--- |
 | **Manage AD FS** | |
 | [Repair the trust](#repairthetrust) |How to repair the federation trust with Office 365. |
-| [Federate with Azure AD using alternate login ID ](#alternateid) | Configure federation using alternate login ID  |
+| [Federate with Azure AD using alternate login ID](#alternateid) | Configure federation using alternate login ID  |
 | [Add an AD FS server](#addadfsserver) |How to expand an AD FS farm with an additional AD FS server. |
 | [Add an AD FS Web Application Proxy server](#addwapserver) |How to expand an AD FS farm with an additional Web Application Proxy (WAP) server. |
 | [Add a federated domain](#addfeddomain) |How to add a federated domain. |
@@ -76,7 +77,7 @@ Configuring alternate login ID for AD FS consists of two main steps:
 
     ![Warning for missing KB on 2012R2](./media/how-to-connect-fed-management/kbwarning.png)
 
-    To rectify the configuration in case of missing KB, install the required [KB2919355](http://go.microsoft.com/fwlink/?LinkID=396590) and then repair the trust using [Repair AAD and AD FS Trust](#repairthetrust).
+    To rectify the configuration in case of missing KB, install the required [KB2919355](https://go.microsoft.com/fwlink/?LinkID=396590) and then repair the trust using [Repair AAD and AD FS Trust](#repairthetrust).
 
 > [!NOTE]
 > For more information on alternateID and steps to manually configure, read [Configuring Alternate Login ID](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)

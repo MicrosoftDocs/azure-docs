@@ -8,7 +8,7 @@ keywords: backup and disaster recovery; backup service
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.author: saurse;trinadhk
+ms.author: trinadhk
 ---
 
 # Questions about the Azure Backup agent
@@ -16,7 +16,7 @@ This article has answers to common questions to help you quickly understand the 
 
 ## Configure backup
 ### Where can I download the latest Azure Backup agent? <br/>
-You can download the latest agent for backing up Windows Server, System Center DPM, or Windows client, from [here](http://aka.ms/azurebackup_agent). If you want to back up a virtual machine, use the VM Agent (which automatically installs the proper extension). The VM Agent is already present on virtual machines created from the Azure gallery.
+You can download the latest agent for backing up Windows Server, System Center DPM, or Windows client, from [here](https://aka.ms/azurebackup_agent). If you want to back up a virtual machine, use the VM Agent (which automatically installs the proper extension). The VM Agent is already present on virtual machines created from the Azure gallery.
 
 ### When configuring the Azure Backup agent, I am prompted to enter the vault credentials. Do vault credentials expire?
 Yes, the vault credentials expire after 48 hours. If the file expires, sign in to the Azure portal and download the vault credentials files from your vault.
@@ -28,7 +28,7 @@ You can't back up the following drives/volumes:
 * Read-only Volumes: The volume must be writable for the volume shadow copy service (VSS) to function.
 * Offline Volumes: The volume must be online for VSS to function.
 * Network share: The volume must be local to the server to be backed up using online backup.
-* Bitlocker-protected volumes: The volume must be unlocked before the backup can occur.
+* BitLocker-protected volumes: The volume must be unlocked before the backup can occur.
 * File System Identification: NTFS is the only file system supported.
 
 ### What file and folder types can I back up from my server?<br/>

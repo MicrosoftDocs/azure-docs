@@ -3,8 +3,8 @@ title: Azure Functions SignalR Service bindings
 description: Understand how to use SignalR Service bindings with Azure Functions.
 services: functions
 documentationcenter: na
-author: anthonychu
-manager: cfowler
+author: craigshoemaker
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
@@ -15,7 +15,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/23/2018
-ms.author: antchu
+ms.author: cshoe
 ---
 
 # SignalR Service bindings for Azure Functions
@@ -26,7 +26,7 @@ This article explains how to authenticate and send real-time messages to clients
 
 ## Packages - Functions 2.x
 
-The SignalR Service bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.SignalRService](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) NuGet package, version 1.0.0-preview1-*. Source code for the package is in the [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension) GitHub repository.
+The SignalR Service bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.SignalRService](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) NuGet package, version 1.0.0-preview1-*. Source code for the package is in the [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension) GitHub repository.
 
 > [!NOTE]
 > Azure SignalR Service is generally available. However, SignalR Service bindings for Azure Functions are currently in preview.
@@ -59,9 +59,9 @@ public static SignalRConnectionInfo GetSignalRInfo(
 #### Authenticated tokens
 
 If the function is triggered by an authenticated client, you can add a user ID claim to the generated token. You can easily add authentication to a function app using [App Service Authentication]
-(../app-service/app-service-authentication-overview.md).
+(../app-service/overview-authentication-authorization.md).
 
-App Service Authentication sets HTTP headers named `x-ms-client-principal-id` and `x-ms-client-principal-name` that contain the authenticated user's client principal ID and name, respectively. You can set the `UserId` property of the binding to the value from either header using a [binding expression](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`. 
+App Service Authentication sets HTTP headers named `x-ms-client-principal-id` and `x-ms-client-principal-name` that contain the authenticated user's client principal ID and name, respectively. You can set the `UserId` property of the binding to the value from either header using a [binding expression](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`. 
 
 ```cs
 [FunctionName("GetSignalRInfo")]
@@ -106,9 +106,9 @@ module.exports = function (context, req, connectionInfo) {
 #### Authenticated tokens
 
 If the function is triggered by an authenticated client, you can add a user ID claim to the generated token. You can easily add authentication to a function app using [App Service Authentication]
-(../app-service/app-service-authentication-overview.md).
+(../app-service/overview-authentication-authorization.md).
 
-App Service Authentication sets HTTP headers named `x-ms-client-principal-id` and `x-ms-client-principal-name` that contain the authenticated user's client principal ID and name, respectively. You can set the `userId` property of the binding to the value from either header using a [binding expression](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`. 
+App Service Authentication sets HTTP headers named `x-ms-client-principal-id` and `x-ms-client-principal-name` that contain the authenticated user's client principal ID and name, respectively. You can set the `userId` property of the binding to the value from either header using a [binding expression](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`. 
 
 Example function.json:
 

@@ -1,6 +1,6 @@
 ---
 title: Ethereum Proof-of-Authority Consortium - Azure
-description: Use the Etherereum Proof-of-Authority Consortium solution to deploy and configure a multi-member consortium Ethereum network
+description: Use the Ethereum Proof-of-Authority Consortium solution to deploy and configure a multi-member consortium Ethereum network
 services: azure-blockchain
 keywords:
 author: CodyBorn
@@ -409,7 +409,7 @@ A sample deployment is shown below:
 
 #### Monitoring
 
-The Monitoring blade allows you to configure a Log Analytics
+The Monitoring blade allows you to configure an Azure Monitor logs
 resource for your network. The monitoring agent will collect and surface useful
 metrics and logs from your network, providing the ability to quickly
 check the network health or debug issues.
@@ -417,9 +417,9 @@ check the network health or debug issues.
   Parameter name|Description|Allowed values|Default values
   ---|---|---|---
 Monitoring|Option to enable Monitoring|Enable or Disable|Enable
-Connect to existing Log Analytics|Create a new Log Analytics instance or join an existing instance|Create new or Join existing|Create new
-Monitor Location(Connect to existing Log Analytics= Create new)|The region where the new Log Analytics instance will be deployed|All Log Analytics regions|NA
-Existing Log Analytics Workspace Id (Connect to existing Log Analytics = Join Existing)|Workspace ID of the existing Log Analytics instance||NA
+Connect to existing Azure Monitor logs|Create a new Azure Monitor logs instance or join an existing instance|Create new or Join existing|Create new
+Monitor Location(Connect to existing Azure Monitor logs= Create new)|The region where the new Azure Monitor logs instance will be deployed|All Azure Monitor logs regions|NA
+Existing Log Analytics Workspace Id (Connect to existing Azure Monitor logs = Join Existing)|Workspace ID of the existing Azure Monitor logs instance||NA
 Existing Log Analytics Primary Key (Connect to existing Log Analytics = Join Existing)|The primary key used to connect to the existing Log Analytics instance||NA
 
 
@@ -506,8 +506,8 @@ part of the new member deployment.  Once your deployment completes use the [Gove
     -  Choose the same number of validator nodes as the rest of the
         members on the network to ensure fair representation
 
-    -  Use the same Ethereum address that was provided in the [previous
-        step](#step-1-add-the-new-admin)
+    -  Use the same Ethereum address that was provided in the previous
+        step
 
     -  Pass in the provided *Consortium Data Url* on the *Ethereum
         Settings* tab
@@ -588,7 +588,7 @@ statistics.
 
 ![network stats](./media/ethereum-poa-deployment/network-stats.png)
 
-#### Sample Log Analytics queries
+#### Sample Kusto queries
 
 Behind these dashboards is a set of queryable raw logs. You can use
 these raw logs to customize the dashboards, investigate failures, or
@@ -959,7 +959,7 @@ $ truffle migrate --network poa
 
 Truffle has a local develop network that is available for debugging
 smart contract. You can find the full tutorial
-[here](http://truffleframework.com/tutorials/debugging-a-smart-contract).
+[here](https://truffleframework.com/tutorials/debugging-a-smart-contract).
 
 ### WebAssembly (WASM) support
 

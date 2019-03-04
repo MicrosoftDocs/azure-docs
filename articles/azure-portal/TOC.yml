@@ -4,6 +4,8 @@
   items:
   - name: Create and share Azure dashboards
     href: azure-portal-dashboards.md
+  - name: Use a custom markdown tile
+    href: azure-portal-markdown-tile.md
   - name: Share dashboards with role-based access control
     href: azure-portal-dashboard-share-access.md
   - name: Structure of Azure dashboards
@@ -32,6 +34,6 @@
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-management-portal
+    href: https://stackoverflow.com/questions/tagged/azure-management-portal
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest

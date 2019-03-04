@@ -4,19 +4,19 @@ description: Configure Azure AD self-service password reset policy options
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 01/31/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-
+ms.collection: M365-identity-device-management
 ---
 # Password policies and restrictions in Azure Active Directory
 
-This article describes the password policies and complexity requirements associated with user accounts stored in your Azure Active Directory (Azure AD) tenant.
+This article describes the password policies and complexity requirements associated with user accounts in your Azure Active Directory (Azure AD) tenant.
 
 ## Administrator reset policy differences
 
@@ -24,7 +24,7 @@ This article describes the password policies and complexity requirements associa
 
 With a two-gate policy, **administrators don't have the ability to use security questions**.
 
- A two-gate policy requires two pieces of authentication data, such as an email address *and* a phone number. A two-gate policy applies in the following circumstances:
+The two-gate policy requires two pieces of authentication data, such as an **email address**, **authenticator app**, or a **phone number**. A two-gate policy applies in the following circumstances:
 
 * All the following Azure administrator roles are affected:
   * Helpdesk administrator
@@ -47,29 +47,17 @@ With a two-gate policy, **administrators don't have the ability to use security 
   * CRM service administrator
   * Power BI service administrator
 
-* If 30 days have elapsed in a trial subscription
-
-  or
-
-* A vanity domain is present, such as contoso.com
-
-  or
-
+* If 30 days have elapsed in a trial subscription; or
+* A vanity domain is present, such as contoso.com; or
 * Azure AD Connect is synchronizing identities from your on-premises directory
 
 ### Exceptions
 
 A one-gate policy requires one piece of authentication data, such as an email address *or* phone number. A one-gate policy applies in the following circumstances:
 
-* It's within the first 30 days of a trial subscription
-
-  or
-
-* A vanity domain isn't present (*.onmicrosoft.com)
-
-  and
-
-  Azure AD Connect isn't synchronizing identities
+* It's within the first 30 days of a trial subscription; or
+* A vanity domain isn't present (*.onmicrosoft.com); and
+* Azure AD Connect isn't synchronizing identities
 
 ## UserPrincipalName policies that apply to all user accounts
 
@@ -88,14 +76,14 @@ The following table describes the available password policy settings that can be
 | Property | Requirements |
 | --- | --- |
 | Characters allowed |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
-| Characters not allowed |<ul><li>Unicode characters.</li><li>Spaces.</li><li> Strong passwords only</li></ul> |
+| Characters not allowed |<ul><li>Unicode characters.</li><li>Spaces.</li><li> Strong passwords only: Cannot contain a dot character "." Immediately preceding the "\@\" symbol”.</li></ul> |
 | Password restrictions |<ul><li>A minimum of 8 characters and a maximum of 16 characters.</li><li>Strong passwords only: Requires three out of four of the following:<ul><li>Lowercase characters.</li><li>Uppercase characters.</li><li>Numbers (0-9).</li><li>Symbols (see the previous password restrictions).</li></ul></li></ul> |
 | Password expiry duration |<ul><li>Default value: **90** days.</li><li>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet from the Azure Active Directory Module for Windows PowerShell.</li></ul> |
 | Password expiry notification |<ul><li>Default value: **14** days (before password expires).</li><li>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet.</li></ul> |
 | Password expiry |<ul><li>Default value: **false** days (indicates that password expiry is enabled).</li><li>The value can be configured for individual user accounts by using the `Set-MsolUser` cmdlet.</li></ul> |
 | Password change history |The last password *can't* be used again when the user changes a password. |
 | Password reset history | The last password *can* be used again when the user resets a forgotten password. |
-| Account lockout |After 10 unsuccessful sign-in attempts with the wrong password, the user is locked out for one minute. Further incorrect sign-in attempts lock out the user for increasing durations of time. |
+| Account lockout |After 10 unsuccessful sign-in attempts with the wrong password, the user is locked out for one minute. Further incorrect sign-in attempts lock out the user for increasing durations of time. [Smart lockout](howto-password-smart-lockout.md) tracks the last three bad password hashes to avoid incrementing the lockout counter for the same password. If someone enters the same bad password multiple times, this behavior will not cause the account to lockout. |
 
 ## Set password expiration policies in Azure AD
 
@@ -114,7 +102,7 @@ To get started, you need to [download and install the Azure AD PowerShell module
 ### Check the expiration policy for a password
 
 1. Connect to Windows PowerShell by using your company administrator credentials.
-2. Execute one of the following commands:
+1. Execute one of the following commands:
 
    * To see if a single user’s password is set to never expire, run the following cmdlet by using the UPN (for example, *aprilr@contoso.onmicrosoft.com*) or the user ID of the user you want to check: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
    * To see the **Password never expires** setting for all users, run the following cmdlet: `Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
@@ -122,7 +110,7 @@ To get started, you need to [download and install the Azure AD PowerShell module
 ### Set a password to expire
 
 1. Connect to Windows PowerShell by using your company administrator credentials.
-2. Execute one of the following commands:
+1. Execute one of the following commands:
 
    * To set the password of one user so that the password expires, run the following cmdlet by using the UPN or the user ID of the user: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None`
    * To set the passwords of all users in the organization so that they expire, use the following cmdlet: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None`
@@ -130,7 +118,7 @@ To get started, you need to [download and install the Azure AD PowerShell module
 ### Set a password to never expire
 
 1. Connect to Windows PowerShell by using your company administrator credentials.
-2. Execute one of the following commands:
+1. Execute one of the following commands:
 
    * To set the password of one user to never expire, run the following cmdlet by using the UPN or the user ID of the user: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration`
    * To set the passwords of all the users in an organization to never expire, run the following cmdlet: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration`

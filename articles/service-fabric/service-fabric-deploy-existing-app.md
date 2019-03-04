@@ -65,7 +65,7 @@ The process of manually packaging a guest executable is based on the following g
 4. Edit the application manifest file.
 
 <!--
->[AZURE.NOTE] We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](http://aka.ms/servicefabricpacktool).
+>[AZURE.NOTE] We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](https://aka.ms/servicefabricpacktool).
 -->
 
 ### Create the package directory structure
@@ -298,4 +298,4 @@ In this article, you have learned how to package a guest executable and deploy i
 * [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), including a link to the prerelease of the packaging tool
 * [Sample of two guest executables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-containers)
 * [Deploy multiple guest executables](service-fabric-deploy-multiple-apps.md)
-* [Create your first Service Fabric application using Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+* [Create your first Service Fabric application using Visual Studio](service-fabric-tutorial-create-dotnet-app.md)

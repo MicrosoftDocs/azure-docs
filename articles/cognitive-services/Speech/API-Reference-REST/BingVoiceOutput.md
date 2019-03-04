@@ -6,13 +6,15 @@ services: cognitive-services
 author: priyaravi20
 manager: yanbo
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: priyar
-ROBOTS: NOINDEX
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Bing text to speech API
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 ## <a name="Introduction"></a>Introduction
 

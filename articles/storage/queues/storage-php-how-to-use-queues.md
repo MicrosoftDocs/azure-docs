@@ -9,7 +9,7 @@ ms.devlang: php
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: rogarana
-ms.component: queues
+ms.subservice: queues
 ---
 # How to use Queue storage from PHP
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

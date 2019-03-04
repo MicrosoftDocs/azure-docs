@@ -16,7 +16,7 @@ The Cognitive Services [Speech SDK](~/articles/cognitive-services/speech-service
 
 1. Tie up the events for asynchronous operation, if desired. The recognizer then calls your event handlers when it has interim and final results. Otherwise, your application receives only a final transcription result.
 
-1. Start recognition. For single-shot recognition, such as command or query recognition, use the `RecognizeOnceAsync()` method. This method returns the first recognized utterance. For long-running recognition like transcription, use the `StartContinuousRecognitionAsync()` method. Tie up the events for asynchronous recognition results.
+1. Start recognition. For single-shot recognition, such as command or query recognition, use the `RecognizeOnceAsync()` (or language equivalent) method. This method returns the first recognized utterance. For long-running recognition like transcription, use the `StartContinuousRecognitionAsync()` (or language equivalent) method. Tie up the events for asynchronous recognition results.
 
 See the following code snippets for speech recognition scenarios that use the Speech SDK.
 

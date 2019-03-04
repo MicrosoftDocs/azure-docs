@@ -1,3 +1,10 @@
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+---
 
 
 In order to connect to **SharePoint Online**, you need to provide your identity (username and password, smart card credentials, etc.) to SharePoint Online. Once you've been authenticated, you can proceed to use the SharePoint Online connector  in your logic app. 

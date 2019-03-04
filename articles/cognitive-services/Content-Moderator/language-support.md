@@ -1,18 +1,19 @@
 ---
 title: Language support - Content Moderator API
 titleSuffix: Azure Cognitive Services
-description: A list of natural languages supported by Content Moderator API.
+description: This is a list of natural languages that the Content Moderator API supports.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
 
-# Language and region support for Content Moderator API
+# Language support for Content Moderator API
 
 > [!NOTE]
 > For the **language** parameter, assign `eng` or leave it empty to see the machine-assisted **classification** response (preview feature). **This feature supports English only**.
@@ -62,7 +63,7 @@ ms.author: sajagtap
 | Old (Persian) | Hebrew
 | Pashto | Hindi
 | Polish | Hungarian
-| Portugese | Icelandic
+| Portuguese | Icelandic
 | Punjabi | Igbo
 | Rejang | Indonesian
 | Russian | Inuktitut

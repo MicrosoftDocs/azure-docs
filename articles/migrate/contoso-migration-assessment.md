@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 01/30/2019
 ms.author: raynew
 
 
@@ -16,7 +16,7 @@ ms.author: raynew
 
 In this article, Contoso assesses its on-premises SmartHotel360 app for migration to Azure.
 
-This article is part of a series that documents how the fictitious company Contoso migrates its on-premises resources to the Microsoft Azure cloud. The series includes background informatio, and detailed deployment scenarios that illustrate how to set up a migration infrastructure, assess the suitability of on-premises resources for migration, and run different types of migrations. Scenarios grow in complexity. Articles will be added to the series over time.
+This article is part of a series that documents how the fictitious company Contoso migrates its on-premises resources to the Microsoft Azure cloud. The series includes background information, and detailed deployment scenarios that illustrate how to set up a migration infrastructure, assess the suitability of on-premises resources for migration, and run different types of migrations. Scenarios grow in complexity. Articles will be added to the series over time.
 
 Article | Details | Status
 --- | --- | ---
@@ -28,7 +28,7 @@ Article 3: Assess on-premises resources for migration to Azure | Contoso runs an
 [Article 6: Rehost an app on Azure VMs and in a  SQL Server AlwaysOn availability group](contoso-migration-rehost-vm-sql-ag.md) | Contoso migrates the SmartHotel360 app, using Site Recovery to migrate the app VMs, and the Database Migration Service to migrate the app database to a SQL Server cluster that's protected by an AlwaysOn availability group. | Available
 [Article 7: Rehost a Linux app on Azure VMs](contoso-migration-rehost-linux-vm.md) | Contoso completes a lift-and-shift migration of its Linux osTicket app to Azure VMs, using the Site Recovery service. | Available
 [Article 8: Rehost a Linux app on Azure VMs and Azure Database for MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migrates its Linux osTicket app to Azure VMs using Site Recovery. It migrates the app database to Azure Database for MySQL using MySQL Workbench. | Available
-[Article 9: Refactor an app in an Azure web app and Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Contoso migrates its SmartHotel360 app to an Azure web app, and migrates the app database to an Azure SQL Server instance with the Databse Migration Assistant. | Available
+[Article 9: Refactor an app in an Azure web app and Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Contoso migrates its SmartHotel360 app to an Azure web app, and migrates the app database to an Azure SQL Server instance with the Database Migration Assistant. | Available
 [Article 10: Refactor a Linux app in an Azure web app and Azure Database for MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migrates its Linux osTicket app to an Azure web app on multiple Azure regions using Azure Traffic Manager, integrated with GitHub for continuous delivery. Contoso migrates the app database to an Azure Database for MySQL instance. | Available
 [Article 11: Refactor Team Foundation Server on Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso migrates its on-premises Team Foundation Server deployment to Azure DevOps Services in Azure. | Available
 [Article 12: Rearchitect an app in Azure containers and Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migrates its SmartHotel app to Azure. Then, it rearchitects the app web tier as a Windows container running in Azure Service Fabric, and the database with Azure SQL Database. | Available
@@ -87,7 +87,7 @@ Technology | Description | Cost
 --- | --- | ---
 [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Contoso uses Data Migration Assistant to assess and detect compatibility issues that might affect its database functionality in Azure. Data Migration Assistant assesses feature parity between SQL sources and targets. It recommends performance and reliability improvements. | Data Migration Assistant is a free, downloadable tool.
 [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) | Contoso uses the Azure Migrate service to assess its VMware VMs. Azure Migrate assesses the migration suitability of the machines. It provides sizing and cost estimates for running in Azure.  | As of May 2018, Azure Migrate is a free service.
-[Service Map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate uses Service Map to show dependencies between machines that the company wants to migrate. | Service Map is part of Azure Log Analytics. Currently, Contoso can use Service Map for 180 days without incurring charges.
+[Service Map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate uses Service Map to show dependencies between machines that the company wants to migrate. | Service Map is part of Azure Monitor logs. Currently, Contoso can use Service Map for 180 days without incurring charges.
 
 In this scenario, Contoso downloads and runs Data Migration Assistant to assess the on-premises SQL Server database for its travel app. Contoso uses Azure Migrate with dependency mapping to assess the app VMs before migration to Azure.
 
@@ -118,12 +118,12 @@ Contoso and other users must meet the following prerequisites for the assessment
 - An on-premises vCenter Server instance running version 6.5, 6.0, or 5.5.
 - A read-only account in vCenter Server, or permissions to create one.
 - Permissions to create a VM on the vCenter Server instance by using an .ova template.
-- At least one ESXi host running version 5.0 or later.
+- At least one ESXi host running version 5.5 or later.
 - At least two on-premises VMware VMs, one running a SQL Server database.
 - Permissions to install Azure Migrate agents on each VM.
 - The VMs should have direct internet connectivity.  
-        - You can restrict internet access to the [required URLs](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
-        - If your VMs don't have internet connectivity, the Azure [Log Analytics Gateway](../log-analytics/log-analytics-oms-gateway.md) must be installed on them, and agent traffic directed through it.
+    - You can restrict internet access to the [required URLs](https://docs.microsoft.com/azure/migrate/concepts-collector).  
+    - If your VMs don't have internet connectivity, the Azure [Log Analytics Gateway](../azure-monitor/platform/gateway.md) must be installed on them, and agent traffic directed through it.
 - The FQDN of the VM running the SQL Server instance, for database assessment.
 - Windows Firewall running on the SQL Server VM should allow external connections on TCP port 1433 (default). This setup allows Data Migration Assistant to connect.
 
@@ -203,7 +203,7 @@ Results are displayed as soon as they're available. If Contoso fixes issues, it 
 > [!NOTE]
 > For large-scale assessments:
 > - Run multiple assessments concurrently and view the state of the assessments on the **All Assessments** page.
-> - Consolidate assessments into a [SQL Server database](https://docs.microsoft.com/sql/dma/dma-consolidatereports?view=ssdt-18vs2017#import-assessment-results-into-a-sql-server-database).
+> - Consolidate assessments into a [SQL Server database](https://docs.microsoft.com/sql/dma/dma-consolidatereports?view=ssdt-18vs2017).
 > - Consolidate assessments into a [Power BI report](https://docs.microsoft.com/sql/dma/dma-powerbiassesreport?view=ssdt-18vs2017).
 
 ## Step 3: Prepare for VM assessment by using Azure Migrate
@@ -229,7 +229,7 @@ The Contoso assessment uses dependency mapping. Dependency mapping requires an a
 
 ### Set statistics settings
 
-Before Contoso begins the deployment, it must set the statistics settings for the vCenter Server to level 3. 
+Before Contoso begins the deployment, it must set the statistics settings for the vCenter Server to level 3.
 
 > [!NOTE]
 > - After setting the level, Contoso must wait at least a day before it runs the assessment. Otherwise, the assessment might not work as expected.
@@ -255,7 +255,7 @@ To discover VMs, Contoso creates an Azure Migrate project. Contoso downloads and
 ### Create a project
 
 1. In the [Azure portal](https://portal.azure.com), Contoso searches for **Azure Migrate**. Then, Contoso creates a project.
-2. Contoso specifies a project name (**ContosoMigration**) and the Azure subscription. It creates a new Azure resource group (**ContosoFailoverRG**). 
+2. Contoso specifies a project name (**ContosoMigration**) and the Azure subscription. It creates a new Azure resource group (**ContosoFailoverRG**).
     > [!NOTE]
     > - You can create an Azure Migrate project only in the West Central US or East US region.
     > - You can plan a migration for any target location.
@@ -280,17 +280,11 @@ Before deploying the VM, Contoso checks that the OVA file is secure:
 2. Contoso runs the following command to generate the hash for the OVA file:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    
-    **Example** 
-    
-    ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. The generated hash should match these settings (version 1.0.9.14):
 
-    **Algorithm** | **Hash value**
-    --- | ---
-    MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
-    SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
-    SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
+    **Example**
+
+    ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+3. The generated hash should match the hash values listed [here](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#continuous-discovery).
 
 ### Create the collector appliance
 
@@ -408,8 +402,8 @@ Contoso runs the installation on each VM.
 3. Contoso installs the MMA:
     - Contoso enters the workspace ID and key in the command.
     - Commands are for 64-bit.
-    - The workspace ID and primary key are located in the Microsoft Operations Management Suite (OMS) portal. Select **Settings**, and then select the **Connected Sources** tab.
-    - Run the following commands to download the OMS agent, validate the checksum, and install and onboard the agent:
+    - The workspace ID and primary key are located in the Log Analytics workspace in the Azure portal. Select **Settings**, and then select the **Connected Sources** tab.
+    - Run the following commands to download the Log Analytics agent, validate the checksum, and install and onboard the agent:
 
     ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==

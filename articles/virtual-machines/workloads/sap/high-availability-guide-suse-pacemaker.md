@@ -100,7 +100,7 @@ sudo targetcli iscsi/iqn.2006-04.ascs<b>nw1</b>.local:ascs<b>nw1</b>/tpg1/luns/ 
 sudo targetcli iscsi/iqn.2006-04.ascs<b>nw1</b>.local:ascs<b>nw1</b>/tpg1/acls/ create iqn.2006-04.<b>nw1-xscs-0.local:nw1-xscs-0</b>
 sudo targetcli iscsi/iqn.2006-04.ascs<b>nw1</b>.local:ascs<b>nw1</b>/tpg1/acls/ create iqn.2006-04.<b>nw1-xscs-1.local:nw1-xscs-1</b>
 
-# Create the SBD device for the database cluter of SAP System NW1
+# Create the SBD device for the database cluster of SAP System NW1
 sudo targetcli backstores/fileio create sbddb<b>nw1</b> /sbd/sbddb<b>nw1</b> 50M write_back=false
 sudo targetcli iscsi/ create iqn.2006-04.db<b>nw1</b>.local:db<b>nw1</b>
 sudo targetcli iscsi/iqn.2006-04.db<b>nw1</b>.local:db<b>nw1</b>/tpg1/luns/ create /backstores/fileio/sbddb<b>nw1</b>
@@ -433,7 +433,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   Add the following bold content to the file if the values are not there or different. Make sure to change the token to 30000 to allow Memory preserving maintenance. For more information, see [this article for Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance].
+   Add the following bold content to the file if the values are not there or different. Make sure to change the token to 30000 to allow Memory preserving maintenance. For more information, see [this article for Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance]. Also, make sure to remove the parameter mcastaddr.
 
    <pre><code>[...]
      <b>token:          30000
@@ -446,6 +446,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
         [...] 
      }
      <b>transport:      udpu</b>
+     # remove parameter mcastaddr
+     <b># mcastaddr: IP</b>
    } 
    <b>nodelist {
      node {
@@ -478,12 +480,12 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 The STONITH device uses a Service Principal to authorize against Microsoft Azure. Follow these steps to create a Service Principal.
 
-1. Go to <https://portal.azure.com>
+1. Go to [https://portal.azure.com](https://portal.azure.com)
 1. Open the Azure Active Directory blade  
    Go to Properties and write down the Directory ID. This is the **tenant ID**.
 1. Click App registrations
 1. Click Add
-1. Enter a Name, select Application Type "Web app/API", enter a sign-on URL (for example http://localhost) and click Create
+1. Enter a Name, select Application Type "Web app/API", enter a sign-on URL (for example http\://localhost) and click Create
 1. The sign-on URL is not used and can be any valid URL
 1. Select the new App and click Keys in the Settings tab
 1. Enter a description for a new key, select "Never expires" and click Save
@@ -492,7 +494,7 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
 
 ### **[1]** Create a custom role for the fence agent
 
-The Service Principal does not have permissions to access your Azure resources by default. You need to give the Service Principal permissions to start and stop (deallocate) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell#create-a-custom-role) or [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli#create-a-custom-role)
+The Service Principal does not have permissions to access your Azure resources by default. You need to give the Service Principal permissions to start and stop (deallocate) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) or [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
 
 Use the following content for the input file. You need to adapt the content to your subscriptions that is, replace c276fc76-9cd4-44c9-99a7-4fd71546436e and e91d47c4-76f3-4271-a796-21b4ecfe3624 with the Ids of your subscription. If you only have one subscription, remove the second entry in AssignableScopes.
 
@@ -516,18 +518,18 @@ Use the following content for the input file. You need to adapt the content to y
 }
 ```
 
-### **[1]** Assign the custom role to the Service Principal
+### **[A]** Assign the custom role to the Service Principal
 
 Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the Service Principal. Do not use the Owner role anymore!
 
-1. Go to https://portal.azure.com
+1. Go to [https://portal.azure.com](https://portal.azure.com)
 1. Open the All resources blade
 1. Select the virtual machine of the first cluster node
 1. Click Access control (IAM)
-1. Click Add
+1. Click Add role assignment
 1. Select the role "Linux Fence Agent Role"
 1. Enter the name of the application you created above
-1. Click OK
+1. Click Save
 
 Repeat the steps above for the second cluster node.
 

@@ -1,11 +1,11 @@
 ---
-title: Azure App Service on Linux FAQ | Microsoft Docs
+title: App Service on Linux FAQ - Azure | Microsoft Docs
 description: Azure App Service on Linux FAQ.
 keywords: azure app service, web app, faq, linux, oss, web app for containers, multi-container, multicontainer
 services: app-service
 documentationCenter: ''
 author: yili
-manager: apurvajo
+manager: stefsch
 editor: ''
 
 ms.assetid:
@@ -14,8 +14,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 10/30/2018
 ms.author: yili
+ms.custom: seodec18
 ---
 # Azure App Service on Linux FAQ
 
@@ -71,7 +72,7 @@ If Git deployment fails to your Linux web app, choose one of the following optio
 
 - Use the Continuous Delivery (Preview) feature: You can store your app’s source code in a Azure DevOps Git repo or GitHub repo to use Azure Continuous Delivery. For more information, see [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Use the [ZIP deploy API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): To use this API, [SSH into your web app](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) and go to the folder where you want to deploy your code. Run the following code:
+- Use the [ZIP deploy API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): To use this API, [SSH into your web app](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) and go to the folder where you want to deploy your code. Run the following code:
 
    ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
@@ -126,7 +127,7 @@ We do not currently support exposing more than one port.
 
 **Can I bring my own storage?**
 
-We do not currently support bringing your own storage.
+Yes, [bring your own storage](https://docs.microsoft.com/azure/app-service/containers/how-to-serve-content-from-azure-storage) is in preview.
 
 **Why can't I browse my custom container's file system or running processes from the SCM site?**
 
@@ -188,5 +189,5 @@ You can submit your idea at the [Web Apps feedback forum](https://aka.ms/webapps
 ## Next steps
 
 - [What is Azure App Service on Linux?](app-service-linux-intro.md)
-- [Set up staging environments in Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Set up staging environments in Azure App Service](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Continuous Deployment with Web App for Containers](./app-service-linux-ci-cd.md)

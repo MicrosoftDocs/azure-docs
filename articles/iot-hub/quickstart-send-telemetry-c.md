@@ -8,12 +8,12 @@ services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 08/27/2018
+ms.date: 02/25/2019
 ms.author: wesmc
 # As a C developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
 
-# Quickstart: Send telemetry from a device to an IoT hub and read the telemetry from the hub with a back-end application (C)
+# Quickstart: Send telemetry from a device to an IoT hub and read it with a back-end application (C)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -49,20 +49,20 @@ You can use the SDK by installing the packages and libraries for the following e
 However, in this quickstart, you will prepare a development environment used to clone and build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) from GitHub. The SDK on GitHub includes the sample code used in this quickstart. 
 
 
-1. Download the version 3.11.4 of the [CMake build system](https://cmake.org/download/). Verify the downloaded binary using the corresponding cryptographic hash value. The following example used Windows PowerShell to verify the cryptographic hash for version 3.11.4 of the x64 MSI distribution:
+1. Download the version 3.13.4 of the [CMake build system](https://cmake.org/download/). Verify the downloaded binary using the corresponding cryptographic hash value. The following example used Windows PowerShell to verify the cryptographic hash for version 3.11.4 of the x64 MSI distribution:
 
     ```PowerShell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
     ```
     
-    The following hash values for version 3.11.4 were listed on the CMake site at the time of this writing:
+    The following hash values for version 3.13.4 were listed on the CMake site at the time of this writing:
 
     ```
-    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
-    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
-    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
+    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
+    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
+    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
     ```
 
     It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
@@ -110,29 +110,36 @@ However, in this quickstart, you will prepare a development environment used to 
 
 ## Create an IoT hub
 
-[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## Register a device
 
-A device must be registered with your IoT hub before it can connect. In this section, you will use the Azure CLI with the [IoT extension](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) to register a simulated device.
+A device must be registered with your IoT hub before it can connect. In this section, you will use the Azure Cloud Shell with the [IoT extension](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) to register a simulated device.
 
-1. Add the IoT Hub CLI extension and create the device identity. Replace `{YourIoTHubName}` with the name you chose for your IoT hub:
+1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity. 
+
+   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+
+   **MyCDevice** : This is the name given for the registered device. Use MyCDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyCDevice
+    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyCDevice
     ```
 
-    If you choose a different name for your device, update the device name in the sample applications before you run them.
+2. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just    registered:
 
-2. Run the following command to get the _device connection string_ for the device you just registered:
+   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyCDevice --output table
+    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyCDevice --output table
     ```
 
-    Make a note of the device connection string, which looks like `Hostname=...=`. You use this value later in the quickstart.
+    Make a note of the device connection string, which looks like:
 
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
+
+    You use this value later in the quickstart.
 
 ## Send simulated telemetry
 
@@ -152,19 +159,19 @@ The simulated device application connects to a device-specific endpoint on your 
     ```
     Replace the value of the `connectionString` constant with the device connection string you made a note of previously. Then save your changes to **iothub_convenience_sample.c**.
 
-3. In a terminal window, navigate to the *iothub_convenience_sample* project directory in the CMake directory that you created in the Azure IoT C SDK.
+3. In a local terminal window, navigate to the *iothub_convenience_sample* project directory in the CMake directory that you created in the Azure IoT C SDK.
 
     ```
     cd /azure-iot-sdk-c/cmake/iothub_client/samples/iothub_convenience_sample
     ```
 
-4. Run CMake using the following command line to build the sample with your updated `connectionString` value:
+4. Run CMake in your local terminal window to build the sample with your updated `connectionString` value:
 
     ```cmd/sh
     cmake --build . --target iothub_convenience_sample --config Debug
     ```
 
-5. In a command prompt, run the following command to run the simulated device application:
+5. In a local terminal window, run the following command to run the simulated device application:
 
     ```cmd/sh
     Debug\iothub_convenience_sample.exe
@@ -177,12 +184,14 @@ The simulated device application connects to a device-specific endpoint on your 
 ## Read the telemetry from your hub
 
 
-In this section, you will use the Azure CLI with the [IoT extension](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) to monitor the device messages that are sent by the simulated device.
+In this section, you will use the Azure Cloud Shell with the [IoT extension](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) to monitor the device messages that are sent by the simulated device.
 
-1. Using the Azure CLI, run the following command to connect and read messages from your IoT hub:
+1. Using the Azure Cloud Shell, run the following command to connect and read messages from your IoT hub:
+
+   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub monitor-events --hub-name {YourIoTHubName} --output table
+    az iot hub monitor-events --hub-name YourIoTHubName --output table
     ```
 
     ![Read the device messages using the Azure CLI](media/quickstart-send-telemetry-c/read-device-to-cloud-messages-app.png)
@@ -195,7 +204,7 @@ In this section, you will use the Azure CLI with the [IoT extension](https://doc
 
 ## Next steps
 
-In this quickstart, you've setup an IoT hub, registered a device, sent simulated telemetry to the hub using a C application, and read the telemetry from the hub using the Azure CLI.
+In this quickstart, you've setup an IoT hub, registered a device, sent simulated telemetry to the hub using a C application, and read the telemetry from the hub using the Azure Cloud Shell.
 
 To learn more about developing with the Azure IoT Hub C SDK, continue to the following How-to guide:
 

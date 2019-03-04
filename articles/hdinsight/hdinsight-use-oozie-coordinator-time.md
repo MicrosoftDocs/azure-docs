@@ -2,23 +2,23 @@
 title: Use time-based Hadoop Oozie coordinator in HDInsight 
 description: Use time-based Hadoop Oozie coordinator in HDInsight, a big data service. Learn how to define Oozie workflows and coordinators, and submit jobs.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
-ms.author: jasonh
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/04/2017
 ROBOTS: NOINDEX
 ---
-# Use time-based Oozie coordinator with Hadoop in HDInsight to define workflows and coordinate jobs
-In this article, you'll learn how to define workflows and coordinators, and how to trigger the coordinator jobs, based on time. It is helpful to go through [Use Oozie with HDInsight][hdinsight-use-oozie] before you read this article. In addition to Oozie, you can also schedule jobs using Azure Data Factory. To learn Azure Data Factory, see [Use Pig and Hive with Data Factory](../data-factory/transform-data.md).
+# Use time-based Apache Oozie coordinator with Apache Hadoop in HDInsight to define workflows and coordinate jobs
+In this article, you'll learn how to define workflows and coordinators, and how to trigger the coordinator jobs, based on time. It is helpful to go through [Use Apache Oozie with HDInsight][hdinsight-use-oozie] before you read this article. In addition to Oozie, you can also schedule jobs using Azure Data Factory. To learn Azure Data Factory, see [Use Apache Pig and Apache Hive with Data Factory](../data-factory/transform-data.md).
 
-> [!NOTE]
+> [!NOTE]  
 > This article requires a Windows-based HDInsight cluster. For information on using Oozie, including time-based jobs, on a Linux-based cluster, see [Use Oozie with Hadoop to define and run a workflow on Linux-based HDInsight](hdinsight-use-oozie-linux-mac.md)
 
 ## What is Oozie
-Apache Oozie is a workflow/coordination system that manages Hadoop jobs. It is integrated with the Hadoop stack, and it supports Hadoop jobs for Apache MapReduce, Apache Pig, Apache Hive, and Apache Sqoop. It can also be used to schedule jobs that are specific to a system, such as Java programs or shell scripts.
+Apache Oozie is a workflow/coordination system that manages Hadoop jobs. It is integrated with the Hadoop stack, and it supports Hadoop jobs for Apache Hadoop MapReduce, Apache Pig, Apache Hive, and Apache Sqoop. It can also be used to schedule jobs that are specific to a system, such as Java programs or shell scripts.
 
 The following image shows the workflow you will implement:
 
@@ -26,7 +26,7 @@ The following image shows the workflow you will implement:
 
 The workflow contains two actions:
 
-1. A Hive action runs a HiveQL script to count the occurrences of each log-level type in a log4j log file. Each log4j log consists of a line of fields that contains a [LOG LEVEL] field to show the type and the severity, for example:
+1. A Hive action runs a HiveQL script to count the occurrences of each log-level type in a Apache log4j log file. Each log4j log consists of a line of fields that contains a [LOG LEVEL] field to show the type and the severity, for example:
 
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
@@ -42,10 +42,10 @@ The workflow contains two actions:
         [TRACE] 816
         [WARN]  4
 
-    For more information about Hive, see [Use Hive with HDInsight][hdinsight-use-hive].
-2. A Sqoop action exports the HiveQL action output to a table in an Azure SQL database. For more information about Sqoop, see [Use Sqoop with HDInsight][hdinsight-use-sqoop].
+    For more information about Hive, see [Use Apache Hive with HDInsight][hdinsight-use-hive].
+2. A Sqoop action exports the HiveQL action output to a table in an Azure SQL database. For more information about Sqoop, see [Use Apache Sqoop with HDInsight][hdinsight-use-sqoop].
 
-> [!NOTE]
+> [!NOTE]  
 > For supported Oozie versions on HDInsight clusters, see [What's new in the cluster versions provided by HDInsight?][hdinsight-versions].
 >
 >
@@ -55,36 +55,35 @@ Before you begin this tutorial, you must have the following:
 
 * **A workstation with Azure PowerShell**.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Azure PowerShell support for managing HDInsight resources using Azure Service Manager is **deprecated**, and will be removed by January 1, 2017. The steps in this document use the new HDInsight cmdlets that work with Azure Resource Manager.
     >
     > Please follow the steps in [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) to install the latest version of Azure PowerShell. If you have scripts that need to be modified to use the new cmdlets that work with Azure Resource Manager, see [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) for more information.
 
 * **An HDInsight cluster**. For information about creating an HDInsight cluster, see [Create HDInsight clusters][hdinsight-provision], or [Get started with HDInsight][hdinsight-get-started]. You will need the following data to go through the tutorial:
 
-    <table border = "1">
-    <tr><th>Cluster property</th><th>Windows PowerShell variable name</th><th>Value</th><th>Description</th></tr>
-    <tr><td>HDInsight cluster name</td><td>$clusterName</td><td></td><td>The HDInsight cluster on which you will run this tutorial.</td></tr>
-    <tr><td>HDInsight cluster username</td><td>$clusterUsername</td><td></td><td>The HDInsight cluster user name. </td></tr>
-    <tr><td>HDInsight cluster user password </td><td>$clusterPassword</td><td></td><td>The HDInsight cluster user password.</td></tr>
-    <tr><td>Azure storage account name</td><td>$storageAccountName</td><td></td><td>An Azure Storage account available to the HDInsight cluster. For this tutorial, use the default storage account that you specified during the cluster provision process.</td></tr>
-    <tr><td>Azure Blob container name</td><td>$containerName</td><td></td><td>For this example, use the Azure Blob storage container that is used for the default HDInsight cluster file system. By default, it has the same name as the HDInsight cluster.</td></tr>
-    </table>
+    |Cluster property|Windows PowerShell variable name|Value|Description|
+    |---|---|---|---|
+    |HDInsight cluster name|$clusterName||The HDInsight cluster on which you will run this tutorial.|
+    |HDInsight cluster username|$clusterUsername||The HDInsight cluster user name. |
+    |HDInsight cluster user password |$clusterPassword||The HDInsight cluster user password.|
+    |Azure storage account name|$storageAccountName||An Azure Storage account available to the HDInsight cluster. For this tutorial, use the default storage account that you specified during the cluster provision process.|
+    |Azure Blob container name|$containerName||For this example, use the Azure Blob storage container that is used for the default HDInsight cluster file system. By default, it has the same name as the HDInsight cluster.|
+
 
 * **An Azure SQL database**. You must configure a firewall rule for the SQL Database server to allow access from your workstation. For instructions about creating an Azure SQL database and configuring the firewall, see [Get started using Azure SQL database][sqldatabase-get-started]. This article provides a Windows PowerShell script for creating the Azure SQL database table that you need for this tutorial.
 
-    <table border = "1">
-    <tr><th>SQL database property</th><th>Windows PowerShell variable name</th><th>Value</th><th>Description</th></tr>
-    <tr><td>SQL database server name</td><td>$sqlDatabaseServer</td><td></td><td>The SQL database server to which Sqoop will export data. </td></tr>
-    <tr><td>SQL database login name</td><td>$sqlDatabaseLogin</td><td></td><td>SQL Database login name.</td></tr>
-    <tr><td>SQL database login password</td><td>$sqlDatabaseLoginPassword</td><td></td><td>SQL Database login password.</td></tr>
-    <tr><td>SQL database name</td><td>$sqlDatabaseName</td><td></td><td>The Azure SQL database to which Sqoop will export data. </td></tr>
-    </table>
+    |SQL database property|Windows PowerShell variable name|Value|Description|
+    |---|---|---|---|
+    |SQL database server name|$sqlDatabaseServer||The SQL database server to which Sqoop will export data. |
+    |SQL database login name|$sqlDatabaseLogin||SQL Database login name.|
+    |SQL database login password|$sqlDatabaseLoginPassword||SQL Database login password.|
+    |SQL database name|$sqlDatabaseName||The Azure SQL database to which Sqoop will export data. |
 
-  > [!NOTE]
+  > [!NOTE]   
   > By default an Azure SQL database allows connections from Azure Services, such as Azure HDInsight. If this firewall setting is disabled, you must enable it from the Azure Portal. For instruction about creating a SQL Database and configuring firewall rules, see [Create and Configure SQL Database][sqldatabase-get-started].
 
-> [!NOTE]
+> [!NOTE]  
 > Fill-in the values in the tables. It will be helpful for going through this tutorial.
 
 ## Define Oozie workflow and the related HiveQL script
@@ -97,7 +96,7 @@ The Hive action in the workflow calls a HiveQL script file. This script file con
 3. **The location of the log4j log file**. The field delimiter is ",". The default line delimiter is "\n". A Hive external table is used to avoid the data file being removed from the original location, in case you want to run the Oozie workflow multiple times.
 4. **The INSERT OVERWRITE statement** counts the occurrences of each log-level type from the log4j Hive table, and it saves the output to an Azure Blob storage location.
 
-> [!NOTE]
+> [!NOTE]  
 > There is a known Hive path issue. You will run into this problem when submitting an Oozie job. The instructions for fixing the issue can be found on the TechNet Wiki: [HDInsight Hive error: Unable to rename][technetwiki-hive-error].
 
 **To define the HiveQL script file to be called by the workflow**
@@ -184,30 +183,27 @@ The Hive action in the workflow calls a HiveQL script file. This script file con
 
     Workflow variables
 
-    <table border = "1">
-    <tr><th>Workflow variables</th><th>Description</th></tr>
-    <tr><td>${jobTracker}</td><td>Specify the URL of the Hadoop job tracker. Use <strong>jobtrackerhost:9010</strong> on HDInsight cluster version 3.0 and 2.0.</td></tr>
-    <tr><td>${nameNode}</td><td>Specify the URL of the Hadoop name node. Use the default file system wasb:// address, for example, <i>wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net</i>.</td></tr>
-    <tr><td>${queueName}</td><td>Specifies the queue name that the job will be submitted to. Use <strong>default</strong>.</td></tr>
-    </table>
+    |Workflow variables|Description|
+    |---|---|
+    |${jobTracker}|Specify the URL of the Hadoop job tracker. Use **jobtrackerhost:9010** on HDInsight cluster version 3.0 and 2.0.|
+    |${nameNode}|Specify the URL of the Hadoop name node. Use the default file system wasb:// address, for example, *wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net*.|
+    |${queueName}|Specifies the queue name that the job will be submitted to. Use **default**.|
 
     Hive action variables
 
-    <table border = "1">
-    <tr><th>Hive action variable</th><th>Description</th></tr>
-    <tr><td>${hiveDataFolder}</td><td>The source directory for the Hive Create Table command.</td></tr>
-    <tr><td>${hiveOutputFolder}</td><td>The output folder for the INSERT OVERWRITE statement.</td></tr>
-    <tr><td>${hiveTableName}</td><td>The name of the Hive table that references the log4j data files.</td></tr>
-    </table>
+    |Hive action variable|Description|
+    |----|----|
+    |${hiveDataFolder}|The source directory for the Hive Create Table command.|
+    |${hiveOutputFolder}|The output folder for the INSERT OVERWRITE statement.|
+    |${hiveTableName}|The name of the Hive table that references the log4j data files.|
 
     Sqoop action variables
 
-    <table border = "1">
-    <tr><th>Sqoop action variable</th><th>Description</th></tr>
-    <tr><td>${sqlDatabaseConnectionString}</td><td>SQL Database connection string.</td></tr>
-    <tr><td>${sqlDatabaseTableName}</td><td>The Azure SQL database table to where the data will be exported.</td></tr>
-    <tr><td>${hiveOutputFolder}</td><td>The output folder for the Hive INSERT OVERWRITE statement. This is the same folder for the Sqoop export (export-dir).</td></tr>
-    </table>
+    |Sqoop action variable|Description|
+    |---|---|
+    |${sqlDatabaseConnectionString}|SQL Database connection string.|
+    |${sqlDatabaseTableName}|The Azure SQL database table to where the data will be exported.|
+    |${hiveOutputFolder}|The output folder for the Hive INSERT OVERWRITE statement. This is the same folder for the Sqoop export (export-dir).|
 
     For more information about Oozie workflow and using the workflow actions, see [Apache Oozie 4.0 documentation][apache-oozie-400] (for HDInsight cluster version 3.0) or [Apache Oozie 3.3.2 documentation][apache-oozie-332] (for HDInsight cluster version 2.1).
 
@@ -256,7 +252,7 @@ The syntax is:
 
     wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [!NOTE]
+> [!NOTE]  
 > Only the *wasb://* syntax is supported in HDInsight cluster version 3.0. The older *asv://* syntax is supported in HDInsight 2.1 and 1.6 clusters, but it is not supported in HDInsight 3.0 clusters.
 >
 > The wasb:// path is a virtual path. For more information see [Use Azure Blob storage with HDInsight][hdinsight-storage].
@@ -281,7 +277,7 @@ There are a few things you need to know about Hive internal and external tables:
 * The CREATE EXTERNAL TABLE command does not move the data file.
 * The CREATE EXTERNAL TABLE command doesn't allow any subfolders under the folder that is specified in the LOCATION clause. This is the reason why the tutorial makes a copy of the sample.log file.
 
-For more information, see [HDInsight: Hive Internal and External Tables Intro][cindygross-hive-tables].
+For more information, see [HDInsight: Apache Hive Internal and External Tables Intro][cindygross-hive-tables].
 
 **To prepare the tutorial**
 
@@ -294,7 +290,7 @@ For more information, see [HDInsight: Hive Internal and External Tables Intro][c
 
     You will be prompted to enter your Azure account credentials. This method of adding a subscription connection times out, and after 12 hours, you will have to run the cmdlet again.
 
-   > [!NOTE]
+   > [!NOTE]  
    > If you have multiple Azure subscriptions and the default subscription is not the one you want to use, use the <strong>Select-AzureSubscription</strong> cmdlet to select a subscription.
 
 3. Copy the following script into the script pane, and then set the first six variables:
@@ -530,7 +526,7 @@ Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. 
     "@
     ```
 
-   > [!NOTE]
+   > [!NOTE]  
    > The major difference compared to the workflow submission payload file is the variable **oozie.coord.application.path**. When you submit a workflow job, you use **oozie.wf.application.path** instead.
 
 4. Append the following to the script. This part checks the Oozie web service status:
@@ -543,12 +539,12 @@ Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. 
         $response = Invoke-RestMethod -Method Get -Uri $clusterUriStatus -Credential $creds -OutVariable $OozieServerStatus
 
         $jsonResponse = ConvertFrom-Json (ConvertTo-Json -InputObject $response)
-        $oozieServerSatus = $jsonResponse[0].("systemMode")
-        Write-Host "Oozie server status is $oozieServerSatus..."
+        $oozieServerStatus = $jsonResponse[0].("systemMode")
+        Write-Host "Oozie server status is $oozieServerStatus..."
 
-        if($oozieServerSatus -notmatch "NORMAL")
+        if($oozieServerStatus -notmatch "NORMAL")
         {
-            Write-Host "Oozie server status is $oozieServerSatus...cannot submit Oozie jobs. Check the server status and re-run the job."
+            Write-Host "Oozie server status is $oozieServerStatus...cannot submit Oozie jobs. Check the server status and re-run the job."
         }
     }
     ```
@@ -572,7 +568,7 @@ Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. 
     }
     ```
 
-   > [!NOTE]
+   > [!NOTE]  
    > When you submit a workflow job, you must make another web service call to start the job after the job is created. In this case, the coordinator job is triggered by time. The job will start automatically.
 
 6. Append the following to the script. This part checks the Oozie job status:
@@ -707,12 +703,12 @@ In this tutorial, you learned how to define an Oozie workflow and an Oozie coord
 * [Use Azure Blob storage with HDInsight][hdinsight-storage]
 * [Administer HDInsight by using Azure PowerShell][hdinsight-admin-powershell]
 * [Upload data to HDInsight][hdinsight-upload-data]
-* [Use Sqoop with HDInsight][hdinsight-use-sqoop]
-* [Use Hive with HDInsight][hdinsight-use-hive]
-* [Use Pig with HDInsight][hdinsight-use-pig]
+* [Use Apache Sqoop with HDInsight][hdinsight-use-sqoop]
+* [Use Apache Hive with HDInsight][hdinsight-use-hive]
+* [Use Apache Pig with HDInsight][hdinsight-use-pig]
 * [Develop Java MapReduce programs for HDInsight][hdinsight-develop-java-mapreduce]
 
-[hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
+[hdinsight-cmdlets-download]: https://go.microsoft.com/fwlink/?LinkID=325563
 
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
@@ -734,20 +730,20 @@ In this tutorial, you learned how to define an Oozie workflow and an Oozie coord
 [azure-management-portal]: https://portal.azure.com/
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 
-[apache-hadoop]: http://hadoop.apache.org/
-[apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
-[apache-oozie-332]: http://oozie.apache.org/docs/3.3.2/
+[apache-hadoop]: https://hadoop.apache.org/
+[apache-oozie-400]: https://oozie.apache.org/docs/4.0.0/
+[apache-oozie-332]: https://oozie.apache.org/docs/3.3.2/
 
-[powershell-download]: http://azure.microsoft.com/downloads/
-[powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
+[powershell-download]: https://azure.microsoft.com/downloads/
+[powershell-about-profiles]: https://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-start]: https://docs.microsoft.com/powershell/scripting/setup/starting-windows-powershell?view=powershell-6
-[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176949.aspx
 
-[cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 [img-workflow-diagram]: ./media/hdinsight-use-oozie-coordinator-time/HDI.UseOozie.Workflow.Diagram.png
 [img-preparation-output]: ./media/hdinsight-use-oozie-coordinator-time/HDI.UseOozie.Preparation.Output1.png
 [img-runworkflow-output]: ./media/hdinsight-use-oozie-coordinator-time/HDI.UseOozie.RunCoord.Output.png
 
-[technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx

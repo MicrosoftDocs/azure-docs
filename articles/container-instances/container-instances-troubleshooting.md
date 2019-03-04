@@ -2,13 +2,13 @@
 title: Troubleshooting Azure Container Instances
 description: Learn how to troubleshoot issues with Azure Container Instances
 services: container-instances
-author: seanmck
+author: dlepow
 manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/19/2018
-ms.author: seanmck
+ms.date: 02/15/2019
+ms.author: danlep
 ms.custom: mvc
 ---
 
@@ -44,7 +44,7 @@ If you specify an image that Azure Container Instances doesn't support, an `OsVe
 
 This error is most often encountered when deploying Windows images that are based on a Semi-Annual Channel (SAC) release. For example, Windows versions 1709 and 1803 are SAC releases, and generate this error upon deployment.
 
-Azure Container Instances supports Windows images based only on Long-Term Servicing Channel (LTSC) versions. To mitigate this issue when deploying Windows containers, always deploy LTSC-based images.
+Azure Container Instances currently supports Windows images based only on the **Windows Server 2016 Long-Term Servicing Channel (LTSC)** release. To mitigate this issue when deploying Windows containers, always deploy Windows Server 2016 (LTSC)-based images. Images based on Windows Server 2019 (LTSC) are not supported.
 
 For details about the LTSC and SAC versions of Windows, see [Windows Server Semi-Annual Channel overview][windows-sac-overview].
 
@@ -62,7 +62,7 @@ If the image can't be pulled, events like the following are shown in the output 
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:19+00:00",
     "lastTimestamp": "2017-12-21T22:57:00+00:00",
-    "message": "pulling image \"microsoft/aci-hellowrld\"",
+    "message": "pulling image \"microsoft/aci-helloworld\"",
     "name": "Pulling",
     "type": "Normal"
   },
@@ -70,7 +70,7 @@ If the image can't be pulled, events like the following are shown in the output 
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:19+00:00",
     "lastTimestamp": "2017-12-21T22:57:00+00:00",
-    "message": "Failed to pull image \"microsoft/aci-hellowrld\": rpc error: code 2 desc Error: image t/aci-hellowrld:latest not found",
+    "message": "Failed to pull image \"microsoft/aci-helloworld\": rpc error: code 2 desc Error: image t/aci-hellowrld:latest not found",
     "name": "Failed",
     "type": "Warning"
   },
@@ -78,7 +78,7 @@ If the image can't be pulled, events like the following are shown in the output 
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:20+00:00",
     "lastTimestamp": "2017-12-21T22:57:16+00:00",
-    "message": "Back-off pulling image \"microsoft/aci-hellowrld\"",
+    "message": "Back-off pulling image \"microsoft/aci-helloworld\"",
     "name": "BackOff",
     "type": "Normal"
   }
@@ -89,7 +89,7 @@ If the image can't be pulled, events like the following are shown in the output 
 
 Container groups default to a [restart policy](container-instances-restart-policy.md) of **Always**, so containers in the container group always restart after they run to completion. You may need to change this to **OnFailure** or **Never** if you intend to run task-based containers. If you specify **OnFailure** and still see continual restarts, there might be an issue with the application or script executed in your container.
 
-When running container groups without long-running processes you may see repeated exits and restarts with images such as Ubuntu or Alpine. Connecting via [EXEC](container-instances-exec.md) will not work as the container has no process keeping it alive. To resolve this include a start command like the following with your container group deployment to keep the container running.
+When running container groups without long-running processes you may see repeated exits and restarts with images such as Ubuntu or Alpine. Connecting via [EXEC](container-instances-exec.md) will not work as the container has no process keeping it alive. To resolve this problem, include a start command like the following with your container group deployment to keep the container running.
 
 ```azurecli-interactive
 ## Deploying a Linux container
@@ -98,7 +98,7 @@ az container create -g MyResourceGroup --name myapp --image ubuntu --command-lin
 
 ```azurecli-interactive 
 ## Deploying a Windows container
-az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image windowsservercore:ltsc2016
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image microsoft/windowsservercore:ltsc2016
  --command-line "ping -t localhost"
 ```
 
@@ -174,16 +174,16 @@ Another way to reduce the impact of the image pull on your container's startup t
 
 ### Cached Windows images
 
-Azure Container Instances uses a caching mechanism to help speed container startup time for images based on certain Windows images.
+Azure Container Instances uses a caching mechanism to help speed container startup time for images based on common Windows and Linux images. For a detailed list of cached images and tags, use the [List Cached Images][list-cached-images] API.
 
 To ensure the fastest Windows container startup time, use one of the **three most recent** versions of the following **two images** as the base image:
 
-* [Windows Server 2016][docker-hub-windows-core] (LTS only)
+* [Windows Server Core 2016][docker-hub-windows-core] (LTSC only)
 * [Windows Server 2016 Nano Server][docker-hub-windows-nano]
 
 ### Windows containers slow network readiness
 
-Windows containers may incur no inbound or outbound connectivity for up to 5 seconds on initial creation. After initial setup, container networking should resume appropriately.
+On initial creation, Windows containers may have no inbound or outbound connectivity for up to 30 seconds (or longer, in rare cases). If your container application needs an Internet connection, add delay and retry logic to allow 30 seconds to establish Internet connectivity. After initial setup, container networking should resume appropriately.
 
 ## Resource not available error
 
@@ -202,8 +202,13 @@ This error indicates that due to heavy load in the region in which you are attem
 
 Azure Container Instances does not expose direct access to the underlying infrastructure that hosts container groups. This includes access to the Docker API running on the container's host and running privileged containers. If you require Docker interaction, check the [REST reference documentation](https://aka.ms/aci/rest) to see what the ACI API supports. If there is something missing, submit a request on the [ACI feedback forums](https://aka.ms/aci/feedback).
 
+## IPs may not be accessible due to mismatched ports
+
+Azure Container Instances does not currently support port mapping like with regular docker configuration, however this fix is on the roadmap. If you find IPs are not accessible when you believe it should be, ensure you have configured your container image to listen to the same ports you expose in your container group with the `ports` property.
+
 ## Next steps
-Learn how to [retrieve container logs & events](container-instances-get-logs.md) to help debug your containers.
+
+Learn how to [retrieve container logs and events](container-instances-get-logs.md) to help debug your containers.
 
 <!-- LINKS - External -->
 [azure-name-restrictions]: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions
@@ -214,3 +219,4 @@ Learn how to [retrieve container logs & events](container-instances-get-logs.md)
 
 <!-- LINKS - Internal -->
 [az-container-show]: /cli/azure/container#az-container-show
+[list-cached-images]: /rest/api/container-instances/listcachedimages

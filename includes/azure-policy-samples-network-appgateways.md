@@ -14,4 +14,4 @@ ms.custom: include file
 
 |  |  |
 |---------|---------|
-| [Allowed Application Gateway SKUs](../articles/governance/policy/samples/allowed-app-gate-sku.md) | Requires that application gateways use an approved SKU. You specify an array of approved SKUs. |
+| [Allowed Application Gateway SKUs](../articles/governance/policy/samples/allowed-app-gateway-sku.md) | Requires that application gateways use an approved SKU. You specify an array of approved SKUs. |
