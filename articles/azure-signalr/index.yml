@@ -28,15 +28,15 @@ sections:
       text: ASP.NET Core
       href: /azure/azure-signalr/signalr-quickstart-dotnet-core
     - image: 
-        src: https://docs.microsoft.com/azure/media/index/azurefunctions.svg
+        src: https://docs.microsoft.com/azure/media/logos/logo_js.svg
       text: JavaScript
       href: /azure/azure-signalr/signalr-quickstart-azure-functions-javascript
     - image: 
-        src: https://docs.microsoft.com/azure/media/index/azurefunctions.svg
+        src: https://docs.microsoft.com/azure/media/index/logo_Csharp.svg
       text: C#
       href: /azure/azure-signalr/signalr-quickstart-azure-functions-csharp
     - image: 
-        src: https://docs.microsoft.com/azure/media/index/azurefunctions.svg
+        src: https://docs.microsoft.com/azure/media/index/logo_java.svg
       text: Java
       href: /azure/azure-signalr/signalr-quickstart-azure-functions-java
     - image: 
