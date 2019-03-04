@@ -21,7 +21,7 @@ To get started, sign-in to your account on the Microsoft Partner Portal and sele
 
 ![Microsoft Partner Center, customer view](media/howto-create-application-asCSP/image1.png)
 
-Azure IoT Central is listed as a service available to administer. Click the Azure IoT Central link on the page to create new applications or manage existing applications for this customer.
+Azure IoT Central is listed as a service available to administer. Select the Azure IoT Central link on the page to create new applications or manage existing applications for this customer.
 
 ![Azure IoT Central available to manage](media/howto-create-application-asCSP/image2.png)
 
@@ -29,7 +29,7 @@ You land on the Azure IoT Central Application Manager page. Azure IoT Central ke
 
 ![Create Manager for CSPs](media/howto-create-application-asCSP/image3.png)
 
-To create an Azure IoT Central application, click the **New Application** tile. This will load the Application Creation page. You must complete all the fields on this page and then choose **Create**. You find more information about each of the fields below.
+To create an Azure IoT Central application, select the **New Application** tile. This will load the Application Creation page. You must complete all the fields on this page and then choose **Create**. You find more information about each of the fields below.
 
 ![Create Application Page for CSPs](media/howto-create-application-asCSP/image4.png)
 

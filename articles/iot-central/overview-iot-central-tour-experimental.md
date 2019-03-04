@@ -32,7 +32,7 @@ As an _operator_, you use the Azure IoT Central UI to manage your Azure IoT Cent
 
 ## Use the left navigation menu
 
-Use the left navigation menu to access the different areas of the application. You can expand or collapse the navigation bar by clicking **<** or **>**:
+Use the left navigation menu to access the different areas of the application. You can expand or collapse the navigation bar by selecting **<** or **>**:
 
 | Menu | Description |
 | ---- | ----------- |
