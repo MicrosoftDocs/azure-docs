@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 03/03/2019
 ms.author: v-ant-msft
 ---
 
@@ -24,7 +24,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in Zs
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../active-directory-saas-app-provisioning.md).
 
-> This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
+> This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -56,13 +56,13 @@ Before configuring Zscaler One for automatic user provisioning with Azure AD, yo
 
 4. In the search box, type **Zscaler One**.
 
-	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/AppSearch.png)
+	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/appsearch.png)
 
 5. In the results panel, select **Zscaler One**, and then click the **Add** button to add Zscaler One to your list of SaaS applications.
 
-	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/AppSearchResults.png)
+	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/appsearchresults.png)
 
-	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/AppCreation.png)
+	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/appcreation.png)
 
 ## Assigning users to Zscaler One
 
@@ -91,67 +91,67 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 2. Select Zscaler One from your list of SaaS applications.
 
-	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/AppInstanceSearch.png)
+	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/appinstancesearch.png)
 
 3. Select the **Provisioning** tab.
 
-	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/ProvisioningTab.png)
+	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/provisioningtab.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/ProvisioningCredentials.png)
+	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/provisioningcredentials.png)
 
 5. Under the **Admin Credentials** section, input the **Tenant URL** and **Secret Token** of your Zscaler One account as described in Step 6.
 
 6. To obtain the **Tenant URL** and **Secret Token**, navigate to **Administration > Authentication Settings** in the Zscaler One portal user interface and click on **SAML** under **Authentication Type**. 
 
-	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/SecretToken1.png)
+	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/secrettoken1.png)
 	
 	Click on **Configure SAML** to open **Configuration SAML** options. 
 
-	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/SecretToken2.png)
+	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/secrettoken2.png)
 	
 	Select **Enable SCIM-Based Provisioning** to retrieve **Base URL** and **Bearer Token**, then save the settings. Copy the **Base URL** to **Tenant URL** and **Bearer Token**  to **Secret Token** in the Azure portal.
 
 7. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Zscaler One. If the connection fails, ensure your Zscaler One account has Admin permissions and try again.
 
-	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/testConnection.png)
+	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/testconnection.png)
 	
 8. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox **Send an email notification when a failure occurs**.
 
-	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/Notification.png)
+	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/notification.png)
 
 9. Click **Save**.
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Zscaler One**.
 
-	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/UserMappings.png)
+	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/usermappings.png)
 
 11. Review the user attributes that are synchronized from Azure AD to Zscaler One in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Zscaler One for update operations. Select the **Save** button to commit any changes.
 
-	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/UserAttributeMappings.png)
+	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/userattributemappings.png)
 
 12. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Zscaler One**.
 
-	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/GroupMappings.png)
+	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/groupmappings.png)
 
 13. Review the group attributes that are synchronized from Azure AD to Zscaler One in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Zscaler One for update operations. Select the **Save** button to commit any changes.
 
-	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/GroupAttributeMappings.png)
+	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/groupattributemappings.png)
 
 14. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./../active-directory-saas-scoping-filters.md).
 
 15. To enable the Azure AD provisioning service for Zscaler One, change the **Provisioning Status** to **On** in the **Settings** section.
 
-	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/ProvisioningStatus.png)
+	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/provisioningstatus.png)
 
 16. Define the users and/or groups that you would like to provision to Zscaler One by choosing the desired values in **Scope** in the **Settings** section.
 
-	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/Scoping.png)
+	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/scoping.png)
 
 17. When you are ready to provision, click **Save**.
 
-	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/SaveProvisioning.png)
+	![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/saveprovisioning.png)
 
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Zscaler One.
 
@@ -167,6 +167,6 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 * [Learn how to review logs and get reports on provisioning activity](../active-directory-saas-provisioning-reporting.md)
 
 <!--Image references-->
-[1]: ./media/zscaler-one-provisioning-tutorial/tutorial_general_01.png
-[2]: ./media/zscaler-one-provisioning-tutorial/tutorial_general_02.png
-[3]: ./media/zscaler-one-provisioning-tutorial/tutorial_general_03.png
+[1]: ./media/zscaler-one-provisioning-tutorial/tutorial-general-01.png
+[2]: ./media/zscaler-one-provisioning-tutorial/tutorial-general-02.png
+[3]: ./media/zscaler-one-provisioning-tutorial/tutorial-general-03.png
