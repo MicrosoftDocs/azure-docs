@@ -56,7 +56,7 @@ The Linux OS disk encryption sequence unmounts the OS drive temporarily. It then
 To check the encryption status, poll the **ProgressMessage** field returned from the [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) command. While the OS drive is being encrypted, the VM enters a servicing state, and disables SSH to prevent any disruption to the ongoing process. The **EncryptionInProgress** message reports for the majority of the time while the encryption is in progress. Several hours later, a **VMRestartPending** message prompts you to restart the VM. For example:
 
 
-```
+```azurepowershell
 PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName $MyVirtualMachineResourceGroup -VMName $vmName
 OsVolumeEncrypted          : EncryptionInProgress
 DataVolumesEncrypted       : EncryptionInProgress
