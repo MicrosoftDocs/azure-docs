@@ -14,6 +14,8 @@ ms.subservice: alerts
 
 ## Overview
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Azure Monitor supports [metric alert type](../../azure-monitor/platform/alerts-metric-near-real-time.md) which has benefits over the [classic alerts](../../azure-monitor/platform/alerts-classic-portal.md). Metrics are available for [large list of Azure services](../../azure-monitor/platform/metrics-supported.md). This article explains usage of a subset (that is) for resource - `Microsoft.OperationalInsights/workspaces`.
 
 You can use metric alerts on popular Log Analytics logs extracted as metrics as part of Metrics from Logs including resources in Azure or on-premise. The supported Log Analytics solutions are listed below:
@@ -355,7 +357,7 @@ Assuming the above parameter file is saved as metricfromLogsAlertStatic.paramete
 Alternatively, one can use the Azure Powershell command below as well:
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertStatic.json TemplateParameterFile metricfromLogsAlertStatic.parameters.json
+New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertStatic.json TemplateParameterFile metricfromLogsAlertStatic.parameters.json
 ```
 
 Or use deploy Resource Template using Azure CLI:
@@ -671,7 +673,7 @@ Assuming the above parameter file is saved as metricfromLogsAlertDynamic.paramet
 Alternatively, one can use the Azure Powershell command below as well:
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertDynamic.json TemplateParameterFile metricfromLogsAlertDynamic.parameters.json
+New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertDynamic.json TemplateParameterFile metricfromLogsAlertDynamic.parameters.json
 ```
 
 Or use deploy Resource Template using Azure CLI:
