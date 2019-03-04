@@ -22,6 +22,9 @@
         href: quickstarts/python.md
       - name: Using Ruby
         href: quickstarts/ruby.md
+      - name: Using Go
+        href: quickstarts/go.md
+
     - name: SDK
       expanded: true
       items:
