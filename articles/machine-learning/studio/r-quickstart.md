@@ -1299,9 +1299,9 @@ From these results, we see that adding the seasonal factors to the model reduces
 
 RStudio is quite well documented. Here are some links to the key sections of the RStudio documentation to get you started.
 
-1. **Creating projects** - You can organize and manage your R code into projects by using RStudio. See [Using Projects](https://support.rstudio.com/hc/articles/200526207-Using-Projects) for details. I recommend that you follow these directions and create a project for the R code examples in this article.  
-2. **Editing and executing R code** - RStudio provides an integrated environment for editing and executing R code. See [Editing and Executing Code](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code) for details.
-3. **Debugging** - RStudio includes powerful debugging capabilities. See [Debugging with RStudio](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio) for more information about these features. For information about breakpoint troubleshooting features, see [Breakpoint Troubleshooting](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting).
+* **Creating projects** - You can organize and manage your R code into projects by using RStudio. See [Using Projects](https://support.rstudio.com/hc/articles/200526207-Using-Projects) for details. I recommend that you follow these directions and create a project for the R code examples in this article.  
+* **Editing and executing R code** - RStudio provides an integrated environment for editing and executing R code. See [Editing and Executing Code](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code) for details.
+* **Debugging** - RStudio includes powerful debugging capabilities. See [Debugging with RStudio](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio) for more information about these features. For information about breakpoint troubleshooting features, see [Breakpoint Troubleshooting](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting).
 
 ## <a id="appendixb"></a>Further reading
 
