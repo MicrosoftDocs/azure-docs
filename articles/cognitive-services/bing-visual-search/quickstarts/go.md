@@ -18,9 +18,9 @@ ms.author: rosh
 This quickstart uses the Go programming language to call the Bing Visual Search API and display results. A Post request uploads an image to the API endpoint. The results include URLs and descriptive information about images similar to the uploaded image.
 
 ## Prerequisites
-* Install the [Go binaries](https://golang.org/dl/)
-* The go-spew deep pretty printer is useful for display of results
-    * Install this libarary: `$ go get -u https://github.com/davecgh/go-spew`
+* Install the [Go binaries](https://golang.org/dl/).
+* The go-spew deep pretty printer is useful for display of results.
+    * Install this library: `$ go get -u https://github.com/davecgh/go-spew`.
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
@@ -105,7 +105,7 @@ type BingAnswer struct {
 
 ## Declare the main function and define variables  
 
-The following code declares the main function and assigns required variables. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account.  The `batchNumber` is a guid required for leading and trailing boundaries of the Post data.  The `fileName` variable identifies the image file for the Post.  Following sections explain the details of the code.
+The following code declares the main function and assigns required variables. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account.  The `batchNumber` is a GUID required for leading and trailing boundaries of the Post data.  The `fileName` variable identifies the image file for the Post.  Following sections explain the details of the code.
 
 ```
 func main() {
