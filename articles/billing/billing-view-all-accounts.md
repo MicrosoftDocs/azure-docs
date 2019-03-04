@@ -28,11 +28,11 @@ Azure portal currently supports the following type of billing accounts:
 
 - **Microsoft Customer Agreement**: A billing account for a Microsoft Customer Agreement is created when your organization signs a Microsoft Customer Agreement to use Azure. Administrators in the billing account for a Microsoft Customer Agreement use billing profiles and invoice sections billing scopes to manage and organize billing for their organization. For more information, see [Get started with your billing account for Microsoft Customer Agreement](billing-mca-overview.md).
 
-## Change billing account view
+## Change billing account view in the Azure portal
 
-If you have access to multiple billing scopes, by default, one of the scope is displayed in the Azure Cost Management + Billing page. You can change the scope by 
+A scope is a node within a billing account that users use to view and manage billing. For example, billing accounts for Microsoft Online Services Program has only scope - billing account, while billing accounts for Enterprise Agreement has billing account, department and account scopes. If you have access to multiple billing scopes, by default, one of the scopes is displayed in the Azure Cost Management + Billing page. You can change the scope by using the following instructions:
 
-1. Log in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search on **Cost Management + Billing**.
 
