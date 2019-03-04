@@ -1,5 +1,5 @@
 ---
-title: Create a function on Linux using a custom image 
+title: Create Azure Functions on Linux using a custom image
 description: Learn how to create Azure Functions running on a custom Linux image.
 services: functions 
 keywords: 
