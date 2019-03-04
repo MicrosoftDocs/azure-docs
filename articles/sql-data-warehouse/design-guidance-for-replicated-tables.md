@@ -6,7 +6,7 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/23/2018
 ms.author: rortloff
 ms.reviewer: igorstan
@@ -54,7 +54,7 @@ Before you choose to distribute or replicate a table, think about the types of q
 
 CPU-intensive queries perform best when the work is distributed across all of the Compute nodes. For example, queries that run computations on each row of a table perform better on distributed tables than replicated tables. Since a replicated table is stored in full on each Compute node, a CPU-intensive query against a replicated table runs against the entire table on every Compute node. The extra computation can slow query performance.
 
-For example, this query has a complex predicate.  It runs faster when supplier is a distributed table instead of a replicated table. In this example, supplier can be round-robin distributed.
+For example, this query has a complex predicate.  It runs faster when the data is in a distributed table instead of a replicated table. In this example, the data can be round-robin distributed.
 
 ```sql
 
@@ -65,7 +65,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 ```
 
 ## Convert existing round-robin tables to replicated tables
-If you already have round-robin tables, we recommend converting them to replicated tables if they meet with criteria outlined in this article. Replicated tables improve performance over round-robin tables because they eliminate the need for data movement.  A round-robin table always requires data movement for joins. 
+If you already have round-robin tables, we recommend converting them to replicated tables if they meet the criteria outlined in this article. Replicated tables improve performance over round-robin tables because they eliminate the need for data movement.  A round-robin table always requires data movement for joins. 
 
 This example uses [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) to change the DimSalesTerritory table to a replicated table. This example works regardless of whether DimSalesTerritory is hash-distributed or round-robin.
 

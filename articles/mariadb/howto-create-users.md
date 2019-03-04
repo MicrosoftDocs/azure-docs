@@ -3,8 +3,6 @@ title: Create users in Azure Database for MariaDB server
 description: This article describes how you can create new user accounts to interact with an Azure Database for MariaDB server.
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018

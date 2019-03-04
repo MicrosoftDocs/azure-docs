@@ -1,3 +1,10 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+---
 Before you can use the Azure CLI with Resource Manager commands and templates to deploy Azure resources and workloads using resource groups, you will need an account with Azure. If you do not have an account, you can get a [free Azure trial here](https://azure.microsoft.com/pricing/free-trial/).
 
 If you haven't already installed the Azure CLI and connected to your subscription, see [Install the Azure CLI](../articles/cli-install-nodejs.md) set the mode to `arm` with `azure config mode arm`, and connect to Azure with the `azure login` command.
@@ -31,7 +38,7 @@ This article covers basic commands you will want to use with Azure classic CLI t
 | Delete a VM |`azure vm delete [options] <resource_group> <name>` |
 | Capture a VM |`azure vm capture [options] <resource_group> <name>` |
 | Create a VM from a user image |`azure  vm create [options] –q <image-name> <resource-group> <name> <location> <os-type>` |
-| Create a VM from a specialized disk |`azue  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
+| Create a VM from a specialized disk |`azure  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
 | Add a data disk to a VM |`azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]` |
 | Remove a data disk from a VM |`azure  vm disk detach [options] <resource-group> <vm-name> <lun>` |
 | Add a generic extension to a VM |`azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>` |

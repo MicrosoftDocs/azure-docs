@@ -14,6 +14,7 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 
+ms.collection: M365-identity-device-management
 ---
 # Adding an Azure Active Directory by using Connected Services in Visual Studio
 
@@ -59,7 +60,7 @@ At present, the Active Directory connected service does not support ASP.NET Core
     - [Get started with .NET MVC projects](vs-active-directory-dotnet-getting-started.md)
     - [Get started with WebAPI projects](vs-active-directory-webapi-getting-started.md)
 
-1. You can also see the Active Directory domain on the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. You can also see the Active Directory domain on the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 ## How your project is modified
 

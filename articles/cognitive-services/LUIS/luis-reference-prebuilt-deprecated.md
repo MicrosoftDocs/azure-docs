@@ -1,18 +1,19 @@
 ---
-title: LUIS Prebuilt deprecated entities reference - Azure| Microsoft Docs
+title: Deprecated Prebuilt entities
 titleSuffix: Azure
 description: This article contains deprecated prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cgronlun
+ms.custom: seodec18
+manager: nitinme
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 02/28/2018
 ms.author: diberry
 ---
 
-# Deprecated entities
+# Deprecated prebuilt entities in a LUIS app
 The following prebuilt entities are deprecated and can't be added to new LUIS apps.
 
 * **Datetime**: Existing LUIS apps that use **datetime** should be migrated to **datetimeV2**, although the datetime entity continues to function in pre-existing apps that use it.
@@ -39,7 +40,7 @@ Prebuilt entity   |   Example utterance   |   JSON
 #### Encyclopedia subtypes
 Encyclopedia built-in entity includes over 100 sub-types in the following table: In addition, encyclopedia entities often map to multiple types. For example, the query Ronald Reagan yields: 
 
-```JSON
+```json
 {
       "entity": "ronald reagan",
       "type": "builtin.encyclopedia.people.person"

@@ -2,14 +2,15 @@
 title: Azure Stack datacenter integration - Identity
 description: Learn how to integrate Azure Stack AD FS with your datacenter AD FS
 services: azure-stack
-author: jeffgilb
+author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/02/2018
-ms.author: jeffgilb
-ms.reviewer: wfayed
-keywords:
+ms.date: 01/23/2019
+ms.author: patricka
+ms.reviewer: thoroet
+ms.lastreviewed: 01/23/19
+
 ---
 
 # Azure Stack datacenter integration - Identity
@@ -22,7 +23,7 @@ The following table shows the differences between the two identity choices:
 |Billing|Must be Capacity<br> Enterprise Agreement (EA) only|Capacity or Pay-as-you-use<br>EA or Cloud Solution Provider (CSP)|
 |Identity|Must be AD FS|Azure AD or AD FS|
 |Marketplace |Supported<br>BYOL licensing|Supported<br>BYOL licensing|
-|Registration|Recommended, requires removable media<br> and a separate connected device.|Automated|
+|Registration|Required, requires removable media<br> and a separate connected device.|Automated|
 |Patch and update|Required, requires removable media<br> and a separate connected device.|Update package can be downloaded directly<br> from the Internet to Azure Stack.|
 
 > [!IMPORTANT]
@@ -48,7 +49,6 @@ For the last step, a new owner is configured for the default provider subscripti
 
 Requirements:
 
-
 |Component|Requirement|
 |---------|---------|
 |Graph|Microsoft Active Directory 2012/2012 R2/2016|
@@ -60,11 +60,21 @@ Graph only supports integration with a single Active Directory forest. If multip
 
 The following information is required as inputs for the automation parameters:
 
-
 |Parameter|Description|Example|
 |---------|---------|---------|
 |CustomADGlobalCatalog|FQDN of the target Active Directory forest<br>that you want to integrate with|Contoso.com|
 |CustomADAdminCredentials|A user with LDAP Read permission|YOURDOMAIN\graphservice|
+
+### Configure Active Directory Sites
+
+For Active Directory deployments having multiple sites, configure the closest Active Directory Site to your Azure Stack deployment. The configuration avoids having the Azure Stack Graph service resolve queries using a Global Catalog Server from a remote site.
+
+Add the Azure Stack [Public VIP network](azure-stack-network.md#public-vip-network) subnet to the Active Directory Site closest to Azure Stack. For example, if your Active Directory has two sites Seattle and Redmond with Azure Stack deployed at the Seattle site, you would add the Azure Stack Public VIP network subnet to the Active Directory site for Seattle.
+
+For more information on  Active Directory Sites see [Designing the site topology](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
+
+> [!Note]  
+> If your Active Directory consist of a single Site you can skip this step. In case you have a catch-all subnet configured validate that the Azure Stack Public VIP network subnet is not part of it.
 
 ### Create user account in the existing Active Directory (optional)
 
@@ -80,14 +90,14 @@ Optionally, you can create an account for the Graph service in the existing Acti
 
 For this procedure, use a computer in your datacenter network that can communicate with the privileged endpoint in Azure Stack.
 
-2. Open an elevated Windows PowerShell session (run as administrator), and connect to the IP address of the privileged endpoint. Use the credentials for **CloudAdmin** to authenticate.
+1. Open an elevated Windows PowerShell session (run as administrator), and connect to the IP address of the privileged endpoint. Use the credentials for **CloudAdmin** to authenticate.
 
    ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-3. Now that you're connected to the privileged endpoint, run the following command: 
+2. Now that you're connected to the privileged endpoint, run the following command: 
 
    ```PowerShell  
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
@@ -117,7 +127,7 @@ The following information is required as input for the automation parameters:
 
 |Parameter|Description|Example|
 |---------|---------|---------|
-|CustomAdfsName|Name of the claims provider.<cr>It appears that way on the AD FS landing page.|Contoso|
+|CustomAdfsName|Name of the claims provider.<br>It appears that way on the AD FS landing page.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Federation metadata link|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 
@@ -159,8 +169,6 @@ The following information is required as input for the automation parameters:
 |CustomAdfsName|Name of the claims provider. It appears that way on the AD FS landing page.|Contoso|
 |CustomADFSFederationMetadataFileContent|Metadata content|$using:federationMetadataFileContent|
 
-
-
 ### Create federation metadata file
 
 For the following procedure, you must use a computer that has network connectivity to the existing AD FS deployment, which becomes the account STS. Also, the necessary certificates must be installed.
@@ -168,9 +176,11 @@ For the following procedure, you must use a computer that has network connectivi
 1. Open an elevated Windows PowerShell session, and run the following command, using the parameters appropriate for your environment:
 
    ```PowerShell  
-    $metadata = (Invoke-WebRequest -URI " https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml " -UseBasicParsing).Content
-    Set-Content -Path c:\metadata.xml -Encoding Unicode -Value $metadata 
-
+    $url = "https://win-SQOOJN70SGL.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml"
+    $webclient = New-Object System.Net.WebClient
+    $webclient.Encoding = [System.Text.Encoding]::UTF8
+    $metadataAsString = $webclient.DownloadString($url)
+    Set-Content -Path c:\metadata.xml -Encoding UTF8 -Value $metadataAsString
    ```
 
 2. Copy the metadata file to a computer that can communicate with the privileged endpoint.
@@ -179,26 +189,34 @@ For the following procedure, you must use a computer that has network connectivi
 
 For this procedure, use a computer that can communicate with the privileged endpoint in Azure Stack and has access to the metadata file you created in a previous step.
 
-1. Open an elevated Windows PowerShell session.
+1. Open an elevated Windows PowerShell session, and connect to the privileged endpoint.
 
    ```PowerShell  
    $federationMetadataFileContent = get-content c:\metadata.xml
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
-   Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
    ```
 
-2. Run the following command to update the owner of the default provider subscription, using the parameters appropriate for your environment:
+2. Now that you're connected to the privileged endpoint, run the following command using the parameters appropriate for your environment:
+
+    ```PowerShell
+    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
+    ```
+
+3. Run the following command to update the owner of the default provider subscription, using the parameters appropriate for your environment:
 
    ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
+   > [!Note]  
+   > When you rotate the certificate on the existing AD FS (account STS) you must set up the AD FS integration again. You must set up the integration even if the metadata endpoint is reachable or it was configured by providing the metadata file.
+
 ## Configure relying party on existing AD FS deployment (account STS)
 
 Microsoft provides a script that configures the relying party trust, including the claim transformation rules. Using the script is optional as you can run the commands manually.
 
-You can download the helper script from [Azure Stack Tools](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) on Github.
+You can download the helper script from [Azure Stack Tools](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) on GitHub.
 
 If you decide to manually run the commands, follow these steps:
 
@@ -258,10 +276,10 @@ If you decide to manually run the commands, follow these steps:
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -TokenLifeTime 1440
    ```
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > You must use the AD FS MMC snap-in to configure the Issuance Authorization Rules when using Windows Server 2012 or 2012 R2 AD FS.
 
-4. When you use Internet Explorer or the Edge browser to access Azure Stack, you must ignore token bindings. Otherwise, the sign-in attempts fail. On your AD FS instance or a farm member, run the following command:
+4. When you use Internet Explorer or the Microsoft Edge browser to access Azure Stack, you must ignore token bindings. Otherwise, the sign-in attempts fail. On your AD FS instance or a farm member, run the following command:
 
    > [!note]  
    > This step is not applicable when using Windows Server 2012 or 2012 R2 AD FS. It is safe to skip this command and continue with the integration.
@@ -278,12 +296,12 @@ There are many scenarios that require the use of a service principal name (SPN) 
 - System Center Management Pack for Azure Stack when deployed with AD FS
 - Resource providers in Azure Stack when deployed with AD FS
 - Various applications
-- You require a non-interactive logon
+- You require a non-interactive sign in
 
 > [!Important]  
 > AD FS only supports interactive logon sessions. If you require a non-interactive logon for an automated scenario, you must use a SPN.
 
-For more information about creating an SPN, see [Create service principal for AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
+For more information about creating an SPN, see [Create service principal for AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
 
 
 ## Troubleshooting
@@ -302,7 +320,7 @@ If an error occurs that leaves the environment in a state where you can no longe
 2. Then run the following cmdlet:
 
    ```PowerShell  
-   Reset-DatacenterIntegationConfiguration
+   Reset-DatacenterIntegrationConfiguration
    ```
 
    After running the rollback action, all configuration changes are rolled back. Only authentication with the built-in **CloudAdmin** user is possible.

@@ -4,15 +4,16 @@ description: How to enable self-service password reset using forgot password at 
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 09/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
+ms.collection: M365-identity-device-management
 ---
 # How to: Enable password reset from Windows 7, 8, and 8.1
 
@@ -73,6 +74,8 @@ HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Provide
 
 * To enable verbose logging, create a REG_DWORD: “EnableLogging”, and set it to 1.
 * To disable verbose logging, change the REG_DWORD “EnableLogging” to 0.
+
+If your Windows 7, 8, and 8.1 machines are behind a proxy server or firewall, HTTPS traffic (443) to passwordreset.microsoftonline.com should be allowed.
 
 ## Next steps
 

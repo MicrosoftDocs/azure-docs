@@ -1,6 +1,6 @@
 ---
-title: Overview of Azure Event Hubs authentication and security model | Microsoft Docs
-description: Event Hubs authentication and security model overview.
+title: Authentication and security model - Azure Event Hubs | Microsoft Docs
+description: This article describes the authentication and security model of Azure Event Hubs. 
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---
-# Event Hubs authentication and security model overview
+# Azure Event Hubs - Authentication and security model
 
 The Azure Event Hubs security model meets the following requirements:
 
@@ -63,13 +64,13 @@ nm.CreateEventHub(ed);
 
 ### Generate tokens
 
-You can generate tokens using the SAS key. You must produce only one token per client. Tokens can then be produced using the following method. All tokens are generated using the **EventHubSendKey** key. Each token is assigned a unique URI.
+You can generate tokens using the SAS key. You must produce only one token per client. Tokens can then be produced using the following method. All tokens are generated using the **EventHubSendKey** key. Each token is assigned a unique URI. The 'resource' parameter corresponds to the URI endpoint of the service(event hub in this case).
 
 ```csharp
 public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
 ```
 
-When calling this method, the URI should be specified as `//<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`. For all tokens, the URI is identical, with the exception of `PUBLISHER_NAME`, which should be different for each token. Ideally, `PUBLISHER_NAME` represents the ID of the client that receives that token.
+When calling this method, the URI should be specified as `https://<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`. For all tokens, the URI is identical, with the exception of `PUBLISHER_NAME`, which should be different for each token. Ideally, `PUBLISHER_NAME` represents the ID of the client that receives that token.
 
 This method generates a token with the following structure:
 

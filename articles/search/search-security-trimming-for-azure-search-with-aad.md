@@ -1,13 +1,14 @@
 ---
-title: "Security filters for trimming Azure Search results using Active Directory identities | Microsoft Docs"
-description: Access control on Azure Search content using security filters and Active Directory identities.
-author: "revitalbarletz"
-manager: "jlembicz"
+title: Security filters to trim results using Active Directory - Azure Search
+description: Access control on Azure Search content using security filters and Azure Active Directory (AAD) identities.
+author: brjohnstmsft
+manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
-ms.author: revitalb
+ms.author: brjohnst
+ms.custom: seodec2018
 ---
 # Security filters for trimming Azure Search results using Active Directory identities
 
@@ -22,7 +23,7 @@ This article covers the following tasks:
 - Issue a search request with group identifiers filter
 
 >[!NOTE]
-> Sample code snippets in this article are written in C#. You can find the full source code [on GitHub](http://aka.ms/search-dotnet-howto). 
+> Sample code snippets in this article are written in C#. You can find the full source code [on GitHub](https://aka.ms/search-dotnet-howto). 
 
 ## Prerequisites
 
@@ -57,7 +58,7 @@ However, if you don't have existing users, you can use Microsoft Graph APIs to c
 
 User and group membership might be very fluid, especially in large organizations. Code that builds user and group identities should run often enough to pick up changes in organization membership. Likewise, your Azure Search index requires a similar update schedule to reflect the current status of permitted users and resources.
 
-### Step 1: Create [AAD Group](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/group_post_groups) 
+### Step 1: Create [AAD Group](https://docs.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0) 
 ```csharp
 // Instantiate graph client 
 GraphServiceClient graph = new GraphServiceClient(new DelegateAuthenticationProvider(...));
@@ -71,7 +72,7 @@ Group group = new Group()
 Group newGroup = await graph.Groups.Request().AddAsync(group);
 ```
    
-### Step 2: Create [AAD User](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_post_users) 
+### Step 2: Create [AAD User](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
 ```csharp
 User user = new User()
 {
@@ -92,7 +93,7 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### Step 4: Cache the groups identifiers
-Optionally, to reduce network latency, you can cache the user-group associations so that when a search request is issued, groups are returned from the cache, saving a roundtrip to AAD. You can use (AAD Batch API)[https://developer.microsoft.com/graph/docs/concepts/json_batching] to send a single Http request with multiple users and build the cache.
+Optionally, to reduce network latency, you can cache the user-group associations so that when a search request is issued, groups are returned from the cache, saving a roundtrip to AAD. You can use [AAD Batch API](https://developer.microsoft.com/graph/docs/concepts/json_batching) to send a single Http request with multiple users and build the cache.
 
 Microsoft Graph is designed to handle a high volume of requests. If an overwhelming number of requests occur, Microsoft Graph fails the request with HTTP status code 429. For more information, see [Microsoft Graph throttling](https://developer.microsoft.com/graph/docs/concepts/throttling).
 
@@ -132,7 +133,7 @@ To filter documents returned in search results based on groups of the user issui
 
 ### Step 1: Retrieve user's group identifiers
 
-If the user's groups were not already cached, or the cache has expired, issue the [groups](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/directoryobject_getmembergroups) request
+If the user's groups were not already cached, or the cache has expired, issue the [groups](https://docs.microsoft.com/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0) request
 ```csharp
 private static void RefreshCacheIfRequired(string user)
 {

@@ -10,9 +10,9 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 01/28/2019
 ms.author: jingwang
 
 ---
@@ -52,7 +52,7 @@ As a reference, below table shows the copy throughput number **in MBps** for the
 Points to note:
 
 * Throughput is calculated by using the following formula: [size of data read from source]/[Copy Activity run duration].
-* The performance reference numbers in the table were measured using [TPC-H](http://www.tpc.org/tpch/) dataset in a single copy activity run.
+* The performance reference numbers in the table were measured using [TPC-H](http://www.tpc.org/tpch/) dataset in a single copy activity run. Test files for file-based stores are multiple files with 10GB in size.
 * In Azure data stores, the source and sink are in the same Azure region.
 * For hybrid copy between on-premises and cloud data stores, each Self-hosted Integration Runtime node was running on a machine that was separate from the data store with below specification. When a single activity was running, the copy operation consumed only a small portion of the test machine's CPU, memory, or network bandwidth.
     <table>
@@ -72,7 +72,7 @@ Points to note:
 
 
 > [!TIP]
-> You can achieve higher throughput by using more Data Integration Units (DIU) than the default allowed maximum DIUs, which are 32 for a cloud-to-cloud copy activity run. For example, with 100 DIUs, you can achieve copying data from Azure Blob into Azure Data Lake Store at **1.0GBps**. See the [Data Integration Units](#data-integration-units) section for details about this feature and the supported scenario. Contact [Azure support](https://azure.microsoft.com/support/) to request more DIUs.
+> You can achieve higher throughput by using more Data Integration Units (DIU). For example, with 100 DIUs, you can achieve copying data from Azure Blob into Azure Data Lake Store at **1.0GBps**. See the [Data Integration Units](#data-integration-units) section for details about this feature and the supported scenario. 
 
 ## Data integration units
 
@@ -90,7 +90,7 @@ To override this default, specify a value for the **dataIntegrationUnits** prope
 You can see the actually used Data Integration Units for each copy run in the copy activity output when monitoring an activity run. Learn details from [Copy activity monitoring](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> If you need more DIUs for a higher throughput, contact [Azure support](https://azure.microsoft.com/support/). Setting of 8 and above currently works only when you **copy multiple files from Blob storage/Data Lake Store/Amazon S3/cloud FTP/cloud SFTP to any other cloud data stores.**.
+> Setting of DIUs **larger than 4** currently works only when you **copy multiple files from Blob storage/Data Lake Storage/Amazon S3/cloud FTP/cloud SFTP to any other cloud data stores.**.
 >
 
 **Example:**
@@ -192,6 +192,9 @@ Configure the **enableStaging** setting in Copy Activity to specify whether you 
 | **path** |Specify the Blob storage path that you want to contain the staged data. If you do not provide a path, the service creates a container to store temporary data. <br/><br/> Specify a path only if you use Storage with a shared access signature, or you require temporary data to be in a specific location. |N/A |No |
 | **enableCompression** |Specifies whether data should be compressed before it is copied to the destination. This setting reduces the volume of data being transferred. |False |No |
 
+>[!NOTE]
+> If you use staged copy with compression enabled, service principal or MSI authentication for staging blob linked service is not supported.
+
 Here's a sample definition of Copy Activity with the properties that are described in the preceding table:
 
 ```json
@@ -235,7 +238,17 @@ We suggest that you take these steps to tune the performance of your Data Factor
 
 1. **Establish a baseline**. During the development phase, test your pipeline by using Copy Activity against a representative data sample. Collect execution details and performance characteristics following [Copy activity monitoring](copy-activity-overview.md#monitoring).
 
-2. **Diagnose and optimize performance**. If the performance you observe doesn't meet your expectations, you need to identify performance bottlenecks. Then, optimize performance to remove or reduce the effect of bottlenecks. A full description of performance diagnosis is beyond the scope of this article, but here are some common considerations:
+2. **Diagnose and optimize performance**. If the performance you observe doesn't meet your expectations, you need to identify performance bottlenecks. Then, optimize performance to remove or reduce the effect of bottlenecks. 
+
+    In some cases, when you execute a copy activity in ADF, you will directly see "**Performance tuning tips**" on top of the [copy activity monitoring page](copy-activity-overview.md#monitor-visually) as shown in the following example. It not only tells you the bottleneck identified for the given copy run, but also guides you on what to change so as to boost copy throughput. The performance tuning tips currently provide suggestions like to use PolyBase when copying data into Azure SQL Data Warehouse, to increase Azure Cosmos DB RU or Azure SQL DB DTU when the resource on data store side is the bottleneck, to remove the unnecessary staged copy, etc. The performance tuning rules will be gradually enriched as well.
+
+    **Example: copy into Azure SQL DB with performance tuning tips**
+
+    In this sample, during copy run, ADF notice the sink Azure SQL DB reaches high DTU utilization which slows down the write operations, thus the suggestion is to increase the Azure SQL DB tier with more DTU. 
+
+    ![Copy monitoring with performance tuning tips](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+
+    In addition, the following are some common considerations. A full description of performance diagnosis is beyond the scope of this article.
 
    * Performance features:
      * [Parallel copy](#parallel-copy)

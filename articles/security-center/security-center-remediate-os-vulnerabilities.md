@@ -3,8 +3,8 @@ title: Remediate security configurations in Azure Security Center | Microsoft Do
 description: This document shows you how to implement the Azure Security Center recommendation, "Remediate security configurations."
 services: security-center
 documentationcenter: na
-author: TerryLanfear
-manager: MBaldwin
+author: rkarlin
+manager: barbkess
 editor: ''
 
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
+ms.date: 10/28/2018
+ms.author: rkarlin
 
 ---
 # Remediate security configurations in Azure Security Center
@@ -80,7 +80,7 @@ This example covers the "Remediate security configurations" recommendation under
    ![Listed workspaces][4]
 
 5. Select a workspace.  
-  A Log Analytics search query opens filtered to the workspace with the security configurations mismatch.
+  An Azure Monitor logs search query opens filtered to the workspace with the security configurations mismatch.
 
    ![Workspace with OS vulnerability][5]
 
@@ -97,13 +97,13 @@ To review the specific configurations that are being monitored, see [list of rec
 To learn more about Security Center, see the following resources:
 
 * For a list of supported Windows and Linux VMs, see [Supported platforms in Azure Security Center](security-center-os-coverage.md).
-* To learn how to configure security policies for your Azure subscriptions and resource groups, see [Setting security policies in Azure Security Center](security-center-policies.md).
+* To learn how to configure security policies for your Azure subscriptions and resource groups, see [Setting security policies in Azure Security Center](tutorial-security-policy.md).
 * To learn how recommendations help you protect your Azure resources, see [Managing security recommendations in Azure Security Center](security-center-recommendations.md).
 * To learn how to monitor the health of your Azure resources, see [Security health monitoring in Azure Security Center](security-center-monitoring.md).
 * To learn how to manage and respond to security alerts, see [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).
 * To learn how to monitor the health status of your partner solutions, see [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md).
 * For answers to frequently asked questions about using the service, see [Azure Security Center FAQ](security-center-faq.md).
-* For blog posts about Azure security and compliance, see [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/).
+* For blog posts about Azure security and compliance, see [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/).
 
 <!--Image references-->
 [1]: ./media/security-center-remediate-os-vulnerabilities/compute-blade.png

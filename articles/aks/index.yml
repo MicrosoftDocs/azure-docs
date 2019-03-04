@@ -32,6 +32,27 @@ sections:
         src: https://docs.microsoft.com/media/common/i_portal.svg
       text: Azure Portal
       href: /azure/aks/kubernetes-walkthrough-portal
+  - type: paragraph
+    text: 'Learn how to develop and debug applications with AKS:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_java.svg
+      text: Java
+      href: ../dev-spaces/quickstart-java.md
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_NETcore.svg
+      text: .NET and VS Code
+      href: ../dev-spaces/quickstart-netcore.md
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
+      text: .NET and Visual Studio
+      href: ../dev-spaces/quickstart-netcore-visualstudio.md
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_nodejs.svg
+      text: Node.js
+      href: ../dev-spaces/quickstart-nodejs.md
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

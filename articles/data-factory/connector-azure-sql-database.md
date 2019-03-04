@@ -10,9 +10,9 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 02/22/2019
 ms.author: jingwang
 
 ---
@@ -33,6 +33,8 @@ Specifically, this Azure SQL Database connector supports these functions:
 - As a source, retrieve data by using a SQL query or stored procedure.
 - As a sink, append data to a destination table or invoke a stored procedure with custom logic during the copy.
 
+Azure SQL Database [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) is not supported now. 
+
 > [!IMPORTANT]
 > If you copy data by using Azure Data Factory Integration Runtime, configure an [Azure SQL server firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) so that Azure Services can access the server.
 > If you copy data by using a self-hosted integration runtime, configure the Azure SQL server firewall to allow the appropriate IP range. This range includes the machine's IP that is used to connect to Azure SQL Database.
@@ -50,7 +52,7 @@ These properties are supported for an Azure SQL Database linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureSqlDatabase**. | Yes |
-| connectionString | Specify information needed to connect to the Azure SQL Database instance for the **connectionString** property. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| connectionString | Specify information needed to connect to the Azure SQL Database instance for the **connectionString** property. <br/>Mark this field as a SecureString to store it securely in Data Factory. You can also put password/service principal key in Azure Key Vault，and if it's SQL authentication pull the `password` configuration out of the connection string. See the JSON example below the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
 | servicePrincipalId | Specify the application's client ID. | Yes, when you use Azure AD authentication with a service principal. |
 | servicePrincipalKey | Specify the application's key. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes, when you use Azure AD authentication with a service principal. |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes, when you use Azure AD authentication with a service principal. |
@@ -88,11 +90,40 @@ For different authentication types, refer to the following sections on prerequis
 }
 ```
 
+**Password in Azure Key Vault:** 
+
+```json
+{
+    "name": "AzureSqlDbLinkedService",
+    "properties": {
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            },
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
 ### Service principal authentication
 
 To use a service principal-based Azure AD application token authentication, follow these steps:
 
-1. **[Create an Azure Active Directory application](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)** from the Azure portal. Make note of the application name and the following values that define the linked service:
+1. **[Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)** from the Azure portal. Make note of the application name and the following values that define the linked service:
 
     - Application ID
     - Application key
@@ -144,21 +175,21 @@ To use a service principal-based Azure AD application token authentication, foll
 
 ### <a name="managed-identity"></a> Managed identities for Azure resources authentication
 
-A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md) that represents the specific data factory. You can use this service identity for Azure SQL Database authentication. The designated factory can access and copy data from or to your database by using this identity.
+A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md) that represents the specific data factory. You can use this managed identity for Azure SQL Database authentication. The designated factory can access and copy data from or to your database by using this identity.
 
-To use MSI-based Azure AD application token authentication, follow these steps:
+To use managed identity authentication, follow these steps:
 
-1. **Create a group in Azure AD.** Make the factory MSI a member of the group.
+1. **Create a group in Azure AD.** Make the managed identity a member of the group.
     
-    1. Find the data factory service identity from the Azure portal. Go to your data factory's **Properties**. Copy the SERVICE IDENTITY ID.
+    1. Find the data factory managed identity from the Azure portal. Go to your data factory's **Properties**. Copy the SERVICE IDENTITY ID.
     
-    1. Install the [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) module. Sign in by using the `Connect-AzureAD` command. Run the following commands to create a group and add the data factory MSI as a member.
+    1. Install the [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) module. Sign in by using the `Connect-AzureAD` command. Run the following commands to create a group and add the managed identity as a member.
     ```powershell
     $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
+    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
     ```
     
-1. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with MSI an admin role, skip steps 3 and 4. The administrator will have full access to the database.
+1. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
 
 1. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the Azure AD group. Connect to the database from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL: 
     
@@ -174,7 +205,7 @@ To use MSI-based Azure AD application token authentication, follow these steps:
 
 1. **Configure an Azure SQL Database linked service** in Azure Data Factory.
 
-#### Linked service example that uses MSI authentication
+**Example:**
 
 ```json
 {
@@ -204,7 +235,7 @@ To copy data from or to Azure SQL Database, set the **type** property of the dat
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the dataset must be set to **AzureSqlTable**. | Yes |
-| tableName | The name of the table or view in the Azure SQL Database instance that the linked service refers to. | Yes |
+| tableName | The name of the table or view in the Azure SQL Database instance that the linked service refers to. | No for source, Yes for sink |
 
 #### Dataset properties example
 
@@ -244,7 +275,6 @@ To copy data from Azure SQL Database, set the **type** property in the Copy Acti
 
 - If the **sqlReaderQuery** is specified for the **SqlSource**, Copy Activity runs this query against the Azure SQL Database source to get the data. Or you can specify a stored procedure. Specify **sqlReaderStoredProcedureName** and **storedProcedureParameters** if the stored procedure takes parameters.
 - If you don't specify either **sqlReaderQuery** or **sqlReaderStoredProcedureName**, the columns defined in the **structure** section of the dataset JSON are used to construct a query. `select column1, column2 from mytable` runs against Azure SQL Database. If the dataset definition doesn't have the **structure**, all columns are selected from the table.
-- When you use **sqlReaderStoredProcedureName**, you still need to specify a dummy **tableName** property in the dataset JSON.
 
 #### SQL query example
 
@@ -597,7 +627,7 @@ When you copy data from or to Azure SQL Database, the following mappings are use
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
-| sql_variant |Object * |
+| sql_variant |Object |
 | text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
@@ -606,6 +636,9 @@ When you copy data from or to Azure SQL Database, the following mappings are use
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
+
+>[!NOTE]
+> For data types maps to Decimal interim type, currently ADF support precision up to 28. If you have data with precision larger than 28, consider to convert to string in SQL query.
 
 ## Next steps
 For a list of data stores supported as sources and sinks by Copy Activity in Azure Data Factory, see [Supported data stores and formats](copy-activity-overview.md##supported-data-stores-and-formats).

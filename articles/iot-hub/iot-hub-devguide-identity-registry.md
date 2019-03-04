@@ -1,13 +1,13 @@
 ---
 title: Understand the Azure IoT Hub identity registry | Microsoft Docs
 description: Developer guide - description of the IoT Hub identity registry and how to use it to manage your devices. Includes information about the import and export of device identities in bulk.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: dobett
 ---
 
 # Understand the identity registry in your IoT hub
@@ -193,6 +193,9 @@ Device identities are represented as JSON documents with the following propertie
 > [!NOTE]
 > Connection state can only represent the IoT Hub view of the status of the connection. Updates to this state may be delayed, depending on network conditions and configurations.
 
+> [!NOTE]
+> Currently the device SDKs do not support using  the `+` and `#` characters in the **deviceId**.
+
 ## Module identity properties
 
 Module identities are represented as JSON documents with the following properties:
@@ -211,6 +214,9 @@ Module identities are represented as JSON documents with the following propertie
 | connectionState |read-only |A field indicating connection status: either **Connected** or **Disconnected**. This field represents the IoT Hub view of the device connection status. **Important**: This field should be used only for development/debugging purposes. The connection state is updated only for devices using MQTT or AMQP. Also, it is based on protocol-level pings (MQTT pings, or AMQP pings), and it can have a maximum delay of only 5 minutes. For these reasons, there can be false positives, such as devices reported as connected but that are disconnected. |
 | connectionStateUpdatedTime |read-only |A temporal indicator, showing the date and last time the connection state was updated. |
 | lastActivityTime |read-only |A temporal indicator, showing the date and last time the device connected, received, or sent a message. |
+
+> [!NOTE]
+> Currently the device SDKs do not support using  the `+` and `#` characters in the **deviceId** and **moduleId**.
 
 ## Additional reference material
 

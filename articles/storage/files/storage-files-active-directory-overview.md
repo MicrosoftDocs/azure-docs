@@ -55,7 +55,7 @@ When an identity associated with an application running on a VM attempts to acce
 ![Screenshot showing diagram of Azure AD authentication over SMB](media/storage-files-active-directory-overview/azure-active-directory-over-smb-for-files-overview.png)
 
 ### Enable Azure AD authentication over SMB
-You can enable Azure AD authentication over SMB for Azure Files on your new and existing storage accounts created after August 29, 2018. 
+You can enable Azure AD authentication over SMB for Azure Files on your new and existing storage accounts created after September 24, 2018. 
 
 Before enabling Azure AD authentication over SMB, verify that Azure AD Domain Services has been deployed for the primary Azure AD tenant with which your storage account is associated. If you have not yet set up Azure AD Domain Services, follow the step-by-step guidance provided in [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md).
 

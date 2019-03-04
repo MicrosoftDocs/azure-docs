@@ -4,7 +4,7 @@ description: New behavior of how to handle objects with UPN or ProxyAddress conf
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
@@ -12,11 +12,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Identity synchronization and duplicate attribute resiliency
 Duplicate Attribute Resiliency is a feature in Azure Active Directory that will eliminate friction caused by **UserPrincipalName** and **ProxyAddress** conflicts when running one of Microsoft’s synchronization tools.
@@ -78,7 +79,7 @@ Then, use the following cmdlets and operators to view errors in different ways:
 2. [By Property Type](#by-property-type)
 3. [By Conflicting Value](#by-conflicting-value)
 4. [Using a String Search](#using-a-string-search)
-5. [Sorted](#sorted)
+5. Sorted
 6. [In a Limited Quantity or All](#in-a-limited-quantity-or-all)
 
 #### See all
@@ -119,7 +120,7 @@ You can view directory synchronization errors in the Office 365 admin center. Th
 
 ![Active Users](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "Active Users")
 
-For instructions on how to view directory synchronization errors in the Office 365 admin center, see [Identify directory synchronization errors in Office 365](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
+For instructions on how to view directory synchronization errors in the Office 365 admin center, see [Identify directory synchronization errors in Office 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
 
 ### Identity synchronization error report
 When an object with a duplicate attribute conflict is handled with this new behavior a notification is included in the standard Identity Synchronization Error Report email that is sent to the Technical Notification contact for the tenant. However, there is an important change in this behavior. In the past, information about a duplicate attribute conflict would be included in every subsequent error report until the conflict was resolved. With this new behavior, the error notification for a given conflict does only appear once- at the time the conflicting attribute is quarantined.
@@ -170,5 +171,5 @@ It should point to [https://aka.ms/duplicateattributeresiliency](https://aka.ms/
 ## See also
 * [Azure AD Connect sync](how-to-connect-sync-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md)
-* [Identify directory synchronization errors in Office 365](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
+* [Identify directory synchronization errors in Office 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
 

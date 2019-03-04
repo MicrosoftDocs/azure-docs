@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 03/05/2018
+ms.date: 01/22/2019
 ms.author: kgremban
 ---
 
@@ -15,12 +15,12 @@ ms.author: kgremban
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-This tutorial follows how to use the [file upload capabilities of IoT Hub](iot-hub-devguide-file-upload.md) to upload a file to [Azure blob storage](../storage/index.yml). The tutorial shows you how to:
+This article shows how to use the [file upload capabilities of IoT Hub](iot-hub-devguide-file-upload.md) to upload a file to [Azure blob storage](../storage/index.yml). The tutorial shows you how to:
 
 - Securely provide a storage container for uploading a file.
 - Use the Python client to upload a file through your IoT hub.
 
-The [Get started with IoT Hub](quickstart-send-telemetry-node.md) tutorial demonstrates the basic device-to-cloud messaging functionality of IoT Hub. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. When you need to upland files from a device, you can still use the security and reliability of IoT Hub.
+The [Send telemetry to IoT Hub](quickstart-send-telemetry-python.md) quickstart demonstrates the basic device-to-cloud messaging functionality of IoT Hub. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. When you need to upland files from a device, you can still use the security and reliability of IoT Hub.
 
 > [!NOTE]
 > IoT Hub Python SDK currently only supports uploading character-based files such as **.txt** files.
@@ -36,12 +36,8 @@ To complete this tutorial, you need the following:
 
 * [Python 2.x or 3.x][lnk-python-download]. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable. If you are using Python 2.x, you may need to [install or upgrade *pip*, the Python package management system][lnk-install-pip].
 * If you are using Windows OS, then [Visual C++ redistributable package][lnk-visual-c-redist] to allow the use of native DLLs from Python.
-* An active Azure account. (If you don't have an account, you can create a [free account](http://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
-
-
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
-
-[!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
+* An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
+* An IoT hub in your Azure account, with a device identity for testing the file upload feature. 
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
@@ -56,9 +52,14 @@ In this section, you create the device app to upload a file to IoT hub.
     pip install azure-iothub-device-client
     ```
 
+1. Using a text editor, create a test file that you will upload to blob storage. 
+
+    > [!NOTE]
+    > IoT Hub Python SDK currently only supports uploading character-based files such as **.txt** files.
+
 1. Using a text editor, create a **FileUpload.py** file in your working folder.
 
-1. Add the following `import` statements and variables at the start of the **FileUpload.py** file. Replace `deviceConnectionString` with the connection string of your IoT hub device:
+1. Add the following `import` statements and variables at the start of the **FileUpload.py** file. 
 
     ```python
     import time
@@ -71,8 +72,10 @@ In this section, you create the device app to upload a file to IoT hub.
     PROTOCOL = IoTHubTransportProvider.HTTP
 
     PATHTOFILE = "[Full path to file]"
-    FILENAME = "[File name on storage after upload]"
+    FILENAME = "[File name for storage]"
     ```
+
+1. In your file, replace `[Device Connection String]` with the connection string of your IoT hub device. Replace `[Full path to file]` with the path to the test file that you created, or any file on your device that you want to upload. Replace `[File name for storage]` with the name that you want to give to your file after it's uploaded to blob storage. 
 
 1. Create a callback for the **upload_blob** function:
 
@@ -121,11 +124,6 @@ In this section, you create the device app to upload a file to IoT hub.
     ```
 
 1. Save and close the **UploadFile.py** file.
-
-1. Copy a sample text file to the working folder and rename it `sample.txt`.
-
-    > [!NOTE]
-    > IoT Hub Python SDK currently only supports uploading character-based files such as **.txt** files.
 
 
 ## Run the application

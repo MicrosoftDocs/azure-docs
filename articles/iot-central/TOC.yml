@@ -1,6 +1,6 @@
 - name: Azure IoT Fundamentals 
   href: /azure/iot-fundamentals
-- name: Azure IoT Central Documentation 
+- name: Azure IoT Central Documentation
   href: index.yml
 - name: Overview
   items:
@@ -75,22 +75,44 @@
         href: howto-create-webhooks.md
       - name: Build workflows in Microsoft Flow
         href: howto-add-microsoft-flow.md
+      - name: Build workflows in Azure Logic Apps
+        href: howto-build-azure-logic-apps.md
       - name: Trigger Azure Functions
         href: howto-trigger-azure-functions.md
       - name: Export your data
         href: howto-export-data.md
+        items:
+        - name: Export to Event Hubs and Service Bus
+          href: howto-export-data-event-hubs-service-bus.md
+        - name: Export to Blob Storage
+          href: howto-export-data-blob-storage.md
       - name: Visualize your data in Power BI
         href: howto-connect-powerbi.md
-  - name : Adminstration
+      - name: Connect other IoT clouds
+        href: howto-build-iotc-device-bridge.md
+
+  - name : Administration
     items:
       - name: Administer your application
         href: howto-administer.md  
-      - name: Manage IoT Central from the Azure Management Portal
+      - name: Prepare and upload image
+        href: howto-prepare-images.md
+      - name: Manage from the Azure portal
         href: howto-manage-iot-central-from-portal.md
+      - name: Manage from Azure CLI
+        href: howto-manage-iot-central-from-cli.md
+      - name: Manage from Azure PowerShell
+        href: howto-manage-iot-central-from-powershell.md
       - name: As a CSP create and manage an application
         href: howto-create-and-manage-applications-as-CSP.md
-      - name: Configure homepage
-        href: howto-configure-homepage.md         
+      - name: Configure application dashboard
+        href: howto-configure-homepage.md
+  - name : Personalization
+    items:
+      - name: Create personal dashboards
+        href: howto-personalize-dashboard.md
+      - name: Manage your preferences
+        href: howto-manage-preferences.md
 - name: Related
   items:
   - name: Solutions
@@ -121,3 +143,5 @@
   items:
   - name: Customer data requests
     href: iot-central-customer-data-requests.md
+  - name: Supported browsers
+    href: iot-central-supported-browsers.md

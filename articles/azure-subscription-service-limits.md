@@ -8,7 +8,7 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 12/10/2018
 ms.author: byvinyal
 
 ---
@@ -49,10 +49,9 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
-* [Azure Redis Cache](#azure-redis-cache-limits)
+* Azure Cache for Redis
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
-* [Batch AI](#batch-ai-limits)
 * [BizTalk Services](#biztalk-services-limits)
 * [CDN](#cdn-limits)
 * [Cloud Services](#cloud-services-limits)
@@ -73,7 +72,6 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Log Analytics](#log-analytics-limits)
 * [Managed Identity](#managed-identity-limits)
 * [Media Services](#media-services-limits)
-* [Mobile Engagement](#mobile-engagement-limits)
 * [Mobile Services](#mobile-services-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [Networking](#networking-limits)
@@ -103,7 +101,7 @@ In the limits below, a new table has been added to reflect any differences in li
 #### Subscription limits - Azure Resource Manager
 The following limits apply when using the Azure Resource Manager and Azure Resource Groups. Limits that have not changed with the Azure Resource Manager are not listed below. Please refer to the previous table for those limits.
 
-For information about handling limits on Resource Manager requests, see [Throttling Resource Manager requests](resource-manager-request-limits.md).
+For information about Resource Manager API read and write limits, see [Throttling Resource Manager requests](resource-manager-request-limits.md).
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../includes/azure-subscription-limits-azure-resource-manager.md)]
 
@@ -140,6 +138,8 @@ The following table details the features and limits of the Basic, Standard, and 
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
 #### Application Gateway limits
+
+The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise stated.
 [!INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
 
 #### Network Watcher limits
@@ -213,9 +213,6 @@ The following App Service limits include limits for Web Apps, Mobile Apps, and A
 
 ### Batch limits
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
-
-### Batch AI limits
-[!INCLUDE [azure-batch-ai-limits](../includes/azure-batch-ai-limits.md)]
 
 ### BizTalk Services limits
 The following table shows the limits for Azure Biztalk Services.
@@ -323,7 +320,7 @@ To learn more about limits on a more granular level, such as document size, quer
 ### API Management limits
 [!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
 
-### Azure Redis Cache limits
+### Azure Cache for Redis limits
 [!INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
 
 ### Key Vault limits

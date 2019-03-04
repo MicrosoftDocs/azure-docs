@@ -50,7 +50,7 @@ During migration, the resources transform from classic to Resource Manager. So w
 <a name="vault">When</a> you move a VM from classic to Resource Manager mode, backups taken prior to migration will not migrate to newly migrated Resource Manager VM. However, if you wish to keep your backups of classic VMs, follow these steps before the migration. 
 
 1. In the Recovery Services vault, go to the **Protected Items** tab and select the VM. 
-2. Click [Stop Protection](../articles/backup/backup-azure-manage-vms.md#stop-protecting-virtual-machines). Leave *Delete associated backup data* option **unchecked**.
+2. Click Stop Protection. Leave *Delete associated backup data* option **unchecked**.
 
 > [!NOTE]
 > You will be charged backup instance cost till you retain data. Backup copies will be pruned as per retention range. However, last backup copy is always kept until you explicitly delete backup data. It is advised to check your retention range of the Virtual machine and trigger "Delete Backup Data" on the protected item in the vault once the retention range is over. 

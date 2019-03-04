@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
-ms.component: files
+ms.subservice: files
 ---
 
 # Use an Azure file share with Windows
@@ -19,9 +19,9 @@ You can use Azure file shares on a Windows installation that is running either i
 
 | Windows version        | SMB version | Mountable in Azure VM | Mountable On-Premises |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows Server 2019 (preview)<sup>1</sup> | SMB 3.0 | Yes | Yes |
-| Windows 10<sup>2</sup> | SMB 3.0 | Yes | Yes |
-| Windows Server semi-annual channel<sup>3</sup> | SMB 3.0 | Yes | Yes |
+| Windows Server 2019    | SMB 3.0 | Yes | Yes |
+| Windows 10<sup>1</sup> | SMB 3.0 | Yes | Yes |
+| Windows Server semi-annual channel<sup>2</sup> | SMB 3.0 | Yes | Yes |
 | Windows Server 2016    | SMB 3.0     | Yes                   | Yes                  |
 | Windows 8.1            | SMB 3.0     | Yes                   | Yes                  |
 | Windows Server 2012 R2 | SMB 3.0     | Yes                   | Yes                  |
@@ -29,9 +29,8 @@ You can use Azure file shares on a Windows installation that is running either i
 | Windows 7              | SMB 2.1     | Yes                   | No                   |
 | Windows Server 2008 R2 | SMB 2.1     | Yes                   | No                   |
 
-<sup>1</sup>Windows Server 2019 is available in preview through the [Windows Server Insiders program](https://insider.windows.com/for-business-getting-started-server/). Although Windows Server 2019 is not supported for production use yet, please let us know if you have any issues connecting to Azure file shares beyond what is covered in the [troubleshooting guide for Windows](storage-troubleshoot-windows-file-connection-problems.md).  
-<sup>2</sup>Windows 10, versions 1507, 1607, 1703, 1709, and 1803.  
-<sup>3</sup>Windows Server, version 1709 and 1803.
+<sup>1</sup>Windows 10, versions 1507, 1607, 1703, 1709, 1803, and 1809.  
+<sup>2</sup>Windows Server, version 1709 and 1803.
 
 > [!Note]  
 > We always recommend taking the most recent KB for your version of Windows.
@@ -41,11 +40,22 @@ You can use Azure file shares on a Windows installation that is running either i
 
 * **Storage account key**: To mount an Azure file share, you will need the primary (or secondary) storage key. SAS keys are not currently supported for mounting.
 
-* **Ensure port 445 is open**: The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check to see if your firewall is blocking port 445 with the `Test-NetConnection` cmdlet. Remember to replace `your-storage-account-name` with the relevant name for your storage account.
+* **Ensure port 445 is open**: The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check to see if your firewall is blocking port 445 with the `Test-NetConnection` cmdlet. You can learn about [various ways to workaround blocked port 445 here](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
+
+    The following PowerShell code assumes you have the AzureRM PowerShell module installed, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) for more information. Remember to replace `<your-storage-account-name>` and `<your-resource-group-name>` with the relevant names for your storage account.
 
     ```PowerShell
-    Test-NetConnection -ComputerName <your-storage-account-name>.core.windows.net -Port 445
-    
+    $resourceGroupName = "<your-resource-group-name>"
+    $storageAccountName = "<your-storage-account-name>"
+
+    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # already logged in.
+    $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+
+    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
+    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
+    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
+    Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
     ```
 
     If the connection was successful, you should see the following output:
@@ -70,24 +80,24 @@ Unlike other SMB shares you may have interacted with, such as those hosted on a 
 A common pattern for lifting and shifting line-of-business (LOB) applications that expect an SMB file share to Azure is to use an Azure file share as an alternative for running a dedicated Windows file server in an Azure VM. One important consideration for successfully migrating a line-of-business application to use an Azure file share is that many line-of-business applications run under the context of a dedicated service account with limited system permissions rather than the VM's administrative account. Therefore, you must ensure that you mount/save the credentials for the Azure file share from the context of the service account rather than your administrative account.
 
 ### Persisting Azure file share credentials in Windows  
-The [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) utility allows you to store your storage account credentials within Windows. This means that when you try to access an Azure file share via its UNC path or mount the Azure file share, you will not need to specify credentials. To save your storage account's credentials, run the following PowerShell commands, replacing `<your-storage-account-name>` and `<your-resoure-group-name>` where appropriate.
+The [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) utility allows you to store your storage account credentials within Windows. This means that when you try to access an Azure file share via its UNC path or mount the Azure file share, you will not need to specify credentials. To save your storage account's credentials, run the following PowerShell commands, replacing `<your-storage-account-name>` and `<your-resource-group-name>` where appropriate.
 
 ```PowerShell
 $resourceGroupName = "<your-resource-group-name>"
 $storageAccountName = "<your-storage-account-name>"
 
-# These commands require you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+# These commands require you to be logged into your Azure account, run Login-AzAccount if you haven't
 # already logged in.
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-$storageAccountKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+$storageAccountKeys = Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
 # The cmdkey utility is a command-line (rather than PowerShell) tool. We use Invoke-Expression to allow us to 
 # consume the appropriate values from the storage account variables. The value given to the add parameter of the
 # cmdkey utility is the host address for the storage account, <storage-account>.file.core.windows.net for Azure 
 # Public Regions. $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign 
 # clouds or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-Invoke-Expression -Command "cmdkey /add:$([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) " + `
-    "/user:AZURE\$($storageAccount.StorageAccountName) /pass:$($storageAccountKeys[0].Value)"
+Invoke-Expression -Command ("cmdkey /add:$([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) " + `
+    "/user:AZURE\$($storageAccount.StorageAccountName) /pass:$($storageAccountKeys[0].Value)")
 ```
 
 You can verify the cmdkey utility has stored the credential for the storage account by using the list parameter:
@@ -131,11 +141,11 @@ $resourceGroupName = "<your-resource-group-name>"
 $storageAccountName = "<your-storage-account-name>"
 $fileShareName = "<your-file-share-name>"
 
-# These commands require you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+# These commands require you to be logged into your Azure account, run Login-AzAccount if you haven't
 # already logged in.
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-$storageAccountKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
-$fileShare = Get-AzureStorageShare -Context $storageAccount.Context | Where-Object { 
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+$storageAccountKeys = Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
+$fileShare = Get-AzStorageShare -Context $storageAccount.Context | Where-Object { 
     $_.Name -eq $fileShareName -and $_.IsSnapshot -eq $false
 }
 

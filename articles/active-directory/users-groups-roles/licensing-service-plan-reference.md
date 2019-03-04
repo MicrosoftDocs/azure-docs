@@ -1,38 +1,39 @@
 ---
 
-  title: Product names and service plan identifiers for licensing in Azure Active Directory | Microsoft Docs
-  description: Identifier map to manage Azure AD licensing in the Azure portal, the Office 365 portal, PowerShell, or Microsoft Graph
-  services: active-directory
-  keywords: Azure Active Directory licensing service plans
-  documentationcenter: ''
-  author: piotrci
-  manager: mtillman
-  editor: ''
+title: Product names and service plan identifiers for licensing - Azure AD | Microsoft Docs
+description: Identifier map to manage Azure Active Directory licensing in the Azure portal, the Office 365 portal, PowerShell, or Microsoft Graph
+services: active-directory
+keywords: Azure Active Directory licensing service plans
+documentationcenter: ''
+author: ajayanti1
+manager: mtillman
+editor: ''
 
-  ms.assetid:
-  ms.service: active-directory
-  ms.devlang: na
-  ms.topic: article
-  ms.tgt_pltfrm: na
-  ms.workload: identity
-  ms.date: 8/17/2018
-  ms.author: piotrci
-
+ms.service: active-directory
+ms.topic: article
+ms.workload: identity
+ms.subservice: users-groups-roles
+ms.date: 01/28/2019
+ms.author: curtand
+ms.reviewer: ajayanti1
+ms.custom: "it-pro;seo-update-azuread-jan"
+ms.collection: M365-identity-device-management
+#Aruna Jayanti is minding this reference until it can be automated
 ---
 
 # Product names and service plan identifiers for licensing
 
 When managing licenses in [the Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) or the Office 365 portal, you see product names that look something like *Office 365 Enterprise E3*. When you use PowerShell v1.0 cmdlets, the same product is identified using a specific but less friendly name: *ENTERPRISEPACK*. When using PowerShell v2.0 cmdlets or Microsoft Graph, the same product is identified using a GUID value: *6fd2c87f-b296-42f0-b197-1e91e994b900*. The following table lists the most commonly used Microsoft online service products and provides their various ID values. These tables are for reference purposes and are accurate only as of the date when this article was last updated. Microsoft does not plan to update them for newly added services periodically.
 
-- **Product Name**: Used in management portals
+- **Product name**: Used in management portals
 - **String ID**: Used by PowerShell v1.0 cmdlets when performing operations on licenses
-- **Guid ID**: GUID used by Azure AD Graph and Microsoft Graph
-- **Service Plans Included**: A list of service plans in the product that correspond to the String ID and GUID
+- **GUID**: GUID used by Azure AD Graph and Microsoft Graph
+- **Service plans included**: A list of service plans in the product that correspond to the string ID and GUID
 
 >[!NOTE]
 >This information is accurate as of August 17, 2018.
 
-| Product Name | String ID | GUID | Service Plans Included |
+| Product name | String ID | GUID | Service plans included |
 | --- | --- | --- |--- |
 | AUDIO CONFERENCING | MCOMEETADV | 0c266dff-15dd-4b49-8397-2bb16070ed52 |MCOMEETADV (3e26ee1f-8a5f-4d52-aee2-b81ce45c8f40) |
 | AZURE ACTIVE DIRECTORY BASIC	| AAD_BASIC	| 2b9c8e7c-319c-43a2-a2a0-48c5c6161de7	| AAD_BASIC (c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe) |

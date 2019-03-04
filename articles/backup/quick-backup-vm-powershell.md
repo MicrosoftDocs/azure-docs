@@ -2,14 +2,14 @@
 title: Azure Quickstart - Back up a VM with PowerShell
 description: Learn how to back up your virtual machines with Azure PowerShell
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 2/14/2018
-ms.author: markgal
+ms.date: 01/31/2019
+ms.author: raynew
 ms.custom: mvc
 ---
 
@@ -18,7 +18,7 @@ The Azure PowerShell module is used to create and manage Azure resources from th
 
 This quickstart enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with Azure PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json).
 
-This quickstart requires the Azure PowerShell module version 4.4 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+This quickstart requires the Azure PowerShell module version 4.4 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps).
 
 
 ## Log in to Azure

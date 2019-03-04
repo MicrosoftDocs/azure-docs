@@ -12,9 +12,10 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
+ms.lastreviewed: 01/24/2019
 ---
 
 # Connect to Azure Stack with PowerShell as an operator
@@ -25,33 +26,51 @@ You can configure the Azure Stack to use PowerShell to manage resources such as 
 
 ## Prerequisites
 
-Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn). 
+Run the following prerequisites either from the [development kit](./asdk/asdk-connect.md#connect-with-rdp) or from a Windows-based external client if you're [connected to the ASDK through VPN](./asdk/asdk-connect.md#connect-with-vpn). 
 
  - Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
  - Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
 
-## Configure the operator environment and sign in to Azure Stack
+## Connect with Azure AD
 
-Configure the Azure Stack operator environment with PowerShell. Run one of the following scripts: Replace the Azure AD tenantName, GraphAudience endpoint, and ArmEndpoint values with your own environment configuration.
+Configure the Azure Stack operator environment with PowerShell. Run one of the following scripts: Replace the Azure Active Directory (Azure AD) tenantName and Azure Resource Manager endpoint values with your own environment configuration. <!-- GraphAudience endpoint -->
 
-````PowerShell  
-    # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external.
-    # To get this value for Azure Stack integrated systems, contact your service provider.
-    $ArmEndpoint = "<Admin Resource Manager endpoint for your environment>"
+```PowerShell  
+    # Register an Azure Resource Manager environment that targets your Azure Stack instance. Get your Azure Resource Manager endpoint value from your service provider.
+Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external"
 
-    # Register an AzureRM environment that targets your Azure Stack instance
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
+    # Set your tenant name
+    $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackAdmin").ActiveDirectoryAuthority.TrimEnd('/')
+    $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com"
+    $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
 
     # After signing in to your environment, Azure Stack cmdlets
     # can be easily targeted at your Azure Stack instance.
-    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
-````
+    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantId
+```
+
+## Connect with AD FS
+
+Connect to the Azure Stack operator environment with PowerShell with Azure Active Directory Federated Services (Azure AD FS). For Azure Stack development kit, this Azure Resource Manager endpoint is set to `https://adminmanagement.local.azurestack.external`. To get the Azure Resource Manager endpoint for Azure Stack integrated systems, contact your service provider.
+
+<!-- GraphAudience endpoint -->
+
+  ```PowerShell  
+  # Register an Azure Resource Manager environment that targets your Azure Stack instance. Get your Azure Resource Manager endpoint value from your service provider.
+  Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external"
+
+  # Sign in to your environment
+  Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+  ```
+
+> [!Note]  
+> AD FS only supports interactive authentication with user identities. If a credential object is required you must use a service principal (SPN). For more information on setting up a service principal with Azure Stack and AD FS as your identity management service, see [Manage service principal for AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
 ## Test the connectivity
 
 Now that you've got everything set-up, use PowerShell to create resources within Azure Stack. For example, you can create a resource group for an application and add a virtual machine. Use the following command to create a resource group named **MyResourceGroup**.
 
-```powershell
+```PowerShell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 

@@ -6,21 +6,21 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 02/13/2019
 ms.author: cherylmc
 
 ---
 # Create and install VPN client configuration files for native Azure certificate authentication P2S configurations
 
-VPN client configuration files are contained in a zip file. Configuration files provide the settings required for a native Windows, Mac IKEv2 VPN, or Linux clients to connect to a VNet over Point-to-Site connections that use native Azure certificate authentication. For more information about Point-to-Site connections, see [About Point-to-Site VPN](point-to-site-about.md).
+VPN client configuration files are contained in a zip file. Configuration files provide the settings required for a native Windows, Mac IKEv2 VPN, or Linux clients to connect to a VNet over Point-to-Site connections that use native Azure certificate authentication.
+
+Client configuration files are specific to the VPN configuration for the VNet. If there are any changes to the Point-to-Site VPN configuration after you generate the VPN client configuration files, such as the VPN protocol type or authentication type, be sure to generate new VPN client configuration files for your user devices. 
+
+* For more information about Point-to-Site connections, see [About Point-to-Site VPN](point-to-site-about.md).
+* For OpenVPN instructions, see [Configure OpenVPN for P2S](vpn-gateway-howto-openvpn.md) and [Configure OpenVPN clients](vpn-gateway-howto-openvpn-clients.md).
 
 >[!IMPORTANT]
 >[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
->
-
->[!NOTE]
->Client configuration files are specific to the VPN configuration for the VNet. If there are any changes to the Point-to-Site VPN configuration after you generate the VPN client configuration files, such as the VPN protocol type or authentication type, be sure to generate new VPN client configuration files for your user devices.
->
 >
 
 ## <a name="generate"></a>Generate VPN client configuration files
@@ -41,10 +41,12 @@ You can generate client configuration files using PowerShell, or by using the Az
 
 ### <a name="zipps"></a>Generate files using PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. When generating VPN client configuration files, the value for '-AuthenticationMethod' is 'EapTls'. Generate the VPN client configuration files using the following command:
 
-  ```powershell
-  $profile=New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls"
+  ```azurepowershell-interactive
+  $profile=New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls"
 
   $profile.VPNProfileSASUrl
   ```
@@ -168,7 +170,7 @@ You can use the following CLI commands, or use the strongSwan steps in the [GUI]
 1. Download the VPNClient package from Azure portal.
 2. Extract the File.
 3. From the **Generic** folder, copy or move the VpnServerRoot.cer to /etc/ipsec.d/cacerts.
-4. From the **Generic** folder, copy or move cp client.p12 to /etc/ipsec.d/private/.
+4. Copy or move cp client.p12 to /etc/ipsec.d/private/. This file is client certificate for Azure VPN Gateway.
 5. Open VpnSettings.xml file and copy the <VpnServer> value. You will use this value in the next step.
 6. Adjust the values in the example below, then add the example to the /etc/ipsec.conf configuration.
   
@@ -181,7 +183,7 @@ You can use the following CLI commands, or use the strongSwan steps in the [GUI]
   leftauth=eap-tls
   leftid=%client # use the DNS alternative name prefixed with the %
   right= Enter the VPN Server value here# Azure VPN gateway address
-  rightid=%Enter the VPN Server value here# Azure VPN gateway address, prefixed with %
+  rightid=% # Enter the VPN Server value here# Azure VPN gateway FQDN with %
   rightsubnet=0.0.0.0/0
   leftsourceip=%config
   auto=add

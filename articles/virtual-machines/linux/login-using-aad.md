@@ -35,16 +35,19 @@ There are many benefits of using Azure AD authentication to log in to Linux VMs 
 
 - **Seamless collaboration:** With Role-Based Access Control (RBAC), you can specify who can sign in to a given VM as a regular user or with administrator privileges. When users join or leave your team, you can update the RBAC policy for the VM to grant access as appropriate. This experience is much simpler than having to scrub VMs to remove unnecessary SSH public keys. When employees leave your organization and their user account is disabled or removed from Azure AD, they no longer have access to your resources.
 
-### Supported Azure regions and Linux distributions
+## Supported Azure regions and Linux distributions
 
 The following Linux distributions are currently supported during the preview of this feature:
 
 | Distribution | Version |
 | --- | --- |
-| CentOS | CentOS 6.9, and CentOS 7.4 |
+| CentOS | CentOS 6, CentOS 7 |
 | Debian | Debian 9 |
+| openSUSE | openSUSE Leap 42.3 |
 | RedHat Enterprise Linux | RHEL 6, RHEL 7 | 
-| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04, Ubuntu Server 17.10, and Ubuntu Server 18.04 |
+| SUSE Linux Enteprise Server | SLES 12 |
+| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04, and Ubuntu Server 18.04 |
+
 
 The following Azure regions are currently supported during the preview of this feature:
 
@@ -98,7 +101,7 @@ Azure Role-Based Access Control (RBAC) policy determines who can log in to the V
 > [!NOTE]
 > To allow a user to log in to the VM over SSH, you must assign either the *Virtual Machine Administrator Login* or *Virtual Machine User Login* role. An Azure user with the *Owner* or *Contributor* roles assigned for a VM do not automatically have privileges to log in to the VM over SSH.
 
-The following example uses [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign the *Virtual Machine Administrator Login* role to the VM for your current Azure user. The username of your active Azure account is obtained with [az account show](/cli/azure/account#az-account-show), and the *scope* is set to the VM created in a previous step with [az vm show](/cli/azure/vm#az-vm-show). The scope could also be assigned at a resource group or subscription level, and normal RBAC inheritance permissions apply. For more information, see [Role-Based Access Controls](../../azure-resource-manager/resource-group-overview.md#access-control)
+The following example uses [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign the *Virtual Machine Administrator Login* role to the VM for your current Azure user. The username of your active Azure account is obtained with [az account show](/cli/azure/account#az-account-show), and the *scope* is set to the VM created in a previous step with [az vm show](/cli/azure/vm#az-vm-show). The scope could also be assigned at a resource group or subscription level, and normal RBAC inheritance permissions apply. For more information, see [Role-Based Access Controls](../../role-based-access-control/overview.md)
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
@@ -125,7 +128,7 @@ First, view the public IP address of your VM with [az vm show](/cli/azure/vm#az-
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Log in to the Azure Linux virtual machine using your Azure AD credentials. The `-l` parameter lets you specify your own Azure AD account address. Specify the public IP address of your VM as output in the previous command:
+Log in to the Azure Linux virtual machine using your Azure AD credentials. The `-l` parameter lets you specify your own Azure AD account address. Account addresses should be entered in all lowercase. Use the public IP address of your VM from the previous command:
 
 ```azurecli-interactive
 ssh -l azureuser@contoso.onmicrosoft.com publicIps
@@ -144,13 +147,27 @@ When prompted, enter your Azure AD login credentials at the login page. The foll
 
 Close the browser window, return to the SSH prompt, and press the **Enter** key. You are now signed in to the Azure Linux virtual machine with the role permissions as assigned, such as *VM User* or *VM Administrator*. If your user account is assigned the *Virtual Machine Administrator Login* role, you can use the `sudo` to run commands that require root privileges.
 
+## Sudo and AAD login
+
+The first time that you run sudo, you will be asked to authenticate a second time. If you don't want to have to authenticate again to run sudo, you can edit your sudoers file `/etc/sudoers.d/aad_admins` and replace this line:
+
+```bash
+%aad_admins ALL=(ALL) ALL
+```
+With this line:
+
+```bash
+%aad_admins ALL=(ALL) NOPASSWD:ALL
+```
+
+
 ## Troubleshoot sign-in issues
 
 Some common errors when you try to SSH with Azure AD credentials include no RBAC roles assigned, and repeated prompts to sign in. Use the following sections to correct these issues.
 
 ### Access denied: RBAC role not assigned
 
-If you see the following error on your SSH prompt, verify that you have [configured RBAC policies](#configure-rbac-policy-for-the-virtual-machine) for the VM that grants the user either the *Virtual Machine Administrator Login* or *Virtual Machine User Login* role:
+If you see the following error on your SSH prompt, verify that you have configured RBAC policies for the VM that grants the user either the *Virtual Machine Administrator Login* or *Virtual Machine User Login* role:
 
 ```bash
 login as: azureuser@contoso.onmicrosoft.com

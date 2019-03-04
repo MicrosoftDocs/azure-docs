@@ -4,7 +4,7 @@ description: This topic shows how to configure the Flash Media Live Encoder (FML
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 3113f333-517a-47a1-a1b3-57e200c6b2a2
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/08/2019
 ms.author: juliako;cenkdin;anilmur
 
 ---
-# Use the FMLE encoder to send a single bitrate live stream
+# Use the FMLE encoder to send a single bitrate live stream 
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -60,7 +60,7 @@ This tutorial describes using AAC. However, FMLE doesn’t supports AAC by defau
 >
 >
 
-While the channel is starting, you can [configure the encoder](media-services-configure-fmle-live-encoder.md#configure_fmle_rtmp).
+While the channel is starting, you can [configure the encoder](media-services-configure-fmle-live-encoder.md).
 
 > [!IMPORTANT]
 > Note that billing starts as soon as Channel goes into a ready state. For more information, see [Channel's states](media-services-manage-live-encoder-enabled-channels.md#states).

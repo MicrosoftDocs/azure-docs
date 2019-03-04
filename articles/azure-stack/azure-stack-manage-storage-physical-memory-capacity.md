@@ -13,9 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
-ms.reviewer: Thomas.Roettinger
+ms.reviewer: thoroet
+ms.lastreviewed: 01/14/2019
 
 ---
 
@@ -30,7 +31,7 @@ To increase the total available memory capacity for Azure Stack, you can add add
 
 The following flow diagram shows the general process to add memory to each scale unit node.
 
-![Add memory into each scale unit node](media\azure-stack-manage-storage-physical-capacity\process-to-add-memory-to-scale-unit.png)
+![Add memory into each scale unit node](media/azure-stack-manage-storage-physical-capacity/process-to-add-memory-to-scale-unit.png)
 
 ## Add memory to an existing node
 The following steps provide a high-level overview of the add memory process. 

@@ -162,7 +162,7 @@ To inform the StorSimple Device Manager service of the change, you will need to 
       
       ![synchronize keys](./media/storsimple-8000-manage-storage-accounts/syncaccesskey3.png)
 
-You will be notified after the key is successfully sycnhronized.
+You will be notified after the key is successfully synchronized.
 
 #### To synchronize keys for storage accounts outside of the service subscription
 1. On the **Services** page, click the **Configure** tab.

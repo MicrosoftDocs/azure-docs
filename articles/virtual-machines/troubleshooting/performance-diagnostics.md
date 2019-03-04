@@ -99,7 +99,7 @@ After the upload, a new diagnostics report is listed in the Azure portal.
 Use the **Settings** toolbar button to change the storage account where the diagnostics insights and output can be stored. You can use the same storage account for multiple VMs that use performance diagnostics. When you change the storage account, the old reports and insights are not deleted. However, they will no longer be displayed in the list of diagnostics reports. 
 
 ## Review insights and performance diagnostics report
-Each diagnostic run contains a list of insights and recommendations, affected resources, log files, and other rich diagnostics information that is collected, plus a report for offline viewing. For a complete list of all the collected diagnostics data, see [What kind of information is collected by PerfInsights?](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-use-perfinsights#what-kind-of-information-is-collected-by-perfinsights) 
+Each diagnostic run contains a list of insights and recommendations, affected resources, log files, and other rich diagnostics information that is collected, plus a report for offline viewing. For a complete list of all the collected diagnostics data, see [What kind of information is collected by PerfInsights?](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-use-perfinsights#what-kind-of-information-is-collected-by-perfinsights) 
 
 ### Select a performance diagnostics report
 You can use the diagnostics report list to find all the diagnostics reports that were run. The list includes details about the analysis that was used, insights that were found, and their impact levels. Select a row to view more details.
@@ -119,7 +119,7 @@ You can select an insight to view more details about the affected resources, sug
 ![Screenshot of a Performance diagnostics insight detail](media/performance-diagnostics/insight-detail.png)
 
 ### Download and review the full performance diagnostics report
-You can use the **Download report** button to download an HTML report that contains additional rich diagnostics information, such as storage and network configuration, performance counters, traces, list of processes, and logs. The content depends on the selected analysis. For advanced troubleshooting, the report may contain additional information and interactive charts that are related to high CPU usage, high disk usage, and processes that consume excessive memory. For more information about the performance diagnostics report, see [Review diagnostics report](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-use-perfinsights#review-the-diagnostics-report).
+You can use the **Download report** button to download an HTML report that contains additional rich diagnostics information, such as storage and network configuration, performance counters, traces, list of processes, and logs. The content depends on the selected analysis. For advanced troubleshooting, the report may contain additional information and interactive charts that are related to high CPU usage, high disk usage, and processes that consume excessive memory. For more information about the performance diagnostics report, see [Review diagnostics report](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-use-perfinsights#review-the-diagnostics-report).
 
 ## Manage performance diagnostics reports
 You can delete one or more performance diagnostics reports by using the **Delete report** button.

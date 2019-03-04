@@ -9,15 +9,14 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/15/2017
+ms.date: 11/15/2018
 ms.author: glenga
+#Customer intent: As a developer, I want to be able to monitor the status of my functions so that I can respond to any errors that occur and make improvements to my applications.
 ---
 
 # Monitor Azure Functions
 
-## Overview 
-
-[Azure Functions](functions-overview.md) offers built-in integration with [Azure Application Insights](../application-insights/app-insights-overview.md) for monitoring functions. This article shows how to configure Functions to send telemetry data to Application Insights.
+[Azure Functions](functions-overview.md) offers built-in integration with [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) for monitoring functions. This article shows how to configure Functions to send system-generated log files to Application Insights.
 
 ![Application Insights Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
@@ -25,11 +24,11 @@ Functions also has [built-in monitoring that doesn't use Application Insights](#
 
 ## Application Insights pricing and limits
 
-You can try out Application Insights integration with Function Apps for free. However, there's a daily limit to how much data can be processed for free, and you might hit that limit during testing. Azure provides portal and email notifications when the you're approaching your daily limit.  But if you miss those alerts and hit the limit, new logs won't appear in Application Insights queries. So be aware of the limit to avoid unnecessary troubleshooting time. For more information, see [Manage pricing and data volume in Application Insights](../application-insights/app-insights-pricing.md).
+You can try out Application Insights integration with Function Apps for free. However, there's a daily limit to how much data can be processed for free, and you might hit that limit during testing. Azure provides portal and email notifications when you're approaching your daily limit.  But if you miss those alerts and hit the limit, new logs won't appear in Application Insights queries. So be aware of the limit to avoid unnecessary troubleshooting time. For more information, see [Manage pricing and data volume in Application Insights](../azure-monitor/app/pricing.md).
 
 ## Enable App Insights integration
 
-For a function app to send data to Application Insights, it needs to know the instrumentation key of an Application Insights resource. The key has to be provided in an app setting named APPINSIGHTS_INSTRUMENTATIONKEY.
+For a function app to send data to Application Insights, it needs to know the instrumentation key of an Application Insights resource. The key must be in an app setting named **APPINSIGHTS_INSTRUMENTATIONKEY**.
 
 You can set up this connection in the [Azure portal](https://portal.azure.com):
 
@@ -42,15 +41,11 @@ You can set up this connection in the [Azure portal](https://portal.azure.com):
 
 1. Set the **Application Insights** switch **On**.
 
-2. Select an **Application Insights Location**.
-
-   Choose the region that is closest to your function app's region, in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you want your data to be stored.
+1. Select an **Application Insights Location**. Choose the region that is closest to your function app's region, in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you want your data to be stored.
 
    ![Enable Application Insights while creating a function app](media/functions-monitoring/enable-ai-new-function-app.png)
 
-3. Enter the other required information.
-
-1. Select **Create**.
+1. Enter the other required information and select **Create**.
 
 The next step is to [disable built-in logging](#disable-built-in-logging).
 
@@ -60,7 +55,7 @@ The next step is to [disable built-in logging](#disable-built-in-logging).
 
    ![Create an Application Insights resource, type General](media/functions-monitoring/ai-general.png)
 
-2. Copy the instrumentation key from the **Essentials** page of the Application Insights resource. Hover over the end of the displayed key value to get a **Click to copy** button.
+1. Copy the instrumentation key from the **Essentials** page of the Application Insights resource. Hover over the end of the displayed key value to get a **Click to copy** button.
 
    ![Copy the Application Insights instrumentation key](media/functions-monitoring/copy-ai-key.png)
 
@@ -72,7 +67,7 @@ The next step is to [disable built-in logging](#disable-built-in-logging).
 
 ## Disable built-in logging
 
-If you enable Application Insights, we recommend that you disable the [built-in logging that uses Azure storage](#logging-to-storage). The built-in logging is useful for testing with light workloads but is not intended for high-load production use. For production monitoring, Application Insights is recommended. If built-in logging is used in production, the logging record may be incomplete due to throttling on Azure Storage.
+When you enable Application Insights, disable the [built-in logging that uses Azure storage](#logging-to-storage). The built-in logging is useful for testing with light workloads but is not intended for high-load production use. For production monitoring, Application Insights is recommended. If built-in logging is used in production, the logging record may be incomplete due to throttling on Azure Storage.
 
 To disable built-in logging, delete the `AzureWebJobsDashboard` app setting. For information about how to delete app settings in the Azure portal, see the **Application settings** section of [How to manage a function app](functions-how-to-use-azure-function-app-settings.md#settings). Before deleting the app setting, make sure that no existing functions in the same function app use it for Azure Storage triggers or bindings.
 
@@ -84,13 +79,13 @@ After you have set up Application Insights integration as shown in the previous 
 
    ![Select Monitor tab](media/functions-monitoring/monitor-tab.png)
 
-2. Select **Refresh** periodically until the list of function invocations appears.
+1. Select **Refresh** periodically until the list of function invocations appears.
 
-   It may take up to 5 minutes for the list to appear, due to the way the telemetry client batches data for transmission to the server. (This delay doesn't apply to the [Live Metrics Stream](../application-insights/app-insights-live-stream.md). That service connects to the Functions host when you load the page, so logs are streamed directly to the page.)
+   It may take up to 5 minutes for the list to appear, due to the way the telemetry client batches data for transmission to the server. (This delay doesn't apply to the [Live Metrics Stream](../azure-monitor/app/live-stream.md). That service connects to the Functions host when you load the page, so logs are streamed directly to the page.)
 
    ![Invocations list](media/functions-monitoring/monitor-tab-ai-invocations.png)
 
-2. To see the logs for a particular function invocation, select the **Date** column link for that invocation.
+1. To see the logs for a particular function invocation, select the **Date** column link for that invocation.
 
    ![Invocation details link](media/functions-monitoring/invocation-details-link-ai.png)
 
@@ -114,18 +109,17 @@ To open Application Insights from a function app in the Azure portal, select the
 
 ![Application Insights link on Overview page](media/functions-monitoring/ai-link.png)
 
-
 For information about how to use Application Insights, see the [Application Insights documentation](https://docs.microsoft.com/azure/application-insights/). This section shows some examples of how to view data in Application Insights. If you are already familiar with Application Insights, you can go directly to [the sections about configuring and customizing the telemetry data](#configure-categories-and-log-levels).
 
-In [Metrics Explorer](../application-insights/app-insights-metrics-explorer.md), you can create charts and alerts based on metrics such as number of function invocations, execution time, and success rate.
+In [Metrics Explorer](../azure-monitor/app/metrics-explorer.md), you can create charts and alerts based on metrics such as number of function invocations, execution time, and success rate.
 
 ![Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
-On the [Failures](../application-insights/app-insights-asp-net-exceptions.md) tab, you can create charts and alerts based on function failures and server exceptions. The **Operation Name** is the function name. Failures in dependencies are not shown unless you implement [custom telemetry](#custom-telemetry-in-c-functions) for dependencies.
+On the [Failures](../azure-monitor/app/asp-net-exceptions.md) tab, you can create charts and alerts based on function failures and server exceptions. The **Operation Name** is the function name. Failures in dependencies are not shown unless you implement [custom telemetry](#custom-telemetry-in-c-functions) for dependencies.
 
 ![Failures](media/functions-monitoring/failures.png)
 
-On the [Performance](../application-insights/app-insights-performance-counters.md) tab, you can analyze performance issues.
+On the [Performance](../azure-monitor/app/performance-counters.md) tab, you can analyze performance issues.
 
 ![Performance](media/functions-monitoring/performance.png)
 
@@ -133,19 +127,19 @@ The **Servers** tab shows resource utilization and throughput per server. This d
 
 ![Servers](media/functions-monitoring/servers.png)
 
-The [Live Metrics Stream](../application-insights/app-insights-live-stream.md) tab shows metrics data as it is created in real time.
+The [Live Metrics Stream](../azure-monitor/app/live-stream.md) tab shows metrics data as it is created in real time.
 
 ![Live stream](media/functions-monitoring/live-stream.png)
 
 ## Query telemetry data
 
-[Application Insights Analytics](../application-insights/app-insights-analytics.md) gives you access to all of the telemetry data in the form of tables in a database. Analytics provides a query language for extracting, manipulating, and visualizing the data.
+[Application Insights Analytics](../azure-monitor/app/analytics.md) gives you access to all of the telemetry data in the form of tables in a database. Analytics provides a query language for extracting, manipulating, and visualizing the data.
 
 ![Select Analytics](media/functions-monitoring/select-analytics.png)
 
 ![Analytics example](media/functions-monitoring/analytics-traces.png)
 
-Here's a query example. This one shows the distribution of requests per worker over the last 30 minutes.
+Here's a query example that shows the distribution of requests per worker over the last 30 minutes.
 
 ```
 requests
@@ -188,7 +182,7 @@ If you write logs in your function code, their category is "Function".
 
 ### Log levels
 
-The Azure functions logger also includes a *log level* with every log. [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel#Microsoft_Extensions_Logging_LogLevel) is an enumeration, and the integer code indicates relative importance:
+The Azure functions logger also includes a *log level* with every log. [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) is an enumeration, and the integer code indicates relative importance:
 
 |LogLevel    |Code|
 |------------|---|
@@ -204,7 +198,27 @@ Log level `None` is explained in the next section.
 
 ### Configure logging in host.json
 
-The *host.json* file configures how much logging a function app sends to Application Insights. For each category, you indicate the minimum log level to send. Here's an example:
+The *[host.json](functions-host-json.md)* file configures how much logging a function app sends to Application Insights. For each category, you indicate the minimum log level to send. There are two examples, one that targets the [Functions version 2.x runtime](functions-versions.md#version-2x) (.NET Core) and one for the version 1.x runtime.
+
+### Version 2.x
+
+The v2.x runtime uses the [.NET Core logging filter hierarchy](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
+
+```json
+{
+  "logging": {
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "default": "Information",
+      "Host.Results": "Error",
+      "Function": "Error",
+      "Host.Aggregator": "Trace"
+    }
+  }
+}
+```
+
+### Version 1.x
 
 ```json
 {
@@ -223,13 +237,31 @@ The *host.json* file configures how much logging a function app sends to Applica
 
 This example sets up the following rules:
 
-1. For logs with category "Host.Results" or "Function", send only `Error` level and above to Application Insights. Logs for `Warning` level and below are ignored.
-2. For logs with category Host.Aggregator, send all logs to Application Insights. The `Trace` log level is the same as what some loggers call `Verbose`, but use `Trace` in the *host.json* file.
+1. For logs with category `Host.Results`**` or `**`Function`, send only `Error` level and above to Application Insights. Logs for `Warning` level and below are ignored.
+2. For logs with category `Host.Aggregator`, send all logs to Application Insights. The `Trace` log level is the same as what some loggers call `Verbose`, but use `Trace` in the [host.json](functions-host-json.md) file.
 3. For all other logs, send only `Information` level and above to Application Insights.
 
-The category value in *host.json* controls logging for all categories that begin with the same value. For example, "Host" in *host.json* controls logging for "Host.General", "Host.Executor", "Host.Results", and so forth.
+The category value in [host.json](functions-host-json.md) controls logging for all categories that begin with the same value. For example, `Host` in [host.json](functions-host-json.md) controls logging for `Host.General`, `Host.Executor`, `Host.Results`, and so forth.
 
-If *host.json* includes multiple categories that start with the same string, the longer ones are matched first. For example, suppose you want everything from the runtime except "Host.Aggregator" to log at `Error` level, but you want "Host.Aggregator" to log at the `Information` level:
+If [host.json](functions-host-json.md) includes multiple categories that start with the same string, the longer ones are matched first. For example, suppose you want everything from the runtime except `Host.Aggregator` to log at `Error` level, but you want `Host.Aggregator` to log at the `Information` level:
+
+### Version 2.x 
+
+```json
+{
+  "logging": {
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "default": "Information",
+      "Host": "Error",
+      "Function": "Error",
+      "Host.Aggregator": "Information"
+    }
+  }
+}
+```
+
+### Version 1.x 
 
 ```json
 {
@@ -280,7 +312,7 @@ Logs written by your function code have category "Function" and may be any log l
 
 ## Configure the aggregator
 
-As noted in the previous section, the runtime aggregates data about function executions over a period of time. The default period is 30 seconds or 1,000 runs, whichever comes first. You can configure this setting in the *host.json* file.  Here's an example:
+As noted in the previous section, the runtime aggregates data about function executions over a period of time. The default period is 30 seconds or 1,000 runs, whichever comes first. You can configure this setting in the [host.json](functions-host-json.md) file.  Here's an example:
 
 ```json
 {
@@ -293,7 +325,24 @@ As noted in the previous section, the runtime aggregates data about function exe
 
 ## Configure sampling
 
-Application Insights has a [sampling](../application-insights/app-insights-sampling.md) feature that can protect you from producing too much telemetry data at times of peak load. When the rate of incoming telemetry exceeds a specified threshold, Application Insights starts to randomly ignore some of the incoming items. The default setting for maximum number of items per second is 5. You can configure sampling in *host.json*.  Here's an example:
+Application Insights has a [sampling](../azure-monitor/app/sampling.md) feature that can protect you from producing too much telemetry data at times of peak load. When the rate of incoming telemetry exceeds a specified threshold, Application Insights starts to randomly ignore some of the incoming items. The default setting for maximum number of items per second is 5. You can configure sampling in [host.json](functions-host-json.md).  Here's an example:
+
+### Version 2.x 
+
+```json
+{
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "maxTelemetryItemsPerSecond" : 5
+      }
+    }
+  }
+}
+```
+
+### Version 1.x 
 
 ```json
 {
@@ -306,6 +355,9 @@ Application Insights has a [sampling](../application-insights/app-insights-sampl
 }
 ```
 
+> [!NOTE]
+> [Sampling](../azure-monitor/app/sampling.md) is enabled by default. If you appear to be missing data, you may just need to adjust the sampling settings to fit your particular monitoring scenario.
+
 ## Write logs in C# functions
 
 You can write logs in your function code that appear as traces in Application Insights.
@@ -314,7 +366,7 @@ You can write logs in your function code that appear as traces in Application In
 
 Use an [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) parameter in your functions instead of a `TraceWriter` parameter. Logs created by using `TraceWriter` do go to Application Insights, but `ILogger` lets you do [structured logging](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-With an `ILogger` object you call `Log<level>` [extension methods on ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) to create logs. For example, the following code writes `Information` logs with category "Function".
+With an `ILogger` object, you call `Log<level>` [extension methods on ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) to create logs. For example, the following code writes `Information` logs with category "Function".
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -358,7 +410,7 @@ Here's a sample JSON representation of `customDimensions` data:
 In C# script functions, you can use the `LogMetric` extension method on `ILogger` to create custom metrics in Application Insights. Here's a sample method call:
 
 ```csharp
-logger.LogMetric("TestMetric", 1234); 
+logger.LogMetric("TestMetric", 1234);
 ```
 
 This code is an alternative to calling `TrackMetric` using [the Application Insights API for .NET](#custom-telemetry-in-c-functions).
@@ -373,19 +425,89 @@ context.log('JavaScript HTTP trigger function processed a request.' + context.in
 
 ### Logging custom metrics  
 
-In Node.js functions, you can use the `context.log.metric` method to create custom metrics in Application Insights. Here's a sample method call:
+When running on [version 1.x](functions-versions.md#creating-1x-apps) of the Functions runtime, Node.js functions can use the `context.log.metric` method to create custom metrics in Application Insights. This method is not currently supported in version 2.x. Here's a sample method call:
 
 ```javascript
-context.log.metric("TestMetric", 1234); 
+context.log.metric("TestMetric", 1234);
 ```
 
 This code is an alternative to calling `trackMetric` using [the Node.js SDK for Application Insights](#custom-telemetry-in-javascript-functions).
 
 ## Custom telemetry in C# functions
 
-You can use the [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) NuGet package to send custom telemetry data to Application Insights.
+You can use the [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) NuGet package to send custom telemetry data to Application Insights. The following C# example uses the [custom telemetry API](../azure-monitor/app/api-custom-events-metrics.md). The example is for a .NET class library, but the Application Insights code is the same for C# script.
 
-Here's an example of C# code that uses the [custom telemetry API](../application-insights/app-insights-api-custom-events-metrics.md). The example is for a .NET class library, but the Application Insights code is the same for C# script.
+### Version 2.x
+
+The version 2.x runtime uses newer features in Application Insights to automatically correlate telemetry with the current operation. There is no need to manually set the operation `Id`, `ParentId`, or `Name`.
+
+```cs
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Extensions.Logging;
+
+namespace functionapp0915
+{
+    public static class HttpTrigger2
+    {
+        // In Functions v2, TelemetryConfiguration.Active is initialized with the InstrumentationKey
+        // from APPINSIGHTS_INSTRUMENTATIONKEY. Creating a default TelemetryClient like this will 
+        // automatically use that key for all telemetry. It will also enable telemetry correlation
+        // with the current operation.
+        // If you require a custom TelemetryConfiguration, create it initially with
+        // TelemetryConfiguration.CreateDefault() to include this automatic correlation.
+        private static TelemetryClient telemetryClient = new TelemetryClient();
+
+        [FunctionName("HttpTrigger2")]
+        public static Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)]
+            HttpRequest req, ExecutionContext context, ILogger log)
+        {
+            log.LogInformation("C# HTTP trigger function processed a request.");
+            DateTime start = DateTime.UtcNow;
+
+            // parse query parameter
+            string name = req.Query
+                .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
+                .Value;
+
+            // Track an Event
+            var evt = new EventTelemetry("Function called");
+            evt.Context.User.Id = name;
+            telemetryClient.TrackEvent(evt);
+
+            // Track a Metric
+            var metric = new MetricTelemetry("Test Metric", DateTime.Now.Millisecond);
+            metric.Context.User.Id = name;
+            telemetryClient.TrackMetric(metric);
+
+            // Track a Dependency
+            var dependency = new DependencyTelemetry
+            {
+                Name = "GET api/planets/1/",
+                Target = "swapi.co",
+                Data = "https://swapi.co/api/planets/1/",
+                Timestamp = start,
+                Duration = DateTime.UtcNow - start,
+                Success = true
+            };
+            dependency.Context.User.Id = name;
+            telemetryClient.TrackDependency(dependency);
+
+            return Task.FromResult<IActionResult>(new OkResult());
+        }
+    }
+}
+```
+
+### Version 1.x
 
 ```cs
 using System;
@@ -454,7 +576,7 @@ namespace functionapp0915
             telemetryClient.TrackDependency(dependency);
         }
         
-        // This correllates all telemetry with the current Function invocation
+        // This correlates all telemetry with the current Function invocation
         private static void UpdateTelemetryContext(TelemetryContext context, ExecutionContext functionContext, string userName)
         {
             context.Operation.Id = functionContext.InvocationId.ToString();
@@ -468,7 +590,7 @@ namespace functionapp0915
 
 Don't call `TrackRequest` or `StartOperation<RequestTelemetry>`, because you'll see duplicate requests for a function invocation.  The Functions runtime automatically tracks requests.
 
-Don't set `telemetryClient.Context.Operation.Id`. This is a global setting and will cause incorrect correllation when many functions are running simultaneously. Instead, create a new telemetry instance (`DependencyTelemetry`, `EventTelemetry`) and modify its `Context` property. Then pass in the telemetry instance to the corresponding `Track` method on `TelemetryClient` (`TrackDependency()`, `TrackEvent()`). This ensures that the telemetry has the correct correllation details for the current function invocation.
+Don't set `telemetryClient.Context.Operation.Id`. This is a global setting and will cause incorrect correlation when many functions are running simultaneously. Instead, create a new telemetry instance (`DependencyTelemetry`, `EventTelemetry`) and modify its `Context` property. Then pass in the telemetry instance to the corresponding `Track` method on `TelemetryClient` (`TrackDependency()`, `TrackEvent()`). This ensures that the telemetry has the correct correlation details for the current function invocation.
 
 ## Custom telemetry in JavaScript functions
 
@@ -493,7 +615,7 @@ module.exports = function (context, req) {
 };
 ```
 
-The `tagOverrides` parameter sets `operation_Id` to the function's invocation ID. This setting enables you to correlate all of the automatically-generated and custom telemetry for a given function invocation.
+The `tagOverrides` parameter sets `operation_Id` to the function's invocation ID. This setting enables you to correlate all of the automatically generated and custom telemetry for a given function invocation.
 
 ## Known issues
 
@@ -529,23 +651,23 @@ You can stream log files to a command-line session on a local workstation using 
 
 For the Azure CLI,  use the following commands to sign in, choose your subscription, and stream log files:
 
-```
+```azurecli
 az login
 az account list
-az account set <subscriptionNameOrId>
+az account set --subscription <subscriptionNameOrId>
 az webapp log tail --resource-group <resource group name> --name <function app name>
 ```
 
 For Azure PowerShell, use the following commands to add your Azure account, choose your subscription, and stream log files:
 
-```
-PS C:\> Add-AzureAccount
-PS C:\> Get-AzureSubscription
-PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-AzureSubscription
-PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
+```powershell
+Add-AzAccount
+Get-AzSubscription
+Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscription
+Get-AzWebSiteLog -Name <function app name> -Tail
 ```
 
-For more information, see [How to stream logs](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
+For more information, see [How to stream logs](../app-service/troubleshoot-diagnostic-logs.md#streamlogs).
 
 ### Viewing log files locally
 

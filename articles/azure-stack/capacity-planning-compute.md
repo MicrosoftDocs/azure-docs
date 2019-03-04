@@ -13,23 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
+ms.lastreviewed: 09/18/2018
 ms.custom: mvc
 
 ---
 
 # Azure Stack compute capacity planning
-The [VM sizes supported on Azure Stack](.\user\azure-stack-vm-sizes.md) are a subset of those supported on Azure. Azure imposes resource limits along many vectors to avoid overconsumption of resources (server local and service-level). Without imposing some limits on tenant consumption, the tenant experiences will suffer when other tenants overconsume resources. For networking egress from the VM, there are bandwidth caps in place on Azure Stack that match Azure limitations. For storage resources, storage IOPs limits have been implemented on Azure Stack to avoid basic overconsumption of resources by tenants for storage access.  
+The [VM sizes supported on Azure Stack](./user/azure-stack-vm-sizes.md) are a subset of those supported on Azure. Azure imposes resource limits along many vectors to avoid overconsumption of resources (server local and service-level). Without imposing some limits on tenant consumption, the tenant experiences will suffer when other tenants overconsume resources. For networking egress from the VM, there are bandwidth caps in place on Azure Stack that match Azure limitations. For storage resources, storage IOPs limits have been implemented on Azure Stack to avoid basic overconsumption of resources by tenants for storage access.  
 
 ## VM placement and virtual to physical core overprovisioning
 In Azure Stack, there is no way for a tenant to specify a specific server to use for VM placement. The only consideration when placing VMs is whether there is enough memory on the host for that VM type. Azure Stack does not overcommit memory; however, an overcommit of the number of cores is allowed. Since placement algorithms do not look at the existing virtual to physical core overprovisioning ratio as a factor, each host could have a different ratio. 
 
-In Azure, to achieve high availability of a multi-VM production system, VMs are placed in an availability set to be spread across multiple fault domains. This would mean that VMs placed in an availability set are physically isolated from each other at a rack to allow for failure resiliency as shown in the following diagram:
-
-![Fault and update domains](media\azure-stack-capacity-planning\domains.png)
-
+In Azure, to achieve high availability of a multi-VM production system, VMs are placed in an availability set to be spread across multiple fault domains. In Azure Stack, a fault domain in an availability set is defined as a single node in the scale unit.
 
 While the infrastructure of Azure Stack is resilient to failures, the underlying technology (failover clustering) still incurs some downtime for VMs on an impacted physical server in the event of a hardware failure. Currently, Azure Stack supports having an availability set with a maximum of three fault domains to be consistent with Azure. VMs placed in an availability set will be physically isolated from each other by spreading them as evenly as possible over multiple fault domains (Azure Stack nodes). If there is a hardware failure, VMs from the failed fault domain will be restarted in other nodes, but, if possible, kept in separate fault domains from the other VMs in the same availability set. When the hardware comes back online, VMs will be rebalanced to maintain high availability.
 
@@ -42,7 +40,7 @@ If a server fails, VMs hosted on the failed server will be restarted on remainin
 
 The following calculation results in the total, available memory that can be used for tenant VM placement. This memory capacity is for the entirety of the Azure Stack Scale Unit.
 
-  Available Memory for VM placement = Total Server Memory – Resiliency Reserve – Azure Stack Infrastructure Overhead <sup>1</sup>
+  Available Memory for VM placement = Total Server Memory – Resiliency Reserve – Memory used by running VMs - Azure Stack Infrastructure Overhead <sup>1</sup>
 
   Resiliency reserve = H + R * (N-1) + V * (N-2)
 

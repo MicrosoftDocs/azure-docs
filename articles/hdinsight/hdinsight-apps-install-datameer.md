@@ -1,6 +1,6 @@
 ---
 title: Install published application - Datameer - Azure HDInsight 
-description: Install and use the Datameer third-party Hadoop application.
+description: Install and use the Datameer third-party Apache Hadoop application.
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -14,11 +14,11 @@ ms.author: ashish
 ---
 # Install published application - Datameer
 
-This article describes how to install and run the [Datameer](https://www.datameer.com/) published Hadoop application on Azure HDInsight. For an overview of the HDInsight application platform, and a list of available Independent Software Vendor (ISV) published applications, see [Install third-party Hadoop applications](hdinsight-apps-install-applications.md). For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
+This article describes how to install and run the [Datameer](https://www.datameer.com/) published [Apache Hadoop](https://hadoop.apache.org/) application on Azure HDInsight. For an overview of the HDInsight application platform, and a list of available Independent Software Vendor (ISV) published applications, see [Install third-party Apache Hadoop applications](hdinsight-apps-install-applications.md). For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
 
 ## About Datameer
 
-Datameer is a native application for the Hadoop platform, extending existing Azure HDInsight capabilities and providing quick integration, preparation, and analysis of structured and unstructured data. Datameer can access more than 70 sources and formats: structured, semi-structured, and unstructured. You can directly upload data, or use their unique data links to pull data on demand. Datameer’s self-service functionality and familiar spreadsheet interface reduces the complexity of Big Data technology and accelerates time to insight. The spreadsheet interface provides a simple mechanism for entering declarative formulas that are then translated to optimized Hadoop jobs. With Datameer and your business intelligence (BI) and Excel skills, you can use Hadoop in the cloud quickly. For more information, see the [Datameer documentation](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
+Datameer is a native application for the Hadoop platform, extending existing Azure HDInsight capabilities and providing quick integration, preparation, and analysis of structured and unstructured data. Datameer can access more than 70 sources and formats: structured, semi-structured, and unstructured. You can directly upload data, or use their unique data links to pull data on demand. Datameer’s self-service functionality and familiar spreadsheet interface reduces the complexity of Big Data technology and accelerates time to insight. The spreadsheet interface provides a simple mechanism for entering declarative formulas that are then translated to optimized Hadoop jobs. With Datameer and your business intelligence (BI) and Excel skills, you can use Hadoop in the cloud quickly. For more information, see the [Datameer documentation](https://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ To install this app on a new HDInsight cluster, or an existing cluster, you must
 
 ## Install the Datameer published application
 
-For step-by-step instructions on installing this and other available ISV applications, read [Install third-party Hadoop applications](hdinsight-apps-install-applications.md).
+For step-by-step instructions on installing this and other available ISV applications, read [Install third-party Apache Hadoop applications](hdinsight-apps-install-applications.md).
 
 ## Launch Datameer
 
@@ -102,7 +102,7 @@ Congratulations! You've created a visualization of your data without writing any
 
 ## Next steps
 
-* [Datameer documentation](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
+* [Datameer documentation](https://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
 * [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md): Learn how to deploy an unpublished HDInsight application to HDInsight.
 * [Publish HDInsight applications](hdinsight-apps-publish-applications.md): Learn how to publish your custom HDInsight applications to Azure Marketplace.
 * [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx): Learn how to define HDInsight applications.

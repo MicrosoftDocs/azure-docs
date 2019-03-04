@@ -1,12 +1,11 @@
 ---
 title: Set up disaster recovery for on-premises Hyper-V VMs (without VMM) to Azure with Azure Site Recovery  | Microsoft Docs
 description: Learn how to set up disaster recovery of on-premises Hyper-V VMs (without VMM) to Azure with the Azure Site Recovery service.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 12/28/2018
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -77,8 +76,24 @@ Run the Provider setup file (AzureSiteRecoveryProvider.exe) on each Hyper-V host
 5. In **Proxy Settings**, select **Connect directly to Azure Site Recovery without a proxy**.
 6. In **Registration**, After the server is registered in the vault, click **Finish**.
 
-Metadata from the Hyper-V server is retrieved by Azure Site Recovery, and the server is displayed in **Site Recovery Infrastructure** > **Hyper-V Hosts**. This process can take up to 30 minutes.
+Metadata from the Hyper-V server is retrieved by Azure Site Recovery, and the server is displayed in **Site Recovery Infrastructure** > **Hyper-V Hosts**. This process can take up to 30 minutes.        
 
+In case you are using a Hyper-V core server, follow the below steps once you download the provider & vault credentials as mentioned [here](#set-up-the-source-environment)
+
+1. Extract the files from AzureSiteRecoveryProvider.exe by running
+
+    ``AzureSiteRecoveryProvider.exe /x:. /q``
+ 
+    This will extract the files to the local directory.
+ 
+2.	Run ``.\setupdr.exe /i ``
+
+    Results will be logged to %Programdata%\ASRLogs\DRASetupWizard.log
+
+3.	Register the server using the command:
+
+``cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved" ``
+ 
 
 ## Set up the target environment
 

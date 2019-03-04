@@ -1,5 +1,5 @@
 ---
-title: Azure Data Box Gateway troubleshoot | Micruse the Azure portal to tosoft Docs 
+title: Use the Azure portal to troubleshoot Azure Data Box Gateway | Microsoft Docs 
 description: Describes how to troubleshoot Azure Data Box Gateway issues.
 services: databox
 author: alkohli
@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 02/26/2019
 ms.author: alkohli
 ---
 # Troubleshoot your Azure Data Box Gateway issues 
@@ -98,6 +98,8 @@ Any errors experienced during the upload and refresh processes are included in t
     |    2006            |    ERROR_CLOUD_ACCOUNT_DISABLED                            |    Couldn't upload data to the account as the account or share is disabled.                                                                                                                                                            |
     |    2007            |    ERROR_CLOUD_ACCOUNT_PERMISSIONS                         |    Couldn't connect to the container because the account permissions are either wrong or out of date. Check your access.                                                                                                               |
     |    2008            |    ERROR_CLOUD_CONTAINER_SIZE_LIMIT_REACHED                |    Couldn't add new data as the container is full. Check the Azure specifications for supported container sizes based on type. For example, Azure File only supports a maximum file size of 5 TB.                                     |
+    |    2009            |    ERROR_CLOUD_CONTAINER_MISSING                |     Couldn't upload data because the container associated with the share doesn't exist.                                     |    
+    |    2997            |    ERROR_ITEM_CANCELED                                     |    An unexpected error occurred. This is a transient error that will resolve itself.                                                                           |
     |    2998            |    ERROR_UNMAPPED_FAILURE                                  |    An unexpected error occurred. The error may resolve itself but if it persists for more than 24 hours, contact Microsoft Support.                                                                                                     |
     |    16000           |    RefreshException                                        |    Couldn't bring down this file.                                                                                                                                                                                                        |
     |    16001           |    RefreshAlreadyExistsException                           |    Couldn't bring down this file since it already exists on your local system.                                                                                                                                                         |

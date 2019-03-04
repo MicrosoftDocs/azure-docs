@@ -2,26 +2,24 @@
 title: Release notes for Azure HDInsight 
 description: Latest release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, R Server, Hive and more.
 services: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-author: jasonwhowell
-
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/01/2018
-ms.author: jasonh
-
+ms.date: 01/02/2019
 ---
 # Release notes for Azure HDInsight
 
 This article provides information about the **most recent** Azure HDInsight release updates. For information on earlier releases, see [HDInsight Release Notes Archive](hdinsight-release-notes-archive.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
 
 ## Summary
 
-Azure HDInsight is one of the most popular services among enterprise customers for open-source Hadoop and Spark analytics on Azure. With the [plus 50 percent price cut on HDInsight](https://azure.microsoft.com/blog/azure-hdinsight-announcements-significant-price-reduction-and-amazing-new-capabilities/#_blank), customers moving to the cloud are reaping more savings than ever.
+Azure HDInsight is one of the most popular services among enterprise customers for open-source Apache Hadoop and Apache Spark analytics on Azure. With the [plus 50 percent price cut on HDInsight](https://azure.microsoft.com/blog/azure-hdinsight-announcements-significant-price-reduction-and-amazing-new-capabilities/#_blank), customers moving to the cloud are reaping more savings than ever.
 
 ## New features
 
@@ -29,9 +27,9 @@ The new updates and capabilities fall in to the following categories:
 
 1.  ***Update Hadoop and other open-source projects*** – In addition to 1000+ bug fixes across 20+ open-source projects, this update contains a new version of **Spark (2.3)** and **Kafka (1.0)**.
 
-    a.  [**New features in Spark 2.3**](https://spark.apache.org/releases/spark-release-2-3-0.html)
+    a.  [**New features in Apache Spark 2.3**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
-    b.  [**New features in Kafka 1.0**](https://www.apache.org/dist/kafka/1.0.0/RELEASE_NOTES.html)
+    b.  [**New features in Apache Kafka 1.0**](https://kafka.apache.org/downloads#1.0.0)
 
 2.  ***Update R Server 9.1 to Machine Learning Services 9.3*** – With this release, we are providing data scientists and engineers with the best of open source enhanced with algorithmic innovations and ease of operationalization, all available in their preferred language with the speed of Apache Spark. This release expands upon the capabilities offered in R Server with added support for Python, leading to the cluster name change from R Server to ML Services. 
 
@@ -1296,14 +1294,25 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 
 |**Apache Component**|**Apache JIRA**|**Summary**|**Details**|
 |--|--|--|--|
-|**Spark 2.3** |**N/A** |**Changes as documented in the Apache Spark release notes** |- There is a "Deprecation" document and a "Change of behavior" guide, https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />- For SQL part, there is another detailed "Migration" guide (from 2.2 to 2.3), http://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
+|**Spark 2.3** |**N/A** |**Changes as documented in the Apache Spark release notes** |- There is a "Deprecation" document and a "Change of behavior" guide, https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />- For SQL part, there is another detailed "Migration" guide (from 2.2 to 2.3), https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
 |Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Spark job completes successfully but there is an HDFS disk quota full error |**Scenario:** Running **insert overwrite** when a quota is set on the Trash folder of the user who runs the command.<br /><br />**Previous Behavior:** The job succeeds even though it fails to move the data to the Trash. The result can wrongly contain some of the data previously present in the table.<br /><br />**New Behavior:** When the move to the Trash folder fails, the files are permanently deleted.|
-|**Kafka 1.0**|**N/A**|**Changes as documented in the Apache Spark release notes** |http://kafka.apache.org/10/documentation.html#upgrade_100_notable|
+|**Kafka 1.0**|**N/A**|**Changes as documented in the Apache Spark release notes** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
 |**Hive/ Ranger** | |Additional ranger hive policies required for INSERT OVERWRITE |**Scenario:** Additional ranger hive policies required for **INSERT OVERWRITE**<br /><br />**Previous behavior:** Hive **INSERT OVERWRITE** queries succeed as usual.<br /><br />**New behavior:** Hive **INSERT OVERWRITE** queries are unexpectedly failing after upgrading to HDP-2.6.x with the error:<br /><br />Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user jdoe does not have WRITE privilege on /tmp/\*(state=42000,code=40000)<br /><br />As of HDP-2.6.0, Hive **INSERT OVERWRITE** queries require a Ranger URI policy to allow write operations, even if the user has write privilege granted through HDFS policy.<br /><br />**Workaround/Expected Customer Action:**<br /><br />1. Create a new policy under the Hive repository.<br />2. In the dropdown where you see Database, select URI.<br />3. Update the path (Example: /tmp/*)<br />4. Add the users and group and save.<br />5. Retry the insert query.|
 |**HDFS**|**N/A** |HDFS should support for multiple KMS Uris |**Previous Behavior:** dfs.encryption.key.provider.uri property was used to configure the KMS provider path.<br /><br />**New Behavior:** dfs.encryption.key.provider.uri is now deprecated in favor of hadoop.security.key.provider.path to configure the KMS provider path.|
 |**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Option for disabling scheduler |**Component Affected:** Zeppelin-Server<br /><br />**Previous Behavior:** In previous releases of Zeppelin, there was no option for disabling scheduler.<br /><br />**New Behavior:** By default, users will no longer see scheduler, as it is disabled by default.<br /><br />**Workaround/Expected Customer Action:** If you want to enable scheduler, you will need to add azeppelin.notebook.cron.enable with value of true under custom zeppelin site in Zeppelin settings from Ambari.|
 
 ## Known issues
+
+-   **HDInsight integration with ADLS Gen 2** 
+   There are two issues on HDInsight ESP clusters using Azure Data Lake Storage Gen 2 with user directories and permissions:
+   
+   1. Home directories for users are not getting created on Head Node 1. As a workaround, create the directories manually and change ownership to the respective user’s UPN.
+   
+   2. Permissions on /hdp directory is currently not set to 751. This needs to be set to 
+      ```bash
+      chmod 751 /hdp 
+      chmod –R 755 /hdp/apps
+      ```
 
 -   **Spark 2.3**
 
@@ -1326,9 +1335,9 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 
     -   [RANGER-1607](https://issues.apache.org/jira/browse/RANGER-1607): Workaround for Ranger service check failure while upgrading to HDP 2.6.2 from previous HDP versions.
 
-        >[!NOTE]
-        >Only when Ranger is SSL enabled. 
-    
+        > [!NOTE]  
+        > Only when Ranger is SSL enabled. 
+     
     This issue arises when attempting to upgrade to HDP-2.6.1 from previous HDP versions through Ambari. Ambari uses a curl call to do a service check to Ranger service in Ambari. If the JDK version used by Ambari is JDK-1.7, the curl call will fail with the below error:
     
     `curl: (35) error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure`
@@ -1349,7 +1358,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
             
             SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
     
-    >[!NOTE]
+    >[!NOTE]  
     >The noted values are working examples and may not be indicative of your environment. Ensure that the way you set these properties matches how your environment is configured.   
 
 -   **RangerUI: Escape of policy condition text entered in the policy form**
@@ -1406,9 +1415,15 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
             
             After removing the above line, the Ranger UI will allow you to create policies with policy condition that can contain special characters and policy evaluation will be successful for the same policy.
 
+**HDInsight Integration with ADLS Gen 2: User directories and permissions issue with ESP clusters**
+    1.	Home directories for users are not getting created on Head Node 1. Workaround is to create these manually and change ownership  to the respective user’s UPN.
+    2.	Permissions on /hdp is currently not set to 751. This needs to be set to 
+    a.	chmod 751 /hdp 
+    b.	chmod –R 755 /hdp/apps
+
 ## Deprecation
 
--   **OMS Portal:** We have removed the link from HDInsight resource page that was pointing to OMS portal. Log Analytics initially used its own portal called the OMS portal to manage its configuration and analyze collected data. All functionality from this portal has been moved to the Azure portal where it will continue to be developed. HDInsight has deprecated the support for OMS portal. Customers will use HDInsight Log Analytics integration in Azure portal.
+-   **OMS Portal:** We have removed the link from HDInsight resource page that was pointing to OMS portal. Azure Monitor logs initially used its own portal called the OMS portal to manage its configuration and analyze collected data. All functionality from this portal has been moved to the Azure portal where it will continue to be developed. HDInsight has deprecated the support for OMS portal. Customers will use HDInsight Azure Monitor logs integration in Azure portal.
 
 -   **Spark 2.3**
 

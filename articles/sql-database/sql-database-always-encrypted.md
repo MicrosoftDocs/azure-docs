@@ -12,7 +12,7 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: 
 manager: craigg
-ms.date: 10/05/2018
+ms.date: 11/07/2018
 ---
 # Always Encrypted: Protect sensitive data and store encryption keys in the Windows certificate store
 
@@ -41,7 +41,7 @@ For this tutorial, you'll need:
 ## Create a blank SQL database
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Click **Create a resource** > **Data + Storage** > **SQL Database**.
-3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed instructions about creating a database in the Azure portal, see [Your first Azure SQL database](sql-database-get-started-portal.md).
+3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed instructions about creating a database in the Azure portal, see [Your first Azure SQL database](sql-database-single-database-get-started.md).
    
     ![Create a blank database](./media/sql-database-always-encrypted/create-database.png)
 
@@ -508,5 +508,5 @@ After you create a database that uses Always Encrypted, you may want to do the f
 * [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx)
 * [SQL Server Encryption](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Always Encrypted Wizard](https://msdn.microsoft.com/library/mt459280.aspx)
-* [Always Encrypted Blog](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+* [Always Encrypted Blog](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 

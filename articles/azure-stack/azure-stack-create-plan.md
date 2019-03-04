@@ -13,9 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 01/09/2019
 ms.author: sethm
-ms.reviewer:
+ms.reviewer: efemmano
+ms.lastreviewed: 01/09/2019
 
 ---
 # Create a plan in Azure Stack
@@ -24,13 +25,13 @@ ms.reviewer:
 
 [Plans](azure-stack-key-features.md) are groupings of one or more services. As a provider, you can create plans to offer to your users. In turn, your users subscribe to your offers to use the plans and services they include. This example shows you how to create a plan that includes the compute, network, and storage resource providers. This plan gives subscribers the ability to provision virtual machines.
 
-1. Sign in to the Azure Stack administrator portal (https://adminportal.local.azurestack.external).
+1. Sign in to the [Azure Stack administrator portal](https://adminportal.local.azurestack.external).
 
-2. To create a plan and offer that users can subscribe to, select **+ Create a resource** > **Offers + Plans** > **Plan**.
+2. To create a plan and offer that users can subscribe to, select **+ Create a resource**, then **Offers + Plans**, then **Plan**.
   
    ![Select a plan](media/azure-stack-create-plan/select-plan.png)
 
-3. Under **New plan**, enter a **Display name** and a **Resource name**. The Display name is the plan's friendly name that users can see. Only the admin can see the Resource name, which admins use to work with the plan as an Azure Resource Manager resource.
+3. Under **New plan**, enter a **Display name** and a **Resource name**. The display name is the plan's friendly name that users can see. Only the admin can see the resource name, which admins use to work with the plan as an Azure Resource Manager resource.
 
    ![Specify details](media/azure-stack-create-plan/plan-name.png)
 
@@ -68,4 +69,4 @@ ms.reviewer:
 
 ## Next steps
 
-[Create an offer](azure-stack-create-offer.md)
+* [Create an offer](azure-stack-create-offer.md)

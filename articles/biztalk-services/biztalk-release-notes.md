@@ -43,7 +43,8 @@ The release notes for the Microsoft Azure BizTalk Services contain the known iss
 * For the send-side agreement, you can now specify different delimiter sets for each schema. This configuration is specified under protocol settings for send side agreement. For more information, see [Create an X12 Agreement in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx) and [Create an EDIFACT Agreement in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/dn606267.aspx). Two new entities are also added to the TPM OM API for the same purpose. See [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) and [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
 * Standard XSD constructs, including Derived Types, are now supported. See [Use standard XSD constructs in your maps](https://msdn.microsoft.com/library/azure/dn793987.aspx) and [Use Derived Types in Mapping Scenarios and Examples](https://msdn.microsoft.com/library/azure/dn793997.aspx).  
 * AS2 supports new MIC algorithms for message signing and new encryption algorithms. See [Create an AS2 Agreement in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689890.aspx).  
-  ## Know Issues
+
+## Known Issues
 
 ### Connectivity Issues after BizTalk Services Portal Update
   If you have the BizTalk Services Portal open while BizTalk Services is upgraded to roll in changes to the service, you might face connectivity issues with the BizTalk Services Portal.  
@@ -83,7 +84,7 @@ Tracking events are captured up to the EDI message processing and any correlatio
 The X12 Receive and Send settings ([Create an X12 Agreement in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx)) provide information on the Protocol stage.  
 
 ### Update Agreement
-The BizTalk Services Portal allows you to modify the Qualifier of an Identity when an agreement is configured. This can result in inconsistence properties. For example, there is an agreement using ZZ:1234567 and ZZ:7654321 the Qualifier. In the BizTalk Services Portal profile settings, you change ZZ:1234567 to be 01:ChangedValue. You open the agreement and 01:ChangedValue is displayed instead of ZZ:1234567.
+The BizTalk Services Portal allows you to modify the Qualifier of an Identity when an agreement is configured. This can result in inconsistent properties. For example, there is an agreement using ZZ:1234567 and ZZ:7654321 the Qualifier. In the BizTalk Services Portal profile settings, you change ZZ:1234567 to be 01:ChangedValue. You open the agreement and 01:ChangedValue is displayed instead of ZZ:1234567.
 To modify the Qualifier of an identity, delete the agreement, update **Identities** in the partner profile and then recreate the agreement.  
 
 > AZURE.WARNING This behavior impacts X12 and AS2.  
@@ -185,7 +186,7 @@ Consider a scenario where you use name-based behaviors to identify certificates 
 
 ### Bridges continue to process messages even when the SQL database is offline
 The BizTalk Services bridges continue to process messages for a while, even if the Microsoft Azure SQL Database (which stores the running information like deployed artifacts and pipelines), is offline. This is because BizTalk Services uses the cached artifacts and bridge configuration.
-If you do not want the bridges to process any messages when the SQL Database is offline, you can use the BizTalk Services PowerShell cmdlets to stop or suspend the BizTalk Service. See [Azure BizTalk Service Management Sample](http://go.microsoft.com/fwlink/p/?LinkID=329019) for the Windows PowerShell cmdlets to manage operations.  
+If you do not want the bridges to process any messages when the SQL Database is offline, you can use the BizTalk Services PowerShell cmdlets to stop or suspend the BizTalk Service. See [Azure BizTalk Service Management Sample](https://go.microsoft.com/fwlink/p/?LinkID=329019) for the Windows PowerShell cmdlets to manage operations.  
 
 ### Reading the XML message within a bridge’s custom code component includes an extra BOM character
 Consider a scenario where you want to read an XML message within a bridge’s custom code. If you use the .NET API System.Text.Encoding.UTF8.GetString(bytes) an extra BOM character is included in the output at the beginning of the message. So, if you do not want the output to include the extra BOM character, you must use ```System.IO.StreamReader().ReadToEnd()```.
