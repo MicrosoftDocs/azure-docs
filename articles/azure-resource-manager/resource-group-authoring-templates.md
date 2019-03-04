@@ -482,20 +482,6 @@ You define resources with the following structure:
 | plan | No | Some resources allow values that define the plan to deploy. For example, you can specify the marketplace image for a virtual machine. | 
 | resources |No |Child resources that depend on the resource being defined. Only provide resource types that are permitted by the schema of the parent resource. The fully qualified type of the child resource includes the parent resource type, such as **Microsoft.Web/sites/extensions**. Dependency on the parent resource isn't implied. You must explicitly define that dependency. |
 
-```json
-"resources": [
-  {
-    "apiVersion": "2016-08-01",
-    "name": "[variables('webSiteName')]",
-    "type": "Microsoft.Web/sites",
-    "location": "[resourceGroup().location]",
-    "properties": {
-      "serverFarmId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Web/serverFarms/<plan-name>"
-    }
-  }
-],
-```
-
 ### Condition
 
 When you must decide during deployment whether or not to create a resource, use the `condition` element. The value for this element resolves to true or false. When the value is true, the resource is created. When the value is false, the resource isn't created. The value can only be applied to the whole resource.
