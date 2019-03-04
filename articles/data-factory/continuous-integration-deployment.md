@@ -845,7 +845,7 @@ else {
 
 If you are in GIT mode, you can override the default properties in your Resource Manager template to set properties that are parameterized in the template and properties that are hard-coded. You might want to override the default parameterization template in these scenarios:
 
-* You use automated CI/CD, you want to change some properties during Resource Manager deployment, but the properties aren't parameterized by default.
+* You use automated CI/CD and you want to change some properties during Resource Manager deployment, but the properties aren't parameterized by default.
 * Your factory is so large that the default Resource Manager template is invalid because it has more than the maximum allowed parameters (256).
 
 Under these conditions, to override the default parameterization template, create a file named *arm-template-parameters-definition.json* in the root folder of the repository. The file name must exactly match. Data Factory tries to read this file from whichever branch you are currently on in the Azure Data Factory portal, not just from the collaboration branch. You can create or edit the file from a private branch, where you can test your changes by using the **Export ARM template** in the UI. Then, you can merge the file into the collaboration branch. If no file is found, the default template is used.
@@ -854,18 +854,18 @@ Under these conditions, to override the default parameterization template, creat
 ### Syntax of a custom parameters file
 
 Here are some guidelines to use when you author the custom parameters file. The file consists of a section for each entity type: trigger, pipeline, linkedservice, dataset, integrationruntime, and so on.
-1. Enter the property path under the relevant entity type.
-2. When you set a property name to '\*'', you indicate that you want to parameterize all properties under it (only down to the first level, not recursively). You can also provide any exceptions to this.
-3. When you set the value of a property as a string, you indicate that you want to parameterize the property. Use the format `<action>:<name>:<stype>`.
+* Enter the property path under the relevant entity type.
+* When you set a property name to '\*'', you indicate that you want to parameterize all properties under it (only down to the first level, not recursively). You can also provide any exceptions to this.
+* When you set the value of a property as a string, you indicate that you want to parameterize the property. Use the format `<action>:<name>:<stype>`.
    *  `<action>` can be one of the following characters:
       * `=` means keep the current value as the default value for the parameter.
       * `-` means do not keep the default value for the parameter.
       * `|` is a special case for secrets from Azure Key Vault for connection strings or keys.
    * `<name>` is the name of the parameter. If it is blank, it takes the name of the property. If the value starts with a `-` character, the name is shortened. For example, `AzureStorage1_properties_typeProperties_connectionString` would be shortened to `AzureStorage1_connectionString`.
    * `<stype>` is the type of parameter. If `<stype>` is blank, the default type is `string`. Supported values: `string`, `bool`, `number`, `object`, and `securestring`.
-4. When you specify an array in the definition file, you indicate that the matching property in the template is an array. Data Factory iterates through all the objects in the array by using the definition that's specified in the Integration Runtime object of the array. The second object, a string, becomes the name of the property, which is used as the name for the parameter for each iteration.
-5. It's not possible to have a definition that's specific for a resource instance. Any definition applies to all resources of that type.
-6. By default, all secure strings, such as Key Vault secrets, and secure strings, such as connection strings, keys, and tokens, are parameterized.
+* When you specify an array in the definition file, you indicate that the matching property in the template is an array. Data Factory iterates through all the objects in the array by using the definition that's specified in the Integration Runtime object of the array. The second object, a string, becomes the name of the property, which is used as the name for the parameter for each iteration.
+* It's not possible to have a definition that's specific for a resource instance. Any definition applies to all resources of that type.
+* By default, all secure strings, such as Key Vault secrets, and secure strings, such as connection strings, keys, and tokens, are parameterized.
  
 ## Sample parameterization template
 
@@ -949,13 +949,13 @@ Here are some guidelines to use when you author the custom parameters file. The 
 
 * Linked services is unique. Because linked services and datasets can potentially be of several types, you can provide type-specific customization. For example, you might say that for all linked services of type `AzureDataLakeStore`, a specific template will be applied, and for all others (via \*) a different template will be applied.
 * In the preceding example, the `connectionString` property will be parameterized as a `securestring` value, it won't have a default value, and it will have a shortened parameter name that's suffixed with `connectionString`.
-* The property `secretAccessKey`, however, happens to be an `AzureKeyVaultSecret` (for instance, an `AmazonS3` linked service). Thus, it is automatically parameterized as an Azure KeyVault secret, and it's fetched from the key vault that it's configured with in the source factory. You can also parameterize the key vault, itself.
+* The property `secretAccessKey`, however, happens to be an `AzureKeyVaultSecret` (for instance, an `AmazonS3` linked service). Thus, it is automatically parameterized as an Azure Key Vault secret, and it's fetched from the key vault that it's configured with in the source factory. You can also parameterize the key vault, itself.
 
 #### Datasets
 
-* Even though type-specific customization is available for datasets, configuration can be provided without explicitly having a \*-level configuration. So, in the preceding example, all dataset properties under `typeProperties` are parameterized.
+* Even though type-specific customization is available for datasets, configuration can be provided without explicitly having a \*-level configuration. In the preceding example, all dataset properties under `typeProperties` are parameterized.
 
-The default parameterization template can change, but as of today, this is the template. This will be useful if you just need to add one additional property as a parameter, but also if you don’t want to lose the existing ones and reauthor those that are already getting parameterized.
+The default parameterization template can change, but this is the current template. This will be useful if you just need to add one additional property as a parameter, but also if you don’t want to lose the existing parameterizations and need to re-create them.
 
 
 ```json
