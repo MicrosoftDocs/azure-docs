@@ -29,7 +29,7 @@ Authentication is one part of identity. To manage Role Based Access Control (RBA
 
 The existing AD FS is the account security token service (STS) that sends claims to the Azure Stack AD FS (the resource STS). In Azure Stack, automation creates the claims provider trust with the metadata endpoint for the existing AD FS.
 
-At the existing AD FS, a relying party trust must be configured. This step is not done by the automation, and must be configured by the operator. The Azure Stack VIP endpoint for AD FS can be created by using the pattern **https://adfs.<Region>.<ExternalFQDN>/**.
+At the existing AD FS, a relying party trust must be configured. This step is not done by the automation, and must be configured by the operator. The Azure Stack VIP endpoint for AD FS can be created by using the pattern `https://adfs.<Region>.<ExternalFQDN>/`.
 
 The relying party trust configuration also requires you to configure the claim transformation rules that are provided by Microsoft.
 
