@@ -48,8 +48,7 @@ This public preview has a number of limitations.
 - Backup and restore operations for FCI mirror databases, database snapshots and databases aren't supported.
 - Databases with large number of files can't be protected. The maximum number of files supported isn't deterministic. It not only depends on the number of files, but also depends on the path length of the files. 
 
-Please refer to [FAQ section](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq) for more details on support/not supported scenarios.
-
+Review [frequently asked questions](faq-backup-sql-server.md) about backing up SQL Server databases.
 ## Scenario support
 
 **Support** | **Details**
@@ -64,10 +63,10 @@ Please refer to [FAQ section](https://docs.microsoft.com/azure/backup/backup-azu
 
 Before you back up your SQL Server database, check the following conditions:
 
-1. Identify or [create](backup-azure-sql-database.md#create-a-recovery-services-vault) a Recovery Services vault in the same region or locale as the VM hosting the SQL Server instance.V
-2. [Check the VM permissions](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) needed to back up the SQL databases.
+1. Identify or [create](backup-azure-sql-database.md#create-a-recovery-services-vault) a Recovery Services vault in the same region or locale as the VM hosting the SQL Server instance.
+2. [Check the VM permissions](#fix-sql-sysadmin-permissions) needed to back up the SQL databases.
 3. Verify that the  VM has [network connectivity](backup-azure-sql-database.md#establish-network-connectivity).
-4. Check that the SQL Server databases are named in accordance with [naming guidelines](backup-azure-sql-database.md#sql-database-naming-guidelines-for-azure-backup) for Azure Backup.
+4. Check that the SQL Server databases are named in accordance with [naming guidelines](backup-azure-sql-database.md) for Azure Backup.
 5. Verify that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you set up this scenario. You can enable Azure Backup for an Azure VM along with Azure Backup for a SQL Server database running on the VM without any conflict.
 
 
@@ -193,7 +192,7 @@ Configure backup as follows:
 
     - Select the default policy: **HourlyLogBackup**.
     - Choose an existing backup policy previously created for SQL.
-    - [Define a new policy](backup-azure-sql-database.md#define-a-backup-policy) based on your RPO and retention range.
+    - [Define a new policy](backup-azure-sql-database.md#configure-a-backup-policy) based on your RPO and retention range.
     - During Preview, you can't edit an existing Backup policy.
     
 9. On **Backup menu**, select **Enable backup**.
@@ -322,7 +321,7 @@ If you need to fix permissions because of an **UserErrorSQLNoSysadminMembership*
 
     ![Deployment success message](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-Alternatively, you can enable [auto-protection](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) on the entire instance or Always On Availability group by selecting the **ON** option in the corresponding dropdown in the **AUTOPROTECT** column. The [auto-protection](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) feature not only enables protection on all the existing databases in one go but also automatically protects any new databases that will be added to that instance or the availability group in future.  
+Alternatively, you can enable [auto-protection](backup-azure-sql-database.md#enable-auto-protection) on the entire instance or Always On Availability group by selecting the **ON** option in the corresponding dropdown in the **AUTOPROTECT** column. The [auto-protection](backup-azure-sql-database.md#enable-auto-protection) feature not only enables protection on all the existing databases in one go but also automatically protects any new databases that will be added to that instance or the availability group in future.  
 
    ![Enable auto-protection on the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
 

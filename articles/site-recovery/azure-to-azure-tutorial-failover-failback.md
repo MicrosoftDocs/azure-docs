@@ -50,7 +50,7 @@ expected.
 
 3. Select **Shut down machine before beginning failover** if you want Site Recovery to attempt to
    do a shutdown of source virtual machines before triggering the failover. Failover continues even
-   if shutdown fails.
+   if shutdown fails. Note that Site Recovery does not clean up source after failover.
 
 4. Follow the failover progress on the **Jobs** page.
 

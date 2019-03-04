@@ -24,7 +24,7 @@ The MARS agent is used by Azure Backup to back up data from on-premises machines
 What you can back up depends on where the agent is installed.
 
 - [Learn more](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders) about backup architecture using the MARS agent.
-- [Learn more]() about MABS/DPM [backup architecture](backup-architecture.md#architecture-back-up-to-dpmmabs)and [requirements](backup-support-matrix-mabs-dpm.md).
+- Learn more about MABS/DPM [backup architecture](backup-architecture.md#architecture-back-up-to-dpmmabs)and [requirements](backup-support-matrix-mabs-dpm.md).
 
 
 ## Supported installation
@@ -32,7 +32,7 @@ What you can back up depends on where the agent is installed.
 **Install** | **Details**
 --- | ---
 **Download latest MARS agent** | You can download the latest version of the agent from the vault, or [download it directly](https://aka.ms/azurebackup_agent).
-**Install directly on a machine** | You can install the MARS agent directly on an on-premises Windows server, or Windows Azure VM running any of the [supported operating systems]().
+**Install directly on a machine** | You can install the MARS agent directly on an on-premises Windows server, or Windows Azure VM running any of the [supported operating systems](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 **Install on a backup server** | When you set up DPM or MABS to back up to Azure, you download and install the MARS agent on the server. The agent can be installed in accordance with the [supported operating systems](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) in the backup server support matrix.
 
 > [!NOTE]
@@ -143,7 +143,7 @@ Azure Backup supports "offline seeding" to transfer initial backup data to Azure
 
 ## Support for restore
 
-- The new [instant restore](/backup-instant-restore-capability.md) release of Azure Backup allows you to restore data before it's been copied to the vault.<br/><br/> To use this feature the machine being backed up must be running .NET Framework 4.5.2 or higher.
+- The new [instant restore](backup-instant-restore-capability.md) release of Azure Backup allows you to restore data before it's been copied to the vault.<br/><br/> To use this feature the machine being backed up must be running .NET Framework 4.5.2 or higher.
 - Backups can't be restored to a target machine running an earlier version of the operating system. For example, a backup taken from a Windows 7 computer can be restored on Windows 8 or later. However, a backup taken from a Windows 8 computer can't be restored to a Windows 7 computer.
 
 
