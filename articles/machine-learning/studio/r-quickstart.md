@@ -146,25 +146,25 @@ The complete code for this section is in [MachineLearningSamples-Notebooks/studi
 
 We will start by loading the **csdairydata.csv** file into Azure Machine Learning Studio.
 
-* Start your Azure Machine Learning Studio environment.
-* Select **+ NEW** at the lower left of your screen and select **Dataset**.
-* Select **From Local File**, and then **Browse** to select the file.
-* Make sure you have selected **Generic CSV file with header (.csv)** as the type for the dataset.
-* Select the check mark.
-* After the dataset has been uploaded, you should see the new dataset by selecting the **Datasets** tab.  
+1. Start your Azure Machine Learning Studio environment.
+1. Select **+ NEW** at the lower left of your screen and select **Dataset**.
+1. Select **From Local File**, and then **Browse** to select the file.
+1. Make sure you have selected **Generic CSV file with header (.csv)** as the type for the dataset.
+1. Select the check mark.
+1. After the dataset has been uploaded, you should see the new dataset by selecting the **Datasets** tab.  
 
 #### Create an experiment
 
 Now that we have some data in Machine Learning Studio, we need to create an experiment to do the analysis.  
 
-* Select **+ NEW** at the lower left and select **Experiment**, then **Blank Experiment**.
-* You can name your experiment by selecting, and modifying, the **Experiment created on ...** title at the top of the page. For example, changing it to **CA Dairy Analysis**.
-* On the left of the experiment page, expand **Saved Datasets**, and then **My Datasets**. You should see the **cadairydata.csv** that you uploaded earlier.
-* Drag and drop the **csdairydata.csv dataset** onto the experiment.
-* In the **Search experiment items** box on the top of the left pane, type [Execute R Script][execute-r-script]. You will see the module appear in the search list.
-* Drag and drop the [Execute R Script][execute-r-script] module onto your pallet.  
-* Connect the output of the **csdairydata.csv dataset** to the leftmost input (**Dataset1**) of the [Execute R Script][execute-r-script].
-* **Don't forget to select 'Save'!**  
+1. Select **+ NEW** at the lower left and select **Experiment**, then **Blank Experiment**.
+1. You can name your experiment by selecting, and modifying, the **Experiment created on ...** title at the top of the page. For example, changing it to **CA Dairy Analysis**.
+1. On the left of the experiment page, expand **Saved Datasets**, and then **My Datasets**. You should see the **cadairydata.csv** that you uploaded earlier.
+1. Drag and drop the **csdairydata.csv dataset** onto the experiment.
+1. In the **Search experiment items** box on the top of the left pane, type [Execute R Script][execute-r-script]. You will see the module appear in the search list.
+1. Drag and drop the [Execute R Script][execute-r-script] module onto your pallet.  
+1. Connect the output of the **csdairydata.csv dataset** to the leftmost input (**Dataset1**) of the [Execute R Script][execute-r-script].
+1. **Don't forget to select 'Save'!**  
 
 At this point your experiment should look something like Figure 3.
 
