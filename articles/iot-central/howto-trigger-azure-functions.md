@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
     ![Create a new function app in the Azure Portal](media/howto-trigger-azure-functions/createfunction.png)
 
-2. Expand your function app and click the **+ button** next to Functions. If this function is the first one in your function app, select **Custom function**. This displays the complete set of function templates.
+2. Expand your function app and select the **+ button** next to Functions. If this function is the first one in your function app, select **Custom function**. This displays the complete set of function templates.
 
     ![Choose custom function in Function app](media/howto-trigger-azure-functions/customfunction.png)
 
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
     ![Select generic webhook trigger](media/howto-trigger-azure-functions/genericwebhooktrigger.png)
 
-4. In your new function, click **</> Get function URL**, then copy and save the value. You use this value to configure the webhook.
+4. In your new function, select **</> Get function URL**, then copy and save the value. You use this value to configure the webhook.
 
     ![Get the URL of the function](media/howto-trigger-azure-functions/getfunctionurl.png)
 
@@ -44,7 +44,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
     ![Enter the function URL into the callback URL field](media/howto-trigger-azure-functions/configurewebhook.PNG)
 
-6. Save the rule. Now when the rule is triggered, the webhook invokes the function app to run. In your function app, you can click **Monitor** to see the function's invocation history. You can use App Insights or the classic view to look at the history.
+6. Save the rule. Now when the rule is triggered, the webhook invokes the function app to run. In your function app, you can select **Monitor** to see the function's invocation history. You can use App Insights or the classic view to look at the history.
 
     ![Monitor the invocation history of the function](media/howto-trigger-azure-functions/monitorfunction.PNG)
 

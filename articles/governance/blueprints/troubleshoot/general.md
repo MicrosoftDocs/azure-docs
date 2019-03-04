@@ -68,10 +68,11 @@ dynamic function.
 
 #### Resolution
 
-To pass a function through as a parameter, escape the entire string with `[` such that the
-blueprint parameter looks like `[[resourceGroup().tags.myTag]`. The escape character causes
-Blueprints to treat the value as a string when processing the blueprint. Blueprints then places the
-function on the artifact allowing it to be dynamic as expected.
+To pass a function through as a parameter, escape the entire string with `[` such that the blueprint
+parameter looks like `[[resourceGroup().tags.myTag]`. The escape character causes Blueprints to
+treat the value as a string when processing the blueprint. Blueprints then places the function on
+the artifact allowing it to be dynamic as expected. For more information, see
+[Template file structure - syntax](../../../azure-resource-manager/resource-group-authoring-templates.md#syntax).
 
 ## Next steps
 

@@ -40,7 +40,7 @@ ms.lastreviewed: 12/07/2018
 
 | **Item** | **Default value** | **Description** |
 | --- | --- | --- |
-| Maximum capacity (GB) |2048 |Total storage capacity that can be consumed by a subscription in this location. |
+| Maximum capacity (GB) |2048 |Total storage capacity (including blobs and all assiociated snapshots, tables, queues) that can be consumed by a subscription in this location. |
 | Total number of storage accounts |20 |The maximum number of storage accounts that a subscription can create in this location. |
 
 > [!NOTE]  

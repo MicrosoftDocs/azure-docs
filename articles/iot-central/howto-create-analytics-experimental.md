@@ -18,7 +18,7 @@ Azure IoT Central provides rich analytics capabilities to make sense of large am
 
 ## Querying your data
 
-You'll need to choose a **device set**, add a **filter** (optional), and select a **time period** to get started. Once you're done, click on *Show results* to start visualizing your data.
+You'll need to choose a **device set**, add a **filter** (optional), and select a **time period** to get started. Once you're done, select **Show results** to start visualizing your data.
 
 * **Device sets:** A [device set](howto-use-device-sets-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) is a user-defined group of your devices. For example, all Refrigerators in Oakland, or All rev 2.0 wind turbines.
 
