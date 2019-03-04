@@ -124,7 +124,7 @@ You have now configured your notification hub with APNS, and you have the connec
      $ carthage update
      ```
 
-     For more information on using Carthage, see the [Carthage GitHub repository](https://github.com/Carthage/Carthage).
+     For more information about using Carthage, see the [Carthage GitHub repository](https://github.com/Carthage/Carthage).
 
    - Integration by copying the binaries into your project
 
