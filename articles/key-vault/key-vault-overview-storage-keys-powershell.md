@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-# Customer intent: As a developer, I want store my storage credentials in a key vault so they are autorotated and not exposed in source code or configuration files.
+# Customer intent: As a developer I want storage credentials and SAS tokens to be managed securely by Azure Key Vault.
 ---
 # Azure Key Vault managed storage account - PowerShell
 
