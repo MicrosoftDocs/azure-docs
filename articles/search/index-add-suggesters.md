@@ -55,17 +55,17 @@ A **suggester** is part of the index definition. Only one **suggester** can exis
 {
   "name": "hotels",
   "fields": [
-     . . .
-   ],
+    . . .
+  ],
   "suggesters": [
     {
-    "name": "sg",
-    "searchMode": "analyzingInfixMatching",
-    "sourceFields": ["hotelName", "category"]
+      "name": "sg",
+      "searchMode": "analyzingInfixMatching",
+      "sourceFields": ["hotelName", "category"]
     }
   ],
   "scoringProfiles": [
-     . . .
+    . . .
   ]
 }
 
