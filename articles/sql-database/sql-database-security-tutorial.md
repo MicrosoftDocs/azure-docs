@@ -84,7 +84,7 @@ You can now connect to any database in the server with the specified IP address 
 
 ### Setup database firewall rules
 
-Database-level firewall rules only apply to individual databases. These rules are portable and will follow the database during a server failover. Database-level firewall rules can only be configured using Transact-SQL (T-SQL) statements, and only after you've configured a server-level firewall rule.
+Database-level firewall rules only apply to individual databases. The database will retain these rules during a server failover. Database-level firewall rules can only be configured using Transact-SQL (T-SQL) statements, and only after you've configured a server-level firewall rule.
 
 To setup a database-level firewall rule:
 
@@ -258,7 +258,7 @@ If anomalous activities are detected, you receive an email with information on t
 
 ### Auditing
 
-The auditing feature tracks database events and writes events to an audit log in either Azure storage, log analytics, or to an event hub. Auditing helps maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate potential security violations.
+The auditing feature tracks database events and writes events to an audit log in either Azure storage, Azure Monitor logs, or to an event hub. Auditing helps maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate potential security violations.
 
 To enable auditing:
 
@@ -280,7 +280,7 @@ To enable auditing:
         - **Log Analytics**, which automatically stores events for query or further analysis
 
             > [!NOTE]
-            > A **Log analytics workspace** is required to support advanced features such as analytics, custom alert rules, and Excel or Power BI exports. Without a workspace, only the query editor is available.
+            > A **Log Analytics workspace** is required to support advanced features such as analytics, custom alert rules, and Excel or Power BI exports. Without a workspace, only the query editor is available.
 
         - **Event Hub**, which allows events to be routed for use in other applications
 
