@@ -56,7 +56,7 @@
     - name: Template file structure
       href: resource-group-authoring-templates.md
     - name: Parameters
-      href: resource-manager-templates-parameters.md
+      href: resource-group-authoring-templates.md#parameters
     - name: Variables
       href: resource-group-authoring-templates.md#variables
     - name: Functions
