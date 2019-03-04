@@ -55,8 +55,8 @@ Create an Azure resource group with [New-AzResourceGroup](https://docs.microsoft
 $resourceGroup = "StreamAnalyticsRG"
 $location = "WestUS2"
 New-AzResourceGroup `
-   -Name $resourceGroup `
-   -Location $location
+    -Name $resourceGroup `
+    -Location $location
 ```
 
 ## Prepare the input data
@@ -67,43 +67,43 @@ The following Azure CLI code block does many commands to prepare the input data 
 
 1. In your PowerShell window, run the [az login](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) command to sign in to your Azure account.
 
-   When you successfully sign in, Azure CLI returns a list of your subscriptions. Copy the subscription you're using for this quickstart and run the [az account set](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription) command to select that subscription. Choose the same subscription you selected in the previous section with PowerShell. Make sure to replace `<your subscription name>` with the name of your subscription.
+    When you successfully sign in, Azure CLI returns a list of your subscriptions. Copy the subscription you're using for this quickstart and run the [az account set](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription) command to select that subscription. Choose the same subscription you selected in the previous section with PowerShell. Make sure to replace `<your subscription name>` with the name of your subscription.
 
-   ```azurecli
-   az login
+    ```azurecli
+    az login
 
-   az account set --subscription "<your subscription>"
-   ```
+    az account set --subscription "<your subscription>"
+    ```
 
 2. Create an IoT Hub using the [az iot hub create](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub) command. This example creates an IoT Hub called **MyASAIoTHub**. Because IoT Hub names are unique, you need to come up with your own IoT Hub name. Set the SKU to F1 to use the free tier if it is available with your subscription. If not, choose the next lowest tier.
 
-   ```azurecli
-   az iot hub create --name "<your IoT Hub name>" --resource-group $resourceGroup --sku S1
-   ```
+    ```azurecli
+    az iot hub create --name "<your IoT Hub name>" --resource-group $resourceGroup --sku S1
+    ```
 
-   Once the IoT hub has been created, get the IoT Hub connection string using the [az iot hub show-connection-string](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest) command. Copy the entire connection string and save it for when you add the IoT Hub as input to your Stream Analytics job.
+    Once the IoT hub has been created, get the IoT Hub connection string using the [az iot hub show-connection-string](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest) command. Copy the entire connection string and save it for when you add the IoT Hub as input to your Stream Analytics job.
 
-   ```azurecli
-   az iot hub show-connection-string --hub-name "MyASAIoTHub"
-   ```
+    ```azurecli
+    az iot hub show-connection-string --hub-name "MyASAIoTHub"
+    ```
 
 3. Add a device to IoT Hub using the [az iothub device-identity create](../iot-hub/quickstart-send-telemetry-c.md#register-a-device) command. This example creates a device called **MyASAIoTDevice**.
 
-   ```azurecli
-   az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
-   ```
+    ```azurecli
+    az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
+    ```
 
 4. Get the device connection string using the [az iot hub device-identity show-connection-string](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-show-connection-string) command. Copy the entire connection string and save it for when you create the Raspberry Pi simulator.
 
-   ```azurecli
-   az iot hub device-identity show-connection-string --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice" --output table
-   ```
+    ```azurecli
+    az iot hub device-identity show-connection-string --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice" --output table
+    ```
 
-   **Output example:**
+    **Output example:**
 
-   ```azurecli
-   HostName=MyASAIoTHub.azure-devices.net;DeviceId=MyASAIoTDevice;SharedAccessKey=a2mnUsg52+NIgYudxYYUNXI67r0JmNubmfVafojG8=
-   ```
+    ```azurecli
+    HostName=MyASAIoTHub.azure-devices.net;DeviceId=MyASAIoTDevice;SharedAccessKey=a2mnUsg52+NIgYudxYYUNXI67r0JmNubmfVafojG8=
+    ```
 
 ## Create blob storage
 
@@ -117,29 +117,29 @@ The following Azure PowerShell code block uses commands to create blob storage t
 
 4. Copy the storage key that is outputted by the code, and save that key to create the streaming job's output later on.
 
-   ```powershell
-   $storageAccountName = "myasaquickstartstorage"
-   $storageAccount = New-AzStorageAccount `
-     -ResourceGroupName $resourceGroup `
-     -Name $storageAccountName `
-     -Location $location `
-     -SkuName Standard_LRS `
-     -Kind Storage
+    ```powershell
+    $storageAccountName = "myasaquickstartstorage"
+    $storageAccount = New-AzStorageAccount `
+      -ResourceGroupName $resourceGroup `
+      -Name $storageAccountName `
+      -Location $location `
+      -SkuName Standard_LRS `
+      -Kind Storage
 
-   $ctx = $storageAccount.Context
-   $containerName = "container1"
+    $ctx = $storageAccount.Context
+    $containerName = "container1"
 
-   New-AzStorageContainer `
-     -Name $containerName `
-     -Context $ctx
+    New-AzStorageContainer `
+      -Name $containerName `
+      -Context $ctx
 
-   $storageAccountKey = (Get-AzStorageAccountKey `
-     -ResourceGroupName $resourceGroup `
-     -Name $storageAccountName).Value[0]
+    $storageAccountKey = (Get-AzStorageAccountKey `
+      -ResourceGroupName $resourceGroup `
+      -Name $storageAccountName).Value[0]
 
-   Write-Host "The <storage account key> placeholder needs to be replaced in your output json files with this key value:"
-   Write-Host $storageAccountKey -ForegroundColor Cyan
-   ```
+    Write-Host "The <storage account key> placeholder needs to be replaced in your output json files with this key value:"
+    Write-Host $storageAccountKey -ForegroundColor Cyan
+    ```
 
 ## Create a Stream Analytics job
 
@@ -147,15 +147,15 @@ Create a Stream Analytics job with [New-AzStreamAnalyticsJob](https://docs.micro
 
 ```json
 {
-   "location":"WestUS2",
-   "properties":{
-      "sku":{
-         "name":"standard"
-      },
-      "eventsOutOfOrderPolicy":"adjust",
-      "eventsOutOfOrderMaxDelayInSeconds":10,
-      "compatibilityLevel": 1.1
-   }
+  "location":"WestUS2",
+  "properties":{
+    "sku":{
+      "name":"standard"
+    },
+    "eventsOutOfOrderPolicy":"adjust",
+    "eventsOutOfOrderMaxDelayInSeconds":10,
+    "compatibilityLevel": 1.1
+  }
 }
 ```
 
@@ -233,8 +233,9 @@ On your local machine, create a file named `JobOutputDefinition.json`, and add t
                 "storageAccounts": [
                     {
                       "accountName": "asaquickstartstorage",
-		              "accountKey": "<storage account key>"
-                    }],
+                      "accountKey": "<storage account key>"
+                    }
+                ],
                 "container": "container1",
                 "pathPattern": "output/",
                 "dateFormat": "yyyy/MM/dd",
@@ -245,7 +246,7 @@ On your local machine, create a file named `JobOutputDefinition.json`, and add t
             "type": "Json",
             "properties": {
                 "encoding": "UTF8",
-			    "format": "LineSeparated"
+                "format": "LineSeparated"
             }
         }
     },
@@ -272,13 +273,13 @@ Add a transformation your job by using the [New-AzStreamAnalyticsTransformation]
 
 ```json
 {
-   "name":"MyTransformation",
-   "type":"Microsoft.StreamAnalytics/streamingjobs/transformations",
-   "properties":{
-      "streamingUnits":1,
-      "script":null,
-      "query":" SELECT * INTO BlobOutput FROM IoTHubInput HAVING Temperature > 27"
-   }
+    "name":"MyTransformation",
+    "type":"Microsoft.StreamAnalytics/streamingjobs/transformations",
+    "properties":{
+        "streamingUnits":1,
+        "script":null,
+        "query":" SELECT * INTO BlobOutput FROM IoTHubInput HAVING Temperature > 27"
+    }
 }
 ```
 
@@ -301,7 +302,7 @@ New-AzStreamAnalyticsTransformation `
 
 3. Click **Run**. The output should show the sensor data and messages that are being sent to your IoT Hub.
 
-   ![Raspberry Pi Azure IoT Online Simulator](./media/stream-analytics-quick-create-powershell/ras-pi-connection-string.png)
+    ![Raspberry Pi Azure IoT Online Simulator](./media/stream-analytics-quick-create-powershell/ras-pi-connection-string.png)
 
 ## Start the Stream Analytics job and check the output
 
