@@ -100,7 +100,7 @@ This section shows how to test connectivity from the simulated on-premises envir
 
 1. Run the `ping` command to test connectivity to the jumpbox VM in the hub VNet:
 
-   ```shell
+   ```bash
    ping 10.0.0.68
    ```
 
