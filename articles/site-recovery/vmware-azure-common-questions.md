@@ -121,7 +121,7 @@ For an ongoing replication, storage account can only be upgraded to premium. If 
 
 ### How can I change Managed Disk type after machine is protected?
 
-Yes, you can easily change the type of managed disk. [Learn more](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/convert-disk-storage).
+Yes, you can easily change the type of managed disk. [Learn more](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage).
 
 ### Why can't I replicate over VPN?
 
