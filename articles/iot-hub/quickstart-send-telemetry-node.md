@@ -1,15 +1,15 @@
 ---
 title: Send telemetry to Azure IoT Hub quickstart (Node.js) | Microsoft Docs
 description: In this quickstart, you run two sample Node.js applications to send simulated telemetry to an IoT hub and to read telemetry from the IoT hub for processing in the cloud.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: node
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
-ms.author: dobett
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
 
