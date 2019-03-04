@@ -1042,27 +1042,15 @@ featureFlags:
                                     <h3>Mixed Reality</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/spatial-anchors/">
-                                                <img src="https://azure.microsoft.com/en-us/patterns/styles/glyphs-icons/hololens.svg" alt="" />
+                                            <a href="/azure/digital-twins/">
+                                                <img src="media/index/digital_twin.svg" alt="" />
                                                 <p>Azure Digital Twins</p>
                                             </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/kinect-dk/">
-                                                <img src="https://azure.microsoft.com/en-us/patterns/styles/glyphs-icons/hololens.svg" alt="" />
-                                                <p>Azure Kinect DK</p>
-                                            </a>
-                                        </li>
+                                        </li>                                        
                                         <li>
                                             <a href="/azure/spatial-anchors/">
                                                 <img src="https://azure.microsoft.com/en-us/patterns/styles/glyphs-icons/hololens.svg" alt="" />
                                                 <p>Azure Spatial Anchors</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/remote-rendering/">
-                                                <img src="https://azure.microsoft.com/en-us/patterns/styles/glyphs-icons/hololens.svg" alt="" />
-                                                <p>Azure Remote Rendering</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -5848,31 +5836,12 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="https://azure.microsoft.com/en-us/patterns/styles/glyphs-icons/hololens.svg" alt="" />
+                                                        <img src="media/index/digital_twin.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Digital Twins</h3>
                                                     <p>Build next-generation IoT spatial intelligence solutions</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/kinect-dk/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="https://azure.microsoft.com/en-us/patterns/styles/glyphs-icons/hololens.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Kinect DK</h3>
-                                                    <p>Build computer vision and speech models using a developer kit with advanced AI sensors</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5892,25 +5861,6 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Azure Spatial Anchors</h3>
                                                     <p>Create multi-user, spatially aware mixed reality experiences</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/remote-rendering/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="https://azure.microsoft.com/en-us/patterns/styles/glyphs-icons/hololens.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Remote Rendering</h3>
-                                                    <p>Render high-quality, interactive 3D content, and stream it to your devices in real time</p>
                                                 </div>
                                             </div>
                                         </div>
