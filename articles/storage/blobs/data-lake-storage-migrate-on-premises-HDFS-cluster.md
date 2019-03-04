@@ -53,13 +53,13 @@ Follow these steps to copy data to your Data Box via the REST APIs. The REST API
 
 1. Before you copy the data via REST, you need to connect to the REST interface on the Data Box. Sign in to the local web UI of Data Box and go to **Connect and copy** page. Against the Azure storage account for your Data Box, under **Access settings**, locate and select **REST(Preview)**.
 
-    !["Connect and copy" page](media/data-lake-storage-migrate-on-prem-HDFS-cluster/data-box-connect-rest.png)
+    !["Connect and copy" page](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connect-rest.png)
 
 2. In the Access storage account and upload data dialog, copy the **Blob service endpoint** and the **Storage account key**. From the blob service endpoint, omit the `https://` and the trailing slash.
 
     In this case, the endpoint is: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`. The host portion of the URI that you'll use is: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. For an example, see how to [Connect to REST over http](/azure/databox/data-box-deploy-copy-data-via-rest.md). 
 
-     !["Access storage account and upload data" dialog](media/data-lake-storage-migrate-on-prem-HDFS-cluster/data-box-connection-string-http.png)
+     !["Access storage account and upload data" dialog](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 
 3. Add the endpoint and the Data Box IP address to `/etc/hosts` on each node. 
 
