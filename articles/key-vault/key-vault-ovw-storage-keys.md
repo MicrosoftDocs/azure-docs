@@ -99,11 +99,13 @@ The list of things that would be accomplished in the below steps are
 - Creates an account SAS token for services Blob, File, Table and Queue, for resource types Service, Container and Object, with all permissions, over https and with the specified start and end dates
 - Sets a KeyVault-managed storage SAS definition in the vault, with the template uri as the SAS token created above, of SAS type 'account' and valid for N days
 - Retrieves the actual access token from the KeyVault secret corresponding to the SAS definition
+    
+The steps in order are listed below
 
 1. In this step we will create a SAS Definition. Once this SAS Definition is created, you can ask Key Vault to generate more SAS tokens for you. This operation requires the storage/setsas permission.
 
 ```
-$sastoken = az storage account generate-sas --expiry 2020-01-01 --permissions rw --resource-types sco --services bfqt --https-only --account-name storageacct --account-key 00000000
+az storage account generate-sas --expiry 2020-01-01 --permissions rw --resource-types sco --services bfqt --https-only --account-name storageacct --account-key 00000000
 ```
 You can see more help about the operation above [here](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas)
 
@@ -113,10 +115,10 @@ When this operation runs successfully, you should see output similar to as shown
    "se=2020-01-01&sp=***"
 ```
 
-2. In this step we will use the output ($sasToken) generated above to create a SAS Definition. For more documentation read [here](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
+2. In this step we will use the output generated above to create a SAS Definition. For more documentation read [here](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
 
 ```
-az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri $sastoken
+az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri <ResultFromPreviousCommand>
 ```
                         
 
