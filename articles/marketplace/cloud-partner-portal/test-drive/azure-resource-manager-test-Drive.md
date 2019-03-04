@@ -47,7 +47,6 @@ Here is the process for building an Azure Resource Manager Test Drive:
     1. Define what parts of the resources are input parameters;
     1. What variables are;
     1. What outputs are given to the customer experience.
-1. Set subscription limits and calculate usage ROI.
 1. Publish, test, and go live.
 
 The most important part about building an Azure Resource Manager Test Drive is to define what scenario(s) you want your customers to experience. Are you a firewall product and you want to demo how well you handle script injection attacks? Are you a storage product and you want to demo how fast and easy your solution compresses files?
