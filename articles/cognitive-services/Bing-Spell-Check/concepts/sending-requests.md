@@ -76,42 +76,44 @@ BingAPIs-Market: en-US
 
 {
     "_type" : "SpellCheck",
-    "flaggedTokens" : [{
-        "offset" : 5,
-        "token" : "its",
-        "type" : "UnknownToken",
-        "suggestions" : [{
-            "suggestion" : "it's",
-            "score" : 1
-        }]
-    },
-    {
-        "offset" : 25,
-        "token" : "john",
-        "type" : "UnknownToken",
-        "suggestions" : [{
-            "suggestion" : "John",
-            "score" : 1
-        }]
-    },
-    {
-        "offset" : 19,
-        "token" : "turn",
-        "type" : "RepeatedToken",
-        "suggestions" : [{
-            "suggestion" : "",
-            "score" : 1
-        }]
-    },
-    {
-        "offset" : 35,
-        "token" : "runing",
-        "type" : "UnknownToken",
-        "suggestions" : [{
-            "suggestion" : "running",
-            "score" : 1
-        }]
-    }]
+    "flaggedTokens" : [
+        {
+            "offset" : 5,
+            "token" : "its",
+            "type" : "UnknownToken",
+            "suggestions" : [{
+                "suggestion" : "it's",
+                "score" : 1
+            }]
+        },
+        {
+            "offset" : 25,
+            "token" : "john",
+            "type" : "UnknownToken",
+            "suggestions" : [{
+                "suggestion" : "John",
+                "score" : 1
+            }]
+        },
+        {
+            "offset" : 19,
+            "token" : "turn",
+            "type" : "RepeatedToken",
+            "suggestions" : [{
+                "suggestion" : "",
+                "score" : 1
+            }]
+        },
+        {
+            "offset" : 35,
+            "token" : "runing",
+            "type" : "UnknownToken",
+            "suggestions" : [{
+                "suggestion" : "running",
+                "score" : 1
+            }]
+        }
+    ]
 }
 ```
 
