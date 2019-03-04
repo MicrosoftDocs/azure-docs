@@ -66,11 +66,11 @@ Status code 200 (OK) is returned for a successful response, which contains a lis
         "usageStart": "${startDate}}",
         "usageEnd": "${endDate}",
         "currency": "USD",
-        "usageQuantity": ${usageQuantity},
-        "billableQuantity": ${billableQuantity},
-        "pretaxCost": ${cost},
+        "usageQuantity": "${usageQuantity}",
+        "billableQuantity": "${billableQuantity}",
+        "pretaxCost": "${cost}",
         "meterId": "${meterID}",
-        "meterDetails": ${meterDetails}
+        "meterDetails": "${meterDetails}"
       }
     }
     ],
@@ -98,7 +98,8 @@ Other status codes indicate error conditions. In these cases, the response objec
 ``` json
 {
   "error": [
-    { "code": "Error type."
+    {
+      "code": "Error type.",
       "message": "Error response describing why the operation failed."
     }
   ]
