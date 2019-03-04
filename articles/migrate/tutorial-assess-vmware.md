@@ -95,8 +95,7 @@ Create a group and run an assessment as follows:
 
 1. After the assessment is created, view it in **Overview** > **Dashboard**.
 2. Click **Export assessment**, to download it as an Excel file.
-
-Under **Migration goals**, click **Servers**.
+3. Under **Migration goals**, click **Servers**.
 4. Under **Assessment tools**, click **+Discover**.
 
 ## Review an assessment
