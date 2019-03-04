@@ -443,7 +443,7 @@ The following table describes the content of each log entry.
 | **properties** | n/a | The contents of this field are described in the rows that follow. |
 | **activityId** | **activityId_g** | The unique GUID for the logged operation. |
 | **userAgent** | **userAgent_s** | A string that specifies the client user agent that's performing the request. The format is {user agent name}/{version}.|
-| **resourceType** | **ResourceType** | The type of the resource accessed. This value can be any of the following resource types: Database, Container, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction, or Offer. |
+| **requestResourceType** | **requestResourceType_s** | The type of the resource accessed. This value can be any of the following resource types: Database, Container, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction, or Offer. |
 | **statusCode** | **statusCode_s** | The response status of the operation. |
 | **requestResourceId** | **ResourceId** | The resourceId that pertains to the request. The value may point to databaseRid, collectionRid, or documentRid depending on the operation performed.|
 | **clientIpAddress** | **clientIpAddress_s** | The client's IP address. |
