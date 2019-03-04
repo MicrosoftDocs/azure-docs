@@ -15,13 +15,13 @@ ms.subservice: metrics
 ## Where do I start
 
 > [!NOTE]
-> This article covers key concepts to help new users get started with the Azure Monitor metrics explorer. For more detailed documentation and information about advanced chart settings and metrics, see [Azure Monitor metrics explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts).
+> This article covers key concepts to help new users get started with the Azure Monitor metrics explorer. For more detailed documentation and information about advanced chart settings and metrics, see [Advanced features of Azure Monitor metrics explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts).
 
 Use the metrics explorer to investigate the health and utilization of your resources. Start in the following order:
 
 1. Start by [picking a resource and a metric](#creating-your-first-metric-chart) and you see a basic chart. Then [select a time range](#picking-time-range) that is relevant for your investigation.
 
-1. After learning about basic charts, you may want to try [applying dimension filters and splitting](#applying-dimension-filters-and-splitting). The filters allow you to analyze which segments of the metric contribute to the overall metric value and identify possible outliers.
+1. After learning about basic charts, you may want to try [applying dimension filters and splitting](#applying-dimension-filters-and-splitting). The filters and splitting allow you to analyze which segments of the metric contribute to the overall metric value and identify possible outliers.
 
 1. Use [advanced settings](#advanced-chart-settings-and-next-steps) to customize the chart before pinning to dashboards. [Configure alerts](alerts-metric-overview.md) to receive notifications when the metric value exceeds or drops below a threshold.
 
