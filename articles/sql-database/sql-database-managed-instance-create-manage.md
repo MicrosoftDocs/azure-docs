@@ -23,21 +23,23 @@ For a quickstart showing you how to create an Azure SQL Database Managed Instanc
 
 ## PowerShell: Create and manage managed instances
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To create and manage managed instances with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
 > [!TIP]
-> For PowerShell example scripts, see [Quick-start script: Create Azure SQL Managed Instance using PowerShell library](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/).
+> For PowerShell example scripts, see [Quick-start script: Create Azure SQL Managed Instance using PowerShell library](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/).
 
 | Cmdlet | Description |
 | --- | --- |
-|[New-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstance)|Creates an Azure SQL Database Managed Instance |
-|[Get-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstance)|Returns information about Azure SQL Managed Instance|
-|[Set-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlinstance)|Sets properties for an Azure SQL Database Managed Instance|
-|[Remove-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstance)|Removes an Azure SQL Managed Database Instance|
-|[New-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstancedatabase)|Creates an Azure SQL Database Managed Instance database|
-|[Get-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstancedatabase)|Returns information about Azure SQL Managed Instance database|
-|[Remove-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstancedatabase)|Removes an Azure SQL Managed Database Instance database|
-|[Restore-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqlinstancedatabase)|Restores an Azure SQL Managed Database Instance database|
+|[New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)|Creates an Azure SQL Database Managed Instance |
+|[Get-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstance)|Returns information about Azure SQL Managed Instance|
+|[Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)|Sets properties for an Azure SQL Database Managed Instance|
+|[Remove-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance)|Removes an Azure SQL Managed Database Instance|
+|[New-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstancedatabase)|Creates an Azure SQL Database Managed Instance database|
+|[Get-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabase)|Returns information about Azure SQL Managed Instance database|
+|[Remove-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabase)|Removes an Azure SQL Managed Database Instance database|
+|[Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase)|Restores an Azure SQL Managed Database Instance database|
 
 ## Azure CLI: Create and manage managed instances
 

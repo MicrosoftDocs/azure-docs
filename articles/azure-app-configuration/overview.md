@@ -20,7 +20,7 @@ ms.author: yegu
 
 Azure App Configuration provides a service for managing application settings centrally. Modern programs, especially those running in a cloud, generally have many components that are distributed in nature. Spreading configuration settings across these components can lead to hard-to-troubleshoot errors during an application deployment. App Configuration lets you store all settings for your application and secure their accesses in one place.
 
-App Configuration service is in **private preview**. It is free to use during the preview period.
+App Configuration service is in **private preview**. It is free to use during the preview period. Please [register](https://aka.ms/azconfig/register) for the preview if you are interested in trying it out.
 
 ## Why use App Configuration
 
