@@ -30,7 +30,7 @@ There are four Azure managed disks options: Azure Ultra Disk Storage, Premium SS
 * Because conversion requires a restart of the virtual machine (VM), you should schedule the migration of your disk storage during a pre-existing maintenance window.
 * If your disk is unmanaged, first [convert it to a managed disk](convert-unmanaged-to-managed-disks.md) so you can switch between storage options.
 
-## Convert all managed disks of a VM between Premium and Standard
+## Switch all managed disks of a VM between Premium and Standard
 
 This example shows how to convert all of a VM's disks from Standard to Premium storage or from Premium to Standard storage. To use Premium managed disks, your VM must use a [VM size](sizes.md) that supports Premium storage. This example also switches to a size that supports premium storage:
 
@@ -75,9 +75,9 @@ foreach ($disk in $vmDisks)
 Start-AzVM -ResourceGroupName $rgName -Name $vmName
 ```
 
-## Convert individual managed disks between Standard and Premium
+## Switch individual managed disks between Standard and Premium
 
-For your dev/test workload, you may want a mix of Standard and Premium disks to reduce your costs. You can choose to upgrade only those disks that need better performance. This example shows how to convert a single VM disk from Standard to Premium storage or from Premium to Standard storage. To use Premium managed disks, your VM must use a [VM size](sizes.md) that supports Premium storage. This example also shows how to switch to a size that supports Premium storage:
+For your dev/test workload, you might want a mix of Standard and Premium disks to reduce your costs. You can choose to upgrade only those disks that need better performance. This example shows how to convert a single VM disk from Standard to Premium storage or from Premium to Standard storage. To use Premium managed disks, your VM must use a [VM size](sizes.md) that supports Premium storage. This example also shows how to switch to a size that supports Premium storage:
 
 ```azurepowershell-interactive
 
@@ -127,7 +127,7 @@ Follow these steps:
 
 The disk type conversion is instantaneous. You can restart your VM after the conversion.
 
-## Convert managed disks between Standard HDD and Standard SSD 
+## Switch managed disks between Standard HDD and Standard SSD 
 
 This example shows how to convert a single VM disk from Standard HDD to Standard SSD or from Standard SSD to Standard HDD:
 
