@@ -1607,6 +1607,12 @@ featureFlags:
                                                 <p>Role-based access control</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/sentinel/">
+                                                <img src="media/index/sentinel.png" alt="" />
+                                                <p>Azure Sentinel</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Identity</h3>
                                     <ul>
@@ -4744,6 +4750,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Role-based access control</h3>
                                                     <p>Manage access to Azure resources</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/sentinel/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/sentinel.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Sentinel</h3>
+                                                    <p>Learn how to use Microsoft's SIEM that provides intelligent security analytics for your entire enterprise at cloud scale</p>
                                                 </div>
                                             </div>
                                         </div>
