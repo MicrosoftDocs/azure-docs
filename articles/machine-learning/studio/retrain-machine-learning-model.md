@@ -5,7 +5,7 @@ description: Learn how to update a web service to use a newly trained machine le
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs
@@ -37,7 +37,7 @@ Use the following steps to deploy a retraining web service:
 
     After running your experiment, the resulting workflow should be similar to the following image:
 
-    ![Resulting workflow](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE04.png)
+    ![Resulting workflow](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE04.png)
 
     Now, you deploy the training experiment as a retraining web service that outputs a trained model and model evaluation results.
 
@@ -63,7 +63,7 @@ Add the NuGet package Microsoft.AspNet.WebApi.Client, as specified in the commen
 
 The following screenshot shows the **Consume** page in the Azure Machine Learning Web Services portal.
 
-![Consume page](media/retrain-existing-arm-web-service/machine-learning-retrain-models-consume-page.png)
+![Consume page](media/retrain-machine-learning/machine-learning-retrain-models-consume-page.png)
 
 ### Update the apikey declaration
 
@@ -109,7 +109,7 @@ When you specify the output location in the Request Payload, the extension of th
 
 Here is an example of retraining output:
 
-![Retraining output](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE06.png)
+![Retraining output](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE06.png)
 
 ### Evaluate the retraining results
 

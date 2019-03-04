@@ -1,5 +1,5 @@
 ---
-title: "Create a Kubernetes dev space in the cloud using .NET Core and Visual Studio | Microsoft Docs"
+title: "Create a Kubernetes dev space in the cloud using .NET Core and Visual Studio"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -11,7 +11,7 @@ ms.author: zarhoads
 ms.date: "07/09/2018"
 ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 ---
 # Get started on Azure Dev Spaces with .NET Core and Visual Studio
 
@@ -46,13 +46,6 @@ In this guide, you will learn how to:
 1. Choose your desired setting for Role-based Access Control (RBAC). Azure Dev Spaces supports clusters with RBAC enabled, or disabled.
 
     ![RBAC setting](media/common/k8s-RBAC.PNG)
-
-1. Make sure that Http Application Routing is enabled.
-
-   ![Enable Http Application Routing](media/common/Kubernetes-Create-Cluster-3.PNG)
-
-    > [!Note]
-    > To enable [Http Application Routing](/azure/aks/http-application-routing) on an existing cluster, use the command: `az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing`
 
 1. Select **Review + create** and then **Create** when complete.
 

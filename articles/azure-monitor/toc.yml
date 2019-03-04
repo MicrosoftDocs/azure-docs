@@ -179,6 +179,8 @@
           href: learn/quick-create-workspace-posh.md
       - name: Delete a workspace
         href: platform/delete-workspace.md
+      - name: Manage a workspace
+        href: platform/manage-access.md
       - name: Design for service providers
         href: platform/service-providers.md
   - name: Collect data
@@ -314,6 +316,8 @@
           href: app/asp-net-exceptions.md
         - name: Log traces
           href: app/asp-net-trace-logs.md
+        - name: ILogger
+          href: app/ilogger.md
         - name: Performance counters
           href: app/performance-counters.md
         - name: Dependencies
@@ -389,6 +393,8 @@
           href: app/proactive-cloud-services.md
         - name: Manage smart detection rules
           href: app/proactive-arm-config.md
+        - name: E-mail notification
+          href: app/proactive-email-notification.md
       - name: Create a resource
         href: app/create-new-resource.md 
       - name: Troubleshoot
@@ -415,8 +421,6 @@
         href: platform/collect-azure-metrics-logs.md
       - name: Diagnostic or log data from Azure storage
         href: platform/azure-storage-iis-table.md
-      - name: Azure PaaS resources
-        href: platform/collect-azurepass-posh.md
       - name: Correlate custom data sources
         href: app/custom-data-correlation.md
     - name: Collect custom data 
@@ -443,10 +447,10 @@
         href: platform/archive-diagnostic-logs.md
       - name: Store diagnostic logs
         href: platform/diagnostic-logs-stream-log-store.md
+      - name: Azure resource data to Event Hub
+        href: platform/stream-monitoring-data-event-hubs.md
       - name: Stream activity log to Event Hubs
         href: platform/activity-logs-stream-event-hubs.md
-      - name: Logs and metrics to Event Hub
-        href: platform/stream-monitoring-data-event-hubs.md
       - name: Diagnostic logs to Event Hub
         href: platform/diagnostic-logs-stream-event-hubs.md
       - name: Application data to Log Analytics
@@ -631,8 +635,9 @@
   - name: Visualize data
     items:
     - name: Views
-      href: platform/view-designer.md
       items:
+      - name: View Designer
+        href: platform/view-designer.md
       - name: Tile reference
         href: platform/view-designer-tiles.md
       - name: Visualization part reference
@@ -651,9 +656,11 @@
       href: platform/grafana-plugin.md
   - name: Analyze data
     items:
-    - name: Create metrics charts in Metrics Explorer
+    - name: Getting started with Metrics Explorer
+      href: platform/metrics-getting-started.md
+    - name: Advanced features of Metrics Explorer
       href: platform/metrics-charts.md
-    - name: Metric Explorer chart samples
+    - name: Examples of metrics charts
       href: platform/metric-chart-samples.md
     - name: View events in activity log
       href: ../azure-resource-manager/resource-group-audit.md

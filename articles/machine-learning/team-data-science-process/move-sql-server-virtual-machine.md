@@ -44,7 +44,7 @@ This tutorial assumes you have:
 If your data is in a flat file (arranged in a row/column format), it can be moved to SQL Server VM on Azure via the following methods:
 
 1. [Command-line bulk copy utility (BCP)](#insert-tables-bcp)
-2. [Bulk Insert SQL Query ](#insert-tables-bulkquery)
+2. [Bulk Insert SQL Query](#insert-tables-bulkquery)
 3. [Graphical Built-in Utilities in SQL Server (Import/Export, SSIS)](#sql-builtin-utilities)
 
 ### <a name="insert-tables-bcp"></a>Command-line bulk copy utility (BCP)

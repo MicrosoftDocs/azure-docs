@@ -46,7 +46,7 @@ This tutorial assumes you have:
 
 * An **Azure subscription**. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 * An **Azure storage account**. You use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-quickstart-create-account.md) article. After you have created the storage account, you need to obtain the account key used to access the storage. See [Manage your storage access keys](../../storage/common/storage-account-manage.md#access-keys).
-* Access to an **Azure SQL Database**. If you must set up an Azure SQL Database, the topic [Getting Started with Microsoft Azure SQL Database ](../../sql-database/sql-database-get-started.md) provides information on how to provision a new instance of an Azure SQL Database.
+* Access to an **Azure SQL Database**. If you must set up an Azure SQL Database, the topic [Getting Started with Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) provides information on how to provision a new instance of an Azure SQL Database.
 * Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 > [!NOTE]
@@ -93,7 +93,7 @@ The JSON-based definitions in the tables use the following names:
 Three table definitions are needed for this ADF pipeline:
 
 1. [SQL on-premises Table](#adf-table-onprem-sql)
-2. [Blob Table ](#adf-table-blob-store)
+2. [Blob Table](#adf-table-blob-store)
 3. [SQL Azure Table](#adf-table-azure-sql)
 
 > [!NOTE]
