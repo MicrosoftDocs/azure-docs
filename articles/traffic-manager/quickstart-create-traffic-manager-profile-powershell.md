@@ -21,8 +21,6 @@ In this quickstart, you'll create two instances of a web application. Each of th
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
@@ -91,9 +89,9 @@ $App2ResourceId=(New-AzWebApp -Name $App2Name -ResourceGroupName MyResourceGroup
 ```
 
 ## Add Traffic Manager endpoints
-Add Traffinc Manager endpoints using [New-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) to the Traffic Manager profile as follows:
-- Add the website in the *West US* as primary endpoint to route all the user traffic. 
-- Add the website in *East US* as a failover endpoint. 
+Add the two Web Apps as Traffic Manager endpoints using [New-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) to the Traffic Manager profile as follows:
+- Add the Web App located in the *West US* Azure region as the primary endpoint to route all the user traffic. 
+- Add the Web App located in the *East US* Azure region as the failover endpoint. 
 When the primary endpoint is unavailable, traffic automatically routes to the failover endpoint.
 
 ```azurepowershell-interactive
@@ -154,9 +152,7 @@ Remove-AzResourceGroup -Name MyResourceGroup
 
 ## Next steps
 
-In this quickstart, you created a Traffic Manager profile that provides high availability for your web application. Next, you can add a CNAME record for the Traffic manager profile in the business zone that so that your business url (for example, wwww.contoso.com ) points to the Traffic Manager profile. If the business zone is hosted in Azure DNS, you can add an an alias record that points to the Traffic Manager profile. For instructions, see [Manage DNS records and recordsets in Azure DNS using Azure PowerShell](../dns/dns-operations-recordsets.md)
-
-To learn more about routing traffic, continue to the Traffic Manager tutorials.
+In this quickstart, you created a Traffic Manager profile that provides high availability for your web application. To learn more about routing traffic, continue to the Traffic Manager tutorials.
 
 > [!div class="nextstepaction"]
 > [Traffic Manager tutorials](tutorial-traffic-manager-improve-website-response.md)
