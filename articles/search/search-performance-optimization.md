@@ -22,13 +22,14 @@ When optimizing for search performance, you should focus on reducing query execu
 2. Create and test a real workload against your search service with a realistic dataset to measure these latency rates.
 3. Start with a low number of queries per second (QPS) and the gradually increase the number executed in the test until the query latency drops below the defined target latency. This is an important benchmark to help you plan for scale as your application grows in usage.
 4. Wherever possible, reuse HTTP connections. If you are using the Azure Search .NET SDK, this means you should reuse an instance or [SearchIndexClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient) instance, and if you are using the REST API, you should reuse a single HttpClient.
+5. Vary the substance of query requests so that search occurs over different parts of your index. Variation is important because if you continually execute the same search requests, caching of data will start to make performance look better than it might with a more disparate query set.
+6. Vary the structure of query requests so that you get different types of queries. Not every search query performs at the same level. For example, a document lookup or search suggestion is typically faster than a query with a significant number of facets and filters. Test composition should include various queries, in roughly the same ratios as you would expect in production.  
 
 While creating these test workloads, there are some characteristics of Azure Search to keep in mind:
 
-1. It is possible overload your service by pushing too many search queries at one time. When this happens, you will see HTTP 503 response codes. To avoid a 503 during testing, start with various ranges of search requests to see the differences in latency rates as you add more search requests.
-2. Azure Search does not run indexing tasks in the background. If your service handles query and indexing workloads concurrently, take this into account in your tests by either introducing indexing into your query tests, or by exploring options for running indexing jobs during off hours.
-3. Not every search query performs at the same level. For example, a document lookup or search suggestion is typically faster than a query with a significant number of facets and filters. Test composition should include various queries, in roughly the same ratios as you would expect in production.  
-4. Variation of search requests is important because if you continually execute the same search requests, caching of data will start to make performance look better than it might with a more disparate query set.
++ It is possible overload your service by pushing too many search queries at one time. When this happens, you will see HTTP 503 response codes. To avoid a 503 during testing, start with various ranges of search requests to see the differences in latency rates as you add more search requests.
+
++ Azure Search does not run indexing tasks in the background. If your service handles query and indexing workloads concurrently, take this into account by either introducing indexing jobs into your query tests, or by exploring options for running indexing jobs during off peak hours.
 
 > [!NOTE]
 > [Visual Studio Load Testing](https://www.visualstudio.com/docs/test/performance-testing/run-performance-tests-app-before-release) is a really good way to perform your benchmark tests as it allows you to execute HTTP requests as you would need for executing queries against Azure Search and enables parallelization of requests.
