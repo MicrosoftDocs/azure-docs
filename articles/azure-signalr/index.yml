@@ -52,6 +52,14 @@ sections:
     items:
     - html: <a href="/azure/azure-signalr/signalr-authenticate-oauth">Integrate Azure SignalR Service with ASP.NET Core Identity</a>
     - html: <a href="/azure/azure-signalr/signalr-tutorial-authenticate-azure-functions">Build a Serverless Real-time App with Authentication</a>
+- title: Samples
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="https://github.com/aspnet/AzureSignalR-samples">Azure SignalR Code Samples</a>
+    - html: <a href="/azure/azure-signalr/signalr-cli-samples">Azure CLI</a>
 - title: Reference
   items:
   - type: paragraph
@@ -70,11 +78,3 @@ sections:
     - html: <a href="https://docs.microsoft.com/aspnet/core/signalr/javascript-client">JavaScript</a>
     - html: <a href="https://docs.microsoft.com/aspnet/core/signalr/dotnet-client">.NET Standard</a>
     - html: <a href="https://github.com/aspnet/SignalR/tree/release/2.2/clients/java/signalr">Java</a>
-- title: Samples
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="https://github.com/aspnet/AzureSignalR-samples">Azure SignalR Code Samples</a>
-    - html: <a href="/azure/azure-signalr/signalr-cli-samples">Azure CLI</a>
