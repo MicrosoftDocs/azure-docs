@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/01/2019
+ms.date: 03/04/2019
 ms.author: jeedes
 
 ---
@@ -117,7 +117,7 @@ To configure Azure AD single sign-on with MyWorkDrive, perform the following ste
     > 
     > Sign-on URL:`https://yourserver.yourdomain.com/Account/Login-saml`
     > 
-    > Contact MyWorkDrive Client support team if you are unsure how to setup your own host name and SSL certificate for these values.
+    > Contact [MyWorkDrive support team](mailto:support@myworkdrive.com) if you are unsure how to setup your own host name and SSL certificate for these values.
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
