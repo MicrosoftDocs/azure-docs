@@ -110,9 +110,9 @@ This section shows how to test connectivity from the simulated on-premises envir
 
 1. In the Azure portal, browse to the **onprem-vnet-rg** resource group.
 
-1. In the **onprem-vnet-rg** resource group tab, select the VM named **onprem-vm**.
+1. In the **onprem-vnet-rg** tab, select the VM named **onprem-vm**.
 
-1. Select `Connect`
+1. Select **Connect**.
 
 1. Next to the text **Login using VM local account**, copy the **ssh** command to the clipboard.
 
