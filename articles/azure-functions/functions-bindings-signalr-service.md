@@ -158,14 +158,14 @@ The following example shows a [Java function](functions-reference-java.md) that 
 
 ```java
 @FunctionName("negotiate")
-public ConnectionInfo negotiate(
+public SignalRConnectionInfo negotiate(
         @HttpTrigger(
             name = "req",
             methods = { HttpMethod.POST },
             authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> req,
         @SignalRConnectionInfoInput(
             name = "connectionInfo",
-            hubName = "chat") ConnectionInfo connectionInfo) {
+            hubName = "chat") SignalRConnectionInfo connectionInfo) {
     return connectionInfo;
 }
 ```
@@ -179,7 +179,7 @@ App Service Authentication sets HTTP headers named `x-ms-client-principal-id` an
 
 ```java
 @FunctionName("negotiate")
-public ConnectionInfo negotiate(
+public SignalRConnectionInfo negotiate(
         @HttpTrigger(
             name = "req",
             methods = { HttpMethod.POST },
@@ -187,7 +187,7 @@ public ConnectionInfo negotiate(
         @SignalRConnectionInfoInput(
             name = "connectionInfo",
             hubName = "chat",
-            userId = "{headers.x-ms-client-principal-id}") ConnectionInfo connectionInfo) {
+            userId = "{headers.x-ms-client-principal-id}") SignalRConnectionInfo connectionInfo) {
     return connectionInfo;
 }
 ```
