@@ -69,7 +69,7 @@ Once you have identified the charges for an invoice section, you can view the tr
 
 ## Understand pending charges to estimate your next invoice
 
-In the billing account for a Microsoft Customer Agreement, until the charges are invoiced, they are estimate and considered pending. You can view pending charges in the Azure portal to estimate your next invoice. The pending charges don't include tax so the actual amount on your invoice may be higher than the pending charges.
+In the billing account for a Microsoft Customer Agreement, until the charges are invoiced, they are estimate and considered pending. You can view pending charges in the Azure portal to estimate your next invoice. The pending charges are estimate and don't include tax so the actual charges on your next invoice will vary from the pending charges.
 
 ### View summary of pending charges
 
