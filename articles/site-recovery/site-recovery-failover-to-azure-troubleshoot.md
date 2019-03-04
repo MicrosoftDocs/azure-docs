@@ -104,11 +104,11 @@ If the **Connect** button on the failed over VM in Azure is available (not graye
 
 When booting up a Windows VM post failover, if you receive an unexpected shutdown message on the recovered VM, it indicates that a VM shutdown state was not captured in the recovery point used for failover. This happens when you recover to a point when the VM had not been fully shut down.
 
-This is normally not a cause for concern and can usually be ignored for unplanned failovers. In the case of a planned failover, ensure that the VM is properly shut down prior to failover and provide sufficient time for pending replication data on-premises to be sent to Azure. Then use the **Latest** option on the [Failover screen](site-recovery-failover.md#run-a-failover) so that any pending data on Azure is processed into a recovery point, which is then used for VM failover.
+This is normally not a cause for concern and can usually be ignored for unplanned failovers. If the failover is planned, ensure that the VM is properly shut down prior to failover and provide sufficient time for pending replication data on-premises to be sent to Azure. Then use the **Latest** option on the [Failover screen](site-recovery-failover.md#run-a-failover) so that any pending data on Azure is processed into a recovery point, which is then used for VM failover.
 
 ## Unable to select the Datastore
 
-This issue is indicated when you are unable to see the datastore in Azure the portal when trying to reestablish protection on the virtual machine that has experience a fail over. This is because the Master target is not  recognized as a virtual machine under vCenters added to Azure Site Recovery.
+This issue is indicated when you are unable to see the datastore in Azure the portal when trying to reestablish protection on the virtual machine that has experience a failover. This is because the Master target is not recognized as a virtual machine under vCenters added to Azure Site Recovery.
 
 To resolve the issue:
 
@@ -124,7 +124,7 @@ The Azure Site Recovery Master Target registration with the configuration server
  
 This error is indicated by the following strings in the installation log: 
  
-RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] CurlWrapper Post failed : server : 10.38.229.221, port : 443, phpUrl : request_handler.php, secure : true, ignoreCurlPartialError : false with error: [at curlwrapperlib/curlwrapper.cpp:processCurlResponse:231]   failed to post request: (35) - SSL connect error. 
+    RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] CurlWrapper Post failed : server : 10.38.229.221, port : 443, phpUrl : request_handler.php, secure : true, ignoreCurlPartialError : false with error: [at curlwrapperlib/curlwrapper.cpp:processCurlResponse:231]   failed to post request: (35) - SSL connect error. 
  
 To resolve the issue:
  
