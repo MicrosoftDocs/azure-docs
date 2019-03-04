@@ -104,7 +104,7 @@ The following table describes names and descriptions of properties that are spec
 | folderPath            | Path to the folder of the custom application and all its dependencies<br/><br/>If you have dependencies stored in subfolders - that is, in a hierarchical folder structure under *folderPath* - the folder structure is currently flattened when the files are copied to Azure Batch. That is, all files are copied into a single folder with no subfolders. To work around this behavior, consider compressing the files, copying the compressed file, and then unzipping it with custom code in the desired location. | No &#42;       |
 | referenceObjects      | An array of existing Linked Services and Datasets. The referenced Linked Services and Datasets are passed to the custom application in JSON format so your custom code can reference resources of the Data Factory | No       |
 | extendedProperties    | User-defined properties that can be passed to the custom application in JSON format so your custom code can reference additional properties | No       |
-| retentionTimeInDays | The retention time for the files submitted for custom activity. Default value is 30 days. |  |
+| retentionTimeInDays | The retention time for the files submitted for custom activity. Default value is 30 days. | No |
 
 &#42; The properties `resourceLinkedService` and `folderPath` must either both be specified or both be omitted.
 
