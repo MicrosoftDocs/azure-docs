@@ -286,7 +286,7 @@ If you have auto-renew enabled, you do not need to take any action. The notice e
 
 **Will I be charged for Azure DNS hosting  my domain?**
 
-The initial cost of domain purchase applies to domain registration only. In addition to the registration cost, there are incurring charges for Azure DNS based on your usage. For more information, see [Azure DNS pricing](https://azure.microsoft.com/en-us/pricing/details/dns/) for more details.
+The initial cost of domain purchase applies to domain registration only. In addition to the registration cost, there are incurring charges for Azure DNS based on your usage. For more information, see [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/) for more details.
 
 **I purchased my domain earlier from the Azure portal and want to move from GoDaddy hosting to Azure DNS hosting. How can I do this？**
 
