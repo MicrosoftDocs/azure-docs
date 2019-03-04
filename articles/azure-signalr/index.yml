@@ -43,7 +43,7 @@ sections:
         src: https://docs.microsoft.com/media/logos/logo_REST.svg
       text: REST API
       href: /azure/azure-signalr/signalr-quickstart-rest-api
-- title: Step-by-Step Tutorials
+- title: Step-by-step tutorials
   items:
   - type: paragraph
     text: Learn how to build Azure SignalR Service applications
