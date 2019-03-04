@@ -154,7 +154,9 @@ Remove-AzResourceGroup -Name MyResourceGroup
 
 ## Next steps
 
-In this quickstart, you created a Traffic Manager profile that provides high availability for your web application. To learn more about routing traffic, continue to the Traffic Manager tutorials.
+In this quickstart, you created a Traffic Manager profile that provides high availability for your web application. Next, you can add a CNAME record for the Traffic manager profile in the business zone that so that your business url (for example, wwww.contoso.com ) points to the Traffic Manager profile. If the business zone is hosted in Azure DNS, you can add an an alias record that points to the Traffic Manager profile. For instructions, see [Manage DNS records and recordsets in Azure DNS using Azure PowerShell](../dns/dns-operations-recordsets.md)
+
+To learn more about routing traffic, continue to the Traffic Manager tutorials.
 
 > [!div class="nextstepaction"]
 > [Traffic Manager tutorials](tutorial-traffic-manager-improve-website-response.md)
