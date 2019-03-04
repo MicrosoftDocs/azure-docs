@@ -12,9 +12,9 @@ ms.author: alkohli
 ---
 # Manage Azure Data Box Gateway via Windows PowerShell
 
-Azure Data Box Gateway is a storage solution that allows you to send data over network from on-premises apps to Azure. This article describes some of the configuration and management tasks for your Data Box Gateway device. You can manage your Data Box Gateway using the Azure portal UI, the local web UI, and the Windows PowerShell interface of the device.
+Azure Data Box Gateway solution lets you send data over the network to Azure. This article describes some of the configuration and management tasks for your Data Box Gateway device. You can use the Azure portal, local web UI, or the Windows PowerShell interface to manage your device.
 
-This article focuses on the tasks that you can perform using the PowerShell interface. Use the PowerShell interface to get upload your certificate, generate a log package for Microsoft Support, view device inforamtion, and boot up in a non-DHCP environment.
+This article focuses on the tasks you do using the PowerShell interface.
 
 This article includes the following procedures:
 
