@@ -9,18 +9,16 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Language and framework
-    items:
-    - name: ASP.NET Core - C#
-      href: signalr-quickstart-dotnet-core.md
-    - name: Azure Functions - JavaScript
-      href: signalr-quickstart-azure-functions-javascript.md
-    - name: Azure Functions - C#
-      href: signalr-quickstart-azure-functions-csharp.md
-    - name: Azure Functions - Java
-      href: signalr-quickstart-azure-functions-java.md
-    - name: REST API
-      href: signalr-quickstart-rest-api.md
+  - name: ASP.NET Core - C#
+    href: signalr-quickstart-dotnet-core.md
+  - name: Azure Functions - JavaScript
+    href: signalr-quickstart-azure-functions-javascript.md
+  - name: Azure Functions - C#
+    href: signalr-quickstart-azure-functions-csharp.md
+  - name: Azure Functions - Java
+    href: signalr-quickstart-azure-functions-java.md
+  - name: REST API
+    href: signalr-quickstart-rest-api.md
 
 - name: Tutorials
   items:
