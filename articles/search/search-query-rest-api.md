@@ -7,19 +7,11 @@ ms.author: brjohnst
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 04/20/2018
+ms.date: 02/14/2019
 ms.custom: seodec2018
 ---
 
 # Query your Azure Search index using the REST API
-> [!div class="op_single_selector"]
->
-> * [Overview](search-query-overview.md)
-> * [Portal](search-explorer.md)
-> * [.NET](search-query-dotnet.md)
-> * [REST](search-query-rest-api.md)
->
->
 
 This article shows you how to query an index using the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/).
 

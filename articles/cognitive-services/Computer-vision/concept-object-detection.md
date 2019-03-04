@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Concepts related to object detection using the Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
@@ -83,6 +83,15 @@ The following JSON response illustrates what Computer Vision returns when detect
 }
 ```
 
-## Next steps
+## Limitations
 
-Learn concepts about [categorizing images](concept-categorizing-images.md) and [describing images](concept-describing-images.md).
+It's important to note the limitations of the object detection feature so you can avoid or mitigate the effects of false negatives (missed objects) and limited detail.
+* Objects are generally not detected if they are very small (less than 5% of the image).
+* Objects are generally not detected if they are arranged very closely together (a stack of plates, for example).
+* Objects are not differentiated by brand or product names (different types of sodas on a store shelf, for example). However, you can get brand information from an image by using the [Brand detection](concept-brand-detection.md) feature.
+
+## Use the API
+The object detection feature is part of the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. You can call this API through a native SDK or through REST calls. When you get the full JSON response, simply parse the string for the contents of the `"objects"` section.
+
+* [Quickstart: Analyze an image (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
+* [Quickstart: Analyze an image (REST API)](./quickstarts/csharp-analyze.md)

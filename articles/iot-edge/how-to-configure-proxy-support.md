@@ -67,7 +67,7 @@ Refer to the Docker documentation to configure the Docker daemon with environmen
 
 Choose the article that applies to your Docker version: 
 
-* [Docker](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
+* [Docker for Linux](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
 * [Docker for Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration)
 
 ### IoT Edge daemon
@@ -84,7 +84,7 @@ sudo systemctl edit iotedge
 
 Enter the following text, replacing **\<proxy URL>** with your proxy server address and port. Then, save and exit. 
 
-```text
+```ini
 [Service]
 Environment="https_proxy=<proxy URL>"
 ```

@@ -125,7 +125,7 @@ If you haven't already created one, you must have an Azure Resource Group to cre
 var resourceGroup = new ResourceGroup { Location = location };
 resourceManagementClient.ResourceGroups.CreateOrUpdate(groupName, rg);
 ```
-For more information, see [Azure Resource Groups and Data Lake Analytics](#Azure-Resource-Groups-and-Data-Lake-Analytics).
+For more information, see Azure Resource Groups and Data Lake Analytics.
 
 ### Create a Data Lake Store account
 

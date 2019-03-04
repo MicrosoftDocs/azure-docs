@@ -396,8 +396,7 @@ Azure VMs are stored as page blobs in Azure Storage.
 - [Learn how to](https://docs.microsoft.com/azure/storage/blobs/storage-blob-snapshots) create a blob snapshot.
 - [Review a sample scenario](https://azure.microsoft.com/blog/microsoft-azure-block-blob-storage-backup) for blob storage backup.
 - [Read about](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) soft delete.
-- [Review](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) What to do if an Azure Storage outage occurs?
-
+- [Disaster recovery and forced failover (preview) in Azure Storage](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 #### Third-party backup
 
@@ -513,7 +512,7 @@ You can use failover groups and active geo-replication to provide resilience aga
 - [Read](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/) Azure SQL Databases 101 for disaster recovery.
 - [Get an overview](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) of active geo-replication and failover groups.
 - [Learn about](https://docs.microsoft.com/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery) designing for disaster recovery.
-- [Get best practices](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview#best-practices-of-using-failover-groups-for-business-continuity) for failover groups.
+- [Get best practices](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) for failover groups.
 - [Get best practices](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-security-config) for security after geo-restore or failover.
 - [Learn about](https://docs.microsoft.com/azure/sql-database/sql-database-high-availability#zone-redundant-configuration) zone redundancy
 - [Learn how to](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery-drills) perform a disaster recovery drill for SQL database.
@@ -585,7 +584,7 @@ Azure resources generate a fair number of logging metrics and telemetry data.
 
 - By default, most resource types don't have diagnostic logging enabled.
 - By enabling diagnostic logging across your resources, you can query logging data, and build alerts and playbooks based on it.
-- When you enable diagnostic logging, each resource will have a specific set of categories. You select one or more logging categories, and a location for the log data. Logs can be sent to a storage account, event hub, or to Log Analytics. 
+- When you enable diagnostic logging, each resource will have a specific set of categories. You select one or more logging categories, and a location for the log data. Logs can be sent to a storage account, event hub, or to Azure Monitor logs. 
 
 
 ![Diagnostic logging](./media/migrate-best-practices-security-management/diagnostics.png)
@@ -676,7 +675,7 @@ As with any production system, making any type of change can impact your environ
 Azure has a Change Tracking solution in Azure automation:
 
 - The solution tracks changes to Windows and Linux software and files, Windows registry keys, Windows services, and Linux daemons.
-- Changes on monitored servers are sent to the Log Analytics service in the cloud for processing.
+- Changes on monitored servers are sent to the Azure Monitor service in the cloud for processing.
 - Logic is applied to the received data and the cloud service records the data.
 - On the Change Tracking dashboard, you can easily see the changes that were made in your server infrastructure.
 

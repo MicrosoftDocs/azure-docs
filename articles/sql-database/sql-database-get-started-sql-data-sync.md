@@ -11,7 +11,7 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 01/08/2018
+ms.date: 01/14/2019
 ---
 # Tutorial: Set up SQL Data Sync between Azure SQL Database and SQL Server on-premises
 
@@ -65,17 +65,17 @@ In the **Hub Database** section, enter existing credentials for the SQL Database
 
 ### To add an Azure SQL Database
 
-In the **Member Database** section, optionally add an Azure SQL Database to the sync group by selecting **Add an Azure Database**. The **Configure Azure Database** page opens.
+In the **Member Database** section, optionally add an Azure SQL Database to the sync group by selecting **Add an Azure SQL Database**. The **Configure Azure SQL Database** page opens.
 
   ![Step 2 - configure database](media/sql-database-get-started-sql-data-sync/steptwo-configure.png)
 
-  On the **Configure Azure Database** page, change the following settings:
+  On the **Configure Azure SQL Database** page, change the following settings:
 
   | Setting                       | Description |
   | ----------------------------- | ------------------------------------------------- |
   | **Sync Member Name** | Provide a name for the new sync member. This name is distinct from the database name itself. |
   | **Subscription** | Select the associated Azure subscription for billing purposes. |
-  | **Azure SQL Server** | Select the existing SQL database server. |
+  | **Azure SQL Server** | Select the existing SQL Database server. |
   | **Azure SQL Database** | Select the existing SQL database. |
   | **Sync Directions** | Select **Bi-directional Sync**, **To the Hub**, or **From the Hub**. |
   | **Username** and **Password** | Enter the existing credentials for the SQL Database server on which the member database is located. Don't enter *new* credentials in this section. |
@@ -226,7 +226,7 @@ For more info about SQL Data Sync, see:
 
 - [Data Sync Agent for Azure SQL Data Sync](sql-database-data-sync-agent.md)
 - [Best practices](sql-database-best-practices-data-sync.md) and [How to troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
-- [Monitor SQL Data Sync with Log Analytics](sql-database-sync-monitor-oms.md)
+- [Monitor SQL Data Sync with Azure Monitor logs](sql-database-sync-monitor-oms.md)
 - [Update the sync schema with Transact-SQL](sql-database-update-sync-schema.md) or [PowerShell](scripts/sql-database-sync-update-schema.md)
 
 For more info about SQL Database, see:

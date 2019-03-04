@@ -1,21 +1,21 @@
 ---
 
-  title: PowerShell and Microsoft Graph examples for group-based licensing in Azure AD | Microsoft Docs
-  description: PowerShell scenarios for Azure Active Directory group-based licensing
-  services: active-directory
-  keywords: Azure AD licensing
-  documentationcenter: ''
-  author: curtand
-  manager: mtillman
-  editor: ''
+title: PowerShell and Graph examples for group-based licensing - Azure Active Directory | Microsoft Docs
+description: PowerShell scenarios for Azure Active Directory group-based licensing
+services: active-directory
+keywords: Azure AD licensing
+documentationcenter: ''
+author: curtand
+manager: mtillman
 
-  ms.service: active-directory
-  ms.subservice: users-groups-roles
-  ms.topic: article
-  ms.workload: identity
-  ms.date: 10/29/2018
-  ms.author: curtand
-
+ms.service: active-directory
+ms.subservice: users-groups-roles
+ms.topic: article
+ms.workload: identity
+ms.date: 02/27/2019
+ms.author: curtand
+ms.reviewer: sumitp
+ms.collection: M365-identity-device-management
 ---
 
 # PowerShell examples for group-based licensing in Azure AD
@@ -52,7 +52,7 @@ EMSPREMIUM
 Use following to get the same data from Microsoft Graph
 
 ```
-GET https://graph.microsoft.com/beta/groups/99c4216a-56de-42c4-a4ac-e411cd8c7c41$select=assignedLicenses
+GET https://graph.microsoft.com/v1.0/groups/99c4216a-56de-42c4-a4ac-e411cd8c7c41$select=assignedLicenses
 ```
 Output:
 ```
@@ -176,7 +176,7 @@ ObjectId                             DisplayName             GroupType Descripti
 ```
 Use following to get the same data from Microsoft Graph
 ```
-GET https://graph.microsoft.com/beta/groups?$filter=hasMembersWithLicenseErrors+eq+true
+GET https://graph.microsoft.com/v1.0/groups?$filter=hasMembersWithLicenseErrors+eq+true
 ```
 Output:
 ```
@@ -197,7 +197,7 @@ HTTP/1.1 200 OK
     },
     ... # other groups with license errors.
   ]
-"odata.nextLink":"https://graph.microsoft.com/beta/ groups?$filter=hasMembersWithLicenseErrors+eq+true&$skipToken=<encodedPageToken>"
+"odata.nextLink":"https://graph.microsoft.com/v1.0/ groups?$filter=hasMembersWithLicenseErrors+eq+true&$skipToken=<encodedPageToken>"
 }
 ```
 
@@ -230,7 +230,7 @@ ObjectId                             DisplayName      License Error
 ```
 Use following to get the same data from Microsoft Graph
 ```
-GET https://graph.microsoft.com/beta/groups/11151866-5419-4d93-9141-0603bbf78b42/membersWithLicenseErrors
+GET https://graph.microsoft.com/v1.0/groups/11151866-5419-4d93-9141-0603bbf78b42/membersWithLicenseErrors
 ```
 Output:
 ```
@@ -245,7 +245,7 @@ HTTP/1.1 200 OK
     },
     ... # other users.
   ],
-  "odata.nextLink":"https://graph.microsoft.com/beta/groups/11151866-5419-4d93-9141-0603bbf78b42/membersWithLicenseErrors?$skipToken=<encodedPageToken>" 
+  "odata.nextLink":"https://graph.microsoft.com/v1.0/groups/11151866-5419-4d93-9141-0603bbf78b42/membersWithLicenseErrors?$skipToken=<encodedPageToken>" 
 }
 
 ```
@@ -386,7 +386,7 @@ ObjectId                             SkuId       AssignedDirectly AssignedFromGr
 
 Graph doesn’t have a straightforward way to show the result, but it can be seen from this API
 ```
-GET https://graph.microsoft.com/beta/users/e61ff361-5baf-41f0-b2fd-380a6a5e406a?$select=licenseAssignmentStates
+GET https://graph.microsoft.com/v1.0/users/e61ff361-5baf-41f0-b2fd-380a6a5e406a?$select=licenseAssignmentStates
 ```
 Output:
 ```

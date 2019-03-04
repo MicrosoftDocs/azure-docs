@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
@@ -60,16 +60,11 @@ Connect to the Azure Stack operator environment with PowerShell with Azure Activ
   Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external"
 
   # Sign in to your environment
-
-  $cred = get-credential
-
-  Login-AzureRmAccount `
-    -EnvironmentName "AzureStackAdmin" `
-    -Credential $cred
+  Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
   ```
 
 > [!Note]  
-> AD FS only supports interactive authentication with user identities. If a credential object is required you must use a service principal (SPN). For more information on setting up a service principal with Azure Stack and AS FS as your identity management service, see [Manage service principal for AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
+> AD FS only supports interactive authentication with user identities. If a credential object is required you must use a service principal (SPN). For more information on setting up a service principal with Azure Stack and AD FS as your identity management service, see [Manage service principal for AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
 ## Test the connectivity
 

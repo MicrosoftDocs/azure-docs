@@ -5,13 +5,12 @@ services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 03/04/2019
 ms.author: mbullwin
 
 ---
@@ -37,7 +36,7 @@ The Application Insights service stores and analyzes the telemetry. To see the a
 
 You can have data exported from the Application Insights service, for example to a database or to external tools. You provide each tool with a special key that you obtain from the service. The key can be revoked if necessary. 
 
-Application Insights SDKs are available for a range of application types: web services hosted in your own J2EE or ASP.NET servers, or in Azure; web clients - that is, the code running in a web page; desktop apps and services; device apps such as Windows Phone, iOS, and Android. They all send telemetry to the same service.
+Application Insights SDKs are available for a range of application types: web services hosted in your own Java EE or ASP.NET servers, or in Azure; web clients - that is, the code running in a web page; desktop apps and services; device apps such as Windows Phone, iOS, and Android. They all send telemetry to the same service.
 
 ## What data does it collect?
 ### How is the data is collected?
@@ -47,7 +46,7 @@ There are three sources of data:
   
   * Each SDK has a number of [modules](../../azure-monitor/app/configuration-with-applicationinsights-config.md), which use different techniques to collect different types of telemetry.
   * If you install the SDK in development, you can use its API to send your own telemetry, in addition to the standard modules. This custom telemetry can include any data you want to send.
-* In some web servers, there are also agents that run alongside the app and send telemetry about CPU, memory, and network occupancy. For example, Azure VMs, Docker hosts, and [J2EE servers](../../azure-monitor/app/java-agent.md) can have such agents.
+* In some web servers, there are also agents that run alongside the app and send telemetry about CPU, memory, and network occupancy. For example, Azure VMs, Docker hosts, and [Java EE servers](../../azure-monitor/app/java-agent.md) can have such agents.
 * [Availability tests](../../azure-monitor/app/monitor-web-app-availability.md) are processes run by Microsoft that send requests to your web app at regular intervals. The results are sent to the Application Insights service.
 
 ### What kinds of data are collected?
@@ -114,9 +113,7 @@ They could send additional telemetry to your account by using the instrumentatio
 If you share code with other projects, remember to remove your instrumentation key.
 
 ## Is the data encrypted?
-Not inside the servers at present.
-
-All data is encrypted as it moves between data centers.
+All data is encrypted at rest and as it moves between data centers.
 
 #### Is the data encrypted in transit from my application to Application Insights servers?
 Yes, we use https to send data to the portal from nearly all SDKs, including web servers, devices and HTTPS web pages. The only exception is data sent from plain HTTP web pages.

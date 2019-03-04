@@ -3,7 +3,7 @@ title: "Quickstart: Project Answer Search, Node"
 description: Get started using Project Answer Search with Node.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: answer-search

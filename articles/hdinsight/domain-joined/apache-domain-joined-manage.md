@@ -210,7 +210,7 @@ HDInsight Enterprise Security Package has the following roles:
 6. Click **Add User** or **Add Group**, and then specify the users or groups that can use Hive Views.
 
 ## Configure users for the roles
- To see a list of roles and their permissions, see [Roles of HDInsight clusters with ESP](#roles-of-domain---joined-hdinsight-clusters).
+ To see a list of roles and their permissions, see Roles of HDInsight clusters with ESP.
 
 1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
 2. From the left menu, click **Roles**.

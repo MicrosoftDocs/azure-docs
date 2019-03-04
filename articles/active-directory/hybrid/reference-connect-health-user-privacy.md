@@ -10,9 +10,10 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 04/26/2018
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # User privacy and Azure AD Connect Health 

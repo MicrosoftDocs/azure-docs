@@ -4,12 +4,12 @@ titleSuffix: Azure Cognitive Services
 description: LUIS has a variety of features within the service. Not all features are at the same language parity. Make sure the features you are interested in are supported in the language culture you are targeting. A LUIS app is culture-specific and cannot be changed once it is set.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 03/04/2019
 ms.author: diberry
 ---
 
@@ -25,7 +25,7 @@ If you need a multi-language LUIS client application such as a chatbot, you have
 
 LUIS understands utterances in the following languages:
 
-| Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase suggestions | **[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentiment and<br>Keywords)|
+| Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase list recommendations | **[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentiment and<br>Keywords)|
 |--|--|:--:|:--:|:--:|:--:|
 | American English |`en-US` | ✔ | ✔  |✔|✔|
 | *[Chinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
@@ -48,7 +48,7 @@ Language support varies for [prebuilt entities](luis-reference-prebuilt-entities
 
  - In the `zh-cn` culture, LUIS expects the simplified Chinese character set instead of the traditional character set.
  - The names of intents, entities, features, and regular expressions may be in Chinese or Roman characters.
- - See the [prebuilt domains reference ](luis-reference-prebuilt-domains.md) for information on which prebuilt domains are supported in the `zh-cn` culture.
+ - See the [prebuilt domains reference](luis-reference-prebuilt-domains.md) for information on which prebuilt domains are supported in the `zh-cn` culture.
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
 
 ### *Japanese support notes

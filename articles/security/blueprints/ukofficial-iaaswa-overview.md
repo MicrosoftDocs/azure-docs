@@ -174,7 +174,7 @@ Storage
 
 **Firewall Logs**: Application Gateway provides full diagnostics and access logs. Firewall logs are available for application gateway resources that have WAF enabled.
 
-**Log Archiving**: Log data storage can be configured to write to a centralised Azure storage account for archival and a defined retention period. Logs can be processed using Azure Log Analytics or by third party SIEM systems.
+**Log Archiving**: Log data storage can be configured to write to a centralised Azure storage account for archival and a defined retention period. Logs can be processed using Azure Monitor logs or by third party SIEM systems.
 
 ### Identity
 
@@ -184,7 +184,7 @@ Storage
 
 [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
-**Active Directory Integration**: As an alternative to a dedicated AD DS architecture, customers may wish to use [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity) integration or [Active Directory in Azure joined to an on-premises forest](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-active-directory-in-azure-joined-to-an-on-premises-forest).
+**Active Directory Integration**: As an alternative to a dedicated AD DS architecture, customers may wish to use [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity) integration or [Active Directory in Azure joined to an on-premises forest](https://docs.microsoft.com/azure/guidance/guidance-ra-identity).
 
 ### Security
 

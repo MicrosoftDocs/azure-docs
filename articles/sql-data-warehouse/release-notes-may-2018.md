@@ -6,7 +6,7 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
@@ -22,7 +22,7 @@ Azure SQL Data Warehouse Compute Optimized Gen2 tier sets new performance standa
 See the [Turbocharge cloud analytics with Azure SQL Data Warehouse](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) blog announcement from Rohan Kumar, Corporate Vice President, Azure Data.
 
 ## Auto Statistics
-Statistics are critical to optimize query plan generation in moderl cost-based optimizers such as the engine in SQL Data Warehouse. When all queries are known in advance, determining what statistics objects need to be created is an achievable task. However, when the system is faced with ad-hoc and random queries which is typical for the data warehousing workloads, system administrators may struggle to predict what statistics need to be created leading to potentially suboptimal query execution plans and longer query response times. One way to mitigate this problem is to create statistics objects on all the table columns in advance. However, that process comes with a penalty as statistics objects need to be maintained during table loading process, causing longer loading times.
+Statistics are critical to optimize query plan generation in modern cost-based optimizers such as the engine in SQL Data Warehouse. When all queries are known in advance, determining what statistics objects need to be created is an achievable task. However, when the system is faced with ad-hoc and random queries which is typical for the data warehousing workloads, system administrators may struggle to predict what statistics need to be created leading to potentially suboptimal query execution plans and longer query response times. One way to mitigate this problem is to create statistics objects on all the table columns in advance. However, that process comes with a penalty as statistics objects need to be maintained during table loading process, causing longer loading times.
 
 SQL Data Warehouse now supports automatic creation of statistics objects providing greater flexibility, productivity, and ease of use for system administrators and developers, while ensuring the system continues to offer quality execution plans and best response times.
 

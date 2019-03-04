@@ -1,5 +1,5 @@
 ---
-title: Metrics in Azure Monitor (preview) - Azure Event Hubs | Microsoft Docs
+title: Metrics in Azure Monitor - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to use Azure Monitoring to monitor Azure Event Hubs
 services: event-hubs
 documentationcenter: .NET
@@ -18,7 +18,7 @@ ms.date: 12/06/2018
 ms.author: shvija
 
 ---
-# Azure Event Hubs metrics in Azure Monitor (preview)
+# Azure Event Hubs metrics in Azure Monitor
 
 Event Hubs metrics gives you the state of Event Hubs resources in your Azure subscription. With a rich set of metrics data, you can assess the overall health of your event hubs not only at the namespace level, but also at the entity level. These statistics can be important as they help you to monitor the state of your event hubs. Metrics can also help troubleshoot root-cause issues without needing to contact Azure support.
 
@@ -36,7 +36,7 @@ You can monitor metrics over time in the [Azure portal](https://portal.azure.com
 
 ![View successful metrics][1]
 
-You can also access metrics directly via the namespace. To do so, select your namespace and then click **Metrics (Peview)**. To display metrics filtered to the scope of the event hub, select the event hub and then click **Metrics (preview)**.
+You can also access metrics directly via the namespace. To do so, select your namespace and then click **Metrics **. To display metrics filtered to the scope of the event hub, select the event hub and then click **Metrics**.
 
 For metrics supporting dimensions, you must filter with the desired dimension value as shown in the following example:
 
@@ -44,7 +44,7 @@ For metrics supporting dimensions, you must filter with the desired dimension va
 
 ## Billing
 
-Using metrics in Azure Monitor is currently free while in preview. However, if you use additional solutions that ingest metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. You are also billed by Azure if you stream metrics data to Log Analytics for advanced analysis.
+Using metrics in Azure Monitor is currently free. However, if you use additional solutions that ingest metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. You are also billed by Azure if you stream metrics data to Azure Monitor logs for advanced analysis.
 
 The following metrics give you an overview of the health of your service. 
 

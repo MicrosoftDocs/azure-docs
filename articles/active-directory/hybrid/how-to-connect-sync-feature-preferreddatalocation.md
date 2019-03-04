@@ -11,11 +11,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Connect sync: Configure preferred data location for Office 365 resources
 The purpose of this topic is to walk you through how to configure the attribute for preferred data location in Azure Active Directory (Azure AD) Connect sync. When someone uses Multi-Geo capabilities in Office 365, you use this attribute to designate the geo-location of the user’s Office 365 data. (The terms *region* and *geo* are used interchangeably.)
@@ -233,7 +234,7 @@ Re-enable the built-in sync scheduler:
 ## Step 8: Verify the result
 It is now time to verify the configuration and enable it for your users.
 
-1. Add the geo to the selected attribute on a user. The list of available geos can be found in [this table](#enable-synchronization-of-preferreddatalocation).  
+1. Add the geo to the selected attribute on a user. The list of available geos can be found in this table.  
 ![Screenshot of AD attribute added to a user](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-adattribute.png)
 2. Wait for the attribute to be synchronized to Azure AD.
 3. Using Exchange Online PowerShell, verify that the mailbox region has been set correctly.  

@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: In this tutorial, you learn how to recognize intents from speech using the Speech SDK for C#.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service
@@ -75,7 +75,7 @@ In a moment, the new subscription appears in the table at the bottom of the page
 
 ## Create a speech project in Visual Studio
 
-[!INCLUDE [Create project ](../../../includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
+[!INCLUDE [Create project](../../../includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
 
 ## Add the code
 

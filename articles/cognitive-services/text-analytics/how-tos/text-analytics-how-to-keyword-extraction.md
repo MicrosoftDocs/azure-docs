@@ -1,17 +1,17 @@
 ---
-title: How-to key phrase extraction in Text Analytics REST API (Microsoft Cognitive Services on Azure) | Microsoft Docs
-description: How to extract key phrases using the Text Analytics REST API in Microsoft Cognitive Services on Azure in this walkthrough tutorial.
+title: Key phrase extraction using the Text Analytics REST API | Microsoft Docs
+description: How to extract key phrases using the Text Analytics REST API from Azure Cognitive services.
 services: cognitive-services
-author: HeidiSteen
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/12/2018
-ms.author: heidist
+ms.date: 02/13/2019
+ms.author: aahi
 ---
 
-# Example: How to extract key phrases in Text Analytics
+# Example: How to extract key phrases using Text Analytics
 
 The [Key Phrase Extraction API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) evaluates unstructured text, and for each JSON document, returns a list of key phrases. 
 
@@ -24,13 +24,13 @@ Currently, Key Phrase Extraction supports English, German, Spanish, and Japanese
 
 ## Preparation
 
-Key phrase extraction works best when you give it bigger chunks of text to work on. This is opposite from sentiment analysis, which performs better on smaller blocks of text. To get the best results from both operations, consider restructuring the inputs accordingly.
+Key phrase extraction works best when you give it bigger amounts of text to work on. This is opposite from sentiment analysis, which performs better on smaller amounts of text. To get the best results from both operations, consider restructuring the inputs accordingly.
 
 You must have JSON documents in this format: id, text, language
 
-Document size must be under 5,000 characters per document, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following example is an illustration of content you might submit for key phrase extraction.
+Document size must be under 5,120 characters per document, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following example is an illustration of content you might submit for key phrase extraction.
 
-```
+```json
     {
         "documents": [
             {
@@ -89,9 +89,9 @@ All POST requests return a JSON formatted response with the IDs and detected pro
 
 Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data.
 
-An example of the output for key phrase extraction is shown next:
+An example of the output for key phrase extraction is shown here:
 
-```
+```json
     "documents": [
         {
             "keyPhrases": [

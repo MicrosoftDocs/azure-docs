@@ -1,20 +1,22 @@
 ---
 
-title: Best practices for securing administrative access in Azure AD | Microsoft Docs
+title: Best practices for secure admin access - Azure Active Directory | Microsoft Docs
 description: Ensure that your organization’s administrative access and admin accounts are secure. For system architects and IT pros who configure Azure AD, Azure, and Microsoft Online Services. 
 services: active-directory 
 keywords: 
 author: curtand
 manager: mtillman
+
 ms.author: curtand
-ms.date: 06/25/2018
+ms.date: 01/31/2019
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.custom: it-pro
-ms.reviewer: martincoetzer, MarkMorow
+ms.reviewer: "martincoetzer; MarkMorow"
 
+ms.collection: M365-identity-device-management
 ---
 
 # Securing privileged access for hybrid and cloud deployments in Azure AD

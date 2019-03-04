@@ -4,7 +4,7 @@ description: Learn about how to license the Microsoft Smooth Streaming Client Po
 services: media-services
 documentationcenter: ''
 author: willzhan
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2018
+ms.date: 02/08/2019
 ms.author: willzhan;kilroyh;yanmf;juliako
 
 ---
-# Design of a content protection system with access control using Azure Media Services
+# Design of a content protection system with access control using Azure Media Services 
 
 ## Overview
 

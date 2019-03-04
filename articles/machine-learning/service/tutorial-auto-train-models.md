@@ -8,8 +8,8 @@ ms.subservice: core
 ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
-ms.reviewer: sgilley
-ms.date: 12/04/2018
+ms.reviewer: trbye
+ms.date: 02/05/2019
 ms.custom: seodec18
 ---
 
@@ -29,7 +29,6 @@ In this tutorial, you learn the following tasks:
 > * Autotrain a regression model.
 > * Run the model locally with custom parameters.
 > * Explore the results.
-> * Register the best model.
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
 
@@ -38,38 +37,76 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Prerequisites
 
-> * [Run the data preparation tutorial](tutorial-data-prep.md).
-> * An automated machine learning configured environment. Examples are [Azure Notebooks](https://notebooks.azure.com/), a local Python environment, or a Data Science Virtual Machine. [Set up automated machine learning](samples-notebooks.md).
+Skip to [Set up your development environment](#start) to read through the notebook steps, or use the instructions below to get the notebook and run it on Azure Notebooks or your own notebook server. To run the notebook you will need:
 
-## Get the notebook
+* [Run the data preparation tutorial](tutorial-data-prep.md).
+* A Python 3.6 notebook server with the following installed:
+    * The Azure Machine Learning SDK for Python with `automl` and `notebooks` extras
+    * `matplotlib`
+* The tutorial notebook
+* A machine learning workspace
+* The configuration file for the workspace in the same directory as the notebook
 
-For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Run the `regression-part2-automated-ml.ipynb` notebook either in [Azure Notebooks](https://notebooks.azure.com/) or in your own Jupyter Notebook server.
+Get all these prerequisites from either of the sections below.
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+* Use [Azure Notebooks](#azure)
+* Use [your own notebook server](#server)
 
-## Import packages
+### <a name="azure"></a>Use Azure Notebooks: Free Jupyter notebooks in the cloud
+
+It's easy to get started with Azure Notebooks! The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) is already installed and configured for you on [Azure Notebooks](https://notebooks.azure.com/). The installation and future updates are automatically managed via Azure services.
+
+After you complete the steps below, run the **tutorials/regression-part2-automated-ml.ipynb** notebook in your **Getting Started** project.
+
+[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+### <a name="server"></a>Use your own Jupyter notebook server
+
+Use these steps to create a local Jupyter Notebook server on your computer.  After you complete the steps, run the **tutorials/regression-part2-automated-ml.ipynb** notebook.
+
+1. Complete the [Azure Machine Learning Python quickstart](quickstart-create-workspace-with-python.md) to create a Miniconda environment and create a workspace.
+1. Install the `automl` and `notebooks` extras in your environment using `pip install azureml-sdk[automl,notebooks]`.
+1. Install `maplotlib` using `pip install maplotlib`.
+1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
+
+    ```
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
+
+1. Start the notebook server from your cloned directory.
+
+    ```shell
+    jupyter notebook
+
+## <a name="start"></a>Set up your development environment
+
+All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
+
+* Install the SDK
+* Import Python packages
+* Configure your workspace
+
+### Install and import packages
+
+If you are following the tutorial in your own Python environment, use the following to install necessary packages.
+
+```shell
+pip install azureml-sdk[automl,notebooks] matplotlib
+```
+
 Import the Python packages you need in this tutorial:
-
 
 ```python
 import azureml.core
 import pandas as pd
 from azureml.core.workspace import Workspace
-from azureml.train.automl.run import AutoMLRun
-import time
 import logging
 import os
 ```
 
-If you are following the tutorial in your own Python environment, use the following to install necessary packages.
+### Configure workspace
 
-```shell
-pip install azureml-sdk[automl,notebooks] azureml-dataprep pandas scikit-learn matplotlib
-```
-
-## Configure workspace
-
-Create a workspace object from the existing workspace. A `Workspace` is a class that accepts your Azure subscription and resource information. It also creates a cloud resource to monitor and track your model runs.
+Create a workspace object from the existing workspace. A [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py) is a class that accepts your Azure subscription and resource information. It also creates a cloud resource to monitor and track your model runs.
 
 `Workspace.from_config()` reads the file **aml_config/config.json** and loads the details into an object named `ws`.  `ws` is used throughout the rest of the code in this tutorial.
 
@@ -738,7 +775,6 @@ for run in children:
     metrics = {k: v for k, v in run.get_metrics().items() if isinstance(v, float)}
     metricslist[int(properties['iteration'])] = metrics
 
-import pandas as pd
 rundata = pd.DataFrame(metricslist).sort_index(1)
 rundata
 ```
@@ -1175,6 +1211,5 @@ In this automated machine learning tutorial, you did the following tasks:
 > * Configured a workspace and prepared data for an experiment.
 > * Trained by using an automated regression model locally with custom parameters.
 > * Explored and reviewed training results.
-> * Registered the best model.
 
 [Deploy your model](tutorial-deploy-models-with-aml.md) with Azure Machine Learning.

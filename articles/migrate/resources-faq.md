@@ -4,7 +4,7 @@ description: Addresses frequently asked questions about Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 02/19/2019
 ms.author: snehaa
 ---
 
@@ -50,7 +50,7 @@ Azure Migrate currently supports Europe, United States, and Azure Government as 
 Azure Government | US Gov Virginia
 Asia | Southeast Asia
 Europe | North Europe or West Europe
-Unites States | East US of West Central US
+Unites States | East US or West Central US
 
 ### How does the on-premises site connect to Azure Migrate?
 
@@ -103,7 +103,7 @@ The agent-based discovery is an option available on top of the appliance-based d
 
 ### Would there be any performance impact on the analyzed ESXi host environment?
 
-In the case of the [one time discovery approach](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods), in order to collect the performance data, the statistics level on the vCenter server would have to be set to 3. Setting it to this level would collect a large quantity of troubleshooting data, which would be stored in the vCenter Server database. It could thus result in some performance issues on the vCenter Server. There would be negligible impact on the ESXi host.
+In the case of the [one time discovery approach](https://docs.microsoft.com/azure/migrate/concepts-collector), in order to collect the performance data, the statistics level on the vCenter server would have to be set to 3. Setting it to this level would collect a large quantity of troubleshooting data, which would be stored in the vCenter Server database. It could thus result in some performance issues on the vCenter Server. There would be negligible impact on the ESXi host.
 
 We have introduced continuous profiling of performance data(which is in preview). With continuous profiling, there is no longer a need to change the vCenter Server statistics level to run a performance-based assessment. The collector appliance will now profile the on-premises machines to measure the performance data of the virtual machines. This would have almost zero performance impact on the ESXi hosts as well as on the vCenter Server.
 
@@ -112,6 +112,10 @@ We have introduced continuous profiling of performance data(which is in preview)
 The data collected by the collector appliance is stored in the Azure location that you specify while creating the migration project. The data is securely stored in a Microsoft subscription and is deleted when the user deletes the Azure Migrate project.
 
 For dependency visualization, if you install agents on the VMs, the data collected by the dependency agents is stored in the US in a Log Analytics workspace created in user’s subscription. This data is deleted when you delete the Log Analytics workspace in your subscription. [Learn more](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
+
+### What is the volume of data which is uploaded by Azure Migrate in the case of continuous profiling?
+
+The volume of data which is sent to Azure Migrate would vary based on several parameters. To give an indicative number, a project having ten machines (each having one disk and one NIC), would send around 50 MB per day. This is an approximate value and would change based on the number of data points for the NICs and disks (the data sent would be non-linear if the number of machines, NICs or disks increase). 
 
 ### Is the data encrypted at rest and while in transit?
 
@@ -125,7 +129,7 @@ The collector appliance connects to the vCenter Server (port 443) using the cred
 
 ### Can I connect the same collector appliance to multiple vCenter servers?
 
-Yes, a single collector appliance can be used to discover multiple vCenter Servers, but not concurrently. You need to run the discoveries one after another.
+Yes, a single collector appliance can be used to discover multiple vCenter Servers, but not concurrently. You need to run the discovery one after another.
 
 ### Is the OVA template used by Site Recovery integrated with the OVA used by Azure Migrate?
 
@@ -167,7 +171,7 @@ These properties are only applicable for performance-based sizing. Azure Migrate
 
 ### What is dependency visualization?
 
-Dependency visualization enables you to assess groups of VMs for migration with greater confidence by cross-checking machine dependencies before you run an assessment. Dependency visualization helps you to ensure that nothing is left behind, avoiding unexpected outages when you migrate to Azure. Azure Migrate leverages the Service Map solution in Log Analytics to enable dependency visualization.
+Dependency visualization enables you to assess groups of VMs for migration with greater confidence by cross-checking machine dependencies before you run an assessment. Dependency visualization helps you to ensure that nothing is left behind, avoiding unexpected outages when you migrate to Azure. Azure Migrate leverages the Service Map solution in Azure Monitor logs to enable dependency visualization.
 
 ### Do I need to pay to use the dependency visualization feature?
 
@@ -209,7 +213,7 @@ The list of Windows operating systems supported by dependency agent is [here](ht
 The list of Linux operating systems supported by dependency agent is [here](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### Can I visualize dependencies in Azure Migrate for more than one hour duration?
-No, Azure Migrate lets you visualize dependencies for up to one hour duration. Azure Migrate allows you to go back to a particular date in the history for up to last one month, but the maximum duration for which you can visualize the dependencies is up to 1 hour. For example, you can use the time duration functionality in the dependency map, to view dependencies for yesterday, but can only view it for a one hour window. However, you can use Log Analytics to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) over a longer duration.
+No, Azure Migrate lets you visualize dependencies for up to one hour duration. Azure Migrate allows you to go back to a particular date in the history for up to last one month, but the maximum duration for which you can visualize the dependencies is up to 1 hour. For example, you can use the time duration functionality in the dependency map, to view dependencies for yesterday, but can only view it for a one hour window. However, you can use Azure Monitor logs to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) over a longer duration.
 
 ### Is dependency visualization supported for groups with more than 10 VMs?
 You can [visualize dependencies for groups](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) that have up to 10 VMs. If you have a group with more than 10 VMs, we recommend you to split the group in to smaller groups and visualize the dependencies.

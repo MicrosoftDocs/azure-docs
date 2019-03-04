@@ -8,7 +8,7 @@ ms.date: 11/14/2018
 ms.author: mjbrown
 ---
 
-# How to configure time to live in Azure Cosmos DB
+# Configure time to live in Azure Cosmos DB
 
 In Azure Cosmos DB, you can choose to configure Time to Live (TTL) at the container level, or you can override it at an item level after setting for the container. You can configure TTL for a container by using Azure portal or the language-specific SDKs. Item level TTL overrides can be configured by using the SDKs.
 
@@ -77,6 +77,37 @@ In addition to setting a default time to live on a container, you can set a time
 
 * If TTL is disabled at the container level, the TTL field on the item will be ignored until TTL is re-enabled on the container.
 
+### <a id="portal-set-ttl-item"></a>Azure portal
+
+Use the following steps to enable time to live on an item:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+2. Create a new Azure Cosmos account or select an existing account.
+
+3. Open the **Data Explorer** pane.
+
+4. Select an existing container, expand it and modify the following values:
+
+   * Open the **Scale & Settings** window.
+   * Under **Setting** find, **Time to Live**.
+   * Select **On (no default)** or select **On** and set a TTL value. 
+   * Click **Save** to save the changes.
+
+5. Next navigate to the item for which you want to set time to live, add the `ttl` property and select **Update**. 
+
+  ```json
+  {
+    "id": "1",
+    "_rid": "Jic9ANWdO-EFAAAAAAAAAA==",
+    "_self": "dbs/Jic9AA==/colls/Jic9ANWdO-E=/docs/Jic9ANWdO-EFAAAAAAAAAA==/",
+    "_etag": "\"0d00b23f-0000-0000-0000-5c7712e80000\"",
+    "_attachments": "attachments/",
+    "ttl": 10,
+    "_ts": 1551307496
+  }
+  ```
+
 ### <a id="dotnet-set-ttl-item"></a>.NET SDK
 
 ```csharp
@@ -89,7 +120,7 @@ public class SalesOrder
     public string CustomerId { get; set; }
     // used to set expiration policy
     [JsonProperty(PropertyName = "ttl", NullValueHandling = NullValueHandling.Ignore)]
-    public int? TimeToLive { get; set; }
+    public int? ttl { get; set; }
 
     //...
 }
@@ -98,7 +129,7 @@ SalesOrder salesOrder = new SalesOrder
 {
     Id = "SO05",
     CustomerId = "CO18009186470",
-    TimeToLive = 60 * 60 * 24 * 30;  // Expire sales orders in 30 days
+    ttl = 60 * 60 * 24 * 30;  // Expire sales orders in 30 days
 };
 ```
 
@@ -116,7 +147,7 @@ response = await client.ReadDocumentAsync(
     new RequestOptions { PartitionKey = new PartitionKey("CO18009186470") });
 
 Document readDocument = response.Resource;
-readDocument.TimeToLive = 60 * 30 * 30; // update time to live
+readDocument.ttl = 60 * 30 * 30; // update time to live
 response = await client.ReplaceDocumentAsync(readDocument);
 ```
 
@@ -134,7 +165,7 @@ response = await client.ReadDocumentAsync(
     new RequestOptions { PartitionKey = new PartitionKey("CO18009186470") });
 
 Document readDocument = response.Resource;
-readDocument.TimeToLive = null; // inherit the default TTL of the collection
+readDocument.ttl = null; // inherit the default TTL of the collection
 
 response = await client.ReplaceDocumentAsync(readDocument);
 ```

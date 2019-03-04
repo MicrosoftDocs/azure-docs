@@ -3,8 +3,8 @@ title: Just-in-time virtual machine access in Azure Security Center | Microsoft 
 description: This document demonstrates how just-in-time VM access in Azure Security Center helps you control access to your Azure virtual machines.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: MBaldwin
+author: monhaber
+manager: barbkess
 editor: ''
 
 ms.assetid:
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/4/2018
-ms.author: rkarlin
+ms.date: 2/28/2019
+ms.author: monhaber
 
 ---
 # Manage virtual machine access using just-in-time
@@ -25,6 +25,8 @@ Just-in-time  (JIT) virtual machine (VM) access can be used to lock down inbound
 > The just-in-time feature is available on the Standard tier of Security Center.  See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
 >
 >
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Attack scenario
 
@@ -138,11 +140,11 @@ This enables just-in-time access for the VM using the following settings:
 - Windows servers:
     - RDP port 3389
     - 3 hours of maximum allowed access
-    - Allowed source IP addresses is set to Per request
+    - Allowed source IP addresses is set to Any
 - Linux servers:
     - SSH port 22
     - 3 hours of maximum allowed access
-    - Allowed source IP addresses is set to Per request
+    - Allowed source IP addresses is set to Any
      
 If a VM already has just-in-time enabled, when you go to its configuration page you will be able to see that just-in-time is enabled and you can use the link to open the policy in Azure Security Center to view and change the settings.
 
@@ -205,7 +207,7 @@ The just-in-time VM access feature can be used via the Azure Security Center API
 
 ### Using JIT VM access via PowerShell 
 
-To use the just-in-time VM access solution via PowerShell, use the official Azure Security Center PowerShell cmdlets, and specifically `Set-AzureRmJitNetworkAccessPolicy`.
+To use the just-in-time VM access solution via PowerShell, use the official Azure Security Center PowerShell cmdlets, and specifically `Set-AzJitNetworkAccessPolicy`.
 
 The following example sets a just-in-time VM access policy on a specific VM, and sets the following:
 1.	Close ports 22 and 3389.
@@ -235,7 +237,7 @@ Run the following in PowerShell to accomplish this:
 
 3.	Configure the just-in-time VM access policy on the selected VM:
 	
-        Set-AzureRmJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
+        Set-AzJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
 
 #### Requesting access to a VM
 
@@ -255,7 +257,7 @@ Run the following in PowerShell:
         $JitPolicyArr=@($JitPolicyVm1)
 3.	Send the request access (use the resource ID you got in step 1)
 
-        Start-AzureRmJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
+        Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
 
 For more information, see the PowerShell cmdlet documentation.
 

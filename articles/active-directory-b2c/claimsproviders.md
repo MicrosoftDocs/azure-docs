@@ -13,7 +13,7 @@ ms.author: davidmu
 ms.subservice: B2C
 ---
 
-# ClaimsProviders 
+# ClaimsProviders
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -31,7 +31,6 @@ A claims provider contains a set of [technical profiles](technicalprofiles.md). 
         ...
     </TechnicalProfiles>
   </ClaimsProvider>
-</ClaimsProvider>
   ...
 </ClaimsProviders>
 ```
@@ -52,7 +51,7 @@ The **ClaimsProvider** element contains the following child elements:
 | DisplayName | 0:1 | A string that contains the name of the claims provider that can be displayed to users. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | A set of technical profiles supported by the claim provider |
 
-**ClaimsProvider** organizes your technical profiles relate to the claims provider. The following example shows the Azure Active Directory claims provider with the Azure Active Directory technical profiles: 
+**ClaimsProvider** organizes your technical profiles relate to the claims provider. The following example shows the Azure Active Directory claims provider with the Azure Active Directory technical profiles:
 
 ```XML
 <ClaimsProvider>
@@ -78,7 +77,7 @@ The **ClaimsProvider** element contains the following child elements:
       ...
     </TechnicalProfile>
     <TechnicalProfile Id="AAD-UserWriteProfileUsingObjectId">
-      ...    
+      ...
     </TechnicalProfile>
     <TechnicalProfile Id="AAD-UserReadUsingObjectId">
       ...
@@ -105,4 +104,3 @@ The following example shows the Facebook claims provider with the **Facebook-OAU
   </TechnicalProfiles>
 </ClaimsProvider>
 ```
- 

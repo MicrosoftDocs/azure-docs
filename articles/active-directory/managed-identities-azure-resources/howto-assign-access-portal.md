@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: priyamo
+ms.collection: M365-identity-device-management
 ---
 
 # Assign a managed identity access to a resource by using the Azure portal

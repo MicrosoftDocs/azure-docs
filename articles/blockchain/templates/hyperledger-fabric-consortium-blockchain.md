@@ -107,7 +107,7 @@ In **Fabric configuration**, you configure network size and performance, and spe
 | Parameter Name | Description | Allowed values |
 |---|---|---|
 **Scale type**|The deployment type of either a single virtual machine with multiple containers or multiple virtual machines in a scale-out model.|Single VM or Multi VM |
-**VM Disk type**|The type of storage backing each of the deployed nodes. <br/> To learn more about storage, visit [Introduction to Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction) and [Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|Standard SSD <br/> Premium SSD |
+**VM Disk type**|The type of storage backing each of the deployed nodes. <br/> To learn more about the available disk types, visit [select a disk type](../../virtual-machines/windows/disks-types.md).|Standard SSD <br/> Premium SSD |
 
 ### Multiple VM deployment (additional settings)
 

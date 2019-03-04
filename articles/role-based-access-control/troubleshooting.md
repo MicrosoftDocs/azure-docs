@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot RBAC in Azure | Microsoft Docs
-description: Troubleshoot issues with Azure role-based access control (RBAC).
+title: Troubleshoot RBAC for Azure resources | Microsoft Docs
+description: Troubleshoot issues with role-based access control (RBAC) for Azure resources.
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -17,9 +17,9 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
 ---
-# Troubleshoot RBAC in Azure
+# Troubleshoot RBAC for Azure resources
 
-This article answers common questions about role-based access control (RBAC), so that you know what to expect when using the roles in the Azure portal and can troubleshoot access problems.
+This article answers common questions about role-based access control (RBAC) for Azure resources, so that you know what to expect when using the roles in the Azure portal and can troubleshoot access problems.
 
 ## Problems with RBAC role assignments
 
@@ -114,6 +114,6 @@ Some features of [Azure Functions](../azure-functions/functions-overview.md) req
 A reader can click the **Platform features** tab and then click **All settings** to view some settings related to a function app (similar to a web app), but they can't modify any of these settings.
 
 ## Next steps
-* [Manage access using RBAC and the Azure portal](role-assignments-portal.md)
-* [View activity logs for RBAC changes](change-history-report.md)
+* [Manage access to Azure resources using RBAC and the Azure portal](role-assignments-portal.md)
+* [View activity logs for RBAC changes to Azure resources](change-history-report.md)
 
