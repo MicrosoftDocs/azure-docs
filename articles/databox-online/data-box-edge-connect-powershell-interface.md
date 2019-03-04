@@ -51,10 +51,6 @@ This article includes the following procedures:
 
 [!INCLUDE [Deactivate your device](../../includes/data-box-edge-gateway-deactivate-device.md)]
 
-## Recover your device
- 
-[!INCLUDE [Recover your device](../../includes/data-box-edge-gateway-get-bitlocker-key.md)]
-
 ## Get compute logs
 
 If the compute role is configured on your device, you can also get the compute logs via the PowerShell interface.

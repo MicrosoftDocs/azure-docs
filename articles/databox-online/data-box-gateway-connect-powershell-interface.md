@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 03/04/2019
 ms.author: alkohli
 ---
 # Manage Azure Data Box Gateway via Windows PowerShell
