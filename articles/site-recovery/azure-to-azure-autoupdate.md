@@ -1,6 +1,6 @@
 ---
-title: Automatic update of Mobility Service in Azure to Azure disaster recovery | Microsoft Docs
-description: Overview of automatic update of Mobility service when replicating Azure VMs by using Azure Site Recovery.
+title: Automatic update of the Mobility service in Azure to Azure disaster recovery | Microsoft Docs
+description: Overview of automatic update of the Mobility service when replicating Azure VMs by using Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram 
 manager: rochakm
@@ -10,11 +10,11 @@ ms.date: 11/27/2018
 ms.author: rajanaki
 
 ---
-# Automatic update of Mobility service in Azure-to-Azure replication
+# Automatic update of the Mobility service in Azure-to-Azure replication
 
 Azure Site Recovery uses a monthly release cadence to fix any issues and enhance existing features or add new ones. To remain current with the service, you must plan for patch deployment each month. To avoid overhead associated with each upgrade, you can instead allow Site Recovery to manage component updates.
 
-As mentioned in [Azure-to-Azure disaster recovery architecture](azure-to-azure-architecture.md), Mobility service is installed on all Azure virtual machines (VMs) for which replication is enabled, while replicating VMs from one Azure region to another. When you use automatic updates, each new release updates the Mobility service extension.
+As mentioned in [Azure-to-Azure disaster recovery architecture](azure-to-azure-architecture.md), the Mobility service is installed on all Azure virtual machines (VMs) for which replication is enabled, while replicating VMs from one Azure region to another. When you use automatic updates, each new release updates the Mobility service extension.
  
 ## How automatic updates work
 
@@ -26,7 +26,7 @@ The default runbook schedule recurs daily at 12:00 AM in the time zone of the re
 > Turning on automatic updates doesn't require a restart of your Azure VMs or affect ongoing replication.
 
 > [!NOTE]
-> Automation account job billing is based on the number of job runtime minutes used in a month. By default, 500 minutes are included as free units for an automation account. Job execution takes a few seconds to about a minute each day and is covered as free units.
+> Job billing in the automation account is based on the number of job runtime minutes used in a month. By default, 500 minutes are included as free units for an automation account. Job execution takes a few seconds to about a minute each day and is covered as free units.
 
 | Free units included (each month) | Price |
 |---|---|
@@ -34,11 +34,11 @@ The default runbook schedule recurs daily at 12:00 AM in the time zone of the re
 
 ## Enable automatic updates
 
-You can allow Site Recovery to manage updates in the following ways:
+You can allow Site Recovery to manage updates in the following ways.
 
 ### Manage as part of the enable replication step
 
-When you use replication for a VM either starting [from the VM view](azure-to-azure-quickstart.md) or [from the recovery services vault](azure-to-azure-how-to-enable-replication.md), you can either allow Site Recovery to manage updates for the Site Recovery extension or manage it manually.
+When you enable replication for a VM either starting [from the VM view](azure-to-azure-quickstart.md) or [from the recovery services vault](azure-to-azure-how-to-enable-replication.md), you can either allow Site Recovery to manage updates for the Site Recovery extension or manage it manually.
 
 ![enable-replication-auto-update](./media/azure-to-azure-autoupdate/enable-rep.png)
 
@@ -509,13 +509,13 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 
 If there's an issue with the automatic updates, you'll see an error notification under **Configuration issues** in the vault dashboard.
 
-If you couldn't turn on automatic updates, see the following common errors and recommended actions:
+If you couldn't enable automatic updates, see the following common errors and recommended actions:
 
 **Error**: You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.
 
-**Recommended action**: Make sure that the signed-in account is assigned as Contributor and try again. Refer to the required permissions section in [Use the portal to create an Azure AD application and service principal that can access resources ](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) for more info about assigning permissions.
+**Recommended action**: Make sure that the signed-in account is assigned as Contributor and try again. Refer to the required permissions section in [Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) for more information about assigning permissions.
  
-To fix most issues after you turn on automatic updates, select **Repair**. If the repair button isn't available, see the error message displayed in the extension update settings pane.
+To fix most issues after you enable automatic updates, select **Repair**. If the repair button isn't available, see the error message displayed in the extension update settings pane.
 
 ![Site Recovery service repair button in extension update settings](./media/azure-to-azure-autoupdate/repair.png)
 
