@@ -20,6 +20,8 @@ ms.author: yegu
 
 Azure App Configuration provides a service for managing application settings centrally. Modern programs, especially those running in a cloud, generally have many components that are distributed in nature. Spreading configuration settings across these components can lead to hard-to-troubleshoot errors during an application deployment. App Configuration lets you store all settings for your application and secure their accesses in one place.
 
+App Configuration service is in **private preview**. It is free to use during the preview period. Please [register](https://aka.ms/azconfig/register) for the preview if you are interested in trying it out.
+
 ## Why use App Configuration
 
 Cloud-based applications often run on multiple virtual machines or containers in multiple regions and use multiple external services. Creating such a distributed application that is robust and scalable is a real challenge. Various programming methodologies have risen to help developers dealing with the increasing complexity of building these applications. For example, the 12-factor app details many well-tested architectural patterns and best practices for use with cloud applications. One key recommendation from this guide is to separate configuration from code. This means that an application’s configuration such as settings should be kept external to its executable and read in from its runtime environment or an external source.
@@ -40,6 +42,12 @@ App Configuration offers the following benefits:
 * Enhanced security through Azure-managed identities.
 * Complete data encryptions, at rest or in transit.
 * Native integration with popular frameworks.
+
+App Configuration complements [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) used for storing application secrets. App Configuration make it easier to implement following scenarios:
+
+* Centralized management and distribution of hierarchical configuration data for different environments and geographies.
+* Dynamic configuration changes without redeploying or restarting an application.
+* Feature management.
 
 ## How to use App Configuration
 

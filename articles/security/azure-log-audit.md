@@ -47,7 +47,7 @@ The following table lists the most important types of logs available in Azure:
 |[Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Storage logging, provides metrics data for a storage account|Provides insight into trace requests, analyzes usage trends, and diagnoses issues with your storage account.|	REST API or the [client library](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[Network Security Group (NSG) flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON format, shows outbound and inbound flows on a per-rule basis|Displays information about ingress and egress IP traffic through a Network Security Group.|[Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application insight](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Logs, exceptions, and custom diagnostics|	Provides an application performance monitoring (APM) service for web developers on multiple platforms.|	REST API, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
-|Process data / security alerts|	Azure Security Center alerts, Azure Log Analytics alerts|	Provides security information and alerts.| 	REST APIs, JSON|
+|Process data / security alerts|	Azure Security Center alerts, Azure Monitor logs alerts|	Provides security information and alerts.| 	REST APIs, JSON|
 
 ### Activity logs
 
@@ -75,7 +75,7 @@ Integration scenarios for an activity log event:
 
 * Query it via PowerShell cmdlet, Azure CLI, or REST API.
 
-* Export the activity log with log profiles to [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
+* Export the activity log with log profiles to [Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 
 You can use a storage account or [event hub namespace](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) that is not in the same subscription as the one that's emitting the log. Whoever configures the setting must have the appropriate [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) access to both subscriptions.
 
@@ -93,15 +93,15 @@ Azure diagnostics logs offer multiple configuration options, such as the Azure p
 
 * [Stream them to event hubs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs) for ingestion by a third-party service or custom analytics solution, such as [PowerBI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/).
 
-* Analyze them with [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
+* Analyze them with [Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 
 **Supported services, schema for diagnostics logs and supported log categories per resource type**
 
 
 | Service | Schema and documentation | Resource type | Category |
 | ------- | ------------- | ------------- | -------- |
-|Azure Load Balancer| [Log Analytics for Load Balancer (Preview)](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers<br>Microsoft.Network/loadBalancers|	LoadBalancerAlertEvent<br>LoadBalancerProbeHealthStatus|
-|Network Security Groups|[Log Analytics for Network Security Groups](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups<br>Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent<br>NetworkSecurityGroupRuleCounter|
+|Azure Load Balancer| [Azure Monitor logs for Load Balancer (Preview)](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers<br>Microsoft.Network/loadBalancers|	LoadBalancerAlertEvent<br>LoadBalancerProbeHealthStatus|
+|Network Security Groups|[Azure Monitor logs for Network Security Groups](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups<br>Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent<br>NetworkSecurityGroupRuleCounter|
 |Azure Application Gateway|[Diagnostics logging for Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)|Microsoft.Network/applicationGateways<br>Microsoft.Network/applicationGateways<br>Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog<br>ApplicationGatewayPerformanceLog<br>ApplicationGatewayFirewallLog|
 |Azure Key Vault|[Key Vault logs](https://docs.microsoft.com/azure/key-vault/key-vault-logging)|Microsoft.KeyVault/vaults|AuditEvent|
 |Azure Search|[Enabling and using Search Traffic Analytics](https://docs.microsoft.com/azure/search/search-traffic-analytics)|Microsoft.Search/searchServices|OperationLogs|
@@ -109,7 +109,7 @@ Azure diagnostics logs offer multiple configuration options, such as the Azure p
 |Azure Data Lake Analytics|[Access diagnostics logs for Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts<br>Microsoft.DataLakeAnalytics/accounts|Audit<br>Requests|
 |Azure Logic Apps|[Logic Apps B2B custom tracking schema](https://docs.microsoft.com/azure/logic-apps/logic-apps-track-integration-account-custom-tracking-schema)|Microsoft.Logic/workflows<br>Microsoft.Logic/integrationAccounts|WorkflowRuntime<br>IntegrationAccountTrackingEvents|
 |Azure Batch|[Azure Batch diagnostics logs](https://docs.microsoft.com/azure/batch/batch-diagnostics)|Microsoft.Batch/batchAccounts|ServiceLog|
-|Azure Automation|[Log Analytics for Azure Automation](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts<br>Microsoft.Automation/automationAccounts|JobLogs<br>JobStreams|
+|Azure Automation|[Azure Monitor logs for Azure Automation](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts<br>Microsoft.Automation/automationAccounts|JobLogs<br>JobStreams|
 |Azure Event Hubs|[Event Hubs diagnostics logs](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces<br>Microsoft.EventHub/namespaces|ArchiveLogs<br>OperationalLogs|
 |Azure Stream Analytics|[Job diagnostics logs](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs<br>Microsoft.StreamAnalytics/streamingjobs|Execution<br>Authoring|
 |Azure Service Bus|[Service Bus diagnostics logs](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
@@ -213,7 +213,7 @@ The same retention policies that are seen on other logs apply to flow logs. Logs
 
 **Diagnostics logs**
 
-Periodic and spontaneous events are created by network resources and logged in storage accounts, and sent to an event hub or Log Analytics. The logs provide insights into the health of a resource. They can be viewed in tools such as Power BI and Log Analytics. To learn how to view diagnostics logs, see [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
+Periodic and spontaneous events are created by network resources and logged in storage accounts, and sent to an event hub or Azure Monitor logs. The logs provide insights into the health of a resource. They can be viewed in tools such as Power BI and Azure Monitor logs. To learn how to view diagnostics logs, see [Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
 
 ![Diagnostics logs](./media/azure-log-audit/azure-log-audit-fig5.png)
 
@@ -299,29 +299,31 @@ Security Center employs advanced security analytics, which go far beyond signatu
 
 * **Anomaly detection**: Uses statistical profiling to build a historical baseline. It alerts on deviations from established baselines that conform to a potential attack vector.
 
-Many security operations and incident response teams rely on a SIEM solution as the starting point for triaging and investigating security alerts. With Azure Log Integration, you can sync Security Center alerts and virtual machine security events, collected by Azure diagnostics and audit logs, with your Log Analytics or SIEM solution in near real time.
+Many security operations and incident response teams rely on a SIEM solution as the starting point for triaging and investigating security alerts. With Azure Log Integration, you can sync Security Center alerts and virtual machine security events, collected by Azure diagnostics and audit logs, with your Azure Monitor logs or SIEM solution in near real time.
 
-## Log Analytics
+## Azure Monitor logs
 
-Log Analytics is a service in Azure that helps you collect and analyze data that's generated by resources in your cloud and on-premises environments. It gives you real-time insights by using integrated search and custom dashboards to readily analyze millions of records across all your workloads and servers, regardless of their physical location.
+Azure Monitor logs is a service in Azure that helps you collect and analyze data that's generated by resources in your cloud and on-premises environments. It gives you real-time insights by using integrated search and custom dashboards to readily analyze millions of records across all your workloads and servers, regardless of their physical location.
 
-![Log Analytics diagram](./media/azure-log-audit/azure-log-audit-fig8.png)
+![Azure Monitor logs diagram](./media/azure-log-audit/azure-log-audit-fig8.png)
 
-At the center of Log Analytics is the Log Analytics workspace, which is hosted in Azure. Log Analytics collects data in the workspace from connected sources by configuring data sources and adding solutions to your subscription. Data sources and solutions each create different record types, each with its own set of properties. But sources and solutions can still be analyzed together in queries to the workspace. This capability allows you to use the same tools and methods to work with a variety of data collected by a variety of sources.
+At the center of Azure Monitor logs is the Log Analytics workspace, which is hosted in Azure. Azure Monitor logs collects data in the workspace from connected sources by configuring data sources and adding solutions to your subscription. Data sources and solutions each create different record types, each with its own set of properties. But sources and solutions can still be analyzed together in queries to the workspace. This capability allows you to use the same tools and methods to work with a variety of data collected by a variety of sources.
 
-Connected sources are the computers and other resources that generate the data that's collected by Log Analytics. Sources can include agents that are installed on [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) and [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) computers that connect directly, or agents in [a connected System Center Operations Manager management group](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents). Log Analytics can also collect data from an [Azure storage account](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage).
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+Connected sources are the computers and other resources that generate the data that's collected by Azure Monitor logs. Sources can include agents that are installed on [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) and [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) computers that connect directly, or agents in [a connected System Center Operations Manager management group](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents). Azure Monitor logs can also collect data from an [Azure storage account](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage).
 
 [Data sources](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources) are the various kinds of data that's collected from each connected source. Sources include events and [performance data](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters) from [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events) and Linux agents, in addition to sources such as [IIS logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-iis-logs) and [custom text logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-custom-logs). You configure each data source that you want to collect, and the configuration is automatically delivered to each connected source.
 
 There are four ways to [collect logs and metrics for Azure services](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage):
 
-* Azure Diagnostics direct to Log Analytics (**Diagnostics** in the following table)
+* Azure Diagnostics direct to Azure Monitor logs (**Diagnostics** in the following table)
 
-* Azure Diagnostics to Azure storage to Log Analytics (**Storage** in the following table)
+* Azure Diagnostics to Azure storage to Azure Monitor logs (**Storage** in the following table)
 
 * Connectors for Azure services (**Connector** in the following table)
 
-* Scripts to collect and then post data into Log Analytics (blank cells in the following table and for services that are not listed)
+* Scripts to collect and then post data into Azure Monitor logs (blank cells in the following table and for services that are not listed)
 
 | Service | Resource type | Logs | Metrics | Solution |
 | :------ | :------------ | :--- | :------ | :------- |
@@ -366,7 +368,7 @@ Log Integration collects Azure diagnostics from your Windows virtual machines, A
 
 Log Integration currently supports the integration of Azure activity logs, Windows event logs from Windows virtual machines with your Azure subscription, Azure Security Center alerts, Azure diagnostics logs, and Azure AD audit logs.
 
-| Log type | Log Analytics supporting JSON (Splunk, ArcSight, and IBM QRadar) |
+| Log type | Azure Monitor logs supporting JSON (Splunk, ArcSight, and IBM QRadar) |
 | :------- | :-------------------------------------------------------- |
 |Azure AD audit logs|	Yes|
 |Activity logs|	Yes|
@@ -382,7 +384,7 @@ Integration scenarios for SIEM:
 
 * [Azure Log Integration FAQ](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq): This article answers questions about Azure Log Integration.
 
-* [Integrating Security Center alerts with Azure Log Integration](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration): This article discusses how to sync Security Center alerts, virtual machine security events collected by Azure diagnostics logs, and Azure audit logs with your Log Analytics or SIEM solution.
+* [Integrating Security Center alerts with Azure Log Integration](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration): This article discusses how to sync Security Center alerts, virtual machine security events collected by Azure diagnostics logs, and Azure audit logs with your Azure Monitor logs or SIEM solution.
 
 ## Next steps
 
