@@ -10,14 +10,13 @@ ms.author: raynew
 manager: carmonm
 ---
 
-# Support matrix for backup with Microsoft Azure Backup Server/System Center DPM
+# Support matrix for backup with Microsoft Azure Backup Server or System Center DPM
 
-You can use the [Azure Backup service](backup-overview.md) to back up on-premises machines and workloads, and Azure VMs. This article summarizes support settings and limitations for backing up machines using Microsoft Azure Backup Server (MABS) or System Center Data Protection Manager (DPM), and Azure Backup.
+You can use the [Azure Backup service](backup-overview.md) to back up on-premises machines and workloads, and Azure VMs. This article summarizes support settings and limitations for backing up machines by using Microsoft Azure Backup Server (MABS) or System Center Data Protection Manager (DPM), and Azure Backup.
 
 ## About MABS/DPM
 
 [System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview?view=sc-dpm-1807) is an enterprise solution that configures, facilitates and manages backup and recovery of enterprise machines and data. It's part of the [System Center](https://www.microsoft.com/cloud-platform/system-center-pricing) suite of products.
-
 
 Microsoft Azure Backup Server (MABS) is a server product that can be used to back up on-premises physical servers, virtual machines (VMs) and apps running on them, and Azure VMs.
 
