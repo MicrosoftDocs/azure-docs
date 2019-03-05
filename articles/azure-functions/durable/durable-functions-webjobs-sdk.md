@@ -21,7 +21,7 @@ By default, Durable Functions uses the Azure Functions runtime to host orchestra
 
 In version 3.x of the WebJobs SDK, the host is an implementation of `IHost`, and in version 2.x you use the `JobHost` object.
 
-The chaining Durable Functions sample is available in a WebJobs SDK version: download or clone the [Durable Functions repository](https://github.com/azure/azure-functions-durable-extension/), and go to the *samples\\webjobssdk\\chaining* folder.
+The chaining Durable Functions sample is available in a WebJobs SDK 2.x version: download or clone the [Durable Functions repository](https://github.com/azure/azure-functions-durable-extension/), and go to the *samples\\webjobssdk\\chaining* folder.
 
 ## Prerequisites
 
