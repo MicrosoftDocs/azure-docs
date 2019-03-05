@@ -3205,7 +3205,7 @@ And returns this array with the remaining items: `[1,2,3]`
 ### split
 
 Return an array that contains substrings, separated by commas,
-based on the specified delimiter charcter in the original string.
+based on the specified delimiter character in the original string.
 
 ```
 split('<text>', '<delimiter>')

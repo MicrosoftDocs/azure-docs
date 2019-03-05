@@ -92,7 +92,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[DominionTech Inc.](https://www.dominiontech.com)|
 |[Doublehorn, LLC](https://doublehorn.com/)|
 |[DXC Technology Services LLC](http://www.dxc.technology/services)|
-|[DXL Enterprises, Inc.](http://dxl.com/)|
+|[DXL Enterprises, Inc.](https://mahwahnjcoc.wliinc31.com/Supply-Chain-Management/DXL-Enterprises,-Inc-1349)|
 |[Dynamics Intelligence Inc.](https://www.dynamicsintelligence.us)|
 |[eFibernet Inc.](http://www.efibernet.com)|
 |[eMazzanti Technologies](https://www.emazzanti.net/)|
@@ -167,7 +167,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[MIS Sciences Corp](http://www.mis-sciences.com/)|
 |[Mission Cyber LLC](https://missioncyber.com/b/)|
 |[Mobomo, LLC](https://www.mobomo.com)|
-|[MSCloud Express, LLC]()|
+|MSCloud Express, LLC|
 |[Nanavati Consulting, Inc.](https://www.nanavaticonsulting.com)|
 |[NCI](https://www.nciinc.com/)|
 |[NeoTech Solutions Inc.](https://www.neotechsolutions.com)|
@@ -210,7 +210,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[REAN Cloud LLC.](https://www.reancloud.com)|
 |[Redapt Attunix](https://www.redapt.com)|
 |[Redhorse Corporation](https://www.redhorsecorp.com)|
-|[Reperi LLC](https://www.reperi.com)|
+|[Reperi LLC](http://www.reperi.com)|
 |[Revenue Solutions, Inc](https://www.revenuesolutionsinc.com)|
 |[rmsource, Inc.](https://www.rmsource.com)|
 |[Saiph Technologies Corporation](http://www.saiphtech.com/)|
@@ -248,7 +248,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[TechFlow](https://www.techflow.com)|
 |[TechTrend](https://techtrend.us)|
 |[The Cram Group LLC](https://aeccloud.com/)|
-|[Thundercat Technology](http://www.thundercattech.com/)|
+|[ThunderCat Technology](http://www.thundercattech.com/)|
 |[TIC Business Consultants, Ltd.](https://www.ticbiz.com/)|
 |[Tier1, Inc.](https://www.tier1inc.com)|
 |[Tilson Technology Group, Inc](https://tilsontech.com)|

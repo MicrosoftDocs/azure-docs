@@ -43,7 +43,7 @@ Please refer to our FAQ on licensing [here](https://aka.ms/asr_pricing_FAQ) for 
 
 ### How can I calculate approximate charges during the use of Site Recovery?
 
-You can use [pricing calculator](https://aka.ms/asr_pricing_calculator) to estimate costs while using Azure Site Recovery. For detailed estimate on costs, run the deployment planner tool(https://aka.ms/siterecovery_deployment_planner) and analyse the [cost estimation report](https://aka.ms/asr_DP_costreport).
+You can use [pricing calculator](https://aka.ms/asr_pricing_calculator) to estimate costs while using Azure Site Recovery. For detailed estimate on costs, run the deployment planner tool(https://aka.ms/siterecovery_deployment_planner) and analyze the [cost estimation report](https://aka.ms/asr_DP_costreport).
 
 ### I have been an Azure Site Recovery user for over a month. Do I still get the first 31 days free for every protected instance?
 
@@ -159,7 +159,7 @@ Yes, you can add new VMs to an existing replication group when you enable replic
 
 For VMware replication to Azure you can modify disk size. If you want to add new disks you need to add the disk and reenable protection for the VM.
 
-### Can I migrate on-prem machines to a new Vcenter without impacting ongoing replication?
+### Can I migrate on premises machines to a new Vcenter without impacting ongoing replication?
 No, change of Vcenter or migration will impact ongoing replication. You need to set up ASR with the new Vcenter and enable replication for machines.
 
 ### Can I replicate to cache/target storage account which has a Vnet (with Azure storage firewalls) configured on it?

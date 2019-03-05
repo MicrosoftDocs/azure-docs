@@ -60,7 +60,7 @@ You can use the [company branding feature](../active-directory/fundamentals/cust
 * **Banner Logo**: Shown at the bottom-right.
 * **Background color**: Shown at the top.
 
-    ![Screen shot of a customized verification email](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
+    ![Screenshot of a customized verification email](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 
 The email signature contains the Azure AD B2C tenant's name that you provided when you first created the Azure AD B2C tenant. You can change the name using these instructions:
 
