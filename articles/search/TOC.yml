@@ -17,36 +17,62 @@
       href: search-get-started-portal.md
     - name: Enrich with AI (cognitive search)
       href: cognitive-search-quickstart-blob.md
-  - name: .NET
-    items:
-    - name: Create an index
-      href: search-create-index-dotnet.md
-    - name: Import data
-      href: search-import-data-dotnet.md
-    - name: Search
-      href: search-query-dotnet.md
-  - name: REST
-    items:
-    - name: Create an index
-      href: search-create-index-rest-api.md
-    - name: Import data
-      href: search-import-data-rest-api.md
-    - name: Search
-      href: search-query-rest-api.md
-    - name: Explore using Postman or Fiddler
-      href: search-fiddler.md
+  - name: Postman (REST)
+    href: search-fiddler.md
+  - name: C#
+    href: test-dotnet.md
+  - name: Java
+    href: test-java.md
+  - name: Node.js
+    href: test-nodejs.md
+  - name: Python
+    href: test-python.md
 - name: Tutorials
   items:
-  - name: Learn cognitive search APIs
-    href: cognitive-search-tutorial-blob.md
-  - name: Index Azure blobs
-    href: search-semi-structured-data.md
-  - name: Index Azure SQL Database
-    href: search-indexer-tutorial.md
-  - name: Add synonyms in .NET
-    href: search-synonyms-tutorial-sdk.md
-  - name: Add autocomplete in .NET
-    href: search-autocomplete-tutorial.md
+  - name: Create a search app
+    items:
+    - name: C#
+      href: test-dotnet.md
+    - name: Java
+      href: test-java.md
+    - name: Node.js
+      href: test-nodejs.md
+  - name: AI-powered indexing
+    items:
+    - name: REST
+      href: cognitive-search-tutorial-blob.md
+    - name: C#
+      href: test-dotnet.md
+    - name: Java
+      href: test-java.md
+    - name: Node.js
+      href: test-nodejs.md
+  - name: Index Azure Cosmos DB
+    items:
+    - name: REST
+      href: test-rest.md
+    - name: C#
+      href: test-dotnet.md
+    - name: Java
+      href: test-java.md
+    - name: Node.js
+      href: test-nodejs.md 
+  - name: Index any data
+    items:
+    - name: C#
+      href: test-dotnet.md
+    - name: Java
+      href: test-java.md
+    - name: Node.js
+      href: test-nodejs.md 
+  - name: Query data
+    items:
+    - name: C#
+      href: test-dotnet.md
+    - name: Java
+      href: test-java.md
+    - name: Node.js
+      href: test-nodejs.md 
 - name: Samples
   items:
   - name: Azure code samples
@@ -125,12 +151,20 @@
         href: index-add-language-analyzers.md
       - name: Add a custom analyzer
         href: index-add-custom-analyzers.md
-    - name: Add autosuggest
-      href: index-add-suggesters.md
+    - name: Type-ahead
+      items:
+      - name: Add autosuggest
+        href: index-add-suggesters.md
+      - name: Add autocomplete in .NET
+        href: search-autocomplete-tutorial.md
     - name: Add faceted navigation
       href: search-faceted-navigation.md
-    - name: Add synonyms
-      href: search-synonyms.md
+    - name: Synonyms
+      items:
+      - name: Add synonyms
+        href: search-synonyms.md
+      - name: Add synonyms in .NET
+        href: search-synonyms-tutorial-sdk.md
     - name: Model complex data types
       href: search-howto-complex-data-types.md
     - name: Model relational data
@@ -155,10 +189,14 @@
         href: search-indexer-overview.md
       - name: Blob storage indexer
         href: search-howto-indexing-azure-blob-storage.md
+      - name: Blob storage walkthrough
+        href: search-semi-structured-data.md
       - name: Table storage indexer
         href: search-howto-indexing-azure-tables.md
       - name: SQL DB indexer
         href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+      - name: SQL Database walkthrough
+        href: search-indexer-tutorial.md
       - name: Cosmos DB indexer
         href: search-howto-index-cosmosdb.md
       - name: One-to-many blob indexing
@@ -308,3 +346,44 @@
     href: https://azure.microsoft.com/pricing/details/search/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=search
+- name: Quickstarts - Current
+  expanded: true
+  items:
+  - name: Create a service
+    href: search-create-service-portal.md
+  - name: Portal
+    items:
+    - name: Load and query an index
+      href: search-get-started-portal.md
+    - name: Enrich with AI (cognitive search)
+      href: cognitive-search-quickstart-blob.md
+  - name: .NET
+    items:
+    - name: Create an index
+      href: search-create-index-dotnet.md
+    - name: Import data
+      href: search-import-data-dotnet.md
+    - name: Search
+      href: search-query-dotnet.md
+  - name: REST
+    items:
+    - name: Create an index
+      href: search-create-index-rest-api.md
+    - name: Import data
+      href: search-import-data-rest-api.md
+    - name: Search
+      href: search-query-rest-api.md
+    - name: Explore using Postman or Fiddler
+      href: search-fiddler.md
+- name: Tutorials - Current
+  items:
+  - name: Learn cognitive search APIs
+    href: cognitive-search-tutorial-blob.md
+  - name: Index Azure blobs
+    href: search-semi-structured-data.md
+  - name: Index Azure SQL Database
+    href: search-indexer-tutorial.md
+  - name: Add synonyms in .NET
+    href: search-synonyms-tutorial-sdk.md
+  - name: Add autocomplete in .NET
+    href: search-autocomplete-tutorial.md
