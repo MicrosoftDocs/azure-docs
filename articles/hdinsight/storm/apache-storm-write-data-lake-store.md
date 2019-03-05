@@ -140,8 +140,7 @@ For information on using this script with your cluster, see the [Customize HDIns
 
 ## Build and package the topology
 
-1. Download the example project from [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store
-   ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) to your development environment.
+1. Download the example project from [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) to your development environment.
 
 2. From a command prompt, terminal, or shell session, change directories to the root of the downloaded project. To build and package the topology, use the following command:
    

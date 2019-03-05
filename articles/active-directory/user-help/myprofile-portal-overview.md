@@ -23,8 +23,6 @@ You can use the **My Profile** (preview) portal to manage your work or school ac
 
 - Set up and manage your security info for two-step verification and password reset.
 
-- View your sign-in activity.
-
 - Manage your connected organizations and devices.
 
 - View how your organization uses your data.
@@ -41,7 +39,7 @@ You can get to the **My Profile** portal by going to https://myprofile.microsoft
 - Firefox
 - Internet Explorer 11
 
-    ![My Profile portal, Overview page](media/myprofile-portal/myprofile-portal-overview-page.png)
+    ![My Profile portal, Overview page](media/myprofile-portal/myprofile-portal-overview.png)
 
 ## In this section
 You can find more information about the **My Profile** portal and its pages, in the following articles.
@@ -49,7 +47,6 @@ You can find more information about the **My Profile** portal and its pages, in 
 |Article |Description |
 |------|------------|
 |[Manage your security info (preview)](user-help-security-info-overview.md)|Describes how to set up and manage your security info.|
-|[View your recent sign-in activity](myprofile-portal-recent-activity-page.md)|Describes how to view the recent sign-in activity for your work or school account.|
 |[Manage your organizations](myprofile-portal-organizations-page.md)|Describes how to manage the organizations connected to your work or school account.|
 |[Manage your connected devices](myprofile-portal-devices-page.md)| Describes how to manage the devices you've connected to your work or school account.|
 |[View your privacy-related info](myprofile-portal-privacy-page.md)|Describes how to view what your organization does with your data.|

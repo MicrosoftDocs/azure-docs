@@ -52,6 +52,8 @@
     href: concept-accelerate-with-fpgas.md
   - name: Machine learning pipelines
     href: concept-ml-pipelines.md
+  - name: Enterprise security
+    href: concept-enterprise-security.md
 - name: How-to guides
   items:
   - name: Manage workspaces
@@ -83,14 +85,14 @@
       href: how-to-transform-data.md
     - name: Write data
       href: how-to-write-data.md
+  - name: Access data
+    displayName: blob get fileshare
+    href: how-to-access-data.md
   - name: Train models
     items:
     - name: Set up training environments
       displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, Databricks, data lake, lake, hdi, hdinsights
       href: how-to-set-up-training-targets.md
-    - name: Access data in training
-      displayName: blob
-      href: how-to-access-data.md
     - name: Create estimators in training
       href: how-to-train-ml-models.md
     - name: Use PyTorch

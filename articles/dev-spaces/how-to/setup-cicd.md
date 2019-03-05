@@ -1,5 +1,5 @@
 ---
-title: "Using CI/CD with Azure Dev Spaces | Microsoft Docs"
+title: "Using CI/CD with Azure Dev Spaces"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -7,7 +7,7 @@ ms.subservice: azds-kubernetes
 author: DrEsteban
 ms.author: stevenry
 ms.date: "12/17/2018"
-ms.topic: "article"
+ms.topic: "conceptual"
 manager: yuvalm
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"

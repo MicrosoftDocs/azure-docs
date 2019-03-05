@@ -21,7 +21,7 @@ Most expressions are identified by wrapping them in curly braces. For example, i
 
 Types of binding expressions
 
-* [App settings](#app-settings)
+* [App settings](#binding-expressions---app-settings)
 * [Trigger file name](#trigger-file-name)
 * [Trigger metadata](#trigger-metadata)
 * [JSON payloads](#json-payloads)
