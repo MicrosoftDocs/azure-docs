@@ -411,7 +411,7 @@ To build count tables on the count data, use the data in the folder raw/count. I
 Our model building process in Azure Machine Learning follows these steps:
 
 1. [Get the data from Hive tables into Azure Machine Learning](#step1)
-2. [Create the experiment: clean the data and featurize with count tables](#step2)
+2. [Create the experiment: clean the data and make it a feature with count tables](#step2)
 3. [Build, train, and score the model](#step3)
 4. [Evaluate the model](#step4)
 5. [Publish the model as a web-service](#step5)

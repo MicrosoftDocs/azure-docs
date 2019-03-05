@@ -248,7 +248,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[TechFlow](https://www.techflow.com)|
 |[TechTrend](https://techtrend.us)|
 |[The Cram Group LLC](https://aeccloud.com/)|
-|[Thundercat Technology](http://www.thundercattech.com/)|
+|[ThunderCat Technology](http://www.thundercattech.com/)|
 |[TIC Business Consultants, Ltd.](https://www.ticbiz.com/)|
 |[Tier1, Inc.](https://www.tier1inc.com)|
 |[Tilson Technology Group, Inc](https://tilsontech.com)|

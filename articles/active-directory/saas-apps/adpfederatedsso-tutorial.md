@@ -184,7 +184,7 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
 5. In the Azure portal, on your **ADP** application integration page, click on **Properties tab** and perform the following steps:  
 
-	![Single sign-on linkedproperties](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
+	![Single sign-on linked properties](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
 
 	a.	Set the **Enabled for users to sign-in** field value to **Yes**.
 

@@ -1122,7 +1122,7 @@ ForEach ($disk in $diskobjects)
 
 #Check for copy progress
 
-#check induvidual blob status
+#check individual blob status
 Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContext
 ```
 
@@ -1149,7 +1149,7 @@ Wait until all these are recorded as success.
 For information for individual blobs:
 
 ```powershell
-#Check induvidual blob status
+#Check individual blob status
 Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContextnode2
 ```
 
@@ -1220,7 +1220,7 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 
 #### Step 23: Test failover
 
-Wait for the migrated node to synchronize with the on-premises Always On node. Place it into synchronous replication mode and wait until it is synchronized. Then failover from on-prem to the first node migrated, which is the AFP. Once that has worked, change the last migrated node to the AFP.
+Wait for the migrated node to synchronize with the on-premises Always On node. Place it into synchronous replication mode and wait until it is synchronized. Then failover from on premises to the first node migrated, which is the AFP. Once that has worked, change the last migrated node to the AFP.
 
 You should test failovers between all nodes and run though chaos tests to ensure failovers work as expected and in a timely manor.
 

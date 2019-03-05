@@ -1323,7 +1323,7 @@ Declares a folder, named by the Name attribute, under PackageRoot that contains 
 ```xml
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConfigPackageType">
     <xs:annotation>
-          <xs:documentation>Declares a folder, named by the Name attribute, und PackageRoot that contains a Settings.xml file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the ConfigPackage version has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically.</xs:documentation>
+          <xs:documentation>Declares a folder, named by the Name attribute, and PackageRoot that contains a Settings.xml file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the ConfigPackage version has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically.</xs:documentation>
         </xs:annotation>
     <xs:attributeGroup ref="VersionedName"/>
   </xs:complexType>

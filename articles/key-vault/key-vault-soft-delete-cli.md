@@ -189,7 +189,7 @@ az keyvault secret recover --name SQLPassword --vault-name ContosoVault
 > [!IMPORTANT]
 > Purging a key vault or one of its contained objects, will permanently delete it, meaning it will not be recoverable!
 
-The purge fuction is used to permanently delete a key vault object or an entire key vault, that was previously soft-deleted. As demonstrated in the previous section, objects stored in a key vault with the soft-delete feature enabled, can go through multiple states:
+The purge function is used to permanently delete a key vault object or an entire key vault, that was previously soft-deleted. As demonstrated in the previous section, objects stored in a key vault with the soft-delete feature enabled, can go through multiple states:
 
 - **Active**: before deletion.
 - **Soft-Deleted**: after deletion, able to be listed and recovered back to active state.

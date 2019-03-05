@@ -186,7 +186,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Accredible test user
 
-In this section, you create a user called Britta Simon in Accredible. You need to send the user's emailid to [Accredible support team](mailto:support@accredible.com), then they verify the email and send you the invite mail so that you can add user in accredible platform.
+In this section, you create a user called Britta Simon in Accredible. You need to send the user's email id to [Accredible support team](mailto:support@accredible.com), then they verify the email and send you the invite mail so that you can add user in accredible platform.
 
 ### Test single sign-on
 

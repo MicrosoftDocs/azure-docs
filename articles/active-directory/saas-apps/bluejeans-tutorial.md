@@ -249,7 +249,7 @@ The objective of this section is to create a user called Britta Simon in BlueJea
 
 	i. Click **CONTINUE**.
 
-	![Addd User](./media/bluejeans-tutorial/IC785887.png "Addd User")
+	![Add User](./media/bluejeans-tutorial/IC785887.png "Add User")
 
 	J. Click **ADD USER**.
 

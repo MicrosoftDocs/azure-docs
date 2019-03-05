@@ -69,7 +69,7 @@ If you're replicating more than one VMware VM, read [capacity planning considera
 >You can also download the latest version of the configuration server template directly from [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 
 >[!NOTE]
-The licence provided with OVA template is an evaluation licence valid for 180 days. Post this period, customer needs to activate the windows with a procured licence.
+The license provided with OVA template is an evaluation license valid for 180 days. Post this period, customer needs to activate the windows with a procured license.
 
 ## Import the template in VMware
 
@@ -150,7 +150,7 @@ To avoid interruptions in ongoing replication, ensure that IP address of the con
 
 1. How long is the Licence provided on configuration server deployed through OVF is valid? What happens if I do not reactivate the License?
 
-    The licence provided with OVA template is an evaluation licence valid for 180 days. Before expiry, you need to activate the license. Else, this can result in frequent shutdown of configuration server and thus cause hinderance to replication activities.
+    The license provided with OVA template is an evaluation license valid for 180 days. Before expiry, you need to activate the license. Else, this can result in frequent shutdown of configuration server and thus cause hinderance to replication activities.
 
 2. Can I use the VM, where the configuration server is installed, for different purposes?
 

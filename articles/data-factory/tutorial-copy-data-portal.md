@@ -172,7 +172,7 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 1. Go to the **Sink** tab, and select **+ New** to create a sink dataset. 
 
     ![Sink dataset](./media/tutorial-copy-data-portal/new-sink-dataset-button.png)
-1. In the **New Dataset** window, input "SQL" in the searchbox to filter the connectors, then select **Azure SQL Database**, and then select **Finish**. In this tutorial, you copy data to a SQL database. 
+1. In the **New Dataset** window, input "SQL" in the search box to filter the connectors, then select **Azure SQL Database**, and then select **Finish**. In this tutorial, you copy data to a SQL database. 
 
     ![SQL database selection](./media/tutorial-copy-data-portal/select-azure-sql-dataset.png)
 1. On the **General** tab of the **Properties** window, in **Name**, enter **OutputSqlDataset**. 
