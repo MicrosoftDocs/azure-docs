@@ -181,19 +181,19 @@ To configure Azure AD single sign-on with Zoom, perform the following steps:
 
 	![The Azure Active Directory button](./media/zoom-tutorial/appreg.png)
 
-	* Click on **Endpoints**
+	c. Click on **Endpoints**
 
 	![The End point button](./media/zoom-tutorial/endpoint.png)
 
-	* Copy the **SAML-P SIGN-OUT ENDPOINT** and paste it into **Sign-out page URL** textbox.
+	d. Copy the **SAML-P SIGN-OUT ENDPOINT** and paste it into **Sign-out page URL** textbox.
 
-		![The Copy End point button](./media/zoom-tutorial/endpoint1.png)
+	![The Copy End point button](./media/zoom-tutorial/endpoint1.png)
 
-    c. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Identity provider certificate** textbox.
+    e. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Identity provider certificate** textbox.
 
-    d. In the **Issuer** textbox, paste the value of **Azure AD Identifier** which you have copied from Azure portal. 
+    f. In the **Issuer** textbox, paste the value of **Azure AD Identifier** which you have copied from Azure portal. 
 
-    e. Click **Save**.
+    g. Click **Save**.
 
     > [!NOTE]
 	> For more information, visit the zoom documentation [https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566)
