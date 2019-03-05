@@ -157,7 +157,7 @@ There are two ways to handle the secrets:
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### Grant permissions to the Azure Pipelines agent
-The Azure Key Vault task may fail the fIntegration Runtimest time with an Access Denied error. Download the logs for the release, and locate the `.ps1` file with the command to give permissions to the Azure Pipelines agent. You can run the command directly, or you can copy the principal ID from the file and add the access policy manually in the Azure portal. (*Get* and *List* are the minimum permissions required).
+The Azure Key Vault task may fail the fIntegration Runtime time with an Access Denied error. Download the logs for the release, and locate the `.ps1` file with the command to give permissions to the Azure Pipelines agent. You can run the command directly, or you can copy the principal ID from the file and add the access policy manually in the Azure portal. (*Get* and *List* are the minimum permissions required).
 
 ### Update active triggers
 Deployment can fail if you try to update active triggers. To update active triggers, you need to manually stop them and start them after the deployment. You can add an Azure Powershell task for this purpose, as shown in the following example:
