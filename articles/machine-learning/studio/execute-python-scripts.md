@@ -26,7 +26,7 @@ Python is used in all stages of a typical machine learning workflow:
 
 Studio supports embedding Python scripts into various parts of a machine learning experiment and also seamlessly publishing them as web services.
 
-## Design principles of Python scripts in Studio
+## Design principles of Python execution in Studio
 
 The primary interface to Python in Studio is through the [Execute Python Script][execute-python-script].
 
