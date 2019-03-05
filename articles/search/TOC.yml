@@ -221,11 +221,11 @@
       href: cognitive-search-concept-annotations-syntax.md
     - name: Map to index fields
       href: cognitive-search-output-field-mapping.md
-    - name: Process and extract information from images
+    - name: Extract information from images
       href: cognitive-search-concept-image-scenarios.md
-    - name: Add OCR to an indexing pipeline
+    - name: Apply OCR to scanned documents
       href: test-rest.md
-    - name: Split and merge text documents
+    - name: Split and merge large text documents
       href: test-rest.md
     - name: Custom skills development
       items:
