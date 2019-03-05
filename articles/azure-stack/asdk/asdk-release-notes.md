@@ -29,13 +29,13 @@ Stay up-to-date with what's new in the ASDK by subscribing to the [![RSS](./medi
 
 ### Changes
 
-None.
+- The 1902 build introduces a new user interface on the Azure Stack Administrator portal for creating plans, offers, quotas, and add-on plans. For more information, including screenshots, see [Create plans, offers, and quotas](../azure-stack-create-plan.md).
 
-### New features
+<!-- ### New features
 
 - For a list of new features in this release, see [this section](../azure-stack-update-1902.md#new-features) of the Azure Stack release notes.
 
-<!-- ### Fixed and known issues
+### Fixed and known issues
 
 - For a list of issues fixed in this release, see [this section](../azure-stack-update-1902.md#fixed-issues) of the Azure Stack release notes. For a list of known issues, see [this section](../azure-stack-update-1902.md#known-issues-post-installation).
 - Note that [available Azure Stack hotfixes](../azure-stack-update-1902.md#azure-stack-hotfixes) are not applicable to the Azure Stack ASDK. -->
