@@ -3011,7 +3011,7 @@
     },
     {
       "source_path": "articles/powershell-azure-resource-manager.md",
-      "redirect_url": "/azure/azure-resource-manager/manage-resources-powershell.md",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-powershell",
       "redirect_document_id": false
     },
     {
