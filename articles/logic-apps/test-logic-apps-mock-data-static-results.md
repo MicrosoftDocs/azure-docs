@@ -54,7 +54,7 @@ static results, follow these steps:
       ![Select "Static result" > "Enable Static Result"](./media/test-logic-apps-mock-data-static-results/select-static-result.png)
 
    1. Choose **Enable Static Result**. For the required (*) properties, 
-   specify the mock output values you want to return for the action's response. 
+   specify the mock output values you want to return for the action's response.
 
       For example, here are the required properties for the HTTP action:
 
