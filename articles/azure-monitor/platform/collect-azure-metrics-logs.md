@@ -79,7 +79,7 @@ Azure resources that support [Azure monitor](../../azure-monitor/overview.md) ca
 
 You need the November 2016 (v2.3.0) or later release of [Azure PowerShell](/powershell/azure/overview).
 
-The following PowerShell example shows how to use [Set-AzDiagnosticSetting](/powershell/module/az.insights/set-azdiagnosticsetting) to enable diagnostics on a network security group. The same approach works for all supported resources - set `$resourceId` to the resource id of the resource you want to enable diagnostics for.
+The following PowerShell example shows how to use [Set-AzDiagnosticSetting](/powershell/module/Az.Monitor/Set-AzDiagnosticSetting) to enable diagnostics on a network security group. The same approach works for all supported resources - set `$resourceId` to the resource id of the resource you want to enable diagnostics for.
 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
