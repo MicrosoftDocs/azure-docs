@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/05/2019
 ---
 
-# Test logic apps with mock data by using static results
+# Test logic apps with mock data by specifying static results
 
 When testing your logic apps, you might not be ready to actually 
 call or access apps, services, and systems for various reasons. 
-Usually in these cases, you might have to run different condition 
+Usually in these scenarios, you might have to run different condition 
 paths, force errors, provide specific message response bodies, 
 or even try skipping some steps. Instead, you can mock output 
 data from your logic app's actions by setting up static results 
@@ -127,7 +127,7 @@ box for your action in [Set up static results](#set-up-static-results).
 
    ![JSON mode](./media/test-logic-apps-mock-data-static-results/json-editing-mode.png)
 
-1. When you're done, choose **Switch Editor Mode** (![Choose "Switch Editor Mode"](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)).
+1. If you're finished, choose **Done**. Or, to return to designer, choose **Switch Editor Mode** (![Choose "Switch Editor Mode"](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)).
 
 ## Disable static results
 
