@@ -131,13 +131,13 @@ When no longer needed, delete the resources created in the tutorial series.
 
     Enter `yes` when prompted to confirm the removal of the resources.
 
-1. Move to parent directory:
+1. Change directories to the parent directory:
 
     ```bash
     cd ..
     ```
 
-1. Delete hub-state directory (including all of its files):
+1. Delete the `hub-state` directory (including all of its files):
 
     ```bash
     rm -r hub-spoke
