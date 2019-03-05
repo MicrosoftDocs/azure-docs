@@ -263,7 +263,7 @@ As an operator in your Azure IoT Central application, for your real device you c
 
     ![View telemetry](media/howto-connect-nodejs/viewtelemetry.png)
 
-* View the device property values sent from your device on the **Properties** page. The device properties tiles are updated if the connection is successful.
+* View the device property values sent from your device on the **Properties** page. The device properties tiles update if the connection is successful.
 
     ![View device properties](media/howto-connect-nodejs/viewproperties.png)
 
