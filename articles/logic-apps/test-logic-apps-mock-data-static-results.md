@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 03/05/2019
 ---
 
-# Test logic apps with mock data by setting up static results
+# Test logic apps with mock data by using static results
 
 When testing your logic apps, you might not be ready to actually 
 call or access apps, services, and systems for various reasons. 
@@ -42,17 +42,18 @@ in static results, rather than call Outlook and send an email.
 
 ## Set up static results
 
-1. If you haven't already, in the [Azure portal](https://portal.azure.com), 
+1. If you haven't already, in the 
+[Azure portal](https://portal.azure.com), 
 open your logic app in the Logic Apps Designer.
 
-1. On the action where you want to set up static outputs, 
-follow these steps: 
+1. On the action where you want to set up 
+static results, follow these steps: 
 
    1. In the action's upper-right corner, 
    choose the ellipses (*...*) button, 
    and elect **Static result**, for example:
 
-      ![Select "Static result" > "Enable static result"](./media/test-logic-apps-mock-data-static-results/select-static-result.png)
+      ![Select "Static result" > "Enable Static Result"](./media/test-logic-apps-mock-data-static-results/select-static-result.png)
 
    1. Choose **Enable Static Result**. For the required (*) properties, 
    specify the mock output values you want to return for the action's response.
@@ -82,10 +83,10 @@ follow these steps:
 
 <a name="reuse-sample-outputs"></a>
 
-## Reuse sample outputs
+## Reuse previous outputs
 
 If your logic app has a previous run with outputs you 
-can reuse as your static results, you can copy and 
+can reuse as your mock outputs, you can copy and 
 paste those outputs from that run. 
 
 1. If you haven't already, in the [Azure portal](https://portal.azure.com), 
