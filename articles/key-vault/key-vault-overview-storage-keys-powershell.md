@@ -3,8 +3,8 @@ title: Azure Key Vault managed storage account - PowerShell version
 description: The managed storage account feature provides a seemless integration, between Azure Key Vault and an Azure storage account.
 ms.topic: conceptual
 ms.service: key-vault
-author: bryanla
-ms.author: bryanla
+author: msmbaldwin
+ms.author: mbaldwin
 manager: barbkess
 ms.date: 11/28/2018
 ---
