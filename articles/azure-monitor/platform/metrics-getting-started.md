@@ -15,9 +15,9 @@ ms.subservice: metrics
 ## Where do I start
 Azure Monitor metrics explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics' values. Use the metrics explorer to investigate the health and utilization of your resources. Start in the following order:
 
-1. [Pick a resource and a metric](#creating-your-first-metric-chart) and you see a basic chart. Then [select a time range](#picking-time-range) that is relevant for your investigation.
+1. [Pick a resource and a metric](#create-your-first-metric-chart) and you see a basic chart. Then [select a time range](#select-a-time-range) that is relevant for your investigation.
 
-1. Try [applying dimension filters and splitting](#applying-dimension-filters-and-splitting). The filters and splitting allow you to analyze which segments of the metric contribute to the overall metric value and identify possible outliers.
+1. Try [applying dimension filters and splitting](#apply-dimension-filters-and-splitting). The filters and splitting allow you to analyze which segments of the metric contribute to the overall metric value and identify possible outliers.
 
 1. Use [advanced settings](#advanced-chart-settings-and-next-steps) to customize the chart before pinning to dashboards. [Configure alerts](alerts-metric-overview.md) to receive notifications when the metric value exceeds or drops below a threshold.
 
@@ -40,7 +40,7 @@ To create a metric chart, from your resource, resource group, subscription, or A
 > [!NOTE]
 > Use the **Add metric** button and repeat these steps if you want to see multiple metrics plotted in the same chart. For multiple charts in one view, select the **Add chart** button on top.
 
-## Pick a time range
+## Select a time range
 
 By default, the chart shows the most recent 24 hours of metrics data. Use the **time picker** panel to change the time range, zoom in, or zoom out on your chart. 
 
