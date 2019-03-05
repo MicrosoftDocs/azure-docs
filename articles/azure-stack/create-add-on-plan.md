@@ -14,10 +14,10 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.custom: mvc
-ms.date: 03/05/2019
+ms.date: 03/06/2019
 ms.author: sethm
 ms.reviewer: efemmano
-ms.lastreviewed: 03/05/2019
+ms.lastreviewed: 03/06/2019
 ---
 
 # Azure Stack add-on plans
@@ -47,13 +47,13 @@ Add-on plans are created by modifying an existing offer:
 
     ![Create add-on plan](media/create-add-on-plan/add-on2.png)
 
-5. Select the plan to add. In this example, the plan is called **test-plan234**. After selecting the plan, click **Select** to add the plan to the offer. You should receive a notification that the plan was added to the offer successfully.
+5. Select the plan to add. In this example, the plan is called **20-storageaccounts**. After selecting the plan, click **Select** to add the plan to the offer. You should receive a notification that the plan was added to the offer successfully.
 
     ![Create add-on plan](media/create-add-on-plan/add-on3.png)
 
 6. Review the list of add-on plans included with the offer to verify that the new add-on plan is listed.
 
-    ![Create add-on plan](media/create-add-on-plan/add-on1.png)
+    ![Create add-on plan](media/create-add-on-plan/add-on4.png)
 
 ## Next steps
 
