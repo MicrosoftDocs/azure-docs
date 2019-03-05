@@ -29,24 +29,16 @@ Log in to the Azure portal at <https://portal.azure.com>
 For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, we will create a new virtual network. You can create a virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
 
 1. Click **New** found on the upper left-hand corner of the Azure portal.
-
 2. Select **Networking** and then select **Application Gateway** in the Featured list.
-
 3. Enter *myAppGateway* for the name of the application gateway and *myResourceGroupAG* for the new resource group.
-
 4. Accept the default values for the other settings and then click **OK**.
-
 5. Click **Choose a virtual network**, click **Create new**, and then enter these values for the virtual network:
+   - myVNet* - for the name of the virtual network.
+   - 10.0.0.0/16* - for the virtual network address space.
+   - *myAGSubnet* - for the subnet name.
+   - *10.0.0.0/24* - for the subnet address space.
 
-- * myVNet* - for the name of the virtual network.
-
-  * *10.0.0.0/16* - for the virtual network address space.
-
-  * *myAGSubnet* - for the subnet name.
-
-  * *10.0.0.0/24* - for the subnet address space.
-
-  ​	![private-frontendip-1](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-1.png)
+​	![private-frontendip-1](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-1.png)
 
 6. Click **OK** to create the virtual network and subnet.
 
@@ -74,15 +66,12 @@ The backend pool is used to route requests to the backend servers which will be 
 ### Create a virtual machine
 
 1. Click **New**.
-
 2. Click **Compute** and then select **Windows Server 2016 Datacenter** in the Featured list.
-
 3. Enter these values for the virtual machine:
-
-- - *myVM* - for the name of the virtual machine.
-  - *azureuser* - for the administrator user name.
-  - *Azure123456!* for the password.
-  - Select **Use existing**, and then select *myResourceGroupAG*.
+   - *myVM* - for the name of the virtual machine.
+   - *azureuser* - for the administrator user name.
+   - *Azure123456!* for the password.
+   - Select **Use existing**, and then select *myResourceGroupAG*.
 
 4. Click **OK**.
 
