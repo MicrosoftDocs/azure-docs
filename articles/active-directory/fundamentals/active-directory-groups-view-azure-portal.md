@@ -11,7 +11,7 @@ ms.subservice: fundamentals
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: lizross
-ms.custom: "it-pro, seodec18"
+ms.custom: "it-pro, seodec18, seo-update-azuread-jan"
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ---

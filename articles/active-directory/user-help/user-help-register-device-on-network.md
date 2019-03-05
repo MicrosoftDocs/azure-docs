@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: lizross
 ms.reviewer: jairoc
-
+ms.custom: "user-help, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ---
 # Register your personal device on your organization's network
