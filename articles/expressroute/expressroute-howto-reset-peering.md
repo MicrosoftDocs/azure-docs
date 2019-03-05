@@ -9,9 +9,7 @@ ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: charwen
 ms.custom: seodec18
-
 ---
-
 
 # Reset ExpressRoute circuit peerings
 
@@ -23,6 +21,8 @@ There are a couple scenarios where you may find it helpful resetting your Expres
 
 ### Working with Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## Reset a peering
@@ -30,22 +30,22 @@ There are a couple scenarios where you may find it helpful resetting your Expres
 1. If you are running PowerShell locally, open your PowerShell console with elevated privileges, and connect to your account. Use the following example to help you connect:
 
   ```azurepowershell
-  Connect-AzureRmAccount
+  Connect-AzAccount
   ```
 2. If you have multiple Azure subscriptions, check the subscriptions for the account.
 
   ```azurepowershell-interactive
-  Get-AzureRmSubscription
+  Get-AzSubscription
   ```
 3. Specify the subscription that you want to use.
 
   ```azurepowershell-interactive
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
   ```
 4. Run the following commands to retrieve your ExpressRoute circuit.
 
   ```azurepowershell-interactive
-  $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+  $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 5. Identify the peering you want to disable or enable. *Peerings* is an array. In the following example, Peerings[0] is Azure Private Peering and Peerings[1] Microsoft Peering.
 
@@ -134,7 +134,7 @@ GatewayManagerEtag               :
 
   ```azurepowershell-interactive
   $ckt.Peerings[0].State = "Disabled"
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 The peering should be in a state you set. 
 

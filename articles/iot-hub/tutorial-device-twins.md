@@ -236,7 +236,7 @@ The following screenshot shows the output from the simulated device application 
 
 ![Simulated device](./media/tutorial-device-twins/SimulatedDevice2.png)
 
-The following screenshot shows the output from the back-end application and highlights how it receieves and processes a reported property update from a device:
+The following screenshot shows the output from the back-end application and highlights how it receives and processes a reported property update from a device:
 
 ![Back-end application](./media/tutorial-device-twins/BackEnd2.png)
 

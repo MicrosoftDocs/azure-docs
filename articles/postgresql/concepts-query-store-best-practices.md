@@ -23,7 +23,7 @@ Let Query Store capture the data that matters to you.
 
 |**pg_qs.query_capture_mode** |	**Scenario**|
 |---|---|
-|_All_	|Analyze your workload thoroughly in terms of all queries and their execution frequencies and other statistics. Identify new queries in your workload. Detect if ad-hoc queries are used to identify opportunities for user or auto parameterization. _All_ comes with an increased resource consumption cost. |
+|_All_	|Analyze your workload thoroughly in terms of all queries and their execution frequencies and other statistics. Identify new queries in your workload. Detect if ad hoc queries are used to identify opportunities for user or auto parameterization. _All_ comes with an increased resource consumption cost. |
 |_Top_	|Focus your attention on top queries - those issued by clients.
 |_None_	|You've already captured a query set and time window that you want to investigate and you want to eliminate the distractions that other queries may introduce. _None_ is suitable for testing and bench-marking environments. _None_ should be used with caution as you might miss the opportunity to track and optimize important new queries. You can't recover data on those past time windows. |
 
