@@ -53,7 +53,7 @@ Add-on plans are created by modifying an existing offer:
 
 6. Review the list of add-on plans included with the offer to verify that the new add-on plan is listed.
 
-    ![Create add-on plan](media/create-add-on-plan/add-on4.png)
+    [![Create add-on plan](media/create-add-on-plan/add-on4.png "Create add-on plan")](media/create-add-on-plan/add-on4lg.png#lightbox)
 
 ## Next steps
 
