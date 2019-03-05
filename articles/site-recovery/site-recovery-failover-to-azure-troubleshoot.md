@@ -108,7 +108,7 @@ This is normally not a cause for concern and can usually be ignored for unplanne
 
 ## Unable to select the Datastore
 
-This issue is indicated when you are unable to see the datastore in Azure the portal when trying to reestablish protection on the virtual machine that has experience a failover. This is because the Master target is not recognized as a virtual machine under vCenters added to Azure Site Recovery.
+This issue is indicated when you are unable to see the datastore in Azure the portal when trying to reprotect the virtual machine that has experiencd a failover. This is because the Master target is not recognized as a virtual machine under vCenters added to Azure Site Recovery.
 
 To resolve the issue:
 
