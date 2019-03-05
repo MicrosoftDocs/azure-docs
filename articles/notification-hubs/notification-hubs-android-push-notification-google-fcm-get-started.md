@@ -70,7 +70,7 @@ To complete this tutorial, you must have an active Azure account. If you don't h
 
 1. Select **Google (GCM/FCM)** under **Settings** on the left menu. 
 2. Paste the **server key** for the FCM project that you saved earlier. 
-3. Selct **Save** on the toolbar. 
+3. Select **Save** on the toolbar. 
 
     ![Azure Notification Hubs - Google (FCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/fcm-server-key.png)
 4. You see a message in alerts that the notification hubs has been successfully updated. The **Save** button is disabled. 
@@ -527,7 +527,7 @@ You can send push notifications from the [Azure portal] by doing the following a
 5. See the **result** of the operation in the list at the bottom.
 
     ![Azure Notification Hubs - Test Send](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
-6. You see the notificaiton message on your device. 
+6. You see the notification message on your device. 
 
     ![Notification message on device](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-on-device.png)
     

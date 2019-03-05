@@ -77,10 +77,10 @@ The *Demo-PerformanceMonitoringAndManagement.ps1* script is provided that simula
 
 | Demo | Scenario |
 |:--|:--|
-| 2 | Generate normal intensity load (approx. 40 DTU) |
+| 2 | Generate normal intensity load (approximately 40 DTU) |
 | 3 | Generate load with longer and more frequent bursts per database|
-| 4 | Generate load with higher DTU bursts per database (approx. 80 DTU)|
-| 5 | Generate a normal load plus a high load on a single tenant (approx. 95 DTU)|
+| 4 | Generate load with higher DTU bursts per database (approximately 80 DTU)|
+| 5 | Generate a normal load plus a high load on a single tenant (approximately 95 DTU)|
 | 6 | Generate unbalanced load across multiple pools|
 
 The load generator applies a *synthetic* CPU-only load to every tenant database. The generator starts a job for each tenant database, which calls a stored procedure periodically that generates the load. The load levels (in eDTUs), duration, and intervals are varied across all databases, simulating unpredictable tenant activity.
@@ -190,7 +190,7 @@ If an individual database in a pool experiences a sustained high load, depending
 This exercise simulates the effect of Contoso Concert Hall experiencing a high load when tickets go on sale for a popular concert.
 
 1. In the **PowerShell ISE**, open the …\\*Demo-PerformanceMonitoringAndManagement.ps1* script.
-1. Set **$DemoScenario = 5, Generate a normal load plus a high load on a single tenant (approx. 95 DTU).**
+1. Set **$DemoScenario = 5, Generate a normal load plus a high load on a single tenant (approximately 95 DTU).**
 1. Set **$SingleTenantDatabaseName = contosoconcerthall**
 1. Execute the script using **F5**.
 

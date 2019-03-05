@@ -149,7 +149,7 @@ Azure AD Connect Health for AD FS generates this alert when the Health Agent ins
 
 Most often this test fails because the Health Agent is unable to resolve the AD FS farm name. This can happen if the AD FS servers are behind a network load balancers and the request gets initiated from a node that's behind the load balancer (as opposed to a regular client that is in front of the load balancer). This can be fixed by updating the "hosts" file located under "C:\Windows\System32\drivers\etc" to include the IP address of the AD FS server or a loopback IP address (127.0.0.1) for the AD FS farm name (such as sts.contoso.com). Adding the host file will short-circuit the network call, thus allowing the Health Agent to get the token.
 
-**Q: I got an email indicating my machines are NOT patched for the recent ransomeware attacks. Why did I receive this email?**
+**Q: I got an email indicating my machines are NOT patched for the recent ransomware attacks. Why did I receive this email?**
 
 Azure AD Connect Health service scanned all the machines it monitors to ensure the required patches were installed. The email was sent to the tenant administrators if at least one machine did not have the critical patches. The following logic was used to make this determination.
 1. Find all the hotfixes installed on the machine.

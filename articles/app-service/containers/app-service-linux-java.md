@@ -43,7 +43,7 @@ See [Application performance monitoring tools with Java apps on Azure App Servic
 
 ### SSH console access
 
-SSH connectivity to the Linux environment running your app is avaialble. See [SSH support for Azure App Service on Linux](/azure/app-service/containers/app-service-linux-ssh-support) for full instructions to connect to the Linux system through your web browser or local terminal.
+SSH connectivity to the Linux environment running your app is available. See [SSH support for Azure App Service on Linux](/azure/app-service/containers/app-service-linux-ssh-support) for full instructions to connect to the Linux system through your web browser or local terminal.
 
 ### Streaming logs
 

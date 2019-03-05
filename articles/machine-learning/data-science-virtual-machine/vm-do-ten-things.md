@@ -261,7 +261,7 @@ To download code from a GitHub repository, you use the ```git clone``` command. 
 
     git clone https://github.com/Azure/DataScienceVM.git
 
-In Visual Studio, you can do the same clone operation. The  following screen-shot shows how to access Git and GitHub tools in Visual Studio.
+In Visual Studio, you can do the same clone operation. The  following screenshot shows how to access Git and GitHub tools in Visual Studio.
 
 ![Screenshot of Visual Studio with the GitHub connection displayed](./media/vm-do-ten-things/VSGit.PNG)
 

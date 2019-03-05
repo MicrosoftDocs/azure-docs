@@ -91,6 +91,11 @@ Log rate governor traffic shaping is surfaced via the following wait types (expo
 | HADR_THROTTLE_LOG_RATE_LOG_SIZE | Feedback control, limiting rates to avoid an out of log space condition |
 ||||
 
+When encountering a log rate limit that is hampering desired scalability, consider the following options:
+- Scale up to a larger tier in order to get the maximum 48 MB/s log rate. 
+- If data being loaded is transient, i.e. staging data in an ETL process, it can be loaded into tempdb (which is minimally logged). 
+- For analytic scenarios, load into a clustered columnstore covered table. This reduces the required log rate due to compression. This technique does increase CPU utilization and is only applicable to data sets that benefit from clustered columnstore indexes. 
+
 ## Next steps
 
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).

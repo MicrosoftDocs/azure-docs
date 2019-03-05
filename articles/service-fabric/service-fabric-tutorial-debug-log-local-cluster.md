@@ -51,7 +51,7 @@ If you did not build the Voting sample application in [part one of this tutorial
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 ```
 
-[Build and deploy](service-fabric-tutorial-create-java-app.md#deploy-application-to-local-cluster) the appliction to the local development cluster.
+[Build and deploy](service-fabric-tutorial-create-java-app.md#deploy-application-to-local-cluster) the application to the local development cluster.
 
 ## Debug Java application using Eclipse
 

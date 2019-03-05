@@ -30,7 +30,7 @@ An Event Hubs namespace provides a unique scoping container, referenced by its [
 
 [This feature](event-hubs-for-kafka-ecosystem-overview.md) provides an endpoint that enables customers to talk to Event Hubs using the Kafka protocol. This integration provides customers a Kafka endpoint. This enables customers to configure their existing Kafka applications to talk to Event Hubs, giving an alternative to running their own Kafka clusters. Event Hubs for Apache Kafka supports Kafka protocol 1.0 and later. 
 
-With this integration, you dont need to run Kafka clusters or manage them with Zookeeper. This also allows you to work with some of the most demanding features of Event Hubs like Capture, Auto-inflate, and Geo-disaster Recovery.
+With this integration, you don't need to run Kafka clusters or manage them with Zookeeper. This also allows you to work with some of the most demanding features of Event Hubs like Capture, Auto-inflate, and Geo-disaster Recovery.
 
 This integration also allows applications like Mirror Maker or framework like Kafka Connect to work clusterless with just configuration changes. 
 
