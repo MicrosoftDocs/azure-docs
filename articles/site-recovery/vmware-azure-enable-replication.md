@@ -50,8 +50,8 @@ When replicating VMware virtual machines:
 8. In **Virtual Machines** > **Select virtual machines**, select each machine you want to replicate. You can only select machines for which replication can be enabled. Then click **OK**. If you are not able to view/select any particular virtual machine, click [here](https://aka.ms/doc-plugin-VM-not-showing) to resolve the issue.
 
     ![Enable replication select virtual machines](./media/vmware-azure-enable-replication/enable-replication5.png)
-9. In **Properties** > **Configure properties**, select the account used by the process server to automatically install the Mobility Service on the machine.  
-10. By default, all disks are replicated. To exclude disks from replication, click **All Disks** and clear any disks you don't want to replicate.  Then click **OK**. You can set additional properties later. [Learn more](vmware-azure-exclude-disk.md) about excluding disks.
+9. In **Properties** > **Configure properties**, select the account used by the process server to automatically install the Mobility Service on the machine. Also, choose the type of target managed disk that you would want to replicate to based on your data churn patterns.
+10. By default, all disks of a source machine are replicated. To exclude disks from replication, uncheck **Include** checkbox against any disks you don't want to replicate.  Then click **OK**. You can set additional properties later. [Learn more](vmware-azure-exclude-disk.md) about excluding disks.
 
     ![Enable replication configure properties](./media/vmware-azure-enable-replication/enable-replication6.png)
 
