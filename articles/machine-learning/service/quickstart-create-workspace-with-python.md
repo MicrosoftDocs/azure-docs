@@ -92,7 +92,7 @@ The instructions in this quickstart will install all the packages you need to ru
 
 1. In the activated conda environment, install the core components of the Machine Learning SDK with Jupyter notebook capabilities. The installation takes a few minutes to finish based on the configuration of your machine.
 
-  ```shell
+    ```shell
     pip install --upgrade azureml-sdk[notebooks]
     ```
 
@@ -107,6 +107,7 @@ The instructions in this quickstart will install all the packages you need to ru
     ```shell
     pip install --upgrade azureml-sdk[automl]
     ```
+
 > [!IMPORTANT]
 > In some command-line tools, you might need to add quotation marks as follows:
 >      *  'azureml-sdk[notebooks]'
