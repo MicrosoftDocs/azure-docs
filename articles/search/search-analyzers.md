@@ -64,7 +64,7 @@ The best time to add and assign analyzers is during active development, when dro
 
 As an index definition solidifies, you can append new analysis constructs to an index, but you will need to pass the **allowIndexDowntime** flag to [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) if you want to avoid this error:
 
-*Index update not allowed because it would cause downtime. In order to add new analyzers, tokenizers, token filters, or character filters to an existing index, set the 'allowIndexDowntime' query parameter to 'true' in the index update request. Note that this operation will put your index offline for at least a few seconds, causing your indexing and query requests to fail. Performance and write availability of the index can be impaired for several minutes after the index is updated, or longer for very large indexes.*
+*"Index update not allowed because it would cause downtime. In order to add new analyzers, tokenizers, token filters, or character filters to an existing index, set the 'allowIndexDowntime' query parameter to 'true' in the index update request. Note that this operation will put your index offline for at least a few seconds, causing your indexing and query requests to fail. Performance and write availability of the index can be impaired for several minutes after the index is updated, or longer for very large indexes."*
 
 The same holds true when assigning an analyzer to a field. An analyzer is an integral part of the field's definition, so you can only add it when the field is created. If you want to add analyzers to existing fields, you'll have to [drop and rebuild](search-howto-reindex.md) the index, or add a new field with the analyzer you want.
 

@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 02/28/2019
 ms.author: tomfitz
 
 ---
@@ -53,6 +53,7 @@ The following list provides a general summary of Azure services that can be move
 * App Service Certificates - see [App Service Certificate limitations](#app-service-certificate-limitations)
 * Automation - Runbooks must exist in the same resource group as the Automation Account.
 * Azure Active Directory B2C
+* Azure Cache for Redis - if the Azure Cache for Redis instance is configured with a virtual network, the instance can't be moved to a different subscription. See [Virtual Networks limitations](#virtual-networks-limitations).
 * Azure Cosmos DB
 * Azure Data Explorer
 * Azure Database for MariaDB
@@ -60,6 +61,7 @@ The following list provides a general summary of Azure services that can be move
 * Azure Database for PostgreSQL
 * Azure DevOps - Azure DevOps organizations with non-Microsoft extension purchases must [cancel their purchases](https://go.microsoft.com/fwlink/?linkid=871160) before they can move the account across subscriptions.
 * Azure Maps
+* Azure Monitor logs
 * Azure Relay
 * Azure Stack - registrations
 * Batch
@@ -85,10 +87,9 @@ The following list provides a general summary of Azure services that can be move
 * IoT Hubs
 * Key Vault - Key Vaults used for disk encryption can't be moved to resource groups in the same subscription or across subscriptions.
 * Load Balancers - Basic SKU Load Balancer can be moved. Standard SKU Load Balancer can't be moved.
-* Log Analytics
 * Logic Apps
 * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.
-* Managed Disks - see [Virtual Machines limitations for constraints](#virtual-machines-limitations)
+* Managed Disks - Managed Disks in Availability Zones can't be moved to a different subscription
 * Managed Identity - user-assigned
 * Media Services
 * Monitor - make sure moving to new subscription doesn't exceed [subscription quotas](../azure-subscription-service-limits.md#monitor-limits)
@@ -99,7 +100,6 @@ The following list provides a general summary of Azure services that can be move
 * Power BI - both Power BI Embedded and Power BI Workspace Collection
 * Public IP - Basic SKU Public IP can be moved. Standard SKU Public IP can't be moved.
 * Recovery Services vault - enroll in a [preview](#recovery-services-limitations).
-* Azure Cache for Redis - if the Azure Cache for Redis instance is configured with a virtual network, the instance can't be moved to a different subscription. See [Virtual Networks limitations](#virtual-networks-limitations).
 * Scheduler
 * Search - You can't move several Search resources in different regions in one operation. Instead, move them in separate operations.
 * Service Bus
@@ -112,7 +112,7 @@ The following list provides a general summary of Azure services that can be move
 * SQL Database server - database and server must be in the same resource group. When you move a SQL server, all its databases are also moved. This behavior applies to Azure SQL Database and Azure SQL Data Warehouse databases.
 * Time Series Insights
 * Traffic Manager
-* Virtual Machines - for VMs with managed disks, see [Virtual Machines limitations](#virtual-machines-limitations)
+* Virtual Machines - see [Virtual Machines limitations](#virtual-machines-limitations)
 * Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Virtual Machine Scale Sets - see [Virtual Machines limitations](#virtual-machines-limitations)
 * Virtual Networks - see [Virtual Networks limitations](#virtual-networks-limitations)
@@ -129,7 +129,9 @@ The following list provides a general summary of Azure services that can't be mo
 * Azure Databricks
 * Azure Firewall
 * Azure Migrate
+* Azure NetApp Files
 * Certificates - App Service Certificates can be moved, but uploaded certificates have [limitations](#app-service-limitations).
+* Classic Applications
 * Container Instances
 * Container Service
 * Data Box
@@ -140,7 +142,6 @@ The following list provides a general summary of Azure services that can't be mo
 * Lab Services - move to new resource group in same subscription is enabled, but cross subscription move isn't enabled.
 * Managed Applications
 * Microsoft Genomics
-* NetApp
 * SAP HANA on Azure
 * Security
 * Site Recovery
@@ -161,13 +162,12 @@ The section provides descriptions of how to handle complicated scenarios for mov
 
 ### Virtual Machines limitations
 
-From September 24, 2018, you can move managed disks. This support means you can move virtual machines with the managed disks, managed images, managed snapshots, and availability sets with virtual machines that use managed disks.
+You can move virtual machines with the managed disks, managed images, managed snapshots, and availability sets with virtual machines that use managed disks. Managed Disks in Availability Zones can't be moved to a different subscription.
 
 The following scenarios aren't yet supported:
 
 * Virtual Machines with certificate stored in Key Vault can be moved to a new resource group in the same subscription, but not across subscriptions.
-* Managed Disks in Availability Zones cannot be moved to a different subscription
-* Virtual Machine Scale Sets with Standard SKU Load Balancer or Standard SKU Public IP can't be moved
+* Virtual Machine Scale Sets with Standard SKU Load Balancer or Standard SKU Public IP can't be moved.
 * Virtual machines created from Marketplace resources with plans attached can't be moved across resource groups or subscriptions. Deprovision the virtual machine in the current subscription, and deploy again in the new subscription.
 
 To move virtual machines configured with Azure Backup, use the following workaround:
@@ -185,6 +185,8 @@ To move virtual machines configured with Azure Backup, use the following workaro
 ### Virtual Networks limitations
 
 When moving a virtual network, you must also move its dependent resources. For VPN Gateways, you must move IP addresses, virtual network gateways, and all associated connection resources. Local network gateways can be in a different resource group.
+
+To move a virtual machine with a network interface card, you must move all dependent resources. You must move the virtual network for the network interface card, all other network interface cards for the virtual network, and the VPN gateways.
 
 To move a peered virtual network, you must first disable the virtual network peering. Once disabled, you can move the virtual network. After the move, reenable the virtual network peering.
 
@@ -508,7 +510,7 @@ In the request body, you specify the target resource group and the resources to 
 
 ## Next steps
 
-* To learn about PowerShell cmdlets for managing your subscription, see [Using Azure PowerShell with Resource Manager](powershell-azure-resource-manager.md).
-* To learn about Azure CLI commands for managing your subscription, see [Using the Azure CLI with Resource Manager](xplat-cli-azure-resource-manager.md).
+* To learn about the PowerShell cmdlets for managing your resources, see [Using Azure PowerShell with Resource Manager](manage-resources-powershell.md).
+* To learn about the Azure CLI commands for managing your resources, see [Using the Azure CLI with Resource Manager](manage-resources-cli.md).
 * To learn about portal features for managing your subscription, see [Using the Azure portal to manage resources](resource-group-portal.md).
 * To learn about applying a logical organization to your resources, see [Using tags to organize your resources](resource-group-using-tags.md).

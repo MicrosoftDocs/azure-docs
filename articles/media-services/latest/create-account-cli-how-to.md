@@ -26,8 +26,6 @@ To start encrypting, encoding, analyzing, managing, and streaming media content 
 
 This article describes steps for creating a new Azure Media Services account using the Azure CLI.  
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
 ## Prerequisites
 
 An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.

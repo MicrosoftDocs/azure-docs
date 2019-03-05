@@ -1,5 +1,5 @@
 ---
-title: Properties of an Azure Active Directory B2B collaboration user | Microsoft Docs
+title: Properties of a B2B collaboration user - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B collaboration user properties are configurable
 
 services: active-directory

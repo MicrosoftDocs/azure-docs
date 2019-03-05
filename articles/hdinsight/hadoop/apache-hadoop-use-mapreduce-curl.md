@@ -32,7 +32,7 @@ Learn how to use the Apache Hive WebHCat REST API to run MapReduce jobs on a Apa
 >
 > The REST API is secured by using [basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). You should always make requests by using HTTPS to ensure that your credentials are securely sent to the server.
 
-1. To set the cluster login that is used by the scripts in this document, use one of the followig commands:
+1. To set the cluster login that is used by the scripts in this document, use one of the following commands:
 
     ```bash
     read -p "Enter your cluster login account name: " LOGIN

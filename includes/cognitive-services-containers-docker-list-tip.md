@@ -1,10 +1,10 @@
---- 
+---
 author: diberry
 ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/11/2019
---- 
+---
 
 
 > [!TIP]

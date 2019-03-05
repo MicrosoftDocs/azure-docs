@@ -37,7 +37,7 @@ This feature is available for the following Azure services and regions:
 
 **Public Preview**
 
-- **[Azure Database for MariaDB](https://docs.microsoft.com/en-us/azure/mariadb/concepts-data-access-security-vnet)**: Preview available in all Azure regions where Azure Database for MariaDB is available.
+- **[Azure Database for MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)**: Preview available in all Azure regions where Azure Database for MariaDB is available.
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 

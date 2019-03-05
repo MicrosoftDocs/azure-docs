@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: chris-lauren
 ms.author:  clauren
-ms.date: 09/24/2018
+ms.date: 1/23/2019
 ms.custom: seodec18
 ---
 
@@ -18,7 +18,7 @@ ms.custom: seodec18
 In this article, you can learn how to use Azure Machine Learning Service to deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning, on your local machine, or from other sources. 
 
 The following diagram illustrates the complete deployment workflow:
-[ ![Deployment workflow for Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
+[![Deployment workflow for Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png)](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 The deployment workflow includes the following steps:
 1. **Register the model** in a registry hosted in your Azure Machine Learning Service workspace
@@ -29,7 +29,7 @@ The deployment workflow includes the following steps:
 
 Each step can be performed independently or as part of a single deployment command. Additionally, you can integrate deployment into a **CI/CD workflow** as illustrated in this graphic.
 
-[ !['Azure Machine Learning continuous integration/continuous deployment (CI/CD) cycle'](media/concept-model-management-and-deployment/model-ci-cd.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+[!['Azure Machine Learning continuous integration/continuous deployment (CI/CD) cycle'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
 ## Step 1: Register model
 
@@ -69,7 +69,7 @@ You can deploy registered images into the cloud or to edge devices. The deployme
 
 Web service deployments are also searchable. For example, you can search for all deployments of a specific model or image.
 
-[ ![Inferencing targets](media/concept-model-management-and-deployment/inferencing-targets.png) ](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
+[![Inferencing targets](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
 You can deploy your images to the following deployment targets in the cloud:
 
@@ -101,6 +101,6 @@ Updates to your model are not automatically registered. Similarly, registering a
 
 ## Next steps
 
-Learn more about [how and where you can deploy models](how-to-deploy-and-where.md) with the Azure Machine Learning service.
+Learn more about [how and where you can deploy models](how-to-deploy-and-where.md) with the Azure Machine Learning service. For an example of deployment, see [Tutorial: Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
 Learn how to create client applications and services that [Consume a model deployed as a web service](how-to-consume-web-service.md).

@@ -65,7 +65,7 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
         });
         ```
 
-    3. When an **end** flag is signalled, the JSON and headers can be viewed.
+    3. When an **end** flag is signaled, the JSON and headers can be viewed.
 
         ```javascript
         response.on('end', function () {
