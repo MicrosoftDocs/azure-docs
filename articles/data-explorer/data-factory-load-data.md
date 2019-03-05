@@ -153,13 +153,16 @@ Create a service principal as described in [Create an Azure service principal wi
     ![Need: ADX linked service]()
 
    1. Select **Name** for Azure Data Explorer linked service.
-   1. Select your **Azure subscription** account.
-   1. Select your **Cluster**.
-   1. Specify the **Tenant**.
-   1. Enter **Service principal ID**.
-   1. Enter **Service Principal Key**.
-   1. Select your **Database**
-   1. Select **Test Connection and Finish**.
+   1. In **Account selection method**: 
+       1. Select **From Azure subscription** radio button and select your **Azure subscription** account. Then,select your **Cluster**. Or:
+       1. Select **Enter manually** radio button and enter your **Endpoint**.
+    a. Specify the **Tenant**.
+    b. Enter **Service principal ID**.
+    c. Enter **Service Principal Key**.
+    d. Select your **Database**. Alternatively, select Edit and enter your database name. 
+    e. Select **Test Connection** and **Finish**.
+
+1. **Destination data store pane** opens.
 
 ## Place data in Azure Data Explorer (Sink)
 
