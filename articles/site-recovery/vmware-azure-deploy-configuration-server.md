@@ -6,8 +6,8 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/28/2019
-ms.author: mayg
+ms.date: 03/06/2019
+ms.author: ramamill
 ---
 
 # Deploy a configuration server
@@ -108,8 +108,8 @@ If you want to add an additional NIC to the configuration server, add it before 
 3. After the installation finishes, sign in to the VM as the administrator.
 4. The first time you sign in, within few seconds the Azure Site Recovery Configuration Tool starts.
 5. Enter a name that's used to register the configuration server with Site Recovery. Then select **Next**.
-6. The tool checks that the VM can connect to Azure. After the connection is established, select **Sign in** to sign in to your Azure subscription.
-    a. The credentials must have access to the vault in which you want to register the configuration server.
+6. The tool checks that the VM can connect to Azure. After the connection is established, select **Sign in** to sign in to your Azure subscription.</br>
+    a. The credentials must have access to the vault in which you want to register the configuration server.</br>
     b. Ensure that chosen user account has permissions to create an application in Azure. To enable required permissions, follow guidelines given [here](#azure-active-directory-permission-requirements).
 7. The tool performs some configuration tasks, and then reboots.
 8. Sign in to the machine again. The configuration server management wizard starts **automatically** in few seconds.
