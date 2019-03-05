@@ -13,10 +13,10 @@ ms.subservice: files
 # Migrate bulk data to Azure File Sync
 You can migrate bulk data to Azure File Sync in two ways:
 
-* **Upload your files by using Azure File Sync.** This is the simplest method. Move your files locally to Windows Server 2012 R2 or later, and install the Azure File Sync agent. After you set up the sync, your files will be uploaded from the server. (Our customers currently experience an average upload speed of 1 TB about every two days.) To ensure that your server doesn't use too much of the bandwidth for your datacenter, you might want to set up a [bandwidth throttling schedule](storage-sync-files-server-registration.md#ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter).
+* **Upload your files by using Azure File Sync.** This is the simplest method. Move your files locally to Windows Server 2012 R2 or later, and install the Azure File Sync agent. After you set up the sync, your files will be uploaded from the server. (Our customers currently experience an average upload speed of 1 TiB about every two days.) To ensure that your server doesn't use too much of the bandwidth for your datacenter, you might want to set up a [bandwidth throttling schedule](storage-sync-files-server-registration.md#ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter).
 * **Transfer your files offline.** If you don't have enough bandwidth, you might not be able to upload files to Azure in a reasonable amount of time. The challenge is the initial sync of the whole set of files. To overcome this challenge, use offline bulk migration tools such as the [Azure Data Box family](https://azure.microsoft.com/services/storage/databox). 
 
-This article explains how to migrate files offline in a way that's compatible with Azure File Sync. Follow these instructions to avoid file conflicts and to preserve your file and folder access control lists (ACLs) and time stamps after you enable the sync.
+This article explains how to migrate files offline in a way that's compatible with Azure File Sync. Follow these instructions to avoid file conflicts and to preserve your file and folder access control lists (ACLs) and timestamps after you enable the sync.
 
 ## Online migration tools
 The process we describe in this article works not only for Data Box but also for other offline migration tools. It also works for online tools such as AzCopy, Robocopy, or partner tools and services. However you overcome the initial upload challenge, follow the steps in this article to use these tools in a way that's compatible with Azure File Sync.
@@ -60,8 +60,8 @@ After you create your server endpoint, the sync will start. The sync process det
 > [!IMPORTANT]
 > You can enable the bulk migration mode only while you're creating a server endpoint. After you establish a server endpoint, you can't integrate bulk-migrated data from an already syncing server into the namespace.
 
-## ACLs and time stamps on files and folders
-Azure File Sync ensures that file and folder ACLs are synced from the live server even if the bulk migration tool that you used didn't initially transport ACLs. Because of this, the staging share doesn't need to contain any ACLs for files and folders. When you enable the offline data migration feature as you create a new server endpoint, all file ACLs are synced on the server. Newly created and modified time stamps are also synced.
+## ACLs and timestamps on files and folders
+Azure File Sync ensures that file and folder ACLs are synced from the live server even if the bulk migration tool that you used didn't initially transport ACLs. Because of this, the staging share doesn't need to contain any ACLs for files and folders. When you enable the offline data migration feature as you create a new server endpoint, all file ACLs are synced on the server. Newly created and modified timestamps are also synced.
 
 ## Shape of the namespace
 When you enable the sync, the server's contents determine the shape of the namespace. If files are deleted from the local server after the Data Box snapshot and migration finish, these files don't move into the live, syncing namespace. They stay in the staging share, but they aren't copied. This is necessary because the sync keeps the namespace according to the live server. The Data Box *snapshot* is just a staging ground for efficient file copy. It's not the authority for the shape of the live namespace.
