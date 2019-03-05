@@ -30,6 +30,6 @@ The Azure Functions project template in Visual Studio creates a project that can
     | **Access rights** | Anonymous | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information about keys and authorization, see [Authorization keys](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys) in the [HTTP and webhook bindings](../articles/azure-functions/functions-bindings-http-webhook.md). |
     
     > [!NOTE]
-    > Make sure you set the **Access rights** to `Anonymous`. When you choose the default level of `Function`, you are required to present the function key in requests to access your function endpoint.
+    > Make sure you set the **Access rights** to `Anonymous`. When you choose the default level of `Function`, you are required to present the [function key](functions-bindings-http-webhook.md#authorization-keys) in requests to access your function endpoint.
     
 4. Click **OK** to create the function project and HTTP triggered function.
