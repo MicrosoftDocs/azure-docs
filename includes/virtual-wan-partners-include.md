@@ -10,9 +10,7 @@
  ms.custom: include file
 ---
 
-If your branch device partner is not listed in the section below, please contact your branch device provider and have them contact us by sending an email to azurevirtualwan@microsoft.com.
-
-You can check the following links to gather more information about services offered by the partners.
+You can check the links in this section for more information about services offered by partners. If your branch device partner is not listed in the section below, please contact your branch device provider and have them contact us by sending an email to azurevirtualwan@microsoft.com.
 
 |Partners|
 |---|

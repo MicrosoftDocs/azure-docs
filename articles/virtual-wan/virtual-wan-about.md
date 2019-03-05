@@ -27,9 +27,9 @@ This article provides a quick view into the network connectivity of your Azure a
 
 To create a Site-to-Site connection using Virtual WAN, you can either go through a [Virtual WAN partner](virtual-wan-locations-partners.md), or create the connection manually.
 
-### <a name="s2spartner"></a>Working with a Virtual WAN partner
+### <a name="s2spartner"></a>Partner workflow
 
-When you work with a Virtual WAN partner, the process is:
+When you work with a Virtual WAN partner, the workflow is:
 
 1. The branch device (VPN/SDWAN) controller is authenticated to export site-centric information into Azure by using an [Azure Service Principal](../active-directory/develop/howto-create-service-principal-portal.md).
 2. The branch device (VPN/SDWAN) controller obtains the Azure connectivity configuration and updates the local device. This automates the configuration download, editing, and updating of the on-premises VPN device.

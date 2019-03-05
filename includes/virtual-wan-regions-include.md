@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-The list of available regions that are supported are as follows:
+The following table lists available supported regions:
 
 |Geopolitical region | Azure regions|
 |---|---|
