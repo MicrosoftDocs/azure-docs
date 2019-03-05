@@ -7,6 +7,7 @@ author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.technology: qna-maker
 ms.topic: tutorial
 ms.date: 01/24/2019

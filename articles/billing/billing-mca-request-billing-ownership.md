@@ -23,7 +23,7 @@ You might want to take ownership of Azure subscriptions if the existing billing 
 
 You can send a request to take ownership of Azure subscriptions from existing owners in other billing accounts. Taking ownership transfers billing responsibilities of subscriptions to your invoice section.
 
-To request the billing ownership, you must be an **invoice section owner** or **invoice section contributor**. To learn more, see [Invoice section roles tasks](billing-understand-mca-roles.md#invoice-section-roles-and-tasks).
+To request the billing ownership, you must be an **invoice section owner** or **invoice section contributor**. To learn more, see [invoice section roles tasks](billing-understand-mca-roles.md#invoice-section-roles-and-tasks).
 
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
@@ -42,7 +42,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 5. From the top of the page, select **Add**.
 
-6. Enter the email address of the user you're requesting billing ownership from. The user must be an account administrator on a Microsoft Online Service Program billing account or an account owner on an Enterprise Agreement. For more information, see [View your billing accounts in Azure portal](billing-view-all-accounts.md).
+6. Enter the email address of the user you're requesting billing ownership from. The user must be an account administrator on a Microsoft Online Service Program billing account or an account owner on an Enterprise Agreement. For more information, see [view your billing accounts in Azure portal](billing-view-all-accounts.md).
 
    ![Screenshot that shows adding a new transfer request](./media/billing-mca-request-billing-ownership/mca-new-transfer-request.png)
 

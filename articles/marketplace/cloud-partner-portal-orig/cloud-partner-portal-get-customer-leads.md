@@ -97,7 +97,7 @@ listed on your app, but they don't need to be contacted.
 
 **Offers**
 
-The following examples show unique identifers that are assigned to a publisher and a specific offer: checkpoint.check-point-r77-10sg-byol, bitnami.openedxcypress, and docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a.
+The following examples show unique identifiers that are assigned to a publisher and a specific offer: checkpoint.check-point-r77-10sg-byol, bitnami.openedxcypress, and docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a.
 
 
 ### Customer Info

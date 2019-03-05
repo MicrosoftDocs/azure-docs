@@ -54,7 +54,7 @@ Tablesample can be used for sampling the data as well. This may be a better appr
 > 
 
 ### <a name="sql-aml"></a>Connecting to Azure Machine Learning
-You can directly  use the sample queries above in the Azure Machine Learning [Import Data][import-data] module to down-sample the data on the fly and bring it into an Azure Machine Learning experiment. A screen shot of using the reader module to read the sampled data is shown here:
+You can directly  use the sample queries above in the Azure Machine Learning [Import Data][import-data] module to down-sample the data on the fly and bring it into an Azure Machine Learning experiment. A screenshot of using the reader module to read the sampled data is shown here:
 
 ![reader sql][1]
 
