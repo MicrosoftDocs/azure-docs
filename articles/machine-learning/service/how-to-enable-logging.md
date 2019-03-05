@@ -36,7 +36,7 @@ run = exp.start_logging()
 run.log("test-val", 10)
 ```
 
-See the reference [documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) for the `Run` class for additional logging functions.
+See the reference documentation for the [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) class for additional logging functions.
 
 To enable local logging of application state during training progress, use the `show_output` parameter. Enabling verbose logging allows you to see details from the training process as well as information about any remote resources or compute targets. Use the following code to enable logging upon experiment submission.
 

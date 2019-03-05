@@ -10,7 +10,7 @@ ms.author: glenga
 ms.custom: include file
 ---
 
-1. Select the **New** button found on the upper left-hand corner of the Azure portal, then select **Compute** > **Function App**.
+1. Select the **Create a resource** button found on the upper left-hand corner of the Azure portal, then select **Compute** > **Function App**.
 
     ![Create a function app in the Azure portal](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
