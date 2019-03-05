@@ -111,7 +111,7 @@ This section shows how to test connectivity from the simulated on-premises envir
    ping 10.2.0.68
    ```
 
-1. To exit the ssh seesion on the **onprem-vm** virtual machine, enter `exit` or press &lt;d>.
+1. To exit the ssh seesion on the **onprem-vm** virtual machine, enter `exit` and press &lt;Enter>.
 
 ## Troubleshoot VPN issues
 
