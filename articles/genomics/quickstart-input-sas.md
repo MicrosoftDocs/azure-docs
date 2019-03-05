@@ -52,7 +52,7 @@ The SAS for the input files should be scoped to the specific input file (blob). 
  ![Genomics SAS Storage Explorer](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Genomics SAS Storage Explorer")
 
 
-### Set up: Create a SAS programattically
+### Set up: Create a SAS programmatically
 
 To create a SAS using the Azure Storage SDK, refer to the existing documentation in several languages, including [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage), and [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage). 
 
