@@ -102,8 +102,8 @@ the action that has the outputs you want.
 1. Choose the **Show raw outputs** link.
 
 1. Copy either the complete JavaScript Object Notation 
-(JSON) object or the specific section you want to use, 
-for example, the outputs or headers section.
+(JSON) object or the specific subsection you want to use, 
+for example, the outputs section, or even just the headers section.
 
 1. Follow the steps for opening the **Static result** 
 box for your action in [Set up static results](#set-up-static-results).
@@ -113,12 +113,12 @@ box for your action in [Set up static results](#set-up-static-results).
    * To paste a complete JSON object, choose **Switch to JSON Mode** 
    (![Choose "Switch to JSON Mode"](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)):
 
-     (![Choose "Switch to JSON Mode" for complete object](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-complete.png))
+     ![Choose "Switch to JSON Mode" for complete object](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-complete.png)
 
    * To paste just a JSON section, next to that section's label, 
-   choose **Switch to JSON Mode**, for example:
+   choose **Switch to JSON Mode** for that section, for example:
 
-     (![Choose "Switch to JSON Mode" for outputs](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-outputs.png))
+     ![Choose "Switch to JSON Mode" for outputs](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-outputs.png)
 
 1. In the JSON editor, paste your previously copied JSON.
 
