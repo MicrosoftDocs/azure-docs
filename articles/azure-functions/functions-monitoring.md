@@ -204,7 +204,7 @@ Log level `None` is explained in the next section.
 
 ### Log configuration in host.json
 
-The [host.json](functions-host-json.md) file configures how much logging a function app sends to Application Insights. For each category, you indicate the minimum log level to send. There are two examples: the first example targets the [Functions version 2.x runtime](functions-versions.md#version-2x) (.NET Core) and the second exmaple is for the version 1.x runtime.
+The [host.json](functions-host-json.md) file configures how much logging a function app sends to Application Insights. For each category, you indicate the minimum log level to send. There are two examples: the first example targets the [Functions version 2.x runtime](functions-versions.md#version-2x) (.NET Core) and the second example is for the version 1.x runtime.
 
 ### Version 2.x
 
