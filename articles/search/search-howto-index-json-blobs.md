@@ -285,7 +285,7 @@ The .NET SDK has fully parity with the REST API. We recommend that you review th
 
 <a name="parsing-modes"></a>
 
-### Parsing modes
+## Parsing modes
 
 JSON blobs can assume multiple forms. The **parsingMode** parameter on the JSON indexer determines how JSON blob content is parsed and structured in an Azure Search index:
 
