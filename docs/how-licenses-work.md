@@ -35,7 +35,6 @@ The add-in license categories used by AppSource are based on how or whether you 
     > SharePoint 2013 does not support subscription licensing.
      
 SharePoint maps the license categories used by AppSource to add-in license types, based on user access. The following table shows how the SharePoint add-in license types map to the classifications used by AppSource.
-
 |**SharePoint license type**|**AppSource license category**|**License applies to**|**Duration**|**Users**|**Cost**|
 |:-----|:-----|:-----|:-----|:-----|:-----|
 |Perpetual all user|Free PaidSite|All users of a SharePoint deployment,<br/>with no expiration.|Perpetual|Unlimited|Free or paid|
@@ -172,6 +171,82 @@ Apply the following best practices when you create and enforce add-in licenses a
 <td>For add-ins with a perpetual unlimited user license, cache until the license token expires. For add-ins with a multiuser license, either trial or perpetual, cache per session because user assignment can change.<br /><br />Make sure the production version of your add-in does not accept test licenses.<br /><br />When you finish testing your add-in and are ready to move it to production, make sure you add code to the license checks in your add-in so that the add-in no longer accepts test licenses. After you pass the add-in license token to the verification service&#39;s <a href="https://msdn.microsoft.com/en-us/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx">VerifyEntitlementToken</a> method, you can use the <a href="https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.aspx">VerifyEntitlementTokenResponse</a> object returned by that method to access the add-in license properties. For test add-in licenses, the <a href="https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.istest.aspx">IsTest</a> property returns <strong>true</strong> and the <a href="https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.isvalid.aspx">IsValid</a> property returns <strong>false</strong>.</td>
 </tr>
 </table>
+
+Moving Paid Add-Ins to Free
+As of March 2013 Seller Dashboard now supports Add-Ins moving from Paid to Free. A developer can choose within Seller Dahboard to move the add-in to free which changes what the Add-In receives in the license token.
+After the move from Paid to free the add-in will still be sent licensing tokens containing the information about the user’s license and those will still be required to be parsed. 
+The experience will depend on whether the license is for a new or existing user and whether the payment option was previously subscription or one-time purchase.
+
+<table>
+<tr>
+<th width="20%">Purchase type</th>
+<th width="25%">New User</th>
+<th width="25%">Existing User</th>
+<th width="30%">Action for the developer</th>
+</tr>
+<td>Subscription</td>
+<td>
+The user will receive a Free entitlement. The add-in will no longer be available to purchase but can be acquired for free; this will be returned in the token for the add-in entitlement.
+</td>
+<td>
+The user will no longer be charged after their currently billed month ends. At the end of the period they have paid for, the subscription license will be extended indefinitely to avoid any user disruption.
+</td>
+<td>
+Where a token in a free or extended subscription state is returned, the developer should take the opportunity to upsell the user to the new license.
+Some information to inform upsell decisions is maintained in the token.
+
+Token changes
+The license tokens will change when an Add-In moves from Paid to free as follows.
+•	Update to all migrated tokens:
+ed="8999-12-31T23:59:59Z"
+•	Update to all seat-based tokens:
+sl="true"
+•	For seat-based tokens, where the customer previously purchased a site-license:
+ts="0"
+•	For seat-based tokens, where the customer purchased 3 seats:
+ts="3"
+</td>
+<tr>
+<td>One-time purchase</td>
+<td>The user will receive a Free entitlement. The add-in will no longer be available to purchase but can be acquired for free; this will be returned in the token for the add-in entitlement.
+</td>
+<td>The user’s original purchase will still be valid. If the license was previously seat based, it will be modified to resemble a site license for the user. This will be returned in the token to the add-in.
+All active trial licenses will be converted to Free entitlements.
+</td>
+<td>
+For existing users that return a valid paid token, those users should continue to work. If the original token was seat based, the new token will contain the originally purchased seat count.  
+For new users, or users where the original seat count has been exceeded, the developer should take the opportunity to upsell the user to the new license.
+Token changes
+For most users the license token returned to the add-in will not change. The license tokens will change when an Add-In moves from Paid to free for seat-based tokens:
+•	Update to all seat-based tokens:
+sl="true"
+•	For seat-based tokens, where the customer previously purchased a site-license:
+ts="0"
+•	For seat-based tokens, where the customer purchased 3 seats:
+ts="3" 
+
+</td>
+</tr>
+</table>
+
+The license token schema is available here.
+More information on using licensing to upsell your Add-In services is available here. 
+Here are a few examples of the experience after an add-in switches from Paid to free
+•	Word User, purchased add-in via One-time purchase
+As this user had purchased the add-in prior to the switch to free then the license token will still return an active Paid entitlement for that user in the et parameter 
+•	Word User, acquires free version of same add-in
+This user had not acquired the add-in when it was paid so will the license token will return a free entitlement for that user in the et parameter
+•	Outlook User, purchases add-in via Subscription
+In this case the user will continue to use the subscription they paid for until the end of that billing period. The expiry date for the subscription will extend (see above) and they will no longer be charged for the add-in going forward. 
+•	Outlook User, acquires free version of same Subscription add-in
+The user had not acquired the add-in when it was paid so the license token will return a free entitlement for that user in the et parameter
+•	SharePoint User, purchased Seat based license for 3 seats via One-Time Purchase
+In this case the token will effectively come back as a site license but will also include the number of seats that had be purchased. 
+•	SharePoint User, purchased Seat based license for 3 seats via Subscription
+In this case the token will come back with an expiration date will extend (see above) and it will come back as a site license but will also include the number of seats that were acquired previously. 
+•	Excel user, acquired add-in as a Trial 
+As this add-in was acquired prior to the trial expiration date then the trial will be now return a free entitlement
+Note: This applies for Subscription OR One-time purchase add-ins
 
 
 ## See also
