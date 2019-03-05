@@ -117,10 +117,10 @@ How to get HDInsight Tools in Visual Studio, see [Use Data Lake Tools for Visual
 
 You have two options for creating and running Hive queries:
 
-* Create ad-hoc queries
+* Create ad hoc queries
 * Create a Hive application
 
-To create and run ad-hoc queries:
+To create and run ad hoc queries:
 
 1. In **Server Explorer**, select **Azure** > **HDInsight Clusters**.
 

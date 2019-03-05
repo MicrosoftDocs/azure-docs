@@ -2715,6 +2715,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-resource-manager/resource-manager-templates-resources.md",
+      "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates#resources",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-resource-manager/resource-manager-export-template.md",
       "redirect_url": "/azure/azure-resource-manager/manage-resources-portal",
       "redirect_document_id": false
@@ -3006,7 +3011,7 @@
     },
     {
       "source_path": "articles/powershell-azure-resource-manager.md",
-      "redirect_url": "/azure/azure-resource-manager/manage-resources-powershell.md",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-powershell",
       "redirect_document_id": false
     },
     {
@@ -26015,6 +26020,36 @@
     {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/cpp-customer-engagement-offer.md",
       "redirect_url": "/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/azure-resource-manager-test-Drive.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-Drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/hosted-test-drive.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/logic-app-test-drive.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/marketing-and-best-practices.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/transforming-examples-for-test-drive.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/test-drive/transforming-examples-for-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/what-is-test-drive.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive",
       "redirect_document_id": false
     },
     {

@@ -189,7 +189,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 ## Gaining consent for the middle-tier application
 
-Depending on the audience for your application, you may consider different strategies for ensuring that the OBO flow is succesful. In all cases, the ultimate goal is to ensure proper consent is given. How that occurs, however, depends on which users your application supports. 
+Depending on the audience for your application, you may consider different strategies for ensuring that the OBO flow is successful. In all cases, the ultimate goal is to ensure proper consent is given. How that occurs, however, depends on which users your application supports. 
 
 ### Consent for Azure AD-only applications
 

@@ -5,7 +5,7 @@ description: Using Node.js, build a chat bot integrated with language understand
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
-manager: cjgronlund
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial

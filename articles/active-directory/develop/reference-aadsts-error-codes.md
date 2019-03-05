@@ -64,7 +64,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS50032 | WeakRsaKey - Indicates the erroneous user attempt to use a weak RSA key. |
 | AADSTS50033 | RetryableError - Indicates a transient error not related to the database operations. |
 | AADSTS50034 | UserAccountNotFound - To sign into this application, the account must be added to the directory. |
-| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt - The salt required to generate a pairwise identifier is missing in principal. Contact the tenant admin. |
+| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt - The salt required to generate a pairwise identifier is missing in principle. Contact the tenant admin. |
 | AADSTS50043 | UnableToGeneratePairwiseIdentifierWithMultipleSalts |
 | AADSTS50048 | SubjectMismatchesIssuer - Subject mismatches Issuer claim in the client assertion. Contact the tenant admin. |
 | AADSTS50049 | NoSuchInstanceForDiscovery - Unknown or invalid instance. |
