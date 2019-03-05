@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 03/04/2019
 ---
 # Use PowerShell to copy a SQL database to a new server
 
@@ -25,7 +25,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 ## Copy a database to a new server
 
-[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/copy-database-to-new-server/copy-database-to-new-server.ps1?highlight=18-21 "Copy database to new server")]
+[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/copy-database-to-new-server/copy-database-to-new-server.ps1?highlight=20-23 "Copy database to new server")]
 
 ## Clean up deployment
 

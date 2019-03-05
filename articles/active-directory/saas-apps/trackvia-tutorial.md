@@ -133,7 +133,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 1. In different browser window, sign on to your TrackVia company site as an administrator.
 
-1. Click on Trackvia **My Account** settings and then select **Single Sign On** tab, perform the following steps:
+1. Click on Track via **My Account** settings and then select **Single Sign On** tab, perform the following steps:
 
 	![TrackVia configuration](./media/trackvia-tutorial/configure1.png)
 

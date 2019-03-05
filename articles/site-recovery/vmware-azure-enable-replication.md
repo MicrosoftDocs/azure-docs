@@ -46,12 +46,15 @@ When replicating VMware virtual machines:
 
 7. Select the Azure network and subnet to which Azure VMs will connect when they're spun up after failover. The network must be in the same region as the Recovery Services vault. Select **Configure now for selected machines** to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. If you don't have a network, you need to create one. To create a network by using Resource Manager, click **Create new**. Select a subnet if applicable, and then click **OK**.
 
+>[!NOTE]
+>Azure Site Recovery now replicates directly to Managed Disks for all new replications. Existing replications will not be impacted. Replication to storage accounts for a new machine is only available via REST API and Powershell. 
+
     ![Enable replication target setting](./media/vmware-azure-enable-replication/enable-rep3.png)
 8. In **Virtual Machines** > **Select virtual machines**, select each machine you want to replicate. You can only select machines for which replication can be enabled. Then click **OK**. If you are not able to view/select any particular virtual machine, click [here](https://aka.ms/doc-plugin-VM-not-showing) to resolve the issue.
 
     ![Enable replication select virtual machines](./media/vmware-azure-enable-replication/enable-replication5.png)
-9. In **Properties** > **Configure properties**, select the account used by the process server to automatically install the Mobility Service on the machine.  
-10. By default, all disks are replicated. To exclude disks from replication, click **All Disks** and clear any disks you don't want to replicate.  Then click **OK**. You can set additional properties later. [Learn more](vmware-azure-exclude-disk.md) about excluding disks.
+9. In **Properties** > **Configure properties**, select the account used by the process server to automatically install the Mobility Service on the machine. Also, choose the type of target managed disk that you would want to replicate to based on your data churn patterns.
+10. By default, all disks of a source machine are replicated. To exclude disks from replication, uncheck **Include** checkbox against any disks you don't want to replicate.  Then click **OK**. You can set additional properties later. [Learn more](vmware-azure-exclude-disk.md) about excluding disks.
 
     ![Enable replication configure properties](./media/vmware-azure-enable-replication/enable-replication6.png)
 
