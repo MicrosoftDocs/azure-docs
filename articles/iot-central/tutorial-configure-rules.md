@@ -23,30 +23,23 @@ In this tutorial, you learn how to:
 > * Create a telemetry-based rule
 > * Add an action
 
-
 ## Prerequisites
 
 Before you begin, you should complete the [Define a new device type in your application](tutorial-define-device-type.md) tutorial to create the **Connected Air Conditioner** device template to work with.
 
 ## Create a telemetry-based rule
 
-1. To add a new telemetry-based rule to your application, in the left navigation menu, choose **Device Templates**:
+1. To add a new telemetry-based rule to your application, in the left navigation menu, select **Device Templates**:
 
     ![Device Templates page](media/tutorial-configure-rules/templatespage1.png)
 
     You see the **Connected Air Conditioner (1.0.0)** device template you created in the previous tutorial.
 
-2. To customize your device template, click the **Connected Air Conditioner** template you created in the previous tutorial.
+2. To customize your device template, select the **Connected Air Conditioner** template you created in the previous tutorial.
 
-3. To add a telemetry-based rule in the **Rules** view, choose **Rules**, click **+ New Rule**, and then choose **Telemetry**:
+3. To add a telemetry-based rule in the **Rules** view, select **Rules**, select **+ New Rule**, and then select **Telemetry**:
 
-3. To start adding a rule in the **Rules** view, choose **Rules** and then select **Edit Template**:
-
-    ![Rules view](media/tutorial-configure-rules/builderedittemplate.png)
-
-4. To create a threshold-based telemetry rule, select **New Rule**, and then **Telemetry**.
-
-    ![Edit Template](media/tutorial-configure-rules/buildernewrule.png)
+    ![Rules view](media/tutorial-configure-rules/newrule.png)
 
 5. To define your rule, use the information in the following table:
 
@@ -59,7 +52,7 @@ Before you begin, you should complete the [Define a new device type in your appl
 
     ![Temperature rule condition](media/tutorial-configure-rules/temperaturerule.png)
 
-    Then click **Save**.
+    Then select **Save**.
 
 ## Add an action
 
@@ -81,13 +74,11 @@ When you define a rule, you also define an action to run when the rule condition
 
     ![Temperature action](media/tutorial-configure-rules/temperatureaction.png)
 
-3. Click **Save**. Your rule is listed on the **Rules** page.
+3. Select **Save**. Your rule is listed on the **Rules** page.
 
 ## Test the rule
 
 Shortly after you save the rule, it becomes live. When the conditions defined in the rule are met, your application sends a message to the email address you specified in the action.
-
-![Email action](media/tutorial-configure-rules/email.png)
 
 > [!NOTE]
 > After your testing is complete, turn off the rule to stop receiving alerts in your inbox.
