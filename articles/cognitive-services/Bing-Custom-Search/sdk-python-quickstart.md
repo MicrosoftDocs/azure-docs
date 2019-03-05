@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 02/27/2019
+ms.date: 03/05/2019
 ms.author: aahi
 ---
 
@@ -33,7 +33,7 @@ pip install azure-cognitiveservices-search-customsearch
 
 ## Create a new application
 
-Create a new Python file in your favorite editor or IDE, and add the following imports. Create a variable for your subscription key.
+Create a new Python file in your favorite editor or IDE, and add the following imports.
 
 ```python
 from azure.cognitiveservices.search.customsearch import CustomSearchClient
