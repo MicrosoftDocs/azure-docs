@@ -19,11 +19,11 @@ If you're using the [Durable Functions](durable-functions-overview.md) extension
 
 You can start and terminate instances, for example, and you can query instances, including the ability to query all instances and query instances with filters. Additionally, you can send events to instances, wait for orchestration completion, and retrieve HTTP management webhook URLs. This article covers other management operations, too, including rewinding instances, purging instance history, and deleting a task hub.
 
-In Durable Functions, you have options for how you want to implement each of these management operations. This article provides examples in .NET (C#), JavaScript, and Azure Functions Core Tools.
+In Durable Functions, you have options for how you want to implement each of these management operations. This article provides examples that use the [Azure Functions Core Tools](../functions-run-local.md) for both .NET (C#) and JavaScript.
 
 ## Start instances
 
-Probably the most fundamental management operation in a Durable Functions orchestration is simply to start a new instance of an orchestrator function.
+It's important to be able to start an instance of orchestration. This is commonly done when you are using a Durable Functions binding in another function's trigger.
 
 The [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) method on the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) or `startNew` on the `DurableOrchestrationClient` (JavaScript) starts a new instance. You acquire instances of this class by using the `orchestrationClient` binding. Internally, this method enqueues a message into the control queue, which then triggers the start of a function with the specified name that uses the `orchestrationTrigger` trigger binding.
 
@@ -78,13 +78,13 @@ module.exports = async function(context, input) {
 > [!TIP]
 > Use a random identifier for the instance ID. This helps ensure an equal load distribution when you're scaling orchestrator functions across multiple VMs. The proper time to use non-random instance IDs is when the ID must come from an external source, or when you're implementing the [singleton orchestrator](durable-functions-singletons.md) pattern.
 
-### Core Tools
+### Azure Functions Core Tools
 
 You can also start an instance directly by using the [Azure Functions Core Tools](../functions-run-local.md) `durable start-new` command. It takes the following parameters:
 
 * **`function-name` (required)**: Name of the function to start.
 * **`input` (optional)**: Input to the function, either inline or through a JSON file. For files, add a prefix to the path to the file with `@`, such as `@path/to/file.json`.
-* **`id` (optional)**: ID of the orchestration instance. If you don't specify this parameter, the command uses a random ID.
+* **`id` (optional)**: ID of the orchestration instance. If you don't specify this parameter, the command uses a random GUID.
 * **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is AzureWebJobsStorage.
 * **`task-hub-name` (optional)**: Name of the Durable Functions task hub to use. The default is DurableFunctionsHub. You can also set this in [host.json](durable-functions-bindings.md#host-json) by using durableTask:HubName.
 
@@ -155,7 +155,7 @@ module.exports = async function(context, instanceId) {
 }
 ```
 
-### Core Tools
+### Azure Functions Core Tools
 
 It's also possible to get the status of an orchestration instance directly, by using the [Azure Functions Core Tools](../functions-run-local.md) `durable get-runtime-status` command. It takes the following parameters:
 
@@ -219,7 +219,7 @@ module.exports = async function(context, req) {
 };
 ```
 
-### Core Tools
+### Azure Functions Core Tools
 
 It's also possible to query instances directly, by using the [Azure Functions Core Tools](../functions-run-local.md) `durable get-instances` command. It takes the following parameters:
 
@@ -286,7 +286,7 @@ module.exports = async function(context, req) {
 };
 ```
 
-### Core Tools
+### Azure Functions Core Tools
 
 In the Azure Functions Core Tools, you can also use the `durable get-instances` command with filters. In addition to the aforementioned `top`, `continuation-token`, `connection-string-setting`, and `task-hub-name` parameters, you can use three filter parameters (`created-after`, `created-before`, and `runtime-status`).
 
@@ -339,9 +339,9 @@ module.exports = async function(context, instanceId) {
 > [!NOTE]
 > Instance termination doesn't currently propagate. Activity functions and sub-orchestrations run to completion, regardless of whether you've terminated the orchestration instance that called them.
 
-### Core Tools
+### Azure Functions Core Tools
 
-You can also terminate an orchestration instance directly, by using the [Core Tools](../functions-run-local.md) `durable terminate` command. It takes the following parameters:
+You can also terminate an orchestration instance directly, by using the [Azure Functions Core Tools](../functions-run-local.md) `durable terminate` command. It takes the following parameters:
 
 * **`id` (required)**: ID of the orchestration instance to terminate.
 * **`reason` (optional)**: Reason for termination.
@@ -356,7 +356,7 @@ func durable terminate --id 0ab8c55a66644d68a3a8b220b12d209c --reason "It was ti
 
 ## Send events to instances
 
-[Glenn: how would you frame the significance of this method? In other words, how can we introduce it briefly to give just a little context for why this is important enough to be included in the list of management options for the customer?]
+In some scenarios, it's important for your orchestrator functions to be able to wait and listen for external events. This includes [monitor functions](durable-functions-concepts.md#monitoring) and functions that are waiting for [human interaction](durable-functions-concepts.md#human).
 
 Send event notifications to running instances by using the [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) method of the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class (.NET) or the `raiseEvent` method of the `DurableOrchestrationClient` class (JavaScript). Instances that can handle these events are those that are awaiting a call to [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.NET) or `waitForExternalEvent` (JavaScript).
 
@@ -395,9 +395,9 @@ module.exports = async function(context, instanceId) {
 > [!IMPORTANT]
 > If there is no orchestration instance with the specified instance ID, or if the instance is not waiting on the specified event name, the event message is discarded. For more information about this behavior, see the [GitHub issue](https://github.com/Azure/azure-functions-durable-extension/issues/29).
 
-### Core Tools
+### Azure Functions Core Tools
 
-You can also raise an event to an orchestration instance directly, by using the [Core Tools](../functions-run-local.md) `durable raise-event` command. It takes the following parameters:
+You can also raise an event to an orchestration instance directly, by using the [Azure Functions Core Tools](../functions-run-local.md) `durable raise-event` command. It takes the following parameters:
 
 * **`id` (required)**: ID of the orchestration instance.
 * **`event-name` (optional)**: Name of the event to raise. The default is `$"Event_{RandomGUID}"`.
@@ -567,7 +567,7 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
-### Core Tools
+### Azure Functions Core Tools
 
 You can also rewind an orchestration instance directly by using the [Azure Functions Core Tools](../functions-run-local.md) `durable rewind` command. It takes the following parameters:
 
@@ -620,7 +620,7 @@ public static Task Run(
 > [!NOTE]
 > For the time-triggered function process to succeed, the runtime status must be **Completed**, **Terminated**, or **Failed**.
 
-### Core Tools
+### Azure Functions Core Tools
 
 You can purge an orchestration instance's history by using the [Azure Functions Core Tools](../functions-run-local.md) `durable purge-history` command. Similar to the second C# example in the preceding section, it purges the history for all orchestration instances created during a specified time interval. You can further filter purged instances by runtime status. The command has several parameters:
 
