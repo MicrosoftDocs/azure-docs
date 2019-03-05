@@ -8,6 +8,7 @@ ms.author: curtand
 ms.date: 12/21/2018
 ms.topic: article-type-from-white-list
 ms.service: active-directory
+ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft

@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric - Set up monitoring with Log Analytics | Microsoft Docs
-description: Learn how to set up Log Analytics for visualizing and analyzing events to monitor your Azure Service Fabric clusters.
+title: Azure Service Fabric - Set up monitoring with Azure Monitor logs | Microsoft Docs
+description: Learn how to set up Azure Monitor logs for visualizing and analyzing events to monitor your Azure Service Fabric clusters.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -13,17 +13,19 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2018
+ms.date: 02/20/2019
 ms.author: srrengar
 
 ---
 
-# Set up Log Analytics for a cluster
+# Set up Azure Monitor logs for a cluster
 
-Log Analytics is our recommendation to monitor cluster level events. You can set up Log Analytics workspace through Azure Resource Manager, PowerShell, or Azure Marketplace. If you maintain an updated Resource Manager template of your deployment for future use, use the same template to set up your Log Analytics environment. Deployment via Marketplace is easier if you already have a cluster deployed with diagnostics enabled. If you do not have subscription-level access in the account to which you are deploying to, deploy by using PowerShell or the Resource Manager template.
+Azure Monitor logs is our recommendation to monitor cluster level events. You can set up Log Analytics workspace through Azure Resource Manager, PowerShell, or Azure Marketplace. If you maintain an updated Resource Manager template of your deployment for future use, use the same template to set up your Azure Monitor logs environment. Deployment via Marketplace is easier if you already have a cluster deployed with diagnostics enabled. If you do not have subscription-level access in the account to which you are deploying to, deploy by using PowerShell or the Resource Manager template.
 
 > [!NOTE]
-> To set up Log Analytics to monitor your cluster, you need to have diagnostics enabled to view cluster-level or platform-level events. Refer to [how to set up diagnostics in Windows clusters](service-fabric-diagnostics-event-aggregation-wad.md) and [how to set up diagnostics in Linux clusters](service-fabric-diagnostics-event-aggregation-lad.md) for more
+> To set up Azure Monitor logs to monitor your cluster, you need to have diagnostics enabled to view cluster-level or platform-level events. Refer to [how to set up diagnostics in Windows clusters](service-fabric-diagnostics-event-aggregation-wad.md) and [how to set up diagnostics in Linux clusters](service-fabric-diagnostics-event-aggregation-lad.md) for more
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Deploy a Log Analytics workspace by using Azure Marketplace
 
@@ -41,7 +43,7 @@ If you want to add a Log Analytics workspace after you have deployed a cluster, 
 
 5. When finished, select **Create** again at the bottom of the Service Fabric Analytics creation window. Make sure that the new workspace shows up under **OMS Workspace**. This action adds the solution to the workspace you created.
 
-If you are using Windows, continue with the following steps to connect Log Analytics to the storage account where your cluster events are stored. 
+If you are using Windows, continue with the following steps to connect Azure Monitor logs to the storage account where your cluster events are stored. 
 
 >[!NOTE]
 >Enabling this experience for Linux clusters is not yet available. 
@@ -62,14 +64,14 @@ If you are using Windows, continue with the following steps to connect Log Analy
 
 7. Select **OK** to connect your workspace to your cluster's logs.
 
-    ![Add storage account logs to Log Analytics](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
+    ![Add storage account logs to Azure Monitor logs](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
 
 The account now shows up as part of your storage account logs in your workspace's data sources.
 
 You have added the Service Fabric Analytics solution in an Log Analytics workspace that's now correctly connected to your cluster's platform and application log table. You can add additional sources to the workspace in the same way.
 
 
-## Deploy Log Analytics with Azure Resource Manager
+## Deploy Azure Monitor logs with Azure Resource Manager
 
 When you deploy a cluster by using a Resource Manager template, the template creates a new Log Analytics workspace, adds the Service Fabric solution to the workspace, and configures it to read data from the appropriate storage tables.
 
@@ -90,13 +92,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "<resourceGroupName>" -Tem
 
 Azure Resource Manager detects that this command is an update to an existing resource. It only processes the changes between the template driving the existing deployment and the new template provided.
 
-## Deploy Log Analytics with Azure PowerShell
+## Deploy Azure Monitor logs with Azure PowerShell
 
-You can also deploy your Log Analytics resource via PowerShell by using the `New-AzureRmOperationalInsightsWorkspace` command. To use this method, make sure you have installed [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.1.1). Use this script to create a new Log Analytics workspace and add the Service Fabric solution to it: 
+You can also deploy your log analytics resource via PowerShell by using the `New-AzureRmOperationalInsightsWorkspace` command. To use this method, make sure you have installed [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.1.1). Use this script to create a new Log Analytics workspace and add the Service Fabric solution to it: 
 
 ```PowerShell
 
-$SubscriptionName = "<Name of your subscription>"
+$SubID = "<subscription ID>"
 $ResourceGroup = "<Resource group name>"
 $Location = "<Resource group location>"
 $WorkspaceName = "<Log Analytics workspace name>"
@@ -118,11 +120,11 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup
 
 ```
 
-When you're done, follow the steps in the preceding section to connect Log Analytics to the appropriate storage account.
+When you're done, follow the steps in the preceding section to connect Azure Monitor logs to the appropriate storage account.
 
-You can also add other solutions or make other modifications to your Log Analytics workspace by using PowerShell. To learn more, see [Manage Log Analytics using PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md).
+You can also add other solutions or make other modifications to your Log Analytics workspace by using PowerShell. To learn more, see [Manage Azure Monitor logs using PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md).
 
 ## Next steps
 * [Deploy the Log Analytics agent](service-fabric-diagnostics-oms-agent.md) onto your nodes to gather performance counters and collect docker stats and logs for your containers
-* Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Log Analytics
-* [Use View Designer to create custom views in Log Analytics](../azure-monitor/platform/view-designer.md)
+* Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Azure Monitor logs
+* [Use View Designer to create custom views in Azure Monitor logs](../azure-monitor/platform/view-designer.md)

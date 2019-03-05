@@ -177,7 +177,7 @@ Register the Microsoft Product key as trusted by running the following commands:
 
 Set up desired version host package feed based on operating system:
 
-   ```console
+```console
    # Ubuntu 17.10
    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-artful-prod artful main" > /etc/apt/sources.list.d/dotnetdev.list'
    sudo apt-get update
@@ -193,7 +193,7 @@ Set up desired version host package feed based on operating system:
    # Ubuntu 14.04 / Linux Mint 17
    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
    sudo apt-get update
-   ```
+```
 
 Install .NET and check the version:
 

@@ -278,7 +278,7 @@ select * from jobs.jobsteps
 ```
 
 
-## Begin ad-hoc execution of a job
+## Begin ad hoc execution of a job
 
 The following example shows how to start a job immediately.  
 Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
@@ -403,7 +403,7 @@ The following stored procedures are in the [jobs database](sql-database-job-auto
 |Stored procedure  |Description  |
 |---------|---------|
 |[sp_add_job](#spaddjob)     |     Adds a new job.    |
-|[sp_update_job ](#spupdatejob)    |      Updates an existing job.   |
+|[sp_update_job](#spupdatejob)    |      Updates an existing job.   |
 |[sp_delete_job](#spdeletejob)     |      Deletes an existing job.   |
 |[sp_add_jobstep](#spaddjobstep)    |    Adds a step to a job.     |
 |[sp_update_jobstep](#spupdatejobstep)     |     Updates a job step.    |
@@ -414,7 +414,7 @@ The following stored procedures are in the [jobs database](sql-database-job-auto
 |[sp_delete_target_group](#spdeletetargetgroup)     |    Deletes a target group.     |
 |[sp_add_target_group_member](#spaddtargetgroupmember)     |    Adds a database or group of databases to a target group.     |
 |[sp_delete_target_group_member](#spdeletetargetgroupmember)     |     Removes a target group member from a target group.    |
-|[sp_purge_jobhistory ](#sppurgejobhistory)    |    Removes the history records for a job.     |
+|[sp_purge_jobhistory](#sppurgejobhistory)    |    Removes the history records for a job.     |
 
 
 

@@ -26,7 +26,7 @@ To follow the instructions in this article, you need:
 * Azure PowerShell and/or Azure Classic CLI.
 
 ### Resource Manager templates
-A Resource Manager template makes it easy to create the following resoruces for your application in a single, coordinated operation:
+A Resource Manager template makes it easy to create the following resources for your application in a single, coordinated operation:
 * HDInsight clusters and their dependent resources (such as the default storage account).
 * Other resources (such as Azure SQL Database to use [Apache Sqoop](https://sqoop.apache.org/)).
 
@@ -43,11 +43,7 @@ For more information about Resource Manager templates, see the following article
 
 ## Generate templates
 
-Resource Manager enables you to export a Resource Manager template from existing resources in your subscription using different tools. You can use that generated template to learn about the template syntax or to automate the redeployment of your solution as needed.
-
-- Azure portal: See [Export an Azure Resource Manager template from existing resources](../azure-resource-manager/resource-manager-export-template.md).
-- Azure PowerShell: See [Export Azure Resource Manager templates with PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md).
-- Azure Classic CLI: See [Export Azure Resource Manager templates with Azure Classic CLI](../azure-resource-manager/resource-manager-export-template-cli.md).
+Resource Manager enables you to export a Resource Manager template from existing resources in your subscription using different tools. You can use that generated template to learn about the template syntax or to automate the redeployment of your solution as needed. For more information, see [Export templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
 
 ## Deploy using the portal
 

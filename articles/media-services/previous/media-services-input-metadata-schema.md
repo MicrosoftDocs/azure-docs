@@ -16,7 +16,7 @@ ms.date: 02/09/2019
 ms.author: juliako
 
 ---
-# Input Metadata (legacy)
+# Input Metadata 
 
 An encoding job is associated with an input asset (or assets) on which you want to perform some encoding tasks.  Upon completion of a task, an output asset is produced.  The output asset contains video, audio, thumbnails, manifest, etc. The output asset also contains a file with metadata about the input asset. The name of the metadata XML file has the following format: &lt;asset_id&gt;_metadata.xml (for example, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), where &lt;asset_id&gt; is the AssetId value of the input asset.  
 

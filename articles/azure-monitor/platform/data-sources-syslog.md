@@ -200,6 +200,6 @@ The following table provides different examples of log queries that retrieve Sys
 | Syslog &#124; summarize AggregatedValue = count() by Facility |Count of Syslog records by facility. |
 
 ## Next steps
-* Learn about [log queriesi](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.
+* Learn about [log queries](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.
 * Use [Custom Fields](../../azure-monitor/platform/custom-fields.md) to parse data from syslog records into individual fields.
 * [Configure Linux agents](../../azure-monitor/learn/quick-collect-linux-computer.md) to collect other types of data.

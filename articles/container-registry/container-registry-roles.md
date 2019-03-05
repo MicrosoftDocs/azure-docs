@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 02/20/2019
 ms.author: danlep
 ---
 
@@ -14,14 +14,14 @@ ms.author: danlep
 
 The Azure Container Registry service supports a set of Azure roles that provide different levels of permissions to an Azure container registry. Use Azure [role-based access control](../role-based-access-control/index.yml) (RBAC) to assign specific permissions to users or service principals that need to interact with a registry.
 
-| Role/Permission       | [Access Resource Manager](#access-resource-manager)| [Create/delete registry](#create-and-delete-registry) | [Push image](#push-image) | [Pull image](#pull-image) | [Change policies](#change-policies) |   [Sign images](#sign-images)  |
-| ---------| --------- | --------- | --------- | --------- | --------- | --------- |
-| Owner | X | X | X | X | X |  |  
-| Contributor | X | X | X | X | X |  |  
-| Reader | X |  |  | X |  |  | 
-| AcrPush |  |  | X | X |  |  |  
-| AcrPull |  |  |  | X |  |  |  
-| AcrImageSigner |  |  |  |  |  | X |
+| Role/Permission       | [Access Resource Manager](#access-resource-manager) | [Create/delete registry](#create-and-delete-registry) | [Push image](#push-image) | [Pull image](#pull-image) | [Delete image data](#delete-image-data) | [Change policies](#change-policies) |   [Sign images](#sign-images)  |
+| ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
+| Owner | X | X | X | X | X | X |  |  
+| Contributor | X | X | X |  X | X | X |  |  
+| Reader | X |  |  | X |  |  |  |
+| AcrPush |  |  | X | X | X |  |  |  
+| AcrPull |  |  |  | X |  |  |  |  
+| AcrImageSigner |  |  |  |  |  |  | X |
 
 ## Differentiate users and services
 
@@ -54,6 +54,10 @@ The ability to `docker push` an image, or push another [supported artifact](cont
 ## Pull image
 
 The ability to `docker pull` a non-quarantined image, or pull another [supported artifact](container-registry-image-formats.md) such as a Helm chart, from a registry. Requires [authentication](container-registry-authentication.md) with the registry using the authorized identity.
+
+## Delete image data
+
+The ability to [delete container images or repositories](container-registry-delete.md).
 
 ## Change policies
 

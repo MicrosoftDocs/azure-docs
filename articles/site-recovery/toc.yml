@@ -159,6 +159,8 @@
         href: azure-to-azure-how-to-enable-replication-ade-vms.md
       - name: Enable Azure to Azure replication for S2D VMs
         href: azure-to-azure-how-to-enable-replication-s2d-vms.md
+      - name: Exclude disks
+        href: azure-to-azure-exclude-disks.md
       - name: Reprotect Azure VMs after failover 
         href: azure-to-azure-how-to-reprotect.md
       - name: Set up disaster recovery for Azure VMs after migration to Azure
@@ -425,6 +427,8 @@
       href: vmware-azure-troubleshoot-failback-reprotect.md
     - name: Troubleshoot Microsoft Azure Site Recovery Provider upgrade failures
       href: vmware-azure-troubleshoot-upgrade-failures.md  
+    - name: Troubleshoot vCenter discovery failures
+      href: vmware-azure-troubleshoot-vcenter-discovery-failures.md       
   - name: Hyper-V
     items:
     - name: Troubleshoot Hyper-V replication
