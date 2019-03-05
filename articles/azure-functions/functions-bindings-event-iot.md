@@ -32,6 +32,9 @@ For Functions 2.x, use the [Microsoft.Azure.WebJobs.Extensions.EventHubs](https:
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
+> [!IMPORTANT]
+> While the following code samples use the Event Hub API, the given syntax is applicable for IoT Hub functions.
+
 [!INCLUDE [functions-bindings-event-hubs](../../includes/functions-bindings-event-hubs.md)]
 
 ## Next steps
