@@ -118,15 +118,9 @@ After you complete these steps, you should have a URI to a secret in a key vault
 
 ## Create a .NET Core web app
 
-To create a .NET Core web app and publish it to Azure, do the following:
+To create a .NET Core web app and publish it to Azure, follow the instructions in [Create an ASP.NET Core web app in Azure](../app-service/app-service-web-get-started-dotnet.md). 
 
-1. Step 1
-1. Step 2
-1. etc.
-
-For more information, see [Create an ASP.NET Core web app in Azure](../app-service/app-service-web-get-started-dotnet.md). 
-
-You can also watch the following video:
+You can also watch this video:
 
 >[!VIDEO https://www.youtube.com/embed/EdiiEH7P-bU]
 
@@ -188,7 +182,7 @@ You can also watch the following video:
             }
         }
 
-        // This method implements exponential backoff in case of 429 errors from Azure Key Vault
+        // This method implements exponential backoff if there are 429 errors from Azure Key Vault
         private static long getWaitTime(int retryCount)
         {
             long waitTime = ((long)Math.Pow(2, retryCount) * 100L);
