@@ -26,7 +26,7 @@ To run this quickstart:
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-## Create a project and declare required modules
+## Project and required modules
 
 Create a new Ruby project in your IDE or editor. Import `net/http`, `uri` , and `json` to handle the JSON text of results. The `base64` library is used to encode the file name string. 
 
@@ -57,7 +57,7 @@ end
 
 ```
 
-## Build the form data for Post request
+## Form data for Post request
 
 The image data to Post is enclosed by leading and trailing boundaries.  The following functions set the boundaries.
 
@@ -104,7 +104,7 @@ request.body = post_body.join
 
 ```
 
-## Send the request and get the response
+## Request and response
 
 Ruby sends the request and gets the response with the following line of code.
 
