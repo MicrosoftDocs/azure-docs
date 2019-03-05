@@ -172,65 +172,17 @@ Apply the following best practices when you create and enforce add-in licenses a
 </tr>
 </table>
 
-Moving Paid Add-Ins to Free
-As of March 2013 Seller Dashboard now supports Add-Ins moving from Paid to Free. A developer can choose within Seller Dahboard to move the add-in to free which changes what the Add-In receives in the license token.
-After the move from Paid to free the add-in will still be sent licensing tokens containing the information about the user’s license and those will still be required to be parsed. 
-The experience will depend on whether the license is for a new or existing user and whether the payment option was previously subscription or one-time purchase.
+## Moving from paid add-ins to free add-ins
 
-<table>
-<tr>
-<th width="20%">Purchase type</th>
-<th width="25%">New User</th>
-<th width="25%">Existing User</th>
-<th width="30%">Action for the developer</th>
-</tr>
-<td>Subscription</td>
-<td>
-The user will receive a Free entitlement. The add-in will no longer be available to purchase but can be acquired for free; this will be returned in the token for the add-in entitlement.
-</td>
-<td>
-The user will no longer be charged after their currently billed month ends. At the end of the period they have paid for, the subscription license will be extended indefinitely to avoid any user disruption.
-</td>
-<td>
-Where a token in a free or extended subscription state is returned, the developer should take the opportunity to upsell the user to the new license.
-Some information to inform upsell decisions is maintained in the token.
+Seller Dashboard now supports moving from paid to free add-ins. You can choose within Seller Dahboard to move your paid add-ins to free. This changes what the add-in receives in the license token. The add-in will still be sent licensing tokens that contain the information about the user’s license, and those will still need to be parsed. The experience will depend on whether the license is for a new or existing user and whether the payment option was previously a subscription or a one-time purchase, as described in the following table.
 
-Token changes
-The license tokens will change when an Add-In moves from Paid to free as follows.
-•	Update to all migrated tokens:
-ed="8999-12-31T23:59:59Z"
-•	Update to all seat-based tokens:
-sl="true"
-•	For seat-based tokens, where the customer previously purchased a site-license:
-ts="0"
-•	For seat-based tokens, where the customer purchased 3 seats:
-ts="3"
-</td>
-<tr>
-<td>One-time purchase</td>
-<td>The user will receive a Free entitlement. The add-in will no longer be available to purchase but can be acquired for free; this will be returned in the token for the add-in entitlement.
-</td>
-<td>The user’s original purchase will still be valid. If the license was previously seat based, it will be modified to resemble a site license for the user. This will be returned in the token to the add-in.
-All active trial licenses will be converted to Free entitlements.
-</td>
-<td>
-For existing users that return a valid paid token, those users should continue to work. If the original token was seat based, the new token will contain the originally purchased seat count.  
-For new users, or users where the original seat count has been exceeded, the developer should take the opportunity to upsell the user to the new license.
-Token changes
-For most users the license token returned to the add-in will not change. The license tokens will change when an Add-In moves from Paid to free for seat-based tokens:
-•	Update to all seat-based tokens:
-sl="true"
-•	For seat-based tokens, where the customer previously purchased a site-license:
-ts="0"
-•	For seat-based tokens, where the customer purchased 3 seats:
-ts="3" 
-
-</td>
-</tr>
-</table>
+|Purchase type|New user|Existing user|Action|
+|:------------|:-------|:------------|:-----|
+|Subscription |The user will receive a free entitlement. The add-in will no longer be available to purchase but can be acquired for free; this will be returned in the token for the add-in entitlement.|The user will no longer be charged after their currently billed month ends. At the end of the period they have paid for, the subscription license will be extended indefinitely to avoid any user disruption.|Where a token in a free or extended subscription state is returned, you should take the opportunity to upsell the user to the new license. Some information to inform upsell decisions is maintained in the token. The license tokens will change when an add-in moves from paid to free as follows:</br></br>Update to all migrated tokens: ed="8999-12-31T23:59:59Z"</br>Update to all seat-based tokens: sl="true"</br>For seat-based tokens, where the customer previously purchased a site-license: ts="0"</br>For seat-based tokens, where the customer purchased 3 seats: ts="3"|
+|One-time purchase|The user will receive a free entitlement. The add-in will no longer be available to purchase but can be acquired for free; this will be returned in the token for the add-in entitlement.|The user’s original purchase will still be valid. If the license was previously seat based, it will be modified to resemble a site license for the user. This will be returned in the token to the add-in. All active trial licenses will be converted to free entitlements.|For existing users that return a valid paid token, those users should continue to work. If the original token was seat based, the new token will contain the originally purchased seat count. For new users, or users where the original seat count has been exceeded, you should take the opportunity to upsell the user to the new license. For most users, the license token returned to the add-in will not change. The license tokens will change when an add-in moves from paid to free for seat-based tokens:</br></br>Update to all seat-based tokens: sl="true"</br>For seat-based tokens, where the customer previously purchased a site-license: ts="0"</br>For seat-based tokens, where the customer purchased 3 seats: ts="3"|
 
 The license token schema is available here.
-More information on using licensing to upsell your Add-In services is available here. 
+More information on using licensing to upsell your add-in services is available here. 
 Here are a few examples of the experience after an add-in switches from Paid to free
 •	Word User, purchased add-in via One-time purchase
 As this user had purchased the add-in prior to the switch to free then the license token will still return an active Paid entitlement for that user in the et parameter 
