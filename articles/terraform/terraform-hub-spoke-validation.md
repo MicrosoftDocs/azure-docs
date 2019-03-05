@@ -137,7 +137,7 @@ When no longer needed, delete the resources created in the tutorial series.
     cd ..
     ```
 
-1. Delete the `hub-state` directory (including all of its files):
+1. Delete the `hub-scope` directory (including all of its files):
 
     ```bash
     rm -r hub-spoke
