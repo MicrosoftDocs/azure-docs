@@ -3,7 +3,7 @@ title: Upload images to your Azure IoT Central application | Microsoft Docs
 description: As a builder, learn how to prepare and upload images to your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/31/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -83,7 +83,7 @@ Under Configure Image, select the Image tile to upload your prepared image from 
 
 ### Device template
 
-To upload an image on a device template, navigate to **Device Explorer**, choose the device template and then a device. You must be a builder to complete this task:
+To upload an image on a device template, navigate to **Device Templates** and choose the device template. You must be a builder to complete this task:
 
 ![Upload device template image](media/howto-prepare-images/uploaddevicetemplate.png)
 
