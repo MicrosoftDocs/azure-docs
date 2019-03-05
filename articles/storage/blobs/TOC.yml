@@ -276,7 +276,7 @@
         - name: Storage analytics metrics (classic)
           href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Storage analytics logs
-          href: ../common/storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Event handling
       href: storage-blob-event-overview.md
     - name: Page blob features
