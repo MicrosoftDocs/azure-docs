@@ -30,7 +30,7 @@ This article describes the contents of the 1902 update package. The update inclu
 
 ## Build reference
 
-The Azure Stack 1902 update build number is **1.1902.x.xx**.
+The Azure Stack 1902 update build number is **1.1902.0.69**.
 
 ## Hotfixes
 
