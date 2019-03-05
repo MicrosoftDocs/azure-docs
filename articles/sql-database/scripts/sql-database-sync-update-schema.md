@@ -11,7 +11,7 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 01/17/2019
+ms.date: 03/04/2019
 ---
 # Use PowerShell to update the sync schema in an existing sync group
 
