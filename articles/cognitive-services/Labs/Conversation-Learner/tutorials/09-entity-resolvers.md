@@ -75,7 +75,7 @@ This tutorial requires that the general tutorial bot is running
 8. Also label the text "Sunday next week" as "return"
 9. Click the "Score Actions" button.
 	- Notice how the "Memory" pane contains your departure and return dates.
-	- Hover over each one and observe how the Entities are date objects which clearly capture the actual calandar date as opposed to "Sunday" or "tomorrow".
+	- Hover over each one and observe how the Entities are date objects which clearly capture the actual calendar date as opposed to "Sunday" or "tomorrow".
 10. Select the "You are leaving on..." Bot response.
 11. Click the "Save" button.
 
