@@ -23,19 +23,19 @@ A frontend IP address is the IP address associated with the application gateway.
 
 The v1 SKU supports static internal IP addresses but does not support static public IP addresses. The VIP can change if the application gateway is stopped and started. The DNS name associated with the application gateway does not change over the lifecycle of the gateway. For this reason, it is recommended to use a CNAME alias and point it to the DNS address of the application gateway.
 
-The Application Gateway v2 SKU supports static public IP addresses and well as Internal IP addresses. Only one public IP address is supported on an application gateway.
+The Application Gateway v2 SKU supports static public IP addresses, as well as static Internal IP addresses. Only one public IP address or one private IP address is supported.
 
 A Frontend IP address is associated to a *listener* after it is created. A listener checks for incoming requests on the Frontend IP address.
 
 ## Listeners
 
-Before you start using your application gateway, you must add one or more listeners. A listener is a process that checks for incoming connection requests, using the protocol and port that you configure. After the listener detects incoming requests from the clients, the Application Gateway routes these requests to the backend servers in the backend pool, using the request routing rules that you define for the listener that received the incoming request.
+Before you start using your application gateway, you must add one or more listeners. A listener is a logical entity that checks for incoming connection requests and accepts the requests if the protocol, port, host and IP address match with the listener configuration. There can be multiple listeners attached to an application gateway and they can be used for the same protocol. After the listener detects incoming requests from the clients, the Application Gateway routes these requests to the backend servers in the backend pool, using the request routing rules that you define for the listener that received the incoming request.
 
 Listeners support the following ports and protocols:
 
 ### Ports
 
-This is the port on which the listener is listening for the client request. You can configure ports ranging from  1 to 65535.
+This is the port on which the listener is listening for the client request. You can configure ports ranging from 1 to 65502 for V1 SKU and 1 to 65199 for V2 SKU.
 
 ### Protocols
 

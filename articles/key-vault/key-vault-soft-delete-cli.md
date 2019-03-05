@@ -1,12 +1,12 @@
 ---
 title: Azure Key Vault - How to use soft delete with CLI
 description: Use case examples of soft-delete with CLI code snips
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: bryanla
+ms.author: mbaldwin
 ---
 # How to use Key Vault soft-delete with CLI
 

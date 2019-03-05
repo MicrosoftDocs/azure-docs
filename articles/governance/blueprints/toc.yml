@@ -15,6 +15,12 @@
   - name: Create a blueprint - REST API
     displayName: publish, assign, track, unassign, delete
     href: create-blueprint-rest-api.md
+- name: Tutorials
+  expanded: true
+  items:
+  - name: Create from a blueprint sample
+    displayName: template, resource group, rbac, role assignment
+    href: ./tutorials/create-from-sample.md
 - name: Concepts
   expanded: true
   items:
