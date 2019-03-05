@@ -414,7 +414,7 @@ resource for your network. The monitoring agent will collect and surface useful
 metrics and logs from your network, providing the ability to quickly
 check the network health or debug issues.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
   Parameter name|Description|Allowed values|Default values
   ---|---|---|---
