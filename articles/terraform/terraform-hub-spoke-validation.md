@@ -106,19 +106,7 @@ This section shows how to test connectivity from the simulated on-premises envir
 
 ## Test the spoke VNets
 
-This section shows how to test connectivity from the simulated on-premises environment to the spoke VNets.
-
-1. In the Azure portal, browse to the **onprem-vnet-rg** resource group.
-
-1. In the **onprem-vnet-rg** tab, select the VM named **onprem-vm**.
-
-1. Select **Connect**.
-
-1. Next to the text **Login using VM local account**, copy the **ssh** command to the clipboard.
-
-1. From a Linux prompt, run `ssh` to connect to the simulated on-premises environment. Use the password specified in the `on-prem.tf` parameter file.
-
-1. Run the `ping` command to test connectivity to the jumpbox VMs in each spoke:
+Run the `ping` command to test connectivity to the jumpbox VMs in each spoke:
 
    ```bash
    ping 10.1.0.68
