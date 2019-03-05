@@ -74,6 +74,8 @@
       href: stream-analytics-login-credentials-inputs-outputs.md
     - name: Configure alerts
       href: stream-analytics-set-up-alerts.md
+    - name: Start a job
+      href: start-job.md
     - name: Test a job
       href: stream-analytics-test-query.md
     - name: View results on a dashboard

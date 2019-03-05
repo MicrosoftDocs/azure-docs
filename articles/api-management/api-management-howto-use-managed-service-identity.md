@@ -162,7 +162,7 @@ The following example shows an Azure Resource Manager template that contains the
 		"keyVaultIdToCertificate": {
 			"type": "string",
 			"metadata": {
-				"description": "Reference to the KeyVault certificate."
+				"description": "Reference to the KeyVault certificate. https://contoso.vault.azure.net/secrets/contosogatewaycertificate."
 			}
 		}
 	},
