@@ -165,7 +165,7 @@ This section helps you create, get, update, and delete the Azure private peering
 
 1. Import the PowerShell module for ExpressRoute.
 
-  You must install the latest PowerShell installer from [PowerShell Gallery](http://www.powershellgallery.com/) and import the Azure Resource Manager modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You will need to run PowerShell as an Administrator.
+  You must install the latest PowerShell installer from [PowerShell Gallery](https://www.powershellgallery.com/) and import the Azure Resource Manager modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You will need to run PowerShell as an Administrator.
 
   ```azurepowershell-interactive
   Install-Module AzureRM
@@ -301,7 +301,7 @@ This section helps you create, get, update, and delete the Azure public peering 
 
 1. Import the PowerShell module for ExpressRoute.
 
-  You must install the latest PowerShell installer from [PowerShell Gallery](http://www.powershellgallery.com/) and import the Azure Resource Manager modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You will need to run PowerShell as an Administrator.
+  You must install the latest PowerShell installer from [PowerShell Gallery](https://www.powershellgallery.com/) and import the Azure Resource Manager modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You will need to run PowerShell as an Administrator.
 
   ```azurepowershell-interactive
   Install-Module AzureRM

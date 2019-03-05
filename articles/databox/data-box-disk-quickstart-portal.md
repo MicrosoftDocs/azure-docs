@@ -27,7 +27,7 @@ Before you begin:
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [http://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
+Sign in to the Azure portal at [https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
 
 ## Order
 
