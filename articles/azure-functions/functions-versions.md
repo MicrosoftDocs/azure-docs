@@ -123,6 +123,8 @@ The following table shows which bindings are supported in each runtime version.
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
+[!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
+
 ## Next steps
 
 For more information, see the following resources:
