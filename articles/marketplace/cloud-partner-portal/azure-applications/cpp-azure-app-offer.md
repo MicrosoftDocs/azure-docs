@@ -40,6 +40,9 @@ There are two kinds of Azure applications: managed applications and solution tem
 
 In addition to the Azure Marketplace, you can also offer managed applications in a service catalog. The service catalog is an internal catalog of approved solutions for users in an organization. You use the catalog to meet organizational standards while offering solutions for groups in an organization. Employees use the catalog to easily find applications that are recommended and approved by their IT departments.
 
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](../../cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
+
 For more information about the advantages and types of managed applications, see the [Azure managed applications overview](https://docs.microsoft.com/azure/managed-applications/overview).
 
 
@@ -60,7 +63,6 @@ The high-level steps for publishing an Azure application offer are:
 3. [Create the SKU](./cpp-skus-tab.md) - Create the SKU(s) associated with the offer. A unique SKU is required for each image you're planning to publish.
 
 4. Certify and [publish the offer](./cpp-publish-offer.md) - After the offer and the technical assets are completed, you can submit the offer. This submission starts the publishing process. During this process, the solution is tested, validated, certified, then "goes live" on the Azure Marketplace.
-
 
 ## Next steps
 

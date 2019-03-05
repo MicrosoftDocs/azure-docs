@@ -53,9 +53,11 @@ When an RBAC role is assigned to an Azure AD security principal, Azure grants ac
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
+To learn how to assign a built-in role in the Azure portal, see [Grant access to Azure containers and queues with RBAC in the Azure portal (preview)](storage-auth-aad-rbac.md).
+
 ### Access permissions granted by RBAC roles 
 
-The following table summarizes the access rights granted by the built-in roles, depending on scope:
+The following table summarizes the access rights granted by the built-in roles for different levels of scope:
 
 |Scope|Blob Data Owner|Blob Data Contributor|Blob Data Reader|Queue Data Contributor|Queue Data Reader|
 |---|---|---|---|---|---|
