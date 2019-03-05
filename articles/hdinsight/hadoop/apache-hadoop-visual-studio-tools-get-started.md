@@ -149,10 +149,10 @@ To create a Hive table, you can use the GUI or you can use Hive queries. For inf
 ### <a name="run.queries"></a>Create and run Hive queries
 You have two options for creating and running Hive queries:
 
-* Create ad-hoc queries
+* Create ad hoc queries
 * Create a Hive application
 
-To create, and run ad-hoc queries:
+To create, and run ad hoc queries:
 
 1. Right-click the cluster where you want to run the query, and select **Write a Hive Query**.  
 

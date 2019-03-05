@@ -23,7 +23,7 @@ Please download the latest App (version 1.8) to avoid this issue.
 - Azure Backup reports are supported for Azure virtual machine backup and file and folder backup to the cloud by using the Azure Recovery Services Agent.
 - Reports for Azure SQL Database, Azure File Shares, Data Protection Manager, and Azure Backup server aren't supported at this time.
 - You can view reports across vaults and subscriptions, if the same storage account is configured for each of the vaults. The storage account selected must be in the same region as the Recovery Services vault.
-- The frequency of scheduled refresh for the reports is 24 hours in Power BI. You also can perform an ad-hoc refresh of the reports in Power BI. In this case, the latest data in the customer storage account is used to render reports.
+- The frequency of scheduled refresh for the reports is 24 hours in Power BI. You also can perform an ad hoc refresh of the reports in Power BI. In this case, the latest data in the customer storage account is used to render reports.
 
 ## Prerequisites
 - Create an [Azure storage account](../storage/common/storage-quickstart-create-account.md) to configure it for reports. This storage account is used to store reports-related data.

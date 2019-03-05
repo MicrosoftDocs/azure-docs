@@ -181,7 +181,7 @@ The objective of this section is to create a user called Britta Simon in Workrit
 
 1. On the **Create User** dialog, perform the following steps:
    
-    ![Create User Dailog][402]
+    ![Create User Dialog][402]
 	
 	a. In the **Email** textbox, type the email address of user like Brittasimon@contoso.com.
 
