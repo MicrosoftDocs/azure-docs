@@ -4,7 +4,7 @@ description: An overview of the Azure SignalR Service.
 author: sffamily
 ms.service: signalr
 ms.topic: overview
-ms.date: 09/13/2018
+ms.date: 03/01/2019
 ms.author: zhshang
 ---
 

@@ -4,7 +4,7 @@ description: Azure CLI Samples - Azure SignalR Service
 author: sffamily
 ms.service: signalr
 ms.topic: reference
-ms.date: 04/20/2018
+ms.date: 03/01/2019
 ms.author: zhshang
 ---
 # Azure CLI reference
