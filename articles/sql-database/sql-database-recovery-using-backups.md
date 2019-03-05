@@ -147,7 +147,7 @@ As previously discussed, in addition to the Azure portal, database recovery can 
   > [!TIP]
   > For a sample PowerShell script showing how to perform a point-in-time restore of a database, see [Restore a SQL database using PowerShell](scripts/sql-database-restore-database-powershell.md).
 
-- To restore a Managed Instance database, see [Point-in-time restore of a database on Azure SQL Managed Instance using AzureRm.Sql PowerShell library](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-Az-sql-powershell-library/)
+- To restore a Managed Instance database, see [Point-in-time restore of a database on Azure SQL Managed Instance using AzureRm.Sql PowerShell library](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/28/point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-azurerm-sql-powershell-library/).
 
 ### REST API
 
