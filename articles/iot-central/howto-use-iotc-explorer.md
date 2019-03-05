@@ -76,8 +76,10 @@ To watch all devices in your application, run the following command:
 ```
 iotc-explorer monitor-messages
 ```
+
 Output:
-![monitor-messages command output](media/howto-use-iotc-explorer/monitormessages.PNG)
+
+![monitor-messages command output](media/howto-use-iotc-explorer/monitormessages.png)
 
 To watch a specific device, just add the Device ID to the end of the command:
 
@@ -102,7 +104,8 @@ iotc-explorer get-twin <your-device-id>
 ```
 
 Output:
-![get-twin command output](media/howto-use-iotc-explorer/getdevicetwin.PNG)
+
+![get-twin command output](media/howto-use-iotc-explorer/getdevicetwin.png)
 
 As with `monitor-messages`, you can get a more machine-friendly output by
 passing the `--raw` option:

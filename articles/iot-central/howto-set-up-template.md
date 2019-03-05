@@ -35,7 +35,6 @@ From this device template, an operator can create and connect real fan devices w
 > [!NOTE]
 > Only builders and administrators can create, edit, and delete device templates. Any user can create devices on the **Device Explorer** page from existing device templates.
 
-
 ## Create a device template
 
 1. Navigate to the **Device Templates** page.
