@@ -19,18 +19,32 @@ Using the [Anomaly Detector API](https://westus2.dev.cognitive.microsoft.com/doc
 
 The Anomaly Detector API provides detection modes: batch and streaming.
 
+> [!NOTE]
+> The following request URLs must be combined with the appropriate endpoint for your subscription. For example:
+> `https://westus.api.cognitive.microsoft.com/timeseries/entire/detect`
+
 ### Batch detection
 
-If you would like to detect anomalies for a *batch* of data points over a given time range and get a response in one single API call, use batch API: **'/timeseries/entire/detect'**. It is commonly used in interactive mode, e.g., you are doing ad-hoc data analysis for time series data like DAU and want to understand if the data is out of historical pattern.
+To detect anomalies throughout a batch of data points over a given time range, use the following request URL with your time series data: `/timeseries/entire/detect`. By sending your time series data at once, the API will generate a model using the entire series, and analyze each data point with it.  
 
 ### Streaming detection
 
-If you would like to continuously detect anomalies on streaming data, use streaming API: **'/timeseries/last/detect'**. This API is commonly used for monitoring scenarios and alerting users on real time anomalies in time series data.
+To continuously detect anomalies on streaming data, use the following request URL with your latest data point: `/timeseries/last/detect'`. By sending new data points as you generate them, you can monitor your data in real-time. A model will be generated with the data points you send, and the API will determines if the target point is an anomaly.
+
+## Adjusting lower and upper anomaly detection boundaries
+
+By default, the upper and lower boundaries for anomaly detection are calculated using `ExpectedValue`, `UpperMargin`, and `LowerMargin`. If you require different boundaries, we recommend applying a `MarginScale` to `UpperMargin` or `LowerMargin`. The boundaries would be calculated as follows:
 
 
-## Adjusting lower and upper bounds in post processing on the response
+|Boundary  |Calculation  |
+|---------|---------|
+|`UpperMargin`     | `ExpectedValue + (100 - MarginScale) * UpperMargin`        |
+|`LowerMargin`     |  `ExpectedValue - (100 - MarginScale) * LowerMargin`       |
 
-Anomaly Finder API returns default results on whether a data point is anomaly or not, and the upper and lower bound can be calculated from ExpectedValue and UpperMargin/LowerMargin. Default values work fine for most cases. However, some scenarios require different bounds than the default ones. The recommend practice is applying a MarginScale on the UpperMargin or LowerMargin to adjust the dynamic bounds. UpperBoundary equals to ExpectedValue + (100 - MarginScale)\*UpperMargin, lowerBoundary equals to ExpectedValue - (100 - MarginScale)\*LowerMargin
+By adjusting the boundaries of the model, you can change it's sensitivity for data anomalies.
+
+
+default results on whether a data point is anomaly or not, and the upper and lower bound can be calculated from ExpectedValue and UpperMargin/LowerMargin. Default values work fine for most cases. However, some scenarios require different bounds than the default ones. The recommend practice is applying a MarginScale on the UpperMargin or LowerMargin to adjust the dynamic bounds. UpperBoundary equals to ExpectedValue + (100 - MarginScale)\*UpperMargin, lowerBoundary equals to ExpectedValue - (100 - MarginScale)\*LowerMargin
 
 ### Examples with 99/95/85 as sensitivity
 
