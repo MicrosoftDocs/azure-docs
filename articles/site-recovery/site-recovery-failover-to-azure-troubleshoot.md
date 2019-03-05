@@ -108,7 +108,7 @@ This is normally not a cause for concern and can usually be ignored for unplanne
 
 ## Unable to select the Datastore
 
-This issue is indicated when you are unable to see the datastore in Azure the portal when trying to reprotect the virtual machine that has experiencd a failover. This is because the Master target is not recognized as a virtual machine under vCenters added to Azure Site Recovery.
+This issue is indicated when you are unable to see the datastore in Azure the portal when trying to reprotect the virtual machine that has experienced a failover. This is because the Master target is not recognized as a virtual machine under vCenters added to Azure Site Recovery.
 
 For more information about reprotecting a vitual machine, see [Reprotect and fail back machines to an on-premises site after failover to Azure](vmware-azure-reprotect.md).
 
@@ -122,7 +122,7 @@ Manually create the Master target in the vCenter that manages your source machin
 
 ## Linux Master Target registration with CS fails with an SSL error 35 
 
-The Azure Site Recovery Master Target registration with the configuration server fails due the Authenticated Proxy enabled on the Master Target. 
+The Azure Site Recovery Master Target registration with the configuration server fails due to the Authenticated Proxy being enabled on the Master Target. 
  
 This error is indicated by the following strings in the installation log: 
 
