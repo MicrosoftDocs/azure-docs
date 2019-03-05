@@ -103,27 +103,27 @@ The following steps show how to prepare the [Node.js](https://nodejs.org/) sampl
 
 1. The connection string for a device instance in your application is generated from device information provided by the IoT Central.
 
-   Return to the IoT Central portal. On the device screen for your real connected air conditioner, choose **Connect**.
+    Return to the IoT Central portal. On the device screen for your real connected air conditioner, choose **Connect**.
 
-   ![Device page showing view connection information link](media/tutorial-add-device/connectionlink.png)
+    ![Device page showing view connection information link](media/tutorial-add-device/connectionlink.png)
 
 1. On the Device Connection page, copy and paste Scope ID, Device ID and Primary Key on to a text editor, then save. You use these values in the next step.
 
-   ![Connection details](media/tutorial-add-device/device-connect.png)
+    ![Connection details](media/tutorial-add-device/device-connect.PNG)
 
 1. Return to the command line environment and generate your connection string by executing:
 
     ```cmd/sh
-    dps-keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
+     dps-keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
     ```
 
-   Copy the output and save in a new file (for example, connection.txt).
+    Copy the output and save in a new file (for example, connection.txt).
 
 1. To initialize your Node.js project, run the following command accepting all the defaults:
 
     ```cmd/sh
     npm init
-      ```
+    ```
 
 1. To install the necessary packages, run the following command:
 

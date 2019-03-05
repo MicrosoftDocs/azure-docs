@@ -106,7 +106,7 @@ The following steps show you how to create a new **Connected Air Conditioner** d
     ![Air conditioner measurements](./media/tutorial-define-device-type/airconmeasurements.png)
 
     > [!NOTE]
-    > To change the name of the device template, click on the template name at the top of the page.
+    > To change the name of the device or device template, select the text at the top of the page.
 
 5. To add the temperature telemetry measurement, click **+ New Measurement**. Then choose **Telemetry** as the measurement type:
 
@@ -175,7 +175,7 @@ Use events to define point-in-time data that the device sends when there's an ev
 
     ![View event simulation](./media/tutorial-define-device-type/eventview.png)
 
-1. To see additional details about the event, click the event on the chart:
+1. To see additional details about the event, select the event on the chart:
 
     ![View Event Details](./media/tutorial-define-device-type/eventviewdetail.png)
 
@@ -216,7 +216,9 @@ You can use state to define and visualize the state of the device or its compone
 
     ![View state simulation](./media/tutorial-define-device-type/stateview.png)
 
-4. If there are too many data points sent by the device within a small duration, the state measurement is shown with a different visual. Click on the chart to see all the data points within that time period are displayed in chronological order. You can also narrow the time range so see the measurements in more detail.
+4. In case, there are too many data points sent by the device within a small duration, the state measurement is shown with a different visual as shown below. If you select the chart, then all the data points within that time period are displayed in a chronological order. You can also narrow the time range so see the measurements in more detail.
+
+    ![View state Details](./media/tutorial-define-device-type/stateviewdetail.png)
 
 ## Settings, properties, and commands
 
@@ -343,7 +345,9 @@ You use _commands_ to enable an operator to run commands directly on the device.
 
 1. Navigate to the **Commands** tab for your **Connected Air Conditioner** device template to edit the template.
 
-1. Click **+ New Command** to add a command to your device and begin configuring your new command.
+1. Select **New Command** to add a command to your device and begin configuring your new command.
+
+   You can create commands of different types based on your requirements. 
 
 1. To configure your new command, use the information in the following table:
 
@@ -355,7 +359,7 @@ You use _commands_ to enable an operator to run commands directly on the device.
     | Display Type         | text            |
     | Description          | Device Command  |  
 
-    You can add additional inputs to the command by clicking **+** for **Input Fields**.
+    You can add additional inputs to the command by selecting **+** for **Input Fields**.
 
     ![Prepare to add a setting](./media/tutorial-define-device-type/commandsecho1.png)
 
@@ -405,7 +409,9 @@ Now you've defined your **Connected Air Conditioner** device template, you can c
 
     ![Line chart settings](./media/tutorial-define-device-type/dashboardstatechartsetting.png)
 
-    Then click **Save**.
+    Then choose **Save**.
+
+1. To add the set temperature setting to the dashboard, choose **Settings and Properties**. Select **Add/Remove** to add the settings or properties that you'd like to see in the dashboard. 
 
 1. To add the device settings and properties to the dashboard, choose **Settings and Properties**. Click **Add/Remove** to add the settings or properties that you'd like to see in the dashboard.
 

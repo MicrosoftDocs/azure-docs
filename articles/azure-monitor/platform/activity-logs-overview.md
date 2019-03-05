@@ -122,16 +122,18 @@ You can stream the Activity Log to an Event Hub or store them in a Storage Accou
 
 ### Configure log profiles using the Azure PowerShell Cmdlets
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 #### Get existing log profile
 
 ```
-Get-AzureRmLogProfile
+Get-AzLogProfile
 ```
 
 #### Add a log profile
 
 ```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
+Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
 ```
 
 | Property | Required | Description |
@@ -145,7 +147,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 
 #### Remove a log profile
 ```
-Remove-AzureRmLogProfile -name my_log_profile
+Remove-AzLogProfile -name my_log_profile
 ```
 
 ### Configure log profiles Using the Azure CLI

@@ -34,7 +34,7 @@ This article describes how to use Service Bus queues. The samples are written in
 
 
 ## Create a queue
-The **ServiceBusService** object enables you to work with queues. Add the following code near the top of any Python file in which you wish to programmatically access Service Bus:
+The **ServiceBusClient** object enables you to work with queues. Add the following code near the top of any Python file in which you wish to programmatically access Service Bus:
 
 ```python
 from azure.servicebus import ServiceBusClient
@@ -65,7 +65,7 @@ sb_client.create_queue("taskqueue", queue_options)
 For more information, see [Azure Service Bus Python documentation](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## Send messages to a queue
-To send a message to a Service Bus queue, your application calls the `send_queue_message` method on the **ServiceBusService** object.
+To send a message to a Service Bus queue, your application calls the `send` method on the `ServiceBusClient` object.
 
 The following example demonstrates how to send a test message to the queue named `taskqueue` using `send_queue_message`:
 
@@ -86,7 +86,7 @@ a maximum size of 64 KB. There is no limit on the number of messages held in a q
 For more information, see [Azure Service Bus Python documentation](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## Receive messages from a queue
-Messages are received from a queue using the `receive_queue_message` method on the **ServiceBusService** object:
+Messages are received from a queue using the `get_receiver` method on the `ServiceBusService` object:
 
 ```python
 from azure.servicebus import QueueClient, Message
@@ -94,9 +94,12 @@ from azure.servicebus import QueueClient, Message
 # Create the QueueClient 
 queue_client = QueueClient.from_connection_string("<CONNECTION STRING>", "<QUEUE NAME>")
 
-# Send a test message to the queue
-msg = Message(b'Test Message')
-queue_client.send(Message("Message"))
+## Receive the message from the queue
+with queue_client.get_receiver() as queue_receiver:
+    messages = queue_receiver.fetch_next(timeout=3)
+    for message in messages:
+        print(message)
+        message.complete()
 ```
 
 For more information, see [Azure Service Bus Python documentation](/python/api/overview/azure/servicebus?view=azure-python).
