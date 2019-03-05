@@ -29,7 +29,7 @@ You can use three durable function types in Azure Functions: activity, orchestra
 
 Activity functions are the basic unit of work in a durable function orchestration. Activity functions are the functions and tasks that are orchestrated in the process. For example, you might create a durable function to process an order. The tasks involve checking the inventory, charging the customer, and creating a shipment. Each task would be an activity function. 
 
-Activity functions aren't restricted in the type of work you can do in them. You can write an activity function in any [language that Durable Functions support](durable-functions-overview.md#language-support). The Durable Task Framework guarantees that each called activity function will be executed at least once during an orchestration.
+Activity functions aren't restricted in the type of work you can do in them. You can write an activity function in any [language that Durable Functions support](durable-functions-overview.md#language-support). The durable task framework guarantees that each called activity function will be executed at least once during an orchestration.
 
 Use an [activity trigger](durable-functions-bindings.md#activity-triggers) to trigger an activity function. .NET functions receive a [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) as a parameter. You can also bind the trigger to any other object to pass in inputs to the function. In JavaScript, you can access an input via the `<activity trigger binding name>` property on the [`context.bindings` object](../functions-reference-node.md#bindings).
 
