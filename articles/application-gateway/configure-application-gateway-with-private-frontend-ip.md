@@ -38,13 +38,13 @@ For Azure to communicate between the resources that you create, it needs a virtu
 
 5. Click **Choose a virtual network**, click **Create new**, and then enter these values for the virtual network:
 
-- *myVNet* - for the name of the virtual network.
+- * myVNet* - for the name of the virtual network.
 
-- *10.0.0.0/16* - for the virtual network address space.
+  * *10.0.0.0/16* - for the virtual network address space.
 
-- *myAGSubnet* - for the subnet name.
+  * *myAGSubnet* - for the subnet name.
 
-- *10.0.0.0/24* - for the subnet address space.
+  * *10.0.0.0/24* - for the subnet address space.
 
   ​	![private-frontendip-1](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-1.png)
 
@@ -79,10 +79,10 @@ The backend pool is used to route requests to the backend servers which will be 
 
 3. Enter these values for the virtual machine:
 
-- *myVM* - for the name of the virtual machine.
-- *azureuser* - for the administrator user name.
-- *Azure123456!* for the password.
-- Select **Use existing**, and then select *myResourceGroupAG*.
+- - *myVM* - for the name of the virtual machine.
+  - *azureuser* - for the administrator user name.
+  - *Azure123456!* for the password.
+  - Select **Use existing**, and then select *myResourceGroupAG*.
 
 4. Click **OK**.
 
