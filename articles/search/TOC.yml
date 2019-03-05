@@ -223,10 +223,16 @@
       href: cognitive-search-output-field-mapping.md
     - name: Process and extract information from images
       href: cognitive-search-concept-image-scenarios.md
-    - name: Integrate custom skills
-      href: cognitive-search-custom-skill-interface.md
-    - name: Example - custom skills
-      href: cognitive-search-create-custom-skill-example.md
+    - name: Add OCR to an indexing pipeline
+      href: test-rest.md
+    - name: Split and merge text documents
+      href: test-rest.md
+    - name: Custom skills development
+      items:
+      - name: Integrate custom skills
+        href: cognitive-search-custom-skill-interface.md
+      - name: Example - custom skills
+        href: cognitive-search-create-custom-skill-example.md
     - name: Troubleshooting tips
       href: cognitive-search-concept-troubleshooting.md
     - name: Documentation links
