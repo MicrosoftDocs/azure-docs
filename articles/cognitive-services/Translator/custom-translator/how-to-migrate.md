@@ -138,6 +138,10 @@ This table compares the features between Microsoft Translator Hub and Custom Tra
 | New unified Speech services customization	| No	| Yes |
 | No Trace | Yes | Yes |
 
+## New languages
+
+If you are a community or organization working on creating a new language system for Microsoft Translator, reach out to [custommt@microsoft.com](mailto:custommt@microsoft.com) for more information.
+
 ## Next steps
 
 - [Train a model](how-to-train-model.md).
