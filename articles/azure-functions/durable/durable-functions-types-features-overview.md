@@ -15,7 +15,7 @@ ms.author: azfuncdf
 
 # Durable Functions types and features (Azure Functions)
 
-Durable Functions is an extension of [Azure Functions](../functions-overview.md) and [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md). You can use Durable Functions for stateful orchestration of function execution. A durable function is a solution that's made up of different Azure functions. Functions can play different roles in a durable function orchestration. 
+Durable Functions is an extension of [Azure Functions](../functions-overview.md). You can use Durable Functions for stateful orchestration of function execution. A durable function is a solution that's made up of different Azure functions. Functions can play different roles in a durable function orchestration. 
 
 This article gives you an overview of the types of functions you can use in a Durable Functions orchestration. The article includes some common patterns you can use to connect functions. Learn how Durable Functions can help you solve your app development challenges.
 
