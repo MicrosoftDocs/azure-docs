@@ -13,7 +13,7 @@ Customer intent: As someone with a networking background, I want to understand w
 
 # What is Azure Virtual WAN?
 
-Azure Virtual WAN is a networking service that provides optimized and automated branch-to-branch connectivity through Azure. Virtual WAN lets you connect and configure branch devices to communicate with Azure. This can be done either manually, or by using partner devices through a Virtual WAN partner. Using partner devices allows you ease of use, simplification of connectivity, and configuration management. For more information, see [Partners and locations](virtual-wan-locations-partners.md). Additionally, the Azure WAN built-in dashboard provides instant troubleshooting insights that can help save you time, and gives you an easy way to view large-scale connectivity.
+Azure Virtual WAN is a networking service that provides optimized and automated branch-to-branch connectivity through Azure. Virtual WAN lets you connect and configure branch devices to communicate with Azure. This can be done either manually, or by using partner devices through a Virtual WAN partner. Using partner devices allows you ease of use, simplification of connectivity, and configuration management. For more information, see the [Locations and partners](virtual-wan-locations-partners.md) article. Additionally, the Azure WAN built-in dashboard provides instant troubleshooting insights that can help save you time, and gives you an easy way to view large-scale connectivity.
 
 ![Virtual WAN diagram](./media/virtual-wan-about/virtualwan.png)
 
