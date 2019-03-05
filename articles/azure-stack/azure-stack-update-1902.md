@@ -63,14 +63,13 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 
 - When Azure Stack is managed by System Center Operations Manager (SCOM), make sure to update the Management Pack for Microsoft Azure Stack to version 10.0.3.11 before applying 1902.
 
-<!-- ## New features -->
+## New features
 
+- There is a new user interface on the Azure Stack Administrator portal for creating plans, offers, quotas, and add-on plans. For more information, including screenshots, see [Create plans, offers, and quotas](azure-stack-create-plan.md).
 
 <!-- ## Fixed issues -->
 
-
 <!-- ## Changes -->
-
 
 ## Common vulnerabilities and exposures
 

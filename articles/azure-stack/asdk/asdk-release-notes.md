@@ -31,11 +31,11 @@ Stay up-to-date with what's new in the ASDK by subscribing to the [![RSS](./medi
 
 None.
 
-<!-- ### New features
+### New features
 
 - For a list of new features in this release, see [this section](../azure-stack-update-1902.md#new-features) of the Azure Stack release notes.
 
-### Fixed and known issues
+<!-- ### Fixed and known issues
 
 - For a list of issues fixed in this release, see [this section](../azure-stack-update-1902.md#fixed-issues) of the Azure Stack release notes. For a list of known issues, see [this section](../azure-stack-update-1902.md#known-issues-post-installation).
 - Note that [available Azure Stack hotfixes](../azure-stack-update-1902.md#azure-stack-hotfixes) are not applicable to the Azure Stack ASDK. -->
