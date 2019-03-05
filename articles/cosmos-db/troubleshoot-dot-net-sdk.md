@@ -22,7 +22,7 @@ Consider the following checklist before you move your application to production.
 *	Enable the SDK logging to help you troubleshoot an issue. Enabling the logging may affect performance so it’s best to enable it only when troubleshooting issues. You can enable the following logs:
     *	[Log metrics](monitor-accounts.md) by using the Azure portal. Portal metrics shows the Azure Cosmos DB telemetry, which is helpful to determine if the issue corresponds to Azure Cosmos DB or if it’s from the client side.
     *	Log the [diagnostics string](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet) from the point operation responses.
-    *	Log the [SQL Query Metrics]( sql-api-query-metrics) from all the query responses 
+    *	Log the [SQL Query Metrics](sql-api-query-metrics.md) from all the query responses 
     *	Follow the setup for [SDK logging]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md)
 
 Take a look at the [Common issues and workarounds](#common-issues-workarounds) section in this article.
