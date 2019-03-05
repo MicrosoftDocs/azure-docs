@@ -29,7 +29,7 @@ To use PowerShell effectively, it is necessary to understand the hierarchy of ob
 
 ![Recovery Services object hierarchy](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
-To view the AzureRm.RecoveryServices.Backup PowerShell cmdlet reference, see the [Azure Backup - Recovery Services Cmdlets](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup) in the Azure library.
+To view the Azure PowerShell Az cmdlet reference, see the [Azure Backup - Recovery Services Cmdlets](https://docs.microsoft.com/powershell/module/Az.RecoveryServices/?view=azps-1.4.0) in the Azure library.
 
 ## Setup and Registration
 
@@ -76,7 +76,7 @@ The following tasks can be automated with PowerShell:
 
 * [Create a Recovery Services vault](backup-azure-vms-automation.md#create-a-recovery-services-vault)
 * [Back up Azure VMs](backup-azure-vms-automation.md#back-up-azure-vms)
-* [Trigger a backup job](backup-azure-vms-automation.md#trigger-a-backup)
+* [Trigger a backup job](backup-azure-vms-automation.md#trigger-a-backup-job)
 * [Monitor a backup job](backup-azure-vms-automation.md#monitoring-a-backup-job)
 * [Restore an Azure VM](backup-azure-vms-automation.md#restore-an-azure-vm)
 
@@ -412,7 +412,7 @@ The resultant job details gives the template URI which can be queried and deploy
    $templateBlobURI = $properties["Template Blob Uri"]
 ```
 
-Just deploy the template to create a new VM as explained [here](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
+Just deploy the template to create a new VM as explained [here](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy#deploy-a-template-from-an-external-source).
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobURI -storageAccountType Standard_GRS
