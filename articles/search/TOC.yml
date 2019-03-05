@@ -20,59 +20,59 @@
   - name: Postman (REST)
     href: search-fiddler.md
   - name: C#
-    href: test-dotnet.md
+    href: test-dotnet-1.md
   - name: Java
-    href: test-java.md
+    href: test-java-1.md
   - name: Node.js
-    href: test-nodejs.md
+    href: test-nodejs-1.md
   - name: Python
-    href: test-python.md
+    href: test-python-1.md
 - name: Tutorials
   items:
   - name: Create a search app
     items:
     - name: C#
-      href: test-dotnet.md
+      href: test-dotnet-2.md
     - name: Java
-      href: test-java.md
+      href: test-java-2.md
     - name: Node.js
-      href: test-nodejs.md
+      href: test-nodejs-2.md
   - name: AI-powered indexing
     items:
     - name: REST
       href: cognitive-search-tutorial-blob.md
     - name: C#
-      href: test-dotnet.md
+      href: test-dotnet-3.md
     - name: Java
-      href: test-java.md
+      href: test-java-3.md
     - name: Node.js
-      href: test-nodejs.md
-  - name: Index Azure Cosmos DB
+      href: test-nodejs-3.md
+  - name: Index Cosmos DB
     items:
     - name: REST
-      href: test-rest.md
+      href: test-rest-1.md
     - name: C#
-      href: test-dotnet.md
+      href: test-dotnet-4.md
     - name: Java
-      href: test-java.md
+      href: test-java-4.md
     - name: Node.js
-      href: test-nodejs.md 
+      href: test-nodejs-4.md 
   - name: Index any data
     items:
     - name: C#
-      href: test-dotnet.md
+      href: test-dotnet-5.md
     - name: Java
-      href: test-java.md
+      href: test-java-5.md
     - name: Node.js
-      href: test-nodejs.md 
-  - name: Query data
+      href: test-nodejs-5.md 
+  - name: Search documents
     items:
     - name: C#
-      href: test-dotnet.md
+      href: test-dotnet-6.md
     - name: Java
-      href: test-java.md
+      href: test-java-6.md
     - name: Node.js
-      href: test-nodejs.md 
+      href: test-nodejs-6.md 
 - name: Samples
   items:
   - name: Azure code samples
@@ -157,8 +157,6 @@
         href: index-add-suggesters.md
       - name: Add autocomplete in .NET
         href: search-autocomplete-tutorial.md
-    - name: Add faceted navigation
-      href: search-faceted-navigation.md
     - name: Synonyms
       items:
       - name: Add synonyms
@@ -224,9 +222,9 @@
     - name: Extract information from images
       href: cognitive-search-concept-image-scenarios.md
     - name: Apply OCR to scanned documents
-      href: test-rest.md
+      href: test-rest-2.md
     - name: Split and merge large text documents
-      href: test-rest.md
+      href: test-rest-3.md
     - name: Custom skills development
       items:
       - name: Integrate custom skills
@@ -259,8 +257,10 @@
     items:
     - name: Filter overview
       href: search-filters.md
-    - name: Facet filters
+    - name: Facet overview
       href: search-filters-facets.md
+    - name: Add faceted navigation
+      href: search-faceted-navigation.md
     - name: Filter and OrderBy expression syntax
       href: query-odata-filter-orderby-syntax.md
   - name: Relevance tuning
