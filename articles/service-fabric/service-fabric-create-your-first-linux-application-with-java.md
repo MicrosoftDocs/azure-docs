@@ -245,7 +245,7 @@ Actors do not do anything on their own, they require another service or client t
     watch -n 1 ./testclient.sh
     ```
 
-2. In Service Fabric Explorer, locate the node hosting the primary replica for the actor service. In the screenshot below, it is node 3. The primary service replica handles read and write operations.  Changes in service state are then replicated out to the secondary replicas, running on nodes 0 and 1 in the screen shot below.
+2. In Service Fabric Explorer, locate the node hosting the primary replica for the actor service. In the screenshot below, it is node 3. The primary service replica handles read and write operations.  Changes in service state are then replicated out to the secondary replicas, running on nodes 0 and 1 in the screenshot below.
 
     ![Finding the primary replica in Service Fabric Explorer][sfx-primary]
 

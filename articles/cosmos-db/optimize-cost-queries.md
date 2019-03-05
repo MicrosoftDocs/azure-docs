@@ -48,7 +48,7 @@ while (queryable.HasMoreResults)
 
 ## Factors influencing request unit charge for a query
 
-Request units for queries are dependent on a number of factors. For example, the number of Azure Cosmos items loaded/returned, the number of lookups against the index, the query compilation time etc details. Azure Cosmos DB guarantees that the same query when executed on the same data will always consume the same number of request units even with repeat executions. The query profile using query execution metrics gives you a good idea of how the request units are spent.  
+Request units for queries are dependent on a number of factors. For example, the number of Azure Cosmos items loaded/returned, the number of lookups against the index, the query compilation time etc. details. Azure Cosmos DB guarantees that the same query when executed on the same data will always consume the same number of request units even with repeat executions. The query profile using query execution metrics gives you a good idea of how the request units are spent.  
 
 In some cases you may see a sequence of 200 and 429 responses, and variable request units in a paged execution of queries, that is because queries will run as fast as possible based on the available RUs. You may see a query execution break into multiple pages/round trips between server and client. For example, 10,000 items may be returned as multiple pages, each charged based on the computation performed for that page. When you sum across these pages, you should get the same number of RUs as you would get for the entire query.  
 

@@ -26023,6 +26023,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/azure-resource-manager-test-Drive.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-Drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/hosted-test-drive.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/logic-app-test-drive.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/marketing-and-best-practices.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/transforming-examples-for-test-drive.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/test-drive/transforming-examples-for-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/what-is-test-drive.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/grow-your-business-azure-marketplace.md",
       "redirect_url": "/azure/marketplace/grow-your-business-with-azure-marketplace",
       "redirect_document_id": false
@@ -30713,7 +30743,11 @@
       "redirect_url": "/azure/key-vault/key-vault-overview",
       "redirect_document_id": true
     },
-
+    {
+      "source_path": "articles/virtual-machines/windows/mount-azure-file-storage.md",
+      "redirect_url": "/azure/storage/files/storage-files-quick-create-use-windows",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/azure-stack/asdk/asdk-deploy.md",
       "redirect_url": "/azure/azure-stack/asdk/asdk-install",

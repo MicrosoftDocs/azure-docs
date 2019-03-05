@@ -70,7 +70,7 @@ Regardless of the connectivity model, an ExpressRoute circuit has to be created 
 >
 
 ### Verification via the Azure portal
-In the Azure portal, the status of an ExpressRoute circuit can be checked by selecting ![2][2] on the left-side-bar menu and then selecting the ExpressRoute circuit. Selecting an ExpressRoute circuit listed under "All resources" opens the ExpressRoute circuit blade. In the ![3][3] section of the blade, the ExpressRoute essentials are listed as shown in the following screen shot:
+In the Azure portal, the status of an ExpressRoute circuit can be checked by selecting ![2][2] on the left-side-bar menu and then selecting the ExpressRoute circuit. Selecting an ExpressRoute circuit listed under "All resources" opens the ExpressRoute circuit blade. In the ![3][3] section of the blade, the ExpressRoute essentials are listed as shown in the following screenshot:
 
 ![4][4]    
 
@@ -90,7 +90,7 @@ To list all the ExpressRoute circuits in a Resource Group, use the following com
 
 >[!TIP]
 >You can get your resource group name through the Azure 
->. See the previous subsection of this document and note that the resource group name is listed in the example screen shot.
+>. See the previous subsection of this document and note that the resource group name is listed in the example screenshot.
 >
 >
 
@@ -173,7 +173,7 @@ After the service provider has completed the provisioning the ExpressRoute circu
 >
 >
 
-In the Azure portal, status of an ExpressRoute circuit can be checked by selecting ![2][2] on the left-side-bar menu and then selecting the ExpressRoute circuit. Selecting an ExpressRoute circuit listed under "All resources" would open the ExpressRoute circuit blade. In the ![3][3] section of the blade, the ExpressRoute essentials would be listed as shown in the following screen shot:
+In the Azure portal, status of an ExpressRoute circuit can be checked by selecting ![2][2] on the left-side-bar menu and then selecting the ExpressRoute circuit. Selecting an ExpressRoute circuit listed under "All resources" would open the ExpressRoute circuit blade. In the ![3][3] section of the blade, the ExpressRoute essentials would be listed as shown in the following screenshot:
 
 ![5][5]
 

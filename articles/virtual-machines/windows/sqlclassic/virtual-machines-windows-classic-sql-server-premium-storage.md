@@ -136,7 +136,7 @@ For each disk, use the following steps:
 Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 ```
 
-2. Note the Diskname and LUN.
+2. Note the DiskName and LUN.
 
     ![DisknameAndLUN][2]
 3. Remote desktop into the VM. Then go to **Computer Management** | **Device Manager** | **Disk Drives**. Look at the properties of each of the ‘Microsoft Virtual Disks’
@@ -258,7 +258,7 @@ $ipaddr = "192.168.0.8"
 #Remember to change to DS series VM
 $newInstanceSize = "Standard_DS1"
 
-#create new Avaiability Set
+#create new Availability Set
 $availabilitySet = "cloudmigAVAMS"
 
 #Machine User Credentials
@@ -377,7 +377,7 @@ $destcloudsvc = "danregsvcamsxio2"
 #Use to DS Series VM
 $newInstanceSize = "Standard_DS1"
 
-#create new Avaiability Set
+#create new Availability Set
 $availabilitySet = "cloudmigAVAMS3"
 
 #Machine User Credentials
@@ -923,7 +923,7 @@ $ipaddr = "192.168.0.5"
 $newInstanceSize = "Standard_DS13"
 $subnet = "SQL"
 
-#Create new Avaiability Set
+#Create new Availability Set
 $availabilitySet = "cloudmigAVAMS"
 
 #build machine config into object
@@ -1122,7 +1122,7 @@ ForEach ($disk in $diskobjects)
 
 #Check for copy progress
 
-#check induvidual blob status
+#check individual blob status
 Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContext
 ```
 
@@ -1149,7 +1149,7 @@ Wait until all these are recorded as success.
 For information for individual blobs:
 
 ```powershell
-#Check induvidual blob status
+#Check individual blob status
 Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContextnode2
 ```
 
@@ -1173,7 +1173,7 @@ Add-AzureDisk -DiskName $xioDiskName -MediaLocation  "https://$newxiostorageacco
 $ipaddr = "192.168.0.4"
 $newInstanceSize = "Standard_DS13"
 
-#Join to existing Avaiability Set
+#Join to existing Availability Set
 
 #Build machine config into object
 $vmConfig = New-AzureVMConfig -Name $vmNameToMigrate -InstanceSize $newInstanceSize -DiskName $xioDiskName -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
@@ -1220,7 +1220,7 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 
 #### Step 23: Test failover
 
-Wait for the migrated node to synchronize with the on-premises Always On node. Place it into synchronous replication mode and wait until it is synchronized. Then failover from on-prem to the first node migrated, which is the AFP. Once that has worked, change the last migrated node to the AFP.
+Wait for the migrated node to synchronize with the on-premises Always On node. Place it into synchronous replication mode and wait until it is synchronized. Then failover from on premises to the first node migrated, which is the AFP. Once that has worked, change the last migrated node to the AFP.
 
 You should test failovers between all nodes and run though chaos tests to ensure failovers work as expected and in a timely manor.
 
