@@ -1,4 +1,4 @@
-[---
+---
 title: Manage Modules in Azure Automation
 description: This article describes how to manage modules in Azure Automation
 services: automation
@@ -10,6 +10,7 @@ ms.date: 02/27/2019
 ms.topic: conceptual
 manager: carmonm 
 ---
+
 # Manage Modules in Azure Automation
 
 Azure Automation provides the ability to import PowerShell modules into your Automation Account to be used by the PowerShell based runbooks. These modules can be custom modules you have created, from the PowerShell Gallery, or the AzureRM and Az modules for Azure.
@@ -44,7 +45,7 @@ You can also import modules from the PowerShell Gallery directly from your Autom
 
 ## Internal cmdlets
 
-The following is a listing of cmdlets in the internal `Orchestrator.AssetManagement.Cmdlets` module that is imported into every Automation Account. These cmdlets are cmdlets accessible in your runbooks and DSC configurations.
+The following is a listing of cmdlets in the internal `Orchestrator.AssetManagement.Cmdlets` module that is imported into every Automation Account. These cmdlets are accessible in your runbooks and DSC configurations and allow you to interact with your assets within your Automation Account.
 
 |Name|Description|
 |---|---|
@@ -52,87 +53,19 @@ The following is a listing of cmdlets in the internal `Orchestrator.AssetManagem
 |Get-AutomationConnection|`Get-AutomationConnection [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]` |
 |Get-AutomationPSCredential|`Get-AutomationPSCredential [-Name] <string> [<CommonParameters>]` |
 |Get-AutomationVariable|`Get-AutomationVariable [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]`|
-|Get-SoftwareUpdateConfigurationMachines|`Get-SoftwareUpdateConfigurationMachines -SoftwareUpdateConfigurationName <string> -SoftwareUpdateConfigurationRunId <guid> [<CommonParameters>]`|
-|Initialize-AutomationSoftwareUpdateConfiguration|`Initialize-AutomationSoftwareUpdateConfiguration [-Name] <string> [<CommonParameters>]` |
-|Invoke-AutomationWatcherAction|`Invoke-AutomationWatcherAction [-Message <string>] [-CustomProperties <hashtable>] [-Data <string>] [<CommonParameters>]` |
 |Set-AutomationVariable|`Set-AutomationVariable [-Name] <string> -Value <Object> [<CommonParameters>]` |
-|Set-SoftwareUpdateConfigurationMachineRun|`Set-SoftwareUpdateConfigurationMachineRun -Id <guid> -SoftwareUpdateConfigurationRunId <guid> -AgentId <guid> -SoftwareUpdateConfigurationName <string> -TargetComputer <string> -ConfiguredDuration <timespan> -OperatingSystem <string> [<CommonParameters>]`</br> `Set-SoftwareUpdateConfigurationMachineRun -Id <guid> -Status <string> [-RebootRequired <bool>] [-EndTime <DateTimeOffset>] [-OperationResult <string>] [<CommonParameters>]`|
-|Set-SoftwareUpdateConfigurationRun|`Set-SoftwareUpdateConfigurationRun -Id <guid> -SoftwareUpdateConfigurationName <string> -ConfiguredDuration <timespan> -OperatingSystem <string> -ComputerCount <int> [-Status <string>] [-PreScriptSource <string>] [-PostScriptSource <string>] [<CommonParameters>]`</br> `Set-SoftwareUpdateConfigurationRun -Id <guid> -Status <string> [-OperationResult <string>] [<CommonParameters>]`</br> `Set-SoftwareUpdateConfigurationRun -Id <guid> -PreScriptJobId <guid> -PreScriptStatus <string> [-OperationResult <string>] [<CommonParameters>] Set-SoftwareUpdateConfigurationRun -Id <guid> -PostScriptJobId <guid> -PostScriptStatus <string> [-OperationResult <string>] [<CommonParameters>]`</br> `Set-SoftwareUpdateConfigurationRun -Id <guid> -SetTerminalState [-OperationResult <string>] [<CommonParameters>]`|
 |Start-AutomationRunbook|`Start-AutomationRunbook [-Name] <string> [-Parameters <IDictionary>] [-RunOn <string>] [-JobId <guid>] [<CommonParameters>]`|
 |Wait-AutomationJob|`Wait-AutomationJob -Id <guid[]> [-TimeoutInMinutes <int>] [-DelayInSeconds <int>] [-OutputJobsTransitionedToRunning] [<CommonParameters>]`|
 
-## Integration modules
+## Add connection type to your module
 
-](---
-title: Manage Modules in Azure Automation
-description: This article describes how to manage modules in Azure Automation
-services: automation
-ms.service: automation
-ms.subservice: shared-resources
-author: georgewallace
-ms.author: gwallace
-ms.date: 02/27/2019
-ms.topic: conceptual
-manager: carmonm 
----
-# Manage Modules in Azure Automation
+You can provide a custom [connection type](../automation-connections.md) for you to use in your Automation Account by adding an optional file to your module. This file is a metadata file specifying an Azure Automation connection type to be used with the module's cmdlets in runbooks.
 
-Azure Automation provides the ability to import PowerShell modules into your Automation Account to be used by the PowerShell based runbooks. These modules can be custom modules you have created, from the PowerShell Gallery, or the AzureRM and Az modules for Azure.
+![Use a custom connection in the Azure portal](../media/modules/connection-create-new.png)
 
-## Import modules
+The format in which you import an Integration Module package is a compressed file with the same name as the module and a .zip extension. It contains the PowerShell module and any supporting files, including a manifest file (.psd1) if the module has one.
 
-There are multiple ways that you can import a module into your Automation Account. The following sections show the different ways to import a module.
-
-### PowerShell
-
-You can use the [New-AzureRmAutomationModule](/powershell/module/azurerm.automation/new-azurermautomationmodule) to import a module into your Automation Account. The cmdlet takes a url to a module zip package.
-
-```azurepowershell-interactive
-New-AzureRmAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
-```
-
-### Azure portal
-
-In the Azure portal, navigate to your Automation Account and select **Modules** under **Shared Resources**. Click **+ Add a module**. Select a **.zip** file that contains your module and click **Ok** to start to import process.
-
-### PowerShell Gallery
-
-Modules from the PowerShell gallery can either be imported from the [PowerShell Gallery](https://www.powershellgallery.com) directly or from your Automation Account.
-
-To import a module from the PowerShell Gallery, go to https://www.powershellgallery.com and search for the module you want to import. Click **Deploy to Azure Automation** on the **Azure Automation** tab under **Installation Options**. This action opens up the Azure portal. On the **Import** page, select your Automation Account and click **OK**.
-
-![PowerShell Gallery import module](../media/modules/powershell-gallery.png)
-
-You can also import modules from the PowerShell Gallery directly from your Automation Account. In your Automation Account select **Modules** under **Shared Resources**. On the modules page, click **Browse gallery**. This opens up the **Browse Gallery** page. You can use this page to search the PowerShell Gallery for a module. Select the module you want to import and click **Import**. On the **Import** page click **OK** to start the import process.
-
-![PowerShell Gallery import from azure portal](../media/modules/gallery-azure-portal.png)
-
-## Internal cmdlets
-
-The following is a listing of cmdlets in the internal `Orchestrator.AssetManagement.Cmdlets` module that is imported into every Automation Account. These cmdlets are cmdlets accessible in your runbooks and DSC configurations.
-
-|Name|Description|
-|---|---|
-|Get-AutomationCertificate|`Get-AutomationCertificate [-Name] <string> [<CommonParameters>]`|
-|Get-AutomationConnection|`Get-AutomationConnection [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]` |
-|Get-AutomationPSCredential|`Get-AutomationPSCredential [-Name] <string> [<CommonParameters>]` |
-|Get-AutomationVariable|`Get-AutomationVariable [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]`|
-|Get-SoftwareUpdateConfigurationMachines|`Get-SoftwareUpdateConfigurationMachines -SoftwareUpdateConfigurationName <string> -SoftwareUpdateConfigurationRunId <guid> [<CommonParameters>]`|
-|Initialize-AutomationSoftwareUpdateConfiguration|`Initialize-AutomationSoftwareUpdateConfiguration [-Name] <string> [<CommonParameters>]` |
-|Invoke-AutomationWatcherAction|`Invoke-AutomationWatcherAction [-Message <string>] [-CustomProperties <hashtable>] [-Data <string>] [<CommonParameters>]` |
-|Set-AutomationVariable|`Set-AutomationVariable [-Name] <string> -Value <Object> [<CommonParameters>]` |
-|Set-SoftwareUpdateConfigurationMachineRun|`Set-SoftwareUpdateConfigurationMachineRun -Id <guid> -SoftwareUpdateConfigurationRunId <guid> -AgentId <guid> -SoftwareUpdateConfigurationName <string> -TargetComputer <string> -ConfiguredDuration <timespan> -OperatingSystem <string> [<CommonParameters>]`</br> `Set-SoftwareUpdateConfigurationMachineRun -Id <guid> -Status <string> [-RebootRequired <bool>] [-EndTime <DateTimeOffset>] [-OperationResult <string>] [<CommonParameters>]`|
-|Set-SoftwareUpdateConfigurationRun|`Set-SoftwareUpdateConfigurationRun -Id <guid> -SoftwareUpdateConfigurationName <string> -ConfiguredDuration <timespan> -OperatingSystem <string> -ComputerCount <int> [-Status <string>] [-PreScriptSource <string>] [-PostScriptSource <string>] [<CommonParameters>]`</br> `Set-SoftwareUpdateConfigurationRun -Id <guid> -Status <string> [-OperationResult <string>] [<CommonParameters>]`</br> `Set-SoftwareUpdateConfigurationRun -Id <guid> -PreScriptJobId <guid> -PreScriptStatus <string> [-OperationResult <string>] [<CommonParameters>] Set-SoftwareUpdateConfigurationRun -Id <guid> -PostScriptJobId <guid> -PostScriptStatus <string> [-OperationResult <string>] [<CommonParameters>]`</br> `Set-SoftwareUpdateConfigurationRun -Id <guid> -SetTerminalState [-OperationResult <string>] [<CommonParameters>]`|
-|Start-AutomationRunbook|`Start-AutomationRunbook [-Name] <string> [-Parameters <IDictionary>] [-RunOn <string>] [-JobId <guid>] [<CommonParameters>]`|
-|Wait-AutomationJob|`Wait-AutomationJob -Id <guid[]> [-TimeoutInMinutes <int>] [-DelayInSeconds <int>] [-OutputJobsTransitionedToRunning] [<CommonParameters>]`|
-
-## Add connection type to module
-
-You can provide a custom [connection type](../automation-connections.md) for you to use in your Automation Account by adding an optional additional file. This file is a metadata file specifying an Azure Automation connection type to be used with the module's cmdlets in runbooks. PowerShell modules can be imported into Azure Automation to make their cmdlets available for use within runbooks and their DSC resources available for use within DSC configurations. Behind the scenes, Azure Automation stores these modules, and at runbook job and DSC compilation job execution time, loads them into the Azure Automation sandboxes where runbooks execute and DSC configurations compile. Any DSC resources in modules are also automatically placed on the Automation DSC pull server. They can be pulled by machines when they apply DSC configurations. 
-
-The format in which you import an Integration Module package is a compressed file with the same name as the module and a .zip extension. It contains the Windows PowerShell module and any supporting files, including a manifest file (.psd1) if the module has one.
-
-If the module should contain an Azure Automation connection type, it must also contain a file with the name `<ModuleName>-Automation.json` that specifies the connection type properties. This is a json file, which is placed within the module folder of your compressed .zip file. This file contains the fields of a connection that is required to connect to the system or service the module represents. This configuration ends up creating a connection type in Azure Automation. Using this file you can set the field names, types, and whether the fields should be encrypted and / or optional, for the connection type of the module. The following example is a template in the json file format:
+To add an Azure Automation connection type, it must also contain a file with the name `<ModuleName>-Automation.json` that specifies the connection type properties. This is a json file, which is placed within the module folder of your compressed .zip file. This file contains the fields of a connection that is required to connect to the system or service the module represents. This configuration ends up creating a connection type in Azure Automation. Using this file you can set the field names, types, and whether the fields should be encrypted or optional, for the connection type of the module. The following example is a template in the json file format:
 JSON
 
 ```json
@@ -155,18 +88,18 @@ JSON
 }
 ```
 
-![Create a new custom connection in the Azure portal](../media/modules/connection-create-new.png)
-
 ## Module best practices
 
-We recommend you consider the following when you author a PowerShell module for use in Azure Automation.
+PowerShell modules can be imported into Azure Automation to make their cmdlets available for use within runbooks and their DSC resources available for use within DSC configurations. Behind the scenes, Azure Automation stores these modules, and at runbook job and DSC compilation job execution time, loads them into the Azure Automation sandboxes where runbooks execute and DSC configurations compile. Any DSC resources in modules are also automatically placed on the Automation DSC pull server. They can be pulled by machines when they apply DSC configurations.
 
-1. Include a synopsis, description, and help URI for every cmdlet in the module. In PowerShell, you can define certain help information for cmdlets to allow the user to receive help on using them with the **Get-Help** cmdlet. For example, here's how you can define a synopsis and help URI for a PowerShell module written in a .psm1 file. 
-   
+We recommend you consider the following when you author a PowerShell module for use in Azure Automation:
+
+1. Include a synopsis, description, and help URI for every cmdlet in the module. In PowerShell, you can define certain help information for cmdlets to allow the user to receive help on using them with the **Get-Help** cmdlet. For example, here's how you can define a synopsis and help URI for a PowerShell module written in a .psm1 file.
+
     ```powershell
     <#
         .SYNOPSIS
-         Gets all outgoing phone numbers for this Twilio account 
+         Gets all outgoing phone numbers for this Twilio account
     #>
     function Get-TwilioPhoneNumbers {
     [CmdletBinding(DefaultParameterSetName='SpecifyConnectionFields', `
@@ -176,20 +109,20 @@ We recommend you consider the following when you author a PowerShell module for 
        [ValidateNotNullOrEmpty()]
        [string]
        AccountSid,
-   
+
        [Parameter(ParameterSetName='SpecifyConnectionFields', Mandatory=true)]
        [ValidateNotNullOrEmpty()]
        [string]
        AuthToken,
-   
+
        [Parameter(ParameterSetName='UseConnectionObject', Mandatory=true)]
        [ValidateNotNullOrEmpty()]
        [Hashtable]
        Connection
     )
-   
+
     cred = CreateTwilioCredential -Connection Connection -AccountSid AccountSid -AuthToken AuthToken
-   
+
     uri = "TWILIO_BASE_URL/Accounts/" + cred.UserName + "/IncomingPhoneNumbers"
    
     response = Invoke-RestMethod -Method Get -Uri uri -Credential cred
