@@ -6,7 +6,7 @@ services: site-recovery
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/06/2019
 ms.author: mayg
 ---
 
@@ -284,7 +284,6 @@ Use the following steps to create a retention disk:
 2. Note down the configuration server's IP address. Run the following command to install the master target server and register the server with the configuration server.
 
  	```
-	./install -q -d /usr/local/ASR -r MT -v VmWare
 	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
 	```
 
