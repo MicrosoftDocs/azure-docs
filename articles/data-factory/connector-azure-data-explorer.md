@@ -24,7 +24,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 You can copy data from any supported source data store to Azure Data Explorer. You can also copy data from Azure Data Explorer to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md) table.
 
 >[!NOTE]
->Copying data to/from Azure Data Explorer from/to on-prem data store using Self-hosted Integration Runtime is supported since version 3.14.
+>Copying data to/from Azure Data Explorer from/to on premises data store using Self-hosted Integration Runtime is supported since version 3.14.
 
 The Azure Data Explorer connector allows you to do the following:
 

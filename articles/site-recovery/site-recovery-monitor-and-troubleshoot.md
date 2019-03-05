@@ -80,7 +80,7 @@ The **Error summary** section shows currently active error symptoms that may imp
 The **Infrastructure view** shows the infrastructure components involved in replication, and connectivity health between servers and the Azure services.
 
 - A green line indicates that connection is healthy.
-- A red line with the verlaid error icon indicates the existence of one or more error symptoms that impact connectivity.
+- A red line with the overlaid error icon indicates the existence of one or more error symptoms that impact connectivity.
 -  Hover the mouse pointer over the error icon to show the error and the number of impacted entities. Click the icon for a filtered list of impacted entities.
 
     ![Site Recovery infrastructure view (vault)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)

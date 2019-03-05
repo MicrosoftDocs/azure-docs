@@ -149,7 +149,7 @@ Azure AD Connect Upgrade fails if SQL Always On Availability is configured for t
 - Fixed several accessibility issues for the Sync Rules Editor and the Sync Service Manager  
 - Fixed a bug where Azure AD Connect can not get registry setting information
 - Fixed a bug that created issues when the user goes forward/back in the wizard
-- Fixed a bug to prevent an error happening due to incorrect multi thread handing in the wizard
+- Fixed a bug to prevent an error happening due to incorrect multi-thread handing in the wizard
 - When Group Sync Filtering page encounters an LDAP error when resolving security groups, Azure AD Connect now returns the exception with full fidelity.  The root cause for the referral exception is still unknown and will be addressed by a different bug.
 -  Fixed a bug where permissions for STK and NGC keys (ms-DS-KeyCredentialLink attribute on User/Device objects for WHfB) were not correctly set.     
 - Fixed a bug where 'Set-ADSyncRestrictedPermissions’ was not called correctly
@@ -829,7 +829,7 @@ Released: March 2017
 Azure AD Connect sync
 * Fixed an issue which causes Azure AD Connect wizard to fail if the display name of the Azure AD Connector does not contain the initial onmicrosoft.com domain assigned to the Azure AD tenant.
 * Fixed an issue which causes Azure AD Connect wizard to fail while making connection to SQL database when the password of the Sync Service Account contains special characters such as apostrophe, colon and space.
-* Fixed an issue which causes the error “The dimage has an anchor that is different than the image” to occur on an Azure AD Connect server in staging mode, after you have temporarily excluded an on-premises AD object from syncing and then included it again for syncing.
+* Fixed an issue which causes the error “The image has an anchor that is different than the image” to occur on an Azure AD Connect server in staging mode, after you have temporarily excluded an on-premises AD object from syncing and then included it again for syncing.
 * Fixed an issue which causes the error “The object located by DN is a phantom” to occur on an Azure AD Connect server in staging mode, after you have temporarily excluded an on-premises AD object from syncing and then included it again for syncing.
 
 AD FS management
