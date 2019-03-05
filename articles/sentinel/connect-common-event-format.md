@@ -4,7 +4,7 @@ description: Learn how to collect CEF data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: cbf5003b-76cf-446f-adb6-6d816beca70f

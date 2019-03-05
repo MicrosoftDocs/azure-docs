@@ -478,7 +478,7 @@ sudo ./deploymodel <ContainerRegistryName> <username> <password> <imageLocationU
 Alternatively, you can follow the steps in the [Deploy Azure IoT Edge modules from the Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) document to deploy the image to your device. When configuring the __Registry settings__ for the device, use the __login server__, __username__, and __password__ for your workspace container registry.
 
 > [!NOTE]
-> If you're unfamiliar with Azure IoT, see the following documents for information on getting started with the service:
+> If you're unfamiliar with Azure IoT Edge, see the following documents for information on getting started with the service:
 >
 > * [Quickstart: Deploy your first IoT Edge module to a Linux device](../../iot-edge/quickstart-linux.md)
 > * [Quickstart: Deploy your first IoT Edge module to a Windows device](../../iot-edge/quickstart.md)

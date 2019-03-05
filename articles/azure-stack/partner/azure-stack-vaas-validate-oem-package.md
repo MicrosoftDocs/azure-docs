@@ -90,6 +90,9 @@ Use the **Blob SAS URL** when providing package blob URLs to the portal.
 
 [!INCLUDE [azure-stack-vaas-workflow-section_update-azs](includes/azure-stack-vaas-workflow-section_update-azs.md)]
 
+> [!NOTE]
+> After you apply the monthly update, we recommend that you run Test-AzureStack to verify that the update was applied correctly and is in a healthy state. If Test-AzureStack fails, report the issue to Microsoft. Don't proceed with the test pass until the issue is resolved. Information about how to run the Test-Azure Stack command can be found in this [article](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
+
 ## Create a Package Validation workflow
 
 1. Sign in to the [VaaS portal](https://azurestackvalidation.com).
