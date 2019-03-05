@@ -54,22 +54,21 @@ sections:
     - html: <a href="/azure/azure-signalr/signalr-tutorial-authenticate-azure-functions">Build a Serverless Real-time App with Authentication</a>
 - title: Reference
   items:
-  - type: paragraph
-    text: Program Azure SignalR
   - type: list
-    style: unordered
+    style: cards
+    className: cardsD
     items:
-    - html: <a href="https://docs.microsoft.com/aspnet/core">ASP.NET Core SDK</a>
-    - html: <a href="/azure/azure-functions/functions-bindings-signalr-service">Azure Functions Bindings</a>
-    - html: <a href="https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md">REST API</a>
-  - type: paragraph
-    text: Connect to Azure SignalR with Clients SDKs
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="https://docs.microsoft.com/aspnet/core/signalr/javascript-client">JavaScript</a>
-    - html: <a href="https://docs.microsoft.com/aspnet/core/signalr/dotnet-client">.NET Standard</a>
-    - html: <a href="https://github.com/aspnet/SignalR/tree/release/2.2/clients/java/signalr">Java</a>
+    - title: Command-Line
+      html: <p><a href="signalr-reference-cli.md">Azure CLI</a></p>
+    - title: Languages 
+      html: >
+        <p><a href="https://docs.microsoft.com/aspnet/core">ASP.NET Core server SDK</a></p>
+        <p><a href="/azure/azure-functions/functions-bindings-signalr-service">Azure Functions bindings</a></p>
+        <p><a href="https://docs.microsoft.com/aspnet/core/signalr/javascript-client">JavaScript client</a></p>
+        <p><a href="https://docs.microsoft.com/aspnet/core/signalr/dotnet-client">.NET Standard client</a></p>
+        <p><a href="https://github.com/aspnet/SignalR/tree/release/2.2/clients/java/signalr">Java client</a></p>
+    - title: REST
+      html: <p><a href="https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md">REST API</a></p>
 - title: Samples
   items:
   - type: list
