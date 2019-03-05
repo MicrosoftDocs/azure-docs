@@ -36,9 +36,9 @@ You can exceed some template limits by using a nested template. For more informa
 
 ## Resource group
 
-When you deploy resources to a resource group, that resource group manages metadata about the resources. The metadata is stored in the location of the resource group.
+When you deploy resources to a resource group, the resource group stores metadata about the resources. The metadata is stored in the location of the resource group.
 
-If the resource group's region is temporarily unavailable, you won't be able to update resources in the resource group. The update must be written to the metadata. If the metadata is unavailable, the operation can't complete successfully. The resources in other regions will still function as expected, but you won't be able to update them. To minimize risk, locate your resource group and resources in the same region.
+If the resource group's region is temporarily unavailable, you can't update resources in the resource group because the metadata is unavailable. The resources in other regions will still function as expected, but you can't update them. To minimize risk, locate your resource group and resources in the same region.
 
 ## Parameters
 The information in this section can be helpful when you work with [parameters](resource-group-authoring-templates.md#parameters).
