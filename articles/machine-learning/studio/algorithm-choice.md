@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
-ms.date: 12/18/2017
+ms.date: 03/04/2019
 ---
 # How to choose algorithms for Azure Machine Learning Studio
 
@@ -22,17 +22,17 @@ The documentation provides some information about each algorithm and how to tune
 
 ## The Machine Learning Algorithm Cheat Sheet
 
-The **Microsoft Azure Machine Learning Studio Algorithm Cheat Sheet** helps you choose the right machine learning algorithm for your predictive analytics solutions from the Azure Machine Learning Studio library of algorithms.
-This article walks you through how to use it.
+The **[Microsoft Azure Machine Learning Studio Algorithm Cheat Sheet](algorithm-cheat-sheet.md)** helps you choose the right machine learning algorithm for your predictive analytics solutions from the Azure Machine Learning Studio library of algorithms.
+This article walks you through how to use this cheat sheet.
 
 > [!NOTE]
 > To download the cheat sheet and follow along with this article, go to [Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio](algorithm-cheat-sheet.md).
 > 
 > 
 
-This cheat sheet has a very specific audience in mind: a beginning data scientist with undergraduate-level machine learning, trying to choose an algorithm to start with in Azure Machine Learning Studio. That means that it makes some generalizations and oversimplifications, but it points you in a safe direction. It also means that there are lots of algorithms not listed here. As Azure Machine Learning Studio grows to encompass a more complete set of available methods, we'll add them.
+This cheat sheet has a very specific audience in mind: a beginning data scientist with undergraduate-level machine learning, trying to choose an algorithm to start with in Azure Machine Learning Studio. That means that it makes some generalizations and oversimplifications, but it points you in a safe direction. It also means that there are lots of algorithms not listed here.
 
-These recommendations are compiled feedback and tips from many data scientists and machine learning experts. We didn't agree on everything, but I've tried to harmonize our opinions into a rough consensus. Most of the statements of disagreement begin with "It depends…"
+These recommendations are compiled feedback and tips from many data scientists and machine learning experts. We didn't agree on everything, but we've tried to harmonize our opinions into a rough consensus. Most of the statements of disagreement begin with "It depends…"
 
 ### How to use the cheat sheet
 
@@ -41,7 +41,7 @@ label&gt;*, use *&lt;algorithm&gt;*." For example, "For *speed*, use *two
 class logistic regression*." Sometimes more than one branch applies.
 Sometimes none of them are a perfect fit. They're intended to be
 rule-of-thumb recommendations, so don't worry about it being exact.
-Several data scientists I talked with said that the only sure way to
+Several data scientists we talked with said that the only sure way to
 find the very best algorithm is to try all of them.
 
 Here's an example from the [Azure AI Gallery](http://gallery.azure.ai/) of an experiment that tries
@@ -57,8 +57,8 @@ recognition](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 ### Supervised
 
 Supervised learning algorithms make predictions based on a set of
-examples. For instance, historical stock prices can be used to hazard
-guesses at future prices. Each example used for training is labeled with
+examples. For instance, historical stock prices can be used to make
+guesses about future prices. Each example used for training is labeled with
 the value of interest—in this case the stock price. A supervised
 learning algorithm looks for patterns in those value labels. It can use
 any information that might be relevant—the day of the week, the season,
@@ -89,7 +89,7 @@ detection.
   variations are so numerous and the training examples so few, that it's
   not feasible to learn what fraudulent activity looks like. The
   approach that anomaly detection takes is to simply learn what normal
-  activity looks like (using a history non-fraudulent transactions) and
+  activity looks like (using a history of non-fraudulent transactions) and
   identify anything that is significantly different.
 
 ### Unsupervised
@@ -121,7 +121,7 @@ Sometimes an approximation is adequate, depending on what you want to
 use it for. If that's the case, you may be able to cut your processing
 time dramatically by sticking with more approximate methods. Another
 advantage of more approximate methods is that they naturally tend to
-avoid [overfitting](https://youtu.be/DQWI1kvmwRg).
+avoid overfitting.
 
 ### Training time
 
@@ -163,7 +163,7 @@ an algorithm. They are numbers that affect the algorithm's behavior,
 such as error tolerance or number of iterations, or options between
 variants of how the algorithm behaves. The training time and accuracy of
 the algorithm can sometimes be quite sensitive to getting just the right
-settings. Typically, algorithms with large numbers parameters require
+settings. Typically, algorithms with large numbers of parameters require
 the most trial and error to find a good combination.
 
 Alternatively, there is a [parameter
@@ -175,7 +175,7 @@ to train a model increases exponentially with the number of parameters.
 
 The upside is that having many parameters typically indicates that an
 algorithm has greater flexibility. It can often achieve very good
-accuracy. Provided you can find the right combination of parameter
+accuracy, provided you can find the right combination of parameter
 settings.
 
 ### Number of features
@@ -196,34 +196,34 @@ or faster training times.
 | **Algorithm** | **Accuracy** | **Training time** | **Linearity** | **Parameters** | **Notes** |
 | --- |:---:|:---:|:---:|:---:| --- |
 | **Two-class classification** | | | | | |
-| [logistic regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) | |● |● |5 | |
-| [decision forest](https://msdn.microsoft.com/library/azure/dn906008.aspx) |● |○ | |6 | |
-| [decision jungle](https://msdn.microsoft.com/library/azure/dn905976.aspx) |● |○ | |6 |Low memory footprint |
-| [boosted decision tree](https://msdn.microsoft.com/library/azure/dn906025.aspx) |● |○ | |6 |Large memory footprint |
-| [neural network](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[Additional customization is possible](https://go.microsoft.com/fwlink/?LinkId=402867) |
-| [averaged perceptron](https://msdn.microsoft.com/library/azure/dn906036.aspx) |○ |○ |● |4 | |
-| [support vector machine](https://msdn.microsoft.com/library/azure/dn905835.aspx) | |○ |● |5 |Good for large feature sets |
-| [locally deep support vector machine](https://msdn.microsoft.com/library/azure/dn913070.aspx) |○ | | |8 |Good for large feature sets |
-| [Bayes’ point machine](https://msdn.microsoft.com/library/azure/dn905930.aspx) | |○ |● |3 | |
+| [logistic regression](/azure/machine-learning/studio-module-reference/two-class-logistic-regression) | |● |● |5 | |
+| [decision forest](/azure/machine-learning/studio-module-reference/two-class-decision-forest) |● |○ | |6 | |
+| [decision jungle](/azure/machine-learning/studio-module-reference/two-class-decision-jungle) |● |○ | |6 |Low memory footprint |
+| [boosted decision tree](/azure/machine-learning/studio-module-reference/two-class-boosted-decision-tree) |● |○ | |6 |Large memory footprint |
+| [neural network](/azure/machine-learning/studio-module-reference/two-class-neural-network) |● | | |9 |[Additional customization is possible](https://go.microsoft.com/fwlink/?LinkId=402867) |
+| [averaged perceptron](/azure/machine-learning/studio-module-reference/two-class-averaged-perceptron) |○ |○ |● |4 | |
+| [support vector machine](/azure/machine-learning/studio-module-reference/two-class-support-vector-machine) | |○ |● |5 |Good for large feature sets |
+| [locally deep support vector machine](/azure/machine-learning/studio-module-reference/two-class-locally-deep-support-vector-machine) |○ | | |8 |Good for large feature sets |
+| [Bayes’ point machine](/azure/machine-learning/studio-module-reference/two-class-bayes-point-machine) | |○ |● |3 | |
 | **Multi-class classification** | | | | | |
-| [logistic regression](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
-| [decision forest](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
-| [decision jungle](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Low memory footprint |
-| [neural network](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Additional customization is possible](https://go.microsoft.com/fwlink/?LinkId=402867) |
-| [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |See properties of the two-class method selected |
+| [logistic regression](/azure/machine-learning/studio-module-reference/multiclass-logistic-regression) | |● |● |5 | |
+| [decision forest](/azure/machine-learning/studio-module-reference/multiclass-decision-forest) |● |○ | |6 | |
+| [decision jungle](/azure/machine-learning/studio-module-reference/multiclass-decision-jungle) |● |○ | |6 |Low memory footprint |
+| [neural network](/azure/machine-learning/studio-module-reference/multiclass-neural-network) |● | | |9 |[Additional customization is possible](https://go.microsoft.com/fwlink/?LinkId=402867) |
+| [one-v-all](/azure/machine-learning/studio-module-reference/one-vs-all-multiclass) |- |- |- |- |See properties of the two-class method selected |
 | **Regression** | | | | | |
-| [linear](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
-| [Bayesian linear](https://msdn.microsoft.com/library/azure/dn906022.aspx) | |○ |● |2 | |
-| [decision forest](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
-| [boosted decision tree](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |Large memory footprint |
-| [fast forest quantile](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9 |Distributions rather than point predictions |
-| [neural network](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[Additional customization is possible](https://go.microsoft.com/fwlink/?LinkId=402867) |
-| [Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Technically log-linear. For predicting counts |
-| [ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |For predicting rank-ordering |
+| [linear](/azure/machine-learning/studio-module-reference/linear-regression) | |● |● |4 | |
+| [Bayesian linear](/azure/machine-learning/studio-module-reference/bayesian-linear-regression) | |○ |● |2 | |
+| [decision forest](/azure/machine-learning/studio-module-reference/decision-forest-regression) |● |○ | |6 | |
+| [boosted decision tree](/azure/machine-learning/studio-module-reference/boosted-decision-tree-regression) |● |○ | |5 |Large memory footprint |
+| [fast forest quantile](/azure/machine-learning/studio-module-reference/fast-forest-quantile-regression) |● |○ | |9 |Distributions rather than point predictions |
+| [neural network](/azure/machine-learning/studio-module-reference/neural-network-regression) |● | | |9 |[Additional customization is possible](https://go.microsoft.com/fwlink/?LinkId=402867) |
+| [Poisson](/azure/machine-learning/studio-module-reference/poisson-regression) | | |● |5 |Technically log-linear. For predicting counts |
+| [ordinal](/azure/machine-learning/studio-module-reference/ordinal-regression) | | | |0 |For predicting rank-ordering |
 | **Anomaly detection** | | | | | |
-| [support vector machine](https://msdn.microsoft.com/library/azure/dn913103.aspx) |○ |○ | |2 |Especially good for large feature sets |
-| [PCA-based anomaly detection](https://msdn.microsoft.com/library/azure/dn913102.aspx) | |○ |● |3 | |
-| [K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/) | |○ |● |4 |A clustering algorithm |
+| [support vector machine](/azure/machine-learning/studio-module-reference/one-class-support-vector-machine) |○ |○ | |2 |Especially good for large feature sets |
+| [PCA-based anomaly detection](/azure/machine-learning/studio-module-reference/pca-based-anomaly-detection) | |○ |● |3 | |
+| [K-means](/azure/machine-learning/studio-module-reference/k-means-clustering) | |○ |● |4 |A clustering algorithm |
 
 **Algorithm properties:**
 
@@ -235,11 +235,9 @@ or faster training times.
 
 ### Linear regression
 
-As mentioned previously, [linear regression](https://msdn.microsoft.com/library/azure/dn905978.aspx)
+As mentioned previously, [linear regression](/azure/machine-learning/studio-module-reference/linear-regression)
 fits a line (or plane, or hyperplane) to the data set. It's a workhorse,
 simple and fast, but it may be overly simplistic for some problems.
-Check here for a [linear regression
-tutorial](linear-regression-in-azure.md).
 
 ![Data with a linear trend](./media/algorithm-choice/image3.png)
 
@@ -247,11 +245,11 @@ tutorial](linear-regression-in-azure.md).
 
 ### Logistic regression
 
-Although it confusingly includes 'regression' in the name, logistic
+Although it includes 'regression' in the name, logistic
 regression is actually a powerful tool for
-[two-class](https://msdn.microsoft.com/library/azure/dn905994.aspx)
+[two-class](/azure/machine-learning/studio-module-reference/two-class-logistic-regression)
 and
-[multiclass](https://msdn.microsoft.com/library/azure/dn905853.aspx)
+[multiclass](/azure/machine-learning/studio-module-reference/multiclass-logistic-regression)
 classification. It's fast and simple. The fact that it uses an
 'S'-shaped curve instead of a straight line makes it a natural fit for
 dividing data into groups. Logistic regression gives linear class
@@ -266,18 +264,18 @@ class boundary is the point at which the logistic curve is just as close to both
 ### Trees, forests, and jungles
 
 Decision forests
-([regression](https://msdn.microsoft.com/library/azure/dn905862.aspx),
-[two-class](https://msdn.microsoft.com/library/azure/dn906008.aspx),
+([regression](/azure/machine-learning/studio-module-reference/decision-forest-regression),
+[two-class](/azure/machine-learning/studio-module-reference/two-class-decision-forest),
 and
-[multiclass](https://msdn.microsoft.com/library/azure/dn906015.aspx)),
+[multiclass](/azure/machine-learning/studio-module-reference/multiclass-decision-forest)),
 decision jungles
-([two-class](https://msdn.microsoft.com/library/azure/dn905976.aspx)
+([two-class](/azure/machine-learning/studio-module-reference/two-class-decision-jungle)
 and
-[multiclass](https://msdn.microsoft.com/library/azure/dn905963.aspx)),
+[multiclass](/azure/machine-learning/studio-module-reference/multiclass-decision-jungle)),
 and boosted decision trees
-([regression](https://msdn.microsoft.com/library/azure/dn905801.aspx)
+([regression](/azure/machine-learning/studio-module-reference/boosted-decision-tree-regression)
 and
-[two-class](https://msdn.microsoft.com/library/azure/dn906025.aspx))
+[two-class](/azure/machine-learning/studio-module-reference/two-class-boosted-decision-tree))
 are all based on decision trees, a foundational machine learning
 concept. There are many variants of decision trees, but they all do the
 same thing—subdivide the feature space into regions with mostly the same
@@ -293,7 +291,7 @@ Because a feature space can be subdivided into arbitrarily small
 regions, it's easy to imagine dividing it finely enough to have one data
 point per region. This is an extreme example of overfitting. In order to avoid
 this, a large set of trees are constructed with special mathematical
-care taken that the trees are not correlated. The average of this
+care taken to ensure the trees are not correlated. The average of this
 "decision forest" is a tree that avoids overfitting. Decision forests
 can use a lot of memory. Decision jungles are a variant that consumes
 less memory at the expense of a slightly longer training time.
@@ -307,7 +305,7 @@ technical description, check out [Friedman's original
 paper](http://www-stat.stanford.edu/~jhf/ftp/trebst.pdf).
 
 [Fast forest quantile
-regression](https://msdn.microsoft.com/library/azure/dn913093.aspx)
+regression](/azure/machine-learning/studio-module-reference/fast-forest-quantile-regression)
 is a variation of decision trees for the special case where you want to
 know not only the typical (median) value of the data within a region,
 but also its distribution in the form of quantiles.
@@ -315,10 +313,10 @@ but also its distribution in the form of quantiles.
 ### Neural networks and perceptrons
 
 Neural networks are brain-inspired learning algorithms covering
-[multiclass](https://msdn.microsoft.com/library/azure/dn906030.aspx),
-[two-class](https://msdn.microsoft.com/library/azure/dn905947.aspx),
+[multiclass](/azure/machine-learning/studio-module-reference/multiclass-neural-network),
+[two-class](/azure/machine-learning/studio-module-reference/two-class-neural-network),
 and
-[regression](https://msdn.microsoft.com/library/azure/dn905924.aspx)
+[regression](/azure/machine-learning/studio-module-reference/neural-network-regression)
 problems. They come in an infinite variety, but the neural networks
 within Azure Machine Learning Studio are all of the form of directed acyclic graphs. That
 means that input features are passed forward (never backward) through a
@@ -338,11 +336,12 @@ structure](https://go.microsoft.com/fwlink/?LinkId=402867), the
 possibilities are inexhaustible.
 
 ![Boundaries learned by neural networks](./media/algorithm-choice/image6.png)
+
 ***The boundaries learned by neural networks can be complex and
 irregular***
 
 The [two-class averaged
-perceptron](https://msdn.microsoft.com/library/azure/dn906036.aspx)
+perceptron](/azure/machine-learning/studio-module-reference/two-class-averaged-perceptron)
 is neural networks' answer to skyrocketing training times. It uses a
 network structure that gives linear class boundaries. It is almost
 primitive by today's standards, but it has a long history of working
@@ -354,11 +353,11 @@ Support vector machines (SVMs) find the boundary that separates classes
 by as wide a margin as possible. When the two classes can't be clearly
 separated, the algorithms find the best boundary they can. As written in
 Azure Machine Learning Studio, the [two-class
-SVM](https://msdn.microsoft.com/library/azure/dn905835.aspx) does
-this with a straight line only. (In SVM-speak, it uses a linear kernel.)
+SVM](/azure/machine-learning/studio-module-reference/two-class-support-vector-machine) does
+this with a straight line only (in SVM-speak, it uses a linear kernel).
 Because it makes this linear approximation, it is able to run fairly
 quickly. Where it really shines is with feature-intense data, like text
-or genomic. In these cases SVMs are able to separate classes more
+or genomic data. In these cases SVMs are able to separate classes more
 quickly and with less overfitting than most other algorithms, in
 addition to requiring only a modest amount of memory.
 
@@ -368,17 +367,17 @@ addition to requiring only a modest amount of memory.
 separating two classes***
 
 Another product of Microsoft Research, the [two-class locally deep
-SVM](https://msdn.microsoft.com/library/azure/dn913070.aspx) is a
+SVM](/azure/machine-learning/studio-module-reference/two-class-locally-deep-support-vector-machine) is a
 non-linear variant of SVM that retains most of the speed and memory
 efficiency of the linear version. It is ideal for cases where the linear
 approach doesn't give accurate enough answers. The developers kept it
-fast by breaking down the problem into a bunch of small linear SVM
+fast by breaking down the problem into a number of small linear SVM
 problems. Read the [full
 description](http://proceedings.mlr.press/v28/jose13.html)
 for the details on how they pulled off this trick.
 
 Using a clever extension of nonlinear SVMs, the [one-class
-SVM](https://msdn.microsoft.com/library/azure/dn913103.aspx) draws
+SVM](/azure/machine-learning/studio-module-reference/one-class-support-vector-machine) draws
 a boundary that tightly outlines the entire data set. It is useful for
 anomaly detection. Any new data points that fall far outside that
 boundary are unusual enough to be noteworthy.
@@ -388,11 +387,11 @@ boundary are unusual enough to be noteworthy.
 Bayesian methods have a highly desirable quality: they avoid
 overfitting. They do this by making some assumptions beforehand about
 the likely distribution of the answer. Another byproduct of this
-approach is that they have very few parameters. Azure Machine Learning Studio has both
+approach is that they have very few parameters. Azure Machine Learning Studio has
 Bayesian algorithms for both classification ([Two-class Bayes' point
-machine](https://msdn.microsoft.com/library/azure/dn905930.aspx))
+machine](/azure/machine-learning/studio-module-reference/two-class-bayes-point-machine))
 and regression ([Bayesian linear
-regression](https://msdn.microsoft.com/library/azure/dn906022.aspx)).
+regression](/azure/machine-learning/studio-module-reference/bayesian-linear-regression)).
 Note that these assume that the data can be split or fit with a straight
 line.
 
@@ -408,14 +407,14 @@ If you have a very specific goal you may be in luck. Within the Azure Machine Le
 collection, there are algorithms that specialize in:
 
 - rank prediction ([ordinal
-regression](https://msdn.microsoft.com/library/azure/dn906029.aspx)),
+regression](/azure/machine-learning/studio-module-reference/ordinal-regression)),
 - count prediction ([Poisson
-regression](https://msdn.microsoft.com/library/azure/dn905988.aspx)),
+regression](/azure/machine-learning/studio-module-reference/poisson-regression)),
 - anomaly detection (one based on [principal components
-analysis](https://msdn.microsoft.com/library/azure/dn913102.aspx)
+analysis](/azure/machine-learning/studio-module-reference/pca-based-anomaly-detection)
 and one based on [support vector
-machines](https://msdn.microsoft.com/library/azure/dn913103.aspx))
-- clustering ([K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/))
+machines](/azure/machine-learning/studio-module-reference/one-class-support-vector-machine))
+- clustering ([K-means](/azure/machine-learning/studio-module-reference/k-means-clustering))
 
 ![PCA-based anomaly detection](./media/algorithm-choice/image8.png)
 
@@ -428,7 +427,7 @@ that distribution are suspect*
 ***A data set is grouped into five clusters using K-means***
 
 There is also an ensemble [one-v-all multiclass
-classifier](https://msdn.microsoft.com/library/azure/dn905887.aspx),
+classifier](/azure/machine-learning/studio-module-reference/one-vs-all-multiclass),
 which breaks the N-class classification problem into N-1 two-class
 classification problems. The accuracy, training time, and linearity
 properties are determined by the two-class classifiers used.
@@ -440,7 +439,7 @@ classifier***
 
 Azure Machine Learning Studio also includes access to a powerful machine learning framework
 under the title of [Vowpal
-Wabbit](https://msdn.microsoft.com/library/azure/8383eb49-c0a3-45db-95c8-eb56a1fef5bf).
+Wabbit](/azure/machine-learning/studio-module-reference/train-vowpal-wabbit-version-7-4-model).
 VW defies categorization here, since it can learn both classification
 and regression problems and can even learn from partially unlabeled
 data. You can configure it to use any one of a number of learning
