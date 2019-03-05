@@ -79,27 +79,27 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
     cd cmake
     ```
 
-4. Run the following command to build a version of the SDK specific to your development client platform. In Windows, a Visual Studio solution for the simulated device will be generated in the `cmake` directory. 
+4. Run the following commands from the `cmake` directory to build a version of the SDK specific to your development client platform.
 
-   ```
-    # In Linux
-    cmake ..
-    make -j
-   ```
+   * In Linux:
 
-   In Windows, run the following commands in Developer Command Prompt for your Visual Studio 2015 or 2017 prompt:
+      ``` bash
+      cmake ..
+      make -j
+      ```
 
-   ```
-    rem In Windows
-    rem For VS2015
-    cmake .. -G "Visual Studio 15 2015"
-    
-    rem Or for VS2017
-    cmake .. -G "Visual Studio 15 2017"
+   * In Windows, run the following commands in Developer Command Prompt for Visual Studio 2015 or 2017. A Visual Studio solution for the simulated device will be generated in the `cmake` directory.
 
-    rem Then build the project
-    cmake --build . -- /m /p:Configuration=Release
-   ```
+      ``` cmd
+      rem For VS2015
+      cmake .. -G "Visual Studio 15 2015"
+
+      rem Or for VS2017
+      cmake .. -G "Visual Studio 15 2017"
+
+      rem Then build the project
+      cmake --build . -- /m /p:Configuration=Release
+      ```
 
 ## Create an IoT hub
 
