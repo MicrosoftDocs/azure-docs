@@ -76,7 +76,7 @@ Kusto offers client SDK that can be used to ingest and query data with:
 
 * Ingesting data directly into the Azure Data Explorer engine (most appropriate for exploration and prototyping):
 
-  * **Inline ingestion**: control command (.ingest inline) containing in-band data is intended for ad-hoc testing purposes.
+  * **Inline ingestion**: control command (.ingest inline) containing in-band data is intended for ad hoc testing purposes.
 
   * **Ingest from query**: control command (.set, .set-or-append, .set-or-replace) that points to query results is used for generating reports or small temporary tables.
 

@@ -17,7 +17,7 @@ ms.author: maheshb
 
 After you've configured your custom search experience, you can test it from within the Bing Custom Search [portal](https://customsearch.ai). 
 
-![a screenshot of the bing custom search portal](media/portal-search-screen.png)
+![a screenshot of the Bing custom search portal](media/portal-search-screen.png)
 ## Create a search query 
 
 After you've signed into the Bing Custom Search [portal](https://customsearch.ai), select your search instance and click the **Production** tab. Under **Endpoints**, select an API endpoint (for example, Web API). Your subscription determines what endpoints are shown.
