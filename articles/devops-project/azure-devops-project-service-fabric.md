@@ -35,7 +35,7 @@ In this tutorial, you will:
 
 * An Azure subscription. You can get one free through [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-## Use DevOps Projects to create an ASP.NET Core app and deploy it to Service Fabricc
+## Use DevOps Projects to create an ASP.NET Core app and deploy it to Service Fabric
 
 DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a new Azure DevOps organization or use an existing organization. DevOps Projects also creates Azure resources, such as a Service Fabric cluster, in the Azure subscription of your choice.
 

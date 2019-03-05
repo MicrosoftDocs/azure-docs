@@ -126,7 +126,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |50180|Windows Integrated authentication is needed. Enable the tenant for Seamless SSO.|
 |51001|Domain Hint is not present with On-Premises Security Identifier - On-Premises UPN.|
 |51004|User account doesn’t exist in the directory.|
-|51006|Windows Integrated authentication is needed. User logged in using session token that is missing wia claim. Request the  user to re-login.|
+|51006|Windows Integrated authentication is needed. User logged in using session token that is missing via claim. Request the  user to re-login.|
 |52004|User has not provided consent for access to LinkedIn resources. |
 |53000|Conditional Access policy requires a compliant device, and the device is not compliant. Have the user enroll their device with an approved MDM provider like Intune.|
 |53001|Conditional Access policy requires a domain joined device, and the device is not domain joined. Have the user use a domain joined device.|

@@ -87,7 +87,7 @@ The below steps will guide you how to use Azure Site Recovery to enable replicat
 ![enable-rep-1.PNG](media/azure-vms-to-zones/enable-rep-1.PNG)
 
 1. Select **Next: Advanced settings**
-2. Choose the appropriate values for Target subscriptiom, target VM Resource Group & virtual network.
+2. Choose the appropriate values for Target subscription, target VM Resource Group & virtual network.
 3. In the **Availability** section, choose the Availability zone into which you want to move the VM. 
 > [!NOTE]
 > If you don’t see the option for availability set or Availabilty zone, please ensure that the [prerequisites](#prepare-the-source-vms) are met and the [preparation](#prepare-the-source-vms) of source VMs are complete.

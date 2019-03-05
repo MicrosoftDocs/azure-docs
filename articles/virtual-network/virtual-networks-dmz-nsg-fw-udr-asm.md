@@ -352,7 +352,7 @@ The specifics of each rule required to complete this example are described as fo
   
     This Pass rule allows any IIS server on the Frontend subnet to reach the AppVM01 (IP Address 10.0.2.5) on Any port, using any Protocol to access data needed by the web application.
   
-    In this screenshot an "\<explicit-dest\>" is used in the Destination field to signify 10.0.2.5 as the destination. This could be either explicit as shown or a named Network Object (as was done in the prerequisites for the DNS server). This is up to the administrator of the firewall as to which method will be used. To add 10.0.2.5 as an Explict Destination, double-click on the first blank row under \<explicit-dest\> and enter the address in the window that pops up.
+    In this screenshot an "\<explicit-dest\>" is used in the Destination field to signify 10.0.2.5 as the destination. This could be either explicit as shown or a named Network Object (as was done in the prerequisites for the DNS server). This is up to the administrator of the firewall as to which method will be used. To add 10.0.2.5 as an Explicit Destination, double-click on the first blank row under \<explicit-dest\> and enter the address in the window that pops up.
   
     With this Pass Rule, no NAT is needed since this is internal traffic, so the Connection Method can be set to "No SNAT".
   

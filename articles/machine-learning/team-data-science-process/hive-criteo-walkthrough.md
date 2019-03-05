@@ -445,7 +445,7 @@ Right-click the output port of the **Import Data** module. This reveals a **Save
 
 To select the saved dataset for use in a machine learning experiment, locate the datasets using the **Search** box shown in the following figure. Then simply type out the name you gave the dataset partially to access it and drag the dataset onto the main panel. Dropping it onto the main panel selects it for use in machine learning modeling.
 
-![Drage dataset onto the main panel](./media/hive-criteo-walkthrough/cl5tpGw.png)
+![Drag dataset onto the main panel](./media/hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
 > Do this for both the train and the test datasets. Also, remember to use the database name and table names that you gave for this purpose. The values used in the figure are solely for illustration purposes.**

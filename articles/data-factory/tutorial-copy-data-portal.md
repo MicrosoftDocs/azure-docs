@@ -228,7 +228,7 @@ You can debug a pipeline before you publish artifacts (linked services, datasets
 
 1. To debug the pipeline, select **Debug** on the toolbar. You see the status of the pipeline run in the **Output** tab at the bottom of the window. 
 
-1. Once the pipeline can run successfually, in the top toolbar, select **Publish All**. This action publishes entities (datasets, and pipelines) you created to Data Factory.
+1. Once the pipeline can run successfully, in the top toolbar, select **Publish All**. This action publishes entities (datasets, and pipelines) you created to Data Factory.
 
     ![Publish](./media/tutorial-copy-data-portal/publish-button.png)
 
