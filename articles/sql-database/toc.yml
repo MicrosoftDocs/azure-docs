@@ -6,6 +6,8 @@
     href: sql-database-technical-overview.md
   - name: Choose a version of Azure SQL
     href: sql-database-paas-vs-sql-server-iaas.md
+  - name: Release notes
+    href: sql-database-release-notes.md 
 - name: Quickstarts
   expanded: true
   items:
@@ -631,7 +633,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.sql/#sql
+    href: /powershell/module/az.sql
   - name: Azure CLI
     href: /cli/azure/sql
   - name: .NET

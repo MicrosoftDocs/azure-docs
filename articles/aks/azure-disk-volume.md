@@ -6,8 +6,10 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 03/01/2019
 ms.author: iainfou
+
+#Customer intent: As a developer, I want to learn how to manually create and attach storage to a specific pod in AKS.
 ---
 
 # Manually create and use a volume with Azure disks in Azure Kubernetes Service (AKS)
@@ -17,13 +19,13 @@ Container-based applications often need to access and persist data in an externa
 > [!NOTE]
 > An Azure disk can only be mounted to a single pod at a time. If you need to share a persistent volume across multiple pods, use [Azure Files][azure-files-volume].
 
-For more information on Kubernetes volumes, see [Kubernetes volumes][kubernetes-volumes].
+For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 
 ## Before you begin
 
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-You also need the Azure CLI version 2.0.46 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Create an Azure disk
 
@@ -31,7 +33,7 @@ When you create an Azure disk for use with AKS, you can create the disk resource
 
 For this article, create the disk in the node resource group. First, get the resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster name *myAKSCluster* in the resource group name *myResourceGroup*:
 
-```azurecli
+```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
 
 MC_myResourceGroup_myAKSCluster_eastus
@@ -48,7 +50,7 @@ az disk create \
 ```
 
 > [!NOTE]
-> Azure disks are billed by SKU for a specific size. These SKUs range from 32GiB for S4 or P4 disks to 8TiB for S60 or P60 disks. The throughput and IOPS performance of a Premium managed disk depends on both the SKU and the instance size of the nodes in the AKS cluster. See [Pricing and Performance of Managed Disks][managed-disk-pricing-performance].
+> Azure disks are billed by SKU for a specific size. These SKUs range from 32GiB for S4 or P4 disks to 32TiB for S80 or P80 disks (in preview). The throughput and IOPS performance of a Premium managed disk depends on both the SKU and the instance size of the nodes in the AKS cluster. See [Pricing and Performance of Managed Disks][managed-disk-pricing-performance].
 
 The disk resource ID is displayed once the command has successfully completed, as shown in the following example output. This disk ID is used to mount the disk in the next step.
 
@@ -122,6 +124,8 @@ Events:
 
 ## Next steps
 
+For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
+
 For more information about AKS clusters interact with Azure disks, see the [Kubernetes plugin for Azure Disks][kubernetes-disks].
 
 <!-- LINKS - external -->
@@ -139,3 +143,5 @@ For more information about AKS clusters interact with Azure disks, see the [Kube
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [install-azure-cli]: /cli/azure/install-azure-cli
 [azure-files-volume]: azure-files-volume.md
+[operator-best-practices-storage]: operator-best-practices-storage.md
+[concepts-storage]: concepts-storage.md

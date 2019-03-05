@@ -371,7 +371,7 @@ The `set-body` policy can be configured to use the [Liquid](https://shopify.gith
 </set-body>
 ```
 
-#### Tranform JSON using a Liquid template
+#### Transform JSON using a Liquid template
 ```xml
 {
 "order": {
