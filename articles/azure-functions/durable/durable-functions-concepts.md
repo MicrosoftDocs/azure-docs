@@ -28,7 +28,7 @@ This section describes some common application patterns where Durable Functions 
 
 ### <a name="chaining"></a>Pattern #1: Function chaining
 
-In the function chaining pattern, a sequence of functions executes in a specific order. In this pattern, the output of one function often is applied to the input of another function.
+In the function chaining pattern, a sequence of functions executes in a specific order. In this pattern, the output of one function is applied to the input of another function.
 
 ![A diagram of the function chaining pattern](./media/durable-functions-concepts/function-chaining.png)
 
