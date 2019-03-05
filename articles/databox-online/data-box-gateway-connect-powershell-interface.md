@@ -7,10 +7,10 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/05/2019
 ms.author: alkohli
 ---
-# Manage Azure Data Box Gateway via Windows PowerShell
+# Manage an Azure Data Box Gateway device via Windows PowerShell
 
 Azure Data Box Gateway solution lets you send data over the network to Azure. This article describes some of the configuration and management tasks for your Data Box Gateway device. You can use the Azure portal, local web UI, or the Windows PowerShell interface to manage your device.
 
@@ -25,6 +25,10 @@ This article includes the following procedures:
 - Boot up in non-DHCP environment
 - View device information
 
+> [!IMPORTANT]
+> Azure Data Box Gateway is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Connect to the PowerShell interface
 
@@ -52,4 +56,4 @@ This article includes the following procedures:
 
 ## Next steps
 
-- Deploy [Azure Data Box Edge](https://aka.ms/dbe-docs) in Azure portal.
+- Deploy [Azure Data Box Gateway](data-box-gateway-deploy-prep.md) in Azure portal.
