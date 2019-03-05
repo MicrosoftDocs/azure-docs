@@ -110,6 +110,8 @@ This is normally not a cause for concern and can usually be ignored for unplanne
 
 This issue is indicated when you are unable to see the datastore in Azure the portal when trying to reprotect the virtual machine that has experiencd a failover. This is because the Master target is not recognized as a virtual machine under vCenters added to Azure Site Recovery.
 
+For more information about reprotecting a vitual machine, see [Reprotect and fail back machines to an on-premises site after failover to Azure](vmware-azure-reprotect.md).
+
 To resolve the issue:
 
 Manually create the Master target in the vCenter that manages your source machine. The datastore will be available after the next vCenter discovery and refresh fabric operations.
