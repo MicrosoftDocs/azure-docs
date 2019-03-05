@@ -11,15 +11,13 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/27/2018
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 
 ---
 
 # Tutorial: Use Azure Deployment Manager with Resource Manager templates (Private preview)
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Learn how to use [Azure Deployment Manager](./deployment-manager-overview.md) to deploy your applications across multiple regions. To use Deployment Manager, you need to create two templates:
 
@@ -201,9 +199,6 @@ The following screenshot only shows some parts of the service topology, services
 - **dependsOn**: All the service topology resources depend on the artifact source resource.
 - **artifacts** point to the template artifacts.  Relative paths are used here. The full path is constructed by concatenating artifactSourceSASLocation (defined in the artifact source), artifactRoot (defined in the artifact source), and templateArtifactSourceRelativePath (or parametersArtifactSourceRelativePath).
 
-> [!NOTE]
-> The service unit names must contain 31 characters or less. 
-
 ### Topology parameters file
 
 You create a parameters file used with the topology template.
@@ -291,13 +286,13 @@ Azure PowerShell can be used to deploy the templates.
 
 1. Run the script to deploy the service topology.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     $resourceGroupName = "<Enter a Resource Group Name>"
     $location = "Central US"  
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
     
     # Create a resource group
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location "$location"
     
     # Create the service topology
     New-AzureRmResourceGroupDeployment `
@@ -314,7 +309,7 @@ Azure PowerShell can be used to deploy the templates.
 
 3. <a id="deploy-the-rollout-template"></a>Deploy the rollout template:
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     # Create the rollout
     New-AzureRmResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
@@ -324,12 +319,13 @@ Azure PowerShell can be used to deploy the templates.
 
 4. Check the rollout progress using the following PowerShell script:
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     # Get the rollout status
     $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
     Get-AzureRmDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
-        -Name $rolloutName
+        -Name $rolloutName `
+        -Verbose
     ```
 
     The Deployment Manager PowerShell cmdlets must be installed before you can run this cmdlet. See Prerequisites.
