@@ -177,3 +177,14 @@ Create the Terraform configuration file for common variables that are used acros
 
 > [!div class="nextstepaction"] 
 > [Create on-premises virtual network with Terraform in Azure](./terraform-hub-spoke-on-prem.md)
+
+
+
+
+
+
+
+
+
+
+

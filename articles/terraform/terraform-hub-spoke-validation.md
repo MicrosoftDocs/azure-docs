@@ -80,7 +80,7 @@ After completing the [prerequisites][#prerequisites], verify that the appropriat
     terraform apply
     ```
     
-1. Enter `yes` when prompted to confirm the deployment.
+    Enter `yes` when prompted to confirm the deployment.
 
     ![Example results of "terraform apply" command](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-apply.jpg)
     
@@ -128,6 +128,30 @@ This section shows how to test connectivity from the simulated on-premises envir
 ## Troubleshoot VPN issues
 
 For information about resolving VPN errors, see the article, [Troubleshoot a hybrid VPN connection](/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn).
+
+## Clean up resources
+
+When no longer needed, delete the resources created in the tutorial series.
+
+1. Remove the resources declared in the plan:
+
+    ```bash
+    terraform destroy
+    ```
+
+    Enter `yes` when prompted to confirm the removal of the resources.
+
+1. Move to parent directory:
+
+    ```bash
+    cd ..
+    ```
+
+1. Delete hub-state directory (including all of its fiels):
+
+    ```bash
+    rmdir hub-state
+    ```
 
 ## Next steps
 
