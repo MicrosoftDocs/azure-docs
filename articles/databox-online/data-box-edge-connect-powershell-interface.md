@@ -74,9 +74,6 @@ If the compute role is configured on your device, you can also get the compute l
     - `RoleInstanceName`: Provide this string `IotRole` for this parameter.
     - `FullLogCollection`: This parameter ensures that the log package will contain all the compute logs. By default, the log package contains only a subset of logs.
 
-## Monitor and troubleshoot compute
-
-[!INCLUDE [Monitor and troubleshoot compute](../../includes/data-box-edge-monitor-troubleshoot-compute.md)]
 
 ## Next steps
 
