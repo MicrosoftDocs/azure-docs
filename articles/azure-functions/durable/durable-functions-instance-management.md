@@ -415,7 +415,7 @@ func durable raise-event --id 1234567 --event-name MyOtherEvent --event-data 3
 
 ## Wait for orchestration completion
 
-In long-running orchestrations, you may want to wait and get the results of an orchestration. In these cases, it's also useful to be able to define a timeout period on the orchestration. If the timeout is exceeded, the state of the orchestration should be returned instead of the results.```
+In long-running orchestrations, you may want to wait and get the results of an orchestration. In these cases, it's also useful to be able to define a timeout period on the orchestration. If the timeout is exceeded, the state of the orchestration should be returned instead of the results.
 
 The [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class exposes a [WaitForCompletionOrCreateCheckStatusResponseAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_WaitForCompletionOrCreateCheckStatusResponseAsync_) API in .NET. You can use this API to get the actual output from an orchestration instance synchronously. In JavaScript, the `DurableOrchestrationClient` class exposes a `waitForCompletionOrCreateCheckStatusResponse` API for the same purpose. When they are not set, the methods use a default value of 10 seconds for `timeout`, and 1 second for `retryInterval`.  
 
