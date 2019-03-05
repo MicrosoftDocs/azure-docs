@@ -34,7 +34,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
    * Direct Mode
 
-     Direct mode supports connectivity through TCP and HTTPS protocols. If you are using the latest version of .Net SDK, direct connectivity mode is supported in .NET Standard 2.0 and .Net frameworks. When using Direct Mode, there are two protocol options available:
+     Direct mode supports connectivity through TCP and HTTPS protocols. If you are using the latest version of .Net SDK, direct connectivity mode is supported in .NET Standard 2.0 and .Net framework. When using Direct Mode, there are two protocol options available:
 
     * TCP
     * HTTPS
