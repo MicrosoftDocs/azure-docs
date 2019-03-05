@@ -26,7 +26,7 @@ Enabling static results on an action doesn't run the action,
 but returns the mock data instead. For example, if you set 
 up static results for the Outlook 365 send mail action, 
 the Logic Apps engine just returns the mock data you specified 
-in static results, rather than call Outlook and send an email. 
+as static results, rather than call Outlook and send an email.
 
 ## Prerequisites
 
@@ -77,8 +77,8 @@ static results, follow these steps:
 
 1. When you're ready to save, choose **Done**.
 
-   In the action's upper-right corner, 
-   the title bar now shows a test beaker icon, 
+   In the action's upper-right corner, the title bar now shows a test beaker icon 
+   (![Icon for static results](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)), 
    which indicates that you've enabled static results.
 
    ![Icon showing enabled static results](./media/test-logic-apps-mock-data-static-results/static-results-enabled.png)
@@ -87,9 +87,9 @@ static results, follow these steps:
 
 ## Reuse previous outputs
 
-If your logic app has a previous run with outputs you 
-can reuse as your mock outputs, you can copy and 
-paste those outputs from that run. 
+If your logic app has a previous run with outputs 
+you can reuse as mock outputs, you can copy and 
+paste the outputs from that run.
 
 1. If you haven't already, in the [Azure portal](https://portal.azure.com), 
 open your logic app in the Logic Apps Designer.
@@ -133,11 +133,11 @@ box for your action in [Set up static results](#set-up-static-results).
 
 Turning off static results doesn't throw away the 
 values from your last setup. So, when you turn on 
-static results the next time, you can continue using 
-your previous values.
+static results the next time, you can continue 
+using your previous values.
 
 1. Find the action where you want to disable static outputs. 
-In the action's upper-right corner, choose the test beaker icon.
+In the action's upper-right corner, choose the test beaker icon (![Icon for static results](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)).
 
    ![Disable static results](./media/test-logic-apps-mock-data-static-results/disable-static-results.png)
 
