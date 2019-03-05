@@ -146,11 +146,8 @@ To resolve the issue:
 
    - To ensure that the master target server can communicate with the configuration server:
   
-     - Modify the proxy settings in Internet Explorer to bypass the Master Target server IP address through the proxy.
-     
+     - Modify the proxy settings in Internet Explorer to bypass the Master Target server IP address through the proxy.   
      Or
-     
-
      - Disable the proxy on Master Target server. 
 
 
