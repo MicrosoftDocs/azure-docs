@@ -32,7 +32,7 @@ In the function chaining pattern, a sequence of functions executes in a specific
 
 ![A diagram of the function chaining pattern](./media/durable-functions-concepts/function-chaining.png)
 
-You can use Durable Functions to implement the function chaining pattern concisely as shown in the following example:```
+You can use Durable Functions to implement the function chaining pattern concisely as shown in the following example:
 
 #### C# script
 
@@ -56,7 +56,7 @@ public static async Task<object> Run(DurableOrchestrationContext context)
 > [!NOTE]
 > There are subtle differences between writing a precompiled durable function in C# and writing a precompiled durable function in the C# script that's shown in the example. In a C# precompiled function, durable parameters must be decorated with respective attributes. An example is the `[OrchestrationTrigger]` attribute for the `DurableOrchestrationContext` parameter. In a C# precompiled durable function, if the parameters aren't properly decorated, the runtime can't inject the variables into the function, and an error occurs. For more examples, see the [azure-functions-durable-extension samples on GitHub](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples).
 
-#### JavaScript (Azure Functions 2.x only)
+#### JavaScript (Functions 2.x only)
 
 ```javascript
 const df = require("durable-functions");
@@ -69,7 +69,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-In this example, the values `F1`, `F2`, `F3`, and `F4` are the names of other functions in the function app. Implement control flow by using normal imperative coding constructs. Code executes from the top down. The code can involve existing language control flow semantics, like conditionals and loops. You can include error handling logic in `try`/`catch`/`finally` blocks.
+In this example, the values `F1`, `F2`, `F3`, and `F4` are the names of other functions in the function app. You can implement control flow by using normal imperative coding constructs. Code executes from the top down. The code can involve existing language control flow semantics, like conditionals and loops. You can include error handling logic in `try`/`catch`/`finally` blocks.
 
 You can use the `context` parameter [DurableOrchestrationContext] \(.NET\) and the `context.df` object (JavaScript) to invoke other functions by name, pass parameters, and return function output. Each time the code calls `await` (C#) or `yield` (JavaScript), the Durable Functions framework checkpoints the progress of the current function instance. If the process or VM recycles midway through the execution, the function instance resumes from the preceding `await` or `yield` call. For more information, see the next section, Pattern #2: Fan out/fan in.
 
@@ -109,7 +109,7 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-#### JavaScript (Azure Functions 2.x only)
+#### JavaScript (Functions 2.x only)
 
 ```javascript
 const df = require("durable-functions");
@@ -195,7 +195,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-#### JavaScript (Azure Functions 2.x only)
+#### JavaScript (Functions 2.x only)
 
 ```javascript
 // An HTTP-triggered function starts a new orchestrator function instance.
@@ -262,7 +262,7 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-#### JavaScript (Azure Functions 2.x only)
+#### JavaScript (Functions 2.x only)
 
 ```javascript
 const df = require("durable-functions");
@@ -329,7 +329,7 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-#### JavaScript (Azure Functions 2.x only)
+#### JavaScript (Functions 2.x only)
 
 ```javascript
 const df = require("durable-functions");
