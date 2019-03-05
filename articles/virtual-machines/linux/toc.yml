@@ -488,7 +488,7 @@
     href: ../extensions/overview.md
   - name: Move and migrate VMs
     items:
-    - name: Move a VM
+    - name: Change subscription or resource group
       href: move-vm.md
     - name: Move VMs to another region
       href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
