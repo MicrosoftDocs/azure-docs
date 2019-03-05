@@ -58,7 +58,7 @@
       href: dsvm-enterprise-overview.md
     - name: Scaling
       href: dsvm-pools.md
-    - name: Active Directory Integration
+    - name: Active Directory integration
       href: dsvm-common-identity.md
     - name: Secure resource access credentials
       href: dsvm-secure-access-keys.md        
