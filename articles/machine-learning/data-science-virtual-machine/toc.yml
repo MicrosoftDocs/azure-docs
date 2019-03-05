@@ -22,7 +22,7 @@
     href: provision-deep-learning-dsvm.md
   - name: Create a Geo AI Data Science VM
     href: provision-geo-ai-dsvm.md 
-- name: Conceptual
+- name: Concepts
   items:
   - name: Discover the DSVM
     href: dsvm-tools-overview.md
