@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 03/05/2019
 ms.author: tamram
 ms.subservice: common
 ---
@@ -56,11 +56,11 @@ While general-purpose v2 accounts are recommended in most cases, general-purpose
 
 * You use a version of the [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) that is earlier than 2014-02-14 or a client library with a version lower than 4.x, and cannot upgrade your application.
 
-### Blob storage accounts
+### Block blob storage accounts
 
-A Blob storage account is a specialized storage account for storing unstructured object data as block blobs. Blob storage accounts provide the same durability, availability, scalability, and performance features that are available with general-purpose v2 storage accounts. Blob storage accounts support storing block blobs and append blobs, but not page blobs.
+A block blob storage account is a specialized storage account for storing unstructured object data as block blobs. Block blob storage accounts provide the same availability, scalability, and performance features that are available with general-purpose v2 storage accounts. Block blob storage accounts support storing block blobs and append blobs, but not page blobs.
 
-Blob storage accounts offer multiple access tiers for storing data based on your usage patterns. For more information, see [Access tiers for block blob data](#access-tiers-for-block-blob-data).
+Block blob storage accounts offer multiple access tiers for storing data based on your usage patterns. For more information, see [Access tiers for block blob data](#access-tiers-for-block-blob-data).
 
 ## Naming storage accounts
 
