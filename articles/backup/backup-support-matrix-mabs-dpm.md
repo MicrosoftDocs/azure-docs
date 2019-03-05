@@ -12,32 +12,32 @@ manager: carmonm
 
 # Support matrix for backup with Microsoft Azure Backup Server or System Center DPM
 
-You can use the [Azure Backup service](backup-overview.md) to back up on-premises machines and workloads, and Azure VMs. This article summarizes support settings and limitations for backing up machines by using Microsoft Azure Backup Server (MABS) or System Center Data Protection Manager (DPM), and Azure Backup.
+You can use the [Azure Backup service](backup-overview.md) to back up on-premises machines and workloads, and Azure virtual machines (VMs). This article summarizes support settings and limitations for backing up machines by using Microsoft Azure Backup Server (MABS) or System Center Data Protection Manager (DPM), and Azure Backup.
 
 ## About MABS/DPM
 
-[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview?view=sc-dpm-1807) is an enterprise solution that configures, facilitates and manages backup and recovery of enterprise machines and data. It's part of the [System Center](https://www.microsoft.com/cloud-platform/system-center-pricing) suite of products.
+[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview?view=sc-dpm-1807) is an enterprise solution that configures, facilitates, and manages backup and recovery of enterprise machines and data. It's part of the [System Center](https://www.microsoft.com/cloud-platform/system-center-pricing) suite of products.
 
 Microsoft Azure Backup Server (MABS) is a server product that can be used to back up on-premises physical servers, virtual machines (VMs) and apps running on them, and Azure VMs.
 
-- MABS is based on System Center Data Protection Manager (DPM), and provides similar functionality with a couple of differences:
+- MABS is based on System Center Data Protection Manager (DPM) and provides similar functionality with a couple of differences:
     - No System Center license is required to run MABS.
-    - For both MABS and DPM Azure provides long-term backup storage. In addition, DPM allows you to back up data for long-term storage on tape. MABS doesn't provide this functionality.
+    - For both MABS and DPM, Azure provides long-term backup storage. In addition, DPM allows you to back up data for long-term storage on tape. MABS doesn't provide this functionality.
 - You download MABS server from the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=57520). It can be run on-premises, or on an Azure VM in Azure.
 
 DPM and MABS support backing up a wide variety of apps, and server and client operating systems. They provide multiple backup scenarios:
     - You can back up at the machine level with system-state or bare-metal backup.
     - You can back up specific volumes, shares, folders, and files.
-    - You can back up specific apps using optimized app-aware settings.
+    - You can back up specific apps by using optimized app-aware settings.
 
 ## MABS/DPM backup
 
 Backup using MABS/DPM and Azure Backup works as follows:
 
-1. DPM/MABS protection agent installed on each machine that will be backed up. 
-2. Machines/apps are backed up to local storage on DPM/MABS.
-3. The Microsoft Azure Recovery Services (MARS) agent is installed on the DPM server/MABS.
-4. The MARS agent backs up the DPM/MABS disks to a backup Recovery Services vault in Azure, using Azure Backup.
+1. DPM/MABS protection agent is installed on each machine that will be backed up. 
+1. Machines/apps are backed up to local storage on DPM/MABS.
+1. The Microsoft Azure Recovery Services (MARS) agent is installed on the DPM server/MABS.
+1. The MARS agent backs up the DPM/MABS disks to a backup Recovery Services vault in Azure by using Azure Backup.
 
 For more information:
 - [Learn more](backup-architecture.md#architecture-back-up-to-dpmmabs) about MABS architecture.
@@ -47,28 +47,28 @@ For more information:
 
 **Scenario** | **Agent** | **Location**
 --- | --- | ---
-**Back up on-premises machines/workloads** | DPM/MABS protection agent runs on the machines you want to back up<br/><br/> The MARS agent on MABS/DPM server | MABS/DPM must be running on-premises
-**Back up of Azure VMs/workloads** | DPM/MABS protection agent on protected machine<br/><br/> MARS agent on MABS/DPM | DPM/MABS must be running on an Azure VM.
+**Back up on-premises machines/workloads** | DPM/MABS protection agent runs on the machines that you want to back up.<br/><br/> The MARS agent on MABS/DPM server. | MABS/DPM must be running on-premises.
+**Back up of Azure VMs/workloads** | DPM/MABS protection agent on protected machine.<br/><br/> MARS agent on MABS/DPM | DPM/MABS must be running on an Azure VM.
 
 ## Supported deployments
 
-DPM/MABS can be deployed as summarized in the table.
+DPM/MABS can be deployed as summarized in the following table.
 
 **Deployment** | **Support** | **Details**
 --- | --- | ---
-**Deployed on-premises** | Physical server<br/><br/>Hyper-V VM<br/><br/> VMware VM | If DPM/MABS is installed as a VMware VM it only backs up VMware VMs, and workloads running on those VMs.
+**Deployed on-premises** | Physical server<br/><br/>Hyper-V VM<br/><br/> VMware VM | If DPM/MABS is installed as a VMware VM, it only backs up VMware VMs and workloads that are running on those VMs.
 **Deployed as an Azure Stack VM** | MABS only | DPM can't be used to back up Azure Stack VMs.
-**Deployed as an Azure VM** | Protects Azure VMs, and workloads running on those VMs. | MABS/DPM running in Azure can't back up on-premises machines.
+**Deployed as an Azure VM** | Protects Azure VMs and workloads that are running on those VMs | MABS/DPM running in Azure can't back up on-premises machines.
 
 
 ## Supported MABS and DPM operating systems
 
-Azure Backup can back up MABS/DPM running any of the following operating systems. Operating systems should be running the latest service packs and updates.
+Azure Backup can back up MABS/DPM that are running any of the following operating systems. Operating systems should be running the latest service packs and updates.
 
 **Scenario** | **MABS/DPM** 
 --- | --- 
-**MABS on an Azure VM** | Windows Server 2012 R2<br/><br/> Windows 2016 Datacenter<br/><br/> Windows 2019 Datacenter<br/><br/> We recommend you start with an image from the marketplace.<br/><br/> Minimum A2 Standard with two cores and 3.5 GB RAM. 
-**DPM on an Azure VM** | System Center 2012 R2 with Update 3 or later.<br/><br/> Windows operating system as [required by System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> We recommend you start with an image from the marketplace.<br/><br/> Minimum A2 Standard with two cores and 3.5 GB RAM. 
+**MABS on an Azure VM** | Windows Server 2012 R2.<br/><br/> Windows 2016 Datacenter.<br/><br/> Windows 2019 Datacenter.<br/><br/> We recommend that you start with an image from the marketplace.<br/><br/> Minimum A2 Standard with two cores and 3.5 GB RAM. 
+**DPM on an Azure VM** | System Center 2012 R2 with Update 3 or later.<br/><br/> Windows operating system as [required by System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> We recommend that you start with an image from the marketplace.<br/><br/> Minimum A2 Standard with two cores and 3.5 GB RAM. 
 **MABS on-premises** | Supported 64-bit operating systems:<br/><br/> MABS v3 onwards: Windows Server 2019 (Standard, Datacenter, Essentials) <br/><br/> MABS v2 onwards: Windows Server 2016 (Standard, Datacenter, Essentials)<br/><br/> All MABS versions: Windows Server 2012 R2/2012 (Standard, Datacenter, Foundation)<br/><br/>All MABS versions: Windows Storage Server 2012 R2/2012 (Standard/Workgroup)
 **DPM on-premises** | Physical server/Hyper-V VM: System Center 2012 SP1 or later.<br/><br/> VMware VM: System Center 2012 R2 with Update 5 or later. 
 
@@ -77,7 +77,7 @@ Azure Backup can back up MABS/DPM running any of the following operating systems
 ## Management support
 **Issue** | **Details**
 --- | ---
-**Installation** | DPM/MABS should be installed on a single purpose machine.<br/><br/> Don't install DPM/MABS on a domain controller, on a machine with the Application Server role installation, on a machine running Exchange Server or System Center Operations Manager, or on a cluster node.<br/><br/> [Review](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server) all DPM system requirements.
+**Installation** | DPM/MABS should be installed on a single purpose machine.<br/><br/> Don't install DPM/MABS on a domain controller, on a machine with the Application Server role installation, on a machine that is running Exchange Server or System Center Operations Manager, or on a cluster node.<br/><br/> [Review](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server) all DPM system requirements.
 **Domain** | The DPM server/MABS should be joined to a domain. Install first, and then join DPM/MABS to a domain. Moving DPM/MABS to a new domain after deployment isn't supported.
 **Storage** | Modern backup storage (MBS) is supported from DPM 2016/MABS v2 onwards. It isn't available for MABS v1.
 **MABS upgrade** | You can directly install MABS v3, or upgrade to MABS v3 from MABS v2. [Learn more](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
@@ -201,7 +201,7 @@ The following table summarizes what can be backed up to DPM from on-premises mac
 **Exchange 2016**<br/><br/> **Exchange 2013**<br/><br/> **Exchange 2010** | For Exchange 2016, DPM 2012 R2 needs Update Rollup 9 or later.<br/><br/> On-premises | Back up standalone Exchange server, database under a DAG<br/><br/> Recover mailbox, mailbox database under a DAG.<br/><br/> ReFS not supported.<br/><br/> Back up non-shared disk clusters.<br/><br/> Back up Exchange Server configured for continuous replication.
 **SharePoint 2016**<br/><br/> **Sharepoint 2013**<br/><br/> **SharePoint 2010** | SharePoint 2016 on DPM 2016 onwards.<br/><br/>On-premises/Azure VM | Back up farm, frontend web server.<br/><br/> Recover farm, database, web app, file or list item, SharePoint search, frontend web server.<br/><br/> You can't back up a farm using AlwaysOn for the content databases.
 **Hyper-V on Windows Server 2016**<br/><br/> **Windows Server 2012 R2/2012** (Datacenter/Standard)<br/><br/> **Windows Server 2008 R2 (with SP1)** | Hyper-V on 2016 supported for DPM 2016 onwards.<br/><br/> On-premises | **MABS agent on Hyper-V host**: Backup entire VMs and host data files. Back up VMs with local storage, VMs in cluster with CSV storage, VMs with SMB file server storage.<br/><br/> **MABS agent on guest VM**: Back up workloads running on the VM. CSVs.<br/><br/> **Recovery**: VM, item-level recovery of VHD/volume/folders/files.<br/><br/> **Linux VMs**: Back up when Hyper-V is running on Windows Server 2012 R2 onwards. Recovery for Linux VMs is for the entire machine.
-**VMware VMs: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2, v1.<br/><br/> DPM 2012 R2 needs System Center Update Rollup 1) | On-premises | Back up VMware VMs on CSVs, NFS and SAN storage.<br/><br/> Recover entire VM.<br/><br/> Windows/Linux backup.<br/><br/> Item-level recovery of folder/files for Windows VMs only.<br/><br/> VMware vApps aren't supported.<br/><br/> Recovery for Linux VMs is for the entire machine.
+**VMware VMs: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2, v1<br/><br/> DPM 2012 R2 needs System Center Update Rollup 1) | On-premises | Back up VMware VMs on CSVs, NFS and SAN storage.<br/><br/> Recover entire VM.<br/><br/> Windows/Linux backup.<br/><br/> Item-level recovery of folder/files for Windows VMs only.<br/><br/> VMware vApps aren't supported.<br/><br/> Recovery for Linux VMs is for the entire machine.
 
 
 - Note that clustered workloads backed up by DPM/MABS should in the same domain as DPM/MABS, or in a child/trusted domain. 
@@ -214,4 +214,4 @@ The following table summarizes what can be backed up to DPM from on-premises mac
 - [Learn more](backup-architecture.md#architecture-back-up-to-dpmmabs) about MABS architecture.
 - [Review](backup-support-matrix-mars-agent.md) what's supported for the MARS agent.
 - [Set up](backup-azure-microsoft-azure-backup.md) a MABS server.
-- [Set up DPM](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-180)
+- [Set up DPM](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-180).
