@@ -15,7 +15,7 @@ ms.author: azfuncdf
 
 # How to run Durable Functions as WebJobs
 
-You might want to create, publish, and manage Durable Functions in a context that is more customizable than that of Azure Functions. You might prefer to run your Durable Functions in an Azure WebJob, for example, or indeed anywhere a console application runs. This article shows you how.
+By default, Durable Functions uses the Azure Functions runtime to host orchestrations. However, there may be certain scenarios where you need more control over the code that listens for events. This article shows you how to implement your orchestration using the WebJobs SDK. To see a more detailed comparison between Functions and WebJobs, see [Compare Functions and WebJobs](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
 
 [Azure Functions](../functions-overview.md) and the [Durable Functions](durable-functions-overview.md) extension are built on the [WebJobs SDK](../../app-service/webjobs-create.md). The `JobHost` in the WebJobs SDK is the runtime in Azure Functions. If you need to control `JobHost` behavior in ways not possible in Azure Functions, you can develop and run Durable Functions by using the WebJobs SDK yourself.
 
