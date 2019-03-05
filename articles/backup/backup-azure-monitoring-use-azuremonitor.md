@@ -249,7 +249,7 @@ Here the resource is the RS vault itself and hence you need to repeat the same a
 
 ***All alerts created from activity logs and LA workspaces can be viewed in Azure Monitor in the 'Alerts' pane to the left.***
 
-While the notification via Activity logs can be used, ***Azure Backup service highly recommends to [use LA for monitoring at scale](#monitoring-at-scale) and NOT activity logs for the following reasons***.
+While the notification via Activity logs can be used, ***Azure Backup service highly recommends to use LA for monitoring at scale and NOT activity logs for the following reasons***.
 
 - **Limited Scenarios:** Applicable only for Azure VM backups and should be repeated for every RS vault.
 - **Definition fit:** The scheduled backup activity doesn't fit with the latest definition of activity logs and aligns with [diagnostic logs](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-are-azure-monitor-diagnostic-logs). This lead to unexpected impact when the data pumping via activity log channel is changed as pointed below.

@@ -48,7 +48,7 @@ This article is split into four sections:
 * **[User and group schema reference](#user-and-group-schema-reference)** - Describes the user and group schema supported by the Azure AD SCIM implementation for non-gallery apps. 
 
 ## Provisioning users and groups to applications that support SCIM
-Azure AD can be configured to automatically provision assigned users and groups to applications that implement a specific profile of the [SCIM 2.0 protocol](https://tools.ietf.org/html/rfc7644). The specifics of the profile are documented in [Understanding the Azure AD SCIM implementation](#implementing-a-scim-endpoint-that-works-with-azure-ad-user-provisioning).
+Azure AD can be configured to automatically provision assigned users and groups to applications that implement a specific profile of the [SCIM 2.0 protocol](https://tools.ietf.org/html/rfc7644). The specifics of the profile are documented in Understanding the Azure AD SCIM implementation.
 
 Check with your application provider, or your application provider's documentation for statements of compatibility with these requirements.
 

@@ -56,7 +56,7 @@ Entities in patterns are surrounded by curly brackets, `{}`. Patterns can includ
 
 Pattern syntax supports the following syntax:
 
-|Function|Syntax|[Nesting level](#nesting-syntax)|Example|
+|Function|Syntax|Nesting level|Example|
 |--|--|--|--|
 |entity| {} - curly brackets|2|Where is form {entity-name}?|
 |optional|[] - square brackets<BR><BR>There is a limit of 3 on nesting levels of any combination of optional and grouping |2|The question mark is optional [?]|
