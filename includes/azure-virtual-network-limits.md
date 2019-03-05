@@ -19,12 +19,12 @@
 | Local network sites |20 |Contact support. |
 | DNS servers per virtual network |20 |20 |
 | Private IP addresses per virtual network |4,096 |4,096 |
-| Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500,000 |500,000 |
+| Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500,000, up to 1,000,000 for two or more NICs. |500,000, up to 1,000,000 for two or more NICs. |
 | Network Security Groups (NSGs) |100 |200 |
 | NSG rules per NSG |200 |1,000 |
 | User-defined route tables |100 |200 |
 | User-defined routes per route table |100 |400 |
-| Public IP addresses - dynamic |5 |Contact support. |
+| Public IP addresses (dynamic) |5 |Contact support. |
 | Reserved public IP addresses |20 |Contact support. |
 | Public VIP per deployment |5 |Contact support. |
 | Private VIP (internal load balancing) per deployment |1 |1 |
@@ -63,9 +63,9 @@ The following limits apply only for networking resources managed through Azure R
 #### <a name="publicip-address"></a>Public IP address limits
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
-| Public IP addresses - dynamic | 1,000 for Basic |Contact support. |
-| Public IP addresses - static | 200 for Basic |Contact support. |
-| Public IP addresses - static | 200 for Standard|Contact support. |
+| Public IP addresses - dynamic | 1,000 for Basic. |Contact support. |
+| Public IP addresses - static | 200 for Basic. |Contact support. |
+| Public IP addresses - static | 200 for Standard.|Contact support. |
 | Public IP prefix size (preview) | /28 | /28 |
 
 #### <a name="load-balancer"></a>Load balancer limits

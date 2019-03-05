@@ -60,7 +60,7 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 | |  |
 |---|---|
 |**Create and configure managed instances**||
-| [Create and manage a Managed Instance](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) | This PowerShell script shows you how to create and manage a Managed Instance using the Azure PowerShell |
+| [Create and manage a Managed Instance](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/) | This PowerShell script shows you how to create and manage a Managed Instance using the Azure PowerShell |
 | [Create and manage a Managed Instance using Azure Resource Manager template](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script shows you how to create and manage a Managed Instance using the Azure PowerShell and Azure Resource Manager template.|
 | **Configure Transparent Data Encryption (TDE)**||
 | [Manage Transparent Data Encryption in a Managed Instance using your own key from Azure Key Vault](scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script configures Transparent Data Encryption (TDE) in Bring Your Own Key scenario for Azure SQL Managed Instance, using a key from Azure Key Vault|

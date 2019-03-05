@@ -25,7 +25,7 @@ You can manage the devices you're connected to using your work or school account
 
 2. Select **Devices** from the left navigation pane or select the **Manage devices** link from the **Devices** block.
 
-    ![My Profile page, showing highlighted Devices links](media/myprofile-portal/myprofile-portal-devices-links.png)
+    ![My Profile page, showing highlighted Devices links](media/myprofile-portal/myprofile-portal-devices.png)
 
 3. Review the information for your connected devices, making sure you recognize them all. 
 
@@ -45,4 +45,4 @@ You can disable any of your connected devices at any time. This is especially im
 
 ## Next steps
 
-- After viewing your recent sign-in activity, you can select to view or manage your [security info](user-help-security-info-overview.md), [recent sign-in activity](myprofile-portal-recent-activity-page.md), your connected [organizations](myprofile-portal-organizations-page.md), or to view how your organization [uses your data](myprofile-portal-privacy-page.md).
+- After viewing your connected devices, you can select to view or manage your [security info](user-help-security-info-overview.md), your [organizations](myprofile-portal-organizations-page.md), or view how your organization [uses your data](myprofile-portal-privacy-page.md).

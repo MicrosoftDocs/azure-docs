@@ -23,7 +23,7 @@ For recommendations about how to build templates that work in all Azure cloud en
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Parameters
-The information in this section can be helpful when you work with [parameters](resource-manager-templates-parameters.md).
+The information in this section can be helpful when you work with [parameters](resource-group-authoring-templates.md#parameters).
 
 ### General recommendations for parameters
 
@@ -149,7 +149,7 @@ When deciding what [dependencies](resource-group-define-dependencies.md) to set,
 
 * Set a child resource as dependent on its parent resource.
 
-* Resources with the [condition element](resource-manager-templates-resources.md#condition) set to false are automatically removed from the dependency order. Set the dependencies as if the resource is always deployed.
+* Resources with the [condition element](resource-group-authoring-templates.md#condition) set to false are automatically removed from the dependency order. Set the dependencies as if the resource is always deployed.
 
 * Let dependencies cascade without setting them explicitly. For example, your virtual machine depends on a virtual network interface, and the virtual network interface depends on a virtual network and public IP addresses. Therefore, the virtual machine is deployed after all three resources, but don't explicitly set the virtual machine as dependent on all three resources. This approach clarifies the dependency order and makes it easier to change the template later.
 
@@ -157,7 +157,7 @@ When deciding what [dependencies](resource-group-define-dependencies.md) to set,
 
 ## Resources
 
-The following information can be helpful when you work with [resources](resource-manager-templates-resources.md):
+The following information can be helpful when you work with [resources](resource-group-authoring-templates.md#resources):
 
 * To help other contributors understand the purpose of the resource, specify **comments** for each resource in the template:
    

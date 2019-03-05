@@ -18,6 +18,9 @@ When creating an event subscription, you can customize the settings for event de
 
 To set a dead letter location, you need a storage account for holding events that can't be delivered to an endpoint. The examples get the resource ID of an existing storage account. They create an event subscription that uses a container in that storage account for the dead-letter endpoint.
 
+> [!NOTE]
+> Create a storage account and a blob container in the storage before running commands in this article.
+
 ### Azure CLI
 
 ```azurecli-interactive

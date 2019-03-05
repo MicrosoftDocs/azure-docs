@@ -685,9 +685,9 @@
         href: service-fabric-diagnostics-oms-containers.md
     - name: Monitor clusters
       items:
-      - name: Configure Log Analytics to collect cluster events
+      - name: Configure Azure Monitor logs to collect cluster events
         href: service-fabric-diagnostics-oms-setup.md
-      - name: Monitor your cluster with Log Analytics
+      - name: Monitor your cluster with Azure Monitor logs
         href: service-fabric-diagnostics-event-analysis-oms.md
       - name: Query EventStore APIs
         href: service-fabric-diagnostics-eventstore-query.md      

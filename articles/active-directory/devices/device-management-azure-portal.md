@@ -151,7 +151,7 @@ To enable / disable a device, you have two options:
 **Remarks:**
 
 - You need to be a global administrator in Azure  AD to enable / disable a device. 
-- Disabling a device prevents a device from successfully authenticating with Azure AD, therby preventing the device from accessing your Azure AD resources that are guarded by device CA or using your WH4B credentials. 
+- Disabling a device prevents a device from successfully authenticating with Azure AD, thereby preventing the device from accessing your Azure AD resources that are guarded by device CA or using your WH4B credentials. 
 
 
 
