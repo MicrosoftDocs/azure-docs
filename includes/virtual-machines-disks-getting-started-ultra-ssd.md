@@ -77,11 +77,15 @@ Once the VM is provisioned, you can partition and format the data disks and conf
 
 ### Deploying an ultra SSD enabled VM with a disk attached using CLI
 
+First, you must create a VM which is capable of using ultra SSDs, the following command will create one such VM:
+
 ```cli
 az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled --zone $zone --authentication-type password --admin-password xxxx --admin-username ultrauser --attach-data-disks $diskname --size Standard_D4s_v3 --location $location
 ```
 
 ### Creating an ultra SSD using CLI
+
+Now that you have a VM which is capable of using ultra SSDs, you can create and attach the disk to it.
 
 ```cli
 location="eastus2"
@@ -97,6 +101,8 @@ az disk create --subscription $subscription -n $diskname -g $rgname --size-gb 4 
 
 ### Adjust the performance of an ultra SSD using CLI
 
+Ultra SSDs have a unique capability which allows you to adjust their performance, the following command depicts how to use this feature:
+
 ```cli
 az disk update --subscription $sub --resource-group $resourceGroup --name $diskName --set diskIopsReadWrite=80000 --set diskMbpsReadWrite=800
 ```
@@ -104,6 +110,8 @@ az disk update --subscription $sub --resource-group $resourceGroup --name $diskN
 ## Deploying an ultra SSD using PowerShell
 
 ### Create an ultra SSD using PowerShell
+
+
 
 ```powershell
 New-AzDiskConfig -Location 'EastUS2euap' -DiskSizeGB 8 -DiskIOPSReadWrite 1000 -DiskMBpsReadWrite 100 -AccountType UltraSSD_LRS -CreateOption Empty -zone 3;
