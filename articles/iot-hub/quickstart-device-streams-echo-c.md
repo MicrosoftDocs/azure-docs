@@ -140,15 +140,13 @@ A device must be registered with your IoT hub before it can connect. In this sec
 ### Run the device-side application
 
 To run the device-side application, you need to perform the following steps:
-1. Set up your development environment by using the instructions in this [article about device streams](https://github.com/Azure/azure-iot-sdk-c-tcpstreaming/blob/master/iothub_client/readme.md#compiling-the-device-sdk-for-c).
-
-2. Provide your device credentials by editing the source file `iothub_client/samples/iothub_client_c2d_streaming_sample/iothub_client_c2d_streaming_sample.c` and provide your device connection string.
+1. Provide your device credentials by editing the source file `iothub_client/samples/iothub_client_c2d_streaming_sample/iothub_client_c2d_streaming_sample.c` and provide your device connection string.
    ```C
    /* Paste in the your iothub connection string  */
    static const char* connectionString = "[device connection string]";
    ```
 
-3. Compile the code as follows:
+2. Compile the code as follows:
 
    ```
    # In Linux
@@ -160,7 +158,7 @@ To run the device-side application, you need to perform the following steps:
    cmake --build . -- /m /p:Configuration=Release
    ```
 
-4. Run the compiled program:
+3. Run the compiled program:
 
    ```
    # In Linux
