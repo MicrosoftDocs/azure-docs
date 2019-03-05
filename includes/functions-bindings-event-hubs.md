@@ -44,7 +44,7 @@ See the language-specific example:
 
 ### Trigger - C# example
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that logs the message body of the event hub trigger.
+The following example shows a [C# function](../articles/azure-functions/functions-dotnet-class-library.md) that logs the message body of the event hub trigger.
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -96,7 +96,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 ### Trigger - C# script example
 
-The following example shows an event hub trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function logs the message body of the event hub trigger.
+The following example shows an event hub trigger binding in a *function.json* file and a [C# script function](../articles/azure-functions/functions-reference-csharp.md) that uses the binding. The function logs the message body of the event hub trigger.
 
 The following examples show Event Hubs binding data in the *function.json* file.
 
@@ -177,7 +177,7 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 
 ### Trigger - F# example
 
-The following example shows an event hub trigger binding in a *function.json* file and an [F# function](functions-reference-fsharp.md) that uses the binding. The function logs the message body of the event hub trigger.
+The following example shows an event hub trigger binding in a *function.json* file and an [F# function](../articles/azure-functions/functions-reference-fsharp.md) that uses the binding. The function logs the message body of the event hub trigger.
 
 The following examples show Event Hubs binding data in the *function.json* file. 
 
@@ -214,7 +214,7 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 
 ### Trigger - JavaScript example
 
-The following example shows an event hub trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads [event metadata](#trigger---event-metadata) and logs the message.
+The following example shows an event hub trigger binding in a *function.json* file and a [JavaScript function](../articles/azure-functions/functions-reference-node.md) that uses the binding. The function reads [event metadata](#trigger---event-metadata) and logs the message.
 
 The following examples show Event Hubs binding data in the *function.json* file.
 
@@ -302,7 +302,7 @@ module.exports = function (context, eventHubMessages) {
 
 ### Trigger - Python example
 
-The following example shows an event hub trigger binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. The function reads [event metadata](#trigger---event-metadata) and logs the message.
+The following example shows an event hub trigger binding in a *function.json* file and a [Python function](../articles/azure-functions/functions-reference-python.md) that uses the binding. The function reads [event metadata](#trigger---event-metadata) and logs the message.
 
 The following examples show Event Hubs binding data in the *function.json* file.
 
@@ -331,7 +331,7 @@ def main(event: func.EventHubEvent):
 
 ### Trigger - Java example
 
-The following example shows an Event Hub trigger binding in a *function.json* file and an [Java function](functions-reference-java.md) that uses the binding. The function logs the message body of the Event Hub trigger.
+The following example shows an Event Hub trigger binding in a *function.json* file and an [Java function](../articles/azure-functions/functions-reference-java.md) that uses the binding. The function logs the message body of the Event Hub trigger.
 
 ```json
 {
@@ -359,7 +359,7 @@ public void eventHubProcessor(
 
 ## Trigger - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubTriggerAttribute.cs) attribute.
+In [C# class libraries](../articles/azure-functions/functions-dotnet-class-library.md), use the [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubTriggerAttribute.cs) attribute.
 
 The attribute's constructor takes the name of the event hub, the name of the consumer group, and the name of an app setting that contains the connection string. For more information about these settings, see the [trigger configuration section](#trigger---configuration). Here's an `EventHubTriggerAttribute` attribute example:
 
@@ -389,11 +389,11 @@ The following table explains the binding configuration properties that you set i
 |**connection** |**Connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the [namespace](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), not the event hub itself. This connection string must have at least read permissions to activate the trigger.|
 |**path**|**EventHubName**|The name of the event hub. Can be referenced via app settings `%eventHubName%`|
 
-[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+[!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
 
 ## Trigger - event metadata
 
-The Event Hubs trigger provides several [metadata properties](./functions-bindings-expressions-patterns.md). These properties can be used as part of binding expressions in other bindings or as parameters in your code. These are properties of the [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata) class.
+The Event Hubs trigger provides several [metadata properties](../articles/azure-functions/./functions-bindings-expressions-patterns.md). These properties can be used as part of binding expressions in other bindings or as parameters in your code. These are properties of the [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata) class.
 
 |Property|Type|Description|
 |--------|----|-----------|
@@ -411,7 +411,7 @@ See [code examples](#trigger---example) that use these properties earlier in thi
 
 The [host.json](functions-host-json.md#eventhub) file contains settings that control Event Hubs trigger behavior.
 
-[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
+[!INCLUDE [functions-host-json-event-hubs](../articles/azure-functions/../../includes/functions-host-json-event-hubs.md)]
 
 ## Output
 
@@ -432,7 +432,7 @@ See the language-specific example:
 
 ### Output - C# example
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that writes a message to an event hub, using the method return value as the output:
+The following example shows a [C# function](../articles/azure-functions/functions-dotnet-class-library.md) that writes a message to an event hub, using the method return value as the output:
 
 ```csharp
 [FunctionName("EventHubOutput")]
@@ -446,7 +446,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 
 ### Output - C# script example
 
-The following example shows an event hub trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function writes a message to an event hub.
+The following example shows an event hub trigger binding in a *function.json* file and a [C# script function](../articles/azure-functions/functions-reference-csharp.md) that uses the binding. The function writes a message to an event hub.
 
 The following examples show Event Hubs binding data in the *function.json* file. The first example is for Functions 2.x, and the second one is for Functions 1.x. 
 
@@ -498,7 +498,7 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 
 ### Output - F# example
 
-The following example shows an event hub trigger binding in a *function.json* file and an [F# function](functions-reference-fsharp.md) that uses the binding. The function writes a message to an event hub.
+The following example shows an event hub trigger binding in a *function.json* file and an [F# function](../articles/azure-functions/functions-reference-fsharp.md) that uses the binding. The function writes a message to an event hub.
 
 The following examples show Event Hubs binding data in the *function.json* file. The first example is for Functions 2.x, and the second one is for Functions 1.x. 
 
@@ -532,7 +532,7 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: ILogger) 
 
 ### Output - JavaScript example
 
-The following example shows an event hub trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function writes a message to an event hub.
+The following example shows an event hub trigger binding in a *function.json* file and a [JavaScript function](../articles/azure-functions/functions-reference-node.md) that uses the binding. The function writes a message to an event hub.
 
 The following examples show Event Hubs binding data in the *function.json* file. The first example is for Functions 2.x, and the second one is for Functions 1.x. 
 
@@ -584,7 +584,7 @@ module.exports = function(context) {
 
 ### Output - Python example
 
-The following example shows an event hub trigger binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. The function writes a message to an event hub.
+The following example shows an event hub trigger binding in a *function.json* file and a [Python function](../articles/azure-functions/functions-reference-python.md) that uses the binding. The function writes a message to an event hub.
 
 The following examples show Event Hubs binding data in the *function.json* file.
 
@@ -628,7 +628,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 ## Output - attributes
 
-For [C# class libraries](functions-dotnet-class-library.md), use the [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) attribute.
+For [C# class libraries](../articles/azure-functions/functions-dotnet-class-library.md), use the [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) attribute.
 
 The attribute's constructor takes the name of the event hub and the name of an app setting that contains the connection string. For more information about these settings, see [Output - configuration](#output---configuration). Here's an `EventHub` attribute example:
 
@@ -656,7 +656,7 @@ The following table explains the binding configuration properties that you set i
 |**eventHubName** |**EventHubName** | Functions 2.x only. The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
 |**connection** |**Connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub itself. This connection string must have send permissions to send the message to the event stream.|
 
-[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+[!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
 
 ## Output - usage
 
@@ -675,10 +675,10 @@ In JavaScript, access the output event by using `context.bindings.<name>`. `<nam
 
 ## host.json settings
 
-This section describes the global configuration settings available for this binding in version 2.x. The example host.json file below contains only the version 2.x settings for this binding. For more information about global configuration settings in version 2.x, see [host.json reference for Azure Functions version 2.x](functions-host-json.md).
+This section describes the global configuration settings available for this binding in version 2.x. The example host.json file below contains only the version 2.x settings for this binding. For more information about global configuration settings in version 2.x, see [host.json reference for Azure Functions version 2.x](../articles/azure-functions/functions-host-json.md).
 
 > [!NOTE]
-> For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
+> For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](../articles/azure-functions/functions-host-json-v1.md).
 
 ```json
 {
