@@ -54,7 +54,9 @@ After completing the [prerequisites](#prerequisites), verify that the appropriat
     cd hub-spoke
     ```
 
-   ![Terraform demo config files](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-config-files.png)
+1. Run the `ls` command to verify that the `.tf` config files created in the previous tutorials are listed:
+
+    ![Terraform demo config files](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-config-files.png)
 
 ## Deploy the resources
 
