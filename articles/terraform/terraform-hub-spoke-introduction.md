@@ -131,7 +131,7 @@ Create the Terraform configuration file that declares the Azure provider.
 
     ```JSON
     provider "azurerm" {
-        version = "~>1.18"
+        version = "~>1.22"
     }
     ```
 

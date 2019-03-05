@@ -56,7 +56,7 @@ After completing the [prerequisites][#prerequisites], verify that the appropriat
 
    ![Terraform demo config files](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-config-files.jpg)
 
-## Deploying the resources
+## Deploy the resources
 
 1. Initialize the Terraform provider:
     
@@ -84,7 +84,7 @@ After completing the [prerequisites][#prerequisites], verify that the appropriat
 
     ![Example results of "terraform apply" command](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-apply.jpg)
     
-## Test the hub VNet
+## Test the hub VNet and spoke VNets
 
 This section shows how to test connectivity from the simulated on-premises environment to the hub VNet.
 
@@ -104,14 +104,14 @@ This section shows how to test connectivity from the simulated on-premises envir
    ping 10.0.0.68
    ```
 
-## Test the spoke VNets
-
-Run the `ping` command to test connectivity to the jumpbox VMs in each spoke:
+1. Run the `ping` command to test connectivity to the jumpbox VMs in each spoke:
 
    ```bash
    ping 10.1.0.68
    ping 10.2.0.68
    ```
+
+1. To exit the ssh seesion on the **onprem-vm** virtual machine, enter `exit` or press &lt;d>.
 
 ## Troubleshoot VPN issues
 
