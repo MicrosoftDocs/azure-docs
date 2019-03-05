@@ -68,10 +68,12 @@ Here is the instruction of [enabling Azure MySQL/PostgreSQL for CCDB, UAADB and 
 Azure service broker offers consistent interface to manage application’s access to Azure services. The new [Open Service Broker for Azure project](https://github.com/Azure/open-service-broker-azure) provides a single and simple way to deliver services to applications across Cloud Foundry, OpenShift, and Kubernetes. See the [Azure Open Service Broker for PCF tile](https://network.pivotal.io/products/azure-open-service-broker-pcf/) for deployment instructions on PCF.
 
 ## 6. Metrics and Logging
-The Azure Log Analytics Nozzle is a Cloud Foundry component, that forwards metrics from the [Cloud Foundry loggregator firehose](https://docs.cloudfoundry.org/loggregator/architecture.html) to [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/). With the Nozzle, you can collect, view, and analyze your CF system health and performance metrics across multiple deployments.
-Click [here](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) to learn how to deploy the Azure Log Analytics Nozzle to both Open Source and Pivotal Cloud Foundry environment, and then access the data from the Azure Log Analytics console. 
+The Azure Log Analytics Nozzle is a Cloud Foundry component, that forwards metrics from the [Cloud Foundry loggregator firehose](https://docs.cloudfoundry.org/loggregator/architecture.html) to [Azure Monitor logs](https://azure.microsoft.com/services/log-analytics/). With the Nozzle, you can collect, view, and analyze your CF system health and performance metrics across multiple deployments.
+Click [here](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) to learn how to deploy the Azure Log Analytics Nozzle to both Open Source and Pivotal Cloud Foundry environment, and then access the data from the Azure Monitor logs console. 
 > [!NOTE]
-> From PCF 2.0, BOSH health metrics for VMs are forwarded to the Loggregator Firehose by default, and are integrated into Azure Log Analytics console.
+> From PCF 2.0, BOSH health metrics for VMs are forwarded to the Loggregator Firehose by default, and are integrated into Azure Monitor logs console.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## 7. Cost Saving
 ### Cost Saving for Dev/Test Environments

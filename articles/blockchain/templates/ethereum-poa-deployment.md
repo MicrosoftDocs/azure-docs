@@ -414,13 +414,15 @@ resource for your network. The monitoring agent will collect and surface useful
 metrics and logs from your network, providing the ability to quickly
 check the network health or debug issues.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
   Parameter name|Description|Allowed values|Default values
   ---|---|---|---
 Monitoring|Option to enable Monitoring|Enable or Disable|Enable
 Connect to existing Azure Monitor logs|Create a new Azure Monitor logs instance or join an existing instance|Create new or Join existing|Create new
 Monitor Location(Connect to existing Azure Monitor logs= Create new)|The region where the new Azure Monitor logs instance will be deployed|All Azure Monitor logs regions|NA
-Existing Log Analytics Workspace Id (Connect to existing Azure Monitor logs = Join Existing)|Workspace ID of the existing Azure Monitor logs instance||NA
-Existing Log Analytics Primary Key (Connect to existing Log Analytics = Join Existing)|The primary key used to connect to the existing Log Analytics instance||NA
+Existing log analytics workspace ID (Connect to existing Azure Monitor logs = Join Existing)|Workspace ID of the existing Azure Monitor logs instance||NA
+Existing log analytics primary key (Connect to existing Azure Monitor logs = Join Existing)|The primary key used to connect to the existing Azure Monitor logs instance||NA
 
 
 A sample deployment is shown below:

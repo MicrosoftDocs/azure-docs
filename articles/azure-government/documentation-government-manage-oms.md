@@ -37,14 +37,14 @@ Azure Monitor logs can:
 Let's explore how we can get Azure Monitor logs integrated into your fleet and look at some of the out-of-box solutions that address the concerns that we've described here.
 
 ## Onboarding servers to Azure Monitor logs
-The first step in integrating your cloud assets with Azure Monitor logs is installing the Log Analytics agent across log sources. For virtual machines, this is very simple because you can manually download the agent from the Log Analytics portal.
+The first step in integrating your cloud assets with Azure Monitor logs is installing the Log Analytics agent across log sources. For virtual machines, this is very simple because you can manually download the agent from the Azure Monitor logs portal.
 
 ![Figure 1: Windows servers connected to Azure Monitor logs](./media/documentation-government-oms-figure1.png)
 <p align="center">Figure 1: Windows servers connected to Azure Monitor logs</p>
 
 You can connect Azure VMs to Azure Monitor logs directly through the Azure portal. For instructions, see [New ways to enable Azure Monitor logs on your Azure VMs](https://blogs.technet.microsoft.com/momteam/2016/02/10/new-ways-to-enable-log-analytics-oms-on-your-azure-vms/).
 
-You can also connect them programmatically or configure the Log Analytics virtual machine extension right into your Azure Resource Manager templates. See the instructions for Windows-based machines at [Connect Windows computers to Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) and for Linux-based machines at [Connect Linux computers to Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents).
+You can also connect them programmatically or configure the Azure Monitor virtual machine extension right into your Azure Resource Manager templates. See the instructions for Windows-based machines at [Connect Windows computers to Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) and for Linux-based machines at [Connect Linux computers to Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents).
 
 ## Onboarding storage accounts and Operations Manager to Azure Monitor logs
 Azure Monitor logs can also connect to your storage account and/or existing System Center Operations Manager deployments to offer you operations management in hybrid scenarios (across cloud providers or in cloud/on-premises infrastructures).
@@ -54,9 +54,9 @@ Azure Monitor logs can also connect to your storage account and/or existing Syst
 
 Azure Monitor logs also supports collecting logging information from other monitoring services like Chef or Puppet. Furthermore, for Azure deployments, we have VMs with Azure Monitor logs-enabled Azure Resource Manager templates so you can deploy compute and onboard to your Log Analytics workspace at the same time.
 
-![Figure 3: Azure Resource Manager templates for Azure VMs with Log Analytics VM extension](./media/documentation-government-oms-figure3a.png)
-![Figure 3: Azure Resource Manager templates for Azure VMs with Log Analytics VM extension](./media/documentation-government-oms-figure3b.png)
-<p align="center">Figure 3: Azure Resource Manager templates for Azure VMs with Log Analytics VM extension</p>
+![Figure 3: Azure Resource Manager templates for Azure VMs with Azure Monitor VM extension](./media/documentation-government-oms-figure3a.png)
+![Figure 3: Azure Resource Manager templates for Azure VMs with Azure Monitor VM extension](./media/documentation-government-oms-figure3b.png)
+<p align="center">Figure 3: Azure Resource Manager templates for Azure VMs with Azure Monitor VM extension</p>
 
 Information about setting up Azure Monitor logs with your existing Operations Manager implementation on-premises can be found in [Connect Operations Manager to Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents).
 
