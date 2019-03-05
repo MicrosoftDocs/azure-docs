@@ -81,18 +81,10 @@ The Text Analytics API uses Unicode encoding for text representation and charact
 
 ## Next steps
 
-First, try the [interactive demo](https://azure.microsoft.com/services/cognitive-services/text-analytics/). You can paste a text input (5,120 character maximum) to detect the language (up to 120), calculate a sentiment score, or extract key phrases. No sign-up necessary.
-
-When you are ready to call the API directly:
-
 + [Sign up](how-tos/text-analytics-how-to-signup.md) for an access key and review the steps for [calling the API](how-tos/text-analytics-how-to-call-api.md).
 
-+ [Quickstart](quickstarts/csharp.md) is a walkthrough of the REST API calls written in C#. Learn how to submit text, choose an analysis, and view results with minimal code.
++ [Quickstart](quickstarts/csharp.md) is a walkthrough of the REST API calls written in C#. Learn how to submit text, choose an analysis, and view results with minimal code. If you prefer, you can start with the [Python quickstart](quickstarts/python.md) instead.
 
-+ [API reference documentation](//go.microsoft.com/fwlink/?LinkID=759346) provides the technical documentation for the APIs. The documentation supports embedded calls so that you can call the API from each documentation page.
++ Dig in a little deeper with this [sentiment analysis tutorial](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services) using Azure Databricks.
 
-+ [External & Community Content](text-analytics-resource-external-community.md) provides a list of blog posts and videos demonstrating how to use Text Analytics with other tools and technologies.
-
-## See also
-
- [Cognitive Services Documentation page](https://docs.microsoft.com/azure/cognitive-services/)
++ Check out our list of blog posts and more videos on how to use Text Analytics API with other tools and technologies in our [External & Community Content page](text-analytics-resource-external-community.md).
