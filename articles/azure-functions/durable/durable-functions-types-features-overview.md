@@ -89,7 +89,7 @@ For more information and for examples, see [Error handling](durable-functions-er
 
 ### Cross-function app communication
 
-Although a durable orchestration generally lives in the context of one function app, you can use patterns to coordinate orchestrations across many function apps. Cross-app communication might occur over HTTP, but using the durable framework for each activity means you can still maintain a durable process across two apps.
+Although a durable orchestration runs in the context of a single function app, you can use patterns to coordinate orchestrations across many function apps. Cross-app communication might occur over HTTP, but using the durable framework for each activity means you can still maintain a durable process across two apps.
 
 The following examples demonstrate cross-function app orchestration in C# and JavaScript. In each example, one activity starts the external orchestration. Another activity retrieves and returns the status. The orchestrator waits for the status to be `Complete` before it continues.
 
