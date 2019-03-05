@@ -76,7 +76,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |50027|Invalid JWT token due to the following reasons:<ul><li>doesn't contain nonce claim, sub claim</li><li>subject identifier mismatch</li><li>duplicate claim in idToken claims</li><li>unexpected issuer</li><li>unexpected audience</li><li>not within its valid time range </li><li>token format is not proper</li><li>External ID token from issuer failed signature verification.</li></ul>Contact the application owner|
 |50029|Invalid URI - domain name contains invalid characters. Contact the tenant administrator.|
 |50034|User does not exist in directory. Contact your tenant administrator.|
-|50042|The salt required to generate a pairwise identifier is missing in principal. Contact the tenant administrator.|
+|50042|The salt required to generate a pairwise identifier is missing in principle. Contact the tenant administrator.|
 |50048|Subject mismatches Issuer claim in the client assertion. Contact the tenant administrator.|
 |50050|Request is malformed. Contact the application owner.|
 |50053|Account is locked because the user tried to sign in too many times with an incorrect user ID or password.|
@@ -126,7 +126,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |50180|Windows Integrated authentication is needed. Enable the tenant for Seamless SSO.|
 |51001|Domain Hint is not present with On-Premises Security Identifier - On-Premises UPN.|
 |51004|User account doesn’t exist in the directory.|
-|51006|Windows Integrated authentication is needed. User logged in using session token that is missing wia claim. Request the  user to re-login.|
+|51006|Windows Integrated authentication is needed. User logged in using session token that is missing via claim. Request the  user to re-login.|
 |52004|User has not provided consent for access to LinkedIn resources. |
 |53000|Conditional Access policy requires a compliant device, and the device is not compliant. Have the user enroll their device with an approved MDM provider like Intune.|
 |53001|Conditional Access policy requires a domain joined device, and the device is not domain joined. Have the user use a domain joined device.|

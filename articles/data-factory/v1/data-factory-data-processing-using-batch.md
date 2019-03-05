@@ -38,7 +38,7 @@ With the Batch service, you define Azure compute resources to execute your appli
 * [Basics of Batch](../../batch/batch-technical-overview.md)
 * [Batch feature overview](../../batch/batch-api-basics.md)
 
-Optionally, to learn more about Batch, see [the Batch documentatnion](https://docs.microsoft.com/azure/batch/).
+Optionally, to learn more about Batch, see [the Batch documentation](https://docs.microsoft.com/azure/batch/).
 
 ## Why Azure Data Factory?
 Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. You can use Data Factory to create managed data pipelines that move data from on-premises and cloud data stores to a centralized data store. An example is Azure Blob storage. You can use Data Factory to process/transform data by using services such as Azure HDInsight and Azure Machine Learning. You also can schedule data pipelines to run in a scheduled manner (for example, hourly, daily, and weekly). You can monitor and manage the pipelines at a glance to identify issues and take action.

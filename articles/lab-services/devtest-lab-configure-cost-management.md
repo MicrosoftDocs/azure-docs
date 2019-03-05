@@ -32,7 +32,7 @@ To view the Monthly Estimated Cost Trend chart, follow these steps:
 1. On the lab's **Overview** area, select **Configuration and policies**.   
 1. On the left under **COST TRACKING**, select **Cost trend**.
 
-   The following screen shot shows an example of a cost chart. 
+   The following screenshot shows an example of a cost chart. 
    
     ![Cost chart](./media/devtest-lab-configure-cost-management/graph.png)
 

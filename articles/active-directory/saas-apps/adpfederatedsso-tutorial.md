@@ -8,7 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 7be5331b-0481-48f7-9d6b-619dfec657e1
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -184,7 +184,7 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
 5. In the Azure portal, on your **ADP** application integration page, click on **Properties tab** and perform the following steps:  
 
-	![Single sign-on linkedproperties](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
+	![Single sign-on linked properties](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
 
 	a.	Set the **Enabled for users to sign-in** field value to **Yes**.
 
