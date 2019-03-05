@@ -51,7 +51,7 @@ static results, follow these steps:
 
    1. In the action's upper-right corner, 
    choose the ellipses (*...*) button, 
-   and elect **Static result**, for example:
+   and select **Static result**, for example:
 
       ![Select "Static result" > "Enable Static Result"](./media/test-logic-apps-mock-data-static-results/select-static-result.png)
 
@@ -79,7 +79,9 @@ static results, follow these steps:
 
    In the action's upper-right corner, 
    the title bar now shows a test beaker icon, 
-   which indicates that you've enabled static results. 
+   which indicates that you've enabled static results.
+
+   ![Icon showing enabled static results](./media/test-logic-apps-mock-data-static-results/static-results-enabled.png)
 
 <a name="reuse-sample-outputs"></a>
 
@@ -137,7 +139,11 @@ your previous values.
 1. Find the action where you want to disable static outputs. 
 In the action's upper-right corner, choose the test beaker icon.
 
+   ![Disable static results](./media/test-logic-apps-mock-data-static-results/disable-static-results.png)
+
 1. Choose **Disable Static Result**.
+
+   ![Disable static results](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 
 ## Get support
 
