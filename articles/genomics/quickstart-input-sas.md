@@ -1,20 +1,22 @@
 ---
-title: 'Submit a workflow using a SAS, not a storage account key - Microsoft Genomics'
+title: Submit a workflow using shared access signatures - Microsoft Genomics
 titleSuffix: Azure
-description: The quickstart assumes you have the msgen client installed and have successfully run the sample data through the service.  
+description: The article assumes you have the msgen client installed and have successfully run the sample data through the service.  
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 03/02/2018
 
 ---
 
 # Submit a workflow to Microsoft Genomics using a SAS instead of a storage account key 
 
-This quickstart demonstrates how to submit a workflow to the Microsoft Genomics service using a config.txt file that contains [shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) instead of storage account keys. This feature could be useful if there are security concerns about having the storage account key visible in the config.txt file. This article assumes you have already installed and run the `msgen` client, and are familiar with how to use Azure Storage. If you have successfully submitted a workflow using the provided sample data, you are ready to proceed with this quickstart. 
+This article demonstrates how to submit a workflow to the Microsoft Genomics service using a config.txt file that contains [shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) instead of storage account keys. This feature could be useful if there are security concerns about having the storage account key visible in the config.txt file. 
+
+This article assumes you have already installed and run the `msgen` client, and are familiar with how to use Azure Storage. If you have successfully submitted a workflow using the provided sample data, you are ready to proceed with this article. 
 
 ## What is a SAS?
 A [shared access signature (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) provides delegated access to resources in your storage account. With a SAS, you can grant  access to resources in your storage account, without sharing your account keys. This is the key point of using shared access signatures in your applications--a SAS is a secure way to share your storage resources without compromising your account keys.

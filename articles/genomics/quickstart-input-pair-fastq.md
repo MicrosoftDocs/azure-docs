@@ -1,20 +1,20 @@
 ---
-title: 'Quickstart: Submit a workflow using FASTQ file inputs - Microsoft Genomics'
+title: Submit a workflow using FASTQ file inputs - Microsoft Genomics
 titleSuffix: Azure
-description: The quickstart assumes you have the msgen client installed and have successfully run the sample data through the service.  
+description: This article assumes you have the msgen client installed and have successfully run the sample data through the service.  
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 12/07/2017
 
 ---
 
 # Submit a workflow using FASTQ file inputs in Microsoft Genomics
 
-This quickstart demonstrates how to submit a workflow to the Microsoft Genomics service if your input files are a single pair of FASTQ files. This topic assumes you have already installed and run the `msgen` client, and are familiar with how to use Azure Storage. If you have successfully submitted a workflow using the provided sample data, you are ready to proceed with this quickstart. 
+This article demonstrates how to submit a workflow to the Microsoft Genomics service if your input files are a single pair of FASTQ files. This topic assumes you have already installed and run the `msgen` client, and are familiar with how to use Azure Storage. If you have successfully submitted a workflow using the provided sample data, you are ready to proceed with this article. 
 
 ## Set up: Upload your FASTQ files to Azure storage
 Let’s assume you have two files, *reads_1.fq.gz* and *reads_2.fq.gz*, and you have uploaded them to your storage account *myaccount* in Azure as **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/inputs/reads_1<span></span>.fq<span></span>.gz<span></span>** and **https://<span></span>myaccount.blob.core.<span></span>windows<span></span>.net/<span></span>inputs/<span></span>reads_2.fq<span></span>.gz<span></span>**. You have the API URL and your access key. You want to have outputs in **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>**.
