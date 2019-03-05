@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/05/2019
 ms.author: diberry
 ---
 
@@ -72,7 +72,7 @@ Active learning is off by default. Turn it on to see suggested questions.
 
     [![On the service settings page, toggle the Show Suggestions button](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
-1. Filter the knowledge base with question and answer pairs to only show suggestions by selecting **Filter by Suggestions**.
+1. Filter the knowledge base with question and answer pairs to show only suggestions by selecting **Filter by Suggestions**.
 
     [![On the service settings page, filter by suggestions to see just those question/answer pairs](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
@@ -157,6 +157,31 @@ Content-Type: application/json
 ```
 
 Learn more about how to use active learning with an [Azure Bot C# example](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot)
+
+## Active learning is saved in the exported app's tsv file
+
+When your app has active learning enabled, and you export the app, the `SuggestedQuestions` column in the tsv file retains the active learning data. 
+
+The `SuggestedQuestions` column is a JSON object of information of implicit (`autosuggested`) and explicit (`usersuggested`) [feedback](#active-learning). An example of this JSON object for a single user-submitted question of `help` is:
+
+```JSON
+[
+    {
+        "clusterHead": "help",
+        "totalAutoSuggestedCount": 1,
+        "totalUserSuggestedCount": 0,
+        "alternateQuestionList": [
+            {
+                "question": "help",
+                "autoSuggestedCount": 1,
+                "userSuggestedCount": 0
+            }
+        ]
+    }
+]
+```
+
+When you reimport this app, the active learning continues to collect information and recommend suggestions for your knowledge base. 
 
 ## Next steps
  
