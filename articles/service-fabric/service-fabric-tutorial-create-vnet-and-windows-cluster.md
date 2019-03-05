@@ -76,7 +76,7 @@ In the **Microsoft.ServiceFabric/clusters** resource, a Windows cluster is confi
 
 ### Azure Load Balancer
 
-In the **Microsoft.Network/loadBalancers** resource, a load balancer is configured. Probes and rules are setup for the following ports:
+In the **Microsoft.Network/loadBalancers** resource, a load balancer is configured. Probes and rules are set up for the following ports:
 
 * client connection endpoint: 19000
 * HTTP gateway endpoint: 19080
@@ -97,17 +97,17 @@ The following inbound traffic rules are enabled in the **Microsoft.Network/netwo
 
 * ClientConnectionEndpoint (TCP): 19000
 * HttpGatewayEndpoint (HTTP/TCP): 19080
-* SMB : 445
+* SMB: 445
 * Internodecommunication - 1025, 1026, 1027
-* Ephemeral port range – 49152 to 65534 (need a min of 256 ports )
+* Ephemeral port range – 49152 to 65534 (need a min of 256 ports)
 * Ports for application use: 80 and 443
-* Application port range – 49152 to 65534 (used for service to service communication and unlike are not opened on the Load balancer )
+* Application port range – 49152 to 65534 (used for service to service communication and unlike aren't opened on the Load balancer)
 * Block all other ports
 
 If other application ports are needed, you'll need to adjust the **Microsoft.Network/loadBalancers** resource and the **Microsoft.Network/networkSecurityGroups** resource to allow the traffic in.
 
 ### Windows Defender
-By default, [Windows Defender antivirus program](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016) is installed and functional on Windows Server 2016. The user interface is installed by default on some SKUs, but is not required.  For each node type/VM scale set declared in the template, the [Azure VM Antimalware extension](/azure/virtual-machines/extensions/iaas-antimalware-windows) is used to exclude the Service Fabric directories and processes:
+By default, [Windows Defender antivirus program](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016) is installed and functional on Windows Server 2016. The user interface is installed by default on some SKUs, but isn't required.  For each node type/VM scale set declared in the template, the [Azure VM Antimalware extension](/azure/virtual-machines/extensions/iaas-antimalware-windows) is used to exclude the Service Fabric directories and processes:
 
 ```json
 {
@@ -161,9 +161,9 @@ A Service Fabric cluster offers several entry points to its management functiona
 > [!NOTE]
 > You must complete the following steps before you create the cluster. Because the scripts expect cluster names and endpoints, the values should be planned and not values that you have already created.
 
-In this article, we assume that you have already created a tenant. If you haven't, start by reading [How to get an Azure Active Directory tenant](../active-directory/develop/quickstart-create-new-tenant.md).
+In this article, we assume that you've already created a tenant. If you haven't, start by reading [How to get an Azure Active Directory tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
-To simplify some of the steps involved in configuring Azure AD with a Service Fabric cluster, we've created a set of Windows PowerShell scripts. [Download the scripts](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) to your computer.
+To simplify steps involved in configuring Azure AD with a Service Fabric cluster, we've created a set of Windows PowerShell scripts. [Download the scripts](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) to your computer.
 
 ### Create Azure AD applications and assign users to roles
 Create two Azure AD applications to control access to the cluster: one web application and one native application. After you've created the applications to represent your cluster, assign your users to the [roles supported by Service Fabric](service-fabric-cluster-security-roles.md): read-only and admin.
@@ -187,7 +187,7 @@ You can find your *TenantId*, or directory ID, in the [Azure portal](https://por
 
 https://&lt;cluster_domain&gt;:19080/Explorer
 
-You are prompted to sign in to an account that has administrative privileges for the Azure AD tenant. After you sign in, the script creates the web and native applications to represent your Service Fabric cluster. In the tenant's applications in the [Azure portal](https://portal.azure.com), you should see two new entries:
+You're prompted to sign in to an account that has administrative privileges for the Azure AD tenant. After you sign in, the script creates the web and native applications to represent your Service Fabric cluster. In the tenant's applications in the [Azure portal](https://portal.azure.com), you should see two new entries:
 
    * *ClusterName*\_Cluster
    * *ClusterName*\_Client
@@ -269,7 +269,7 @@ The template in this article deploys a cluster that uses the certificate thumbpr
 
 ### Create a cluster using an existing certificate
 
-The following script uses the [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet and a template to deploy a new cluster in Azure. The cmdlet also creates a new key vault in Azure and uploads your certificate.
+The following script uses the [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet and a template to deploy a new cluster in Azure. The cmdlet creates a new key vault in Azure and uploads your certificate.
 
 ```powershell
 # Variables.
@@ -299,7 +299,7 @@ New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$t
 
 ### Create a cluster using a new, self-signed certificate
 
-The following script uses the [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet and a template to deploy a new cluster in Azure. The cmdlet also creates a new key vault in Azure, adds a new self-signed certificate to the key vault, and downloads the certificate file locally.
+The following script uses the [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet and a template to deploy a new cluster in Azure. The cmdlet creates a new key vault in Azure, adds a new self-signed certificate to the key vault, and downloads the certificate file locally.
 
 ```powershell
 # Variables.
@@ -340,11 +340,11 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
         -Password $certpwd
 ```
 
-You are now ready to connect to your secure cluster.
+You're now ready to connect to your secure cluster.
 
 The **Service Fabric** PowerShell module provides many cmdlets for managing Service Fabric clusters, applications, and services.  Use the [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet to connect to the secure cluster. The certificate SHA1 thumbprint and connection endpoint details are found in the output from the previous step.
 
-If you previously set up Azure AD client authentication, run the following: 
+If you previously set up Azure AD client authentication, run the following command: 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.southcentralus.cloudapp.azure.com:19000 `
         -KeepAliveIntervalInSec 10 `
@@ -352,7 +352,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.southcentralus.c
         -ServerCertThumbprint C4C1E541AD512B8065280292A8BA6079C3F26F10
 ```
 
-If you did not set up Azure AD client authentication, run the following:
+If you didn't set up Azure AD client authentication, run the following command:
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.southcentralus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `
