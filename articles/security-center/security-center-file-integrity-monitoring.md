@@ -33,7 +33,7 @@ Security Center recommends entities to monitor, which you can easily enable FIM 
 
 > [!NOTE]
 > The File Integrity Monitoring (FIM) feature works for Windows and Linux computers and VMs and is available on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
-FIM uploads data to the Log Analytics workspace. Data charges apply, based on the amount of data you upload. See [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/) to learn more.
+FIM uploads data to the Log Analytics workspace. Data charges apply, based on the amount of data you upload. See [log analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/) to learn more.
 >
 >
 
@@ -84,7 +84,7 @@ To enable FIM on a workspace:
 4. Select **Apply file integrity monitoring** to enable FIM.
 
 > [!NOTE]
-> You can change the settings at any time. See [Edit monitored entities](security-center-file-integrity-monitoring.md#edit-monitored-items) below to learn more.
+> You can change the settings at any time. See Edit monitored entities below to learn more.
 >
 >
 

@@ -17,7 +17,7 @@ ms.author: bwren
 
 # Splunk to Azure Monitor log query
 
-This article is intended to assist users who are familiar with Splunk to learn the Data Explorer query language to write log queries in Azure Monitor. Direct comparisons are made between the two to understand key differences and also similarities where you can leverage your existing knowledge.
+This article is intended to assist users who are familiar with Splunk to learn the Kusto query language to write log queries in Azure Monitor. Direct comparisons are made between the two to understand key differences and also similarities where you can leverage your existing knowledge.
 
 ## Structure and concepts
 

@@ -1,4 +1,4 @@
---- 
+---
 title: Real-time fraud detection using Azure Stream Analytics
 description: Learn how to create a real-time fraud detection solution with Stream Analytics. Use an event hub for real-time event processing. 
 services: stream-analytics 
@@ -9,7 +9,7 @@ ms.service: stream-analytics
 ms.topic: conceptual 
 ms.date: 12/07/2018
 ms.custom: seodec18 
---- 
+---
 # Get started using Azure Stream Analytics: Real-time fraud detection
 
 This tutorial provides an end-to-end illustration of how to use Azure Stream Analytics. You learn how to: 
@@ -62,7 +62,7 @@ In this procedure, you first create an event hub namespace, and then you add an 
 
 5. Click the new namespace, and in the namespace pane, click **Event Hub**.
 
-   ![The Add Event Hub button for creating a new event hub ](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
+   ![The Add Event Hub button for creating a new event hub](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
  
 6. Name the new event hub `asa-eh-frauddetection-demo`. You can use a different name. If you do, make a note of it, because you need the name later. You don't need to set any other options for the event hub right now.
 

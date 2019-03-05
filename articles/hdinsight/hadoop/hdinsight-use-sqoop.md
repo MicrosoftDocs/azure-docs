@@ -84,9 +84,9 @@ If you prefer to use Azure PowerShell to create the cluster and the SQL Database
     - **Cluster login name and password**: The default login name is admin.
     - **SSH user name and password**.
     - **SQL database server login name and password**.
-    - **_artifacts Location**: Use the default value unless you want to use your own backpac file in a different location.
+    - **_artifacts Location**: Use the default value unless you want to use your own bacpac file in a different location.
     - **_artifacts Location Sas Token**: Leave it blank.
-    - **Bacpac File Name**: Use the default value unless you want to use your own backpac file.
+    - **Bacpac File Name**: Use the default value unless you want to use your own bacpac file.
      
         The following values are hardcoded in the variables section:
         
@@ -165,7 +165,7 @@ Now you have learned how to use Sqoop. To learn more, see:
 The PowerShell sample performs the following steps:
 
 1. Connect to Azure.
-2. Create an Azure resource group. For more information, see [Using Azure PowerShell with Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md)
+2. Create an Azure resource group. For more information, see [Using Azure PowerShell with Azure Resource Manager](../../azure-resource-manager/manage-resource-groups-powershell.md)
 3. Create an Azure SQL Database server, an Azure SQL database, and two tables. 
    
     If you use SQL Server instead, use the following statements to create the tables:

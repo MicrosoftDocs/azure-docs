@@ -25,6 +25,8 @@
     href: quickstart-create-data-factory-rest-api.md
   - name: Create data factory - Resource Manager template
     href: quickstart-create-data-factory-resource-manager-template.md
+  - name: Create data flow
+    href: data-flow-create.md
 - name: Tutorials
   items:
   - name: Copy data in cloud
@@ -70,6 +72,14 @@
         href: tutorial-incremental-copy-change-tracking-feature-portal.md
       - name: Azure PowerShell
         href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+    - name: 4 - Copy new files by lastmodifieddate
+      items:
+      - name: Copy Data tool
+        href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
+    - name: 5 - Copy new files by time partitioned file name
+      items:
+      - name: Copy Data tool
+        href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
   - name: Transform data in cloud
     items:
     - name: HDInsight Spark
@@ -118,26 +128,30 @@
     href: concepts-integration-runtime.md
   - name: Mapping Data Flows
     items:
-    - name: Mapping Data Flow concepts
+    - name: Mapping data flow concepts
       href: concepts-data-flow-overview.md
-    - name: Debug Mode
+    - name: Data flow datasets
+      href: concepts-data-flow-datasets.md
+    - name: Debug mode
       href: concepts-data-flow-debug-mode.md
-    - name: Schema Drift
+    - name: Schema drift
       href: concepts-data-flow-schema-drift.md
-    - name: Inspect Pane
+    - name: Inspect pane
       href: concepts-data-flow-inspect-pane.md
-    - name: Column Patterns
+    - name: Column patterns
       href: concepts-data-flow-column-pattern.md
-    - name: Data Flow Monitoring
+    - name: Data flow monitoring
       href: concepts-data-flow-monitoring.md     
-    - name: Move Nodes
+    - name: Move nodes
       href: concepts-data-flow-move-nodes.md
-    - name: Optimize Tab
+    - name: Optimize tab
       href: concepts-data-flow-optimize-tab.md
-    - name: Expression Builder
+    - name: Expression builder
       href: concepts-data-flow-expression-builder.md
-    - name: Reference Nodes
+    - name: Reference nodes
       href: concepts-data-flow-reference-node.md
+    - name: Expression language
+      href: data-flow-expression-functions.md
   - name: Roles and permissions
     href: concepts-roles-permissions.md
   - name: Understanding pricing
@@ -321,7 +335,7 @@
       href: connector-xero.md
     - name: Zoho
       href: connector-zoho.md
-  - name: Copy data
+  - name: Move data
     items:
     - name: Copy data using Copy Activity
       href: copy-activity-overview.md
@@ -387,8 +401,10 @@
       href: control-flow-append-variable-activity.md
     - name: Azure Function Activity
       href: control-flow-azure-function-activity.md
+    - name: Execute Data Flow Activity
+      href: control-flow-execute-data-flow-activity.md
     - name: Execute Pipeline Activity
-      href: control-flow-execute-pipeline-activity.md
+      href: control-flow-execute-pipeline-activity.md      
     - name: Filter Activity
       href: control-flow-filter-activity.md
     - name: For Each Activity
@@ -407,6 +423,42 @@
       href: control-flow-wait-activity.md
     - name: Web Activity
       href: control-flow-web-activity.md
+  - name: Data flow transformations
+    items:
+    - name: Aggregate
+      href: data-flow-aggregate.md
+    - name: Conditional split
+      href: data-flow-conditional-split.md
+    - name: Derived column
+      href: data-flow-derived-column.md
+    - name: Exists
+      href: data-flow-exists.md
+    - name: Filter
+      href: data-flow-filter.md
+    - name: Join
+      href: data-flow-join.md
+    - name: Lookup
+      href: data-flow-lookup.md
+    - name: New branch
+      href: data-flow-new-branch.md
+    - name: Pivot
+      href: data-flow-pivot.md
+    - name: Select
+      href: data-flow-select.md
+    - name: Sink
+      href: data-flow-sink.md
+    - name: Sort
+      href: data-flow-sort.md
+    - name: Source
+      href: data-flow-source.md
+    - name: Surrogate key
+      href: data-flow-surrogate-key.md
+    - name: Union
+      href: data-flow-union.md
+    - name: Unpivot
+      href: data-flow-unpivot.md
+    - name: Window
+      href: data-flow-window.md
   - name: Parameterize
     items:
     - name: Parameterize linked services
@@ -423,7 +475,7 @@
       href: store-credentials-in-key-vault.md
     - name: Encrypt credentials for self-hosted integration runtime
       href: encrypt-credentials-self-hosted-integration-runtime.md
-    - name: Data factory service identity
+    - name: Managed identity for Data Factory
       href: data-factory-service-identity.md
   - name: Monitor and manage
     items:

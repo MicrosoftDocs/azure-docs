@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
+ms.date: 03/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -46,7 +46,7 @@ The **first step** after you receive the HANA Large Instance and establish acces
 
 The HANA Large Instance unit can connect to this SMT instance. (For more information, see [How to set up SMT server for SUSE Linux](hana-setup-smt.md)). Alternatively, your Red Hat OS needs to be registered with the Red Hat Subscription Manager that you need to connect to. For more information, see the remarks in [What is SAP HANA on Azure (Large Instances)?](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
-This step is also is necessary for patching the OS, which is the responsibility of the customer. For SUSE, find the documentation for installing and configuring SMT on this page about [SMT installation](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
+This step is necessary for patching the OS, which is the responsibility of the customer. For SUSE, find the documentation for installing and configuring SMT on this page about [SMT installation](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
 
 The **second step** is to check for new patches and fixes of the specific OS release/version. Verify that the patch level of the HANA Large Instance is in the latest state. There might be cases where the latest patches aren't included. After taking over a HANA Large Instance unit, it's mandatory to check whether patches need to be applied.
 
@@ -66,7 +66,7 @@ Specifically, check the following parameters and eventually adjust to:
 
 Starting with SLES12 SP1 and RHEL 7.2, these parameters must be set in a configuration file in the /etc/sysctl.d directory. For example, a configuration file with the name 91-NetApp-HANA.conf must be created. For older SLES and RHEL releases, these parameters must be set in/etc/sysctl.conf.
 
-For all RHEL releases starting with SLES12, keep in mind the following: 
+For all RHEL releases starting with RHEL 6.3, keep in mind the following: 
 - The sunrpc.tcp_slot_table_entries = 128 parameter must be set in/etc/modprobe.d/sunrpc-local.conf. If the file does not exist, you need to create it first by adding the following entry: 
     - options sunrpc tcp_max_slot_table_entries=128
 
@@ -75,6 +75,7 @@ The **fourth step** is to check the system time of your HANA Large Instance unit
 If you order more instances into your tenant, you need to adapt the time zone of the newly delivered instances. Microsoft has no insight into the system time zone you set up with the instances after the handover. Thus, newly deployed instances might not be set in the same time zone as the one you changed to. It's is your responsibility as customer to adapt the time zone of the instance(s) that were handed over, if necessary. 
 
 The **fifth step** is to check etc/hosts. As the blades get handed over, they have different IP addresses that are assigned for different purposes. Check the etc/hosts file. When units are added into an existing tenant, don't expect to have etc/hosts of the newly deployed systems maintained correctly with the IP addresses of systems that were delivered earlier. It's your responsibility as customer to makes sure that a newly deployed instance can interact and resolve the names of the units that you deployed earlier in your tenant. 
+
 
 ## Operating system
 
@@ -101,7 +102,7 @@ The following are SAP support notes that are applicable to implementing SAP HANA
 - [SAP support note #171356 – SAP software on Linux:  General information](https://launchpad.support.sap.com/#/notes/1984787)
 - [SAP support note #1391070 – Linux UUID solutions](https://launchpad.support.sap.com/#/notes/1391070)
 
-[Red Hat Enterprise Linux for SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) is another offer for running SAP HANA on HANA Large Instances. Releases of RHEL 6.7 and 7.2 are available. Note that as opposed to native Azure VMs where only RHEL 7.2 and more recent releases are supported, HANA Large Instances do support RHEL 6.7 as well. However, we recommend using an RHEL 7.x release.
+[Red Hat Enterprise Linux for SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) is another offer for running SAP HANA on HANA Large Instances. Releases of RHEL 6.7 and 7.2 are available. Note, opposite to native Azure VMs where only RHEL 7.2 and more recent releases are supported, HANA Large Instances do support RHEL 6.7 as well. However, we recommend using an RHEL 7.x release.
 
 Following are additional useful SAP on Red Hat related links:
 - [SAP HANA on Red Hat Linux site](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+Red+Hat).
@@ -196,6 +197,16 @@ To optimize SAP HANA to the storage used underneath, set the following SAP HANA 
 For SAP HANA 1.0 versions up to SPS12, these parameters can be set during the installation of the SAP HANA database, as described in [SAP note #2267798 - Configuration of the SAP HANA database](https://launchpad.support.sap.com/#/notes/2267798).
 
 You can also configure the parameters after the SAP HANA database installation by using the hdbparam framework. 
+
+The storage used in HANA Large Instances has a file size limitation. The [size limitation is 16TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) per file. Unlike in cases of file size limitations like in EXT3 file systems, HANA is not aware implicitly of the storage limitation enforced by the HANA Large Instances storage. as a result HANA will not automatically create a new data file when the file size limit of 16TB is reached. As HANA attempts to grow the file beyond 16TB, HANA will report errors and the index server will crash at the end.
+
+> [!IMPORTANT]
+> In order to prevent HANA trying to grow data files beyond the 16TB file size limit of HANA Large Instance storage, you need to set the following parameters in the global.ini configuration file of HANA
+> 
+- datavolume_striping=true
+- datavolume_striping_size_gb = 15000
+- See also SAP note [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+
 
 With SAP HANA 2.0, the hdbparam framework has been deprecated. As a result, the parameters must be set by using SQL commands. For more information, see [SAP note #2399079: Elimination of hdbparam in HANA 2](https://launchpad.support.sap.com/#/notes/2399079).
 

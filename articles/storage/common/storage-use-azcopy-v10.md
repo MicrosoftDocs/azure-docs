@@ -48,8 +48,11 @@ AzCopy v10 does not require an installation. Open a preferred command-line appli
 ## Authentication Options
 
 AzCopy v10 allows you to use the following options when authenticating with Azure Storage:
-- **Azure Active Directory [Supported on Blob and ADLS Gen2]**. Use ```.\azcopy login``` to sign in using Azure Active Directory.  The user should have ["Storage Blob Data Contributor" role assigned](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) to write to Blob storage using Azure Active Directory authentication.
-- **SAS tokens [Supported on Blob and File service]**. Append the SAS token to the blob path on the command line to use it. You can generate SAS token using Azure Portal, [Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), or other tools of your choice. For more information, see [examples](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
+- **Azure Active Directory [Supported for Blob and ADLS Gen2 services]**. Use ```.\azcopy login``` to sign in using Azure Active Directory.  The user should have ["Storage Blob Data Contributor" role assigned](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) to write to Blob storage using Azure Active Directory authentication.
+- **SAS tokens [Supported for Blob and File services]**. Append the SAS token to the blob path on the command line to use it. You can generate SAS token using Azure Portal, [Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), or other tools of your choice. For more information, see [examples](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
+
+> [!IMPORTANT]
+> When submitting a support request to Microsoft Support (or troubleshooting the issue involving any 3rd party) please share the redacted version of the command you’re trying to execute to ensure the SAS is not accidentally shared with anybody. You can find the redacted version at the start of the log file. Review the Troubleshooting section later in this article for more details.
 
 ## Getting started
 
@@ -200,11 +203,33 @@ set AZCOPY_CONCURRENCY_VALUE=<value>
 export AZCOPY_CONCURRENCY_VALUE=<value>
 # For MacOS
 export AZCOPY_CONCURRENCY_VALUE=<value>
+# To check the current value of the variable on all the platforms
+.\azcopy env
+# If the value is blank then the default value is currently in use
 ```
 
 ## Troubleshooting
 
-AzCopy v10 creates log files and plan files for all the jobs. You can use the logs to investigate and troubleshoot any potential problems. The logs will contain the status of failure (UPLOADFAILED, COPYFAILED, and DOWNLOADFAILED), the full path, and the reason of the failure. The job logs and plan files are located in the %USERPROFILE\\.azcopy folder.
+AzCopy v10 creates log files and plan files for all the jobs. You can use the logs to investigate and troubleshoot any potential problems. The logs will contain the status of failure (UPLOADFAILED, COPYFAILED, and DOWNLOADFAILED), the full path, and the reason of the failure. The job logs and plan files are located in the %USERPROFILE\\.azcopy folder on Windows or $HOME\\.azcopy folder on Mac and Linux.
+
+> [!IMPORTANT]
+> When submitting a support request to Microsoft Support (or troubleshooting the issue involving any 3rd party) please share the redacted version of the command you’re trying to execute to ensure the SAS is not accidentally shared with anybody. You can find the redacted version at the start of the log file.
+
+### Change the location of the log files
+
+You can change the location of the log files if needed or to avoid filling up the OS disk.
+
+```cmd
+# For Windows:
+set AZCOPY_LOG_LOCATION=<value>
+# For Linux:
+export AZCOPY_LOG_LOCATION=<value>
+# For MacOS
+export AZCOPY_LOG_LOCATION=<value>
+# To check the current value of the variable on all the platforms
+.\azcopy env
+# If the value is blank then the default value is currently in use
+```
 
 ### Review the logs for errors
 
@@ -234,7 +259,7 @@ To filter the transfers by status, use the following command:
 .\azcopy jobs show <job-id> --with-status=Failed
 ```
 
-You can resume a failed/cancelled job using its identifier along with the SAS token (it is not persistent for security reasons):
+You can resume a failed/canceled job using its identifier along with the SAS token (it is not persistent for security reasons):
 
 ```azcopy
 .\azcopy jobs resume <jobid> --sourcesastokenhere --destinationsastokenhere

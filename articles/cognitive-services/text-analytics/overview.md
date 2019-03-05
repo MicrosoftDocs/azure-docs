@@ -3,21 +3,21 @@ title: What is Text Analytics?
 titleSuffix: Azure Cognitive Services
 description: Text Analytics in Azure Cognitive Services for sentiment analysis, key phrase extraction, language detection, and entity linking.
 services: cognitive-services
-author: ashmaka
+author: aahill
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 10/01/2018
-ms.author: ashmaka
+ms.date: 02/13/2019
+ms.author: aahi
 ---
 
 # What is Text Analytics?
 
 The Text Analytics API is a cloud-based service that provides advanced natural language processing over raw text, and includes four main functions: sentiment analysis, key phrase extraction, language detection, and entity linking.
 
-The API is backed by resources in [Microsoft Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), a collection of machine learning and AI algorithms in the cloud, readily consumable in your development projects.
+The API is a part of [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), a collection of machine learning and AI algorithms in the cloud for your development projects.
 
 ## Capabilities in Text Analytics
 
@@ -60,11 +60,11 @@ This section has been moved to a separate article for better discoverability. Re
 
 ## Data limits
 
-All of the Text Analytics API endpoints accept raw text data. The current limit is 5,000 characters for each document; if you need to analyze larger documents, you can break them up into smaller chunks. If you still require a higher limit, [contact us](https://azure.microsoft.com/overview/sales-number/) so that we can discuss your requirements.
+All of the Text Analytics API endpoints accept raw text data. The current limit is 5,120 characters for each document; if you need to analyze larger documents, you can break them up into smaller chunks. If you still require a higher limit, [contact us](https://azure.microsoft.com/overview/sales-number/) so that we can discuss your requirements.
 
 | Limit | Value |
 |------------------------|---------------|
-| Maximum size of a single document | 5,000 characters as measured by [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
+| Maximum size of a single document | 5,120 characters as measured by [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Maximum size of entire request | 1 MB |
 | Maximum number of documents in a request | 1,000 documents |
 
@@ -76,7 +76,7 @@ The Text Analytics API uses Unicode encoding for text representation and charact
 
 ## Next steps
 
-First, try the [interactive demo](https://azure.microsoft.com/services/cognitive-services/text-analytics/). You can paste a text input (5,000 character maximum) to detect the language (up to 120), calculate a sentiment score, or extract key phrases. No sign-up necessary.
+First, try the [interactive demo](https://azure.microsoft.com/services/cognitive-services/text-analytics/). You can paste a text input (5,120 character maximum) to detect the language (up to 120), calculate a sentiment score, or extract key phrases. No sign-up necessary.
 
 When you are ready to call the API directly:
 

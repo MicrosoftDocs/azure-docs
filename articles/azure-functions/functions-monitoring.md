@@ -11,6 +11,7 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
+#Customer intent: As a developer, I want to be able to monitor the status of my functions so that I can respond to any errors that occur and make improvements to my applications.
 ---
 
 # Monitor Azure Functions

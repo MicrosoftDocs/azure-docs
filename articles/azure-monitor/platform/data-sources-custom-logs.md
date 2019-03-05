@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.date: 02/12/2019
 ms.author: bwren
 ---
 
@@ -38,7 +38,11 @@ The log files to be collected must match the following criteria.
 >
 
 >[!NOTE]
-> A maximum of 500 custom logs can be created per Log Analytics Workspace. 
+> A Log Analytics workspace supports the following limits:
+> 
+> * Only 500 custom logs can be created.
+> * A table only supports up to 500 columns. 
+> * The maximum number of characters for the column name is 500. 
 >
 
 ## Defining a custom log

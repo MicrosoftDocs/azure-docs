@@ -19,8 +19,6 @@ ms.author: tomfitz
 ---
 # String functions for Azure Resource Manager templates
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Resource Manager provides the following functions for working with strings:
 
 * [base64](#base64)

@@ -2,13 +2,8 @@
 title: Analyze log data in Azure Monitor | Microsoft Docs
 description: You require a log query to retrieve log data from Azure Monitor.  This article describes how new log queries are used in Azure Monitor and provides concepts that you need to understand before creating one.
 services: log-analytics
-documentationcenter: ''
 author: bwren
-manager: carmonm
-editor: ''
 ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
@@ -16,7 +11,7 @@ ms.author: bwren
 
 # Analyze log data in Azure Monitor
 
-Log data collected by Azure Monitor is stored in a Log Analytics workspace, which is based on [Azure Data Explorer](/azure/data-explorer). It collects telemetry from a variety of sources and uses the [query language from Data Explorer](/azure/kusto/query) to retrieve and analyze data.
+Log data collected by Azure Monitor is stored in a Log Analytics workspace, which is based on [Azure Data Explorer](/azure/data-explorer). It collects telemetry from a variety of sources and uses the [Kusto query language](/azure/kusto/query) used by Data Explorer to retrieve and analyze data.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -29,20 +24,25 @@ You require a log query to retrieve any log data from Azure Monitor.  Whether yo
 
 ## Where log queries are used
 
-The different ways that you will use log queries in Azure Monitor include the following:
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+The different ways that you will use queries in Azure Monitor include the following:
+
 
 - **Portal.** You can perform interactive analysis of log data in the [Azure portal](portals.md).  This allows you to edit your query and analyze the results in a variety of formats and visualizations.  
 - **Alert rules.** [Alert rules](../platform/alerts-overview.md) proactively identify issues from data in your workspace.  Each alert rule is based on a log search that is automatically run at regular intervals.  The results are inspected to determine if an alert should be created.
 - **Dashboards.** You can pin the results of any query into an [Azure dashboard](../learn/tutorial-logs-dashboards.md) which allow you to visualize log and metric data together and optionally share with other Azure users. 
 - **Views.**  You can create visualizations of data to be included in user dashboards with [View Designer](../platform/view-designer.md).  Log queries provide the data used by [tiles](../platform/view-designer-tiles.md) and [visualization parts](../platform/view-designer-parts.md) in each view.  
+
 - **Export.**  When you import log data from Azure Monitor into Excel or [Power BI](../platform/powerbi.md), you create a log query to define the data to export.
-- **PowerShell.** You can run a PowerShell script from a command line or an Azure Automation runbook that uses [Get-​Azure​Rm​Operational​Insights​Search​Results](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) to retrieve log data from Azure Monitor.  This cmdlet requires a query to determine the data to retrieve.
+- **PowerShell.** You can run a PowerShell script from a command line or an Azure Automation runbook that uses [Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) to retrieve log data from Azure Monitor.  This cmdlet requires a query to determine the data to retrieve.
 - **Azure Monitor Logs API.**  The [Azure Monitor Logs API](../platform/alerts-overview.md) allows any REST API client to retrieve log data from the workspace.  The API request includes a query that is run against Azure Monitor to determine the data to retrieve.
 
 ![Log searches](media/log-query-overview/queries-overview.png)
 
 ## Write a query
-Azure Monitor uses [a version of the Data Explorer query language](get-started-queries.md) to retrieve and analyze log data in a variety of ways.  You'll typically start with basic queries and then progress to use more advanced functions as your requirements become more complex.
+Azure Monitor uses [a version of the Kusto query language](get-started-queries.md) to retrieve and analyze log data in a variety of ways.  You'll typically start with basic queries and then progress to use more advanced functions as your requirements become more complex.
 
 The basic structure of a query is a source table followed by a series of operators separated by a pipe character `|`.  You can chain together multiple operators to refine the data and perform advanced functions.
 
@@ -97,5 +97,5 @@ While [Application Insights](../app/app-insights-overview.md) stores application
 
 
 ## Next steps
-- Learn about using [log analytics to create and edit log searches](../log-query/portals.md).
+- Learn about using [Log Analytics to create and edit log searches](../log-query/portals.md).
 - Check out a [tutorial on writing queries](../log-query/get-started-queries.md) using the new query language.

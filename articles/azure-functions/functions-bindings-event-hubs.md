@@ -425,7 +425,7 @@ The following table explains the binding configuration properties that you set i
 
 ## Trigger - event metadata
 
-The Event Hubs trigger provides several [metadata properties](functions-triggers-bindings.md#binding-expressions---trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. These are properties of the [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata) class.
+The Event Hubs trigger provides several [metadata properties](./functions-bindings-expressions-patterns.md). These properties can be used as part of binding expressions in other bindings or as parameters in your code. These are properties of the [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata) class.
 
 |Property|Type|Description|
 |--------|----|-----------|
@@ -645,7 +645,7 @@ def main(timer: func.TimerRequest) -> str:
 
 ### Output - Java example
 
-The following example shows a Java function that writes a message contianing the current time to an Event Hub.
+The following example shows a Java function that writes a message containing the current time to an Event Hub.
 
 ```java
 @}FunctionName("sendTime")

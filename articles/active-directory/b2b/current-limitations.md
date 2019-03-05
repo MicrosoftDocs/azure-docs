@@ -1,5 +1,5 @@
 ---
-title: Limitations of Azure Active Directory B2B collaboration | Microsoft Docs
+title: Limitations of B2B collaboration - Azure Active Directory | Microsoft Docs
 description: Current limitations for Azure Active Directory B2B collaboration
 
 services: active-directory

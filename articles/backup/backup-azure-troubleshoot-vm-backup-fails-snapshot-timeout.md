@@ -220,18 +220,18 @@ Completing these steps causes the extension to be reinstalled during the next ba
 3. In the **Settings** section, select **Locks** to display the locks.
 4. To remove the lock, select the ellipsis and click **Delete**.
 
-	![Delete lock ](./media/backup-azure-arm-vms-prepare/delete-lock.png)
+	![Delete lock](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
 ### <a name="clean_up_restore_point_collection"></a> Clean up restore point collection
 After removing the lock, the restore points have to be cleaned up. To clean up the restore points, follow any of the methods:<br>
-* [Clean up restore point collection by running ad-hoc backup](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+* [Clean up restore point collection by running ad hoc backup](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
 * [Clean up restore point collection from Azure portal](#clean-up-restore-point-collection-from-azure-portal)<br>
 
-#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Clean up restore point collection by running ad-hoc backup
-After removing lock, trigger an ad-hoc/manual backup. This will ensure the restore points are automatically cleaned up. Expect this ad-hoc/manual operation to fail first time; however, it will ensure automatic cleanup instead of manual deletion of restore points. After cleanup your next scheduled backup should succeed.
+#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Clean up restore point collection by running ad hoc backup
+After removing lock, trigger an ad hoc/manual backup. This will ensure the restore points are automatically cleaned up. Expect this ad hoc/manual operation to fail first time; however, it will ensure automatic cleanup instead of manual deletion of restore points. After cleanup your next scheduled backup should succeed.
 
 > [!NOTE]
-	> Automatic cleanup will happen after few hours of triggering the ad-hoc/manual backup. If your scheduled backup still fails, then try manually deleting the restore point collection using the steps listed [here](#clean-up-restore-point-collection-from-azure-portal).
+	> Automatic cleanup will happen after few hours of triggering the ad hoc/manual backup. If your scheduled backup still fails, then try manually deleting the restore point collection using the steps listed [here](#clean-up-restore-point-collection-from-azure-portal).
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Clean up restore point collection from Azure portal <br>
 
@@ -239,12 +239,12 @@ To manually clear the restore points collection which are not cleared due to the
 1. Sign in to the [Azure portal](http://portal.azure.com/).
 2. On the **Hub** menu, click **All resources**, select the Resource group with the following format AzureBackupRG_`<Geo>`_`<number>` where your VM is located.
 
-	![Delete lock ](./media/backup-azure-arm-vms-prepare/resource-group.png)
+	![Delete lock](./media/backup-azure-arm-vms-prepare/resource-group.png)
 
 3. Click Resource group, the **Overview** blade is displayed.
 4. Select **Show hidden types** option to display all the hidden resources. Select the restore point collections with the following format AzureBackupRG_`<VMName>`_`<number>`.
 
-	![Delete lock ](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
+	![Delete lock](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
 
 5. Click **Delete**, to clean the restore point collection.
 6. Retry the backup operation again.

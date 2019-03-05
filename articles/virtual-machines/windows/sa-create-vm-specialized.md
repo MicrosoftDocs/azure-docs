@@ -25,7 +25,7 @@ Create a new VM by attaching a specialized unmanaged disk as the OS disk using P
 
 You have two options:
 * [Upload a VHD](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
-* [Copy the VHD of an existing Azure VM](sa-create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
+* [Copy the VHD of an existing Azure VM](sa-create-vm-specialized.md#option-2-copy-the-vhd-from-an-existing-azure-vm)
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
@@ -267,7 +267,7 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
     ```powershell
     $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
     ```
-2. Add the OS disk. In this example, when the OS disk is created, the term "osDisk" is appened to the VM name to create the OS disk name. This example also specifies that this Windows-based VHD should be attached to the VM as the OS disk.
+2. Add the OS disk. In this example, when the OS disk is created, the term "osDisk" is appended to the VM name to create the OS disk name. This example also specifies that this Windows-based VHD should be attached to the VM as the OS disk.
     
 	```powershell
     $osDiskName = $vmName + "osDisk"
