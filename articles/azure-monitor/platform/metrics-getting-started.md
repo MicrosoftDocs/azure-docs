@@ -13,13 +13,9 @@ ms.subservice: metrics
 # Getting started with Azure Metrics Explorer
 
 ## Where do I start
+Azure Monitor metrics explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics' values. Use the metrics explorer to investigate the health and utilization of your resources. Start in the following order:
 
-> [!NOTE]
-> This article covers key concepts to help new users get started with the Azure Monitor metrics explorer. For more detailed documentation and information about advanced chart settings and metrics, see [Advanced features of Azure Monitor metrics explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts).
-
-Use the metrics explorer to investigate the health and utilization of your resources. Start in the following order:
-
-1. Start by [picking a resource and a metric](#creating-your-first-metric-chart) and you see a basic chart. Then [select a time range](#picking-time-range) that is relevant for your investigation.
+1. [Pick a resource and a metric](#creating-your-first-metric-chart) and you see a basic chart. Then [select a time range](#picking-time-range) that is relevant for your investigation.
 
 1. Try [applying dimension filters and splitting](#applying-dimension-filters-and-splitting). The filters and splitting allow you to analyze which segments of the metric contribute to the overall metric value and identify possible outliers.
 
