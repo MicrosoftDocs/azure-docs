@@ -42,10 +42,8 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/cli/azure/ext/resource-graph/graph">Azure CLI</a></p>
-    - title: PowerShell
-      html: <p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
-    - title: REST API
-      html: <p><a href="/rest/api/azureresourcegraph/resources/resources">Resources</a></p>
-    - title: OpenAPI (Swagger)
-      html: <p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview">2018-09-01-preview</a></p>
+      html: <p><a href="/cli/azure/ext/resource-graph/graph">Azure CLI</a></p><p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">Azure SDK for .NET</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/azureresourcegraph/resources/resources">API Reference</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview">2018-09-01-preview (OpenAPI)</a></p>

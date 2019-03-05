@@ -188,7 +188,7 @@ Requires a minimum of two arguments, which are unique value generation rules def
 SingleAppRoleAssignment([appRoleAssignments])
 
 **Description:**<br> 
-Requires one string argument. Returns the string, but with any diacritical characters repalced with equivalent non-diacritical characters.
+Returns a single appRoleAssignment from the list of all appRoleAssignments assigned to a user for a given application. This function is required to convert the appRoleAssignments object into a single role name string. Note that the best practice is to ensure only one appRoleAssignment is assigned to one user at a time, and if multiple roles are assigned the role string returned may not be predictable. 
 
 **Parameters:**<br> 
 

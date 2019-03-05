@@ -114,19 +114,13 @@ Network Performance Monitor uses synthetic transactions to monitor network perfo
 
    **ExpressRoute Monitor**: Select **Discover Now** to discover all the ExpressRoute private peerings that are connected to the virtual networks in the Azure subscription linked with this Log Analytics workspace. 
 
-   >[!NOTE] 
-   > The solution currently discovers only ExpressRoute private peerings. 
-
-   >[!NOTE] 
-   > Only private peerings that are connected to the virtual networks associated with the subscription linked with this Log Analytics workspace are discovered. If ExpressRoute is connected to virtual networks outside of the subscription linked to this workspace, create a Log Analytics workspace in those subscriptions. Use Network Performance Monitor to monitor those peerings.
-
    ![ExpressRoute Monitor view](media/network-performance-monitor/npm-express-route.png)
 
-   After the discovery is finished, the discovered private peerings are listed in a table. 
+   After the discovery is finished, the discovered circuits and peerings are listed in a table. 
 
    ![Network Performance Monitor Configuration page](media/network-performance-monitor/npm-private-peerings.png)
     
-The monitoring for these peerings is initially in a disabled state. Select each peering that you want to monitor, and configure monitoring for them from the details view on the right. Select **Save** to save the configuration. To learn more, see the "Configure ExpressRoute monitoring" article. 
+The monitoring for these circuits and peerings is initially in a disabled state. Select each resource that you want to monitor, and configure monitoring for them from the details view on the right. Select **Save** to save the configuration. To learn more, see the "Configure ExpressRoute monitoring" article. 
 
 After the setup is finished, it takes 30 minutes to an hour for the data to populate. While the solution aggregates data from your network, you see the message *Solution requires additional configuration* on the Network Performance Monitor **Overview** tile. After the data is collected and indexed, the **Overview** tile changes and informs you of your network health in a summary. You then can edit the monitoring of the nodes on which Log Analytics agents are installed, as well as the subnets discovered from your environment.
 

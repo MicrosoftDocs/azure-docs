@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
@@ -78,3 +78,4 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
  - [Develop templates for Azure Stack](user/azure-stack-develop-templates.md)
  - [Deploy templates with PowerShell](user/azure-stack-deploy-template-powershell.md)
+- [Azure Stack Module Reference](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)  

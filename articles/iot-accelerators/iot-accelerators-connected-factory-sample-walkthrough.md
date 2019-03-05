@@ -224,7 +224,7 @@ The web app deployed as part of the solution accelerator includes an integrated 
 
 You can continue getting started with IoT solution accelerators by reading the following articles:
 
-* [Permissions on the azureiotsuite.com site][lnk-permissions]
+* [Permissions on the azureiotsolutions.com site][lnk-permissions]
 * [Deploy a gateway on Windows or Linux for the Connected Factory solution accelerator](iot-accelerators-connected-factory-gateway-deployment.md)
 * [OPC Publisher reference implementation](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 
