@@ -1,5 +1,5 @@
 ---
-title: How to access key rotation for Azure SignalR Service
+title: How to rotate access key for Azure SignalR Service
 description: An overview on why the customer needs to routinely rotate the access keys and how to do it with the Azure portal GUI and the Azure CLI.
 author: sffamily
 ms.service: signalr
