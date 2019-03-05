@@ -2715,6 +2715,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-resource-manager/resource-manager-templates-resources.md",
+      "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates#resources",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-resource-manager/resource-manager-export-template.md",
       "redirect_url": "/azure/azure-resource-manager/manage-resources-portal",
       "redirect_document_id": false
@@ -3006,7 +3011,7 @@
     },
     {
       "source_path": "articles/powershell-azure-resource-manager.md",
-      "redirect_url": "/azure/azure-resource-manager/manage-resources-powershell.md",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-powershell",
       "redirect_document_id": false
     },
     {
@@ -12369,7 +12374,12 @@
     },
     {
       "source_path": "articles/machine-learning/machine-learning-r-quickstart.md",
-      "redirect_url": "/azure/machine-learning/studio/r-quickstart",
+      "redirect_url": "/azure/machine-learning/studio/r-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/r-quickstart.md",
+      "redirect_url": "/azure/machine-learning/studio/r-get-started",
       "redirect_document_id": false
     },
     {
@@ -26013,6 +26023,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/azure-resource-manager-test-Drive.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-Drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/hosted-test-drive.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/logic-app-test-drive.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/marketing-and-best-practices.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/transforming-examples-for-test-drive.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/test-drive/transforming-examples-for-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/what-is-test-drive.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/grow-your-business-azure-marketplace.md",
       "redirect_url": "/azure/marketplace/grow-your-business-with-azure-marketplace",
       "redirect_document_id": false
@@ -31582,6 +31622,11 @@
     {
       "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md",
       "redirect_url": "/azure/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/myprofile-portal-recent-activity-page.md",
+      "redirect_url": "/azure/active-directory/user-help/myprofile-portal-overview",
       "redirect_document_id": false
     },
     {
