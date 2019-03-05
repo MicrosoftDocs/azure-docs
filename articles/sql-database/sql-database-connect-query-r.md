@@ -11,7 +11,7 @@ author: dphansen
 ms.author: davidph
 ms.reviewer:
 manager: cgronlun
-ms.date: 02/12/2019
+ms.date: 03/01/2019
 ---
 
 # Quickstart: Use Machine Learning Services (with R) in Azure SQL Database (preview)
@@ -24,8 +24,12 @@ Machine Learning Services includes a base distribution of R, overlaid with enter
 
 If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/) before you begin.
 
-> [!NOTE]
-> Machine Learning Services (with R) in Azure SQL Database is currently in public preview. [Sign up for the preview](sql-database-machine-learning-services-overview.md#signup).
+> [!IMPORTANT]
+> Azure SQL Database Machine Learning Services is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> [Sign up for the preview](sql-database-machine-learning-services-overview.md#signup).
 
 ## Prerequisites
 

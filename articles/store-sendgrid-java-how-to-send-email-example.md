@@ -18,11 +18,11 @@ ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
 
 ---
 # How to Send Email Using SendGrid from Java in an Azure Deployment
-The following example shows you how you can use SendGrid to send emails from a web page hosted in Azure. The resulting application will prompt the user for email values, as shown in the following screen shot.
+The following example shows you how you can use SendGrid to send emails from a web page hosted in Azure. The resulting application will prompt the user for email values, as shown in the following screenshot.
 
 ![Email form][emailform]
 
-The resulting email will look similar to the following screen shot.
+The resulting email will look similar to the following screenshot.
 
 ![Email message][emailsent]
 
@@ -200,7 +200,7 @@ The following code, which is called when you complete the form in emailform.jsp,
     </body>
     </html>
 
-In addition to sending the email, emailform.jsp provides a result for the user; an example is the following screen shot:
+In addition to sending the email, emailform.jsp provides a result for the user; an example is the following screenshot:
 
 ![Send mail result][emailresult]
 

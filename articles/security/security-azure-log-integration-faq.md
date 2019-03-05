@@ -4,7 +4,7 @@ description: This article answers questions about Azure Log Integration.
 services: security
 documentationcenter: na
 author: TomShinder
-manager: barbkess
+manager: MBaldwin
 editor: TerryLanfear
 
 ms.assetid: d06d1ac5-5c3b-49de-800e-4d54b3064c64
@@ -28,6 +28,8 @@ This article answers frequently asked questions (FAQ) about Azure Log Integratio
 Azure Log Integration is a Windows operating system service that you can use to integrate raw logs from your Azure resources into your on-premises security information and event management (SIEM) systems. This integration provides a unified dashboard for all your assets, on-premises or in the cloud. You can then aggregate, correlate, analyze, and alert for security events associated with your applications.
 
 The preferred method for integrating Azure logs is by using your SIEM vendor's Azure Monitor connector and following these [instructions](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). However, if your SIEM vendor doesn't provide a connector to Azure Monitor, you may be able to use Azure Log Integration as a temporary solution (if your SIEM is supported by Azure Log Integration) until such a connector is available.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Is the Azure Log Integration software free?
 
@@ -114,8 +116,8 @@ For details on how to get, modify, and set the Azure Diagnostics configuration, 
 
 The following example gets the Azure Diagnostics configuration:
 
-    -AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
-    $publicsettings = (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient).PublicSettings
+    Get-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
+    $publicsettings = (Get-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient).PublicSettings
     $encodedconfig = (ConvertFrom-Json -InputObject $publicsettings).xmlCfg
     $xmlconfig = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encodedconfig))
     Write-Host $xmlconfig
@@ -132,7 +134,7 @@ The following example modifies the Azure Diagnostics configuration. In this conf
 The following example sets the Azure Diagnostics configuration:
 
     $diagnosticsconfig_path = "d:\WADConfig.xml"
-    Set-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>
+    Set-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>
 
 After you make changes, check the storage account to ensure that the correct events are collected.
 

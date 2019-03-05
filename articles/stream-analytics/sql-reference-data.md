@@ -152,7 +152,7 @@ There are no additional [cost per streaming unit](https://azure.microsoft.com/pr
 
 **How do I know reference data snapshot is being queried from SQL DB and used in the Azure Stream Analytics job?**
 
-There are twp metrics filtered by Logical Name (under Metrics Azure Portal) which you can use to monitor the health of the SQL database reference data input.
+There are two metrics filtered by Logical Name (under Metrics Azure Portal) which you can use to monitor the health of the SQL database reference data input.
 
    * InputEvents: This metric measures the number of records loaded in from the SQL database reference data set.
    * InputEventBytes: This metric measures the size of the reference data snapshot loaded in memory of the Stream Analytics job. 

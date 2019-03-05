@@ -23,7 +23,7 @@ Two components of an IoT Edge device need to be updated if you want to move to a
 >* You have not upgraded your device to Windows build 17763. IoT Edge version 1.0.5 does not support Windows builds older than 17763.
 >* You run Java or Node.js modules on your Windows device. Skip version 1.0.5 even if you have updated your Windows device to the latest build. 
 >
->For more information about IoT Edge version 1.0.5, see [1.0.5 release notes](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). For more information about how to keep your development tools from updating to the latest version, see [the IoT developer blog](https://aka.ms/dev-win-iot-edge-module).
+>For more information about IoT Edge version 1.0.5, see [1.0.5 release notes](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). For more information about how to keep your development tools from updating to the latest version, see [the IoT developer blog](https://devblogs.microsoft.com/iotdev/).
 
 
 To find the latest version of Azure IoT Edge, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).

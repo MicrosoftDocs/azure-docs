@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2B collaboration FAQs | Microsoft Docs
+title: B2B collaboration FAQs - Azure Active Directory | Microsoft Docs
 description: Get answers to frequently asked questions about Azure Active Directory B2B collaboration.
 
 services: active-directory
@@ -105,7 +105,7 @@ If the partner has an Azure AD tenant that is federated to the on-premises authe
 We are removing the differences between B2B and business-to-consumer (B2C) collaboration in terms of which identities are supported. The identity used isn't a good reason to choose between using B2B or using B2C. For information about choosing your collaboration option, see [Compare B2B collaboration and B2C in Azure Active Directory](compare-with-b2c.md).
 
 ### What applications and services support Azure B2B guest users?
-All Azure AD-integrated applications can support Azure B2B guest users, but they must use a tenanted endpoint to authenticate guest users. You might also need to [customize the claims](claims-mapping.md) in the SAML token that is issued when a guest user authenticates to the app. 
+All Azure AD-integrated applications can support Azure B2B guest users, but they must use an endpoint set up as a tenant to authenticate guest users. You might also need to [customize the claims](claims-mapping.md) in the SAML token that is issued when a guest user authenticates to the app. 
 
 ### Can we force multi-factor authentication for B2B guest users if our partners don't have multi-factor authentication?
 Yes. For more information, see [Conditional access for B2B collaboration users](conditional-access.md).

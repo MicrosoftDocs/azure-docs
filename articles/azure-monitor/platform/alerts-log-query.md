@@ -25,16 +25,11 @@ Queries that start with `search` or `union` allow you to search across multiple 
 
 ```Kusto
 search "Memory"
-
 search * | where == "Memory"
-
 search ObjectName: "Memory"
-
 search ObjectName == "Memory"
-
 union * | where ObjectName == "Memory"
 ```
- 
 
 Although `search` and `union` are useful during data exploration, searching terms over the entire data model, they are less efficient than using a table since they must scan across multiple tables. Since queries in alert rules are run at regular intervals, this can result in excessive overhead adding latency to the alert. Because of this overhead, queries for log alert rules in Azure should always start with a table to define a clear scope, which improves both query performance and the relevance of the results.
 

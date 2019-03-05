@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: tulasim
 ms.custom: seodec18
 ---
@@ -73,7 +73,7 @@ The default confidence score that is used as a threshold is 50, however you can 
 |Is parking available?|Do you have car park?|sentence structure|
  |Hi|Yo<br>Hey there!|word-style or slang|
 
-<a name="#use-metadata-filters"></a>
+<a name="use-metadata-filters"></a>
 
 ### Use metadata tags to filter questions and answers
 
@@ -103,7 +103,7 @@ QnA Maker allows users to [collaborate](../How-to/collaborate-knowledge-base.md)
 
 ## Active learning
 
-[Active learning](../How-to/improve-knowledge-base.md) does the best job of suggesting alternative questions when it has a wide range of quality and quantity of user-based queries. It is important to allow client-applications' user queries to participate in the active learning feedback loop without censorship.
+[Active learning](../How-to/improve-knowledge-base.md) does the best job of suggesting alternative questions when it has a wide range of quality and quantity of user-based queries. It is important to allow client-applications' user queries to participate in the active learning feedback loop without censorship. Once questions are suggested in the QnA Maker portal, you need to review and accept or reject those suggestions. 
 
 ## Next steps
 

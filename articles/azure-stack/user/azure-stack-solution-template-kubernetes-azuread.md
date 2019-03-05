@@ -164,3 +164,5 @@ Give the service principal access to your subscription so that the principal can
 ## Next steps
 
 [Connect to your cluster](azure-stack-solution-template-kubernetes-deploy.md#connect-to-your-cluster)
+
+[Enable the Kubernetes Dashboard](azure-stack-solution-template-kubernetes-dashboard.md)

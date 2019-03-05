@@ -20,6 +20,8 @@ ms.author: spelluru
 # Azure DevTest Labs FAQ
 Get answers to some of the most common questions about Azure DevTest Labs.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 **General**
 ## What if my question isn't answered here?
 If your question is not listed here, let us know, so we can help you find an answer.
@@ -70,7 +72,7 @@ Because scopes are hierarchical, when a user has permissions at a certain scope,
 ## How do I create a role to allow users to perform a specific task?
 For a comprehensive article about how to create custom roles and assign permissions to a role, see [Grant user permissions to specific lab policies](devtest-lab-grant-user-permissions-to-specific-lab-policies.md). Here's an example of a script that creates the role *DevTest Labs Advanced User*, which has permission to start and stop all VMs in the lab:
 
-    $policyRoleDef = Get-AzureRmRoleDefinition "DevTest Labs User"
+    $policyRoleDef = Get-AzRoleDefinition "DevTest Labs User"
     $policyRoleDef.Actions.Remove('Microsoft.DevTestLab/Environments/*')
     $policyRoleDef.Id = $null
     $policyRoleDef.Name = "DevTest Labs Advanced User"
@@ -79,7 +81,7 @@ For a comprehensive article about how to create custom roles and assign permissi
     $policyRoleDef.AssignableScopes.Add("subscriptions/<subscription Id>")
     $policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/virtualMachines/Start/action")
     $policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/virtualMachines/Stop/action")
-    $policyRoleDef = New-AzureRmRoleDefinition -Role $policyRoleDef  
+    $policyRoleDef = New-AzRoleDefinition -Role $policyRoleDef  
 
 
 **CI/CD integration and automation**
@@ -156,24 +158,24 @@ You can delete VMs from your lab in the Azure portal. You also can delete all th
     $labName = "<Enter lab name here>"
 
     # Sign in to your Azure account.
-    Connect-AzureRmAccount
+    Connect-AzAccount
 
     # Select the Azure subscription that has the lab. This step is optional
     # if you have only one subscription.
-    Select-AzureRmSubscription -SubscriptionId $subscriptionId
+    Select-AzSubscription -SubscriptionId $subscriptionId
 
     # Get the lab that has the VMs that you want to delete.
-    $lab = Get-AzureRmResource -ResourceId ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
+    $lab = Get-AzResource -ResourceId ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
 
     # Get the VMs from that lab.
-    $labVMs = Get-AzureRmResource | Where-Object {
+    $labVMs = Get-AzResource | Where-Object {
               $_.ResourceType -eq 'microsoft.devtestlab/labs/virtualmachines' -and
               $_.Name -like "$($lab.Name)/*"}
 
     # Delete the VMs.
     foreach($labVM in $labVMs)
     {
-        Remove-AzureRmResource -ResourceId $labVM.ResourceId -Force
+        Remove-AzResource -ResourceId $labVM.ResourceId -Force
     }
 
 **Artifacts**

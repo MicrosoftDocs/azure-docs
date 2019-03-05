@@ -3,7 +3,7 @@ title: Certificate creation methods
 description: Ways to create a certificate in Key Vault.
 services: key-vault
 documentationcenter:
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
+ms.author: mbaldwin
 
 ---
 
@@ -91,6 +91,6 @@ Note that when an order is placed with the issuer provider, it may honor or over
 
  Authorization: Requires the certificates/create permission.
 
- ## See Also
+## See Also
  - [About keys, secrets and certificates](about-keys-secrets-and-certificates.md)
  - [Monitor and manage certificate creation](create-certificate-scenarios.md)

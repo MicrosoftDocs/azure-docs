@@ -205,7 +205,7 @@ To configure Azure AD single sign-on with SAML SSO for Jira by resolution GmbH, 
 	
 	![Configure Single Sign-On](./media/samlssojira-tutorial/addon6b.png)
 	
-16. In the apprearing dialog reading **Skipping the test means...**, click **OK**.
+16. In the appearing dialog reading **Skipping the test means...**, click **OK**.
 	
 	![Configure Single Sign-On](./media/samlssojira-tutorial/addon6c.png)
 
@@ -303,9 +303,9 @@ When you click the SAML SSO for Jira by resolution GmbH tile in the Access Panel
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
