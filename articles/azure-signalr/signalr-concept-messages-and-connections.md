@@ -3,8 +3,8 @@ title: Messages and connections in Azure SignalR Service
 description: An overview of key concepts about messages and connections in Azure SignalR Service.
 author: sffamily
 ms.service: signalr
-ms.topic: overview
-ms.date: 09/13/2018
+ms.topic: conceptual
+ms.date: 03/01/2019
 ms.author: zhshang
 ---
 # Messages and connections in Azure SignalR Service

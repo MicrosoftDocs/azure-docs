@@ -5,7 +5,7 @@ author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/13/2018
+ms.date: 03/01/2019
 ms.author: zhshang
 ---
 # Quickstart: Create a chat room with SignalR Service

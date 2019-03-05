@@ -4,7 +4,7 @@ description: A quickstart for using the Azure SignalR Service REST API.
 author: sffamily
 ms.service: signalr
 ms.topic: quickstart
-ms.date: 06/13/2018
+ms.date: 03/01/2019
 ms.author: zhshang
 ---
 # Quickstart: Broadcast real-time messages from console app
@@ -169,3 +169,10 @@ Version | API HTTP Method | Request URL
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
+
+## Next steps
+
+In this quickstart, you learned how to use REST API to broadcast real-time message from SignalR Service to clients. Next, learn more about how to develop and deploy Azure Functions with SignalR Service binding, which is built on top of REST API.
+
+> [!div class="nextstepaction"]
+> [Develop Azure Functions using Azuer SignalR Service bindings](signalr-quickstart-azure-functions-csharp.md)
