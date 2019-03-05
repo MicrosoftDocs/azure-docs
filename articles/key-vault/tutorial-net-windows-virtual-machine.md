@@ -130,9 +130,9 @@ Now you can assign the previously created identity permissions to your key vault
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-## Sign in to the virtual machine
+## Log on to the virtual machine
 
-To sign in to the virtual machine, follow the instructions in [Connect and log on to an Azure virtual machine running Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
+To log on to the virtual machine, follow the instructions in [Connect and log on to an Azure virtual machine running Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
 
 ## Install .NET Core
 
