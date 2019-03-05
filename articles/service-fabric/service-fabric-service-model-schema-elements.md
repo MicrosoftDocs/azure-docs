@@ -5307,7 +5307,7 @@ The setting to override.
                   <xs:annotation>
                     <xs:documentation>
                       This value defines the type of value you have specified in the 'Value' Attribute. It can be SecretsStoreRef/Encrypted/PlainText.
-                      If set to SecretsStoreRef, we retrive  the reference value from the SecretStore.
+                      If set to SecretsStoreRef, we retrieve  the reference value from the SecretStore.
                       If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
                     </xs:documentation>
                   </xs:annotation>
@@ -5332,7 +5332,7 @@ The setting to override.
 #### Type
 
                       This value defines the type of value you have specified in the 'Value' Attribute. It can be SecretsStoreRef/Encrypted/PlainText.
-                      If set to SecretsStoreRef, we retrive  the reference value from the SecretStore.
+                      If set to SecretsStoreRef, we retrieve  the reference value from the SecretStore.
                       If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
                     
 |Attribute|Value|
@@ -6348,7 +6348,7 @@ A section in the Settings.xml file to override.
                   <xs:annotation>
                     <xs:documentation>
                       This value defines the type of value you have specified in the 'Value' Attribute. It can be SecretsStoreRef/Encrypted/PlainText.
-                      If set to SecretsStoreRef, we retrive  the reference value from the SecretStore.
+                      If set to SecretsStoreRef, we retrieve  the reference value from the SecretStore.
                       If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
                     </xs:documentation>
                   </xs:annotation>

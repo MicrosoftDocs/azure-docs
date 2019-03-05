@@ -3297,7 +3297,7 @@ Name of environment variable.
       <xs:annotation>
         <xs:documentation>
           The type for the Environment Variable. It can be PlainText/Encrypted/SecretsStoreRef.
-          If set to SecretsStoreRef, we retrive  the reference value from the SecretStore.
+          If set to SecretsStoreRef, we retrieve  the reference value from the SecretStore.
           If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
         </xs:documentation>
       </xs:annotation>
@@ -3331,7 +3331,7 @@ Name of environment variable.
 #### Type
 
           The type for the Environment Variable. It can be PlainText/Encrypted/SecretsStoreRef.
-          If set to SecretsStoreRef, we retrive  the reference value from the SecretStore.
+          If set to SecretsStoreRef, we retrieve  the reference value from the SecretStore.
           If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
         
 |Attribute|Value|
@@ -4976,7 +4976,7 @@ Container port number.
       <xs:annotation>
         <xs:documentation>
           This value defines the type of password you have specified in the 'Password' Attribute. It can be SecretsStoreRef/Encrypted/PlainText.
-          If set to SecretsStoreRef, we retrive the reference value from the SecretStore.
+          If set to SecretsStoreRef, we retrieve the reference value from the SecretStore.
           If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
         </xs:documentation>
       </xs:annotation>
@@ -5003,7 +5003,7 @@ Specifies if password is encrypted or plain text. This attribute is deprecated. 
 #### Type
 
           This value defines the type of password you have specified in the 'Password' Attribute. It can be SecretsStoreRef/Encrypted/PlainText.
-          If set to SecretsStoreRef, we retrive the reference value from the SecretStore.
+          If set to SecretsStoreRef, we retrieve the reference value from the SecretStore.
           If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
         
 |Attribute|Value|
@@ -7178,7 +7178,7 @@ Declares configuration settings in a service manifest to be overridden. It consi
                   <xs:annotation>
                     <xs:documentation>
                       This value defines the type of value you have specified in the 'Value' Attribute. It can be SecretsStoreRef/Encrypted/PlainText.
-                      If set to SecretsStoreRef, we retrive  the reference value from the SecretStore.
+                      If set to SecretsStoreRef, we retrieve  the reference value from the SecretStore.
                       If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
                     </xs:documentation>
                   </xs:annotation>
