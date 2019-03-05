@@ -111,7 +111,7 @@ This section shows how to test connectivity from the simulated on-premises envir
    ping 10.2.0.68
    ```
 
-1. To exit the ssh seesion on the **onprem-vm** virtual machine, enter `exit` and press &lt;Enter>.
+1. To exit the ssh session on the **onprem-vm** virtual machine, enter `exit` and press &lt;Enter>.
 
 ## Troubleshoot VPN issues
 
@@ -135,7 +135,7 @@ When no longer needed, delete the resources created in the tutorial series.
     cd ..
     ```
 
-1. Delete hub-state directory (including all of its fiels):
+1. Delete hub-state directory (including all of its files):
 
     ```bash
     rm -r hub-spoke
