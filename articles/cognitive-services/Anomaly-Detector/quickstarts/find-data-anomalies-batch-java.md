@@ -1,6 +1,6 @@
 ---
 title: Find anomalies as a batch using the Anomaly Finder REST API and Java | Microsoft Docs
-description: Use the Anomaly Detection API to detect abnormalities in your data series as a batch.
+description: Use the Anomaly Detector API to detect abnormalities in your data series as a batch.
 services: cognitive-services
 author: aahill
 manager: nitinme

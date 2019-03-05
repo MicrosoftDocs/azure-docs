@@ -42,7 +42,7 @@ Make sure to enclose the key in quotes to make it a string.
 
 ```Python
             # Variables
-            # Depending on what anomaly detection API you want to use, detect last point or all points from entire series you posted, you should use the right endpoint
+            # Depending on what Anomaly Detector API you want to use, detect last point or all points from entire series you posted, you should use the right endpoint
             endpoint = 'https://westus2.api.cognitive.microsoft.com/anomalyfinder/v2.0/timeseries/entire/detect'
             # endpoint = 'https://westus2.api.cognitive.microsoft.com/anomalyfinder/v2.0/timeseries/last/detect'
             subscription_key = '' #Here you should paste your primary key between the quote ''

@@ -1,6 +1,6 @@
 ---
-title: How to identify anomalies with the Anomaly Detector API
-description: How to identify anomalies with the Anomaly Detector API
+title: How to use the Anomaly Detector API on your time series data 
+description: Learn how to detect anomalies in your data either as a batch, or in real-time.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,18 +11,21 @@ ms.date: 03/01/2019
 ms.author: aahi
 ---
 
-## How to: Identify anomalies
+## How to: Use the Anomaly Detector API on your time series data  
 
-Using [Anomaly Finder API](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyFinderV2/operations/post-timeseries-entire-detect), you can select the most appropriate method to match your scenario. The detection model returns anomaly results along with expectedValue, upperMargin and lowerMargin. ExpectedValue, UpperMargin and LowerMargin can be used to generate a band around actual time series to visualize the range of normal values in the client's side. Any values out of the boundary are detected aas anomalies. 
+Using the [Anomaly Detector API](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyFinderV2/operations/post-timeseries-entire-detect), you can select the most appropriate method to match your scenario. The detection model returns anomaly results along with expectedValue, upperMargin and lowerMargin. ExpectedValue, UpperMargin and LowerMargin can be used to generate a band around actual time series to visualize the range of normal values in the client's side. Any values out of the boundary are detected aas anomalies. 
 
-## Anomaly detection modes
+## Anomaly Detector modes
 
+The Anomaly Detector API provides detection modes: batch and streaming.
 
-Anomaly Finder provides two APIs for two scenarios: batch and streaming modes.
- 
-* If you would like to detect anomalies for a *batch* of data points over a given time range and get a response in one single API call, use batch API: **'/timeseries/entire/detect'**. It is commonly used in interactive mode, e.g., you are doing ad-hoc data analysis for time series data like DAU and want to understand if the data is out of historical pattern.
+### Batch detection
 
-* If you would like to continuously detect anomalies on streaming data, use streaming API: **'/timeseries/last/detect'**. This API is commonly used for monitoring scenarios and alerting users on real time anomalies in time series data.
+If you would like to detect anomalies for a *batch* of data points over a given time range and get a response in one single API call, use batch API: **'/timeseries/entire/detect'**. It is commonly used in interactive mode, e.g., you are doing ad-hoc data analysis for time series data like DAU and want to understand if the data is out of historical pattern.
+
+### Streaming detection
+
+If you would like to continuously detect anomalies on streaming data, use streaming API: **'/timeseries/last/detect'**. This API is commonly used for monitoring scenarios and alerting users on real time anomalies in time series data.
 
 
 ## Adjusting lower and upper bounds in post processing on the response
