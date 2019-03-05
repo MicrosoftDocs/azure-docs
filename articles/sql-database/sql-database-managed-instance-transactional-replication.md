@@ -96,7 +96,7 @@ Transactional replication is useful in the following scenarios:
 - Keep several distributed databases in synchronized state.
 - Migrate databases from one SQL Server or Managed Instance to another database by continuously publishing the changes.
 
-## Compare Data Sync with Transactional Replication
+### Compare Data Sync with Transactional Replication
 
 | | Data Sync | Transactional Replication |
 |---|---|---|
