@@ -73,22 +73,6 @@ As you work through each tutorial in this series, various components are defined
 
 - **VNet peering**. Two VNets can be connected using a peering connection. Peering connections are non-transitive, low latency connections between VNets. Once peered, the VNets exchange traffic by using the Azure backbone, without needing a router. In a hub and spoke network topology, VNet peering is used to connect the hub to each spoke. You can peer VNets in the same region, or different regions.
 
-## Create an Azure service principal
-
-1. Follow the directions to create a service principal in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli#create-the-service-principal?view=azure-cli-latest). 
-
-1. Make note of the following values:
-
-    - **appId**
-    - **displayName**
-    - **password**
-
-1. Get the value for service principal's **Object ID** property:
-    
-    ```bash
-    az ad sp list --display-name <displayName>
-    ```
-
 ## Create the directory structure
 
 Create the directory that holds your Terraform configuration files for the demo.
@@ -177,14 +161,3 @@ Create the Terraform configuration file for common variables that are used acros
 
 > [!div class="nextstepaction"] 
 > [Create on-premises virtual network with Terraform in Azure](./terraform-hub-spoke-on-prem.md)
-
-
-
-
-
-
-
-
-
-
-
