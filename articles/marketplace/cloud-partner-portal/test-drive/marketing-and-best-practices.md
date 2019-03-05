@@ -40,7 +40,6 @@ driving leads through your sales cycle:
 - Follow up a couple of times, but don't bombard them. We recommend you email these lead a few times before you close them out, but don't give up after the first attempt. Remember -- these customers directly engaged with your product and spent time in a free trial.
 - They are great prospects!
 - If you close a deal with a test drive lead be sure to register it at Partner sales connect. Also -- we would love to hear about your customer wins where test drive played a role!
-- Got a success story where test drive generated a lead or helped you close a deal? Email us at <amp-testdrive@microsoft.com> to find out how you can get featured on our homepage!
 
 Test Drive FAQ is located here:
 <https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices>
