@@ -10,6 +10,8 @@
  ms.custom: include file
 ---
 
+The list of available regions that are supported are as follows:
+
 |Geopolitical region | Azure regions|
 |---|---|
 |North America | East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |

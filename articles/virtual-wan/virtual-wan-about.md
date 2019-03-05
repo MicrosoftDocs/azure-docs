@@ -63,20 +63,19 @@ To configure an end-to-end virtual WAN, you create the following resources:
 
 * **Hub route table:**  You can create a virtual hub route and apply the route to the virtual hub route table. You can apply multiple routes to the virtual hub route table.
 
-## <a name="partnerandregion"></a>Partners and regions
+## <a name="partner-region"></a>Partners and locations
 
 ### <a name="partner"></a>Partners
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-### <a name="regions"></a>Regions
+### <a name="locations"></a>Locations
 
 [!INCLUDE [regions](../../includes/virtual-wan-regions-include.md)]
 
 ## <a name="faq"></a>FAQ
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
-
 
 ## Next steps
 

@@ -10,6 +10,10 @@
  ms.custom: include file
 ---
 
+If your branch device partner is not listed in the section below, please contact your branch device provider and have them contact us by sending an email to azurevirtualwan@microsoft.com.
+
+You can check the following links to gather more information about services offered by the partners.
+
 |Partners|
 |---|
 |[Barracuda Networks](https://www.barracuda.com/AzurevWAN)|
