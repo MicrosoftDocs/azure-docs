@@ -559,7 +559,7 @@ Dataset for data destination used by copy activity.
 
 -   Delete activity does not support deleting list of folders described by wildcard.
 
--   When using file attribute filter: modifiedDatetimeStart and modifiedDatetimeEnd to select files to be deleted, make sure to set fileName = "*" as well in dataset.
+-   When using file attribute filter: modifiedDatetimeStart and modifiedDatetimeEnd to select files to be deleted, make sure to set "fileName": "*" in dataset.
 
 ## Next steps
 
