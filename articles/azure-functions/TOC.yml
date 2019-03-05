@@ -234,6 +234,8 @@
       href: functions-bindings-event-grid.md
     - name: Event Hubs
       href: functions-bindings-event-hubs.md
+    - name: IoT Hub
+      href: functions-bindings-event-iot.md
     - name: HTTP and webhooks
       href: functions-bindings-http-webhook.md
     - name: Microsoft Graph
