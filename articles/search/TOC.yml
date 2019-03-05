@@ -45,34 +45,24 @@
       href: test-dotnet-3.md
     - name: Java
       href: test-java-3.md
-    - name: Node.js
-      href: test-nodejs-3.md
   - name: Index Cosmos DB
     items:
-    - name: REST
-      href: test-rest-1.md
     - name: C#
       href: test-dotnet-4.md
     - name: Java
       href: test-java-4.md
-    - name: Node.js
-      href: test-nodejs-4.md 
   - name: Index any data
     items:
     - name: C#
       href: test-dotnet-5.md
     - name: Java
       href: test-java-5.md
-    - name: Node.js
-      href: test-nodejs-5.md 
   - name: Search documents
     items:
     - name: C#
       href: test-dotnet-6.md
     - name: Java
       href: test-java-6.md
-    - name: Node.js
-      href: test-nodejs-6.md 
 - name: Samples
   items:
   - name: Azure code samples
