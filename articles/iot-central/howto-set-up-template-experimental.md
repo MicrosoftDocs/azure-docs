@@ -41,7 +41,7 @@ From this device template, an operator can create and connect real fan devices w
 
 1. Navigate to the **Device Templates** page.
 
-2. To create a blank template, click **+**, and then enter a name, such as **Refrigerator** for your new device template. Then select **Create**:
+2. To create a blank template, select **+**, and then enter a name, such as **Refrigerator** for your new device template. Then select **Create**:
 
    ![Device details page with "Refrigerator" as the template name](./media/howto-set-up-template-experimental/devicedetailspage.png)
 
@@ -59,7 +59,7 @@ Measurements are the data that comes from your device. You can add multiple meas
 
 ### Create a telemetry measurement
 
-To add a new telemetry measurement, click **+ New Measurement**, choose **Telemetry** as the measurement type, and enter the details on the form.
+To add a new telemetry measurement, select **+ New Measurement**, choose **Telemetry** as the measurement type, and enter the details on the form.
 
 > [!NOTE]
 > The field names in the device template must match the property names in the corresponding device code in order for the telemetry measurement to be displayed in the application when a real device is connected. Do the same when you configure settings, device properties, and commands as you continue to define the device template in the following sections.
@@ -72,14 +72,14 @@ For example, you can add a new temperature telemetry measurement:
 
 !["Create Telemetry" form with details for temperature measurement](./media/howto-set-up-template-experimental/measurementsform.png)
 
-After you click **Save**, the **Temperature** measurement appears in the list of measurements. In a short while, you see the visualization of the temperature data from the simulated device.
+After you select **Save**, the **Temperature** measurement appears in the list of measurements. In a short while, you see the visualization of the temperature data from the simulated device.
 
 > [!NOTE]
 > The data type of the telemetry measurement is a floating point number.
 
 ### Create an event measurement
 
-To add a new event measurement, click **+ New Measurement** and select **Event** as the measurement type. Enter the details on the **Create Event** form.
+To add a new event measurement, select **+ New Measurement** and select **Event** as the measurement type. Enter the details on the **Create Event** form.
 
 Provide the **Display Name**, **Field Name**, and **Severity** details for the event. You can choose from the three available levels of severity: **Error**, **Warning**, and **Information**.
 
@@ -91,9 +91,9 @@ For example, you can add a new **Fan Motor Error** event.
 
 !["Create Event" form with details for a fan motor event](./media/howto-set-up-template-experimental/eventmeasurementsform.png)
 
-After you click **Save**, the **Fan Motor Error** measurement appears in the list of measurements. In a short while, you see the visualization of the event data from the simulated device.
+After you select **Save**, the **Fan Motor Error** measurement appears in the list of measurements. In a short while, you see the visualization of the event data from the simulated device.
 
-To view more details about an event, click the event icon on the chart:
+To view more details about an event, select the event icon on the chart:
 
 ![Details for the "Fan Motor Error" event](./media/howto-set-up-template-experimental/eventmeasurementsdetail.png)
 
@@ -102,7 +102,7 @@ To view more details about an event, click the event icon on the chart:
 
 ### Create a state measurement
 
-To add a new state measurement, click the **+ New Measurement** button and select **State** as the measurement type. Enter the details on the **Create State** form.
+To add a new state measurement, select the **+ New Measurement** button and select **State** as the measurement type. Enter the details on the **Create State** form.
 
 Provide the details for **Display Name**, **Field Name**, and **Values** of the state. Each value can also have a display name that will be used when the value appears in charts and tables.
 
@@ -114,9 +114,9 @@ For example, you can add a new **Fan Mode** state that has two possible values t
 
 !["Edit State" form with details for fan mode](./media/howto-set-up-template-experimental/statemeasurementsform.png)
 
-After you click **Save**, the **Fan Mode** state measurement appears in the list of measurements. In a short while, you see the visualization of the state data from the simulated device.
+After you select **Save**, the **Fan Mode** state measurement appears in the list of measurements. In a short while, you see the visualization of the state data from the simulated device.
 
-If the device sends too many data points in a small duration, the state measurement appears with a different visual. Click on the chart to view all the data points within that time period in chronological order. You can also narrow down the time range to see the measurement plotted on the chart.
+If the device sends too many data points in a small duration, the state measurement appears with a different visual. Select the chart to view all the data points within that time period in chronological order. You can also narrow down the time range to see the measurement plotted on the chart.
 
 > [!NOTE]
 > The data type of the state measurement is string.
@@ -133,7 +133,7 @@ Settings can be in one of three states. The device reports these states.
 
 - **Error**: The device has returned an error.
 
-For example, you can add a new fan speed setting by clicking **Settings** and entering in the new **Number** setting:
+For example, you can add a new fan speed setting by selecting **Settings** and entering in the new **Number** setting:
 
 | Display Name  | Field Name    |  Units  | Decimals |Initial|
 | --------------| ------------- |---------| ---------|---- |
@@ -193,7 +193,7 @@ You can create a location property as an application property by using Azure Map
    - **Location as an address**
    - **Location as coordinates**
 
-4. Click **Save**. An operator can update the location value in the **Device Explorer**.
+4. Select **Save**. An operator can update the location value in the **Device Explorer**.
 
 #### Add location as a device property
 
@@ -226,7 +226,7 @@ How is a command different from a setting?
 
 * **Command**: You use commands to instantly run a command on the device remotely from IoT Central. If a device isn't connected, the command times out and fails. For example, you want to restart a device.
 
-For example, you can add a new **Echo** command by selecting the **Commands** tab, then clicking **+ New Command**, and entering the new command details:
+For example, you can add a new **Echo** command by selecting the **Commands** tab, then selecting **+ New Command**, and entering the new command details:
 
 | Display Name  | Field Name | Default Timeout | Data Type |
 | --------------| -----------|---------------- | --------- |

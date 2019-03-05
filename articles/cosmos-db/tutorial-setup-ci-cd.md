@@ -39,7 +39,7 @@ Now that the extension is installed, sign in to your Azure DevOps account and fi
 
 2. Select the desired **source**, **Team project**, **Repository**, and the **Default branch for manual and scheduled builds**. After choosing the required options, select **Continue**
 
-   ![Select the team project, repository, and branch for the build pipeline ](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
+   ![Select the team project, repository, and branch for the build pipeline](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
 
 3. Finally, select the desired template for the build pipeline. We'll select the **ASP.NET** template in this tutorial. 
 

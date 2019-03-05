@@ -1,6 +1,6 @@
 ---
 title: Sample - Allowed ExpressRoute peering locations
-description: This policy requires that ExpressRoute use specified peering locations.
+description: This sample policy definition requires that ExpressRoute use specified peering locations.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ---
-# Allowed peering location for ExpressRoute
+# Sample - Allowed peering location for ExpressRoute
 
 This policy requires that ExpressRoute use specified peering locations. You specify an array of allowed peering locations.
 

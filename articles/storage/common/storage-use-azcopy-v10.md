@@ -259,7 +259,7 @@ To filter the transfers by status, use the following command:
 .\azcopy jobs show <job-id> --with-status=Failed
 ```
 
-You can resume a failed/cancelled job using its identifier along with the SAS token (it is not persistent for security reasons):
+You can resume a failed/canceled job using its identifier along with the SAS token (it is not persistent for security reasons):
 
 ```azcopy
 .\azcopy jobs resume <jobid> --sourcesastokenhere --destinationsastokenhere

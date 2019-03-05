@@ -10,7 +10,7 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ---
-# Understand Policy effects
+# Understand Azure Policy effects
 
 Each policy definition in Azure Policy has a single effect. That effect determines what happens
 when the policy rule is evaluated to match. The effects behave differently if they are for a new

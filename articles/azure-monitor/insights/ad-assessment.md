@@ -122,7 +122,7 @@ Use the following query to list recommendations that have failed for computers i
 ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
 ```
 
-Here's a screen shot showing the log query:<br><br> ![failed recommendations](media/ad-assessment/ad-failed-recommendations.png)
+Here's a screenshot showing the log query:<br><br> ![failed recommendations](media/ad-assessment/ad-failed-recommendations.png)
 
 Choose recommendations that you want to ignore. You’ll use the values for RecommendationId in the next procedure.
 
