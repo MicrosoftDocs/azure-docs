@@ -26,7 +26,6 @@ In this tutorial, you learn how to:
 > * Configure your default application dashboard
 > * Preview the default application dashboard as an operator
 
-
 ## Prerequisites
 
 Before you begin, you should complete the two previous tutorials:

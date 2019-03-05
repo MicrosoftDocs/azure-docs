@@ -23,7 +23,6 @@ In this tutorial, you learn how to:
 > * Create a telemetry-based rule
 > * Add an action
 
-
 ## Prerequisites
 
 Before you begin, you should complete the [Define a new device type in your application](tutorial-define-device-type.md) tutorial to create the **Connected Air Conditioner** device template to work with.
@@ -80,8 +79,6 @@ When you define a rule, you also define an action to run when the rule condition
 ## Test the rule
 
 Shortly after you save the rule, it becomes live. When the conditions defined in the rule are met, your application sends a message to the email address you specified in the action.
-
-![Email action](media/tutorial-configure-rules/email.png)
 
 > [!NOTE]
 > After your testing is complete, turn off the rule to stop receiving alerts in your inbox.
