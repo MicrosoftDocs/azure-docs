@@ -492,7 +492,7 @@
       href: move-vm.md
     - name: Move VMs to another region
       href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - Move to an availability zone
+    - name: Move to an availability zone
       href: ../../site-recovery/move-azure-vms-avset-azone.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Migrate AWS and on-premises VMs
       href: ../windows/on-prem-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
