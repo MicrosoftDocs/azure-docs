@@ -74,15 +74,9 @@ Next, you verify the properties of the source machine. Remember that the Azure V
 
 1. Click **Settings** > **Replicated items** >, and then select the machine. The **Essentials** page shows information about machine settings and status.
 2. In **Properties**, you can view replication and failover information for the VM.
-<<<<<<< HEAD
-3. In **Compute and Network** > **Compute properties**, you can change multiple VM properties:
-* Azure VM name - Modify the name to comply with Azure requirements if necessary
-* Target VM size or type - The default VM size is chosen based on the source VM size. You can select a different VM size based on the need any time before failover. Note that VM disk size is also based on source disk size and it can only be changed post failover. Learn more on disk sizes and IOPS in our [Scalability targets for disks](../virtual-machines/windows/disk-scalability-targets.md) article.
-=======
 3. In **Compute and Network** > **Compute properties**, you can change multiple VM propoerties:
     * Azure VM name - Modify the name to comply with Azure requirements if necessary
     * Target VM size or VM type - The default VM size is chosen based on the source VM size. You can select a different VM size based on the need any time before failover. Note that VM disk size is also based on source disk size and it can only be changed post failover. Learn more on disk sizes and IOPS in our [Scalability targets for disks](../virtual-machines/windows/disk-scalability-targets.md) article.
->>>>>>> 52d141ba616583c82a26c19d3ac838775a01bbde
 
     ![Compute and Network properties](./media/vmware-azure-enable-replication/vmproperties.png)
 
