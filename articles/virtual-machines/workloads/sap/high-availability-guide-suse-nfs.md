@@ -40,6 +40,7 @@ ms.author: sedusch
 
 [sles-hae-guides]:https://www.suse.com/documentation/sle-ha-12/
 [sles-for-sap-bp]:https://www.suse.com/documentation/sles-for-sap-12/
+[suse-ha-12sp3-relnotes]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP3/
 
 [template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 [template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
@@ -73,6 +74,7 @@ Read the following SAP Notes and papers first
 * [SUSE Linux Enterprise High Availability Extension 12 SP3 best practices guides][sles-hae-guides]
   * Highly Available NFS Storage with DRBD and Pacemaker
 * [SUSE Linux Enterprise Server for SAP Applications 12 SP3 best practices guides][sles-for-sap-bp]
+* [SUSE High Availability Extension 12 SP3 Release Notes][suse-ha-12sp3-relnotes]
 
 ## Overview
 
@@ -117,7 +119,7 @@ Follow these steps to deploy the template:
    4. Admin Username and Admin Password  
       A new user is created that can be used to log on to the machine.
    5. Subnet ID  
-      The ID of the subnet to which the virtual machines should be connected to. Leave empty if you want to create a new virtual network or select the subnet of your VPN or Express Route virtual network to connect the virtual machine to your on-premises network. The ID usually looks like /subscriptions/**&lt;subscription ID&gt;**/resourceGroups/**&lt;resource group name&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtual network name&gt;**/subnets/**&lt;subnet name&gt;**
+      If you want to deploy the VM into an existing VNet where you have a subnet defined the VM should be assigned to, name the ID of that specific subnet. The ID usually looks like /subscriptions/**&lt;subscription ID&gt;**/resourceGroups/**&lt;resource group name&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtual network name&gt;**/subnets/**&lt;subnet name&gt;**
 
 ### Deploy Linux manually via Azure portal
 

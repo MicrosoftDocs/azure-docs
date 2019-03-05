@@ -3,16 +3,17 @@ title: Create and publish an Azure service catalog managed application | Microso
 description: Shows how to create an Azure managed application that is intended for members of your organization.
 services: managed-applications
 author: tfitzmac
-manager: timlt
 
 ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 06/08/2018
+ms.date: 10/04/2018
 ms.author: tomfitz
 ---
-# Publish a managed application for internal consumption
+# Create and publish a managed application definition
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 You can create and publish Azure [managed applications](overview.md) that are intended for members of your organization. For example, an IT department can publish managed applications that fulfill organizational standards. These managed applications are available through the service catalog, not the Azure marketplace.
 
@@ -26,7 +27,7 @@ To publish a managed application for the service catalog, you must:
 
 For this article, your managed application has only a storage account. It's intended to illustrate the steps of publishing a managed application. For complete examples, see [Sample projects for Azure managed applications](sample-projects.md).
 
-The PowerShell examples in this article require Azure PowerShell 6.2 or later. If needed, [update your version](/powershell/azure/install-azurerm-ps).
+The PowerShell examples in this article require Azure PowerShell 6.2 or later. If needed, [update your version](/powershell/azure/install-Az-ps).
 
 ## Create the resource template
 
@@ -145,8 +146,8 @@ Add the two files to a .zip file named app.zip. The two files must be at the roo
 Upload the package to an accessible location from where it can be consumed. 
 
 ```powershell
-New-AzureRmResourceGroup -Name storageGroup -Location eastus
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName storageGroup `
+New-AzResourceGroup -Name storageGroup -Location eastus
+$storageAccount = New-AzStorageAccount -ResourceGroupName storageGroup `
   -Name "mystorageaccount" `
   -Location eastus `
   -SkuName Standard_LRS `
@@ -154,9 +155,9 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName storageGroup `
 
 $ctx = $storageAccount.Context
 
-New-AzureStorageContainer -Name appcontainer -Context $ctx -Permission blob
+New-AzStorageContainer -Name appcontainer -Context $ctx -Permission blob
 
-Set-AzureStorageBlobContent -File "D:\myapplications\app.zip" `
+Set-AzStorageBlobContent -File "D:\myapplications\app.zip" `
   -Container appcontainer `
   -Blob "app.zip" `
   -Context $ctx 
@@ -171,7 +172,7 @@ The next step is to select a user group or application for managing the resource
 You need the object ID of the user group to use for managing the resources. 
 
 ```powershell
-$groupID=(Get-AzureRmADGroup -DisplayName mygroup).Id
+$groupID=(Get-AzADGroup -DisplayName mygroup).Id
 ```
 
 ### Get the role definition ID
@@ -179,7 +180,7 @@ $groupID=(Get-AzureRmADGroup -DisplayName mygroup).Id
 Next, you need the role definition ID of the RBAC built-in role you want to grant access to the user, user group, or application. Typically, you use the Owner or Contributor or Reader role. The following command shows how to get the role definition ID for the Owner role:
 
 ```powershell
-$ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
+$ownerID=(Get-AzRoleDefinition -Name Owner).Id
 ```
 
 ### Create the managed application definition
@@ -187,15 +188,15 @@ $ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
 If you don't already have a resource group for storing your managed application definition, create one now:
 
 ```powershell
-New-AzureRmResourceGroup -Name appDefinitionGroup -Location westcentralus
+New-AzResourceGroup -Name appDefinitionGroup -Location westcentralus
 ```
 
 Now, create the managed application definition resource.
 
 ```powershell
-$blob = Get-AzureStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
+$blob = Get-AzStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
 
-New-AzureRmManagedApplicationDefinition `
+New-AzManagedApplicationDefinition `
   -Name "ManagedStorage" `
   -Location "westcentralus" `
   -ResourceGroupName appDefinitionGroup `
@@ -210,80 +211,7 @@ New-AzureRmManagedApplicationDefinition `
 
 You have access to the managed application definition, but you want to make sure other users in your organization can access it. Grant them at least the Reader role on the definition. They may have inherited this level of access from the subscription or resource group. To check who has access to the definition and add users or groups, see [Use Role-Based Access Control to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).
 
-## Create the managed application
-
-You can deploy the managed application through the portal, PowerShell, or Azure CLI.
-
-### PowerShell
-
-First, let's use PowerShell to deploy the managed application.
-
-```powershell
-# Create resource group
-New-AzureRmResourceGroup -Name applicationGroup -Location westcentralus
-
-# Get ID of managed application definition
-$appid=(Get-AzureRmManagedApplicationDefinition -ResourceGroupName appDefinitionGroup -Name ManagedStorage).ManagedApplicationDefinitionId
-
-# Create the managed application
-New-AzureRmManagedApplication `
-  -Name storageApp `
-  -Location westcentralus `
-  -Kind ServiceCatalog `
-  -ResourceGroupName applicationGroup `
-  -ManagedApplicationDefinitionId $appid `
-  -ManagedResourceGroupName "InfrastructureGroup" `
-  -Parameter "{`"storageAccountNamePrefix`": {`"value`": `"demostorage`"}, `"storageAccountType`": {`"value`": `"Standard_LRS`"}}"
-```
-
-Your managed application and managed infrastructure now exist in the subscription.
-
-### Portal
-
-Now, let's use the portal to deploy the managed application. You see the user interface you created in the package.
-
-1. Go to the Azure portal. Select **+ Create a resource** and search for **service catalog**.
-
-   ![Search service catalog](./media/publish-service-catalog-app/create-new.png)
-
-1. Select **Service Catalog Managed Application**.
-
-   ![Select service catalog](./media/publish-service-catalog-app/select-service-catalog-managed-app.png)
-
-1. Select **Create**.
-
-   ![Select create](./media/publish-service-catalog-app/select-create.png)
-
-1. Find the managed application you want to create from the list of available solutions, and select it. Select **Create**.
-
-   ![Find the managed application](./media/publish-service-catalog-app/find-application.png)
-
-   If you can't see the managed application definition through the portal, you may need to change your portal settings. Select the **Directory and Subscription filter**.
-
-   ![Select subscription filter](./media/publish-service-catalog-app/select-filter.png)
-
-   Check that the global subscription filter includes the subscription that contains the managed application definition.
-
-   ![Check subscription filter](./media/publish-service-catalog-app/check-global-filter.png)
-
-   After selecting the subscription, start over with creating the service catalog managed application. You should see it now.
-
-1. Provide basic information that is required for the managed application. Specify the subscription and a new resource group to contain the managed application. Select **West Central US** for location. When done, select **OK**.
-
-   ![Provide managed application parameters](./media/publish-service-catalog-app/add-basics.png)
-
-1. Provide values that are specific to the resources in the managed application. When done, select **OK**.
-
-   ![Provide resource parameters](./media/publish-service-catalog-app/add-storage-settings.png)
-
-1. The template validates the values you provided. If validation succeeds, select **OK** to start the deployment.
-
-   ![Validate managed application](./media/publish-service-catalog-app/view-summary.png)
-
-After the deployment finishes, the managed application exists in a resource group named applicationGroup. The storage account exists in a resource group named applicationGroup plus a hashed string value.
-
 ## Next steps
 
-* For an introduction to managed applications, see [Managed application overview](overview.md).
-* For example projects, see [Sample projects for Azure managed applications](sample-projects.md).
-* To learn how to create a UI definition file for a managed application, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).
+* To publish your managed application to the Azure Marketplace, see [Azure managed applications in the Marketplace](publish-marketplace-app.md).
+* To deploy a managed application instance, see [Deploy service catalog app through Azure portal](deploy-service-catalog-quickstart.md).

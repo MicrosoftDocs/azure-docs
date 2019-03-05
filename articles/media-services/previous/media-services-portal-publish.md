@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of publishing your conten
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 92c364eb-5a5f-4f4e-8816-b162c031bb40
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 02/09/2019
 ms.author: juliako
 
 ---
-# Publish content in the Azure portal
+# Publish content in the Azure portal  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-publish.md)
 > * [.NET](media-services-deliver-streaming-content.md)
@@ -59,7 +59,7 @@ For more information, see the [delivering content overview](media-services-deliv
 > 
 > 
 
-To update an expiration date on a locator, use can use a [REST API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) or a [.NET API](http://go.microsoft.com/fwlink/?LinkID=533259). 
+To update an expiration date on a locator, use can use a [REST API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) or a [.NET API](https://go.microsoft.com/fwlink/?LinkID=533259). 
 
 > [!NOTE]
 > When you update the expiration date of a shared access signature locator, the URL changes.

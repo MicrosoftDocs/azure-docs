@@ -13,16 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
+ms.lastreviewed: 09/05/2018
 
 ---
 # Back up Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Perform an on-demand backup on Azure Stack with backup in place. For instructions on configuring the PowerShell environment, see [Install PowerShell for Azure Stack ](azure-stack-powershell-install.md). To sign in to Azure Stack, see [Using the administrator portal in Azure Stack](azure-stack-manage-portals.md).
+Perform an on-demand backup on Azure Stack. For instructions on configuring the PowerShell environment, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md). To sign in to Azure Stack, see [Using the administrator portal in Azure Stack](azure-stack-manage-portals.md).
 
 ## Start Azure Stack backup
 
@@ -34,15 +35,48 @@ Use Start-AzSBackup to start a new backup immediately with no job progress track
 ```
 
 ### Start Azure Stack backup with job progress tracking
-Use Start-AzSBackup to start a new backup with the -AsJob variable to track backup job progress.
+Use Start-AzSBackup to start a new backup with the **-AsJob** parameter and save it as a variable to track backup job progress.
+
+> [!NOTE]
+> Backup job will appear as successfully completed in the portal about 10-15 minutes before the job will finish.
+>
+> Therefore, the actual status is better observed via the code below.
+
+> [!IMPORTANT]
+> The initial 1 millisecond delay is introduced because the code is too quick to register the job correctly and it comes back with no **PSBeginTime** and in turn with no **State** of the job.
 
 ```powershell
-    $backupjob = Start-AzsBackup -Force -AsJob 
-    "Start time: " + $backupjob.PSBeginTime;While($backupjob.State -eq "Running"){("Job is currently: " `
-    + $backupjob.State+" ;Duration: " + (New-TimeSpan -Start ($backupjob.PSBeginTime) `
-    -End (Get-Date)).Minutes);Start-Sleep -Seconds 30};$backupjob.Output
+    $BackupJob = Start-AzsBackup -Force -AsJob
+    While (!$BackupJob.PSBeginTime) {
+        Start-Sleep -Milliseconds 1
+    }
+    Write-Host "Start time: $($BackupJob.PSBeginTime)"
+    While ($BackupJob.State -eq "Running") {
+        Write-Host "Job is currently: $($BackupJob.State) - Duration: $((New-TimeSpan -Start ($BackupJob.PSBeginTime) -End (Get-Date)).ToString().Split(".")[0])"
+        Start-Sleep -Seconds 30
+    }
 
-    if($backupjob.State -eq "Completed"){Get-AzsBackup | where {$_.BackupId -eq $backupjob.Output.BackupId}}
+    If ($BackupJob.State -eq "Completed") {
+        Get-AzsBackup | Where-Object {$_.BackupId -eq $BackupJob.Output.BackupId}
+        $Duration = $BackupJob.Output.TimeTakenToCreate
+        $Pattern = '^P?T?((?<Years>\d+)Y)?((?<Months>\d+)M)?((?<Weeks>\d+)W)?((?<Days>\d+)D)?(T((?<Hours>\d+)H)?((?<Minutes>\d+)M)?((?<Seconds>\d*(\.)?\d*)S)?)$'
+        If ($Duration -match $Pattern) {
+            If (!$Matches.ContainsKey("Hours")) {
+                $Hours = ""
+            } 
+            Else {
+                $Hours = ($Matches.Hours).ToString + 'h '
+            }
+            $Minutes = ($Matches.Minutes)
+            $Seconds = [math]::round(($Matches.Seconds))
+            $Runtime = '{0}{1:00}m {2:00}s' -f $Hours, $Minutes, $Seconds
+        }
+        Write-Host "BackupJob: $($BackupJob.Output.BackupId) - Completed with Status: $($BackupJob.Output.Status) - It took: $($Runtime) to run" -ForegroundColor Green
+    }
+    ElseIf ($BackupJob.State -ne "Completed") {
+        $BackupJob
+        $BackupJob.Output
+    }
 ```
 
 ## Confirm backup has completed
@@ -83,4 +117,4 @@ Use the Azure Stack administration portal to verify that backup has completed su
 
 ## Next steps
 
-Learn more about the workflow for recovering from a data loss event. See [Recover from catastrophic data loss](azure-stack-backup-recover-data.md).
+Learn more about the workflow for [recovering from a data loss event](azure-stack-backup-recover-data.md).

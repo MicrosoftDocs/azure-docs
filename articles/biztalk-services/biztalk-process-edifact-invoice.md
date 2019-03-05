@@ -24,10 +24,10 @@ ms.author: deonhe
 You can use the BizTalk Services Portal to configure and deploy X12 and EDIFACT agreements. In this tutorial, we look at how to create an EDIFACT agreement for exchanging invoices between trading partners. This tutorial is written around an end-to-end business solution involving two trading partners, Northwind and Contoso that exchange EDIFACT messages.  
 
 ## Sample based on this tutorial
-This tutorial is written around a sample, **Sending EDIFACT Invoices Using BizTalk Services**, which is available to download from the [MSDN Code Gallery](http://go.microsoft.com/fwlink/?LinkId=401005). You could use the sample and go through this tutorial to understand how the sample was built. Or, you could use this tutorial to create your own solution ground-up. This tutorial is targeted towards the second approach so that you understand how this solution was built. Also, as much as possible, the tutorial is consistent with the sample and uses the same names for artifacts (for example, schemas, transforms) as used in the sample.  
+This tutorial is written around a sample, **Sending EDIFACT Invoices Using BizTalk Services**, which is available to download from the [MSDN Code Gallery](https://go.microsoft.com/fwlink/?LinkId=401005). You could use the sample and go through this tutorial to understand how the sample was built. Or, you could use this tutorial to create your own solution ground-up. This tutorial is targeted towards the second approach so that you understand how this solution was built. Also, as much as possible, the tutorial is consistent with the sample and uses the same names for artifacts (for example, schemas, transforms) as used in the sample.  
 
 > [!NOTE]
-> Because this solution involves sending a message from an EAI bridge to an EDI bridge, it reuses the [BizTalk Services Bridge chaining sample](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104) sample.  
+> Because this solution involves sending a message from an EAI bridge to an EDI bridge, it reuses the [BizTalk Services Bridge chaining sample](https://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104) sample.  
 > 
 > 
 
@@ -55,7 +55,7 @@ To complete the scenario, we use Service Bus queues to send invoice from Contoso
 * You must have a BizTalk Services subscription. For this tutorial, let us assume you have a BizTalk Services subscription, called **contosowabs**.
 * Register your BizTalk Services subscription on the BizTalk Services Portal. For instructions, see [Registering a BizTalk Service Deployment on the BizTalk Services Portal](https://msdn.microsoft.com/library/hh689837.aspx)
 * You must have Visual Studio installed.
-* You must have BizTalk Services SDK installed. You can download the SDK from [http://go.microsoft.com/fwlink/?LinkId=235057](http://go.microsoft.com/fwlink/?LinkId=235057)  
+* You must have BizTalk Services SDK installed. You can download the SDK from [http://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
 
 ## Step 1: Create the Service Bus queues
 This solution uses Service Bus queues to exchange messages between trading partners. Contoso and Northwind send messages to the queues from where the EAI and/or EDI bridges consume them. For this solution, you need three Service Bus queues:
@@ -150,7 +150,7 @@ The BizTalk Services project, **InvoiceProcessingBridge**, that transforms the m
 7. In the Solution Explorer, expand the **MessageFlowItinerary.bcs** and double-click the **EDIBridge.config** file. Replace the content of the **EDIBridge.config** with the following.
    
    > [!NOTE]
-   > Why do I need to edit the .config file? The external service endpoint that we added to the bridge designer canvas represents the EDI bridges that we deployed earlier. EDI bridges are two-way bridges, with a send and receive side. However, the EAI bridge that we added to the bridge designer is a one-way bridge. So, to handle the different message exchange patterns of the two bridges, we use a custom bridge behavior by including its configuration in the .config file. Additionally, the custom behavior also handles the authentication to the EDI send bridge endpoint.This custom behavior is available as a separate sample at [BizTalk Services Bridge chaining sample - EAI to EDI](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104). This solution reuses the sample.  
+   > Why do I need to edit the .config file? The external service endpoint that we added to the bridge designer canvas represents the EDI bridges that we deployed earlier. EDI bridges are two-way bridges, with a send and receive side. However, the EAI bridge that we added to the bridge designer is a one-way bridge. So, to handle the different message exchange patterns of the two bridges, we use a custom bridge behavior by including its configuration in the .config file. Additionally, the custom behavior also handles the authentication to the EDI send bridge endpoint.This custom behavior is available as a separate sample at [BizTalk Services Bridge chaining sample - EAI to EDI](https://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104). This solution reuses the sample.  
    > 
    > 
    

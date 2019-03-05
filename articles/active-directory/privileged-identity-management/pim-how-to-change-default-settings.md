@@ -10,10 +10,11 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
-ms.date: 08/27/2018
+ms.subservice: pim
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.custom: pim
+ms.collection: M365-identity-device-management
 ---
 # Configure Azure AD directory role settings in PIM
 
@@ -45,7 +46,15 @@ Use the **Activations** slider to set the maximum time, in hours, that a role st
 
 ## Notifications
 
-Use the **Notifications** switch to specify whether the system sends emails to administrators confirming that they have activated a role. This can be useful for detecting unauthorized or illegitimate activations.
+Use the **Notifications** switch to specify whether administrators will receive email notifications when roles are activated. This can be useful for detecting unauthorized or illegitimate activations.
+
+When set to **Enable**, notifications are sent to:
+
+- Privileged Role Administrator
+- Security Administrator
+- Global Administrator
+
+For more information, see [Email notifications in PIM](pim-email-notifications.md).
 
 ## Incident/Request ticket
 
@@ -58,24 +67,23 @@ Use the **Multi-Factor Authentication** switch to specify whether to require use
 * Users who have Microsoft accounts for their email addresses (typically @outlook.com, but not always) cannot register for Azure MFA. If you want to assign roles to users with Microsoft accounts, you should either make them permanent admins or disable MFA for that role.
 * You cannot disable MFA for highly privileged roles for Azure AD and Office365. This is a safety feature because these roles should be carefully protected:  
   
-  * Application administrator
-  * Application Proxy server administrator
-  * Billing administrator  
-  * Compliance administrator  
-  * CRM service administrator
-  * Customer LockBox access approver
-  * Directory writer  
-  * Exchange administrator  
-  * Global administrator
-  * Intune service administrator
-  * Mailbox administrator  
-  * Partner tier1 support  
-  * Partner tier2 support  
-  * Privileged role administrator
-  * Security administrator  
-  * SharePoint administrator  
-  * Skype for Business administrator  
-  * User account administrator  
+  * Billing Administrator
+  * Cloud Application Administrator
+  * Compliance Administrator
+  * Conditional Access Administrator
+  * CRM Service Administrator
+  * Customer LockBox Access Approver
+  * Directory Writers
+  * Exchange Administrator
+  * Global Administrator
+  * Information Protection Administrator
+  * Intune Service Administrator
+  * Power BI Service Administrator
+  * Privileged Role Administrator
+  * Security Administrator
+  * SharePoint Service Administrator
+  * Skype for Business Administrator
+  * User Administrator
 
 For more information, see [Multi-factor authentication (MFA) and PIM](pim-how-to-require-mfa.md).
 

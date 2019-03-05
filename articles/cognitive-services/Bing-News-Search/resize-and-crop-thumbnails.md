@@ -1,15 +1,17 @@
 ---
-title: Resize and crop Bing thumbnails | Microsoft Docs
-description: Shows how to resize and crop thumbnails included in a Bing response.
+title: Resize and crop image thumbnails - Bing News Search API
+titlesuffix: Azure Cognitive Services
+description: Resize and crop the image thumbnails included in responses from the Bing News Search API.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 9103DA11-FDB0-4031-BA40-4AD5AD30F1AC
+manager: nitinme
+
 ms.service: cognitive-services
-ms.component: bing-news-search
-ms.topic: article
-ms.date: 04/15/2017
+ms.subservice: bing-news-search
+ms.topic: conceptual
+ms.date: 01/10/2019
 ms.author: scottwhi
+ms.custom: seodec2018
 ---
 
 # Resizing and cropping thumbnail images

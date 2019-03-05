@@ -1,3 +1,10 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+---
 ## .NET sample code repositories
 
 Here is a list of all our sample repositories for the Azure Storage .NET client library.

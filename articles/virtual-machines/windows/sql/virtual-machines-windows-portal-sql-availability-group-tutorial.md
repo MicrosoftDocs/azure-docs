@@ -32,7 +32,7 @@ The diagram illustrates what you build in the tutorial.
 
 ## Prerequisites
 
-The tutorial assumes you have a basic understanding of SQL Server Always On Availability Groups. If you need more information, see [Overview of Always On Availability Groups (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
+The tutorial assumes you have a basic understanding of SQL Server Always On Availability Groups. If you need more information, see [Overview of Always On Availability Groups (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
 The following table lists the prerequisites that you need to complete before starting this tutorial:
 
@@ -48,6 +48,9 @@ The following table lists the prerequisites that you need to complete before sta
 
 
 Before you begin the tutorial, you need to [Complete prerequisites for creating Always On Availability Groups in Azure Virtual Machines](virtual-machines-windows-portal-sql-availability-group-prereq.md). If these prerequisites are completed already, you can jump to [Create Cluster](#CreateCluster).
+
+  >[!NOTE]
+  > Many of the steps provided in this tutorial can now be automated with [Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) and [Azure Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
@@ -116,7 +119,7 @@ Add the other SQL Server to the cluster.
 
 ### Add a cluster quorum file share
 
-In this example the Windows cluster uses a file share to create a cluster quorum. This tutorial uses a Node and File Share Majority quorum. For more information, see [Understanding Quorum Configurations in a Failover Cluster](http://technet.microsoft.com/library/cc731739.aspx).
+In this example the Windows cluster uses a file share to create a cluster quorum. This tutorial uses a Node and File Share Majority quorum. For more information, see [Understanding Quorum Configurations in a Failover Cluster](https://technet.microsoft.com/library/cc731739.aspx).
 
 1. Connect to the file share witness member server with a remote desktop session.
 
@@ -165,7 +168,7 @@ Next, set the cluster quorum.
 1. On **Select Quorum Witness**, click **Configure a file share witness**.
 
    >[!TIP]
-   >Windows Server 2016 supports a cloud witness. If you choose this type of witness, you do not need a file share witness. For more information, see [Deploy a cloud witness for a Failover Cluster](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). This tutorial uses a file share witness, which is supported by previous operating systems.
+   >Windows Server 2016 supports a cloud witness. If you choose this type of witness, you do not need a file share witness. For more information, see [Deploy a cloud witness for a Failover Cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). This tutorial uses a file share witness, which is supported by previous operating systems.
 
 1. On **Configure File Share Witness**, type the path for the share you created. Click **Next**.
 
@@ -293,7 +296,7 @@ You are now ready to configure an Availability Group using the following steps:
 
     ![New AG Wizard, Select Initial Data Synchronization](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. In the **Select Initial Data Synchronization** page, select **Full** and specify a shared network location. For the location, use the [backup share that you created](#backupshare). In the example it was, **\\\\\<First SQL Server\>\Backup\**. Click **Next**.
+8. In the **Select Initial Data Synchronization** page, select **Full** and specify a shared network location. For the location, use the [backup share that you created](#backupshare). In the example it was, **\\\\\<First SQL Server\>\Backup\\**. Click **Next**.
 
    >[!NOTE]
    >Full synchronization takes a full backup of the database on the first instance of SQL Server and restores it to the second instance. For large databases, full synchronization is not recommended because it may take a long time. You can reduce this time by manually taking a backup of the database and restoring it with `NO RECOVERY`. If the database is already restored with `NO RECOVERY` on the second SQL Server before configuring the Availability Group, choose **Join only**. If you want to take the backup after configuring the Availability Group, choose **Skip initial data synchronization**.
@@ -512,7 +515,7 @@ To test the connection:
 The SQLCMD connection automatically connects to whichever instance of SQL Server hosts the primary replica.
 
 > [!TIP]
-> Make sure that the port you specify is open on the firewall of both SQL Servers. Both servers require an inbound rule for the TCP port that you use. For more information, see [Add or Edit Firewall Rule](http://technet.microsoft.com/library/cc753558.aspx).
+> Make sure that the port you specify is open on the firewall of both SQL Servers. Both servers require an inbound rule for the TCP port that you use. For more information, see [Add or Edit Firewall Rule](https://technet.microsoft.com/library/cc753558.aspx).
 
 ## Next steps
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 07/27/201
+ms.date: 11/13/2018
 ms.author: v-jamebr
 
 ---
@@ -227,7 +227,7 @@ The following steps show you the settings to use to enable reverse proxy and, op
 
    To learn more about configuring and managing certificates for a standalone cluster, as well as more detail about configuring certificates used to secure reverse proxy, see [X509 certificate-based security](./service-fabric-windows-cluster-x509-security.md).
 
-After you've modified your ClusterConfig.json file to enable reverse proxy, follow the instructions in [Upgrade the cluster configuration](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration) to push the changes to your cluster.
+After you've modified your ClusterConfig.json file to enable reverse proxy, follow the instructions in [Upgrade the cluster configuration](service-fabric-cluster-config-upgrade-windows-server.md) to push the changes to your cluster.
 
 
 ## Expose reverse proxy on a public port through Azure Load Balancer
@@ -235,7 +235,7 @@ After you've modified your ClusterConfig.json file to enable reverse proxy, foll
 To address the reverse proxy from outside an Azure cluster, set up Azure Load Balancer rules and an Azure Health Probe for the reverse proxy port. These steps can be performed using the Azure portal or the Resource Manager template at any time after you have created the cluster. 
 
 > [!WARNING]
-> When you configure the reverse proxy's port in Load Balancer, all microservices in the cluster that expose an HTTP endpoint are addressable from outside the cluster. This means that microservices meant to be internal may be discoverable by a determined malicious user. This potenially presents serious vulnerabilities that can be exploited; for example:
+> When you configure the reverse proxy's port in Load Balancer, all microservices in the cluster that expose an HTTP endpoint are addressable from outside the cluster. This means that microservices meant to be internal may be discoverable by a determined malicious user. This potentially presents serious vulnerabilities that can be exploited; for example:
 >
 > * A malicious user may launch a denial of service attack by repeatedly calling an internal service that does not have a sufficiently hardened attack surface.
 > * A malicious user may deliver malformed packets to an internal service resulting in unintended behavior.
@@ -328,7 +328,7 @@ For example, you can set the value of **DefaultHttpRequestTimeout** to set the t
    }
    ``` 
 
-For more information about updating fabric settings for Azure clusters, see [Customize cluster settings using Resource Manager templates](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-using-resource-manager-templates). For standalone clusters, see [Customize cluster settings for standalone clusters](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-for-standalone-clusters). 
+For more information about updating fabric settings for Azure clusters, see [Customize cluster settings using Resource Manager templates](service-fabric-cluster-config-upgrade-azure.md). For standalone clusters, see [Customize cluster settings for standalone clusters](service-fabric-cluster-config-upgrade-windows-server.md). 
 
 Several fabric settings are used to help establish secure communication between reverse proxy and services. For detailed information about these setttings, see [Connect to a secure service with the reverse proxy](service-fabric-reverseproxy-configure-secure-communication.md).
 

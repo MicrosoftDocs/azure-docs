@@ -1,23 +1,23 @@
-﻿---
-title: Set up sign-up and sign-in with a Microsoft account using Azure Active Directory B2C | Microsoft Docs
+---
+title: Set up sign-up and sign-in with a Microsoft account - Azure Active Directory B2C | Microsoft Docs
 description: Provide sign-up and sign-in to customers with Microsoft accounts in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 09/21/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Set up sign-up and sign-in with a Microsoft account using Azure Active Directory B2C
 
 ## Create a Microsoft account application
 
-To use a Microsoft account as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have a Microsoft account, you can get it at [https://www.live.com/](https://www.live.com/).
+To use a Microsoft account as an [identity provider](active-directory-b2c-reference-oidc.md) in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have a Microsoft account, you can get it at [https://www.live.com/](https://www.live.com/).
 
 1. Sign in to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) with your Microsoft account credentials.
 2. In the upper-right corner, select **Add an app**.
@@ -30,10 +30,7 @@ To use a Microsoft account as an identity provider in Azure Active Directory (Az
 ## Configure a Microsoft account as an identity provider
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.  
-
-    ![Switch to your Azure AD B2C tenant](./media/active-directory-b2c-setup-msa-app/switch-directories.png)
-
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 4. Select **Identity providers**, and then select **Add**.
 5. Provide a **Name**. For example, enter *MSA*.

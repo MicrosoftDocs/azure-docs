@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of creating a Channel tha
 services: media-services
 documentationcenter: ''
 author: anilmur
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 504f74c2-3103-42a0-897b-9ff52f279e23
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/09/2017
+ms.date: 02/09/2019
 ms.author: juliako
 
 ---
-# How to perform live streaming using Azure Media Services to create multi-bitrate streams with the Azure portal
+# How to perform live streaming using Media Services to create multi-bitrate streams with the Azure portal  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -40,7 +40,7 @@ The following are general steps involved in creating common live streaming appli
 > 
 > 
 
-1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP or Smooth Streaming. For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP or Smooth Streaming. For more information, see [Azure Media Services RTMP Support and Live Encoders](https://go.microsoft.com/fwlink/?LinkId=532824).
    
     This step could also be performed after you create your Channel.
 2. Create and start a Channel. 

@@ -1,20 +1,12 @@
 ---
 title: 'Create a route-based VPN gateway: Azure portal | Microsoft Docs'
-description: Quickly create a route-based VPN Gateway using the Azure portal
+description: Create a route-based VPN Gateway using the Azure portal
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 10/18/2018
 ms.author: cherylmc
 ---
 
@@ -70,33 +62,19 @@ The gateway subnet contains the reserved IP addresses that the virtual network g
   - **SKU**: VpnGw1
   - **Location**: East US
   - **Virtual network**: Click **Virtual network/Choose a virtual network** to open the **Choose a virtual network** page. Select **VNet1**.
+  - **Public IP address**: This setting specifies the public IP address object that gets associated to the VPN gateway. The public IP address is dynamically assigned to this object when the VPN gateway is created. VPN Gateway currently only supports *Dynamic* Public IP address allocation. However, this does not mean that the IP address changes after it has been assigned to your VPN gateway. The only time the Public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway.
 
-  ![Configure gateway settings](./media/create-routebased-vpn-gateway-portal/configure-gateway.png "Configure gateway settings")
+    - Leave **Create new** selected.
+    - In the text box, type a **Name** for your public IP address. For this exercise, use **VNet1GWIP**.<br>
 
-## <a name="pip"></a>Create a public IP address
-
-A VPN gateway must have a dynamically allocated public IP address. When you create a connection to a VPN gateway, this is the IP address that your on-premises device connects to.
-
-1. Select **First IP configuration Create gateway IP configuration** to request a public IP address.
-
-  ![First IP configuration](./media/create-routebased-vpn-gateway-portal/add-public-ip-address.png "First IP configuration")
-2. On the **Choose public IP page**, click **+ Create new** to open the **Create public IP address** page.
-3. Configure the settings with the following values:
-
-  - **Name**: **VNet1GWIP**
-  - **SKU**: **Basic**
-
-  ![Create public IP](./media/create-routebased-vpn-gateway-portal/public-ip-address-name.png "Create PIP")
-4. Click **OK** at the bottom of this page to save your changes.
+    ![Configure gateway settings](./media/create-routebased-vpn-gateway-portal/gw.png "Configure gateway settings")
 
 ## <a name="creategw"></a>Create the VPN gateway
 
 1. Verify the settings on the **Create virtual network gateway** page. Adjust values if necessary.
-
-  ![Create VPN gateway](./media/create-routebased-vpn-gateway-portal/create-vpn-gateway.png "Create VPN gateway")
 2. Click **Create** at the bottom of the page.
 
-After you click **Create**, the settings are validated and the **Deploying Virtual network gateway** tile appears on the dashboard. A VPN gateway can take up to 45 minutes. You may need to refresh your portal page to see the completed status.
+  After you click **Create**, the settings are validated and the **Deploying Virtual network gateway** tile appears on the dashboard. A VPN gateway can take up to 45 minutes. You may need to refresh your portal page to see the completed status.
 
 ## <a name="viewgw"></a>View the VPN gateway
 

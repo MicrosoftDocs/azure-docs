@@ -3,19 +3,20 @@ title: Translate links and URLs Azure AD App Proxy | Microsoft Docs
 description: Covers the basics about Azure AD Application Proxy connectors.
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Redirect hardcoded links for apps published with Azure AD Application Proxy
@@ -93,6 +94,7 @@ To improve performance and security, some links aren't translated:
 
 - Links not inside of code tags. 
 - Links not in HTML or CSS. 
+- Links in URL-encoded format.
 - Internal links opened from other programs. Links sent through email or instant message, or included in other documents, won't be translated. The users need to know to go to the external URL.
 
 If you need to support one of these two scenarios, use the same internal and external URLs instead of link translation.  
@@ -105,7 +107,7 @@ Getting started with link translation is as easy as clicking a button:
 2. Go to **Azure Active Directory** > **Enterprise applications** > **All applications** > select the app you want to manage > **Application proxy**.
 3. Turn **Translate URLs in application body** to **Yes**.
 
-   ![Select Yes to translate URLs in application body](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png).
+   ![Select Yes to translate URLs in application body](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png)
 4. Select **Save** to apply your changes.
 
 Now, when your users access this application, the proxy will automatically scan for internal URLs that have been published through Application Proxy on your tenant.

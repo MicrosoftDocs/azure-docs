@@ -43,11 +43,24 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/azure/container-registry/container-registry-tutorial-quick-build">Build container images with ACR Build (preview)</a>
+    - html: <a href="/azure/container-registry/container-registry-tutorial-quick-build">Build container images with ACR Tasks</a>
     - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Container Registry geo-replication</a>
     - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Container Registry with Azure Container Instances</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Container Registry with Azure Kubernetes Service (AKS)</a>
     - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">Container Registry with Service Fabric</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Build and store container images with Azure Container Registry
+      href: /learn/modules/build-and-store-container-images/
+      image: 
+        src: /learn/achievements/build-and-store-container-images.svg
+        href: /learn/modules/build-and-store-container-images/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-container-registry">More interactive learning...</a>
 
 - title: Reference
   items:

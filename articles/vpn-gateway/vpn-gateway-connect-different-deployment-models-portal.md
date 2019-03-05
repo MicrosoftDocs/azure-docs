@@ -1,22 +1,14 @@
-﻿---
+---
 title: 'Connect classic virtual networks to Azure Resource Manager VNets: Portal | Microsoft Docs'
 description: Steps to connect classic VNets to Resource Manager VNets using VPN Gateway and the portal
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-service-management,azure-resource-manager
 
-ms.assetid: 5a90498c-4520-4bd3-a833-ad85924ecaf9
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 03/13/2018
+ms.date: 10/17/2018
 ms.author: cherylmc
-
 ---
 # Connect virtual networks from different deployment models using the portal
 
@@ -33,6 +25,8 @@ Connecting a classic VNet to a Resource Manager VNet is similar to connecting a 
 If you do not already have a virtual network gateway and do not want to create one, you may want to instead consider connecting your VNets using VNet Peering. VNet peering does not use a VPN gateway. For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md).
 
 ### <a name="before"></a>Before you begin
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * These steps assume that both VNets have already been created. If you are using this article as an exercise and don't have VNets, there are links in the steps to help you create them.
 * Verify that the address ranges for the VNets do not overlap with each other, or overlap with any of the ranges for other connections that the gateways may be connected to.
@@ -231,19 +225,19 @@ In these steps, you configure the connection from the classic VNet to the Resour
 Open the PowerShell console with elevated rights and log in to your Azure account. After logging in, your account settings are downloaded so that they are available to Azure PowerShell. The following cmdlet prompts you for the login credentials for your Azure Account for the Resource Manager deployment model:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Get a list of your Azure subscriptions.
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 If you have more than one subscription, specify the subscription that you want to use.
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "Name of subscription"
+Select-AzSubscription -SubscriptionName "Name of subscription"
 ```
 
 Next, log in to use the classic PowerShell cmdlets (Service Management). Use the following command to add your Azure account for the classic deployment model:
@@ -293,7 +287,7 @@ Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `
 -LocalNetworkSiteName "172B9E16_RMVNetLocal" -SharedKey abc123
 ```
 
-##<a name="verify"></a>Section 6 - Verify your connections
+## <a name="verify"></a>Section 6 - Verify your connections
 
 You can verify your connections by using the Azure portal or PowerShell. When verifying, you may need to wait a minute or two as the connection is being created. When a connection is successful, the connectivity state changes from 'Connecting' to 'Connected'.
 

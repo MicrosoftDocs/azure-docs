@@ -1,14 +1,14 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with SpringCM | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SpringCM.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 
 ms.assetid: 4a42f797-ac58-4aca-a8e6-53bfe5529083
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with SpringCM
 
@@ -186,7 +187,7 @@ The objective of this section is to create a test user in the Azure portal calle
 To enable Azure Active Directory users to log in to SpringCM, they must be provisioned into SpringCM. In the case of SpringCM, provisioning is a manual task.
 
 >[!NOTE]
->For more information, see [Create and Edit a SpringCM User](http://knowledge.springcm.com/create-and-edit-a-springcm-user). 
+>For more information, see [Create and Edit a SpringCM User](https://knowledge.springcm.com/create-and-edit-a-springcm-user). 
 
 **To provision a user account to SpringCM, perform the following steps:**
 

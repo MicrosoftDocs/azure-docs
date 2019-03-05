@@ -4,11 +4,11 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 
 ms.assetid: B42374E5-2559-4309-8EF2-820BEE7EBB0C
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with T&E Express
 
@@ -42,7 +43,7 @@ To configure Azure AD integration with T&E Express, you need the following items
 To test the steps in this tutorial, you should follow these recommendations:
 
 - You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get an one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 

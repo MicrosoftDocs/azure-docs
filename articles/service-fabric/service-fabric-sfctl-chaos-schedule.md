@@ -13,10 +13,11 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
 
 ---
+
 # sfctl chaos schedule
 Get and set the chaos schedule.
 
@@ -25,7 +26,7 @@ Get and set the chaos schedule.
 |Command|Description|
 | --- | --- |
 | get | Get the Chaos Schedule defining when and how to run Chaos. |
-| set | Set the Chaos Schedule to be used by Chaos. |
+| set | Set the schedule used by Chaos. |
 
 ## sfctl chaos schedule get
 Get the Chaos Schedule defining when and how to run Chaos.
@@ -49,9 +50,9 @@ Gets the version of the Chaos Schedule in use and the Chaos Schedule that define
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl chaos schedule set
-Set the Chaos Schedule to be used by Chaos.
+Set the schedule used by Chaos.
 
-Set the Chaos Schedule currently in use by Chaos. Chaos will automatically schedule runs based on the Chaos Schedule. The version in the provided input schedule must match the version of the Chaos Schedule on the server. If the version provided does not match the version on the server, the Chaos Schedule is not updated. If the version provided matches the version on the server, then the Chaos Schedule is updated and the version of the Chaos Schedule on the server is incremented up by one and wraps back to 0 after 2,147,483,647. If Chaos is running when this call is made, the call will fail.
+Chaos will automatically schedule runs based on the Chaos Schedule. The version in the provided input schedule must match the version of the Chaos Schedule on the server. If the version provided does not match the version on the server, the Chaos Schedule is not updated. If the version provided matches the version on the server, then the Chaos Schedule is updated and the version of the Chaos Schedule on the server is incremented up by one and wraps back to 0 after 2,147,483,647. If Chaos is running when this call is made, the call will fail.
 
 ### Arguments
 
@@ -139,6 +140,7 @@ The following command sets a schedule (assuming the current schedule has version
         ]
     }
     ]
+
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.

@@ -56,7 +56,6 @@ ms.custom: H1Hack27Feb2017
 
 [planning-guide]:planning-guide.md
 [planning-guide-11]:planning-guide.md
-[planning-guide-2.1]:planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803
 [planning-guide-2.2]:planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10
 
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd
@@ -302,7 +301,7 @@ To set up the ASCS/SCS multi-SID template, in the [ASCS/SCS multi-SID template][
   -  **System Availability**: Select **HA**.
   -  **Admin Username and Admin Password**: Create a new user that can be used to sign in to the machine.
   -  **New Or Existing Subnet**: Set whether to create a new virtual network and subnet or use an existing subnet. If you already have a virtual network that is connected to your on-premises network, select **existing**.
-  -  **Subnet Id**: Set the ID of the subnet to which the virtual machines should be connected. Select the subnet of your VPN or ExpressRoute virtual network to connect the virtual machine to your on-premises network. The ID usually looks like this:
+  -  **Subnet Id**: If you want to deploy the VM into an existing VNet where you have a subnet defined the VM should be assigned to, name the ID of that specific subnet. The ID usually looks like this:
 
    /subscriptions/\<subscription id\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/virtualNetworks/\<virtual network name\>/subnets/\<subnet name\>
 
@@ -374,7 +373,7 @@ To set the required DNS IP addresses, complete the following steps:
 2.  Select your settings based on the type of network you have. For more information, see the following resources:
     * [Corporate network connectivity (cross-premises)][planning-guide-2.2]: Add the IP addresses of the on-premises DNS servers.  
     You can extend on-premises DNS servers to the virtual machines that are running in Azure. In that scenario, you can add the IP addresses of the Azure virtual machines on which you run the DNS service.
-    * [Cloud-only deployment][planning-guide-2.1]: Deploy an additional virtual machine in the same Virtual Network instance that serves as a DNS server. Add the IP addresses of the Azure virtual machines that you've set up to run the DNS service.
+    * For VM deployments which are isolated in Azure: Deploy an additional virtual machine in the same Virtual Network instance that serves as a DNS server. Add the IP addresses of the Azure virtual machines that you've set up to run the DNS service.
 
     ![Figure 2: Configure DNS servers for Azure Virtual Network][sap-ha-guide-figure-3001]
 

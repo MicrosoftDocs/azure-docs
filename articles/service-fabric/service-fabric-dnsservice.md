@@ -39,6 +39,9 @@ The following diagram shows how the DNS service works for partitioned stateful s
 Dynamic ports are not supported by the DNS service. To resolve services exposed on dynamic ports, use the [reverse proxy service](./service-fabric-reverseproxy.md).
 
 ## Enabling the DNS service
+> [!NOTE]
+> DNS service for Service Fabric services is not yet supported on Linux.
+
 When you create a cluster using the portal, the DNS service is enabled by default in the **Include DNS service** check box on the **Cluster configuration** menu:
 
 ![Enabling DNS service through the portal](./media/service-fabric-dnsservice/enable-dns-service.png)
@@ -128,7 +131,7 @@ Once the application is deployed, the service instance in the Service Fabric exp
 
 ![service endpoints](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
-The following example sets the DNS name for a stateful service to `statefulsvc.app`. The service uses a named partitioning scheme. Notice that the partition names are lower-case. This is a requirement for partitions that will be targeted in DNS queries; for more information, see [Making DNS queries on a stateful service partition](#making-dns-queries-on-a-stateful-service-partition).
+The following example sets the DNS name for a stateful service to `statefulsvc.app`. The service uses a named partitioning scheme. Notice that the partition names are lower-case. This is a requirement for partitions that will be targeted in DNS queries; for more information, see [Making DNS queries on a stateful service partition](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
 
 ```xml
     <Service Name="Stateful1" ServiceDnsName="statefulsvc.app" />
@@ -247,6 +250,8 @@ public class ValuesController : Controller
 
 ## Known Issues
 * For Service Fabric versions 6.3 and higher, there is a problem with DNS lookups for service names containing a hyphen in the DNS name. For more information on this issue, please track the following [GitHub Issue](https://github.com/Azure/service-fabric-issues/issues/1197). A fix for this is coming in the next 6.3 update. 
+
+* DNS service for Service Fabric services is not yet supported on Linux. DNS service is supported for containers on Linux. Manual resolution using Fabric Client/ServicePartitionResolver is the available alternative.
 
 ## Next steps
 Learn more about service communication within the cluster with  [connect and communicate with services](service-fabric-connect-and-communicate-with-services.md)

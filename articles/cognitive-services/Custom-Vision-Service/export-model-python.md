@@ -1,17 +1,19 @@
 ---
-title: Run TensorFlow model in Python - Custom Vision Service - Azure Cognitive Services | Microsoft Docs
-description: Run TensorFlow model in Python
+title: "Tutorial: Run TensorFlow model in Python - Custom Vision Service"
+titlesuffix: Azure Cognitive Services
+description: Run a TensorFlow model in Python.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: nitinme
+
 ms.service: cognitive-services
-ms.component: custom-vision
-ms.topic: article
+ms.subservice: custom-vision
+ms.topic: tutorial
 ms.date: 05/17/2018
 ms.author: areddish
 ---
  
-# Run TensorFlow model in Python
+# Tutorial: Run TensorFlow model in Python
 
 After you have [exported your TensorFlow model](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) from the Custom Vision Service, this quickstart will show you how to use this model locally to classify images.
 
@@ -43,6 +45,10 @@ import os
 
 graph_def = tf.GraphDef()
 labels = []
+
+# These are set to the default names from exported models, update as needed.
+filename = "model.pb"
+labels_filename = "labels.txt"
 
 # Import the TF graph
 with tf.gfile.FastGFile(filename, 'rb') as f:
@@ -105,8 +111,10 @@ augmented_image = resize_to_256_square(max_square_image)
 ### Crop the center for the specific input size for the model
 
 ```Python
-# The compact models have a network size of 227x227, the model requires this size.
-network_input_size = 227
+# Get the input size of the model
+with tf.Session() as sess:
+    input_tensor_shape = sess.graph.get_tensor_by_name('Placeholder:0').shape.as_list()
+network_input_size = input_tensor_shape[1]
 
 # Crop the center for the specified network_input_Size
 augmented_image = crop_center(augmented_image, network_input_size, network_input_size)
@@ -184,8 +192,8 @@ The results of running the image tensor through the model will then need to be m
 
     # Or you can print out all of the results mapping labels to probabilities.
     label_index = 0
-    for p in predictions:
-        truncated_probablity = np.float64(round(p,8))
+    for p in predictions[0]:
+        truncated_probablity = np.float64(np.round(p,8))
         print (labels[label_index], truncated_probablity)
         label_index += 1
 ```

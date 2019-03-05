@@ -5,10 +5,10 @@ services: active-directory
 keywords: identity protection, conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: 
 ms.service: active-directory
-ms.component: identity-protection
+ms.subservice: identity-protection
 ms.topic: quickstart 
 ms.devlang: na
 ms.topic: article
@@ -18,6 +18,7 @@ ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
 #Customer intent: As an IT admin, I want to configure a sign-in risk conditional access policy to handle suspicious sign-ins, so that they can be automatically handled.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Block access when a session risk is detected with Azure Active Directory Identity Protection  
@@ -26,7 +27,7 @@ To keep your environment protected, you might want to block suspicious users fro
 
 This quickstart shows how to configure a sign-in risk conditional access policy that blocks a sign-in when a medium and above sign-in risk level has been detected. 
 
-![Create policy](./media/quickstart-sign-in-risk-policy/1003.png)
+![Create policy](./media/quickstart-sign-in-risk-policy/1004.png)
 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -79,35 +80,31 @@ This section shows how to create the required sign-in risk conditional access po
 
 1. Sign in to your [Azure portal](https://portal.azure.com) as global administrator.
 
-2. In the Azure portal, on the left navbar, click **All services**. 
-
-4. In the **Filter** textbox, type **identity protection**.
-
-5. Click **Azure AD Identity Protection**.   
+2. Go to the [Azure AD Identity Protection page](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/Overview).
  
-6. On the **Azure AD Identity Protection** page, in the **Configure** section, click **Sign-in risk policy**.
+3. On the **Azure AD Identity Protection** page, in the **Configure** section, click **Sign-in risk policy**.
  
-5. On the policy page, in the **Assignments** section, click **Users**.
+4. On the policy page, in the **Assignments** section, click **Users**.
 
-6. On the **Users** page, click **Select users**.
+5. On the **Users** page, click **Select users**.
 
-7. On the **Select users** page, select **Alain Charon**, and then click **Select**.
+6. On the **Select users** page, select **Alain Charon**, and then click **Select**.
 
-8. On the **Users** page, click **Done**. 
+7. On the **Users** page, click **Done**. 
 
-9. On the policy page, in the **Assignments** section, click **Conditions**.
+8. On the policy page, in the **Assignments** section, click **Conditions**.
 
-10. On the **Conditions** page, click **Sign-in risk**.
+9. On the **Conditions** page, click **Sign-in risk**.
 
-11. On the **Sign-in risk** page, select **Medium and above**, and then click **Select**. 
+10. On the **Sign-in risk** page, select **Medium and above**, and then click **Select**. 
 
-12. On the **Conditions** page, click **Done**.
+11. On the **Conditions** page, click **Done**.
 
-13. On the policy page, in the **Controls** section, click **Access**.
+12. On the policy page, in the **Controls** section, click **Access**.
 
-14. On the **Access** page, click **Allow access**, select **Require multi-factor authentication**, and then click **Select**.
+13. On the **Access** page, click **Allow access**, select **Require multi-factor authentication**, and then click **Select**.
 
-15. On the policy page, click **Save**.  
+14. On the policy page, click **Save**.  
 
 
 ## Test your conditional access policy
@@ -123,6 +120,6 @@ When no longer needed, delete the test user, the Tor Browser and disable the sig
 
 - If you don't know how to delete an Azure AD user, see [How to add or delete users](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 
-- For instructions to remove the Tor Browser, see [Uninstalling](https://tb-manual.torproject.org/en-US/uninstalling.html).
+- For instructions to remove the Tor Browser, see [Uninstalling](https://tb-manual.torproject.org/uninstalling/).
 
 

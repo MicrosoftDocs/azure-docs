@@ -3,19 +3,19 @@ title: Create a secure LDAP certificate for an Azure AD Domain Services manage d
 description: Create a secure LDAP certificate for an Azure AD Domain Services manage domain
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
-manager: mtillman
+author: eringreenlee
+manager: daveba
 editor: curtand
 
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2017
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 # Create a .PFX file with the secure LDAP (LDAPS) certificate for a managed domain
@@ -78,7 +78,7 @@ To export the LDAPS certificate to a .PFX file:
 
 14. On the **Security** page, select the **Password** option and type in a password to protect the .PFX file. Remember this password since it will be needed in the next task. Click **Next**.
 
-    ![Password for certificate export ](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
+    ![Password for certificate export](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
 
     > [!NOTE]
     > Make a note of this password. You need it while enabling secure LDAP for this managed domain in [Task 3 - enable secure LDAP for the managed domain](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)

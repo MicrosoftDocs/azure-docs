@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-
+#Customer intent: As a developer, learn how to setup a continuous integration environment so that function app updates are deployed automatically when I check-in my code changes.
 ---
 # Continuous deployment for Azure Functions
 Azure Functions makes it easy to deploy your function app using App Service continuous integration. Functions integrates with BitBucket, Dropbox, GitHub, and Azure DevOps. This enables a workflow where function code updates made by using one of these integrated services trigger deployment to Azure. If you are new to Azure Functions, start with [Azure Functions Overview](functions-overview.md).
@@ -22,10 +22,10 @@ Continuous deployment is a great option for projects where multiple and frequent
 * [Bitbucket](https://bitbucket.org/)
 * [Dropbox](https://www.dropbox.com/)
 * External repository (Git or Mercurial)
-* [Git local repository](../app-service/app-service-deploy-local-git.md)
+* [Git local repository](../app-service/deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
-* [Azure DevOps Services](https://www.visualstudio.com/team-services/)
+* [Azure DevOps](https://azure.microsoft.com/services/devops/)
 
 Deployments are configured on a per-function app basis. After continuous deployment is enabled, access to function code in the portal is set to *read-only*.
 
@@ -48,7 +48,7 @@ Use this procedure to configure continuous deployment for an existing function a
  
     ![Setup continuous deployment](./media/functions-continuous-deployment/setup-deployment-1.png)
    
-2. In the **Deployment source** blade, click **Choose source**, then fill in the information for your chosen deployment source and click **OK**.
+3. In the **Deployment source** blade, click **Choose source**, then fill in the information for your chosen deployment source and click **OK**.
    
     ![Choose deployment source](./media/functions-continuous-deployment/choose-deployment-source.png)
 

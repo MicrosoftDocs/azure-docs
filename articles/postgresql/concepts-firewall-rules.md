@@ -1,13 +1,10 @@
 ---
 title: Azure Database for PostgreSQL Server firewall rules
 description: This article describes firewall rules for your Azure Database for PostgreSQL server.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
 ---
 # Azure Database for PostgreSQL Server firewall rules

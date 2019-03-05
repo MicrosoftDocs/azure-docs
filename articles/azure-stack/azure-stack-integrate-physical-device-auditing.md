@@ -6,20 +6,21 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 02/11/2019
 ms.author: patricka
-ms.reviewer: fiseraci
+ms.reviewer: thoroet
+ms.lastreviewed: 02/11/2019
 keywords:
 ---
 
 # Azure Stack datacenter integration - physical device auditing
 
-All physical devices in Azure Stack, like the baseboard management controllers (BMCs) and network switches, emit audit logs, and they should be integrated into your overall auditing solution. Since the devices vary across the different Azure Stack OEM hardware vendors, contact your vendor for the documentation on auditing integration. 
+All physical devices in Azure Stack, like the baseboard management controllers (BMCs) and network switches, emit audit logs. You can integrate the audit logs into your overall auditing solution. Since the devices vary across the different Azure Stack OEM hardware vendors, contact your vendor for the documentation on auditing integration.
 The sections below provide some general information for physical device auditing in Azure Stack.  
 
 ## Physical device access auditing
 
-All physical devices in Azure Stack support the use of TACACS or RADIUS. This includes access to the baseboard management controller (BMC) and network switches.
+All physical devices in Azure Stack support the use of TACACS or RADIUS. Support includes access to the baseboard management controller (BMC) and network switches.
 
 Azure Stack solutions do not ship with either RADIUS or TACACS built in. However, the solutions have been validated to support the use of existing RADIUS or TACACS solutions available in the market.
 

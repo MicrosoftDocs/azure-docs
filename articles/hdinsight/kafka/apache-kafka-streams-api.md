@@ -3,23 +3,23 @@ title: 'Tutorial: Use the Apache Kafka Streams API - Azure HDInsight '
 description: Learn how to use the Apache Kafka Streams API with Kafka on HDInsight. This API enables you to perform stream processing between topics in Kafka.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 04/17/2018
+ms.date: 11/06/2018
 #Customer intent: As a developer, I need to create an application that uses the Kafka streams API with Kafka on HDInsight
 ---
 
 # Tutorial: Apache Kafka streams API
 
-Learn how to create an application that uses the Kafka Streams API and run it with Kafka on HDInsight. 
+Learn how to create an application that uses the Apache Kafka Streams API and run it with Kafka on HDInsight. 
 
 The application used in this tutorial is a streaming word count. It reads text data from a Kafka topic, extracts individual words, and then stores the word and count into another Kafka topic.
 
-> [!NOTE]
-> Kafka stream processing is often done using Apache Spark or Storm. Kafka version 0.10.0 (in HDInsight 3.5 and 3.6) introduced the Kafka Streams API. This API allows you to transform data streams between input and output topics. In some cases, this may be an alternative to creating a Spark or Storm streaming solution. 
+> [!NOTE]  
+> Kafka stream processing is often done using Apache Spark or Apache Storm. Kafka version 0.10.0 (in HDInsight 3.5 and 3.6) introduced the Kafka Streams API. This API allows you to transform data streams between input and output topics. In some cases, this may be an alternative to creating a Spark or Storm streaming solution. 
 >
 > For more information on Kafka Streams, see the [Intro to Streams](https://kafka.apache.org/10/documentation/streams/) documentation on Apache.org.
 
@@ -34,17 +34,17 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* A Kafka on HDInsight 3.6 cluster. To learn how to create a Kafka on HDInsight cluster, see the [Start with Kafka on HDInsight](apache-kafka-get-started.md) document.
+* A Kafka on HDInsight 3.6 cluster. To learn how to create a Kafka on HDInsight cluster, see the [Start with Apache Kafka on HDInsight](apache-kafka-get-started.md) document.
 
-* Complete the steps in the [Kafka Consumer and Producer API](apache-kafka-producer-consumer-api.md) document. The steps in this document use the example application and topics created in this tutorial.
+* Complete the steps in the [Apache Kafka Consumer and Producer API](apache-kafka-producer-consumer-api.md) document. The steps in this document use the example application and topics created in this tutorial.
 
 ## Set up your development environment
 
 You must have the following components installed in your development environment:
 
-* [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or an equivalent, such as OpenJDK.
+* [Java JDK 8](https://aka.ms/azure-jdks) or an equivalent, such as OpenJDK.
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 * An SSH client and the `scp` command. For more information, see the [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) document.
 
@@ -70,7 +70,7 @@ The important things to understand in the `pom.xml` file are:
     </dependency>
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > The `${kafka.version}` entry is declared in the `<properties>..</properties>` section of `pom.xml`, and is configured to the Kafka version of the HDInsight cluster.
 
 * Plugins: Maven plugins provide various capabilities. In this project, the following plugins are used:
@@ -80,7 +80,7 @@ The important things to understand in the `pom.xml` file are:
 
 ### Stream.java
 
-The `Stream.java` file uses the Streams API to implement a word count application. It reads data from a Kafka topic named `test` and writes the word counts into a topic named `wordcounts`.
+The [Stream.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Streaming/src/main/java/com/microsoft/example/Stream.java) file uses the Streams API to implement a word count application. It reads data from a Kafka topic named `test` and writes the word counts into a topic named `wordcounts`.
 
 The following code defines the word count application:
 
@@ -154,7 +154,7 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
    
     Replace `sshuser` with the SSH user for your cluster, and replace `clustername` with the name of your cluster. If prompted, enter the password for the SSH user account. For more information on using `scp` with HDInsight, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## Create Kafka topics
+## Create Apache Kafka topics
 
 1. To open an SSH connection to the cluster, use the following command:
 
@@ -171,7 +171,7 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
     read -p 'Enter your Kafka cluster name:' CLUSTERNAME
     ```
 
-3. To get the Kafka broker hosts and the Zookeeper hosts, use the following commands. When prompted, enter the password for the cluster login (admin) account. You are prompted for the password twice.
+3. To get the Kafka broker hosts and the Apache Zookeeper hosts, use the following commands. When prompted, enter the password for the cluster login (admin) account. You are prompted for the password twice.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
@@ -180,7 +180,7 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
 
 4. To create the topics used by the streaming operation, use the following commands:
 
-    > [!NOTE]
+    > [!NOTE]  
     > You may receive an error that the `test` topic already exists. This is OK, as it may have been created in the Producer and Consumer API tutorial.
 
     ```bash
@@ -200,7 +200,7 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
     * `RekeyedIntermediateTopic`: This topic is used to repartition data as the count is updated by the `countByKey` operator.
     * `wordcount-example-Counts-changelog`: This topic is a state store used by the `countByKey` operation
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Kafka on HDInsight can also be configured to automatically create topics. For more information, see the [Configure automatic topic creation](apache-kafka-auto-create-topics.md) document.
 
 ## Run the code
@@ -211,8 +211,8 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
     java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS &
     ```
 
-    > [!NOTE]
-    > You may get a warning about log4j. You can ignore this.
+    > [!NOTE]  
+    > You may get a warning about Apache log4j. You can ignore this.
 
 2. To send records to the `test` topic, use the following command to start the producer application:
 
@@ -226,7 +226,7 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --from-beginning
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > The `--property` parameters tell the console consumer to print the key (word) along with the count (value). This parameter also configures the deserializer to use when reading these values from Kafka.
 
     The output is similar to the following text:
@@ -244,14 +244,14 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
         jumped  13640
         jumped  13641
    
-    > [!NOTE]
+    > [!NOTE]  
     > The parameter `--from-beginning` configures the consumer to start at the beginning of the records stored in the topic. The count increments each time a word is encountered, so the topic contains multiple entries for each word, with an increasing count.
 
 7. Use the __Ctrl + C__ to exit the producer. Continue using __Ctrl + C__ to exit the application and the consumer.
 
 ## Next steps
 
-In this document, you learned how to use the Kafka Streams API with Kafka on HDInsight. Use the following to learn more about working with Kafka:
+In this document, you learned how to use the Apache Kafka Streams API with Kafka on HDInsight. Use the following to learn more about working with Kafka:
 
-* [Analyze Kafka logs](apache-kafka-log-analytics-operations-management.md)
-* [Replicate data between Kafka clusters](apache-kafka-mirroring.md)
+* [Analyze Apache Kafka logs](apache-kafka-log-analytics-operations-management.md)
+* [Replicate data between Apache Kafka clusters](apache-kafka-mirroring.md)

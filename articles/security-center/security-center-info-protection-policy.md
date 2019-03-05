@@ -1,10 +1,10 @@
 ---
-title: Customizing the information protection policy in Azure Security Center | Microsoft Docs
+title: Customizing the SQL information protection policy in Azure Security Center | Microsoft Docs
 description: Learn how to customize information protection policies in Azure Security Center.
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 2ebf2bc7-232a-45c4-a06a-b3d32aaf2500
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2018
+ms.date: 09/20/2018
 ms.author: rkarlin
 
 ---
-# Customize the information protection policy in Azure Security Center (Preview)
+# Customize the SQL information protection policy in Azure Security Center (Preview)
  
-An information protection policy can be defined and customized for your entire Azure tenant, in Azure Security Center.
+A SQL information protection policy can be defined and customized for your entire Azure tenant, in Azure Security Center.
 
 Information protection is an advanced security capability for discovering, classifying, labeling and protecting sensitive data in your Azure data resources. Discovering and classifying your most sensitive data (business, financial, healthcare, PII, etc.) can play a pivotal role in your organizational information protection stature. It can serve as infrastructure for:
 - Helping meet data privacy standards and regulatory compliance requirements
@@ -82,7 +82,7 @@ In this article, you learned about defining a SQL Information Protection policy 
 For more information on security policies and data security in Azure Security Center, see the following articles:
  
 - [Security policies overview](security-center-policies-overview.md): Get an overview of security policies in Security Center
-- [Setting security policies in Azure Security Center](security-center-policies.md): Learn how to configure security policies for your Azure subscriptions and resource groups
+- [Setting security policies in Azure Security Center](tutorial-security-policy.md): Learn how to configure security policies for your Azure subscriptions and resource groups
 - [Azure Security Center data security](security-center-data-security.md): Learn how Security Center manages and safeguards data
 
 

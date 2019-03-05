@@ -32,7 +32,7 @@ The following diagram illustrates what you build in the tutorial.
 
 ## Review availability group documentation
 
-This tutorial assumes that you have a basic understanding of SQL Server Always On availability groups. If you're not familiar with this technology, see [Overview of Always On Availability Groups (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
+This tutorial assumes that you have a basic understanding of SQL Server Always On availability groups. If you're not familiar with this technology, see [Overview of Always On Availability Groups (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
 
 ## Create an Azure account
@@ -105,7 +105,7 @@ The new virtual network has one subnet, named **Admin**. The domain controllers 
 
     If **SQL-HA-RG** isn't visible, find it by clicking **Resource Groups** and filtering by the resource group name.
 2. Click **autoHAVNET** on the list of resources. 
-3. On the **autoHAVNET** virtual network, under **Settings** , click **Subnets**.
+3. On the **autoHAVNET** virtual network, under **Settings** select **Subnets**.
 
     Note the subnet that you already created.
 
@@ -132,7 +132,7 @@ The following table summarizes the network configuration settings:
 
 ## Create availability sets
 
-Before you create virtual machines, you need to create availability sets. Availability sets reduce the downtime for planned or unplanned maintenance events. An Azure availability set is a logical group of resources that Azure places on physical fault domains and update domains. A fault domain ensures that the members of the availability set have separate power and network resources. An update domain ensures that members of the availability set aren't brought down for maintenance at the same time. For additional information, see [Manage the availability of virtual machines](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Before you create virtual machines, you need to create availability sets. Availability sets reduce the downtime for planned or unplanned maintenance events. An Azure availability set is a logical group of resources that Azure places on physical fault domains and update domains. A fault domain ensures that the members of the availability set have separate power and network resources. An update domain ensures that members of the availability set aren't brought down for maintenance at the same time. For more information, see [Manage the availability of virtual machines](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 You need two availability sets. One is for the domain controllers. The second is for the SQL Server VMs.
 
@@ -186,7 +186,7 @@ The following table shows the settings for these two machines:
 | **Subnet** |admin |
 | **Public IP address** |*Same name as the VM* |
 | **Network security group** |*Same name as the VM* |
-| **Availability set** |adavailabilityset </br>**Fault domains**:2</br>**Update domains**:2|
+| **Availability set** |adavailabilityset </br>**Fault domains**:2 </br>**Update domains**:2|
 | **Diagnostics** |Enabled |
 | **Diagnostics storage account** |*Automatically created* |
 
@@ -305,7 +305,7 @@ After the server finishes the configuration changes, restart the server.
 
 In the Azure portal, under virtual network, change the DNS Server to include the IP address of the secondary domain controller. This setting allows the DNS service redundancy.
 
-### <a name=DomainAccounts></a> Configure the domain accounts
+### <a name="DomainAccounts"></a> Configure the domain accounts
 
 In the next steps, you configure the Active Directory accounts. The following table shows the accounts:
 
@@ -346,7 +346,7 @@ Now that you've finished configuring Active Directory and the user objects, crea
 
 ## Create SQL Server VMs
 
-Create three additional virtual machines. The solution requires two virtual machines with SQL Server instances. A third virtual machine will function as a witness. Windows Server 2016 can use a [cloud witness](http://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness), however for consistency with previous operating systems this document uses a virtual machine for a witness.  
+Create three additional virtual machines. The solution requires two virtual machines with SQL Server instances. A third virtual machine will function as a witness. Windows Server 2016 can use a [cloud witness](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness), however for consistency with previous operating systems this document uses a virtual machine for a witness.  
 
 Before you proceed consider the following design decisions.
 
@@ -410,7 +410,7 @@ After each virtual machine restarts as a member of the domain, add **CORP\Instal
 
 ### <a name="setServiceAccount"></a>Set the SQL Server service accounts
 
-On each SQL Server VM, set the SQL Server service account. Use the accounts that you created when you [configured the domain accounts](#DomainAccounts).
+On each SQL Server VM, set the SQL Server service account. Use the accounts that you created when you configured the domain accounts.
 
 1. Open **SQL Server Configuration Manager**.
 2. Right-click the SQL Server service, and then click **Properties**.
@@ -459,6 +459,10 @@ To add Failover Clustering features, do the following steps on both SQL Server V
 6. Click **Install** to add the features.
 
 Repeat the steps on the other SQL Server VM.
+
+  >[!NOTE]
+  > This step, along with actually joining the SQL Server VMs to the failover cluster, can now be automated with [Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) and [Azure Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+
 
 ## <a name="endpoint-firewall"> Configure the firewall on each SQL Server VM
 

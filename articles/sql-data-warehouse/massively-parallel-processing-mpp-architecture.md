@@ -6,7 +6,7 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
@@ -18,7 +18,7 @@ Learn how Azure SQL Data Warehouse combines massively parallel processing (MPP) 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
 ## MPP architecture components
-SQL Data Warehouse leverages a scale out architecture to distribute computational processing of data across multiple nodes. The unit of scale is an abstraction of compute power that is known as a data warehouse unit. SQL Data Warehouse separates compute from storage which enables you to scale compute independently of the data in your system.
+SQL Data Warehouse leverages a scale out architecture to distribute computational processing of data across multiple nodes. The unit of scale is an abstraction of compute power that is known as a [data warehouse unit](what-is-a-data-warehouse-unit-dwu-cdwu.md). SQL Data Warehouse separates compute from storage which enables you to scale compute independently of the data in your system.
 
 ![SQL Data Warehouse Architecture](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
@@ -46,7 +46,7 @@ The Control node is the brain of the data warehouse. It is the front end that in
 
 The Compute nodes provide the computational power. Distributions map to Compute nodes for processing. As you pay for more compute resources, SQL Data Warehouse re-maps the distributions to the available Compute nodes. The number of compute nodes ranges from 1 to 60, and is determined by the service level for the data warehouse.
 
-Each Compute node has a node ID that is visible in system views. You can see the Compute node ID by looking for the node_id column in system views whose names begin with sys.pdw_nodes. For a list of these system views, see [MPP system views](sql-data-warehouse-reference-tsql-statements.md).
+Each Compute node has a node ID that is visible in system views. You can see the Compute node ID by looking for the node_id column in system views whose names begin with sys.pdw_nodes. For a list of these system views, see [MPP system views](http://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7).
 
 ### Data Movement Service
 Data Movement Service (DMS) is the data transport technology that coordinates data movement between the Compute nodes. Some queries require data movement to ensure the parallel queries return accurate results. When data movement is required, DMS ensures the right data gets to the right location. 
@@ -79,7 +79,7 @@ A round-robin distributed table distributes data evenly across the table but wit
 ## Replicated Tables
 A replicated table provides the fastest query performance for small tables.
 
-A table that is replicated caches a full copy of the table on each compute node. Consequently, replicating a table removes the need to transfer data among compute nodes before a join or aggregation. Replicated tables are best utilized with small tables. Extra storage is required and there are additional overheads that are incurred when writing data which make large tables impractical.  
+A table that is replicated caches a full copy of the table on each compute node. Consequently, replicating a table removes the need to transfer data among compute nodes before a join or aggregation. Replicated tables are best utilized with small tables. Extra storage is required and there is additional overhead that is incurred when writing data which make large tables impractical.  
 
 The following diagram shows a replicated table. For SQL Data Warehouse, the replicated table is cached on the first distribution on each compute node.  
 

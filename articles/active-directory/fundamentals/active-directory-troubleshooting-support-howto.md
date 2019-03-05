@@ -1,24 +1,23 @@
 ---
-title: Get support for Azure AD | Microsoft Docs
-description: How to get support for Azure Active Directory
+title: Find help and open a support ticket - Azure Active Directory | Microsoft Docs
+description: Instructions about how to get help and open a support ticket for Azure Active Directory.
 services: active-directory
 documentationcenter: na
 author: eross-msft
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.workload: identity
 ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
+ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
-# How to get support for Azure Active Directory
-
-
+# Find help and open a support ticket for Azure Active Directory
 Microsoft provides global technical, pre-sales, billing, and subscription support for Azure Active Directory (Azure AD). Support is available both online and by phone for Microsoft Azure paid and trial subscriptions. Phone support and online billing support are available in additional languages. 
 
 ## Find help without opening a support ticket
@@ -48,7 +47,7 @@ If you are unable to find answers by using self-help resources, you can open an 
    
 4. For **Service**, select **Azure Active Directory**, and then select **Next**.
 
-5. On the **Problem** blade, select a [Severity](https://azure.microsoft.com/support/plans/response/)).
+5. On the **Problem** blade, select a [Severity](https://azure.microsoft.com/support/plans/response/).
   
 6. Select a **Problem type**, and then select a **Category** for that type. At this point, you are also offered self-help information for your problem category.
   

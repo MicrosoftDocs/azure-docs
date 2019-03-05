@@ -3,8 +3,8 @@ title: Quickstart - Create an Azure CDN profile and endpoint | Microsoft Docs
 description: This quickstart shows how to enable Azure CDN by creating a new CDN profile and CDN endpoint.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/24/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
 
 ---

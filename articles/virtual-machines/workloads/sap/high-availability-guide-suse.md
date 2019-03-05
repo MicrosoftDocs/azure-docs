@@ -41,6 +41,7 @@ ms.author: sedusch
 
 [suse-ha-guide]:https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/
 [suse-drbd-guide]:https://www.suse.com/documentation/sle-ha-12/singlehtml/book_sleha_techguides/book_sleha_techguides.html
+[suse-ha-12sp3-relnotes]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP3/
 
 [template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 [template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
@@ -70,10 +71,11 @@ Read the following SAP Notes and papers first
 * SAP Note [1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
-* [Azure Virtual Machines deployment for SAP on Linux (this article)][deployment-guide]
+* [Azure Virtual Machines deployment for SAP on Linux][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
 * [SUSE SAP HA Best Practice Guides][suse-ha-guide]
   The guides contain all required information to set up Netweaver HA and SAP HANA System Replication on-premises. Use these guides as a general baseline. They provide much more detailed information.
+* [SUSE High Availability Extension 12 SP3 Release Notes][suse-ha-12sp3-relnotes]
 
 ## Overview
 
@@ -149,7 +151,7 @@ Follow these steps to deploy the template:
    9. Admin Username and Admin Password  
       A new user is created that can be used to log on to the machine.
    10. Subnet ID  
-   The ID of the subnet to which the virtual machines should be connected to.  Leave empty if you want to create a new virtual network or select the same subnet that you used or created as part of the NFS server deployment. The ID usually looks like /subscriptions/**&lt;subscription ID&gt;**/resourceGroups/**&lt;resource group name&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtual network name&gt;**/subnets/**&lt;subnet name&gt;**
+   If you want to deploy the VM into an existing VNet where you have a subnet defined the VM should be assigned to, name the ID of that specific subnet. The ID usually looks like /subscriptions/**&lt;subscription ID&gt;**/resourceGroups/**&lt;resource group name&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtual network name&gt;**/subnets/**&lt;subnet name&gt;**
 
 ### Deploy Linux manually via Azure portal
 
@@ -802,7 +804,7 @@ The following tests are a copy of the test cases in the best practices guides of
    nw1-cl-0:~ # crm resource unmigrate rsc_sap_NW1_ASCS00
    # INFO: Removed migration constraints for rsc_sap_NW1_ASCS00
    
-   # Remove failed actions for the ERS that occured as part of the migration
+   # Remove failed actions for the ERS that occurred as part of the migration
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
    </code></pre>
 
@@ -843,7 +845,7 @@ The following tests are a copy of the test cases in the best practices guides of
    <pre><code>nw1-cl-0:nw1adm 55> sapcontrol -nr 00 -host nw1-ascs -user nw1adm &lt;password&gt; -function HAFailoverToNode ""
    
    # run as root
-   # Remove failed actions for the ERS that occured as part of the migration
+   # Remove failed actions for the ERS that occurred as part of the migration
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
    </code></pre>
 

@@ -11,7 +11,7 @@ ms.assetid: 71087349-9365-4e95-9847-170658216ed8
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
@@ -45,7 +45,7 @@ A pipeline can have more than one activity. And, you can chain two activities (r
 
 ## Prerequisites
 - Complete prerequisites listed in the [tutorial prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article.
-- Install **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
+- Install **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## Steps
 Here are the steps you perform as part of this tutorial:

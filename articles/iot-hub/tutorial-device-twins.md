@@ -3,18 +3,15 @@ title: Synchronize device state from Azure IoT Hub | Microsoft Docs
 description: Use device twins to synchronize state between your devices and your IoT hub
 services: iot-hub
 documentationcenter: 
-author: dominicbetts
-manager: timlt
-
-
-ms.assetid: 
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/14/2018
-ms.author: dobett
+ms.date: 01/18/2019
 ms.custom: mvc
 #Customer intent: As a developer, I want to be able to configure my devices from the cloud and receive status and compliance data from my devices.
 ---
@@ -58,7 +55,7 @@ Download the sample Node.js project from https://github.com/Azure-Samples/azure-
 
 To complete this tutorial, your Azure subscription must contain an IoT hub with a device added to the device identity registry. The entry in the device identity registry enables the simulated device you run in this tutorial to connect to your hub.
 
-If you don't already have an IoT hub set up in your subscription, you can set one up with following CLI script. This script uses the name **tutorial-iot-hub** for the IoT hub, you should replace this name with your own unique name when you run it. The script creates the resource group and hub in the **Central US** region, which you can change to a region closer to you. The script retrieves your IoT hub service connection string, which you use in the back-end sample to connect to your IoT hub:
+If you don't already have an IoT hub set up in your subscription, you can set one up with the following CLI script. This script uses the name **tutorial-iot-hub** for the IoT hub, you should replace this name with your own unique name when you run it. The script creates the resource group and hub in the **Central US** region, which you can change to a region closer to you. The script retrieves your IoT hub service connection string, which you use in the back-end sample to connect to your IoT hub:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub

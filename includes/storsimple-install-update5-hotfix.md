@@ -1,10 +1,16 @@
-<!--author=alkohli last changed: 08/21/17-->
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 
 #### To download hotfixes
 
 Perform the following steps to download the software update from the Microsoft Update Catalog.
 
-1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
+1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
 2. If this is your first time using the Microsoft Update Catalog on this computer, click **Install** when prompted to install the Microsoft Update Catalog add-on.
 
     ![Install catalog](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
@@ -42,7 +48,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
     >[!NOTE] 
     > You should install the _HcsSoftwareUpdate.exe_ first. After this install has completed, then install _CisMdsAgentUpdate.exe_.
    
-        ````
+        ```
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
         \FirstOrderUpdate\HcsSoftwareUpdate.exe -Credential contoso\John
    
@@ -53,7 +59,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
         be disrupted. Are you sure you want to continue?
         [Y] Yes [N] No [?] Help (default is "Y"): Y
    
-        ````
+        ```
 5. Type **Y** when prompted to confirm the hotfix installation.
 6. Monitor the update by using the `Get-HcsUpdateStatus` cmdlet. The update will first complete on the passive controller. Once the passive controller is updated, there will be a failover and the update will then get applied on the other controller. The update is complete when both the controllers are updated.
    

@@ -1,25 +1,26 @@
 ---
-title: 'Example: Analyze sentiment with the Text Analytics REST API'
-titleSuffix: Azure Cognitive Services
+title: Sentiment analysis using the Text Analytics from Azure Cognitive Services | Microsoft Docs
 description: Learn how to detect sentiment using the Text Analytics REST API.
 services: cognitive-services
-author: HeidiSteen
-
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/12/2018
-ms.author: heidist
+ms.date: 02/13/2019
+ms.author: aahi
 ---
 
-# Example: How to detect sentiment in Text Analytics
+# Example: How to detect sentiment with Text Analytics
 
 The [Sentiment Analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) evaluates text input and returns a sentiment score for each document, ranging from 0 (negative) to 1 (positive).
 
 This capability is useful for detecting positive and negative sentiment in social media, customer reviews, and discussion forums. Content is provided by you; models and training data are provided by the service.
 
 Currently, Sentiment Analysis supports English, German, Spanish, and French. Other languages are in preview. For more information, see [Supported languages](../text-analytics-supported-languages.md).
+
+> [!TIP]
+> Text Analytics also provides a Linux-based Docker container image for sentiment analysis, so you can [install and run the Text Analytics container](text-analytics-how-to-install-containers.md) close to your data.
 
 ## Concepts
 
@@ -33,7 +34,7 @@ Sentiment analysis produces a higher quality result when you give it smaller chu
 
 You must have JSON documents in this format: id, text, language
 
-Document size must be under 5,000 characters per document, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following is an example of content you might submit for sentiment analysis.
+Document size must be under 5,120 characters per document, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following is an example of content you might submit for sentiment analysis.
 
 ```
     {
@@ -73,7 +74,7 @@ Details on request definition can be found in [How to call the Text Analytics AP
 
 + Create a **POST** request. Review the API documentation for this request: [Sentiment Analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
 
-+ Set the HTTP endpoint for key phrase extraction. It must include the `/sentiment` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
++ Set the HTTP endpoint for sentiment analysis, using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). It must include the `/sentiment` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
 
 + Set a request header to include the access key for Text Analytics operations. For more information, see [How to find endpoints and access keys](text-analytics-how-to-access-key.md).
 

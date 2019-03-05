@@ -1,18 +1,23 @@
 ---
-title: Get started with the Microsoft Speech Recognition API by using REST | Microsoft Docs
+title: Get started with the Bing Speech Recognition API by using REST | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Use REST to access the Speech Recognition API in Microsoft Cognitive Services to convert spoken audio to text.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
+ROBOTS: NOINDEX,NOFOLLOW
 ---
-# Get started with speech recognition by using the REST API
 
-With cloud-based Speech Service, you can develop applications by using the REST API to convert spoken audio to text.
+# Quickstart: Use the Bing Speech recognition REST API
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
+With the cloud-based Bing Speech Service, you can develop applications by using the REST API to convert spoken audio to text.
 
 ## Prerequisites
 
@@ -23,7 +28,7 @@ The Speech API is part of Cognitive Services (previously Project Oxford). You ca
 > [!IMPORTANT]
 >* Get a subscription key. Before you can access the REST API, you must have a [subscription key](https://azure.microsoft.com/try/cognitive-services/).
 >
->* Use your subscription key. In the following REST samples, replace YOUR_SUBSCRIPTION_KEY with your own subscription key. 
+>* Use your subscription key. In the following REST samples, replace YOUR_SUBSCRIPTION_KEY with your own subscription key.
 >
 >* Refer to the [authentication](../how-to/how-to-authentication.md) page for how to get a subscription key.
 
@@ -91,7 +96,7 @@ The following example shows how to send a speech recognition request to Speech R
 > [!NOTE]
 > Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file. Replace `YOUR_SUBSCRIPTION_KEY` with your own subscription key.
 
-# [PowerShell](#tab/Powershell)
+# [PowerShell](#tab/azure-powershell)
 
 ```Powershell
 
@@ -126,7 +131,7 @@ The example uses curl on Linux with bash. If it's not available on your platform
 curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
 ```
 
-# [C#](#tab/CSharp)
+# [C#](#tab/csharp)
 
 ```cs
 HttpWebRequest request = null;
@@ -175,7 +180,7 @@ After processing the request, Speech Service returns the results in a response a
 
 The following code snippet shows an example of how you can read the response from the stream.
 
-# [PowerShell](#tab/Powershell)
+# [PowerShell](#tab/azure-powershell)
 
 ```Powershell
 # show the response in JSON format
@@ -190,7 +195,7 @@ In this example, curl directly returns the response message in a string. If you 
 curl -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE | jq
 ```
 
-# [C#](#tab/CSharp)
+# [C#](#tab/csharp)
 
 ```cs
 /*

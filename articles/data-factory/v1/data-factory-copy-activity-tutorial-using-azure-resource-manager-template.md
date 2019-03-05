@@ -11,7 +11,7 @@ ms.assetid: 1274e11a-e004-4df5-af07-850b2de7c15e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
@@ -406,7 +406,7 @@ The AzureStorageLinkedService links your Azure storage account to the data facto
 }
 ```
 
-The connectionString uses the storageAccountName and storageAccountKey parameters. The values for these parameters passed by using a configuration file. The definition also uses variables: azureStroageLinkedService and dataFactoryName defined in the template. 
+The connectionString uses the storageAccountName and storageAccountKey parameters. The values for these parameters passed by using a configuration file. The definition also uses variables: azureStorageLinkedService and dataFactoryName defined in the template. 
 
 #### Azure SQL Database linked service
 AzureSqlLinkedService links your Azure SQL database to the data factory. The data that is copied from the blob storage is stored in this database. You created the emp table in this database as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). You specify the Azure SQL server name, database name, user name, and user password in this section. See [Azure SQL linked service](data-factory-azure-sql-connector.md#linked-service-properties) for details about JSON properties used to define an Azure SQL linked service.  
