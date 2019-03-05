@@ -1,6 +1,6 @@
 ---
 title: 'Azure Virtual WAN Overview | Microsoft Docs'
-description: Learn about Virtual WAN automated scalable branch-to-branch connectivity.
+description: Learn about Virtual WAN automated scalable branch-to-branch connectivity, available regions, and partners.
 services: virtual-wan
 author: cherylmc
 
