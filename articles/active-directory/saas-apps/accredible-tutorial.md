@@ -8,7 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 7284dfb6-df62-41f1-a4a4-1b8322b7ef44
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -47,7 +47,7 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 To configure the integration of Accredible into Azure AD, you need to add Accredible from the gallery to your list of managed SaaS apps.
 
-**To add Accredible from the gallery, perform the following steps:**
+**To add Accredible from the gallery, do the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
