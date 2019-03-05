@@ -28,7 +28,7 @@ To create an event rule, the device template must have at least one event measur
 
     ![No rules yet](media/howto-create-event-rules-experimental/Rules_Landing_Page.png)
 
-1. On the **Rules** tab, click **+ New Rule** to see the types of rules you can create.
+1. On the **Rules** tab, select **+ New Rule** to see the types of rules you can create.
 
 1. Choose the **Event** tile to create an event monitoring rule.
 

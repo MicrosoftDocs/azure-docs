@@ -17,7 +17,7 @@ ms.author: tomfitz
 ---
 # Deploy more than one instance of a resource or property in Azure Resource Manager Templates
 
-This article shows you how to iterate in your Azure Resource Manager template to create more than one instance of a resource. If you need to specify whether a resource is deployed at all, see [condition element](resource-manager-templates-resources.md#condition).
+This article shows you how to iterate in your Azure Resource Manager template to create more than one instance of a resource. If you need to specify whether a resource is deployed at all, see [condition element](resource-group-authoring-templates.md#condition).
 
 For a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md).
 

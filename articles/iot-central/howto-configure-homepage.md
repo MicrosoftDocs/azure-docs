@@ -19,15 +19,15 @@ The **Dashboard** is the page that loads when users who have access to the appli
 
 ## Add tiles
 
-The following screenshot shows the dashboard in an application created from the **Sample Contoso** template. To customize the default dashboard for your application, click **Edit** at the top right of the page.
+The following screenshot shows the dashboard in an application created from the **Sample Contoso** template. To customize the default dashboard for your application, select **Edit** at the top right of the page.
 
 ![Dashboard for applications based on the "Sample Contoso" template](media/howto-configure-homepage/image1.png)
 
-Clicking **Edit**, opens the dashboard library panel. The library contains the tiles and dashboard primitives you can use to customize the dashboard.
+Selecting **Edit**, opens the dashboard library panel. The library contains the tiles and dashboard primitives you can use to customize the dashboard.
 
 ![Dashboard library](media/howto-configure-homepage/image2.png)
 
-For example, you can add a **Device Settings and Properties** tile to show a selection of the current settings and properties values for a device. To do so, first select a **Device Template** then select a **Device Instance**. After that give the tile a title and select a **Setting** or a **Property** to display. The following screenshot shows the **Set Temperature** setting selected to add to the tile. Click **Done** to save the change to the dashboard.
+For example, you can add a **Device Settings and Properties** tile to show a selection of the current settings and properties values for a device. To do so, first select a **Device Template** then select a **Device Instance**. After that give the tile a title and select a **Setting** or a **Property** to display. The following screenshot shows the **Set Temperature** setting selected to add to the tile. Select **Done** to save the change to the dashboard.
 
 !["Configure Device Details" form with details for settings and properties](media/howto-configure-homepage/image3.png)
 

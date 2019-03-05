@@ -75,6 +75,8 @@
       href: search-limits-quotas-capacity.md
     - name: Allocate partitions and replicas
       href: search-capacity-planning.md
+    - name: Deployment strategies and best practices
+      href: search-performance-optimization.md
   - name: Security
     items:
     - name: Security overview
@@ -227,8 +229,6 @@
       href: search-manage.md
     - name: PowerShell administration
       href: search-manage-powershell.md
-    - name: Performance & optimizations
-      href: search-performance-optimization.md
   - name: Monitoring
     items:
     - name: Monitor activity and logging
