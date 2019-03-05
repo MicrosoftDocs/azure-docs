@@ -68,10 +68,10 @@ Create a resource group by using the [az group create](/cli/azure/group#az-group
 
 Then, select a resource group name and fill in the placeholder. The following example creates a resource group in the West US location:
 
-    ```azurecli
-    # To list locations: az account list-locations --output table
-    az group create --name "<YourResourceGroupName>" --location "West US"
-    ```
+```azurecli
+# To list locations: az account list-locations --output table
+az group create --name "<YourResourceGroupName>" --location "West US"
+```
 
 You use your newly created resource group throughout this tutorial.
 
