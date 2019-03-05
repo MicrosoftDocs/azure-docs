@@ -80,23 +80,23 @@ are:
 We recommend that you set **mode** to `all` in most cases. All policy definitions created through
 the portal use the `all` mode. If you use PowerShell or Azure CLI, you can specify the **mode**
 parameter manually. If the policy definition doesn't include a **mode** value, it defaults to `all`
-in Azure PowerShell and to `null` in Azure CLI. A `null` mode is the same as using `indexed` to support
-backwards compatibility.
+in Azure PowerShell and to `null` in Azure CLI. A `null` mode is the same as using `indexed` to
+support backwards compatibility.
 
-`indexed` should be used when creating policies that enforce tags or locations. While not
-required, it prevents resources that don't support tags and locations from showing up as
-non-compliant in the compliance results. The exception is **resource groups**. Policies that
-enforce location or tags on a resource group should set **mode** to `all` and specifically target
-the `Microsoft.Resources/subscriptions/resourceGroups` type. For an example, see [Enforce resource
-group tags](../samples/enforce-tag-rg.md).
+`indexed` should be used when creating policies that enforce tags or locations. While not required,
+it prevents resources that don't support tags and locations from showing up as non-compliant in the
+compliance results. The exception is **resource groups**. Policies that enforce location or tags on
+a resource group should set **mode** to `all` and specifically target the
+`Microsoft.Resources/subscriptions/resourceGroups` type. For an example, see [Enforce resource group
+tags](../samples/enforce-tag-rg.md). For a list of resources that support tags, see [Tag support for Azure resources](../../../azure-resource-manager/tag-support.md).
 
 ## Parameters
 
 Parameters help simplify your policy management by reducing the number of policy definitions. Think
 of parameters like the fields on a form – `name`, `address`, `city`, `state`. These parameters
 always stay the same, however their values change based on the individual filling out the form.
-Parameters work the same way when building policies. By including parameters in a policy
-definition, you can reuse that policy for different scenarios by using different values.
+Parameters work the same way when building policies. By including parameters in a policy definition,
+you can reuse that policy for different scenarios by using different values.
 
 > [!NOTE]
 > Parameters may be added to an existing and assigned definition. The new parameter must include the

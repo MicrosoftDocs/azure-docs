@@ -12,7 +12,7 @@ ms.date: 11/06/2018
 ---
 # Manage ML Services cluster on Azure HDInsight
 
-In this article, you learn how to manage an existing ML Services cluster on Azure HDInsight to perform tasks like adding mulitiple concurrent users, connecting remotely to an ML Services cluster, changing compute context, etc.
+In this article, you learn how to manage an existing ML Services cluster on Azure HDInsight to perform tasks like adding multiple concurrent users, connecting remotely to an ML Services cluster, changing compute context, etc.
 
 ## Prerequisites
 

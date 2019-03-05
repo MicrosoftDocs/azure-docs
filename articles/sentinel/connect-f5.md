@@ -4,7 +4,7 @@ description: Learn how to collect F5 data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 0001cad6-699c-4ca9-b66c-80c194e439a5
@@ -31,7 +31,7 @@ You can connect Azure Sentinel to any F5 appliance by saving the log files as Sy
 
 ## Step 1: Connect your F5 appliance using an agent
 
-To connect your F5 appliance to Azure Sentinel, you need to deploy an agent on a dedicated machine (VM or on-prem) to support the communication between the appliance and Azure Sentinel. You can deploly the agent automatically or manually. Automatic deployment is only available if your dedicated machine is a new VM you are creating in Azure. 
+To connect your F5 appliance to Azure Sentinel, you need to deploy an agent on a dedicated machine (VM or on premises) to support the communication between the appliance and Azure Sentinel. You can deploly the agent automatically or manually. Automatic deployment is only available if your dedicated machine is a new VM you are creating in Azure. 
 
 Alternatively, you can deploy the agent manually on an existing Azure VM, on a VM in another cloud, or on an on-premises machine.
 
@@ -71,7 +71,7 @@ To see a network diagram of both options, see [Connect data sources](connect-dat
       2. Restart the Syslog agent using this command: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Confirm that there are no errors in the agent log by running this command: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
 
-### Deploy the agent on an on-prem Linux server
+### Deploy the agent on an on premises Linux server
 
 If you aren't using Azure, manually deploy the Azure Sentinel agent to run on a dedicated Linux server.
 

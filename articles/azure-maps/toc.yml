@@ -1,5 +1,3 @@
-- name: Azure IoT Fundamentals 
-  href: ../iot-fundamentals/index.yml
 - name: Azure Maps Documentation 
   href: index.yml
 - name: Overview
@@ -148,6 +146,30 @@
       href: https://docs.microsoft.com/javascript/api/azure-maps-rest/
   - name: Resource Manager template
     href: /azure/templates/microsoft.maps/accounts
+- name: Resources
+  items:
+  - name: Azure Maps terms of use
+    href: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31. 
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/azure-maps
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-maps
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
+  - name: Glossary
+    href: glossary.md
+  - name: Service updates
+    href: https://azure.microsoft.com/updates 
+  - name: Azure IoT Developer Center
+    href: https://azure.microsoft.com/develop/iot/
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=iot    
+  - name: Technical case studies
+    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
+  - name: Videos
+    href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo    
 - name: Related
   items:
   - name: Solutions
@@ -174,25 +196,3 @@
       href: /azure/iot-edge
     - name: IoT Device SDKs
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks 
-- name: Resources
-  items:
-  - name: Azure IoT Developer Center
-    href: https://azure.microsoft.com/develop/iot/
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Glossary
-    href: glossary.md
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/azure-maps
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Service updates
-    href: https://azure.microsoft.com/updates
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-maps
-  - name: Technical case studies
-    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: Videos
-    href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
