@@ -43,6 +43,8 @@
     href: how-application-gateway-works.md
   - name: Application Gateway components
     href: application-gateway-components.md
+  - name: Configuration overview
+    href: configuration-overview.md    
   - name: SSL
     items:
     - name: SSL policy overview
