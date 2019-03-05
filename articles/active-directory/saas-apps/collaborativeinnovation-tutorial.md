@@ -8,7 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: bba95df3-75a4-4a93-8805-b3a8aa3d4861
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
