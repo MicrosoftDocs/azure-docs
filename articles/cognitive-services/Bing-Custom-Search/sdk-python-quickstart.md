@@ -27,7 +27,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
 Install the Bing Custom Search SDK with the following command.
 
 ```Console
-pip install azure-cognitiveservices-search-customsearch
+python -m pip install azure-cognitiveservices-search-customsearch
 ```
 
 
