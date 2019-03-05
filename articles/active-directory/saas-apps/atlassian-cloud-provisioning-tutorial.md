@@ -57,13 +57,13 @@ Before configuring Atlassian Cloud for automatic user provisioning with Azure AD
 
 4. In the search box, type **Atlassian Cloud**.
 
-	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/appsearch.png)
+	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/app-search.png)
 
 5. In the results panel, select **Atlassian Cloud**, and then click the **Add** button to add Atlassian Cloud to your list of SaaS applications.
 
-	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/appcreate.png)
+	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/app-create.png)
 
-	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/appinstance.png)
+	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/app-instance.png)
 
 ## Assigning users to Atlassian Cloud
 
@@ -92,11 +92,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 2. Select Atlassian Cloud from your list of SaaS applications.
  
-	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/applicationinstancesearch.png)
+	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/application-instance-search.png)
 
 3. Select the **Provisioning** tab.
 	
-	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/provisioningtab.png)
+	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/provisioning-tab.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
@@ -110,14 +110,14 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 6. Navigate to [Atlassian Organization Manager](https://admin.atlassian.com) **> User Provisioning** and click on **Create a Token**. Copy the **Directory base URL** and **Bearer Token** to the **Tenant URL** and **Secret Token** fields respectively.
 
-	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/secrettoken1.png)
-	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/secrettoken2.png)
+	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png)
+	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png)
 	
-	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/secrettoken3.png)
+	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
 
 7. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Atlassian Cloud. If the connection fails, ensure your Atlassian Cloud account has Admin permissions and try again.
 
-	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/testconnection.png)
+	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/test-connection.png)
 	
 8. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
 
@@ -127,29 +127,29 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Atlassian Cloud**.
 
-	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/provisionusers.png)
+	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/provision-users.png)
 
 11. Review the user attributes that are synchronized from Azure AD to Atlassian Cloud in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Atlassian Cloud for update operations. Select the **Save** button to commit any changes.
 
-	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/usermapping.png)
+	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/user-mapping.png)
 
 12. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Atlassian Cloud**.
 
-	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/provisiongroups.png)
+	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/provision-groups.png)
 
 13. Review the group attributes that are synchronized from Azure AD to Atlassian Cloud in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Atlassian Cloud for update operations. Select the **Save** button to commit any changes.
 
-	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/groupmapping.png)
+	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/group-mapping.png)
 
 14. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
 15. To enable the Azure AD provisioning service for Atlassian Cloud, change the **Provisioning Status** to **On** in the **Settings** section.
 
-	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/provisioningon.png)
+	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/provisioning-on.png)
 
 16. Define the users and/or groups that you would like to provision to Atlassian Cloud by choosing the desired values in **Scope** in the **Settings** section.
 
-	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/provisioningoptions.png)
+	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/provisioning-options.png)
 
 17. When you are ready to provision, click **Save**.
 
