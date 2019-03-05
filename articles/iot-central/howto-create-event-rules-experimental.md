@@ -3,7 +3,7 @@ title: Create and manage event rules in your Azure IoT Central application | Mic
 description: Azure IoT Central event rules enable you to monitor your devices in near real time and to automatically invoke actions, such as sending an email, when the rule triggers.
 author: ankitscribbles
 ms.author: ankitgup
-ms.date: 02/02/2019
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -22,29 +22,21 @@ Devices can use event measurement to send important or informational device even
 
 To create an event rule, the device template must have at least one event measurement defined. This example uses a refrigerated vending machine device that reports a fan motor error event. The rule monitors the event reported by the device and sends an email whenever the event is reported.
 
-1. Using Device Explorer, navigate to the device template for which you are adding the rule for.
-
-1. Under the selected template, click on an existing device.
-
-    >[!TIP] 
-    >If the template doesn't have any devices then add a new device first.
+1. Using the **Device Templates** page, navigate to the device template for which you are adding the rule for.
 
 1. If you haven’t created any rules yet, you see the following screen:
 
     ![No rules yet](media/howto-create-event-rules-experimental/Rules_Landing_Page.png)
 
+1. On the **Rules** tab, select **+ New Rule** to see the types of rules you can create.
 
-1. On the **Rules** tab, click **Edit Template** and then **+ New Rule** to see the types of rules you can create.
-
-
-1. Click on the **Event** tile to create an event monitoring rule.
+1. Choose the **Event** tile to create an event monitoring rule.
 
     ![Rule types](media/howto-create-event-rules-experimental/Rule_Types.png)
 
-    
 1. Enter a name that helps you to identify the rule in this device template.
 
-1. To immediately enable the rule for all the devices created from this template, toggle **Enable rule for all devices for this template**.
+1. To immediately enable the rule for all the devices created from this template, toggle **Enable rule for all devices of this template**.
 
     ![Rule Detail](media/howto-create-event-rules-experimental/Rule_Detail.png)
 
@@ -60,18 +52,17 @@ Condition defines the criteria that is monitored by the rule.
 
    ![Condition](media/howto-create-event-rules-experimental/Condition_Filled_Out.png)
 
-
 1. Optionally, you can also set **Count** as **Aggregation** and provide the corresponding threshold.
 
-    - Without aggregation, the rule triggers for each event data point that meets the condition. For example, if you configure the rule's condition to trigger when a 'Fan Motor Error' event occurs then the rule will trigger almost immediately when the device reports that event.
-    - If Count is used as an aggregate function, then you have to  provide a **Threshold** and an **Aggregate time window** over which the condition needs to be evaluated. In this case, the count of events is aggregated and the rule will trigger only if the aggregated event count matches the threshold.
- 
-    For example, if you want to alert when there are more than three device events within 5 minutes, then select the event and set the aggregate function as "count",  operator as "greater than", and "threshold" as 3. Set "Aggregation time period" as "5 minutes". The rule triggers when more than three events are sent by the device within 5 minutes. The rule evaluation frequency is the same as the **Aggregate time window**, which means, in this example, the rule is  evaluated once every 5 minutes. 
+    - Without aggregation, the rule triggers for each event data point that meets the condition. For example, if you configure the rule's condition to trigger when a **Fan Motor Error** event occurs then the rule triggers almost immediately when the device reports that event.
+    - If Count is used as an aggregate function, then you have to  provide a **Threshold** and an **Aggregate time window** over which the condition needs to be evaluated. In this case, the count of events is aggregated and the rule triggers only if the aggregated event count matches the threshold.
+
+    For example, if you want to alert when there are more than three device events within 5 minutes, then select the event and set the aggregate function as "count",  operator as "greater than", and "threshold" as 3. Set "Aggregation time period" as "5 minutes". The rule triggers when more than three events are sent by the device within 5 minutes. The rule evaluation frequency is the same as the **Aggregate time window**, which means, in this example, the rule is  evaluated once every 5 minutes.
 
     ![Add Event Condition](media/howto-create-event-rules-experimental/Aggregate_Condition_Filled_Out.png)
 
-    >[!NOTE] 
-    >More than one event measurement can be added under **Condition**. When multiple conditions are specified, all the conditions must be met for the rule to trigger. Each conditon gets joined by an 'AND' clause implicitly. When using aggregate, every measurement must be aggregated.
+    >[!NOTE]
+    >More than one event measurement can be added under **Condition**. When multiple conditions are specified, all the conditions must be met for the rule to trigger. Each condition gets joined by an 'AND' clause implicitly. When using aggregate, every measurement must be aggregated.
 
 ### Configure actions
 
