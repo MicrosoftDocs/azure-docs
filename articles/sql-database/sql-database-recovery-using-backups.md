@@ -135,7 +135,7 @@ As previously discussed, in addition to the Azure portal, database recovery can 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- To restore a standalone or pooled database, see [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azurermsqldatabase)
+- To restore a standalone or pooled database, see [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/azsqldatabase).
 
   | Cmdlet | Description |
   | --- | --- |
