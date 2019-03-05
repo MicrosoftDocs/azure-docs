@@ -30,7 +30,7 @@ To set up a console application using the Bing News Search SDK:
 
 ## Create and initialize the application
 
-1. Create an instance of the `CognitiveServicesCredentials`. Create variables for your susbcription key, and a search term.
+1. Create an instance of the `CognitiveServicesCredentials`. Create variables for your subscription key, and a search term.
 
     ```javascript
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
