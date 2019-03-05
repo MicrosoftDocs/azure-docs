@@ -108,9 +108,11 @@ The instructions in this quickstart will install all the packages you need to ru
     pip install --upgrade azureml-sdk[automl]
     ```
 > [!IMPORTANT]
-> In some command-line tools, you might need to add single quotation marks for the following:
->    'azureml-sdk[notebooks]'
->    'azureml-sdk[automl]'
+> In some command-line tools, you might need to add quotation marks as follows:
+>      *  'azureml-sdk[notebooks]'
+>      * 'azureml-sdk[automl]'
+>
+
 
 ## Create a workspace
 
