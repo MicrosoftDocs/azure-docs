@@ -54,9 +54,6 @@ To restore, you need the following permissions:
 Restore as follows:
 1. Open the vault in which the SQL Server VM is registered.
 2. On the vault dashboard, under **Usage**, select **Backup Items**.
-
-    ![Open the Backup Items menu](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png).
-
 3. In **Backup Items**, under **Backup Management Type**, select **SQL in Azure VM**.
 
     ![Select SQL in Azure VM](./media/backup-azure-sql-database/sql-restore-backup-items.png)
