@@ -399,11 +399,7 @@ Azure IoT Edge modules are deployed to your device from a container registry. Wh
 
 * A trained model. For an example of how to train a model, see the [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) document. A pre-trained model is available on the [AI Toolkit for Azure IoT Edge GitHub repo](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
 
-#### Prepare the IoT device
-
-You must register your device with Azure IoT Hub, and then install the IoT Edge runtime on the device. If you are not familiar with this process, see [Quickstart: Deploy your first IoT Edge module to a Linux x64 device](../../iot-edge/quickstart-linux.md).
-
-#### Get the container registry credentials
+#### <a id="getcontainer"></a> Get the container registry credentials
 
 To deploy an IoT Edge module to your device, Azure IoT needs the credentials for the container registry that Azure Machine Learning service stores docker images in.
 
@@ -448,9 +444,19 @@ You can get the credentials in two ways:
 
      These credentials are necessary to provide the IoT Edge device access to images in your private container registry.
 
+#### Prepare the IoT device
+
+You must register your device with Azure IoT Hub, and then install the IoT Edge runtime on the device. If you are not familiar with this process, see [Quickstart: Deploy your first IoT Edge module to a Linux x64 device](../../iot-edge/quickstart-linux.md).
+
+Other methods of registering a device are:
+
+* [Azure portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
+* [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
+* [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
+
 #### Deploy the model to the device
 
-To deploy the model to the device, use the registry information gathered in the previous section with the module deployment steps for IoT Edge modules. For example, when [Deploying Azure IoT Edge modules from the Azure portal](../../iot-edge/how-to-deploy-modules-portal.md), you must configure the __Registry settings__ for the device. Use the __login server__, __username__, and __password__ for your workspace container registry.
+To deploy the model to the device, use the registry information gathered in the [Get container registry credentials](#getcontainer) section with the module deployment steps for IoT Edge modules. For example, when [Deploying Azure IoT Edge modules from the Azure portal](../../iot-edge/how-to-deploy-modules-portal.md), you must configure the __Registry settings__ for the device. Use the __login server__, __username__, and __password__ for your workspace container registry.
 
 You can also deploy using [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) and [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode).
 
