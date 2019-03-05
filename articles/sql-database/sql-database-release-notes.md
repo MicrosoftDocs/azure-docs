@@ -8,7 +8,7 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/05/2019
 ms.author: carlrab
 ---
 # SQL Database release notes
