@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-|Preferred Partners|
+|Partners|
 |---|
 |[Barracuda Networks](https://www.barracuda.com/AzurevWAN)|
 | [Check Point](https://www.checkpoint.com/solutions/microsoft-azure-virtual-wan/) |
