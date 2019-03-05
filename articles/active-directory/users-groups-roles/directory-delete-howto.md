@@ -33,7 +33,7 @@ You can't delete a tenant in Azure AD until it passes several checks. These chec
 
 ## Delete an Azure AD tenant
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is the Global Admininstrator for the tenant.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is the Global Administrator for the tenant.
 
 2. Select **Azure Active Directory**.
 

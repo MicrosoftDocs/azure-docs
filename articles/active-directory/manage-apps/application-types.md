@@ -105,7 +105,7 @@ To **delete an application**, follow these steps:
 
 ## I want to disable all future user consent operations to any application
 
-Disabling user consent for your entire directory prevent end users from consenting to any application. Administrators can still consent on user’s behalves. To learn more about application consent, and why you may or may not want to consent, read [Understanding user and admin consent](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
+Disabling user consent for your entire directory prevent end users from consenting to any application. Administrators can still consent on user’s behalf. To learn more about application consent, and why you may or may not want to consent, read [Understanding user and admin consent](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
 
 To **disable all future user consent operations in your entire directory**, follow these steps:
 

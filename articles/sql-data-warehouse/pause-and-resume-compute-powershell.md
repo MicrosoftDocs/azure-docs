@@ -25,7 +25,7 @@ This quickstart assumes you already have a SQL data warehouse that you can pause
 
 ## Log in to Azure
 
-Log in to your Azure subscription using the [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount) command and follow the on-screen directions.
+Log in to your Azure subscription using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the on-screen directions.
 
 ```powershell
 Connect-AzAccount
