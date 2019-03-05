@@ -104,7 +104,7 @@ the alert rule.
 
    If you have set up logs from more than one Automation account or subscription to your workspace, you can group your alerts by subscription and Automation account.  
    Automation account name can be derived from the Resource field in the search of DscNodeStatusData.  
-1. To open the **Create rule** screen, click **+ New Alert Rule** at the top of the page. For more information on the options to configure the alert, see [Create an alert rulelert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
+1. To open the **Create rule** screen, click **+ New Alert Rule** at the top of the page. For more information on the options to configure the alert, see [Create an alert rule](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ### Find failed DSC resources across all nodes
 

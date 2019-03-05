@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.author: orspod
 ---
 
@@ -24,7 +24,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 You can copy data from any supported source data store to Azure Data Explorer. You can also copy data from Azure Data Explorer to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md) table.
 
 >[!NOTE]
->Copying data to/from Azure Data Explorer from/to on-prem data store using Self-hosted Integration Runtime is supported since version 3.14.
+>Copying data to/from Azure Data Explorer from/to on premises data store using Self-hosted Integration Runtime is supported since version 3.14.
 
 The Azure Data Explorer connector allows you to do the following:
 
@@ -133,6 +133,9 @@ To copy data from Azure Data Explorer, set the **type** property in the Copy act
 | query | A read-only request given in a [KQL format](/azure/kusto/query/). Use the custom KQL query as a reference. | Yes |
 | queryTimeout | The wait time before the query request times out. Default value is 10 min (00:10:00); allowed max value is 1 hour (01:00:00). | No |
 
+>[!NOTE]
+>Azure Data Explorer source by default has a size limit of 500,000 records or 64 MB. To retrieve all the records without truncation, you can specify `set notruncation;` at the begining of your query. Refer to [Query limits](https://docs.microsoft.com/en-us/azure/kusto/concepts/querylimits) on more details.
+
 **Example:**
 
 ```json
@@ -173,7 +176,7 @@ To copy data to Azure Data Explorer, set the type property in the copy activity 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the copy activity sink must be set to: **AzureDataExplorerSink** | Yes |
-| ingestionMappingName | Name of a pre-created **[CSV mapping](/azure/kusto/management/mappings#csv-mapping)** on a Kusto table. To map the columns from source to Azure Data Explorer - which applies to **[all supported source stores/formats](copy-activity-overview.md#supported-data-stores-and-formats)** including CSV/JSON/Avro formats etc., you can use the Copy activity [column mapping](copy-activity-schema-and-type-mapping.md) (implicitly by name or explicitly as configured) and/or Azure Data Explorer CSV mappings. | No |
+| ingestionMappingName | Name of a pre-created **[mapping](/azure/kusto/management/mappings#csv-mapping)** on a Kusto table. To map the columns from source to Azure Data Explorer - which applies to **[all supported source stores/formats](copy-activity-overview.md#supported-data-stores-and-formats)** including CSV/JSON/Avro formats etc., you can use the Copy activity [column mapping](copy-activity-schema-and-type-mapping.md) (implicitly by name or explicitly as configured) and/or Azure Data Explorer mappings. | No |
 
 **Example:**
 
@@ -188,7 +191,7 @@ To copy data to Azure Data Explorer, set the type property in the copy activity 
             },
             "sink": {
                 "type": "AzureDataExplorerSink",
-                "ingestionMappingName": "<optional csv mapping name>"
+                "ingestionMappingName": "<optional Azure Data Explorer mapping name>"
             }
         },
         "inputs": [

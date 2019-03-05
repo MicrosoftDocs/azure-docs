@@ -645,7 +645,7 @@ def main(timer: func.TimerRequest) -> str:
 
 ### Output - Java example
 
-The following example shows a Java function that writes a message contianing the current time to an Event Hub.
+The following example shows a Java function that writes a message containing the current time to an Event Hub.
 
 ```java
 @}FunctionName("sendTime")

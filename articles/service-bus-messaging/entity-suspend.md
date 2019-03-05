@@ -25,7 +25,7 @@ Suspending an entity is typically done for urgent administrative reasons. One sc
 
 A suspension or reactivation can be performed either by the user or by the system. The system only suspends entities due to grave administrative reasons such as hitting the subscription spending limit. System-disabled entities cannot be reactivated by the user, but are restored when the cause of the suspension has been addressed.
 
-In the portal, the **Properties** section for the respective entity enables changing the state; the following screen shot shows the toggle for a queue:
+In the portal, the **Properties** section for the respective entity enables changing the state; the following screenshot shows the toggle for a queue:
 
 ![][1]
 

@@ -110,11 +110,29 @@ You have now configured your notification hub with APNS, and you have the connec
      > If you see an error like ```[!] Unable to find a specification for `AzureNotificationHubs-iOS` ```
      >  while running `pod install`, please run `pod repo update` to get the latest pods from the Cocoapods repository and then run `pod install`.
 
+   - Integration via Carthage
+
+     Add the following dependencies to your `Cartfile` to include Azure Notification Hubs SDK into your app.
+
+     ```ruby
+     github "Azure/azure-notificationhubs-ios"
+     ```
+
+     Next, update and build dependencies:
+
+     ```shell
+     $ carthage update
+     ```
+
+     For more information about using Carthage, see the [Carthage GitHub repository](https://github.com/Carthage/Carthage).
+
    - Integration by copying the binaries into your project
 
-     Download the [Windows Azure Messaging Framework] and unzip the file. In Xcode, right-click your project and click the **Add Files to** option to add the **WindowsAzureMessaging.framework** folder to your Xcode project. Select **Options** and make sure **Copy items if needed** is selected, and then click **Add**.
+       1. Download the [Azure Notification Hubs SDK](https://github.com/Azure/azure-notificationhubs-ios/releases) framework provided as a zip file and unzip it.
 
-     ![Unzip Azure SDK][10]
+       2. In Xcode, right-click your project and click the **Add Files to** option to add the **WindowsAzureMessaging.framework** folder to your Xcode project. Select **Options** and make sure **Copy items if needed** is selected, and then click **Add**.
+
+       ![Unzip Azure SDK][10]
 
 6. Add a new header file to your project named `HubInfo.h`. This file holds the constants for your notification hub. Add the following definitions and replace the string literal placeholders with your *hub name* and the *DefaultListenSharedAccessSignature* noted earlier.
 
