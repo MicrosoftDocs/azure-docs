@@ -54,7 +54,7 @@ After completing the [prerequisites](#prerequisites), verify that the appropriat
     cd hub-spoke
     ```
 
-   ![Terraform demo config files](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-config-files.jpg)
+   ![Terraform demo config files](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-config-files.png)
 
 ## Deploy the resources
 
@@ -64,7 +64,7 @@ After completing the [prerequisites](#prerequisites), verify that the appropriat
     terraform init
     ```
     
-    ![Example results of "terraform init" command](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-init.jpg)
+    ![Example results of "terraform init" command](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-init.png)
     
 1. Run the `terraform plan` command to see the effect of the deployment before execution:
 
@@ -72,7 +72,7 @@ After completing the [prerequisites](#prerequisites), verify that the appropriat
     terraform plan
     ```
     
-    ![Example results of "terraform plan" command](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-plan.jpg)
+    ![Example results of "terraform plan" command](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-plan.png)
 
 1. Deploy the solution:
 
@@ -82,7 +82,7 @@ After completing the [prerequisites](#prerequisites), verify that the appropriat
     
     Enter `yes` when prompted to confirm the deployment.
 
-    ![Example results of "terraform apply" command](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-apply.jpg)
+    ![Example results of "terraform apply" command](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-terraform-apply.png)
     
 ## Test the hub VNet and spoke VNets
 
