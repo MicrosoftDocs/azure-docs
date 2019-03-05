@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: diberry
 ---
 # Best practices for building a language understanding app with Cognitive Services
@@ -71,23 +71,34 @@ For more information:
 * Concept: [Authoring cycle for your LUIS app](luis-concept-app-iteration.md)
 
 ## Do add phrase lists and patterns in later iterations
-[Phrase lists](luis-concept-feature.md) allow you to define dictionaries of words related to your app domain. Seed your phrase list with a few words then use the suggest feature so LUIS knows about more words in the vocabulary specific to your app. Don't add every word to the vocabulary since the phrase list isn't an exact match. 
+
+A best practice is to not apply these practices before your app has been tested. You should understand how the app behaves before adding phrase lists and patterns because these features are weighted more heavily than example utterances and will skew confidence. 
+
+Once you understand how your app behaves without these, add each of these features as they apply to your app. You do not need to add these features with each [iteration](luis-concept-app-iteration.md) or change the features with each version. 
+
+There is no harm adding them in the beginning of your model design but it is easier to see how each feature changes results after the model is tested with utterances. 
+
+A best practice is to test via the [endpoint](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) so that you get the added benefit of [active learning](luis-concept-review-endpoint-utterances.md). The [interactive testing pane](luis-interactive-test.md) is also a valid test methodology. 
+ 
+
+### Phrase lists
+
+[Phrase lists](luis-concept-feature.md) allow you to define dictionaries of words related to your app domain. Seed your phrase list with a few words then use the suggest feature so LUIS knows about more words in the vocabulary specific to your app. A Phrase List improves intent detection and entity classification by boosting the signal associated with words or phrases that are significant to your app. 
+
+Don't add every word to the vocabulary since the phrase list isn't an exact match. 
+
+For more information:
+* Concept: [Phrase list features in your LUIS app](luis-concept-feature.md)
+* How-to: [Use phrase lists to boost signal of word list](luis-how-to-add-features.md)
+
+### Patterns
 
 Real user utterances from the endpoint, very similar to each other, may reveal patterns of word choice and placement. The [pattern](luis-concept-patterns.md) feature takes this word choice and placement along with regular expressions to improve your prediction accuracy. A regular expression in the pattern allows for words and punctuation you intend to ignore while still matching the pattern. 
 
 Use pattern's [optional syntax](luis-concept-patterns.md) for punctuation so punctuation can be ignored. Use the [explicit list](luis-concept-patterns.md#explicit-lists) to compensate for pattern.any syntax issues. 
 
-Do not apply these practices before your app has received endpoint requests. You should understand how the app behaves before adding phrase lists and patterns. Once you understand how your app behaves without these, add each of these features as they apply to your app. 
-
-There is no harm adding them in the beginning of your model design but it is easier to see how each feature changes results if you add them after using the app with real traffic. 
-
-You do not need to add these features with each iteration or change the features with each version. 
-
 For more information:
-* Concept: [Authoring cycle for your LUIS app](luis-concept-app-iteration.md)
-* Concept: [Phrase list features in your LUIS app](luis-concept-feature.md)
 * Concept: [Patterns improve prediction accuracy](luis-concept-patterns.md)
-* How-to: [Use phrase lists to boost signal of word list](luis-how-to-add-features.md)
 * How-to: [How to add Patterns to improve prediction accuracy](luis-how-to-model-intent-pattern.md)
 
 ## Balance your utterances across all intents

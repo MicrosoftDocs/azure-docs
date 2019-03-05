@@ -457,7 +457,7 @@ Don't use `innerHtml`; instead use `innerText`. Similarly, instead of `$("#elm")
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic, Web Forms, MVC5, MVC6  |
 | **Attributes**              | N/A  |
-| **References**              | [DefaultRegexMatchTimeout Property ](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.defaultregexmatchtimeout.aspx) |
+| **References**              | [DefaultRegexMatchTimeout Property](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.defaultregexmatchtimeout.aspx) |
 | **Steps** | To ensure denial of service attacks against badly created regular expressions, that cause a lot of backtracking, set the global default timeout. If the processing time takes longer than the defined upper limit, it would throw a Timeout exception. If nothing is configured, the timeout would be infinite.| 
 
 ### Example
@@ -560,7 +560,7 @@ AS
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | MVC5, MVC6 |
 | **Attributes**              | N/A  |
-| **References**              | [Model Validation in ASP.NET Web API ](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
+| **References**              | [Model Validation in ASP.NET Web API](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
 | **Steps** | When a client sends data to a web API, it is mandatory to validate the data before doing any processing. For ASP.NET Web APIs which accept models as input, use data annotations on models to set validation rules on the properties of the model.|
 
 ### Example

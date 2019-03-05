@@ -17,7 +17,7 @@ ms.author: tomfitz
 ---
 # Deploy more than one instance of a resource or property in Azure Resource Manager Templates
 
-This article shows you how to iterate in your Azure Resource Manager template to create more than one instance of a resource. If you need to specify whether a resource is deployed at all, see [condition element](resource-manager-templates-resources.md#condition).
+This article shows you how to iterate in your Azure Resource Manager template to create more than one instance of a resource. If you need to specify whether a resource is deployed at all, see [condition element](resource-group-authoring-templates.md#condition).
 
 For a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md).
 
@@ -268,6 +268,8 @@ You can use resource and property iteration together. Reference the property ite
 
 To create multiple instances of a variable, use the `copy` property in the variables section. You create an array of elements constructed from the value in the `input` property. You can use the `copy` property within a variable, or at the top level of the variables section. When using `copyIndex` inside a variable iteration, you must provide the name of the iteration.
 
+For a simple example of creating an array of string values, see [copy array template](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
+
 The following example shows several different ways to create array variables with dynamically constructed elements. It shows how to use copy inside a variable to create arrays of objects and strings. It also shows how to use copy at the top level to create arrays of objects, strings, and integers.
 
 ```json
@@ -340,6 +342,50 @@ The following example shows several different ways to create array variables wit
     }
   }
 }
+```
+
+The type of variable that gets created depends on the input object. For example, the variable named **top-level-object-array** in the preceding example returns:
+
+```json
+[
+  {
+    "name": "myDataDisk1",
+    "diskSizeGB": "1",
+    "diskIndex": 0
+  },
+  {
+    "name": "myDataDisk2",
+    "diskSizeGB": "1",
+    "diskIndex": 1
+  },
+  {
+    "name": "myDataDisk3",
+    "diskSizeGB": "1",
+    "diskIndex": 2
+  },
+  {
+    "name": "myDataDisk4",
+    "diskSizeGB": "1",
+    "diskIndex": 3
+  },
+  {
+    "name": "myDataDisk5",
+    "diskSizeGB": "1",
+    "diskIndex": 4
+  }
+]
+```
+
+And, the variable named **top-level-string-array** returns:
+
+```json
+[
+  "myDataDisk1",
+  "myDataDisk2",
+  "myDataDisk3",
+  "myDataDisk4",
+  "myDataDisk5"
+]
 ```
 
 ## Depend on resources in a loop

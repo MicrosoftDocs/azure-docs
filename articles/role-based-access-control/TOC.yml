@@ -1,4 +1,4 @@
-- name: Role-based access control documentation
+- name: RBAC for Azure resources documentation
   href: index.yml
   items:
 - name: Overview

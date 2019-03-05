@@ -12,11 +12,11 @@ manager: carmonm
 ---
 # Manage pre and post scripts (Preview)
 
-Pre and post scripts let you run PowerShell runbooks in your Automation Account before (pre-task) and after (post-task) an update deployment. Pre and post scripts run in the Azure context and not locally. Pre scripts run at the beginning of the update deployment. Post scripts run at the end of the deployment and after any reboots that are configured.
+Pre and post scripts let you run PowerShell runbooks in your Automation Account before (pre-task) and after (post-task) an update deployment. Pre and post scripts run in the Azure context and not locally. Pre-scripts run at the beginning of the update deployment. Post scripts run at the end of the deployment and after any reboots that are configured.
 
 ## Runbook requirements
 
-For a runbook to be used as a pre or post script, the runbook needs to be imported into your automation account and published. To learn more about this process, see [Publishing a runbook](automation-creating-importing-runbook.md#publishing-a-runbook).
+For a runbook to be used as a pre or post script, the runbook needs to be imported into your automation account and published. To learn more about this process, see [Publishing a runbook](manage-runbooks.md#publish-a-runbook).
 
 ## Using a pre/post script
 

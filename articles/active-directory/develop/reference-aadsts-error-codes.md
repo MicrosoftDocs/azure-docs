@@ -64,7 +64,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS50032 | WeakRsaKey - Indicates the erroneous user attempt to use a weak RSA key. |
 | AADSTS50033 | RetryableError - Indicates a transient error not related to the database operations. |
 | AADSTS50034 | UserAccountNotFound - To sign into this application, the account must be added to the directory. |
-| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt - The salt required to generate a pairwise identifier is missing in principal. Contact the tenant admin. |
+| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt - The salt required to generate a pairwise identifier is missing in principle. Contact the tenant admin. |
 | AADSTS50043 | UnableToGeneratePairwiseIdentifierWithMultipleSalts |
 | AADSTS50048 | SubjectMismatchesIssuer - Subject mismatches Issuer claim in the client assertion. Contact the tenant admin. |
 | AADSTS50049 | NoSuchInstanceForDiscovery - Unknown or invalid instance. |
@@ -251,6 +251,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource - The resource is not configured to accept device-only tokens. |
 | AADSTS240001 | BulkAADJTokenUnauthorized - The user isn't authorized to register devices in Azure AD. |
 | AADSTS240002 | RequiredClaimIsMissing - The id_token can't be used as `urn:ietf:params:oauth:grant-type:jwt-bearer` grant.|
+| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy - The tenant admin has configured a security policy that blocks this request. Check the security policies that are defined on the tenant level to determine if your request meets the policy requirements. |
 | AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest - The application wasn't found in the directory/tenant. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You might have misconfigured the identifier value for the application or sent your authentication request to the wrong tenant. |
 | AADSTS700020 | InteractionRequired - The access grant requires interaction. |
 | AADSTS700022 | InvalidMultipleResourcesScope - The provided value for the input parameter scope isn't valid because it contains more than one resource. |

@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 02/27/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -19,9 +19,19 @@ ms.custom: seodec18
 
 # Encoding with Media Services
 
-Azure Media Services enables you to encode your high-quality digital media files into formats that can be played on a wide variety of browsers and devices. For example, you might want to stream your content in Apple's HLS or MPEG DASH formats. This topic gives you guidance on how to encode your content with Media Services v3.
+Azure Media Services enables you to encode your high-quality digital media files into adaptive bitrate MP4 files so your content can be played on a wide variety of browsers and devices. A successful Media Services encoding job creates an output Asset with a set of adaptive bitrate MP4s and streaming configuration files. The configuration files include .ism, .ismc, .mpi, and other files that you should not modify. Once the encoding job is done, you can take advantage of [Dynamic Packaging](dynamic-packaging-overview.md) and start streaming.
 
-To encode with Media Services v3, you need to create a [Transform](https://docs.microsoft.com/rest/api/media/transforms) and a [Job](https://docs.microsoft.com/rest/api/media/jobs). A transform defines the recipe for your encoding settings and outputs, and the job is an instance of the recipe. For more information, see [Transforms and Jobs](transform-concept.md)
+To make videos in the output Asset available to clients for playback, you have to create a **Streaming Locator** and build streaming URLs. Then, based on the specified format in the manifest, your clients receive the stream in the protocol they have chosen.
+
+The following diagram shows the on-demand streaming with dynamic packaging workflow.
+
+![Dynamic Packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+
+This topic gives you guidance on how to encode your content with Media Services v3.
+
+## Transforms and jobs
+
+To encode with Media Services v3, you need to create a [Transform](https://docs.microsoft.com/rest/api/media/transforms) and a [Job](https://docs.microsoft.com/rest/api/media/jobs). A transform defines the recipe for your encoding settings and outputs, and the job is an instance of the recipe. For more information, see [Transforms and Jobs](transforms-jobs-concept.md)
 
 When encoding with Media Services, you use presets to tell the encoder how the input media files should be processed. For example, you can specify the video resolution and/or the number of audio channels you want in the encoded content. 
 
@@ -58,30 +68,11 @@ Media Services fully supports customizing all values in presets to meet your spe
 
 ## Scaling encoding in v3
 
-Currently, customers have to use the Azure portal or Media Services v2 APIs to set RUs (as described in [Scaling media processing](../previous/media-services-scale-media-processing-overview.md). 
+To scale media processing, see [Scale with CLI](media-reserved-units-cli-how-to.md).
 
 ## Next steps
 
-### Tutorials
-
-The following tutorial shows how to encode your content with Media Services:
-
+* [Encode from an HTTPS URL using built-in presets](job-input-from-http-how-to.md)
+* [Encode a local file using built-in presets](job-input-from-local-file-how-to.md)
+* [Build a custom preset to target your specific scenario or device requirements](customize-encoder-presets-how-to.md)
 * [Upload, encode, and stream using Media Services](stream-files-tutorial-with-api.md)
-
-### Code samples
-
-The following code samples contain code that shows how to encode with Media Services:
-
-* [.NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore)
-* [Azure CLI](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)
-
-### SDKs
-
-You can use any of the following supported Media Services v3 SDKs to encode your content.
-
-* [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
-* [REST](https://docs.microsoft.com/rest/api/media/transforms)
-* [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
-* [Java](https://docs.microsoft.com/java/api/overview/azure/mediaservices)
-* [Python](https://docs.microsoft.com/python/api/overview/azure/media-services?view=azure-python)
-

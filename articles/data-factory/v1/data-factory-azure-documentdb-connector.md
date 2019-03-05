@@ -138,7 +138,7 @@ the following properties are available in **typeProperties** section:
 Using this Cosmos DB connector, you can easily
 
 * Import JSON documents from various sources into Cosmos DB, including Azure Blob, Azure Data Lake, on-premises File System or other file-based stores supported by Azure Data Factory.
-* Export JSON documents from Cosmos DB collecton into various file-based stores.
+* Export JSON documents from Cosmos DB collection into various file-based stores.
 * Migrate data between two Cosmos DB collections as-is.
 
 To achieve such schema-agnostic copy,

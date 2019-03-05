@@ -411,7 +411,7 @@ To build count tables on the count data, use the data in the folder raw/count. I
 Our model building process in Azure Machine Learning follows these steps:
 
 1. [Get the data from Hive tables into Azure Machine Learning](#step1)
-2. [Create the experiment: clean the data and featurize with count tables](#step2)
+2. [Create the experiment: clean the data and make it a feature with count tables](#step2)
 3. [Build, train, and score the model](#step3)
 4. [Evaluate the model](#step4)
 5. [Publish the model as a web-service](#step5)
@@ -445,7 +445,7 @@ Right-click the output port of the **Import Data** module. This reveals a **Save
 
 To select the saved dataset for use in a machine learning experiment, locate the datasets using the **Search** box shown in the following figure. Then simply type out the name you gave the dataset partially to access it and drag the dataset onto the main panel. Dropping it onto the main panel selects it for use in machine learning modeling.
 
-![Drage dataset onto the main panel](./media/hive-criteo-walkthrough/cl5tpGw.png)
+![Drag dataset onto the main panel](./media/hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
 > Do this for both the train and the test datasets. Also, remember to use the database name and table names that you gave for this purpose. The values used in the figure are solely for illustration purposes.**

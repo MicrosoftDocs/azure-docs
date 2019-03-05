@@ -133,7 +133,7 @@ Once the virtual machine has been created, you will receive a **Deployment succe
 	sudo apt-get install bind9 -y
     ```
 
-3. To configure Bind to forward name resolution requests to your on-prem DNS server, use the following text as the contents of the `/etc/bind/named.conf.options` file:
+3. To configure Bind to forward name resolution requests to your on premises DNS server, use the following text as the contents of the `/etc/bind/named.conf.options` file:
 
 		acl goodclients {
 			10.0.0.0/16; # Replace with the IP address range of the virtual network

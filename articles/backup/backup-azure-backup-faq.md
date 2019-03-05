@@ -34,7 +34,8 @@ No. Backup data stored in a vault can't be moved to a different vault.
 No. A Recovery Services vault can only change storage options before any backups have been stored.
 
 ### Can I do an Item Level Restore (ILR) for VMs backed up to a Recovery Services vault?
-No, ILR isn't supported.
+- ILR is supported for Azure VMs backed up by Azure VM backup. For more information see, [article](backup-azure-restore-files-from-vm.md)
+- ILR is not supported for online recovery points of on-premise VMs backed up by Azure backup Server or System Center DPM.
 
 
 ## Azure Backup agent
@@ -85,7 +86,6 @@ Yes.
 - You back up Azure VMs once a day.
 
 ### What operating systems are supported for backup?
-
 Azure Backup supports these operating systems for backing up files and folders, and apps protected by Azure Backup Server and DPM.
 
 **OS**| **SKU** |**Details**
@@ -96,7 +96,8 @@ Windows 8.1 64 bit | Enterprise, Pro | Machines should be running the latest ser
 Windows 8 64 bit | Enterprise, Pro | Machines should be running the latest services packs and updates.
 Windows 7 64 bit | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Machines should be running the latest services packs and updates.
 Server | |
-Windows Server 2016 64 bit | Standard, Datacenter, Essentials | Wit the latest service packs/updates.
+Windows Server 2019 64 bit | Standard, Datacenter, Essentials | With the latest service packs/updates.
+Windows Server 2016 64 bit | Standard, Datacenter, Essentials | With the latest service packs/updates.
 Windows Server 2012 R2 64 bit | Standard, Datacenter, Foundation | With the latest service packs/updates.
 Windows Server 2012 64 bit | Datacenter, Foundation, Standard | With the latest service packs/updates.
 Windows Storage Server 2016 64 bit | Standard, Workgroup | With the latest service packs/updates.
@@ -134,7 +135,7 @@ BMR/System state |Each individual copy of BMR or system state of the machine bei
 There is no limit on the amount of data you can back up using a Recovery Services vault.
 
 ### Why is the size of the data transferred to the Recovery Services vault smaller than the data selected for backup?
- Data backed up from Azure Backup Agent, DPM, and Azure Backup Server is compressed and encrypted before being transferred. With compression and encryption is applied, the data in the vault is 30-40% smaller.
+Data backed up from Azure Backup Agent, DPM, and Azure Backup Server is compressed and encrypted before being transferred. With compression and encryption is applied, the data in the vault is 30-40% smaller.
 
 ### Can I delete individual files from a recovery point in the vault?
 No, Azure Backup doesn't support deleting or purging individual items from stored backups.
