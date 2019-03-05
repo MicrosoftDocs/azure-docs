@@ -72,7 +72,7 @@ This script uses the following commands to create a new resource group and an ap
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
 | [az appconfig create](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-create) | Creates an app configuration store resource. |
-| [az appconfig key list](/cli/azure/ext/appconfig/appconfig/key#ext-appconfig-az-appconfig-key-list) | List the keys stored in an app configuration store. |
+| [az appconfig key list](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-list) | List the keys stored in an app configuration store. |
 
 ## Next steps
 

@@ -76,7 +76,7 @@ An example of commands that can be used to mount the data disks and create the n
      Get-Module Az -ListAvailable | Select-Object -Property Name,Version,Path
      ```
 
-3. Sign in to Azure using the [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount) cmdlet.
+3. Sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
      
      ```azurepowershell-interactive
      Connect-AzAccount
