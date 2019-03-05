@@ -57,7 +57,7 @@ Download the following Azure Resource Manager template files:
 * [azuredeploy.json][template]
 * [azuredeploy.parameters.json][parameters]
 
-This template deploys a secure cluster of seven virtual machines and three node types into a virtual network and a network security group.  Other sample templates can be found on [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates).  The [azuredeploy.json][template] of resources, including the following.
+This template deploys a secure cluster of seven virtual machines and three node types into a virtual network and a network security group.  Other sample templates can be found on [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates).  The [azuredeploy.json][template] deploys a number of resources, including the following.
 
 ### Service Fabric cluster
 
