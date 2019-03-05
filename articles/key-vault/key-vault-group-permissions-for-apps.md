@@ -4,7 +4,7 @@ description: Learn how to grant permission to many applications to access a key 
 services: key-vault
 documentationcenter: ''
 author: amitbapat
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid: 785d4e40-fb7b-485a-8cbc-d9c8c87708e6

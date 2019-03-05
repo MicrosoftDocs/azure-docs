@@ -17,6 +17,7 @@ ms.date: 01/17/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 # Users flagged for risk report in the Azure portal
 

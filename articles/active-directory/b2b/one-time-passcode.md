@@ -14,6 +14,7 @@ author: msmimart
 manager: mtillman
 ms.reviewer: mal
 
+ms.collection: M365-identity-device-management
 ---
 
 # Email one-time passcode authentication (preview)

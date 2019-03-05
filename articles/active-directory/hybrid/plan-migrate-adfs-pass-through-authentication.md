@@ -11,6 +11,7 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Migrate from federation to pass-through authentication for Azure Active Directory

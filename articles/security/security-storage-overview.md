@@ -4,7 +4,7 @@ description: This article provides an overview of the core Azure security featur
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
@@ -75,7 +75,7 @@ For many organizations, [data encryption at rest](https://cloudblogs.microsoft.c
 
 Learn more about Storage Service Encryption:
 
-* [Azure Storage Service Encryption](https://azure.microsoft.com/services/storage/) is available for [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/). For details on other Azure storage types, see [Azure Files](https://azure.microsoft.com/services/storage/files/), [Disk (Premium Storage)](https://azure.microsoft.com/services/storage/premium-storage/), [Table storage](https://azure.microsoft.com/services/storage/tables/), and [Queue storage](https://azure.microsoft.com/services/storage/queues/).
+* [Azure Storage Service Encryption](https://azure.microsoft.com/services/storage/) is available for [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/). For details on other Azure storage types, see [Azure Files](https://azure.microsoft.com/services/storage/files/), [Table storage](https://azure.microsoft.com/services/storage/tables/), and [Queue storage](https://azure.microsoft.com/services/storage/queues/).
 * [Azure Storage Service Encryption for Data at Rest](../storage/common/storage-service-encryption.md)
 
 ## Azure Disk Encryption
@@ -124,5 +124,4 @@ Azure Disk Encryption uses [Azure Key Vault](https://azure.microsoft.com/service
 
 Learn more
 
-* [What is Azure Key Vault?](../key-vault/key-vault-whatis.md)
-* [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md)
+* [What is Azure Key Vault?](../key-vault/key-vault-overview.md)

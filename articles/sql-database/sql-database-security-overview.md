@@ -78,7 +78,7 @@ For an overview of permissions in Azure SQL Database, see [Logins and users](sql
 
 SQL Database secures customer data by providing auditing and threat detection capabilities.
 
-### SQL auditing in Log Analytics and Event Hubs
+### SQL auditing in Azure Monitor logs and Event Hubs
 
 SQL Database auditing tracks database activities and helps to maintain compliance with security standards by recording database events to an audit log in a customer-owned Azure storage account. Auditing allows users to monitor ongoing database activities, as well as analyze and investigate historical activity to identify potential threats or suspected abuse and security violations. For more information, see Get started with [SQL Database Auditing](sql-database-auditing.md).  
 
@@ -92,7 +92,7 @@ Threat detection enhances auditing by analyzing audit logs for unusual behavior 
 
 ### Transport Layer Security TLS (Encryption-in-transit)
 
-SQL Database secures customer data by encrypting data in motion with [Transport Layer Security](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server).
+SQL Database secures customer data by encrypting data in motion with [Transport Layer Security](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
 > [!IMPORTANT]
 > Azure SQL Database enforces encryption (SSL/TLS) at all times for all connections, which ensures all data is encrypted "in transit" between the database and the client. This will happen irrespective of the setting of **Encrypt** or **TrustServerCertificate** in the connection string.

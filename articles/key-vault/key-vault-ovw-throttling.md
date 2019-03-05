@@ -3,8 +3,8 @@ title: Azure Key Vault throttling guidance
 description: Key Vault throttling limits the number of concurrent calls to prevent overuse of resources.
 services: key-vault
 documentationcenter:
-author: bryanla
-manager: mbaldwin
+author: msmbaldwin
+manager: barbkess
 tags:
 
 ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
@@ -12,7 +12,7 @@ ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/10/2018
-ms.author: bryanla
+ms.author: mbaldwin
 
 ---
 
@@ -110,6 +110,28 @@ Code that implements exponential backoff is shown below.
         }
     }
 ```
+
+
+Using this code in a client C\# application (another Web API client microservice, an ASP.NET MVC application, or even a C\# Xamarin application) is straightforward. The following example shows how, using the HttpClient class.
+
+```csharp
+public async Task<Cart> GetCartItems(int page)
+{
+    _apiClient = new HttpClient();
+    //
+    // Using HttpClient with Retry and Exponential Backoff
+    //
+    var retry = new RetryWithExponentialBackoff();
+    await retry.RunAsync(async () =>
+    {
+        // work with HttpClient call
+        dataString = await _apiClient.GetStringAsync(catalogUrl);
+    });
+    return JsonConvert.DeserializeObject<Cart>(dataString);
+}
+```
+
+Remember that this code is suitable only as a proof of concept. 
 
 ### Recommended client-side throttling method
 

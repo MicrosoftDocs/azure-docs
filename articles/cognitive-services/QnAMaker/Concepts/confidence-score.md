@@ -4,11 +4,11 @@ titleSuffix: Azure
 description: The confidence score indicates the confidence that the answer is the right match for the given user query. 
 services: cognitive-services
 author: tulasim88
-manager: pchoudh
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
 ---
@@ -52,7 +52,7 @@ When choosing your threshold, keep in mind the balance between Accuracy and Cove
 > Newer versions of QnA Maker include improvements to scoring logic, and could affect your threshold. Any time you update the service, make sure to test and tweak the threshold if necessary. You can check your QnA Service version [here](https://www.qnamaker.ai/UserSettings), and see how to get the latest updates [here](../How-To/troubleshooting-runtime.md).
 
 ## Improve confidence scores
-To improve the confidence score of a particular response to a user query, you can add the user query to the knowledge base as an alternate question on that response. You can also use [word alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) to add synonyms to keywords in your KB.
+To improve the confidence score of a particular response to a user query, you can add the user query to the knowledge base as an alternate question on that response. You can also use case-insensitive [word alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) to add synonyms to keywords in your KB.
 
 
 ## Similar confidence scores
@@ -60,14 +60,15 @@ When multiple responses have a similar confidence score, it is likely that the q
 
 
 ## Confidence score differences
-The confidence score of an answer may change negligibly between the test and published version of the knowledge base even if the content is the same. This is because the content of the test and the published knowledge base are located in different Azure Search indexes.
-See here how the [publish](../How-To/publish-knowledge-base.md) operation works.
+The confidence score of an answer may change negligibly between the test and published version of the knowledge base even if the content is the same. This is because the content of the test and the published knowledge base are located in different Azure Search indexes. When you publish a knowledge base, the question and answer contents of your knowledge base moves from the test index to a production index in Azure search. See how the [publish](../How-To/publish-knowledge-base.md) operation works.
+
+If you have a knowledge base in different regions, each region uses its own Azure Search index. Because different indexes are used, the scores will not be exactly the same. 
 
 
 ## No match found
-When no good match is found by the ranker, the confidence score of 0.0 or "None" is returned and the default response is "No good match found in the KB". You can override this default response in the bot or application code calling the endpoint. Alternately, you can also set the override response in Azure and this changes the default for all knowledge bases deployed in a particular QnA Maker service.
+When no good match is found by the ranker, the confidence score of 0.0 or "None" is returned and the default response is "No good match found in the KB". You can override this [default response](#change-default-answer) in the bot or application code calling the endpoint. Alternately, you can also set the override response in Azure and this changes the default for all knowledge bases deployed in a particular QnA Maker service.
 
-### Change Default Answer
+## Change Default Answer
 
 1. Go to the [Azure portal](https://portal.azure.com) and navigate to the resource group that represents the QnA Maker service you created.
 
@@ -87,5 +88,4 @@ When no good match is found by the ranker, the confidence score of 0.0 or "None"
 ## Next steps
 > [!div class="nextstepaction"]
 > [Data sources supported](./data-sources-supported.md)
-## See also 
-[QnA Maker overview](../Overview/overview.md)
+

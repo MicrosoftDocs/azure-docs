@@ -11,6 +11,7 @@ ms.date: 01/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 
 # Azure AD Connect: Configure AD DS Connector Account Permissions 

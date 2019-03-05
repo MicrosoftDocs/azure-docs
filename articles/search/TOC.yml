@@ -55,6 +55,10 @@
   items:
   - name: Knowledge mining bootcamp
     href: https://azure.github.io/LearnAI-KnowledgeMiningBootcamp/
+  - name: Add search to apps (Pluralsight)
+    href: https://www.pluralsight.com/courses/azure-adding-search-abilities-apps
+  - name: Microsoft Azure Developer course (Pluralsight)
+    href: https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling
 - name: Concepts
   items:
   - name: Full text search
@@ -71,6 +75,8 @@
       href: search-limits-quotas-capacity.md
     - name: Allocate partitions and replicas
       href: search-capacity-planning.md
+    - name: Deployment strategies and best practices
+      href: search-performance-optimization.md
   - name: Security
     items:
     - name: Security overview
@@ -105,7 +111,7 @@
         href: search-dotnet-mgmt-sdk-migration.md
     - name: Upgrade the REST API
       href: search-api-migration.md
-  - name: Designing Indexes
+  - name: Design indexes
     items:
     - name: Create a basic index
       href: search-what-is-an-index.md
@@ -113,11 +119,11 @@
       href: search-create-index-portal.md
     - name: Analyzers
       items:
-      - name: Add text analyzers
+      - name: Adding analyzers
         href: search-analyzers.md
-      - name: Add language analyzers
+      - name: Add a language analyzer
         href: index-add-language-analyzers.md
-      - name: Add custom analyzers
+      - name: Add a custom analyzer
         href: index-add-custom-analyzers.md
     - name: Add autosuggest
       href: index-add-suggesters.md
@@ -131,7 +137,7 @@
       href: search-example-adventureworks-modeling.md
     - name: Model multi-level facets
       href: search-example-adventureworks-multilevel-faceting.md
-  - name: Indexing data
+  - name: Load data
     items:
     - name: Data import overview
       href: search-what-is-data-import.md
@@ -155,6 +161,8 @@
         href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
       - name: Cosmos DB indexer
         href: search-howto-index-cosmosdb.md
+      - name: One-to-many blob indexing
+        href: search-howto-index-one-to-many-blobs.md
       - name: CSV blob indexing
         href: search-howto-index-csv-blobs.md
       - name: JSON blob indexing
@@ -185,25 +193,25 @@
       href: cognitive-search-concept-troubleshooting.md
     - name: Documentation links
       href: cognitive-search-resources-documentation.md
-  - name: Querying data
+  - name: Query data
     items:
     - name: Create a basic query
       href: search-query-overview.md
     - name: Search Explorer (portal)
       href: search-explorer.md
-    - name: Simple syntax examples 
+    - name: Simple query syntax
+      href: query-simple-syntax.md
+    - name: Full Lucene query syntax
+      href: query-lucene-syntax.md
+    - name: Query examples (simple syntax)
       href: search-query-simple-examples.md
-    - name: Lucene syntax examples
+    - name: Query examples (full Lucene)
       href: search-query-lucene-examples.md
-    - name: Query syntax
-      items:
-      - name: Simple query syntax
-        href: query-simple-syntax.md
-      - name: Lucene query syntax
-        href: query-lucene-syntax.md
-    - name: Paging results
+  - name: Handle results
+    items:
+    - name: Page-related features
       href: search-pagination-page-layout.md
-  - name: Filtering and sorting data
+  - name: Filter and sort data
     items:
     - name: Filter overview
       href: search-filters.md
@@ -221,8 +229,6 @@
       href: search-manage.md
     - name: PowerShell administration
       href: search-manage-powershell.md
-    - name: Performance & optimizations
-      href: search-performance-optimization.md
   - name: Monitoring
     items:
     - name: Monitor activity and logging
@@ -234,7 +240,7 @@
   - name: Azure CLI
     href: https://docs.microsoft.com/cli/azure/search?view=azure-cli-latest
   - name: Azure PowerShell
-    href: https://www.powershellgallery.com/packages/AzureRM.search/0.1.0-preview
+    href: /powershell/module/az.search 
   - name: .NET
     href: /dotnet/api/?term=microsoft.azure.search
   - name: .NET (Management)

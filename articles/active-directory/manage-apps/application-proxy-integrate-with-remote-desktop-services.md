@@ -15,6 +15,7 @@ ms.date: 06/27/2018
 ms.author: celested
 ms.custom: it-pro
 ms.reviewer: harshja
+ms.collection: M365-identity-device-management
 ---
 
 # Publish Remote Desktop with Azure AD Application Proxy

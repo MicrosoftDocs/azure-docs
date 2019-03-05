@@ -14,6 +14,7 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
+ms.collection: M365-identity-device-management
 ---
 
 # Set up my account for two-step verification

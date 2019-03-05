@@ -38,14 +38,14 @@ For full details on the configuration refer to [MXChip Device template details](
 
 In your Azure IoT Central application, add a real device from the **MXChip** device template and make a note of the device connection details (**Scope ID, Device ID, and Primary key**).
 
-1. Add a **real device** from Device Explorer, click on **+New > Real** to add a real device.
+1. Add a **real device** from Device Explorer, select **+New > Real** to add a real device.
 
     * Enter the Device Id **<span style="color:Red">(should be lower case)</span>** or use the suggested Device Id.
     * Enter the Device Name or use the suggested name
 
     ![Add Device](media/howto-connect-devkit-experimental/add-device.png)
 
-1. Get connection details such as **Scope ID, Device ID, and Primary key** for the added device by clicking **Connect** on the device page.
+1. Get connection details such as **Scope ID, Device ID, and Primary key** for the added device by selecting **Connect** on the device page.
 
     ![Connection details](media/howto-connect-devkit-experimental/device-connect.png)
 

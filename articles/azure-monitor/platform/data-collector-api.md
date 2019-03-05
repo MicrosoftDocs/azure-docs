@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 02/12/2019
 ms.author: bwren
 ---
 
@@ -168,6 +168,8 @@ There are some constraints around the data posted to the Azure Monitor Data coll
 * Maximum of 30 MB per post to Azure Monitor Data Collector API. This is a size limit for a single post. If the data from a single post that exceeds 30 MB, you should split the data up to smaller sized chunks and send them concurrently.
 * Maximum of 32 KB limit for field values. If the field value is greater than 32 KB, the data will be truncated.
 * Recommended maximum number of fields for a given type is 50. This is a practical limit from a usability and search experience perspective.  
+* A table in a Log Analytics workspace only supports up to 500 columns (referred to as a field in this article). 
+* The maximum number of characters for the column name is 500.
 
 ## Return codes
 The HTTP status code 200 means that the request has been received for processing. This indicates that the operation completed successfully.
@@ -458,6 +460,15 @@ def post_data(customer_id, shared_key, body, log_type):
 
 post_data(customer_id, shared_key, body, log_type)
 ```
+## Alternatives and considerations
+While the Data Collector API should cover most of your needs to collect free-form data into Azure Logs, there are instances where an alternative might be required to overcome some of the limitations of the API. All your options are as follows, major considerations included:
+
+| Alternative | Description | Best suited for |
+|---|---|---|
+| [Custom events](https://docs.microsoft.com/en-us/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Native SDK-based ingestion in Application Insights | Application Insights, typically instrumented through an SDK within your application, offers the ability for you to send custom data through Custom Events. | <ul><li> Data that is generated within your application, but not picked up by SDK through one of the default data types (ie: requests, dependencies, exceptions, etc).</li><li> Data that is most often correlated to other application data in Application Insights </li></ul> |
+| [Data Collector API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) in Azure Monitor Logs | The Data Collector API in Azure Monitor Logs is a completely open-ended way to ingest data. Any data formatted in a JSON object can be sent here. Once sent, it will be processed, and available in Logs to be correlated with other data in Logs or against other Application Insights data. <br/><br/> It is fairly easy to upload the data as files to an Azure Blob blob, from where these files will be processed and uploaded to Log Analytics. Please see [this](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) article for a sample implementation of such a pipeline. | <ul><li> Data that is not necessarily generated within an application instrumented within Application Insights.</li><li> Examples include lookup and fact tables, reference data, pre-aggregated statistics, etc </li><li> Intended for data that will be cross-referenced against other Azure Monitor data (for example, Application Insights, other Logs data types, Security Center, Azure Monitor for Containers/VMs, etc). </li></ul> |
+| [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | Azure Data Explorer (ADX) is the data platform that powers Application Insights Analytics and Azure Monitor Logs. Now Generally Availabile ("GA"), using the data platform in its raw form provides you complete flexibility (but requiring the overhead of management) over the cluster (RBAC, retention rate, schema, etc). ADX provides many [ingestion options](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) including [CSV, TSV, and JSON](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) files. | <ul><li> Data that will not be correlated to any other data under Application Insights or Logs. </li><li> Data requiring advanced ingestion or processing capabilities not today available in Azure Monitor Logs. </li></ul> |
+
 
 ## Next steps
 - Use the [Log Search API](../log-query/log-query-overview.md) to retrieve data from the Log Analytics workspace.

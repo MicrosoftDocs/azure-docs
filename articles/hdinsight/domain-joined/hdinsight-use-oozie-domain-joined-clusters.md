@@ -8,7 +8,7 @@ ms.author: omidm
 ms.reviewer: mamccrea
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 02/15/2019
 ---
 # Run Apache Oozie in HDInsight Hadoop clusters with Enterprise Security Package
 
@@ -213,11 +213,12 @@ nano workflow.xml
        hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
        hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
    ```
-  
-   a. Replace `domainuser` with your username for the domain.  
-   b. Replace `ClusterShortName` with the short name for the cluster. For example, if the cluster name is https:// *[example link]* sechadoopcontoso.azurehdisnight.net, the `clustershortname` is the first six characters of the cluster: **sechad**.  
-   c. Replace `jdbcurlvalue` with the JDBC URL from the Hive configuration. An example is jdbc:hive2://headnodehost:10001/;transportMode=http.      
-   d. To save the file, select Ctrl+X, enter `Y`, and then select **Enter**.
+
+   * Use the `adl://home` URI for the `nameNode` property if you have Azure Data Lake Storage Gen1 as your primary cluster storage. If you are using Azure Blob Storage, then change this to `wasb://home`. If you are using Azure Data Lake Storage Gen2, then change this to `abfs://home`.
+   * Replace `domainuser` with your username for the domain.  
+   * Replace `ClusterShortName` with the short name for the cluster. For example, if the cluster name is https:// *[example link]* sechadoopcontoso.azurehdisnight.net, the `clustershortname` is the first six characters of the cluster: **sechad**.  
+   * Replace `jdbcurlvalue` with the JDBC URL from the Hive configuration. An example is jdbc:hive2://headnodehost:10001/;transportMode=http.      
+   * To save the file, select Ctrl+X, enter `Y`, and then select **Enter**.
 
    This properties file needs to be present locally when running Oozie jobs.
 
