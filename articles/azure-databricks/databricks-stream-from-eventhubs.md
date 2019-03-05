@@ -380,4 +380,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn about performing sentiment analysis on the streamed data using Azure Databricks and [Microsoft Cognitive Services API](../cognitive-services/text-analytics/overview.md).
 
 > [!div class="nextstepaction"]
->[Sentiment analysis on streaming data using Azure Databricks ](databricks-sentiment-analysis-cognitive-services.md)
+>[Sentiment analysis on streaming data using Azure Databricks](databricks-sentiment-analysis-cognitive-services.md)

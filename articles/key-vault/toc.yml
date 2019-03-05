@@ -17,6 +17,9 @@
     href: quick-create-net.md
   - name: Set and retrieve a secret - Node.js
     href: quick-create-node.md
+  - name: Set and retrieve a secret - template
+    displayName: resource manager, resource manager template, arm
+    href: quick-create-template.md
 - name: Tutorials
   items:
   - name: Azure Web Apps
@@ -168,6 +171,6 @@
     href: https://azure.microsoft.com/updates/?product=key-vault
   - name: Blog
     href: http://blogs.technet.com/b/kv/
-- name: Product Feedback
-  href: https://feedback.azure.com/forums/906355-azure-key-vault
+  - name: Product Feedback
+    href: https://feedback.azure.com/forums/906355-azure-key-vault
 

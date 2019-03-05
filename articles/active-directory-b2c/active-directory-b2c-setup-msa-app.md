@@ -1,5 +1,5 @@
 ---
-title: Set up sign-up and sign-in with a Microsoft account using Azure Active Directory B2C | Microsoft Docs
+title: Set up sign-up and sign-in with a Microsoft account - Azure Active Directory B2C | Microsoft Docs
 description: Provide sign-up and sign-in to customers with Microsoft accounts in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 ## Create a Microsoft account application
 
-To use a Microsoft account as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have a Microsoft account, you can get it at [https://www.live.com/](https://www.live.com/).
+To use a Microsoft account as an [identity provider](active-directory-b2c-reference-oidc.md) in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have a Microsoft account, you can get it at [https://www.live.com/](https://www.live.com/).
 
 1. Sign in to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) with your Microsoft account credentials.
 2. In the upper-right corner, select **Add an app**.
