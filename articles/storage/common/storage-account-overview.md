@@ -58,9 +58,7 @@ While general-purpose v2 accounts are recommended in most cases, general-purpose
 
 ### Block blob storage accounts
 
-A block blob storage account is a specialized storage account for storing unstructured object data as block blobs. Block blob storage accounts provide the same availability, scalability, and performance features that are available with general-purpose v2 storage accounts. Block blob storage accounts support storing block blobs and append blobs, but not page blobs.
-
-Block blob storage accounts offer multiple access tiers for storing data based on your usage patterns. For more information, see [Access tiers for block blob data](#access-tiers-for-block-blob-data).
+A block blob storage account is a specialized storage account for storing unstructured object data as block blobs or append blobs. Block blob storage accounts offer multiple access tiers for storing data based on your usage patterns. For more information, see [Access tiers for block blob data](#access-tiers-for-block-blob-data).
 
 ## Naming storage accounts
 
