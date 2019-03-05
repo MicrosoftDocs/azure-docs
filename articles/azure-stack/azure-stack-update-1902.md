@@ -61,15 +61,15 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
-- When Azure Stack is managed by System Center Operations Manager (SCOM), make sure to update the Management Pack for Microsoft Azure Stack to version 10.0.3.11 before applying 1902.
+- When Azure Stack is managed by System Center Operations Manager (SCOM), make sure to update the [Management Pack for Microsoft Azure Stack](https://www.microsoft.com/download/details.aspx?id=55184) to version 10.0.3.11 before applying 1902.
 
-## New features
-
-- There is a new user interface on the Azure Stack Administrator portal for creating plans, offers, quotas, and add-on plans. For more information, including screenshots, see [Create plans, offers, and quotas](azure-stack-create-plan.md).
+<!-- ## New features -->
 
 <!-- ## Fixed issues -->
 
-<!-- ## Changes -->
+## Changes
+
+- The 1902 build introduces a new user interface on the Azure Stack Administrator portal for creating plans, offers, quotas, and add-on plans. For more information, including screenshots, see [Create plans, offers, and quotas](azure-stack-create-plan.md).
 
 ## Common vulnerabilities and exposures
 
@@ -152,7 +152,7 @@ The following are post-installation known issues for this build version.
 - The virtual machine scale set (VMSS) creation experience provides CentOS-based 7.2 as an option for deployment. Because that image is not available on Azure Stack, either select another operating system for your deployment, or use an Azure Resource Manager template specifying another CentOS image that has been downloaded prior to deployment from the marketplace by the operator.  
 
 <!-- TBD - IS ASDK --> 
-- After applying the 1901 update, you might encounter the following issues when deploying VMs with Managed Disks:
+- After applying the 1902 update, you might encounter the following issues when deploying VMs with Managed Disks:
 
    - If the subscription was created before the 1808 update, deploying a VM with Managed Disks might fail with an internal error message. To resolve the error, follow these steps for each subscription:
       1. In the Tenant portal, go to **Subscriptions** and find the subscription. Select **Resource Providers**, then select **Microsoft.Compute**, and then click **Re-register**.
@@ -163,7 +163,7 @@ The following are post-installation known issues for this build version.
 
 - In build 1902, the memory required by the ERCS infrastructure VM was increased from 8 GB to 12 GB. On an ASDK, this results in a 4 GB increase. On an Azure Stack integrated systems installation, it is a 12 GB increase.
 
-   To make sure the patch and update process does not result in tenant downtime, make sure your Azure Stack stamp has more than 12 GB of available space in the **Capacity** blade. You can see this memory increase reflected in the **Capacity** blade after a successful installation of the update.
+   To make sure the patch and update process results in the least amount of tenant downtime, make sure your Azure Stack stamp has more than 12 GB of available space in the **Capacity** blade. You can see this memory increase reflected in the **Capacity** blade after a successful installation of the update.
 
 ### Networking  
 
@@ -177,11 +177,11 @@ The following are post-installation known issues for this build version.
 <!-- 3632798 - IS, ASDK -->
 - In the portal, if you add an inbound security rule and select **Service Tag** as the source, several options are displayed in the **Source Tag** list that are not available for Azure Stack. The only options that are valid in Azure Stack are as follows:
 
-    - **Internet**
-    - **VirtualNetwork**
-    - **AzureLoadBalancer**
+  - **Internet**
+  - **VirtualNetwork**
+  - **AzureLoadBalancer**
   
-    The other options are not supported as source tags in Azure Stack. Similarly, if you add an outbound security rule and select **Service Tag** as the destination, the same list of options for **Source Tag** is displayed. The only valid options are the same as for **Source Tag**, as described in the previous list.
+  The other options are not supported as source tags in Azure Stack. Similarly, if you add an outbound security rule and select **Service Tag** as the destination, the same list of options for **Source Tag** is displayed. The only valid options are the same as for **Source Tag**, as described in the previous list.
 
 - Network security groups (NSGs) do not work in Azure Stack in the same way as global Azure. In Azure, you can set multiple ports on one NSG rule (using the portal, PowerShell, and Resource Manager templates). In Azure Stack however, you cannot set multiple ports on one NSG rule via the portal. To work around this issue, use a Resource Manager template or PowerShell to set these additional rules.
 
