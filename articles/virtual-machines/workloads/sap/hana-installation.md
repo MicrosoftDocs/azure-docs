@@ -1,6 +1,6 @@
 ---
 title: Install SAP HANA on SAP HANA on Azure (Large Instances) | Microsoft Docs
-description: How to install SAP HANA on a SAP HANA on Azure (Large Instances).
+description: How to install SAP HANA on an SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
 author: hermanndms
@@ -24,7 +24,7 @@ Before reading this article, get familiar with [HANA Large Instances common term
 The installation of SAP HANA is your responsibility. You can start installing a new SAP HANA on Azure (Large Instances) server after you establish the connectivity between your Azure virtual networks and the HANA Large Instance unit(s). 
 
 > [!Note]
-> Per SAP policy, the installation of SAP HANA must be performed by a person who's passed the Certified SAP Technology Associate exam, SAP HANA Installation certification exam, or who is a SAP-certified system integrator (SI).
+> Per SAP policy, the installation of SAP HANA must be performed by a person who's passed the Certified SAP Technology Associate exam, SAP HANA Installation certification exam, or who is an SAP-certified system integrator (SI).
 
 When you're planning to install HANA 2.0, see [SAP support note #2235581 - SAP HANA: Supported operating systems](https://launchpad.support.sap.com/#/notes/2235581/E) to make sure that the OS is supported with the SAP HANA release you that you're installing. The supported OS for HANA 2.0 is more restrictive than the supported OS for HANA 1.0. 
 
@@ -198,10 +198,10 @@ For SAP HANA 1.0 versions up to SPS12, these parameters can be set during the in
 
 You can also configure the parameters after the SAP HANA database installation by using the hdbparam framework. 
 
-The storage used in HANA Large Instances has a file size limitation. The [size limitation is 16TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) per file. Unlike in file size limitations in the EXT3 file systems, HANA is not aware implicitly of the storage limitation enforced by the HANA Large Instances storage. As a result HANA will not automatically create a new data file when the file size limit of 16TB is reached. As HANA attempts to grow the file beyond 16TB, HANA will report errors and the index server will crash at the end.
+The storage used in HANA Large Instances has a file size limitation. The [size limitation is 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) per file. Unlike in file size limitations in the EXT3 file systems, HANA is not aware implicitly of the storage limitation enforced by the HANA Large Instances storage. As a result HANA will not automatically create a new data file when the file size limit of 16TB is reached. As HANA attempts to grow the file beyond 16 TB, HANA will report errors and the index server will crash at the end.
 
 > [!IMPORTANT]
-> In order to prevent HANA trying to grow data files beyond the 16TB file size limit of HANA Large Instance storage, you need to set the following parameters in the SAP HANA global.ini configuration file
+> In order to prevent HANA trying to grow data files beyond the 16 TB file size limit of HANA Large Instance storage, you need to set the following parameters in the SAP HANA global.ini configuration file
 > 
 - datavolume_striping=true
 - datavolume_striping_size_gb = 15000
