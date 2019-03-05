@@ -146,7 +146,7 @@ public static async Task<bool> CheckIsComplete([ActivityTrigger] string statusUr
 }
 ```
 
-#### JavaScript (Azure Functions 2.x only)
+#### JavaScript (Functions 2.x only)
 
 ```javascript
 const df = require("durable-functions");
