@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/05/2019
 ms.author: alkohli
 ---
 # Manage an Azure Data Box Edge device via Windows PowerShell
@@ -25,7 +25,7 @@ This article includes the following procedures:
 - Reset the device
 - View device information
 - Get compute logs
-- Monitor and troubleshoot a compute-enabled device
+- Monitor and troubleshoot compute modules
 
 ## Connect to the PowerShell interface
 
@@ -61,17 +61,17 @@ If the compute role is configured on your device, you can also get the compute l
     The following example shows the usage of this cmdlet:
 
     ```
-    Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username/password" -RoleInstanceName "lotRole" -FullLogCollection
+    Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username/password" -RoleInstanceName "IotRole" -FullLogCollection
     ```
     Here is a description of the parameters used for the cmdlet: 
     - `Path`: Provide a network path to the share where you want to create the compute log package.
     - `Credential`: Provide the username and password for the network share.
-    - `RoleInstanceName`: Provide this string `lotRole` for this parameter.
+    - `RoleInstanceName`: Provide this string `IotRole` for this parameter.
     - `FullLogCollection`: This parameter ensures that the log package will contain all the compute logs. By default, the log package contains only a subset of logs.
 
 ## Monitor and troubleshoot compute
 
-On a Data Box Edge device that has the compute role configured, a subset of docker commands are available to monitor device status, or troubleshoot device issues. To see a list of available commands, connect to the PowerShell interface and use the `dockerdbe` function.
+On a Data Box Edge device that has the compute role configured, a subset of docker commands are available to monitor or troubleshoot modules. To see a list of available commands, connect to the PowerShell interface and use the `dockerdbe` function.
 
 ```powershell
 [10.128.26.24]: PS>dockerdbe -?

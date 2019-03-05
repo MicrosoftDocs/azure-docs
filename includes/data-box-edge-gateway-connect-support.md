@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 03/04/2019
+ms.date: 03/06/2019
 ms.author: alkohli
 ---
 
 To troubleshoot any issues that you might experience with your device, you will need to engage with the Microsoft Support team. Microsoft Support may need to use a support session to sign into your device.
 
-1. Run Windows PowerShell session as an administrator.
-2. Assign a variable to the device IP address.
+1. Run Windows PowerShell as an administrator.
+2. Assign a variable to the device IP address. At the command prompt, type:
 
     $ip = "<device_ip>"
 
@@ -30,9 +30,9 @@ To troubleshoot any issues that you might experience with your device, you will 
     ```  
     This command outputs an encrypted key. Copy this string into a text editor such as Notepad.
 
-5. Send this key to the Support Engineer in email. Microsoft will send you an access key for the support session.
+5. Send this key to the Support Engineer in email. The Support Engineer will create the corresponding access key for the support session.
 
-6. Use the access key as the password in the following command:
+6. The Support Engineer will use the access key as the password in the following command:
 
     ``` 
     $supportSession = New-PSSession -ComputerName $ip -Credential ~\EdgeSupport -ConfigurationName SupportSession
