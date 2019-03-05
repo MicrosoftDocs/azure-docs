@@ -93,7 +93,7 @@ When databases are deployed in the same resource group, they can be grouped into
 
 ![Design of multi-tenant app with database-per-tenant, using elastic pool.][image-mt-app-db-per-tenant-pool-153p]
 
-Azure SQL Database provides the tools necessary to configure, monitor, and manage the sharing.  Both pool-level and database-level performance metrics are available in the Azure portal, and through Log Analytics.  The metrics can give great insights into both aggregate and tenant-specific performance.  Individual databases can be moved between pools to provide reserved resources to a specific tenant.  These tools enable you to ensure good performance in a cost effective manner.
+Azure SQL Database provides the tools necessary to configure, monitor, and manage the sharing.  Both pool-level and database-level performance metrics are available in the Azure portal, and through Azure Monitor logs.  The metrics can give great insights into both aggregate and tenant-specific performance.  Individual databases can be moved between pools to provide reserved resources to a specific tenant.  These tools enable you to ensure good performance in a cost effective manner.
 
 #### Operations scale for database-per-tenant
 

@@ -13,7 +13,7 @@ ms.custom: mvc
 
 The [Azure Migrate](migrate-overview.md) service assesses on-premises workloads for migration to Azure. 
 
-This article describes how to discover and assess on-premises VMware VMs using the classic version of the Azure Migrate service. A newer version of the article is available, which describes how to assess VMware VMs using  server assessment in the latest version of Azure Migrate. [Learn more](migrate-overview.md#azure-migrate-services-public-preview) about the new version, and how to use it to [assess VMware VMs](tutorial-server-assessment-vmware.md).
+This article describes how to discover and assess on-premises VMware VMs using the classic version of the Azure Migrate service. A newer version of the article is available, which describes how to assess VMware VMs using  server assessment in the latest version of Azure Migrate. [Learn more](migrate-overview.md) about the new version, and how to use it to [assess VMware VMs](tutorial-assess-vmware.md).
 
 In this classic tutorial, you:
 
@@ -65,7 +65,7 @@ Europe | North Europe or West Europe
 Unites States | East US or West Central US
 
 
-![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
+![Azure Migrate](./media/tutorial-assessment-vmware-classic/project-1.png)
 
 
 ## Download the collector appliance
@@ -81,7 +81,7 @@ Azure Migrate creates an on-premises VM known as the collector appliance. This V
 
 3. In **Copy project credentials**, copy the project ID and key. You need these when you configure the collector.
 
-    ![Download .ova file](./media/tutorial-assessment-vmware/download-ova.png)
+    ![Download .ova file](./media/tutorial-assessment-vmware-classic/download-ova.png)
 
 ### Verify the collector appliance
 
@@ -154,7 +154,7 @@ Now, import the OVA file to the vCenter Server, and create the collector VM.
 
 1. In the vSphere Client console, click **File** > **Deploy OVF Template**.
 
-    ![Deploy OVF](./media/tutorial-assessment-vmware/vcenter-wizard.png)
+    ![Deploy OVF](./media/tutorial-assessment-vmware-classic/vcenter-wizard.png)
 
 2. In the Deploy OVF Template Wizard > **Source**, specify the location of the OVA file.
 3. In **Name** and **Location**, specify a friendly name for the collector VM, and the inventory object in which the VM
@@ -252,7 +252,7 @@ An assessment specifies:
 - **Cost estimation**: The estimated monthly costs of running the VM in Azure.
 
 
-![Assessment report](./media/tutorial-assessment-vmware/assessment-report.png)
+![Assessment report](./media/tutorial-assessment-vmware-classic/assessment-report.png)
 
 ### Review Azure readiness
 
@@ -267,7 +267,7 @@ The assessment shows VM readiness in one of the states summarized in the followi
 
 
 
-  ![Assessment readiness](./media/tutorial-assessment-vmware/assessment-suitability.png)  
+  ![Assessment readiness](./media/tutorial-assessment-vmware-classic/assessment-suitability.png)  
 
 #### Review monthly cost estimate
 
@@ -277,7 +277,7 @@ This view shows the estimate compute and storage cost of running the VMs in Azur
 - Estimated monthly costs for compute and storage are aggregated for all VMs in the assessed group.
 - The cost estimation is for running the on-premises VMs as IaaS VMs. Azure Migrate doesn't consider PaaS or SaaS costs. 
 
-![Assessment VM cost](./media/tutorial-assessment-vmware/assessment-vm-cost.png)
+![Assessment VM cost](./media/tutorial-assessment-vmware-classic/assessment-vm-cost.png)
 
 ### Review confidence ratings
 

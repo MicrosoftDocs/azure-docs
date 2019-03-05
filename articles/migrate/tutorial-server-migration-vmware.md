@@ -13,7 +13,7 @@ ms.custom: mvc
 
 The [Azure Migrate](migrate-overview.md) service discovers, assesses, and migrates on-premises workloads to Azure. 
 
-This article describes how to migrate on-premises VMware VMs using the public preview of Azure Migrate Server migration. 
+This article describes how to migrate on-premises VMware VMs using the new version of Azure Migrate. 
 
 > [!NOTE]
 > Azure Migrate Server Migration is currently in public preview. You can use the existing GA version of Azure Migrate to discover and assess VMs for migration, but the actual migration isn't supported in the existing GA version.
@@ -28,7 +28,7 @@ In this tutorial, you:
 ## Before you start
 
 Before you begin this tutorial you should:
-- Deploy the Azure Migrate appliance. If you haven't, [complete this tutorial](tutorial-deploy-appliance-vmware.md) to set up the appliance.
+- Deploy the Azure Migrate appliance. If you haven't, [complete this tutorial](tutorial-deploy-discover-vmware.md) to set up the appliance.
 - Assess the VMs you want to migrate. You don't have to do this, but you can migrate more confidently if you've assessed the VMs to check that they're suitable for running in Azure, and to get estimates for Azure VM sizing, and monthly Azure costs. If you run an assessment, you can use the recommended sizes when you migrate the VMs.
 - To learn more about this preview:
     - Review the [preview features and limitations](migrate-overview.md#azure-migrate-services-public-preview).
