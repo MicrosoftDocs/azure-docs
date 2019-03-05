@@ -150,7 +150,7 @@ When no longer needed, delete the resources created in the tutorial series.
 1. Delete hub-state directory (including all of its fiels):
 
     ```bash
-    rmdir hub-state
+    rm -r hub-spoke
     ```
 
 ## Next steps
