@@ -1059,6 +1059,12 @@ The following example template shows a parameter with a new identifier.
 }
 ```
 
+The output from the preceding example varies for each deployment but will be similar to:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
+
 ## padLeft
 
 `padLeft(valueToPad, totalLength, paddingCharacter)`
@@ -2022,6 +2028,14 @@ The following example template shows different formats for the datetime value.
 }
 ```
 
+The output from the preceding example varies for each deployment but will be similar to:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| utcOutput | string | 20190305T175318Z |
+| utcShortOutput | string | 03/05/2019 |
+| utcCustomOutput | string | 3 5 |
+
 The following example uses the utcNow function to create a unique name for a storage account. This template might work for test environment where the storage account exists for a short time and isn't redeployed.
 
 ```json
@@ -2058,6 +2072,12 @@ The following example uses the utcNow function to create a unique name for a sto
     }
 }
 ```
+
+The output from the preceding example varies for each deployment but will be similar to:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| nameOutput | string | storagenziwvyru7uxie |
 
 ## Next steps
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
