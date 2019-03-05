@@ -40,7 +40,7 @@ Before you begin, make sure that you have completed the [Tutorial: Copy data to 
 4. Seal the shipping box and ensure that the return shipping label is visible.
 5. Schedule a pickup with UPS if returning the device in US. If you are returning the device in Europe with DHL, request for pickup from DHL by visiting their website and specifying the airway bill number. Go to the country DHL Express website and choose **Book a Courier Collection > eReturn Shipment**.
 
-    ![DHL ereturn shipment](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
+    ![DHL return shipment](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
     
     Specify the waybill number and click **Schedule Pickup** to arrange for pickup.
 

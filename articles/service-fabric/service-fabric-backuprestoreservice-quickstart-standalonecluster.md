@@ -44,7 +44,7 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
     - Azure Storage
     - File Share (on-premises)
 - Enumerate backups
-- Trigger an ad-hoc backup of a partition
+- Trigger an ad hoc backup of a partition
 - Restore a partition using previous backup
 - Temporarily suspend backups
 - Retention management of backups (upcoming)

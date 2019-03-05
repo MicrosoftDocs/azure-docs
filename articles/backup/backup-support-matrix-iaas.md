@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/17/2019
+ms.date: 02/24/2019
 ms.author: raynew
 ---
 
@@ -152,8 +152,8 @@ Back up VMs that are migrated to Azure	| Supported.<br/><br/> To back up the VM,
 **Component** | **Support**
 --- | ---
 Azure VM data disks | Back up a VM with 16 or less data disks.
-Data disk size | Individual disk can be up to 4095 GB.<br/><br/> If you're running the latest version of Azure VM backup (known as Instant Restore), disk sizes up to 4 TB are supported. [Learn more](backup-instant-restore-capability.md).
-Storage type | Standard HDD, standard SSD, premium SSD. <br/><br/> Standard SSD is supported if you're running the latest version of Azure VM backup (known as Instant Restore). [Learn more](backup-instant-restore-capability.md).
+Data disk size | Individual disk can be up to 4095 GB.<br/><br/> If your vaults are running the latest version of Azure Backup (known as Instant Restore), disk sizes up to 4 TB are supported. [Learn more](backup-instant-restore-capability.md).
+Storage type | Standard HDD, standard SSD, premium SSD. <br/><br/> Standard SSD is supported if your vaults are upgraded to the latest version of Azure VM backup (known as Instant Restore). [Learn more](backup-instant-restore-capability.md).
 Managed disks | Supported.
 Encrypted disks | Supported.<br/><br/> Azure VMs enabled with Azure Disk Encryption can be backed up (with or without the Azure AD app).<br/><br/> Encrypted VMs can’t be recovered at the file/folder level. You must recover the entire VM.<br/><br/> You can enable encryption on VMs that are already protected by Azure Backup.
 Disks with Write Accelerator enabled | Not supported.<br/><br/> If you're running the latest version of Azure VM backup (known as [Instant Restore](backup-instant-restore-capability.md)), you can exclude disks with Write Accelerator enabled from backup.
