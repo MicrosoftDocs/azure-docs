@@ -43,10 +43,10 @@ ms.author: alkohli
     | Parameter                             | Description                                                                                                                                                  |   |
     |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
     | FriendlyName                   | The friendly name of the device as configured through the local web UI during device deployment. The default friendly name is the device serial number.  |   |
-    | SerialNumber                   | The device serial number is assigned at the factory and is XX characters long.                                                                             |   |
-    | Model                          | The model for your Data Box Edge or Data Box Gateway device. The model is virtual for Data Box Gateway and   physical for Data Box Edge.                   |   |
-    | FriendlySoftwareVersion        | The friendly string that corresponds to the device software version. For a system running GA, the friendly software version would be Data Box Edge XXXX. |   |
-    | HcsVersion                     | The HCS software version running on your device. For instance, the HCS software   version corresponding to Data Box Edge GA XXX is 1.4.771.324.            |   |
+    | SerialNumber                   | The device serial number is a unique number assigned at the factory.                                                                             |   |
+    | Model                          | The model for your Data Box Edge or Data Box Gateway device. The model is virtual for Data Box Gateway and physical for Data Box Edge.                   |   |
+    | FriendlySoftwareVersion        | The friendly string that corresponds to the device software version. For a system running preview, the friendly software version would be Data Box Edge 1902. |   |
+    | HcsVersion                     | The HCS software version running on your device. For instance, the HCS software   version corresponding to Data Box Edge 1902 is 1.4.771.324.            |   |
     | LocalCapacityInMb              | The total local capacity of the device in Megabits.                                                                                                        |   |
     | IsRegistered                   | This value indicates if your device is activated with the service.                                                                                         |   |
     ```
