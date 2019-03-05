@@ -37,9 +37,11 @@
   href: concepts-overview.md
   items:
   - name: Cloud upload and storage
-    href: storage-account-concept.md     
-  - name: Assets
-    href: assets-concept.md    
+    items:    
+    - name: Storage
+      href: storage-account-concept.md    
+    - name: Assets
+      href: assets-concept.md    
   - name: Encoding
     items:
     - name: Overview

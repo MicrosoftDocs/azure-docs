@@ -18,14 +18,14 @@ ms.author: mbullwin
 # Monitor Azure App Service performance
 In the [Azure portal](https://portal.azure.com) you can set up application performance monitoring for your web apps, mobile back ends, and API apps in [Azure App Service](../../app-service/overview.md). [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) instruments your app to send telemetry about its activities to the Application Insights service, where it is stored and analyzed. There, metric charts and search tools can be used to help diagnose issues, improve performance, and assess usage.
 
-## Run time or build time
+## Runtime or build time
 You can configure monitoring by instrumenting the app in either of two ways:
 
-* **Run-time** - You can select a performance monitoring extension when your app service is already live. It isn't necessary to rebuild or reinstall your app. You get a standard set of packages that monitor response times, success rates, exceptions, dependencies, and so on.
+* **Runtime** - You can select a performance monitoring extension when your app service is already live. It isn't necessary to rebuild or reinstall your app. You get a standard set of packages that monitor response times, success rates, exceptions, dependencies, and so on.
 
-* **Build time** - You can install a package in your app in development. This option is more versatile. In addition to the same standard packages, you can write code to customize the telemetry or to send your own telemetry. You can log specific activities or record events according to the semantics of your app domain. This also gives you the ability to test the latest version of the Application Insights SDK as you can choose to evaluate beta SDKs whereas run-time monitoring is restricted to the latest stable release.
+* **Build time** - You can install a package in your app in development. This option is more versatile. In addition to the same standard packages, you can write code to customize the telemetry or to send your own telemetry. You can log specific activities or record events according to the semantics of your app domain. This also gives you the ability to test the latest version of the Application Insights SDK as you can choose to evaluate beta SDKs whereas runtime monitoring is restricted to the latest stable release.
 
-## Run time instrumentation with Application Insights
+## Runtime instrumentation with Application Insights
 If you're currently running an app service in Azure, you already get some monitoring: request and error rates by default. Add Application Insights to get more, such as response times, monitoring calls to dependencies, smart detection, and access to the powerful Kusto query language. 
 
 1. **Select Application Insights** in the Azure control panel for your app service.
@@ -106,9 +106,9 @@ In order to enable telemetry collection with Application Insights only the Appli
 
 ### Application settings definitions
 
-|App Setting Name |  Definition | Value |
+|App setting name |  Definition | Value |
 |-----------------|:------------|-------------:|
-|ApplicationInsightsAgent_EXTENSION_VERSION | Main extension, which controls run-time monitoring. | `~2` |
+|ApplicationInsightsAgent_EXTENSION_VERSION | Main extension, which controls runtime monitoring. | `~2` |
 |XDT_MicrosoftApplicationInsights_Mode |  In default mode only, essential features are enabled in order to insure optimal performance. | `default` or `recommended`. |
 |InstrumentationEngine_EXTENSION_VERSION | Controls if the binary-rewrite engine `InstrumentationEngine` will be turned on. This setting has performance implications and impacts cold start/startup time. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | Controls if SQL & Azure table text will be captured along with the dependency calls. Performance warning: this requires the `InstrumentationEngine`. | `~1` |
@@ -148,14 +148,14 @@ To create an Azure Resource Manager template with all the default Application In
 
 Select **Automation options**
 
-   ![App Service webapp creation menu](./media/azure-web-apps/create-web-app.png)
+   ![App Service web app creation menu](./media/azure-web-apps/create-web-app.png)
 
 This generates the latest Azure Resource Manager template with all required settings configured.
 
   ![App Service web app template](./media/azure-web-apps/arm-template.png)
 
 > [!NOTE]
-> The template will generate application settings in “default” mode. This mode is performance optimized, though you can modify the template to activate whichever features you prefer.)
+> The template will generate application settings in “default” mode. This mode is performance optimized, though you can modify the template to activate whichever features you prefer.
 
 ## More telemetry
 
@@ -168,15 +168,15 @@ This generates the latest Azure Resource Manager template with all required sett
 
 No, you no longer need to add the extension manually. Enabling Application Insights via the Settings blade will add all the needed Application settings to enable monitoring. This is now possible, because the files previously added by the extension are now [preinstalled](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) as part of the App Service image. The files are located in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent`.
 
-### If run-time and build time monitoring are both enabled do I end up with duplicate data?
+### If runtime and build time monitoring are both enabled do I end up with duplicate data?
 
-No, by default if build time monitoring is detected run-time monitoring via the extension will stop sending data and only the build time monitoring configuration will be honored. The determination of whether to disable run-time monitoring is based on detection of any of these three files:
+No, by default if build time monitoring is detected runtime monitoring via the extension will stop sending data and only the build time monitoring configuration will be honored. The determination of whether to disable runtime monitoring is based on detection of any of these three files:
 
 * Microsoft.ApplicationInsights dll
 * Microsoft.ASP.NET.TelemetryCorrelation dll
 * System.Diagnostics.DiagnosticSource dll
 
-It is important to keep in mind that in many versions of Visual Studio, some or all of these files are added by default to the ASP.NET and ASP.NET Core Visual Studio template files. If your project was created based off of one of the templates even if you haven't explicitly enabled Application Insights, the presence of the file dependency would prevent run-time monitoring from activating.
+It is important to keep in mind that in many versions of Visual Studio, some or all of these files are added by default to the ASP.NET and ASP.NET Core Visual Studio template files. If your project was created based off of one of the templates even if you haven't explicitly enabled Application Insights, the presence of the file dependency would prevent runtime monitoring from activating.
 
 ### APPINSIGHTS_JAVASCRIPT_ENABLED causes incomplete HTML response in NET CORE web applications.
 
@@ -185,7 +185,7 @@ Enabling Javascript via App Services can cause html responses to be cut off.
 * Workaround 1: set APPINSIGHTS_JAVASCRIPT_ENABLED Application Setting to false or remove it completely and restart
 * Workaround 2: add sdk via code and remove extension (Profiler and Snapshot debugger won't work with this configuration)
 
-We are tracking this issue [here](https://github.com/Microsoft/ApplicationInsights-Home/issues/277)
+To track this issue, go to [Azure extension causing incomplete HTML response](https://github.com/Microsoft/ApplicationInsights-Home/issues/277).
 
 For .NET Core the following are currently **not supported**:
 
@@ -204,4 +204,3 @@ For .NET Core the following are currently **not supported**:
 * [Receive alert notifications](../../azure-monitor/platform/alerts-overview.md) whenever operational events happen or metrics cross a threshold.
 * Use [Application Insights for JavaScript apps and web pages](../../azure-monitor/app/javascript.md) to get client telemetry from the browsers that visit a web page.
 * [Set up Availability web tests](../../azure-monitor/app/monitor-web-app-availability.md) to be alerted if your site is down.
-

@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
-ms.date: 12/18/2017
+ms.date: 03/04/2019
 ---
 # Machine learning algorithm cheat sheet for Azure Machine Learning Studio
 
@@ -31,7 +31,7 @@ Download and print the Machine Learning Studio Algorithm Cheat Sheet in tabloid 
 
 ## Notes and terminology definitions for the Machine Learning Studio algorithm cheat sheet
 
-* The suggestions offered in this algorithm cheat sheet are approximate rules-of-thumb. Some can be bent, and some can be flagrantly violated. This is intended to suggest a starting point. Don’t be afraid to run a head-to-head competition between several algorithms on your data. There is simply no substitute for understanding the principles of each algorithm and understanding the system that generated your data.
+* The suggestions offered in this algorithm cheat sheet are approximate rules-of-thumb. Some can be bent, and some can be flagrantly violated. This is intended to suggest a starting point. Don’t be afraid to run a head-to-head competition between several algorithms on your data. There is simply no substitute for understanding the principles of each algorithm and the system that generated your data.
 
 * Every machine learning algorithm has its own style or *inductive bias*. For a specific problem, several algorithms may be appropriate and one algorithm may be a better fit than others. But it's not always possible to know beforehand which is the best fit. In cases like these, several algorithms are listed together in the cheat sheet. An appropriate strategy would be to try one algorithm, and if the results are not yet satisfactory, try the others. Here’s an example from the [Azure AI Gallery](http://gallery.azure.ai/) of an experiment that tries several algorithms against the same data and compares the results: [Compare Multi-class Classifiers: Letter recognition](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
@@ -47,7 +47,7 @@ Download and print the Machine Learning Studio Algorithm Cheat Sheet in tabloid 
 
 * **Boosted decision tree regression** takes advantage of feature overlap or interaction among features. That means that, in any given data point, the value of one feature is somewhat predictive of the value of another. For example, in daily high/low temperature data, knowing the low temperature for the day allows you to make a reasonable guess at the high. The information contained in the two features is somewhat redundant.
 
-* Classifying data into more than two categories can be done by either using an inherently multi-class classifier, or by combining a set of two-class classifiers into an **ensemble**. In the ensemble approach, there is a separate two-class classifier for each class - each one separates the data into two categories:  “this class” and “not this class.” Then these classifiers vote on the correct assignment of the data point. This is the operational principle behind [One-vs-All Multiclass][one-vs-all-multiclass].
+* Classifying data into more than two categories can be done either by using an inherently multi-class classifier, or by combining a set of two-class classifiers into an **ensemble**. In the ensemble approach, there is a separate two-class classifier for each class - each one separates the data into two categories:  “this class” and “not this class.” Then these classifiers vote on the correct assignment of the data point. This is the operational principle behind [One-vs-All Multiclass][one-vs-all-multiclass].
 
 * Several methods, including logistic regression and the Bayes point machine, assume **linear class boundaries**. That is, they assume that the boundaries between classes are approximately straight lines (or hyperplanes in the more general case). Often this is a characteristic of the data that you don’t know until after you’ve tried to separate it, but it’s something that typically can be learned by visualizing beforehand. If the class boundaries look very irregular, stick with decision trees, decision jungles, support vector machines, or neural networks.
 
@@ -64,7 +64,7 @@ Download and print the Machine Learning Studio Algorithm Cheat Sheet in tabloid 
 
 
 <!-- Module References -->
-[a-z-list]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list
-[initialize-model]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model
-[k-means-clustering]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/k-means-clustering
-[one-vs-all-multiclass]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/one-vs-all-multiclass
+[a-z-list]: /azure/machine-learning/studio-module-reference/a-z-module-list
+[initialize-model]: /azure/machine-learning/studio-module-reference/machine-learning-initialize-model
+[k-means-clustering]: /azure/machine-learning/studio-module-reference/k-means-clustering
+[one-vs-all-multiclass]: /azure/machine-learning/studio-module-reference/one-vs-all-multiclass

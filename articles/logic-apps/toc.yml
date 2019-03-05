@@ -204,6 +204,8 @@
         href: ../connectors/connectors-native-http-swagger.md
       - name: HTTP Webhook
         href: ../connectors/connectors-native-webhook.md
+      - name: IBM 3270
+        href: ../connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270.md
       - name: Informix
         href: ../connectors/connectors-create-api-informix.md
       - name: Integration Account

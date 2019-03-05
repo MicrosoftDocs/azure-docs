@@ -21,7 +21,7 @@ ms.reviewer: igorstan
 > 
 > 
 
-## Required Permssions
+## Required Permissions
 To enable Transparent Data Encryption (TDE), you must be an administrator or a member of the dbmanager role.
 
 ## Enabling Encryption

@@ -104,7 +104,7 @@ Use **npm** to create a Node.js solution template that you can build on top of.
  
    ![Provide Docker image repository](./media/tutorial-node-module/repository.png)
 
-The VS Code window loads your IoT Edge solution workspace. The solution workspace contains five top-level components. The **modules** folder contains the Node.js code for your module as well as Dockerfiles for building your module as a container image. The **\.env** file stores your container registry credentials. The **deployment.template.json** file contains the information that the IoT Edge runtime uses to deploy modules on a device. And **deployment.debug.template.json** file containers the debug version of modules. You won't edit the **\.vscode** folder or **\.gitignore** file in this tutorial. 
+The VS Code window loads your IoT Edge solution workspace. The solution workspace contains five top-level components. The **modules** folder contains the Node.js code for your module as well as Dockerfiles for building your module as a container image. The **\.env** file stores your container registry credentials. The **deployment.template.json** file contains the information that the IoT Edge runtime uses to deploy modules on a device and **deployment.debug.template.json** file contains the debug version of modules. You won't edit the **\.vscode** folder or **\.gitignore** file in this tutorial. 
 
 If you didn't specify a container registry when creating your solution, but accepted the default localhost:5000 value, you won't have a \.env file. 
 
@@ -219,7 +219,7 @@ In the previous section you created an IoT Edge solution and added code to the N
 
 2. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge solution**. 
 
-When you tell Visual Studio Code to build your solution, it first takes the information in the deployment template and generates a `deployment.json` file in a new **config** folder. Then it runs two commands in the integrated terminal: `docker build` and `docker push`. These two commands build your code, containerize the your Node.js code, and the push it to the container registry that you specified when you initialized the solution. 
+When you tell Visual Studio Code to build your solution, it first takes the information in the deployment template and generates a `deployment.json` file in a new **config** folder. Then it runs two commands in the integrated terminal: `docker build` and `docker push`. These two commands build your code, containerize your Node.js code, and then push it to the container registry that you specified when you initialized the solution. 
 
 You can see the full container image address with tag in the `docker build` command that runs in the VS Code integrated terminal. The image address is built from information in the `module.json` file, with the format **\<repository\>:\<version\>-\<platform\>**. For this tutorial, it should look like **registryname.azurecr.io/nodemodule:0.0.1-amd64**.
 
