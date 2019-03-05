@@ -139,7 +139,7 @@ The ARP table of a peering can be used to determine validate layer 2 configurati
           0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 ### ARP table when on-premises / connectivity provider side has problems
-If there are issues with the on-premises or connectivity provider you may see that either only one entry will appear in the ARP table or the on-prem MAC address will show incomplete. This will show the mapping between the MAC address and IP address used in the Microsoft side. 
+If there are issues with the on-premises or connectivity provider you may see that either only one entry will appear in the ARP table or the on premises MAC address will show incomplete. This will show the mapping between the MAC address and IP address used in the Microsoft side. 
   
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------    

@@ -206,6 +206,9 @@
   - name: Blockchain Workbench
     tocHref: /azure/blockchain-workbench/
     topicHref: /azure/blockchain-workbench/
+  - name: Bot Service
+    tocHref: /azure/bot-service/
+    topicHref: /azure/bot-service/    
   - name: Cache
     tocHref: /azure/cache/
     topicHref: /azure/cache/
@@ -389,6 +392,9 @@
   - name: Front Door Service
     tocHref: /azure/frontdoor/
     topicHref: /azure/frontdoor/
+  - name: Genomics
+    tocHref: /azure/genomics/
+    topicHref: /azure/genomics/    
   - name: Governance
     tocHref: /azure/governance/
     topicHref: /azure/governance/

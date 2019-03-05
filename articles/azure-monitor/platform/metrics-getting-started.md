@@ -21,7 +21,7 @@ Use the metrics explorer to investigate the health and utilization of your resou
 
 1. Start by [picking a resource and a metric](#creating-your-first-metric-chart) and you see a basic chart. Then [select a time range](#picking-time-range) that is relevant for your investigation.
 
-1. After learning about basic charts, you may want to try [applying dimension filters and splitting](#applying-dimension-filters-and-splitting). The filters and splitting allow you to analyze which segments of the metric contribute to the overall metric value and identify possible outliers.
+1. Try [applying dimension filters and splitting](#applying-dimension-filters-and-splitting). The filters and splitting allow you to analyze which segments of the metric contribute to the overall metric value and identify possible outliers.
 
 1. Use [advanced settings](#advanced-chart-settings-and-next-steps) to customize the chart before pinning to dashboards. [Configure alerts](alerts-metric-overview.md) to receive notifications when the metric value exceeds or drops below a threshold.
 
@@ -54,7 +54,7 @@ By default, the chart shows the most recent 24 hours of metrics data. Use the **
 
 [Filtering](metrics-charts.md#apply-filters-to-charts) and [splitting](metrics-charts.md#apply-splitting-to-a-chart) are powerful diagnostic tools for the metrics that have dimensions. These feature show how various metric segments ("dimension values") impact the overall value of the metric, and allow you to identify possible outliers.
 
-- **Filtering** lets you choose which dimension values are included in the chart. For example, you might want to show successful requests when charting the *server response time* metric. You would need to apply the filer on the *success of request* dimension. 
+- **Filtering** lets you choose which dimension values are included in the chart. For example, you might want to show successful requests when charting the *server response time* metric. You would need to apply the filter on the *success of request* dimension. 
 
 - **Splitting** controls whether the chart displays separate lines for each value of a dimension, or aggregates the values into a single line. For example, you can see one line for an average response time across all server instances, or see separate lines for each server. You would need to apply splitting on the *server instance* dimension to see separate lines.
 

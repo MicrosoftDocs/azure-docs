@@ -30,7 +30,7 @@ You can manage Key Vault in Azure Stack using PowerShell. Learn how to use Key V
 * Authorize users or applications to invoke operations in the vault.
 
 >[!NOTE]
->The Key Vault PowerShell cmdlets descibed in this article are provided in the Azure PowerShell SDK.
+>The Key Vault PowerShell cmdlets described in this article are provided in the Azure PowerShell SDK.
 
 ## Prerequisites
 
