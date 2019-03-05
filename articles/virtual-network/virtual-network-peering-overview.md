@@ -72,12 +72,8 @@ You can also try the [Troubleshooter for virtual network peering issues](https:/
 
 ## Requirements and constraints
 
-The following constraints apply only when virtual networks are globally peered:
+The following constraint applies only when virtual networks are globally peered:
 - Resources in one virtual network cannot communicate with the front-end IP address of a Basic internal load balancer in a globally peered virtual network. Support for Basic Load Balancer only exists within the same region. Support for Standard Load Balancer exists for both, Global VNet Peering and VNet Peering. 
-- Gateway Transit support across regions is in preview in all Azure regions. To use remote gateways or allow gateway transit when globally peered, you must run the following CLI commands:
-
- `azfeatureregister --name AllowGlobalPeeringTransit--namespace Microsoft.Network`
-`azproviderregister --namespace Microsoft.Network`
 
 To learn more about requirements and constraints, see [Virtual network peering requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints). To learn about the limits for the number of peerings you can create for a virtual network, see [Azure networking limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 
