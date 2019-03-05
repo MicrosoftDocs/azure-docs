@@ -11,9 +11,9 @@ ms.date: 01/08/2018
 ms.author: trinadhk
 ---
 
-# Enable backup during Azure virtual machine creation
+# Enable backup when you create an Azure virtual machine
 
-The Azure Backup service provides an interface to create and configure backups to the Azure cloud platform. Protect your data by making backups, called recovery points, at regular intervals. Azure Backup creates recovery points that can be stored in geo-redundant Recovery Services vaults. 
+Use the Azure Backup service to back up Azure virtual machines (VMs). VMs are backed up according to a schedule specified in a backup policy, and recovery points are created from backups. Recovery points are stored in Recovery Services vaults.
 
 This article details how to enable backup while you're creating a virtual machine (VM) in the Azure portal.  
 
