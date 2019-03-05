@@ -32,7 +32,7 @@ In the function chaining pattern, a sequence of functions executes in a specific
 
 ![A diagram of the function chaining pattern](./media/durable-functions-concepts/function-chaining.png)
 
-You can use Durable Functions to implement the function chaining pattern concisely by using code:
+You can use Durable Functions to implement the function chaining pattern concisely as shown in the following example:```
 
 #### C# script
 
