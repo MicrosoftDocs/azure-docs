@@ -6,7 +6,7 @@ ms.date: 03/04/2019
 ms.author: alkohli
 ---
 
-1. Connect to the PowerShell interface.
+1. [Connect to the PowerShell interface](#connect-to-the-powershell-interface).
 2. Use the `Get-HcsApplianceInfo` to get the information for your device.
 
     The following example shows the usage of this cmdlet:

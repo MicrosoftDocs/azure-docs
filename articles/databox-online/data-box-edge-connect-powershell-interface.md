@@ -47,15 +47,15 @@ This article includes the following procedures:
  
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 
-## Deactivate your device
+## Reset your device
 
-[!INCLUDE [Deactivate your device](../../includes/data-box-edge-gateway-deactivate-device.md)]
+[!INCLUDE [Reset your device](../../includes/data-box-edge-gateway-deactivate-device.md)]
 
 ## Get compute logs
 
 If the compute role is configured on your device, you can also get the compute logs via the PowerShell interface.
 
-1. Connect to the Windows PowerShell interface.
+1. [Connect to the PowerShell interface](#connect-to-the-powershell-interface).
 2. Use the `Get-AzureDataBoxEdgeComputeRoleLogs` to get the compute logs for your device.
 
     The following example shows the usage of this cmdlet:
@@ -71,7 +71,7 @@ If the compute role is configured on your device, you can also get the compute l
 
 ## Monitor and troubleshoot compute
 
-On a Data Box Edge device that has the compute role configured, a subset of docker commands are available to monitor or troubleshoot modules. To see a list of available commands, connect to the PowerShell interface and use the `dockerdbe` function.
+On a Data Box Edge device that has the compute role configured, a subset of docker commands are available to monitor or troubleshoot modules. To see a list of available commands, [connect to the PowerShell interface](#connect-to-the-powershell-interface) and use the `dockerdbe` function.
 
 ```powershell
 [10.128.26.24]: PS>dockerdbe -?
@@ -181,39 +181,40 @@ reateOptions":"{\"HostConfig\":{\"Binds\":[\"/home/hcsshares/share4-dl460:/home/
 
 To get logs for a specific container, first list the container and then get the logs for the container that you're interested in.
 
-To get the list of running containers, run the `ps` command.
+1. [Connect to the PowerShell interface](#connect-to-the-powershell-interface).
+2. To get the list of running containers, run the `ps` command.
 
-```powershell
-[10.128.47.126]: P> dockerdbe ps
-CONTAINER ID        IMAGE                                                COMMAND                   CREATED             STATUS              PORTS                                                                  NAMES
-d99e2f91d9a8        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  movefile
-0a06f6d605e9        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  filemove
-2f8a36e629db        mcr.microsoft.com/azureiotedge-hub:1.0               "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days           0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp   edgeHub
-acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days                                                                                  edgeAgent
-```
+    ```powershell
+    [10.128.47.126]: P> dockerdbe ps
+    CONTAINER ID        IMAGE                                                COMMAND                   CREATED             STATUS              PORTS                                                                  NAMES
+    d99e2f91d9a8        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  movefile
+    0a06f6d605e9        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  filemove
+    2f8a36e629db        mcr.microsoft.com/azureiotedge-hub:1.0               "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days           0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp   edgeHub
+    acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days                                                                                  edgeAgent
+    ```
 
-Make a note of the container ID for the container that you need the logs for.
+3. Make a note of the container ID for the container that you need the logs for.
 
-To get the logs for a specific container, run the `logs` command providing the container ID.
+4. To get the logs for a specific container, run the `logs` command providing the container ID.
 
-```powershell
-[10.128.47.126]: PS>dockerdbe logs d99e2f91d9a8
-02/26/2019 18:21:45: Info: Opening module client connection.
-02/26/2019 18:21:46: Info: Initializing with input: /home/input, output: /home/output.
-02/26/2019 18:21:46: Info: IoT Hub module client initialized.
-02/26/2019 18:22:24: Info: Received message: 1, SequenceNumber: 0 CorrelationId: , MessageId: 081886a07e694c4c8f245a80b96a252a Body: [{"ChangeType":"Created","ShareRelativeFilePath":"\\__Microsoft Data Box Edge__\\Upload\\Errors.xml","ShareName":"share4-dl460"}]
-02/26/2019 18:22:24: Info: Moving input file: /home/input/__Microsoft Data Box Edge__/Upload/Errors.xml to /home/output/__Microsoft Data Box Edge__/Upload/Errors.xml
-02/26/2019 18:22:24: Info: Processed event.
-02/26/2019 18:23:38: Info: Received message: 2, SequenceNumber: 0 CorrelationId: , MessageId: 30714d005eb048e7a4e7e3c22048cf20 Body: [{"ChangeType":"Created","ShareRelativeFilePath":"\\f [10]","ShareName":"share4-dl460"}]
-02/26/2019 18:23:38: Info: Moving input file: /home/input/f [10] to /home/output/f [10]
-02/26/2019 18:23:38: Info: Processed event.
-```
+    ```powershell
+    [10.128.47.126]: PS>dockerdbe logs d99e2f91d9a8
+    02/26/2019 18:21:45: Info: Opening module client connection.
+    02/26/2019 18:21:46: Info: Initializing with input: /home/input, output: /home/output.
+    02/26/2019 18:21:46: Info: IoT Hub module client initialized.
+    02/26/2019 18:22:24: Info: Received message: 1, SequenceNumber: 0 CorrelationId: , MessageId: 081886a07e694c4c8f245a80b96a252a Body: [{"ChangeType":"Created","ShareRelativeFilePath":"\\__Microsoft Data Box Edge__\\Upload\\Errors.xml","ShareName":"share4-dl460"}]
+    02/26/2019 18:22:24: Info: Moving input file: /home/input/__Microsoft Data Box Edge__/Upload/Errors.xml to /home/output/__Microsoft Data Box Edge__/Upload/Errors.xml
+    02/26/2019 18:22:24: Info: Processed event.
+    02/26/2019 18:23:38: Info: Received message: 2, SequenceNumber: 0 CorrelationId: , MessageId: 30714d005eb048e7a4e7e3c22048cf20 Body: [{"ChangeType":"Created","ShareRelativeFilePath":"\\f [10]","ShareName":"share4-dl460"}]
+    02/26/2019 18:23:38: Info: Moving input file: /home/input/f [10] to /home/output/f [10]
+    02/26/2019 18:23:38: Info: Processed event.
+    ```
 
 ### To monitor the usage statistics of the device
 
 To monitor the memory, CPU usage, and IO on the device, use the `stats` command.
 
-1. Connect to the PowerShell interface.
+1. [Connect to the PowerShell interface](#connect-to-the-powershell-interface).
 2. Run the `stats` command so as to disable the live stream and pull only the first result.
 
    ```powershell

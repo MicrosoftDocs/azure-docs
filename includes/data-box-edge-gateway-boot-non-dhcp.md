@@ -2,13 +2,13 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 02/15/2019
+ms.date: 03/05/2019
 ms.author: alkohli
 ---
 
 If you boot up in a non-DHCP environment, follow these steps to deploy the virtual machine for your Data Box Gateway.
 
-1. Connect to the Windows PowerShell interface of the device.
+1. [Connect to the Windows PowerShell interface of the device](#connect-to-the-powershell-interface).
 2. Use the `Get-HcsIpAddress` cmdlet to list the network interfaces enabled on your virtual device. If your device has a single network interface enabled, the default name assigned to this interface is `Ethernet`.
 
     The following example shows the usage of this cmdlet:

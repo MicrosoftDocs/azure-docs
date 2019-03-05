@@ -2,13 +2,13 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 03/04/2019
+ms.date: 03/05/2019
 ms.author: alkohli
 ---
 
 If you experience any device issues, you can create a support package from the system logs. Microsoft Support uses this package to troubleshoot the issues. Follow these steps to create a support package:
 
-1. Connect to the PowerShell interface of your device.
+1. [Connect to the PowerShell interface of your device](#connect-to-the-powershell-interface).
 2. Use the `Get-HcsNodeSupportPackage` command to create a support package. The usage of the cmdlet is as follows:
 
     ```powershell
@@ -22,14 +22,14 @@ If you experience any device issues, you can create a support package from the s
             [-IncludeArchived] [-IncludePeriodicStats] [-Credential <pscredential>]  [<CommonParameters>]
     ```
 
-    The cmdlet collects logs from your device and copies those to a specified network or local share.
+    The cmdlet collects logs from your device and copies those logs to a specified network or local share.
 
     The parameters used are as follows:
 
     - `-Path` - Specify the network or the local path to copy support package to. (required)
     - `-Credential` - Specify the credentials to access the protected path.
     - `-Zip` - Specify to generate a zip file.
-    - `-Include` - Specify to include the components to be included in the support package. If not specified, this includes `Default`.
+    - `-Include` - Specify to include the components to be included in the support package. If not specified, `Default` is assumed.
     - `-IncludeArchived` - Specify to include archived logs in the support package.
     - `-IncludePeriodicStats` - Specify to include periodic stat logs in the support package.
 

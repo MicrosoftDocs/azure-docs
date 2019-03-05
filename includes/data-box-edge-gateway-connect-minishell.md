@@ -51,7 +51,7 @@ Follow these steps to remotely connect from a Windows client.
 
 ### Remotely connect from a Linux client
 
-On the Linux client that you will use to connect:
+On the Linux client that you'll use to connect:
 
 - [Install the latest PowerShell Core for Linux](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6) from GitHub to get the SSH remoting feature. 
 - [Install only the `gss-ntlmssp` package from the NTLM module](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). For Ubuntu clients, use the following command:

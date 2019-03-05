@@ -6,7 +6,7 @@ ms.date: 03/06/2019
 ms.author: alkohli
 ---
 
-To troubleshoot any issues that you might experience with your device, you will need to engage with the Microsoft Support team. Microsoft Support may need to use a support session to sign into your device.
+To troubleshoot any device issues, you need to engage with the Microsoft Support team. Microsoft Support may need to use a support session to sign into your device.
 
 1. Run Windows PowerShell as an administrator.
 2. Assign a variable to the device IP address. At the command prompt, type:
@@ -38,7 +38,7 @@ To troubleshoot any issues that you might experience with your device, you will 
     $supportSession = New-PSSession -ComputerName $ip -Credential ~\EdgeSupport -ConfigurationName SupportSession
     Enter-PSSession -Session $supportSession
     ```
-7. You are now in support session. The following sample output shows how to connect to the Support session:
+7. You're now in support session. The following sample output shows how to connect to the Support session:
 
     ```
     PS C:\WINDOWS\system32> $ip = "10.100.10.10";
