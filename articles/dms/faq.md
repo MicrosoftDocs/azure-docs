@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/19/2018
+ms.date: 03/05/2019
 ---
 
 # FAQ about using the Azure Database Migration Service
@@ -85,7 +85,7 @@ While multiple Microsoft tutorials that can walk you through the process of sett
 If the user explicitly stops the Azure Database Migration Service (DMS) or if the service is inactive for a period of 24 hours, the service will be in a stopped or auto paused state. In each case, the service will be unavailable and in a stopped status.  To resume active migrations, restart the service.
 
 ### Q. Where can I leave feedback about the Azure Database Migration Service?
-We want to hear from you. Please send any feedback and/ideas you have about the Azure Database Migration Service via User Voice, [here](https://feedback.azure.com/forums/906100-azure-database-migration-service).
+We want to hear from you. Please send any feedback and/ideas you have about the Azure Database Migration Service via User Voice, [here](https://feedback.azure.com/forums/906100-azure-database-migration-service), or by contacting the team at [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ## Next steps
 For an overview of the Azure Database Migration Service and regional availability, see the article [What is the Azure Database Migration Service](dms-overview.md). 

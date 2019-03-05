@@ -2,12 +2,12 @@
 title: Deploy the configuration server for VMware disaster recovery with Azure Site Recovery | Microsoft Docs
 description: This article describes how to deploy a configuration server for VMware disaster recovery with Azure Site Recovery
 services: site-recovery
-author: Rajeswari-Mamilla
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/05/2018
-ms.author: ramamill
+ms.date: 02/28/2019
+ms.author: mayg
 ---
 
 # Deploy a configuration server
@@ -116,7 +116,7 @@ If you want to add an additional NIC to the configuration server, add it before 
 
 ### Configure settings
 
-1. In the configuration server management wizard, select **Setup connectivity**, and then select the NIC that the process server uses to receive replication traffic from VMs. Then select **Save**. You can't change this setting after it is configured. It is strongly advised to not change the IP address of a configuration server. Ensure IP assigned to the Configuration Server is STATIC IP and not DHCP IP.
+1. In the configuration server management wizard, select **Setup connectivity**. From the dropdowns, first select the NIC that the in-built process server uses for discovery and push installation of mobility service on source machines, and then select the NIC that Configuration Server uses for connectivity with Azure. Then select **Save**. You cannot change this setting after it is configured. It is strongly advised to not change the IP address of a configuration server. Ensure IP assigned to the Configuration Server is STATIC IP and not DHCP IP.
 2. In **Select Recovery Services vault**, sign in to Microsoft Azure with credentials used in **step 6** of "[Register configuration server with Azure Site Recovery Services](#register-the-configuration-server-with-azure-site-recovery-services)".
 3. After sign-in, Select your Azure subscription and the relevant resource group and vault.
 
