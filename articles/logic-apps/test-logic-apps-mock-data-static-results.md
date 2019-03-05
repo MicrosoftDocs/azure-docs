@@ -17,16 +17,16 @@ When testing your logic apps, you might not be ready to actually
 call or access apps, services, and systems for various reasons. 
 Usually in these scenarios, you might have to run different condition 
 paths, force errors, provide specific message response bodies, 
-or even try skipping some steps. Instead, you can mock output 
-data from your logic app's actions by setting up static results 
-when running these kinds of test scenarios. To learn more about 
-mocking in general, see [Mock API responses](../api-management/mock-api-responses.md).
+or even try skipping some steps. However, when you set up static 
+results for an action in your logic app, you can mock output data 
+from that action. Enabling static results on an action doesn't 
+run the action, but returns the mock data instead. 
 
-Enabling static results on an action doesn't run the action, 
-but returns the mock data instead. For example, if you set 
-up static results for the Outlook 365 send mail action, 
-the Logic Apps engine just returns the mock data you specified 
-as static results, rather than call Outlook and send an email.
+For example, if you set up static results for the Outlook 365 send 
+mail action, the Logic Apps engine just returns the mock data you 
+specified as static results, rather than call Outlook and send an email.
+To learn more about mocking in general, see 
+[Mock API responses](../api-management/mock-api-responses.md).
 
 ## Prerequisites
 
