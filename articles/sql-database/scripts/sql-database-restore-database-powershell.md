@@ -11,7 +11,7 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/08/2019
+ms.date: 03/04/2019
 ---
 # Use PowerShell to restore an Azure SQL single database from backups
 
