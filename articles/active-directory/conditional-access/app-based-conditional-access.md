@@ -94,7 +94,7 @@ This scenario assumes that a user:
 
 - Is able to access email
 
-Any Intune app protection policies are activated at the time the access corporate data and may prompt the user to restart the application, use an additional PIN etc (if configured for the application and platform).
+Any Intune app protection policies are activated at the time the access corporate data and may prompt the user to restart the application, use an additional PIN etc. (if configured for the application and platform).
 
 ### Configuration 
 

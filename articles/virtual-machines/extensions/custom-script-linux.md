@@ -364,7 +364,7 @@ The Azure Script Extension produces a log, which you can find here:
 /var/log/azure/custom-script/handler.log
 ```
 
-You should look for the induvidual execution, it will look something like:
+You should look for the individual execution, it will look something like:
 ```text
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=start
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=pre-check
