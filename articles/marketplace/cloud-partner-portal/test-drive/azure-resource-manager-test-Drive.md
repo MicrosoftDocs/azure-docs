@@ -37,13 +37,25 @@ If you choose to build an Azure Resource Manager Test Drive, the requirements ar
 
 ## How to build an Azure Resource Manager Test Drive
 
+Here is the process for building an Azure Resource Manager Test Drive:
+
+1. Design what you want your customers to do in a flow diagram.
+1. Define what experiences you would like your customers to build.
+1. Based on the above definitions, decide what pieces and resources are needed for customers to accomplish such experience: for example, D365 instance, or a website with a database.
+1. Build the design locally, and test the experience.
+1. Package the experience in an ARM template deployment, and from there:
+    1. Define what parts of the resources are input parameters;
+    1. What variables are;
+    1. What outputs are given to the customer experience.
+1. Publish, test, and go live.
+
 The most important part about building an Azure Resource Manager Test Drive is to define what scenario(s) you want your customers to experience. Are you a firewall product and you want to demo how well you handle script injection attacks? Are you a storage product and you want to demo how fast and easy your solution compresses files?
 
-Make surety spend a sufficient amount of time evaluating what are the best ways to show off your product. Specifically around all the required resources you would need, as it makes the architecting of the Resource Manager template sufficiently easier.
+Make surety spend a sufficient amount of time evaluating what are the best ways to show off your product. Specifically around all the required resources you would need, as it makes packaging the Resource Manager template sufficiently easier.
 
 To continue with our firewall example, the architecture may be that you need a public IP URL for your service and another public IP URL for the website that your firewall is protecting. Each IP is deployed on a Virtual Machine and connected together with a network security group + network interface.
 
-Once you have architected the desired package of resources, now comes the writing and building of the Test Drive Resource Manager template.
+Once you have designed the desired package of resources, now comes the writing and building of the Test Drive Resource Manager template.
 
 ## Writing Test Drive Resource Manager templates
 
