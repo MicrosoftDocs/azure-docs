@@ -8,7 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 7740905c-04c4-4d8c-ad90-523a6cd1e206
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na

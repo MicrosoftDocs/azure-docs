@@ -8,7 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 3df3d73e-80a4-4b35-bd3d-90bc4f6f6afd
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
