@@ -136,10 +136,13 @@ Yes, as long as both caches have the same number of shards.
 
 ### Can I use Geo-replication with my caches in a VNET?
 
-Yes, Geo-replication of caches in VNETs are supported. 
+Yes, Geo-replication of caches in VNETs is supported with caveats:
 
 - Geo-replication between caches in the same VNET is supported.
-- Geo-replication between caches in different VNETs is also supported, as long as the two VNETs are configured in such a way that resources in the VNETs are able to reach each other via TCP connections.
+- Geo-replication between caches in different VNETs is also supported. The recommended way to connect two VNETs for geo-replication is with a [VPN Gateway VNET-to-VNET connection](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V). See [this Resource Manager template]() to get started with VPN Gateways for geo-replication.
+  - Geo-replication within the same region is supported with VNET Peering.
+  - Geo-replication across different regions isn't supported with VNET Peering because of a constraint with Basic internal load balancers.
+  - For more information about VNET Peering constraints, see [Peering - Requirements and constraints](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints).
 
 ### What is the replication schedule for Redis geo-replication?
 
@@ -179,4 +182,3 @@ Currently, to initiate the failover, you need to remove the Geo-replication link
 ## Next steps
 
 Learn more about the [Azure Cache for Redis Premium tier](cache-premium-tier-intro.md).
-
