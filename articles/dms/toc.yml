@@ -1,7 +1,10 @@
+- name: Database Migration Service Documentation
+  href: index.yml
+
 - name: Overview
   items:
-  - name: Database Migration Service Documentation
-    href: index.yml
+  - name: What is Database Migration Service (DMS)?
+    href: dms-overview.md
 
 - name: Quickstarts
   items:
