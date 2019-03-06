@@ -69,9 +69,9 @@ When you need to take on an Azure resource role, you can request activation by u
 
     ![Request pending notification](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
-## Use a role after activation
+## Use a role immediately after activation
 
-When you activate a role in PIM, it takes at least 10 minutes before you can access the desired administrative portal or perform functions within a specific administrative workload. To check when your role is active, follow these steps.
+In case of any delay after activation, follow these steps after you activate to use your Azure resource roles immediately.
 
 1. Open Azure AD Privileged Identity Management.
 
