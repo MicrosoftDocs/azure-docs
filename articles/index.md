@@ -1049,7 +1049,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/spatial-anchors/">
-                                                <img src="hmedia/index/spatial_anchors.png" alt="" />
+                                                <img src="media/index/spatial_anchors.png" alt="" />
                                                 <p>Azure Spatial Anchors</p>
                                             </a>
                                         </li>
