@@ -58,6 +58,8 @@
       href: vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md
     - name: Connect to multiple policy-based VPN devices
       href: vpn-gateway-connect-multiple-policybased-rm-ps.md
+    - name: Site-to-Site and ExpressRoute coexisting connections
+      href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
     - name: Configure VPN devices
       items:
       - name: Download VPN device configuration scripts
@@ -66,6 +68,22 @@
         href: vpn-gateway-3rdparty-device-config-overview.md
       - name: 'Sample: Cisco ASA device (IKEv2/no BGP)'
         href: vpn-gateway-3rdparty-device-config-cisco-asa.md
+  - name: VNet-to-VNet connections
+    items:
+    - name: Configure VNet-to-VNet connections
+      items:
+      - name: Azure portal
+        href: vpn-gateway-howto-vnet-vnet-resource-manager-portal.md
+      - name: Azure PowerShell
+        href: vpn-gateway-vnet-vnet-rm-ps.md
+      - name: Azure CLI
+        href: vpn-gateway-howto-vnet-vnet-cli.md
+    - name: Configure a VNet-to-VNet connection between deployment models
+      items:
+      - name: Azure portal
+        href: vpn-gateway-connect-different-deployment-models-portal.md
+      - name: Azure PowerShell
+        href: vpn-gateway-connect-different-deployment-models-powershell.md
   - name: Point-to-Site connections
     items:
     - name: Azure certificate authentication
@@ -100,7 +118,7 @@
         href: point-to-site-vpn-client-configuration-radius.md
       - name: Integrate P2S VPN RADIUS authentication with NPS server
         href: vpn-gateway-radiuis-mfa-nsp.md
-    - name: Configure OpenVPN
+    - name: OpenVPN
       items:
       - name: Configure OpenVPN for Point-to-Site connections
         href: vpn-gateway-howto-openvpn.md
@@ -108,34 +126,10 @@
         href: vpn-gateway-howto-openvpn-clients.md
     - name: Transition to a public CA gateway certificate for P2S
       href: vpn-gateway-point-to-site-gateway-public-ca.md
-  - name: VNet-to-VNet connections
-    items:
-    - name: Configure VNet-to-VNet connections
-      items:
-      - name: Azure portal
-        href: vpn-gateway-howto-vnet-vnet-resource-manager-portal.md
-      - name: Azure PowerShell
-        href: vpn-gateway-vnet-vnet-rm-ps.md
-      - name: Azure CLI
-        href: vpn-gateway-howto-vnet-vnet-cli.md
-    - name: Configure a VNet-to-VNet connection between deployment models
-      items:
-      - name: Azure portal
-        href: vpn-gateway-connect-different-deployment-models-portal.md
-      - name: Azure PowerShell
-        href: vpn-gateway-connect-different-deployment-models-powershell.md
-  - name: Site-to-Site and ExpressRoute coexisting connections
-    items:
-    - name: Azure PowerShell
-      href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
   - name: Configure IPsec/IKE policies on connections
-    items:
-    - name: Azure PowerShell
-      href: vpn-gateway-ipsecikepolicy-rm-powershell.md
-  - name: Configure highly available active-active connections
-    items:
-    - name: Azure PowerShell
-      href: vpn-gateway-activeactive-rm-powershell.md
+    href: vpn-gateway-ipsecikepolicy-rm-powershell.md
+  - name: Configure active-active connections
+    href: vpn-gateway-activeactive-rm-powershell.md
   - name: Create and manage a VPN gateway
     items:
     - name: Create a route-based VPN gateway
