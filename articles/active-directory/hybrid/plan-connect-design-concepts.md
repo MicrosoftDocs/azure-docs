@@ -153,7 +153,7 @@ During the analysis (step 4), if the attribute is configured on one or more obje
 
 ![Enable ConsistencyGuid for existing deployment - error](./media/plan-connect-design-concepts/consistencyguidexistingdeploymenterror.png)
 
- If you are certain that the attribute isn't used by other existing applications, you can suppress the error by restarting the Azure AD Connect wizard with the **/SkipLdapSearchcontact** specified. To do so, run the following command in command prompt:
+ If you are certain that the attribute isn't used by other existing applications, you can suppress the error by restarting the Azure AD Connect wizard with the **/SkipLdapSearch** switch specified. To do so, run the following command in command prompt:
 
 ```
 "c:\Program Files\Microsoft Azure Active Directory Connect\AzureADConnect.exe" /SkipLdapSearch
