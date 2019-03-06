@@ -73,3 +73,5 @@ OR​
 	```
 
 ## Next steps
+
+Learn more about [high-performance computing](../../linux/high-performance-computing.md) in Azure.

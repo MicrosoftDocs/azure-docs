@@ -33,6 +33,14 @@ More on AMD EPYC architecture at: https://bit.ly/2GpQIMb and https://bit.ly/2Epv
 
 
 
+
+Topology of EPYC 2P Server​
+
+![Topology of EPYC 2P Server​](../media/hb-series-overview/dual-socket.png)
+
+Segregation of cores reserved for Azure Hypervisor and HB-series VM​
+![Segregation of cores reserved for Azure Hypervisor and HB-series VM​​](../media/hb-series-overview/segregation-of-cores.png)
+
 ## Hardware specifications
 
 | HW Specifications                | HB-series VM                     |
