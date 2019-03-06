@@ -30743,7 +30743,11 @@
       "redirect_url": "/azure/key-vault/key-vault-overview",
       "redirect_document_id": true
     },
-
+    {
+      "source_path": "articles/virtual-machines/windows/mount-azure-file-storage.md",
+      "redirect_url": "/azure/storage/files/storage-files-quick-create-use-windows",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/azure-stack/asdk/asdk-deploy.md",
       "redirect_url": "/azure/azure-stack/asdk/asdk-install",
