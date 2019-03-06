@@ -105,7 +105,7 @@ dataflow.head(5)
 Run the following code to display the column data types.
 
 ```python
-dataflow.head(1).dtypes
+dataflow.dtypes
 ```
 Output:
 
@@ -124,7 +124,7 @@ By default, the Azure Machine Learning Data Prep SDK does not change your data t
 dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
                           skip_rows=1,
                           inference_arguments=dprep.InferenceArguments.current_culture())
-dataflow.head(1).dtypes
+dataflow.dtypes
 ```
 Output:
 
@@ -170,7 +170,7 @@ dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_c
 
 ## Load fixed-width data files
 
-To loadfixed-width files, you specify a list of character offsets. The first column is always assumed to start at zero offset.
+To load fixed-width files, you specify a list of character offsets. The first column is always assumed to start at zero offset.
 
 ```python
 dataflow = dprep.read_fwf('./data/fixed_width_file.txt', offsets=[7, 13, 43, 46, 52, 58, 65, 73])
