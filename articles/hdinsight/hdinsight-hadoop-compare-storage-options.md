@@ -38,9 +38,11 @@ You can create a cluster using different combinations of services for primary an
 | 3.6 & 4.0 | Standard Blob | Standard Blob | Yes |
 | 3.6 & 4.0 | Standard Blob | Data Lake Storage Gen2 | No |
 | 3.6 & 4.0 | Standard Blob | Data Lake Storage Gen1 | Yes |
-| 3.6 & 4.0 | Data Lake Storage Gen2* | Data Lake Storage Gen2 or Standard Blob | Yes |
+| 3.6 & 4.0 | Data Lake Storage Gen2* | Data Lake Storage Gen2 | Yes |
+| 3.6 & 4.0 | Data Lake Storage Gen2* | Standard Blob | Yes |
 | 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | No |
-| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 or Standard Blob | Yes |
+| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Yes |
+| 3.6 | Data Lake Storage Gen1 | Standard Blob | Yes |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | No |
 | 4.0 | Data Lake Storage Gen1 | Any | No |
 
