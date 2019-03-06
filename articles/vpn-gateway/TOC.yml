@@ -52,8 +52,8 @@
       href: vpn-gateway-create-site-to-site-rm-powershell.md
     - name: Azure CLI
       href: vpn-gateway-howto-site-to-site-resource-manager-cli.md
-   - name: Download VPN device configuration scripts
-     href: vpn-gateway-download-vpndevicescript.md
+    - name: Download VPN device configuration scripts
+      href: vpn-gateway-download-vpndevicescript.md
   - name: Point-to-Site connections
     items:
     - name: Azure certificate authentication
