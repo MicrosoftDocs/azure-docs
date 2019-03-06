@@ -112,6 +112,13 @@ The device SDK sample application can be run on a physical Android device or an 
 
 3. In Android Studio, click **File** > **Sync Project with Gradle Files**. Verify the build completes.
 
+   > [!NOTE]
+   > If the project sync fails, it may be for one of the following reasons:
+   >
+   > * The versions of the Android Gradle plugin and Gradle referenced in the project are out of date for your version of Android Studio. Follow [these instructions](https://developer.android.com/studio/releases/gradle-plugin) to reference and install the correct versions of the plugin and Gradle for your installation.
+   > * The license agreement for the Android SDK has not been signed. Follow the instructions in the Build output to sign the license agreement and download the SDK.
+
+
 4. Once the build has completed, click **Run** > **Run 'app'**. Configure the app to run on a physical Android device or an Android emulator. For more information on running an Android app on a physical device or emulator, see [Run your app](https://developer.android.com/training/basics/firstapp/running-app).
 
 5. Once the app loads, click the **Start** button to start sending telemetry to your IoT Hub:
@@ -159,6 +166,13 @@ An IoT Hub back-end service application typically runs in the cloud where it is 
     ```
 
 3. In Android Studio, click **File** > **Sync Project with Gradle Files**. Verify the build completes.
+
+   > [!NOTE]
+   > If the project sync fails, it may be for one of the following reasons:
+   >
+   > * The versions of the Android Gradle plugin and Gradle referenced in the project are out of date for your version of Android Studio. Follow [these instructions](https://developer.android.com/studio/releases/gradle-plugin) to reference and install the correct versions of the plugin and Gradle for your installation.
+   > * The license agreement for the Android SDK has not been signed. Follow the instructions in the Build output to sign the license agreement and download the SDK.
+
 
 4. Once the build has completed, click **Run** > **Run 'app'**. Configure the app to run on a separate physical Android device or an Android emulator. For more information on running an Android app on a physical device or emulator, see [Run your app](https://developer.android.com/training/basics/firstapp/running-app).
 
