@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 03/04/2019
 ---
 # Use Apache Zeppelin notebooks with Apache Spark cluster on Azure HDInsight
 
@@ -18,7 +18,7 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* Knowledge of [secure transfer](../../storage/common/storage-require-secure-transfer.md) setting.  If enabled, use `wasbs`, else `wasb`.
+* The URI scheme for your clusters primary storage. This would be wasb:// for Azure Blob Storage, abfs:// for Azure Data Lake Storage Gen2 or adl:// for Azure Data Lake Storage Gen1. If secure transfer is enabled for Blob Storage or Data Lake Storage Gen2, the URI would be wasbs:// or abfss://, respectively  See also, [secure transfer](../../storage/common/storage-require-secure-transfer.md).
 
 ## Launch an Apache Zeppelin notebook
 
@@ -110,10 +110,16 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
 9. Restart the Livy interpreter to exit the application. To do so, open interpreter settings by selecting the logged in user name from the top-right corner, and then select **Interpreter**.
 
     ![Launch interpreter](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Hive output")
+<<<<<<< HEAD
 
 10. Scroll to **livy**, and then select **restart**.  Select **OK** at the prompt.
 
     ![Restart the Livy intepreter](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Restart the Zeppelin intepreter")
+=======
+1. Scroll to Livy interpreter settings and then click **Restart**.
+   
+    ![Restart the Livy interpreter](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Restart the Zeppelin interpreter")
+>>>>>>> 17658bd9857605cf0e96dd766d492f2640eb4262
 
 ## How do I use external packages with the notebook?
 You can configure the Zeppelin notebook in Apache Spark cluster on HDInsight to use external, community-contributed packages that are not included out-of-the-box in the cluster. You can search the [Maven repository](https://search.maven.org/) for the complete list of packages that are available. You can also get a list of available packages from other sources. For example, a complete list of community-contributed packages is available at [Spark Packages](https://spark-packages.org/).
@@ -200,10 +206,3 @@ In such a case, you must perform the following steps before you can start runnin
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [azure-create-storageaccount]:../../storage/common/storage-create-storage-account.md 
-
-
-
-
-
-
-

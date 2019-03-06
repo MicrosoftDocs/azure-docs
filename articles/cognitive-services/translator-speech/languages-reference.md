@@ -60,7 +60,7 @@ The value provided with each property is as follows.
 The value associated with the speech-to-text property, `speech`, is a dictionary of (key, value) pairs. Each key identifies a language supported for speech-to-text. The key is the identifier that client passes to the API. The value associated with the key is an object with the following properties:
 
 * `name`: Display name of the language.
-* `language`: Language tag of the associated written language. See "Text transation" below.
+* `language`: Language tag of the associated written language. See "Text transaction" below.
 An example is:
 
 ```
