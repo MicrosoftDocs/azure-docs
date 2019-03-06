@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/14/2019
+ms.date: 03/06/2019
 
 ms.custom: seodec18
 ---
@@ -161,14 +161,6 @@ The following table shows which parameters can be used in the PowerShell script:
 
 - [Create a new encrypted Windows IaaS Managed Disk VM from gallery image](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
     - This template creates a new encrypted  Windows VM with managed disks using the Windows Server 2012 gallery image.
-
-- [Deployment of RHEL 7.2 with full disk encryption with managed disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel)
-    - This template creates a fully encrypted RHEL 7.2 VM in Azure using managed disks. It includes an encrypted 30-GB OS drive and an encrypted 200-GB array (RAID-0) mounted at /mnt/raidencrypted. See the [FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) article for supported Linux server distributions. 
-
-- [Deployment of RHEL 7.2 with full disk encryption with unmanaged disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel-unmanaged)
-    - This template creates a fully encrypted RHEL 7.2 VM in Azure with an encrypted 30-GB OS drive and an encrypted 200-GB array (RAID-0) mounted at /mnt/raidencrypted. See the [FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) article for supported Linux server distributions. 
-
-- [Enable disk encryption on a pre-encrypted VHD for Windows or Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-pre-encrypted-vm)
 
 - [Create a new encrypted managed disk from a pre-encrypted VHD/storage blob](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
     - Creates a new encrypted managed disk provided a pre-encrypted VHD and its corresponding encryption settings
