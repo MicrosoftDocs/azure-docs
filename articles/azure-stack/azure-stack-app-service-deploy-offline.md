@@ -3,8 +3,8 @@ title: 'Deploy App Service in an offline environment in Azure Stack | Microsoft 
 description: Detailed guidance on how to deploy App Service in a disconnected Azure Stack environment secured by AD FS.
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: jeffgilb
+manager: femila
 editor:
 
 ms.assetid:
@@ -13,8 +13,10 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/27/2019
 ms.author: anwestg
+ms.reviewer: anwestg
+ms.lastreviewed: 01/11/2019
 
 ---
 # Add an App Service resource provider to a disconnected Azure Stack environment secured by AD FS
@@ -22,16 +24,16 @@ ms.author: anwestg
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> Apply the 1809 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.4.
+> Apply the 1901 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.5.
 
 By following the instructions in this article, you can install the [App Service resource provider](azure-stack-app-service-overview.md) to an Azure Stack environment that is:
 
 - not connected to the Internet
 - secured by Active Directory Federation Services (AD FS).
 
- > [!IMPORTANT]
- > Before deploying the resource provider, review the release notes to learn about new functionality, fixes, and any known issues that could affect your deployment.
- 
+> [!IMPORTANT]  
+> Before you run the resource provider installer, make sure that you've followed the guidance in [Before you get started](azure-stack-app-service-before-you-get-started.md) and have read the [release notes](azure-stack-app-service-release-notes-update-five.md) which accompany the 1.5 release learn about new functionality, fixes, and any known issues that could affect your deployment.
+
 To add the App Service resource provider to your offline Azure Stack deployment, you must complete these top-level tasks:
 
 1. Complete the [prerequisite steps](azure-stack-app-service-before-you-get-started.md) (like purchasing certificates, which can take a few days to receive).
@@ -99,7 +101,7 @@ To deploy App Service in a disconnected environment, you must first create an of
 
     ![App Service Installer][5]
 
-9. Enter the information for your file share and then click **Next**. The address of the file share must use the Fully Qualified Domain Name, or IP Address of your File Server. For example, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or \\\10.0.0.1\websites
+9. Enter the information for your file share and then click **Next**. The address of the file share must use the Fully Qualified Domain Name, or IP Address of your File Server. For example, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or \\\10.0.0.1\websites.  If you are using a file server which is domain joined, you must provide the full username including domain, for example, myfileserverdomain\FileShareOwner.
 
     > [!NOTE]
     > The installer attempts to test connectivity to the fileshare before proceeding.  However, if you chose to deploy in an existing   Virtual Network, the installer might not be able to connect to the fileshare and displays a warning, asking whether you want to continue.  Verify the fileshare information and continue if they are correct.
@@ -190,6 +192,11 @@ To deploy App Service in a disconnected environment, you must first create an of
 
     ![App Service Installer][18]
 
+## Post-deployment Steps
+
+> [!IMPORTANT]  
+> If you have provided the App Service RP with a SQL Always On Instance you MUST [add the appservice_hosting and appservice_metering databases to an availability group](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) and synchronize the databases to prevent any loss of service in the event of a database failover.
+
 ## Validate the App Service on Azure Stack installation
 
 1. In the Azure Stack admin portal, go to **Administration - App Service**.
@@ -199,11 +206,11 @@ To deploy App Service in a disconnected environment, you must first create an of
     ![App Service Management](media/azure-stack-app-service-deploy/image12.png)
 
 > [!NOTE]
-> If you chose to deploy into an existing virtual network and a internal IP address to connect to your fileserver, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the fileserver.  To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
+> If you chose to deploy into an existing virtual network and a internal IP address to connect to your file server, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the file server.  To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
 > * Source: Any
 > * Source port range: *
 > * Destination: IP Addresses
-> * Destination IP address range: Range of IPs for your fileserver
+> * Destination IP address range: Range of IPs for your file server
 > * Destination port range: 445
 > * Protocol: TCP
 > * Action: Allow

@@ -249,7 +249,7 @@ Contoso admins migrate the database using backup and restore, with MySQL tools. 
 
      ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench9.png)
 
-11. Tney can verify the server name and login from **Overview** in the MySQL instance in the Azure portal.
+11. They can verify the server name and login from **Overview** in the MySQL instance in the Azure portal.
 
     ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench10.png)
 

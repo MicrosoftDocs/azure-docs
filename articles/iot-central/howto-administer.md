@@ -1,6 +1,6 @@
 ---
 title: Administer an Azure IoT Central application | Microsoft Docs
-description: As an adminstrator, how to administer your Azure IoT Central application
+description: As an administrator, how to administer your Azure IoT Central application
 author: viv-liu
 ms.author: viviali
 ms.date: 04/16/2018
@@ -41,7 +41,7 @@ To change the application image, see [Prepare and upload images to your Azure Io
 ### Copy an application
 You can create a copy of any application, minus any device instances, device data history, and user data. The copy will be a Pay-As-You-Go application that you'll be charged for. You can't create a Trial application in this way.
 
-Click the **Copy** button. In the dialog box, enter the details for the new Pay-As-You-Go application. Then click the **Copy** button to confirm that you want to proceed. Learn more about the fields in this form in [Create an application](quick-deploy-iot-central.md) quickstart.
+Select **Copy**. In the dialog box, enter the details for the new Pay-As-You-Go application. Then select **Copy** to confirm that you want to proceed. Learn more about the fields in this form in [Create an application](quick-deploy-iot-central.md) quickstart.
 
 ![Application settings page](media/howto-administer/appCopy2.png)
 
@@ -126,25 +126,25 @@ To complete this self-service process, follow these steps:
 
     ![Trial state](media/howto-administer/freetrialbilling.png)
 
-1. Click **Convert to Pay-As-You-Go**. 
+1. Select **Convert to Pay-As-You-Go**. 
 
     ![Convert trial](media/howto-administer/convert.png)
 
 1. Select the appropriate Azure Active Directory, and then the Azure subscription to use for your Pay-As-You-Go application.
 
-1. After you click **Convert**, your application is now a Pay-As-You-Go application and you start getting billed.
+1. After you select **Convert**, your application is now a Pay-As-You-Go application and you start getting billed.
 
 ## Export data
 
-You can enable **Continuous data export** to export measurements, devices, and device templates data to your Azure Blob storage account. Learn more about [how to export your data](#howto-export-data).
+You can enable **Continuous data export** to export measurements, devices, and device templates data to your Azure Blob storage account. Learn more about how to export your data.
 
 ## Manage device connection
 
-Connect devices at scale in your application using the keys and certificates here. Learn more about [connecting devices](#concepts-connectivity).
+Connect devices at scale in your application using the keys and certificates here. Learn more about connecting devices.
 
 ## Use access tokens
 
-Generate access tokens to use them in developer tools. Currently there is one developer tool available which is the IoT Central explorer for monitoring device messages and changes in propreties and settings. Learn more about the [IoT Central explorer](#howto-use-iotc-explorer). 
+Generate access tokens to use them in developer tools. Currently there is one developer tool available which is the IoT Central explorer for monitoring device messages and changes in properties and settings. Learn more about the IoT Central explorer. 
 
 ## Use the Azure SDKs for control plane operations
 

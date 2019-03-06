@@ -1,14 +1,14 @@
 ---
 title: Get started with Azure IoT Hub module identity and module twin (Node.js) | Microsoft Docs
 description: Learn how to create module identity and update module twin using IoT SDKs for Node.js.
-author: chrissie926
-manager: 
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: node
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.author: menchi
 ---
 
 # Get started with IoT Hub module identity and module twin using Node.js back end and Node.js device
@@ -111,7 +111,7 @@ This app creates a device identity with ID **myFirstDevice** and a module identi
 
 In this section, you create a Node.js app on your simulated device that updates the module twin reported properties.
 
-1. **Get your module connection string** -- now if you login to [Azure portal][lnk-portal]. Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you see myFirstModule was successfuly created. Copy the module connection string. It is needed in the next step.
+1. **Get your module connection string** -- now if you login to [Azure portal][lnk-portal]. Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you see myFirstModule was successfully created. Copy the module connection string. It is needed in the next step.
 
     ![Azure portal module detail][15]
 

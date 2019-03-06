@@ -10,10 +10,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 11/21/2018
 ms.author: rolyon
 ms.custom: pim
+ms.collection: M365-identity-device-management
 ---
 
 # Activate my Azure resource roles in PIM
@@ -104,7 +105,7 @@ If you do not require activation of a role that requires approval, you can cance
 
 1. For the role that you want to cancel, click the **Cancel** link.
 
-    When you click Cancel, the request will be cancelled. To activate the role again, you will have to submit a new request for activation.
+    When you click Cancel, the request will be canceled. To activate the role again, you will have to submit a new request for activation.
 
    ![Cancel pending request](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 

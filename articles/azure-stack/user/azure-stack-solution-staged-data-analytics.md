@@ -12,9 +12,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/01/2018
+ms.date: 03/04/2018
 ms.author: mabrigg
 ms.reviewer: anajod
+ms.lastreviewed: 12/01/2018
 ---
 
 # Tutorial: Create a staged data analytics solution with Azure and Azure Stack 

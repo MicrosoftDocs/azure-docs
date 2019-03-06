@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 06/03/2018
+ ms.date: 01/30/2018
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -96,6 +96,10 @@ Customers can take a snapshot of their managed disks and then use the snapshot t
 
 Yes, both unmanaged and managed disks are supported. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
 
+**Can I co-locate unmanaged and managed disks on the same VM?**
+
+No.
+
 **If I create a 128-GB disk and then increase the size to 130 GiB, will I be charged for the next disk size (256 GiB)?**
 
 Yes.
@@ -119,10 +123,6 @@ No. You can't update the computer name property. The new VM inherits it from the
 **Where can I find sample Azure Resource Manager templates to create VMs with managed disks?**
 * [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
-
-**Can I co-locate unmanaged and managed disks on the same VM?**
-
-No.
 
 **When creating a disk from a blob, is there any continually existing relationship with that source blob?**
 
@@ -342,7 +342,7 @@ To achieve the disk throughput of Standard SSD and Standard HDD large disk sizes
 
 **What regions are the managed disk sizes larger than 4 TiB supported in?**
 
-At this time in the preview, the managed disk sizes are supported in West US Central only.
+The preview of managed disk sizes beyond 4 TiB are supported in all Azure Production regions except Gov, China, and Germany. 
 
 **Do we support enabling Host Caching on the newer disk sizes?**
 

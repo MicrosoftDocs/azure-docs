@@ -1,9 +1,9 @@
-﻿---
+---
 title: Verb action tutorial for Azure Machine Learning service  in 59 chars or less. Include the name Azure Machine Learning. Include the word 'tutorial'. Test title here https://moz.com/learn/seo/title-tag 
 description: This tutorial …blah blah blah. This string describes the article in 115 to 145 characters. Include the word 'tutorial' in your description. Use SEO kind of action verbs here. such as - Learn how to do this and that using customer words. This info is displayed on the search page inline with the article date stamp. If your intro para describes your article's intent, you can use it here edited for length.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: tutorial
 ms.reviewer: jmartens
 ms.author: your-msft-alias

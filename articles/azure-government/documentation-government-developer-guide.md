@@ -83,13 +83,14 @@ The following table shows the mapping between some Azure services and Azure Gove
 | Active Directory Endpoint and Authority | https://login.microsoftonline.us | https://login.microsoftonline.com <br/> https://login.windows.net |
 | Active Directory tenant names | [yourtenantname].onmicrosoft.com | [yourtenantname].onmicrosoft.com |
 | Active Directory Graph API | https://graph.windows.net/ | https://graph.windows.net/ |
-| Microsoft Graph API | https://graph.microsoft.com/ | https://graph.microsoft.com/ |
+| Microsoft Graph API | https://graph.microsoft.us/ | https://graph.microsoft.com/ |
 | Azure API | https://management.usgovcloudapi.net/ | https://management.azure.com/ |
 | SQL Database DNS Suffix | \*.database.usgovcloudapi.net | \*.database.windows.net |
 | Storage DNS Suffix | \*.core.usgovcloudapi.net | \*.core.windows.net |
 | Traffic Manager DNS Suffix | \*.usgovtrafficmanager.net | \*.trafficmanager.net |
 | Key Vault DNS Suffix | \*.vault.usgovcloudapi.net | \*.vault.azure.net |
 | Service Bus DNS Suffix | \*.servicebus.usgovcloudapi.net | \*.servicebus.windows.net |
+| Container Registry Suffix | \*.azurecr.us | \*.azurecr.io |
 | Gallery Url | https://gallery.azure.us/ | https://gallery.azure.com/ |
 | Classic Deployment Model Url | https://management.core.usgovcloudapi.net/ | https://management.core.windows.net/ |
 | Publish Settings File Url | https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade | https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade |
@@ -98,7 +99,7 @@ The following table shows the mapping between some Azure services and Azure Gove
 ## Next steps
 For more information about Azure Government, see the following resources:
 
-* [Sign up for a trial](https://azuregov.microsoft.com/trial/azuregovtrial)
+* [Sign up for a trial](https://azure.microsoft.com/global-infrastructure/government/request/?ReqType=Trial)
 * [Acquiring and accessing Azure Government](https://azure.com/gov)
 * [Ask questions via the azure-gov tag in StackOverflow](https://stackoverflow.com/tags/azure-gov)
 * [Azure Government Overview](documentation-government-welcome.md)

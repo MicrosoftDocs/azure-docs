@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 1/8/2019
+ms.date: 01/08/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
@@ -306,7 +306,7 @@ A collection of unique states within a workflow. Each state captures a step in t
     {
       "Name": "Terminated",
       "DisplayName": "Terminated",
-      "Description": "Asset transfer has been cancelled",
+      "Description": "Asset transfer has been canceled",
       "PercentComplete": 100,
       "Style": "Failure",
       "Transitions": []
@@ -983,7 +983,7 @@ The following configuration file is for the asset transfer sample:
         {
           "Name": "Terminated",
           "DisplayName": "Terminated",
-          "Description": "Asset transfer has been cancelled",
+          "Description": "Asset transfer has been canceled",
           "PercentComplete": 100,
           "Style": "Failure",
           "Transitions": []

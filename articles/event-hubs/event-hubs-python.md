@@ -26,7 +26,7 @@ This article provides links to articles that show you how to do the following ta
 
 - [Send events to an event hub](#send-events-to-event-hubs)
 - [Receive events from an event hub](#receive-events-from-event-hubs)
-- [Read captured event data from an Azure storage](#capture-event-hubs-data). 
+- Read captured event data from an Azure storage. 
 
 ## Prerequisites
 - Create an event hub by following one of these quickstarts: [Azure portal](event-hubs-create.md), [Azure CLI](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md), [Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub.md). 

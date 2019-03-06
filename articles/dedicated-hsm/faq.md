@@ -1,16 +1,16 @@
-﻿---
+---
 title: Frequently asked questions - Azure Dedicated HSM | Microsoft Docs
 description: Frequently asked questions covering different topics on Azure Dedicated HSM 
 services: dedicated-hsm
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.custom: "mvc, seodec18"
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: concepts
+ms.topic: conceptual
 ms.custom: mvc
 ms.date: 12/11/2018
 ms.author: barclayn
@@ -53,7 +53,7 @@ At this time, Azure Dedicated HSM only provides HSMs with password-based authent
 
 ### Q: Will Azure Dedicated HSM host my HSMs for me?
 
-Microsoft only offers the Gemalto SafeNet Luna Network HSM via the Dedicated HSM service and cannot host any cusotmer provided devices.
+Microsoft only offers the Gemalto SafeNet Luna Network HSM via the Dedicated HSM service and cannot host any customer-provided devices.
 
 ### Q: Does Azure Dedicated HSM support PIN/ETF features or meet PCI HSM v1 or v2 certification requirements?
 
@@ -161,7 +161,7 @@ Yes. You can send logs from the HSM appliance to a syslog server
 
 ### Q: Is it possible to configure high-availability in the same region or across multiple regions?
 
-Yes. High availability configuration and setup are performed in the HSM client software provided by Gemalto. HSMs from the same VNET or other VNETs in the same region or across regions, or on-prem HSMs connected to a VNET using site-to-site or point-to-point VPN can be added to same high availability configuration.
+Yes. High availability configuration and setup are performed in the HSM client software provided by Gemalto. HSMs from the same VNET or other VNETs in the same region or across regions, or on premises HSMs connected to a VNET using site-to-site or point-to-point VPN can be added to same high availability configuration.
 
 ### Can I add HSMs from my on-premises network to a high availability group with Azure Dedicated HSM?
 

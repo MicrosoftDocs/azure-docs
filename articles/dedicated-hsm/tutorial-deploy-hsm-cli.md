@@ -4,7 +4,7 @@ description: Tutorial showing how to deploy a dedicated HSM using the CLI into a
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.service: key-vault

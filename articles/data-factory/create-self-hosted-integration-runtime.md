@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/15/2019
 ms.author: abnarain
 
 ---
@@ -23,11 +23,13 @@ A self-hosted integration runtime can run copy activities between a cloud data s
 
 This document describes how you can create and configure a self-hosted IR.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## High-level steps to install a self-hosted IR
 1. Create a self-hosted integration runtime. You can use the Azure Data Factory UI for this task. Here is a PowerShell example:
 
 	```powershell
-	Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+	Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
 	```
   
 2. [Download](https://www.microsoft.com/download/details.aspx?id=39717) and install the self-hosted integration runtime on a local machine.
@@ -35,7 +37,7 @@ This document describes how you can create and configure a self-hosted IR.
 3. Retrieve the authentication key and register the self-hosted integration runtime with the key. Here is a PowerShell example:
 
 	```powershell
-	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+	Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
 	```
 
 ## Setting up a self-hosted IR on an Azure VM by using an Azure Resource Manager template (automation)
@@ -84,7 +86,7 @@ You can install the self-hosted integration runtime by downloading an MSI setup 
 ## Install and register self-hosted IR from the Download Center
 
 1. Go to the [Microsoft integration runtime download page](https://www.microsoft.com/download/details.aspx?id=39717).
-2. Select **Download**, select the appropriate version (**32-bit** or **64-bit**), and select **Next**.
+2. Select **Download**, select the 64-bit version (32-bit is not supported), and select **Next**.
 3. Run the MSI file directly, or save it to your hard disk and run it.
 4. On the **Welcome** page, select a language and select **Next**.
 5. Accept the Microsoft Software License Terms and select **Next**.
@@ -94,7 +96,7 @@ You can install the self-hosted integration runtime by downloading an MSI setup 
 9. Get the authentication key by using Azure PowerShell. Here's a PowerShell example for retrieving the authentication key:
 
 	```powershell
-	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
+	Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
 	```
 11. On the **Register Integration Runtime (Self-hosted)** page of Microsoft Integration Runtime Configuration Manager running on your machine, take the following steps:
 
@@ -110,7 +112,7 @@ A self-hosted integration runtime can be associated with multiple on-premises ma
 * Higher availability of the self-hosted integration runtime so that it's no longer the single point of failure in your big data	solution or cloud data integration with Azure Data Factory, ensuring continuity with up to four nodes.
 * Improved performance and throughput during data movement between on-premises and cloud data stores. Get more information on [performance comparisons](copy-activity-performance.md).
 
-You can associate multiple nodes by installing the self-hosted integration runtime software from the [Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Then, register it by using either of the authentication keys obtained from the **New-AzureRmDataFactoryV2IntegrationRuntimeKey** cmdlet, as described in the [tutorial](tutorial-hybrid-copy-powershell.md).
+You can associate multiple nodes by installing the self-hosted integration runtime software from the [Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Then, register it by using either of the authentication keys obtained from the **New-AzDataFactoryV2IntegrationRuntimeKey** cmdlet, as described in the [tutorial](tutorial-hybrid-copy-powershell.md).
 
 > [!NOTE]
 > You don't need to create new self-hosted integration runtime for associating each node. You can install the self-hosted integration runtime on another machine and register it by using the same authentication key. 
@@ -139,6 +141,10 @@ Here are the requirements for the TLS/SSL certificate that is used for securing 
 - We don't recommend Subject Alternative Name (SAN) certificates because only the last SAN item will be used and all others will be ignored due to current limitations. For example, if you have a SAN certificate whose SANs are **node1.domain.contoso.com** and **node2.domain.contoso.com**, you can use this certificate only on a machine whose FQDN is **node2.domain.contoso.com**.
 - The certificate supports any key size supported by Windows Server 2012 R2 for SSL certificates.
 - Certificates that use CNG keys are not supported.  
+
+> [!NOTE]
+> This certificate is used to encrypt ports on self-hosted IR node, used for **node-to-node communication** (for state synchronization) and while **using PowerShell cmdlet for linked service credential setting** from within local network. We suggest using this certificate if your private network environment is not secure or if you would like to secure the communication between nodes within your private network as well. 
+> Data movement in transit from self-hosted IR to other data stores always happens using encrypted channel, irrespective of this certificate set or not. 
 
 ## Sharing the self-hosted integration runtime with multiple data factories
 
@@ -192,8 +198,6 @@ For a twelve-minute introduction and demonstration of this feature, watch the fo
 * The data factory in which a linked IR will be created must have an [MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). By default, the data factories created in the Azure portal or PowerShell cmdlets have an MSI created implicitly. But when a data factory is created through an Azure Resource Manager template or SDK, the **Identity** property must be set explicitly to ensure that Azure Resource Manager creates a data factory that contains an MSI. 
 
 * The Azure Data Factory .NET SDK that supports this feature is version 1.1.0 or later.
-
-* The Azure PowerShell version that supports this feature is 6.6.0 or later (AzureRM.DataFactoryV2, 0.5.7 or later).
 
 * To grant permission, the user needs the Owner role or the inherited Owner role in the data factory where the shared IR exists.
 
@@ -339,7 +343,7 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 > [!NOTE]
 > The Credential Manager application is not yet available for encrypting credentials in Azure Data Factory V2.  
 
-If you choose not to open port 8060 on the self-hosted integration runtime machine, use mechanisms other than the Setting Credentials application to configure data store credentials. For example, you can use the **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** PowerShell cmdlet.
+If you choose not to open port 8060 on the self-hosted integration runtime machine, use mechanisms other than the Setting Credentials application to configure data store credentials. For example, you can use the **New-AzDataFactoryV2LinkedServiceEncryptCredential** PowerShell cmdlet.
 
 
 ## Next steps

@@ -1,5 +1,5 @@
 ---
-title: Delete an Azure Active Directory tenant directory | Microsoft Docs
+title: Delete a tenant directory - Azure Active Directory | Microsoft Docs
 description: Explains how to prepare an Azure AD tenant directory for deletion
 services: active-directory
 documentationcenter: ''
@@ -8,14 +8,15 @@ manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 03/05/2019
 ms.author: curtand
 
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 # Delete an Azure Active Directory tenant
 When a tenant is deleted, all resources that are contained in the tenant are also deleted. You must prepare the tenant by minimizing its associated resources before you delete. Only an Azure Active Directory (Azure AD) global administrator can delete an Azure AD tenant from the portal.
@@ -31,7 +32,7 @@ You can't delete a tenant in Azure AD until it passes several checks. These chec
 
 ## Delete an Azure AD tenant
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is the Global Admininstrator for the tenant.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is the Global Administrator for the tenant.
 
 2. Select **Azure Active Directory**.
 

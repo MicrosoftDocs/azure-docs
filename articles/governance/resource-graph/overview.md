@@ -4,7 +4,7 @@ description: Azure Resource Graph is a service in Azure that enables complex que
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/22/2018
+ms.date: 02/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
@@ -42,7 +42,7 @@ Now that you have a better understanding of what Azure Resource Graph is, let’
 construct queries.
 
 It's important to understand that Azure Resource Graph's query language is based on the
-[Azure Data Explorer Query Language](../../data-explorer/data-explorer-overview.md).
+[Kusto query language](../../data-explorer/data-explorer-overview.md) used by Azure Data Explorer.
 
 First, for details on operations and functions that can be used with Azure Resource Graph, see [Resource
 Graph query language](./concepts/query-language.md). To browse resources, see [explore resources](./concepts/explore-resources.md).
@@ -54,10 +54,18 @@ control](../../role-based-access-control/overview.md) (RBAC) with at least read 
 resources you want to query. Without at least `read` permissions to the Azure object or object
 group, results won't be returned.
 
+## Throttling
+
+Queries to Resource Graph are throttled to provide the best experience and response time for all
+customers. If your organization wants to use the Resource Graph API for large-scale and frequent
+queries, please use portal 'Feedback' from the Resource Graph page. Be sure to provide your
+business case and select the 'Microsoft can email you about your feedback' checkbox in order for
+the team to contact you.
+
 ## Running your first query
 
-Resource Graph supports both Azure CLI and Azure PowerShell. The query is structured the same for
-both languages. Learn how to enable Resource Graph in [Azure
+Resource Graph supports Azure CLI, Azure PowerShell, and Azure SDK for .NET. The query is
+structured the same for each language. Learn how to enable Resource Graph in [Azure
 CLI](first-query-azurecli.md#add-the-resource-graph-extension) and [Azure
 PowerShell](first-query-powershell.md#add-the-resource-graph-module).
 

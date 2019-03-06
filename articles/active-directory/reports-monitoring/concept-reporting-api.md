@@ -5,7 +5,7 @@ description: How to get started with the Azure Active Directory reporting API
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 8813b911-a4ec-4234-8474-2eef9afea11e
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 # Get started with the Azure Active Directory reporting API
 

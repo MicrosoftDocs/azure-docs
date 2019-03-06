@@ -3,9 +3,9 @@ title: "Tutorial: Crop an image with the Bing Visual Search SDK"
 description: Use the Bing Visual Search SDK to get insights from specific ares on an image.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: rosh
@@ -23,7 +23,7 @@ This tutorial illustrates how to:
 > * Send a request using the Bing Visual Search SDK
 > * Crop an area of image to search with Bing Visual Search
 > * Receive and handle the response
-> * Find the URLs of action items in the resposne
+> * Find the URLs of action items in the response
 
 ## Prerequisites
 
@@ -108,4 +108,4 @@ Getting the actual image URLs requires a cast that reads an `ActionType` as `Ima
 > [!div class="nextstepaction"]
 > [Build a single-page web app](tutorial-bing-visual-search-single-page-app.md)
 
-[Visual Search response](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)
+[Visual Search response](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview)

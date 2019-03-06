@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 6b47d483-d3a3-442d-b123-171e3f0f7486
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with SAML SSO for Confluence by resolution GmbH
 
@@ -202,7 +203,7 @@ To configure Azure AD single sign-on with SAML SSO for Confluence by resolution 
 	
 	![Configure Single Sign-On](./media/samlssoconfluence-tutorial/addon6b.png)
 	
-17. In the apprearing dialog reading **Skipping the test means...**, click **OK**.
+17. In the appearing dialog reading **Skipping the test means...**, click **OK**.
 	
 	![Configure Single Sign-On](./media/samlssoconfluence-tutorial/addon6c.png)
 
@@ -294,9 +295,9 @@ When you click the SAML SSO for Confluence by resolution GmbH tile in the Access
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

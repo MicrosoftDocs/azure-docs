@@ -190,7 +190,7 @@ Site Recovery creates default settings and replication policy for the target reg
       every 4 hours. You can configure any value between 1 and 12 hours. A app-consistent snapshot is a point-in-time snapshot of the application data inside the VM. Volume Shadow Copy Service (VSS) ensures that app on the VM are in a consistent state when the snapshot is taken.
     - **Replication group**: If your application needs multi-VM consistency across VMs, you can create a replication group for those VMs. By default, the selected VMs are not part of any replication group.
 
-5. In **Customize**, select **Yes** for multi-VM consistency if you want to add VMs to a new or existing replication group. to make VMs part of a replication group. Then click **OK**.
+5. In **Customize**, select **Yes** for multi-VM consistency if you want to add VMs to a new or existing replication group. Then click **OK**.
 
     - All the machines in a replication group will have shared crash consistent and app-consistent recovery points when failed over. Enabling multi-VM consistency can impact workload performance (as it is CPU intensive) and should be used only if machines are running the same workload and you need consistency across multiple machines.
     - You can choose to have at max 16 virtual machines in a replication group.

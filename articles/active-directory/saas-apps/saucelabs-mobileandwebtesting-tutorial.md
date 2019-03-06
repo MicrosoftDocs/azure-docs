@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Sauce Labs - Mobile and Web Testing
 
@@ -134,7 +135,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. Select the **ALLOW JUST-IN-TIME PROVISIONING** checkbox.
 
-	c. Clcik **Save**.
+	c. Click **Save**.
 
 ### Create an Azure AD test user
 

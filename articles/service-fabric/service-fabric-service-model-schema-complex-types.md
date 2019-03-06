@@ -1323,7 +1323,7 @@ Declares a folder, named by the Name attribute, under PackageRoot that contains 
 ```xml
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConfigPackageType">
     <xs:annotation>
-          <xs:documentation>Declares a folder, named by the Name attribute, und PackageRoot that contains a Settings.xml file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the ConfigPackage version has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically.</xs:documentation>
+          <xs:documentation>Declares a folder, named by the Name attribute, and PackageRoot that contains a Settings.xml file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the ConfigPackage version has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically.</xs:documentation>
         </xs:annotation>
     <xs:attributeGroup ref="VersionedName"/>
   </xs:complexType>
@@ -2178,7 +2178,7 @@ Specifies information on debugger to attach when activating codepackage.
     <xs:sequence>
       <xs:element name="ContainerEntryPoint" type="xs:string" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
-          <xs:documentation>Overidden entrypoint for containers so debugger can be launched.</xs:documentation>
+          <xs:documentation>Overridden entrypoint for containers so debugger can be launched.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="ContainerMountedVolume" type="xs:string" minOccurs="0" maxOccurs="unbounded">
@@ -2330,7 +2330,7 @@ Specifies information on debugger to attach when activating codepackage.
 ### Content element details
 
 #### ContainerEntryPoint
-Overidden entrypoint for containers so debugger can be launched.
+Overridden entrypoint for containers so debugger can be launched.
 |Attribute|Value|
 |---|---|
 |name|ContainerEntryPoint|
@@ -3297,7 +3297,7 @@ Name of environment variable.
       <xs:annotation>
         <xs:documentation>
           The type for the Environment Variable. It can be PlainText/Encrypted/SecretsStoreRef.
-          If set to SecretsStoreRef, we retrive  the reference value from the SecretStore.
+          If set to SecretsStoreRef, we retrieve  the reference value from the SecretStore.
           If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
         </xs:documentation>
       </xs:annotation>
@@ -3331,7 +3331,7 @@ Name of environment variable.
 #### Type
 
           The type for the Environment Variable. It can be PlainText/Encrypted/SecretsStoreRef.
-          If set to SecretsStoreRef, we retrive  the reference value from the SecretStore.
+          If set to SecretsStoreRef, we retrieve  the reference value from the SecretStore.
           If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
         
 |Attribute|Value|
@@ -4686,7 +4686,7 @@ Unsupported, do not use. The name of managed assembly (for example, Queue.dll), 
 
 ```
 ## NetworkPoliciesType complexType
-Describes network policies including container network policie for the service package.
+Describes network policies including container network policies for the service package.
 
 |Attribute|Value|
 |---|---|
@@ -4698,7 +4698,7 @@ Describes network policies including container network policie for the service p
 ```xml
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NetworkPoliciesType">
     <xs:annotation>
-      <xs:documentation>Describes network policies including container network policie for the service package.</xs:documentation>
+      <xs:documentation>Describes network policies including container network policies for the service package.</xs:documentation>
     </xs:annotation>
     <xs:choice minOccurs="0" maxOccurs="unbounded">
       <xs:element name="ContainerNetworkPolicy" type="ContainerNetworkPolicyType" minOccurs="0" maxOccurs="unbounded">
@@ -4976,7 +4976,7 @@ Container port number.
       <xs:annotation>
         <xs:documentation>
           This value defines the type of password you have specified in the 'Password' Attribute. It can be SecretsStoreRef/Encrypted/PlainText.
-          If set to SecretsStoreRef, we retrive the reference value from the SecretStore.
+          If set to SecretsStoreRef, we retrieve the reference value from the SecretStore.
           If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
         </xs:documentation>
       </xs:annotation>
@@ -5003,7 +5003,7 @@ Specifies if password is encrypted or plain text. This attribute is deprecated. 
 #### Type
 
           This value defines the type of password you have specified in the 'Password' Attribute. It can be SecretsStoreRef/Encrypted/PlainText.
-          If set to SecretsStoreRef, we retrive the reference value from the SecretStore.
+          If set to SecretsStoreRef, we retrieve the reference value from the SecretStore.
           If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
         
 |Attribute|Value|
@@ -7178,7 +7178,7 @@ Declares configuration settings in a service manifest to be overridden. It consi
                   <xs:annotation>
                     <xs:documentation>
                       This value defines the type of value you have specified in the 'Value' Attribute. It can be SecretsStoreRef/Encrypted/PlainText.
-                      If set to SecretsStoreRef, we retrive  the reference value from the SecretStore.
+                      If set to SecretsStoreRef, we retrieve  the reference value from the SecretStore.
                       If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
                     </xs:documentation>
                   </xs:annotation>
@@ -7617,7 +7617,7 @@ Unsupported, do not use. The name of unmanaged assembly (for example, Queue.dll)
     </xs:attribute>
     <xs:attribute name="NodeName" type="xs:string" use="optional">
       <xs:annotation>
-        <xs:documentation>This is the name of the Node to which the Fabric Upgrade is to happe</xs:documentation>
+        <xs:documentation>This is the name of the Node to which the Fabric Upgrade is to happen</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="RemoveNodeState" type="xs:boolean" use="optional" default="false">
@@ -7692,7 +7692,7 @@ This is the Target Version of the deployment.
 |use|optional|
 
 #### NodeName
-This is the name of the Node to which the Fabric Upgrade is to happe
+This is the name of the Node to which the Fabric Upgrade is to happen
 |Attribute|Value|
 |---|---|
 |name|NodeName|

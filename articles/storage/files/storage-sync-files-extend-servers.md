@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: wgries
-ms.component: files
+ms.subservice: files
 #Customer intent: As an IT Administrator, I want see how to extend Windows file servers with Azure File Sync, so I can evaluate the process for extending storage capacity of my Windows servers.
 ---
 
@@ -177,7 +177,7 @@ Next, in the Windows Server 2016 Datacenter VM, install the Azure PowerShell mod
 1. Run the following command:
 
    ```powershell
-   Install-Module -Name Az -AllowClobber
+   Install-Module -Name AzureRm
    ```
 
    > [!NOTE]
@@ -196,7 +196,7 @@ Next, in the Windows Server 2016 Datacenter VM, install the Azure PowerShell mod
 
 1. Answer **Yes** or **Yes to All** to continue with the installation.
 
-The `Az` module is a rollup module for the Azure PowerShell cmdlets. Installing it downloads all the available Azure Resource Manager modules and makes their cmdlets available for use.
+The `AzureRM` module is a rollup module for the Azure PowerShell cmdlets. Installing it downloads all the available Azure Resource Manager modules and makes their cmdlets available for use.
 
 At this point, you've set up your environment for the tutorial. You're ready to deploy the Storage Sync Service.
 

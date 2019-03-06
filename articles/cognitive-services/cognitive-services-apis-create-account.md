@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: How to create a Microsoft Cognitive Services APIs account in the Azure portal.
 services: cognitive-services
 author: garyericson
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.topic: conceptual

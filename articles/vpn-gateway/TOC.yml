@@ -16,8 +16,6 @@
     href: powershell-samples.md
 - name: Concepts
   items:
-  - name: Planning and design for VPN Gateway
-    href: vpn-gateway-plan-design.md
   - name: About VPN Gateway settings
     href: vpn-gateway-about-vpn-gateway-settings.md
   - name: About VPN devices
@@ -174,12 +172,14 @@
       href: vpn-gateway-delete-vnet-gateway-powershell.md
   - name: Gateway SKUs (legacy)
     href: vpn-gateway-about-skus-legacy.md
-  - name: Configure third-party VPN devices
+  - name: Configure VPN devices
     items:
     - name: Overview & Azure configuration
       href: vpn-gateway-3rdparty-device-config-overview.md
     - name: 'Sample: Cisco ASA device (IKEv2/no BGP)'
       href: vpn-gateway-3rdparty-device-config-cisco-asa.md
+  - name: Transition to a public CA gateway certificate for P2S
+    href: vpn-gateway-point-to-site-gateway-public-ca.md
   - name: Troubleshoot
     href: vpn-gateway-troubleshoot.md
     items:
@@ -222,7 +222,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn
+    href: /powershell/module/az.network#vpn
   - name: Azure PowerShell (classic)
     href: /powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure
   - name: REST

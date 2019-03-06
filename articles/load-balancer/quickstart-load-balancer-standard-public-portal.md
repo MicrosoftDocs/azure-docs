@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/21/2018
+ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: mvc
 ---
@@ -36,21 +36,20 @@ Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com
 In this section, you create a public load balancer that helps load balance virtual machines. Standard Load Balancer only supports a Standard Public IP address. When you create a Standard Load Balancer, and you must also create a new Standard Public IP address that is configured as the frontend (named as *LoadBalancerFrontend* by default) for the Standard Load Balancer. 
 
 1. On the top left-hand side of the screen, click **Create a resource** > **Networking** > **Load Balancer**.
-2. In the **Create load balancer** page, enter or select the following information, accept the defaults for the remaining settings, and then select **Create**:
+2. In the **Basics** tab of the **Create load balancer** page, enter or select the following information, accept the defaults for the remaining settings, and then select **Review + create**:
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
+    | Subscription               | Select your subscription.    |    
+    | Resource group         | Select **Create new** and type *MyResourceGroupSLB* in the text box.|
     | Name                   | *myLoadBalancer*                                   |
-    | Type          | Public                                        |
-    | SKU           | Standard                          |
-    | Public IP address | Select **Create new** and type *myPublicIP* in the text box. The Standard SKU for the Public IP address is selected by default. For **Availability zone**, select **Zone-redundant**. |
-    | Subscription               | Select your subscription.    |
-    |Resource group | Select **Create new**, and then type *myResourceGroupSLB*.    |
-    | Location           | Select **West Europe**.                          |
-    
-
-![Create a load balancer](./media/load-balancer-standard-public-portal/create-load-balancer.png)
-
+    | Region         | Select **West Europe**.                                        |
+    | Type          | Select **Public**.                                        |
+    | SKU           | Select **Standard**.                          |
+    | Public IP address | Select **Create new**. |
+    | Public IP address name              | Type *myPublicIP* in the text box.   |
+    |Availability zone| Select **Zone redundant**.    |
+3. In the **Review + create** tab, click **Create**.   
 
 ## Create backend servers
 
@@ -80,7 +79,7 @@ In this section, you create a virtual network, create two virtual machines for t
         2. In the **Create network security group** page, for **Name**, enter *myNetworkSecurityGroup*, and then select **OK**.
 5. Click **Disabled** to disable boot diagnostics.
 6. Click **OK**, review the settings on the summary page, and then click **Create**.
-7. Using steps 1-6, create a second VM, named, *VM2* with *myAvailibilityset* as the Availability set, *myVnet* as its virtual network, *myBackendSubnet* and its subnet, and **myNetworkSecurityGroup* as its network security group. 
+7. Using steps 1-6, create a second VM, named, *VM2* with *myVnet* as its virtual network, *myBackendSubnet* and its subnet, and **myNetworkSecurityGroup* as its network security group. 
 
 ### Create NSG rule
 
@@ -120,7 +119,7 @@ In this section, you  configure load balancer settings for a backend address poo
 
 ### Create a backend address pool
 
-To distribute traffic to the VMs, a backend address pool contains the IP addresses of the virtual (NICs) connected to the load balancer. Create the backend address pool *myBackendPool* to inlcude *VM1* and *VM2*.
+To distribute traffic to the VMs, a backend address pool contains the IP addresses of the virtual (NICs) connected to the load balancer. Create the backend address pool *myBackendPool* to include *VM1* and *VM2*.
 
 1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Backend pools**, then click **Add**.

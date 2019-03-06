@@ -4,7 +4,7 @@ description: This document describes the releases for Azure AD Connect Health an
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
-manager: mtillman
+manager: daveba
 editor: curtand
 
 ms.assetid: 8dd4e998-747b-4c52-b8d3-3900fe77d88f
@@ -12,10 +12,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect Health: Version Release History
 The Azure Active Directory team regularly updates Azure AD Connect Health with new features and functionality. This article lists the versions and features that have been released.
@@ -35,7 +36,7 @@ For feature feedback, vote at [Connect Health User Voice channel](https://feedba
 *	Azure AD Connect Health agent for AD FS (version 3.1.24.0)
 1. Transport Layer Security (TLS) protocol version 1.2 compliance and enforcement
 2. Support of Test-ADFSRequestToken for localized operating system
-3. Solved disgnostic agent EventHandler locking issue
+3. Solved diagnostic agent EventHandler locking issue
 4. Health agent registration bug fixes
 
 ## August 2018 

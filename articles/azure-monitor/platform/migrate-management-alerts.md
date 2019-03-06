@@ -1,36 +1,35 @@
 ---
 title: Migrate Azure alerts on management events to Activity Log alerts
-description: Alerts on management events will be removed on October 1. Prepare by migrating exisiting alerts.
+description: Alerts on management events will be removed on October 1. Prepare by migrating existing alerts.
 author: johnkemnetz
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
-ms.component: alerts
+ms.subservice: alerts
 ---
 # Migrate Azure alerts on management events to Activity Log alerts
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!WARNING]
 > Alerts on management events will be turned off on or after October 1. Use the directions below to understand if you have these alerts and migrate them if so.
->
-> 
 
 ## What is changing
 
 Azure Monitor (formerly Azure Insights) offered a capability to create an alert that triggered off of management events and generated notifications to a webhook URL or email addresses. You may have created one of these alerts any of these ways:
 * In the Azure portal for certain resource types, under Monitoring -> Alerts -> Add Alert, where “Alert on” is set to “Events”
-* By running the Add-AzureRmLogAlertRule PowerShell cmdlet
+* By running the Add-AzLogAlertRule PowerShell cmdlet
 * By directly using [the alert REST API](https://docs.microsoft.com/rest/api/monitor/alertrules) with odata.type = “ManagementEventRuleCondition” and dataSource.odata.type = “RuleManagementEventDataSource”
  
 The following PowerShell script returns a list of all alerts on management events that you have in your subscription, as well as the conditions set on each alert.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 $alerts = $null
-foreach ($rg in Get-AzureRmResourceGroup ) {
-  $alerts += Get-AzureRmAlertRule -ResourceGroup $rg.ResourceGroupName
+foreach ($rg in Get-AzResourceGroup ) {
+  $alerts += Get-AzAlertRule -ResourceGroup $rg.ResourceGroupName
 }
 foreach ($alert in $alerts) {
   if($alert.Properties.Condition.DataSource.GetType().Name.Equals("RuleManagementEventDataSource")) {
@@ -110,3 +109,4 @@ Alerts on management events that you have previously created will not be automat
 * Review the [activity log alert webhook schema](../../azure-monitor/platform/activity-log-alerts-webhook.md)
 * Learn more about [Service Notifications](../../azure-monitor/platform/service-notifications.md)
 * Learn more about [Action Groups](../../azure-monitor/platform/action-groups.md)
+

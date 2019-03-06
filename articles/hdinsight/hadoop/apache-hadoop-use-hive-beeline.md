@@ -21,6 +21,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
 * __Using Beeline from an SSH connection to a headnode or edge node__: `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
 * __Using Beeline on a client, connecting to HDInsight over an Azure Virtual Network__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+* __Using Beeline on a client, connecting to a HDInsight Enterprise Security Package (ESP) cluster over an Azure Virtual Network__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>`
 * __Using Beeline on a client, connecting to HDInsight over the public internet__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
 > [!NOTE]  
@@ -31,6 +32,8 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 > Replace `clustername` with the name of your HDInsight cluster.
 >
 > When connecting to the cluster through a virtual network, replace `<headnode-FQDN>` with the fully qualified domain name of a cluster headnode.
+>
+> When connecting to an Enterprise Security Package (ESP) cluster, replace `<AAD-Domain>` with the name of the Azure Active Directory (AAD) that the cluster is joined to. Replace `<username>` with the name of an account on the domain with permissions to access the cluster.
 
 ## <a id="prereq"></a>Prerequisites
 
@@ -63,6 +66,12 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
         ```bash
         beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+        ```
+    * When connecting to an Enterprise Security Package (ESP) cluster joined to Azure Active Directory (AAD), you must also specify the domain name `<AAD-Domain>` and the name of a domain user account with permissions to access the cluster `<username>`:
+        
+        ```bash
+        kinit <username>
+        beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>
         ```
 
 2. Beeline commands begin with a `!` character, for example `!help` displays help. However the `!` can be omitted for some commands. For example, `help` also works.
@@ -267,10 +276,7 @@ For more information on other ways you can work with Hadoop on HDInsight, see th
 * [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
-If you are using Tez with Hive, see the following documents:
-
-* [Use the Apache Tez UI on Windows-based HDInsight](../hdinsight-debug-tez-ui.md)
-* [Use the Apache Ambari Tez view on Linux-based HDInsight](../hdinsight-debug-ambari-tez-view.md)
+If you are using Tez with Hive, see the following document: [Use the Apache Ambari Tez view on Linux-based HDInsight](../hdinsight-debug-ambari-tez-view.md).
 
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/

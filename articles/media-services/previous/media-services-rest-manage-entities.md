@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/19/2017
+ms.date: 02/08/2019
 ms.author: juliako
 
 ---
-# Managing Media Services entities with REST 
+# Managing Media Services entities with REST  
+
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-manage-entities.md)
 > * [.NET](media-services-dotnet-manage-entities.md)

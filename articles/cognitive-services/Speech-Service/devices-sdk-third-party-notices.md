@@ -4,9 +4,9 @@ titleSuffix: Azure Cognitive Services
 description: This file provides information regarding components that are being relicensed to you by Microsoft under Microsoft's software licensing terms.  Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: wolfma
@@ -268,9 +268,9 @@ The OpenSSL toolkit stays under a double license, i.e. both the conditions of th
     * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
     * SUCH DAMAGE.
     *
-    * The licence and distribution terms for any publicly available version or
+    * The license and distribution terms for any publicly available version or
     * derivative of this code cannot be changed.  i.e. this code cannot simply be
-    * copied and put under another distribution licence
+    * copied and put under another distribution license
     * [including the GNU Public Licence.]
     */
 

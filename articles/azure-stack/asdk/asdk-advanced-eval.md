@@ -13,9 +13,11 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
+ms.lastreviewed: 10/16/2018
+
 ---
 
 # Advanced Azure Stack Development Kit evaluation tasks

@@ -11,6 +11,8 @@ ms.author: absha
 
 # Rewrite HTTP headers with Application Gateway (public preview)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 HTTP headers allow the client and the server to pass additional information with the request or the response. Rewriting these HTTP headers helps you accomplish several important scenarios such as adding Security-related header fields like HSTS/ X-XSS-Protection or removing response header fields, which may reveal sensitive information like backend server name.
 
 Application Gateway now supports the ability to rewrite headers of the incoming HTTP requests as well as the outgoing HTTP responses. You will be able to add, remove, or update HTTP request and response headers while the request/response packets move between the client and backend pools. You can rewrite both standard as well as non-standard header fields.
@@ -22,7 +24,7 @@ Application Gateway now supports the ability to rewrite headers of the incoming 
 Application Gateway header rewrite support offers:
 
 - **Global header rewrite**: You can rewrite specific headers for all the requests and responses pertaining to the site.
-- **Path-based header rewrite**:This type of rewrite enables header rewrite for only those requests and responses that pertain to only on a specific site area, for example a shopping cart area denoted by /cart/*.
+- **Path-based header rewrite**:This type of rewrite enables header rewrite for only those requests and responses that pertain to only on a specific site area, for example a shopping cart area denoted by /cart/\*.
 
 With this change, you need to:
 
@@ -43,7 +45,7 @@ You can rewrite the value in the headers to:
   *Example:* 
 
   ```azurepowershell-interactive
-  $responseHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Strict-Transport-Security" -  HeaderValue "max-age=31536000")
+  $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Strict-Transport-Security" -  HeaderValue "max-age=31536000")
   ```
 
 - Value from another header. 
@@ -51,7 +53,7 @@ You can rewrite the value in the headers to:
   *Example 1:* 
 
   ```azurepowershell-interactive
-  $requestHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-RequestHeader" -HeaderValue {http_req_oldHeader}
+  $requestHeaderConfiguration= New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-RequestHeader" -HeaderValue {http_req_oldHeader}
   ```
 
   > [!Note] 
@@ -60,7 +62,7 @@ You can rewrite the value in the headers to:
   *Example 2*:
 
   ```azurepowershell-interactive
-  $responseHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-ResponseHeader" -HeaderValue {http_resp_oldHeader}
+  $responseHeaderConfiguration= New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-ResponseHeader" -HeaderValue {http_resp_oldHeader}
   ```
 
   > [!Note] 
@@ -71,7 +73,7 @@ You can rewrite the value in the headers to:
   *Example:* 
 
   ```azurepowershell-interactive
-  $requestHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ciphers_used}"
+  $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ciphers_used}"
   ```
 
   > [!Note] 
@@ -89,8 +91,6 @@ This capability supports rewriting headers to the following server variables:
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | returns the list of ciphers supported by the client          |
 | ciphers_used               | returns the string of ciphers used for an established SSL connection |
-| client_latitude            | to determine the country, region, and city depending on the client IP address |
-| client_longitude           | to determine the country, region, and city depending on the client IP address |
 | client_port                | client port                                                  |
 | client_tcp_rtt             | information about the client TCP connection; available on systems that support the TCP_INFO socket option |
 | client_user                | when using HTTP authentication, the username supplied for authentication |

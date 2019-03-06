@@ -6,7 +6,7 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
@@ -126,7 +126,7 @@ We have taken a 0.1% sample of these files and joined the trip\_data and trip\_f
 | dropoff_longitude |Dropoff longitude |
 | dropoff_latitude |Dropoff latitude |
 | direct_distance |Direct distance between pick up and dropoff locations |
-| payment_type |Payment type (cas, credit-card etc.) |
+| payment_type |Payment type (cash, credit-card etc.) |
 | fare_amount |Fare amount in |
 | surcharge |Surcharge |
 | mta_tax |Mta tax |

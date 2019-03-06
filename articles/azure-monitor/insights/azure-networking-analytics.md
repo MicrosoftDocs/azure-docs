@@ -17,15 +17,17 @@ ms.author: richrund
 
 # Azure networking monitoring solutions in Log Analytics
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Log Analytics offers the following solutions for monitoring your networks:
 * Network Performance Monitor (NPM) to
- * Monitor the health of your network
+    * Monitor the health of your network
 * Azure Application Gateway analytics to review
- * Azure Application Gateway logs
- * Azure Application Gateway metrics
+    * Azure Application Gateway logs
+    * Azure Application Gateway metrics
 * Solutions to monitor and audit network activity on your cloud network
-* [Traffic Analytics](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
-* Azure Network Security Group Analytics
+    * [Traffic Analytics](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+    * Azure Network Security Group Analytics
 
 ## Network Performance Monitor (NPM)
 
@@ -104,9 +106,9 @@ The following PowerShell script provides an example of how to enable diagnostic 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
-$gateway = Get-AzureRmApplicationGateway -Name 'ContosoGateway'
+$gateway = Get-AzApplicationGateway -Name 'ContosoGateway'
 
-Set-AzureRmDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspaceId -Enabled $true
+Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
 
 ### Use Azure Application Gateway analytics
@@ -174,9 +176,9 @@ The following PowerShell script provides an example of how to enable diagnostic 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
-$nsg = Get-AzureRmNetworkSecurityGroup -Name 'ContosoNSG'
+$nsg = Get-AzNetworkSecurityGroup -Name 'ContosoNSG'
 
-Set-AzureRmDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspaceId -Enabled $true
+Set-AzDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
 
 ### Use Azure Network Security Group analytics

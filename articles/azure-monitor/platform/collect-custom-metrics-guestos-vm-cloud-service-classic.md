@@ -7,9 +7,11 @@ ms.service: azure-monitor
 ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
-ms.component: metrics
+ms.subservice: metrics
 ---
 # Send Guest OS metrics to the Azure Monitor metric store classic Cloud Services 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 With the Azure Monitor [Diagnostics extension](diagnostics-extension-overview.md), you can collect metrics and logs from the guest operating system (Guest OS) running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to [many different locations.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
@@ -23,9 +25,9 @@ The process that's outlined in this article works only for performance counters 
 
 - You must be a [service administrator or co-administrator](~/articles/billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription. 
 
-- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
+- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- You need to have either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installed.
+- You need to have either [Azure PowerShell](/powershell/azure) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installed.
 
 ## Provision a cloud service and storage account 
 
@@ -135,7 +137,7 @@ Save this diagnostics file locally.
 Launch PowerShell and log in to Azure. 
 
 ```PowerShell
-Login-AzureRmAccount 
+Login-AzAccount 
 ```
 
 Use the following commands to store the details of the storage account that you created earlier. 
@@ -183,3 +185,4 @@ You use the dimension filtering and splitting capabilities to view the total mem
 ## Next steps
 
 - Learn more about [custom metrics](metrics-custom-overview.md).
+

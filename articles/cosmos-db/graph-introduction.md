@@ -88,7 +88,7 @@ The following table shows popular Gremlin drivers that you can use against Azure
 
 ## Graph database design considerations
 
-During graph design, the decision of modelling an entity as a vertex of its own, as opposed to as a property of other vertex entities has performance and cost implications. The main driver for this decision relies on how the data is going to be queried, as well as the scalability of the model itself.
+During graph design, the decision of modeling an entity as a vertex of its own, as opposed to as a property of other vertex entities has performance and cost implications. The main driver for this decision relies on how the data is going to be queried, as well as the scalability of the model itself.
 
 Consider the following questions before planning on how to model the entity:
 

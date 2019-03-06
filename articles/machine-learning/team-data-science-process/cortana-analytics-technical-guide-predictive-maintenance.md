@@ -6,7 +6,7 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
@@ -321,7 +321,7 @@ containing data (for example, prediction results) for visualization.
    * Select the subscription you're using for deploying the solution, and
      then select **'YourSolutionName\_ResourceGroup'**.
    * In the new pop out panel, click the  ![SQL icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) icon to access your
-     database. Your database name is next to this icon (for example, **'pmaintenancedb'**), and  the **database server name** is listed under the Server name property and should look similar to **YourSoutionName.database.windows.net**.
+     database. Your database name is next to this icon (for example, **'pmaintenancedb'**), and  the **database server name** is listed under the Server name property and should look similar to **YourSolutionName.database.windows.net**.
    * Your database **username** and **password** are the same as
      the username and password previously recorded during deployment of the solution.
 2. Update the data source of the cold path report file with Power
@@ -338,7 +338,7 @@ containing data (for example, prediction results) for visualization.
    * In the pop out window, replace **'Server'** and **'Database'** with
      your own server and database names, and then click **'OK'**. For server
      name, make sure you specify the port 1433
-     (**YourSoutionName.database.windows.net, 1433**). Leave the Database field as **pmaintenancedb**. Ignore the warning
+     (**YourSolutionName.database.windows.net, 1433**). Leave the Database field as **pmaintenancedb**. Ignore the warning
      messages that appear on the screen.
    * In the next pop out window, you'll see two options on the left pane
      (**Windows** and **Database**). Click **'Database'**, fill in your
@@ -371,7 +371,7 @@ containing data (for example, prediction results) for visualization.
      <br/>
      ![Final view](./media/cortana-analytics-technical-guide-predictive-maintenance/final-view.png)
      <br/>
-   * To schedule refresh of the data, hover your mouse over the **PredictiveMaintenanceAerospace** dataset, click ![Elipsis icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png) and then choose **Schedule Refresh**.
+   * To schedule refresh of the data, hover your mouse over the **PredictiveMaintenanceAerospace** dataset, click ![Ellipsis icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png) and then choose **Schedule Refresh**.
      <br/>
      **Note:** If you see a warning massage, click **Edit Credentials** and make sure your database credentials are the same as those described in step 1.
      <br/>

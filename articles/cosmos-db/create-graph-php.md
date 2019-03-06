@@ -10,7 +10,7 @@ ms.date: 01/05/2018
 ms.author: lbosq
 
 ---
-# Azure Cosmos DB: Create a graph database using PHP and the Azure portal
+# Quickstart: Create a graph database in Azure Cosmos DB using PHP and the Azure portal
 
 > [!div class="op_single_selector"]
 > * [Gremlin console](create-graph-gremlin-console.md)
