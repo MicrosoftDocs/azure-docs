@@ -68,7 +68,7 @@ The template defines five parameters:
 			VALUES ('1/1/2010 12:00:00 AM')
 	```
 	
-3. Create a stored procedure in the same SQL Server or Azure SQL Database that was used to create the control table. The stored procedure is used to write the new high-watermark value to the external control table for delta data loading next time.
+3. Create a stored procedure in the same SQL Server or Azure SQL Database instance that you used to create the control table. The stored procedure is used to write the new high-watermark value to the external control table for delta data loading next time.
 
 	```sql
 			CREATE PROCEDURE update_watermark @LastModifiedtime datetime
