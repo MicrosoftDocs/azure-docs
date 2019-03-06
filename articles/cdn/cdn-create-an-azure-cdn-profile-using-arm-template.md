@@ -29,7 +29,7 @@ It should take about ten minutes to complete these steps.
 
 For the purposes of this quickstart, you must have a Web Application to use as your Origin. The example Web Application used in this quickstart was deployed to https://cdndemo.azurewebsites.net
 
-For more information, see [Create a static HTML web app in Azure](./articles/app-service/app-service-web-get-started-html.md).
+For more information, see [Create a static HTML web app in Azure](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html).
 
 ## Create a resource group
 
