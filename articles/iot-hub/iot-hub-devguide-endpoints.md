@@ -86,7 +86,7 @@ You can use the REST API [Get Endpoint Health](https://docs.microsoft.com/de-de/
 |healthy|The endpoint is accepting messages as expected.|
 |unhealthy|The endpoint is not accepting messages as expected and IoT Hub is retrying to send data to this endpoint. The status of an unhealthy endpoint will be updated to healthy when IoT Hub has established an eventually consistent state of health.|
 |unknown|IoT Hub has not established a connection with the endpoint. No messages have been delivered to or rejected from this endpoint.|
-|healthy|The endpoint is not accepting messages, after IoT Hub retried sending messages for the retrial period.|
+|dead|The endpoint is not accepting messages, after IoT Hub retried sending messages for the retrial period.|
 
 ## Field gateways
 
