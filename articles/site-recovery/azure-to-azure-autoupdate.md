@@ -40,7 +40,7 @@ You can allow Site Recovery to manage updates in the following ways.
 
 When you enable replication for a VM either starting [from the VM view](azure-to-azure-quickstart.md) or [from the recovery services vault](azure-to-azure-how-to-enable-replication.md), you can either allow Site Recovery to manage updates for the Site Recovery extension or manage it manually.
 
-![enable-replication-auto-update](./media/azure-to-azure-autoupdate/enable-rep.png)
+![Extension settings](./media/azure-to-azure-autoupdate/enable-rep.png)
 
 ### Toggle the extension update settings inside the vault
 
@@ -48,7 +48,7 @@ When you enable replication for a VM either starting [from the VM view](azure-to
 2. Under **For Azure Virtual Machines** > **Extension Update Settings**, turn on the **Allow Site Recovery to manage** toggle. To manage manually, turn it off. 
 3. Select **Save**.
 
-![vault-toggle-auto-update](./media/azure-to-azure-autoupdate/vault-toggle.png)
+![Extension update settings](./media/azure-to-azure-autoupdate/vault-toggle.png)
 
 > [!Important]
 > When you choose **Allow Site Recovery to manage**, the setting is applied to all VMs in the corresponding vault.
@@ -511,13 +511,13 @@ If there's an issue with the automatic updates, you'll see an error notification
 
 If you couldn't enable automatic updates, see the following common errors and recommended actions:
 
-**Error**: You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.
+- **Error**: You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.
 
-**Recommended action**: Make sure that the signed-in account is assigned as Contributor and try again. Refer to the required permissions section in [Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) for more information about assigning permissions.
+   **Recommended action**: Make sure that the signed-in account is assigned as Contributor and try again. Refer to the required permissions section in [Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) for more information about assigning permissions.
  
-To fix most issues after you enable automatic updates, select **Repair**. If the repair button isn't available, see the error message displayed in the extension update settings pane.
+   To fix most issues after you enable automatic updates, select **Repair**. If the repair button isn't available, see the error message displayed in the extension update settings pane.
 
-![Site Recovery service repair button in extension update settings](./media/azure-to-azure-autoupdate/repair.png)
+   ![Site Recovery service repair button in extension update settings](./media/azure-to-azure-autoupdate/repair.png)
 
  - **Error**: The Run As account does not have the permission to access the recovery services resource.
 
