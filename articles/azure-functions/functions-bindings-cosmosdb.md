@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.author: cshoe
 manager: jeconnoc
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
-ms.service: azure-functions; cosmos-db
+ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18

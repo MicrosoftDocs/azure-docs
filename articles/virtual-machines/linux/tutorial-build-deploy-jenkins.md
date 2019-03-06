@@ -6,7 +6,7 @@ manager: jpconnock
 tags: azure-resource-manager
 
 ms.assetid: 
-ms.service: devops
+ms.service: azure
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
