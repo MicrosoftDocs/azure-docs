@@ -32,7 +32,7 @@ Use the information in the following tables to troubleshoot issues and errors en
 
 | Severity | Description | Possible causes | Recommended action |
 |---|---|---|---|
-| Warning | Current settings for this database do not support certain kind of backup types present in the associated policy. | <li>**Master DB**: Only a full database backup operation can be performed on the master database; neither **differential** backup nor transaction **logs** backup are possible. </li> <li>Any database in **simple recovery model** does not allow for transaction **logs** backup to be taken.</li> | Modify the database settings such that all the backup types in the policy are supported. Alternatively, change the current policy to include only the supported backup types. Otherwise, the unsupported backup types will be skipped during scheduled backup or the backup job will fail for ad-hoc backup.
+| Warning | Current settings for this database do not support certain kind of backup types present in the associated policy. | <li>**Master DB**: Only a full database backup operation can be performed on the master database; neither **differential** backup nor transaction **logs** backup are possible. </li> <li>Any database in **simple recovery model** does not allow for transaction **logs** backup to be taken.</li> | Modify the database settings such that all the backup types in the policy are supported. Alternatively, change the current policy to include only the supported backup types. Otherwise, the unsupported backup types will be skipped during scheduled backup or the backup job will fail for ad hoc backup.
 
 
 ## Backup failures
@@ -56,7 +56,7 @@ The following tables are organized by error code.
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| Log chain is broken. | The database or the VM is backed up using another backup solution, which truncates the log chain.|<ul><li>Check if another backup solution or script is in use. If so, stop the other backup solution. </li><li>If the backup was an ad-hoc log backup, trigger a full backup to start a new log chain. For scheduled log backups, no action is needed as Azure Backup service will automatically trigger a full backup to fix this issue.</li>|
+| Log chain is broken. | The database or the VM is backed up using another backup solution, which truncates the log chain.|<ul><li>Check if another backup solution or script is in use. If so, stop the other backup solution. </li><li>If the backup was an ad hoc log backup, trigger a full backup to start a new log chain. For scheduled log backups, no action is needed as Azure Backup service will automatically trigger a full backup to fix this issue.</li>|
 
 ### UserErrorOpeningSQLConnection
 
@@ -68,14 +68,14 @@ The following tables are organized by error code.
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| First full backup is missing for this data source. | Full backup is missing for the database. Log and differential backups parent to a full backup, so full backups must be taken before triggering differential or log backups. | Trigger an ad-hoc full backup.   |
+| First full backup is missing for this data source. | Full backup is missing for the database. Log and differential backups parent to a full backup, so full backups must be taken before triggering differential or log backups. | Trigger an ad hoc full backup.   |
 
 ### UserErrorBackupFailedAsTransactionLogIsFull
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
 | Cannot take backup as transaction log for the data source is full. | The database transactional log space is full. | To fix this issue, refer to the [SQL documentation](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
-| This SQL database does not support the requested backup type. | Always On AG secondary replicas don't support full and differential backups. | <ul><li>If you triggered an ad-hoc backup, trigger the backups on the primary node.</li><li>If the backup was scheduled by policy, make sure the primary node is registered. To register the node, [follow the steps to discover a SQL Server database](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
+| This SQL database does not support the requested backup type. | Always On AG secondary replicas don't support full and differential backups. | <ul><li>If you triggered an ad hoc backup, trigger the backups on the primary node.</li><li>If the backup was scheduled by policy, make sure the primary node is registered. To register the node, [follow the steps to discover a SQL Server database](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
 
 ## Restore failures
 

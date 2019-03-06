@@ -4,7 +4,7 @@ description: Learn how to collect Azure ATP data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 5bf3cc44-ecda-4c78-8a63-31ab42f43605
