@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: tutorial
-ms.date: 01/22/2018
+ms.date: 02/20/2019
 ms.author: shlo
 ---
 # Branching and chaining activities in a Data Factory pipeline
@@ -53,7 +53,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     John|Doe
     Jane|Doe
 	```
-2. Use tools such as [Azure Storage Explorer](http://storageexplorer.com/) to create the **adfv2branch** container, and to upload the **input.txt** file to the container.
+2. Use tools such as [Azure Storage Explorer](https://storageexplorer.com/) to create the **adfv2branch** container, and to upload the **input.txt** file to the container.
 
 ## Create Visual Studio project
 
@@ -68,11 +68,11 @@ Using Visual Studio 2015/2017, create a C# .NET console application.
 ## Install NuGet packages
 
 1. Click **Tools** -> **NuGet Package Manager** -> **Package Manager Console**.
-2. In the **Package Manager Console**, run the following commands to install packages:
+2. In the **Package Manager Console**, run the following commands to install packages. Refer to [Microsoft.Azure.Management.DataFactory nuget package](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) with details.
 
     ```
-    Install-Package Microsoft.Azure.Management.DataFactory -Prerelease
-    Install-Package Microsoft.Azure.Management.ResourceManager -Prerelease
+    Install-Package Microsoft.Azure.Management.DataFactory
+    Install-Package Microsoft.Azure.Management.ResourceManager
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     ```
 

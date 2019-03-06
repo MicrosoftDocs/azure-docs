@@ -12,10 +12,10 @@ ms.custom: mvc
 
 # Tutorial: Provision an Azure Database for MySQL server using Azure Resource Manager template
 
-The [Azure Database for MySQL REST API](https://docs.microsoft.com/en-us/rest/api/mysql/) enables DevOps engineers to automate and integrate provisioning, configuration, and operations of managed MySQL servers and databases in Azure.  The API allows the creation, enumeration, management, and deletion of MySQL servers and databases on the Azure Database for MySQL service.
+The [Azure Database for MySQL REST API](https://docs.microsoft.com/rest/api/mysql/) enables DevOps engineers to automate and integrate provisioning, configuration, and operations of managed MySQL servers and databases in Azure.  The API allows the creation, enumeration, management, and deletion of MySQL servers and databases on the Azure Database for MySQL service.
 
 Azure Resource Manager 
-leverage the underlying REST API to declare and program the Azure resources required for deployments at scale, aligning with infrastructure as a code concept. The template parameterizes the Azure resource name, SKU, network, firewall configuration, and settings, allowing it to be created one time and used multiple times.  Azure Resource Manager templates can be easily created using [Azure portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) or [Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). They enable application packaging, standardization, and deployment automation, which can be integrated in the DevOps CI/CD pipeline.  For instance, if you are looking to quickly deploy a Web App with Azure Database for MySQL backend, you can perform the end-to-end deployment using this [QuickStart template](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/) from the GitHub gallery.
+leverage the underlying REST API to declare and program the Azure resources required for deployments at scale, aligning with infrastructure as a code concept. The template parameterizes the Azure resource name, SKU, network, firewall configuration, and settings, allowing it to be created one time and used multiple times.  Azure Resource Manager templates can be easily created using [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) or [Visual Studio Code](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). They enable application packaging, standardization, and deployment automation, which can be integrated in the DevOps CI/CD pipeline.  For instance, if you are looking to quickly deploy a Web App with Azure Database for MySQL backend, you can perform the end-to-end deployment using this [QuickStart template](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/) from the GitHub gallery.
 
 In this tutorial, you use Azure Resource Manager template and other utilities to learn how to:
 
@@ -25,6 +25,8 @@ In this tutorial, you use Azure Resource Manager template and other utilities to
 > * Load sample data
 > * Query data
 > * Update data
+
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Create an Azure Database for MySQL server with VNet Service Endpoint using Azure Resource Manager template
 
@@ -81,8 +83,8 @@ In this request, the values that need to be customized are:
 +	`storageProfile/geoRedundantBackup` - Specify Enabled/Disabled depending on Geo-DR requirements.
 +	`sku/tier` - Specify Basic, GeneralPurpose, or MemoryOptimized tier for deployment.
 +	`sku/capacity` - Specify the vCore capacity. Possible values include 2, 4, 8, 16, 32 or 64.
-+	`sku/family` - Specify Gen4 or Gen5 to choose hardware generation for server deployment.
-+	`sku/name` - Specify TierPrefix_family_capacity. For example B_Gen4_1, GP_Gen5_16, MO_Gen5_32. See the [pricing tiers](./concepts-pricing-tiers.md) documentation to understand the valid values per region and per tier.
++	`sku/family` - Specify Gen5 to choose hardware generation for server deployment.
++	`sku/name` - Specify TierPrefix_family_capacity. For example B_Gen5_1, GP_Gen5_16, MO_Gen5_32. See the [pricing tiers](./concepts-pricing-tiers.md) documentation to understand the valid values per region and per tier.
 +	`resources/properties/virtualNetworkSubnetId` - Specify the Azure identifier of the subnet in VNet where Azure MySQL server should be placed. 
 +	`tags(optional)` - Specify optional tags are key value pairs that you would use to categorize the resources for billing etc.
 
@@ -121,8 +123,8 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
   "resourceGroup": "myresourcegroup",
  "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },

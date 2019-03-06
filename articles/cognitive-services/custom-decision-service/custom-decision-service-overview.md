@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: This article provides an overview of the Custom Decision Service.
 services: cognitive-services
 author: alekh
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: overview
 ms.date: 05/08/2018
 ms.author: slivkins

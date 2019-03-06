@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # User flows in Azure Active Directory B2C
@@ -81,6 +81,6 @@ Only the **otherMails** and **signInNames** properties are exposed through the A
 
 ## Next steps
 
-To create the recommended user flows, follow the instructions in [Tutorial: Create a user flow](tutorial-create-tenant.md).
+To create the recommended user flows, follow the instructions in [Tutorial: Create a user flow](tutorial-create-user-flows.md).
 
 

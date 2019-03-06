@@ -18,6 +18,7 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Customize claims issued in the SAML token for enterprise applications
@@ -77,7 +78,7 @@ You can also use the special claims transformations functions.
 
 ## Adding claims
 
-When adding a claim, you can specify the attribute name (which doesn’t strictly need to follow a URI pattern as per the SAML spec). Set the value to any user attribute that is stored in the directory or use a contant value as an static entry for all users in your organization.
+When adding a claim, you can specify the attribute name (which doesn’t strictly need to follow a URI pattern as per the SAML spec). Set the value to any user attribute that is stored in the directory or use a constant value as an static entry for all users in your organization.
 
 ![Add User Attribute][7]
 

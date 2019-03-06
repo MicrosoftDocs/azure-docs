@@ -1,6 +1,6 @@
 ---
-title: SQL to Azure Log Analytics query language cheat sheet | Microsoft Docs
-description: Common functions to use for different scenarios in Log Analytics queries.
+title: SQL to Azure Monitor log query cheat sheet | Microsoft Docs
+description: Help for users familiar with SQL in writing log queries in Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,13 +15,13 @@ ms.date: 08/21/2018
 ms.author: bwren
 ---
 
-# SQL to Log Analytics query language cheat sheet 
+# SQL to Azure Monitor log query cheat sheet 
 
-The table below helps users who are familiar with SQL to learn the Log Analytics query language. Have a look at the T-SQL command for solving a common scenarios and the equivalent using Log Analytics.
+The table below helps users who are familiar with SQL to learn the Kusto query language to write log queries in Azure Monitor. Have a look at the T-SQL command for solving a common scenarios and the equivalent in an Azure Monitor log query.
 
-## SQL to Log Analytics
+## SQL to Azure Monitor
 
-Description								|SQL Query                           																|Azure Log Analytics Query
+Description								|SQL Query                           																|Azure Monitor log query
 ----------------------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------
 Select all data from a table	     	|`SELECT * FROM dependencies`          																|<code>dependencies</code>
 Select specific columns from a table	|`SELECT name, resultCode FROM dependencies`  														|<code>dependencies <br>&#124; project name, resultCode</code>
@@ -37,7 +37,7 @@ Sort									|`SELECT name, timestamp FROM dependencies ORDER BY timestamp asc`	
 Distinct								|`SELECT DISTINCT name, type  FROM dependencies`													|<code>dependencies <br>&#124; summarize by name, type </code>
 Grouping, Aggregation					|`SELECT name, AVG(duration) FROM dependencies GROUP BY name`										|<code>dependencies <br>&#124; summarize avg(duration) by name </code>
 Column aliases, Extend					|`SELECT operation_Name as Name, AVG(duration) as AvgD FROM dependencies GROUP BY name`				|<code>dependencies <br>&#124; summarize AvgD=avg(duration) by operation_Name <br>&#124; project Name=operation_Name, AvgD</code>
-Top n recrods by measure				|`SELECT TOP 100 name, COUNT(*) as Count FROM dependencies GROUP BY name ORDER BY Count asc`		|<code>dependencies <br>&#124; summarize Count=count() by name <br>&#124; top 100 by Count asc</code>
+Top n records by measure				|`SELECT TOP 100 name, COUNT(*) as Count FROM dependencies GROUP BY name ORDER BY Count asc`		|<code>dependencies <br>&#124; summarize Count=count() by name <br>&#124; top 100 by Count asc</code>
 Union									|`SELECT * FROM dependencies UNION SELECT * FROM exceptions`					 					|<code>union dependencies, exceptions</code>
 Union: with conditions					|`SELECT * FROM dependencies WHERE value > 4 UNION SELECT * FROM exceptions value < 5`				|<code>dependencies <br>&#124; where value > 4 <br>&#124; union (exceptions <br>&#124; where value < 5)</code>
 Join									|`SELECT * FROM dependencies JOIN exceptions ON dependencies.operation_Id = exceptions.operation_Id`|<code>dependencies <br>&#124; join (exceptions) on operation_Id == operation_Id</code>
@@ -45,4 +45,4 @@ Join									|`SELECT * FROM dependencies JOIN exceptions ON dependencies.operat
 
 ## Next steps
 
-- Go through a lesson on the [writing queries in Log Analytics](get-started-queries.md).
+- Go through a lesson on the [writing log queries in Azure Monitor](get-started-queries.md).

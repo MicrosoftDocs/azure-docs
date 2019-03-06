@@ -11,7 +11,7 @@
 ### [Disaster recovery using Azure DNS and Traffic Manager](disaster-recovery-dns-traffic-manager.md)
 ## Plan and design
 ### [Virtual networks](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Cross-premises connectivity - VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Cross-premises connectivity - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Cross-premises connectivity - dedicated private](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### Backend connectivity interoperability
 #### [Preface and Test Setup](connectivty-interoperability-preface.md?toc=%2fazure%2fnetworking%2ftoc.json)

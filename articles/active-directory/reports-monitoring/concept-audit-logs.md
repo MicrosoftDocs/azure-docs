@@ -19,6 +19,7 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 # Audit activity reports in the Azure Active Directory portal 
 
@@ -37,7 +38,7 @@ This article gives you an overview of the audit report.
  
 ## Who can access the data?
 
-* Users in the **Security Admininistrator**, **Security Reader** or **Global Administrator** roles
+* Users in the **Security Administrator**, **Security Reader** or **Global Administrator** roles
 * In addition, all users (non-administrators) can see their own audit activities
 
 ## Audit logs

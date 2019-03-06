@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 02/28/2019
 ms.author: tamram  
 ---
 
@@ -14,11 +14,10 @@ ms.author: tamram
 
 General-purpose v2 storage accounts support the latest Azure Storage features and incorporate all of the functionality of general-purpose v1 and Blob storage accounts. General-purpose v2 accounts are recommended for most storage scenarios. General-purpose v2 accounts deliver the lowest per-gigabyte capacity prices for Azure Storage, as well as industry-competitive transaction prices.
 
-Upgrading to a general-purpose v2 storage account from your general-purpose v1 or Blob storage accounts is simple. You can upgrade using the Azure portal, PowerShell, or Azure CLI. 
+Upgrading to a general-purpose v2 storage account from your general-purpose v1 or Blob storage accounts is simple. You can upgrade using the Azure portal, PowerShell, or Azure CLI.
 
-> [!NOTE]
-> Upgrading your storage account to a general-purpose v2 account is free.
-> Changing the storage access tier may result in changes to your bill. For more information, see the [Pricing and billing](#pricing-and-billing) section.
+> [!IMPORTANT]
+> Upgrading a v1 storage account to general-purpose v2 is permanent and cannot be undone.
 
 ## Upgrade using the Azure portal
 
@@ -64,8 +63,10 @@ By default, a new storage account is created in the Hot access tier, and a gener
 
 In both cases, the first priority is to estimate the cost of storing, accessing, and operating on your data stored in a general-purpose v2 storage account and compare that against your current costs.
 
-
 ## Pricing and billing
+
+Upgrading a v1 storage account to a general-purpose v2 account is free. However, changing the storage access tier may result in changes to your bill. 
+
 All storage accounts use a pricing model for blob storage based on the tier of each blob. When using a storage account, the following billing considerations apply:
 
 * **Storage costs**: In addition to the amount of data stored, the cost of storing data varies depending on the storage access tier. The per-gigabyte cost decreases as the tier gets cooler.

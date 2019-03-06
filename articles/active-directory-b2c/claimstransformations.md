@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # ClaimsTransformations
@@ -29,7 +29,7 @@ To include the list of claims transformation functions that can be used in the u
 </ClaimsTransformations>
 ```
 
-The **ClaimsTransformation** element conatains the following attributes:
+The **ClaimsTransformation** element contains the following attributes:
 
 | Attribute |Required | Description |
 | --------- |-------- | ----------- |

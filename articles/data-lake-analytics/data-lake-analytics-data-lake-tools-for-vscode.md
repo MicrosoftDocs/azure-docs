@@ -25,7 +25,7 @@ Azure Data Lake Tools for VS Code supports Windows, Linux, and macOS. U-SQL loc
 
 For MacOS and Linux:
 - [.NET Core SDK 2.0](https://www.microsoft.com/net/download/core)
-- [Mono 5.2.x](http://www.mono-project.com/download/)
+- [Mono 5.2.x](https://www.mono-project.com/download/)
 
 ## Install Azure Data Lake Tools
 
@@ -307,8 +307,8 @@ You can access Azure Data Lake Analytics resources to list accounts, access meta
 You can use Azure Data Lake Store-related commands to:
  - [Browse through the Azure Data Lake Store resources](#list-the-storage-path) 
  - [Preview the Azure Data Lake Store file](#preview-the-storage-file) 
- - [Upload the file directly to Azure Data Lake Store in VS Code](#upload-file-or-folder)
- - [Download the file directly from Azure Data Lake Store in VS Code](#download-file)
+ - Upload the file directly to Azure Data Lake Store in VS Code
+ - Download the file directly from Azure Data Lake Store in VS Code
 
 ### List the storage path 
 

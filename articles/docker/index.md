@@ -22,7 +22,7 @@ ms.author: carolz
     </div>
 <h2>5-Minute Quickstarts</h2>
 <p>Learn how to deploy Docker on Azure:</p>
-<a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS">Deploy Docker on Ubuntu Quickstart template</a><br/>
+<a href="https://azure.microsoft.com/resources/templates/docker-simple-on-ubuntu/">Deploy Docker on Ubuntu Quickstart template</a><br/>
 <h2>Step-by-Step Tutorials</h2>
 <p>Learn how to use Docker in your application and as part of your CI/CD pipeline:</p>
 <ol>

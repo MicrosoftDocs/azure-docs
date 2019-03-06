@@ -4,9 +4,9 @@ titleSuffix: Azure Cognitive Services
 description: This file provides information regarding components that are being relicensed to you by Microsoft under Microsoft's software licensing terms.  Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: wolfma
@@ -179,7 +179,7 @@ The OpenSSL toolkit stays under a double license, i.e. both the conditions of th
     * 3. All advertising materials mentioning features or use of this
     *    software must display the following acknowledgment:
     *    "This product includes software developed by the OpenSSL Project
-    *    for use in the OpenSSL Toolkit. (http://www.openssl.org/)"
+    *    for use in the OpenSSL Toolkit. (https://www.openssl.org/)"
     *
     * 4. The names "OpenSSL Toolkit" and "OpenSSL Project" must not be used to
     *    endorse or promote products derived from this software without
@@ -193,7 +193,7 @@ The OpenSSL toolkit stays under a double license, i.e. both the conditions of th
     * 6. Redistributions of any form whatsoever must retain the following
     *    acknowledgment:
     *    "This product includes software developed by the OpenSSL Project
-    *    for use in the OpenSSL Toolkit (http://www.openssl.org/)"
+    *    for use in the OpenSSL Toolkit (https://www.openssl.org/)"
     *
     * THIS SOFTWARE IS PROVIDED BY THE OpenSSL PROJECT ``AS IS'' AND ANY
     * EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -268,9 +268,9 @@ The OpenSSL toolkit stays under a double license, i.e. both the conditions of th
     * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
     * SUCH DAMAGE.
     *
-    * The licence and distribution terms for any publicly available version or
+    * The license and distribution terms for any publicly available version or
     * derivative of this code cannot be changed.  i.e. this code cannot simply be
-    * copied and put under another distribution licence
+    * copied and put under another distribution license
     * [including the GNU Public Licence.]
     */
 
@@ -490,7 +490,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use these files except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+    https://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -508,7 +508,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use these files except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+    https://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,

@@ -13,9 +13,12 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
+ms.lastreviewed: 08/10/2018
+
+
 ---
 
 # Download and extract the Azure Stack Development Kit (ASDK)

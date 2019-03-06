@@ -4,7 +4,7 @@ description: Azure Policy evaluations and effects determine compliance. Learn ho
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -31,7 +31,7 @@ updated and the frequency and events that trigger an evaluation cycle.
 > [!WARNING]
 > If compliance state is being reported as **Not registered**, verify that the **Microsoft.PolicyInsights**
 > Resource Provider is registered and that the user has the appropriate role-based access control
-> (RBAC) permissions as described [here](../overview.md#rbac-permissions-in-azure-policy).
+> (RBAC) permissions as described in [RBAC in Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -63,6 +63,9 @@ minutes later. This event doesn't cause an evaluation of other resources.
 reevaluated. A large policy or initiative of many resources can take time, so there's no
 pre-defined expectation of when the evaluation cycle will complete. Once it completes, updated
 compliance results are available in the portal and SDKs.
+
+- The [Guest Configuration](../concepts/guest-configuration.md) resource provider is updated with
+compliance details by a managed resource.
 
 - On-demand scan
 
@@ -192,6 +195,14 @@ the assignment and the events. The activity log provides additional context and 
 those events.
 
 ![Policy Compliance Activity Log](../media/getting-compliance-data/compliance-activitylog.png)
+
+### Understand non-compliance
+
+<a name="change-history-preview"></a>
+
+When a resources is determined to be **non-compliant**, there are many possible reasons. To
+determine the reason a resource is **non-compliant** or to find the change responsible, see
+[Determine non-compliance](./determine-non-compliance.md).
 
 ## Command line
 
@@ -490,14 +501,15 @@ PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName
 Trent Baker
 ```
 
-## Log Analytics
+## Azure Monitor logs
 
-If you have a [Log Analytics](../../../log-analytics/log-analytics-overview.md) workspace with the
-`AzureActivity` solution tied to your subscription, you can also view non-compliance results from
-the evaluation cycle using simple Azure Data Explorer queries and the `AzureActivity` table. With
-details in Log Analytics, alerts can be configured to watch for non-compliance.
+If you have a [Log Analytics workspace](../../../log-analytics/log-analytics-overview.md) with
+`AzureActivity` from the [Activity Log Analytics solution](../../../azure-monitor/platform/collect-activity-logs.md) tied to your subscription, you
+can also view non-compliance results from the evaluation cycle using simple Kusto queries and the
+`AzureActivity` table. With details in Azure Monitor logs, alerts can be configured to watch for
+non-compliance.
 
-![Policy Compliance using Log Analytics](../media/getting-compliance-data/compliance-loganalytics.png)
+![Policy Compliance using Azure Monitor logs](../media/getting-compliance-data/compliance-loganalytics.png)
 
 ## Next steps
 

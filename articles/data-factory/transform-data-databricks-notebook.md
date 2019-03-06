@@ -93,7 +93,7 @@ In the above Databricks activity definition, you specify these library types: *j
         {
             "cran": {
                 "package": "ada",
-                "repo": "http://cran.us.r-project.org"
+                "repo": "https://cran.us.r-project.org"
             }
         }
     ]

@@ -25,7 +25,7 @@ You can add the Chef client extension directly onto a Linux or Windows machine f
 ## Install the Chef extension on a new Linux virtual machine
 In this section, you'll first use the Azure portal to create a Linux machine. During the process, you'll also see how to install the Chef extension on the new virtual machine.
 
-1. Browse to the [Azure portal](http://portal.azure.com).
+1. Browse to the [Azure portal](https://portal.azure.com).
 
 1. From the menu on the left, select the **Virtual machines** option. If the **Virtual machines** option is not present, select **All services** and then select **Virtual machines**.
 
@@ -48,7 +48,7 @@ In this section, you'll first use the Azure portal to create a Linux machine. Du
 1. On the **Basics** tab, specify the following values, and then select **OK**.
 
     - **Name** - Enter a name for the new virtual machine.
-    - **VM disk type** - Specify either **SSD** or **HDD** for the storage disk type. For more information about virtual machine disk types on Azure, see the article     [High-performance Premium Storage and managed disks for VMs](/azure/virtual-machines/windows/premium-storage).
+    - **VM disk type** - Specify either **SSD** or **HDD** for the storage disk type. For more information about virtual machine disk types on Azure, see the article     [Select a disk type](../virtual-machines/windows/disks-types.md).
     - **User name** - Enter a user name that is granted administrator privileges on the virtual machine.
     - **Authentication type** - Select **Password**. You can also select **SSH public key**, and supply an SSH public key value. For purposes of this demo (and in the screenshots), **Password** is selected.
     - **Password** and **Confirm password** - Enter a password for the user.

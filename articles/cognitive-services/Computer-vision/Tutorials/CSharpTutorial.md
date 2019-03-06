@@ -1,19 +1,19 @@
-﻿---
-title: "Tutorial: Build an image processing app - C#"
+---
+title: "Sample: Explore an image processing app in C#"
 titleSuffix: Computer Vision - Cognitive Services - Azure
 description: Explore a basic Windows app that uses the Computer Vision API in Microsoft Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
 services: cognitive-services
 author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
-ms.component: computer-vision
-ms.topic: article
-ms.date: 08/28/2018
+ms.subservice: computer-vision
+ms.topic: sample
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
 
-# Tutorial: Build an image processing app - C&#35;
+# Sample: Explore an image processing app with C#
 
 Explore a basic Windows application that uses Computer Vision to perform optical character recognition (OCR), create smart-cropped thumbnails, plus detect, categorize, tag and describe visual features, including faces, in an image. The below example lets you submit an image URL or a locally stored file. You can use this open source example as a template for building your own app for Windows using the Computer Vision API and Windows Presentation Foundation (WPF), a part of .NET Framework.
 

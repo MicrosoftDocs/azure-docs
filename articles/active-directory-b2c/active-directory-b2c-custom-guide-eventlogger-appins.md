@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/12/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 
 ---
 # Track user behavior in Azure Active Directory B2C using Application Insights

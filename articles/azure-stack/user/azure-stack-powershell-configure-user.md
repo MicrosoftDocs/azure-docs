@@ -12,9 +12,10 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/11/2019
 ms.author: mabrigg
-ms.reviewer: bganapa
+ms.reviewer: thoroet
+ms.lastreviewed: 01/24/2019
 
 ---
 
@@ -65,12 +66,7 @@ Make sure you replace the following script variables with values from your Azure
   Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
 
   # Sign in to your environment
-
-  $cred = get-credential
-
-  Login-AzureRmAccount `
-    -EnvironmentName "AzureStackUser" `
-    -Credential $cred
+  Login-AzureRmAccount -EnvironmentName "AzureStackUser"
   ```
 
 ## Register resource providers
@@ -95,6 +91,7 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 ## Next steps
 
-- [Develop templates for Azure Stack](azure-stack-develop-templates.md)
-- [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)
+- [Develop templates for Azure Stack](azure-stack-develop-templates.md)  
+- [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)  
+- [Azure Stack Module Reference](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)  
 - If you want to set up PowerShell for the cloud operator environment, refer to the [Configure the Azure Stack operator's PowerShell environment](../azure-stack-powershell-configure-admin.md) article.

@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: daveba
+ms.collection: M365-identity-device-management
 ---
 
 # Services that support managed identities for Azure resources
@@ -90,7 +91,7 @@ Managed identity type |  All Generally Available<br>Global Azure Regions | Azure
 Refer to the following list to configure managed identity for Azure Logic Apps (in regions where available):
 
 - [Azure portal](/azure/logic-apps/create-managed-service-identity#azure-portal)
-- [Azure Resource Manager template](/azure/app-service/overview-managed-identity#deployment-template)
+- [Azure Resource Manager template](/azure/app-service/overview-managed-identity)
 
 ### Azure Data Factory V2
 
@@ -101,10 +102,10 @@ Managed identity type |  All Generally Available<br>Global Azure Regions | Azure
 
 Refer to the following list to configure managed identity for Azure Data Factory V2 (in regions where available):
 
-- [Azure portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)
-- [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)
-- [REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)
-- [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk)
+- [Azure portal](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
+- [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
+- [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
+- [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
 ### Azure API Management
 

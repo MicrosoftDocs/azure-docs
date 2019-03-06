@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/23/2018
+ms.date: 01/31/2019
 ms.author: raynew
 ---
 # Monitor alerts for Azure virtual machine backups
@@ -36,7 +36,7 @@ To open the Backup Alerts blade from the Alerts and Events section:
 
     ![Event Detail](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
 
-    To customize the attributes displayed in the list, see [View additional event attributes](backup-azure-monitor-vms.md#view-additional-event-attributes)
+    To customize the attributes displayed in the list, see [View additional event attributes](backup-azure-monitor-vms.md)
 
 ## Configure notifications
 

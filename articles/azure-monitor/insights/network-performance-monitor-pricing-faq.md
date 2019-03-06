@@ -23,7 +23,7 @@ This article captures the pricing changes related to Azure [Network Performance 
 
 Network Performance Monitor consists of three components:
 * [Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#performance-monitor)
-* [Service Endpoint Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#service-endpoint-monitor)
+* [Service Endpoint Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview)
 * [ExpressRoute Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
 
 The following sections explain the pricing changes for the NPM components.

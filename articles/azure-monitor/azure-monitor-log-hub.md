@@ -6,12 +6,9 @@ description: Azure Monitor can collect different sources as log data and store i
 services: azure-monitor
 author: mgoedtel
 manager: carmonm
-ms.assetid:	
 ms.service: azure-monitor
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: hub-page
-ms.date: 01/25/2019
+ms.date: 01/29/2019
 ms.author: magoedte
 
 ---
@@ -71,8 +68,8 @@ ms.author: magoedte
                                                                 <div class="cardText" style="padding-left: 0px">
                                                                     <h3>Understand security</h3> 
 																	<p>
-																	    <a href="/azure/azure-monitor/platform/log-analytics-data-security">Log data</a><br/>
-                                                                        <a href="/azure/azure-monitor/platform/log-analytics-personal-data-mgmt">Personal log data handling</a><br/>
+																	    <a href="/azure/azure-monitor/platform/data-security">Log data</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/personal-data-mgmt">Personal log data handling</a><br/>
                                                                         <a href="/azure/azure-monitor/platform/roles-permissions-security">Role permissions and security</a><br/>
 																    </p>
                                                                     <br>

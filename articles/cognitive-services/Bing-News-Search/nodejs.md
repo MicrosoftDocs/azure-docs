@@ -4,9 +4,9 @@ titlesuffix: Azure Cognitive Services
 description: Use this quickstart to send a request to the Bing News Search REST API using Node.js, and receive a JSON response.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-news-search
+ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
@@ -65,7 +65,7 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
         });
         ```
 
-    3. When an **end** flag is signalled, the JSON and headers can be viewed.
+    3. When an **end** flag is signaled, the JSON and headers can be viewed.
 
         ```javascript
         response.on('end', function () {

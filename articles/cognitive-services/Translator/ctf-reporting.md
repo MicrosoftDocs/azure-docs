@@ -4,9 +4,9 @@ titlesuffix: Azure Cognitive Services
 description: How to use Collaborative Translation Framework (CTF) reporting.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
@@ -28,7 +28,7 @@ The Collaborative Translation Framework (CTF) Reporting API returns statistics a
 
 ## Endpoint
 The endpoint of the CTF Reporting API is
-http://api.microsofttranslator.com/v2/beta/ctfreporting.svc
+https://api.microsofttranslator.com/v2/beta/ctfreporting.svc
 
 
 ## Methods

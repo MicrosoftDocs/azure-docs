@@ -15,6 +15,7 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: anajod
+ms.lastreviewed: 01/25/2019
 ---
 
 # Tutorial: Deploy a hybrid cloud solution with Azure and Azure Stack

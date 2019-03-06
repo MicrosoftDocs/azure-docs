@@ -20,6 +20,7 @@ ms.author: priyamo
 ms.reviewer: dhanyahk  
 
 # Customer intent: As an Azure AD administrator, I want to understand what Azure AD reports are available and how I can use them to gain insights into my environment. 
+ms.collection: M365-identity-device-management
 ---
 
 # What are Azure Active Directory reports?

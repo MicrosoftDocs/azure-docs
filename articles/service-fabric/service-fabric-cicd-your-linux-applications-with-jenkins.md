@@ -1,4 +1,4 @@
-﻿---
+---
 title: Continuous build and integration for your Azure Service Fabric Linux applications using Jenkins | Microsoft Docs
 description: Continuous build and integration for your Service Fabric Linux application using Jenkins
 services: service-fabric
@@ -296,7 +296,7 @@ For development and test environments, you can configure either Azure credential
    * While following the steps in the topic, be sure to copy and save the following values: *Application ID*, *Application key*, *Directory ID (Tenant ID)*, and *Subscription ID*. You need them to configure the Azure credentials in Jenkins.
    * If you don't have the [required permissions](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) on your directory, you'll need to ask an administrator to either grant you the permissions or create the service principal for you, or you'll need to configure the management endpoint for your cluster in the **Post-Build Actions** for your job in Jenkins.
    * In the [Create an Azure Active Directory application](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application) section, you can enter any well-formed URL for the **Sign-on URL**.
-   * In the [Assign application to a Role](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) section, you can assign your application the *Reader* role on the resource group for your cluster.
+   * In the [Assign application to a Role](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) section, you can assign your application the *Reader* role on the resource group for your cluster.
 
 1. Back in the Jenkins job, click the **Post-build Actions** tab.
 1. From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. 

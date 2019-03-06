@@ -6,7 +6,7 @@ author: sauryadas
 
 ms.service: container-service
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 02/15/2019
 ms.author: saudas
 ---
 
@@ -23,11 +23,11 @@ AKS supports four minor versions of Kubernetes:
 - The current minor version that is released upstream (n)
 - Three previous minor versions. Each supported minor version also supports two stable patches.
 
-For example, if AKS introduces *1.11.x* today, support is also provided for *1.10.a* + *1.10.b*, *1.9.c* + *1.9d*, *1.8.e* + *1.8f* (where the lettered patch releases are two latest stable builds).
+For example, if AKS introduces *1.12.x* today, support is also provided for *1.11.a* + *1.11.b*, *1.10.c* + *1.10d*, *1.9.e* + *1.9f* (where the lettered patch releases are two latest stable builds).
 
-When a new minor version is introduced, the oldest minor version and patch releases supported are retired. 15 days before the release of the new minor version and upcoming version retirement, an announcement is made through the [Azure update channels][azure-update-channel]. In the example above where *1.11.x* is released, the retired versions are *1.7.g* + *1.7.h*.
+When a new minor version is introduced, the oldest minor version and patch releases supported are retired. 15 days before the release of the new minor version and upcoming version retirement, an announcement is made through the [Azure update channels][azure-update-channel]. In the example above where *1.12.x* is released, the retired versions are *1.8.g* + *1.8.h*.
 
-When you deploy an AKS cluster in the portal or with the Azure CLI, the cluster is always set to the n-1 minor version and latest patch. For example, if AKS supports *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1.9d*, *1.8.e* + *1.8f*, the default version for new clusters is *1.10.b*.
+When you deploy an AKS cluster in the portal or with the Azure CLI, the cluster is always set to the n-1 minor version and latest patch. For example, if AKS supports *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c* + *1.10d*, *1.9.e* + *1.9f*, the default version for new clusters is *1.11.b*.
 
 ## List currently supported versions
 
@@ -37,20 +37,19 @@ To find out what versions are currently available for your subscription and regi
 az aks get-versions --location eastus --output table
 ```
 
-The output is similar to the following example, which shows that Kubernetes version *1.12.4* is the most recent version available:
+The output is similar to the following example, which shows that Kubernetes version *1.12.5* is the most recent version available:
 
 ```
 KubernetesVersion    Upgrades
 -------------------  -----------------------
-1.12.4               None available
-1.11.6               1.12.4
-1.11.5               1.11.6, 1.12.4
-1.10.12              1.11.5, 1.11.6
-1.10.9               1.10.12, 1.11.5, 1.11.6
+1.12.5               None available
+1.12.4               1.12.5
+1.11.7               1.12.4, 1.12.5
+1.11.6               1.11.7, 1.12.4, 1.12.5
+1.10.12              1.11.6, 1.11.7
+1.10.9               1.10.12, 1.11.6, 1.11.7
 1.9.11               1.10.9, 1.10.12
 1.9.10               1.9.11, 1.10.9, 1.10.12
-1.8.15               1.9.10, 1.9.11
-1.8.14               1.8.15, 1.9.10, 1.9.11
 ```
 
 ## FAQ
@@ -59,8 +58,8 @@ KubernetesVersion    Upgrades
 
 If you are on the *n-4* version, you are out of the SLO. If your upgrade from version n-4 to n-3 succeeds, then you are back in the SLO. For example:
 
-- If the supported AKS versions are *1.10.a* + *1.10.b*, *1.9.c* + *1.9d*, *1.8.e* + *1.8f* and you are on *1.7.g* or *1.7.h*, you are out of the SLO.
-- If the upgrade from *1.7.g* or *1.7.h* to *1.8.e* or *1.8.f* succeeds, you are back in the SLO.
+- If the supported AKS versions are *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c* + *1.10d*, and *1.9.e* + *1.9f* and you are on *1.8.g* or *1.8.h*, you are out of the SLO.
+- If the upgrade from *1.8.g* or *1.8.h* to *1.9.e* or *1.9.f* succeeds, you are back in the SLO.
 
 Upgrades to versions older than *n-4* are not supported. In such cases, we recommend customers create new AKS clusters and redeploy their workloads.
 

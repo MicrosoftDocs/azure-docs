@@ -11,7 +11,7 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
-ms.date: 06/14/2018
+ms.date: 01/25/2019
 ---
 # Use Transact-SQL (T-SQL) to create and manage Elastic Database Jobs
 
@@ -69,9 +69,9 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 ```
 
 
-## Exclude a single database
+## Exclude an individual database
 
-The following example shows how to execute a job against all databases in a server, except for the database named *MappingDB*.  
+The following example shows how to execute a job against all databases in a SQL Database server, except for the database named *MappingDB*.  
 Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 ```sql
@@ -97,7 +97,7 @@ EXEC [jobs].sp_add_target_group_member
 @server_name='server2.database.windows.net'
 GO
 
---Excude a database target member from the server target group
+--Exclude a database target member from the server target group
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @membership_type = N'Exclude',
@@ -278,7 +278,7 @@ select * from jobs.jobsteps
 ```
 
 
-## Begin ad-hoc execution of a job
+## Begin ad hoc execution of a job
 
 The following example shows how to start a job immediately.  
 Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
@@ -403,7 +403,7 @@ The following stored procedures are in the [jobs database](sql-database-job-auto
 |Stored procedure  |Description  |
 |---------|---------|
 |[sp_add_job](#spaddjob)     |     Adds a new job.    |
-|[sp_update_job ](#spupdatejob)    |      Updates an existing job.   |
+|[sp_update_job](#spupdatejob)    |      Updates an existing job.   |
 |[sp_delete_job](#spdeletejob)     |      Deletes an existing job.   |
 |[sp_add_jobstep](#spaddjobstep)    |    Adds a step to a job.     |
 |[sp_update_jobstep](#spupdatejobstep)     |     Updates a job step.    |
@@ -414,7 +414,7 @@ The following stored procedures are in the [jobs database](sql-database-job-auto
 |[sp_delete_target_group](#spdeletetargetgroup)     |    Deletes a target group.     |
 |[sp_add_target_group_member](#spaddtargetgroupmember)     |    Adds a database or group of databases to a target group.     |
 |[sp_delete_target_group_member](#spdeletetargetgroupmember)     |     Removes a target group member from a target group.    |
-|[sp_purge_jobhistory ](#sppurgejobhistory)    |    Removes the history records for a job.     |
+|[sp_purge_jobhistory](#sppurgejobhistory)    |    Removes the history records for a job.     |
 
 
 
@@ -1027,10 +1027,10 @@ Specifies if the target group member will be included or excluded. target_group_
 The type of target database or collection of databases including all databases in a server, all databases in an Elastic pool, all databases in a shard map, or an individual database. target_type is nvarchar(128), with no default. Valid values for target_type are ‘SqlServer’, ‘SqlElasticPool’, ‘SqlDatabase’, or ‘SqlShardMap’. 
 
 [ **@refresh_credential_name =** ] 'refresh_credential_name'  
-The name of the logical server. refresh_credential_name is nvarchar(128), with no default.
+The name of the SQL Database server. refresh_credential_name is nvarchar(128), with no default.
 
 [ **@server_name =** ] 'server_name'  
-The name of the logical server that should be added to the specified target group. server_name should be specified when target_type is ‘SqlServer’. server_name is nvarchar(128), with no default.
+The name of the SQL Database server that should be added to the specified target group. server_name should be specified when target_type is ‘SqlServer’. server_name is nvarchar(128), with no default.
 
 [ **@database_name =** ] 'database_name'  
 The name of the database that should be added to the specified target group. database_name should be specified when target_type is ‘SqlDatabase’. database_name is nvarchar(128), with no default.
@@ -1047,7 +1047,7 @@ Return Code Values
 0 (success) or 1 (failure)
 
 #### Remarks
-A job executes on all databases within a server or Elastic pool at time of execution, when a logical server or Elastic pool is included in the target group.
+A job executes on all single databases within a SQL Database server or in an elastic pool at time of execution, when a SQL Database server or Elastic pool is included in the target group.
 
 #### Permissions
 By default, members of the sysadmin fixed server role can execute this stored procedure. They restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:
@@ -1228,7 +1228,7 @@ Shows job execution history.
 |**target_type**|	nvarchar(128)	|Type of target database or collection of databases including all databases in a server, all databases in an Elastic pool or a database. Valid values for target_type are ‘SqlServer’, ‘SqlElasticPool’ or ‘SqlDatabase’. NULL indicates this is the parent job execution.
 |**target_id**	|uniqueidentifier|	Unique ID of the target group member.  NULL indicates this is the parent job execution.
 |**target_group_name**	|nvarchar(128)	|Name of the target group. NULL indicates this is the parent job execution.
-|**target_server_name**|	nvarchar(256)|	Name of the logical server contained in the target group. Specified only if target_type is ‘SqlServer’. NULL indicates this is the parent job execution.
+|**target_server_name**|	nvarchar(256)|	Name of the SQL Database server contained in the target group. Specified only if target_type is ‘SqlServer’. NULL indicates this is the parent job execution.
 |**target_database_name**	|nvarchar(128)|	Name of the database contained in the target group. Specified only when target_type is ‘SqlDatabase’. NULL indicates this is the parent job execution.
 
 
@@ -1252,7 +1252,7 @@ Shows all jobs.
 
 ### job_versions view
 
-[jobs].[job_verions]
+[jobs].[job_versions]
 
 Shows all job versions.
 
@@ -1331,7 +1331,7 @@ Shows all members of all target groups.
 |**refresh_credential_name**	|nvarchar(128)	|Name of the database scoped credential used to connect to the target group member.|
 |**subscription_id**	|uniqueidentifier|	Unique ID of the subscription.|
 |**resource_group_name**	|nvarchar(128)|	Name of the resource group in which the target group member resides.|
-|**server_name**	|nvarchar(128)	|Name of the logical server contained in the target group. Specified only if target_type is ‘SqlServer’. |
+|**server_name**	|nvarchar(128)	|Name of the SQL Database server contained in the target group. Specified only if target_type is ‘SqlServer’. |
 |**database_name**	|nvarchar(128)	|Name of the database contained in the target group. Specified only when target_type is ‘SqlDatabase’.|
 |**elastic_pool_name**	|nvarchar(128)|	Name of the Elastic pool contained in the target group. Specified only when target_type is ‘SqlElasticPool’.|
 |**shard_map_name**	|nvarchar(128)|	Name of the shard map contained in the target group. Specified only when target_type is ‘SqlShardMap’.|

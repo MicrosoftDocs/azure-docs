@@ -8,7 +8,7 @@ manager: femila
 
 ms.service: media-services
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/10/2019
 ms.author: juliako
 ---
 
@@ -78,7 +78,7 @@ The values described in the following table apply. The **Param value** is the va
 
 |**Name**|**Param value**|**Description**|
 |---|---|---|
-|Trial|trial|Used for trial accounts.|
+|Trial|trail|Used for trial accounts.|
 |West US|westus2|Used for the Azure West US 2 region.|
 |North Europe |northeurope|Used for the Azure North Europe region.|
 |East Asia|eastasia|Used for the Azure East Asia region.|

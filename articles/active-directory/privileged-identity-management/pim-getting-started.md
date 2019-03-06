@@ -14,6 +14,7 @@ ms.workload: identity
 ms.date: 11/09/2018
 ms.author: rolyon
 ms.custom: pim  
+ms.collection: M365-identity-device-management
 ---
 # Start using PIM
 
@@ -100,7 +101,6 @@ Once PIM is set up, you can perform your identity management tasks.
 | --- | --- |
 | **My roles**  | Displays a list of eligible and active roles assigned to you. This is where you can activate any assigned eligible roles. |
 | **My requests** | Displays your pending requests to activate eligible role assignments. |
-| **Application access** | Enables you to reduce potential delays and use a role immediately after activation. |
 | **Approve requests** | Displays a list of requests to activate eligible roles by users in your directory that you are designated to approve. |
 | **Review access** | Lists active access reviews you are assigned to complete, whether you're reviewing access for yourself or someone else. |
 | **Azure AD roles** | Displays a dashboard and settings for privileged role administrators to manage Azure AD directory role assignments. This dashboard is disabled for anyone who isn't a privileged role administrator. These users have access to a special dashboard titled My view. The My view dashboard only displays information about the user accessing the dashboard, not the entire tenant. |

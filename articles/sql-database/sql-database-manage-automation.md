@@ -11,7 +11,7 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 12/19/2018
 ---
 # Managing Azure SQL databases using Azure Automation
 
@@ -31,7 +31,7 @@ Azure SQL Database can be managed in Azure Automation by using the [Azure SQL Da
 
 Azure Automation also has the ability to communicate with SQL servers directly, by issuing SQL commands using PowerShell.
 
-The [Azure Automation runbook gallery](https://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) contains a variety of product team and community runbooks to get started automating management of Azure SQL databases, other Azure services, and third-party systems. Gallery runbooks include:
+The [Azure Automation runbook gallery](https://azure.microsoft.com/blog/20../../introducing-the-azure-automation-runbook-gallery/) contains a variety of product team and community runbooks to get started automating management of Azure SQL databases, other Azure services, and third-party systems. Gallery runbooks include:
 
 - [Run SQL queries against a SQL Server database](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
 - [Vertically scale (up or down) an Azure SQL Database on a schedule](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
@@ -44,4 +44,4 @@ Now that you've learned the basics of Azure Automation and how it can be used to
 
 - [Azure Automation Overview](../automation/automation-intro.md)
 - [My first runbook](../automation/automation-first-runbook-graphical.md)
-- [Azure Automation: Your SQL Agent in the Cloud](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) 
+- [Azure Automation: Your SQL Agent in the Cloud](https://azure.microsoft.com/blog/20../../azure-automation-your-sql-agent-in-the-cloud/) 

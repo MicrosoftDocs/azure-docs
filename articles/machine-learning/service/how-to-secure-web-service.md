@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning service
 description: Learn how to secure a web service deployed with the Azure Machine Learning service. You can restrict access to web services and secure the data submitted by clients using secure socket layers (SSL) and key-based authentication.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 10/02/2018
+ms.date: 02/05/2019
 ms.custom: seodec18
 ---
 
@@ -78,36 +78,21 @@ To deploy (or re-deploy) the service with SSL enabled, set the `ssl_enabled` par
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
-<a name="fpga"></a>
-+ **Deploy on Field Programmable Gate Arrays (FPGAs)**
++ **Deploy on Field Programmable Gate Arrays (FPGA)**
 
-  The response of the `create_service` operation contains the IP address of the service. The IP address is used when mapping the DNS name to the IP address of the service. The response also contains a __primary key__ and __secondary key__ that are used to consume the service. Provide values for SSL-related parameters as shown in the code snippet:
+  While deploying to FPGA, provide values for the SSL-related parameters as shown in the code snippet:
 
     ```python
-    from amlrealtimeai import DeploymentClient
+    from azureml.contrib.brainwave import BrainwaveWebservice
 
-    subscription_id = "<Your Azure Subscription ID>"
-    resource_group = "<Your Azure Resource Group Name>"
-    model_management_account = "<Your Azure Machine Learning service Model Management Account Name>"
-    location = "eastus2"
-
-    model_name = "resnet50-model"
-    service_name = "quickstart-service"
-
-    deployment_client = DeploymentClient(subscription_id, resource_group, model_management_account, location)
-
-    with open('cert.pem','r') as cert_file:
-        with open('key.pem','r') as key_file:
-            cert = cert_file.read()
-            key = key_file.read()
-            service = deployment_client.create_service(service_name, model_id, ssl_enabled=True, ssl_certificate=cert, ssl_key=key)
+    deployment_config = BrainwaveWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem")
     ```
 
 ## Update your DNS
 
 Next, you must update your DNS to point to the web service.
 
-+ **For ACI and FPGA**:
++ **For ACI**:
 
   Use the tools provided by your domain name registrar to update the DNS record for your domain name. The record must point to the IP address of the service.
 
@@ -120,5 +105,6 @@ Next, you must update your DNS to point to the web service.
   ![Azure Machine Learning service: Securing web services with SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
 
 ## Next steps
-
-Learn how to [Consume a ML Model deployed as a web service](how-to-consume-web-service.md).
+Learn how to:
++ [Consume a machine learning model deployed as a web service](how-to-consume-web-service.md)
++ [Securely run experiments and inferencing inside an Azure Virtual Network](how-to-enable-virtual-network.md)

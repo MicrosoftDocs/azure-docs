@@ -1,20 +1,20 @@
 ---
 title: How to configure Geo-replication for Azure Cache for Redis | Microsoft Docs
 description: Learn how to replicate your Azure Cache for Redis instances across geographical regions.
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 
 ms.assetid: 375643dc-dbac-4bab-8004-d9ae9570440d
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
-ms.author: wesmc
+ms.author: yegu
 
 ---
 # How to configure Geo-replication for Azure Cache for Redis
@@ -171,7 +171,7 @@ In general, it is recommended for your cache to exist in the same Azure region a
 
 ### How does failing over to the secondary linked cache work?
 
-In the initial release of Geo-replication, Azure Cache for Redis does not support automatic failover across Azure regions. Geo-replication is used primarily in a disaster recovery scenario. In a distater recovery scenario, customers should bring up the entire application stack in a backup region in a coordinated manner rather than letting individual application components decide when to switch to their backups on their own. This is especially relevant to Redis. One of the key benefits of Redis is that it is a very low-latency store. If Redis used by an application fails over to a different Azure region but the compute tier does not, the added round trip time would have a noticeable impact on performance. For this reason, we would like to avoid Redis failing over automatically due to transient availability issues.
+In the initial release of Geo-replication, Azure Cache for Redis does not support automatic failover across Azure regions. Geo-replication is used primarily in a disaster recovery scenario. In a disaster recovery scenario, customers should bring up the entire application stack in a backup region in a coordinated manner rather than letting individual application components decide when to switch to their backups on their own. This is especially relevant to Redis. One of the key benefits of Redis is that it is a very low-latency store. If Redis used by an application fails over to a different Azure region but the compute tier does not, the added round trip time would have a noticeable impact on performance. For this reason, we would like to avoid Redis failing over automatically due to transient availability issues.
 
 Currently, to initiate the failover, you need to remove the Geo-replication link in the Azure portal, and then change the connection end-point in the Redis client from the primary linked cache to the (formerly linked) secondary cache. When the two caches are disassociated, the replica becomes a regular read-write cache again and accepts requests directly from Redis clients.
 

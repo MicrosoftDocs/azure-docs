@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 # Manage threats to resources and data in Azure Active Directory B2C
 

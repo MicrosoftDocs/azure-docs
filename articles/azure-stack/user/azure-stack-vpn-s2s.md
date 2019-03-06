@@ -14,11 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
+ms.lastreviewed: 01/19/2019
 ---
 
-# Configure IPsec/IKE policy for site-to-site VPN or VNet-to-VNet connections
+# Configure IPsec/IKE policy for site-to-site VPN connections
 
 This article walks through the steps to configure an IPsec/IKE policy for site-to-site (S2S) VPN connections in Azure Stack.
+
+>[!NOTE]
+> You must be running Azure Stack build **1809** or later in order to use this feature.  If you are currently running a build prior to 1809, please update your Azure Stack system to the latest build before attempting to use this feature or follow the steps in this article.
 
 ## IPsec and IKE policy parameters for VPN gateways
 
@@ -101,10 +105,10 @@ The following table lists the corresponding Diffie-Hellman Groups supported by t
 |----------------------|-----------|---------------|---------------|
 | 1                    | DHGroup1  | PFS1          | 768-bit MODP  |
 | 2                    | DHGroup2  | PFS2          | 1024-bit MODP |
-| 14                   | DHGroup14 |               |               |
-| DHGroup2048          | PFS2048   | 2048-bit MODP |               |
+| 14                   | DHGroup14<br/>DHGroup2048 | PFS2048       | 2048-bit MODP |
 | 19                   | ECP256    | ECP256        | 256-bit ECP   |
-| 20                   | ECP384    | ECP284        | 384-bit ECP   |
+| 20                   | ECP384    | ECP384        | 384-bit ECP   |
+| 24                   | DHGroup24 | PFS24         | 2048-bit MODP |
 
 For more information, see [RFC3526](https://tools.ietf.org/html/rfc3526) and [RFC5114](https://tools.ietf.org/html/rfc5114).
 

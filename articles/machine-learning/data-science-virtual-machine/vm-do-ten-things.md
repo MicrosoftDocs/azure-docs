@@ -1,4 +1,4 @@
-﻿---
+---
 title: Data exploration and modeling with Data Science Virtual Machine
 titleSuffix: Azure
 description: Perform various data exploration and modeling task on the Data science Virtual Machine.
@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 ms.assetid: 145dfe3e-2bd2-478f-9b6e-99d97d789c62
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -261,7 +261,7 @@ To download code from a GitHub repository, you use the ```git clone``` command. 
 
     git clone https://github.com/Azure/DataScienceVM.git
 
-In Visual Studio, you can do the same clone operation. The  following screen-shot shows how to access Git and GitHub tools in Visual Studio.
+In Visual Studio, you can do the same clone operation. The  following screenshot shows how to access Git and GitHub tools in Visual Studio.
 
 ![Screenshot of Visual Studio with the GitHub connection displayed](./media/vm-do-ten-things/VSGit.PNG)
 

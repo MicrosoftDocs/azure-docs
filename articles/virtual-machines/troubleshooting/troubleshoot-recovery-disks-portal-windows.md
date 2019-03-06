@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/013/2018
+ms.date: 08/13/2018
 ms.author: genli
 
 ---
@@ -34,12 +34,11 @@ For the VM that uses managed disk, we can now use Azure PowerShell to change the
 ## Determine boot issues
 To determine why your VM is not able to boot correctly, examine the boot diagnostics VM screenshot. A common example would be a failed application update, or an underlying virtual hard disk being deleted or moved.
 
-Select your VM in the portal and then scroll down to the **Support + Troubleshooting** section. Click **Boot diagnostics** to view the screenshot. Note any specific error messages or error codes to help determine why the VM is encountering an issue. The following example shows a VM waiting on stopping services:
+Select your VM in the portal and then scroll down to the **Support + Troubleshooting** section. Click **Boot diagnostics** to view the screenshot. Note any specific error messages or error codes to help determine why the VM is encountering an issue. 
 
 ![Viewing VM boot diagnostics console logs](./media/troubleshoot-recovery-disks-portal-windows/screenshot-error.png)
 
-You can also click **Screenshot** to download a capture of the VM screenshot.
-
+You can also click **Download screenshot** to download a capture of the VM screenshot.
 
 ## View existing virtual hard disk details
 Before you can attach your virtual hard disk to another VM, you need to identify the name of the virtual hard disk (VHD). 
