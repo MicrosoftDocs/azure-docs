@@ -17,9 +17,6 @@ ms.date: 03/06/2019
 
 This article describes how to scale the compute and storage resources available for a single database in Azure SQL Database.
 
-> [!IMPORTANT]
-> You are billed for each hour a database exists using the highest service tier + compute size that applied during that hour, regardless of usage or whether the database was active for less than an hour. For example, if you create a single database and delete it five minutes later your bill reflects a charge for one database hour.
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Change compute resources (vCores or DTUs)
@@ -50,10 +47,10 @@ Changing the service tier or compute size of a single database mainly involves t
 
 The latency to change the service tier or rescale the compute size of a single database or elastic pool is parameterized as follows:
 
-|Service tier|Basic single database, Standard (S0-S2)|Basic elastic pool, Standard (S3-S12), Hyperscale, General Purpose single database or elastic pool|Premium or Business Critical single database or elastic pool|
+|Service tier|Basic single database,</br>Standard (S0-S2)|Basic elastic pool,</br>Standard (S3-S12), </br>Hyperscale, </br>General Purpose single database or elastic pool|Premium or Business Critical single database or elastic pool|
 |:---|:---|:---|:---|
-|Basic single database, Standard (S0-S2)|&bull; &nbsp;Constant time latency independent of space used</br>&bull; &nbsp;Typically, less than 5 minutes|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|
-|Basic elastic pool, Standard (S3-S12), Hyperscale, General Purpose single database or elastic pool|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Constant time latency independent of space used</br>&bull; &nbsp;Typically, less than 5 minutes|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|
+|Basic single database</br>, Standard (S0-S2)|&bull; &nbsp;Constant time latency independent of space used</br>&bull; &nbsp;Typically, less than 5 minutes|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|
+|Basic elastic pool, </br>Standard (S3-S12), </br>Hyperscale, </br>General Purpose single database or elastic pool|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Constant time latency independent of space used</br>&bull; &nbsp;Typically, less than 5 minutes|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|
 |Premium or Business Critical single database or elastic pool|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|
 
 > [!TIP]
@@ -68,6 +65,10 @@ The latency to change the service tier or rescale the compute size of a single d
 - When downgrading a database with [geo-replication](sql-database-geo-replication-portal.md) enabled, downgrade its primary databases to the desired service tier and compute size before downgrading the secondary database (general guidance for best performance). When downgrading to a different edition, downgrading the primary database first is required.
 - The restore service offerings are different for the various service tiers. If you are downgrading to the **Basic** tier, there is a lower backup retention period. See [Azure SQL Database Backups](sql-database-automated-backups.md).
 - The new properties for the database are not applied until the changes are complete.
+
+### Billing during rescaling
+
+You are billed for each hour a database exists using the highest service tier + compute size that applied during that hour, regardless of usage or whether the database was active for less than an hour. For example, if you create a single database and delete it five minutes later your bill reflects a charge for one database hour.
 
 ## Change storage size
 

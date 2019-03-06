@@ -21,6 +21,7 @@ This article describes how to scale the compute and storage resources available 
 
 After initially picking the number of vCores or eDTUs, you can scale an elastic pool up or down dynamically based on actual experience using the [Azure portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), the [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), or the [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 
+
 ### Impact of changing service tier or rescaling compute size
 
 Changing the service tier or compute size of an elastic pool follows a similar pattern as for single databases and mainly involves the service performing the following steps:
@@ -40,11 +41,11 @@ Changing the service tier or compute size of an elastic pool follows a similar p
 
 The latency to change the service tier or rescale the compute size of a single database or elastic pool is parameterized as follows:
 
-|Service tier|Basic single database, Standard (S0-S2)|Basic elastic pool, Standard (S3-S12), Hyperscale, General Purpose single database or elastic pool|Premium or Business Critical single database or elastic pool|
+|Service tier|Basic single database,</br>Standard (S0-S2)|Basic elastic pool,</br>Standard (S3-S12), </br>Hyperscale, </br>General Purpose single database or elastic pool|Premium or Business Critical single database or elastic pool|
 |:---|:---|:---|:---|
-|Basic single database, Standard (S0-S2)|&bull; &nbsp;Constant time latency independent of space used</br>&bull; &nbsp;Typically, less than 5 minutes|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|
-|Basic elastic pool, Standard (S3-S12), Hyperscale, General Purpose single database or elastic pool|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Constant time latency independent of space used</br>&bull; &nbsp;Typically, less than 5 minutes|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|
-|Premium or Business Critical single database or elastic pool|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying|&bull; &nbsp;Typically, less than 1 minute per GB of space used|
+|Basic single database</br>, Standard (S0-S2)|&bull; &nbsp;Constant time latency independent of space used</br>&bull; &nbsp;Typically, less than 5 minutes|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|
+|Basic elastic pool, </br>Standard (S3-S12), </br>Hyperscale, </br>General Purpose single database or elastic pool|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Constant time latency independent of space used</br>&bull; &nbsp;Typically, less than 5 minutes|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|
+|Premium or Business Critical single database or elastic pool|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|
 
 > [!IMPORTANT]
 > In the case of changing the service tier or rescaling compute for an elastic pool, the summation of space used across all databases in the pool should be used to calculate the estimate.
@@ -56,6 +57,10 @@ In the case of moving a database to/from an elastic pool, only the space used by
 
 - When downsizing vCores or eDTUs for an elastic pool, the pool used space must be smaller than the maximum allowed size of the target service tier and pool eDTUs.
 - When rescaling vCores or eDTUs for an elastic pool, an extra storage cost applies if (1) the storage max size of the pool is supported by the target pool, and (2) the storage max size exceeds the included storage amount of the target pool. For example, if a 100 eDTU Standard pool with a max size of 100 GB is downsized to a 50 eDTU Standard pool, then an extra storage cost applies since target pool supports a max size of 100 GB and its included storage amount is only 50 GB. So, the extra storage amount is 100 GB – 50 GB = 50 GB. For pricing of extra storage, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). If the actual amount of space used is less than the included storage amount, then this extra cost can be avoided by reducing the database max size to the included amount.
+
+### Billing during rescaling
+
+You are billed for each hour a database exists using the highest service tier + compute size that applied during that hour, regardless of usage or whether the database was active for less than an hour. For example, if you create a single database and delete it five minutes later your bill reflects a charge for one database hour.
 
 ## Change elastic pool storage size
 
