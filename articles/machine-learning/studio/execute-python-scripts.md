@@ -14,76 +14,37 @@ ms.date: 03/05/2019
 ---
 # Execute Python machine learning scripts in Azure Machine Learning Studio
 
-This article describes the design principles underlying current support for Python scripts in Azure Machine Learning Studio.
+Python is a valuable tool in the tool chest of many data scientists. It's being used in all stages of typical machine learning workflows including data exploration, feature extraction, model training, model validation, and deployment.
 
-Python is used in all stages of a typical machine learning workflow:
+This article describes how you can use the Execute Python Script module to embed Python code into your Azure Machine Learning Studio experiments and web services.
 
-- Data ingest and processing
-- Feature construction
-- Model training
-- Model validation
-- Deployment of the models
+## Using the Execute Python Script module
 
-Studio supports embedding Python scripts into various parts of a machine learning experiment and also seamlessly publishing them as web services.
+The primary interface to Python in Studio is through the [Execute Python Script][execute-python-script] module. It accepts up to three inputs and produces up to two outputs, similar to the [Execute R Script][execute-r-script] module. Python code is entered into the parameter box as a specially named entry-point function called `azureml_main`.
 
-## Design principles of Python execution in Studio
-
-The primary interface to Python in Studio is through the [Execute Python Script][execute-python-script].
-
-![Execute Python Script module](./media/execute-python-scripts/execute-machine-learning-python-scripts-module.png)
-
-![Execute Python Script code stub](./media/execute-python-scripts/embedded-machine-learning-python-script.png)
-
-The [Execute Python Script][execute-python-script] module in Studio accepts up to three inputs and produces up to two outputs, like its R analog, the [Execute R Script][execute-r-script] module. The Python code is entered into the parameter box as a specially named entry-point function called `azureml_main`. Here are the key design principles used to implement this module:
-
-- Must be idiomatic for Python users
-
-    Most Python users factor their code as functions inside modules. So putting many executable statements in a top-level module is relatively rare. As a result, the script box also takes a specially named Python function as opposed to just a sequence of statements. The objects exposed in the function are standard Python library types such as [Pandas](http://pandas.pydata.org/) data frames and [NumPy](http://www.numpy.org/) arrays.
-
-- Must have high-fidelity between local and cloud executions
-
-    The backend used to execute the Python code is based on [Anaconda](https://store.continuum.io/cshop/anaconda/), a widely used cross-platform scientific Python distribution. It comes with close to 200 of the most common Python packages. Therefore, data scientists can debug and qualify their code on their local Azure Machine Learning Studio-compatible Anaconda environment. Then use an existing development environment, such as [IPython](http://ipython.org/) notebook or [Python Tools for Visual Studio](https://aka.ms/ptvs), to run it as part of a Studio experiment. The `azureml_main` entry point is a vanilla Python function, so it can be authored without Studio-specific code.
-
-- Must be seamlessly composable with other Azure Machine Learning Studio modules
-
-    The [Execute Python Script][execute-python-script] module accepts, as inputs and outputs, standard Studio datasets. The underlying framework transparently and efficiently bridges Studio and Python runtimes. As a result, Python can be used in conjunction with existing Studio workflows, including workflows that call into R and SQLite. Data scientist could compose workflows that combine the benefits of multiple languages including Python, SQL, and R.
-
-## Mapping input ports to Python code
-
-Inputs to the Python module are exposed as Pandas data frames. The function must return a single Pandas data frame packaged inside of a Python [sequence](https://docs.python.org/2/c-api/sequence.html) such as a tuple, list, or NumPy array. The first element of this sequence is then returned in the first output port of the module. This scheme is shown below.
+Inputs to the Python module are programmatically exposed as Pandas DataFrames. The  `azureml_main` function must return a single Pandas DataFrame packaged inside of a Python [sequence](https://docs.python.org/2/c-api/sequence.html) such as a tuple, list, or NumPy array. The first element of this sequence is returned in the first output port of the module. The second output port of the module is used for [visualizations](#visualizations) and does not require a return value. This scheme is shown below.
 
 ![Mapping input ports to parameters and return value to output port](./media/execute-python-scripts/map-of-python-script-inputs-outputs.png)
-
-More detailed semantics of how the input ports get mapped to parameters of the `azureml_main` function are shown in the following table:
-
-![Table of input port configurations and resulting Python signature](./media/execute-python-scripts/python-script-inputs-mapped-to-parameters.png)
 
 The mapping between input ports and function parameters is positional:
 
 - The first connected input port is mapped to the first parameter of the function.
 - The second input (if connected) is mapped to the second parameter of the function.
 
-## Translation of input and output types
+More detailed semantics of how the input ports get mapped to parameters of the `azureml_main` function are shown in the following table:
 
-- Input datasets in Studio are converted to data frames in Pandas. Output data frames are converted back to Studio datasets.
-- String and numeric columns are converted as-is
-- Missing values in a dataset are converted to ‘NA’ values in Pandas. The same conversion happens on the way back (NA values in Pandas are converted to missing values in Studio).
-- Index vectors in Pandas are not supported in Studio. All input data frames in the Python function always have a 64-bit numerical index from 0 to the number of rows minus 1.
-- Studio datasets cannot have duplicate column names and column names that are not strings. If an output data frame contains non-numeric columns, the framework calls `str` on the column names. Likewise, any duplicate column names are automatically mangled to insure the names are unique. The suffix (2) is added to the first duplicate, (3) to the second duplicate, and so on.
+![Table of input port configurations and resulting Python signature](./media/execute-python-scripts/python-script-inputs-mapped-to-parameters.png)
 
-## Operationalizing Python scripts
+## Translation of input and output data types
 
-Any [Execute Python Script][execute-python-script] modules used in a scoring experiment are called when published as a web service. For example, the image below shows a scoring experiment that contains the code to evaluate a single Python expression.
-
-![Studio workspace for a web service](./media/execute-python-scripts/figure3a.png)
-
-![Python Pandas expression](./media/execute-python-scripts/python-script-with-python-pandas.png)
-
-A web service created from this experiment would do the following:
-
-1. Take a Python expression as input (as a string)
-1. Send the Python expression to the Python interpreter
-1. Returns a table containing both the expression and the evaluated result.
+ **Python data type** | **Studio translation procedure** |
+| --- | --- |
+| Strings and numerics| Translated as is |
+| Pandas 'NA' | Translated as 'Missing value' |
+| Index vectors | Unsupported* |
+| Non-string column names | Call `str` on column names |
+| Duplicate column names | Add numeric suffix: (1), (2), (3), etc.
+**All input data frames in the Python function always have a 64-bit numerical index from 0 to the number of rows minus 1*
 
 ## Importing existing Python script modules
 
@@ -107,7 +68,21 @@ The module output shows that the zip file has been unpackaged and that the funct
 
 ![Module output showing user-defined function](./media/execute-python-scripts/figure7.png)
 
-## Working with visualizations
+## Operationalizing Python scripts
+
+Any [Execute Python Script][execute-python-script] modules used in a scoring experiment are called when published as a web service. For example, the image below shows a scoring experiment that contains the code to evaluate a single Python expression.
+
+![Studio workspace for a web service](./media/execute-python-scripts/figure3a.png)
+
+![Python Pandas expression](./media/execute-python-scripts/python-script-with-python-pandas.png)
+
+A web service created from this experiment would perform the following:
+
+1. Take a Python expression as input (as a string)
+1. Send the Python expression to the Python interpreter
+1. Returns a table containing both the expression and the evaluated result.
+
+## <a id="visualizations"></a>Working with visualizations
 
 Plots created using MatplotLib can be returned by the [Execute Python Script][execute-python-script]. However, plots are not automatically redirected to images as they are when using R. So the user must explicitly save any plots to PNG files.
 
@@ -164,11 +139,21 @@ The Python entry point is only permitted to return a single data frame as output
 
 Currently, the only way to add custom Python modules is via the zip file mechanism described earlier. While this is feasible for small modules, it is cumbersome for large modules (especially modules with native DLLs) or a large number of modules.
 
-## Conclusions
+## Execute Python Script design principles
 
-The [Execute Python Script][execute-python-script] module allows data scientists to incorporate existing Python code into Studio workflows and to seamlessly operationalize them as part of a web service. The Python script module joins naturally with other modules in Studio. The module can be used for a range of tasks from data exploration to pre-processing and feature extraction, and then to evaluation and post-processing of the results. The backend runtime used for execution is based on Anaconda, a well-tested, and widely used Python distribution. This backend makes it simple for you to on-board existing code assets into the cloud.
+ Here are the key design principles used to implement this module:
 
-We expect to provide additional functionality to the [Execute Python Script][execute-python-script] module such as the ability to train and operationalize models in Python and to add better support for the development and debugging code in Azure Machine Learning Studio.
+- Must be idiomatic for Python users
+
+    Most Python users factor their code as functions inside modules. So putting many executable statements in a top-level module is relatively rare. As a result, the script box also takes a specially named Python function as opposed to just a sequence of statements. The objects exposed in the function are standard Python library types such as [Pandas](http://pandas.pydata.org/) data frames and [NumPy](http://www.numpy.org/) arrays.
+
+- Must have high-fidelity between local and cloud executions
+
+    The backend used to execute the Python code is based on [Anaconda](https://store.continuum.io/cshop/anaconda/), a widely used cross-platform scientific Python distribution. It comes with close to 200 of the most common Python packages. Therefore, data scientists can debug and qualify their code on their local Azure Machine Learning Studio-compatible Anaconda environment. Then use an existing development environment, such as [IPython](http://ipython.org/) notebook or [Python Tools for Visual Studio](https://aka.ms/ptvs), to run it as part of a Studio experiment. The `azureml_main` entry point is a vanilla Python function, so it can be authored without Studio-specific code.
+
+- Must be seamlessly composable with other Azure Machine Learning Studio modules
+
+    The [Execute Python Script][execute-python-script] module accepts, as inputs and outputs, standard Studio datasets. The underlying framework transparently and efficiently bridges Studio and Python runtimes. As a result, Python can be used in conjunction with existing Studio workflows, including workflows that call into R and SQLite. Data scientist could compose workflows that combine the benefits of multiple languages including Python, SQL, and R.
 
 ## Next steps
 
