@@ -48,11 +48,7 @@ The [Execute Python Script][execute-python-script] module in Studio accepts up t
 
     The [Execute Python Script][execute-python-script] module accepts, as inputs and outputs, standard Studio datasets. The underlying framework transparently and efficiently bridges Studio and Python runtimes. As a result, Python can be used in conjunction with existing Studio workflows, including workflows that call into R and SQLite. Data scientist could compose workflows that combine the benefits of multiple languages including Python, SQL, and R.
 
-<<<<<<< HEAD
 ## Mapping input ports to Python code
-=======
-The [Execute Python Script][execute-python-script] module in Azure ML Studio accepts up to three inputs and produces up to two outputs (discussed in the following section), like its R analog, the [Execute R Script][execute-r-script] module. The Python code to be executed is entered into the parameter box as a specially named entry-point function called `azureml_main`. Here are the key design principles used to implement this module:
->>>>>>> 0b526b8f33048f3c883dc9644e14227ef1d2342b
 
 Inputs to the Python module are exposed as Pandas data frames. The function must return a single Pandas data frame packaged inside of a Python [sequence](https://docs.python.org/2/c-api/sequence.html) such as a tuple, list, or NumPy array. The first element of this sequence is then returned in the first output port of the module. This scheme is shown below.
 
