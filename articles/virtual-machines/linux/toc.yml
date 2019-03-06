@@ -123,8 +123,6 @@
     href: monitor.md
   - name: Backup and recovery
     href: backup-recovery.md
-  - name: High performance computing
-    href: high-performance-computing.md
   - name: Deployment considerations
     items:
     - name: Infrastructure guidelines
@@ -397,7 +395,7 @@
       - name: MS SQL on Linux
         href: /sql/linux/sql-server-linux-azure-virtual-machine
     - name: High Performance Computing (HPC)
-      href: https://docs.microsoft.com/powershell/high-performance-computing/overview
+      href: https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/
     - name: IBM Db2 pureScale
       items:
       - name: Architecture
