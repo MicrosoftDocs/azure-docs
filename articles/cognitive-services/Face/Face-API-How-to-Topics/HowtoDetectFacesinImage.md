@@ -75,7 +75,7 @@ If the image is already on the web and has a URL, face detection can be executed
 Using the client library, face detection by means of a URL can be executed easily using another overload of the DetectAsync method.
 
 ```CSharp
-string imageUrl = "http://news.microsoft.com/ceo/assets/photos/06_web.jpg";
+string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 var faces = await faceServiceClient.DetectAsync(imageUrl, true, true);
  
 foreach (var face in faces)

@@ -46,7 +46,7 @@ Azure Load Balancer is a Layer 4 load balancer. It's used to distribute the traf
 
 ## 3. Authentication 
 [Cloud Foundry User Account and Authentication](https://docs.cloudfoundry.org/concepts/architecture/uaa.html) is the central identity management service for CF and its various components. [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) is Microsoft’s multi-tenant, cloud-based directory and identity management service. 
-By default, UAA is used for Cloud Foundry authentication. As an advanced option, UAA also supports Azure AD as an external user store. Azure AD users can access Cloud Foundry using their LDAP identity, without a Cloud Foundry account. Follow these steps to [configure the Azure AD for UAA in PCF](http://docs.pivotal.io/p-identity/1-6/azure/index.html).
+By default, UAA is used for Cloud Foundry authentication. As an advanced option, UAA also supports Azure AD as an external user store. Azure AD users can access Cloud Foundry using their LDAP identity, without a Cloud Foundry account. Follow these steps to [configure the Azure AD for UAA in PCF](https://docs.pivotal.io/p-identity/1-6/azure/index.html).
 
 ## 4. Data storage for Cloud Foundry Runtime System
 Cloud Foundry offers great extensibility to use Azure blobstore or Azure MySQL/PostgreSQL services for application runtime system storage.
