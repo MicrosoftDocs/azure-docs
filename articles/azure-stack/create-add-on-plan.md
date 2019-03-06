@@ -14,10 +14,10 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.custom: mvc
-ms.date: 03/06/2019
+ms.date: 03/07/2019
 ms.author: sethm
 ms.reviewer: efemmano
-ms.lastreviewed: 03/06/2019
+ms.lastreviewed: 03/07/2019
 ---
 
 # Azure Stack add-on plans
@@ -33,9 +33,9 @@ Another reason to use add-on plans is to help monitor resource usage. To do so, 
 
 When you add an add-on plan to an existing offer subscription, the additional resources can take up to an hour to appear.
 
-## Create an add-on plan
+Add-on plans are created by modifying an existing offer.
 
-Add-on plans are created by modifying an existing offer:
+## Create an add-on plan (1902 and later)
 
 1. Sign in to the Azure Stack administrator portal as a cloud administrator.
 2. Follow the same steps used to [create a new base plan](azure-stack-create-plan.md) to create a new plan offering services that were not previously offered.
@@ -54,6 +54,26 @@ Add-on plans are created by modifying an existing offer:
 6. Review the list of add-on plans included with the offer to verify that the new add-on plan is listed.
 
     [![Create add-on plan](media/create-add-on-plan/add-on4.png "Create add-on plan")](media/create-add-on-plan/add-on4lg.png#lightbox)
+
+## Create an add-on plan (1901 and earlier)
+
+1. Sign in to the Azure Stack administrator portal as a cloud administrator.
+2. Follow the same steps used to [create a new base plan](azure-stack-create-plan.md) to create a new plan offering services that were not previously offered. In this example, Key Vault (**Microsoft.KeyVault**) services will be included in the new plan.
+3. In the administrator portal, click **Offers** and then select the offer to be updated with an add-on plan.
+
+   ![Create add-on plan](media/create-add-on-plan/1.PNG)
+
+4. Scroll to the bottom of the offer properties and select **Add-on plans**. Click **Add**.
+
+    ![Create add-on plan](media/create-add-on-plan/2.PNG)
+
+5. Select the plan to add. In this example, the plan is called **Key vault plan**. After selecting the plan, click **Select** to add the plan to the offer. You should receive a notification that the plan was added to the offer successfully.
+
+    ![Create add-on plan](media/create-add-on-plan/3.PNG)
+
+6. Review the list of add-on plans included with the offer to verify that the new add-on plan is listed.
+
+    ![Create add-on plan](media/create-add-on-plan/4.PNG)
 
 ## Next steps
 
