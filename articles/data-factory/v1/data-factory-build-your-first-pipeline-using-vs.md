@@ -58,6 +58,9 @@ Here are the steps you perform as part of this walkthrough:
 5. After you publish, you use Azure portal blades and Monitoring & Management App to monitor the pipeline. 
   
 ### Prerequisites
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 1. Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps. You can also select the **Overview and prerequisites** option in the drop-down list at the top to switch to the article. After you complete the prerequisites, switch back to this article by selecting **Visual Studio** option in the drop-down list.
 2. To create Data Factory instances, you must be a member of the [Data Factory Contributor](../../role-based-access-control/built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.  
 3. You must have the following installed on your computer:
@@ -324,12 +327,12 @@ Important points to note:
 - If you receive the error: **This subscription is not registered to use namespace Microsoft.DataFactory**, do one of the following and try publishing again:
 	- In Azure PowerShell, run the following command to register the Data Factory provider.
 		```PowerShell	
-		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+		Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
 		```
 		You can run the following command to confirm that the Data Factory provider is registered.
 
 		```PowerShell
-		Get-AzureRmResourceProvider
+		Get-AzResourceProvider
 		```
 	- Login using the Azure subscription in to the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
 - The name of the data factory may be registered as a DNS name in the future and hence become publicly visible.
