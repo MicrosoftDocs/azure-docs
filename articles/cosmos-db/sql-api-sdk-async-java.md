@@ -39,6 +39,12 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 
 ## Release notes
 
+### <a name="2.4.3"/>2.4.3
+* Bugfix for resource leak on client#close()
+
+### <a name="2.4.2"/>2.4.2
+* Added continuation Token Support For Cross Partition Queries
+
 ### <a name="2.4.1"/>2.4.1
 * Fixed some bugs in Direct mode.
 * Improved logging in Direct mode.
