@@ -48,7 +48,7 @@ You can't delete a tenant in Azure AD until it passes several checks. These chec
 
 ## I have an expired subscription but I can't delete the tenant
 
-When you configured your Azure Active Directory tenant, you may have also activated license-based subscriptions for your organization like Azure Active Directory Premium P2, Office 365 Business Premium, or Enterprise Mobility + Security E5. These subscriptions block directory deletion until they are fully deleted, to avoid accidental data loss. The subscriptions must be in a **Deprovisioned** state to allow tenant deletion. An **Expired** or **Canceled** subscription moves to the **Disabled** state, and the final stage is the **Deprovisoned** state. 
+When you configured your Azure AD tenant, you may have also activated license-based subscriptions for your organization like Azure AD Premium P2, Office 365 Business Premium, or Enterprise Mobility + Security E5. These subscriptions block directory deletion until they are fully deleted, to avoid accidental data loss. The subscriptions must be in a **Deprovisioned** state to allow tenant deletion. An **Expired** or **Canceled** subscription moves to the **Disabled** state, and the final stage is the **Deprovisoned** state. 
 
 For what to expect when a trial Office 365 subscription expires (not including paid Partner/CSP, Enterprise Agreement, or Volume Licensing), see the following table. For more information on Office 365 data retention and subscription lifecycle, see [What happens to my data and access when my Office 365 for business subscription ends?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
