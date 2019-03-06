@@ -102,7 +102,7 @@ In the case where there are scheduled events, the response contains an array of 
             "ResourceType": "VirtualMachine",
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
-            "NotBefore": {timeInUTC},              
+            "NotBefore": {timeInUTC},
         }
     ]
 }
@@ -176,7 +176,7 @@ function Get-ScheduledEvents($uri)
 
 # How to approve a scheduled event
 function Approve-ScheduledEvent($eventId, $uri)
-{    
+{
     # Create the Scheduled Events Approval Document
     $startRequests = [array]@{"EventId" = $eventId}
     $scheduledEventsApproval = @{"StartRequests" = $startRequests} 
