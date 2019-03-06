@@ -14,7 +14,9 @@ ms.author: iainfou
 
 # Get kubelet logs from Azure Kubernetes Service (AKS) cluster nodes
 
-As part of operating an AKS cluster, you may need to review logs to troubleshoot a problem. Built-in to the Azure portal is the ability to view logs for the [AKS master components][aks-master-logs] or [containers in an AKS cluster][azure-container-logs]. Occasionally, you may need to get *kubelet* logs from an AKS node for troubleshooting purposes. This article shows you how you can use `journalctl` to view the *kubelet* logs on an AKS node.
+As part of operating an AKS cluster, you may need to review logs to troubleshoot a problem. Built-in to the Azure portal is the ability to view logs for the [AKS master components][aks-master-logs] or [containers in an AKS cluster][azure-container-logs]. Occasionally, you may need to get *kubelet* logs from an AKS node for troubleshooting purposes.
+
+This article shows you how you can use `journalctl` to view the *kubelet* logs on an AKS node.
 
 ## Before you begin
 
