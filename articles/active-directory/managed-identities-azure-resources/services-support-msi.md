@@ -74,7 +74,7 @@ Refer to the following list to configure managed identity for Azure App Service 
 | System assigned | Preview | Not available | Not available | Not available |
 | User assigned | Preview | Not available | Not available | Not available |
 
-Refer to the following list to use a managed identity with [Azure Blueprints](../../governance/blueprints/overview.md)::
+Refer to the following list to use a managed identity with [Azure Blueprints](../../governance/blueprints/overview.md):
 
 - [Azure portal - blueprint assignment](../../governance/blueprints/create-blueprint-portal.md#assign-a-blueprint)
 - [REST API - blueprint assignment](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
