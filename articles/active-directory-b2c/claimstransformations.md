@@ -29,7 +29,7 @@ To include the list of claims transformation functions that can be used in the u
 </ClaimsTransformations>
 ```
 
-The **ClaimsTransformation** element conatains the following attributes:
+The **ClaimsTransformation** element contains the following attributes:
 
 | Attribute |Required | Description |
 | --------- |-------- | ----------- |

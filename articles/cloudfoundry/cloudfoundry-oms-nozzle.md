@@ -45,7 +45,7 @@ The Nozzle also needs access permission to the loggregator firehose and the Clou
 
 * [Install Cloud Foundry UAA command-line client](https://github.com/cloudfoundry/cf-uaac/blob/master/README.md)
 
-Before setting up the UAA command-Line client, ensure that Rubygems is installed.
+Before setting up the UAA command-Line client, ensure that RubyGems is installed.
 
 ### 3. Create a Log Analytics workspace in Azure
 

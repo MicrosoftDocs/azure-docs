@@ -29,8 +29,10 @@
     href: container-instances-samples-rm.md
 - name: Concepts
   items:
-  - name: Quotas and regional limits
+  - name: Quotas and limits
     href: container-instances-quotas.md
+  - name: Region availability
+    href: container-instances-region-availability.md
   - name: Relationship to orchestrators
     href: container-instances-orchestrator-relationship.md
   - name: Container groups

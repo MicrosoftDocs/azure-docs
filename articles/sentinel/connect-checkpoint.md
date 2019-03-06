@@ -78,7 +78,7 @@ To see a network diagram of both options, see [Connect data sources](connect-dat
       2. Restart the Syslog agent using this command: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Confirm that there are no errors in the agent log by running this command: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
 
-### Deploy the agent on an on-prem Linux server
+### Deploy the agent on an on premises Linux server
 
 If you aren't using Azure, manually deploy the Azure Sentinel agent to run on a dedicated Linux server.
 

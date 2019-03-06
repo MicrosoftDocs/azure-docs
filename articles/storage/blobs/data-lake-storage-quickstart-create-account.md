@@ -71,7 +71,7 @@ To create a resource group in the Azure portal, follow these steps:
 5. Choose the location for the resource group.
 6. Click the **Create** button.  
 
-   ![Screen shot showing resource group creation in the Azure portal](./media/data-lake-storage-quickstart-create-account/create-resource-group.png)
+   ![Screenshot showing resource group creation in the Azure portal](./media/data-lake-storage-quickstart-create-account/create-resource-group.png)
 
 ### Create a general-purpose v2 storage account
 
@@ -91,7 +91,7 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
 9. In the **Data Lake Storage Gen2** section set **Hierarchical namespace** to **Enabled**.
 10. Click **Review + Create** to create the storage account.
 
-    ![Screen shot showing storage account creation in the Azure portal](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
+    ![Screenshot showing storage account creation in the Azure portal](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
 
 Your storage account is now created through the portal.
 

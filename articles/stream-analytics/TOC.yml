@@ -60,8 +60,6 @@
     href: stream-analytics-parsing-json.md
   - name: Time handling considerations
     href: stream-analytics-time-handling.md
-  - name: Event ordering considerations
-    href: stream-analytics-out-of-order-and-late-events.md
   - name: Checkpoint and replay
     href: stream-analytics-concepts-checkpoint-replay.md
   - name: Error policy

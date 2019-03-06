@@ -50,7 +50,7 @@ To complete the steps in this tutorial, first do the following tasks:
 
   Take a note of the Azure IoT Hub device name you created.
 
-1. Open `Functions\DevKitTranslatorFunction.cs` and update the following lines of code with the devce name and Speech Service key you noted down.
+1. Open `Functions\DevKitTranslatorFunction.cs` and update the following lines of code with the device name and Speech Service key you noted down.
   ```csharp
   // Subscription Key of Speech Service
   const string speechSubscriptionKey = "";

@@ -51,7 +51,7 @@ OMS workspaces are now referred to as Log Analytics workspaces. Log Analytics wo
 
 1. Now start the load generator to run a simulated load on all the tenants.
 
-    a. Set **$DemoScenario = 2**, _Generate normal intensity load (approx. 30 DTU)_.
+    a. Set **$DemoScenario = 2**, _Generate normal intensity load (approximately 30 DTU)_.
 
     b. To run the script, press F5.
 
