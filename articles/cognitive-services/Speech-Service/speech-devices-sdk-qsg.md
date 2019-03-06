@@ -33,7 +33,7 @@ Before you begin developing with the Speech Devices SDK, gather the information 
 
 * Get the latest version of the Speech Devices SDK, which includes an Android sample app, from the [Speech Devices SDK download site](https://shares.datatransfer.microsoft.com/). Extract the .zip file to a local folder, like C:\SDSDK.
 
-* Install [Android Studio](https://developer.android.com/studio/) and [Vysor](http://vysor.io/download/) on your PC.
+* Install [Android Studio](https://developer.android.com/studio/) and [Vysor](https://vysor.io/download/) on your PC.
 
 * Get a [Speech service subscription key](get-started.md). You can get a 30-day free trial or get a key from your Azure dashboard.
 
