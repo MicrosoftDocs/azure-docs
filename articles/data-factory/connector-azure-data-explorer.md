@@ -63,9 +63,9 @@ The following properties are supported for Azure Data Explorer linked service:
 | type | The **type** property must be set to **AzureDataExplorer** | Yes |
 | endpoint | Endpoint URL of the Azure Data Explorer cluster, with the format as `https://<clusterName>.<regionName>.kusto.windows.net `. | Yes |
 | database | Name of database. | Yes |
-| tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. This is what you normally know as "**Authority ID**" in [Kusto connection string](/azure/kusto/api/connection-strings/kusto#application-authentication-properties.md). Retrieve it by hovering with the mouse in the top-right corner of the Azure portal. | Yes |
-| servicePrincipalId | Specify the application's client ID. This is what you normally know as "**AAD application client ID**" in [Kusto connection string](/azure/kusto/api/connection-strings/kusto#application-authentication-properties.md). | Yes |
-| servicePrincipalKey | Specify the application's key. This is what you normally know as "**AAD application key**" in [Kusto connection string](/azure/kusto/api/connection-strings/kusto#application-authentication-properties.md). Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. This is what you normally know as "**Authority ID**" in [Kusto connection string](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Retrieve it by hovering with the mouse in the top-right corner of the Azure portal. | Yes |
+| servicePrincipalId | Specify the application's client ID. This is what you normally know as "**AAD application client ID**" in [Kusto connection string](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Yes |
+| servicePrincipalKey | Specify the application's key. This is what you normally know as "**AAD application key**" in [Kusto connection string](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 
 **Linked Service Properties Example:**
 
@@ -134,7 +134,7 @@ To copy data from Azure Data Explorer, set the **type** property in the Copy act
 | queryTimeout | The wait time before the query request times out. Default value is 10 min (00:10:00); allowed max value is 1 hour (01:00:00). | No |
 
 >[!NOTE]
->Azure Data Explorer source by default has a size limit of 500,000 records or 64 MB. To retrieve all the records without truncation, you can specify `set notruncation;` at the beginning of your query. Refer to [Query limits](/azure/kusto/concepts/querylimits.md) on more details.
+>Azure Data Explorer source by default has a size limit of 500,000 records or 64 MB. To retrieve all the records without truncation, you can specify `set notruncation;` at the beginning of your query. Refer to [Query limits](https://docs.microsoft.com/azure/kusto/concepts/querylimits) on more details.
 
 **Example:**
 
