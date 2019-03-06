@@ -48,7 +48,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |Max concurrent workers (requests)|200|400|600|800|1000|1200|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
 |Number of replicas|1|1|1|1|1|1|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|000
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
@@ -143,7 +143,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |Max concurrent logins|200|400|600|800|1000|1200|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
 |Number of replicas|4|4|4|4|4|4|
-|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
@@ -167,7 +167,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |Max concurrent logins (requests)|1400|1600|1800|2000|3200|4800|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
 |Number of replicas|4|4|4|4|4|4|
-|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 

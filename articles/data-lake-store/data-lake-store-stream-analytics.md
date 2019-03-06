@@ -102,7 +102,7 @@ You start by creating a Stream Analytics job that includes an input source and a
 
 	Click **Start** to start the job. It can take up to a couple minutes to start the job.
 
-3. To trigger the job to pick the data from the blob, copy a sample data file to the blob container. You can get a sample data file from the [Azure Data Lake Git Repository](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). For this tutorial, let's copy the file **vehicle1_09142014.csv**. You can use various clients, such as [Azure Storage Explorer](http://storageexplorer.com/), to upload data to a blob container.
+3. To trigger the job to pick the data from the blob, copy a sample data file to the blob container. You can get a sample data file from the [Azure Data Lake Git Repository](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). For this tutorial, let's copy the file **vehicle1_09142014.csv**. You can use various clients, such as [Azure Storage Explorer](https://storageexplorer.com/), to upload data to a blob container.
 
 4. From the **Overview** tab, under **Monitoring**, see how the data was processed.
 

@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/1/2019
+ms.date: 3/6/2019
 ms.author: victorh
 ---
 
@@ -45,7 +45,6 @@ During preview, there's no charge. You are billed for resources other than appli
 |Billing|There is no billing currently.|
 |FIPS mode, WebSocket|These are currently not supported.|
 |ILB only mode|This is currently not supported. Public and ILB mode together is supported.|
-|Web application firewall autoscaling|WAF doesn't support autoscaling mode. Fixed capacity mode is supported.|
 |Netwatcher integration|Not supported in the Public Preview.|
 
 ## Next steps
