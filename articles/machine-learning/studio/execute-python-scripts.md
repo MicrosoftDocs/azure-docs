@@ -36,15 +36,15 @@ The primary interface to Python in Studio is through the [Execute Python Script]
 
 The [Execute Python Script][execute-python-script] module in Studio accepts up to three inputs and produces up to two outputs, like its R analog, the [Execute R Script][execute-r-script] module. The Python code is entered into the parameter box as a specially named entry-point function called `azureml_main`. Here are the key design principles used to implement this module:
 
-1. Must be idiomatic for Python users
+- Must be idiomatic for Python users
 
     Most Python users factor their code as functions inside modules. So putting many executable statements in a top-level module is relatively rare. As a result, the script box also takes a specially named Python function as opposed to just a sequence of statements. The objects exposed in the function are standard Python library types such as [Pandas](http://pandas.pydata.org/) data frames and [NumPy](http://www.numpy.org/) arrays.
 
-1. Must have high-fidelity between local and cloud executions
+- Must have high-fidelity between local and cloud executions
 
     The backend used to execute the Python code is based on [Anaconda](https://store.continuum.io/cshop/anaconda/), a widely used cross-platform scientific Python distribution. It comes with close to 200 of the most common Python packages. Therefore, data scientists can debug and qualify their code on their local Azure Machine Learning Studio-compatible Anaconda environment. Then use an existing development environment, such as [IPython](http://ipython.org/) notebook or [Python Tools for Visual Studio](https://aka.ms/ptvs), to run it as part of a Studio experiment. The `azureml_main` entry point is a vanilla Python function, so it can be authored without Studio-specific code.
 
-1. Must be seamlessly composable with other Azure Machine Learning Studio modules
+- Must be seamlessly composable with other Azure Machine Learning Studio modules
 
     The [Execute Python Script][execute-python-script] module accepts, as inputs and outputs, standard Studio datasets. The underlying framework transparently and efficiently bridges Studio and Python runtimes. As a result, Python can be used in conjunction with existing Studio workflows, including workflows that call into R and SQLite. Data scientist could compose workflows that combine the benefits of multiple languages including Python, SQL, and R.
 
@@ -113,10 +113,10 @@ Plots created using MatplotLib can be returned by the [Execute Python Script][ex
 
 To generate images from MatplotLib, you must take the following steps:
 
-1. Switch the backend to “AGG” from the default Qt-based renderer
-1. Create a new figure object
-1. Get the axis and generate all plots into it
-1. Save the figure to a PNG file
+1. Switch the backend to “AGG” from the default Qt-based renderer.
+1. Create a new figure object.
+1. Get the axis and generate all plots into it.
+1. Save the figure to a PNG file.
 
 This process is illustrated in the following images that create a scatter plot matrix using the scatter_matrix function in Pandas.
 
@@ -172,7 +172,7 @@ We expect to provide additional functionality to the [Execute Python Script][exe
 
 ## Next steps
 
-For more information, see the [Python Developer Center.](https://azure.microsoft.com/develop/python/)
+For more information, see the [Python Developer Center](https://azure.microsoft.com/develop/python/).
 
 <!-- Module References -->
 [execute-python-script]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/execute-python-script
