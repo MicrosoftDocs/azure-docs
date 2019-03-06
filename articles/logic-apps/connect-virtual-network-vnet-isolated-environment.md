@@ -107,7 +107,7 @@ The [service tag](../virtual-network/security-overview.md#service-tags)
 represents a group of IP address prefixes that help 
 minimize complexity when creating security rules. 
 For Azure Cache for Redis, see the 
-[outbound and inbound port requirements in the Azure Cache for Redis FAQ](../azure-cache-for-redis/cache-how-to-premium-vnet#outbound-port-requirements).
+[outbound and inbound port requirements in the Azure Cache for Redis FAQ](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements).
 
 | Purpose | Direction | Ports | Source service tag | Destination service tag | Notes |
 |---------|-----------|-------|--------------------|-------------------------|-------|
