@@ -45,6 +45,9 @@ This article provides instructions for deploying an Azure Blob Storage on IoT Ed
 >[!NOTE]
 >Azure Blob Storage on IoT Edge is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
+Watch the video for quick introduction
+> [!VIDEO https://youtu.be/wkprcfVidyM]
+
 ## Prerequisites
 
 An Azure IoT Edge device:
@@ -242,7 +245,7 @@ Set the desired properties to enable auto-tiering and auto-expiration, you can s
 
 - **During the initial deployment**: Copy the JSON in **Set module twin's desired properties** box. Configure each property with appropriate value, save it and continue with the deployment.
 
-            ```json
+ ```json
             {
               "properties.desired": {
             		  "ttlSettings": {
@@ -261,13 +264,13 @@ Set the desired properties to enable auto-tiering and auto-expiration, you can s
                       }
               }
             }
-            ```
+```
 
- ![tiering+ttl iotedge_custom_module](./media/how-to-store-data-blob/iotedge_custom_module.png)
+ ![set auto-tiering and auto-expiration properties](./media/how-to-store-data-blob/iotedge_custom_module.png)
 
 - **After the module is deployed via "Module Identity Twin" feature**: Go to "Module Identity Twin" of this module, copy the JSON under properties desired, configure each property with appropriate value, and save. In "Module Identity Twin" Json make sure every time you add or update any desired property, the `reported configuration` section reflects the changes, and the `configurationValidation` section reports success for each property.
 
-            ```json
+ ```json
                       "ttlSettings": {
                         "ttlOn": <true, false>, 
                         "timeToLiveInMinutes": <timeToLiveInMinutes> 
@@ -282,7 +285,7 @@ Set the desired properties to enable auto-tiering and auto-expiration, you can s
                               }
                           }
                       }
-            ```
+```
 
 ![tiering+ttl module_identity_twin](./media/how-to-store-data-blob/module_identity_twin.png) 
 
@@ -290,7 +293,7 @@ Set the desired properties to enable auto-tiering and auto-expiration, you can s
 
 - **During the initial deployment**: Add the below JSON in your deployment.template.json to define the desired properties for this module. Configure each property with appropriate value and save it.
 
-            ```json
+```json
             "<your azureblobstorageoniotedge module name>":{
                   "properties.desired": {
                       "ttlSettings": {
@@ -309,14 +312,14 @@ Set the desired properties to enable auto-tiering and auto-expiration, you can s
                       }
                   }
               }
-            ```
+```
 
 Here is an example of desired properties for this module:
  ![set desired properties for azureblobstorageoniotedge - VS Code](./media/how-to-store-data-blob/tiering_ttl.png)
 
 - **After the module is deployed via "Module Twin"**: [Edit the Module Twin](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin) of this module, copy the JSON under properties desired, configure each property with appropriate value, and save. In "Module Twin" Json make sure every time you add or update any desired property, the `reported configuration` section reflects the changes, and the `configurationValidation` section reports success for each property.
 
-            ```json
+```json
                       "ttlSettings": {
                         "ttlOn": <true, false>, 
                         "timeToLiveInMinutes": <timeToLiveInMinutes> 
@@ -331,7 +334,7 @@ Here is an example of desired properties for this module:
                               }
                           }
                       }
-            ```
+```
 
 ## Connect to your blob storage module
 
