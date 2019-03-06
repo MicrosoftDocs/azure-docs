@@ -1,5 +1,5 @@
 ---
-title: Site Recovery - Backup Interoperability  | Microsoft Docs
+title: Azure Site Recovery - Backup Interoperability  | Microsoft Docs
 description: Provides an overview of how Azure Site Recovery and Azure Backup can be used together.
 services: site-recovery
 author: sideeksh
@@ -16,11 +16,11 @@ This article provides guidance for successfully using Azure Backup and Azure Sit
 
 ## Azure Backup
 
-Azure Backup helps protect data for on-premises servers, virtual machines, virtualized workloads, SQL servers, SharePoint servers, and more. Azure Site Recovery orchestrates and manages disaster recovery for Azure VMs, on-premises VMs and physical servers.
+Azure Backup helps protect data for on-premises servers, virtual machines, virtualized workloads, SQL servers, SharePoint servers, and more. Azure Site Recovery orchestrates and manages disaster recovery for Azure VMs, on-premises VMs, and physical servers.
 
 ## Azure Site Recovery
 
-It is possible to configure both Azure Backup and Azure Site Recovery on a VM or a group of VMs. Both products are interoperable. A few scenarios where the interoperability between Backup and ASR becomes important are as follows:
+It's possible to configure both Azure Backup and Azure Site Recovery on a VM or a group of VMs. Both products are interoperable. A few scenarios where the interoperability between Backup and ASR becomes important are as follows:
 
 ### File Backup/Restore
 
@@ -32,7 +32,7 @@ We do not currently support this for an on-going replicating VM. Protection need
 
 ### VM Backup/Restore
 
-Backup and restore of a VM or group of VMs is not supported. To make this to work, protection needs to be re-enabled.
+Backup and restore of a VM or group of VMs is not supported. To make it work, protection needs to be re-enabled.
 
 **Scenario** | **Supported by ASR?** | **Workaround, if any**  
 --- | --- | ---
