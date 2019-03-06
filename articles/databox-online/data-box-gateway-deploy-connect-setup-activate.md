@@ -111,10 +111,17 @@ You are now at the **Dashboard** of your device.
 
     2. Click **Activate**. 
        
-         ![Local web UI "Cloud settings" page](./media/data-box-gateway-deploy-connect-setup-activate/image10.png)
+         ![Local web UI "Cloud settings" page](./media/data-box-gateway-deploy-connect-setup-activate/image10a.png)
     
-    3. You may need to wait a minute before the device is successfully activated. After the activation, the page updates to indicate that the device is successfully activated.
+    3. First the device will be activated. The device is then scanned for any critical updates and if available, the updates are automatically applied. You see a notification to that effect. 
 
+        The dialog also has a recovery key that you should copy and save it in a safe location. This key is used to recover your data in the event the device can't boot up.
+
+        ![Local web UI "Cloud settings" page](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)    
+
+    4. You may need to wait several minute after the update is successfully completed. The page updates to indicate that the device is successfully activated.
+
+        ![Local web UI "Cloud settings" page updated](./media/data-box-gateway-deploy-connect-setup-activate/image13.png)
 
 ## Next steps
 
