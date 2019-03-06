@@ -102,12 +102,9 @@ you can set up [network security groups](../virtual-network/security-overview.md
 for those subnets by learning [how to filter network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). 
 These tables describe the ports in your virtual network 
 that your ISE uses and where those ports get used. 
-The asterisk (\*) represents any and all possible traffic sources. 
 The [service tag](../virtual-network/security-overview.md#service-tags) 
 represents a group of IP address prefixes that help 
 minimize complexity when creating security rules. 
-For Azure Cache for Redis, see the 
-[outbound and inbound port requirements in the Azure Cache for Redis FAQ](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements).
 
 | Purpose | Direction | Ports | Source service tag | Destination service tag | Notes |
 |---------|-----------|-------|--------------------|-------------------------|-------|
@@ -123,13 +120,17 @@ For Azure Cache for Redis, see the
 | App Service Management dependency | Inbound | 454 & 455 | AppServiceManagement | VIRTUAL_NETWORK | |
 | Connector deployment | Inbound | 454 & 3443 | INTERNET  | VIRTUAL_NETWORK | Necessary for deploying and updating connectors. Closing or blocking this port causes ISE deployments to fail and prevents connector updates or fixes. |
 | Azure SQL dependency | Outbound | 1433 | VIRTUAL_NETWORK | SQL |
-| Integration service environment | Within a subnet | * | Not applicable | Not applicable | For communication within a subnet |
-| Load balancer | Inbound | * | AZURE_LOAD_BALANCER | VIRTUAL_NETWORK | For publishing Health status to Resource Health |
+| Azure Resource Health | Outbound | 1886 | VIRTUAL_NETWORK | INTERNET | For publishing health status to Resource Health |
 | API Management - management endpoint | Inbound | 3443 | APIManagement  | VIRTUAL_NETWORK | |
 | Dependency from Log to Event Hub policy and monitoring agent | Outbound | 5672 | VIRTUAL_NETWORK  | EventHub | |
 | Access Azure Cache for Redis Instances between Role Instances | Inbound <br>Outbound | 6379-6383 | VIRTUAL_NETWORK  | VIRTUAL_NETWORK | |
-| Azure Load Balancer | Inbound | 8500 | AzureLoadBalancer  | VIRTUAL_NETWORK | |
+| Azure Load Balancer | Inbound | * | AZURE_LOAD_BALANCER | VIRTUAL_NETWORK |  |
 ||||||
+
+Also, ISE requires that you open all ports within subnets 
+so that communication can flow within those subnets. 
+For ISE to work with Azure Cache for Redis, you must open these 
+[outbound and inbound ports described in the Azure Cache for Redis FAQ](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements).
 
 <a name="vnet-access"></a>
 
