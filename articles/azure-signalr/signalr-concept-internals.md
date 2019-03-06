@@ -3,8 +3,8 @@ title: Azure SignalR Service internals
 description: An overview of Azure SignalR Service internals.
 author: sffamily
 ms.service: signalr
-ms.topic: overview
-ms.date: 12/23/2018
+ms.topic: conceptual
+ms.date: 03/01/2019
 ms.author: zhshang
 ---
 # Azure SignalR Service internals
@@ -19,7 +19,7 @@ The diagram below describes the typical architecture when you use the SignalR Se
 
 The differences from self-hosted ASP.NET Core SignalR application are discussed as well.
 
-![Architecture](./media/signalr-internals/arch.png)
+![Architecture](./media/signalr-concept-internals/arch.png)
 
 ## Server connections
 
