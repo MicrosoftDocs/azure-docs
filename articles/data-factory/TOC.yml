@@ -554,7 +554,7 @@
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.datafactory
   - name: PowerShell
-    href: /powershell/module/azurerm.datafactoryv2/
+    href: /powershell/module/az.datafactory/
   - name: REST API
     href: /rest/api/datafactory
   - name: Resource Manager template

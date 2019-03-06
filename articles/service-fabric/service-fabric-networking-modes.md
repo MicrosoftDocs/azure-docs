@@ -54,15 +54,6 @@ When a container service restarts or moves to another node in the cluster, the I
                     ]
                 },
                 {
-                    "name":  "Trace/Etw", 
-                    "parameters": [
-                    {
-                            "name": "Level",
-                            "value": "5"
-                    }
-                    ]
-                },
-                {
                     "name": "Setup",
                     "parameters": [
                     {

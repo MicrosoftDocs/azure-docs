@@ -30,7 +30,7 @@ There are three main ways that a user can get access to a Microsoft-published ap
 
 -   For applications that Microsoft or a Third Party publishes freely for anyone to use, users may be granted access through **user consent**. This0 means that they sign in to the application with their Azure AD Work or School account and allow it to have access to some limited set of data on their account.
 
--   For applications that Microsoft or a 3rd Party publishes freely for anyone to use, users may also be granted access through **administrator consent**. This means that an administrator has determined the application may be used by everyone in the organization, so they sign in to the application with a Global Administrator account and grant access to everyone in the organization.
+-   For applications that Microsoft or a 3rd party publishes freely for anyone to use, users may also be granted access through **administrator consent**. This means that an administrator has determined the application may be used by everyone in the organization, so they sign in to the application with a Global Administrator account and grant access to everyone in the organization.
 
 To troubleshoot your issue, start with the [General Problem Areas with Application Access to consider](#general-problem-areas-with-application-access-to-consider) and then read the Walkthrough: Steps to troubleshoot Microsoft Application access to get into the details.
 
