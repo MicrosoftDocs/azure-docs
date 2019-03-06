@@ -216,7 +216,7 @@ Edit the module create options to change the HostPort value:
 
 When you connect to additional blob storage modules, change the endpoint to point to the updated host port. 
 
-### Try it out
+## Try it out
 
 The Azure Blob Storage documentation includes quickstarts that provide sample code in several languages. You can run these samples to test Azure Blob Storage on IoT Edge by changing the blob endpoint to point to your blob storage module.
 
@@ -231,7 +231,7 @@ The following quickstarts use languages that are also supported by IoT Edge, so 
 
 Blob storage modules on IoT Edge use the same Azure Storage SDKs, and are consistent with the 2018-03-28 version of the Azure Storage API for block blob endpoints. Later releases are dependent on customer needs. 
 
-Not all Azure Blob Storage operations are supported by Azure Blob Storage on IoT Edge. The following sections detail which operations are an are not supported. 
+Not all Azure Blob Storage operations are supported by Azure Blob Storage on IoT Edge. The following sections detail which operations are not supported. 
 
 ### Account
 

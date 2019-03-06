@@ -30,6 +30,8 @@ you can create an alert that detects
 You can also set up monitoring, tracking, and logging programmatically 
 by using [Azure Diagnostics event settings and properties](#diagnostic-event-properties).
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## View runs and trigger history for your logic app
 
 1. To find your logic app in the [Azure portal](https://portal.azure.com), 
@@ -98,8 +100,8 @@ for example:
 
 For richer debugging with runtime details and events, 
 you can set up diagnostics logging with 
-[Azure Log Analytics](../log-analytics/log-analytics-overview.md). 
-Log Analytics is a service in Azure 
+[Azure Monitor logs](../log-analytics/log-analytics-overview.md). 
+Azure Monitor is a service in Azure 
 that monitors your cloud and on-premises environments 
 to help you maintain their availability and performance. 
 
@@ -164,7 +166,7 @@ When you start typing, you see possible matches and operations that you can use.
 
    ![Enter search string](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 
-   Learn more about [how to find data in Log Analytics](../log-analytics/log-analytics-log-searches.md).
+   Learn more about [how to find data in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
 
 5. On the results page, in the left bar, choose the timeframe that you want to view.
 To refine your query by adding a filter, choose **+Add**.
@@ -196,7 +198,7 @@ Learn [how to save your query](../logic-apps/logic-apps-track-b2b-messages-omspo
 
 ## Extend how and where you use diagnostic data with other services
 
-Along with Azure Log Analytics, you can extend how you use your logic app's 
+Along with Azure Monitor logs, you can extend how you use your logic app's 
 diagnostic data with other Azure services, for example: 
 
 * [Archive Azure Diagnostics Logs in Azure Storage](../azure-monitor/platform/archive-diagnostic-logs.md)
@@ -228,8 +230,8 @@ set up [alerts in Azure](../azure-monitor/platform/alerts-overview.md).
 Learn about [metrics in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
 
 To set up alerts without 
-[Azure Log Analytics](../log-analytics/log-analytics-overview.md), follow these steps. 
-For more advanced alerts criteria and actions, [set up Log Analytics](#azure-diagnostics) too.
+[Azure Monitor logs](../log-analytics/log-analytics-overview.md), follow these steps. 
+For more advanced alerts criteria and actions, [set up Azure Monitor logs](#azure-diagnostics) too.
 
 1. On the logic app blade menu, under **Monitoring**, 
 choose **Diagnostics** > **Alert rules** > **Add alert** as shown here:

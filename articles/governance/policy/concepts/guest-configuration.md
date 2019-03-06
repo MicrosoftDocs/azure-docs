@@ -4,7 +4,7 @@ description: Learn how Azure Policy uses Guest Configuration to audit settings i
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/29/2019
+ms.date: 02/27/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -106,14 +106,16 @@ The following table lists operating systems that aren't supported:
 
 ### Guest Configuration Extension network requirements
 
-To communicate with the Guest Configuration resource provider in Azure,
-virtual machines will require outbound access to Azure datacenters on port `443`.
-If you are using a private virtual network in Azure and do not allow outbound traffic,
-exceptions must be configured using
-[Network Security Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules.
-At this time, a service tag does not exist for Azure Policy Guest Configuration.
+To communicate with the Guest Configuration resource provider in Azure, virtual machines require
+outbound access to Azure datacenters on port **443**. If you're using a private virtual network in
+Azure and don't allow outbound traffic, exceptions must be configured using [Network Security
+Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules. At
+this time, a service tag doesn't exist for Azure Policy Guest Configuration.
 
-For IP address lists you can download [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This file is updated weekly, and has the currently deployed ranges and any upcoming changes to the IP ranges.  You will only need to allow outbound access to the IPs in the regions where your VMs are deployed.
+For IP address lists, you can download [Microsoft Azure Datacenter IP
+Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This file is updated weekly, and
+has the currently deployed ranges and any upcoming changes to the IP ranges. You only need to allow
+outbound access to the IPs in the regions where your VMs are deployed.
 
 > [!NOTE]
 > The Azure Datacenter IP address XML file lists the IP address ranges that are used in the Microsoft Azure datacenters. The file includes compute, SQL, and storage ranges.

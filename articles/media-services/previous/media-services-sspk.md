@@ -121,7 +121,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Dongguan Digital AV Technology Corp., Ltd.
 * EchoStar Purchasing Corporation
 * Enseo, Inc.
-* Filmflex Movies Limited
+* FilmFlex Movies Limited
 * Fluendo S.A.
 * Gibson Innovations Limited
 * Haier Information Applicantion S.R.L

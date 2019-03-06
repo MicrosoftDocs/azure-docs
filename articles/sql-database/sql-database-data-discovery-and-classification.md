@@ -25,7 +25,7 @@ Discovering and classifying your most sensitive data (business, financial, healt
 Data discovery & classification is part of the [advanced data security](sql-database-advanced-data-security.md) (ADS) offering, which is a unified package for advanced SQL security capabilities. data discovery & classification can be accessed and managed via the central SQL ADS portal.
 
 > [!NOTE]
-> This document relates to Azure SQL Database only. For SQL Server (on-prem), see [SQL Data Discovery and Classification](https://go.microsoft.com/fwlink/?linkid=866999).
+> This document relates to Azure SQL Database only. For SQL Server (on premises), see [SQL Data Discovery and Classification](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="subheading-1"></a>What is data discovery & classification
 

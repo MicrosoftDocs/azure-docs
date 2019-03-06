@@ -161,7 +161,7 @@ Yes. You can send logs from the HSM appliance to a syslog server
 
 ### Q: Is it possible to configure high-availability in the same region or across multiple regions?
 
-Yes. High availability configuration and setup are performed in the HSM client software provided by Gemalto. HSMs from the same VNET or other VNETs in the same region or across regions, or on-prem HSMs connected to a VNET using site-to-site or point-to-point VPN can be added to same high availability configuration.
+Yes. High availability configuration and setup are performed in the HSM client software provided by Gemalto. HSMs from the same VNET or other VNETs in the same region or across regions, or on premises HSMs connected to a VNET using site-to-site or point-to-point VPN can be added to same high availability configuration.
 
 ### Can I add HSMs from my on-premises network to a high availability group with Azure Dedicated HSM?
 
