@@ -56,6 +56,8 @@
         href: vpn-gateway-howto-site-to-site-resource-manager-cli.md
     - name: Configure multiple Site-to-Site connections
       href: vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md
+    - name: Connect to multiple policy-based VPN devices
+      href: vpn-gateway-connect-multiple-policybased-rm-ps.md
     - name: Configure VPN devices
       items:
       - name: Download VPN device configuration scripts
@@ -126,10 +128,6 @@
     items:
     - name: Azure PowerShell
       href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
-  - name: Connect multiple policy-based VPN devices
-    items:
-    - name: Azure PowerShell
-      href: vpn-gateway-connect-multiple-policybased-rm-ps.md
   - name: Configure IPsec/IKE policies on connections
     items:
     - name: Azure PowerShell
