@@ -71,9 +71,13 @@ In this tutorial, you will:
     - [Load balancers](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
     - [Public IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
     
+<<<<<<< HEAD
     For any other networking components, refer to the networking [documentation.](https://docs.microsoft.com/azure/#pivot=products&panel=network) 
 
     For any other networking components, see the [networking documentation](https://docs.microsoft.com/azure/#pivot=products&panel=network).
+=======
+      For any other networking components, see the [networking documentation](https://docs.microsoft.com/azure/#pivot=products&panel=network).
+>>>>>>> ce1facdaa401d0c50422515d630218d6a7d88fc0
 
 1. Manually [create a non-production network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) in the target region if you want to test the configuration before you perform the final move to the target region. We recommend this step because it ensures minimal interference with the production network.
 
@@ -119,12 +123,21 @@ Site Recovery retrieves a list of the VMs that are associated with the subscript
 
 1. Select the target Azure virtual network to which you want to move the Azure VMs to test the configuration.
 > [!IMPORTANT]
+<<<<<<< HEAD
 > We recommend that you use a separate Azure VM network for the test failover. Do not use the production network that was set up when you enabled replication and that you want to move your VMs into eventually.
 
 4. To start testing the move, select **OK**. To track progress, select the VM to open its properties. Or,
    you can select the **Test Failover** job in the vault name > **Settings** > **Jobs** > **Site Recovery jobs**.
 5. After the failover finishes, the replica Azure VM appears in the Azure portal > **Virtual Machines**. Make sure that the VM is running, sized appropriately, and connected to the appropriate network.
 6. If you want to delete the VM that was created as part of testing the move, select **Cleanup test failover** on the replicated item. In **Notes**, record and save any observations that are associated with the test.
+=======
+> We recommend that you use a separate Azure VM network for the test failover. Don't use the production network that was set up when you enabled replication and that you want to move your VMs into eventually.
+
+4. To start testing the move, click **OK**. To track progress, click the VM to open its properties. Or,
+   you can click the **Test Failover** job in the vault name > **Settings** > **Jobs** > **Site Recovery jobs**.
+5. After the failover finishes, the replica Azure VM appears in the Azure portal > **Virtual Machines**. Make sure that the VM is running, sized appropriately, and connected to the appropriate network.
+6. If you want to delete the VM created as part of testing the move, click **Cleanup test failover** on the replicated item. In **Notes**, record and save any observations that are associated with the test.
+>>>>>>> ce1facdaa401d0c50422515d630218d6a7d88fc0
 
 ## Perform the move to the target region and confirm
 
