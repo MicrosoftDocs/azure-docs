@@ -158,7 +158,7 @@
       href: vpn-gateway-modify-local-network-gateway.md
     - name: Azure CLI
       href: vpn-gateway-modify-local-network-gateway-cli.md
-  - name: Create and modify a VPN gateway
+  - name: Create and manage a VPN gateway
     items:
     - name: Create a route-based VPN gateway
       items:
