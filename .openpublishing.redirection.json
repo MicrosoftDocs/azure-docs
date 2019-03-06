@@ -1,6 +1,16 @@
 {
     "redirections": [
       {
+        "source_path": "articles/virtual-machines/windows/high-performance-computing.md",
+        "redirect_url": "https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/virtual-machines/linux/high-performance-computing.md",
+        "redirect_url": "https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/",
+        "redirect_document_id": false
+      },
+      {
         "source_path": "articles/machine-learning/studio/consume-web-service-with-web-app-template.md",
         "redirect_url": "/azure/machine-learning/studio/consume-web-services",
         "redirect_document_id": false
