@@ -41,7 +41,7 @@ For the latest information on Azure storage service limits and best practices fo
 
 - Do not copy data directly into the disks. Copy data to pre-created *BlockBlob*,*PageBlob*, and *AzureFile* folders.
 - A folder under the *BlockBlob* and *PageBlob* is a container. For instance, containers are created as *BlockBlob/container* and *PageBlob/container*.
-- If you have an existing Azure object (such as a blob) in the cloud with the same name as the object that is being copied, Data Box Disk will overwrite the file in the cloud.
+- If you have an existing Azure object (such as a blob) in the cloud with the same name as the object that is being copied, Data Box Disk will rename the file as file(1) in the cloud.
 - Every file written into *BlockBlob* and *PageBlob* shares is uploaded as a block blob and page blob respectively.
 - Any empty directory hierarchy (without any files) created under *BlockBlob* and *PageBlob* folders is not uploaded.
 - If there are any errors when uploading data to Azure, an error log is created in the target storage account. The path to this error log is available in the portal when the upload is complete and you can review the log to take corrective action. Do not delete data from the source without verifying the uploaded data.
