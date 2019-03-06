@@ -95,7 +95,7 @@ For the Hybrid Runbook Worker to connect to and register with Azure Monitor logs
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-If you use a proxy server for communication between the agent and the Azure Monitor service, ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the internet, you must configure your firewall to permit access. If you use the Log Analytics gateway as a proxy, ensure it is configured for hybrid workers. For instructions on how to do this, see [Configure the Log Analytics gateway for Automation Hybrid Workers](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
+If you use a proxy server for communication between the agent and the Azure Monitor service, ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the internet, you must configure your firewall to permit access. If you use the Log Analytics gateway as a proxy, ensure it is configured for hybrid workers. For instructions on how to do this, see [Configure the Log Analytics gateway for Automation Hybrid Workers](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
 
 The following port and URLs are required for the Hybrid Runbook Worker role to communicate with Automation:
 

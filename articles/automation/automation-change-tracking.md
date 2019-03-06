@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/19/2019
+ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
@@ -149,6 +149,7 @@ Other limitations:
 The Change Tracking solution is currently experiencing the following issues:
 
 * Hotfix updates are not collected on Windows Server 2016 Core RS3 machines.
+* Linux Daemons may show a changed state even though there was no change. This is due to how the `SvcRunLevels` field is captured.
 
 ## Change Tracking data collection details
 
