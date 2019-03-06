@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/14/2018
 ---
-# Bulk copy from database with control table
+# Bulk copy from a database with a control table
 
 To copy data from a data warehouse in Oracle Server, Netezza, Teradata, or SQL Server to Azure SQL Data Warehouse, you have to load huge amounts of data from multiple tables. Usually, the data has to be partitioned in each table so that you can load rows with multiple threads in parallel from a single table. This article describes a template to use in these scenarios.
 
@@ -39,7 +39,7 @@ The template defines five parameters:
 
 ## How to use this solution template
 
-1. Create a control table in a SQL Server or Azure SQL Database to store the source database partition list for bulk copy. In the following example, there are five partitions in the source database. Three partitions are for the *datasource_table*, and two are for the *project_table*. The column *LastModifytime* is used to partition the data in table *datasource_table* from the source database. The query that's used to read the first partition is 'select * from datasource_table where LastModifytime >= ''2015-01-01 00:00:00'' and LastModifytime <= ''2015-12-31 23:59:59.999'''. You can use a similar query to read data from other partitions.
+1. Create a control table in SQL Server or Azure SQL Database to store the source database partition list for bulk copy. In the following example, there are five partitions in the source database. Three partitions are for the *datasource_table*, and two are for the *project_table*. The column *LastModifytime* is used to partition the data in table *datasource_table* from the source database. The query that's used to read the first partition is 'select * from datasource_table where LastModifytime >= ''2015-01-01 00:00:00'' and LastModifytime <= ''2015-12-31 23:59:59.999'''. You can use a similar query to read data from other partitions.
 
 	 ```sql
 			Create table ControlTableForTemplate
@@ -87,7 +87,7 @@ The template defines five parameters:
 
     ![Review the result](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. (Optional) If you chose a SQL Data Warehouse as the data destination, you must enter a connection to Azure Blob storage for staging, as required by SQL Data Warehouse Polybase. Make sure that the container in Blob storage has already been created.
+9. (Optional) If you chose SQL Data Warehouse as the data destination, you must enter a connection to Azure Blob storage for staging, as required by SQL Data Warehouse Polybase. Make sure that the container in Blob storage has already been created.
 	
 	![Polybase setting](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
 	   
