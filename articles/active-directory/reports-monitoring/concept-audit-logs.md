@@ -132,9 +132,9 @@ The **Status** filter allows you to filter based on the status of an audit opera
 - Success
 - Failure
 
-The **Target** filter allows you to search for a particular target by name or user principal name (UPN). Note that the target name and UPN are case-sensitive. 
+The **Target** filter allows you to search for a particular target by name or user principal name (UPN). The target name and UPN are case-sensitive. 
 
-The **Initiated by** filter enables you to define an actor's name or a universal principal name (UPN). Note that the name and UPN are case-sensitive.
+The **Initiated by** filter enables you to define an actor's name or a universal principal name (UPN). The name and UPN are case-sensitive.
 
 The **Date range** filter enables to you to define a timeframe for the returned data.  
 Possible values are:
