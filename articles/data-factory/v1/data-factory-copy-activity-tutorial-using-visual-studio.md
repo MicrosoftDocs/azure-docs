@@ -45,6 +45,9 @@ A pipeline can have more than one activity. And, you can chain two activities (r
 > The data pipeline in this tutorial copies data from a source data store to a destination data store. For a tutorial on how to transform data using Azure Data Factory, see [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 1. Read through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article and complete the **prerequisite** steps.       
 2. To create Data Factory instances, you must be a member of the [Data Factory Contributor](../../role-based-access-control/built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
 3. You must have the following installed on your computer: 
@@ -331,12 +334,12 @@ Note the following points:
   * In Azure PowerShell, run the following command to register the Data Factory provider. 
 
 	```PowerShell    
-	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+	Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 	You can run the following command to confirm that the Data Factory provider is registered. 
     
 	```PowerShell
-	Get-AzureRmResourceProvider
+	Get-AzResourceProvider
 	```
   * Login using the Azure subscription into the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
 * The name of the data factory may be registered as a DNS name in the future and hence become publicly visible.
