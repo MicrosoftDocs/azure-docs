@@ -48,7 +48,7 @@ In Azure, devices are assigned using [Logical Unit Numbers (LUN)](https://docs.m
 In most cases, Azure CycleCloud will automatically assign devices for you. Specifying devices manually is advanced usage, and useful in cases where the image you are using for your node has volumes that will be automatically attached because their attachment was baked into the image. Specifying the devices by hand can also be useful when the ordering of devices has special meaning.
 
 > [!NOTE]
-> A volume named `boot` has special meaning.
+> The reserved name `boot` is used to modify the built-in boot volume.
 
 ## Advanced Usage
 

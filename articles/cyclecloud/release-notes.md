@@ -12,7 +12,7 @@ ms.author: adjohnso
 
 # Azure CycleCloud 7.7
 
-The current release is 7.7.1.
+The current release is 7.7.2.
 
 ## Azure CycleCloud 7.7 Release Highlights
 
@@ -26,6 +26,7 @@ The current release is 7.7.1.
 
 Comprehensive release notes for the individual 7.7.x releases are listed below
 
+* [**7.7.2 Release Notes**](release-notes/7-7-2.md) - released on 3/5/19
 * [**7.7.1 Release Notes**](release-notes/7-7-1.md) - released on 2/14/19
 * [**7.7.0 Release Notes**](release-notes/7-7-0.md) - released on 2/11/19
 
