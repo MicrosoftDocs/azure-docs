@@ -5,13 +5,13 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 09/12/2018
+ ms.date: 02/27/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
 
 1. You can find Virtual WANs by navigating to **All services** and searching for Virtual WANs. Or, you can search for Virtual WANs in the search box at the top of the Azure portal. Click **Virtual WANs** to open the page.
-2. Click *+Add* to open the **Create WAN** page.
+2. Click **+Add** to open the **Create WAN** page.
 3. On the Create WAN page, fill in the following fields.
 
   * **Name** - Select the Name that you want to call your WAN.

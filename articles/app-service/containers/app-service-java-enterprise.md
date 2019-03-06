@@ -18,6 +18,9 @@ ms.custom: seodec18
 
 # Java Enterprise guide for App Service on Linux
 
+> [!NOTE] 
+> Java Enterprise Edition on App Service Linux is currently in Preview. This stack is **not** recommended for production-facing work. Please see the [Java developer's guide](app-service-linux-java.md) for information on our Java SE and Tomcat stacks.
+
 Azure App Service on Linux lets Java developers to build, deploy, and scale Java Enterprise (Java EE) applications on a fully managed Linux-based service.  The underlying Java Enterprise runtime environment is the open-source [Wildfly](https://wildfly.org/) application server.
 
 This guide provides key concepts and instructions for Java Enterprise developers using in App Service for Linux. If you've never deployed Java applications with Azure App Service for Linux, you should complete the [Java quickstart](quickstart-java.md) first. Questions about App Service for Linux that aren't specific to Java Enterprise are answered in the [Java developer's guide](app-service-linux-java.md) and the [App Service Linux FAQ](app-service-linux-faq.md).

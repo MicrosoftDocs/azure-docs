@@ -24,15 +24,7 @@ As shown in this article, you can add GPU resources when you deploy a container 
 
 In preview, the following limitations apply when using GPU resources in container groups. 
 
-**Supported regions**:
-
-* East US (eastus)
-* West US 2 (westus2)
-* South Central US (southcentralus)
-* West Europe (westeurope)
-* North Europe (northeurope)
-* East Asia (eastasia)
-* Central India (centralindia)
+[!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 
 Support will be added for additional regions over time.
 
@@ -55,21 +47,9 @@ To use GPUs in a container instance, specify a *GPU resource* with the following
   | P100 | [NCv2](../virtual-machines/linux/sizes-gpu.md#ncv2-series) |
   | V100 | [NCv3](../virtual-machines/linux/sizes-gpu.md#ncv3-series) |
 
-### CPU and memory
+[!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
-When deploying GPU resources, set CPU and memory resources appropriate for the workload, up to the maximum values shown in the following table. These values are currently larger than the CPU and memory limits in container instances without GPU resources.  
-
-| GPU SKU | GPU count | CPU |  Memory (GB) |
-| --- | --- | --- | --- |
-| K80 | 1 | 6 | 56 |
-| K80 | 2 | 12 | 112 |
-| K80 | 4 | 24 | 224 |
-| P100 | 1 | 6 | 112 |
-| P100 | 2 | 12 | 224 |
-| P100 | 4 | 24 | 448 |
-| V100 | 1 | 6 | 112 |
-| V100 | 2 | 12 | 224 |
-| V100 | 4 | 24 | 448 |
+When deploying GPU resources, set CPU and memory resources appropriate for the workload, up to the maximum values shown in the preceding table. These values are currently larger than the CPU and memory resources available in container groups without GPU resources.  
 
 ### Things to know
 
