@@ -38,11 +38,17 @@ Changing the service tier or compute size of an elastic pool follows a similar p
 
 ### Latency of changing service tier or rescaling compute size
 
-- In general, the duration to change the min vCores or eDTUs per database or max vCores or eDTUs per database is five minutes or less.
-- The duration to rescale pool vCores can depend on the total amount of storage space used by all databases in the pool. In general, the rescaling latency averages 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for rescaling the pool is 3 hours or less. In some cases within the Standard or Basic tier, the rescaling latency can be under five minutes regardless of the amount of space used.
-- In general, the duration to change the min vCores per database or max vCores per database is five minutes or less.
-- When downsizing pool vCores or eDTUs, the pool used space must be smaller than the maximum allowed size of the target service tier and pool vCores.
+The latency to change the service tier or rescale the compute size of a single database or elastic pool is parameterized as follows:
 
+|Service tier|Basic single database, Standard (S0-S2)|Basic elastic pool, Standard (S3-S12), Hyperscale, General Purpose single database or elastic pool|Premium or Business Critical single database or elastic pool|
+|:---|:---|:---|:---|
+|Basic single database, Standard (S0-S2)|&bull; &nbsp;Constant time latency independent of space used</br>&bull; &nbsp;Typically, less than 5 minutes|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|
+|Basic elastic pool, Standard (S3-S12), Hyperscale, General Purpose single database or elastic pool|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Constant time latency independent of space used</br>&bull; &nbsp;Typically, less than 5 minutes|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|
+|Premium or Business Critical single database or elastic pool|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying|&bull; &nbsp;Typically, less than 1 minute per GB of space used|
+
+> [!IMPORTANT]
+> In the case of changing the service tier or rescaling compute for an elastic pool, the summation of space used across all databases in the pool should be used to calculate the estimate.
+In the case of moving a database to/from an elastic pool, only the space used by the database impacts the latency, not the space used by the elastic pool.
 > [!TIP]
 > To monitor in-progress operations, see: [Manage operations using the SQL REST API](https://docs.microsoft.com/rest/api/sql/operations/list), [Manage operations using CLI](/cli/azure/sql/db/op), [Monitor operations using T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) and these two PowerShell commands: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) and [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 

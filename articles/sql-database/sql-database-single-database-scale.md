@@ -48,7 +48,13 @@ Changing the service tier or compute size of a single database mainly involves t
 
 ### Latency of changing service tier or rescaling compute size
 
-The duration of the entire scale-up process generally depends on both the size and service tier of the database before and after the change. For example, any size database that is changing the compute size within the General Purpose service tier should complete within several minutes  On the other hand, the latency to change the compute size within the Business Critical tier is generally 90 minutes or less per 100 GB.
+The latency to change the service tier or rescale the compute size of a single database or elastic pool is parameterized as follows:
+
+|Service tier|Basic single database, Standard (S0-S2)|Basic elastic pool, Standard (S3-S12), Hyperscale, General Purpose single database or elastic pool|Premium or Business Critical single database or elastic pool|
+|:---|:---|:---|:---|
+|Basic single database, Standard (S0-S2)|&bull; &nbsp;Constant time latency independent of space used</br>&bull; &nbsp;Typically, less than 5 minutes|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|
+|Basic elastic pool, Standard (S3-S12), Hyperscale, General Purpose single database or elastic pool|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Constant time latency independent of space used</br>&bull; &nbsp;Typically, less than 5 minutes|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|
+|Premium or Business Critical single database or elastic pool|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|&bull; &nbsp;Latency proportional to database space used due to data copying</br>&bull; &nbsp;Typically, less than 1 minute per GB of space used|
 
 > [!TIP]
 > To monitor in-progress operations, see: [Manage operations using the SQL REST API](https://docs.microsoft.com/rest/api/sql/operations/list), [Manage operations using CLI](/cli/azure/sql/db/op), [Monitor operations using T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) and these two PowerShell commands: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) and [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
