@@ -24,6 +24,7 @@ to the CycleCloud server:
 | https_9443* | Compute Subnet    | CycleCloud     | HTTPS   | TCP      | 9443       |
 | ssh_22      | CycleCloud        | Compute Subnet | SSH     | TCP      | 22
 
->[!Note] Clusters using a Return Proxy to the master node do not need the AMQP
->or HTTPS rules. They will still need access to port 22 to set up the return
->proxy
+> [!NOTE]
+> Clusters using a Return Proxy to the master node do not need the AMQP
+> or HTTPS rules. They will still need access to port 22 to set up the return
+> proxy
