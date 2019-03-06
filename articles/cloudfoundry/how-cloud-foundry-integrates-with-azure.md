@@ -86,7 +86,7 @@ Premium disks were recommended for reliable performance in production.  With [Ma
 Today all CF VMs are billed using “on-demand” pricing, even though the environments typically stay up indefinitely. Now you can reserve VM capacity on a 1 or 3-year term, and gain discounts of 45-65%. Discounts are applied in the billing system, with no changes to your environment. For details, see [How Azure reservations works](https://azure.microsoft.com/pricing/reserved-vm-instances/). 
 #### Managed Premium Disk with Smaller Sizes: 
 Managed disks support smaller disk sizes, for example P4(32 GB) and P6(64 GB) for both premium and standard disks. If you have small workloads, you can save cost when migrating from standard premium disks to managed premium disks.
-#### Using Azure First Party Services: 
+#### Use Azure First Party Services: 
 Taking advantage of Azure’s first party service will lower the long-term administration cost, in addition to HA and reliability mentioned in above sections. 
 
 Pivotal has launched a [Small Footprint ERT](https://docs.pivotal.io/pivotalcf/2-0/customizing/small-footprint.html) for PCF customers, the components are co-located into just 4 VMs, running up to 2500 application instances. The trial version is now available through [Azure Market place](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
