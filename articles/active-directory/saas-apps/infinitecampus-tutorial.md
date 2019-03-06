@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Infinite Campus
 
@@ -44,7 +45,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
 - If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
-- At minimum, you need to be an Azure Active Directory administrator to complete the configuration.
+- At minimum, you need to be an Azure Active Directory administrator, and have a Campus Product Security Role of "Student Information System (SIS)" to complete the configuration.
 
 ## Scenario description
 
@@ -108,7 +109,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](common/editconfigure.png)
 
-4. On the **Basic SAML Configuration** section, if you have a **Service Provider metadata file**, complete steps 4.a through 4.d, and then skip to step 11.c. If you don't have a Service Provider Metadata file, skip to step 5.
+4. On the **Basic SAML Configuration** section, if you have a **Service Provider metadata file** exported from Infinite Campus, complete steps 4.a through 4.d, and then skip to step 11.c. If you don't have a Service Provider Metadata file, skip to step 5.
 
 	a. Click **Upload metadata file**.
 
@@ -164,13 +165,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. Select **Enable SAML Single Sign On**.
 	
-	b. On the **Select an option to retrieve Identity Provider (IDP) server data** section, select **Metadata URL**, paste the **App Federation Metadata Url** in the box, and then click **Sync**.
+	b. Edit the **Optional Attribute Name** to contain **name**
+	
+	c. On the **Select an option to retrieve Identity Provider (IDP) server data** section, select **Metadata URL**, paste the **App Federation Metadata Url** (from Step 6 above) in the box, and then click **Sync**.
 
-	c. Click on **Service Provider Metadata** link to save the **Service Provider metadata file** on your computer, and upload it in **Basic SAML Configuration** section to auto populate the **Identifier** and **Reply URL** values in the Azure portal (refer to step 4 for upload and automatic population of values, or step 5 for manual entry).
+	d. Click on **Service Provider Metadata** link to save the **Service Provider metadata file** on your computer, and upload it in **Basic SAML Configuration** section to auto populate the **Identifier** and **Reply URL** values in the Azure portal (refer to step 4 for upload and automatic population of values, or step 5 for manual entry).
 
-	d. After clicking **Sync** the values get auto-populated in **SSO Service Provider Configuration** page.
+	e. After clicking **Sync** the values get auto-populated in **SSO Service Provider Configuration** page.
 
-	e. Click **Save**.
+	f. Click **Save**.
 
 ### Creating an Azure AD test user
 
@@ -229,7 +232,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Infinite Campus tile in the Access Panel, you should get automatically signed-on to your Infinite Campus application. If you are logging into the Infinite Camnpus application in the same browser you are administering Azure AD, ensure you are logged into Azure AD as the test user. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
+When you click the Infinite Campus tile in the Access Panel, you should get automatically signed-on to your Infinite Campus application. If you are logging into the Infinite Campus application in the same browser you are administering Azure AD, ensure you are logged into Azure AD as the test user. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 

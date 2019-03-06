@@ -15,6 +15,7 @@ ms.reviewer: sahenry
 
 ms.custom: seo-update-azuread-jan
 
+ms.collection: M365-identity-device-management
 ---
 # Troubleshoot self-service password reset
 

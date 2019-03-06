@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 01/21/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
@@ -22,12 +22,8 @@ ms.lastreviewed: 10/15/2018
 
 ---
 # Microsoft Azure Stack Development Kit architecture
-The Azure Stack Development Kit (ASDK) is a single-node deployment of Azure Stack. All the components are installed in virtual machines running on a single host machine. 
+The Azure Stack Development Kit (ASDK) is a single-node deployment of Azure Stack running on a single host computer. Edge routing components are installed on the host computer to provide NAT and VPN capabilities for Azure Stack. Azure Stack infrastructure roles run in the Hyper-V layer of the physical host computer.
 
-## Logical architecture diagram
-The following diagram illustrates the logical architecture of the ASDK and its components.
-
-![ASDK architecture](media/asdk-architecture/image1.png)
 
 ## Virtual machine roles
 The ASDK offers services using the following VMs hosted on the development kit host computer:
@@ -36,7 +32,6 @@ The ASDK offers services using the following VMs hosted on the development kit h
 | ----- | ----- |
 | **AzS-ACS01** | Azure Stack storage services.|
 | **AzS-ADFS01** | Active Directory Federation Services (ADFS).  |
-| **AzS-BGPNAT01** | Edge router and provides NAT and VPN capabilities for Azure Stack. |
 | **AzS-CA01** | Certificate authority services for Azure Stack role services.|
 | **AzS-DC01** | Active Directory, DNS, and DHCP services for Microsoft Azure Stack.|
 | **AzS-ERCS01** | Emergency Recovery Console VM. |

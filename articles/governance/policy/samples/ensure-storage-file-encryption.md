@@ -1,6 +1,6 @@
 ---
 title: Sample - Ensure storage file encryption
-description: This sample policy requires that file encryption is enabled for storage accounts.
+description: This sample policy definition requires that file encryption is enabled for storage accounts.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ---
-# Ensure storage file encryption
+# Sample - Ensure storage file encryption
 
 This policy requires that file encryption is enabled for storage accounts.
 
@@ -27,7 +27,7 @@ You can deploy this template using the [Azure portal](#deploy-with-the-portal), 
 
 ## Deploy with PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```azurepowershell-interactive
 $definition = New-AzPolicyDefinition -Name "storage-account-file-encryption" -DisplayName "Ensure storage file encryption" -description "Ensures file encryption for storage accounts" -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Storage/storage-account-file-encryption/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Storage/storage-account-file-encryption/azurepolicy.parameters.json' -Mode All

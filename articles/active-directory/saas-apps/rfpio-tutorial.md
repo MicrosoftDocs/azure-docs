@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with RFPIO
 
@@ -229,7 +230,7 @@ In the case of RFPIO, provisioning is a manual task.
 
 	a. Enter **Email address** in the **Enter one email per line** field.
 
-	b. Plese select **Role** according your requirements.
+	b. Please select **Role** according your requirements.
 
 	c. Click **ADD MEMBERS**.
 		

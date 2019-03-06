@@ -15,6 +15,7 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 # Using a group to manage access to SaaS applications
 

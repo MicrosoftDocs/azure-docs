@@ -5,7 +5,7 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
 ---
@@ -140,12 +140,12 @@ A server endpoint health status of "No Activity" means the server endpoint has n
 
 A server endpoint may not log sync activity for the following reasons:
 
-- The server has an active VSS sync session (SnapshotSync). When a VSS sync session is active for a server endpoint, other server endpoints on the same volume cannot start a start sync session until the VSS sync session completes.
+- Agent version 4.3.0.0 or older is installed and the server has an active VSS sync session (SnapshotSync). When a VSS sync session is active for a server endpoint, other server endpoints on the same volume cannot start a start sync session until the VSS sync session completes. To resolve this issue, install agent version 5.0.2.0 or newer which supports multiple server endpoints syncing on a volume when a VSS sync session is active.
 
 	To check current sync activity on a server, see [How do I monitor the progress of a current sync session?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
 - The server has reached the maximum number of concurrent sync sessions. 
-	- Agent version 4.x and later: Limit varies based on available system resources.
+	- Agent version 4.x and newer: Limit varies based on available system resources.
 	- Agent version 3.x: 2 active sync sessions per processor or a maximum of 8 active sync sessions per server.
 
 > [!Note]  
@@ -533,7 +533,7 @@ This error occurs because there are changes on the Azure file share directly and
 | **Error string** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
 | **Remediation required** | Yes |
 
-In cases where there are many per file sync errors, sync sessions may begin to fail. To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().
+In cases where there are many per file sync errors, sync sessions may begin to fail. <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
 
 > [!NOTE]
 > Azure File Sync creates a temporary VSS snapshot once a day on the server to sync files that have open handles.
@@ -725,7 +725,7 @@ if ($fileShare -eq $null) {
 1. Click the **Role assignments** tab to the list the users and applications (*service principals*) that have access to your storage account.
 1. Verify **Hybrid File Sync Service** appears in the list with the **Reader and Data Access** role. 
 
-    ![A screen shot of the Hybrid File Sync Service service principal in the access control tab of the storage account](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
+    ![A screenshot of the Hybrid File Sync Service service principal in the access control tab of the storage account](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 
 	If **Hybrid File Sync Service** does not appear in the list, perform the following steps:
 

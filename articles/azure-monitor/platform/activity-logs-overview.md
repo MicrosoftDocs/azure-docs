@@ -13,7 +13,7 @@ ms.subservice: logs
 
 The **Azure Activity Log** is a subscription log that provides insight into subscription-level events that have occurred in Azure. This includes a range of data, from Azure Resource Manager operational data to updates on Service Health events. The Activity Log was previously known as “Audit Logs” or “Operational Logs,” since the Administrative category reports control-plane events for your subscriptions. Using the Activity Log, you can determine the ‘what, who, and when’ for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties. The Activity Log does not include read (GET) operations or operations for resources that use the Classic/"RDFE" model.
 
-![Activity Logs vs other types of logs ](./media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
+![Activity Logs vs other types of logs](./media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
 
 Figure 1: Activity Logs vs other types of logs
 
@@ -77,7 +77,7 @@ In the Azure portal, you can filter your Activity Log by these fields:
 
 Once you have defined a set of filters, you can pin a query to your Azure dashboard to always keep an eye on specific events.
 
-For even more power, you can click the **Logs** icon, which displays your Activity Log data in the [Log Analytics Activity Log Analytics solution](../../azure-monitor/platform/collect-activity-logs.md). The Activity Log blade offers a basic filter/browse experience on logs, but Log Analytics enables you to pivot, query, and visualize your data in more powerful ways.
+For even more power, you can click the **Logs** icon, which displays your Activity Log data in the [Collect and analyze Activity Logs solution](../../azure-monitor/platform/collect-activity-logs.md). The Activity Log blade offers a basic filter/browse experience on logs, but the Azure Monitor logs feature enables you to pivot, query, and visualize your data in more powerful ways.
 
 ## Export the Activity Log with a Log Profile
 A **Log Profile** controls how your Activity Log is exported. Using a Log Profile, you can configure:
@@ -122,16 +122,18 @@ You can stream the Activity Log to an Event Hub or store them in a Storage Accou
 
 ### Configure log profiles using the Azure PowerShell Cmdlets
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 #### Get existing log profile
 
 ```
-Get-AzureRmLogProfile
+Get-AzLogProfile
 ```
 
 #### Add a log profile
 
 ```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
+Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
 ```
 
 | Property | Required | Description |
@@ -145,7 +147,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 
 #### Remove a log profile
 ```
-Remove-AzureRmLogProfile -name my_log_profile
+Remove-AzLogProfile -name my_log_profile
 ```
 
 ### Configure log profiles Using the Azure CLI

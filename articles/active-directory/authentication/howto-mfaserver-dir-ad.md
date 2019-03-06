@@ -15,6 +15,7 @@ ms.reviewer: michmcla
 
 ms.custom: seo-update-azuread-jan
 
+ms.collection: M365-identity-device-management
 ---
 # Directory integration between Azure MFA Server and Active Directory
 
@@ -58,7 +59,7 @@ Azure Multi-Factor Authentication has the following three filter options:
 * **User filter** - Specify the filter criteria used to qualify user records when performing a directory search.  For Active Directory and ADAM, (&(objectClass=user)(objectCategory=person)) is commonly used.  For other LDAP directories, use (objectClass=inetOrgPerson) or something similar, depending on the directory schema. <br>Note:  If left blank, (&(objectCategory=person)(objectClass=user)) is used by default.
 
 ## Attributes
-You can customize attributes as necessary for a specific directory.  This allows you to add custom attributes and fine-tune the synchronization to only the attributes that you need. Use the name of the attricute as defined in the directory schema for the value of each attribute field. The following table provides additional information about each feature.
+You can customize attributes as necessary for a specific directory.  This allows you to add custom attributes and fine-tune the synchronization to only the attributes that you need. Use the name of the attribute as defined in the directory schema for the value of each attribute field. The following table provides additional information about each feature.
 
 Attributes may be entered manually and are not required to match an attribute in the attribute list.
 
@@ -68,7 +69,7 @@ Attributes may be entered manually and are not required to match an attribute in
 | --- | --- |
 | Unique identifier |Enter the attribute name of the attribute that serves as the unique identifier of container, security group, and user records.  In Active Directory, this is usually objectGUID. Other LDAP implementations may use entryUUID or something similar.  The default is objectGUID. |
 | Unique identifier type |Select the type of the unique identifier attribute.  In Active Directory, the objectGUID attribute is of type GUID. Other LDAP implementations may use type ASCII Byte Array or String.  The default is GUID. <br><br>It is important to set this type correctly since Synchronization Items are referenced by their Unique Identifier. The Unique Identifier Type is used to directly find the object in the directory.  Setting this type to String when the directory actually stores the value as a byte array of ASCII characters prevents synchronization from functioning properly. |
-| Distinguished name |Enter the attribute name of the attribute that contains the distinguished name for each record.  In Active Directory, this is usually distinguishedName. Other LDAP implementations may use entryDN or something similar.  The default is distinguishedName. <br><br>If an attribute containing just the distinguished name doesn't exist, the adspath attribute may be used.  The "LDAP://\<server\>/" portion of the path is automatically stripped off, leaving just the distinguished name of the object. |
+| Distinguished name |Enter the attribute name of the attribute that contains the distinguished name for each record.  In Active Directory, this is usually distinguishedName. Other LDAP implementations may use entryDN or something similar.  The default is distinguishedName. <br><br>If an attribute containing just the distinguished name doesn't exist, the ads path attribute may be used.  The "LDAP://\<server\>/" portion of the path is automatically stripped off, leaving just the distinguished name of the object. |
 | Container name |Enter the attribute name of the attribute that contains the name in a container record.  The value of this attribute is displayed in the Container Hierarchy when importing from Active Directory or adding synchronization items.  The default is name. <br><br>If different containers use different attributes for their names, use semi-colons to separate multiple container name attributes.  The first container name attribute found on a container object is used to display its name. |
 | Security group name |Enter the attribute name of the attribute that contains the name in a security group record.  The value of this attribute is displayed in the Security Group list when importing from Active Directory or adding synchronization items.  The default is name. |
 | Username |Enter the attribute name of the attribute that contains the username in a user record.  The value of this attribute is used as the Multi-Factor Auth Server username.  A second attribute may be specified as a backup to the first.  The second attribute is only used if the first attribute does not contain a value for the user.  The defaults are userPrincipalName and sAMAccountName. |

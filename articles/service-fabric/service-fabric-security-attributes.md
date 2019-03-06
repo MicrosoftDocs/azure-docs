@@ -4,7 +4,7 @@ description: A checklist of common security attributes for evaluating Azure Serv
 services: service-fabric
 documentationcenter: ''
 author: msmbaldwin
-manager: mbaldwin
+manager: barbkess
 
 ms.service: service-fabric
 ms.topic: conceptual

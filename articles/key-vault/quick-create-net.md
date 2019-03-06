@@ -168,12 +168,12 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 
 ```
 
-Now when you run the application, you should see your secret value retrieved. In the preceding command, you're giving the identity of the app aervice permissions to do **get** and **list** operations on your key vault.
+Now when you run the application, you should see your secret value retrieved. In the preceding command, you're giving the identity of the app service permissions to do **get** and **list** operations on your key vault.
 
 ## Clean up resources
 Delete the resource group, virtual machine, and all related resources when you no longer need them. To do so, select the resource group for the VM and select **Delete**.
 
-Delete the key vault by using the [az keyvault delete](https://docs.microsoft.com/en-us/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete) command:
+Delete the key vault by using the [az keyvault delete](https://docs.microsoft.com/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete) command:
 
 ```azurecli
 az keyvault delete --name

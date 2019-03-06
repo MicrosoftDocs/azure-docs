@@ -6,6 +6,7 @@ metadata:
   title: Azure SQL Database - Advanced Security
   meta.description: Learn about the Advanced security capabilities of Azure SQL Database.
   services: sql-database
+  ms.subservice: security
   author: jovanpop-msft
   manager: craigg
   requires-business-manager-approval: false
@@ -13,7 +14,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang:
   ms.topic: overview
-  ms.date: 01/25/2019
+  ms.date: 02/07/2019
   ms.author: jovanpop-msft
 sections:
 
@@ -72,9 +73,9 @@ sections:
           - href:
       - title: Set up database server firewall rules on single database
         values:
-          - href: /azure/sql-database/sql-database-firewall-configure#manage-ip-firewall-rules-using-the-azure-portal
-          - href: /azure/sql-database/sql-database-firewall-configure#manage-ip-firewall-rules-using-azure-cli
-          - href: /azure/sql-database/sql-database-firewall-configure#manage-ip-firewall-rules-using-azure-powershell
+          - href: /azure/sql-database/sql-database-firewall-configure
+          - href: /azure/sql-database/sql-database-firewall-configure#manage-server-level-ip-firewall-rules-using-azure-cli
+          - href: /azure/sql-database/sql-database-firewall-configure#manage-server-level-ip-firewall-rules-using-azure-powershell
       - title: Manage vulnerability assessments rules
         values:
           - href:

@@ -4,7 +4,7 @@ description: This article discusses the different kinds of security alerts avail
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
@@ -92,7 +92,7 @@ Security Center uses advanced analytics to identify compromised resources based 
 * **All file shadow copies have been deleted**: This alert indicates that shadow copies have been deleted.
 * **Suspicious file cleanup commands**: This alert indicates a combination of systeminfo commands used to perform post-compromise self-cleanup activity.  While *systeminfo.exe* is a legitimate Windows tool, executing it twice in succession, followed by a delete command in the way that has occurred here is rare.
 * **Suspicious account creation**: This alert indicates that an account was created with a close resemblance of an existing built in administrative privilege account. This technique can be used by attackers to create a rogue account without being detected.
-* **Suspicious volume shadow copy activity**: This alert indicates shadow copy deletion activity on the resource. Volume Shadow Copy (VSC) is an important artifact that stores data snapshots. This activity is associated with Ransowmare, but it could also be legitimate.
+* **Suspicious volume shadow copy activity**: This alert indicates shadow copy deletion activity on the resource. Volume Shadow Copy (VSC) is an important artifact that stores data snapshots. This activity is associated with Ransomware, but it could also be legitimate.
 * **Windows registry persistence method**: This alert indicates an attempt to persist an executable in the Windows registry. Malware often uses such a technique to survive a boot.
 * **Suspicious new firewall rule**: This alert indicates that a new Firewall rule has been added via *netsh.exe* to allow traffic from an executable in a suspicious location.
 * **Suspicious XCOPY executions**: This alert indicates a series of XCOPY executions that could signal that one of your machines has been compromised and was used to propagate malware.

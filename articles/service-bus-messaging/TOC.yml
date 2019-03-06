@@ -143,8 +143,6 @@
         href: service-bus-auto-forwarding.md
       - name: Transaction processing
         href: service-bus-transactions.md
-      - name: Paired namespace implementation
-        href: service-bus-paired-namespaces.md
     - name: End-to-end tracing and diagnostics
       href: service-bus-end-to-end-tracing.md
     - name: Build a multi-tier Service Bus application
@@ -188,6 +186,8 @@
       href: /dotnet/api/microsoft.azure.servicebus
   - name: Java
     href: /java/api/overview/azure/servicebus
+  - name: Python
+    href: /python/api/overview/azure/servicebus?view=azure-python
   - name: Node.js
     href: /javascript/api/overview/azure/service-bus
   - name: Azure PowerShell

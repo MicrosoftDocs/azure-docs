@@ -100,8 +100,7 @@ Detailed next is step-by-step guide to using log alerts using the Azure portal i
 
     Within a few minutes, the alert is active and triggers as previously described.
 
-Users can also finalized their analytics query in [Logs Analytics page in Azure portal](../../azure-monitor/log-query/portals.md#log-analytics-page
-) and then push it to create an alert via '+ New alert rule' button - then following instructions from Step 6 onwards in the above tutorial.
+Users can also finalized their analytics query in [log analytics](../log-query/portals.md) and then push it to create an alert via 'Set Alert' button - then following instructions from Step 6 onwards in the above tutorial.
 
  ![Log Analytics - Set Alert](media/alerts-log/AlertsAnalyticsCreate.png)
 
@@ -200,7 +199,7 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
 ```
 
 > [!IMPORTANT]
-> Tag field with hidden-link to target resource is mandatory in use of [Scheduled Query Rules ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API call or resource template.
+> Tag field with hidden-link to target resource is mandatory in use of [Scheduled Query Rules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API call or resource template.
 
 The sample json above can be saved as (say) sampleScheduledQueryRule.json for the purpose of this walk through and can be deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
@@ -299,29 +298,30 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
 ```
 
 > [!IMPORTANT]
-> Tag field with hidden-link to target resource is mandatory in use of [Scheduled Query Rules ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API call or resource template. When using cross-resource query in log alert, the usage of [authorizedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) is mandatory and user must have access to the list of resources stated
+> Tag field with hidden-link to target resource is mandatory in use of [Scheduled Query Rules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API call or resource template. When using cross-resource query in log alert, the usage of [authorizedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) is mandatory and user must have access to the list of resources stated
 
 The sample json above can be saved as (say) sampleScheduledQueryRule.json for the purpose of this walk through and can be deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
 ## Managing log alerts using PowerShell, CLI, or API
 
-[Azure Monitor - Scheduled Query Rules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) is a REST API and fully compatible with Azure Resource Manager REST API. Hence it can be used via Powershell using Resource Manager cmdlet as well as Azure CLI.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Azure Monitor - Scheduled Query Rules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) is a REST API and fully compatible with Azure Resource Manager REST API. Hence it can be used via Powershell using Resource Manager cmdlet as well as Azure CLI.
+
 
 > [!NOTE]
 > Log alerts for Log Analytics can also be managed using legacy [Log Analytics Alert API](../../azure-monitor/platform/api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../../azure-monitor/insights/solutions-resources-searches-alerts.md) as well. For more information on using the new ScheduledQueryRules API detailed here by default, see [Switch to new API for Log Analytics Alerts](alerts-log-api-switch.md).
 
+Log alerts currently do not have dedicated PowerShell or CLI commands currently; but as illustrated below can be used via Azure Resource Manager PowerShell cmdlet for sample Resource Template shown earlier (sampleScheduledQueryRule.json) in the [Resource Template section](#azure-resource-template-for-application-insights) :
 
-Log alerts do not have dedicated PowerShell or CLI commands currently; but as illustrated below can be used via Azure Resource Manager PowerShell cmdlet for sample Resource Template shown earlier (sampleScheduledQueryRule.json) in the [Resource Template section](#azure-resource-template-for-application-insights) :
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
+New-AzResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
 ```
 
-Illustrated below usage via Azure Resource Manager command in Azure CLI for sample Resource Template shown earlier (sampleScheduledQueryRule.json) in the [Resource Template section](#azure-resource-template-for-application-insights) :
+Illustrated below usage via Azure Resource Manager command in Azure CLI for sample Resource Template shown earlier (sampleScheduledQueryRule.json) in the Resource Template section :
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json
-```
-
 On successful operation, 201 will be returned to state new alert rule creation or 200 will be returned if an existing alert rule was modified.
 
 ## Next steps

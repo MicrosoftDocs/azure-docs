@@ -8,7 +8,7 @@ manager: femila
 
 ms.service: media-services
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 02/10/2019
 ms.author: juliako
 ---
 
@@ -62,7 +62,7 @@ In the Video Indexer web-based portal, you can upload a media file using the fil
 
 ### How long does it take Video Indexer to extract insights from media?
 
-The amount of time it takes to index a video or audio file, both using the Video Indexer API and the Video Indexer web-based interface, depends on multiple parameters such as the file length and quality, the number of insights found in the file, the number of [reserved units](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) available, and whether the [streaming endpoint](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview) is enabled or not. For most content types, assuming that 10 reserved units of type S3 are enabled, we predict that indexing takes from 1/3 to ½ of the duration of the audio or video file (for example, a 10-minute source video takes 3.5 to 5 minutes). However, we recommend that you run a few test files with your own content and take an average to get a better idea.
+The amount of time it takes to index a video or audio file, both using the Video Indexer API and the Video Indexer web-based interface, depends on multiple parameters such as the file length and quality, the number of insights found in the file, the number of [reserved units](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) available, and whether the [streaming endpoint](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview) is enabled or not. We recommend that you run a few test files with your own content and take an average to get a better idea.
 
 ### Can I create customized workflows to automate processes with Video Indexer?
 

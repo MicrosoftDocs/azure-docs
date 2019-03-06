@@ -30,7 +30,11 @@ The maximum pods-per-node setting is 110 by default if you deploy an AKS cluster
 
 ## I'm getting an insufficientSubnetSize error while deploying an AKS cluster with advanced networking. What should I do?
 
-In the custom Azure Virtual Network option for networking during AKS creation, the Azure Container Network Interface (CNI) is used for IP Address Management (IPAM). The number of nodes in an AKS cluster can be anywhere between 1 and 100. Based on the preceding section, the subnet size should be greater than the product of the number of nodes and the maximum pods per node. The relationship can be expressed in this way: subnet size > number of nodes in the cluster * maximum pods per node.
+If Azure CNI (advanced networking) is used, AKS preallocates IP addressed based on the "max-pods" per node configured. The number of nodes in an AKS cluster can be anywhere between 1 and 110. Based upon the configured max pods per node, the subnet size should be greater than the "product of the number of nodes and the max pod per node". The following basic equation outlines this:
+
+Subnet size > number of nodes in the cluster (taking into consideration the future scaling requirements) * max pods per node.
+
+For more information, see [Plan IP addressing for your cluster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
 ## My pod is stuck in CrashLoopBackOff mode. What should I do?
 
@@ -55,10 +59,30 @@ The easiest way to access your service outside the cluster is to run `kubectl pr
 
 If you don’t see the Kubernetes dashboard, check whether the `kube-proxy` pod is running in the `kube-system` namespace. If it isn't in a running state, delete the pod and it will restart.
 
-## I can't get logs by using kubectl logs or I can't connect to the API server. I'm getting “Error from server: error dialing backend: dial tcp…” What should I do?
+## I can't get logs by using kubectl logs or I can't connect to the API server. I'm getting "Error from server: error dialing backend: dial tcp…". What should I do?
 
-Make sure that the default network security group (NSG) isn't modified and that port 22 is open for connection to the API server. Check whether the `tunnelfront` pod is running in the `kube-system` namespace. If it isn't, force deletion of the pod and it will restart.
+Make sure that the default network security group isn't modified and that port 22 is open for connection to the API server. Check whether the `tunnelfront` pod is running in the *kube-system* namespace using the `kubectl get pods --namespace kube-system` command. If it isn't, force deletion of the pod and it will restart.
 
-## I'm trying to upgrade or scale and am getting a "message: Changing property 'imageReference' is not allowed" error.  How do I fix this problem?
+## I'm trying to upgrade or scale and am getting a "message: Changing property 'imageReference' is not allowed" error. How do I fix this problem?
 
 You might be getting this error because you've modified the tags in the agent nodes inside the AKS cluster. Modifying and deleting tags and other properties of resources in the MC_* resource group can lead to unexpected results. Modifying the resources under the MC_* group in the AKS cluster breaks the service-level objective (SLO).
+
+## I'm receiving errors that my cluster is in failed state and upgrading or scaling will not work until it is fixed
+
+*This troubleshooting assistance is directed from https://aka.ms/aks-cluster-failed*
+
+This error occurs when clusters enter a failed state for multiple reasons. Follow the steps below to resolve your cluster failed state before retrying the previously failed operation:
+
+1. Until the cluster is out of `failed` state, `upgrade` and `scale` operations won't succeed. Common root issues and resolutions include:
+    * Scaling with **insufficient compute (CRP) quota**. To resolve, first scale your cluster back to a stable goal state within quota. Then follow these [steps to request a compute quota increase](../azure-supportability/resource-manager-core-quotas-request.md) before trying to scale up again beyond initial quota limits.
+    * Scaling a cluster with advanced networking and **insufficient subnet (networking) resources**. To resolve, first scale your cluster back to a stable goal state within quota. Then follow [these steps to request a resource quota increase](../azure-resource-manager/resource-manager-quota-errors.md#solution) before trying to scale up again beyond initial quota limits.
+2. Once the underlying cause for upgrade failure is resolved, your cluster should be in a succeeded state. Once a succeeded state is verified, retry the original operation.
+
+## I'm receiving errors when trying to upgrade or scale that state my cluster is being currently being upgraded or has failed upgrade
+
+*This troubleshooting assistance is directed from https://aka.ms/aks-pending-upgrade*
+
+Cluster operations are limited when active upgrade operations are occurring or an upgrade was attempted, but subsequently failed. To diagnose the issue run `az aks show -g myResourceGroup -n myAKSCluster -o table` to retrieve detailed status on your cluster. Based on the result:
+
+* If cluster is actively upgrading, wait until the operation terminates. If it succeeded, try the previously failed operation again.
+* If cluster has failed upgrade, follow steps outlined above

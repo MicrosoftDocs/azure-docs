@@ -1,6 +1,6 @@
 ---
-title: Sample - Audit Key Vault vaults for no virtual network endpoints
-description: This sample policy audits Key Vault vaults to detect instances that have no virtual network service endpoints.
+title: Sample - Audit Key Vaults for no virtual network endpoints
+description: This sample policy definition audits Key Vault vaults to detect instances that have no virtual network service endpoints.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
 ---
-# Key Vault vaults with no virtual network endpoints
+# Sample - Key Vault vaults with no virtual network endpoints
 
 This policy audits for Key Vault vaults that have no virtual network endpoints. Use to enforce your
 security requirements. For more information, see [virtual network service endpoints in Key
@@ -54,7 +54,7 @@ This sample policy definition has no parameters defined.
 
 ## Azure PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ### Deploy with Azure PowerShell
 

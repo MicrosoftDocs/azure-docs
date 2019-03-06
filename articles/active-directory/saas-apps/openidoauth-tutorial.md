@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 01/07/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Configure an OpenID/OAuth application from the Azure AD app gallery
 

@@ -83,16 +83,19 @@ The preferred method for setting a blob's `Cache-Control` header is to use cachi
 
 
 ## Setting Cache-Control headers by using Azure PowerShell
-[Azure PowerShell](/powershell/azure/overview) is one of the quickest and most powerful ways to administer your Azure services. Use the `Get-AzureStorageBlob` cmdlet to get a reference to the blob, then set the `.ICloudBlob.Properties.CacheControl` property. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+[Azure PowerShell](/powershell/azure/overview) is one of the quickest and most powerful ways to administer your Azure services. Use the `Get-AzStorageBlob` cmdlet to get a reference to the blob, then set the `.ICloudBlob.Properties.CacheControl` property. 
 
 For example:
 
 ```powershell
 # Create a storage context
-$context = New-AzureStorageContext -StorageAccountName "<storage account name>" -StorageAccountKey "<storage account key>"
+$context = New-AzStorageContext -StorageAccountName "<storage account name>" -StorageAccountKey "<storage account key>"
 
 # Get a reference to the blob
-$blob = Get-AzureStorageBlob -Context $context -Container "<container name>" -Blob "<blob name>"
+$blob = Get-AzStorageBlob -Context $context -Container "<container name>" -Blob "<blob name>"
 
 # Set the CacheControl property to expire in 1 hour (3600 seconds)
 $blob.ICloudBlob.Properties.CacheControl = "max-age=3600"

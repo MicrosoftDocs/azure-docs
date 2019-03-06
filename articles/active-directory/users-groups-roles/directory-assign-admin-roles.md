@@ -10,18 +10,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 02/16/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 
 # Administrator role permissions in Azure Active Directory
 
-Using Azure Active Directory (Azure AD), you can designate separate administrators to serve different functions. Administrators can be designated in the Azure AD portal to perform tasks such as adding or changing users, assigning administrative roles, resetting user passwords, managing user licenses, and managing domain names.
+Using Azure Active Directory (Azure AD), you can designate limited administrators to serve functions in less-privileged roles. Administrators can be designated in the Azure AD portal to perform tasks such as adding or changing users, assigning administrative roles, resetting user passwords, managing user licenses, and managing domain names. The default user permissions can be changed only in user settings in Azure AD.
 
-The Global Administrator has access to all administrative features. By default, the person who signs up for an Azure subscription is assigned the Global Administrator role for the directory. Only Global Administrators and Privileged Role Administrators can delegate administrator roles.
+The Global Administrator has access to all administrative features. By default, the person who signs up for an Azure subscription is assigned the Global Administrator role for the directory. Only Global Administrators and Privileged Role Administrators can delegate administrator roles. To reduce the risk to your business we recommend that you assign this role to only a few people in your company.
+
 
 ## Assign or remove administrator roles
 
@@ -37,18 +39,21 @@ The following administrator roles are available:
 
 * **[Application Developer](#application-developer)**: Users in this role can create application registrations when the "Users can register applications" setting is set to No. This role also allows members to consent on their own behalf when the "Users can consent to apps accessing company data on their behalf" setting is set to No. Members of this role are added as owners when creating new application registrations or enterprise applications.
 
-* **[Authentication Administrator](#authentication-administrator)**: Users with this role can view the current authentication method information and set or reset non-password credentials. Authentication Administrators can force users to re-register against existing non-password credential (e.g. MFA, FIDO) and revoke ‘remember MFA on the device’, prompting for MFA on the next login of other users who are non-administrators or members of the following roles only:
+* **[Authentication Administrator](#authentication-administrator)**: Users with this role can set or reset non-password credentials. Authentication Administrators can require users to re-register against existing non-password credential (for example, MFA or FIDO) and revoke **remember MFA on the device**, which prompts for MFA on the next sign-in of users who are non-administrators or members of the following roles only:
   * Authentication Administrator
   * Directory Readers
   * Guest Inviter
   * Message Center Reader
   * Reports Reader
-  
+
+  The Authentication administrator role is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
   <b>Important</b>: Users with this role can change credentials for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the credentials of a user may mean the ability to assume that user's identity and permissions. For example:
+
   * Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Azure AD and elsewhere not granted to Authentication Administrators. Through this path a Authentication Administrator may be able to assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
-  *	Azure subscription owners, who may have access to sensitive or private information or critical configuration in Azure.
-  *	Security Group and Office 365 Group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
-  *	Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
+  * Azure subscription owners, who may have access to sensitive or private information or critical configuration in Azure.
+  * Security Group and Office 365 Group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
+  * Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
   *	Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
 * **[Billing Administrator](#billing-administrator)**: Makes purchases, manages subscriptions, manages support tickets, and monitors service health.
@@ -83,6 +88,9 @@ The following administrator roles are available:
   > [!NOTE]
   > To deploy Exchange ActiveSync conditional access policy in Azure, the user must also be a Global Administrator.
   
+* **[Customer Lockbox access approver](#customer-lockbox-access-approver)**: Manages [Customer Lockbox requests](https://docs.microsoft.com/office365/admin/manage/customer-lockbox-requests) in your organization. They receive email notifications for Customer Lockbox requests and can approve and deny requests from the Microsoft 365 admin center. They can also turn the Customer Lockbox feature on or off. Only global admins can reset the passwords of people assigned to this role.
+<!--  This was announced in August of 2018. https://techcommunity.microsoft.com/t5/Security-Privacy-and-Compliance/Customer-Lockbox-Approver-Role-Now-Available/ba-p/223393-->
+
 * **[Device Administrators](#device-administrators)**: This role is available for assignment only as an additional local administrator in [Device settings](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage devices objects in Azure Active Directory. 
 
 * **[Directory Readers](#directory-readers)**: This is a legacy role that is to be assigned to applications that do not support the [Consent Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). It should not be assigned to any users.
@@ -93,11 +101,12 @@ The following administrator roles are available:
 
 * **[Dynamics 365 administrator / CRM Administrator](#crm-service-administrator)**: Users with this role have global permissions within Microsoft Dynamics 365 Online, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [Use the service admin role to manage your tenant](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
   > [!NOTE] 
-  > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Dynamics 365 Service Administrator ". It is "Dynamics 365 Administrator" in the [Azure portal](https://portal.azure.com).
+  > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Dynamics 365 Service Administrator". It is "Dynamics 365 Administrator" in the [Azure portal](https://portal.azure.com).
 
-* **[Exchange Administrator](#exchange-service-administrator)**: Users with this role have global permissions within Microsoft Exchange Online, when the service is present. as well as the ability to create and manage all Office 365 Groups, manage support tickets, and monitor service health. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **[Exchange Administrator](#exchange-service-administrator)**: Users with this role have global permissions within Microsoft Exchange Online, when the service is present. Also has the ability to create and manage all Office 365 Groups, manage support tickets, and monitor service health. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
   > [!NOTE]
-  > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Exchange Service Administrator ". It is "Exchange Administrator" in the [Azure portal](https://portal.azure.com).
+  > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Exchange Service Administrator ". It is "Exchange Administrator" in the [Azure portal](https://portal.azure.com). It is "Exchange Online admininistrator" in the [Exchange admin center](https://go.microsoft.com/fwlink/p/?LinkID=529144). 
+
 
 * **[Global Administrator / Company Administrator](#company-administrator)**: Users with this role have access to all administrative features in Azure Active Directory, as well as services that use Azure Active Directory identities like Microsoft 365 security center, Microsoft 365 compliance center, Exchange Online, SharePoint Online, and Skype for Business Online. The person who signs up for the Azure Active Directory tenant becomes a global administrator. Only global administrators can assign other administrator roles. There can be more than one global administrator at your company. Global admins can reset the password for any user and all other administrators.
 
@@ -288,7 +297,7 @@ Can create application registrations independent of the ‘Users can register ap
 | microsoft.aad.directory/servicePrincipals/createAsOwner | Create servicePrincipals in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
 
 ### Authentication Administrator
-Allowed to view, set and reset authentication method information for any non-admin user.
+Allowed to view, set, and reset authentication method information for any non-admin user.
 
 | **Actions** | **Description** |
 | --- | --- |
@@ -509,7 +518,7 @@ Can manage all aspects of the Dynamics 365 product.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
-### Customer LockBox Access Approver
+### Customer Lockbox access approver
 Can approve Microsoft support requests to access customer organizational data. This role has no access to view, create, or manage support tickets.
 
   > [!NOTE]

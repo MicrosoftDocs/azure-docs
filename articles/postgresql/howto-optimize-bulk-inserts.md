@@ -20,9 +20,9 @@ Inserting into an unlogged table means that PostgreSQL does inserts without writ
 
 Use the following options to create an unlogged table:
 - Create a new unlogged table by using the syntax `CREATE UNLOGGED TABLE <tableName>`.
-- Convert an existing logged table to an unlogged table by using the syntax `ALTER <tableName> SET UNLOGGED`.  
+- Convert an existing logged table to an unlogged table by using the syntax `ALTER TABLE <tableName> SET UNLOGGED`.  
 
-To reverse the process, use the syntax `ALTER <tableName> SET LOGGED`.
+To reverse the process, use the syntax `ALTER TABLE <tableName> SET LOGGED`.
 
 ## Unlogged table tradeoff
 Unlogged tables aren't crash-safe. An unlogged table is automatically truncated after a crash or subject to an unclean shutdown. The contents of an unlogged table also aren't replicated to standby servers. Any indexes created on an unlogged table are automatically unlogged as well. After the insert operation completes, convert the table to logged so that the insert is durable.

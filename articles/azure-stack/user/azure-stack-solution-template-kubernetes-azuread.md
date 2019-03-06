@@ -34,7 +34,7 @@ To get started, make sure you have the right permissions and that your Azure Sta
 
 1. Verify that you can create applications in your Azure Active Directory (Azure AD) tenant. You need these permissions for the Kubernetes deployment.
 
-    For instructions on checking your permissions, see [Check Azure Active Directory permissions](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#check-azure-active-directory-permissions).
+    For instructions on checking your permissions, see [Check Azure Active Directory permissions](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 
 1. Generate an SSH public and private key pair to sign in to the Linux VM on Azure Stack. You will need the public key when creating the cluster.
 
@@ -164,3 +164,5 @@ Give the service principal access to your subscription so that the principal can
 ## Next steps
 
 [Connect to your cluster](azure-stack-solution-template-kubernetes-deploy.md#connect-to-your-cluster)
+
+[Enable the Kubernetes Dashboard](azure-stack-solution-template-kubernetes-dashboard.md)

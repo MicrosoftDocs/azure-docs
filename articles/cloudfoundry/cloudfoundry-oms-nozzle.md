@@ -2,15 +2,12 @@
 title: Deploy Azure Log Analytics Nozzle for Cloud Foundry monitoring | Microsoft Docs
 description: Step-by-step guidance on deploying the Cloud Foundry loggregator Nozzle for Azure Log Analytics. Use the Nozzle to monitor the Cloud Foundry system health and performance metrics.
 services: virtual-machines-linux
-documentationcenter: ''
 author: ningk
 manager: jeconnoc
-editor: ''
 tags: Cloud-Foundry
 
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
 ms.service: azure-monitor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -48,7 +45,7 @@ The Nozzle also needs access permission to the loggregator firehose and the Clou
 
 * [Install Cloud Foundry UAA command-line client](https://github.com/cloudfoundry/cf-uaac/blob/master/README.md)
 
-Before setting up the UAA command-Line client, ensure that Rubygems is installed.
+Before setting up the UAA command-Line client, ensure that RubyGems is installed.
 
 ### 3. Create a Log Analytics workspace in Azure
 

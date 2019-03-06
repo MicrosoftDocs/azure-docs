@@ -4,7 +4,7 @@ description: Craft a custom policy definition for Azure Policy to enforce custom
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/24/2019
+ms.date: 02/12/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
@@ -177,8 +177,7 @@ To validate **supportsHttpsTrafficOnly** is correct property, check the Resource
 reference for the [storage account
 resource](/azure/templates/microsoft.storage/2018-07-01/storageaccounts) on the storage provider.
 The properties object has a list of valid parameters. Selecting the
-[StorageAccountPropertiesCreateParameters
-object](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters)
+[StorageAccountPropertiesCreateParameters-object](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object)
 link shows a table of acceptable properties. **supportsHttpsTrafficOnly** is present and the
 description matches what we are looking for to meet the business requirements.
 
@@ -224,14 +223,14 @@ our business requirements!
 
 ### Azure PowerShell
 
-In Azure PowerShell, the `Get-AzureRmPolicyAlias` cmdlet is used to search for resource aliases.
+In Azure PowerShell, the `Get-AzPolicyAlias` cmdlet is used to search for resource aliases.
 We'll filter for the **Microsoft.Storage** namespace based on the details we got about the Azure
 resource earlier.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
 
-# Use Get-AzureRmPolicyAlias to list aliases for Microsoft.Storage
+# Use Get-AzPolicyAlias to list aliases for Microsoft.Storage
 (Get-AzPolicyAlias -NamespaceMatch 'Microsoft.Storage').Aliases
 ```
 
@@ -253,7 +252,7 @@ az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
+Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
 The results look similar to what we see in the Resource Manager templates and through the

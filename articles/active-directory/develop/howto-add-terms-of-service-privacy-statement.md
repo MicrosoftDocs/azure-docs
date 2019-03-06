@@ -17,6 +17,7 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Terms of service and privacy statement for registered Azure Active Directory apps

@@ -148,11 +148,11 @@ When using the delta query, [temporal tables in Azure SQL Database](../sql-datab
 
 **Will I incur additional cost by using SQL reference data input in Azure Stream Analytics?**
 
-There are no additional [cost per streaming unit](https://azure.microsoft.com/pricing/details/stream-analytics/) in the Stream Analytics job. However, the Stream Analytics job must have an associated Azure storage account. The Stream Analytics job queries the SQL DB (during job start and refresh interval) to retrieve the reference data set and stores that snapshot in the storage account. Storing these snapshots will incur additional charges detailed in the [pricing page](https://azure.microsoft.compricing/details/storage/) for Azure storage account.
+There are no additional [cost per streaming unit](https://azure.microsoft.com/pricing/details/stream-analytics/) in the Stream Analytics job. However, the Stream Analytics job must have an associated Azure storage account. The Stream Analytics job queries the SQL DB (during job start and refresh interval) to retrieve the reference data set and stores that snapshot in the storage account. Storing these snapshots will incur additional charges detailed in the [pricing page](https://azure.microsoft.com/pricing/details/storage/) for Azure storage account.
 
 **How do I know reference data snapshot is being queried from SQL DB and used in the Azure Stream Analytics job?**
 
-There are twp metrics filtered by Logical Name (under Metrics Azure Portal) which you can use to monitor the health of the SQL database reference data input.
+There are two metrics filtered by Logical Name (under Metrics Azure Portal) which you can use to monitor the health of the SQL database reference data input.
 
    * InputEvents: This metric measures the number of records loaded in from the SQL database reference data set.
    * InputEventBytes: This metric measures the size of the reference data snapshot loaded in memory of the Stream Analytics job. 

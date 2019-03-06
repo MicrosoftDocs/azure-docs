@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 1/18/2019
+ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
@@ -22,7 +22,7 @@ ms.lastreviewed: 06/08/2018
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-In Azure Stack, you can make virtual machine images available to your users. These images can be referenced by Azure Resource Manager templates, or you can add them to the Azure Marketplace UI as a Marketplace item. You can use either an image form the global Azure Marketplace or add your own custom image. You can add a VM using the portal or Windows PowerShell.
+In Azure Stack, you can make virtual machine images available to your users. These images can be used by Azure Resource Manager templates. You can also add them to the Azure Marketplace UI as a Marketplace item. Use either an image form the global Azure Marketplace or your own custom image. The image can be added using the portal or Windows PowerShell.
 
 ## Add a VM image through the portal
 

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/07/2018
+ms.date: 02/06/2019
 ms.author: pafarley
 #Customer intent: As a C# developer, I want to implement a simple Face detection scenario with the .NET SDK, so that I can build more complex scenarios later on.
 ---

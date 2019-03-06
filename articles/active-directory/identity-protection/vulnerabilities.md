@@ -18,6 +18,7 @@ ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
 
+ms.collection: M365-identity-device-management
 ---
 # Vulnerabilities detected by Azure Active Directory Identity Protection
 Vulnerabilities are weaknesses in your environment that can be exploited by an attacker. We recommend that you address these vulnerabilities to improve the security posture of your organization, and prevent attackers from exploiting them.

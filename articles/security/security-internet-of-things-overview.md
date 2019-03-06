@@ -4,7 +4,7 @@ description: " Azure internet of things (IoT) services offer a broad range of ca
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 1473c8dd-8669-48fb-86db-b3c50e2eaf59

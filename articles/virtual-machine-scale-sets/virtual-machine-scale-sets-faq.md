@@ -238,11 +238,11 @@ keyData | Yes | String | Specifies a base64-encoded SSH public key
 
 For an example, see [the 101-vm-sshkey GitHub quickstart template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
-### When I run `Update-AzureRmVmss` after adding more than one certificate from the same key vault, I see the following message:
+### When I run `Update-AzVmss` after adding more than one certificate from the same key vault, I see the following message:
 
->Update-AzureRmVmss: List secret contains repeated instances of /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, which is disallowed.
+>Update-AzVmss: List secret contains repeated instances of /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, which is disallowed.
 
-This can happen if you try to re-add the same vault instead of using a new vault certificate for the existing source vault. The `Add-AzureRmVmssSecret` command does not work correctly if you are adding additional secrets.
+This can happen if you try to re-add the same vault instead of using a new vault certificate for the existing source vault. The `Add-AzVmssSecret` command does not work correctly if you are adding additional secrets.
 
 To add more secrets from the same key vault, update the $vmss.properties.osProfile.secrets[0].vaultCertificates list.
 
@@ -281,11 +281,11 @@ To learn how to deploy certificates for Linux VMs, see [Deploy certificates to V
 To add a vault certificate to an existing secret, see the following PowerShell example. Use only one secret object.
 
 ```powershell
-$newVaultCertificate = New-AzureRmVmssVaultCertificateConfig -CertificateStore MY -CertificateUrl https://sansunallapps1.vault.azure.net:443/secrets/dg-private-enc/55fa0332edc44a84ad655298905f1809
+$newVaultCertificate = New-AzVmssVaultCertificateConfig -CertificateStore MY -CertificateUrl https://sansunallapps1.vault.azure.net:443/secrets/dg-private-enc/55fa0332edc44a84ad655298905f1809
 
 $vmss.VirtualMachineProfile.OsProfile.Secrets[0].VaultCertificates.Add($newVaultCertificate)
 
-Update-AzureRmVmss -VirtualMachineScaleSet $vmss -ResourceGroup $rg -Name $vmssName
+Update-AzVmss -VirtualMachineScaleSet $vmss -ResourceGroup $rg -Name $vmssName
 ```
 
 ### What happens to certificates if you reimage a VM?
@@ -362,18 +362,18 @@ Yes. You can see some example MSI templates in Azure Quickstart templates. Linux
 To delete a virtual machine scale set extension, use the following PowerShell example:
 
 ```powershell
-$vmss = Get-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName"
+$vmss = Get-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName"
 
-$vmss=Remove-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name "extensionName"
+$vmss=Remove-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "extensionName"
 
-Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName" -VirtualMacineScaleSet $vmss
+Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName" -VirtualMacineScaleSet $vmss
 ```
 
 You can find the extensionName value in `$vmss`.
 
-### Is there a virtual machine scale set template example that integrates with Log Analytics?
+### Is there a virtual machine scale set template example that integrates with Azure Monitor logs?
 
-For a virtual machine scale set template example that integrates with Log Analytics, see the second example in [Deploy an Azure Service Fabric cluster and enable monitoring by using Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
+For a virtual machine scale set template example that integrates with Azure Monitor logs, see the second example in [Deploy an Azure Service Fabric cluster and enable monitoring by using Azure Monitor logs](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
 
 ### Extensions seem to run in parallel on virtual machine scale sets. This causes my custom script extension to fail. What can I do to fix this?
 
@@ -399,9 +399,9 @@ There are two main ways to change the password for VMs in scale sets.
 
     $extName = "VMAccessAgent"
     $publisher = "Microsoft.Compute"
-    $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
-    $vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
-    Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
+    $vmss = Get-AzVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
+    $vmss = Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
+    Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
     ```
 
 ### How do I add an extension to all VMs in my virtual machine scale set?
@@ -461,13 +461,13 @@ $vmssname = 'autolapbr'
 $location = 'eastus'
 
 # Retrieve the most recent version number of the extension.
-$allVersions= (Get-AzureRmVMExtensionImage -Location $location -PublisherName "Microsoft.Azure.Security" -Type "IaaSAntimalware").Version
+$allVersions= (Get-AzVMExtensionImage -Location $location -PublisherName "Microsoft.Azure.Security" -Type "IaaSAntimalware").Version
 $versionString = $allVersions[($allVersions.count)-1].Split(".")[0] + "." + $allVersions[($allVersions.count)-1].Split(".")[1]
 
-$VMSS = Get-AzureRmVmss -ResourceGroupName $rgname -VMScaleSetName $vmssname
+$VMSS = Get-AzVmss -ResourceGroupName $rgname -VMScaleSetName $vmssname
 echo $VMSS
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $VMSS -Name "IaaSAntimalware" -Publisher "Microsoft.Azure.Security" -Type "IaaSAntimalware" -TypeHandlerVersion $versionString
-Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS
+Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "IaaSAntimalware" -Publisher "Microsoft.Azure.Security" -Type "IaaSAntimalware" -TypeHandlerVersion $versionString
+Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS
 ```
 
 ### I need to execute a custom script that's hosted in a private storage account. The script runs successfully when the storage is public, but when I try to use a Shared Access Signature (SAS), it fails. This message is displayed: “Missing mandatory parameters for valid Shared Access Signature”. Link+SAS works fine from my local browser.
@@ -655,7 +655,7 @@ Yes, you can use the reimage operation to reset a VM without changing the image.
 
 For more information, see [Manage all VMs in a virtual machine scale set](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
-### Is it possible to integrate scale sets with Azure Log Analytics?
+### Is it possible to integrate scale sets with Azure Monitor logs?
 
 Yes, you can by installing the Log Analytics extension on the scale set VMs. Here is an Azure CLI example:
 ```
@@ -663,7 +663,10 @@ az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.Ente
 ```
 You can find the required workspaceId and workspaceKey in the Log Analytics workspace of Azure portal. On the Overview page, click the Settings tile. Click the Connected Sources tab at the top.
 
-Note: if your scale set _upgradePolicy_ is set to Manual, you need to apply the extension to the all VMs in the set by calling upgrade on them. In CLI this would be _az vmss update-instances_.
+> [!NOTE]
+> If your scale set _upgradePolicy_ is set to Manual, you need to apply the extension to the all VMs in the set by calling upgrade on them. In CLI this would be _az vmss update-instances_.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Troubleshooting
 

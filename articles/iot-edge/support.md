@@ -35,7 +35,7 @@ Azure IoT Edge runs on most operating systems that can run containers; however, 
     * has this operating system in automated tests
     * provides installation packages for them
 * Tier 2 systems can be thought of as compatible with Azure IoT Edge and can be used relatively easily. This means that:
-    * Microsoft has done ad-hoc testing on the platforms or knows of a partner successfully running Azure IoT Edge on the platform
+    * Microsoft has done ad hoc testing on the platforms or knows of a partner successfully running Azure IoT Edge on the platform
     * Installation packages for other platforms may work on these platforms
     
 The family of the host OS must always match the family of the guest OS used inside a module's container. In other words, you can only use Linux containers on Linux and Windows containers on Windows. When using Windows, only process isolated containers are supported, not hyper-v isolated containers.  
@@ -47,14 +47,14 @@ The family of the host OS must always match the family of the guest OS used insi
 
 ### Tier 1
 Generally available
-| Operating System | AMD64 | ARM32 |
+| Operating System | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | Raspbian-stretch | No | Yes|
 | Ubuntu Server 16.04 | Yes | No |
 | Ubuntu Server 18.04 | Yes | No |
 
 Public preview
-| Operating System | AMD64 | ARM32 |
+| Operating System | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | Windows 10 IoT Core build 17763 | Yes | No |
 | Windows 10 IoT Enterprise build 17763 | Yes | No |
@@ -64,7 +64,7 @@ The Windows OSes above are the requirements for devices which run Windows contai
 
 ### Tier 2
 
-| Operating System | AMD64 | ARM32 |
+| Operating System | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | CentOS 7.5 | Yes | Yes |
 | Debian 8 | Yes | Yes |

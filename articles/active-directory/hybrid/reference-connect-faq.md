@@ -15,6 +15,7 @@ ms.date: 11/02/2018
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Connect FAQ
 

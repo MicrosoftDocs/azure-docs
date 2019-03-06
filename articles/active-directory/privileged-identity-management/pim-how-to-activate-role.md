@@ -14,6 +14,7 @@ ms.subservice: pim
 ms.date: 11/21/2018
 ms.author: rolyon
 ms.custom: pim
+ms.collection: M365-identity-device-management
 ---
 # Activate my Azure AD directory roles in PIM
 
@@ -125,7 +126,7 @@ If you do not require activation of a role that requires approval, you can cance
 
 1. For the role that you want to cancel, click the **Cancel** button.
 
-    When you click Cancel, the request will be cancelled. To activate the role again, you will have to submit a new request for activation.
+    When you click Cancel, the request will be canceled. To activate the role again, you will have to submit a new request for activation.
 
    ![Cancel pending request](./media/pim-how-to-activate-role/directory-role-cancel.png)
 

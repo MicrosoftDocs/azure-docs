@@ -12,10 +12,10 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 02/04/2019
+ms.date: 02/07/2019
 ---
 
-# The Azure SQL Database service
+# What is Azure SQL Database service?
 
 SQL Database is a general-purpose relational database managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML. SQL Database delivers dynamically scalable performance within two different purchasing models: a vCore-based purchasing model and a DTU-based purchasing model. SQL Database also provides options such as [columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) for extreme analytic analysis and reporting, and [in-memory OLTP](sql-database-in-memory.md) for extreme transactional processing. Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure.
 
@@ -62,10 +62,10 @@ Dynamic scalability is different from autoscale. Autoscale is when a service sca
 SQL Database offers two purchasing models:
 
 - The [DTU-based purchasing model](sql-database-service-tiers-dtu.md) offers a blend of compute, memory, IO resources in three service tiers to support lightweight to heavyweight database workloads. Compute sizes within each tier provide a different mix of these resources, to which you can add additional storage resources.
-- The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) lets you choose the number of vCores, the amount or memory, and the amount and speed of storage.
+- The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) lets you choose the number of vCores, the amount or memory, and the amount and speed of storage. The vCore-based purchasing model also allows you to use [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) to gain cost savings. For more information about the Azure Hybrid Benefit, see [Frequently asked questions](#sql-database-frequently-asked-questions-faq).
 
   > [!IMPORTANT]
-  > The [hyperscale service tier](sql-database-service-tier-hyperscale.md) is currently in public preview. We don't recommend running any production workload in hyperscale databases yet. You can't update a hyperscale database to other service tiers. For test purpose, we recommend you make a copy of your current database and update the copy to hyperscale service tier.
+  > The [hyperscale service tier](sql-database-service-tier-hyperscale.md) for single databases is currently in public preview. We don't recommend running any production workload in hyperscale databases yet. You can't update a hyperscale database to other service tiers. For test purpose, we recommend you make a copy of your current database and update the copy to hyperscale service tier.
 
 ### Elastic pools to maximize resource utilization
 
@@ -90,13 +90,21 @@ You use the [built-in performance monitoring](sql-database-performance.md) and [
 
 - **Azure Storage**: For archiving vast amounts of telemetry for a small price
 - **Azure Event Hub**: For integrating SQL Database telemetry with your custom monitoring solution or hot pipelines
-- **Azure Log Analytics**: For built-in monitoring solution with reporting, alerting, and mitigating capabilities.
+- **Azure Monitor logs**: For built-in monitoring solution with reporting, alerting, and mitigating capabilities.
 
     ![architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 
 ## Availability capabilities
 
-Azure's industry leading 99.99% availability service level agreement [(SLA)](https://azure.microsoft.com/support/legal/sla/), powered by a global network of Microsoft-managed datacenters, helps keep your app running 24/7. The Azure platform fully manages every database and guarantees no data loss and high percentage of data availability. Azure automatically handles patching, backups, replication, failure detection, underlying potential hardware, software or network failures, deploying bug fixes, failovers, database upgrades and other maintenance tasks. Standard availability is achieved by a separation of compute and storage layers. Premium availability is achieved by integrating compute and storage on a single node for performance and then implementing technology similar to Always On Availability Groups under the covers. For a full discussion of the high availability capabilities of Azure SQL Database, see [SQL Database availability](sql-database-high-availability.md). In addition, SQL Database provides built-in [business continuity and global scalability](sql-database-business-continuity.md) features, including:
+In a traditional SQL Server environment, you would generally have (at least) 2 machines locally set up with exact (synchronously maintained) copies of the data (using features like AlwaysOn availability groups or Failover Cluster Instances) to protect against a failure of a single machine/component.  This provides high availability but does not protect against a natural disaster destroying your data center.
+ 
+Disaster recovery assumes that a catastrophic event will be geographically localized enough to have another machine/set of machines with a copy of your data far away.  In SQL Server, you could use Always On Availability Groups running in async mode to get this capability.  The speed of light issues usually means that people do not want to wait for replication to happen that far away before committing a transaction, so there is potential for data loss when you do unplanned failovers.
+
+Databases in the premium and business critical service tiers already [do something very similar](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) to the synchronization of an availability group. Databases in lower service tiers provide redundancy through storage using a [different but equivalent mechanism](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability). There is logic that protects against a single machine failure.  The active geo-replication feature gives you the ability to protect against disaster where a whole region is destroyed.
+
+Azure Availability Zones is a play on the high availability problem.  It tries to protect against the outage of a single data center building within a single region.  So, it wants to protect against the loss of power or network to a building. In SQL Azure, this will work by placing the different replicas in different availability zones (different buildings, effectively) and otherwise working as before. 
+
+In fact, Azure's industry leading 99.99% availability service level agreement [(SLA)](https://azure.microsoft.com/support/legal/sla/), powered by a global network of Microsoft-managed datacenters, helps keep your app running 24/7. The Azure platform fully manages every database and guarantees no data loss and high percentage of data availability. Azure automatically handles patching, backups, replication, failure detection, underlying potential hardware, software or network failures, deploying bug fixes, failovers, database upgrades and other maintenance tasks. Standard availability is achieved by a separation of compute and storage layers. Premium availability is achieved by integrating compute and storage on a single node for performance and then implementing technology similar to Always On Availability Groups under the covers. For a full discussion of the high availability capabilities of Azure SQL Database, see [SQL Database availability](sql-database-high-availability.md). In addition, SQL Database provides built-in [business continuity and global scalability](sql-database-business-continuity.md) features, including:
 
 - **[Automatic backups](sql-database-automated-backups.md)**:
 
@@ -190,6 +198,41 @@ SQL Database makes building and maintaining applications easier and more product
   A free, downloadable, open-source, code editor for Windows, macOS, and Linux that supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse.
 
 SQL Database supports building applications with Python, Java, Node.js, PHP, Ruby, and .NET on the MacOS, Linux, and Windows. SQL Database supports the same [connection libraries](sql-database-libraries.md) as SQL Server.
+
+## SQL Database frequently asked questions (FAQ)
+
+### What is the current version of SQL Database
+
+The current version of SQL Database is V12. Version V11 has been retired.
+
+### Can I control when patching downtime occurs
+
+No. The impact of patching is generally not noticeable if you [employ retry logic](sql-database-develop-overview.md#resiliency) in your app. For more information about how to prepare for planned maintenance events on your Azure SQL database, see [planning for Azure maintenance events in Azure SQL Database](sql-database-planned-maintenance.md).
+
+### Azure Hybrid Benefit questions
+
+#### Are there dual-use rights with Azure Hybrid Benefit for SQL Server
+
+You have 180 days of dual use rights of the license to ensure migrations are running seamlessly. After that 180-day period, the SQL Server license can only be used in the cloud in SQL Database, and does not have dual use rights on-premises and in the cloud.
+
+#### How does Azure Hybrid Benefit for SQL Server differ from license mobility
+
+Today, we offer license mobility benefits to SQL Server customers with Software Assurance that allows re-assignment of their licenses to third-party shared servers. This benefit can be used on Azure IaaS and AWS EC2.
+Azure Hybrid Benefit for SQL Server differs from license mobility in two key areas:
+
+- It provides economic benefits for moving highly virtualized workloads to Azure. SQL EE customers can get 4 cores in Azure in the General Purpose SKU for every core they own on-premises for highly virtualized applications. License mobility does not allow any special cost benefits for moving virtualized workloads to the cloud.
+- It provides for a PaaS destination on Azure (SQL Database Managed Instance) that is highly compatible with SQL Server on-premises
+
+#### What are the specific rights of the Azure Hybrid Benefit for SQL Server
+
+SQL Database customers will have the following rights associated with Azure Hybrid Benefit for SQL Server:
+
+|License Footprint|What does Azure Hybrid Benefit for SQL Server Get You?|
+|---|---|
+|SQL Server Enterprise Edition core customers with SA|<li>Can pay Base Rate on either General Purpose or Business Critical SKU</li><br><li>1 core on-premises = 4 cores in General Purpose SKU</li><br><li>1 core on-premises = 1 core in Business Critical SKU</li>|
+|SQL Server Standard Edition core customers with SA|<li>Can pay Base Rate on General Purpose SKU only</li><br><li>1 core on-premises = 1 core in General Purpose SKU</li>|
+|||
+
 
 ## Engage with the SQL Server engineering team
 

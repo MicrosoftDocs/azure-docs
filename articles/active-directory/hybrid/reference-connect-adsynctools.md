@@ -10,6 +10,7 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 
+ms.collection: M365-identity-device-management
 ---
 
 # Azure AD Connect:  ADSyncTools PowerShell Reference
@@ -860,7 +861,7 @@ Accept wildcard characters: False
 ## Restore-ADSyncToolsExpiredCertificates
 
 ### SYNOPSIS
-(TO DO) Restores AD UserCertificate attribute from a certicate file
+(TO DO) Restores AD UserCertificate attribute from a certificate file
 
 ### SYNTAX
 

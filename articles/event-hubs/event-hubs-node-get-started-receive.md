@@ -80,18 +80,18 @@ Here is the sample code to receive events from an event hub using node.js. You c
   const storageContainerName = "test-container";
   
   async function main() {
-    // Create the Event Processo Host
+    // Create the Event Processor Host
     const eph = EventProcessorHost.createFromConnectionString(
       EventProcessorHost.createHostName("my-host"),
       storageCS,
       storageContainerName,
       ehCS,
       {
-        eventHubPath: path
-      },
-      onEphError: (error) => {
-        console.log("This handler will notify you of any internal errors that happen " +
-        "during partition and lease management: %O", error);
+        eventHubPath: path,
+        onEphError: (error) => {
+          console.log("This handler will notify you of any internal errors that happen " +
+          "during partition and lease management: %O", error);
+        }
       }
     );
     let count = 0;

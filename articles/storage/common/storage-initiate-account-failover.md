@@ -6,9 +6,9 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/11/2019
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 
 # Initiate a storage account failover (preview)
@@ -78,7 +78,7 @@ To use PowerShell to initiate an account failover, you must first install the 6.
 1. Install an Azure Storage preview module that supports Azure AD:
    
     ```powershell
-    Install-Module -Name AzureRM.Storage -AllowPrerelease
+    Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force 
     ```
 1. Close and reopen the PowerShell window.
  
@@ -86,7 +86,7 @@ To use PowerShell to initiate an account failover, you must first install the 6.
 To initiate an account failover from PowerShell, execute the following command:
 
 ```powershell
-Invoke-AzureRmStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
+Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
 ```
 
 ## Azure CLI

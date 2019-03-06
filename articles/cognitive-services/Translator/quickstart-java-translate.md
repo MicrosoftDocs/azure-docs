@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/03/2018
+ms.date: 02/21/2019
 ms.author: erhopf
 ---
 
@@ -165,6 +165,12 @@ That's it, you're ready to run your sample app. From the command line (or termin
 
 ```console
 gradle build
+```
+
+When the build completes, run:
+
+```console
+gradle run
 ```
 
 ## Sample response

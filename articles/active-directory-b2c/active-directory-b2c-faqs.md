@@ -60,7 +60,7 @@ You can use the [company branding feature](../active-directory/fundamentals/cust
 * **Banner Logo**: Shown at the bottom-right.
 * **Background color**: Shown at the top.
 
-    ![Screen shot of a customized verification email](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
+    ![Screenshot of a customized verification email](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 
 The email signature contains the Azure AD B2C tenant's name that you provided when you first created the Azure AD B2C tenant. You can change the name using these instructions:
 
@@ -79,7 +79,7 @@ You can use the Azure AD Graph API to write your migration tool. See the [User m
 The Azure AD B2C password user flow for local accounts is based on the policy for Azure AD. Azure AD B2C's sign-up, sign-up or sign-in and password reset user flows use the "strong" password strength and don't expire any passwords. Read the [Azure AD password policy](https://msdn.microsoft.com/library/azure/jj943764.aspx) for more details. For information about account lockouts and passwords, see [Manages threats to resources and data in Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
 
 ### Can I use Azure AD Connect to migrate consumer identities that are stored on my on-premises Active Directory to Azure AD B2C?
-No, Azure AD Connect is not designed to work with Azure AD B2C. Consider using the [Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) for user migration.  See the [User migration guide](active-directory-b2c-user-migration.md) for details.
+No, Azure AD Connect is not designed to work with Azure AD B2C. Consider using the [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) for user migration.  See the [User migration guide](active-directory-b2c-user-migration.md) for details.
 
 ### Can my app open up Azure AD B2C pages within an iFrame?
 No, for security reasons, Azure AD B2C pages cannot be opened within an iFrame.  Our service communicates with the browser to prohibit iFrames.  The security community in general and the OAUTH2 specification, recommend against using iFrames for identity experiences due to the risk of click-jacking.

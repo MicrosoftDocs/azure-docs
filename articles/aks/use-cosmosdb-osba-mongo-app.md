@@ -186,7 +186,7 @@ Navigate to http://localhost:8080 in your browser. Notice the default data has b
 
 ## Run your application on your AKS cluster
 
-You can use [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) to deploy the application to your AKS cluster. Azure Dev Spaces helps you generate artifacts, such as Dockefiles and Helm charts, and deploy and run an application in AKS.
+You can use [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) to deploy the application to your AKS cluster. Azure Dev Spaces helps you generate artifacts, such as Dockerfiles and Helm charts, and deploy and run an application in AKS.
 
 To enable Azure Dev Spaces in your AKS cluster:
 
@@ -205,7 +205,7 @@ This command generates several artifacts, including a *charts/* folder, which is
 
 Create a file at the root of your project named *Dockerfile* with this content:
 
-```dockerfile
+```Dockerfile
 FROM openjdk:8-jdk-alpine
 EXPOSE 8080
 WORKDIR /app

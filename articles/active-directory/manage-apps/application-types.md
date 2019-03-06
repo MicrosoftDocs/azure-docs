@@ -3,8 +3,8 @@ title: Unexpected application in my applications list | Microsoft Docs
 description: How to see all applications in your tenant and understand how applications appear in your All Applications list under Enterprise Applications
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,8 +14,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 
+ms.collection: M365-identity-device-management
 ---
 
 # Unexpected application in my applications list
@@ -104,7 +105,7 @@ To **delete an application**, follow these steps:
 
 ## I want to disable all future user consent operations to any application
 
-Disabling user consent for your entire directory prevent end users from consenting to any application. Administrators can still consent on user’s behalves. To learn more about application consent, and why you may or may not want to consent, read [Understanding user and admin consent](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
+Disabling user consent for your entire directory prevent end users from consenting to any application. Administrators can still consent on user’s behalf. To learn more about application consent, and why you may or may not want to consent, read [Understanding user and admin consent](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
 
 To **disable all future user consent operations in your entire directory**, follow these steps:
 
