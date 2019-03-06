@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/21/2018
+ms.date: 03/05/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -63,7 +63,7 @@ When you need to take on an Azure resource role, you can request activation by u
 
 1. Click **Activate**.
 
-    If the role does not require approval, it is activated and added to the list of active roles. If you want to use the role right away, follow the steps in next section.
+    If the role does not require approval, it is activated and added to the list of active roles. If you want to use the role, follow the steps in next section.
 
     If the [role requires approval](pim-resource-roles-approval-workflow.md) to activate, a notification will appear in the upper right corner of your browser informing you the request is pending approval.
 
@@ -71,17 +71,19 @@ When you need to take on an Azure resource role, you can request activation by u
 
 ## Use a role immediately after activation
 
-When you activate a role in PIM, it takes at least 10 minutes before you can access the desired administrative portal or perform functions within a specific administrative workload. To force an update of your permissions, use the **Application access** page as described in the following steps.
+In case of any delay after activation, follow these steps after you activate to use your Azure resource roles immediately.
 
 1. Open Azure AD Privileged Identity Management.
 
-1. Click the **Application access** page.
+1. Click **My roles** to see a list of your eligible Azure AD directory roles and Azure resource roles.
 
-    ![PIM Application access - screenshot](./media/pim-resource-roles-activate-your-roles/pim-application-access.png)
+1. Click **Azure resource roles**.
 
-1. Click the **Azure resources** link to reopen the portal on the **All resources** page.
+1. Click the **Active roles** tab.
 
-    When you click this link, you invalidate your current token and force the Azure portal to obtain a new token that should contain your updated permissions.
+1. Once the role is active, sign out of the portal and sign back in.
+
+    The role should now be available to use.
 
 ## View the status of your requests
 
@@ -113,7 +115,7 @@ If you do not require activation of a role that requires approval, you can cance
 
 ### Permissions not granted after activating a role
 
-When you activate a role in PIM, it takes at least 10 minutes before you can access the desired administrative portal or perform functions within a specific administrative workload. To force an update of your permissions, use the **Application access** page as described earlier in [Use a role immediately after activation](#use-a-role-immediately-after-activation).
+When you activate a role in PIM, it takes at least 10 minutes before you can access the desired administrative portal or perform functions within a specific administrative workload. Once the activation is complete, sign out of the Azure portal and sign back in to start using the newly activated role.
 
 For additional troubleshooting steps, see [Troubleshooting Elevated Permissions](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx).
 

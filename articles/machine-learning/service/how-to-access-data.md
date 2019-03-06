@@ -22,7 +22,7 @@ This how-to shows examples for the following tasks:
 * [Choose a datastore](#access)
 * [Get a datastore](#get)
 * [Upload and download data to datastores](#upload-and-download-data)
-* [Access datastore during training](#access-datastores-for-training)
+* Access datastore during training
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ If you have existing Azure Storage, you can register it as a datastore on your w
 
 The following examples show you to register an Azure Blob Container or an Azure File Share as a datastore.
 
-+ For an **Azure Blob Container Datastore**, use [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-:)
++ For an **Azure Blob Container Datastore**, use [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py)
 
   ```Python
   ds = Datastore.register_azure_blob_container(workspace=ws, 

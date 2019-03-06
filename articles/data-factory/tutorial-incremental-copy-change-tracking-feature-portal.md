@@ -140,7 +140,10 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     ```
 
 ### Azure PowerShell
-Install the latest Azure PowerShell modules by following  instructions in [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Install the latest Azure PowerShell modules by following  instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## Create a data factory
 

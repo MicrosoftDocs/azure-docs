@@ -19,7 +19,7 @@ This article details how to enable backup while you're creating a virtual machin
 
 ## Sign in to Azure
 
-If you aren't already signed in to your account, sign in to the [Azure portal](http://portal.azure.com).
+If you aren't already signed in to your account, sign in to the [Azure portal](https://portal.azure.com).
  
 ## Create a VM with Backup configured 
 

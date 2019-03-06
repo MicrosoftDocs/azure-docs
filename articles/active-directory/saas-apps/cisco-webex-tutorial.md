@@ -165,7 +165,7 @@ To configure Azure AD single sign-on with Cisco Webex Meetings, perform the foll
 
 ### Configure Cisco Webex Meetings Single Sign-On
 
-1. Go to [Cisco Cloud Collaboration Management](http://www.webex.com/go/connectadmin) with your administration credentials.
+1. Go to [Cisco Cloud Collaboration Management](https://www.webex.com/go/connectadmin) with your administration credentials.
 
 2. Go to **Security Settings** and navigate to **Federated Web SSO Configuration**.
  

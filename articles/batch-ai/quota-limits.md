@@ -105,4 +105,4 @@ After becoming familiar with the quota limits, check out the following articles 
 > [Learn more about Batch AI resources](resource-concepts.md)
 
 [portal]: https://portal.azure.com
-[support_sev]: http://aka.ms/supportseverity
+[support_sev]: https://aka.ms/supportseverity
