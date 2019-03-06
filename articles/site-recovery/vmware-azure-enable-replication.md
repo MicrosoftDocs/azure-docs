@@ -51,12 +51,13 @@ When replicating VMware virtual machines:
 6. In **Target**, select the subscription and the resource group where you want to create the failed-over virtual machines. Choose the deployment model that you want to use in Azure for the failed-over virtual machines.
 
 7. Select the Azure network and subnet to which Azure VMs will connect when they're spun up after failover. The network must be in the same region as the Recovery Services vault. Select **Configure now for selected machines** to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. If you don't have a network, you need to create one. To create a network by using Resource Manager, click **Create new**. Select a subnet if applicable, and then click **OK**.
-
    
    ![Enable replication target setting](./media/vmware-azure-enable-replication/enable-rep3.png)
+
 8. In **Virtual Machines** > **Select virtual machines**, select each machine you want to replicate. You can only select machines for which replication can be enabled. Then click **OK**. If you are not able to view/select any particular virtual machine, click [here](https://aka.ms/doc-plugin-VM-not-showing) to resolve the issue.
 
     ![Enable replication select virtual machines](./media/vmware-azure-enable-replication/enable-replication5.png)
+
 9. In **Properties** > **Configure properties**, select the account used by the process server to automatically install the Mobility Service on the machine. Also, choose the type of target managed disk that you would want to replicate to based on your data churn patterns.
 10. By default, all disks of a source machine are replicated. To exclude disks from replication, uncheck **Include** checkbox against any disks you don't want to replicate.  Then click **OK**. You can set additional properties later. [Learn more](vmware-azure-exclude-disk.md) about excluding disks.
 
@@ -71,9 +72,8 @@ When replicating VMware virtual machines:
     >    * Gather VMs and physical servers together so that they mirror your workloads. Enabling multi-VM consistency can impact workload performance. Use only if machines are running the same workload and you need consistency.
 
     ![Enable replication](./media/vmware-azure-enable-replication/enable-replication7.png)
+    
 13. Click **Enable Replication**. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
-
-
 
 ## View and manage VM properties
 
