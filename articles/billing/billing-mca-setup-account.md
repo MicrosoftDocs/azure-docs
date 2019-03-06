@@ -199,7 +199,7 @@ To complete the setup, you need access to both the new billing account and the E
 
 ### Azure subscriptions
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search on **Cost Management + Billing**.
 
@@ -215,7 +215,7 @@ Azure subscriptions that are transitioned from your Enterprise Agreement enrollm
 
 ### Azure Reservations
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search on **Cost Management + Billing**.
 
@@ -235,7 +235,7 @@ Azure Reservations that are moved from your Enterprise Agreement enrollment to t
 
 ### Access of enterprise administrators on the billing profile
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search on **Cost Management + Billing**.
 
@@ -251,7 +251,7 @@ Enterprise administrators are listed as billing profile owners while the enterpr
 
 ### Access of enterprise administrators, department administrators, and account owners on invoice sections
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search on **Cost Management + Billing**.
 

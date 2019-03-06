@@ -38,9 +38,9 @@ In this tutorial, you perform the following steps:
 
 Prepare your Blob storage for the tutorial by performing these steps.
 
-1. Create a container named **source**. You can use various tools to perform these tasks, such as [Azure Storage Explorer](http://storageexplorer.com/).
+1. Create a container named **source**. You can use various tools to perform these tasks, such as [Azure Storage Explorer](https://storageexplorer.com/).
 
-2. Create a container named **destination**. You can use various tools to perform these tasks, such as [Azure Storage Explorer](http://storageexplorer.com/).
+2. Create a container named **destination**. You can use various tools to perform these tasks, such as [Azure Storage Explorer](https://storageexplorer.com/).
 
 ## Create a data factory
 
@@ -169,7 +169,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
 	
 	![Monitor pipeline runs](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3.png)
 	
-12. Create an empty text file, and name it as file1.txt. Upload the file1.txt file to the **source** container in your storage account. You can use various tools to perform these tasks, such as [Azure Storage Explorer](http://storageexplorer.com/).	
+12. Create an empty text file, and name it as file1.txt. Upload the file1.txt file to the **source** container in your storage account. You can use various tools to perform these tasks, such as [Azure Storage Explorer](https://storageexplorer.com/).	
 
 	![Monitor pipeline runs](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
 	
@@ -185,13 +185,13 @@ Prepare your Blob storage for the tutorial by performing these steps.
 	
 	![Monitor pipeline runs](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png)
 	
-15. Create another empty text file, and name it as file2.txt. Upload the file2.txt file to the **source** container in your storage account. You can use various tools to perform these tasks, such as [Azure Storage Explorer](http://storageexplorer.com/).	
+15. Create another empty text file, and name it as file2.txt. Upload the file2.txt file to the **source** container in your storage account. You can use various tools to perform these tasks, such as [Azure Storage Explorer](https://storageexplorer.com/).	
 	
 16. Do the same as step 13 and 14, and you will see only the new file (file2.txt) has been copied from the **source** container to the **destination** container of your storage account in the next pipeline run.  
 	
 	![Monitor pipeline runs](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs7.png)
 
-	You can also verify the same by using Azure Storage Explorer (http://storageexplorer.com/) to scan the files.
+	You can also verify the same by using Azure Storage Explorer (https://storageexplorer.com/) to scan the files.
 	
 	![Monitor pipeline runs](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs8.png)
 
