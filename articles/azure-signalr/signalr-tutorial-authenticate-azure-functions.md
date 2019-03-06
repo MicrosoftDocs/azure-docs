@@ -460,23 +460,11 @@ Although there is a CORS setting in **local.settings.json**, it is not propagate
 
 1. Add an entry with the static website *primary endpoint* as the value (remove the trailing */*).
 
+1. In order for the SignalR JavaScript SDK call your function app from a browser, support for credentials in CORS must be enabled. Select the "Enable Access-Control-Allow-Credentials" checkbox.
+
+    ![Enable Access-Control-Allow-Credentials](media/signalr-tutorial-authenticate-azure-functions/signalr-cors-credentials.png)
+
 1. Click **Save** to persist the CORS settings.
-
-### Enable CORS credentials support
-
-In order for the SignalR JavaScript SDK call your function app from a browser, support for credentials in CORS must be enabled.
-
-Currently, this feature can only be enabled using the Azure command line interface (CLI) or REST APIs. You will execute a command in Azure Cloud Shell to enable this feature.
-
-1. In the Azure portal, click the Cloud Shell button to open a Cloud Shell terminal in the browser.
-
-1. Execute the following command, replacing `<>` placeholders with valid values based on resources you have created.
-
-    ```
-    az resource update --resource-group <resource_group_name> --parent sites/<function_app_name> --name web --namespace Microsoft.Web --resource-type config --set properties.cors.supportCredentials=true --api-version 2015-06-01
-    ```
-
-Once completed, CORS credentials support is enabled in the function app.
 
 ### Try the application
 
