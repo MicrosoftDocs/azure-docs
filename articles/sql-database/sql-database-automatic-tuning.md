@@ -60,13 +60,16 @@ For an overview of how automatic tuning works and for typical usage scenarios, s
 
 Automatic tuning options available in Azure SQL Database are:
 
-| Automatic tuning option | Supported in Azure SQL Database/elastic pools | Supported in Managed Instance | Description |
+| Automatic tuning option | Supported in Azure SQL Database and elastic pools | Supported in Managed Instance | Description |
 | :------------------- | ------------------- | ------------------- | ------------------- |
 | **CREATE INDEX** | Yes | No | Identifies indexes that may improve performance of your workload, creates indexes, and automatically verifies that performance of queries has improved. |
 | **DROP INDEX** | Yes | No | Identifies redundant and duplicate indexes daily, except for unique indexes, and indexes that were not used for a long time (>90 days). Please note that at this time the option is not compatible with applications using partition switching and index hints. |
 | **FORCE LAST GOOD PLAN** | Yes | Yes | Identifies SQL queries using execution plan that is slower than the previous good plan, and queries using the last known good plan instead of the regressed plan. |
 
-Automatic tuning identifies **CREATE INDEX**, **DROP INDEX**, and **FORCE LAST GOOD PLAN** recommendations that can optimize your database performance and shows them in [Azure portal](sql-database-advisor-portal.md), and exposes them through [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) and [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
+Automatic tuning identifies **CREATE INDEX**, **DROP INDEX**, and **FORCE LAST GOOD PLAN** recommendations that can optimize your database performance and shows them in [Azure portal](sql-database-advisor-portal.md), and exposes them through [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) and [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). 
+
+> [!NOTE]
+> Configuring Automatic tuning options for Managed Instance databases is supported through [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) only with no portal support.
 
 You can either manually apply tuning recommendations using the portal or you can let Automatic tuning autonomously apply tuning recommendations for you. The benefits of letting the system autonomously apply tuning recommendations for you is that it automatically validates there exists a positive gain to the workload performance, and if there is no significant performance improvement detected, it will automatically revert the tuning recommendation. Please note that in case of queries affected by tuning recommendations that are not executed frequently, the validation phase can take up to 72 hrs by design. In case you are manually applying tuning recommendations, the automatic performance validation, and reversal mechanisms are not available.
 
