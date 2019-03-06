@@ -22,21 +22,21 @@ This module comes with **Auto-tiering** and **Auto-expiration** features.
 > Currently auto-tiering and auto-expiration functionality are only available in Linux AMD64 and Linux ARM32.
 
 **Auto-tiering** is a configurable functionality, which allows you to automatically upload the data from your local blob storage to Azure with intermittent internet connectivity support. It allows you to:
-1. Turn ON/OFF the tiering feature
-2. Choose the order in which the data will copied to Azure like NewestFirst or OldestFirst
-3. Specify the Azure Storage account to which you want your data uploaded.
-4. Specify the containers you want to upload to Azure. This module allows you to specify both source and target container names.
-5. Do full blob tiering (using `Put Blob` operation) and block level tiering (using `Put Block` and `Put Block List` operations).
+- Turn ON/OFF the tiering feature
+- Choose the order in which the data will copied to Azure like NewestFirst or OldestFirst
+- Specify the Azure Storage account to which you want your data uploaded.
+- Specify the containers you want to upload to Azure. This module allows you to specify both source and target container names.
+- Do full blob tiering (using `Put Blob` operation) and block level tiering (using `Put Block` and `Put Block List` operations).
 
 This module uses block level tiering, when your blob consists of blocks. Here are some of the common scenarios:
- 1. Your application updates some blocks of a previously uploaded blob, this module will upload only the updated blocks and not the whole blob.
- 2. The module is uploading blob and internet connection goes away, when the connectivity is back again it will upload only the remaining blocks and not the whole blob.
+- Your application updates some blocks of a previously uploaded blob, this module will upload only the updated blocks and not the whole blob.
+- The module is uploading blob and internet connection goes away, when the connectivity is back again it will upload only the remaining blocks and not the whole blob.
 
 If an unexpected process termination (like power failure) happens during a blob upload, all blocks that were due for the upload will be uploaded again, when the module comes back online.
 
-**Auto-expiration** is a configurable functionality where this module automatically deletes your blobs from the local storage when TTL (Time to Live) expires. It is measured in minutes. It allows you to:
-1. Turn ON/OFF the auto-expiration feature
-2. Specify the TTL in minutes
+**Auto-expiration** is a configurable functionality where this module automatically deletes your blobs from the local storage when Time to Live (TTL) expires. It is measured in minutes. It allows you to:
+- Turn ON/OFF the auto-expiration feature
+- Specify the TTL in minutes
 
 Scenarios where data like videos, images, finance data, hospital data, or any data that needs to be stored locally, later that could be processed locally or transferred to the cloud are good examples to use this module.
 
@@ -218,6 +218,8 @@ Use the following steps to create a new IoT Edge solution with a blob storage mo
 
 ## Auto-tiering and Auto-expiration Properties and Configuration
 
+Use desired properties to set auto-tiering and auto-expiration properties. They can be set during deployment or changed later by editing the module twin without the need to redeploy. We recommend checking the "Module Twin" for `reported configuration` and `configurationValidation` to make sure values are correctly propagated.
+
 ### Auto-tiering properties 
 The name of this setting is `tieringSettings`
 | Field | Possible Values | Explanation |
@@ -232,84 +234,104 @@ The name of this setting is `ttlSettings`
 | Field | Possible Values | Explanation |
 | ----- | ----- | ---- |
 | ttlOn | true, false | By default it is set to `false`, if you want to turn it On set it to `true`|
-| timeToLiveInMinutes | `<minutes>` | Specify the TTL in minutes. The module will automatically delete your blobs from local storage when TTL(Time to Live) expires |
+| timeToLiveInMinutes | `<minutes>` | Specify the TTL in minutes. The module will automatically delete your blobs from local storage when TTL expires |
 
 ### Configure Auto-tiering and Auto-expiration via Azure portal
 
 Set the desired properties to enable auto-tiering and auto-expiration, you can set these values:
 
-1. **During the initial deployment**: Copy the JSON in **Set module twin's desired properties** box. Configure each property with appropriate value, save it and continue with the deployment.
+- **During the initial deployment**: Copy the JSON in **Set module twin's desired properties** box. Configure each property with appropriate value, save it and continue with the deployment.
 
-```json
-{
-  "properties.desired": {
-		  "ttlSettings": {
-            "ttlOn": <true, false>, 
-            "timeToLiveInMinutes": <timeToLiveInMinutes> 
-          },
-          "tieringSettings": {
-              "tieringOn": <true, false>,
-              "backlogPolicy": "<NewestFirst, OldestFirst>",
-              "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
-              "tieredContainers": {
-                  "<source container name1>": {
-                      "target": "<target container name1>"
-                  }
+            ```json
+            {
+              "properties.desired": {
+            		  "ttlSettings": {
+                        "ttlOn": <true, false>, 
+                        "timeToLiveInMinutes": <timeToLiveInMinutes> 
+                      },
+                      "tieringSettings": {
+                          "tieringOn": <true, false>,
+                          "backlogPolicy": "<NewestFirst, OldestFirst>",
+                          "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+                          "tieredContainers": {
+                              "<source container name1>": {
+                                  "target": "<target container name1>"
+                              }
+                          }
+                      }
               }
-          }
-  }
-}
-```
+            }
+            ```
 
  ![tiering+ttl iotedge_custom_module](./media/how-to-store-data-blob/iotedge_custom_module.png)
 
-2. **After the module is deployed via "Module Identity Twin" feature**: Go to "Module Identity Twin" of this module, copy the JSON under properties desired, configure each property with appropriate value, and save. Make sure every time you add or update any desired property, the `reported configuration` section of the "Module Identity Twin" Json reflects the changes.
+- **After the module is deployed via "Module Identity Twin" feature**: Go to "Module Identity Twin" of this module, copy the JSON under properties desired, configure each property with appropriate value, and save. In "Module Identity Twin" Json make sure every time you add or update any desired property, the `reported configuration` section reflects the changes, and the `configurationValidation` section reports success for each property.
 
-```json
-          "ttlSettings": {
-            "ttlOn": <true, false>, 
-            "timeToLiveInMinutes": <timeToLiveInMinutes> 
-          },
-          "tieringSettings": {
-              "tieringOn": <true, false>,
-              "backlogPolicy": "<NewestFirst, OldestFirst>",
-              "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
-              "tieredContainers": {
-                  "<source container name1>": {
-                      "target": "<target container name1>"
-                  }
-              }
-          }
-```
+            ```json
+                      "ttlSettings": {
+                        "ttlOn": <true, false>, 
+                        "timeToLiveInMinutes": <timeToLiveInMinutes> 
+                      },
+                      "tieringSettings": {
+                          "tieringOn": <true, false>,
+                          "backlogPolicy": "<NewestFirst, OldestFirst>",
+                          "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+                          "tieredContainers": {
+                              "<source container name1>": {
+                                  "target": "<target container name1>"
+                              }
+                          }
+                      }
+            ```
 
 ![tiering+ttl module_identity_twin](./media/how-to-store-data-blob/module_identity_twin.png) 
 
 ### Configure Auto-tiering and Auto-expiration via VSCode
 
-Add the below JSON in your deployment.template.json to define the desired properties for this module. Configure each property with appropriate value and save it.
+- **During the initial deployment**: Add the below JSON in your deployment.template.json to define the desired properties for this module. Configure each property with appropriate value and save it.
 
-```json
-"<your azureblobstorageoniotedge module name>":{
-      "properties.desired": {
-          "ttlSettings": {
-            "ttlOn": <true, false>, 
-            "timeToLiveInMinutes": <timeToLiveInMinutes> 
-          },
-          "tieringSettings": {
-              "tieringOn": <true, false>,
-              "backlogPolicy": "<NewestFirst, OldestFirst>",
-              "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
-              "tieredContainers": {
-                  "<source container name1>": {
-                      "target": "<target container name>"
+            ```json
+            "<your azureblobstorageoniotedge module name>":{
+                  "properties.desired": {
+                      "ttlSettings": {
+                        "ttlOn": <true, false>, 
+                        "timeToLiveInMinutes": <timeToLiveInMinutes> 
+                      },
+                      "tieringSettings": {
+                          "tieringOn": <true, false>,
+                          "backlogPolicy": "<NewestFirst, OldestFirst>",
+                          "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+                          "tieredContainers": {
+                              "<source container name1>": {
+                                  "target": "<target container name>"
+                              }
+                          }
+                      }
                   }
               }
-          }
-      }
-  }
-```
+            ```
+
 Here is an example of desired properties for this module:
  ![set desired properties for azureblobstorageoniotedge - VS Code](./media/how-to-store-data-blob/tiering_ttl.png)
+
+- **After the module is deployed via "Module Twin"**: [Edit the Module Twin](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin) of this module, copy the JSON under properties desired, configure each property with appropriate value, and save. In "Module Twin" Json make sure every time you add or update any desired property, the `reported configuration` section reflects the changes, and the `configurationValidation` section reports success for each property.
+
+            ```json
+                      "ttlSettings": {
+                        "ttlOn": <true, false>, 
+                        "timeToLiveInMinutes": <timeToLiveInMinutes> 
+                      },
+                      "tieringSettings": {
+                          "tieringOn": <true, false>,
+                          "backlogPolicy": "<NewestFirst, OldestFirst>",
+                          "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+                          "tieredContainers": {
+                              "<source container name1>": {
+                                  "target": "<target container name1>"
+                              }
+                          }
+                      }
+            ```
 
 ## Connect to your blob storage module
 
@@ -317,8 +339,8 @@ You can use the account name and account key that you configured for your module
 
 Specify your IoT Edge device as the blob endpoint for any storage requests that you make to it. You can [Create a connection string for an explicit storage endpoint](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) using the IoT Edge device information and the account name that you configured. 
 
-1. For modules, which are deployed on the same edge device where "Azure Blob Storage on IoT Edge" is running, the blob endpoint is: `http://<module name>:11002/<account name>`. 
-2. For modules, which are deployed on different edge device, than the edge device where "Azure Blob Storage on IoT Edge" is running, then depending upon your setup the blob endpoint is: `http://<device IP >:11002/<account name>` or `http://<IoT Edge device hostname>:11002/<account name>` or `http://<FQDN>:11002/<account name>`
+1. For modules, that are deployed on the same edge device where "Azure Blob Storage on IoT Edge" is running, the blob endpoint is: `http://<module name>:11002/<account name>`. 
+2. For modules, that are deployed on different edge device, than the edge device where "Azure Blob Storage on IoT Edge" is running, then depending upon your setup the blob endpoint is: `http://<device IP >:11002/<account name>` or `http://<IoT Edge device hostname>:11002/<account name>` or `http://<FQDN>:11002/<account name>`
 
 ## Logs
 
@@ -351,7 +373,7 @@ The following quickstarts use languages that are also supported by IoT Edge, so 
 
 ### Azure Storage Explorer
 You can also try [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to your local storage account. We have tried with [previous version 1.5.0](https://go.microsoft.com/fwlink/?LinkId=809306&clcid=0x409) of Azure Explorer.
-> [!CAUTION]
+> [!NOTE]
 > You might encounter errors while performing below steps, ignore and refresh. 
 
 1. Download and install Azure Storage Explorer
@@ -360,7 +382,7 @@ You can also try [Azure Storage Explorer](https://azure.microsoft.com/features/s
 4. Go through the steps to connect.
 5. Create container inside your local storage account
 6. Start uploading files as Block blobs.
-> [!CAUTION]
+> [!NOTE]
 > uncheck the checkbox to upload it as page blobs. This module does not support page blobs. You will get this prompt while uploading files like .iso, .vhd, .vhdx or any big files.
 
 7. You can choose to connect your Azure storage accounts where you are uploading the data. It gives you a single view for both your local storage account and Azure storage account
