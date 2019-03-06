@@ -458,7 +458,7 @@ Although there is a CORS setting in **local.settings.json**, it is not propagate
 
     ![Find CORS](media/signalr-tutorial-authenticate-azure-functions/signalr-find-cors.png)
 
-1. Add an entry with the static website *primary endpoint* as the value (remove the trailing */*).
+1. In the *Allowed origins* section, add an entry with the static website *primary endpoint* as the value (remove the trailing */*).
 
 1. In order for the SignalR JavaScript SDK call your function app from a browser, support for credentials in CORS must be enabled. Select the "Enable Access-Control-Allow-Credentials" checkbox.
 
