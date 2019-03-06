@@ -140,8 +140,8 @@ You see this error in Visual Studio Code if you have a newer version of the VS C
 
 Download and install the latest version of the Azure Dev Spaces CLI:
 
-* [Windows](http://aka.ms/get-azds-windows)
-* [Mac](http://aka.ms/get-azds-mac)
+* [Windows](https://aka.ms/get-azds-windows)
+* [Mac](https://aka.ms/get-azds-mac)
 * [Linux](https://aka.ms/get-azds-linux)
 
 ## Error 'azds' is not recognized as an internal or external command, operable program, or batch file

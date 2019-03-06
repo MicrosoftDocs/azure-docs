@@ -439,7 +439,7 @@ This section provides steps for moving gateway client from one machine to anothe
 ## Encrypting credentials
 To encrypt credentials in the Data Factory Editor, do the following steps:
 
-1. Launch web browser on the **gateway machine**, navigate to [Azure portal](http://portal.azure.com). Search for your data factory if needed, open data factory in the **DATA FACTORY** page and then click **Author & Deploy** to launch Data Factory Editor.
+1. Launch web browser on the **gateway machine**, navigate to [Azure portal](https://portal.azure.com). Search for your data factory if needed, open data factory in the **DATA FACTORY** page and then click **Author & Deploy** to launch Data Factory Editor.
 2. Click an existing **linked service** in the tree view to see its JSON definition or create a linked service that requires a data management gateway (for example: SQL Server or Oracle).
 3. In the JSON editor, for the **gatewayName** property, enter the name of the gateway.
 4. Enter server name for the **Data Source** property in the **connectionString**.

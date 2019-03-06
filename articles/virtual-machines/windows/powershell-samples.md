@@ -44,5 +44,5 @@ The following table provides links to PowerShell script samples that create and 
 |**Secure virtual machines**||
 | [Encrypt a VM and its data disks](./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?toc=%2fpowershell%2fazure%2ftoc.json) | Creates an Azure key vault, an encryption key, and a service principal, and then encrypts a VM. |
 |**Monitor virtual machines**||
-| [Monitor a VM with Log Analytics](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Creates a virtual machine, installs the Azure Log Analytics agent, and enrolls the VM in a Log Analytics workspace.  |
+| [Monitor a VM with Azure Monitor](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Creates a virtual machine, installs the Azure Log Analytics agent, and enrolls the VM in a Log Analytics workspace.  |
 | | |
