@@ -148,7 +148,7 @@ To configure the access mode in an Azure Resource Manager template, set the **en
 
 
 ## Manage accounts and users
-The permissions to the workspace that are applied to a particular user are defined by their [access mode](#access-mode) and the [access control mode](#access-control-mode) of the workspace. **Workspace permissions** are applied when a user accesses any workspace using **workspace-centric** in [workspace-centric mode](#access-modes). **Resource permissions** are applied when a user accesses a workspace with **Use resource or workspace permissions** [access control mode](#access-control-mode) using [resource-centric mode](#access-modes).
+The permissions to the workspace that are applied to a particular user are defined by their access mode and the [access control mode](#access-control-mode) of the workspace. **Workspace permissions** are applied when a user accesses any workspace using **workspace-centric** in [workspace-centric mode](#access-modes). **Resource permissions** are applied when a user accesses a workspace with **Use resource or workspace permissions** [access control mode](#access-control-mode) using [resource-centric mode](#access-modes).
 
 ### Workspace permissions
 Each workspace can have multiple accounts associated with it, and each account can have access to multiple workspaces. Access is managed via [Azure role-based access](../../role-based-access-control/role-assignments-portal.md). 
