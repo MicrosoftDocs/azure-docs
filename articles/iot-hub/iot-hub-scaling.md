@@ -28,7 +28,7 @@ The standard tier of IoT Hub enables all features, and is required for any IoT s
 
 Only one type of [edition](https://azure.microsoft.com/pricing/details/iot-hub/) within a tier can be chosen per IoT Hub. For example, you can create an IoT Hub with multiple units of S1, but not with a mix of units from different editions, such as S1 and B3, or S1 and S2.
 
-| Capability | Basic tier | Standard tier |
+| Capability | Basic tier | Free/Standard tier |
 | ---------- | ---------- | ------------- |
 | [Device-to-cloud telemetry](iot-hub-devguide-messaging.md) | Yes | Yes |
 | [Per-device identity](iot-hub-devguide-identity-registry.md) | Yes | Yes |
