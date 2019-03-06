@@ -56,7 +56,7 @@ To use Azure Machine Learning Compute in a virtual network, use the following in
 
     - One load balancer
 
-   These resources are limited by the subscription's [resource quotas](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+ These resources are limited by the subscription's [resource quotas](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
 ### <a id="mlcports"></a> Required ports
 
