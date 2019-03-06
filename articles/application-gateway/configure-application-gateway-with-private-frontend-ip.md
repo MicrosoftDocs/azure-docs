@@ -36,23 +36,15 @@ For Azure to communicate between the resources that you create, it needs a virtu
    - myVNet* - for the name of the virtual network.
    - 10.0.0.0/16* - for the virtual network address space.
    - *myAGSubnet* - for the subnet name.
-   - *10.0.0.0/24* - for the subnet address space.
-
-​	![private-frontendip-1](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-1.png)
-
+   - *10.0.0.0/24* - for the subnet address space.	
+   ![private-frontendip-1](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-1.png)
 6. Click **OK** to create the virtual network and subnet.
-
 7. Choose the Frontend IP configuration as Private and by default, it is a dynamic IP address assignment. The first available address of the chosen Subnet will be assigned as the frontend IP address.
-
-8. If you would like to choose a private IP from the subnet address range (static allocation), click the box **Choose a specific private IP address** and specify the IP address. 
-
+8. If you would like to choose a private IP from the subnet address range (static allocation), click the box **Choose a specific private IP address** and specify the IP address.
    > [!NOTE]
    > Once allocated, the IP address type (static or dynamic) cannot be changed later.
-
 9. Choose your listener configuration for the protocol and the port, WAF configuration (if needed) and click OK.
-
    ​	![private-frontendip-2](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-2.png)
-
 10. Review the settings on the summary page, and then click **OK** to create the network resources and the application gateway. It may take several minutes for the application gateway to be created, wait until the deployment finishes successfully before moving on to the next section.
 
 ## Add backend pool
