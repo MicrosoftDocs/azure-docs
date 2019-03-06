@@ -57,7 +57,7 @@ kubectl -n openfaas create secret generic basic-auth \
 
 You can get the value of the secret with `echo $PASSWORD`.
 
-The password we create here will be used by the helm chart to enable basic authentication on the OpenFaaS Gateway which is exposed to the Internet through a cloud LoadBalancer.
+The password we create here will be used by the helm chart to enable basic authentication on the OpenFaaS Gateway, which is exposed to the Internet through a cloud LoadBalancer.
 
 A Helm chart for OpenFaaS is included in the cloned repository. Use this chart to deploy OpenFaaS into your AKS cluster.
 
@@ -105,7 +105,7 @@ gateway            ClusterIP      10.0.156.194   <none>         8080/TCP        
 gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP   7m
 ```
 
-To test the OpenFaaS system, browse to the external IP address on port 8080, `http://52.186.64.52:8080` in this example. You will be promoted to log in, to fetch your password type in `echo $PASSWORD`
+To test the OpenFaaS system, browse to the external IP address on port 8080, `http://52.186.64.52:8080` in this example. You will be prompted to log in. To fetch your password, enter `echo $PASSWORD`.
 
 ![OpenFaaS UI](media/container-service-serverless/openfaas.png)
 
@@ -117,7 +117,7 @@ brew install faas-cli
 
 Set `$OPENFAAS_URL` to the public IP found above.
 
-Log in with the CLI:
+Log in with the Azure CLI:
 
 ```azurecli-interactive
 export OPENFAAS_URL=http://52.186.64.52:8080
@@ -243,7 +243,7 @@ You can also test the function within the OpenFaaS UI.
 
 ## Next Steps
 
-You can continue to learn with the [OpenFaaS workshop](openfaas-workshop) through a set of hands-on labs covering topics such as creating your own GitHub bot, consuming secrets, viewing metrics and auto-scaling.
+You can continue to learn with the [OpenFaaS workshop](openfaas-workshop) through a set of hands-on labs that cover topics such as how to create your own GitHub bot, consuming secrets, viewing metrics, and auto-scaling.
 
 <!-- LINKS - external -->
 [install-mongo]: https://docs.mongodb.com/manual/installation/
