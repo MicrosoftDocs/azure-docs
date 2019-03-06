@@ -263,7 +263,7 @@ Set the desired properties to enable auto-tiering and auto-expiration, you can s
 
  ![tiering+ttl iotedge_custom_module](./media/how-to-store-data-blob/iotedge_custom_module.png)
 
-2. **After the module is deployed via "Module Identity Twin" feature**: Go to "Module Identity Twin" of this module, copy the JSON under properties desired, configure each property with appropriate value, and save.
+2. **After the module is deployed via "Module Identity Twin" feature**: Go to "Module Identity Twin" of this module, copy the JSON under properties desired, configure each property with appropriate value, and save. Make sure every time you add or update any desired property, the `reported configuration` section of the "Module Identity Twin" Json reflects the changes.
 
 ```json
           "ttlSettings": {
