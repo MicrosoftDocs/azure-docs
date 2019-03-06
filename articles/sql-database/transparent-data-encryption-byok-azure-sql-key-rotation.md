@@ -11,7 +11,7 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: jhubbard
-ms.date: 12/06/2018
+ms.date: 03/04/2019
 ---
 # Rotate the Transparent Data Encryption (TDE) protector using PowerShell
 
@@ -37,7 +37,7 @@ This guide discusses two options to rotate the TDE protector on the server.
 
 ## Manual key rotation
 
-Manual key rotation uses the [Add-AzKeyVaultKey](/powershell/module/az.keyvault/Add-AzKeyVaultKey), [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), and [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets to add a completely new key, which could be under a new key name or even another key vault. Using this approach supports adding the same key to different key vaults to support high-availability and geo-dr scenarios.
+Manual key rotation uses the [Add-AzKeyVaultKey](/powershell/module/az.keyvault/Add-AzKeyVaultKey), [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), and [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets to add a completely new key, which could be under a new key name or even another key vault. Using this approach supports adding the same key to different key vaults to support high-availability and geo-dr scenarios.
 
 >[!NOTE]
 >The combined length for the key vault name and key name cannot exceed 94 characters.

@@ -14,7 +14,7 @@ ms.author: iainfou
 
 When you run modern, microservices-based applications in Kubernetes, you often want to control which components can communicate with each other. The principle of least privilege should be applied to how traffic can flow between pods in an AKS cluster. For example, you likely want to block traffic directly to backend applications. In Kubernetes, the *Network Policy* feature lets you define rules for ingress and egress traffic between pods in a cluster.
 
-This article shows you how to use network policies to control the flow of traffic between pods in AKS.
+Calico, an open source networking and network security solution founded by Tigera, offers a network policy engine which can implement Kubernetes network policy rules. This article shows you how to install the Calico network policy engine and create Kubernetes network policies to control the flow of traffic between pods in AKS.
 
 > [!IMPORTANT]
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).

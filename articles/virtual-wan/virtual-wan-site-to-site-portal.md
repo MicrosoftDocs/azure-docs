@@ -35,6 +35,8 @@ In this tutorial, you learn how to:
 
 ## Before you begin
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

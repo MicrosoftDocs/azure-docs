@@ -22,6 +22,8 @@ robots: noindex
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [frequently asked question - Data Factory](../frequently-asked-questions.md).
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## General questions
 ### What is Azure Data Factory?
 Data Factory is a cloud-based data integration service that **automates the movement and transformation of data**. Just like a factory that runs equipment to take raw materials and transform them into finished goods, Data Factory orchestrates existing services that collect raw data and transform it into ready-to-use information.
@@ -177,12 +179,12 @@ You can rerun a slice in one of the following ways:
 
 * Use Monitor and Manage App to rerun an activity window or slice. See [Rerun selected activity windows](data-factory-monitor-manage-app.md#perform-batch-actions) for instructions.   
 * Click **Run** in the command bar on the **DATA SLICE** blade for the slice in the Azure portal.
-* Run **Set-AzureRmDataFactorySliceStatus** cmdlet with Status set to **Waiting** for the slice.   
+* Run **Set-AzDataFactorySliceStatus** cmdlet with Status set to **Waiting** for the slice.   
 
 	```PowerShell
-    Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
+    Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
 	```
-See [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status] for details about the cmdlet.
+See [Set-AzDataFactorySliceStatus][set-azure-datafactory-slice-status] for details about the cmdlet.
 
 ### How long did it take to process a slice?
 Use Activity Window Explorer in Monitor & Manage App to know how long it took to process a data slice. See [Activity Window Explorer](data-factory-monitor-manage-app.md#activity-window-explorer) for details.
@@ -197,7 +199,7 @@ You can also do the following in the Azure portal:
 6. You should see the **DURATION** field with a value. This value is the time taken to process the slice.   
 
 ### How to stop a running slice?
-If you need to stop the pipeline from executing, you can use [Suspend-AzureRmDataFactoryPipeline](/powershell/module/azurerm.datafactories/suspend-azurermdatafactorypipeline) cmdlet. Currently, suspending the pipeline does not stop the slice executions that are in progress. Once the in-progress executions finish, no extra slice is picked up.
+If you need to stop the pipeline from executing, you can use [Suspend-AzDataFactoryPipeline](/powershell/module/az.datafactory/suspend-azdatafactorypipeline) cmdlet. Currently, suspending the pipeline does not stop the slice executions that are in progress. Once the in-progress executions finish, no extra slice is picked up.
 
 If you really want to stop all the executions immediately, the only way would be to delete the pipeline and create it again. If you choose to delete the pipeline, you do NOT need to delete tables and linked services used by the pipeline.
 
@@ -205,9 +207,9 @@ If you really want to stop all the executions immediately, the only way would be
 [msdn-class-library-reference]: /dotnet/api/microsoft.azure.management.datafactories.models
 [msdn-rest-api-reference]: /rest/api/datafactory/
 
-[adf-powershell-reference]: /powershell/module/azurerm.datafactories/
+[adf-powershell-reference]: /powershell/module/az.datafactory/
 [azure-portal]: http://portal.azure.com
-[set-azure-datafactory-slice-status]: /powershell/module/azurerm.datafactories/set-azurermdatafactoryslicestatus
+[set-azure-datafactory-slice-status]: /powershell/module/az.datafactory/set-Azdatafactoryslicestatus
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/

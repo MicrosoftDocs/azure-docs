@@ -37,9 +37,11 @@
   href: concepts-overview.md
   items:
   - name: Cloud upload and storage
-    href: storage-account-concept.md     
-  - name: Assets
-    href: assets-concept.md    
+    items:    
+    - name: Storage
+      href: storage-account-concept.md    
+    - name: Assets
+      href: assets-concept.md    
   - name: Encoding
     items:
     - name: Overview
@@ -114,7 +116,11 @@
     - name: Events with Event Grid
       href: reacting-to-media-services-events.md  
     - name: Event Grid schemas
-      href: media-services-event-schemas.md      
+      href: media-services-event-schemas.md    
+    - name: Metrics and diagnostic logs
+      href: media-services-metrics-diagnostic-logs.md      
+    - name: Diagnostic logs schemas
+      href: media-services-diagnostic-logs-schema.md          
   - name: Player clients
     items:
     - name: Azure Media Player
@@ -243,4 +249,3 @@
     href: frequently-asked-questions.md
   - name: Azure clouds and regions
     href: azure-clouds-regions.md
-
