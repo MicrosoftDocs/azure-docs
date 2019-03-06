@@ -43,6 +43,8 @@ In the case of bring-your-own-license, while Microsoft will bill infrastructure 
 >[!NOTE]
 > Managed apps must be deployable through the Marketplace. If customer communication is a concern, then you should reach out to interested customers after you have enabled lead sharing.  
 
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](./cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
 
 ## Next steps
 If you haven't already done so, 

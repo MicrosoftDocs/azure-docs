@@ -42,7 +42,6 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 
 + **New features**
 	+ New drag and drop table editor experience for reports. Users can drag a column from the well to the table area where a preview of the table will be displayed. The columns can be rearranged.
-	+ New Run button for runs submitted with ScriptRunConfig. Users can re-run an existing run on a remote compute cluster of their choice.
 	+ New Logs file viewer
 	+ Links to experiment runs, compute, models, images and deployments from the activities tab
 

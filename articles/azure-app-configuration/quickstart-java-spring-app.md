@@ -26,7 +26,7 @@ You can use any code editor to complete the steps in this quickstart. However, [
 
 ## Prerequisites
 
-To complete this quickstart, install a supported [Java Development Kit (JDK)](https://aka.ms/azure-jdks) with version 8 and [Apache Maven](http://maven.apache.org/) with version 3.0 or above.
+To complete this quickstart, install a supported [Java Development Kit (JDK)](https://aka.ms/azure-jdks) with version 8 and [Apache Maven](https://maven.apache.org/) with version 3.0 or above.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -90,7 +90,7 @@ You will use the [Spring Initializr](https://start.spring.io/) to create a new S
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.1.0.RC2</version>
+        <version>1.1.0.M1</version>
     </dependency>
     ```
 
@@ -141,15 +141,10 @@ You will use the [Spring Initializr](https://start.spring.io/) to create a new S
     }
     ```
 
-6. Create a new file named `bootstrap.yaml` under the resources directory of your app, and add the following lines to the file, and replace the sample values with the appropriate properties for your app configuration store.
+6. Create a new file named `bootstrap.properties` under the resources directory of your app, and add the following lines to the file, and replace the sample values with the appropriate properties for your app configuration store.
 
-    ```yaml
-    spring:
-        cloud:
-            azure:
-                config:
-                    stores:
-                        - connection-string: [your-connection-string]
+    ```properties
+    spring.cloud.azure.appconfiguration.stores[0].connection-string=[your-connection-string]
     ```
 
 ## Build and run the app locally

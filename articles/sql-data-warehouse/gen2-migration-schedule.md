@@ -27,8 +27,8 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 | **Region** | **Lower Gen2 available** | **Automatic upgrades begin** |
 |:--- |:--- |:--- |
 | Australia East |Available |May 1, 2019 |
-| Australia Southeast |March 1, 2019 |June 15, 2019 |
-| Brazil South |\* |\* |
+| Australia Southeast |April 2, 2019 |June 1, 2019 |
+| Brazil South |May 15, 2019 |\* |
 | Canada Central |Available |May 1, 2019 |
 | Canada East |\* |\* |
 | Central US |Available |May 1, 2019 |
@@ -37,32 +37,33 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 | China North |\* |\* |
 | China North 2 |\* |\* |
 | East Asia |Available |May 1, 2019 |
-| East US |Available |March 16, 2019 |
-| East US 2 |Available |March 16, 2019 |
-| France Central |March 1, 2019 |May 1, 2019 |
+| East US |Available |April 2, 2019 |
+| East US 2 |Available |April 2, 2019 |
+| France Central |\* |\* |
 | Germany Central |\* |\* |
+| Germany West Central |September 1, 2019|January 2, 2020 |
 | India Central |Available |May 1, 2019 |
-| India South |March 1, 2019 |June 15, 2019 |
+| India South |April 2, 2019 |June 1, 2019 |
 | Japan East |Available |May 1, 2019 |
-| Japan West |Available |June 15, 2019 |
-| Korea Central |March 1, 2019 |May 1, 2019 |
-| Korea South |March 1, 2019 |June 15, 2019 |
-| North Central US |March 1, 2019 |June 15, 2019 |
-| North Europe |Available |March 16, 2019 |
+| Japan West |Available |June 1, 2019 |
+| Korea Central |April 2, 2019 |May 1, 2019 |
+| Korea South |April 2, 2019 |June 1, 2019 |
+| North Central US |April 2, 2019 |June 1, 2019 |
+| North Europe |Available |April 2, 2019 |
 | South Central US |Available |May 1, 2019 |
-| South East Asia |Available |March 16, 2019 |
-| UK South |March 1, 2019 |May 1, 2019 |
-| UK West |March 1, 2019 |June 15, 2019 |
-| West Central US |\* |\* |
-| West Europe |Available |March 16, 2019 |
-| West US |March 1, 2019 |June 15, 2019 |
-| West US 2 |Available |March 16, 2019 |
+| South East Asia |Available |April 2, 2019 |
+| UK South |April 2, 2019 |May 1, 2019 |
+| UK West |\*|\* |
+| West Central US |September 2, 2019 |January 2, 2020|
+| West Europe |Available |April 2, 2019 |
+| West US |April 2, 2019 |June 1, 2019 |
+| West US 2 |Available |April 2, 2019 |
 
 ## Automatic upgrade process
 
-Beginning March 16, 2019, we'll be scheduling automated upgrades for your Gen1 instances. To avoid any unexpected interruptions on the availability of the data warehouse, the automated upgrades will be scheduled during your maintenance schedule. For more information on schedules, see [View a maintenance schedule](viewing-maintenance-schedule.md)
+Based on the availability chart above, we'll be scheduling automated upgrades for your Gen1 instances. To avoid any unexpected interruptions on the availability of the data warehouse, the automated upgrades will be scheduled during your maintenance schedule. For more information on schedules, see [View a maintenance schedule](viewing-maintenance-schedule.md)
 
-The upgrade process will involve a brief drop in connectivity (approx. 5 min) as we restart your data warehouse.  Once your data warehouse has been restarted, it will be fully available for use. However, you may experience a degradation in performance while the upgrade process continues to upgrade the data files in the background. The total time for the performance degradation will vary dependent on the size of your data files.
+The upgrade process will involve a brief drop in connectivity (approximately 5 min) as we restart your data warehouse.  Once your data warehouse has been restarted, it will be fully available for use. However, you may experience a degradation in performance while the upgrade process continues to upgrade the data files in the background. The total time for the performance degradation will vary dependent on the size of your data files.
 
 You can also expedite the data file upgrade process by running [Alter Index rebuild](sql-data-warehouse-tables-index.md) on all primary columnstore tables using a larger SLO and resource class after the restart.
 
@@ -75,11 +76,11 @@ You can choose to self-upgrade by following these steps on an existing Gen1 data
 
 There are two options when conducting a self-upgrade.  You can either upgrade your current data warehouse in-place or you can restore a Gen1 data warehouse into a Gen2 instance.
 
-- [Upgrade in-place](upgrade-to-latest-generation.md) - This option will upgrade your existing Gen1 data warehouse to Gen2. The upgrade process will involve a brief drop in connectivity (approx. 5 min) as we restart your data warehouse.  Once your data warehouse has been restarted, it will be fully available for use. If you experience issues during the upgrade, open a [support request](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) and reference “Gen2 upgrade” as the possible cause.
+- [Upgrade in-place](upgrade-to-latest-generation.md) - This option will upgrade your existing Gen1 data warehouse to Gen2. The upgrade process will involve a brief drop in connectivity (approximately 5 min) as we restart your data warehouse.  Once your data warehouse has been restarted, it will be fully available for use. If you experience issues during the upgrade, open a [support request](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) and reference “Gen2 upgrade” as the possible cause.
 - [Upgrade from restore point](sql-data-warehouse-restore.md) - Create a user-defined restore point on your current Gen1 data warehouse and then restore directly to a Gen2 instance. The existing Gen1 data warehouse will stay in place. Once the restore has been completed, your Gen2 data warehouse will be fully available for use.  Once you have run all testing and validation processes on the restored Gen2 instance, the original Gen1 instance can be deleted.
 
-    - Step 1: From the Azure portal, [create a user-defined restore point](sql-data-warehouse-restore.md#create-a-user-defined-restore-point-using-the-azure-portal).
-    - Step 2: When restoring from a user-defined restore point, set the "performance Level" to your preferred Gen2 tier.
+   - Step 1: From the Azure portal, [create a user-defined restore point](sql-data-warehouse-restore.md#create-a-user-defined-restore-point-using-the-azure-portal).
+   - Step 2: When restoring from a user-defined restore point, set the "performance Level" to your preferred Gen2 tier.
 
 You may experience a period of degradation in performance while the upgrade process continues to upgrade the data files in the background. The total time for the performance degradation will vary dependent on the size of your data files.
 

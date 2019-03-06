@@ -47,7 +47,7 @@ To view your storage account credentials:
 4. Find the **Key** value under **key1**, and click the **Copy** button to copy the account key.
 5. Alternately, you can copy the entire connection string. Find the **Connection string** value under **key1**, and click the **Copy** button to copy the connection string.
 
-    ![Screen shot showing how to view access keys in the Azure portal](media/storage-manage-account/portal-connection-string.png)
+    ![Screenshot showing how to view access keys in the Azure portal](media/storage-manage-account/portal-connection-string.png)
 
 ### Regenerate access keys
 

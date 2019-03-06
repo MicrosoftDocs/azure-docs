@@ -154,11 +154,11 @@ In this tutorial, you learned how to use the file upload capabilities of IoT Hub
 * [Azure IoT SDKs][lnk-sdks]
 
 <!-- Links -->
-[Azure IoT Developer Center]: http://azure.microsoft.com/develop/iot
+[Azure IoT Developer Center]: https://azure.microsoft.com/develop/iot
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-python-download]: https://www.python.org/downloads/
-[lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
+[lnk-visual-c-redist]: https://www.microsoft.com/download/confirmation.aspx?id=48145
 [lnk-install-pip]: https://pip.pypa.io/en/stable/installing/

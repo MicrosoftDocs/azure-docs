@@ -18,7 +18,7 @@ The Azure Backup service provides an interface to create and configure backups t
 
 ## Log in to Azure 
 
-If you are not already in signed in to your account, sign in to the [Azure portal](http://portal.azure.com).
+If you are not already in signed in to your account, sign in to the [Azure portal](https://portal.azure.com).
  
 ## Create virtual machine with backup configured 
 
