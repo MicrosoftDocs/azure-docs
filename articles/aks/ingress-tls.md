@@ -96,7 +96,7 @@ helm install stable/cert-manager \
     --namespace kube-system \
     --set ingressShim.defaultIssuerName=letsencrypt-staging \
     --set ingressShim.defaultIssuerKind=ClusterIssuer \
-    --version v0.6.0
+    --version v0.6.6
 ```
 
 If your cluster is not RBAC enabled, instead use the following command:
@@ -113,7 +113,7 @@ helm install stable/cert-manager \
     --set ingressShim.defaultIssuerKind=ClusterIssuer \
     --set rbac.create=false \
     --set serviceAccount.create=false \
-    --version v0.6.0
+    --version v0.6.6
 ```
 
 For more information on cert-manager configuration, see the [cert-manager project][cert-manager].
