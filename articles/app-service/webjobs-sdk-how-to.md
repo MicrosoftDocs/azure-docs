@@ -35,7 +35,7 @@ When possible, examples are provided for both version 3.*x* and version 2.*x*.
 > [Azure Functions](../azure-functions/functions-overview.md) is built on the WebJobs SDK, and this article provides links to Azure Functions documentation for some topics. Note these differences between Functions and the WebJobs SDK:
 > * Azure Functions version 2.*x* corresponds to WebJobs SDK version 3.*x*, and Azure Functions 1.*x* corresponds to WebJobs SDK 2.*x*. Source code repositories use the WebJobs SDK numbering.
 > * Sample code for Azure Functions C# class libraries is like WebJobs SDK code, except you don't need a `FunctionName` attribute in a WebJobs SDK project.
-> * Some binding types are supported only in Functions, like HTTP, Webhooks, and Event Grid (which is based on HTTP).
+> * Some binding types are supported only in Functions, like HTTP (Webhooks) and Event Grid (which is based on HTTP).
 >
 > For more information, see [Compare the WebJobs SDK and Azure Functions](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
 
