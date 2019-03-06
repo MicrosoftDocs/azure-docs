@@ -56,7 +56,7 @@ From the Azure portal, search for “Azure IoT Edge” and select **Ubuntu Serve
     1.	List your subscriptions:
     
        ```azurecli-interactive
-       azure account list --output table
+       az account list --output table
        ```
     
     1.	Copy the SubscriptionID field for the subscription you’d like to use
@@ -75,7 +75,7 @@ From the Azure portal, search for “Azure IoT Edge” and select **Ubuntu Serve
 1.	Create a new virtual machine:
 
     ```azurecli-interactive
-    az vm create --resource-group IoTEdgeResources --name EdgeVM –image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
+    az vm create --resource-group IoTEdgeResources --name EdgeVM –-image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
     ```
 
 1.	Set the device connection string (You can follow the [Register a new Azure IoT Edge device with Azure CLI](how-to-register-device-cli.md) how-to guide if you’re not familiar with this process):

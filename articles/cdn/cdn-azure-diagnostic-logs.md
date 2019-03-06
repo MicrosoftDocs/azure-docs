@@ -42,6 +42,8 @@ The following diagram shows a typical CDN core analytics view of data.
 
 For more information about diagnostic logs, see [Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## Enable logging with the Azure portal
 
 Follow these steps enable logging with CDN core analytics:
@@ -222,11 +224,11 @@ To use Azure Monitor, you must [enable logging](#enable-logging-with-azure-stora
 
 You can display the data in a variety of ways by using Management Solutions. You can obtain Management Solutions from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
 
-You can install management solutions from Azure marketplace by selecting the **Get it now** link at the bottom of each solution.
+You can install monitoring solutions from Azure marketplace by selecting the **Get it now** link at the bottom of each solution.
 
-### Add a Azure Monitor CDN Management Solution
+### Add a Azure Monitor CDN monitoring solution
 
-Follow these steps to add a Azure Monitor Management Solution:
+Follow these steps to add a Azure Monitor monitoring solution:
 
 1.   Sign in to the Azure portal using your Azure subscription and go to your dashboard.
     ![Azure dashboard](./media/cdn-diagnostics-log/13_Azure-dashboard.png)
