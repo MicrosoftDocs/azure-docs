@@ -8,7 +8,7 @@ manager: paulyuk
 editor: ''
 
 ms.assetid:
-ms.service:
+ms.service: key-vault
 ms.workload: web, azure
 ms.tgt_pltfrm: vs-getting-started
 ms.topic: conceptual

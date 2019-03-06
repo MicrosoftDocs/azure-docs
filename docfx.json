@@ -287,6 +287,7 @@
         "articles/search/**/*.md": "https://feedback.azure.com/forums/263029-azure-search",        
         "articles/security-center/**/*.md": "https://feedback.azure.com/forums/347535-azure-security-center",
         "articles/security/**/*.md": "https://feedback.azure.com/forums/216840-security-and-compliance",
+        "articles/sentinel/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/service-bus-messaging/**/*.md": "https://feedback.azure.com/forums/216926-service-bus",
         "articles/service-bus-relay/**/*.md": "https://feedback.azure.com/forums/216926-service-bus",       
         "articles/service-bus/**/*.md": "https://feedback.azure.com/forums/216926-service-bus",   
@@ -330,12 +331,12 @@
 	"articles/**/*.md": [
           "azure"
         ],
-        "articles/azure-virtual-machines/**/*.md": [
+        "articles/virtual-machines/**/*.md": [
           "azure-virtual-machines"
         ], 
         "articles/azure-portal/**/*.md": [
           "azure-portal"
-        ], 
+        ],
         "articles/azure-functions/**/*.md": [
           "azure-functions"
         ]

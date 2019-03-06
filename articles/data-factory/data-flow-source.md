@@ -7,7 +7,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
---- 
+---
 
 # Mapping Data Flow Source Transformation
 
@@ -48,7 +48,7 @@ For source file types that are not strongly typed (i.e. flat files as opposed to
 
 ![Source Transformation](media/data-flow/source003.png "data types")
 
-For strongly-typed sources, you can modify the 
+For strongly-typed sources, you can modify the data types in a subsequent Select transformation. 
 
 ### Optimize
 
@@ -69,7 +69,7 @@ You can optionally choose to partition the connections based on a query. For thi
 ## Source file management
 ![New Source Settings](media/data-flow/source2.png "New settings")
 
-* Wilcard path to pick a series of files from your source folder that match a pattern. This will override any file that you have set in your dataset defintion.
+* Wilcard path to pick a series of files from your source folder that match a pattern. This will override any file that you have set in your dataset definition.
 * List of Files. Same as a file set. Point to a text file that you create with a list of relative path files to process.
 * Column to store file name will store the name of the file from the source in a column in your data. Enter a new name here to store the file name string.
 * After Completion (You can choose to do nothing with the source file after the data flow executes, delete the source file(s) or move the source files. The paths for move are relative paths.
@@ -93,6 +93,6 @@ Similar to schemas in datasets, the Projection in Source defines the data column
 
 ![Default formats](media/data-flow/source2.png "Default formats")
 
-## Next Steps
+## Next steps
 
 Begin building your data transformation with [Derived Column](data-flow-derived-column.md) and [Select](data-flow-select.md).

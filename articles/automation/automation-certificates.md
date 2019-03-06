@@ -100,7 +100,7 @@ You add a **Get-AutomationCertificate** to a graphical runbook by right-clicking
 
 The following image shows an example of using a certificate in a graphical runbook. This is the same as the preceding example for adding a certificate to a cloud service from a textual runbook.
 
-![Example Graphical Authoring ](media/automation-certificates/graphical-runbook-add-certificate.png)
+![Example Graphical Authoring](media/automation-certificates/graphical-runbook-add-certificate.png)
 
 ### Python2 sample
 The following sample shows how to access certificates in Python2 runbooks.
