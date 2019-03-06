@@ -11,7 +11,7 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 03/06/2019
 ---
 # Automatic tuning in Azure SQL Database
 
@@ -60,9 +60,11 @@ For an overview of how automatic tuning works and for typical usage scenarios, s
 
 Automatic tuning options available in Azure SQL Database are:
 
- 1. **CREATE INDEX** - identifies indexes that may improve performance of your workload, creates indexes, and automatically verifies that performance of queries has improved.
- 2. **DROP INDEX** - identifies redundant and duplicate indexes daily, except for unique indexes, and indexes that were not used for a long time (>90 days). Please note that at this time the option is not compatible with applications using partition switching and index hints.
- 3. **FORCE LAST GOOD PLAN** - identifies SQL queries using execution plan that is slower than the previous good plan, and queries using the last known good plan instead of the regressed plan.
+| Automatic tuning option | Supported in Azure SQL Database/elastic pools | Supported in Managed Instance | Description |
+| :------------------- | ------------------- | ------------------- | ------------------- |
+| **CREATE INDEX** | Yes | No | Identifies indexes that may improve performance of your workload, creates indexes, and automatically verifies that performance of queries has improved. |
+| **DROP INDEX** | Yes | No | Identifies redundant and duplicate indexes daily, except for unique indexes, and indexes that were not used for a long time (>90 days). Please note that at this time the option is not compatible with applications using partition switching and index hints. |
+| **FORCE LAST GOOD PLAN** | Yes | Yes | Identifies SQL queries using execution plan that is slower than the previous good plan, and queries using the last known good plan instead of the regressed plan. |
 
 Automatic tuning identifies **CREATE INDEX**, **DROP INDEX**, and **FORCE LAST GOOD PLAN** recommendations that can optimize your database performance and shows them in [Azure portal](sql-database-advisor-portal.md), and exposes them through [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) and [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
 
