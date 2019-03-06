@@ -11,13 +11,40 @@ ms.date: 01/20/2019
 ---
 # Compare storage options for use with Azure HDInsight clusters
 
-Azure HDInsight users can choose between a few different storage options when creating HDInsight clusters:
+Azure HDInsight users can choose between a few different Azure storage services when creating HDInsight clusters:
 
-* Azure Data Lake Storage Gen2
 * Azure Storage
+* Azure Data Lake Storage Gen2
 * Azure Data Lake Storage Gen1
 
 This article provides an overview of these different storage types and their unique features.
+
+The following table summarizes the Azure Storage services that are supported with different versions of HDInsight:
+
+| Storage service | Account type | Namespace Type | Supported services | Supported performance tiers | Supported access tiers | HDInsight Version | Cluster type |
+|---|---|---|---|---|---|---|---|
+|Azure Data Lake Storage Gen2| General-purpose V2 | Hierarchical (filesystem) | Blob | Standard | Hot, Cool, Archive* | 3.6+ | All |
+|Azure Storage| General-purpose V2 | Object | Blob | Standard | Hot, Cool, Archive* | 3.6+ | All |
+|Azure Storage| General-purpose V1 | Object | Blob | Standard | N/A | All | All |
+|Azure Storage| Blob Storage | Object | Blob | Standard | Hot, Cool, Archive* | All | All |
+|Azure Data Lake Storage Gen1| N/A | Hierarchical (filesystem) | N/A | N/A | N/A | 3.6 Only | All except HBase |
+
+For more information on Azure Storage access tiers, see [Azure Blob storage: Premium (preview), Hot, Cool, and Archive storage tiers](../storage/blobs/storage-blob-storage-tiers.md)
+
+You can create a cluster using different combinations of services for primary and optional secondary storage. The following table summarizes the cluster storage configurations that are currently supported in HDInsight:
+
+| HDInsight Version | Primary Storage | Secondary Storage | Supported |
+|---|---|---|---|
+| 3.6 & 4.0 | Standard Blob | Standard Blob | Yes |
+| 3.6 & 4.0 | Standard Blob | Data Lake Storage Gen2 | No |
+| 3.6 & 4.0 | Standard Blob | Data Lake Storage Gen1 | Yes |
+| 3.6 & 4.0 | Data Lake Storage Gen2* | Data Lake Storage Gen2 or Standard Blob | Yes |
+| 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | No |
+| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 or Standard Blob | Yes |
+| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | No |
+| 4.0 | Data Lake Storage Gen1 | Any | No |
+
+*=This could be one or multiple Data Lake Storage Gen2 account, as long as they are all setup to use the same managed identity for cluster access.
 
 ## Use Azure Data Lake Storage Gen2 with Apache Hadoop in Azure HDInsight
 
@@ -82,15 +109,6 @@ For more information, see [Use the Azure Data Lake Storage Gen2 URI](../storage/
 ## Use Azure storage
 
 Azure storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. HDInsight can use a blob container in Azure Storage as the default file system for the cluster. Through a Hadoop distributed file system (HDFS) interface, the full set of components in HDInsight can operate directly on structured or unstructured data stored as blobs.
-
-> [!WARNING]  
-> There are several options available when creating an Azure Storage account. The following table provides information on what options are supported with HDInsight:
-
-| Storage account type | Supported services | Supported performance tiers | Supported access tiers |
-|----------------------|--------------------|-----------------------------|------------------------|
-| General-purpose V2   | Blob               | Standard                    | Hot, Cool, Archive*    |
-| General-purpose V1   | Blob               | Standard                    | N/A                    |
-| Blob storage         | Blob               | Standard                    | Hot, Cool, Archive*    |
 
 We don't recommend that you use the default blob container for storing business data. Deleting the default blob container after each use to reduce storage cost is a good practice. The default container contains application and system logs. Make sure to retrieve the logs before deleting the container.
 
