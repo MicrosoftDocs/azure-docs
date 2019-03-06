@@ -39,6 +39,8 @@
           href: data-box-gateway-manage-bandwidth-schedules.md
         - name: Access, power, connectivity
           href: data-box-gateway-manage-access-power-connectivity-mode.md
+        - name: Via PowerShell 
+          href: data-box-gateway-connect-powershell-interface.md
     - name: Troubleshoot
       href: data-box-gateway-troubleshoot.md
   - name: Release notes
@@ -73,6 +75,8 @@
     items:
     - name: Develop C# module
       href: data-box-edge-create-iot-edge-module.md
+    - name: Manage via PowerShell
+      href: data-box-edge-connect-powershell-interface.md
 - name: Resources
   items:
   - name: Data Box Edge C# module samples (.NET)
