@@ -48,7 +48,7 @@ The images should clearly communicate value of your solution and its main featur
 |Position callouts, magnifications, or crops to focus customers on your solution.| Don’t use captions or callouts that obstruct important content.|
 
 ![Image with caption and close up next to an image with caption, callout, and close up](images/value-add-do-dont-1.png)
-![Image with caption and content editor next to an image wiht caption and unrelated information](images/value-add-do-dont-2.png)
+![Image with caption and content editor next to an image with caption and unrelated information](images/value-add-do-dont-2.png)
 ![Image with caption, closeup to focus on one user action and result next to an image with caption and callout that hides the result of the action](images/value-add-do-dont-3.png)
 
 ## See also
