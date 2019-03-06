@@ -244,7 +244,7 @@ Provide the workspace resource ID \<$WSID\> as a parameter when executing the sc
 You can enable metrics and diagnostics logging by using the Azure CLI.
 
 > [!NOTE]
-> Scripts to enable diagnostics logging are supported for Azure CLI v1.0 only (CLI v2.0 is unsupported).
+> Scripts to enable diagnostics logging are supported for Azure CLI v1.0. Please note that CLI v2.0 is unsupported at this time.
 
 - To enable the storage of diagnostics logs in a storage account, use this command:
 
