@@ -7,7 +7,7 @@ metadata:
   services: notebooks
   author: kraigb
   manager: douge
-  ms.service: notebooks
+  ms.service: azure
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page

@@ -2,7 +2,7 @@
 title: Create on-premises virtual network with Terraform in Azure
 description: Tutorial illustrating how to implement an on-premises VNet in Azure that houses local resources
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, hub and spoke, networks, hybrid networks, devops, virtual machine, azure, VNet peering, on-premises 
 author: VaijanathB
 manager: jeconnoc

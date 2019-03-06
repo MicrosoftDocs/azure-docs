@@ -2,7 +2,7 @@
 title: Use an Azure Marketplace image to create a Terraform Linux virtual machine with a managed identity
 description: Use Marketplace image to create Terraform Linux virtual machine with a managed identity and Remote State Management to easily deploy resources to Azure.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, MSI, virtual machine, remote state, azure
 author: tomarchermsft
 manager: jeconnoc

@@ -2,7 +2,7 @@
 title: Create a hub virtual network with Terraform in Azure
 description: Tutorial illustrating how to create a hub VNet in Azure that acts as a common connection point between other networks
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, hub and spoke, networks, hybrid networks, devops, virtual machine, azure, VNet peering, hub-spoke, hub. 
 author: VaijanathB
 manager: jeconnoc

@@ -3,7 +3,7 @@ title: Use Azure Storage as a Terraform backend
 description: An introduction to storing Terraform state in Azure Storage.
 services: terraform
 author: tomarchermsft
-ms.service: terraform
+ms.service: azure
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: tarcher

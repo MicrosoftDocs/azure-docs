@@ -2,7 +2,7 @@
 title: Create a Kubernetes cluster with Application Gateway as ingress controller with Azure Kubernetes Service (AKS)
 description: Tutorial illustrating how to create a Kubernetes Cluster with Azure Kubernetes Service with Application Gateway as ingress controller
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, virtual machine, azure, kubernetes, ingress, application gateway
 author: tomarcher
 manager: jeconnoc
