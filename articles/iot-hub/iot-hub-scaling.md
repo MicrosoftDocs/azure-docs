@@ -62,7 +62,7 @@ The partition configuration remains unchanged when you migrate from basic tier t
 
 The difference in supported capabilities between the basic and standard tiers of IoT Hub means that some API calls do not work with basic tier hubs. The following table shows which APIs are available: 
 
-| API | Basic tier | Standard tier |
+| API | Basic tier | Free/Standard tier |
 | --- | ---------- | ------------- |
 | [Delete device](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Yes | Yes |
 | [Get device](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Yes | Yes |
