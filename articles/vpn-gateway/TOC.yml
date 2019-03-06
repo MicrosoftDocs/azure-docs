@@ -44,8 +44,8 @@
       href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fvpn-gateway%2ftoc.json    
 - name: How-to guides
   items:
-  -name: Site-to-Site connections
-   items:
+  - name: Site-to-Site connections
+    items:
     - name: Azure portal
       href: vpn-gateway-howto-site-to-site-resource-manager-portal.md
     - name: Azure PowerShell
@@ -54,26 +54,26 @@
       href: vpn-gateway-howto-site-to-site-resource-manager-cli.md
    - name: Download VPN device configuration scripts
      href: vpn-gateway-download-vpndevicescript.md
-  -name: Point-to-Site connections
-   items:
-   - name: Azure certificate authentication
-     items:
-     - name: Configure a P2S VPN
-       items:
-       - name: Azure portal
-         href: vpn-gateway-howto-point-to-site-resource-manager-portal.md
-       - name: Azure PowerShell
-         href: vpn-gateway-howto-point-to-site-rm-ps.md
-     - name: P2S certificates and clients
-       items:
-       - name: Generate self-signed certificates
-         items:
-         - name: Azure PowerShell
-           href: vpn-gateway-certificates-point-to-site.md
-         - name: Makecert
-           href: vpn-gateway-certificates-point-to-site-makecert.md
-         - name: Linux
-           href: vpn-gateway-certificates-point-to-site-linux.md
+  - name: Point-to-Site connections
+    items:
+    - name: Azure certificate authentication
+      items:
+      - name: Configure a P2S VPN
+        items:
+        - name: Azure portal
+          href: vpn-gateway-howto-point-to-site-resource-manager-portal.md
+        - name: Azure PowerShell
+          href: vpn-gateway-howto-point-to-site-rm-ps.md
+      - name: P2S certificates and clients
+        items:
+        - name: Generate self-signed certificates
+          items:
+          - name: Azure PowerShell
+            href: vpn-gateway-certificates-point-to-site.md
+          - name: Makecert
+            href: vpn-gateway-certificates-point-to-site-makecert.md
+          -  name: Linux
+            href: vpn-gateway-certificates-point-to-site-linux.md
       - name: Install client certificates
         href: point-to-site-how-to-vpn-client-install-azure-cert.md
       - name: Create and install VPN client configuration files
