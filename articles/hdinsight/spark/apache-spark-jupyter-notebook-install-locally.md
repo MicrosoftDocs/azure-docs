@@ -133,10 +133,9 @@ In this section, you configure the Spark magic that you installed earlier to con
     ```sql
     %%sql
     SELECT * FROM hivesampletable LIMIT 5
-    ```
+    ```  
 
-	If you can successfully retrieve the output, your connection to the HDInsight cluster is tested.
-
+    If you can successfully retrieve the output, your connection to the HDInsight cluster is tested.
 
     If you want to update the notebook configuration to connect to a different cluster, update the config.json with the new set of values, as shown in Step 3, above.
 
