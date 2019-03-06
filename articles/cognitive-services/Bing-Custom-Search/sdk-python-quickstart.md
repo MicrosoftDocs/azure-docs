@@ -54,17 +54,11 @@ from msrest.authentication import CognitiveServicesCredentials
     client = CustomSearchClient(CognitiveServicesCredentials(subscription_key))
     ```
 
-3. Send a search request with `client.custom_instance.search()`. Append your search term to the `query` parameter, and set `custom_config` to your Custom Configuration ID to use your search instance. 
+3. Send a search request with `client.custom_instance.search()`. Append your search term to the `query` parameter, and set `custom_config` to your Custom Configuration ID to use your search instance. You can get your ID from the [Bing Custom Search portal](https://www.customsearch.ai/), by clicking the **Production** tab.
 
     ```python
     web_data = client.custom_instance.search(query="xbox", custom_config="your-configuration-id")
     ```
-
-    You can get your ID from the Bing Custom Search portal, by clicking the **Production** tab, as shown here.
-
-    ![The Bing Custom Search portal production tab](media/endpoints-parameters-tab.png)
-
-    
 
 ## View the search results.
 
