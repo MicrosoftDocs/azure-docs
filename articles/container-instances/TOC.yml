@@ -29,19 +29,14 @@
     href: container-instances-samples-rm.md
 - name: Concepts
   items:
-<<<<<<< HEAD
   - name: Container groups
     href: container-instances-container-groups.md
-  - name: Quotas and regional limits
-=======
   - name: Quotas and limits
->>>>>>> 2760bd010455f1456eebb0c10aaec2ab35e97561
     href: container-instances-quotas.md
   - name: Region availability
     href: container-instances-region-availability.md
   - name: Relationship to orchestrators
     href: container-instances-orchestrator-relationship.md
-
 - name: How-to guides
   items:
   - name: Deploy
@@ -72,13 +67,13 @@
     items:
     - name: Azure file share
       href: container-instances-volume-azure-files.md
+    - name: Secret
+      href: container-instances-volume-secret.md
     - name: Empty directory
       href: container-instances-volume-emptydir.md
-    - name: Volume cloned from Git repo
+    - name: Cloned Git repo
       href: container-instances-volume-gitrepo.md
-    - name: Secrets volume
-      href: container-instances-volume-secret.md
-  - name: Manage
+  - name: Manage running containers
     items:
     - name: Configure liveness probes
       href: container-instances-liveness-probe.md
