@@ -3,7 +3,7 @@ title: Enable replication of VMware VMs for VMware disaster recovery to Azure wi
 description: This article describes how to enable replication of VMware VMs for disaster recovery to Azure, using Azure Site Recovery.
 author: mayurigupta13
 ms.service: site-recovery
-ms.date: 3/3/2019
+ms.date: 3/6/2019
 ms.topic: conceptual
 ms.author: mayg
 ---
@@ -34,6 +34,12 @@ When replicating VMware virtual machines:
 
 ## Enable replication
 
+>[!NOTE]
+>* Azure Site Recovery now replicates directly to Managed Disks for all new replications. Process Server writes replication logs to a cache storage account in target region. These logs are used to create recovery points in replica managed disks. 
+>* At the time of failover, the recovery point selected by customer is used to create the target managed disk.
+>* VMs which are previously configured to replicate to target storage accounts will not be impacted. 
+>* Replication to storage accounts for a new machine is only available via REST API and Powershell. Use API version 2016-08-10 or 2018-01-10 for replicating to storage accounts.
+
 1. Click **Step 2: Replicate application** > **Source**. After you've enabled replication for the first time, click **+Replicate** in the vault to enable replication for additional machines.
 2. In the **Source** page > **Source**, select the configuration server.
 3. In **Machine type**, select **Virtual Machines** or **Physical Machines**.
@@ -46,10 +52,8 @@ When replicating VMware virtual machines:
 
 7. Select the Azure network and subnet to which Azure VMs will connect when they're spun up after failover. The network must be in the same region as the Recovery Services vault. Select **Configure now for selected machines** to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. If you don't have a network, you need to create one. To create a network by using Resource Manager, click **Create new**. Select a subnet if applicable, and then click **OK**.
 
->[!NOTE]
->Azure Site Recovery now replicates directly to Managed Disks for all new replications. Existing replications will not be impacted. Replication to storage accounts for a new machine is only available via REST API and Powershell. 
-
-    ![Enable replication target setting](./media/vmware-azure-enable-replication/enable-rep3.png)
+   
+   ![Enable replication target setting](./media/vmware-azure-enable-replication/enable-rep3.png)
 8. In **Virtual Machines** > **Select virtual machines**, select each machine you want to replicate. You can only select machines for which replication can be enabled. Then click **OK**. If you are not able to view/select any particular virtual machine, click [here](https://aka.ms/doc-plugin-VM-not-showing) to resolve the issue.
 
     ![Enable replication select virtual machines](./media/vmware-azure-enable-replication/enable-replication5.png)

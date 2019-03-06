@@ -284,7 +284,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
     - ensure you correctly entered  the username, password, client ID, and client secret  for each of the connections.  
     - check if you have sufficient privileges in the corresponding ITSM product to make the connection.  
  - For Service Manager connections,  
-    - ensure that the Web app is successfully deployed and hybrid connection is created. To verify the connection is successfully established with the on-prem Service Manager machine, visit the  Web app URL as detailed in the documentation for making the [hybrid connection](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
+    - ensure that the Web app is successfully deployed and hybrid connection is created. To verify the connection is successfully established with the on premises Service Manager machine, visit the  Web app URL as detailed in the documentation for making the [hybrid connection](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.	If data from ServiceNow is not getting synced to Log Analytics, ensure that the ServiceNow instance is not sleeping. ServiceNow Dev Instances sometimes go to sleep when idle for a long period. Else, report the issue.
 3.	If Log Analytics alerts fire but work items are not created in ITSM product or configuration items are not created/linked to work items or for any other generic information, look in the following places:
