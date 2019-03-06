@@ -135,16 +135,16 @@ The preceding code produces this output:
 
 ## Configure data for automated machine learning training
 
-[`AutoMLConfig`](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#automlconfig) utilizes your newly written data to configure parameters for automated machine learning training. 
+Pass your newly written data file into an [`AutoMLConfig`](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#automlconfig) object in preparation for automated machine learning training. 
 
-The following code example illustrates how to perform intermediate data preparation prior to passing data into `AutoMLConfig`.
+The following code example illustrates how to convert your dataflow to a dataframe using pandas and subsequently, split it into training and tests datasets for automated training and machine learning  experiments.
 
 ```Python
 from azureml.train.automl import AutoMLConfig
 from sklearn.model_selection import train_test_split
 
 X_dflow = written_files.keep_columns(['pickup_weekday','pickup_hour', 'distance','passengers', 'vendor'])
-Y_dflow =written_files.keep_columns('cost')
+Y_dflow = written_files.keep_columns('cost')
 
 X_df = X_dflow.to_pandas_dataframe()
 Y_df = Y_dflow.to_pandas_dataframe()
@@ -165,7 +165,7 @@ automated_ml_config = AutoMLConfig(task = 'regression',
 
 ```
 
-If you do not require any intermediate data preparation steps like in the preceding example, you can pass your dataflow directly into `AutoMLConfig()`.
+If you do not require any intermediate data preparation steps like in the preceding example, you can pass your dataflow directly into `AutoMLConfig`.
 
 ```Python
 automated_ml_config = AutoMLConfig(task = 'regression', 
