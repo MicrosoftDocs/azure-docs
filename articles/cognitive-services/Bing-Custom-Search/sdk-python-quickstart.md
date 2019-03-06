@@ -60,7 +60,7 @@ from msrest.authentication import CognitiveServicesCredentials
     web_data = client.custom_instance.search(query="xbox", custom_config="your-configuration-id")
     ```
 
-## View the search results.
+## View the search results
 
 If any web page search results were found, get the first one and print its name, URL, and total web pages found.
 
