@@ -98,7 +98,7 @@ docker push myregistry.azurecr.io/hello-world:v1
 
 ```JSON
 {
-  "id": "6356e9e0-627f-4fed-ae51-d9059b5143ac",
+  "id": "6356e9e0-627f-4fed-xxxx-d9059b5143ac",
   "timestamp": "2019-03-05T23:45:31.2614267Z",
   "action": "chart_push",
   "target": {
@@ -109,6 +109,12 @@ docker push myregistry.azurecr.io/hello-world:v1
     "tag": "wordpress-5.4.0.tgz"
   }
 }
+```
+
+Example [Azure CLI](/cli/azure/acr) command that triggers the **chart_push** event webhook:
+
+```azurecli
+az acr helm push wordpress-5.4.0.tgz --name MyRegistry
 ```
 
 ## Delete event
@@ -146,16 +152,16 @@ Webhook triggered when an image, Helm chart, or repository or manifest is delete
 
 ```JSON
 {
-    "id": "afc359ce-df7f-4e32-bdde-1ff8aa80927b",
+    "id": "afc359ce-df7f-4e32-xxxx-1ff8aa80927b",
     "timestamp": "2017-11-17T16:54:53.657764628Z",
     "action": "delete",
     "target": {
       "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
-      "digest": "sha256:80f0d5c8786bb9e621a45ece0db56d11cdc624ad20da9fe62e9d25490f331d7d",
+      "digest": "sha256:xxxxd5c8786bb9e621a45ece0dbxxxx1cdc624ad20da9fe62e9d25490f33xxxx",
       "repository": "hello-world"
     },
     "request": {
-      "id": "3d78b540-ab61-4f75-807f-7ca9ecf559b3",
+      "id": "3d78b540-ab61-4f75-xxxx-7ca9ecf559b3",
       "host": "myregistry.azurecr.io",
       "method": "DELETE",
       "useragent": "python-requests/2.18.4"
@@ -171,6 +177,29 @@ az acr repository delete --name MyRegistry --repository MyRepository
 
 # Delete image
 az acr repository delete --name MyRegistry --image MyRepository:MyTag
+```
+
+### Payload example: Helm chart delete event
+
+```JSON
+{
+  "id": "338a3ef7-ad68-4128-xxxx-fdd3af8e8f67",
+  "timestamp": "2019-03-06T00:10:48.1270754Z",
+  "action": "chart_delete",
+  "target": {
+    "mediaType": "application/vnd.acr.helm.chart",
+    "size": 25265,
+    "digest": "sha256:xxxx8075264b5ba7c14c23672xxxx52ae6a3ebac1c47916e4efe19cd624dxxxx",
+    "repository": "repo",
+    "tag": "wordpress-5.4.0.tgz"
+  }
+}
+```
+
+Example [Azure CLI](/cli/azure/acr) command that triggers the **chart_delete** event webhook:
+
+```azurecli
+az acr helm delete wordpress --version 5.4.0 --name MyRegistry
 ```
 
 ## Next steps
