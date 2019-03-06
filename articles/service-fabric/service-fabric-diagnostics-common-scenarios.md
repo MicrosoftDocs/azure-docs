@@ -70,7 +70,7 @@ The solutions in this article will use the following tools. We recommend you hav
 
     ```kusto
     ServiceFabricOperationalEvent
-    | where EventID >= 25622 or EventID <= 25626
+    | where EventID >= 25622 and EventID <= 25626
     ```
 
 5. Click "New Alert Rule" at the top and now anytime an event arrives based on this query, you will receive an alert in your chosen method of communication.
