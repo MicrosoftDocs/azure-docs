@@ -55,7 +55,9 @@ kubectl -n openfaas create secret generic basic-auth \
 --from-literal=basic-auth-password="$PASSWORD"
 ```
 
-This password will prevent authorized access to your OpenFaaS gateway which will be exposed to the public Internet via a cloud LoadBalancer.
+You can get the value of the secret with `echo $PASSWORD`.
+
+The password we create here will be used by the helm chart to enable basic authentication on the OpenFaaS Gateway which is exposed to the Internet through a cloud LoadBalancer.
 
 A Helm chart for OpenFaaS is included in the cloned repository. Use this chart to deploy OpenFaaS into your AKS cluster.
 
