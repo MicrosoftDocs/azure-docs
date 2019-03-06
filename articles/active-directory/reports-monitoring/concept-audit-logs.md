@@ -145,6 +145,10 @@ Possible values are:
 
 When you select a custom timeframe, you can configure a start time and an end time.
 
+You can also choose to download the filtered data, upto 250,000 records, by selecting the **Download** button. You may choose to download the logs in either CSV or JSON format. The number of records you can download is constrained by the [Azure Active Directory report retention policies](reference-reports-data-retention.md).
+
+![Audit logs](./media/concept-audit-logs/download.png "Audit logs")
+
 ## Audit logs shortcuts
 
 In addition to **Azure Active Directory**, the Azure portal provides you with two additional entry points to audit data:
