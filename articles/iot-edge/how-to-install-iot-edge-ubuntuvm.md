@@ -56,7 +56,7 @@ From the Azure portal, search for “Azure IoT Edge” and select **Ubuntu Serve
     1.	List your subscriptions:
     
        ```azurecli-interactive
-       azure account list --output table
+       az account list --output table
        ```
     
     1.	Copy the SubscriptionID field for the subscription you’d like to use
