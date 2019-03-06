@@ -16,6 +16,26 @@ This article provides information on troubleshooting issues with Desired State C
 
 ## Common errors when working with Desired State Configuration (DSC)
 
+### <a name="unsupported-characters"></a>Scenario: A configuration with special characters cannot be deleted from the portal
+
+#### Issue
+
+When attempting to delete a DSC configuration from the portal, you see the following error:
+
+```
+An error occured while deleteing the DSC configuration '<name>'.  Error-details: The arguement configurationName with the value <name> is not valid.  Valid configuration names can contain only letters,  numbers, and underscores.  The name must start with a letter.  The length of the name must be between 1 and 64 characters.
+```
+
+#### Cause
+
+This is a temporary issue that is planned to be resolved.
+
+#### Resolution
+
+* Use the Az Cmdlet "Remove-AzAutomationDscConfiguration" to delete the configuration.
+* The documentation for this cmdlet has not been updated yet.  Until then, please refer to the documentation for the AzureRM module.
+  * [Remove-AzureRmAutomationDSCConfiguration](https://docs.microsoft.com/en-us/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration?view=azurermps-6.13.0)
+
 ### <a name="failed-not-found"></a>Scenario: Node is in failed status with a "Not found" error
 
 #### Issue

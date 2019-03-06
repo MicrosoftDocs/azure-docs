@@ -16,7 +16,7 @@ ms.custom: seodec2018
 
 In a two-part tutorial series, you learn how to search semi-structured and unstructured data using Azure search. [Part 1](../storage/blobs/storage-unstructured-search.md) walked you through search over unstructured data, but also included important prerequisites for this tutorial, like creating the storage account. 
 
-In Part 2, focus shifts to semi-structured data, such as JSON, stored in Azure blobs. Semi-structured data contains tags or markings which separate content within the data. It splits the difference between unstructured data which must be indexed wholistically, and formally structured data that adheres to a data model, such as a relational database schema, that can be crawled on a per-field basis.
+In Part 2, focus shifts to semi-structured data, such as JSON, stored in Azure blobs. Semi-structured data contains tags or markings which separate content within the data. It splits the difference between unstructured data which must be fully indexed, and formally structured data that adheres to a data model, such as a relational database schema, that can be crawled on a per-field basis.
 
 In Part 2, learn how to:
 

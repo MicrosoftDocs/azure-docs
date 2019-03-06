@@ -35,7 +35,7 @@ Sometimes, due to transient issues, networking problems, or a bug, adding an app
 
 If you encounter an error when clicking the **Add** button, you’ll see a **Notification** in an **Error** state. If you want more details about the error to learn more to or share with a support engineer, you can see more information about the error by following the steps in the [How to see the details of a portal notification](#how-to-see-the-details-of-a-portal-notification) section.
 
- ## I don’t know how to set up my application once I’ve added it
+## I don’t know how to set up my application once I’ve added it
 
 If you need help learning about applications, the [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) article is a good place to start.
 

@@ -6,10 +6,10 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/07/2018
+ms.date: 03/05/2019
 
 ms.custom: seodec18
---- 
+---
 
 # Azure Disk Encryption for IaaS VMs
 
@@ -68,7 +68,7 @@ The solution supports the following scenarios for IaaS VMs when they're enabled 
    > [!NOTE]
    > OS drive encryption for some Linux distributions isn't supported. For more information, see the [Azure Disk Encryption FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) article.
    
-* Enable encryption on Windows VMs that are configured with Windows Storage Spaces.
+* Enable encryption on VMs that are configured with Windows Storage Spaces beginning in Windows Server 2016.
 * Update encryption settings for an existing encrypted Premium and non-Premium Storage VM.
 * Back up and restore of encrypted VMs for both key encryption key (KEK) and non-KEK scenarios.
 * All Azure Public and Azure Government regions are supported.

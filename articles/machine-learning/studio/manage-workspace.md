@@ -5,7 +5,7 @@ description: Manage access to Azure Machine Learning Studio workspaces, and depl
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs
