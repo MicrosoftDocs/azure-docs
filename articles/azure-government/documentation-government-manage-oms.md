@@ -22,10 +22,10 @@ ms.author: saweld
 ## Cybersecurity in the cloud
 A crucial concern for our customers who are moving to the cloud is retaining asset management and security of the Azure Government services that they've deployed to the cloud. Virtual machine firewalls need to be configured correctly. Virtual networks need to have the right network security groups applied to them. Access to your assets needs to be locked down at the right time. All these necessary work streams need to be planned, designed, and provisioned to enable a secure infrastructure for your agency to use.
 
-Setting up this kind of environment can be challenging. Onboarding your fleet of servers to any monitoring service is a hard operation to scale, and it can also be challenging to update the monitoring service. Monitoring infrastructure on different cloud providers as well as across the cloud and on-premises is difficult. Finally, keeping your monitoring up-to-date and enabling Azure Application Insights to monitor, detect, alert, and counter cybersecurity threats require time, resources, and computing power.
+Setting up this kind of environment can be challenging. Onboarding your fleet of servers to any monitoring service is a hard operation to scale, and it can also be challenging to update the monitoring service. Monitoring infrastructure on different cloud providers, and across the cloud and on-premises is difficult. Finally, keeping your monitoring up-to-date and enabling Azure Application Insights to monitor, detect, alert, and counter cybersecurity threats require time, resources, and computing power.
 
 ## Azure Monitor logs
-Azure Monitor logs, now available in Azure Government, uses hyperscale log search to quickly analyze your data and expose threats in your environment. This article focuses on using Azure Monitor logs which uses hyperscale log search to quickly analyze your data and expose threats in your environment.
+Azure Monitor logs, now available in Azure Government, uses hyperscale log search to quickly analyze your data and expose threats in your environment. This article focuses on using Azure Monitor logs that uses hyperscale log search to quickly analyze your data and expose threats in your environment.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -37,7 +37,7 @@ Azure Monitor logs can:
 Let's explore how we can get Azure Monitor logs integrated into your fleet and look at some of the out-of-box solutions that address the concerns that we've described here.
 
 ## Onboarding servers to Azure Monitor logs
-The first step in integrating your cloud assets with Azure Monitor logs is installing the Log Analytics agent across log sources. For virtual machines, this is very simple because you can manually download the agent from the Azure Monitor logs portal.
+The first step in integrating your cloud assets with Azure Monitor logs is installing the Log Analytics agent across log sources. For virtual machines, this is simple because you can manually download the agent from the Azure Monitor logs portal.
 
 ![Figure 1: Windows servers connected to Azure Monitor logs](./media/documentation-government-oms-figure1.png)
 <p align="center">Figure 1: Windows servers connected to Azure Monitor logs</p>
@@ -109,6 +109,6 @@ You can also set up alerts to Azure Monitor logs solutions like threat intellige
 
 This is just one example of an out-of-box Azure Monitor logs solution that can be applied to your fleet, whether it’s running on Azure, another cloud service provider, or on-premises.
 
-Azure Monitor logs continues to update its machine learning to fight the latest threats automatically for you, and we continue to roll out new solutions to the Azure marketplace as well.
+Azure Monitor continues to update its machine learning to fight the latest threats automatically for you, and we continue to roll out new solutions to the Azure marketplace as well.
 
 For more information about Azure Monitor logs, see [our documentation page](https://azure.microsoft.com/documentation/articles/documentation-government-overview/).
