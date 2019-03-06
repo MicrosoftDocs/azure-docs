@@ -519,7 +519,7 @@ If you couldn't enable automatic updates, see the following common errors and re
 
    ![Site Recovery service repair button in extension update settings](./media/azure-to-azure-autoupdate/repair.png)
 
- - **Error**: The Run As account does not have the permission to access the recovery services resource.
+- **Error**: The Run As account does not have the permission to access the recovery services resource.
 
     **Recommended action**: Delete and then [re-create the Run As account](https://docs.microsoft.com/azure/automation/automation-create-runas-account). Or, make sure that the Automation Run As account's Azure Active Directory application has access to the recovery services resource.
 
