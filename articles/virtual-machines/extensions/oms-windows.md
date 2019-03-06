@@ -22,7 +22,7 @@ ms.author: roiyz
 
 Azure Monitor logs provides monitoring capabilities across cloud and on-premises assets. The Log Analytics agent virtual machine extension for Windows is published and supported by Microsoft. The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace. This document details the supported platforms, configurations, and deployment options for the Azure Monitor virtual machine extension for Windows.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Prerequisites
 

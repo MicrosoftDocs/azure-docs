@@ -27,7 +27,7 @@ Azure Monitor logs provides monitoring, alerting, and alert remediation capabili
 >[!NOTE]
 >As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, the OMS Agent for Windows or Linux will be referred to as the Log Analytics agent for Windows and Log Analytics agent for Linux.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Prerequisites
 
