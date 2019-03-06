@@ -64,23 +64,16 @@ The backend pool is used to route requests to the backend servers which will be 
    - *azureuser* - for the administrator user name.
    - *Azure123456!* for the password.
    - Select **Use existing**, and then select *myResourceGroupAG*.
-
 4. Click **OK**.
-
 5. Select **DS1_V2** for the size of the virtual machine and click **Select**.
-
 6. Make sure that **myVNet** is selected for the virtual network and the subnet is **myBackendSubnet**.
-
 7. Click **Disabled** to disable boot diagnostics.
-
 8. Click **OK**, review the settings on the summary page, and then click **Create**.
 
 ### Install IIS
 
 1. Open the interactive shell and make sure that it is set to **PowerShell**.
-
    ​	![private-frontendip-3](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-3.png)
-
 2. Run the following command to install IIS on the virtual machine:
 
    ```azurepowershell
@@ -98,8 +91,7 @@ The backend pool is used to route requests to the backend servers which will be 
    
      -TypeHandlerVersion 1.4 `
    
-     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' -Location EastUS
-   ```
+     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' -Location EastUS  ```
 
 
 
@@ -108,21 +100,15 @@ The backend pool is used to route requests to the backend servers which will be 
 ### Add backend servers to backend pool
 
 1. Click **All resources**, and then click **myAppGateway**.
-
 2. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGatewayBackendPool**.
-
 3. Click **Add target** to add each virtual machine that you created to the backend pool.
-
    ![private-frontendip-4](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-4.png)
-
 4. Click **Save.**
 
 ## Test the application gateway
 
 1. Check your frontend IP that got assigned by clicking the **Frontend IP Configurations** blade in the portal.
-
    ​	![private-frontendip-5](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-5.png)
-
 2. Copy the private IP address, and then paste it into the address bar of your browser of a VM in the same VNet or on-premises which has connectivity to this VNet and try to access the Application Gateway.
 
 ## Next steps
