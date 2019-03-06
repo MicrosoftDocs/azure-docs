@@ -170,6 +170,7 @@ To add a new replica to the availability group, do the following:
     --name <AG Listener name> --resource-group <RG group name> `
     --sqlvm-rid <SQL VM resource ID>
     ```
+
 ### Removing a replica
 To remove a replica from the availability group, do the following:
 
