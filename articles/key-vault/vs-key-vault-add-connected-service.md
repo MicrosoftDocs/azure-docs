@@ -1,5 +1,5 @@
 ---
-title: Add Key Vault support to your ASP.NET project using Visual Studio | Microsoft Docs
+title: Add Key Vault support to your ASP.NET project using Visual Studio - Azure Key Vault | Microsoft Docs
 description: Use this tutorial to help you learn how to add Key Vault support to an ASP.NET or ASP.NET Core web application.
 services: key-vault
 author: ghogen
@@ -9,7 +9,7 @@ ms.technology: vs-azure
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
-ms.date: 04/15/2018
+ms.date: 01/02/2019
 ms.author: ghogen
 ---
 # Add Key Vault to your web application by using Visual Studio Connected Services
@@ -43,7 +43,7 @@ For details on the changes that Connected Services makes in your project to enab
 
    ![Rename the Key Vault and choose a resource group](media/vs-key-vault-add-connected-service/KeyVaultConnectedService-Edit.PNG)
 
-1. Select an existing Resource Group, or choose to create a new one with an automatically generated unqiue name.  If you want to create a new group with a different name, you can use the [Azure Portal](https://portal.azure.com), and then close the page and restart to reload the list of resource groups.
+1. Select an existing Resource Group, or choose to create a new one with an automatically generated unique name.  If you want to create a new group with a different name, you can use the [Azure Portal](https://portal.azure.com), and then close the page and restart to reload the list of resource groups.
 1. Choose the region in which to create the Key Vault. If your web application is hosted in Azure, choose the region that hosts the web application for optimum performance.
 1. Choose a pricing model. For details, see [Key Vault Pricing](https://azure.microsoft.com/pricing/details/key-vault/).
 1. Choose OK to accept the configuration choices.

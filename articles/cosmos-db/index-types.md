@@ -2,7 +2,6 @@
 title: Index types in Azure Cosmos DB
 description: Overview of index types in Azure Cosmos DB
 author: rimman
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/5/2018
@@ -26,6 +25,9 @@ Azure Cosmos DB supports Hash index and Range index for every path that can be c
 
 - **Hash index** supports efficient equality and JOIN queries. For most use cases, Hash indexes don't need a higher precision than the default value of 3 bytes. The data type can be String or Number.
 
+  > [!NOTE]
+  > Azure Cosmos containers support a new index layout that no longer uses the Hash index kind. If you specify a Hash index kind on the indexing policy, the CRUD requests on the container will silently ignore the index kind and the response from the container only contains the Range index kind. All new Cosmos containers use the new index layout by default. 
+  
 - **Range index** supports efficient equality queries, range queries (using >, <, >=, <=, !=), and ORDER BY queries. ORDER By queries by default also require maximum index precision (-1). The data type can be String or Number.
 
 - **Spatial index** supports efficient spatial (within and distance) queries. The data type can be Point, Polygon, or LineString. Azure Cosmos DB also supports the spatial index kind for every path that can be specified for the Point, Polygon, or LineString data types. The value at the specified path must be a valid GeoJSON fragment like {"type": "Point", "coordinates": [0.0, 10.0]}. Azure Cosmos DB supports automatic indexing of Point, Polygon, and LineString data types.
@@ -36,7 +38,7 @@ Here are examples of queries that Hash, Range, and Spatial indexes can be used t
 | ---------- | ---------------- |
 | Hash  | Hash over /prop/? (or /) can be used to serve the following queries efficiently:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Hash over /props/[]/? (or / or /props/) can be used to serve the following queries efficiently:<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5  |
 | Range  | Range over /prop/? (or /) can be used to serve the following queries efficiently:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop   |
-| Spatial     | Range over /prop/? (or /) can be used to serve the following queries efficiently:<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --with indexing on points enabled<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --with indexing on polygons enabled.     |
+| Spatial     | Range over /prop/? (or /) can be used to serve the following queries efficiently:<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Point", ... }) --with indexing on points enabled<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Polygon", ... }, c.prop) --with indexing on polygons enabled.     |
 
 ## Default behavior of index kinds
 
@@ -47,6 +49,9 @@ Here are examples of queries that Hash, Range, and Spatial indexes can be used t
 - By default, an error is returned for spatial queries if there isn't a spatial index, or other filters that can be served from the index. Such queries can be performed as a scan by using x-ms-documentdb-enable-scan or EnableScanInQuery.
 
 ## Index precision
+
+> [!NOTE]
+> Azure Cosmos containers support a new index layout that no longer requires a custom index precision other than the maximum precision value(-1). With this method, paths are always indexed with the maximum precision. If you specify a precision value on the indexing policy, the CRUD requests on a containers will silently ignore the precision value and the response from the container only contains the maximum precision value(-1).  All new Cosmos containers use the new index layout by default.
 
 - You can use index precision to make a trade-off between index storage overhead and query performance. For numbers, we recommend using the default precision configuration of -1 (maximum). Because numbers are 8 bytes in JSON, this is equivalent to a configuration of 8 bytes. Choosing a lower value for precision, such as 1 through 7, means that values within some ranges map to the same index entry. Therefore, you can reduce index storage space, but query execution might have to process more items. Consequently, it consumes more throughput/RUs.
 

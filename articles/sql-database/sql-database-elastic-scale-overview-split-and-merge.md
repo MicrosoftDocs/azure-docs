@@ -3,7 +3,7 @@ title: Moving data between scaled-out cloud databases | Microsoft Docs
 description: Explains how to manipulate shards and move data via a self-hosted service using elastic database APIs.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -11,7 +11,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer:
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 12/04/2018
 ---
 # Moving data between scaled-out cloud databases
 
@@ -210,12 +210,14 @@ The split-merge service uses Azure Diagnostics based on Azure SDK 2.5 for monito
 
 ## Deploy Diagnostics
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To enable monitoring and diagnostics using the diagnostic configuration for the web and worker roles provided by the NuGet package, run the following commands using Azure PowerShell:
 
 ```powershell
     $storage_name = "<YourAzureStorageAccount>"
     $key = "<YourAzureStorageAccountKey"
-    $storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key  
+    $storageContext = New-AzStorageContext -StorageAccountName $storage_name -StorageAccountKey $key  
     $config_path = "<YourFilePath>\SplitMergeWebContent.diagnostics.xml"
     $service_name = "<YourCloudServiceName>"
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWeb"

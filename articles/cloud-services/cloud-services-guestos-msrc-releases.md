@@ -12,17 +12,159 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/15/2018
+ms.date: 2/20/2019
 ms.author: raiye
 
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
 
-## November 2018 Guest OS
+## February 2019 Guest OS
 
 >[!NOTE]
->The November Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the November Guest OS. This list is subject to change.
+>The February Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the February Guest OS. This list is subject to change.
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 19-02 | [4486474] | Internet Explorer | 2.83, 3.70, 4.63 | February 12, 2019 |
+| Rel 19-02 | [4487038] | Flash | 3.70, 4.63, 5.28, 6.4 | February 12, 2019 |
+| Rel 19-02 | [4486564] | Windows Security | 2.83 | February 12, 2019 |
+| Rel 19-02 | [4483483] | .NET 3.5.1 Security | 2.83 | February 12, 2019 |
+| Rel 19-02 | [4483474] | .NET 4.5.2 Security | 2.83 | February 12, 2019 |
+| Rel 19-02 | [4486993] | Windows Security | 3.70 | February 12, 2019 |
+| Rel 19-02 | [4483481] | .NET 3.5 Security | 3.70 | February 12, 2019 |
+| Rel 19-02 | [4483473] | .NET 4.5.2 Security | 3.70 | February 12, 2019 |
+| Rel 19-02 | [4487028] | Windows Security | 4.63 | February 12, 2019 |
+| Rel 19-02 | [4483484] | .NET 3.5 Security | 4.63 | February 12, 2019 |
+| Rel 19-02 | [4483472] | .NET 4.5.2 Security | 4.63 | February 12, 2019 |
+| Rel 19-02 | [4487026] | Windows Security | 5.28 | February 12, 2019 |
+| Rel 19-02 | [4487044] | Windows Security | 6.4 | February 12, 2019 |
+| Rel 19-02 | [4483452] | .NET 3.5, 4.7.2 Security | 6.4 | February 12, 2019 |
+| N/A | [4480970] | January Non-Security rollup | 2.83 | January 8, 2019 |
+| N/A | [4483483] | January Non-Security rollup .NET 3.5.1  | 2.83 | January 8, 2019 |
+| N/A | [4480059] | January Non-Security rollup .NET 4.5.2  | 2.83 | January 8, 2019 |
+| N/A | [4480975] | January Non-Security rollup | 3.70 | January 8, 2019 |
+| N/A | [4480061] | January Non-Security rollup .NET 3.5 | 3.70 | January 8, 2019 |
+| N/A | [4480058] | January Non-Security rollup .NET 4.5.2 | 3.70 | January 8, 2019 |
+| N/A | [4480963] | January Non-Security rollup | 4.63 | January 8, 2019 |
+| N/A | [4480064] | January Non-Security rollup .NET 3.5 | 4.63 | January 8, 2019 |
+| N/A | [4480057] | January Non-Security rollup .NET 4.5.2 | 4.63 | January 8, 2019 |
+
+[4486474]: http://support.microsoft.com/kb/4486474
+[4487038]: http://support.microsoft.com/kb/4487038
+[4486564]: http://support.microsoft.com/kb/4486564
+[4483483]: http://support.microsoft.com/kb/4483483
+[4483474]: http://support.microsoft.com/kb/4483474
+[4486993]: http://support.microsoft.com/kb/4486993
+[4483481]: http://support.microsoft.com/kb/4483481
+[4483473]: http://support.microsoft.com/kb/4483473
+[4487028]: http://support.microsoft.com/kb/4487028
+[4483484]: http://support.microsoft.com/kb/4483484
+[4483472]: http://support.microsoft.com/kb/4483472
+[4487026]: http://support.microsoft.com/kb/4487026
+[4487044]: http://support.microsoft.com/kb/4487044
+[4483452]: http://support.microsoft.com/kb/4483452
+[4480970]: http://support.microsoft.com/kb/4480970
+[4483483]: http://support.microsoft.com/kb/4483483
+[4480059]: http://support.microsoft.com/kb/4480059
+[4480975]: http://support.microsoft.com/kb/4480975
+[4480061]: http://support.microsoft.com/kb/4480061
+[4480058]: http://support.microsoft.com/kb/4480058
+[4480963]: http://support.microsoft.com/kb/4480963
+[4480064]: http://support.microsoft.com/kb/4480064
+[4480057]: http://support.microsoft.com/kb/4480057
+
+## January 2019 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 19-01 | [4480116] | Windows 10 Security | 6.3 | January 8, 2019 |
+| Rel 19-01 | [4480961] | Windows 10 Security | 5.27 | January 8, 2019 |
+| Rel 19-01 | [4480964] | Windows Security | 4.62 | January 8, 2019 |
+| Rel 19-01 | [4480972] | Windows Security | 3.69 | January 8, 2019 |
+| Rel 19-01 | [4480960] | Windows Security | 2.82 | January 8, 2019 |
+| Rel 19-01 | [4480056] | .Net Security | 6.3 | January 8, 2019 |
+| Rel 19-01 | [4480074] | .Net 4.x Security | 4.62 | January 8, 2019 |
+| Rel 19-01 | [4480075] | .Net 4.x Security | 3.69 | January 8, 2019 |
+| Rel 19-01 | [4480076] | .Net 4.x Security | 2.82 | January 8, 2019 |
+| Rel 19-01 | [4480086] | .Net 3.x Security | 4.62 | January 8, 2019 |
+| Rel 19-01 | [4480083] | .Net 3.x Security | 3.69 | January 8, 2019 |
+| Rel 19-01 | [4480085] | .Net 3.x Security | 2.82 | January 8, 2019 |
+| Rel 19-01 | [4480979] | Flash | 3.69, 4.62, 5.27, 6.3 | January 8, 2019 |
+| Rel 19-01 | [4480965] | Internet Explorer | 2.82, 3.69, 4.62 | January 8, 2019 |
+| N/A | [4471318] | December Non-Security rollup | 2.82 | December 11, 2018 |
+| N/A | [4470641] | December Non-Security Rollup .NET 3.x | 2.82 | December 11, 2018 |
+| N/A | [4470637] | December Non-Security Rollup .NET 4.x | 2.82 | December 11, 2018 |
+| N/A | [4471330] | December Non-Security rollup | 3.69 | December 11, 2018 |
+| N/A | [4470629] | December Non-Security Rollup .NET 3.x | 3.69 | December 11, 2018 |
+| N/A | [4470623] | December Non-Security Rollup .NET 4.x | 3.69 | December 11, 2018 |
+| N/A | [4471320] | December Non-Security rollup | 4.62 | December 11, 2018 |
+| N/A | [4470630] | December Non-Security Rollup .NET 3.x | 4.62 | December 11, 2018 |
+| N/A | [4470622] | December Non-Security Rollup .NET 4.x | 4.62 | December 11, 2018 |
+
+[4480116]: http://support.microsoft.com/kb/4480116
+[4480961]: http://support.microsoft.com/kb/4480961
+[4480964]: http://support.microsoft.com/kb/4480964
+[4480972]: http://support.microsoft.com/kb/4480972
+[4480960]: http://support.microsoft.com/kb/4480960
+[4480056]: http://support.microsoft.com/kb/4480056
+[4480074]: http://support.microsoft.com/kb/4480074
+[4480075]: http://support.microsoft.com/kb/4480075
+[4480076]: http://support.microsoft.com/kb/4480076
+[4480086]: http://support.microsoft.com/kb/4480086
+[4480083]: http://support.microsoft.com/kb/4480083
+[4480085]: http://support.microsoft.com/kb/4480085
+[4480979]: http://support.microsoft.com/kb/4480979
+[4480965]: http://support.microsoft.com/kb/4480965
+[4471318]: http://support.microsoft.com/kb/4471318
+[4470641]: http://support.microsoft.com/kb/4470641
+[4470637]: http://support.microsoft.com/kb/4470637
+[4471330]: http://support.microsoft.com/kb/4471330
+[4470629]: http://support.microsoft.com/kb/4470629
+[4470623]: http://support.microsoft.com/kb/4470623
+[4471320]: http://support.microsoft.com/kb/4471320
+[4470630]: http://support.microsoft.com/kb/4470630
+[4470622]: http://support.microsoft.com/kb/4470622
+
+## December 2018 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-12 | [4471321] | Windows 10 Security | 5.26 | December 11, 2018 |
+| Rel 18-12 | [4471328] | Windows Security	 | 2.81 | December 11, 2018 |
+| Rel 18-12 | [4471326] | Windows Security	 | 3.68 | December 11, 2018 |
+| Rel 18-12 | [4471322] | Windows Security	 | 4.61 | December 11, 2018 |
+| Rel 18-12 | [4470600] | .Net 3.x Security	 | 2.81 | December 11, 2018 |
+| Rel 18-12 | [4470601] | .Net 3.x Security	 | 3.68 | December 11, 2018|
+| Rel 18-12 | [4470602] | .Net 3.x Security	 | 4.61 | December 11, 2018 |
+| Rel 18-12 | [4470493] | .Net 4.x Security	 | 2.81 | December 11, 2018 |
+| Rel 18-12 | [4470492] | .Net 4.x Security	 | 3.68 | December 11, 2018 |
+| Rel 18-12 | [4470491] | .Net 4.x Security	 | 4.61| December 11, 2018 |
+| Rel 18-12 | [4471331] | Flash	 | 3.68, 4.61, 5.26 | December 5, 2018  |
+| Rel 18-12 | [4470199] | Internet Explorer	 | 2.81, 3.68, 4.61 | December 11, 2018 |
+| N/A | [4468323] | Timezone update	   | 2.81, 3.68, 4.61 | December 13, 2018 |
+| N/A | [4467107] | November Non-Security rollup   | 2.81 | November 13, 2018 |
+| N/A | [4467701] | November Non-Security rollup 	 | 3.68 | November 13, 2018 |
+| N/A | [4467697] | November Non-Security rollup 	 | 4.61 | November 13, 2018 |
+
+[4471321]: http://support.microsoft.com/kb/4471321
+[4471328]: http://support.microsoft.com/kb/4471328
+[4471326]: http://support.microsoft.com/kb/4471326
+[4471322]: http://support.microsoft.com/kb/4471322
+[4470600]: http://support.microsoft.com/kb/4470600
+[4470601]: http://support.microsoft.com/kb/4470601
+[4470602]: http://support.microsoft.com/kb/4470602
+[4470493]: http://support.microsoft.com/kb/4470493
+[4470492]: http://support.microsoft.com/kb/4470492
+[4470491]: http://support.microsoft.com/kb/4470491
+[4471331]: http://support.microsoft.com/kb/4471331
+[4470199]: http://support.microsoft.com/kb/4470199
+[4468323]: http://support.microsoft.com/kb/4468323
+[4467107]: http://support.microsoft.com/kb/4467107
+[4467701]: http://support.microsoft.com/kb/4467701
+[4467697]: http://support.microsoft.com/kb/4467697
+
+## November 2018 Guest OS
 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
@@ -571,7 +713,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS16-060 |[3154846] |Security Update for Windows Kernel |4.32, 3.39, 2.51 |May 10, 2016 |
 | MS16-061 |[3155520] |Security Update to RPC |4.32, 3.39, 2.51 |May 10, 2016 |
 | MS16-062 |[3158222] |Security Update for Kernel Mode Drivers |4.32, 3.39, 2.51 |May 10, 2016 |
-| MS16-065 |[3156757] |Security Update for .Net Framework |4.32, 3.39, 2.51 |May 10, 2016 |
+| MS16-065 |[3156757] |Security Update for .NET Framework |4.32, 3.39, 2.51 |May 10, 2016 |
 | MS16-067 |[3155784] |Security Update for Volume Manager Driver |4.32, 3.39 |May 10, 2016 |
 | N/A |[3148851] |Time zone changes for Russia in Windows  |4.32, 3.39, 2.51 |May 10, 2016 |
 | N/A |[3133977] |BitLocker can't encrypt drives because of service crashes in svchost.exe process in Windows 7 or Windows Server 2008 R2  |2.51 |May 10, 2016 |
@@ -924,7 +1066,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4132216]: http://support.microsoft.com/kb/4132216
 
 [4103721]: http://support.microsoft.com/kb/4103721
-[4103727]: http://support.microsoft.com/kb/4103727 
+[4103727]: http://support.microsoft.com/kb/4103727
 [4103723]: http://support.microsoft.com/kb/4103723
 [4103712]: http://support.microsoft.com/kb/4103712
 [4103726]: http://support.microsoft.com/kb/4103726
@@ -947,7 +1089,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4093753]: http://support.microsoft.com/kb/4093753
 
 [4093119]: http://support.microsoft.com/kb/4093119
-[4093108]: http://support.microsoft.com/kb/4093108 
+[4093108]: http://support.microsoft.com/kb/4093108
 [4093122]: http://support.microsoft.com/kb/4093122
 [4093115]: http://support.microsoft.com/kb/4093115
 [4092946]: http://support.microsoft.com/kb/4092946
@@ -958,7 +1100,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4088876]: http://support.microsoft.com/kb/4088876
 
 [4088787]: http://support.microsoft.com/kb/4088787
-[4088776]: http://support.microsoft.com/kb/4088776 
+[4088776]: http://support.microsoft.com/kb/4088776
 [4088878]: http://support.microsoft.com/kb/4088878
 [4088880]: http://support.microsoft.com/kb/4088880
 [4088879]: http://support.microsoft.com/kb/4088879
@@ -970,7 +1112,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4074837]: http://support.microsoft.com/kb/4074837
 
 [4074590]: http://support.microsoft.com/kb/4074590
-[4074588]: http://support.microsoft.com/kb/4074588 
+[4074588]: http://support.microsoft.com/kb/4074588
 [4074587]: http://support.microsoft.com/kb/4074587
 [4074589]: http://support.microsoft.com/kb/4074589
 [4074597]: http://support.microsoft.com/kb/4074597
@@ -990,7 +1132,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4056898]: http://support.microsoft.com/kb/4056898
 [4056897]: http://support.microsoft.com/kb/4056897
 [4056899]: http://support.microsoft.com/kb/4056899
-[4056890]: http://support.microsoft.com/kb/4056890 
+[4056890]: http://support.microsoft.com/kb/4056890
 [4056892]: http://support.microsoft.com/kb/4056892
 [4054518]: http://support.microsoft.com/kb/4054518
 [4054520]: http://support.microsoft.com/kb/4054520
@@ -999,7 +1141,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 
 [4053579]: http://support.microsoft.com/kb/4053579
-[4054517]: http://support.microsoft.com/kb/4054517 
+[4054517]: http://support.microsoft.com/kb/4054517
 [4054521]: http://support.microsoft.com/kb/4054521
 [4054522]: http://support.microsoft.com/kb/4054522
 [4054523]: http://support.microsoft.com/kb/4054523
@@ -1012,7 +1154,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 
 [4048953]: http://support.microsoft.com/kb/4048953
-[4048960]: http://support.microsoft.com/kb/4048960 
+[4048960]: http://support.microsoft.com/kb/4048960
 [4048962]: http://support.microsoft.com/kb/4048962
 [4048961]: http://support.microsoft.com/kb/4048961
 [4047206]: http://support.microsoft.com/kb/4047206
@@ -1025,8 +1167,8 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3191564]: http://support.microsoft.com/kb/3191564
 
 
-[4041691]: http://support.microsoft.com/kb/4041691 
-[4041678]: http://support.microsoft.com/kb/4041678 
+[4041691]: http://support.microsoft.com/kb/4041691
+[4041678]: http://support.microsoft.com/kb/4041678
 [4041679]: http://support.microsoft.com/kb/4041679
 [4041687]: http://support.microsoft.com/kb/4041687
 [4040685]: http://support.microsoft.com/kb/4040685
@@ -1162,55 +1304,55 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4012216]: http://support.microsoft.com/kb/4012216
 
 
-[4013429]: http://support.microsoft.com/kb/4013429 
-[4012212]: http://support.microsoft.com/kb/4012212 
-[4012213]: http://support.microsoft.com/kb/4012213 
-[4012214]: http://support.microsoft.com/kb/4012214 
-[4012204]: http://support.microsoft.com/kb/4012204 
-[4012864]: http://support.microsoft.com/kb/4012864 
-[3212646]: http://support.microsoft.com/kb/3212646 
-[3205409]: http://support.microsoft.com/kb/3205409 
+[4013429]: http://support.microsoft.com/kb/4013429
+[4012212]: http://support.microsoft.com/kb/4012212
+[4012213]: http://support.microsoft.com/kb/4012213
+[4012214]: http://support.microsoft.com/kb/4012214
+[4012204]: http://support.microsoft.com/kb/4012204
+[4012864]: http://support.microsoft.com/kb/4012864
+[3212646]: http://support.microsoft.com/kb/3212646
+[3205409]: http://support.microsoft.com/kb/3205409
 [3205401]: http://support.microsoft.com/kb/3205401
 [3211320]: http://support.microsoft.com/kb/3211320
 
 
 [3216771]: https://technet.microsoft.com/library/security/MS17-004
 
-[3204059]: http://support.microsoft.com/kb/3204059 
-[3204062]: http://support.microsoft.com/kb/3204062 
-[3204066]: http://support.microsoft.com/kb/3204066 
-[3204063]: http://support.microsoft.com/kb/3204063 
-[3205655]: http://support.microsoft.com/kb/3205655 
-[3205642]: http://support.microsoft.com/kb/3205642 
-[3205651]: http://support.microsoft.com/kb/3205651 
-[3199709]: http://support.microsoft.com/kb/3199709 
-[3207328]: http://support.microsoft.com/kb/3207328 
-[3205640]: http://support.microsoft.com/kb/3205640 
-[3197868]: http://support.microsoft.com/kb/3197868 
-[3197877]: http://support.microsoft.com/kb/3197877 
-[3197874]: http://support.microsoft.com/kb/3197874 
+[3204059]: http://support.microsoft.com/kb/3204059
+[3204062]: http://support.microsoft.com/kb/3204062
+[3204066]: http://support.microsoft.com/kb/3204066
+[3204063]: http://support.microsoft.com/kb/3204063
+[3205655]: http://support.microsoft.com/kb/3205655
+[3205642]: http://support.microsoft.com/kb/3205642
+[3205651]: http://support.microsoft.com/kb/3205651
+[3199709]: http://support.microsoft.com/kb/3199709
+[3207328]: http://support.microsoft.com/kb/3207328
+[3205640]: http://support.microsoft.com/kb/3205640
+[3197868]: http://support.microsoft.com/kb/3197868
+[3197877]: http://support.microsoft.com/kb/3197877
+[3197874]: http://support.microsoft.com/kb/3197874
 
-[3199057]: http://support.microsoft.com/kb/3199057 
-[3199172]: http://support.microsoft.com/kb/3199172 
-[3199151]: http://support.microsoft.com/kb/3199151 
-[3193706]: http://support.microsoft.com/kb/3193706 
-[3199120]: http://support.microsoft.com/kb/3199120 
-[3199135]: http://support.microsoft.com/kb/3199135 
-[3199173]: http://support.microsoft.com/kb/3199173 
-[3199647]: http://support.microsoft.com/kb/3199647 
-[3199720]: http://support.microsoft.com/kb/3199720 
-[3193479]: http://support.microsoft.com/kb/3193479 
-[3198467]: http://support.microsoft.com/kb/3198467 
-[3192321]: http://support.microsoft.com/kb/3192321 
-[3185330]: http://support.microsoft.com/kb/3185330 
-[3192403]: http://support.microsoft.com/kb/3192403 
-[3177467]: http://support.microsoft.com/kb/3177467 
-[3185332]: http://support.microsoft.com/kb/3185332 
-[3192406]: http://support.microsoft.com/kb/3192406 
-[3185331]: http://support.microsoft.com/kb/3185331 
-[3192404]: http://support.microsoft.com/kb/3192404 
-[3199986]: http://support.microsoft.com/kb/3199986 
-[3197954]: http://support.microsoft.com/kb/3197954  
+[3199057]: http://support.microsoft.com/kb/3199057
+[3199172]: http://support.microsoft.com/kb/3199172
+[3199151]: http://support.microsoft.com/kb/3199151
+[3193706]: http://support.microsoft.com/kb/3193706
+[3199120]: http://support.microsoft.com/kb/3199120
+[3199135]: http://support.microsoft.com/kb/3199135
+[3199173]: http://support.microsoft.com/kb/3199173
+[3199647]: http://support.microsoft.com/kb/3199647
+[3199720]: http://support.microsoft.com/kb/3199720
+[3193479]: http://support.microsoft.com/kb/3193479
+[3198467]: http://support.microsoft.com/kb/3198467
+[3192321]: http://support.microsoft.com/kb/3192321
+[3185330]: http://support.microsoft.com/kb/3185330
+[3192403]: http://support.microsoft.com/kb/3192403
+[3177467]: http://support.microsoft.com/kb/3177467
+[3185332]: http://support.microsoft.com/kb/3185332
+[3192406]: http://support.microsoft.com/kb/3192406
+[3185331]: http://support.microsoft.com/kb/3185331
+[3192404]: http://support.microsoft.com/kb/3192404
+[3199986]: http://support.microsoft.com/kb/3199986
+[3197954]: http://support.microsoft.com/kb/3197954
 
 [3192887]: http://support.microsoft.com/kb/3192887
 [3192884]: http://support.microsoft.com/kb/3192884
@@ -1315,15 +1457,15 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3148528]: http://support.microsoft.com/kb/3148528
 
 
-[3142015]: http://support.microsoft.com/kb/3142015  
-[3143148]: http://support.microsoft.com/kb/3143148  
-[3143146]: http://support.microsoft.com/kb/3143146  
-[3143081]: http://support.microsoft.com/kb/3143081  
-[3143136]: http://support.microsoft.com/kb/3143136  
-[3140410]: http://support.microsoft.com/kb/3140410  
-[3143141]: http://support.microsoft.com/kb/3143141  
-[3143142]: http://support.microsoft.com/kb/3143142  
-[3143145]: http://support.microsoft.com/kb/3143145  
+[3142015]: http://support.microsoft.com/kb/3142015
+[3143148]: http://support.microsoft.com/kb/3143148
+[3143146]: http://support.microsoft.com/kb/3143146
+[3143081]: http://support.microsoft.com/kb/3143081
+[3143136]: http://support.microsoft.com/kb/3143136
+[3140410]: http://support.microsoft.com/kb/3140410
+[3143141]: http://support.microsoft.com/kb/3143141
+[3143142]: http://support.microsoft.com/kb/3143142
+[3143145]: http://support.microsoft.com/kb/3143145
 [3141780]: http://support.microsoft.com/kb/3141780
 
 [3134220]: http://support.microsoft.com/kb/3134220

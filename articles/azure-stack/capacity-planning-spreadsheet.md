@@ -1,5 +1,5 @@
 ---
-title: Capacity planning spreadheet for Azure Stack | Microsoft Docs
+title: Capacity planning spreadsheet for Azure Stack | Microsoft Docs
 description: Learn about the capacity planning spreadsheet for Azure Stack deployments.
 services: azure-stack
 documentationcenter: ''
@@ -13,16 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
+ms.lastreviewed: 12/11/2018
 ---
 
 # Azure Stack Capacity Planner
 The Azure Stack Capacity Planner is a spreadsheet used for Azure Stack resource capacity planning. The capacity planner provides you with the ability to design various allocations of computing resources and see how these would fit across a selection of hardware offerings. Detailed instructions for the use of the Azure Stack Calculator are provided below.
 
 ## Worksheet descriptions
-The following is a short summary of the worksheets contained in the Azure Stack Capacity Planner spreadsheet that can be downloaded from [http://aka.ms/azstackcapacityplanner](https://aka.ms/azstackcapacityplanner):
+The following is a short summary of the worksheets contained in the Azure Stack Capacity Planner spreadsheet that can be downloaded from [https://aka.ms/azstackcapacityplanner](https://aka.ms/azstackcapacityplanner):
 
 |Tab Name|Description|
 |-----|-----|
@@ -57,7 +58,7 @@ To create a model using a single collection of various sizes and quantities of V
 3. You are now ready to begin adding various sized VMs to your model. To include a particular VM type, enter a quantity value into the blue outlined box to the left of that VM entry.
 
   > [!NOTE]
-  > Each VM starts with an initially assigned storage size. Storage size is displayed using a list box and can be modified to fit your desired level of storage resource for each Azure Stack VM. If the storage size you want to use is not provided, you can add it by modifying any of the 10 initial sizes contained in the "Available Storage Configurations" list found on the right hand side of the page.<br><br>Each VM starts with an initially assigned local temp storage. To reflect the thin provisioning of temp storage the local-temp number can be changed to anything in the drop down menu including the maximum allowable temp storage amount.
+  > Total VM Storage refers to the total capacity of the data disk of the VM (number of supported disks * the maximum capacity of a single disk (1 TB)). Based on the configuration indicators we have populated the Available Storage Configurations table, so that you may choose your desired level of storage resource for each Azure Stack VM. However, it is important to note that you may add or change the Available Storage Configurations table as necessary.<br><br>Each VM starts with an initially assigned local temp storage. To reflect the thin provisioning of temp storage the local-temp number can be changed to anything in the drop down menu including the maximum allowable temp storage amount.
 
 4. As you add VMs, you will see the charts that show available SKU resources changing. This allows you to see the effects of adding various sizes and quantities of VMs during the modeling process. Another way to view the effect of changes is to watch the Consumed and Still Available numbers listed directly below the list of available VMs. These numbers reflect estimated values based on the currently selected hardware SKU.
 5. Once you have created your set of VMs, you can find the suggested hardware SKU by clicking the "Suggested SKU" button found in the upper right corner of the page, directly below the "Current SKU" label. Using this button, you can then modify your VM configurations and see which hardware supports each configuration.

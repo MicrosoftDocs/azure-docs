@@ -1,14 +1,11 @@
 ---
 title: How to backup and restore a server in Azure Database for MySQL
 description: Learn how to backup and restore a server in Azure Database for MySQL by using the Azure CLI.
-services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 04/01/2018
 ---
 # How to back up and restore a server in Azure Database for MySQL using the Azure CLI
@@ -65,6 +62,7 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 ```
 
 The `az mysql server restore` command requires the following parameters:
+
 | Setting | Suggested value | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  The resource group where the source server exists.  |
@@ -101,7 +99,8 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 
 ```
 
-The `az mysql server georestore` command requies the following parameters:
+The `az mysql server georestore` command requires the following parameters:
+
 | Setting | Suggested value | Description  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | The name of the resource group the new server will belong to.|

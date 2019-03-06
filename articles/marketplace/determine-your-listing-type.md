@@ -1,4 +1,4 @@
----  
+---
 title: Determine Your Publishing Option in Azure Marketplace | Azure
 description: This article describes the eligibility criteria and publishing requirements partners trying to understand how to publish apps to the Azure Marketplace.
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
 
----  
+---
 # Determine your publishing option
 The publishing option that you choose for your offer relates directly to both the eligibility requirements and marketplace GTM benefits. More importantly, the selection of publishing option and offer type in the Cloud Partner Portal defines how users will interact with your marketplace offer.
 
 You can enable publishing options by selecting an offer type and then creating a marketplace offer in the Cloud Partner Portal. To do this, you’ll need to understand the following key marketplace concepts: the publishing options, offer types and configuration, and calls-to-action that will govern how and where your offer is presented in the marketplace storefronts.
 
-![](https://github.com/ellacroi/azure-docs-pr/blob/options-table/articles/marketplace/media/marketplace-publishers-guide/storefronts_options_table.png?raw=true)
+![](./media/marketplace-publishers-guide/storefronts_options_table.png)
 
 >[!Note]
 >The table above describes how your solution or service maps to the storefront, publishing option, and offer type used to present your offer in marketplace.
@@ -58,7 +58,7 @@ The storefront where your offer will be presented, Azure Marketplace and/or AppS
 
 ## Choose a publishing option
 
-The publishing options available offer differentiated customer engagement while giving you access to lead sharing and [Go-To-Market benefits](https://partner.microsoft.com/en-US/reach-customers/gtm). Select from three possible publishing options before using the Cloud Partner Portal to create a marketplace offer. Note the calls-to-action that correspond with the publishing option:
+The publishing options available offer differentiated customer engagement while giving you access to lead sharing and [Go-To-Market benefits](https://partner.microsoft.com/reach-customers/gtm). Select from three possible publishing options before using the Cloud Partner Portal to create a marketplace offer. Note the calls-to-action that correspond with the publishing option:
 
 | **Publishing option**    | **Description**  |
 | :------------------- | :-------------------|
@@ -69,7 +69,7 @@ The publishing options available offer differentiated customer engagement while 
 >[!Note]
 >When using the Transact publishing option, it is important to understand the pricing, billing, invoicing, and payout considerations before selecting an offer type and creating your offer. Review the [Marketplace Billing and Commercial Considerations article to learn more](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
-## Next Steps
+## Next steps
 
 *   Once you decide on a publishing option, you are ready to [select the offer type](./publisher-guide-by-offer-type.md) that will be used to present your offer.
 *	Review the eligibility requirements in the publishing options by offer type section to finalize the selection and configuration of your offer.

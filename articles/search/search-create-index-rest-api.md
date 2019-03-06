@@ -1,16 +1,16 @@
 ---
-title: "Create an index (REST API - Azure Search) | Microsoft Docs"
-description: Create an index in code using the Azure Search HTTP REST API.
+title: 'Create an index in code using the REST API - Azure Search'
+description: Create a full text searchable index in code using HTTP requests and the Azure Search REST API.
 
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein 
 manager: cgronlun
 ms.author: magottei
-tags: azure-portal
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
+ms.custom: seodec2018
 ---
 # Create an Azure Search index using the REST API
 > [!div class="op_single_selector"]

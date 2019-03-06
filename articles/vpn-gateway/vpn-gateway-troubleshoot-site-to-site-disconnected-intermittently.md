@@ -32,7 +32,7 @@ Check the type of Azure  virtual network gateway:
 1. Go to [Azure portal](https://portal.azure.com).
 2. Check the **Overview** page of the virtual network gateway for the type information.
     
-    ![The overview of the gateway](media\vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently\gatewayoverview.png)
+    ![The overview of the gateway](media/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently/gatewayoverview.png)
 
 ### Step 1 Check whether the on-premises VPN device is validated
 

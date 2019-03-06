@@ -1,20 +1,14 @@
 ---
-title: Prerequisites for Azure ExpressRoute adoption | Microsoft Docs
-description: This page provides a list of requirements to be met before you can order an Azure ExpressRoute circuit.
-documentationcenter: na
+title: 'Prerequisites - ExpressRoute : Azure | Microsoft Docs'
+description: This page provides a list of requirements to be met before you can order an Azure ExpressRoute circuit. It includes a checklist.
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
 
-ms.assetid: f872d25e-acfd-405d-9d1b-dcb9f323a2ff
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mialdrid
+ms.custom: seodec18
 
 ---
 # ExpressRoute prerequisites & checklist
@@ -24,7 +18,7 @@ To connect to Microsoft cloud services using ExpressRoute, you need to verify th
 
 ## Azure account
 * A valid and active Microsoft Azure account. This account is required to set up the ExpressRoute circuit. ExpressRoute circuits are resources within Azure subscriptions. An Azure subscription is a requirement even if connectivity is limited to non-Azure Microsoft cloud services, such as Office 365 services and Dynamics 365.
-* An active Office 365 subscription (if using Office 365 services). For more information, see the [Office 365 specific requirements](#office-365-specific-requirements) section of this article.
+* An active Office 365 subscription (if using Office 365 services). For more information, see the Office 365 specific requirements section of this article.
 
 ## Connectivity provider
 

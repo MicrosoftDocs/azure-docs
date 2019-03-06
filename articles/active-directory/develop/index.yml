@@ -8,7 +8,7 @@ metadata:
   author: CelesteDG
   manager: mtillman
   ms.service: active-directory
-  ms.component: develop
+  ms.subservice: develop
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
@@ -169,7 +169,7 @@ sections:
           - href: quickstart-v2-windows-desktop.md
           - href:
     - type: paragraph
-      text: <b>Service-to-service</b>
+      text: <b>Service-to-service and daemon apps</b>
     - type: table
       style: dataMatrix
       columns:
@@ -179,10 +179,10 @@ sections:
       rows:
         - title: v1.0
           values:
-          - href: sample-v1-code.md#server-or-daemon-application-to-web-api
+          - href: sample-v1-code.md
         - title: v2.0
           values:
-          - href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
+          - href: quickstart-v2-netcore-daemon.md
 
   - title: Step-by-step tutorials
     items:

@@ -1,20 +1,16 @@
 ---
-title: Create an Azure Cosmos DB graph database with Java | Microsoft Docs
+title: Create an Azure Cosmos DB graph database with Java
 description: Presents a Java code sample you can use to connect to and query graph data in Azure Cosmos DB using Gremlin.
-services: cosmos-db
 author: luisbosquez
-manager: kfile
-
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-graph
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: lbosq
 
 ---
-# Azure Cosmos DB: Create a graph database using Java and the Azure portal
+# Quickstart: Create a graph database in Azure Cosmos DB using the Java SDK 
 
 > [!div class="op_single_selector"]
 > * [Gremlin console](create-graph-gremlin-console.md)
@@ -27,7 +23,7 @@ ms.author: lbosq
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. Using Azure Cosmos DB, you can quickly create and query managed document, table, and graph databases. 
 
-This quickstart creates a simple graph database using the Azure portal tools for Azure Cosmos DB. This quickstart also shows you how to quickly create a Java console app using a [Gremlin API](graph-introduction.md) database using the OSS [Apache TinkerPop](http://tinkerpop.apache.org/) driver. The instructions in this quickstart can be followed on any operating system that is capable of running Java. This quickstart familiarizes you with creating and modifying graphs in either the UI or programmatically, whichever is your preference. 
+This quickstart creates a simple graph database using the Azure portal tools for Azure Cosmos DB. This quickstart also shows you how to quickly create a Java console app using a [Gremlin API](graph-introduction.md) database using the OSS [Apache TinkerPop](https://tinkerpop.apache.org/) driver. The instructions in this quickstart can be followed on any operating system that is capable of running Java. This quickstart familiarizes you with creating and modifying graphs in either the UI or programmatically, whichever is your preference. 
 
 ## Prerequisites
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -37,7 +33,7 @@ In addition:
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
     * On Ubuntu, run `apt-get install default-jdk` to install the JDK.
     * Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
-* [Download](http://maven.apache.org/download.cgi) and [install](http://maven.apache.org/install.html) a [Maven](http://maven.apache.org/) binary archive
+* [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a [Maven](https://maven.apache.org/) binary archive
     * On Ubuntu, you can run `apt-get install maven` to install Maven.
 * [Git](https://www.git-scm.com/)
     * On Ubuntu, you can run `sudo apt-get install git` to install Git.
@@ -105,7 +101,7 @@ The following snippets are all taken from the C:\git-samples\azure-cosmos-db-gra
 
 Now go back to the Azure portal to get your connection information and copy it into the app. These settings enable your app to communicate with your hosted database.
 
-1. In the [Azure portal](http://portal.azure.com/), click **Keys**. 
+1. In the [Azure portal](https://portal.azure.com/), click **Keys**. 
 
     Copy the first portion of the URI value.
 

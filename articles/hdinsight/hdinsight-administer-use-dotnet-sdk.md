@@ -131,10 +131,8 @@ _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Nam
 ## Scale clusters
 The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.
 
-> [!NOTE]
-> Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [List and show clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
-> 
-> 
+> [!NOTE]  
+> Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [List and show clusters](hdinsight-administer-use-portal-linux.md#showClusters).
 
 The impact of changing the number of data nodes for each type of cluster supported by HDInsight:
 
@@ -161,7 +159,7 @@ The impact of changing the number of data nodes for each type of cluster support
   * Storm web UI
   * Command-line interface (CLI) tool
     
-    Please refer to the [Apache Storm documentation](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) for more details.
+    Please refer to the [Apache Storm documentation](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) for more details.
     
     The Storm web UI is available on the HDInsight cluster:
     
@@ -216,15 +214,13 @@ var httpParams = new HttpSettingsParameters
 _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > By granting/revoking the access, you will reset the cluster user name and password.
-> 
-> 
 
 This can also be done via the Portal. See [Administer HDInsight by using the Azure portal][hdinsight-admin-portal].
 
 ## Update HTTP user credentials
-It is the same procedure as [Grant/revoke HTTP access](#grant/revoke-access).If the cluster has been granted the HTTP access, you must first revoke it.  And then grant the access with new HTTP user credentials.
+It is the same procedure as Grant/revoke HTTP access.  If the cluster has been granted the HTTP access, you must first revoke it.  And then grant the access with new HTTP user credentials.
 
 ## Find the default storage account
 The following code snippet demonstrates how to get the default storage account name and the default storage account key for a cluster.
@@ -240,23 +236,23 @@ foreach (var key in results.Configuration.Keys)
 ## Submit jobs
 **To submit MapReduce jobs**
 
-See [Run Hadoop MapReduce samples in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
+See [Run MapReduce samples in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
 **To submit Apache Hive jobs** 
 
-See [Run Hive queries using .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
+See [Run Apache Hive queries using .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
 **To submit Apache Pig jobs**
 
-See [Run Pig jobs using .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
+See [Run Apache Pig jobs using .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
 
 **To submit Apache Sqoop jobs**
 
-See [Use Sqoop with HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
+See [Use Apache Sqoop with HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
 
 **To submit Apache Oozie jobs**
 
-See [Use Oozie with Hadoop to define and run a workflow in HDInsight](hdinsight-use-oozie-linux-mac.md).
+See [Use Apache Oozie with Hadoop to define and run a workflow in HDInsight](hdinsight-use-oozie-linux-mac.md).
 
 ## Upload data to Azure Blob storage
 See [Upload data to HDInsight][hdinsight-upload-data].
@@ -269,9 +265,9 @@ See [Upload data to HDInsight][hdinsight-upload-data].
 * [Upload data to HDInsight][hdinsight-upload-data]
 * [Get started with Azure HDInsight][hdinsight-get-started]
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md

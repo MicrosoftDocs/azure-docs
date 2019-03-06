@@ -8,7 +8,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 # End-to-end troubleshooting using Azure Storage metrics and logging, AzCopy, and Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -88,12 +88,14 @@ To configure logging and metrics for your storage account using the [Azure porta
 
 **Via PowerShell**
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 To get started with PowerShell for Azure, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
-1. Use the [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet to add your Azure user account to the PowerShell window:
+1. Use the [Add-AzAccount](/powershell/module/servicemanagement/azure/add-azureaccount) cmdlet to add your Azure user account to the PowerShell window:
    
 	```powershell
-	Add-AzureAccount
+	Add-AzAccount
 	```
 
 2. In the **Sign in to Microsoft Azure** window, type the email address and password associated with your account. Azure authenticates and saves the credential information, and then closes the window.
@@ -102,19 +104,19 @@ To get started with PowerShell for Azure, see [How to install and configure Azur
 	```powershell
 	$SubscriptionName = 'Your subscription name'
 	$StorageAccountName = 'yourstorageaccount'
-	Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
+	Set-AzSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
 	```
 
 4. Enable storage logging for the Blob service:
    
 	```powershell
-	Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
+	Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
 	```
 
 5. Enable storage metrics for the Blob service, making sure to set **-MetricsType** to `Minute`:
    
 	```powershell
-	Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
+	Set-AzStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
 	```
 
 ### Configure .NET client-side logging

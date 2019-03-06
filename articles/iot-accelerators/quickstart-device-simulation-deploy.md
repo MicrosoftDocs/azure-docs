@@ -1,5 +1,5 @@
 ---
-title: Try and run a device simulation solution on Azure | Microsoft Docs
+title: Try and run a device simulation solution - Azure | Microsoft Docs
 description: In this quickstart, you deploy Azure IoT Device Simulation and run a simulation
 author: troyhopwood
 manager: timlt
@@ -41,7 +41,7 @@ Select the **Subscription** and **Region** you want to use to deploy the solutio
 
 Check the box to deploy an IoT hub to use with your Device Simulation solution. You can always change the IoT hub your simulation uses later.
 
-Click **Create Solution** to begin provisioning your solution. This process takes at least five minutes to run:
+Click **Create** to begin provisioning your solution. This process takes at least five minutes to run:
 
 ![Device Simulation solution details](./media/quickstart-device-simulation-deploy/createform.png)
 

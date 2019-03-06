@@ -1,14 +1,14 @@
 ---
-title: Advanced Azure Resource Graph queries
-description: Use Azure Resource Graph to run some advanced queries.
+title: Advanced query samples
+description: Use Azure Resource Graph to run some advanced queries, including VMSS capacity, listing all tags used, and matching virtual machines with regular expressions.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/22/2018
+ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: mvc
+ms.custom: seodec18
 ---
 # Advanced Resource Graph queries
 
@@ -25,6 +25,8 @@ We'll walk through the following advanced queries:
 > - [Virtual machines matched by regex](#vm-regex)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
+
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## Language support
 
@@ -53,7 +55,7 @@ az graph query -q "where type=~ 'microsoft.compute/virtualmachinescalesets' | wh
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type=~ 'microsoft.compute/virtualmachinescalesets' | where name contains 'contoso' | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name | order by Capacity desc"
+Search-AzGraph -Query "where type=~ 'microsoft.compute/virtualmachinescalesets' | where name contains 'contoso' | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name | order by Capacity desc"
 ```
 
 ## <a name="list-all-tags"></a>List all tag names
@@ -71,7 +73,7 @@ az graph query -q "project tags | summarize buildschema(tags)"
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "project tags | summarize buildschema(tags)"
+Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 ```
 
 ## <a name="vm-regex"></a>Virtual machines matched by regex
@@ -101,7 +103,7 @@ az graph query -q "where type =~ 'microsoft.compute/virtualmachines' and name ma
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
+Search-AzGraph -Query "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
 ```
 
 ## Next steps

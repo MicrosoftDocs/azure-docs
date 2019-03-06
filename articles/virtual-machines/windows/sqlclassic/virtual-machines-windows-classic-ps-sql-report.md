@@ -120,7 +120,7 @@ A self-signed certificate was created on the VM when the VM was provisioned. The
       
        For example, in the following image, the VM name is **ssrsnativecloud** and the user name is **testuser**.
       
-       ![login inlcudes vm name](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+       ![login includes vm name](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
    2. Run mmc.exe. For more information, see [How to: View Certificates with the MMC Snap-in](https://msdn.microsoft.com/library/ms788967.aspx).
    3. In the console application **File** menu, add the **Certificates** snap-in, select **Computer Account** when prompted, and then click **Next**.
    4. Select **Local Computer** to manage and then click **Finish**.
@@ -156,7 +156,7 @@ To use the Windows PowerShell script to configure the report server, complete th
    
     For example, in the following image, the VM name is **ssrsnativecloud** and the user name is **testuser**.
    
-    ![login inlcudes vm name](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![login includes vm name](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. On the VM, open **Windows PowerShell ISE** with administrative privileges. The PowerShell ISE is installed by default on Windows server 2012. It is recommended you use the ISE instead of a standard Windows PowerShell window so that you can paste the script into the ISE, modify the script, and then run the script.
 3. In Windows PowerShell ISE, click the **View** menu and then click **Show Script Pane**.
 4. Copy the following script, and paste the script into the Windows PowerShell ISE script pane.
@@ -290,7 +290,7 @@ To use Windows PowerShell to configure the report server, complete the following
    
     For example, in the following image, the VM name is **ssrsnativecloud** and the user name is **testuser**.
    
-    ![login inlcudes vm name](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![login includes vm name](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. On the VM, open **Windows PowerShell ISE** with administrative privileges. The PowerShell ISE is installed by default on Windows server 2012. It is recommended you use the ISE instead of a standard Windows PowerShell window so that you can paste the script into the ISE, modify the script, and then run the script.
 3. To enable running scripts, run the following Windows PowerShell command:
    
@@ -479,7 +479,7 @@ To use Windows PowerShell to configure the report server, complete the following
 9. The script is currently configured for  Reporting Services. If you want to run the script for  Reporting Services, modify the version portion of the path to the namespace to “v11”, on the Get-WmiObject statement.
 10. Run the script.
 
-**Validation**: To verify that the basic report server functionality is working, see the [Verify the configuration](#verify-the-connection) section later in this topic. To verify the certificate binding open a command prompt with administrative privileges, and then run the following command:
+**Validation**: To verify that the basic report server functionality is working, see the Verify the configuration section later in this topic. To verify the certificate binding open a command prompt with administrative privileges, and then run the following command:
 
     netsh http show sslcert
 

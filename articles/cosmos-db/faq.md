@@ -1,19 +1,14 @@
 ---
-title: Azure Cosmos DB frequently asked questions | Microsoft Docs
+title: Frequently asked questions about different APIs in Azure Cosmos DB
 description: Get answers to frequently asked questions about Azure Cosmos DB, a globally distributed, multi-model database service. Learn about capacity, performance levels, and scaling.
-keywords: Database questions, frequently asked questions, documentdb, azure, Microsoft azure
-services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 12/06/2018
 ms.author: sngun
+ms.custom: seodec18
 ---
-# Azure Cosmos DB FAQ
-
-## Azure Cosmos DB fundamentals
+# Frequently asked questions about different APIs in Azure Cosmos DB
 
 ### What happened to the DocumentDB API?
 
@@ -23,7 +18,7 @@ If you had a DocumentDB API account before, you now have a SQL API account, with
 
 ### What happened to Azure DocumentDB as a service?
 
-The Azure DocumentDB service is now a part of the Azure Cosmos DB service and manifests itself in the form of the SQL API. Applications built against Azure DocumentDB will run without any changes against Azure Cosmos DB SQL API. In addition, Azure Cosmos DB supports the Gremlin API, Table API, MongoDB API, and Cassandra API (Preview).
+The Azure DocumentDB service is now a part of the Azure Cosmos DB service and manifests itself in the form of the SQL API. Applications built against Azure DocumentDB will run without any changes against Azure Cosmos DB SQL API. Cosmos DB also implements [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) and [Azure Table Storage](table-introduction.md) wire protocols directly on the service. This enables you to point client drivers (and tools) for the commonly used NoSQL APIs directly to your Cosmos database.
 
 ### What are the typical use cases for Azure Cosmos DB?
 
@@ -33,11 +28,11 @@ Azure Cosmos DB is a good choice for new web, mobile, gaming, and IoT applicatio
 
 A [request unit](request-units.md) (RU) is the measure of throughput in Azure Cosmos DB. A 1-RU throughput corresponds to the throughput of the GET of a 1-KB document. Every operation in Azure Cosmos DB, including reads, writes, SQL queries, and stored procedure executions, has a deterministic RU value that's based on the throughput required to complete the operation. Instead of thinking about CPU, IO, and memory and how they each affect your application throughput, you can think in terms of a single RU measure.
 
-You can reserve each Azure Cosmos DB container with provisioned throughput in terms of RUs of throughput per second. For applications of any scale, you can benchmark individual requests to measure their RU values, and provision a container to handle the total of request units across all requests. You can also scale up or scale down your container's throughput as the needs of your application evolve. For more information about request units and for help determining your container needs, try the [throughput calculator](https://www.documentdb.com/capacityplanner). The term *container* here refers to a SQL API collection, Gremlin API graph, MongoDB API collection, and Table API table.
+You can configure each Azure Cosmos DB container with provisioned throughput in terms of RUs of throughput per second. For applications of any scale, you can benchmark individual requests to measure their RU values, and provision a container to handle the total of request units across all requests. You can also scale up or scale down your container's throughput as the needs of your application evolve. For more information about request units and for help determining your container needs, try the [throughput calculator](https://www.documentdb.com/capacityplanner).
 
 ### How does Azure Cosmos DB support various data models such as key/value, columnar, document, and graph?
 
-Key/value (table), columnar, document, and graph data models are all natively supported because of the ARS (atoms, records, and sequences) design that Azure Cosmos DB is built on. Atoms, records, and sequences can be easily mapped and projected to various data models. The APIs for a subset of models are available right now (SQL, MongoDB, Table, and Gremlin APIs) and others specific to additional data models will be available in the future.
+Key/value (table), columnar, document, and graph data models are all natively supported because of the ARS (atoms, records, and sequences) design that Azure Cosmos DB is built on. Atoms, records, and sequences can be easily mapped and projected to various data models. The APIs for a subset of models are available right now (SQL, MongoDB, Table, and Gremlin) and others specific to additional data models will be available in the future.
 
 Azure Cosmos DB has a schema agnostic indexing engine capable of automatically indexing all the data it ingests without requiring any schema or secondary indexes from the developer. The engine relies on a set of logical index layouts (inverted, columnar, tree) which decouple the storage layout from the index and query processing subsystems. Cosmos DB also has the ability to support a set of wire protocols and APIs in an extensible manner and translate them efficiently to the core data model (1) and the logical index layouts (2) making it uniquely capable of supporting more than one data model natively.
 
@@ -59,7 +54,7 @@ Yes both modes are always fully encrypted.
 
 ### How much does Azure Cosmos DB cost?
 
-For details, refer to the [Azure Cosmos DB pricing details](https://azure.microsoft.com/pricing/details/cosmos-db/) page. Azure Cosmos DB usage charges are determined by the number of provisioned containers, the number of hours the containers were online, and the provisioned throughput for each container. The term container here refers to the SQL API collection, Gremlin API (Graph), MongoDB API collection, and Table API tables.
+For details, refer to the [Azure Cosmos DB pricing details](https://azure.microsoft.com/pricing/details/cosmos-db/) page. Azure Cosmos DB usage charges are determined by the number of provisioned containers, the number of hours the containers were online, and the provisioned throughput for each container.
 
 ### Is a free account available?
 
@@ -74,7 +69,7 @@ You can also use the [Azure Cosmos DB Emulator](local-emulator.md) to develop an
 To ask a technical question, you can post to one of these two question and answer forums:
 
 * [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask).
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask).
 
 To request new features, create a new request on [User voice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
@@ -102,7 +97,7 @@ The following conditions apply to Try Azure Cosmos DB subscriptions:
 
 ### How do I sign up for Azure Cosmos DB?
 
-Azure Cosmos DB is available in the Azure portal. First, sign up for an Azure subscription. After you've signed up, you can add a SQL API, Gremlin API, Table API, MongoDB API, or Cassandra API account to your Azure subscription.
+Azure Cosmos DB is available in the Azure portal. First, sign up for an Azure subscription. After you've signed up, you can add a Azure Cosmos DB account to your Azure subscription.
 
 ### What is a master key?
 
@@ -121,10 +116,6 @@ When you set a region, remember that Azure Cosmos DB respects sovereign and gove
 ### Is it possible to switch from container level throughput provisioning to database level throughput provisioning? Or vice versa
 
 Container and database level throughput provisioning are separate offerings and switching between either of these require migrating data from source to destination. Which means you need to create a new database or a new collection and then migrate data by using [bulk executor library](bulk-executor-overview.md) or [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
-
-### How do I create fixed collection with partition key
-
-Currently you can create collection with a partition key throughput by using the [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) method of .Net SDK or by using the [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create). Creating a fixed collection by using Azure portal isn't currently supported.
 
 ### Does Azure CosmosDB support time series analysis?
 
@@ -148,13 +139,13 @@ Yes, the SQL API allows applications to store arbitrary JSON documents without s
 
 ### Does the SQL API support ACID transactions?
 
-Yes, the SQL API supports cross-document transactions expressed as JavaScript-stored procedures and triggers. Transactions are scoped to a single partition within each container and executed with ACID semantics as "all or nothing," isolated from other concurrently executing code and user requests. If exceptions are thrown through the server-side execution of JavaScript application code, the entire transaction is rolled back. For more information about transactions, see [Database program transactions](programming.md#database-program-transactions).
+Yes, the SQL API supports cross-document transactions expressed as JavaScript-stored procedures and triggers. Transactions are scoped to a single partition within each container and executed with ACID semantics as "all or nothing," isolated from other concurrently executing code and user requests. If exceptions are thrown through the server-side execution of JavaScript application code, the entire transaction is rolled back. 
 
 ### What is a container?
 
 A container is a group of documents and their associated JavaScript application logic. A container is a billable entity, where the [cost](performance-levels.md) is determined by the throughput and used storage. Containers can span one or more partitions or servers and can scale to handle practically unlimited volumes of storage or throughput.
 
-* For SQL and MongoDB API accounts, a container maps to a Collection.
+* For SQL API and Cosmos DB's API for MongoDB accounts, a container maps to a Collection.
 * For Cassandra and Table API accounts, a container maps to a Table.
 * For Gremlin API accounts, a container maps to a Graph.
 
@@ -184,7 +175,7 @@ To use optimistic concurrency in .NET, use the [AccessCondition](https://msdn.mi
 
 ### How do I perform transactions in the SQL API?
 
-The SQL API supports language-integrated transactions via JavaScript-stored procedures and triggers. All database operations inside scripts are executed under snapshot isolation. If it's a single-partition collection, the execution is scoped to the collection. If the collection is partitioned, the execution is scoped to documents with the same partition-key value within the collection. A snapshot of the document versions (ETags) is taken at the start of the transaction and committed only if the script succeeds. If the JavaScript throws an error, the transaction is rolled back. For more information, see [Server-side JavaScript programming for Azure Cosmos DB](programming.md).
+The SQL API supports language-integrated transactions via JavaScript-stored procedures and triggers. All database operations inside scripts are executed under snapshot isolation. If it's a single-partition collection, the execution is scoped to the collection. If the collection is partitioned, the execution is scoped to documents with the same partition-key value within the collection. A snapshot of the document versions (ETags) is taken at the start of the transaction and committed only if the script succeeds. If the JavaScript throws an error, the transaction is rolled back. For more information, see [Server-side JavaScript programming for Azure Cosmos DB](stored-procedures-triggers-udfs.md).
 
 ### How can I bulk-insert documents into Cosmos DB?
 
@@ -192,7 +183,7 @@ You can bulk-insert documents into Azure Cosmos DB in one of the following ways:
 
 * The bulk executor tool, as described in [Using bulk executor .NET library](bulk-executor-dot-net.md) and [Using bulk executor Java library](bulk-executor-java.md)
 * The data migration tool, as described in [Database migration tool for Azure Cosmos DB](import-data.md).
-* Stored procedures, as described in [Server-side JavaScript programming for Azure Cosmos DB](programming.md).
+* Stored procedures, as described in [Server-side JavaScript programming for Azure Cosmos DB](stored-procedures-triggers-udfs.md).
 
 ### I've set up my container to use lazy indexing, I see that my queries don't return expected results.
 
@@ -214,32 +205,32 @@ This is limitation of JavaScript. JavaScript uses double-precision floating-poin
 
 Creating permissions by using ResourceTokens is allowed at the container level and its descendants (such as documents, attachments). This implies that trying to create a permission at the database or an account level isn't currently allowed.
 
-## MongoDB API
+## Azure Cosmos DB's API for MongoDB
 
-### What is the Azure Cosmos DB API for MongoDB?
+### What is the Azure Cosmos DB's API for MongoDB?
 
-The Azure Cosmos DB API for MongoDB is a compatibility layer that allows applications to easily and transparently communicate with the native Azure Cosmos DB database engine by using existing, community-supported Apache MongoDB APIs and drivers. Developers can now use existing MongoDB tool chains and skills to build applications that take advantage of Azure Cosmos DB. Developers benefit from the unique capabilities of Azure Cosmos DB, which include auto-indexing, backup maintenance, financially backed service level agreements (SLAs), and so on.
+The Azure Cosmos DB's API for MongoDB is a wire-protocol compatibility layer that allows applications to easily and transparently communicate with the native Azure Cosmos DB database engine by using existing, community-supported SDKs and drivers for MongoDB.Developers can now use existing MongoDB toolchains and skills to build applications that take advantage of Azure Cosmos DB. Developers benefit from the unique capabilities of Azure Cosmos DB, which include global distribution with multi-master replication,auto-indexing, backup maintenance, financially backed service level agreements (SLAs) etc.
 
-### How do I connect to my API for MongoDB database?
+### How do I connect to my database?
 
-The quickest way to connect to the Azure Cosmos DB API for MongoDB is to head over to the [Azure portal](https://portal.azure.com). Go to your account and then, on the left navigation menu, click **Quick Start**. Quick Start is the best way to get code snippets to connect to your database.
+The quickest way to connect to a Cosmos database with Azure Cosmos DB's API for MongoDB is to head over to the [Azure portal](https://portal.azure.com). Go to your account and then, on the left navigation menu, click **Quick Start**. Quick Start is the best way to get code snippets to connect to your database.
 
 Azure Cosmos DB enforces strict security requirements and standards. Azure Cosmos DB accounts require authentication and secure communication via SSL, so be sure to use TLSv1.2.
 
-For more information, see [Connect to your API for MongoDB database](connect-mongodb-account.md).
+For more information, see [Connect to your Cosmos database with Azure Cosmos DB's API for MongoDB](connect-mongodb-account.md).
 
-### Are there additional error codes for an API for MongoDB database?
+Are there additional error codes that I need to deal with while using Azure Cosmos DB's API for MongoDB?
 
-Along with the common MongoDB error codes, the MongoDB API has its own specific error codes:
+Along with the common MongoDB error codes, the Azure Cosmos DB's API for MongoDB has its own specific error codes:
 
 | Error               | Code  | Description  | Solution  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | The total number of request units consumed is more than the provisioned request-unit rate for the collection and has been throttled. | Consider scaling the throughput  assigned to a container or a set of containers from the Azure portal or retrying again. |
 | ExceededMemoryLimit | 16501 | As a multi-tenant service, the operation has gone over the client's memory allotment. | Reduce the scope of the operation through more restrictive query criteria or contact support from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Example: *&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
-### Is the Simba driver for MongoDB supported for use with Azure CosmosDB MongoDB API?
+### Is the Simba driver for MongoDB supported for use with Azure Cosmos DB's API for MongoDB?
 
-Yes, you can use Simba’s Mongo ODBC driver with Azure CosmosDB MongoDB API
+Yes, you can use Simba’s Mongo ODBC driver with Azure Cosmos DB's API for MongoDB
 
 ## <a id="table"></a>Table API
 
@@ -300,7 +291,7 @@ You can share your feedback in any of the following ways:
 
 * [User voice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 * [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask).
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask).
 
 ### What is the connection string that I need to use to connect to the Table API?
 
@@ -521,7 +512,7 @@ Azure Cosmos DB is an SLA-based system that provides latency, throughput, availa
 
 ### For C#/.NET development, should I use the Microsoft.Azure.Graphs package or Gremlin.NET?
 
-Azure Cosmos DB Gremlin API leverages the open-source drivers as the main connectors for the service. So the recommended option is to use [drivers that are supported by Apache Tinkerpop](http://tinkerpop.apache.org/).
+Azure Cosmos DB Gremlin API leverages the open-source drivers as the main connectors for the service. So the recommended option is to use [drivers that are supported by Apache Tinkerpop](https://tinkerpop.apache.org/).
 
 ### How are RU/s charged when running queries on a graph database?
 
@@ -535,7 +526,7 @@ Azure Cosmos DB makes use of [horizontal partitioning](partition-data.md) to aut
 
 ### How can I protect against injection attacks using Gremlin drivers?
 
-Most native Tinkerpop Gremlin drivers allow the option to provide a dictionary of parameters for query execution. This is an example of how to do it in [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) and in [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+Most native Tinkerpop Gremlin drivers allow the option to provide a dictionary of parameters for query execution. This is an example of how to do it in [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) and in [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
 ### Why am I getting the “Gremlin Query Compilation Error: Unable to find any method” error?
 
@@ -611,7 +602,6 @@ g.V('mary').out('knows').executionProfile()
         },
         "storeOps": [
           {
-            "partitionsAccessed": 1,
             "count": 0,
             "size": 0,
             "time": 0.6

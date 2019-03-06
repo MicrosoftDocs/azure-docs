@@ -1,14 +1,15 @@
 ---
-title: Python Quickstart - predict intent - LUIS
-titleSuffix: Azure Cognitive Services
-description: In this quickstart, you learn to call a LUIS app using Python.
+title: Get intent, Python
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: In this quickstart, pass utterances to a LUIS endpoint and get intent and entities back.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/23/2019
 ms.author: diberry
 #Customer intent: As a developer new to LUIS, I want to query the endpoint of a published model using Python. 
 ---
@@ -16,22 +17,22 @@ ms.author: diberry
 # Quickstart: Get intent using Python
 In this quickstart, pass utterances to a LUIS endpoint and get intent and entities back.
 
-[!INCLUDE[Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 ## Prerequisites
 
 * [Python 3.6](https://www.python.org/downloads/) or later.
 * [Visual Studio Code](https://code.visualstudio.com/)
 
-[!INCLUDE[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
 ## Get LUIS key
 
-[!INCLUDE[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
 ## Get intent with browser
 
-[!INCLUDE[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
 ## Get intent  programmatically
 
@@ -51,7 +52,7 @@ You can use Python to access the same results you saw in the browser window in t
 
 ## LUIS keys
 
-[!INCLUDE[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
 
 ## Clean up resources
 Delete the python file. 

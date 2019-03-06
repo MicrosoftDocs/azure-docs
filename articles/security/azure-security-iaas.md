@@ -49,7 +49,7 @@ If your organization has many subscriptions, you might need a way to efficiently
 
 - [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): Can manage VMs, but not the virtual network or storage account to which they are connected.
 - [Classic Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): Can manage VMs created by using the classic deployment model, but not the virtual network or storage account to which the VMs are connected.
-- [Security Manager](../role-based-access-control/built-in-roles.md#security-manager): Can manage security components, security policies, and VMs.
+- [Security Admin](../role-based-access-control/built-in-roles.md#security-admin): In Security Center only: Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations.
 - [DevTest Labs User](../role-based-access-control/built-in-roles.md#devtest-labs-user): Can view everything and connect, start, restart, and shut down VMs.
 
 Your subscription admins and coadmins can change this setting, making them administrators of all the VMs in a subscription. Be sure that you trust all of your subscription admins and coadmins to log in to any of your machines.
@@ -126,7 +126,7 @@ To monitor the security posture of your [Windows](../security-center/security-ce
 
 Security Center can actively monitor for threats, and potential threats are exposed in security alerts. Correlated threats are aggregated in a single view called a security incident.
 
-Security Center stores data in [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics provides a query language and analytics engine that gives you insights into the operation of your applications and resources. Data is also collected from [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), management solutions, and agents installed on virtual machines in the cloud or on-premises. This shared functionality helps you form a complete picture of your environment.
+Security Center stores data in [Azure Monitor logs](../log-analytics/log-analytics-overview.md). Azure Monitor logs provides a query language and analytics engine that gives you insights into the operation of your applications and resources. Data is also collected from [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), management solutions, and agents installed on virtual machines in the cloud or on-premises. This shared functionality helps you form a complete picture of your environment.
 
 Organizations that don't enforce strong security for their VMs remain unaware of potential attempts by unauthorized users to circumvent security controls.
 
@@ -135,8 +135,8 @@ Resource abuse can be a problem when VM processes consume more resources than th
 
 We recommend that you use [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) to gain visibility into your resource’s health. Azure Monitor features:
 
-- [Resource diagnostic log files](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md): Monitors your VM resources and identifies potential issues that might compromise performance and availability.
-- [Azure Diagnostics extension](../monitoring-and-diagnostics/azure-diagnostics.md): Provides monitoring and diagnostics capabilities on Windows VMs. You can enable these capabilities by including the extension as part of the [Azure Resource Manager template](../virtual-machines/windows/extensions-diagnostics-template.md).
+- [Resource diagnostic log files](../azure-monitor/platform/diagnostic-logs-overview.md): Monitors your VM resources and identifies potential issues that might compromise performance and availability.
+- [Azure Diagnostics extension](../azure-monitor/platform/diagnostics-extension-overview.md): Provides monitoring and diagnostics capabilities on Windows VMs. You can enable these capabilities by including the extension as part of the [Azure Resource Manager template](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 Organizations that don't monitor VM performance can’t determine whether certain changes in performance patterns are normal or abnormal. A VM that’s consuming more resources than normal might indicate an attack from an external resource or a compromised process running in the VM.
 
@@ -151,10 +151,10 @@ Following are best practices for using Azure Disk Encryption:
 **Detail**: Azure Disk Encryption generates and writes the encryption keys to your key vault. Managing encryption keys in your key vault requires Azure AD authentication. Create an Azure AD application for this purpose. For authentication purposes, you can use either client secret-based authentication or [client certificate-based Azure AD authentication](../active-directory/active-directory-certificate-based-authentication-get-started.md).
 
 **Best practice**: Use a key encryption key (KEK) for an additional layer of security for encryption keys. Add a KEK to your key vault.   
-**Detail**: Use the [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet to create a key encryption key in the key vault. You can also import a KEK from your on-premises hardware security module (HSM) for key management. For more information, see the [Key Vault documentation](../key-vault/key-vault-hsm-protected-keys.md). When a key encryption key is specified, Azure Disk Encryption uses that key to wrap the encryption secrets before writing to Key Vault. Keeping an escrow copy of this key in an on-premises key management HSM offers additional protection against accidental deletion of keys.
+**Detail**: Use the [Add-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet to create a key encryption key in the key vault. You can also import a KEK from your on-premises hardware security module (HSM) for key management. For more information, see the [Key Vault documentation](../key-vault/key-vault-hsm-protected-keys.md). When a key encryption key is specified, Azure Disk Encryption uses that key to wrap the encryption secrets before writing to Key Vault. Keeping an escrow copy of this key in an on-premises key management HSM offers additional protection against accidental deletion of keys.
 
 **Best practice**: Take a [snapshot](../virtual-machines/windows/snapshot-copy-managed-disk.md) and/or backup before disks are encrypted. Backups provide a recovery option if an unexpected failure happens during encryption.   
-**Detail**: VMs with managed disks require a backup before encryption occurs. After a backup is made, you can use the **Set-AzureRmVMDiskEncryptionExtension** cmdlet to encrypt managed disks by specifying the *-skipVmBackup* parameter. For more information about how to back up and restore encrypted VMs, see the [Azure Backup](../backup/backup-azure-vms-encryption.md) article.
+**Detail**: VMs with managed disks require a backup before encryption occurs. After a backup is made, you can use the **Set-AzVMDiskEncryptionExtension** cmdlet to encrypt managed disks by specifying the *-skipVmBackup* parameter. For more information about how to back up and restore encrypted VMs, see the [Azure Backup](../backup/backup-azure-vms-encryption.md) article.
 
 **Best practice**: To make sure the encryption secrets don’t cross regional boundaries, Azure Disk Encryption needs the key vault and the VMs to be located in the same region.   
 **Detail**: Create and use a key vault that is in the same region as the VM to be encrypted.

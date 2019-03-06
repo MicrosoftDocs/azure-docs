@@ -1,16 +1,13 @@
 ---
-title: Azure Cosmos DB Table API .NET SDK & Resources | Microsoft Docs
+title: Azure Cosmos DB Table API .NET SDK & Resources
 description: Learn all about the Azure Cosmos DB Table API including release dates, retirement dates, and changes made between each version.
-services: cosmos-db
-author: rnagpal
-manager: kfile
-
+author: wmengmsft
+ms.author: wmeng
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.author: rnagpal
 
 ---
 # Azure Cosmos DB Table .NET API: Download and release notes
@@ -34,6 +31,9 @@ ms.author: rnagpal
 >
 
 ## Release notes
+
+### <a name="2.1.0"/>2.1.0
+* Bug fixes
 
 ### <a name="2.0.0"/>2.0.0
 * Added Multi-region write support
@@ -70,11 +70,13 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.1.0](#2.1.0) |January 22, 2019|--- |
+| [2.0.0](#2.0.0) |September 26, 2018|--- |
 | [1.1.3](#1.1.3) |July 17, 2018|--- |
 | [1.1.1](#1.1.1) |March 26, 2018|--- |
 | [1.1.0](#1.1.0) |February 21, 2018|--- |
 | [1.0.0](#1.0.0) |November 15, 2017|--- |
-| [0.9.0-preview](#0.9.0-preview) |November 11, 2017 |--- |
+| 0.9.0-preview |November 11, 2017 |--- |
 
 ## Troubleshooting
 

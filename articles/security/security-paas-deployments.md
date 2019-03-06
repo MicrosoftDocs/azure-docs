@@ -4,7 +4,7 @@ description: " Understand the security advantages of PaaS versus other cloud ser
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: techlake
 
 ms.assetid:
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 03/05/2019
 ms.author: terrylan
 
 ---
@@ -81,7 +81,7 @@ Principles and patterns for the network perimeter have been available for decade
 The following are best practices for managing the identity perimeter.
 
 **Best practice**: Secure your keys and credentials to secure your PaaS deployment.   
-**Detail**: Losing keys and credentials is a common problem. You can use a centralized solution where keys and secrets can be stored in hardware security modules. Azure provides you an HSM in the cloud with [Azure Key Vault](../key-vault/key-vault-whatis.md).
+**Detail**: Losing keys and credentials is a common problem. You can use a centralized solution where keys and secrets can be stored in hardware security modules (HSMs). [Azure Key Vault](../key-vault/key-vault-whatis.md) safeguards your keys and secrets by encrypting authentication keys, storage account keys, data encryption keys, .pfx files, and passwords using keys that are protected by HSMs.
 
 **Best practice**: Don’t put credentials and other secrets in source code or GitHub.   
 **Detail**: The only thing worse than losing your keys and credentials is having an unauthorized party gain access to them. Attackers can take advantage of bot technologies to find keys and secrets stored in code repositories such as GitHub. Do not put key and secrets in these public code repositories.
@@ -105,7 +105,7 @@ The Microsoft [Security Development Lifecycle](https://www.microsoft.com/en-us/s
 
 The following table lists the STRIDE threats and gives some example mitigations that use Azure features. These mitigations won’t work in every situation.
 
-| Threat | Security property | Potential Azure platform migration |
+| Threat | Security property | Potential Azure platform mitigations |
 | --- | --- | --- |
 | Spoofing | Authentication | Require HTTPS connections. |
 | Tampering | Integrity | Validate SSL certificates. |
@@ -115,11 +115,11 @@ The following table lists the STRIDE threats and gives some example mitigations 
 | Elevation of privilege | Authorization | Use [Privileged Identity Management](../active-directory/privileged-identity-management/subscription-requirements.md). |
 
 ## Develop on Azure App Service
-[Azure App Service](../app-service/app-service-web-overview.md) is a PaaS offering that lets you create web and mobile apps for any platform or device and connect to data anywhere, in the cloud or on-premises. App Service includes the web and mobile capabilities that were previously delivered separately as Azure Websites and Azure Mobile Services. It also includes new capabilities for automating business processes and hosting cloud APIs. As a single integrated service, App Service brings a rich set of capabilities to web, mobile, and integration scenarios.
+[Azure App Service](../app-service/overview.md) is a PaaS offering that lets you create web and mobile apps for any platform or device and connect to data anywhere, in the cloud or on-premises. App Service includes the web and mobile capabilities that were previously delivered separately as Azure Websites and Azure Mobile Services. It also includes new capabilities for automating business processes and hosting cloud APIs. As a single integrated service, App Service brings a rich set of capabilities to web, mobile, and integration scenarios.
 
 Following are best practices for using App Service.
 
-**Best practice**: [Authenticate through Azure Active Directory](../app-service/app-service-authentication-overview.md).   
+**Best practice**: [Authenticate through Azure Active Directory](../app-service/overview-authentication-authorization.md).   
 **Detail**: App Service provides an OAuth 2.0 service for your identity provider. OAuth 2.0 focuses on client developer simplicity while providing specific authorization flows for web applications, desktop applications, and mobile phones. Azure AD uses OAuth 2.0 to enable you to authorize access to mobile and web applications.
 
 **Best practice**: Restrict access based on the need to know and least privilege security principles.   
@@ -149,7 +149,7 @@ Monitoring is the act of collecting and analyzing data to determine the performa
 
 Use [Azure Application Insights](https://azure.microsoft.com/documentation/services/application-insights) to monitor availability, performance, and usage of your application, whether it's hosted in the cloud or on-premises. By using Application Insights, you can quickly identify and diagnose errors in your application without waiting for a user to report them. With the information that you collect, you can make informed choices on your application's maintenance and improvements.
 
-Application Insights has extensive tools for interacting with the data that it collects. Application Insights stores its data in a common repository. It can take advantage of shared functionality such as alerts, dashboards, and deep analysis with the Log Analytics query language.
+Application Insights has extensive tools for interacting with the data that it collects. Application Insights stores its data in a common repository. It can take advantage of shared functionality such as alerts, dashboards, and deep analysis with the Kusto query language.
 
 
 
@@ -159,7 +159,7 @@ In this article, we focused on security advantages of an Azure PaaS deployment a
 - [Azure App Service](security-paas-applications-using-app-services.md)
 - [Azure SQL Database and Azure SQL Data Warehouse](security-paas-applications-using-sql.md)
 - [Azure Storage](security-paas-applications-using-storage.md)
-- Azure REDIS Cache
+- Azure Cache for Redis
 - Azure Service Bus
 - Web Application Firewalls
 

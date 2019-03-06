@@ -10,7 +10,7 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
@@ -44,6 +44,8 @@ In this article, we review security considerations in the following two data mov
 
 - **Cloud scenario**- In this scenario, both your source and destination are publicly accessible through internet. These include managed cloud storage services like Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, SaaS services such as Salesforce, and web protocols such as FTP and OData. You can find a complete list of supported data sources [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
 - **Hybrid scenario**- In this scenario, either your source or destination is behind a firewall or inside an on-premises corporate network or the data store is in a private network/ virtual network (most often the source) and is not publicly accessible. Database servers hosted on virtual machines also fall under this scenario.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Cloud scenarios
 ### Securing data store credentials
@@ -92,7 +94,7 @@ The credentials for your on-premises data stores are stored locally (not in the 
 - Using **plain-text** (less secure) via HTTPS from Azure Portal/ Copy Wizard. The credentials are passed in plain-text to the on-premises gateway.
 - Using **JavaScript Cryptography library from Copy Wizard**.
 - Using **click-once based credentials manager app**. The click-once application executes on the on-premises machine that has access to the gateway and sets credentials for the data store. This option and the next one are the most secure options. The credential manager app, by default, uses the port 8050 on the machine with gateway for secure communication.  
-- Use [New-AzureRmDataFactoryEncryptValue](/powershell/module/azurerm.datafactories/New-AzureRmDataFactoryEncryptValue) PowerShell cmdlet to encrypt credentials. The cmdlet uses the certificate that gateway is configured to use to encrypt the credentials. You can use the encrypted credentials returned by this cmdlet and add it to **EncryptedCredential** element of the **connectionString** in the JSON file that you use with the [New-AzureRmDataFactoryLinkedService](/powershell/module/azurerm.datafactories/new-azurermdatafactorylinkedservice) cmdlet or in the JSON snippet in the Data Factory Editor in the portal. This option and the click-once application are the most secure options. 
+- Use [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) PowerShell cmdlet to encrypt credentials. The cmdlet uses the certificate that gateway is configured to use to encrypt the credentials. You can use the encrypted credentials returned by this cmdlet and add it to **EncryptedCredential** element of the **connectionString** in the JSON file that you use with the [New-AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) cmdlet or in the JSON snippet in the Data Factory Editor in the portal. This option and the click-once application are the most secure options. 
 
 #### JavaScript cryptography library-based encryption
 You can encrypt data store credentials using [JavaScript Cryptography library](https://www.microsoft.com/download/details.aspx?id=52439) from the [Copy Wizard](data-factory-copy-wizard.md). When you select this option, the Copy Wizard retrieves the public key of gateway and uses it to encrypt the data store credentials. The credentials are decrypted by the gateway machine and protected by Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx).
@@ -164,7 +166,7 @@ The following table provides **inbound port** requirements for the **windows fir
 | ------------- | ----------- | 
 | 8050 (TCP) | Required by the credential manager application to securely set credentials for on-premises data stores on the gateway. | 
 
-![Gateway port requirements](media\data-factory-data-movement-security-considerations/gateway-port-requirements.png) 
+![Gateway port requirements](media/data-factory-data-movement-security-considerations/gateway-port-requirements.png)
 
 #### IP configurations/ whitelisting in data store
 Some data stores in the cloud also require whitelisting of IP address of the machine accessing them. Ensure that the IP address of the gateway machine is whitelisted/ configured in firewall appropriately.

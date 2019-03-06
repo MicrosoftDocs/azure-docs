@@ -1,13 +1,13 @@
 ---
 title: Understand Azure IoT Hub pricing | Microsoft Docs
 description: Developer guide - information about how metering and pricing works with IoT Hub including worked examples.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: dobett
 ---
 
 # Azure IoT Hub pricing information
@@ -30,6 +30,7 @@ ms.author: dobett
 | Device and module twin queries | Queries are charged as messages depending on the result size in 512-byte chunks. |
 | Jobs operations <br/> (create, update, list, delete) | Not charged. |
 | Jobs per-device operations | Jobs operations (such as twin updates, and methods) are charged as normal. For example, a job resulting in 1000 method calls with 1-KB requests and empty-body responses is charged 1000 messages. |
+| Keep-alive messages | When using AMQP or MQTT protocols, messages exchanged to establish the connection and messages exchanged in the negotiation are not charged. |
 
 > [!NOTE]
 > All sizes are computed considering the payload size in bytes (protocol framing is ignored). For messages, which have properties and body, the size is computed in a protocol-agnostic way. For more information, see [IoT Hub message format](iot-hub-devguide-messages-construct.md).

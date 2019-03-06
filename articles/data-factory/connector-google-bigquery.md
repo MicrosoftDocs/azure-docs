@@ -10,9 +10,9 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 12/07/2018
 ms.author: jingwang
 
 ---
@@ -75,8 +75,8 @@ Set "authenticationType" property to **UserAuthentication**, and specify the fol
                 "value":"<secret of the application used to generate the refresh token>"
             },
             "refreshToken": {
-                 "type": "SecureString",
-                 "value": "<refresh token>"
+                "type": "SecureString",
+                "value": "<refresh token>"
             }
         }
     }
@@ -106,21 +106,26 @@ Set "authenticationType" property to **ServiceAuthentication**, and specify the 
             "requestGoogleDriveScope" : true,
             "authenticationType" : "ServiceAuthentication",
             "email": "<email>",
-	        "keyFilePath": "<.p12 key path on the IR machine>"
+            "keyFilePath": "<.p12 key path on the IR machine>"
         },
         "connectVia": {
             "referenceName": "<name of Self-hosted Integration Runtime>",
             "type": "IntegrationRuntimeReference"
         }
     }
-} 
+}
 ```
 
 ## Dataset properties
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by the Google BigQuery dataset.
 
-To copy data from Google BigQuery, set the type property of the dataset to **GoogleBigQueryObject**. There is no additional type-specific property in this type of dataset.
+To copy data from Google BigQuery, set the type property of the dataset to **GoogleBigQueryObject**. The following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the dataset must be set to: **GoogleBigQueryObject** | Yes |
+| tableName | Name of the table. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -132,7 +137,8 @@ To copy data from Google BigQuery, set the type property of the dataset to **Goo
         "linkedServiceName": {
             "referenceName": "<GoogleBigQuery linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -148,7 +154,7 @@ To copy data from Google BigQuery, set the source type in the copy activity to *
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **GoogleBigQuerySource**. | Yes |
-| query | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`. | Yes |
+| query | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 

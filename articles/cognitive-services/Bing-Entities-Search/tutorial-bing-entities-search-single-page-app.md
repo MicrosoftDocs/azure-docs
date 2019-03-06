@@ -4,12 +4,12 @@ titlesuffix: Azure Cognitive Services
 description: Shows how to use the Bing Entity Search API in a single-page Web application.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: tutorial
-ms.date: 12/08/2017
+ms.date: 02/01/2019
 ms.author: aahi
 ---
 # Tutorial: Single-page web app
@@ -417,7 +417,7 @@ function renderSearchResults(results) {
     if (results.queryContext.alteredQuery) 
         document.forms.bing.query.value = results.queryContext.alteredQuery;
 
-    // for each possible section, render the resuts from that section
+    // for each possible section, render the results from that section
     for (section in {pole: 0, mainline: 0, sidebar: 0}) {
         if (results.rankingResponse[section])
             showDiv(section, renderResultsItems(section, results));

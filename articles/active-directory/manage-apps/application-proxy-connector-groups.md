@@ -2,19 +2,20 @@
 title: Publishing applications on separate networks and locations using connector groups in Azure AD App Proxy | Microsoft Docs
 description: Covers how to create and manage groups of connectors in Azure AD Application Proxy.
 services: active-directory
-author: barbkess
+author: CelesteDG
 manager: mtillman
 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: japere
 
+ms.collection: M365-identity-device-management
 ---
 
 # Publish applications on separate networks and locations using connector groups
@@ -29,7 +30,7 @@ All applications are assigned to a connector group. If you don't create groups, 
 >If you have a large Application Proxy deployment, don't assign any applications to the default connector group. That way, new connectors don't receive any live traffic until you assign them to an active connector group. This configuration also enables you to put connectors in an idle mode by moving them back to the default group, so that you can perform maintenance without impacting your users.
 
 ## Prerequisites
-To group your connectors, you have to make sure you [installed multiple connectors](application-proxy-enable.md). When you install a new connector, it automatically joins the **Default** connector group.
+To group your connectors, you have to make sure you [installed multiple connectors](application-proxy-add-on-premises-application.md). When you install a new connector, it automatically joins the **Default** connector group.
 
 ## Create connector groups
 Use these steps to create as many connector groups as you want. 
@@ -70,11 +71,11 @@ For applications installed on IaaS for cloud access, connector groups provide a 
 
 Take as an example an organization that has several virtual machines connected to their own IaaS hosted virtual network. To allow employees to use these applications, these private networks are connected to the corporate network using site-to-site VPN. This provides a good experience for employees that are located on-premises. But, it may not be ideal for remote employees, because it requires additional on-premises infrastructure to route access, as you can see in the diagram below:
 
-![AzureAD Iaas Network](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
+![AzureAD IaaS Network](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
   
 With Azure AD Application Proxy connector groups, you can enable a common service to secure the access to all applications without creating additional dependency on your corporate network:
 
-![AzureAD Iaas Multiple Cloud Vendors](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
+![AzureAD IaaS Multiple Cloud Vendors](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
 
 ### Multi-forest – different connector groups for each forest
 

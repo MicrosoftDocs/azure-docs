@@ -44,7 +44,7 @@ For more information on the Connect API, see [https://kafka.apache.org/documenta
 
 2. To upload the .jar file to the edge node of your Kafka on HDInsight cluster, use the following command:
 
-    > [!NOTE]
+    > [!NOTE]  
     > Replace `sshuser` with the SSH user account for your HDInsight cluster. Replace `new-edgenode` with the edge node name. Replace `clustername` with the cluster name. For more information on the SSH endpoint for the edge node, see the [Used edge nodes with HDInsight](../hdinsight-apps-use-edge-node.md#access-an-edge-node) document.
 
     ```bash
@@ -65,10 +65,10 @@ For more information on the Connect API, see [https://kafka.apache.org/documenta
     sudo mv kafka-connect-iothub-assembly*.jar /usr/hdp/current/kafka-broker/libs/
     ```
 
-> [!TIP]
+> [!TIP]  
 > If you run into problems with the rest of the steps in this document when using a pre-built .jar file, try building the package from source.
 >
-> To build the connector, you must have a Scala development environment with the [Scala build tool](http://www.scala-sbt.org/).
+> To build the connector, you must have a Scala development environment with the [Scala build tool](https://www.scala-sbt.org/).
 >
 > 1. Download the source for the connector from [https://github.com/Azure/toketi-kafka-connect-iothub/](https://github.com/Azure/toketi-kafka-connect-iothub/) to your development environment.
 >
@@ -123,12 +123,12 @@ From an SSH connection to the edge node, use the following steps to configure Ka
 
     * Change the `key.converter=` and `value.converter=` lines to the following values:
 
-        ```text
+        ```ini
         key.converter=org.apache.kafka.connect.storage.StringConverter
         value.converter=org.apache.kafka.connect.storage.StringConverter
         ```
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > This change allows you to test using the console producer included with Kafka. You may need different converters for other producers and consumers. For information on using other converter values, see [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
     * Add a line at the end of the file that contains the following text:
@@ -137,7 +137,7 @@ From an SSH connection to the edge node, use the following steps to configure Ka
         consumer.max.poll.records=10
         ```
 
-        > [!TIP]
+        > [!TIP]  
         > This change is to prevent timeouts in the sink connector by limiting it to 10 records at a time. For more information, see [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
 6. To save the file, use __Ctrl + X__, __Y__, and then __Enter__.
@@ -174,7 +174,7 @@ To retrieve IoT hub information used by the connector, use the following steps:
             * __Event Hub-compatible endpoint__
             * __Partitions__
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > The endpoint value from the portal may contain extra text that is not needed in this example. Extract the text that matches this pattern `sb://<randomnamespace>.servicebus.windows.net/`.
 
     * __From the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, use the following command:
@@ -185,7 +185,7 @@ To retrieve IoT hub information used by the connector, use the following steps:
 
         Replace `myhubname` with the name of your IoT hub. The response is similar to the following text:
 
-        ```text
+        ```json
         "EventHubCompatibleEndpoint": "sb://ihsuprodbnres006dednamespace.servicebus.windows.net/",
         "EventHubCompatibleName": "iothub-ehub-myhub08-207673-d44b2a856e",
         "Partitions": 2
@@ -294,7 +294,7 @@ nnect.IotHubSourceTask:39)
 org.apache.kafka.connect.runtime.WorkerSourceTask:356)
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > You may see several warnings as the connector starts. These warnings do not cause problems with receiving messages from IoT hub.
 
 To stop the connector, use __Ctrl + C__.
@@ -316,7 +316,7 @@ IotHubSinkTask:47)
 t.runtime.WorkerSinkTask:262)
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > You may notice several warnings as the connector starts. You can safely ignore these.
 
 To send messages through the connector, use the following steps:
@@ -328,7 +328,7 @@ To send messages through the connector, use the following steps:
     ```
 2. To send messages to the `iotout` topic, use the following command:
 
-    > [!WARNING]
+    > [!WARNING]  
     > Since this is a new SSH connection, the `$KAFKABROKERS` variable does not contain any information. To set it, use one of the following methods:
     >
     > * Use the first three steps in the [Configure Apache Kafka](#configure-apache-kafka) section.
@@ -342,10 +342,10 @@ To send messages through the connector, use the following steps:
 
 3. To send a message to your device, paste a JSON document into the SSH session for the `kafka-console-producer`.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > You must set the value of the `"deviceId"` entry to the ID of your device. In the following example, the device is named `fakepi`:
 
-    ```text
+    ```json
     {"messageId":"msg1","message":"Turn On","deviceId":"fakepi"}
     ```
 

@@ -4,15 +4,16 @@ description: Integrate your VPN infrastructure with Azure MFA by using the Netwo
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 
 # Integrate your VPN infrastructure with Azure MFA by using the Network Policy Server extension for Azure

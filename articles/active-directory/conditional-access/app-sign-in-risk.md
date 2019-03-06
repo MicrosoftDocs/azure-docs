@@ -5,24 +5,25 @@ services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: 
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.topic: quickstart 
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
 #Customer intent: As an IT admin, I want to configure a policy to handle suspicious sign-ins, so that they can be automatically handled.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Block access when a session risk is detected with Azure Active Directory conditional access  
 
-To keep your environment protected, you might want to block suspicious users from signing insign-in activity. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analyzes each sign-in and calculates the likelihood that a sign-in attempt was not performed by the legitimate owner of a user account. The likelihood (low, medium, high) is indicated in form of a calculated value called [sign-in risk levels](conditions.md#sign-in-risk). By setting the sign-in risk condition, you can configure a conditional access policy to respond to specific sign-in risk levels. 
+To keep your environment protected, you might want to block suspicious users from sign-in. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analyzes each sign-in and calculates the likelihood that a sign-in attempt was not performed by the legitimate owner of a user account. The likelihood (low, medium, high) is indicated in form of a calculated value called [sign-in risk levels](conditions.md#sign-in-risk). By setting the sign-in risk condition, you can configure a conditional access policy to respond to specific sign-in risk levels. 
 
 This quickstart shows how to configure a [conditional access policy](../active-directory-conditional-access-azure-portal.md) that blocks a sign-in when a configured sign-in risk level has been detected. 
 
@@ -84,7 +85,7 @@ This section shows how to create the required conditional access policy. In your
 
     ![Azure Active Directory](./media/app-sign-in-risk/02.png)
 
-3. On the **Azure Active Directory** page, in the **Manage** section, click **Conditional access**.
+3. On the **Azure Active Directory** page, in the **Security** section, click **Conditional access**.
 
     ![Conditional access](./media/app-sign-in-risk/03.png)
  

@@ -6,8 +6,10 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 03/05/2019
 ms.author: iainfou
+
+#Customer intent: As a cluster operator, I want to learn how to use SSH to connect to VMs in an AKS cluster to perform maintenance or troubleshoot a problem.
 ---
 
 # Connect with SSH to Azure Kubernetes Service (AKS) cluster nodes for maintenance or troubleshooting
@@ -16,21 +18,27 @@ Throughout the lifecycle of your Azure Kubernetes Service (AKS) cluster, you may
 
 This article shows you how to create an SSH connection with an AKS node using their private IP addresses.
 
+## Before you begin
+
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+
+You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+
 ## Add your public SSH key
 
-By default, SSH keys are generated when you create an AKS cluster. If you did not specify your own SSH keys when you created your AKS cluster, add your public SSH keys to the AKS nodes. 
+By default, SSH keys are generated when you create an AKS cluster. If you did not specify your own SSH keys when you created your AKS cluster, add your public SSH keys to the AKS nodes.
 
 To add your SSH key to an AKS node, complete the following steps:
 
 1. Get the resource group name for your AKS cluster resources using [az aks show][az-aks-show]. Provide your own core resource group and AKS cluster name:
 
-    ```azurecli
+    ```azurecli-interactive
     az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
     ```
 
 1. List the VMs in the AKS cluster resource group using the [az vm list][az-vm-list] command. These VMs are your AKS nodes:
 
-    ```azurecli
+    ```azurecli-interactive
     az vm list --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
     ```
 
@@ -44,7 +52,7 @@ To add your SSH key to an AKS node, complete the following steps:
 
 1. To add your SSH keys to the node, use the [az vm user update][az-vm-user-update] command. Provide the resource group name and then one of the AKS nodes obtained in the previous step. By default, the username for the AKS nodes is *azureuser*. Provide the location of your own SSH public key location, such as *~/.ssh/id_rsa.pub*, or paste the contents of your SSH public key:
 
-    ```azurecli
+    ```azurecli-interactive
     az vm user update \
       --resource-group MC_myResourceGroup_myAKSCluster_eastus \
       --name aks-nodepool1-79590246-0 \
@@ -54,11 +62,11 @@ To add your SSH key to an AKS node, complete the following steps:
 
 ## Get the AKS node address
 
-The AKS nodes are not publicly exposed to the internet. To SSH to the AKS nodes, you use the private IP address.
+The AKS nodes are not publicly exposed to the internet. To SSH to the AKS nodes, you use the private IP address. In the next step, you create a helper pod in your AKS cluster that lets you SSH to this private IP address of the node.
 
 View the private IP address of an AKS cluster node using the [az vm list-ip-addresses][az-vm-list-ip-addresses] command. Provide your own AKS cluster resource group name obtained in a previous [az-aks-show][az-aks-show] step:
 
-```azurecli
+```azurecli-interactive
 az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_eastus -o table
 ```
 
@@ -125,7 +133,7 @@ To create an SSH connection to an AKS node, you run a helper pod in your AKS clu
      * Support:        https://ubuntu.com/advantage
     
       Get cloud support with Ubuntu Advantage Cloud Guest:
-        http://www.ubuntu.com/business/services/cloud
+        https://www.ubuntu.com/business/services/cloud
     
     [...]
     
@@ -150,3 +158,6 @@ If you need additional troubleshooting data, you can [view the kubelet logs][vie
 [az-vm-list-ip-addresses]: /cli/azure/vm#az-vm-list-ip-addresses
 [view-kubelet-logs]: kubelet-logs.md
 [view-master-logs]: view-master-logs.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli

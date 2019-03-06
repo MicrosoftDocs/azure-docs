@@ -31,8 +31,8 @@ The application is an advertising bulletin board. Users create an ad by entering
 
 The application uses the [queue-centric work pattern](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) to off-load the CPU-intensive work of creating thumbnails to a back-end process.
 
-## Alternative architecture: Web Apps and WebJobs
-This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in an [Azure Web Apps](/azure/app-service/) and use the [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) feature for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki). For information about how to choose the services that best fit your scenario, see [Azure Websites, Cloud Services, and virtual machines comparison](../app-service/choose-web-site-cloud-service-vm.md).
+## Alternative architecture: App Service and WebJobs
+This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in [Azure App Service](/azure/app-service/) and use the [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) feature for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki). For information about how to choose the services that best fit your scenario, see [Azure App Service, Cloud Services, and virtual machines comparison](../app-service/overview-compare.md).
 
 ## What you'll learn
 * How to enable your machine for Azure development by installing the Azure SDK.
@@ -354,7 +354,7 @@ After the solution is created, you'll review the code that is unique to cloud se
 
 ### Set project references
 1. In the ContosoAdsWeb project, set a reference to the ContosoAdsCommon project. Right-click the ContosoAdsWeb project, and then click **References** - **Add References**. In the **Reference Manager** dialog box, select **Solution – Projects** in the left pane, select **ContosoAdsCommon**, and then click **OK**.
-2. In the ContosoAdsWorker project, set a reference to the ContosAdsCommon project.
+2. In the ContosoAdsWorker project, set a reference to the ContosoAdsCommon project.
 
     ContosoAdsCommon will contain the Entity Framework data model and context class, which will be used by both the front-end and back-end.
 3. In the ContosoAdsWorker project, set a reference to `System.Drawing`.
@@ -377,7 +377,7 @@ In this section, you configure Azure Storage and SQL connection strings for test
 3. In the ContosoAdsCloudService project, right-click ContosoAdsWeb under **Roles**, and then click **Properties**.
 
     ![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
-4. In the **ContosAdsWeb [Role]** properties window, click the **Settings** tab, and then click **Add Setting**.
+4. In the **ContosoAdsWeb [Role]** properties window, click the **Settings** tab, and then click **Add Setting**.
 
     Leave **Service Configuration** set to **All Configurations**.
 5. Add a setting named *StorageConnectionString*. Set **Type** to *ConnectionString*, and set **Value** to *UseDevelopmentStorage=true*.

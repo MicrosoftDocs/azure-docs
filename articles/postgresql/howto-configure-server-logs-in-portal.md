@@ -1,13 +1,10 @@
 ---
 title: Configure and access server logs for PostgreSQL in Azure Portal
 description: This article describes how to configure and access the server logs in Azure Database for PostgreSQL from the Azure Portal.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
 ---
 

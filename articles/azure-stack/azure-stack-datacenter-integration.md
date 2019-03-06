@@ -13,13 +13,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
+ms.lastreviewed: 09/12/2018
 ---
  
 # Datacenter integration considerations for Azure Stack integrated systems
-If you’re interested in an Azure Stack integrated system, you should understand some of the major planning considerations around deployment and how the system fits into your datacenter. This article provides a high-level overview of these considerations to help you make important infrastructure decisions for your Azure Stack multi-node system. An understanding of these considerations helps when working with your OEM hardware vendor as they deploy Azure Stack to your datacenter.  
+If you’re interested in an Azure Stack integrated system, you should understand the major planning considerations around deployment and how the system fits into your datacenter. This article provides a high-level overview of these considerations to help you make important infrastructure decisions for your Azure Stack multi-node system. An understanding of these considerations helps when working with your OEM hardware vendor as they deploy Azure Stack to your datacenter.  
 
 > [!NOTE]
 > Azure Stack multi-node systems can only be purchased from authorized hardware vendors. 
@@ -49,11 +50,9 @@ When a higher level of access is needed for troubleshooting issues that aren’t
 ### Choose identity provider
 You'll need to consider which identity provider you want to use for Azure Stack deployment, either Azure AD or AD FS. You can’t switch identity providers after deployment without full system redeployment. If you do not own the Azure AD account and are using an account provided to you by your Cloud Service Provider, and if you decide to switch provider and use a different Azure AD account, at this point you will have to contact your solution provider to redeploy the solution for you at your cost.
 
-
-
 Your identity provider choice has no bearing on tenant virtual machines, the identity system, and accounts they use, whether they can join an Active Directory domain, etc. This is separate.
 
-You can learn more about choosing an identity provider in the [Azure Stack integrated systems connection models article](.\azure-stack-connection-models.md).
+You can learn more about choosing an identity provider in the [Azure Stack integrated systems connection models article](./azure-stack-connection-models.md).
 
 ### AD FS and Graph integration
 If you choose to deploy Azure Stack using AD FS as the identity provider, you must integrate the AD FS instance on Azure Stack with an existing AD FS instance through a federation trust. This allows identities in an existing Active Directory forest to authenticate with resources in Azure Stack.
@@ -105,9 +104,9 @@ For more information  about what PKI certificates are required to deploy Azure S
 
 
 ## Time synchronization
-You must choose a specific time server with is used to synchronize Azure Stack.  Time symbolization is critical to Azure Stack and its Infrastructure Roles, as it is used to generate Kerberos tickets which are used to authenticate internal services with each other.
+You must choose a specific time server with is used to synchronize Azure Stack.  Time synchronization is critical to Azure Stack and its infrastructure roles, as it is used to generate Kerberos tickets which are used to authenticate internal services with each other.
 
-You must specify an IP for the time synchronization server, although most of the components in the infrastructure can resolve an URL, some can only support IP addresses. If you’re are using the Disconnected deployment option, you must specify a time server on your corporate network that you are sure can be reached from the infrastructure network in Azure Stack.
+You must specify an IP for the time synchronization server, although most of the components in the infrastructure can resolve an URL, some can only support IP addresses. If you’re using the disconnected deployment option, you must specify a time server on your corporate network that you are sure can be reached from the infrastructure network in Azure Stack.
 
 ## Connect Azure Stack to Azure
 

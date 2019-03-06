@@ -13,9 +13,12 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/14/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
+ms.lastreviewed: 10/15/2018
+
+
 ---
 
 # Start and stop the Azure Stack Development Kit (ASDK)
@@ -24,7 +27,7 @@ It is not recommended to simply restart the ASDK host computer. Instead, you sho
 ## Stop Azure Stack 
 To properly shut down Azure Stack services, and the ASDK host computer, use the following PowerShell commands:
 
-1. Log in as AzureStack\CloudAdmin on the ASDK host computer.
+1. Log in as AzureStack\AzureStackAdmin on the ASDK host computer.
 2. Open PowerShell as an administrator (not PowerShell ISE).
 3. Run the following commands to establish a privileged endpoint (PEP) session: 
 
@@ -44,7 +47,7 @@ ASDK services should start automatically when the host computer is started. Howe
 Regardless of how the ASDK was shut down, you should use the following steps to verify that all Azure Stack services are started and fully operational after the host computer is powered on: 
 
 1. Power on the ASDK host computer. 
-2. Log in as AzureStack\CloudAdmin on the ASDK host computer.
+2. Log in as AzureStack\AzureStackAdmin on the ASDK host computer.
 3. Open PowerShell as an administrator (not PowerShell ISE).
 4. Run the following commands to establish a privileged endpoint (PEP) session:
 
@@ -58,12 +61,12 @@ Regardless of how the ASDK was shut down, you should use the following steps to 
    ```
 6. Review the output to ensure that Azure Stack services have restarted successfully.
 
-To learn more about the recommended procedures to properly shut down and restart Azure Stack services, see [Start and stop Azure Stack](.\.\azure-stack-start-and-stop.md). 
+To learn more about the recommended procedures to properly shut down and restart Azure Stack services, see [Start and stop Azure Stack](../azure-stack-start-and-stop.md). 
 
 ## Troubleshoot startup and shutdown 
 Perform these steps if Azure Stack services don't successfully start within two hours after you power on your ASDK host computer:
 
-1. Log in as AzureStack\CloudAdmin on the ASDK host computer.
+1. Log in as AzureStack\AzureStackAdmin on the ASDK host computer.
 2. Open PowerShell as an administrator (not PowerShell ISE).
 3. Run the following commands to establish a privileged endpoint (PEP) session:
 
@@ -75,7 +78,7 @@ Perform these steps if Azure Stack services don't successfully start within two 
    ```powershell
    Test-AzureStack
    ```
-5. Review the output and resolve any errors. For more information, see [Run a validation test of Azure Stack](.\.\azure-stack-diagnostic-test.md).
+5. Review the output and resolve any errors. For more information, see [Run a validation test of Azure Stack](../azure-stack-diagnostic-test.md).
 6. Restart Azure Stack services from within the PEP session by running the **Start-AzureStack** cmdlet:
 
    ```powershell
@@ -85,4 +88,4 @@ Perform these steps if Azure Stack services don't successfully start within two 
 If running **Start-AzureStack** results in a failure, visit the [Azure Stack support forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurestack) to get ASDK troubleshooting support. 
 
 ## Next steps 
-Learn more about Azure Stack diagnostic tool and issue logging, see [Azure Stack diagnostic tools](.\.\azure-stack-diagnostics.md).
+Learn more about Azure Stack diagnostic tool and issue logging, see [Azure Stack diagnostic tools](../azure-stack-diagnostics.md).

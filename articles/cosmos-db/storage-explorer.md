@@ -1,29 +1,21 @@
 ---
-title: 'Manage Azure Cosmos DB in Azure Storage Explorer'
-description: Learn how to manage Azure Cosmos DB in Azure Storage Explorer.
-Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
-services: cosmos-db
-author: Jejiang 
-manager: kfile
-editor: 
-tags: Azure Cosmos DB
-
+title: Manage Azure Cosmos DB resources using Azure Storage Explorer
+description: Learn how to connect to Azure Cosmos DB and manage its resources by using Azure Storage Explorer.
+author: deborahc
 ms.service: cosmos-db
-ms.custom: Azure Cosmos DB active
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/20/2018
-ms.author: jejiang 
-
+ms.date: 12/07/2018
+ms.author: dech
+ms.custom: seodec18
 ---
-# Manage Azure Cosmos DB in Azure Storage Explorer
+# Work with data using Azure Storage Explorer
 
-Using Azure Cosmos DB in Azure Storage Explorer enables users to manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like Storage blobs and queues. Now you can use the same tool to manage your different Azure entities in one place. At this time, Azure Storage Explorer supports SQL, MongoDB, Graph, and Table accounts.
+Using Azure Cosmos DB in Azure Storage Explorer enables users to manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like Storage blobs and queues. Now you can use the same tool to manage your different Azure entities in one place. At this time, Azure Storage Explorer supports Cosmos accounts configured for SQL, MongoDB, Graph, and Table APIs.
 
 
 ## Prerequisites
 
-An Azure Cosmos DB account for the SQL API<!--or MongoDB API-->. If you don't have an account, you can create one in the Azure portal, as described in [Azure Cosmos DB: Build a SQL API web app with .NET and the Azure portal](create-sql-api-dotnet.md).
+A Cosmos account with SQL API or Azure Cosmos DB's API for MongoDB. If you don't have an account, you can create one in the Azure portal, as described in [Azure Cosmos DB: Build a SQL API web app with .NET and the Azure portal](create-sql-api-dotnet.md).
 
 ## Installation
 
@@ -61,7 +53,7 @@ An alternative way of connecting to an Azure Cosmos DB is to use a connection st
 
     ![Connect to Cosmos DB by connection string](./media/storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Only support SQL and Table API currently. Choose API, paste **Connection String**, input **Account label**, click **Next** to check the summary, and then click **Connect** to connect Azure Cosmos DB account. For information on retrieving the connection string, see [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Only support SQL and Table API currently. Choose API, paste **Connection String**, input **Account label**, click **Next** to check the summary, and then click **Connect** to connect Azure Cosmos DB account. For information on retrieving the connection string, see [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
     ![Connection-string](./media/storage-explorer/connection-string.png)
 
@@ -76,7 +68,7 @@ Use the following steps to connect to an Azure Cosmos DB by Emulator, only suppo
 
     ![Connect to Cosmos DB by Emulator](./media/storage-explorer/emulator-entry.png)
 
-3. Only support SQL API currently. Paste **Connection String**, input **Account label**, click **Next** to check the summary, and then click **Connect** to connect Azure Cosmos DB account. For information on retrieving the connection string, see [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+3. Only support SQL API currently. Paste **Connection String**, input **Account label**, click **Next** to check the summary, and then click **Connect** to connect Azure Cosmos DB account. For information on retrieving the connection string, see [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
     ![Connect to Cosmos DB by Emulator dialog](./media/storage-explorer/emulator-dialog.png)
 
@@ -239,8 +231,8 @@ If you're unable to find any self-signed certificates using the above steps, cou
 
 If you're unable to retrieve your subscriptions after you successfully signed in:
 
-- Verify your account has access to the subscriptions by signing into the [Azure Portal](http://portal.azure.com/)
-- Make sure you have signed in using the correct environment ([Azure](http://portal.azure.com/), [Azure China](https://portal.azure.cn/), [Azure Germany](https://portal.microsoftazure.de/), [Azure US Government](http://portal.azure.us/), or Custom Environment/Azure Stack)
+- Verify your account has access to the subscriptions by signing into the [Azure Portal](https://portal.azure.com/)
+- Make sure you have signed in using the correct environment ([Azure](https://portal.azure.com/), [Azure China](https://portal.azure.cn/), [Azure Germany](https://portal.microsoftazure.de/), [Azure US Government](https://portal.azure.us/), or Custom Environment/Azure Stack)
 - If you're behind a proxy, make sure that you have configured the Storage Explorer proxy properly
 - Try removing and readding the account
 - Try deleting the following files from your home directory (such as: C:\Users\ContosoUser), and then readding the account:
@@ -269,7 +261,7 @@ If you're unable to remove an account, or if the reauthenticate link does not do
   - .extaccounts
 - If you want to remove SAS attached Storage resources, delete:
   - %AppData%/StorageExplorer folder for Windows
-  - /Users/<your_name>/Library/Applicaiton SUpport/StorageExplorer for Mac
+  - /Users/<your_name>/Library/Application SUpport/StorageExplorer for Mac
   - ~/.config/StorageExplorer for Linux
   - **You will have to reenter all your credentials** if you delete these files
 

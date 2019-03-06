@@ -1,26 +1,23 @@
 ---
-title: Move Data to and from Azure Blob storage | Microsoft Docs
+title: Move Data to and from Azure Blob storage - Team Data Science Process
 description: Move Data to and from Azure Blob storage
-services: machine-learning,storage
-documentationcenter: ''
-author: deguhath
+services: machine-learning
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: d6681e30-ab45-45ea-a9fb-ac8acefe544d
 ms.service: machine-learning
-ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Move data to and from Azure Blob storage
 
 The Team Data Science Process requires that data be ingested or loaded into a variety of different storage environments to be processed or analyzed in the most appropriate way in each stage of the process.
+
+## Different technologies for moving data
+
 The following articles describe how to move data to and from Azure Blob storage using different technologies.
 
 * [Azure Storage-Explorer](move-data-to-azure-blob-using-azure-storage-explorer.md)
@@ -35,6 +32,8 @@ Which method is best for you depends on your scenario. The [Scenarios for advanc
 > 
 > 
 
+## Using Azure Data Factory
+
 As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) to: 
 
 * create and schedule a pipeline that downloads data from Azure blob storage, 
@@ -45,7 +44,7 @@ As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/
 For more information, see [Create predictive pipelines using Azure Data Factory and Azure Machine Learning](../../data-factory/transform-data-using-machine-learning.md).
 
 ## Prerequisites
-This document assumes that you have an Azure subscription, a storage account, and the corresponding storage key for that account. Before uploading/downloading data, you must know your Azure storage account name and account key.
+This article assumes that you have an Azure subscription, a storage account, and the corresponding storage key for that account. Before uploading/downloading data, you must know your Azure storage account name and account key.
 
 * To set up an Azure subscription, see [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 * For instructions on creating a storage account and for getting account and key information, see [About Azure storage accounts](../../storage/common/storage-create-storage-account.md).

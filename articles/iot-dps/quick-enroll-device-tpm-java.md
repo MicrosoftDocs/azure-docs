@@ -29,7 +29,7 @@ Make sure to [set up IoT Hub Device Provisioning Service with the Azure portal](
 
 2. Set up environment variables for your Java installation. The `PATH` variable should include the full path to *jdk1.8.x\bin* directory. If this is your machine's first Java installation, then create a new environment variable named `JAVA_HOME` and point it to the full path to the *jdk1.8.x* directory. On Windows machine, this directory is found in the *C:\\Program Files\\Java\\* folder, and you can create or edit environment variables by searching for **Edit the system environment variables** on the **Control panel** of your Windows machine. 
 
-  You may check if Java is successfully set up on your machine by running the following command on your command window:
+   You may check if Java is successfully set up on your machine by running the following command on your command window:
 
     ```cmd\sh
     java -version

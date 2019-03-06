@@ -1,15 +1,12 @@
 ---
-title: 'Azure Cosmos DB: .NET Change Feed Processor API, SDK & resources | Microsoft Docs'
+title: 'Azure Cosmos DB: .NET Change Feed Processor API, SDK & resources'
 description: Learn all about the Change Feed Processor API and SDK including release dates, retirement dates, and changes made between each version of the .NET Change Feed Processor SDK.
-services: cosmos-db
 author: ealsur
-manager: kfile
-
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/24/2018
+ms.date: 01/30/2019
 ms.author: maquaran
 
 ---
@@ -24,7 +21,7 @@ ms.author: maquaran
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -38,6 +35,19 @@ ms.author: maquaran
 ## Release notes
 
 ### v2 builds
+
+### <a name="2.2.6"/>2.2.6
+* Improved handling of Observer exceptions.
+* Richer information on Observer errors:
+ * When an Observer is closed due to an exception thrown by Observer's ProcessChangesAsync, the CloseAsync will now receive the reason parameter set to ChangeFeedObserverCloseReason.ObserverError.
+ * Added traces to identify errors within user code in an Observer.
+
+### <a name="2.2.5"/>2.2.5
+* Added support for handling split in collections that use shared database throughput.
+  * This release fixes an issue that may occur during split in collections using shared database throughput when split result into partition re-balancing with only one child partition key range created, rather than two. When this happens, Change Feed Processor may get stuck deleting the lease for old partition key range and not creating new leases. The issue is fixed in this release.
+
+### <a name="2.2.4"/>2.2.4
+* Added new property ChangeFeedProcessorOptions.StartContinuation to support starting change feed from request continuation token. This is only used when lease collection is empty or a lease does not have ContinuationToken set. For leases in lease collection that have ContinuationToken set, the ContinuationToken is used and ChangeFeedProcessorOptions.StartContinuation is ignored.
 
 ### <a name="2.2.3"/>2.2.3
 * Added support for using custom store to persist continuation tokens per partition.
@@ -62,7 +72,7 @@ ms.author: maquaran
 * Supports Microsoft.Azure.DocumentDB SDK 2.0. Requires Microsoft.Azure.DocumentDB 2.0 or later.
 
 ### <a name="2.0.6"/>2.0.6
-* Added ChangeFeedEventHost.HostName public property for compativility with v1.
+* Added ChangeFeedEventHost.HostName public property for compatibility with v1.
 
 ### <a name="2.0.5"/>2.0.5
 * Fixed a race condition that occurs during partition split. The race condition may lead to acquiring lease and immediately losing it during partition split and causing contention. The race condition issue is fixed with this release.
@@ -115,7 +125,7 @@ ms.author: maquaran
 
 ### <a name="1.3.1"/>1.3.1
 * Stability improvements.
-  * Fix for handling cancelled tasks issue that might lead to stopped observers on some partitions.
+  * Fix for handling canceled tasks issue that might lead to stopped observers on some partitions.
 * Support for manual checkpointing.
 * Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.21 and above.
 
@@ -148,6 +158,11 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.2.6](#2.2.6) |January 29, 2019 |--- |
+| [2.2.5](#2.2.5) |December 13, 2018 |--- |
+| [2.2.4](#2.2.4) |November 29, 2018 |--- |
+| [2.2.3](#2.2.3) |November 19, 2018 |--- |
+| [2.2.2](#2.2.2) |October 31, 2018 |--- |
 | [2.2.1](#2.2.1) |October 24, 2018 |--- |
 | [1.3.3](#1.3.3) |May 08, 2018 |--- |
 | [1.3.2](#1.3.2) |April 18, 2018 |--- |

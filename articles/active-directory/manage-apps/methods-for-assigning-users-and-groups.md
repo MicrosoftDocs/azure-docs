@@ -3,17 +3,18 @@ title: How to assign users and groups to an application | Microsoft Docs
 description: Assign users to the application to grant access
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2018
-ms.author: barbkess
+ms.author: celested
 
+ms.collection: M365-identity-device-management
 ---
 
 # Assign users and groups to an application in Azure Active Directory
@@ -27,7 +28,7 @@ This article shows you how to assign users or groups to an application in Azure 
 
 -   See an application appear on their [Office 365 Application Launcher](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
 
-## Prerequisties
+## Prerequisites
 Before you can assign users and groups to an application, you must require user assignment. To require user assignment:
 
 1. Log in to the Azure portal with an administrator account.
@@ -53,7 +54,7 @@ To assign one or more users to an application directly, follow the steps below:
 
 5.  click **All Applications** to view a list of all your applications.
 
-  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
+    * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
 6.  Select the application you want to assign a user to from the list.
 
@@ -91,7 +92,7 @@ To assign one or more groups to an application directly, follow the steps below:
 
 5.  click **All Applications** to view a list of all your applications.
 
-  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
+    * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
 6.  Select the application you want to assign a user to from the list.
 

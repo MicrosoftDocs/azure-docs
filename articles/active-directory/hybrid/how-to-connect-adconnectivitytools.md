@@ -3,14 +3,15 @@ title: 'Azure AD Connect: What is the ADConnectivityTool PowerShell Module | Mic
 description: This document introduces the new ADConnectivity PowerShell module
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/19/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 
 # What is the ADConnectivityTool PowerShell Module?
@@ -36,7 +37,7 @@ On the **Connect your directories** page, in the Azure AD Connect Wizard, if a n
 Whenever any of these issues are found, a related error message is displayed in the AADConnect Wizard:
 
 
-![Error](media\how-to-connect-adconnectivitytools\error1.png)
+![Error](media/how-to-connect-adconnectivitytools/error1.png)
 
 For example, when we are attempting to add a directory on the **Connect your directories** screen, Azure AD Connect needs to verify this and expects to be able to communicate with a domain controller over port 389.  If it cannot, we will see the error that is shown in the screenshot above.  
 

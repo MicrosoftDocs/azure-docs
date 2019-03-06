@@ -3,9 +3,9 @@ title: Azure Service Bus Premium and Standard Messaging pricing tiers overview |
 description: Service Bus Premium and Standard Messaging tiers
 services: service-bus-messaging
 documentationcenter: .net
-author: djrosanova
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: e211774d-821c-4d79-8563-57472d746c58
 ms.service: service-bus-messaging
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2018
-ms.author: spelluru
+ms.date: 03/05/2019
+ms.author: aschhab
 
 ---
 # Service Bus Premium and Standard messaging tiers
@@ -50,6 +50,21 @@ Partitioned queues and topics are not supported in Premium Messaging. For more i
 Because Premium messaging runs in a completely isolated run-time environment, express entities are not supported in Premium namespaces. For more information about the express feature, see the [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) property.
 
 If you have code running under Standard messaging and want to port it to the Premium tier, make sure the [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) property is set to **false** (the default value).
+
+## Premium Messaging resource usage
+In general, any operation on an entity may cause CPU and memory usage. Here are some of these operations: 
+
+- Management operations such as CRUD (Create, Retrieve, Update, and Delete) operations on queues, topics, and subscriptions.
+- Runtime operations (send and receive messages)
+- Monitoring operations and alerts
+
+The additional CPU And memory usage is not priced additionally though. For the Premium Messaging tier, there is a single price for the message unit.
+
+The CPU and memory usage are tracked and displayed to the you for the following reasons: 
+
+- Provide transparency into the system internals
+- Understand the capacity of resources purchased.
+- Capacity planning that helps you decide to scale up/down.
 
 ## Get started with Premium Messaging
 

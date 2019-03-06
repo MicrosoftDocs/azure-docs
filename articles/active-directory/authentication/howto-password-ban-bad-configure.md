@@ -4,15 +4,16 @@ description: Ban weak passwords from your envirionment with Azure AD dynamically
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: rogoya
 
+ms.collection: M365-identity-device-management
 ---
 # Configuring the custom banned password list
 
@@ -33,7 +34,7 @@ Configuring the custom banned password list requires an Azure Active Directory P
    * The custom banned password list can contain up to 1000 words.
    * The custom banned password list is case-insensitive.
    * The custom banned password list considers common character substitution.
-      * Example: "o" and "0" or "a" and "@"
+      * Example: "o" and "0" or "a" and "\@"
    * The minimum string length is four characters and the maximum is 16 characters.
 1. When you have added all strings, click **Save**.
 

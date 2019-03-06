@@ -3,12 +3,12 @@
 title: 'Prepare the target environment for VMware replication to Azure | Microsoft Docs'
 description: This article describes how to prepare your target Azure environment for VMware VM replication to Azure.
 services: site-recovery
-author: Rajeswari-Mamilla
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
-ms.author: ramamill
+ms.date: 03/03/2019
+ms.author: mayg
 
 ---
 
@@ -32,11 +32,11 @@ After completing the **Step 1: Select Protection goal** and **Step 2: Prepare So
 1. **Subscription:** From the drop-down menu, select the Subscription that you want to replicate your virtual machines or physical servers to.
 2. **Deployment Model:** Select the deployment model (Classic or Resource Manager)
 
-Based on the chosen deployment model, a validation is run to ensure that you have at least one compatible storage account and virtual network in the target subscription to replicate and failover your virtual machine or physical server to.
+Based on the chosen deployment model, a validation is run to ensure that you have at least one virtual network in the target subscription to replicate and failover your virtual machine or physical server to.
 
 Once the validations complete successfully, click OK to go to the next step.
 
-If you don't have a compatible Resource Manager storage account or virtual network, you can create one by clicking the **+ Storage Account** or **+ Network** buttons at the top of the page.
+If you don't have a virtual network, you can create one by clicking the **+ Network** button at the top of the page.
 
 ## Next steps
 [Configure replication settings](vmware-azure-set-up-replication.md).

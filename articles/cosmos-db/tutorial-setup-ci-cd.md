@@ -1,17 +1,12 @@
 ---
 title: Set up CI/CD pipeline with the Azure Cosmos DB emulator build task
 description: Tutorial on how to set up build and release workflow in Azure DevOps using the Cosmos DB emulator build task
-services: cosmos-db
-keywords: Azure Cosmos DB Emulator
 author: deborahc
-manager: kfile
-
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
-
+ms.reviewer: sngun
 ---
 # Set up a CI/CD pipeline with the Azure Cosmos DB emulator build task in Azure DevOps
 
@@ -19,7 +14,7 @@ The Azure Cosmos DB emulator provides a local environment that emulates the Azur
 
 The Azure Cosmos DB emulator build task for Azure DevOps allows you to do the same in a CI environment. With the build task, you can run tests against the emulator as part of your build and release workflows. The task spins up a Docker container with the emulator already running and provides an endpoint that can be used by the rest of the build definition. You can create and start as many instances of the emulator as you need, each running in a separate container. 
 
-This article demonstrates how to set up a CI pipeline in Azure DevOps for an ASP.NET application that uses the Cosmos DB emulator build task to run tests. 
+This article demonstrates how to set up a CI pipeline in Azure DevOps for an ASP.NET application that uses the Cosmos DB emulator build task to run tests. You can use a similar approach to set up a CI pipeline for a Node.js or a Python application. 
 
 ## Install the emulator build task
 
@@ -44,7 +39,7 @@ Now that the extension is installed, sign in to your Azure DevOps account and fi
 
 2. Select the desired **source**, **Team project**, **Repository**, and the **Default branch for manual and scheduled builds**. After choosing the required options, select **Continue**
 
-   ![Select the team project, repository, and branch for the build pipeline ](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
+   ![Select the team project, repository, and branch for the build pipeline](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
 
 3. Finally, select the desired template for the build pipeline. We'll select the **ASP.NET** template in this tutorial. 
 
@@ -64,7 +59,7 @@ In this tutorial, you'll add the task to the beginning to ensure the emulator is
 
 Now, we'll configure our tests to use the emulator. The emulator build task exports an environment variable – ‘CosmosDbEmulator.Endpoint’ – that any tasks further in the build pipeline can issue requests against. 
 
-In this tutorial, we'll use the [Visual Studio Test task](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) to run unit tests configured via a **.runsettings** file. To learn more about unit test setup, visit the [documentation](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017).
+In this tutorial, we'll use the [Visual Studio Test task](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) to run unit tests configured via a **.runsettings** file. To learn more about unit test setup, visit the [documentation](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017). The complete Todo application code sample that you use in this document is available on [Github](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)
 
 Below is an example of a **.runsettings** file that defines parameters to be passed into an application's unit tests. Note the `authKey` variable used is the [well-known key](https://docs.microsoft.com/azure/cosmos-db/local-emulator#authenticating-requests) for the emulator. This `authKey` is the key expected by the emulator build task and should be defined in your **.runsettings** file.
 
@@ -78,6 +73,8 @@ Below is an example of a **.runsettings** file that defines parameters to be pas
   </TestRunParameters>
 </RunSettings>
 ```
+
+If you are setting up a CI/CD pipeline for an application that uses the Azure Cosmos DB's API for MongoDB, the connection string by default includes the port number 10255. However, this port is not currently open, as an alternate, you should use port 10250 to establish the connection. The Azure Cosmos DB's API for MongoDB connection string remains the same except the supported port number is 10250 instead of 10255.
 
 These parameters `TestRunParameters` are referenced via a `TestContext` property in the application's test project. Here is an example of a test that runs against Cosmos DB.
 

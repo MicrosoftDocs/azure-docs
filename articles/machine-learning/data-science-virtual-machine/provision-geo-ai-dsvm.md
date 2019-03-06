@@ -1,15 +1,16 @@
 ---
 title: Provision a Geo Artificial Intelligence Virtual Machine on Azure - Azure | Microsoft Docs
-description: How to provision a Geo AI Virtual Machine on Azure.
+description: Learn how to create and configure the Geo AI Data Science Virtual Machine. The Geo AI Data Science Virtual Machine provides you with the tools to create AI and ML solutions using geographic data.
 keywords: deep learning, AI, data science tools, data science virtual machine, Geospatial analytics
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 
 ms.assetid: 
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

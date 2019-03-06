@@ -1,14 +1,14 @@
 ---
 title: Define a new device type in Azure IoT Central | Microsoft Docs
 description: This tutorial shows you, as a builder, how to define a new device type in your Azure IoT Central application. You define the telemetry, state, properties and settings for your type.
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 10/30/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: peterpr
+manager: philmea
 ---
 
 # Tutorial: Define a new device type in your Azure IoT Central application
@@ -37,6 +37,8 @@ In this tutorial, you learn how to:
 > * Use settings and properties
 > * Use commands
 > * View your simulated device in the dashboard
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## Prerequisites
 
@@ -70,7 +72,7 @@ To complete this tutorial, you need an Azure IoT Central application. If you com
 
 ## Create a new custom device template
 
-As a builder, you can create and edit the device templates in your application. When you create a device template, Azure IoT Central generates a simulated device from the template. The simulated device generates telemetry that enables you to test the behavior of your application before you connect a physical device.
+As a builder, you can create and edit the device templates in your application. When you create a device template, Azure IoT Central generates a simulated device from the template. The simulated device generates telemetry that enables you to test the behavior of your application before you connect a real device.
 
 To add a new device template to your application, you need to go to the **Application Builder** page. To do so choose the **Application builder** on the left navigation menu.
 
@@ -111,7 +113,7 @@ The following steps show you how to create a new **Connected Air Conditioner** d
     ![Air conditioner measurements](./media/tutorial-define-device-type/airconmeasurements.png)
 
     > [!NOTE]
-    > To change the name of the device or device template, click on the text at the top of the page.
+    > To change the name of the device or device template, select the text at the top of the page.
 
 5. To add the temperature telemetry measurement, choose **New Measurement**. Then choose **Telemetry** as the measurement type:
 
@@ -150,7 +152,7 @@ The following steps show you how to create a new **Connected Air Conditioner** d
 
 ## Define Event measurement
 
-You can use Event to define point-in-time data that is sent by the device to signify something of significance like an error or a component failure. Like telemetry measurements, Azure IoT Central can simulate device events to enable you to test the behavior of your application before you connect a physical device. You define event measurements for your device type in the **Measurements** view.
+You can use Event to define point-in-time data that is sent by the device to signify something of significance like an error or a component failure. Like telemetry measurements, Azure IoT Central can simulate device events to enable you to test the behavior of your application before you connect a real device. You define event measurements for your device type in the **Measurements** view.
 
 1. To add the **Fan Motor Error** event measurement, choose **New Measurement**. Then choose **Event** as the measurement type:
 
@@ -180,13 +182,13 @@ You can use Event to define point-in-time data that is sent by the device to sig
 
     ![View event simulation](./media/tutorial-define-device-type/eventview.png)
 
-1. To see additional details about the event, click the event on the chart:
+1. To see additional details about the event, select the event on the chart:
 
     ![View Event Details](./media/tutorial-define-device-type/eventviewdetail.png)
 
 ## Define State measurement
 
-You can use State to define and visualize the state of the device or its component over a period of time. Like telemetry measurements, Azure IoT Central can simulate device state to enable you to test the behavior of your application before you connect a physical device. You define state measurements for your device type in the **Measurements** view.
+You can use State to define and visualize the state of the device or its component over a period of time. Like telemetry measurements, Azure IoT Central can simulate device state to enable you to test the behavior of your application before you connect a real device. You define state measurements for your device type in the **Measurements** view.
 
 1. To add **Fan Mode** measurement, choose **New Measurement**. Then choose **State** as the measurement type:
 
@@ -221,7 +223,7 @@ You can use State to define and visualize the state of the device or its compone
 
     ![View state simulation](./media/tutorial-define-device-type/stateview.png)
 
-4. In case, there are too many data points sent by the device within a small duration, the state measurement is shown with a different visual as shown below. If you click on the chart, then all the data points within that time period are displayed in a chronological order. You can also narrow the time range so see the measurements in more detail.
+4. In case, there are too many data points sent by the device within a small duration, the state measurement is shown with a different visual as shown below. If you select the chart, then all the data points within that time period are displayed in a chronological order. You can also narrow the time range so see the measurements in more detail.
 
     ![View state Details](./media/tutorial-define-device-type/stateviewdetail.png)
 
@@ -360,7 +362,7 @@ You use _commands_ to enable an operator to run commands directly on the device.
 
 1. Navigate to the **Commands** page for your **Connected Air Conditioner** device template to edit the template. 
 
-1. Click **New Command** to add a command to your device and begin configuring your new command.
+1. Select **New Command** to add a command to your device and begin configuring your new command.
 
    You can create commands of different types based on your requirements. 
 
@@ -374,7 +376,7 @@ You use _commands_ to enable an operator to run commands directly on the device.
     | Display Type         | text            |
     | Description          | Device Command  |  
 
-    You can add additional inputs to the command by clicking **+** for **Input Fields**.
+    You can add additional inputs to the command by selecting **+** for **Input Fields**.
 
     ![Prepare to add a setting](media/tutorial-define-device-type/commandsecho1.png)
 
@@ -432,7 +434,7 @@ Now you have defined your **Connected Air Conditioner** device template, you can
 
     Then choose **Save**.
 
-1. To add the set temperature setting to the dashboard, choose **Settings and Properties**. Click **Add/Remove** to add the settings or properties that you'd like to see in the dashboard. 
+1. To add the set temperature setting to the dashboard, choose **Settings and Properties**. Select **Add/Remove** to add the settings or properties that you'd like to see in the dashboard. 
 
     ![Dashboard components](./media/tutorial-define-device-type/dashboardcomponents4.png)
 

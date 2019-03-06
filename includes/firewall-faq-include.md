@@ -5,7 +5,7 @@
  author: vhorne
  ms.service: 
  ms.topic: include
- ms.date: 10/20/2018
+ ms.date: 2/4/2019
  ms.author: victorh
  ms.custom: include file
 ---
@@ -29,6 +29,8 @@ Azure Firewall is a managed, cloud-based network security service that protects 
 ### What is the typical deployment model for Azure Firewall?
 
 You can deploy Azure Firewall on any virtual network, but customers typically deploy it on a central virtual network and peer other virtual networks to it in a hub-and-spoke model. You can then set the default route from the peered virtual networks to point to this central firewall virtual network.
+
+The advantage of this model is the ability to centrally exert control on multiple spoke VNETs across different subscriptions. There are also cost savings as you don't need to deploy a firewall in each VNet separately. The cost savings should be measured versus the associate peering cost based on the customer traffic patterns.
 
 ### How can I install the Azure Firewall?
 
@@ -87,7 +89,7 @@ For example:
 ```azurepowershell
 # Stop an exisitng firewall
 
-$azfw = Get-AzureRmFirewall -Name "FW Name” -ResourceGroupName "RG Name"
+$azfw = Get-AzureRmFirewall -Name "FW Name" -ResourceGroupName "RG Name"
 $azfw.Deallocate()
 Set-AzureRmFirewall -AzureFirewall $azfw
 ```
@@ -95,6 +97,7 @@ Set-AzureRmFirewall -AzureFirewall $azfw
 ```azurepowershell
 #Start a firewall
 
+$azfw = Get-AzureRmFirewall -Name "FW Name" -ResourceGroupName "RG Name"
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
 $publicip = Get-AzureRmPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
 $azfw.Allocate($vnet,$publicip)
@@ -112,10 +115,14 @@ For Azure Firewall service limits, see [Azure subscription and service limits, q
 
 Yes, you can use Azure Firewall in a hub virtual network to route and filter traffic between two spoke virtual network. Subnets in each of the spoke virtual networks must have UDR pointing to the Azure Firewall as a default gateway for this scenario to work properly.
 
-### Can Azure Firewall forward and filter network traffic between subnets in the same virtual network?
+### Can Azure Firewall forward and filter network traffic between subnets in the same virtual network or peered virtual networks?
 
-Traffic between subnets in the same virtual network or in a directly peered virtual network is routed directly even if UDR points to the Azure Firewall as the default gateway. The recommended method for internal network segmentation is to use Network Security Groups. To send subnet to subnet traffic to the firewall in this scenario, UDR must contain the target subnet network prefix explicitly on both subnets.
+Yes. However, configuring the UDR’s to redirect traffic between subnets in the same VNET requires additional attention. While using the VNET address range as a target prefix for the UDR is sufficient, this also routes all traffic from one machine to another machine in the same subnet through the Azure Firewall instance. To avoid this, include a route for the subnet in the UDR with a next hop type of **VNET**. Managing these routes might be cumbersome and prone to error. The recommended method for internal network segmentation is to use Network Security Groups, which don’t require UDRs.
 
 ### Are there any firewall resource group restrictions?
 
 Yes. The firewall, subnet, VNet, and the public IP address all must be in the same resource group.
+
+### When configuring DNAT for inbound network traffic, do I also need to configure a corresponding network rule to allow that traffic?
+
+No. NAT rules implicitly add a corresponding network rule to allow the translated traffic. You can override this behavior by explicitly adding a network rule collection with deny rules that match the translated traffic. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](../articles/firewall/rule-processing.md).

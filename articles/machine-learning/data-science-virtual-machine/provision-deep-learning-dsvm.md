@@ -1,14 +1,16 @@
 ---
-title: Provision a Deep Learning Data Science Virtual Machine on Azure  | Microsoft Docs
+title: Create a Deep Learning Data Science Virtual Machine
+titleSuffix: Azure
 description: Configure and create a Deep Learning Data Science Virtual Machine on Azure for analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual

@@ -11,54 +11,41 @@ author: dphansen
 ms.author: davidph
 ms.reviewer:
 manager: cgronlun
-ms.date: 11/07/2018
+ms.date: 03/01/2019
 ---
 
 # Quickstart: Use Machine Learning Services (with R) in Azure SQL Database (preview)
 
-This article explains how you can use the public preview of Machine Learning Services (with R) in Azure SQL Database. It walks you through the basics of moving data between a SQL database and R. It also explains how to wrap well-formed R code in the stored procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) to build, train, and use machine learning models in a SQL database.
+This article explains how you can use the public preview of [Machine Learning Services (with R) in Azure SQL Database](sql-database-machine-learning-services-overview.md). It walks you through the basics of moving data between a SQL database and R. It also explains how to wrap well-formed R code in the stored procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) to build, train, and use machine learning models in a SQL database.
 
-Machine learning in SQL Database is used to execute R code and functions and the code is fully available to relational data as stored procedures, as T-SQL script containing R statements, or as R code containing T-SQL. Use the power of enterprise R packages to deliver advanced analytics at scale, and the ability to bring calculations and processing to where the data resides, eliminating the need to pull data across the network.
+Use the power of R language to deliver advanced analytics and machine learning in-database. This ability brings calculations and processing to where the data resides, eliminating the need to pull data across the network. Also, leverage the power of enterprise R packages to deliver advanced analytics at scale.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+Machine Learning Services includes a base distribution of R, overlaid with enterprise R packages from Microsoft. Microsoft's R functions and algorithms are engineered for both scale and utility, delivering predictive analytics, statistical modeling, data visualizations, and leading-edge machine learning algorithms.
 
-## Sign up for the preview
+If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/) before you begin.
 
-The public preview of Machine Learning Services (with R) in SQL Database is not enabled by default. Send an email to Microsoft at [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) to sign up for the public preview.
-
-Once you are enrolled in the program, Microsoft will onboard you to the public preview and either migrate your existing database or create a new databases on an R enabled service.
-
-Machine Learning Services (with R) in SQL Database is currently only available in the vCore-based purchasing model in the **General Purpose** and **Business Critical** service tiers for single and pooled databases. In this initial public preview, neither the **Hyperscale** service tier nor **Managed Instance** are supported. You should not use Machine Learning Services with R for production workloads during the public preview.
-
-When Machine Learning Services (with R) has been enabled for your SQL database, return to this page to learn how to execute R scripts in the context of a stored procedure.
-
-Currently, R is the only supported language. There is no support for Python at this time.
+> [!IMPORTANT]
+> Azure SQL Database Machine Learning Services is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> [Sign up for the preview](sql-database-machine-learning-services-overview.md#signup).
 
 ## Prerequisites
 
-To run the example code in these exercises, you must first have a SQL database with Machine Learning Services (with R) enabled. During the public preview, Microsoft will onboard you and enable machine learning for your existing or new database, as described above.
+To run the example code in these exercises, you must first have a SQL database with Machine Learning Services (with R) enabled. During the public preview, Microsoft will onboard you and enable machine learning for your existing or new database. Follow the steps in [Sign up for the preview](sql-database-machine-learning-services-overview.md#signup).
 
 You can connect to the SQL Database and run the R scripts any database management or query tool, as long as it can connect to a SQL Database, and run a T-SQL query or stored procedure. This quickstart uses [SQL Server Management Studio](sql-database-connect-query-ssms.md).
 
 For the [add a package](#add-package) exercise, you will also need to install [R](https://www.r-project.org/) and [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) on your local computer.
 
-This quickstart also requires that you configure a server-level firewall rule. For a quickstart showing how to do this, see [Create server-level firewall rule](sql-database-get-started-portal-firewall.md).
-
-## Different from SQL Server
-
-The functionality of Machine Learning Services (with R) in Azure SQL Database is similar to [SQL Server Machine Learning Services](https://review.docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). However, there are some differences:
-
-- R only. Currently there is no support for Python.
-- No need to configure `external scripts enabled` via `sp_configure`.
-- No need to give script execution permission to users.
-- Packages have to be installed via **sqlmlutils**.
-- There is no separate external resource governance. R resources are a certain percentage of the SQL resources, depending on the tier.
+This quickstart also requires that you configure a server-level firewall rule. For a quickstart showing how to do this, see [Create server-level firewall rule](sql-database-server-level-firewall-rule.md).
 
 ## Verify R exists
 
 You can confirm that Machine Learning Services (with R) is enabled for your SQL database. Follow the steps below.
 
-1. Open SQL Server Management Studio and connect to your SQL database.
+1. Open SQL Server Management Studio and connect to your SQL database. For more information on how to connect, see [Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database](sql-database-connect-query-ssms.md).
 
 1. Run the code below. 
 
@@ -77,16 +64,26 @@ You can confirm that Machine Learning Services (with R) is enabled for your SQL 
 
 1. If you get any errors, it might be because the public preview of Machine Learning Services (with R) is not enabled for your SQL database. See how to sign up for the public preview above.
 
+## Grant permissions
+
+If you are an administrator, you can run external code automatically. Everyone else must be granted permission.
+
+Replace `<username>` with a valid database user login before running the command.
+
+```sql
+GRANT EXECUTE ANY EXTERNAL SCRIPT TO <username>
+```
+
 ## Basic R interaction
 
 There are two ways you can run R code in SQL Database:
 
-+ Add a R script as an argument of the system stored procedure, [sp_execute_external_script](https://docs.microsoft.com/sql//relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md).
-+ From a [remote R client](https://review.docs.microsoft.com/sql/advanced-analytics/r/set-up-a-data-science-client), connect to your SQL database, and execute code using the SQL Database as the compute context.
++ Add R script as an argument of the system stored procedure, [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql).
++ From a [remote R client](https://docs.microsoft.com/sql/advanced-analytics/r/set-up-a-data-science-client), connect to your SQL database, and execute code using the SQL Database as the compute context.
 
 The following exercise is focused on the first interaction model: how to pass R code to a stored procedure.
 
-1. Run a simple script to see how an R script can executed in your SQL database.
+1. Run a simple script to see how an R script executes in your SQL database.
 
     ```sql
     EXECUTE sp_execute_external_script
@@ -114,7 +111,7 @@ Remember, everything inside the `@script` argument must be valid R code.
 
 ## Inputs and outputs
 
-By default, [sp_execute_external_script](https://review.docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md) accepts a single input dataset, which typically you supply in the form of a valid SQL query. Other types of input can be passed as SQL variables.
+By default, [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) accepts a single input dataset, which typically you supply in the form of a valid SQL query. Other types of input can be passed as SQL variables.
 
 The stored procedure returns a single R data frame as output, but you can also output scalars and models as variables. For example, you can output a trained model as a binary variable and pass that to a T-SQL INSERT statement, to write that model to a table. You can also generate plots (in binary format) or scalars (individual values, such as the date and time, the time elapsed to train the model, and so forth).
 
@@ -249,7 +246,6 @@ Microsoft provides a number of R packages pre-installed with Machine Learning Se
 
     ![Installed packages in R](./media/sql-database-connect-query-r/r-installed-packages.png)
 
-
 ## Create a predictive model
 
 You can train a model using R and save the model to a table in your SQL database. In this exercise, you will train a simple regression model that predicts the stopping distance of a car based on speed. You'll use the `cars` dataset included with R, because it is small and easy to understand.
@@ -279,7 +275,7 @@ You can train a model using R and save the model to a table in your SQL database
     - Provide input data to use in training the model.
 
     > [!TIP]
-    > If you need a refresher on linear models, we recommend this tutorial, which describes the process of fitting a model using rxLinMod: [Fitting Linear Models](https://docs.microsoft.com/r-server/r/how-to-revoscaler-linear-model)
+    > If you need a refresher on linear models, we recommend this tutorial, which describes the process of fitting a model using rxLinMod: [Fitting Linear Models](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
     To build the model, you define the formula inside your R code, and pass the data as an input parameter.
 
@@ -332,7 +328,7 @@ You can train a model using R and save the model to a table in your SQL database
     WHERE model_name = 'default model'
     ```
 
-4. Generally, the output of R from the stored procedure [sp_execute_external_script](https://review.docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md) is limited to a single data frame.
+4. Generally, the output of R from the stored procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) is limited to a single data frame.
 
     However, you can return outputs of other types, such as scalars, in addition to the data frame.
 
@@ -376,7 +372,7 @@ Use the model you created in the previous section to score predictions against n
     VALUES (40), (50), (60), (70), (80), (90), (100)
     ```
 
-    In this example, because your model is based on the **rxLinMod** algorithm provided as part of the **RevoScaleR** package, you call the [rxPredict](https://docs.microsoft.com/r-server/r-reference/revoscaler/rxpredict) function, rather than the generic R `predict` function.
+    In this example, because your model is based on the **rxLinMod** algorithm provided as part of the **RevoScaleR** package, you call the [rxPredict](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxpredict) function, rather than the generic R `predict` function.
 
     ```sql
     DECLARE @speedmodel varbinary(max) = 
@@ -405,7 +401,7 @@ Use the model you created in the previous section to score predictions against n
     + After retrieving the model from the table, call the `unserialize` function on the model.
 
         > [!TIP] 
-        > Also check out the new [serialization functions](https://docs.microsoft.com/r-server/r-reference/revoscaler/rxserializemodel) provided by RevoScaleR, which support realtime scoring.
+        > Also check out the new [serialization functions](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel) provided by RevoScaleR, which support realtime scoring.
     + Apply the `rxPredict` function with appropriate arguments to the model, and provide the new input data.
 
     + In the example, the `str` function is added during the testing phase, to check the schema of data being returned from R. You can remove the statement later.
@@ -434,7 +430,7 @@ If you need to use a package that is not already installed in your SQL database,
     R -e "install.packages('RODBCext', repos='https://cran.microsoft.com')"
     ```
 
-    If you are receiving the error like **'R' is not recognized as an internal or external command, operable program or batch file.**, it likely means that path to R.exe is not included in your **PATH** environment variable on Windows. You can either add the directory to the environment variable or navigate to the directory in the command prompt (for example `cd C:\Program Files\R\R-3.5.1\bin`).
+    If you get the following  error, "'R' is not recognized as an internal or external command, operable program or batch file", it likely means that the path to R.exe is not included in your **PATH** environment variable on Windows. You can either add the directory to the environment variable or navigate to the directory in the command prompt (for example `cd C:\Program Files\R\R-3.5.1\bin`) before running the command.
 
 1. Use the **R CMD INSTALL** command to install **sqlmlutils**. Specify the path to the directory you have downloaded the zip file to and the name of the zip file. For example:
 
@@ -516,9 +512,10 @@ If you need to use a package that is not already installed in your SQL database,
 
 ## Next steps
 
-For more information on Machine Learning Services, see the articles below on SQL Server Machine Learning Services. While these articles are for SQL Server, most of the information is also applicable to Machine Learning Services (with R) in Azure SQL Database.
+For more information on Machine Learning Services, see the articles below. While some of these articles are for SQL Server, most of the information is also applicable to Machine Learning Services (with R) in Azure SQL Database.
 
-- [SQL Server Machine Learning Services](https://review.docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [Tutorial: Learn in-database analytics using R in SQL Server](https://review.docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [End-to-end data science walkthrough for R and SQL Server](https://review.docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
-- [Tutorial: Use RevoScaleR R functions with SQL Server data](https://review.docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [Azure SQL Database Machine Learning Services (with R)](sql-database-machine-learning-services-overview.md)
+- [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
+- [Tutorial: Learn in-database analytics using R in SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
+- [End-to-end data science walkthrough for R and SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
+- [Tutorial: Use RevoScaleR R functions with SQL Server data](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)

@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Create a project, add tags, upload images, train your project, and detect objects using the Python SDK.
 services: cognitive-services
 author: areddish
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 11/5/2018
 ms.author: areddish
@@ -177,7 +177,6 @@ To send an image to the prediction endpoint and retrieve the prediction, add the
 
 ```Python
 from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient
-from azure.cognitiveservices.vision.customvision.prediction.prediction_endpoint import models
 
 # Now there is a trained endpoint that can be used to make a prediction
 

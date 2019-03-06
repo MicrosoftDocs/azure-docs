@@ -6,8 +6,9 @@ author: ganesr
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/26/2018
+ms.date: 12/06/2018
 ms.author: ganesr;cherylmc
+ms.custom: seodec18
 
 ---
 # Modify an ExpressRoute circuit using PowerShell (classic)
@@ -20,7 +21,7 @@ ms.author: ganesr;cherylmc
 > * [PowerShell (classic)](expressroute-howto-circuit-classic.md)
 >
 
-This article also shows you how to check the status, update, or delete and deprovision an ExpressRoute circuit.
+This article walks you through the steps to check the status, update, or delete and deprovision your ExpressRoute classic deployment model circuit. This article applies to the classic deployment model.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 

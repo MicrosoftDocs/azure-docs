@@ -8,7 +8,7 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 12/10/2018
 ms.author: byvinyal
 
 ---
@@ -49,10 +49,9 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
-* [Azure Redis Cache](#azure-redis-cache-limits)
+* Azure Cache for Redis
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
-* [Batch AI](#batch-ai-limits)
 * [BizTalk Services](#biztalk-services-limits)
 * [CDN](#cdn-limits)
 * [Cloud Services](#cloud-services-limits)
@@ -215,9 +214,6 @@ The following App Service limits include limits for Web Apps, Mobile Apps, and A
 ### Batch limits
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
-### Batch AI limits
-[!INCLUDE [azure-batch-ai-limits](../includes/azure-batch-ai-limits.md)]
-
 ### BizTalk Services limits
 The following table shows the limits for Azure Biztalk Services.
 
@@ -324,7 +320,7 @@ To learn more about limits on a more granular level, such as document size, quer
 ### API Management limits
 [!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
 
-### Azure Redis Cache limits
+### Azure Cache for Redis limits
 [!INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
 
 ### Key Vault limits

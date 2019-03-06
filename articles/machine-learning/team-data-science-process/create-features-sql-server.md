@@ -1,22 +1,16 @@
 ---
-title: Create features for data in SQL Server using SQL and Python | Microsoft Docs
-description: Process Data from SQL Azure
+title: Create features in SQL Server using SQL and Python - Team Data Science Process
+description: Generate features for data stored in a SQL Server VM on Azure using SQL and Python - part of the Team Data Science Process.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: bf1f4a6c-7711-4456-beb7-35fdccd46a44
 ms.service: machine-learning
-ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Create features for data in SQL Server using SQL and Python
 This document shows how to generate features for data stored in a SQL Server VM on Azure that help algorithms learn more efficiently from the data. You can use SQL or a programming language like Python to accomplish this task. Both approaches are demonstrated here.
@@ -114,7 +108,7 @@ The following connection string format can be used to connect to a SQL Server da
 The [Pandas library](http://pandas.pydata.org/) in Python provides a rich set of data structures and data analysis tools for data manipulation for Python programming. The following code reads the results returned from a SQL Server database into a Pandas data frame:
 
     # Query database and load the returned results in pandas data frame
-    data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
+    data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
 
 Now you can work with the Pandas data frame as covered in topics [Create features for Azure blob storage data using Panda](create-features-blob.md).
 

@@ -1,25 +1,22 @@
 ---
-title: Azure Virtual Network peering | Microsoft Docs
+title: Azure Virtual Network peering
+titlesuffix: Azure Virtual Network
 description: Learn about virtual network peering in Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
-editor: ''
-
-ms.assetid: eb0ba07d-5fee-4db0-b1cb-a569b7060d2a
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2018
+ms.date: 02/21/2019
 ms.author: jdial
 
 ---
 # Virtual network peering
 
-Virtual network peering enables you to seamlessly connect two Azure [virtual networks](virtual-networks-overview.md). Once peered, the virtual networks appear as one, for connectivity purposes. The traffic between virtual machines in the peered virtual networks is routed through the Microsoft backbone infrastructure, much like traffic is routed between virtual machines in the same virtual network, through *private* IP addresses only. Azure supports:
+Virtual network peering enables you to seamlessly connect Azure [virtual networks](virtual-networks-overview.md). Once peered, the virtual networks appear as one, for connectivity purposes. The traffic between virtual machines in the peered virtual networks is routed through the Microsoft backbone infrastructure, much like traffic is routed between virtual machines in the same virtual network, through *private* IP addresses only. Azure supports:
 * VNet peering - connecting VNets within the same Azure region
 * Global VNet peering - connecting VNets across Azure regions
 
@@ -61,7 +58,7 @@ When virtual networks are peered in the same region, you can also configure the 
 
 ![virtual network peering transit](./media/virtual-networks-peering-overview/figure04.png)
 
-Gateway transit is not supported in the peering relationship between virtual networks created in different regions. Both virtual networks in the peering relationship must exist in the same region for gateway transit to work. Gateway transit between virtual networks created through different deployment models (Resource Manager and classic), is supported only if the gateway is in the virtual network (Resource Manager). To learn more about using a gateway for transit, see [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Gateway transit is not supported in the peering relationship between virtual networks created in different regions. Both virtual networks in the peering relationship must exist in the same region for gateway transit to work. Gateway transit between virtual networks created through different deployment models (Resource Manager and classic), is supported only if the gateway (VPN or ExpressRoute) is in the virtual network (Resource Manager). To learn more about using a gateway for transit, see [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 When the virtual networks that are sharing a single Azure ExpressRoute connection are peered, the traffic between them goes through the peering relationship (that is, through the Azure backbone network). You can still use local gateways in each virtual network to connect to the on-premises circuit. Alternatively, you can use a shared gateway and configure transit for on-premises connectivity.
 
@@ -71,11 +68,12 @@ To confirm a virtual network peering, you can [check effective routes](diagnose-
 
 You can also troubleshoot connectivity to a virtual machine in a peered virtual network using Network Watcher's [connectivity check](../network-watcher/network-watcher-connectivity-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Connectivity check lets you see how traffic is routed from a source virtual machine's network interface to a destination virtual machine's network interface.
 
+You can also try the [Troubleshooter for virtual network peering issues](https://support.microsoft.com/help/4486956/troubleshooter-for-virtual-network-peering-issues).
+
 ## Requirements and constraints
 
-The following constraints apply when virtual networks are globally peered:
-- The virtual networks can exist in any Azure public cloud region, but not in Azure national clouds.
-- Resources in one virtual network cannot communicate with the frontend IP address of an Azure internal load balancer in the globally peered virtual network. The load balancer and the resources that communicate with it must be in the same region.
+The following constraints apply only when virtual networks are globally peered:
+- Resources in one virtual network cannot communicate with the front-end IP address of a Basic internal load balancer in a globally peered virtual network. Support for Basic Load Balancer only exists within the same region. Support for Standard Load Balancer exists for both, Global VNet Peering and VNet Peering. 
 - You cannot use remote gateways or allow gateway transit. To use remote gateways or allow gateway transit, peered virtual networks in  must be in the same region.
 
 To learn more about requirements and constraints, see [Virtual network peering requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints). To learn about the limits for the number of peerings you can create for a virtual network, see [Azure networking limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 

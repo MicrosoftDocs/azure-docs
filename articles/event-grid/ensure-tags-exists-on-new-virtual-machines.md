@@ -9,12 +9,12 @@ manager:
 ms.service: automation
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 08/14/2018
+ms.date: 01/14/2019
 ms.author: eamono
 
 ---
 
-# Integrate Azure Automation with Event Grid and Microsoft Teams
+# Tutorial: Integrate Azure Automation with Event Grid and Microsoft Teams
 
 In this tutorial, you learn how to:
 

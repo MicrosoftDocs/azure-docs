@@ -1,16 +1,17 @@
 ---
-title: Provision a Linux (Ubuntu) Data Science Virtual Machine on Azure | Microsoft Docs
+title: Create an Ubuntu Linux Data Science Virtual Machine
+titleSuffix: Azure
 description: Configure and create a Data Science Virtual Machine For Linux (Ubuntu) on Azure to do analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 ms.author: gokuma
 manager: cgronlun
-
+ms.custom: seodec18
 
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -27,7 +28,7 @@ The Data Science Virtual Machine for Linux is an Ubuntu-based virtual machine im
   * [Caffe2](https://github.com/caffe2/caffe2): A cross-platform version of Caffe
   * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): A deep learning software toolkit from Microsoft Research
   * [H2O](https://www.h2o.ai/): An open-source big data platform and graphical user interface
-  * [Keras](https://keras.io/): A high-level neural network API in Python for Theano and TensorFlow
+  * [Keras](https://keras.io/): A high-level neural network API in Python for TensorFlow, Microsoft Cognitive Toolkit, and Theano
   * [MXNet](http://mxnet.io/): A flexible, efficient deep learning library with many language bindings
   * [NVIDIA DIGITS](https://developer.nvidia.com/digits): A graphical system that simplifies common deep learning tasks
   * [PyTorch](http://pytorch.org/): A high-level Python library with support for dynamic networks
@@ -173,7 +174,7 @@ Some example notebooks are available in JupyterHub.
 H2O is a fast, in-memory, distributed machine learning and predictive analytics platform. A Python package is installed in both the root and py35 Anaconda environments. An R package is also installed. To start H2O from the command-line, run `java -jar /dsvm/tools/h2o/current/h2o.jar`; there are various [command line options](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) that you may like to configure. The Flow Web UI can be accessed by browsing to http://localhost:54321 to get started. Sample notebooks are also available in JupyterHub.
 
 #### Keras
-Keras is a high-level neural network API in Python that is capable of running on top of either TensorFlow or Theano. It is available in the root and py35 Python environments. 
+Keras is a high-level neural network API in Python that is capable of running on top of TensorFlow, Microsoft Cognitive Toolkit, or Theano. It is available in the root and py35 Python environments. 
 
 #### MXNet
 MXNet is a deep learning framework designed for both efficiency and flexibility. It has R and Python bindings included on the DSVM. Sample notebooks are included in JupyterHub, and sample code is available in /dsvm/samples/mxnet.
@@ -217,7 +218,7 @@ To activate the py35 environment again:
 
 To invoke a Python interactive session, just type **python** in the shell. 
 
-Install additional Python libraries using ```conda``` or ````pip```` . For pip, activate the correct environment first if you do not want the default:
+Install additional Python libraries using ```conda``` or ```pip``` . For pip, activate the correct environment first if you do not want the default:
 
     source activate root
     pip install <package>
@@ -268,7 +269,7 @@ Before running in Spark context in Microsoft R Server, you need to do a one time
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-You can stop the Hadoop related services when you dont need them by running ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn````
+You can stop the Hadoop related services when you don't need them by running ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```
 A sample demonstrating how to develop and test MRS in remote Spark context (which is the standalone Spark instance on the DSVM) is provided and available in the `/dsvm/samples/MRS` directory. 
 
 ### IDEs and editors

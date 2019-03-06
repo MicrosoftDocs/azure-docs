@@ -12,7 +12,7 @@ ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
 ms.custom: sql-data-warehouse
-ms.date: 04/01/2018
+ms.date: 09/24/2018
 ---
 # Conditional Access (MFA) with Azure SQL Database and Data Warehouse  
 
@@ -37,7 +37,7 @@ The following steps show how to configure SQL Database to enforce a Conditional 
 
 4.	Select **Cloud apps**, click **Select apps**. You see all apps available for conditional access. Select **Azure SQL Database**, at the bottom click **Select**, and then click **Done**.  
   ![select SQL Database](./media/sql-database-conditional-access/select-sql-database.png)  
-  If you can’t find **Azure SQL Database** listed in the following third screen shot, complete the following steps:   
+  If you can’t find **Azure SQL Database** listed in the following third screenshot, complete the following steps:   
   - Sign in to your Azure SQL DB/DW instance using SSMS with an AAD admin account.  
   - Execute `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER`.  
   - Sign in to AAD and verify that Azure SQL Database and Data Warehouse are listed in the applications in your AAD.  

@@ -1,6 +1,7 @@
 # Overview
 ## [About Windows SQL Server VMs](virtual-machines-windows-sql-server-iaas-overview.md) 
- 
+## [Release notes](virtual-machines-windows-sql-server-iaas-release-notes.md) 
+
 # Quickstarts
 ## [Create SQL VM - Portal](quickstart-sql-vm-create-portal.md)
 ## [Create SQL VM - PowerShell](quickstart-sql-vm-create-powershell.md)
@@ -10,6 +11,12 @@
 ### [Performance best practices](virtual-machines-windows-sql-performance.md)
 ### [Security considerations](virtual-machines-windows-sql-security.md)
 ### [Application patterns](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
+## Business Continuity
+### [High availability options](virtual-machines-windows-sql-high-availability-dr.md) 
+### [Always On availability group](virtual-machines-windows-portal-sql-availability-group-overview.md)
+### [Backup and restore](virtual-machines-windows-sql-backup-recovery.md)
+### [Automated backup for SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
+### [Automated backup for SQL Server 2016+](virtual-machines-windows-sql-automated-backup-v2.md)
 ## Management
 ### [Connect to a VM](virtual-machines-windows-sql-connect.md)
 ### [Configure storage](virtual-machines-windows-sql-server-storage-configuration.md)
@@ -17,29 +24,30 @@
 #### [Use the SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md)
 #### [Automated Patching](virtual-machines-windows-sql-automated-patching.md)
 #### [Configure Azure Key Vault Integration](virtual-machines-windows-ps-sql-keyvault.md)
-## Backup and restore
-### [Backup and restore](virtual-machines-windows-sql-backup-recovery.md)
-### [Automated backup for SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
-### [Automated backup for SQL Server 2016+](virtual-machines-windows-sql-automated-backup-v2.md)
-### [Use Azure Storage for backup and restore](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 
 # How-to guides
 ## Create a SQL VM
 ### [Use the portal](virtual-machines-windows-portal-sql-server-provision.md)
 ### [Use Azure PowerShell](virtual-machines-windows-ps-sql-create.md)
+## [Change licensing model for SQL VM](virtual-machines-windows-sql-ahb.md)
 ## Migrate
 ### [Migrate a SQL Server database](virtual-machines-windows-migrate-sql.md)
 ## Configure High Availability
-### [High availability options](virtual-machines-windows-sql-high-availability-dr.md) 
-### [Always On availability group](virtual-machines-windows-portal-sql-availability-group-overview.md)
-#### [Automatic - with template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-#### [Manual - prerequisites](virtual-machines-windows-portal-sql-availability-group-prereq.md)
-#### [Manual - tutorial](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-#### [Load balancer - Azure portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-#### [Load balancer - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+### [Use Azure Storage for backup and restore](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
+### Always On availability group
+#### [Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md)
+#### [Azure Portal Template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+#### [Azure Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md)
 #### [Multiple regions](virtual-machines-windows-portal-sql-availability-group-dr.md)
+#### Configure manually    
+##### [Prerequisites](virtual-machines-windows-portal-sql-availability-group-prereq.md)
+##### [Tutorial](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+##### [Load balancer - Azure portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+##### [Load balancer - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+
 ### Failover Cluster Instance
 #### [Configure](virtual-machines-windows-portal-sql-create-failover-cluster.md)
+
 
 # Reference
 ## [Azure PowerShell](/powershell/azure/overview)

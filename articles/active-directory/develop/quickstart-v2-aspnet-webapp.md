@@ -17,6 +17,7 @@ ms.date: 11/20/2018
 ms.author: andret
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write an ASP.NET web app that can sign in personal accounts, as well as work and school accounts from any Azure Active Directory instance.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Add sign-in with Microsoft to an ASP.NET web app
@@ -125,7 +126,7 @@ public void Configuration(IAppBuilder app)
             ResponseType = OpenIdConnectResponseType.IdToken,
             // ValidateIssuer set to false to allow personal and work accounts from any organization to sign in to your application
             // To only allow users from a single organizations, set ValidateIssuer to true and 'tenant' setting in web.config to the tenant name
-            // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter 
+            // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter
             TokenValidationParameters = new TokenValidationParameters()
             {
                 ValidateIssuer = false
@@ -181,6 +182,6 @@ Try out the ASP.NET tutorial for a complete step-by-step guide on building appli
 ### Learn the steps to create the application used in this quickstart
 
 > [!div class="nextstepaction"]
-> [Sign-in tutorial](.\tutorial-v2-asp-webapp.md)
+> [Sign-in tutorial](./tutorial-v2-asp-webapp.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

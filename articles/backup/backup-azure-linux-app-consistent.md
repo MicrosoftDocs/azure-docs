@@ -34,7 +34,7 @@ Pre-scripts invoke native application APIs, which quiesce the IOs, and flush in-
    - **VMSnapshotScriptPluginConfig.json**: Permission “600.” For example, only “root” user should have “read” and “write” permissions to this file, and no user should have “execute” permissions.
 
    - **Pre-script file**: Permission “700.”  For example, only “root” user should have “read”, “write”, and “execute” permissions to this file.
-  
+
    - **Post-script** Permission “700.” For example, only “root” user should have “read”, “write”, and “execute” permissions to this file.
 
    > [!Important]
@@ -56,8 +56,8 @@ Pre-scripts invoke native application APIs, which quiesce the IOs, and flush in-
     - **preScriptNoOfRetries**: Set the number of times the pre-script should be retried if there is any error before terminating. Zero means only one try and no retry if there is a failure.
 
     - **postScriptNoOfRetries**:  Set the number of times the post-script should be retried if there is any error before terminating. Zero means only one try and no retry if there is a failure.
-    
-    - **timeoutInSeconds**: Specify individual timeouts for the pre-script and the post-script.
+
+    - **timeoutInSeconds**: Specify individual timeouts for the pre-script and the post-script (maximum value can be 1800).
 
     - **continueBackupOnFailure**: Set this value to **true** if you want Azure Backup to fall back to a file system consistent/crash consistent backup if pre-script or post-script fails. Setting this to **false** fails the backup in case of script failure (except when you have single-disk VM that falls back to crash-consistent backup regardless of this setting).
 

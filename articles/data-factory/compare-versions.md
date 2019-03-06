@@ -9,7 +9,7 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
@@ -115,7 +115,7 @@ For more information, see [Difference between custom activity in Data Factory an
 
 - **.NET SDK**: The .NET SDK is updated in the current version.
 
-- **PowerShell**: The PowerShell cmdlets are updated in the current version. The cmdlets for the current version have **DataFactoryV2** in the name, for example: Get-AzureRmDataFactoryV2. 
+- **PowerShell**: The PowerShell cmdlets are updated in the current version. The cmdlets for the current version have **DataFactoryV2** in the name, for example: Get-AzDataFactoryV2. 
 
 - **Python SDK**: This SDK is new in the current version.
 

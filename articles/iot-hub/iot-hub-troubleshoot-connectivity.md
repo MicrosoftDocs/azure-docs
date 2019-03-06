@@ -46,11 +46,11 @@ To get alerts when devices disconnect, configure alerts on the **connected devic
 
    ![Recommended metric alert][3]
 
-To learn more, see [What are classic alerts in Microsoft Azure?](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+To learn more, see [What are classic alerts in Microsoft Azure?](../azure-monitor/platform/alerts-overview.md).
 
 ## Resolve connectivity errors
 
-When you turn on diagnostic logs and alerts for connected devices, you get alerts when errors occur. This section describes how to resolve common issues when you receive an alert. The steps below assume you've set up Azure Log Analytics for your diagnostic logs.
+When you turn on diagnostic logs and alerts for connected devices, you get alerts when errors occur. This section describes how to resolve common issues when you receive an alert. The steps below assume you've set up Azure Monitor logs for your diagnostic logs.
 
 1. Go your workspace for **Log Analytics** in the Azure portal.
 1. Select **Log Search**.

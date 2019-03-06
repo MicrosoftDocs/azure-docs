@@ -1,18 +1,19 @@
 ---
-title: Geography V2 prebuilt entity - LUIS Reference 
+title: Geography V2 prebuilt entity 
 titleSuffix: Azure Cognitive Services
 description: This article contains geographyV2 prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 01/23/2019
 ms.author: diberry
 ---
 
-# GeographyV2 entity
+# GeographyV2 prebuilt entity for a LUIS app
 The prebuilt geographyV2 entity detects places. Because this entity is already trained, you do not need to add example utterances containing GeographyV2 to the application intents. GeographyV2 entity is supported in English [culture](luis-reference-prebuilt-entities.md).
 
 ## Subtypes
@@ -30,7 +31,7 @@ The geographical locations have subtypes:
 ## Resolution for GeographyV2 entity
 The following example shows the resolution of the **builtin.geographyV2** entity.
 
-```JSON
+```json
 {
     "query": "Carol is visiting the sphinx in gizah egypt in africa before heading to texas",
     "topScoringIntent": {

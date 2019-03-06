@@ -21,9 +21,9 @@ ms.author: dekapur
 
 This article describes how to customize the various fabric settings for your Service Fabric cluster. For clusters hosted in Azure, you can customize settings through the [Azure portal](https://portal.azure.com) or by using an Azure Resource Manager template.
 
-> [!NOTE]
-> Not all settings are available in the portal. In case a setting listed below is not available via the portal customize it using an Azure Resource Manager template.
-> 
+> [!NOTE]
+> Not all settings are available in the portal, and it is a [best practice to customize it using an Azure Resource Manager template](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code); Portal is for Service Fabric Dev\Test scenario's only.
+> 
 
 ## Customize cluster settings using Resource Manager templates
 Azure clusters can be configured through the JSON Resource Manager template. To learn more about the different settings, see [Configuration settings for clusters](service-fabric-cluster-fabric-settings.md). As an example, the steps below show how to add a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section using Azure Resource Explorer.

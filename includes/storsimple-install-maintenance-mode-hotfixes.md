@@ -5,7 +5,6 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ---
-<!--author=SharS last changed: 9/17/15-->
 
 #### To install Maintenance mode hotfixes via Windows PowerShell for StorSimple
 > [!IMPORTANT]

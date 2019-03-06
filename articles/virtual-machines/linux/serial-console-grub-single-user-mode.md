@@ -35,7 +35,7 @@ You will want to ensure that GRUB is enabled on your VM in order to be able to a
 Rebooting your VM with the serial console blade open can be done with a SysRq `'b'` command if [SysRq](./serial-console-nmi-sysrq.md) is enabled, or by clicking the Restart button in the Overview blade (open the VM in a new browser tab to reboot without closing the serial console blade). Follow the distro-specific instructions below to learn what to expect from GRUB when you reboot.
 
 ## General Single User Mode access
-Manual access to single user mode may be needed in situations where you have not configured an account with password authentication. You will need to modify the GRUB configuration to manually enter single user mode. Once you have done this, see [Use Single User Mode to reset or add a password](#-Use-Single-User-Mode-to-reset-or-add-a-password) for further instructions.
+Manual access to single user mode may be needed in situations where you have not configured an account with password authentication. You will need to modify the GRUB configuration to manually enter single user mode. Once you have done this, see Use Single User Mode to reset or add a password for further instructions.
 
 In cases where the VM is unable to boot, distros will often automatically drop you into single user mode or emergency mode. Others, however, require additional setup before they can drop you into single-user or emergency mode automatically (such as setting up a root password).
 

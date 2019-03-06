@@ -15,6 +15,12 @@
   - name: Create a blueprint - REST API
     displayName: publish, assign, track, unassign, delete
     href: create-blueprint-rest-api.md
+- name: Tutorials
+  expanded: true
+  items:
+  - name: Create from a blueprint sample
+    displayName: template, resource group, rbac, role assignment
+    href: ./tutorials/create-from-sample.md
 - name: Concepts
   expanded: true
   items:
@@ -54,3 +60,7 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: UserVoice
     href: https://feedback.azure.com/forums/915958-azure-governance
+  - name: Governance YouTube Channel
+    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
+  - name: Azure Friday - Azure Blueprints Overview
+    href: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints

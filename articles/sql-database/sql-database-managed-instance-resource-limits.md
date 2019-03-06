@@ -11,11 +11,11 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 10/17/2018
+ms.date: 02/27/2019
 ---
 # Overview Azure SQL Database Managed Instance resource limits
 
-This article provides an overview of the Azure SQL Database Managed Instance resource limits and provides information how to create request to increase default regional subscription limits. 
+This article provides an overview of the Azure SQL Database Managed Instance resource limits and provides information how to create request to increase default regional subscription limits.
 
 > [!NOTE]
 > For other Managed Instance limitations, see [vCore-based purchasing model](sql-database-managed-instance.md#vcore-based-purchasing-model) and [Managed Instance service tiers](sql-database-managed-instance.md#managed-instance-service-tiers). For differences in supported features and T-SQL statements see [Feature differences](sql-database-features.md) and [T-SQL statement support](sql-database-managed-instance-transact-sql-information.md).
@@ -28,26 +28,37 @@ Managed Instance has characteristics and resource limits that depends on the und
 
 Azure SQL Database Managed Instance can be deployed on two hardware generation (Gen4 and Gen5). Hardware generations have different characteristics that are described in the following table:
 
-|   | **Gen 4** | **Gen 5** |
+|   | **Gen4** | **Gen5** |
 | --- | --- | --- |
-| Hardware | Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD vCore = 1 PP (physical core) | Intel E5-2673 v4 (Broadwell) 2.3-GHz processors, fast eNVM SSD, vCore=1 LP (hyper-thread) |
+| Hardware | Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD vCore = 1 PP (physical core) | Intel E5-2673 v4 (Broadwell) 2.3-GHz processors, fast NVMe SSD, vCore=1 LP (hyper-thread) |
 | Compute | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
 | Memory | 7 GB per vCore | 5.1 GB per vCore |
+| In-Memory OLTP memory | 3 GB per vCore | 2.6 GB per vCore |
+| Max storage (General Purpose) |  8 TB | 8 TB |
 | Max storage (Business Critical) | 1 TB | 1 TB, 2 TB, or 4 TB depending on the number of cores |
 
 ### Service tier characteristics
 
-Managed Instance has two service tiers - General Purpose and Business Critical (Public Preview). These tiers provide different capabilities, as described in the table below:
+Managed Instance has two service tiers - General Purpose and Business Critical. These tiers provide different capabilities, as described in the table below:
 
-| **Feature** | **General Purpose** | **Business Critical (preview)** |
+| **Feature** | **General Purpose** | **Business Critical** |
 | --- | --- | --- |
 | Number of vCores\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
-| Memory | Gen4: 56GB-156GB<br/>Gen5: 44GB-440GB<br/>\*Proportional to the number of vCores | Gen4: 56GB-156GB <br/> Gen5: 44GB-440GB<br/>\*Proportional to the number of vCores |
-| Max storage size | 8 TB | Gen 4: 1 TB <br/> Gen 5: <br/>- 1 TB for 8, 16 vCores<br/>- 2 TB for 24 vCores<br/>- 4 TB for 32, 40, 64, 80 vCores |
+| Memory | Gen4: 56 GB - 168 GB<br/>Gen5: 40.8 GB - 408 GB<br/>\*Proportional to the number of vCores | Gen4: 56 GB - 168 GB <br/> Gen5: 40.8 GB - 408 GB<br/>\*Proportional to the number of vCores |
+| Max storage size | 8 TB | Gen4: 1 TB <br/> Gen5: <br/>- 1 TB for 8, 16 vCores<br/>- 2 TB for 24 vCores<br/>- 4 TB for 32, 40, 64, 80 vCores |
 | Max storage per database | Determined by the max storage size per instance | Determined by the max storage size per instance |
 | Max number of databases per instance | 100 | 100 |
-| Max database files per instance | Up to 280 | Unlimited |
-| Expected max storage IOPS | 500-5000 ([depends on data file size](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)). | Depends on the underlying SSD speed. |
+| Max database files per instance | Up to 280 | 32,767 files per database |
+| Data/Log IOPS (approximate) | 500 - 7,500 per file<br/>\*[Depends on the file size](https://docs.microsoft.com/azure/virtual-machines)| 11 K - 110 K (1,375 per vCore) |
+|Log throughput | 22 MB/s per instance | 3 MB/s per vCore<br/>Max 48 MB/s per instance|
+| Data throughput (approximate) | 100 - 250 MB/s per file<br/>\*[Depends on the file size](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24 - 48 MB/s per vCore |
+| IO latency (approximate) | 5-10 ms | 1-2 ms |
+| Max tempDB size | 192 - 1,920 GB (24 GB per vCore) | No constraints - limited by the max instance storage size |
+
+**Notes**:
+
+- Both data and log file size in the user and system databases are included in the instance storage size that is compared with the Max storage size limit. Use <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> system view to determine the total used space by databases. Error logs are not persisted and not included in the size. Backups are not included in storage size.
+- Throughput and IOPS also depend on the page size that is not explicitly limited by Managed Instance.
 
 ## Supported regions
 
@@ -60,6 +71,8 @@ Managed Instance currently supports deployment only on the following types of su
 - [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [Cloud Service Provider (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
+- [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)
+- [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
 
 > [!NOTE]
 > This limitation is temporary. New subscription types will be enabled in the future.
@@ -77,6 +90,8 @@ In the following table are shown default regional limits for supported subscript
 | :---| :--- | :--- |:--- |:--- |
 |Pay-as-you-go|1*|4*|4*|1*|
 |CSP |1*|4*|4*|1*|
+|Pay-as-you-go Dev/Test|1*|4*|4*|1*|
+|Enterprise Dev/Test|1*|4*|4*|1*|
 |EA|3**|12**|12**|3**|
 
 \* You can either deploy 1 BC or 4 GP instances in one subnet, so that total number of “instance units” in the subnet never exceeds 4.
@@ -92,7 +107,7 @@ These limits can be increased by creating special [support request in the Azure 
 
 [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) subscriptions can have combinations of GP and BC instances. However, there are some constraints regarding the placement of the instances in the subnets.
 
-> [!Note] 
+> [!Note]
 > [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) and [Cloud Service Provider (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources) subscription types can have either one Business Critical or up to 4 General Purpose instances.
 
 The following examples cover deployment cases with non-empty subnets and mixed GP and BC service tiers.
@@ -108,10 +123,10 @@ The following examples cover deployment cases with non-empty subnets and mixed G
 
 ## Obtaining a larger quota for SQL Managed Instance
 
-If you need more Managed Instances in your current regions, you can send the support request to extend the quota using Azure portal. 
+If you need more Managed Instances in your current regions, you can send the support request to extend the quota using Azure portal.
 To initiate the process of obtaining a larger quota:
 
-1. Open **Help + support**, and click **New support request**. 
+1. Open **Help + support**, and click **New support request**.
 
    ![Help and Support](media/sql-database-managed-instance-resource-limits/help-and-support.png)
 2. On the Basics tab for the new support request:
@@ -135,13 +150,13 @@ To initiate the process of obtaining a larger quota:
      > - Region in which subscription limit needs to be increased
      > - Required number of instances, per service tier in existing subnets after the quota increase (if any of the existing subnets needs to be expanded
      > - Required number of new subnets and total number of instances per service tier within the new subnets (if you need to deploy managed instances in new subnets).
-     
+
 5. Click **Next**.
 6. On the Contact Information tab for the new support request, enter preferred contact method (email or phone) and the contact details.
 7. Click **Create**.
 
 ## Next steps
 
-- For more information about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md). 
+- For more information about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md).
 - For pricing information, see [SQL Database Managed Instance pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 - To learn how to create your first Managed Instance, see [Quick-start guide](sql-database-managed-instance-get-started.md).

@@ -1,18 +1,19 @@
 ---
-title: Application dashboard for Language Understanding apps
-titleSuffix: Azure Cognitive Services
+title: App dashboard
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Learn about the application dashboard, a visualized reporting tool that enables you to monitor your apps at a single glance.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: diberry
 ---
 
-# Application Dashboard
+# Model and usage statistics in the dashboard
 The app dashboard enables you to monitor your app at a single glance. The **Dashboard** displays when you open an app by clicking the application name on **My Apps** page then select **Dashboard** from top panel. 
 
 > [!CAUTION]
@@ -63,21 +64,8 @@ The **Intent Breakdown** displays a breakdown of intents based on labeled uttera
 
 ![Intent Breakdown](./media/luis-how-to-use-dashboard/intent-breakdown.png)
 
-To control whether the breakdown is based on labeled utterances or endpoint hits:
-
-1. Click **Additional Settings** ![Additional Settings button](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) to access the list as in the following image:
-
-    ![Intent Breakdown List](./media/luis-how-to-use-dashboard/intent-breakdown-based-on.png)
-2. Select a value from the list and then click the back arrow ![Back Arrow](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) to display the chart.
-
 ## Entity breakdown
 The dashboard displays a breakdown of entities based on labeled utterances or endpoint hits. This summary graph shows the relative importance of each entity in the app. When you hover your mouse pointer over a slice, you see the entity name and the percentage in labeled utterances/endpoint hits. 
 
 ![Entity Breakdown](./media/luis-how-to-use-dashboard/entity-breakdown.png)
 
-To control whether the breakdown is based on labeled utterances or endpoint hits:
-
-1. Click **Additional Settings** ![Additional Settings button](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) to access the list as in the following image:
-
-    ![Entity Breakdown List](./media/luis-how-to-use-dashboard/entity-breakdown-based-on.png)
-2. Select a value from the list and then click the back arrow ![Back Arrow](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) to display the chart accordingly.

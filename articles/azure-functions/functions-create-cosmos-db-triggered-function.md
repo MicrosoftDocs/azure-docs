@@ -16,7 +16,7 @@ ms.custom: cc996988-fb4f-47
 ---
 # Create a function triggered by Azure Cosmos DB
 
-Learn how to create a function triggered when data is added to or changed in Azure Cosmos DB. To learn more about Azure Cosmos DB, see [Azure Cosmos DB: Serverless database computing using Azure Functions](..\cosmos-db\serverless-computing-database.md).
+Learn how to create a function triggered when data is added to or changed in Azure Cosmos DB. To learn more about Azure Cosmos DB, see [Azure Cosmos DB: Serverless database computing using Azure Functions](../cosmos-db/serverless-computing-database.md).
 
 ![View message in the logs.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
@@ -135,8 +135,6 @@ After the collection specified in the function binding exists, you can test the 
 
 ## Next steps
 
-You have created a function that runs when a document is added or modified in your Azure Cosmos DB.
+You have created a function that runs when a document is added or modified in your Azure Cosmos DB. For more information about Azure Cosmos DB triggers, see [Azure Cosmos DB bindings for Azure Functions](functions-bindings-cosmosdb.md).
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-
-For more information about Azure Cosmos DB triggers, see [Azure Cosmos DB bindings for Azure Functions](functions-bindings-cosmosdb.md).

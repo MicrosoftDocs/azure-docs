@@ -1,19 +1,16 @@
 ---
-title: Choosing the right consistency level for your application that uses Azure Cosmos DB | Microsoft Docs
+title: Choosing the right consistency level for your application that uses Azure Cosmos DB
 description: Choosing the right consistency level for your application in Azure Cosmos DB.
-keywords: consistency, performance, azure cosmos db, azure, Microsoft azure
-services: cosmos-db
 author: markjbrown
-
+ms.author: mjbrown
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/24/2018
-ms.author: mjbrown
+ms.reviewer: sngun
 
 ---
 
-# Choose the right consistency level for your application
+# Choose the right consistency level 
 
 Distributed databases relying on replication for high availability, low latency or both, make the fundamental tradeoff between the read consistency vs. availability, latency, and throughput. Most commercially available distributed databases ask developers to choose between the two extreme consistency models: strong consistency and eventual consistency. Azure Cosmos DB allows developers to choose among the five well-defined consistency models: strong, bounded staleness, session, consistent prefix, and eventual. Each of these consistency models is well-defined, intuitive and can be used for specific real-world scenarios. Each of the five consistency models provide [availability and performance tradeoffs](consistency-levels-tradeoffs.md) and are backed by comprehensive SLAs. The following simple considerations will help you make the right choice in many common scenarios.
 
@@ -32,6 +29,8 @@ Consider the following points if your application is built by using Cosmos DB SQ
 - If you need less strict consistency guarantees than the ones provided by session consistency, it is recommended that you use consistent prefix consistency level.
 
 - If you need the highest availability and lowest latency, then use eventual consistency level.
+
+- If you need even higher data durability without sacrificing performance, you can create a custom consistency level at the application layer. For more information see, [How-to implement custom synchronization in your applications](how-to-custom-synchronization.md).
 
 ## Cassandra, MongoDB, and Gremlin API
 

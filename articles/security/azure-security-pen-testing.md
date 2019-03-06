@@ -4,7 +4,7 @@ description: The article provides an overview of the penetration testing (pentes
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 695d918c-a9ac-4eba-8692-af4526734ccc
@@ -36,7 +36,7 @@ As of June 15, 2017, Microsoft no longer requires pre-approval to conduct a pene
 Standard tests you can perform include:
 
 * Tests on your endpoints to uncover the [Open Web Application Security Project (OWASP) top 10 vulnerabilities](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
-* [Fuzz testing](https://blogs.microsoft.com/cybertrust/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) of your endpoints
+* [Fuzz testing](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) of your endpoints
 * [Port scanning](https://en.wikipedia.org/wiki/Port_scanner) of your endpoints
 
 One type of test that you can’t perform is any kind of [Denial of Service (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) attack. This includes initiating a DoS attack itself, or performing related tests that might determine, demonstrate or simulate any type of DoS attack.
