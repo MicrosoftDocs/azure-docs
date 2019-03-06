@@ -131,11 +131,11 @@ The template defines five parameters:
 
     ![Select **Debug**](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
 
-You see that only new rows were copied to the destination.
+    You see that only new rows were copied to the destination.
 
 15. (Optional:) If you selected SQL Data Warehouse as the data destination, you must also provide a connection to Azure Blob storage for staging, which is required by SQL Data Warehouse Polybase. Make sure that the container has already been created in Blob storage.
     
-	![Configure Polybase](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
+    ![Configure Polybase](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
 	
 ## Next steps
 
