@@ -23,7 +23,7 @@ This tutorial illustrates how to:
 > * Send a request using the Bing Visual Search SDK
 > * Crop an area of image to search with Bing Visual Search
 > * Receive and handle the response
-> * Find the URLs of action items in the resposne
+> * Find the URLs of action items in the response
 
 ## Prerequisites
 

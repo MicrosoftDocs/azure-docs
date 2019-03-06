@@ -55,7 +55,7 @@ To run queries against a more interesting data set, create ticket sales data by 
 
 1. In the *PowerShell ISE*, open the ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReporting.ps1* script and set the following value:
    * **$DemoScenario** = 1, **Purchase tickets for events at all venues**.
-2. Press **F5** to run the script and generate ticket sales. While the script is running, continue the steps in this tutorial. The ticket data is queried in the *Run ad-hoc distributed queries* section, so wait for the ticket generator to complete.
+2. Press **F5** to run the script and generate ticket sales. While the script is running, continue the steps in this tutorial. The ticket data is queried in the *Run ad hoc distributed queries* section, so wait for the ticket generator to complete.
 
 ## Explore the global views
 
@@ -100,7 +100,7 @@ This exercise deploys the _adhocreporting_ database. This is the head database t
 
 1. in *PowerShell ISE*, open ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReporting.ps1*. 
 
-1. Set **$DemoScenario = 2**, _Deploy Ad-hoc reporting database_.
+1. Set **$DemoScenario = 2**, _Deploy Ad hoc reporting database_.
 
 1. Press **F5** to run the script and create the *adhocreporting* database.
 
