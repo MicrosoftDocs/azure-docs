@@ -1,6 +1,6 @@
 ---
-title: Azure AD password protection preview
-description: Ban weak passwords in on-premises Active Directory using the Azure AD password protection preview
+title: Password protection for Azure Active Directory preview
+description: Ban weak passwords in on-premises Active Directory by using Azure Active Directory password protection preview
 
 services: active-directory
 ms.service: active-directory
@@ -15,47 +15,46 @@ ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ---
 
-# Preview: Enforce Azure AD password protection for Windows Server Active Directory
+# Preview: Enforce password protection for Azure Active Directory for Windows Server Active Directory
 
 |     |
 | --- |
-| Azure AD password protection and the custom banned password list are public preview features of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Password protection for Azure Active Directory and the custom banned password list are public preview features of Azure Active Directory (Azure AD). For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-Azure AD password protection is a new feature in public preview powered by Azure Active Directory (Azure AD) to enhance password policies in an organization. The on-premises deployment of Azure AD password protection uses both the global and custom banned password lists stored in Azure AD, and performs the same checks on-premises as Azure AD cloud-based changes.
+Password protection for Azure Active Directory is a new feature in public preview that enhances password policies in an organization. The on-premises deployment of Password protection for Azure Active Directory uses both the global and custom banned password lists that are stored in Azure AD. It performs the same checks on-premises as Azure AD cloud-based changes.
 
 ## Design principles
 
-Azure AD Password Protection for Active Directory is designed with the following principles in mind:
+Password Protection for Active Directory is designed with the following principles in mind:
 
-* Domain controllers are never required to communicate directly with the Internet
+* Domain controllers are never required to communicate directly with the Internet.
 * No new network ports are opened on domain controllers.
 * No Active Directory schema changes are required. The software uses the existing Active Directory container and serviceConnectionPoint schema objects.
-* No minimum Active Directory Domain or Forest Functional level (DFL\FFL) is required.
-* The software does not create or require any accounts in the Active Directory domains it protects.
-* User clear-text passwords never leave the domain controller (whether during password validation operations or at any other time).
-* Incremental deployment is supported with the tradeoff that password policy is only enforced where the domain controller agent is installed.
-* It is recommended to install the DC agent on all DCs to ensure ubiquitous password protection security enforcement.
+* No minimum Active Directory Domain or Forest Functional level (DFL/FFL) is required.
+* The software doesn't create or require any accounts in the Active Directory domains that it protects.
+* User clear-text passwords never leave the domain controller during password validation operations or at any other time.
+* Incremental deployment is supported. But that password policy is only enforced where the domain controller agent is installed.
+* We recommend that you install the DC agent on all domain controllers to ensure ubiquitous password protection security enforcement.
 
 ## Architectural diagram
 
-It is important to have an understanding of the underlying design and functional concepts before deploying Azure AD Password Protection in an on-premises Active Directory environment. The following diagram shows how the components of Azure AD Password Protection work together:
+It is important that you understand the underlying design and function concepts before you deploy password protection for Azure Active Directory in an on-premises Active Directory environment. The following diagram shows how the components of password protection for Azure Active Directory work together:
 
-![How Azure AD password protection components work together](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+![How password protection for Azure Active Directory components work together](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
 
-The above diagram shows the three basic software components that make up Azure AD password protection:
+The above diagram shows the three basic software components of password protection for Azure Active Directory:
 
-* The Azure AD Password Protection Proxy service runs on any domain-joined machine in the current Active Directory forest. Its primary purpose is to forward password policy download requests from domain controllers to Azure AD and return the response from Azure AD back to the domain controller.
-* The Azure AD Password Protection DC Agent password filter dll receives user password validation requests from the operating system and forwards them to the Azure AD Password Protection DC Agent service running locally on the domain controller.
-* The Azure AD Password Protection DC Agent service receives password validation requests from the DC Agent password filter dll, processes them using the current (locally available) password policy, and returns the result (pass\fail).
+* The password protection for Azure Active Directory proxy service runs on any domain-joined machine in the current Active Directory forest. Its primary purpose is to forward password policy download requests from domain controllers to Azure AD and return the response from Azure AD back to the domain controller.
+* The password protection for Azure Active Directory DC Agent password filter DLL receives user password-validation requests from the operating system and forwards them to the password protection for Azure Active Directory DC Agent service that's running locally on the domain controller.
+* The password protection for Azure Active Directory DC Agent service receives password-validation requests from the DC Agent password filter DLL. It then processes them by using the current locally available password policy, and returns the result: pass or fail.
 
-## Theory of operations
+## Theory of operations: How password protection works
 
-So given the above diagram and design principles, how does Azure AD Password Protection actually work?
+Each password protection for Azure Active Directory proxy service advertises itself to domain controllers in the forest by creating a serviceConnectionPoint object in Active Directory.
 
-Each Azure AD Password Protection Proxy service advertises itself to domain controllers in the forest by creating a serviceConnectionPoint object in Active Directory.
-
-Each Azure AD Password Protection DC Agent service also creates a serviceConnectionPoint object in Active Directory. However this is used primarily for reporting and diagnostics.
+Each password protection for Azure Active Directory
+DC Agent service also creates a serviceConnectionPoint object in Active Directory. But this object is used primarily for reporting and diagnostics.
 
 The Azure AD Password Protection DC Agent service is responsible for initiating the download of a new password policy from Azure AD. The first step is to locate an Azure AD Password Protection Proxy service by querying the forest for proxy serviceConnectionPoint objects. Once an available proxy service is found, a password policy download request is sent from the DC agent service to the proxy service, which in turn sends it to Azure AD, and then returns the response to the DC agent service. After receiving a new password policy from Azure AD, the DC agent service stores the policy in a dedicated folder at the root of its domain sysvol share. The DC agent service also monitors this folder in case newer policies replicate in from other DC agent services in the domain.
 
