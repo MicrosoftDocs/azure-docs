@@ -960,7 +960,7 @@ static void Main()
 }
 ```
 
-When the [`TelemetryConfiguration`] is constructed, all registered types of [`ITelemetryInitializer`] are included. To learn more about working the see [Application Insights API for custom events and metrics](../azure-monitor/app/api-custom-events-metrics.md).
+When the [`TelemetryConfiguration`] is constructed, all registered types of [`ITelemetryInitializer`] are included. To learn more, see [Application Insights API for custom events and metrics](../azure-monitor/app/api-custom-events-metrics.md).
 
 In version 3.*x*, you no longer have to flush the [`TelemetryClient`] when the host stops. The .NET Core dependency injection system automatically disposes of the registered `ApplicationInsightsLoggerProvider`, which flushes the [`TelemetryClient`].
 
