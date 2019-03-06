@@ -38,8 +38,10 @@
     href: howto-sql-server-to-azure-sql-powershell.md
   - name: Use PowerShell to migrate SQL Server to Azure SQL DB MI
     href: howto-sql-server-to-azure-sql-mi-powershell.md
-  - name: Monitor migration activity](how-to-monitor-migration-activity.md
-    href: Migrate SSIS packages to Azure](how-to-migrate-ssis-packages.md
+  - name: Monitor migration activity
+    href: how-to-monitor-migration-activity.md
+  - name: Migrate SSIS packages to Azure
+    href: how-to-migrate-ssis-packages.md
 
 - name: Resources
   items:
