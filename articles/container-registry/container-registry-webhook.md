@@ -6,19 +6,19 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/20/2017
+ms.date: 03/05/2019
 ms.author: danlep
 ---
 
 # Using Azure Container Registry webhooks
 
-An Azure container registry stores and manages private Docker container images, similar to the way Docker Hub stores public Docker images. You can use webhooks to trigger events when certain actions take place in one of your registry repositories. Webhooks can respond to events at the registry level, or they can be scoped down to a specific repository tag.
+An Azure container registry stores and manages private Docker container images, similar to the way Docker Hub stores public Docker images. It can also host repositories for [Helm charts](container-registry-helm-repos.md) (preview), a packaging format to deploy applications to Kubernetes. You can use webhooks to trigger events when certain actions take place in one of your registry repositories. Webhooks can respond to events at the registry level, or they can be scoped down to a specific repository tag.
 
 For details on webhook requests, see [Azure Container Registry webhook schema reference](container-registry-webhook-reference.md).
 
 ## Prerequisites
 
-* Azure container registry - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md).
+* Azure container registry - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md). See [Azure Container Registry SKUs](container-registry-skus.md) for the webhooks quotas available in the different service tiers.
 * Docker CLI - To set up your local computer as a Docker host and access the Docker CLI commands, install [Docker Engine](https://docs.docker.com/engine/installation/).
 
 ## Create webhook Azure portal
@@ -34,9 +34,9 @@ For details on webhook requests, see [Azure Container Registry webhook schema re
 | Name | The name you want to give to the webhook. It may contain only lowercase letters and numbers, and must be 5-50 characters in length. |
 | Service URI | The URI where the webhook should send POST notifications. |
 | Custom headers | Headers you want to pass along with the POST request. They should be in "key: value" format. |
-| Trigger actions | Actions that trigger the webhook. Webhooks can currently be triggered by image push and/or delete actions. |
+| Trigger actions | Actions that trigger the webhook. Webhooks can currently be triggered by image push, image delete, Helm chart push, and Helm chart delete actions. You can choose one or more actions to trigger the webhook. |
 | Status | The status for the webhook after it's created. It's enabled by default. |
-| Scope | The scope at which the webhook works. By default, the scope is for all events in the registry. It can be specified for a repository or a tag by using the format "repository:tag". |
+| Scope | The scope at which the webhook works. By default, the scope is for all events in the registry. It can be specified for a repository or a tag by using the format "repository:tag", or "repository:*" for all tags under a repository. |
 
 Example webhook form:
 
