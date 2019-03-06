@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 03/06/2019
 ms.author: danlep
 ms.custom:
 ---
@@ -33,7 +33,7 @@ This example container group:
 * Includes two Azure file shares as volume mounts, and each container mounts one of the shares locally.
 
 > [!NOTE]
-> Multi-container groups currently support only Linux containers. Azure Container Instances supports deployment only of an individual Windows container (technically, a single-container group). While we are working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
+> Multi-container groups currently support only Linux containers. For Windows containers, Azure Container Instances only supports deployment of a single instance. While we are working to bring all features to Windows containers, you can find current platform differences in the service [Overview](container-instances-overview.md#linux-and-windows-containers).
 
 ## Deployment
 
@@ -41,15 +41,17 @@ Here are two common ways to deploy a multi-container group: use a [Resource Mana
 
 ## Resource allocation
 
-Azure Container Instances allocates resources such as CPUs, memory, and optionally [GPUs][gpus] (preview) to a container group by adding the *resource requests* of the instances in the group. Taking CPU resources as an example, if you create a container group with two instances, each requesting 1 CPU, then the container group is allocated 2 CPUs.
+Azure Container Instances allocates resources such as CPUs, memory, and optionally [GPUs][gpus] (preview) to a container group by adding the [resource requests][resource-requests] of the instances in the group. Taking CPU resources as an example, if you create a container group with two instances, each requesting 1 CPU, then the container group is allocated 2 CPUs.
+
+The maximum resources available for a container group depend on the [Azure region][region-availability] used for the deployment.
 
 ### Container resource requests and limits
 
-* By default, container instances in a group share the requested resources of the group. In a group with two instances requesting 1 CPU, each instance can use up to the 2 CPUs allocated to the group. The instances might compete for CPU resources while they're running.
+* By default, container instances in a group share the requested resources of the group. In a group with two instances each requesting 1 CPU, the group as whole has access to 2 CPUs. Each instance can use up to the 2 CPUs and the instances may compete for CPU resource while they are running.
 
-* To limit resource usage by an instance in a group, optionally set a *resource limit* for the instance. In a group with two instances requesting 1 CPU, one of your containers might require more CPUs to run than the other.
+* To limit resource usage by an instance in a group, optionally set a [resource limit][resource-limits] for the instance. In a group with two instances requesting 1 CPU, one of your containers might require more CPUs to run than the other.
 
-  In this scenario, you could set a resource limit of 1 CPU for one instance, and a limit of 2 CPUs for the second. This configuration limits the first container's resource usage to 1 CPU, allowing the second container to use up to the full 2 CPUs.
+  In this scenario, you could set a resource limit of 0.5 CPU for one instance, and a limit of 2 CPUs for the second. This configuration limits the first container's resource usage to 0.5 CPU, allowing the second container to use up to the full 2 CPUs if available.
 
 For more information, see the [ResourceRequirements][resource-requirements] property in the container groups REST API.
 
@@ -97,7 +99,9 @@ Learn how to deploy a multi-container container group with an Azure Resource Man
 <!-- LINKS - Internal -->
 [resource-manager template]: container-instances-multi-container-group.md
 [yaml-file]: container-instances-multi-container-yaml.md
-[aci-region-availability]: https://aka.ms/aci/regions
+[region-availability]: container-instances-region-availability.md
+[resource-requests]: /rest/api/container-instances/containergroups/createorupdate#resourcerequests
+[resource-limits]: /rest/api/container-instances/containergroups/createorupdate#resourcelimits
 [resource-requirements]: /rest/api/container-instances/containergroups/createorupdate#resourcerequirements
 [azure-files]: container-instances-volume-azure-files.md
 [virtual-network]: container-instances-vnet.md
