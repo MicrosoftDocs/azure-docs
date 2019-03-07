@@ -67,11 +67,11 @@ You can set up Azure SQL databases, and instance databases to collect the follow
 | [SQLInsights](#intelligent-insights-dataset): Contains Intelligent Insights into performance. To learn more, see [Intelligent Insights](sql-database-intelligent-insights.md). | Yes | Yes |
 
 > [!NOTE]
-> Please note that elastic pools and managed instances have its own separate diagnostics telemetry from databases they contain. This is because elastic pools and managed instances are resource containers with its own telemetry inside which there are databases placed with its separate telemetry. This is important to note as diagnostics telemetry is configured separately each of these resources, as documented below.
+> Elastic pools and managed instances have its own separate diagnostics telemetry from databases they contain. This is important to note as diagnostics telemetry is configured separately for each of these resources, as documented below.
 
 ## Azure portal
 
-You can use the **Diagnostics settings** menu for each single, pooled, or instance database in the Azure portal to configure the streaming of diagnostics telemetry for Azure SQL databases. You can set the following destinations: Azure Storage, Azure Event Hubs, and Azure Monitor logs.
+You can use **Diagnostics settings** menu for each single, pooled, or instance database in Azure portal to configure streaming of diagnostics telemetry. In addition, diagnostic telemetry can also be configured separately for database containers: elastic pools and managed instances. You can set the following destinations to stream the diagnostics telemetry: Azure Storage, Azure Event Hubs, and Azure Monitor logs.
 
 ### Configure streaming of diagnostics telemetry for elastic pools
 
@@ -99,8 +99,8 @@ To enable streaming of diagnostics telemetry for an elastic pool resource, follo
 
    ![Configure diagnostics for elastic pools](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 
-> [!TIP]
-> In addition to configuring diagnostics telemetry for an elastic pool, please note that you also need to configure diagnostics telemetry for each database in elastic pool as documented below. 
+> [!NOTE]
+> In addition to configuring diagnostics telemetry for an elastic pool, you also need configure diagnostics telemetry for each database in elastic pool, as documented below. 
 
 ### Configure streaming of diagnostics telemetry for single datatbase, or database in elastic pool
 
@@ -154,8 +154,8 @@ To enable streaming of diagnostics telemetry for a managed instance resource, fo
 
    ![Configure diagnostics for managed instance](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
-> [!TIP]
-> In addition to configuring diagnostics telemetry for a managed instance, please note that you also need to configure diagnostics telemetry for each instance database as documented below. 
+> [!NOTE]
+> In addition to configuring diagnostics telemetry for a managed instance, you also need to configure diagnostics telemetry for each instance database, as documented below. 
 
 ### Configure streaming of diagnostics telemetry for instance database in managed instance
 
