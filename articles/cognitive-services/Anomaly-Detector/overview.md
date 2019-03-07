@@ -47,13 +47,7 @@ To run the demo, complete the following steps:
 
 The Anomaly Detector API is a RESTful web service, making it easy to call from any programming language that can make HTTP requests and parse JSON.
 
-> [!NOTE] 
-> To use the Anomaly Detector API, your data must follow these requirements:
-> - Minimum data for input time series: 
->     - Minimum of 13 data points for time series without clear periodicity
->     - Minimum of four cycles of data points for the time series with known periodicity.
-> - Data integrity: 
->     - Time series data points are separated in the same interval and no missing points.
+[!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 
 1. Create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/try/cognitive-services/) for free.
 2. Send a request to the API, with your data.
