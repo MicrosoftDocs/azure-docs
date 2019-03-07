@@ -5,7 +5,7 @@ services: azure-stack
 author: mattbriggs
 ms.author: mabrigg
 ms.date: 02/27/2019
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
