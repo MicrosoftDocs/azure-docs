@@ -619,7 +619,7 @@
         items:
           - name: High-performance Computing
             tocHref: /azure/virtual-machines/workloads/hpc/
-            topicHref: ../../linux/high-performance-computing.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fhpc%2ftoc.json
+            topicHref: /azure/virtual-machines/linux/high-performance-computing?toc=%2fazure%2fvirtual-machines%2fworkloads%2fhpc%2ftoc.json
           - name: SAP
             tocHref: /azure/virtual-machines/workloads/sap/
             topicHref: /azure/virtual-machines/workloads/sap/get-started

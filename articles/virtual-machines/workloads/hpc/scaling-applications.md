@@ -25,11 +25,11 @@ At this time, it is recommended the following for optimal application scaling ef
 	Small cases (~10K cells on 1 node): 22% improvement​
 	Large cases(~10M cells on 1 node): deadlocked with default binding​
 ​
-- For applications that support hybrid modes (e.g. OpenMP+MPI), use 4 threads and 1-2 MPI ranks per CCX​
+- For applications that support hybrid modes (OpenMP+MPI), use 4 threads and 1-2 MPI ranks per CCX​
 - We support MPICH-CH4, OpenMPI , MVAPICH2, Platform MPI, and Intel MPI for HB-series VMs.​
 - For optimal performance and scaling, use MPICH-CH4 (bit.ly/2zXzK2e).​
 - Some applications with extreme sensitivity to memory bandwidth may benefit from using a reduced number of cores per CCX. For these applications, using 3 or 2 cores per CCX may reduce memory bandwidth contention and yield higher real-world performance or more consistent scalability. MPI Allreduce, in particular, may benefit from this.​
-- For significantly larger scale runs, it is recommended to use UD or hybrid RC+UD transports. Many MPI libraries/runtime libraries do this internally (e.g. UCX or MVAPICH2). Please check your transport configurations for large scale runs.​
+- For significantly larger scale runs, it is recommended to use UD or hybrid RC+UD transports. Many MPI libraries/runtime libraries do this internally (like UCX or MVAPICH2). Please check your transport configurations for large scale runs.​
 
 **Next steps**
 

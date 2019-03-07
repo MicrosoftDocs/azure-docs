@@ -18,9 +18,9 @@ ms.author: msalias
 
 Maximizing HPC application performance on AMD EPYC requires a thoughtful approach memory locality and process placement. Below, we outline the AMD EPYC architecture and our implementation of it on Azure for HPC applications. We will use the term “pNUMA” to refer to a physical NUMA domain, and “vNUMA” to refer to a virtualized NUMA domain.​
 ​
-Physically, a HB server is 2 * 32-core EPYC 7551 CPUs for a total of 64 physical cores. These 64 cores are divided into 16 pNUMA domains (8 per socket), each of which is 4 cores and known as a “CPU Complex” (or “CCX”). Each CCX has its own L3 cache which is how an OS will see a pNUMA/vNUMA boundary. A pair of adjacent CCXs shares access to 2-channels of physical DRAM (i.e. 32 GB of DRAM in HB-series servers).​
+Physically, a HB-series is 2 * 32-core EPYC 7551 CPUs for a total of 64 physical cores. These 64 cores are divided into 16 pNUMA domains (8 per socket), each of which is 4 cores and known as a “CPU Complex” (or “CCX”). Each CCX has its own L3 cache, which is how an OS will see a pNUMA/vNUMA boundary. A pair of adjacent CCXs shares access to 2-channels of physical DRAM (32 GB of DRAM in HB-series servers).​
 ​
-To provide room for the Azure hypervisor to operate without interfering with the VM, we reserve physical pNUMA domain 0 (i.e. the first CCX). We then assign pNUMA domains 1-15 (i.e. the remaining CCX units) for the VM. Thus, the VM will see:​
+To provide room for the Azure hypervisor to operate without interfering with the VM, we reserve physical pNUMA domain 0 (the first CCX). We then assign pNUMA domains 1-15 (the remaining CCX units) for the VM. Thus, the VM will see:​
 ​
 (15 vNUMA domains) * (4 cores/vNUMA) = 60 cores per VM​
 ​
@@ -36,10 +36,10 @@ More on AMD EPYC architecture at: https://bit.ly/2GpQIMb and https://bit.ly/2Epv
 
 Topology of EPYC 2P Server​
 
-![Topology of EPYC 2P Server​](../media/hb-series-overview/dual-socket.png)
+![Topology of EPYC 2P Server​](./media/hb-series-overview/dual-socket.png)
 
 Segregation of cores reserved for Azure Hypervisor and HB-series VM​
-![Segregation of cores reserved for Azure Hypervisor and HB-series VM​​](../media/hb-series-overview/segregation-of-cores.png)
+![Segregation of cores reserved for Azure Hypervisor and HB-series VM​​](./media/hb-series-overview/segregation-of-cores.png)
 
 ## Hardware specifications
 
@@ -67,3 +67,5 @@ Segregation of cores reserved for Azure Hypervisor and HB-series VM​
 
 
 ## Next steps
+
+Learn more about [high-performance computing](../../linux/high-performance-computing.md) in Azure.

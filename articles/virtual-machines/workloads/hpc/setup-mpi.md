@@ -1,6 +1,6 @@
 ---
-title: Setup MPI for high-performance computing in Azure | Microsoft Docs
-description: Learn how to setup MPI for high-performance computing in Azure. 
+title: Set up MPI for high-performance computing in Azure | Microsoft Docs
+description: Learn how to set up MPI for high-performance computing in Azure. 
 services: virtual-machines
 documentationcenter: ''
 author: githubname
@@ -16,7 +16,7 @@ ms.author: msalias
 ---
 
 
-# Setup MPI
+# Set up MPI
 
 <intro text>
 
@@ -56,7 +56,7 @@ Run OpenMPI​.
 <ompi-install-path>/bin/mpirun -np 2 --map-by node --hostfile ~/hostfile -mca pml ucx --mca btl ^vader,tcp,openib -x UCX_NET_DEVICES=mlx5_0:1  -x UCX_IB_PKEY=0x0003  ./osu_latency​
 ```
 
-Check your pkey as mentioned above​.
+Check your partition key as mentioned above​.
 
 
 ## MPICH​
@@ -78,7 +78,7 @@ Running MPICH​.
 <mpich-install-path>/bin/mpiexec -n 2 -hostfile ~/hostfile -env UCX_IB_PKEY=0x0003 -bind-to hwthread ./osu_latency​
 ```
 
-Check your pkey as mentioned above​.
+Check your partition key as mentioned above​.
 ​
 ​
 ## MVAPICH2​

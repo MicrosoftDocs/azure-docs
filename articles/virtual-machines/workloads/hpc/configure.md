@@ -1,6 +1,6 @@
 ---
 title: Configuring high-performance computing in Azure | Microsoft Docs
-description: Learn how configure high-performance computing in Azure. 
+description: Learn how to configure high-performance computing in Azure. 
 services: virtual-machines
 documentationcenter: ''
 author: githubname
@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/07/2019
 ms.author: msalias
 ---
 # Configure high-performance computing
@@ -30,7 +30,7 @@ echo "vm.zone_reclaim_mode = 1" >> /etc/sysctl.conf sysctl -p​
 ​```
 ​
 
-## Discover partition keys (pkeys)
+## Discover partition keys
 
 ​
 Discover partition keys (pkeys) for communicating with other VMs.
@@ -42,14 +42,14 @@ Discover partition keys (pkeys) for communicating with other VMs.
 
 The bigger one is the tenant key that should be used with MPI​. The following are the partition keys, 0x800b should be used with MPI​.
 
-```
+```bash
 cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/0​
 0x800b​
 cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/1​
 0x7fff​
 ```
 
-Use the pkey other than default (0x7fff) pkey.​ UCX requires the MSB of pkey to be cleared. For example, set UCX_IB_PKEY as 0x000b for 0x800b.​
+Use the partition other than default (0x7fff) partition key.​ UCX requires the MSB of pkey to be cleared. For example, set UCX_IB_PKEY as 0x000b for 0x800b.​
 ​
 ​
 ## Disable firewall and SELinux​
@@ -66,9 +66,9 @@ iptables -nL​
 sed -i -e's/SELINUX=enforcing/SELINUX=disabled/g'/etc/selinux/config​
 ```
 
-## Setup user limits for MPI​
+## Set up user limits for MPI​
 
-Setup user limits for MPI​.
+Set up user limits for MPI​.
 
 ```bash
 cat << EOF >> /etc/security/limits.conf​
@@ -80,9 +80,9 @@ EOF​
 ```
 ​
 ​
-## Setup SSH keys for MPI
+## Set up SSH keys for MPI
 
-Setup SSH keys for MPI types that require it.
+Set up SSH keys for MPI types that require it.
 
 ```bash
 ssh-keygen -f /home/$USER/.ssh/id_rsa -t rsa -N ''​
@@ -108,3 +108,4 @@ sudo systemctl disable cpupower​
 ```
 
 ## Next steps
+Learn more about [high-performance computing](../../linux/high-performance-computing.md) in Azure.

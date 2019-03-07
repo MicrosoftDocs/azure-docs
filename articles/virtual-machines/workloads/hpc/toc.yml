@@ -9,7 +9,7 @@
   - name: Enable Infiniband with SRIOV
     href: enable-infiniband-with-sriov.md  
   - name: Setup MPI
-    href: setup-mpi.md.md 
+    href: setup-mpi.md 
   - name: Compiling applications
     href: compiling-applications.md  
   - name: Scaling applications
@@ -17,9 +17,9 @@
   - name: HB-series 
     href: hb-series-overview.md
     items:
-    - name: HB-series Preview
+    - name: HB-series preview
       href: hb-series-preview.md
-    - name: HB-series performance.md
+    - name: HB-series performance
       href: hb-series-performance.md  
     - name: Known issues
       href: known-issues.md
