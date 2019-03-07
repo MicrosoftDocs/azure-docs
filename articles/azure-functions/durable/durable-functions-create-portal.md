@@ -92,7 +92,7 @@ If you are creating JavaScript Durable Functions, you will need to install the [
     In this example, `{your-function-app-name}` is the domain that is the name of your function app. The response message contains a set of URI endpoints that you can use to monitor and manage the execution, which looks like the following example:
 
     ```json
-    {  
+    {
        "id":"10585834a930427195479de25e0b952d",
        "statusQueryGetUri":"https://...",
        "sendEventPostUri":"https://...",
