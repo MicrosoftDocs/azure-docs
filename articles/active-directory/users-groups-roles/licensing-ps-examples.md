@@ -133,7 +133,7 @@ Get-MsolGroup -All | Where {$_.Licenses}  | Foreach {
         if ($user.IndirectLicenseErrors | ? {$_.ReferencedObjectId -ieq $groupId })
         {
             $licenseErrorCount++
-        }     
+        }
     }
 
     #aggregate results for this group
@@ -245,7 +245,7 @@ HTTP/1.1 200 OK
     },
     ... # other users.
   ],
-  "odata.nextLink":"https://graph.microsoft.com/v1.0/groups/11151866-5419-4d93-9141-0603bbf78b42/membersWithLicenseErrors?$skipToken=<encodedPageToken>" 
+  "odata.nextLink":"https://graph.microsoft.com/v1.0/groups/11151866-5419-4d93-9141-0603bbf78b42/membersWithLicenseErrors?$skipToken=<encodedPageToken>"
 }
 
 ```
@@ -258,7 +258,7 @@ The following script can be used to get all users who have license errors from o
 > This script enumerates all users in the tenant, which might not be optimal for large tenants.
 
 ```powershell
-Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
+Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {
     $user = $_;
     $user.IndirectLicenseErrors | % {
             New-Object Object |
@@ -267,7 +267,7 @@ Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {
                 Add-Member -NotePropertyName GroupId -NotePropertyValue $_.ReferencedObjectId -PassThru |
                 Add-Member -NotePropertyName LicenseError -NotePropertyValue $_.Error -PassThru
         }
-    }  
+    }
 ```
 
 Output:
@@ -292,9 +292,9 @@ $groupIds = Get-MsolGroup -HasLicenseErrorsOnly $true
         Select DisplayName, `
                ObjectId, `
                @{Name="LicenseError";Expression={$_.IndirectLicenseErrors | Where {$_.ReferencedObjectId -eq $groupId.ObjectID} | Select -ExpandProperty Error}}
- 
-    } 
-``` 
+
+    }
+```
 
 ## Check if user license is assigned directly or inherited from a group
 
@@ -413,7 +413,7 @@ HTTP/1.1 200 OK
           "error": "None"
         },
         {
-          "skuId": "240622ac-b9b8-4d50-94e2-dad19a3bf4b5", 
+          "skuId": "240622ac-b9b8-4d50-94e2-dad19a3bf4b5",
           "disabledPlans":[
             "e61ff361-5baf-41f0-b2fd-380a6a5e406a"
           ],
@@ -580,7 +580,7 @@ Get-MsolGroupMember -All -GroupObjectId $groupId |
                 {
                     #remove the direct license from user
                     Set-MsolUserLicense -ObjectId $user.ObjectId -RemoveLicenses $skuId
-                    $operationResult = "Removed direct license from user."   
+                    $operationResult = "Removed direct license from user."
                 }
 
             }
