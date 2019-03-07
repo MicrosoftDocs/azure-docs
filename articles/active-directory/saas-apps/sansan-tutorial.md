@@ -149,7 +149,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	e. Use the following script to update multiple URLs to an application:
 
 	```powershell
-	 Param(
+	Param(
 	[Parameter(Mandatory=$true)][guid]$ServicePrincipalObjectId,
 	[Parameter(Mandatory=$false)][string[]]$ReplyUrls,
 	[Parameter(Mandatory=$false)][string[]]$IdentifierUrls
@@ -170,7 +170,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	echo "Found Applications =" $applications.Length
 	$i = 0;
 	do
-	{  
+	{
 	$application = $applications[$i];
 	if($application.AppId -eq $servicePrincipal.AppId){
 	Set-AzureADApplication -ObjectId $application.ObjectId -IdentifierUris $IdentifierUrls
