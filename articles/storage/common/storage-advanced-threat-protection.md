@@ -46,7 +46,7 @@ For more information, see
 [Storage account with Advanced Threat Protection](https://azure.microsoft.com/en-us/resources/templates/201-storage-advanced-threat-protection-create/).
 
 ## Set up Advanced Threat Protection for a storage account using REST API
-Use Rest API commands to create, update, or get  Advanced Threat Protection for a specific storage account.
+Use Rest API commands to create, update, or get the Advanced Threat Protection setting for a specific storage account.
 
 * [Advanced Threat Protection - Create](https://docs.microsoft.com/en-us/rest/api/securitycenter/advancedthreatprotection/create)
 * [Advanced Threat Protection - Get](https://docs.microsoft.com/en-us/rest/api/securitycenter/advancedthreatprotection/get)
