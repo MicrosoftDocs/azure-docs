@@ -5,7 +5,6 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_plt
 ms.topic: conceptual
 ms.date: 11/27/2018
 author: nabhishek
