@@ -11,19 +11,19 @@
     - name: Detect Anomalies in streaming data
       items:
         - name: Using C#
-          href: quickstarts/find-data-anomalies-streaming-csharp.md
+          href: quickstarts/streaming/find-data-anomalies-streaming-csharp.md
         - name: Using Java
-          href: quickstarts/find-data-anomalies-streaming-java.md
+          href: quickstarts/streaming/find-data-anomalies-streaming-java.md
         - name: Using Python
-          href: quickstarts/find-data-anomalies-streaming-python.md
+          href: quickstarts/streaming/find-data-anomalies-streaming-python.md
     - name: Detect Anomalies in a batch of data points
       items:
         - name: Using C#
-          href: quickstarts/find-data-anomalies-batch-csharp.md
+          href: quickstarts/batch/find-data-anomalies-batch-csharp.md
         - name: Using Java
-          href: quickstarts/find-data-anomalies-batch-java.md
+          href: quickstarts/batch/find-data-anomalies-batch-java.md
         - name: Using Python
-          href: quickstarts/find-data-anomalies-batch-python.md
+          href: quickstarts/batch/find-data-anomalies-batch-python.md
 - name: Tutorials
   items:
     - name: Visualize Anomalies Using Python.md
