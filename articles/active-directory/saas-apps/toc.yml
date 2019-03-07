@@ -1348,6 +1348,8 @@
         href: zscaler-provisioning-tutorial.md
       - name: Zscaler Beta
         href: zscaler-beta-provisioning-tutorial.md
+      - name: Zscaler One
+        href: zscaler-one-provisioning-tutorial.md
       - name: Zscaler Three
         href: zscaler-three-provisioning-tutorial.md
       - name: Zscaler ZSCloud
