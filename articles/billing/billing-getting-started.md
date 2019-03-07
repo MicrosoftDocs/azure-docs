@@ -181,13 +181,13 @@ If you're not the Account admin, then somebody probably gave you partial access 
 If your Account admin is no longer with your organization and you need to manage billing, [contact us](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 
-### How to request an SLA credit for a service incident
+### How to request an Service Level Agreement credit for a service incident
 
 The Service Level Agreement (SLA) describes Microsoft’s commitments for uptime and connectivity. A service incident is reported when Azure services experience an issue that impacts uptime or connectivity, often referred to as an “outage.” If we do not achieve and maintain the Service Levels for each Service as described in the SLA, then you might be eligible for a credit towards a portion of your monthly service fees.
 
 To request a credit:
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/). If you have multiple accounts, make sure that you use the one that was affected by Azure downtime. This helps Support automatically collect the necessary background information and resolve the case faster.
+1. Sign in to the [Azure portal](https://portal.azure.com/). If you have multiple accounts, make sure that you use the one that was affected by Azure downtime. This helps Support automatically collect the necessary background information and resolve the case faster.
 2. Create a new support request.
 3. Under **Issue type**, select **Billing**.
 4. Under **Problem type**, select **Refund Request**.
@@ -199,7 +199,6 @@ SLA thresholds vary by service. For example, SQL Web Tier has an SLA of 99.9%, V
 For some services, there are prerequisites for the SLA to apply. For example, Virtual Machines must have two or more instances deployed in the same Availability Set.
 
 For more information, see the [Service Level Agreements](https://azure.microsoft.com/en-us/support/legal/sla/) documentation and the [SLA summary for Azure services](https://azure.microsoft.com/en-us/support/legal/sla/summary/) documentation.
-
 
 ## Need help? Contact us.
 
