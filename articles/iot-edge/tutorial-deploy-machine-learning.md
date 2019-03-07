@@ -50,7 +50,7 @@ Cloud resources:
 >[!NOTE]
 >
 > While in preview, Azure Machine Learning does not support the process identification security feature enabled by default with IoT Edge.
-> Below are the steps to disable it. This is however not suitable for use in production. These steps are only necessary on Linux, as they are included in the PowerShell script for installing IoT Edge on Windows. 
+> Below are the steps to disable it. This is however not suitable for use in production. These steps are only necessary on Linux devices. 
 
 To disable process identification on your IoT Edge device, you'll need to provide the IP address and port for **workload_uri** and **management_uri** in the **connect** section of the IoT Edge daemon configuration.
 
