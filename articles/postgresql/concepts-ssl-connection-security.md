@@ -52,7 +52,7 @@ The OpenSSL libraries are provided in source code directly from the [OpenSSL Sof
 
 Open a terminal session and download OpenSSL.
 ```bash
-wget http://www.openssl.org/source/openssl-1.1.0e.tar.gz
+wget https://www.openssl.org/source/openssl-1.1.0e.tar.gz
 ``` 
 Extract the files from the downloaded package.
 ```bash

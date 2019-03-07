@@ -741,7 +741,7 @@ which you can usually find here: ```C:\Program Files\On-premises data gateway```
 
 ### Trace traffic with Fiddler
 
-[Fiddler](http://www.telerik.com/fiddler) is a free tool from Telerik that monitors HTTP traffic. 
+[Fiddler](https://www.telerik.com/fiddler) is a free tool from Telerik that monitors HTTP traffic. 
 You can review this traffic with the Power BI service from the client machine. 
 This service might show errors and other related information.
 

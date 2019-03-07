@@ -21,7 +21,7 @@ ms.author: ellacroi
 # Register in Dev Center  
 To help verify that you are not logged into a personal browser account, open a new Internet Explorer InPrivate or Chrome Incognito browsing session.  
 1.  Register as a seller in Dev Center.  
-    *   To sign in and register as a seller, visit the Azure Dev Center page located at [dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure).  
+    *   To sign in and register as a seller, visit the Azure Dev Center page located at [dev.windows.com/registration?accountprogram=azure](https://dev.windows.com/registration?accountprogram=azure).  
 2.  Complete the `Help us protect your account` wizard, which verifies your identity using your phone number or email address.  
 
     ![Boxes for phone info in the Help us protect your account wizard](./media/marketplace-publishers-guide/registerdevcenteremail.png)  

@@ -30,7 +30,7 @@ If you want to explore and deploy existing Azure Functions that use Azure Media 
 	
 ## Create a function app
 
-1. Go to the [Azure portal](http://portal.azure.com) and sign-in with your Azure account.
+1. Go to the [Azure portal](https://portal.azure.com) and sign-in with your Azure account.
 2. Create a function app as described [here](../../azure-functions/functions-create-function-app-portal.md).
 
 >[!NOTE]

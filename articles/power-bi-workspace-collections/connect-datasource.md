@@ -66,5 +66,5 @@ To ensure queries sent to the underlying data source have acceptable performance
 * [Get started with Microsoft Power BI Workspace Collections](get-started.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-More questions? [Try the Power BI Community](http://community.powerbi.com/)
+More questions? [Try the Power BI Community](https://community.powerbi.com/)
 

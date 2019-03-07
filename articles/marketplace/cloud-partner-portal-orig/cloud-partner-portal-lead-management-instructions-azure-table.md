@@ -35,7 +35,7 @@ This article describes how to configure Azure Table for storing sales leads. Azu
     
     ![Azure storage key](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
 
-You can use [Azure storage explorer](http://azurestorageexplorer.codeplex.com/) or any other tool to see the data in your storage table. You can also export the data in Azure Table.
+You can use [Azure storage explorer](https://azurestorageexplorer.codeplex.com/) or any other tool to see the data in your storage table. You can also export the data in Azure Table.
 data.
 
 ## **(Optional)** Use Microsoft Flow with an Azure table

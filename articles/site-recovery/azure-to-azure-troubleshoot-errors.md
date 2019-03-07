@@ -74,7 +74,7 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
 
 4. If the Baltimore root CA cert is not found, download the certificate.  
 
-    ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
+    ``# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
 5. Check if the DigiCert_Global_Root_CA cert is present.
 

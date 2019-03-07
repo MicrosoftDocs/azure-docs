@@ -53,7 +53,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Blueforce Development Corporation](http://www.blueforcedev.com/)|
 |[Booz Allen Hamilton](https://www.boozallen.com/)|
 |[Bridge Partners LLC](https://www.bridgepartnersllc.com)|
-|[CACI Inc - Federal](http://www.caci.com/)|
+|[CACI Inc - Federal](https://www.caci.com/)|
 |[Cambria Solutions, Inc.](https://www.cambriasolutions.com/)|
 |[CAPSYS Technologies, LLC](https://www.capsystech.com/)|
 |[CB5 Solutions](https://www.cbfive.com/)|
@@ -62,7 +62,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[CDO Technologies Inc.](https://www.cdotech.com/contact/)|
 |[CDW-G, LLC](https://www.cdwg.com)|
 |CENTRALE LLC|
-|[Centurylink](http://www.centurylink.com/public-sector/federal-government.html)|
+|[Centurylink](https://www.centurylink.com/public-sector/federal-government.html)|
 |[cFocus Software Incorporated](https://cfocussoftware.com)|
 |[CGI Federal, Inc.](https://www.cgi.com/en/us-federal)|
 |[CGI Technologies and Solutions Inc.](https://www.cgi.com)|
@@ -106,7 +106,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[eWay Corp](https://www.ewaycorp.com)|
 |[Exbabylon IT Solutions](https://www.exbabylon.com)|
 |[FCN, Inc.](https://fcnit.com)|
-|[Federal Resources Corporation FRC](http://fedresources.com/)|
+|[Federal Resources Corporation FRC](https://fedresources.com/)|
 |[FMT Consultants](https://www.fmtconsultants.com/)|
 |[Futurez Consulting, LLC](https://futurezconsulting.com/)|
 |[General Dynamics Information Technology](https://gdit.com/)|
@@ -115,7 +115,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Global Justice Solutions, LLC](http://www.globaljusticesolutions.us/)|
 |[Global Tech Inc.](https://www.eglobaltech.com)|
 |[Globalscape, Inc.](https://www.globalscape.com)|
-|[GovPlace](http://www.govplace.com/)|
+|[GovPlace](https://www.govplace.com/)|
 |[Hanu Software Solutions Inc.](https://hanusoftware.com/contact)|
 |[Harmonia Holdings Group LLC](https://www.harmonia.com)|
 |[Hendrix Corporation](https://www.hendrixcorp.com/)|
@@ -164,7 +164,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Microtechnologies, LLC](https://www.microtech.net/)|
 |[Miken Technologies](https://www.miken.net)|
 |[mindSHIFT Technologies, Inc.](https://www.mindshift.com/)|
-|[MIS Sciences Corp](http://www.mis-sciences.com/)|
+|[MIS Sciences Corp](https://www.mis-sciences.com/)|
 |[Mission Cyber LLC](https://missioncyber.com/b/)|
 |[Mobomo, LLC](https://www.mobomo.com)|
 |MSCloud Express, LLC|
@@ -268,7 +268,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Vespa Group LLC](https://www.vespa-group.com)|
 |[ViON Corp.](https://www.vion.com/)|
 |[VisioLogix Corporation](https://www.visiologix.com)|
-|[VVL Systems & Consulting, LLC](http://www.vvlsystems.com/)|
+|[VVL Systems & Consulting, LLC](https://www.vvlsystems.com/)|
 |[Vistronix, LLC](http://www.vistronix.com/)|
 |[Wintellect, LLC](https://www.wintellect.com)|
 |[Workspot, Inc.](https://workspot.com)|

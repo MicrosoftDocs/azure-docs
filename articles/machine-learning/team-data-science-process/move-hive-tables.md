@@ -30,7 +30,7 @@ We assume that the data for Hive tables is in an **uncompressed** tabular format
 
 If you want to practice on the **NYC Taxi Trip Data**, you need to:
 
-* **download** the 24 [NYC Taxi Trip Data](http://www.andresmh.com/nyctaxitrips) files (12 Trip files and 12 Fare files),
+* **download** the 24 [NYC Taxi Trip Data](https://www.andresmh.com/nyctaxitrips) files (12 Trip files and 12 Fare files),
 * **unzip** all files into .csv files, and then
 * **upload** them to the default (or appropriate container) of the Azure storage account; options for such an account appear at [Use Azure storage with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-blob-storage.md) topic. The process to upload the .csv files to the default container on the storage account can be found on this [page](hive-walkthrough.md#upload).
 

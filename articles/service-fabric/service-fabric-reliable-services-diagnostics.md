@@ -26,7 +26,7 @@ The EventSource name for the Stateful Reliable Services StatefulServiceBase clas
 
 Examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](https://www.microsoft.com/download/details.aspx?id=28567),
 [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), and the
-[Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+[Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## Events
 | Event name | Event ID | Level | Event description |

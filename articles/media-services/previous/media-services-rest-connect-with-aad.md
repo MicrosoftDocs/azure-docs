@@ -66,7 +66,7 @@ To access Media Services API, you need to collect the following data points.
 
 To get the information, follow these steps:
 
-1. Log in to the [Azure portal](http://portal.azure.com).
+1. Log in to the [Azure portal](https://portal.azure.com).
 2. Navigate to your AMS instance.
 3. Select **API access**.
 4. Click on **Connect to Azure Media Services API with service principal**.

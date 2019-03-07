@@ -36,7 +36,7 @@ If you prefer, use [Azure CLI](load-balancer-standard-public-zonal-cli.md) to co
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Create a public Standard Load Balancer instance
 

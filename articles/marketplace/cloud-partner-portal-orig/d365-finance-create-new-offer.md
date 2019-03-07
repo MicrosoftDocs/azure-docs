@@ -28,7 +28,7 @@ plans, marketing information, a support contact, and the Microsoft
 AppSource categories. 
 
 To define the attributes, Sign into the Microsoft [Cloud Partner
-Portal](http://cloudpartner.azure.com/), using the Microsoft
+Portal](https://cloudpartner.azure.com/), using the Microsoft
 account you used for registration in the Developer Center.
 
 1.  In the Cloud Partner Portal, from the left navigation bar, click 

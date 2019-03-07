@@ -57,7 +57,7 @@ Complete the following steps to achieve the scenario outlined in this article.
 
 For each VM in your virtual network, add the IP configuration for the secondary NIC:  
 
-1. Browse to the Azure portal: http://portal.azure.com. Sign in with your Azure account.
+1. Browse to the Azure portal: https://portal.azure.com. Sign in with your Azure account.
 
 2. In the upper left of the screen, select the **Resource Group** icon. Then select the resource group where your VMs are located (for example, **contosofabrikam**). The **Resource groups** pane displays all of the resources and NICs for the VMs.
 
@@ -81,7 +81,7 @@ After the second IP configuration for the secondary NIC is complete, it's displa
 
 Create your load balancer for the configuration:
 
-1. Browse to the Azure portal: http://portal.azure.com. Sign in with your Azure account.
+1. Browse to the Azure portal: https://portal.azure.com. Sign in with your Azure account.
 
 2. In the upper left of the screen, select **Create a resource** > **Networking** > **Load Balancer**. Next, select **Create**.
 

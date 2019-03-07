@@ -77,7 +77,7 @@ Get an Azure AD access token
 The Cloud Partner Portal APIs use the following assets and protocols during authentication:
 
 - A JSON Web Token (JWT) bearer token to request access to resources
-- The [OpenID Connect](http://openid.net/connect/) (OIDC) protocol to verify identity
+- The [OpenID Connect](https://openid.net/connect/) (OIDC) protocol to verify identity
 - [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) as the identity authority
 
 There are two principle approaches to programmatically acquiring a JWT token:

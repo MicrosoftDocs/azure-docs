@@ -27,9 +27,9 @@ certification and to use it for AppSource trials.
 
 Use the following steps to upload your package to blob storage:
 
-1.  Go to <http://azure.microsoft.com> and create a free trial or billed account.
+1.  Go to <https://azure.microsoft.com> and create a free trial or billed account.
 
-2.  Sign in to the [Azure Portal](http://portal.azure.com/).
+2.  Sign in to the [Azure Portal](https://portal.azure.com/).
 
 3.  Create a new Storage Account by clicking **+ New** and going to the **Data +
     Storage** account.
@@ -44,7 +44,7 @@ Use the following steps to upload your package to blob storage:
 
   ![Upload package as blob using Microsoft Azure Portal](media/CRMScreenShot9.png)
 
-6.  If you have not already done so, download and install the Microsoft [Azure Storage Explorer](http://storageexplorer.com/).
+6.  If you have not already done so, download and install the Microsoft [Azure Storage Explorer](https://storageexplorer.com/).
 
 7.  Open Storage Explorer and use the icon to connect to your Azure storage account.
 

@@ -20,7 +20,7 @@ This article describes how to set up your source on-premises environment, to rep
 The article assumes that you have already:
 
 - Planned your deployment with the help of [Azure Site Recovery Deployment Planner](site-recovery-deployment-planner.md). This helps you to allocate sufficient bandwidth, based on your daily data-change rate, to meet your desired recovery point objective (RPO).
-- [Set up resources](tutorial-prepare-azure.md) in the [Azure portal](http://portal.azure.com).
+- [Set up resources](tutorial-prepare-azure.md) in the [Azure portal](https://portal.azure.com).
 - [Set up on-premises VMware](vmware-azure-tutorial-prepare-on-premises.md), including a dedicated account for automatic discovery.
 
 ## Choose your protection goals

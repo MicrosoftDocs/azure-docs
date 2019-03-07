@@ -45,7 +45,7 @@ Currently, MSDN is Media Services team's primary community forum.
 [![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
 The team also monitors questions tagged on Stack Overflow with 'azure-media-services'.
-[![StackOverflow](./media/media-services-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-media-services) 
+[![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
 ## Contact the team
 Azure Media Services primary support email is: **amshelp@microsoft.com**.

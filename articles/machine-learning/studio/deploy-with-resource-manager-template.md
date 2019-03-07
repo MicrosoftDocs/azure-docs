@@ -27,7 +27,7 @@ The following template uses the name of the resource group to generate the stora
 ```
 {
     "contentVersion": "1.0.0.0",
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "variables": {
         "namePrefix": "[resourceGroup().name]",
         "location": "[resourceGroup().location]",

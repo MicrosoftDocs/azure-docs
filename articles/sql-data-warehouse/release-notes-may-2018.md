@@ -40,7 +40,7 @@ As a best practice and guidance, we recommend setting `AUTO_CREATE_STATISTICS` o
 See the [ALTER DATABASE SET Options](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options) article for additional details.
 
 ## Rejected Row Support
-Customers often use [PolyBase (External Tables) to load data](design-elt-data-loading.md) into SQL Data Warehouse because of the high performance, parallel nature of data loading. PolyBase is the default loading model when loading data via [Azure Data Factory](http://azure.com/adf) as well. 
+Customers often use [PolyBase (External Tables) to load data](design-elt-data-loading.md) into SQL Data Warehouse because of the high performance, parallel nature of data loading. PolyBase is the default loading model when loading data via [Azure Data Factory](https://azure.com/adf) as well. 
 
 SQL Data Warehouse adds the ability to define a rejected row location via the `REJECTED_ROW_LOCATION` parameter with the [CREATE EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) statement. After the execution of a [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) from the external table, any rows that could not be loaded will be stored in a file near the source for further investigation. 
 
@@ -140,7 +140,7 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 [Customer Advisory Team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Customer success stories]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow forum]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md

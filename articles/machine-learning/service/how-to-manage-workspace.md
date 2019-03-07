@@ -21,7 +21,7 @@ In this article, you'll create, view, and delete [**Azure Machine Learning servi
 
 ## Create a workspace 
 
-To create a workspace, you need an Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+To create a workspace, you need an Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 

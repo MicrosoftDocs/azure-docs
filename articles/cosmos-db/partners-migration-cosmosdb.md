@@ -27,7 +27,7 @@ From NoSQL migration to application development, you can choose from a variety o
 |![Altoros Development LLC][3]    |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development |   US, Norway, Finland, Belarus, Argentina |  [Website](https://www.altoros.com/)     |
 |![Attunix Redapt][4]     |   NoSQL migration, <br/> App innovation (existing apps), <br/> New app development      |    USA     |  [Website](https://www.attunix.com/)       |
 | ![Avanade][26] | New app development, <br/> App innovation (existing apps) | Austria, Germany, Switzerland, Italy, Norway, Spain, UK | [Website](https://www.avanade.com/)
-|![Bluemetal Architects][5]     |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development       |    North America, Asia-Pacific     |  [Website](http://www.bluemetal.com/)       |
+|![Bluemetal Architects][5]     |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development       |    North America, Asia-Pacific     |  [Website](https://www.bluemetal.com/)       |
 |![Capax Global LLC][6]     |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development       |    USA     |  [Website](https://www.capaxglobal.com/)       |
 | ![Capgemini][14] | NoSQL migration; App innovation (existing apps); New app development | US, France, UK, Netherlands, Finland  | [Website](https://www.capgemini.com/) | 
 |![Coeo][7]     |   App innovation (existing apps), <br/> New app development |    UK     |  [Website](http://www.coeo.com/)       |

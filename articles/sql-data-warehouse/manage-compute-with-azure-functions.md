@@ -54,7 +54,7 @@ Once you've deployed the template, you should find three new resources: a free A
 
   ![Change function schedule](media/manage-compute-with-azure-functions/change-schedule.png)
 
-  The value of `schedule` is a [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that includes these six fields: 
+  The value of `schedule` is a [CRON expression](https://en.wikipedia.org/wiki/Cron#CRON_expression) that includes these six fields: 
   ```json
   {second} {minute} {hour} {day} {month} {day-of-week}
   ```

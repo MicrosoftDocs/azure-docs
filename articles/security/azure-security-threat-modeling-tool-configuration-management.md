@@ -39,7 +39,7 @@ ms.author: jegeib
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [An Introduction to Content Security Policy](http://www.html5rocks.com/en/tutorials/security/content-security-policy/), [Content Security Policy Reference](http://content-security-policy.com/), [Security features](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/), [Introduction to content security policy](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy), [Can I use CSP?](http://caniuse.com/#feat=contentsecuritypolicy) |
+| **References**              | [An Introduction to Content Security Policy](https://www.html5rocks.com/en/tutorials/security/content-security-policy/), [Content Security Policy Reference](https://content-security-policy.com/), [Security features](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/), [Introduction to content security policy](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy), [Can I use CSP?](https://caniuse.com/#feat=contentsecuritypolicy) |
 | **Steps** | <p>Content Security Policy (CSP) is a defense-in-depth security mechanism, a W3C standard, that enables web application owners to have control on the content embedded in their site. CSP is added as an HTTP response header on the web server and is enforced on the client side by browsers. It is a whitelist-based policy - a website can declare a set of trusted domains from which active content such as JavaScript can be loaded.</p><p>CSP provides the following security benefits:</p><ul><li>**Protection against XSS:** If a page is vulnerable to XSS, an attacker can exploit it in 2 ways:<ul><li>Inject `<script>malicious code</script>`. This exploit will not work due to CSP’s Base Restriction-1</li><li>Inject `<script src=”http://attacker.com/maliciousCode.js”/>`. This exploit will not work since the attacker controlled domain will not be in CSP’s whitelist of domains</li></ul></li><li>**Control over data exfiltration:** If any malicious content on a webpage attempts to connect to an external website and steal data, the connection will be aborted by CSP. This is because the target domain will not be in CSP’s whitelist</li><li>**Defense against click-jacking:** click-jacking is an attack technique using which an adversary can frame a genuine website and force users to click on UI elements. Currently defense against click-jacking is achieved by configuring a response header- X-Frame-Options. Not all browsers respect this header and going forward CSP will be a standard way to defend against click-jacking</li><li>**Real-time attack reporting:** If there is an injection attack on a CSP-enabled website, browsers will automatically trigger a notification to an endpoint configured on the webserver. This way, CSP serves as a real-time warning system.</li></ul> |
 
 ### Example
@@ -82,7 +82,7 @@ Example: var str="alert(1)"; eval(str);
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [ASP.NET Debugging Overview](http://msdn2.microsoft.com/library/ms227556.aspx), [ASP.NET Tracing Overview](http://msdn2.microsoft.com/library/bb386420.aspx), [How to: Enable Tracing for an ASP.NET Application](http://msdn2.microsoft.com/library/0x5wc973.aspx), [How to: Enable Debugging for ASP.NET Applications](http://msdn2.microsoft.com/library/e8z01xdh(VS.80).aspx) |
+| **References**              | [ASP.NET Debugging Overview](https://msdn2.microsoft.com/library/ms227556.aspx), [ASP.NET Tracing Overview](https://msdn2.microsoft.com/library/bb386420.aspx), [How to: Enable Tracing for an ASP.NET Application](https://msdn2.microsoft.com/library/0x5wc973.aspx), [How to: Enable Debugging for ASP.NET Applications](https://msdn2.microsoft.com/library/e8z01xdh(VS.80).aspx) |
 | **Steps** | When tracing is enabled for the page, every browser requesting it also obtains the trace information that contains data about internal server state and workflow. That information could be security sensitive. When debugging is enabled for the page, errors happening on the server result in a full stack trace data presented to the browser. That data may expose security-sensitive information about the server's workflow. |
 
 ## <a id="js-trusted"></a>Access third-party javascripts from trusted sources only
@@ -149,7 +149,7 @@ If access to Web.config is available, then CORS can be added through the followi
     <httpProtocol>
       <customHeaders>
         <clear />
-        <add name="Access-Control-Allow-Origin" value="http://example.com" />
+        <add name="Access-Control-Allow-Origin" value="https://example.com" />
       </customHeaders>
     </httpProtocol>
 ```
@@ -157,7 +157,7 @@ If access to Web.config is available, then CORS can be added through the followi
 ### Example
 If access to web.config is not available, then CORS can be configured by adding the following CSharp code: 
 ```csharp
-HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example.com")
+HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "https://example.com")
 ```
 
 Please note that it is critical to ensure that the list of origins in "Access-Control-Allow-Origin" attribute is set to a finite and trusted set of origins. Failing to configure this inappropriately (e.g., setting the value as '*') will allow malicious sites to trigger cross origin requests to the web application >without any restrictions, thereby making the application vulnerable to CSRF attacks. 
@@ -170,7 +170,7 @@ Please note that it is critical to ensure that the list of origins in "Access-Co
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Web Forms, MVC5 |
 | **Attributes**              | N/A  |
-| **References**              | [Request Validation - Preventing Script Attacks](http://www.asp.net/whitepapers/request-validation) |
+| **References**              | [Request Validation - Preventing Script Attacks](https://www.asp.net/whitepapers/request-validation) |
 | **Steps** | <p>Request validation, a feature of ASP.NET since version 1.1, prevents the server from accepting content containing un-encoded HTML. This feature is designed to help prevent some script-injection attacks whereby client script code or HTML can be unknowingly submitted to a server, stored, and then presented to other users. We still strongly recommend that you validate all input data and HTML encode it when appropriate.</p><p>Request validation is performed by comparing all input data to a list of potentially dangerous values. If a match occurs, ASP.NET raises an `HttpRequestValidationException`. By default, Request Validation feature is enabled.</p>|
 
 ### Example
@@ -207,7 +207,7 @@ Please note that Request Validation feature is not supported, and is not part of
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [IE8 Security Part V: Comprehensive Protection](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx), [MIME type](http://en.wikipedia.org/wiki/Mime_type) |
+| **References**              | [IE8 Security Part V: Comprehensive Protection](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx), [MIME type](https://en.wikipedia.org/wiki/Mime_type) |
 | **Steps** | The X-Content-Type-Options header is an HTTP header that allows developers to specify that their content should not be MIME-sniffed. This header is designed to mitigate MIME-Sniffing attacks. For each page that could contain user controllable content, you must use the HTTP Header X-Content-Type-Options:nosniff. To enable the required header globally for all pages in the application, you can do one of the following|
 
 ### Example
@@ -294,7 +294,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | MVC 5 |
 | **Attributes**              | N/A  |
-| **References**              | [Enabling Cross-Origin Requests in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api), [ASP.NET Web API - CORS Support in ASP.NET Web API 2](https://msdn.microsoft.com/magazine/dn532203.aspx) |
+| **References**              | [Enabling Cross-Origin Requests in ASP.NET Web API 2](https://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api), [ASP.NET Web API - CORS Support in ASP.NET Web API 2](https://msdn.microsoft.com/magazine/dn532203.aspx) |
 | **Steps** | <p>Browser security prevents a web page from making AJAX requests to another domain. This restriction is called the same-origin policy, and prevents a malicious site from reading sensitive data from another site. However, sometimes it might be required to expose APIs securely which other sites can consume. Cross Origin Resource Sharing (CORS) is a W3C standard that allows a server to relax the same-origin policy.</p><p>Using CORS, a server can explicitly allow some cross-origin requests while rejecting others. CORS is safer and more flexible than earlier techniques such as JSONP.</p>|
 
 ### Example
@@ -364,7 +364,7 @@ Please note that it is critical to ensure that the list of origins in EnableCors
 ### Example
 To disable CORS on a particular method in a class, the DisableCors attribute can be used as shown below: 
 ```csharp
-[EnableCors("http://example.com", "Accept, Origin, Content-Type", "POST")]
+[EnableCors("https://example.com", "Accept, Origin, Content-Type", "POST")]
 public class ResourcesController : ApiController
 {
   public HttpResponseMessage Put(Resource data)
@@ -402,7 +402,7 @@ The first is to call UseCors with a lambda. The lambda takes a CorsPolicyBuilder
 public void Configure(IApplicationBuilder app)
 {
     app.UseCors(builder =>
-        builder.WithOrigins("http://example.com")
+        builder.WithOrigins("https://example.com")
         .WithMethods("GET", "POST", "HEAD")
         .WithHeaders("accept", "content-type", "origin", "x-custom-header"));
 }
@@ -416,7 +416,7 @@ public void ConfigureServices(IServiceCollection services)
     services.AddCors(options =>
     {
         options.AddPolicy("AllowSpecificOrigin",
-            builder => builder.WithOrigins("http://example.com"));
+            builder => builder.WithOrigins("https://example.com"));
     });
 }
 public void Configure(IApplicationBuilder app)

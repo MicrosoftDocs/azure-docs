@@ -35,7 +35,7 @@ Both open source tools can be set up on an Azure VM, allowing you to perform thi
 
 ### Install Suricata
 
-For all other methods of installation, visit http://suricata.readthedocs.io/en/latest/install.html
+For all other methods of installation, visit https://suricata.readthedocs.io/en/latest/install.html
 
 1. In the command-line terminal of your VM run the following commands:
 
@@ -54,7 +54,7 @@ At this stage, we do not have any rules for Suricata to run. You can create your
 Download the rule set and copy them into the directory:
 
 ```
-wget http://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz
+wget https://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz
 tar zxf emerging.rules.tar.gz
 sudo cp -r rules /etc/suricata/
 ```

@@ -142,7 +142,7 @@ Giving and controlling user access to Azure resources with identity and access m
 
 Contoso is using the Azure AD Free edition that's included with an Azure subscription. Contoso admins set up an AD directory as follows:
 
-1. In the [Azure portal](http://portal.azure.com/), they navigate to **Create a resource** > **Identity** > **Azure Active Directory**.
+1. In the [Azure portal](https://portal.azure.com/), they navigate to **Create a resource** > **Identity** > **Azure Active Directory**.
 2. In **Create Directory**, they specify a name for the directory, an initial domain name, and region in which the Azure AD directory should be created.
 
     ![Create Azure AD](./media/contoso-migration-infrastructure/azure-ad-create.png) 

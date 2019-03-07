@@ -32,7 +32,7 @@ The following are required to complete the tutorial:
 * An Azure account.
 * A Media Services account.    To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
 * Set up your dev environment. For more information, see [Set up your environment](media-services-set-up-computer.md).
-* A webcam. For example, [Telestream Wirecast encoder](http://www.telestream.net/wirecast/overview.htm).
+* A webcam. For example, [Telestream Wirecast encoder](https://www.telestream.net/wirecast/overview.htm).
 
 Recommended to review the following articles:
 

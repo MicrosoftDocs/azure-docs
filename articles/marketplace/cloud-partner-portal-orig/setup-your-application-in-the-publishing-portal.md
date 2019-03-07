@@ -23,7 +23,7 @@ You are now ready to set up your application in the publishing portal.
 
 ## Login and Create a New Offer
 
-1. Sign in to the [Cloud Partner Portal](http://cloudpartner.azure.com/).
+1. Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/).
 2. From the left navigation bar, click on "+ New offer" and select "Dynamics 365 for Customer Engagement."
 
 ![Selecting a new offer](./media/CRMScreenShot14.png)
@@ -84,7 +84,7 @@ Here is an explanation for these fields:
 
 ### CRM Package Availability
 
-In this section, select what regions of CRM your package will be made available to. For information on which regions serve which countries, please see the link: [http://o365datacentermap.azurewebsites.net/](http://o365datacentermap.azurewebsites.net/)
+In this section, select what regions of CRM your package will be made available to. For information on which regions serve which countries, please see the link: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
 Note: Deploying to Germany "Sovereign and US Gov Cloud" Sovereign REQUIRES SPECIAL PERMISSION and VALIDATION DURING CERTIFICATION
 

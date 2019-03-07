@@ -828,7 +828,7 @@
   - name: Common Security Attributes
     href: service-fabric-security-attributes.md  
   - name: Sample code
-    href: http://aka.ms/servicefabricsamples
+    href: https://aka.ms/servicefabricsamples
   - name: Support options
     href: service-fabric-support.md
   - name: Service Fabric versions

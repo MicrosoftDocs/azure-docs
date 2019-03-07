@@ -26,7 +26,7 @@ a platform-as-a-service (PaaS) offering that provides highly scalable,
 easy API hosting.
 
 Although you can call any API from a logic app, 
-for the best experience, add [OpenAPI (previously Swagger) metadata](http://swagger.io/specification/) 
+for the best experience, add [OpenAPI (previously Swagger) metadata](https://swagger.io/specification/) 
 that describes your API's operations and parameters. 
 This OpenAPI file helps your API integrate more easily 
 and work better with logic apps.

@@ -35,7 +35,7 @@ For a detailed overview of management groups, see the [Organize your resources w
 You can organize subscriptions into management groups and apply your governance policies to the management groups. All subscriptions within a management group automatically inherit the policies applied to the management group. While management groups aren't required to onboard Security Center, it’s highly recommended that you create at least one management group so the root management group is created. After the group is created, all subscriptions under your Azure AD tenant will be linked to it. For instructions for PowerShell and more information, see [Create management groups for resource and organization management](../azure-resource-manager/management-groups-create.md).
 
  
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** > **Management groups**.
 3. On the main page, select **New Management group.** 
 
@@ -48,7 +48,7 @@ You can organize subscriptions into management groups and apply your governance 
 5.  Select **Save**
 
 ### View management groups in the Azure portal
-1. SIgn in to the [Azure portal](http://portal.azure.com).
+1. SIgn in to the [Azure portal](https://portal.azure.com).
 2. To view management groups, select **All services** under the Azure main menu.
 3. Under **General**, select **Management Groups**.
 

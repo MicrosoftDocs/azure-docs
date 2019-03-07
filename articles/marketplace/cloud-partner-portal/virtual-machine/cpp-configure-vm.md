@@ -41,7 +41,7 @@ The base images of operating system VMs contain the latest updates up to their p
 
 For Windows Server 2016, run the **Check for Updates** command.  Otherwise, for older versions of Windows, see [How to get an update through Windows Update](https://support.microsoft.com/help/3067639/how-to-get-an-update-through-windows-update).  Windows update will automatically install the latest critical and important security updates.
 
-For Linux distributions, updates are commonly downloaded and installed through a command-line tool or a graphical utility.  For example, Ubuntu Linux provides the [apt-get](http://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) command and the [Update Manager](http://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html) tool for updating the OS.
+For Linux distributions, updates are commonly downloaded and installed through a command-line tool or a graphical utility.  For example, Ubuntu Linux provides the [apt-get](https://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) command and the [Update Manager](https://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html) tool for updating the OS.
 
 
 ## Perform additional security checks

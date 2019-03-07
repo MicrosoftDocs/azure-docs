@@ -262,7 +262,7 @@ The Chrome App is created via JavaScript, and you can use any of your preferred 
         sendNHRegistrationRequest();
     }
 
-    // From http://msdn.microsoft.com/library/dn495627.aspx
+    // From https://msdn.microsoft.com/library/dn495627.aspx
     function splitConnectionString()
     {
         var parts = connectionString.split(';');
@@ -403,7 +403,7 @@ For testing purposes, send Chrome push notifications by using a .NET console app
     Install-Package Microsoft.Azure.NotificationHubs
     ```
 
-   A reference to the Azure Service Bus SDK with the [WindowsAzure.ServiceBus NuGet package is automatically added to the project](http://nuget.org/packages/WindowsAzure.ServiceBus/).
+   A reference to the Azure Service Bus SDK with the [WindowsAzure.ServiceBus NuGet package is automatically added to the project](https://nuget.org/packages/WindowsAzure.ServiceBus/).
 4. Open `Program.cs` and add the following `using` statement:
 
     ```csharp
@@ -478,8 +478,8 @@ In this tutorial, you sent broadcast notifications to all clients that are regis
 [Chrome App GCM Sample]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Installable Web Apps]: https://developers.google.com/chrome/apps/docs/
 [Chrome Apps on Mobile]: https://developer.chrome.com/apps/chrome_apps_on_mobile
-[Create Registration NH REST API]: http://msdn.microsoft.com/library/azure/dn223265.aspx
-[crypto-js library]: http://code.google.com/p/crypto-js/
+[Create Registration NH REST API]: https://msdn.microsoft.com/library/azure/dn223265.aspx
+[crypto-js library]: https://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging for Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
 [Azure Notification Hubs Notify Users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md

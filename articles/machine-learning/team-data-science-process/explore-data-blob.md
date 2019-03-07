@@ -14,7 +14,7 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Explore data in Azure blob storage with pandas
 
-This article covers how to explore data that is stored in Azure blob container using [pandas](http://pandas.pydata.org/) Python package.
+This article covers how to explore data that is stored in Azure blob container using [pandas](https://pandas.pydata.org/) Python package.
 
 This task is a step in the [Team Data Science Process](overview.md).
 

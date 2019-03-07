@@ -31,7 +31,7 @@ Log in to the Azure portal at https://portal.azure.com.
 
 ## Create a load balancer with zonal frontend IP address
 
-1. From a browser navigate to the Azure portal: [http://portal.azure.com](http://portal.azure.com) and login with your Azure account.
+1. From a browser navigate to the Azure portal: [https://portal.azure.com](https://portal.azure.com) and login with your Azure account.
 2. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Load Balancer.**
 3. In the **Create load balancer** page, under **Name** type **myLoadBalancer**.
 4. Under **Type**, select **Public**.

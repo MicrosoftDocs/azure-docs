@@ -278,7 +278,7 @@ Azure blob is a reliable, economical cloud storage for data big and small. This 
 ![Screenshot of the Storage Account creation process in the Azure portal](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * Confirm that the pre-installed command-line AzCopy tool is found at ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. The directory containing the azcopy.exe is already on your PATH environment variable to avoid typing the full command path when running this tool. For more info on AzCopy tool, refer to [AzCopy documentation](../../storage/common/storage-use-azcopy.md)
-* Start the Azure Storage Explorer tool. It can be downloaded from [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
+* Start the Azure Storage Explorer tool. It can be downloaded from [Microsoft Azure Storage Explorer](https://storageexplorer.com/). 
 
 ![Screenshot of the Azure Storage Explorer accessing a Storage Account](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 

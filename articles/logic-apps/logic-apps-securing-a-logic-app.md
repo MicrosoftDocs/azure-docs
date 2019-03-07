@@ -350,7 +350,7 @@ a separate parameters file, for example:
          "type": "Http",
          "inputs": {
             "method": "GET",
-            "uri": "http://www.microsoft.com",
+            "uri": "https://www.microsoft.com",
             "authentication": {
                "type": "Basic",
                "username": "@parameters('usernameParam')",
@@ -473,7 +473,7 @@ values for parameters, you can use a separate parameters file.
                      "type": "Http",
                      "inputs": {
                         "method": "GET",
-                        "uri": "http://www.microsoft.com",
+                        "uri": "https://www.microsoft.com",
                         "authentication": {
                            "type": "Basic",
                            "username": "@parameters('usernameParam')",

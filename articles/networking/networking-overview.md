@@ -147,7 +147,7 @@ Azure provides the following tools to monitor and manage networking:
 
 You can deploy and configure Azure networking resources with any of the following tools:
 
-- **Azure portal:** A graphical user interface that runs in a browser. Open the [Azure portal](http://portal.azure.com).
+- **Azure portal:** A graphical user interface that runs in a browser. Open the [Azure portal](https://portal.azure.com).
 - **Azure PowerShell:** Command-line tools for managing Azure from Windows computers. Learn more about Azure PowerShell by reading the [Azure PowerShell overview](/powershell/azure/overview?view=azurermps-3.8.0?toc=%2fazure%2fnetworking%2ftoc.json) article.
 - **Azure command-line interface (CLI):** Command-line tools for managing Azure from Linux, macOS, or Windows computers. Learn more about the Azure CLI by reading the [Azure CLI overview](/cli/azure/get-started-with-azure-cli?toc=%2fazure%2fnetworking%2ftoc.json) article.
 - **Azure Resource Manager templates:** A file (in JSON format) that defines the infrastructure and configuration of an Azure solution. By using a template, you can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. To learn more about authoring templates, read the [Best practices for creating templates](../azure-resource-manager/resource-manager-template-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json) article. Templates can be deployed with the Azure portal, CLI, or PowerShell. To get started with templates right away, deploy one of the many pre-configured templates in the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?term=network) library. 

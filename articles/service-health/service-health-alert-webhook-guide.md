@@ -56,7 +56,7 @@ From lowest severity to highest severity, the `level` property in the payload ca
 
 ## Parsing the impacted services to understand the full scope of the incident
 Service health alerts can inform you about issues across multiple Regions and services. To get the full details, you need to parse the value of `impactedServices`.
-The content inside is a [JSON escaped](http://json.org/) string, when unescaped, contains another JSON object that can be parsed regularly.
+The content inside is a [JSON escaped](https://json.org/) string, when unescaped, contains another JSON object that can be parsed regularly.
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}

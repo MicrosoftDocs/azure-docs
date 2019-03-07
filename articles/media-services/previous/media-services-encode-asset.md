@@ -91,4 +91,4 @@ If your input video does not contain closed captioning, the output Asset will st
 * [Quotas and Limitations](media-services-quotas-and-limitations.md)
 
 <!--Reference links in article-->
-[1]: http://azure.microsoft.com/pricing/details/media-services/
+[1]: https://azure.microsoft.com/pricing/details/media-services/

@@ -129,7 +129,7 @@ After you complete basic setup, you're ready to perform post-installation and va
   > If monitoring wasn't enabled when the virtual machine was created, you can enable it as shown in the preceding image.
 
 5. Now, go back to the Azure Log Integration machine. Verify that you have connectivity to the storage account from the system where you installed Azure Log Integration. The computer running the Azure Log Integration service needs access to the storage account to retrieve information that's logged by Azure Diagnostics on each of the monitored systems. To verify connectivity: 
-  1. [Download Azure Storage Explorer](http://storageexplorer.com/).
+  1. [Download Azure Storage Explorer](https://storageexplorer.com/).
   2. Complete setup.
   3. When installation is finished, select **Next**. Leave the **Launch Microsoft Azure Storage Explorer** check box selected.  
   4. Sign in to Azure.
@@ -152,7 +152,7 @@ To complete this step, you need a few things:
 * **StorageKey**: The storage key for the storage account where the Azure Diagnostics information is stored for this virtual machine.  
 
 To obtain the storage key, complete the following steps:
-1. Go to the [Azure portal](http://portal.azure.com).
+1. Go to the [Azure portal](https://portal.azure.com).
 2. In the navigation pane, select **All services**.
 3. In the **Filter** box, enter **Storage**. Then, select **Storage accounts**.
 

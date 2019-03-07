@@ -142,10 +142,10 @@ Replication is continuous when replicating VMware VMs to Azure.
 Yes, you can retain the IP address on failover. Ensure that you mention the target IP address on 'Compute and Network' blade before failover. Also, ensure to shut down the machines at the time of failover to avoid IP conflicts at the time of failback.
 
 ### Can I extend replication?
-Extended or chained replication isn't supported. Request this feature in [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+Extended or chained replication isn't supported. Request this feature in [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
 ### Can I do an offline initial replication?
-This isn't supported. Request this feature in the [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+This isn't supported. Request this feature in the [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### Can I exclude disks?
 Yes, you can exclude disks from replication.

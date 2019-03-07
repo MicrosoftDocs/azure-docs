@@ -31,7 +31,7 @@ This article describes how to create and publish an IoT Edge module offer entry 
 
 ## New Offer form 
 
-Sign in to the [Cloud Partner Portal](http://cloudpartner.azure.com/), and then select **+ New Offer** on the left menu bar. On the New Offer menu, select **IoT Edge Modules** to display the **New Offer** form and start the process of defining assets for a new ioT Edge Module offer. 
+Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/), and then select **+ New Offer** on the left menu bar. On the New Offer menu, select **IoT Edge Modules** to display the **New Offer** form and start the process of defining assets for a new ioT Edge Module offer. 
 
 ![New IoT Edge module offer user interface selection](./media/new-iot-edge-module-offer.png)
 
