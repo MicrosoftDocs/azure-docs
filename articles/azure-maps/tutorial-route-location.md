@@ -81,7 +81,7 @@ The following steps show you how to create a static HTML page embedded with the 
 3. Add the following JavaScript code to the `GetMap` function. Replace the string **\<Your Azure Maps Key\>** with the primary key that you copied from your Maps account.
 
     ```JavaScript
-   // Create a new map
+   //Instantiate a map object
    var map = new atlas.Map("myMap", {
        //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
        authOptions: {
