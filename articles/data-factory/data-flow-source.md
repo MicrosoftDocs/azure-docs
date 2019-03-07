@@ -13,14 +13,14 @@ ms.date: 02/12/2019
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-The Source transformation configures a data source that you wish to use to bring data into your data flow. You may have more than one Source transform in a single Data Flow. Always begin designing your Data Flows with a Source.
+The Source transformation configures a data source that you wish to use to bring data into your data flow. You may have more than one Source transform in a single Data Flow. Always begin designing your Data Flows with a Source transformation.
 
 > [!NOTE]
-> Every Data Flow requires at least one Source Transformation. Add as many additional Sources as you require to complete your data transformations. You can join those sources together with a Join or Union transformation.
+> Every Data Flow requires at least one Source Transformation. Add as many additional Sources as you require to complete your data transformations. You can join those sources together with a Join or Union transformation. When you debug your data flow in debug sessions, data will be read from the source using the Sampling setting or Debug source limits. However, no data will be written to a Sink until you execute your data flow from a pipeline data flow activity. 
 
 ![Source Transformation options](media/data-flow/source.png "source")
 
-Each Data Flow source transformation must be associated with exactly one Data Factory Dataset, which defines the shape and location of your data to write to or read from. You may use wildcards and file lists in your source to work with more than one file at a time.
+Each Data Flow source transformation must be associated with exactly one Data Factory dataset. The dataset defines the shape and location of your data to write to or read from. You may use wildcards and file lists in your source to work with more than one file at a time when using file sources.
 
 ## Data Flow Staging Areas
 
@@ -38,7 +38,7 @@ Select Allow Schema Drift if the source columns will change often. This setting 
 If the incoming version of the source data does not match the defined schema, then execution of the data flow will fail.
 
 ### Sampling
-Use Sampling to limit the number of rows from your Source.  This is useful when you need just a sample of your source data for testing and debugging purposes.
+Use Sampling to limit the number of rows from your Source.  This is useful when testing or sampling data from your source for debugging purposes.
 
 ## Define Schema
 
