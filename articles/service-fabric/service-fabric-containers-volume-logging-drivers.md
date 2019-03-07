@@ -35,11 +35,11 @@ The Azure Files volume plugin is a [Docker volume plugin](https://docs.docker.co
 
 * If you are using hyperv containers, the following snippets need to be added in the ClusterManifest (local cluster) or fabricSettings section in your ARM template (Azure cluster) or ClusterConfig.json (standalone cluster). You will need  the volume name and the port that the volume listens to on the cluster. 
 
-In the ClusterManifest, the following needs to be added in the Hosting section. In this example, the volume name is **sfazurefile** and the port it listens to on the cluster is **19300**.  
+In the ClusterManifest, the following needs to be added in the Hosting section. In this example, the volume name is **sfazurefile** and the port it listens to on the cluster is **19100**.  
 
 ``` xml 
 <Section Name="Hosting">
-  <Parameter Name="VolumePluginPorts" Value="sfazurefile:19300" />
+  <Parameter Name="VolumePluginPorts" Value="sfazurefile:19100" />
 </Section>
 ```
 
@@ -52,7 +52,7 @@ In the fabricSettings section in your ARM template (for Azure deployments) or Cl
     "parameters": [
       {
           "name": "VolumePluginPorts",
-          "value": "sfazurefile:19300"
+          "value": "sfazurefile:19100"
       }
     ]
   }
