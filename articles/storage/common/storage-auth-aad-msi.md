@@ -37,7 +37,14 @@ To authenticate a managed identity from your Azure Storage application, first co
 
 ## Get a managed identity access token
 
-To authenticate with a managed identity, your application or script must acquire a managed identity access token. To learn about how to acquire an access token, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
+To authenticate with a managed identity, your application or script must acquire a managed identity access token. To learn about how to acquire an access token, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md). The target resource is `https://storage.azure.com/`. For example, when using Microsoft.Azure.Services.AppAuthentication library for .NET, get access token with
+
+```C#
+using Microsoft.Azure.Services.AppAuthentication;
+
+var azureServiceTokenProvider = new AzureServiceTokenProvider();
+string accessToken = azureServiceTokenProvider.GetAccessTokenAsync("https://storage.azure.com/").Result;
+``` 
 
 ## .NET code example: Create a block blob
 
@@ -53,7 +60,7 @@ Install-Package https://www.nuget.org/packages/WindowsAzure.Storage
 
 Add the following using statements to your code:
 
-```dotnet
+```C#
 using Microsoft.WindowsAzure.Storage.Auth;
 ```
 
@@ -61,7 +68,7 @@ using Microsoft.WindowsAzure.Storage.Auth;
 
 To create the block blob, use the **TokenCredentials** class provided by the preview package. Construct a new instance of **TokenCredentials**, passing in the managed identity access token that you obtained previously:
 
-```dotnet
+```C#
 // Create storage credentials from your managed identity access token.
 TokenCredential tokenCredential = new TokenCredential(accessToken);
 StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
