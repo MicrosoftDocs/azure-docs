@@ -30,19 +30,19 @@ The sample *ClusterConfig.gMSA.Windows.MultiMachine.JSON* configuration file dow
 
 ```
 "security": {
-            "ClusterCredentialType": "Windows",
-            "ServerCredentialType": "Windows",
-            "WindowsIdentities": {  
-                "ClustergMSAIdentity": "[gMSA Identity]",
-                "ClusterSPN": "[Registered SPN for the gMSA account]",
-                "ClientIdentities": [
-                    {
-                        "Identity": "domain\\username",
-                        "IsAdmin": true
-                    }
-                ]
+    "ClusterCredentialType": "Windows",
+    "ServerCredentialType": "Windows",
+    "WindowsIdentities": {  
+        "ClustergMSAIdentity": "[gMSA Identity]",
+        "ClusterSPN": "[Registered SPN for the gMSA account]",
+        "ClientIdentities": [
+            {
+                "Identity": "domain\\username",
+                "IsAdmin": true
             }
-        }
+        ]
+    }
+}
 ```
 
 | **Configuration setting** | **Description** |
@@ -67,7 +67,7 @@ The following example **security** section configures Windows security using gMS
 "security": {
     "ClusterCredentialType": "Windows",
     "ServerCredentialType": "Windows",
-    "WindowsIdentities": {
+    "WindowsIdentities": {
         "ClustergMSAIdentity" : "ServiceFabric.clusterA.contoso.com",
         "ClusterSPN" : "http/servicefabric/clusterA.contoso.com",
         "ClientIdentities": [{
@@ -83,16 +83,16 @@ This model is being deprecated. The recommendation is to use gMSA as detailed ab
 
 ```
 "security": {
-            "ClusterCredentialType": "Windows",
-            "ServerCredentialType": "Windows",
-            "WindowsIdentities": {
-                "ClusterIdentity" : "[domain\machinegroup]",
-                "ClientIdentities": [{
-                    "Identity": "[domain\username]",
-                    "IsAdmin": true
-                }]
-            }
-        }
+    "ClusterCredentialType": "Windows",
+    "ServerCredentialType": "Windows",
+    "WindowsIdentities": {
+        "ClusterIdentity" : "[domain\machinegroup]",
+        "ClientIdentities": [{
+            "Identity": "[domain\username]",
+            "IsAdmin": true
+        }]
+    }
+}
 ```
 
 | **Configuration setting** | **Description** |
