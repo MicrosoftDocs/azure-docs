@@ -1278,6 +1278,8 @@
         href: amazon-web-service-tutorial.md#configure-azure-ad-single-sign-on
       - name: Asana
         href: asana-provisioning-tutorial.md
+      - name: Atlassian Cloud
+        href: atlassian-cloud-provisioning-tutorial.md
       - name: BlueJeans
         href: bluejeans-provisioning-tutorial.md
       - name: Bonusly
@@ -1341,7 +1343,14 @@
       - name: Workplace by Facebook
         href: workplacebyfacebook-provisioning-tutorial.md
       - name: Zendesk
-        href: zendesk-provisioning-tutorial.md
+        href: zendesk-provisioning-tutorial.md      
+      - name: Zscaler Beta
+        href: zscaler-beta-provisioning-tutorial.md
+      - name: Zscaler One
+        href: zscaler-one-provisioning-tutorial.md
+      - name: Zscaler Three
+        href: zscaler-three-provisioning-tutorial.md
       - name: Zscaler ZSCloud
         href: zscaler-zscloud-provisioning-tutorial.md
+      
 

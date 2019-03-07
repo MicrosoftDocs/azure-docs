@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/6/2019
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
@@ -99,19 +99,24 @@ such as port 21 for sending commands, is available.
 To control the inbound and outbound traffic across the 
 virtual network's subnets where you deploy your ISE, 
 you can set up [network security groups](../virtual-network/security-overview.md) 
-for those subnets by learning [how to filter network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). 
+for those subnets by learning 
+[how to filter network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). 
 These tables describe the ports in your virtual network 
 that your ISE uses and where those ports get used. 
-The asterisk (\*) represents any and all possible traffic sources. 
 The [service tag](../virtual-network/security-overview.md#service-tags) 
 represents a group of IP address prefixes that help 
-minimize complexity when creating security rules.
+minimize complexity when creating security rules. 
+
+> [!IMPORTANT]
+> For internal communication inside your subnets, 
+> ISE requires that you open all ports within those subnets. 
 
 | Purpose | Direction | Ports | Source service tag | Destination service tag | Notes |
 |---------|-----------|-------|--------------------|-------------------------|-------|
 | Communication from Azure Logic Apps | Outbound | 80 & 443 | VIRTUAL_NETWORK | INTERNET | The port depends on the external service with which the Logic Apps service communicates |
 | Azure Active Directory | Outbound | 80 & 443 | VIRTUAL_NETWORK | AzureActiveDirectory | |
 | Azure Storage dependency | Outbound | 80 & 443 | VIRTUAL_NETWORK | Storage | |
+| Intersubnet communication | Inbound & Outbound | 80 & 443 | VIRTUAL_NETWORK | VIRTUAL_NETWORK | For communication between subnets |
 | Communication to Azure Logic Apps | Inbound | 443 | INTERNET  | VIRTUAL_NETWORK | The IP address for the computer or service that calls any request trigger or webhook that exists in your logic app. Closing or blocking this port prevents HTTP calls to logic apps with request triggers.  |
 | Logic app run history | Inbound | 443 | INTERNET  | VIRTUAL_NETWORK | The IP address for the computer from which you view the logic app's run history. Although closing or blocking this port doesn't prevent you from viewing the run history, you can't view the inputs and outputs for each step in that run history. |
 | Connection management | Outbound | 443 | VIRTUAL_NETWORK  | INTERNET | |
@@ -119,10 +124,12 @@ minimize complexity when creating security rules.
 | Logic Apps Designer - dynamic properties | Inbound | 454 | INTERNET  | VIRTUAL_NETWORK | Requests come from the Logic Apps [access endpoint inbound IP addresses in that region](../logic-apps/logic-apps-limits-and-config.md#inbound). |
 | App Service Management dependency | Inbound | 454 & 455 | AppServiceManagement | VIRTUAL_NETWORK | |
 | Connector deployment | Inbound | 454 & 3443 | INTERNET  | VIRTUAL_NETWORK | Necessary for deploying and updating connectors. Closing or blocking this port causes ISE deployments to fail and prevents connector updates or fixes. |
+| Azure SQL dependency | Outbound | 1433 | VIRTUAL_NETWORK | SQL |
+| Azure Resource Health | Outbound | 1886 | VIRTUAL_NETWORK | INTERNET | For publishing health status to Resource Health |
 | API Management - management endpoint | Inbound | 3443 | APIManagement  | VIRTUAL_NETWORK | |
 | Dependency from Log to Event Hub policy and monitoring agent | Outbound | 5672 | VIRTUAL_NETWORK  | EventHub | |
-| Access Azure Cache for Redis Instances between Role Instances | Inbound <br>Outbound | 6379-6383 | VIRTUAL_NETWORK  | VIRTUAL_NETWORK | |
-| Azure Load Balancer | Inbound | 8500 | AzureLoadBalancer  | VIRTUAL_NETWORK | |
+| Access Azure Cache for Redis Instances between Role Instances | Inbound <br>Outbound | 6379-6383 | VIRTUAL_NETWORK  | VIRTUAL_NETWORK | Also, for ISE to work with Azure Cache for Redis, you must open these [outbound and inbound ports described in the Azure Cache for Redis FAQ](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
+| Azure Load Balancer | Inbound | * | AZURE_LOAD_BALANCER | VIRTUAL_NETWORK |  |
 ||||||
 
 <a name="vnet-access"></a>

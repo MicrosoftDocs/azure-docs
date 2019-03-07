@@ -46,15 +46,46 @@ The audit logs report consolidates the following reports:
 
 ### Filtering on audit logs
 
-You can use advanced filtering in the audit report to access a specific category of audit data, by specifying it in the **Activity category** filter. For example, to view all activities related to self-service password reset, select the **Self-service password management** category. 
+You can use advanced filtering in the audit report to access a specific category of audit data, by specifying it in the **Category** filter. For example, to view all activities related to users, select the **UserManagement** category. 
 
-Activity categories include:
+Categories include:
 
+- All
+- AdministrativeUnit
+- ApplicationManagement
+- Authentication
+- Authorization
+- Contact
+- Device
+- DeviceConfiguration
+- DirectoryManagement
+- EntitlementManagement
+- GroupManagement
+- Other
+- Policy
+- ResourceManagement
+- RoleManagement
+- UserManagement
+
+You can also filter on a specific service using the **Service** dropdown filter. For example, to get all audit events related to self-service password management, select the **Self-service Password Management** filter.
+
+Services include:
+
+- All
+- Access Reviews
+- Account Provisioning 
+- Application SSO
+- Authentication Methods
+- B2C
+- Conditional Access
 - Core Directory
-- Self-service Password Management
+- Entitlement Management
+- Identity Protection
+- Invited Users
+- PIM
 - Self-service Group Management
-- Account Provisioning
-
+- Self-service Passord Management
+- Terms of Use
 
 ## Sign-ins report 
 

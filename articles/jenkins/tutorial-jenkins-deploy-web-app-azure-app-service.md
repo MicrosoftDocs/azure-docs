@@ -19,7 +19,7 @@ deployment (CD) in Jenkins. When you update the app by
 pushing commits to GitHub, Jenkins automatically builds 
 and republishes your app to Azure App Service. The sample 
 app in this tutorial was developed by using the 
-[Spring Boot](http://projects.spring.io/spring-boot/) framework. 
+[Spring Boot](https://projects.spring.io/spring-boot/) framework. 
 
 ![Overview](media/tutorial-jenkins-deploy-web-app-azure-app-service/overview.png)
 

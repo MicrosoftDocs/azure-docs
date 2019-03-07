@@ -154,7 +154,7 @@ supporting offline synchronization using a local SQLite database. Here is a brie
 <!-- URLs. -->
 [Create a Xamarin Android app]: app-service-mobile-xamarin-android-get-started.md
 [Offline Data Sync in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
-[Xamarin Studio]: http://xamarin.com/download
-[Xamarin extension]: http://xamarin.com/visual-studio
+[Xamarin Studio]: https://xamarin.com/download
+[Xamarin extension]: https://xamarin.com/visual-studio
 [SyncContext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md
