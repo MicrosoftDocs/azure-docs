@@ -136,7 +136,7 @@ Here's the JavaScript code:
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
-    if(myTimer.isPastDue)
+    if(myTimer.IsPastDue)
     {
         context.log('Node is running late!');
     }
