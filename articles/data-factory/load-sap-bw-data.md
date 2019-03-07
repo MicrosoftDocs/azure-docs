@@ -14,9 +14,13 @@ ms.date: 03/08/2019
 ms.author: jingwang
 
 ---
-# Load data from SAP Business Warehouse by using Azure Data Factory
+# Load data from SAP Business Warehouse (BW) by using Azure Data Factory
 
-This article shows you how to use the Data Factory _load data from SAP Business Warehouse (BW) via Open Hub into Azure Data Lake Storage Gen2_. You can follow similar steps to copy data to other sink data stores. Refer to the table of [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) and [SAP BW Open Hub connector article](connector-sap-business-warehouse-open-hub.md) on copying data from SAP BW in general.
+This article shows you how to use the Data Factory _load data from SAP Business Warehouse (BW) via Open Hub into Azure Data Lake Storage Gen2_. You can follow similar steps to copy data to other [supported sink data stores](copy-activity-overview.md#supported-data-stores-and-formats). 
+
+> [!TIP]
+>
+> Refer to [SAP BW Open Hub connector article](connector-sap-business-warehouse-open-hub.md) on copying data from SAP BW in general, including introduction on SAP BW Open Hub integration and delta extraction flow.
 
 ## Prerequisites
 
@@ -119,6 +123,10 @@ On Azure portal, go to your data factory -> select **Author & Monitor** to launc
 
 ## Incremental copy from SAP BW Open Hub
 
+> [!TIP]
+
+> Refer to [SAP BW Open Hub connector delta extraction flow](connector-sap-business-warehouse-open-hub.md#delta-extraction-flow) to learn more on how ADF connector works to copy incremental data from SAP BW.
+
 Now, let's continue to configure incremental copy from SAP BW Open Hub. 
 
 The incremental copy is using high watermark mechanism based on request ID automatically generated in SAP BW Open Hub Destination by DTP. The workflow for this approach is depicted in the following diagram:
@@ -174,28 +182,28 @@ On the ADF UI **Let's get started** page, select **Create pipeline**.
 
 ### Configure delta extraction in SAP BW
 
-#### Create the Open Hub Destination (OHD)
+1. Create the Open Hub Destination (OHD)
 
-You can create the OHD in SAP Transaction RSA1. This automatically creates the required transformation and Data Transfer Process (DTP). Use the following settings:
+   You can create the OHD in SAP Transaction RSA1. This automatically creates the required transformation and Data Transfer Process (DTP). Use the following settings:
 
-- Object type can be any. Here we use InfoCube as an example.
-- **Destination Type:** *Database Table*
-- **Key of the Table:** *Technical Key*
-- **Extraction:** *Keep Data and Insert Records into Table*
+   - Object type can be any. Here we use InfoCube as an example.
+   - **Destination Type:** *Database Table*
+   - **Key of the Table:** *Technical Key*
+   - **Extraction:** *Keep Data and Insert Records into Table*
 
-![Create SAP BW OHD delta extraction](media\load-sap-bw-data\create-sap-bw-ohd-delta.png)
+   ![Create SAP BW OHD delta extraction](media\load-sap-bw-data\create-sap-bw-ohd-delta.png)
 
-![create-sap-bw-ohd-delta2](media\load-sap-bw-data\create-sap-bw-ohd-delta2.png)
+   ![create-sap-bw-ohd-delta2](media\load-sap-bw-data\create-sap-bw-ohd-delta2.png)
 
-You might increase the number of parallel running SAP work processes for the DTP:
+   You might increase the number of parallel running SAP work processes for the DTP:
 
-![create-sap-bw-ohd-delta3](media/load-sap-bw-data\create-sap-bw-ohd-delta3.png)
+   ![create-sap-bw-ohd-delta3](media/load-sap-bw-data\create-sap-bw-ohd-delta3.png)
 
-#### Schedule the DTP in process chains
+2. Schedule the DTP in process chains
 
-A Delta DTP for a cube only works when the needed rows have not been compressed yet. Therefore, you must make sure that BW Cube Compression is not running before the DTP to the Open Hub table. The easiest way for this is integrating this DTP into your existing process chains. In the example below, the DTP (to the OHD) is inserted in the process chain between the step Adjust (Aggregate Rollup) and Collapse (Cube Compression).
+   A Delta DTP for a cube only works when the needed rows have not been compressed yet. Therefore, you must make sure that BW Cube Compression is not running before the DTP to the Open Hub table. The easiest way for this is integrating this DTP into your existing process chains. In the example below, the DTP (to the OHD) is inserted in the process chain between the step Adjust (Aggregate Rollup) and Collapse (Cube Compression).
 
-![create-sap-bw-process-chain](media\load-sap-bw-data\create-sap-bw-process-chain.png)
+   ![create-sap-bw-process-chain](media\load-sap-bw-data\create-sap-bw-process-chain.png)
 
 ### Configure full extraction in SAP BW
 
@@ -211,7 +219,7 @@ For a full load OHD, choose different options than delta extraction:
 
 - In DTP: set "Extraction Mode" as "*Full*". You must change the automatically created DTP from Delta to Full just after the OHD has been created:
 
-  ![create-sap-bw-ohd-full2](media\load-sap-bw-data\create-sap-bw-ohd-full2.png)
+![create-sap-bw-ohd-full2](media\load-sap-bw-data\create-sap-bw-ohd-full2.png)
 
 - In ADF SAP BW Open Hub connector: turn off the option "*Exclude last request*". Otherwise nothing would be extracted. 
 
