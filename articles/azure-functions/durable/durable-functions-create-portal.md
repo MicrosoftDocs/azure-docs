@@ -93,11 +93,11 @@ If you are creating JavaScript Durable Functions, you will need to install the [
 
     ```json
     {
-       "id":"10585834a930427195479de25e0b952d",
-       "statusQueryGetUri":"https://...",
-       "sendEventPostUri":"https://...",
-       "terminatePostUri":"https://...",
-       "rewindPostUri":"https://..."
+        "id":"10585834a930427195479de25e0b952d",
+        "statusQueryGetUri":"https://...",
+        "sendEventPostUri":"https://...",
+        "terminatePostUri":"https://...",
+        "rewindPostUri":"https://..."
     }
     ```
 
@@ -116,7 +116,7 @@ If you are creating JavaScript Durable Functions, you will need to install the [
 1. Continue calling the `statusQueryGetUri` endpoint until the status changes to **Completed**, and you see a response like the following example:
 
     ```json
-    {
+        {
             "runtimeStatus": "Completed",
             "input": null,
             "output": [
