@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 2/8/2019
+ms.date: 2/20/2019
 ms.author: moderakh
 
 ---
@@ -38,6 +38,11 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 | **Minimum supported runtime**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## Release notes
+
+### <a name="2.4.1"/>2.4.1
+* Fixed some bugs in Direct mode.
+* Improved logging in Direct mode.
+* Improved connection management.
 
 ### <a name="2.4.0"/>2.4.0
 * Direct mode connectivity is now Generally Available(GA). For a sample that uses direct mode connectivity, see [azure-cosmosdb-java](https://github.com/Azure/azure-cosmosdb-java) GitHub repository.
@@ -130,6 +135,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.4.1](#2.4.1) |Feb 20, 2019|--- |
 | [2.4.0](#2.4.0) |Feb 8, 2019|--- |
 | [2.4.0-beta-1](#2.4.0-beta-1) |Feb 4, 2019|--- |
 | [2.3.1](#2.3.1) |Jan 15, 2019|--- |

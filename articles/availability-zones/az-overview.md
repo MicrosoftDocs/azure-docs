@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2018
+ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications). 
 ---
@@ -35,6 +35,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 ## Regions that support Availability Zones
 
 - Central US
+- East US
 - East US 2
 - France Central
 - North Europe

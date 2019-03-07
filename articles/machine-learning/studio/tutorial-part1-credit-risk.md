@@ -17,7 +17,7 @@ In this tutorial, you take an extended look at the process of developing a predi
 
 Suppose you need to predict an individual's credit risk based on the information they gave on a credit application.  
 
-Credit risk assessment is a complex problem, but this tutorial will simplify it a bit. You'll use it as an example of how you can create a predictive analytics solution using Microsoft Azure Machine Learning. You'll use Azure Machine Learning Studio and a Machine Learning web service for this solution.  
+Credit risk assessment is a complex problem, but this tutorial will simplify it a bit. You'll use it as an example of how you can create a predictive analytics solution using Microsoft Azure Machine Learning Studio. You'll use Azure Machine Learning Studio and a Machine Learning web service for this solution.  
 
 In this three-part tutorial, you start with publicly available credit risk data.  You then develop and train a predictive model.  Finally you deploy the model as a web service.
 
@@ -49,7 +49,7 @@ If you've never used **Azure Machine Learning Studio** before, you might want to
 
 To use Machine Learning Studio, you need to have a Microsoft Azure Machine Learning Studio workspace. This workspace contains the tools you need to create, manage, and publish experiments.  
 
-To create a workspace, see [Create and share an Azure Machine Learning workspace](create-workspace.md).
+To create a workspace, see [Create and share an Azure Machine Learning Studio workspace](create-workspace.md).
 
 After your workspace is created, open Machine Learning Studio ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). If you have more than one workspace, you can select the workspace in the toolbar in the upper-right corner of the window.
 

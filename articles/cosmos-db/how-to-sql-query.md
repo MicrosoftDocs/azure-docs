@@ -3,7 +3,7 @@ title: SQL queries for Azure Cosmos DB
 description: Learn about SQL syntax, database concepts, and SQL queries for Azure Cosmos DB. SQL can used as a JSON query language in Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
 
@@ -155,7 +155,7 @@ Following are few aspects of the Cosmos DB query language through the examples y
 
 * The structured query language works with schema-less data. Therefore, the type system needs to be bound dynamically. The same expression could yield different types on different items. The result of a query is a valid JSON value, but is not guaranteed to be of a fixed schema.  
 
-* Azure Cosmos DB supports strict JSON items only. This means the type system and expressions are restricted to deal only with JSON types. Refer to the [JSON specification](http://www.json.org/) for more details.  
+* Azure Cosmos DB supports strict JSON items only. This means the type system and expressions are restricted to deal only with JSON types. Refer to the [JSON specification](https://www.json.org/) for more details.  
 
 * A Cosmos DB container is a schema-free collection of JSON items. The relations in data entities within and across items in a container are implicitly captured by containment and not by primary key and foreign key relations. This is an important aspect worth pointing out in light of the intra-item joins discussed later in this article.
 

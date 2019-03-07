@@ -21,11 +21,11 @@ Many errors will be the result of assigning a blueprint to a scope. When an assi
 blueprint provides details about the failed deployment. This information indicates the issue so
 that it can be fixed and the next deployment succeeds.
 
-1. Click on **All services** and searching for and selecting **Policy** in the left pane. On the **Policy** page, click on **Blueprints**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
-1. Select **Assigned Blueprints** from the page on the left and use the search box to filter the blueprint assignments to find the failed assignment. You can also sort the table of assignments by the **Provisioning State** column to see all failed assignments grouped together.
+1. Select **Assigned blueprints** from the page on the left and use the search box to filter the blueprint assignments to find the failed assignment. You can also sort the table of assignments by the **Provisioning State** column to see all failed assignments grouped together.
 
-1. Left-click on the blueprint with the _Failed_ status or right-click and select **View Assignment Details**.
+1. Left-click on the blueprint with the _Failed_ status or right-click and select **View assignment details**.
 
 1. A red banner warning that the assignment has failed is at the top of the blueprint assignment page. Click anywhere on the banner to get more details.
 
@@ -68,10 +68,11 @@ dynamic function.
 
 #### Resolution
 
-To pass a function through as a parameter, escape the entire string with `[` such that the
-blueprint parameter looks like `[[resourceGroup().tags.myTag]`. The escape character causes
-Blueprints to treat the value as a string when processing the blueprint. Blueprints then places the
-function on the artifact allowing it to be dynamic as expected.
+To pass a function through as a parameter, escape the entire string with `[` such that the blueprint
+parameter looks like `[[resourceGroup().tags.myTag]`. The escape character causes Blueprints to
+treat the value as a string when processing the blueprint. Blueprints then places the function on
+the artifact allowing it to be dynamic as expected. For more information, see
+[Template file structure - syntax](../../../azure-resource-manager/resource-group-authoring-templates.md#syntax).
 
 ## Next steps
 

@@ -15,7 +15,7 @@ ms.author: diberry
 
 # Using subscription keys with your LUIS app
 
-You do not need to create subscription keys to use your free first-1000 endpoint queries. Once those endpoint queries are used, create an Azure resource in the [Azure portal](http://portal.azure.com), then assign that resource to a LUIS app in the [LUIS portal](https://www.luis.ai).
+You do not need to create subscription keys to use your free first-1000 endpoint queries. Once those endpoint queries are used, create an Azure resource in the [Azure portal](https://portal.azure.com), then assign that resource to a LUIS app in the [LUIS portal](https://www.luis.ai).
 
 If you receive an _out of quota_ error in the form of an HTTP 403 or 429, you need to create a key and assign it to your app. 
 
@@ -60,7 +60,7 @@ This key should only be used for endpoint prediction queries. Do not use this ke
 
 1. Sign in to the LUIS portal, choose an app to add the new key to, then select **Manage** in the top-right menu, then select **Keys and endpoints**.
 
-    [ ![Keys and endpoints page](./media/luis-manage-keys/keys-and-endpoints.png) ](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
+    [![Keys and endpoints page](./media/luis-manage-keys/keys-and-endpoints.png)](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
 
 1. In order to add the LUIS, select **Assign Resource +**.
 

@@ -1,6 +1,6 @@
 ﻿---
 title: Understand Azure IoT Hub message format | Microsoft Docs
-description: Developer guide - descibes the format and expected content of IoT Hub messages.
+description: Developer guide - describes the format and expected content of IoT Hub messages.
 author: ash2017
 manager: briz
 ms.service: iot-hub
@@ -26,7 +26,7 @@ An IoT Hub message consists of:
 
 * An opaque binary body.
 
-Property names and values can only contain ASCII alphanumeric characters, plus `{'!', '#', '$', '%, '&', ''', '*', '+', '-', '.', '^', '_', '`', '|', '~'}` when you send device-to-cloud messages using the HTTPS protocol or send cloud-to-device messages.
+Property names and values can only contain ASCII alphanumeric characters, plus ``{'!', '#', '$', '%, '&', ''', '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` when you send device-to-cloud messages using the HTTPS protocol or send cloud-to-device messages.
 
 Device-to-cloud messaging with IoT Hub has the following characteristics:
 

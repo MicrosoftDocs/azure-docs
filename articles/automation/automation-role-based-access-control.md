@@ -136,7 +136,7 @@ A Log Analytics Contributor can read all monitoring data and edit monitoring set
 |Microsoft.Compute/virtualMachines/extensions/*|Create and manage classic virtual machine extensions.|
 |Microsoft.Insights/alertRules/*|Read/write/delete alert rules.|
 |Microsoft.Insights/diagnosticSettings/*|Read/write/delete diagnostic settings.|
-|Microsoft.OperationalInsights/*|Manage Log Analytics.|
+|Microsoft.OperationalInsights/*|Manage Azure Monitor logs.|
 |Microsoft.OperationsManagement/*|Manage solutions in workspaces.|
 |Microsoft.Resources/deployments/*|Create and manage resource group deployments.|
 |Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Create and manage resource group deployments.|
@@ -150,8 +150,8 @@ A Log Analytics Reader can view and search all monitoring data as well as and vi
 |**Actions**  |**Description**  |
 |---------|---------|
 |*/read|Read resources of all types, except secrets.|
-|Microsoft.OperationalInsights/workspaces/analytics/query/action|Manage queries in Log Analytics.|
-|Microsoft.OperationalInsights/workspaces/search/action|Search Log Analytics data.|
+|Microsoft.OperationalInsights/workspaces/analytics/query/action|Manage queries in Azure Monitor logs.|
+|Microsoft.OperationalInsights/workspaces/search/action|Search Azure Monitor log data.|
 |Microsoft.Support/*|Create and manage support tickets.|
 |**Not Actions**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|Not able to read the shared access keys.|
@@ -174,11 +174,11 @@ A Monitoring Contributor can read all monitoring data and update monitoring sett
 |Microsoft.Insights/Metrics/*|Read metrics for a resource.|
 |Microsoft.Insights/Register/Action|Register the Microsoft.Insights provider.|
 |Microsoft.Insights/webtests/*|Manage Application Insights web tests.|
-|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Manage Log Analytics solution packs.|
-|Microsoft.OperationalInsights/workspaces/savedSearches/*|Manage Log Analytics saved searches.|
+|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Manage Azure Monitor logs solution packs.|
+|Microsoft.OperationalInsights/workspaces/savedSearches/*|Manage Azure Monitor logs saved searches.|
 |Microsoft.OperationalInsights/workspaces/search/action|Search Log Analytics workspaces.|
 |Microsoft.OperationalInsights/workspaces/sharedKeys/action|List keys for a Log Analytics workspace.|
-|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Manage Log Analytics storage insight configurations.|
+|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Manage Azure Monitor logs storage insight configurations.|
 |Microsoft.Support/*|Create and manage support tickets.|
 |Microsoft.WorkloadMonitor/workloads/*|Manage Workloads.|
 

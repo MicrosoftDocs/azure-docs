@@ -6,39 +6,40 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 03/01/2019
 ms.author: iainfou
+
+#Customer intent: As a developer, I want to learn how to manually create and attach storage using Azure Files to a pod in AKS.
+
 ---
 
 # Manually create and use a volume with Azure Files share in Azure Kubernetes Service (AKS)
 
 Container-based applications often need to access and persist data in an external data volume. If multiple pods need concurrent access to the same storage volume, you can use Azure Files to connect using the [Server Message Block (SMB) protocol][smb-overview]. This article shows you how to manually create an Azure Files share and attach it to a pod in AKS.
 
-For more information on Kubernetes volumes, see [Kubernetes volumes][kubernetes-volumes].
+For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 
 ## Before you begin
 
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-You also need the Azure CLI version 2.0.46 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Create an Azure file share
 
-Before you can use Azure Files as a Kubernetes volume, you must create an Azure Storage account and the file share. The following script creates a resource group named *myAKSShare*, a storage account, and a Files share named *aksshare*:
+Before you can use Azure Files as a Kubernetes volume, you must create an Azure Storage account and the file share. The following commands create a resource group named *myAKSShare*, a storage account, and a Files share named *aksshare*:
 
-```azurecli
-#!/bin/bash
-
-# Change these four parameters
+```azurecli-interactive
+# Change these four parameters as needed for your own environment
 AKS_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
 AKS_PERS_RESOURCE_GROUP=myAKSShare
 AKS_PERS_LOCATION=eastus
 AKS_PERS_SHARE_NAME=aksshare
 
-# Create the Resource Group
+# Create a resource group
 az group create --name $AKS_PERS_RESOURCE_GROUP --location $AKS_PERS_LOCATION
 
-# Create the storage account
+# Create a storage account
 az storage account create -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -l $AKS_PERS_LOCATION --sku Standard_LRS
 
 # Export the connection string as an environment variable, this is used when creating the Azure file share
@@ -100,7 +101,7 @@ spec:
 
 Use the `kubectl` command to create the pod.
 
-```azurecli-interactive
+```console
 kubectl apply -f azure-files-pod.yaml
 ```
 
@@ -113,7 +114,7 @@ Containers:
     Image:          nginx:1.15.5
     Image ID:       docker-pullable://nginx@sha256:9ad0746d8f2ea6df3a17ba89eca40b48c47066dfab55a75e08e2b70fc80d929e
     State:          Running
-      Started:      Mon, 08 Oct 2018 19:28:34 +0000
+      Started:      Sat, 02 Mar 2019 00:05:47 +0000
     Ready:          True
     Mounts:
       /mnt/azure from azure (rw)
@@ -131,7 +132,46 @@ Volumes:
 [...]
 ```
 
+## Mount options
+
+Default *fileMode* and *dirMode* values differ between Kubernetes versions as described in the following table.
+
+| version | value |
+| ---- | ---- |
+| v1.6.x, v1.7.x | 0777 |
+| v1.8.0-v1.8.5 | 0700 |
+| v1.8.6 or above | 0755 |
+| v1.9.0 | 0700 |
+| v1.9.1 or above | 0755 |
+
+If using a cluster of version 1.8.5 or greater and statically creating the persistent volume object, mount options need to be specified on the *PersistentVolume* object.
+
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: azurefile
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+  azureFile:
+    secretName: azure-secret
+    shareName: azurefile
+    readOnly: false
+  mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+```
+
+If using a cluster of version 1.8.0 - 1.8.4, a security context can be specified with the *runAsUser* value set to *0*. For more information on Pod security context, see [Configure a Security Context][kubernetes-security-context].
+
 ## Next steps
+
+For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
 
 For more information about AKS clusters interact with Azure Files, see the [Kubernetes plugin for Azure Files][kubernetes-files].
 
@@ -141,6 +181,7 @@ For more information about AKS clusters interact with Azure Files, see the [Kube
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
 [smb-overview]: /windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
+[kubernetes-security-context]: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 
 <!-- LINKS - internal -->
 [az-group-create]: /cli/azure/group#az-group-create
@@ -150,3 +191,5 @@ For more information about AKS clusters interact with Azure Files, see the [Kube
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[operator-best-practices-storage]: operator-best-practices-storage.md
+[concepts-storage]: concepts-storage.md

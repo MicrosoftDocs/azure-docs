@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/19/2019
+ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
@@ -15,7 +15,7 @@ ms.custom: H1Hack27Feb2017
 
 This article helps you use the Change Tracking solution to easily identify changes in your environment. The solution tracks changes to Windows and Linux software, Windows and Linux files, Windows registry keys, Windows services, and Linux daemons. Identifying configuration changes can help you pinpoint operational issues.
 
-Changes to installed software, Windows services, Windows registry and files, and Linux daemons on the monitored servers are sent to the Log Analytics service in the cloud for processing. Logic is applied to the received data and the cloud service records the data. By using the information on the Change Tracking dashboard, you can easily see the changes that were made in your server infrastructure.
+Changes to installed software, Windows services, Windows registry and files, and Linux daemons on the monitored servers are sent to the Azure Monitor service in the cloud for processing. Logic is applied to the received data and the cloud service records the data. By using the information on the Change Tracking dashboard, you can easily see the changes that were made in your server infrastructure.
 
 ## Supported Windows operating systems
 
@@ -149,6 +149,7 @@ Other limitations:
 The Change Tracking solution is currently experiencing the following issues:
 
 * Hotfix updates are not collected on Windows Server 2016 Core RS3 machines.
+* Linux Daemons may show a changed state even though there was no change. This is due to how the `SvcRunLevels` field is captured.
 
 ## Change Tracking data collection details
 
@@ -255,7 +256,7 @@ Clicking on a change or event brings up the detailed information about that chan
 
 ## Search logs
 
-In addition to the details that are provided in the portal, searches can be done against the logs. With the **Change Tracking** page open, click **Log Analytics**, this opens the **Log Search** page.
+In addition to the details that are provided in the portal, searches can be done against the logs. With the **Change Tracking** page open, click **Log Analytics**, this opens the **Logs** page.
 
 ### Sample queries
 
@@ -308,5 +309,5 @@ Visit the tutorial on Change Tracking to learn more about using the solution:
 > [!div class="nextstepaction"]
 > [Troubleshoot changes in your environment](automation-tutorial-troubleshoot-changes.md)
 
-* Use [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md) to view detailed change tracking data.
+* Use [Log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md) to view detailed change tracking data.
 

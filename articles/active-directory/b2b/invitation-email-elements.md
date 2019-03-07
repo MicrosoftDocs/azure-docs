@@ -1,5 +1,5 @@
 ---
-title: The elements of the B2B collaboration invitation email - Azure Active Directory | Microsoft Docs
+title: Elements of the B2B invitation email - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B collaboration invitation email template
 
 services: active-directory
@@ -12,7 +12,7 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-
+ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ---
 
