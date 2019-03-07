@@ -88,7 +88,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 1. In the `Build.Gradle` file for the **app**, add the following lines in the **dependencies** section.
 
     ```gradle
-    compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
+    compile 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
     compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 2. Add the following repository after the **dependencies** section.
