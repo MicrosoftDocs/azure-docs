@@ -207,6 +207,7 @@ General purpose v2 storage accounts (both hot and cool tiers) | No
 **Feature** | **Supported**
 --- | ---
 Availability sets | Yes
+Availability zones | No
 HUB | Yes
 Managed disks | Yes
 
