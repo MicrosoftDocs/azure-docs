@@ -183,13 +183,38 @@ Following tests are required for OEM package validation:
 
 2. Select the agent that will run the test. For information about adding local test execution agents, see [Deploy the local agent](azure-stack-vaas-local-agent.md).
 
-3. To complete OEM Extension Package Verification select **Schedule** from the context menu to open a prompt for scheduling the test instance.
+3. To complete OEM Extension Package Verification, select **Schedule** from the context menu to open a prompt for scheduling the test instance.
 
 4. Review the test parameters and then select **Submit** to schedule OEM Extension Package Verification for execution.
 
+    OEM Extension Package Verification is split into two manual steps: Azure Stack Update, and OEM Update.
+
+    1. **Select** "Run" in the UI to execute the precheck script. This is an automated test that takes about 5 minutes to complete and requires no action.
+
+    1. Once the precheck script has completed, perform the manual step: **install** the latest available Azure Stack update using the Azure Stack portal.
+
+    1. **Run** Test-AzureStack on the stamp. If any failures occur, do not continue with the test and contact [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
+
+    1. **Select** "Next" to execute the postcheck script. This is an automated test and marks the end of the Azure Stack update process.
+
+    1. **Select** "Run" to execute the precheck script for OEM Update.
+
+    1. Once the precheck has completed, perform the manual step: **install** the OEM extension package through the portal.
+
+    1. **Run** Test-AzureStack  on the stamp.
+
+        > [!NOTE]
+        > As before, do not continue with the test and contact [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) if it fails. This step is critical as it will save you a redeployment.
+
+    1. **Select** "Next" to execute the postcheck script. This marks the end of the OEM update step.
+
+    1. Answer any remaining questions at the end of the test and **select** "Submit".
+
+    1. This marks the end of the interactive test.
+
 5. Review the result for OEM Extension Package Verification. Once the test has succeeded, schedule Cloud Simulation Engine for execution.
 
-When all tests have successfully completed, send the name of your VaaS solution and Package Validation to [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) to request package signing.
+To submit a package signing request, send [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) the Solution name and Package Validation name associated with this run.
 
 ## Next steps
 
