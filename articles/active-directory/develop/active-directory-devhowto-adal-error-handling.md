@@ -558,8 +558,8 @@ iOS errors may arise during sign-in when users use web views, and the nature of 
 
 // 3. Set up a callback block to simply print out
 [ADLogger setLogCallBack:^(ADAL_LOG_LEVEL logLevel, NSString *message, NSString *additionalInformation, NSInteger errorCode, NSDictionary *userInfo) {
-     NSString* log = [NSString stringWithFormat:@"%@ %@", message, additionalInformation];
-     NSLog(@"%@", log);
+    NSString* log = [NSString stringWithFormat:@"%@ %@", message, additionalInformation];
+    NSLog(@"%@", log);
 }];
 ```
 
