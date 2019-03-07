@@ -176,7 +176,7 @@
       href: vpn-gateway-modify-local-network-gateway.md
     - name: Azure CLI
       href: vpn-gateway-modify-local-network-gateway-cli.md
-    - name: Troubleshoot
+  - name: Troubleshoot
     href: vpn-gateway-troubleshoot.md
     items:
     - name: Community-suggested VPN or firewall device settings
