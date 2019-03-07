@@ -11,9 +11,8 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 013/07/2019
+ms.date: 03/07/2019
 ---
-
 # Manage Transparent Data Encryption in a Managed Instance using your own key from Azure Key Vault
 
 This PowerShell script example configures Transparent Data Encryption (TDE) in Bring Your Own Key scenario for Azure SQL Managed Instance, using a key from Azure Key Vault. To learn more about the TDE with Bring Your Own Key (BYOK) Support, see [TDE Bring Your Own Key to Azure SQL](../transparent-data-encryption-byok-azure-sql.md).
