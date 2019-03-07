@@ -74,10 +74,10 @@ az vm create \
 Within your Resource Manager templates, an additional parameter `licenseType` must be specified. You can read more about [authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md)
 ```json
 "properties": {
-   "licenseType": "Windows_Server",
-   "hardwareProfile": {
+    "licenseType": "Windows_Server",
+    "hardwareProfile": {
         "vmSize": "[variables('vmSize')]"
-   }
+    }
 ```
 
 ## Convert an existing VM using Azure Hybrid Benefit for Windows Server
@@ -157,7 +157,7 @@ From the Virtual Machine or Virtual machine scale sets resource blade, you can v
 
 ### Powershell
 ```powershell
-$vms = Get-AzVM 
+$vms = Get-AzVM
 $vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name, LicenseType
 ```
 
