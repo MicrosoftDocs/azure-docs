@@ -80,7 +80,7 @@ The following diagram shows you how incoming relay requests are handled by the A
 5. The gateway forwards the connection request to the right gateway mentioned in the gateway store. 
 6. The gateway sends a request to the listening client for it to create a temporary channel to the gateway node that's closest to the sending client. 
 7. The listening client creates a temporary channel to the gateway that's closest to the sending client. Now that the connection is established between clients via a gateway, the clients can exchange messages with each other. 
-8. The gateway forwards any messages form the listening client to the sending client. 
+8. The gateway forwards any messages from the listening client to the sending client. 
 9. The gateway forwards any messages from the sending client to the listening client.  
 
 ## Next steps

@@ -61,6 +61,6 @@ T = Time "T" time interval since last update.
 
 Learn more about global distribution and general consistency tradeoffs in distributed systems. See the following articles:
 
-- [Consistency tradeoffs in modern distributed database systems design](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
+- [Consistency tradeoffs in modern distributed database systems design](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 - [High availability](high-availability.md)
 - [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

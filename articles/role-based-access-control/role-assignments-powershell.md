@@ -1,6 +1,6 @@
 ---
 title: Manage access to Azure resources using RBAC and Azure PowerShell | Microsoft Docs
-description: Learn how to manage access to Azure resoruces for users, groups, and applications using role-based access control (RBAC) and Azure PowerShell. This includes how to list access, grant access, and remove access.
+description: Learn how to manage access to Azure resources for users, groups, and applications using role-based access control (RBAC) and Azure PowerShell. This includes how to list access, grant access, and remove access.
 services: active-directory
 documentationcenter: ''
 author: rolyon

@@ -3,19 +3,15 @@ title: Use custom activities in an Azure Data Factory pipeline
 description: Learn how to create custom activities and use them in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-
-
 ms.assetid: 8dd7ba14-15d2-4fd9-9ada-0b2c684327e9
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: douglasl
-
+author: nabhishek
+ms.author: abnarain
+manager: craigg
 robots: noindex
 ---
 # Use custom activities in an Azure Data Factory pipeline
@@ -50,7 +46,7 @@ In the walkthrough, you run your custom .NET activities using Azure Batch as a c
 
 For the tutorial, create an Azure Batch account with a pool of VMs. Here are the steps:
 
-1. Create an **Azure Batch account** using the [Azure portal](http://portal.azure.com). See [Create and manage an Azure Batch account][batch-create-account] article for instructions.
+1. Create an **Azure Batch account** using the [Azure portal](https://portal.azure.com). See [Create and manage an Azure Batch account][batch-create-account] article for instructions.
 2. Note down the Azure Batch account name, account key, URI, and pool name. You need them to create an Azure Batch linked service.
 	1. On the home page for Azure Batch account, you see a **URL** in the following format: `https://myaccount.westus.batch.azure.com`. In this example, **myaccount** is the name of the Azure Batch account. URI you use in the linked service definition is the URL without the name of the account. For example: `https://<region>.batch.azure.com`.
 	2. Click **Keys** on the left menu, and copy the **PRIMARY ACCESS KEY**.
@@ -1038,15 +1034,15 @@ The [Azure Data Factory - local environment](https://github.com/gbrueckl/Azure.D
 [azure-powershell-install]: https://github.com/Azure/azure-sdk-tools/releases
 
 
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
+[developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
 
 [new-azure-batch-account]: https://msdn.microsoft.com/library/mt125880.aspx
 [new-azure-batch-pool]: https://msdn.microsoft.com/library/mt125936.aspx
-[azure-batch-blog]: http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx
+[azure-batch-blog]: https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx
 
-[nuget-package]: http://go.microsoft.com/fwlink/?LinkId=517478
-[adf-developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+[nuget-package]: https://go.microsoft.com/fwlink/?LinkId=517478
+[adf-developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
 [azure-preview-portal]: https://portal.azure.com/
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md

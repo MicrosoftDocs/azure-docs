@@ -20,12 +20,12 @@ You can use Azure Backup to protect your Windows Server from corruptions, attack
 > [!div class="checklist"]
 > * Download and set up the MARS Agent
 > * Configure back up times and retention schedule for your server’s backups
-> * Perform an ad-hoc back up
+> * Perform an ad hoc back up
 
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at http://portal.azure.com.
+Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create a Recovery Services vault
 
@@ -122,7 +122,7 @@ You use the Microsoft Azure Recovery Services agent to schedule when backups to 
 
 11.	After the wizard finishes creating the backup schedule, click **Close**.
 
-## Perform an ad-hoc back up
+## Perform an ad hoc back up
 
 You have established the schedule when backup jobs run. However, you have not backed up the server. It is a disaster recovery best practice to run an on-demand backup to ensure data resiliency for your server.
 

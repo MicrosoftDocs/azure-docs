@@ -412,7 +412,7 @@ To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](
 
 Note the following points:  
 
-* [Complex data types](http://avro.apache.org/docs/current/spec.html#schema_complex) are not supported (records, enums, arrays, maps, unions, and fixed).
+* [Complex data types](https://avro.apache.org/docs/current/spec.html#schema_complex) are not supported (records, enums, arrays, maps, unions, and fixed).
 
 ## ORC format
 If you want to parse the ORC files or write the data in ORC format, set the `format` `type` property to **OrcFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:

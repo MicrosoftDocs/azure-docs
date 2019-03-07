@@ -56,7 +56,7 @@ When you back up Azure VMs with Azure Backup, VMs are encrypted at rest with Sto
 Azure Backup snapshots in accordance with the backup schedule.
 
 - **Windows VMs**: For Windows VMs, the Backup service coordinates with the Volume Shadow Copy Service (VSS) to take an app-consistent snapshot of the VM disks.
-    - By default, Azure Backup takes full VSS backups. [Learn more](http://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
+    - By default, Azure Backup takes full VSS backups. [Learn more](https://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
     - If you want to change the setting so that Azure Backups takes VSS copy backups, set the following registry key from a command prompt: **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f**.
 - **Linux VMs**: If you want to take app-consistent snapshots of Linux VM, use the Linux pre-script and post-script framework to write your own custom scripts to ensure consistency.
     -  Azure Backup only invokes the pre/post scripts written by you.

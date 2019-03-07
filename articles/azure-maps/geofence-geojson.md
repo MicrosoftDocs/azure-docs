@@ -3,7 +3,7 @@ title: Geofence GeoJSON data format in Azure Maps | Microsoft Docs
 description: Learn about Geofence GeoJSON data format in Azure Maps 
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/15/2018
+ms.date: 02/14/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps

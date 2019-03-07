@@ -20,9 +20,9 @@ In this article, you learn different ways to access and interact with your data 
 
 This how-to shows examples for the following tasks: 
 * [Choose a datastore](#access)
-* [Get a datastore](#get)
-* [Upload and download data to datastores](#upload-and-download-data)
-* [Access datastore during training](#access-datastores-for-training)
+* [Get data](#get)
+* [Upload and download data to datastores](#up-and-down)
+* [Access datastore during training](#train)
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ If you have existing Azure Storage, you can register it as a datastore on your w
 
 The following examples show you to register an Azure Blob Container or an Azure File Share as a datastore.
 
-+ For an **Azure Blob Container Datastore**, use [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-:)
++ For an **Azure Blob Container Datastore**, use [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py)
 
   ```Python
   ds = Datastore.register_azure_blob_container(workspace=ws, 
@@ -82,7 +82,7 @@ The following examples show you to register an Azure Blob Container or an Azure 
 
 <a name="get"></a>
 
-## Get data in your datastore
+## Find & define datastores
 
 To get a specified datastore registered in the current workspace, use [`get()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#get-workspace--datastore-name-) :
 
@@ -107,7 +107,8 @@ To define a different default datastore for the current workspace, use [`set_def
 ws.set_default_datastore('your datastore name')
 ```
 
-## Upload and download data
+<a name="up-and-down"></a>
+## Upload & download data
 The [`upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) and [`download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) methods described in the following examples are specific to and operate identically for the [AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py) and [AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py) classes.
 
 ### Upload
@@ -139,6 +140,7 @@ ds.download(target_path='your target path',
 ```
 `target_path` is the location of the local directory to download the data to. To specify a path to the folder in the file share (or blob container) to download, provide that path to `prefix`. If `prefix` is `None`, all the contents of your file share (or blob container) will get downloaded.
 
+<a name="train"></a>
 ## Access datastores during training
 You can access a datastore during a training run (for example, for training or validation data) on a remote compute target via the Python SDK using the [`DataReference`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) class.
 
