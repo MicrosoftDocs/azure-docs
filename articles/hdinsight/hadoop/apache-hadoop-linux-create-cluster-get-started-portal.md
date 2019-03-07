@@ -114,11 +114,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
    
         SHOW TABLES;
 
-    ![HDInsight Hive views](./media/apache-hadoop-linux-tutorial-get-started/hiveview-1.png "HDInsight Hive View Query Editor")
-   
-   > [!NOTE]  
-   > Semi-colon is required by Hive.       
-
+    ![HDInsight Hive views](./media/apache-hadoop-linux-tutorial-get-started/hiveview-1.png "HDInsight Hive View Query Editor")     
 
 5. Select **Execute**. A **RESULTS** tab appears beneath the **QUERY** tab and displays information about the job. 
    
