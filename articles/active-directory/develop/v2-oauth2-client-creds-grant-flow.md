@@ -260,7 +260,7 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 
 ## Code samples and other documentation
 
-Read the [client credentials overview documentation](http://aka.ms/msal-net-client-credentials) from the Microsoft Authentication Library
+Read the [client credentials overview documentation](https://aka.ms/msal-net-client-credentials) from the Microsoft Authentication Library
 
 | Sample | Platform |Description |
 |--------|----------|------------|
