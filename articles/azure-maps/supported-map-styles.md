@@ -3,7 +3,7 @@ title: Supported map styles in Azure Maps| Microsoft Docs
 description: Map styles supported by Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2018
+ms.date: 02/12/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
