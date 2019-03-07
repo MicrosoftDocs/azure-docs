@@ -144,10 +144,9 @@ Yes, as long as both caches have the same number of shards.
 Yes, Geo-replication of caches in VNETs is supported with caveats:
 
 - Geo-replication between caches in the same VNET is supported.
-- Geo-replication between caches in different VNETs is also supported. The recommended way to connect two VNETs for geo-replication is with a [VPN Gateway VNET-to-VNET connection](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V). See [this Resource Manager template]() to get started with VPN Gateways for geo-replication.
-  - Geo-replication within the same region is supported with VNET Peering.
-  - Geo-replication across different regions isn't supported with VNET Peering because of a constraint with Basic internal load balancers.
-  - For more information about VNET Peering constraints, see [Peering - Requirements and constraints](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints).
+- Geo-replication between caches in different VNETs is also supported.
+  - If the VNETs are in the same region, you can connect them using [VNET peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) or a [VPN Gateway VNET-to-VNET connection](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V).
+  - If the VNETs are in different regions, geo-replication using VNET peering isn't supported because of a constraint with Basic internal load balancers. For more information about VNET peering constraints, see [Virtual Network - Peering - Requirements and constraints](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). The recommended solution is to use a VPN Gateway VNET-to-VNET connection.
 
 ### What is the replication schedule for Redis geo-replication?
 
