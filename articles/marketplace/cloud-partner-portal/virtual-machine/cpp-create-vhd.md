@@ -45,7 +45,7 @@ Alternately, Azure offers a range of approved Linux distributions.  For a curren
 In the Microsoft [Azure portal](https://ms.portal.azure.com/), create the base image using the following steps.
 
 1. Sign in to the portal with the Microsoft account for the Azure subscription you want to publish your VM offer.
-2. Create a new resource group and provide your **Resource group name**, **Subscription**, and **Resource group location**.  For more guidance, see [Manage resource groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal#manage-resource-groups).
+2. Create a new resource group and provide your **Resource group name**, **Subscription**, and **Resource group location**.  For more guidance, see [Manage resource groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 3. Click on **Virtual machines** in the left menubar to display the Virtual machines details page. 
 4. In this new page, click on **+Add** to display the **Compute** blade.  If you do not see the VM type on the initial screen, you can search for the name of your base VM, for example:
 

@@ -11,7 +11,7 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 12/19/2018
+ms.date: 03/07/2019
 ---
 # Email notifications for automatic tuning
 
@@ -59,8 +59,6 @@ Follow these steps to update Azure PowerShell modules:
 - In the Modules pane, click on “**Update Azure Modules**” at the top, and wait until the message “Azure modules have been updated” is displayed. This process can take a few minutes to complete.
 
 ![Update Azure automation modules](./media/sql-database-automatic-tuning-email-notifications/howto-email-02.png)
-
-Required version of AzureRM.Resources and AzureRM.Sql modules needs to be version 4 and above.
 
 ## Create Azure Automation Runbook
 
