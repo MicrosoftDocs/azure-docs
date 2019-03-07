@@ -21,7 +21,9 @@ This article provides information and code samples to help you get started using
 
 - You must have [Python](https://www.python.org/downloads/) installed if you want to run the sample locally.
 
-[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
+[!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
+
+[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
 
 ## Detect latest point anomaly status
 

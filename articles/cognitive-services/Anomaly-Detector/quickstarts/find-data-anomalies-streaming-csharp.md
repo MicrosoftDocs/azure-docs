@@ -19,7 +19,9 @@ This article provides information and code samples to help you get started using
 
 - You must have [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) or later.
 
-[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
+[!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
+
+[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
 
 ## Detect anomaly status of latest point 
 

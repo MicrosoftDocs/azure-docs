@@ -13,6 +13,8 @@ ms.author: aahi
 
 # Find anomalies as a batch using the Anomaly Finder REST API and Java
 
+Use this quickstart to begin using the Anomaly Detector API to find anomalies in your time series data as a batch of data points. This Java application sends a batch JSON-formatted data points to the API, and gets the response. The API will generate and apply a statistical model to the data set, and each point is analyzed with the same model. While this application is written in Java, the API is a RESTful Web service compatible with most programming languages.
+
 This article provides information and code samples to help you get started using the Anomaly Finder API. With the [Find time series anomalies in batch](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyFinderV2/operations/post-timeseries-entire-detect) method, you can get anomalies of time series in batch.
 
 
@@ -20,7 +22,9 @@ This article provides information and code samples to help you get started using
 
 - You must have [Java&trade; Platform, Standard Edition Development Kit 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK 7 or 8) installed.
 
-[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
+[!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
+
+[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
 
 ## Find time series anomalies in batch
 
