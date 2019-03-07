@@ -19,7 +19,7 @@
   items:
   - name: Speech SDK
     items:
-    - name: Recognize speech
+    - name: Speech-to-text
       items:
       - name: 'C# (.NET Framework Windows)'
         href: quickstart-csharp-dotnet-windows.md
@@ -71,7 +71,7 @@
         href: quickstart-translate-speech-java-jre.md
   - name: REST APIs
     items:
-    - name: Convert text-to-speech
+    - name: Text-to-speech
       items:
       - name: 'C# (.NET Core)'
         href: quickstart-dotnet-text-to-speech.md
