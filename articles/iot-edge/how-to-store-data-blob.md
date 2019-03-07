@@ -246,24 +246,24 @@ Set the desired properties to enable auto-tiering and auto-expiration, you can s
 - **During the initial deployment**: Copy the JSON in **Set module twin's desired properties** box. Configure each property with appropriate value, save it and continue with the deployment.
 
    ```json
-    {
-      "properties.desired": {
-		  "ttlSettings": {
-            "ttlOn": <true, false>, 
-            "timeToLiveInMinutes": <timeToLiveInMinutes> 
-          },
-          "tieringSettings": {
-              "tieringOn": <true, false>,
-              "backlogPolicy": "<NewestFirst, OldestFirst>",
-              "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
-              "tieredContainers": {
-                  "<source container name1>": {
-                      "target": "<target container name1>"
-                  }
-              }
-          }
-        }
-    }
+   {
+     "properties.desired": {
+       "ttlSettings": {
+         "ttlOn": <true, false>, 
+         "timeToLiveInMinutes": <timeToLiveInMinutes> 
+       },
+       "tieringSettings": {
+         "tieringOn": <true, false>,
+         "backlogPolicy": "<NewestFirst, OldestFirst>",
+         "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+         "tieredContainers": {
+           "<source container name1>": {
+             "target": "<target container name1>"
+           }
+         }
+       }
+     }
+   }
 
    ```
 
@@ -272,7 +272,6 @@ Set the desired properties to enable auto-tiering and auto-expiration, you can s
 - **After the module is deployed via "Module Identity Twin" feature**: Go to "Module Identity Twin" of this module, copy the JSON under properties desired, configure each property with appropriate value, and save. In "Module Identity Twin" Json make sure every time you add or update any desired property, the `reported configuration` section reflects the changes, and the `configurationValidation` section reports success for each property.
 
    ```json 
-
     "ttlSettings": {
         "ttlOn": <true, false>, 
         "timeToLiveInMinutes": <timeToLiveInMinutes> 
@@ -284,8 +283,8 @@ Set the desired properties to enable auto-tiering and auto-expiration, you can s
         "tieredContainers": {
             "<source container name1>": {
                 "target": "<target container name1>"
-             }
-         }
+            }
+        }
     }
 
    ```
@@ -298,23 +297,23 @@ Set the desired properties to enable auto-tiering and auto-expiration, you can s
 
    ```json
    "<your azureblobstorageoniotedge module name>":{
-      "properties.desired": {
-		  "ttlSettings": {
-            "ttlOn": <true, false>, 
-            "timeToLiveInMinutes": <timeToLiveInMinutes> 
-          },
-          "tieringSettings": {
-              "tieringOn": <true, false>,
-              "backlogPolicy": "<NewestFirst, OldestFirst>",
-              "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
-              "tieredContainers": {
-                  "<source container name1>": {
-                      "target": "<target container name1>"
-                  }
-              }
-          }
-        }
-    }
+     "properties.desired": {
+       "ttlSettings": {
+         "ttlOn": <true, false>, 
+         "timeToLiveInMinutes": <timeToLiveInMinutes> 
+       },
+       "tieringSettings": {
+         "tieringOn": <true, false>,
+         "backlogPolicy": "<NewestFirst, OldestFirst>",
+         "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+         "tieredContainers": {
+           "<source container name1>": {
+             "target": "<target container name1>"
+           }
+         }
+       }
+     }
+   }
 
    ```
 
@@ -324,7 +323,6 @@ Here is an example of desired properties for this module:
 - **After the module is deployed via "Module Twin"**: [Edit the Module Twin](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin) of this module, copy the JSON under properties desired, configure each property with appropriate value, and save. In "Module Twin" Json make sure every time you add or update any desired property, the `reported configuration` section reflects the changes, and the `configurationValidation` section reports success for each property.
 
    ```json 
-
     "ttlSettings": {
         "ttlOn": <true, false>, 
         "timeToLiveInMinutes": <timeToLiveInMinutes> 
@@ -336,8 +334,8 @@ Here is an example of desired properties for this module:
         "tieredContainers": {
             "<source container name1>": {
                 "target": "<target container name1>"
-             }
-         }
+            }
+        }
     }
 
    ```
@@ -350,11 +348,6 @@ Specify your IoT Edge device as the blob endpoint for any storage requests that 
 
 1. For modules, that are deployed on the same edge device where "Azure Blob Storage on IoT Edge" is running, the blob endpoint is: `http://<module name>:11002/<account name>`. 
 2. For modules, that are deployed on different edge device, than the edge device where "Azure Blob Storage on IoT Edge" is running, then depending upon your setup the blob endpoint is: `http://<device IP >:11002/<account name>` or `http://<IoT Edge device hostname>:11002/<account name>` or `http://<FQDN>:11002/<account name>`
-
-## Logs
-
-You can find the logs inside the container, under: 
-* For Linux:  /blobroot/logs/platformblob.log
 
 ## Deploy multiple instances
 
