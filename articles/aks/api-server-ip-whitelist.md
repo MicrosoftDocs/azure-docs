@@ -6,8 +6,10 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/07/2019
 ms.author: iainfou
+
+#Customer intent: As a cluster operator, I want to increase the security of my cluster by limiting access to the API server to only the IP addresses that I specify.
 ---
 
 # Secure access to the API server using an IP address whitelist in Azure Kubernetes Service (AKS)
@@ -21,17 +23,11 @@ This article shows you how to use the API server IP address whitelist to limit r
 
 ## Before you begin
 
-API server IP address whitelisting is only recommended for new AKS clusters that you create. You can create an AKS cluster [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+API server IP address whitelisting only works for new AKS clusters that you create. This article shows you how to create an AKS cluster using the Azure CLI. You can instead create an AKS cluster [using the Azure portal][aks-quickstart-portal].
 
 ### Azure CLI requirements
 
 You need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-
-To use the API server IP address whitelist, you also need the *aks-preview* Azure CLI extension. Install this extension using the [az extension add][az-extension-add] command, as shown in the following example:
-
-```azurecli-interactive
-az extension add --name aks-preview
-```
 
 ### Register feature flag for your subscription
 
@@ -63,9 +59,29 @@ To use the IP address whitelist functionality, a public IP address is exposed on
 
 For more information about the API server and other cluster components, see [Kubernetes core concepts for AKS][concepts-clusters-workloads].
 
+## Create an AKS cluster
+
+API server IP address whitelisting only works for new AKS clusters. You can't enable the IP address whitelisting as part of the cluster create operation. If you try to enable whitelisting as part of the cluster create process, the cluster nodes are unable to access the API server during deployment as the egress IP address isn't defined at that point.
+
+First, create a cluster using the [az aks create][az-aks-create] command. The following example creates a single-node cluster named *myAKSCluster* in the resource group named *myResourceGroup*.
+
+```azurecli-interactive
+# Create an Azure resource group
+az group create --name myResourceGroup --location eastus
+
+# Create an AKS cluster
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --node-count 1 \
+    --generate-ssh-keys
+```
+
 ## Enable IP address whitelisting
 
-To enable the API server IP whitelisting and provide a list of authorized IP address ranges, you update an existing AKS cluster using a Resource Manager template. In the template, parameters are defined for the cluster name and location, then a comma-separated list of CIDR ranges for access to the API server.
+To enable the API server IP whitelisting and provide a list of authorized IP address ranges, you update an AKS cluster using a Resource Manager template. In the template, parameters are defined for the cluster name and location, then a comma-separated list of CIDR ranges for access to the API server.
+
+When you specify a CIDR range, start with the first IP address in the range. For example, *137.117.106.90/29* is a valid range, but make sure you specify the first IP address in the range, such as *137.117.106.88/29*.
 
 Create a file name `api-server-ip-whitelist.json` and paste the following Resource Manager template. In this example, the existing cluster is named *myAKSCluster* in the *eastus* region. A single IP address of *172.56.42.28/32* is then authorized to access the API server. Update these values to match your own cluster name and location, and CIDR range(s) to access the API server:
 
@@ -187,7 +203,6 @@ For more information, see [Security concepts for applications and clusters in AK
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[az-extension-add]: /cli/azure/extension#az-extension-add
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
@@ -197,3 +212,4 @@ For more information, see [Security concepts for applications and clusters in AK
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [create-aks-sp]: kubernetes-service-principal.md#manually-create-a-service-principal
 [az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-aks-create]: /cli/azure/aks#az-aks-create

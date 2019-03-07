@@ -170,10 +170,10 @@
       href: control-kubeconfig-access.md
     - name: Secure pod traffic with network policies (preview)
       href: use-network-policies.md
-    - name: Update cluster service principal credentials
-      href: update-credentials.md
     - name: Whitelist IP address ranges for API server access (preview)
       href: api-server-ip-whitelist.md
+    - name: Update cluster service principal credentials
+      href: update-credentials.md
     - name: Authenticate with ACR
       href: ../container-registry/container-registry-auth-aks.md
       maintainContext: true
