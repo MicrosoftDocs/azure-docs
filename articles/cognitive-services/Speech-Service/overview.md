@@ -1,7 +1,7 @@
 ---
 title: What are the Azure Speech Services?
 titleSuffix: Azure Cognitive Services
-description: The Azure Speech Services are the unification of speech recognition, text-to-speech, and speech translation into a single Azure subscription. It's easy to add speech your applications, tools, and devices with the Speech SDK, Speech Devices SDK, or REST APIs. Add speech functionality to an existing chat bot, convert text-to-speech in a translation application, or transcribe large volumes of call center data.
+description: The Azure Speech Services are the unification of speech-to-text, text-to-speech, and speech translation into a single Azure subscription. It's easy to add speech your applications, tools, and devices with the Speech SDK, Speech Devices SDK, or REST APIs. Add speech functionality to an existing chat bot, convert text-to-speech in a translation application, or transcribe large volumes of call center data.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # What are the Speech Services?
 
-Azure Speech Services are the unification of speech recognition, speech translation, and text-to-speech into a single Azure subscription. It's easy to speech enable your applications, tools, and devices with the [Speech SDK](speech-sdk-reference.md), [Speech Devices SDK](speech-devices-sdk-qsg.md), or [REST APIs](rest-apis.md).
+Azure Speech Services are the unification of speech-to-text, speech translation, and text-to-speech into a single Azure subscription. It's easy to speech enable your applications, tools, and devices with the [Speech SDK](speech-sdk-reference.md), [Speech Devices SDK](speech-devices-sdk-qsg.md), or [REST APIs](rest-apis.md).
 
 > [!IMPORTANT]
 > Speech Services have replaced Bing Speech API, Translator Speech, and Custom Speech. See *How-to guides > Migration* for migration instructions.
@@ -23,9 +23,9 @@ These features make up the Azure Speech Services. Use the links in this table to
 
 | Service | Feature | Description | SDK | REST |
 |---------|---------|-------------|-----|------|
-| [Speaker recognition](speech-to-text.md) | Speech recognition | Speech recognition, or speech-to-text, transcribes audio streams in real time to text that your applications, tools, or devices can consume or display. Use speech recognition with [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) to derive user intents from transcribed speech and act on voice commands. | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Speech-to-Text](speech-to-text.md) | Speech recognition and transcription | Speech-to-text transcribes audio streams to text in real time that your applications, tools, or devices can consume or display. Use speech-to-text with [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) to derive user intents from transcribed speech and act on voice commands. | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Batch Transcription](batch-transcription.md) | Batch transcription enables asynchronous speech-to-text transcription of large volumes of data. This is a REST-based service, which uses same endpoint as customization and model management. | No | [Yes](https://westus.cris.ai/swagger/ui/index) |
-| | [Customization](#customize-your-speech-experience) | If you are using speech recognition in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. | No | [Yes](https://westus.cris.ai/swagger/ui/index) |
+| | [Customization](#customize-your-speech-experience) | If you are using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. | No | [Yes](https://westus.cris.ai/swagger/ui/index) |
 | [Text-to-Speech](text-to-speech.md) | Synthesize text-to-speech | Text-to-speech converts input text into human-like synthesized speech. Choose from standard voices and neural voices (see [Language support](language-support.md)). | No | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Customization](#customize-your-speech-experience) | Create custom voice fonts unique to your brand or product. | No | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Speech Translation](speech-translation.md) | Speech translation | Speech translation enables real-time, multi-language translation of speech to your applications, tools, and devices. Use this service for speech-to-speech and speech-to-text translation. | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | No |
@@ -57,7 +57,8 @@ After you've had a chance to use the Speech Services, try our tutorial that teac
 
 Sample code is available on GitHub for each of the Azure Speech Services. These samples cover common scenarios like reading audio from a file or stream, continuous and single-shot recognition, and working with custom models. Use these links to view SDK and REST samples:
 
-* [Speech Recognition and Translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [Speech-to-text and speech translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 * [Text-to-speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
 ## Customize your speech experience
@@ -66,7 +67,7 @@ Azure Speech Services works well with built-in models, however, you may want to 
 
 | Speech Service | Model | Description |
 |----------------|-------|-------------|
-| Speech Recognition | [Acoustic model](how-to-customize-acoustic-models.md) | Creating a custom acoustic model is helpful if your applications, tools, or devices are used in a particular environments like in a car or on a factory floor, each with specific recording conditions. Examples include accented speech, specific background noises, or using a specific microphone for recording. |
+| Speech-to-Text | [Acoustic model](how-to-customize-acoustic-models.md) | Creating a custom acoustic model is helpful if your applications, tools, or devices are used in a particular environments like in a car or on a factory floor, each with specific recording conditions. Examples include accented speech, specific background noises, or using a specific microphone for recording. |
 | | [Language model](how-to-customize-language-model.md) | Create a custom language model to improve transcription of field-specific vocabulary and grammar, such as medical terminology, or IT jargon. |
 | | [Pronunciation model](how-to-customize-pronunciation.md) | With a custom pronunciation model, you can define the phonetic form and display of a word or term. It's useful for handling customized terms, such as product names or acronyms. All you need to get started is a pronunciation file -- a simple .txt file. |
 | Text-to-Speech | [Voice font](how-to-customize-voice-font.md) | Custom voice fonts allow you to create a recognizable, one-of-a-kind voice for your brand. It only takes a small amount of data to get started. The more data that you provide, the more natural and human-like your voice font will sound. |
@@ -75,9 +76,9 @@ Azure Speech Services works well with built-in models, however, you may want to 
 
 * [Speech SDK](speech-sdk-reference.md)
 * [Speech Devices SDK](speech-devices-sdk.md)
-* [REST API: Speech Recognition](rest-speech-to-text.md)
-* [REST API: Text-to-Speech](rest-text-to-speech.md)
-* [REST API: Batch transcription and customization REST APIs](https://westus.cris.ai/swagger/ui/index)
+* [REST API: Speech-to-text](rest-speech-to-text.md)
+* [REST API: Text-to-speech](rest-text-to-speech.md)
+* [REST API: Batch transcription and customization](https://westus.cris.ai/swagger/ui/index)
 
 ## Next steps
 

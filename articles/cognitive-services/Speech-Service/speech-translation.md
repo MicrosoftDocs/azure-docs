@@ -47,7 +47,7 @@ We offer quickstarts designed to have you running code in less than 10 minutes. 
 
 Sample code for the Speech SDK is available on GitHub. These samples cover common scenarios like reading audio from a file or stream, continuous and single-shot recognition/translation, and working with custom models.
 
-* [Speech recognition samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [Speech-to-text and translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 
 ## Migration guides
 
@@ -57,6 +57,14 @@ Sample code for the Speech SDK is available on GitHub. These samples cover commo
 If your applications, tools, or products are using Translator Speech, we've created guides to help you migrate to the Speech Services.
 
 * [Migrate from the Translator Speech API to the Speech Service](how-to-migrate-from-translator-speech-api.md)
+
+## Reference docs
+
+* [Speech SDK](speech-sdk-reference.md)
+* [Speech Devices SDK](speech-devices-sdk.md)
+* [REST API: Speech-to-text](rest-speech-to-text.md)
+* [REST API: Text-to-speech](rest-text-to-speech.md)
+* [REST API: Batch transcription and customization](https://westus.cris.ai/swagger/ui/index)
 
 ## Next steps
 

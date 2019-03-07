@@ -1,7 +1,7 @@
 ---
-title: Speech recognition with Azure Speech Services
+title: Speech-to-text with Azure Speech Services
 titleSuffix: Azure Cognitive Services
-description: Speech recognition from Azure Speech Services, also known as speech-to-text, enables real-time transcription of audio streams into text that your applications, tools, or devices can consume, display, and take action on as command input. This service is powered by the same recognition technology that Microsoft uses for Cortana and Office products, and works seamlessly with the translation and speech synthesis.
+description: Speech-to-text from Azure Speech Services, also known as speech-to-text, enables real-time transcription of audio streams into text that your applications, tools, or devices can consume, display, and take action on as command input. This service is powered by the same recognition technology that Microsoft uses for Cortana and Office products, and works seamlessly with the translation and text-to-speech.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -13,11 +13,11 @@ ms.author: erhopf
 ms.custom: seodec18
 ---
 
-# What is speech recognition?
+# What is speech-to-text?
 
-Speech recognition from Azure Speech Services, also known as speech-to-text, enables real-time transcription of audio streams into text that your applications, tools, or devices can consume, display, and take action on as command input. This service is powered by the same recognition technology that Microsoft uses for Cortana and Office products, and works seamlessly with the translation and text-to-speech.
+Speech-to-text from Azure Speech Services, also known as speech-to-text, enables real-time transcription of audio streams into text that your applications, tools, or devices can consume, display, and take action on as command input. This service is powered by the same recognition technology that Microsoft uses for Cortana and Office products, and works seamlessly with the translation and text-to-speech.
 
-By default, the speech recognition service uses the Universal model. This model was trained using Microsoft-owned data and is deployed the cloud. It's optimal for conversational and dictation scenarios. If you are using speech recognition in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary.
+By default, the speech-to-text service uses the Universal language model. This model was trained using Microsoft-owned data and is deployed the cloud. It's optimal for conversational and dictation scenarios. If you are using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary.
 
 You can easily capture audio from a microphone, read from a stream, or access audio files from storage with the Speech SDK and REST APIs. The Speech SDK supports WAV/PCM 16-bit, 16 kHz, single-channel audio for speech recognition. Additional audio formats are supported using the [speech-to-text REST endpoint](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-formats) or the [batch transcription service](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 
@@ -40,7 +40,7 @@ Here are the features available via the Speech SDK and REST APIs:
 
 \** *These services are available using the cris.ai endpoint. See [Swagger reference](https://westus.cris.ai/swagger/ui/index).*
 
-## Get started with speech recognition
+## Get started with speech-to-text
 
 We offer quickstarts in most popular programming languages, each designed to have you running code in less than 10 minutes. This table includes a complete list of Speech SDK quickstarts organized by language.
 
@@ -68,7 +68,8 @@ After you've had a chance to use the Speech Services, try our tutorial that teac
 
 Sample code for the Speech SDK is available on GitHub. These samples cover common scenarios like reading audio from a file or stream, continuous and single-shot recognition, and working with custom models.
 
-* [Speech recognition samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [Speech-to-text samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 
 ## Customization
 
@@ -92,6 +93,14 @@ If your applications, tools, or products are using the Bing Speech APIs or Custo
 
 * [Migrate from Bing Speech to the Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech)
 * [Migrate from Custom Speech to the Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service)
+
+## Reference docs
+
+* [Speech SDK](speech-sdk-reference.md)
+* [Speech Devices SDK](speech-devices-sdk.md)
+* [REST API: Speech-to-text](rest-speech-to-text.md)
+* [REST API: Text-to-speech](rest-text-to-speech.md)
+* [REST API: Batch transcription and customization](https://westus.cris.ai/swagger/ui/index)
 
 ## Next steps
 

@@ -6,12 +6,12 @@
   items:
   - name: What are the Speech Services?
     href: overview.md
-  - name: Speech recognition
+  - name: Speech-to-text
     href: speech-to-text.md
-    displayName: recognize speech, speech recognition, speech to text, stt
+    displayName: recognize speech, speech recognition, speech-to-text, stt
   - name: Text-to-speech
     href: text-to-speech.md
-    displayName: synthesize speech, speech synthesis, text to speech, tts
+    displayName: synthesize speech, speech synthesis, text-to-speech, tts
   - name: Speech translation
     href: speech-translation.md
     displayName: translate speech, speech translation, translator, s2s, speech to speech
@@ -23,39 +23,39 @@
       items:
       - name: 'C# (.NET Framework Windows)'
         href: quickstart-csharp-dotnet-windows.md
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
       - name: 'C# (.NET Core Windows)'
         href: quickstart-csharp-dotnetcore-windows.md
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
       - name: 'C# (UWP)'
         href: quickstart-csharp-uwp.md
-        displayName: 'recognize speech, speech recognition, speech to text, stt, C#, universal windows platform'
+        displayName: 'recognize speech, speech recognition, speech-to-text, stt, C#, universal windows platform'
       - name: 'C# (Unity)'
         href: quickstart-csharp-unity.md
-        displayName: 'recognize speech, speech recognition, speech to text, stt, C#, unity 3d, windows, android, universal windows platform, uwp'
+        displayName: 'recognize speech, speech recognition, speech-to-text, stt, C#, unity 3d, windows, android, universal windows platform, uwp'
       - name: 'C++ (Windows)'
         href: quickstart-cpp-windows.md
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
       - name: 'C++ (Linux)'
         href: quickstart-cpp-linux.md
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
       - name: 'Java (Android)'
         href: quickstart-java-android.md
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
       - name: 'Java (Windows, Linux)'
         href: quickstart-java-jre.md
-        displayName: recognize speech, speech recognition, speech to text, stt, jre, jvm
+        displayName: recognize speech, speech recognition, speech-to-text, stt, jre, jvm
       - name: 'JavaScript (Browser)'
         href: quickstart-js-browser.md
       - name: 'JavaScript (Node.js)'
         href: quickstart-js-node.md
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
       - name: 'Objective-C (iOS)'
         href: quickstart-objectivec-ios.md
-        displayName: recognize speech, speech recognition, speech to text, stt, xcode
+        displayName: recognize speech, speech recognition, speech-to-text, stt, xcode
       - name: 'Python'
         href: quickstart-python.md
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
     - name: Translate speech
       items:
       - name: 'C# (.NET Core Windows)'
@@ -64,7 +64,7 @@
         href: quickstart-translate-speech-dotnetframework-windows.md
       - name: 'C# (UWP)'
         href: quickstart-translate-speech-uwp.md
-        displayName: 'recognize speech, speech recognition, speech to text, stt, C#, universal windows platform'
+        displayName: 'recognize speech, speech recognition, speech-to-text, stt, C#, universal windows platform'
       - name: 'C++ (Windows)'
         href: quickstart-translate-speech-cpp-windows.md
       - name: 'Java (Windows, Linux)'
@@ -84,14 +84,14 @@
     displayName: roobo, speech devices sdk
 - name: Tutorials
   items:
-  - name: Recognize speech intents, C#
+  - name: Recognize speech intents with LUIS, C#
     href: how-to-recognize-intents-from-speech-csharp.md
     displayName: recognize intent, intent recognition, language understanding service, luis
 - name: How-to guides
   items:
   - name: Batch transcription (REST)
     href: batch-transcription.md
-    displayName: recognize speech, speech recognition, speech to text, stt
+    displayName: recognize speech, speech recognition, speech-to-text, stt
   - name: Prepare transcripts for customization
     href: prepare-transcription.md
   - name: Consume audio input streams (SDK)
@@ -101,7 +101,7 @@
     displayName: audio, microphone, input, device
   - name: Customization
     items:
-    - name: Speech recognition
+    - name: Speech-to-text
       items:
       - name: Customize acoustic models
         href: how-to-customize-acoustic-models.md
@@ -167,7 +167,7 @@
       href: devices-sdk-release-notes.md
   - name: REST APIs
     items:
-    - name: Speech recognition
+    - name: Speech-to-text
       href: rest-speech-to-text.md
       displayName: speech-to-text, speech recognition
     - name: Text-to-speech
@@ -190,12 +190,12 @@
     href: get-started.md
   - name: FAQ
     items:
-    - name: Speech recognition
+    - name: Speech-to-text
       href: faq-stt.md
-      displayName: recognize speech, speech recognition, speech to text, stt
+      displayName: recognize speech, speech recognition, speech-to-text, stt
     - name: Text-to-speech
       href: faq-text-to-speech.md
-      displayName: synthesize speech, speech synthesis, text to speech, tts
+      displayName: synthesize speech, speech synthesis, text-to-speech, tts
     - name: Speech translation
       href: https://www.microsoft.com/translator/faq.aspx
       displayName: translate speech, speech translation, translator, s2s, speech to speech

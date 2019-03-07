@@ -61,8 +61,15 @@ Sample code for text-to-speech is available on GitHub. These samples cover text-
 
 * [Text-to-speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
+## Reference docs
+
+* [Speech SDK](speech-sdk-reference.md)
+* [Speech Devices SDK](speech-devices-sdk.md)
+* [REST API: Speech-to-text](rest-speech-to-text.md)
+* [REST API: Text-to-speech](rest-text-to-speech.md)
+* [REST API: Batch transcription and customization](https://westus.cris.ai/swagger/ui/index)
+
 ## Next steps
 
 * [Get a free Speech Services subscription](get-started.md)
 * [Create custom voice fonts](how-to-customize-voice-font.md)
-* [REST API reference](rest-apis.md)

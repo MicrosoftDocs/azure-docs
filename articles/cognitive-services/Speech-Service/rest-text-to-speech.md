@@ -13,18 +13,9 @@ ms.author: erhopf
 ms.custom: seodec18
 ---
 
-# Speech synthesis (REST)
+# Text-to-speech REST API
 
-The Speech Services allow you to convert text-to-speech using a REST API. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use.
-
-Before using this API, understand:
-* The text-to-speech REST API requires an Authorization header. This means that you need to complete a token exchange to access the service. For more information, see [Authentication](#authentication).
-
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
-
-## Text-to-speech API
-
-The text-to-speech REST API supports neural and standard text-to-speech voices, each of which supports a specific language and dialect, identified by locale.
+The Speech Services allow you to convert text-to-speech using a REST API. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use. The text-to-speech REST API supports neural and standard text-to-speech voices, each of which supports a specific language and dialect, identified by locale.
 
 * For a complete list of voices, see [language support](language-support.md#text-to-speech).
 * For information about regional availability, see [regions](regions.md#text-to-speech).
@@ -32,7 +23,13 @@ The text-to-speech REST API supports neural and standard text-to-speech voices, 
 > [!IMPORTANT]
 > Costs vary for standard, custom, and neural voices. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-### Request headers
+Before using this API, understand:
+
+* The text-to-speech REST API requires an Authorization header. This means that you need to complete a token exchange to access the service. For more information, see [Authentication](#authentication).
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
+
+## Request headers
 
 This table lists required and optional headers for speech-to-text requests.
 
@@ -43,7 +40,7 @@ This table lists required and optional headers for speech-to-text requests.
 | `X-Microsoft-OutputFormat` | Specifies the audio output format. For a complete list of accepted values, see [audio outputs](#audio-outputs). | Required |
 | `User-Agent` | The application name. It must be less than 255 characters. | Required |
 
-### Audio outputs
+## Audio outputs
 
 This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each incorporates a bitrate and encoding type. The Speech Service supports 24-KHz, 16-KHz, and 8-KHz audio outputs.
 
@@ -60,14 +57,14 @@ This is a list of supported audio formats that are sent in each request as the `
 > [!NOTE]
 > If your selected voice and output format have different bit rates, the audio is resampled as necessary. However, 24khz voices do not support `audio-16khz-16kbps-mono-siren` and `riff-16khz-16kbps-mono-siren` output formats.
 
-### Request body
+## Request body
 
 The body of each `POST` request is sent as [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). SSML allows you to choose the voice and language of the synthesized speech returned by the text-to-speech service. For a complete list of supported voices, see [language support](language-support.md#text-to-speech).
 
 > [!NOTE]
 > If using a custom voice, the body of a request can be sent as plain text (ASCII or UTF-8).
 
-### Sample request
+## Sample request
 
 This HTTP request uses SSML to specify the voice and language. The body cannot exceed 1,000 characters.
 
@@ -92,7 +89,7 @@ See our quickstarts for language specific examples:
 * [Python](quickstart-python-text-to-speech.md)
 * [Node.js](quickstart-nodejs-text-to-speech.md)
 
-### HTTP status codes
+## HTTP status codes
 
 The HTTP status code for each response indicates success or common errors.
 
