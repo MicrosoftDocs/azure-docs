@@ -66,7 +66,7 @@ This Oracle connector support two versions of drivers:
     > Currently, the Microsoft driver for Oracle supports only copying data from Oracle. The driver doesn't support writing to Oracle. The test connection capability on the Data Management Gateway **Diagnostics** tab doesn't support this driver. Alternatively, you can use the Copy wizard to validate connectivity.
     >
 
-- **Oracle Data Provider for .NET**: You can use Oracle Data Provider to copy data from or to Oracle. This component is included in [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Install the relevant version (32-bit or 64-bit) on the machine where the gateway is installed. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) can access Oracle Database 10g Release 2 and later versions.
+- **Oracle Data Provider for .NET**: You can use Oracle Data Provider to copy data from or to Oracle. This component is included in [Oracle Data Access Components for Windows](https://www.oracle.com/technetwork/topics/dotnet/downloads/). Install the relevant version (32-bit or 64-bit) on the machine where the gateway is installed. [Oracle Data Provider .NET 12.1](https://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) can access Oracle Database 10g Release 2 and later versions.
 
 	If you select **XCopy Installation**, complete the steps that are described in the readme.htm file. We recommend selecting the installer that has the UI (not the XCopy installer).
 
@@ -563,7 +563,7 @@ The pipeline contains a copy activity that's configured to use the input and out
 
 **Resolution**
 
-* If you haven't installed the .NET Provider for Oracle, [install it](http://www.oracle.com/technetwork/topics/dotnet/downloads/), and then retry the scenario.
+* If you haven't installed the .NET Provider for Oracle, [install it](https://www.oracle.com/technetwork/topics/dotnet/downloads/), and then retry the scenario.
 * If you see the error message even after you install the provider, complete the following steps:
     1. Open the machine config file for .NET 2.0 from the folder <system disk\>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
     2. Search for **Oracle Data Provider for .NET**. You should be able to find an entry as shown in the following sample under **system.data** > **DbProviderFactories**:

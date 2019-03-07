@@ -728,7 +728,7 @@ following structure:
   "$id": "",
   "type": "object",
   "definitions": {},
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft-07/schema#",
   "properties": {
     "majorVersion": {
       "$id": "/properties/majorVersion",

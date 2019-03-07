@@ -42,7 +42,7 @@ To create and run the sample, do the following steps:
 <html>
 <head>
     <title>Analyze Sample</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
 
@@ -115,7 +115,7 @@ Enter the URL to an image, then click the <strong>Analyze image</strong> button.
 <br><br>
 Image to analyze:
 <input type="text" name="inputImage" id="inputImage"
-    value="http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg" />
+    value="https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg" />
 <button onclick="processImage()">Analyze image</button>
 <br><br>
 <div id="wrapper" style="width:1020px; display:table;">
