@@ -59,6 +59,6 @@ The Anomaly Detector API is a RESTful web service, making it easy to call from a
 2. Send a request to the API, with your data.
 3. Process the API response by parsing the returned JSON message.
 
-[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
+[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
 
 ## Next steps
