@@ -166,7 +166,7 @@ Use this option if it is acceptable to allow unauthenticated clients access to i
 
 ## Required tests
 
-Following tests are required for OEM package validation:
+The following tests are required for OEM package validation:
 
 - OEM Extension Package Verification
 - Cloud Simulation Engine
