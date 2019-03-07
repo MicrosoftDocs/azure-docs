@@ -97,7 +97,7 @@ Run the command below with the appropriate value for [ApplicationPackagePath] an
     ```
 
 4. Create the application
-    In the command to create the application below, note the **ListenPort** application parameter. This value specified for this application parameter is the port on which the Azure Files volume plugin listens for requests from the Docker daemon. It is important to ensure that the port provided to the application does not conflict with any other port that the cluster or your applications use.
+    In the command to create the application below, note the **ListenPort** application parameter. This value specified for this application parameter is the port on which the Azure Files volume plugin listens for requests from the Docker daemon. It is important to ensure that the port provided to the application match the VolumePluginPorts in the ClusterManifest and does not conflict with any other port that the cluster or your applications use.
 
     ```powershell
     New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9494 -ApplicationParameter @{ListenPort='19100'}
