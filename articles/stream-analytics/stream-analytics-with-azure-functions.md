@@ -78,7 +78,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
       // Throw an HTTP Request Entity Too Large exception when the incoming batch(dataArray) is greater than 256 KB. Make sure that the size value is consistent with the value entered in the Stream Analytics portal.
 
       if (dataArray.ToString().Length > 262144)
-      {        
+      {
          return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
       }
       var connection = ConnectionMultiplexer.Connect("<your Azure Cache for Redis connection string goes here>");
@@ -105,7 +105,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
       }
 
       return req.CreateResponse(HttpStatusCode.OK, "Got");
-    }    
+    }
 
    ```
 
@@ -113,7 +113,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
 
    ```csharp
    if (dataArray.ToString().Length > 262144)
-      {        
+      {
         return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
       }
    ```
@@ -165,8 +165,8 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
 4. Open your Stream Analytics job, and update the query to the following. (Make sure to replace the "saop1" text if you have named the output sink differently.)  
 
    ```sql
-    SELECT 
-            System.Timestamp as Time, CS1.CallingIMSI, CS1.CallingNum as CallingNum1, 
+    SELECT
+            System.Timestamp as Time, CS1.CallingIMSI, CS1.CallingNum as CallingNum1,
             CS2.CallingNum as CallingNum2, CS1.SwitchNum as Switch1, CS2.SwitchNum as Switch2
         INTO saop1
         FROM CallStream CS1 TIMESTAMP BY CallRecTime
