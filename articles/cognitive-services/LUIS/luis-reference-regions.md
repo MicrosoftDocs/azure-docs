@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 03/07/2019
 ms.author: diberry
 ---
 # Authoring and publishing regions and the associated keys
@@ -89,6 +89,9 @@ The following table explains the parameters, denoted with curly braces `{}`, in 
 |appID|LUIS app ID used in URL route and found on app dashboard|
 |q|utterance text sent from client application such as chat bot|
 
+## Failover regions
+
+Each region has a secondary region to fail over to. Europe fails over inside Europe and Australia fails over inside Australia.
 
 ## Next steps
 
