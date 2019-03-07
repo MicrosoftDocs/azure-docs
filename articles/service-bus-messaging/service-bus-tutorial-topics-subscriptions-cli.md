@@ -175,7 +175,7 @@ First, the code declares a set of variables, which drive the remaining execution
     static final String[] Subscriptions = {"S1","S2","S3"};
     static final String[] Store = {"Store1","Store2","Store3","Store4","Store5","Store6","Store7","Store8","Store9","Store10"};
     static final String SysField = "sys.To";
-    static final String CustomField = "StoreId";    
+    static final String CustomField = "StoreId";
     int NrOfMessagesPerStore = 1; // Send at least 1.
 ```
 
@@ -227,7 +227,7 @@ public void sendMessagesToTopic() throws Exception, ServiceBusException {
                 SendOrders(topicClient,Store[6]),
                 SendOrders(topicClient,Store[7]),
                 SendOrders(topicClient,Store[8]),
-                SendOrders(topicClient,Store[9])                
+                SendOrders(topicClient,Store[9])
         ).join();
 
         System.out.printf("\nAll messages sent.\n");
@@ -237,15 +237,15 @@ public void sendMessagesToTopic() throws Exception, ServiceBusException {
 
         for(int i = 0;i<NrOfMessagesPerStore;i++) {
         	Random r = new Random();
-        	final Item item = new Item(r.nextInt(5),r.nextInt(5),r.nextInt(5));        	
-        	IMessage message = new Message(GSON.toJson(item,Item.class).getBytes(UTF_8)); 
+        	final Item item = new Item(r.nextInt(5),r.nextInt(5),r.nextInt(5));
+        	IMessage message = new Message(GSON.toJson(item,Item.class).getBytes(UTF_8));
         	// We always set the Sent to field
-            message.setTo(store);    
+            message.setTo(store);
             final String StoreId = store;
             Double priceToString = item.getPrice();
             final String priceForPut = priceToString.toString();
             message.setProperties(new HashMap<String, String>() {{
-            	// Additionally we add a customer store field. In reality you would use sys.To or a customer property but not both. 
+            	// Additionally we add a customer store field. In reality you would use sys.To or a customer property but not both.
             	// This is just for demo purposes.
                 put("StoreId", StoreId);
                 // Adding more potential filter / rule and action able fields
@@ -254,11 +254,11 @@ public void sendMessagesToTopic() throws Exception, ServiceBusException {
                 put("Category", item.getItemCategory());
             }});
                         
-            System.out.printf("Sent order to Store %s. Price=%f, Color=%s, Category=%s\n", StoreId, item.getPrice(), item.getColor(), item.getItemCategory());            
+            System.out.printf("Sent order to Store %s. Price=%f, Color=%s, Category=%s\n", StoreId, item.getPrice(), item.getColor(), item.getItemCategory());
             topicClient.sendAsync(message);
         }
-               
-		return new CompletableFuture().completedFuture(null);         
+
+		return new CompletableFuture().completedFuture(null);
     }
 ```
 
@@ -267,13 +267,13 @@ public void sendMessagesToTopic() throws Exception, ServiceBusException {
 The `receiveAllMessages()` method calls the `receiveAllMessageFromSubscription()` method, which then creates a subscription client per call and receives messages from the individual subscriptions:
 
 ```java
-public void receiveAllMessages() throws Exception {		
+public void receiveAllMessages() throws Exception {
     System.out.printf("\nStart Receiving Messages.\n");
     
     CompletableFuture.allOf(
             receiveAllMessageFromSubscription(Subscriptions[0]),
             receiveAllMessageFromSubscription(Subscriptions[1]),
-            receiveAllMessageFromSubscription(Subscriptions[2]) 
+            receiveAllMessageFromSubscription(Subscriptions[2])
             ).join();
 }
 
@@ -289,23 +289,23 @@ public CompletableFuture<Void> receiveAllMessageFromSubscription(String subscrip
 
         while (true)
         {
-        	// This will make the connection wait for N seconds if new messages are available. 
+        	// This will make the connection wait for N seconds if new messages are available.
         	// If no additional messages come we close the connection. This can also be used to realize long polling.
         	// In case of long polling you would obviously set it more to e.g. 60 seconds.
         	IMessage receivedMessage = subscriptionClient.receive(Duration.ofSeconds(1));
             if (receivedMessage != null)
             {
-                if ( receivedMessage.getProperties() != null ) {                	                	                	                	
-                    System.out.printf("StoreId=%s\n", receivedMessage.getProperties().get("StoreId"));                                                	                                    	
+                if ( receivedMessage.getProperties() != null ) {
+                    System.out.printf("StoreId=%s\n", receivedMessage.getProperties().get("StoreId"));
                 	
                     // Show the label modified by the rule action
                     if(receivedMessage.getLabel() != null)
-                		System.out.printf("Label=%s\n", receivedMessage.getLabel());   
+                		System.out.printf("Label=%s\n", receivedMessage.getLabel());
                 }
                 
                 byte[] body = receivedMessage.getBody();
                 Item theItem = GSON.fromJson(new String(body, UTF_8), Item.class);
-                System.out.printf("Item data. Price=%f, Color=%s, Category=%s\n", theItem.getPrice(), theItem.getColor(), theItem.getItemCategory());                          
+                System.out.printf("Item data. Price=%f, Color=%s, Category=%s\n", theItem.getPrice(), theItem.getColor(), theItem.getItemCategory());
                 
                 subscriptionClient.complete(receivedMessage.getLockToken());
                 receivedMessages++;
