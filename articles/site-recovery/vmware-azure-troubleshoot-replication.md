@@ -5,7 +5,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/7/2019
+ms.date: 03/7/2019
 ms.author: mayg
 
 ---
@@ -23,6 +23,8 @@ Ensure that following services are running on the PS machine. Start or restart a
 
 **In-built Process Server**
 
+* ProcessServer
+* ProcessServerMonitor
 * cxprocessserver
 * InMage PushInstall
 * Log Upload Service (LogUpload)
@@ -36,6 +38,8 @@ Ensure that following services are running on the PS machine. Start or restart a
 
 **Scale-out Process Server**
 
+* ProcessServer
+* ProcessServerMonitor
 * cxprocessserver
 * InMage PushInstall
 * Log Upload Service (LogUpload)
@@ -46,6 +50,8 @@ Ensure that following services are running on the PS machine. Start or restart a
 
 **Process Server in Azure for failback**
 
+* ProcessServer
+* ProcessServerMonitor
 * cxprocessserver
 * InMage PushInstall
 * Log Upload Service (LogUpload)

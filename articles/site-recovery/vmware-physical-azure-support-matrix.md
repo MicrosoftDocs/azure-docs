@@ -6,7 +6,7 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 03/7/2019
 ms.author: raynew
 
 ---
@@ -205,6 +205,7 @@ General purpose v2 storage accounts (both hot and cool tiers) | No
 **Feature** | **Supported**
 --- | ---
 Availability sets | Yes
+Availability zones | No
 HUB | Yes
 Managed disks | Yes
 
