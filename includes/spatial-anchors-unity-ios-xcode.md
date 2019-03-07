@@ -5,9 +5,9 @@ ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
 ---
-Select **Build** to open a dialog. Then, select a folder to export the Xcode project.
+Select **Build**. In the dialog box that opens, select a folder to export the Xcode project to.
 
-When the export is complete, a folder will be displayed containing the exported Xcode project.
+When the export is complete, a folder that contains the exported Xcode project will appear.
 
 > [!NOTE]
 > If a dialog pops up asking if you want to **Replace** or **Append**, **Append** is recommended, since it is faster. You should only need to perform a **Replace**
@@ -16,25 +16,25 @@ When the export is complete, a folder will be displayed containing the exported 
 
 ### Open the Xcode project
 
-In the exported Xcode project folder, run the following command in the Terminal to install the necessary CocoaPods for the project:
+In the exported Xcode project folder, run this command in the Terminal to install the necessary CocoaPods for the project:
 
 ```bash
 pod install --repo-update
 ```
 
-Now your can open `Unity-iPhone.xcworkspace` to open the project in Xcode:
+Now you can open `Unity-iPhone.xcworkspace` to open the project in Xcode:
 
 ```bash
 open ./Unity-iPhone.xcworkspace
 ```
 
 > [!NOTE]
-> If you see a `library not found for -lPods-Unity-iPhone` error, you likely opened the `.xcodeproj` file instead of the
-> `.xcworkspace`. Open the `.xcworkspace` and try again.
+> If you see a `library not found for -lPods-Unity-iPhone` error, you probably opened the `.xcodeproj` file instead of the
+> `.xcworkspace` file. 
 
-Select the root **Unity-iPhone** node to view the project settings and select the **General** tab.
+Select the root **Unity-iPhone** node to view the project settings, and then select the **General** tab.
 
-Under **Signing**, check that **Automatically manage signing** is enabled. If it is not, activate it, and select **Enable Automatic** in the dialog that appears to reset build settings.
+Under **Signing**, make sure **Automatically manage signing** is enabled. If it's not, enable it, and then select **Enable Automatic** in the dialog box that appears to reset the build settings.
 
 Under **Deployment Info**, make sure the **Deployment Target** is set to `11.0`.
 

@@ -42,51 +42,51 @@ To complete this quickstart:
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-1. In Unity, open the project in the Unity folder.
+In Unity, open the project in the Unity folder.
 
-2. Open **Build Settings** by selecting **File** > **Build Settings**.
+Open **Build Settings** by selecting **File** > **Build Settings**.
 
-3. In the **Platform** section, select **Universal Windows Platform**. Change the **Target Device** to **HoloLens**.
+In the **Platform** section, select **Universal Windows Platform**. Change the **Target Device** to **HoloLens**.
 
 1. Select **Switch Platform** to change the platform to **Universal Windows Platform**. Unity might prompt you to install UWP support components if they're missing.
 
    ![Unity Build Settings window](./media/get-started-unity-hololens/unity-build-settings.png)
 
-5. Close the **Build Settings** window.
+Close the **Build Settings** window.
 
 ## Configure the account identifier and key
 
-1. In the **Project** pane, go to `Assets/AzureSpatialAnchorsPlugin/Examples` and open the AzureSpatialAnchorsBasicDemo.unity scene file.
+In the **Project** pane, go to `Assets/AzureSpatialAnchorsPlugin/Examples` and open the AzureSpatialAnchorsBasicDemo.unity scene file.
 
-2. [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
+[!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 
-3. Save the scene by selecting **File** > **Save**.
+Save the scene by selecting **File** > **Save**.
 
 ## Export the HoloLens Visual Studio project
 
-   1.[!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
+[!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
-2. Select **Build**. In the dialog box, select a folder in which to export the HoloLens Visual Studio project.
+Select **Build**. In the dialog box, select a folder in which to export the HoloLens Visual Studio project.
 
-3. When the export is complete, a folder containing the exported HoloLens project will appear.
+When the export is complete, a folder containing the exported HoloLens project will appear.
 
 ## Deploy the HoloLens application
 
-1. In the folder, double-click **HelloAR U3D.sln** to open the project in Visual Studio.
+In the folder, double-click **HelloAR U3D.sln** to open the project in Visual Studio.
 
-2. Change the **Solution Configuration** to **Release**, change the **Solution Platform** to **x86**, and select **Device** from the deployment target options.
+Change the **Solution Configuration** to **Release**, change the **Solution Platform** to **x86**, and select **Device** from the deployment target options.
 
    ![Visual Studio configuration](./media/get-started-unity-hololens/visual-studio-configuration.png)
 
-3. Turn on the HoloLens device, sign in, and connect the device to the PC by using a USB cable.
+Turn on the HoloLens device, sign in, and connect the device to the PC by using a USB cable.
 
-4. Select **Debug** > **Start debugging** to deploy your app and start debugging.
+Select **Debug** > **Start debugging** to deploy your app and start debugging.
 
-5. Follow the instructions in the app to place and recall an anchor.
+Follow the instructions in the app to place and recall an anchor.
 
-6. In Visual Studio, stop the app by selecting either **Stop Debugging** or Shift+F5.
+In Visual Studio, stop the app by selecting either **Stop Debugging** or Shift+F5.
 
-7. [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
+[!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 
