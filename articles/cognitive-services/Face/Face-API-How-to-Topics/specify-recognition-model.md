@@ -17,9 +17,9 @@ ms.author: longl
 
 This guide demonstrates how to specify a face recognition model for face detection, identification and similarity search using the Azure Face API.
 
-The Face API uses deep learning models to perform operations on human faces in images. We continue to improve the accuracy of our models based on customer feedback and advances in deep learning research, and we deliver these improvements as model updates. Developers have the option to specify which version of face recognition model they'd like to use; they can choose the model that best fits their use case.
+The Face API uses machine learning models to perform operations on human faces in images. We continue to improve the accuracy of our models based on customer feedback and advances in deep learning research, and we deliver these improvements as model updates. Developers have the option to specify which version of face recognition model they'd like to use; they can choose the model that best fits their use case.
 
-If you are a new user, we recommend you use the latest model. Read on to learn how to specify it in different Face operations. If you are an advanced user and are not sure whether you should switch to the latest model, skip to the [Evaluate different models](#Evaluate-different-models) section to evaluate the new model and compare results using your current data set. 
+If you are a new user, we recommend you use the latest model. Read on to learn how to specify it in different Face operations. If you are an advanced user and are not sure whether you should switch to the latest model, skip to the [Evaluate different models](#Evaluate-different-models) section to evaluate the new model and compare results using your current data set.
 
 ## Prerequisites
 
@@ -27,7 +27,6 @@ You should be familiar with the concepts of AI face detection and identification
 
 * [How to detect faces in an image](HowtoDetectFacesinImage.md)
 * [How to identify faces in an image](HowtoIdentifyFacesinImage.md)
-
 
 ## Detect faces with specified model
 
@@ -38,14 +37,14 @@ The recognition model is used when the face features are extracted, so you can s
 When using the [Face - Detect] API, assign the model version with the `recognitionModel` parameter.
 
 Available values:
-- `recognition_v01`
-- `recognition_v02`
+
+* `recognition_v01`
+* `recognition_v02`
 
 So, a request URL for the [Face - Detect] API will look like this:
-```
-https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel]
-&subscription-key=<Subscription key>
-```
+
+`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel]
+&subscription-key=<Subscription key>`
 
 If you are using the client library, you can assign the value for `recognitionModel` by passing a string representing the version.
 If you leave it unassigned, the default model version (_recognition_v01_) will be used.
@@ -59,34 +58,39 @@ var faces = await faceServiceClient.DetectAsync(imageUrl, true, true, "recogniti
 
 The Face API can extract face data from an image and associate it with a **Person** object (through the [Add face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API call, for example), and multiple **Person** objects can be stored together in a **PersonGroup**. Then, a new face can be compared against a **PersonGroup** (with the [Face - Identify] call), and the matching person within that group can be identified.
 
-A **PersonGroup** should have one unique recognition model for all of the **Person**s, and you can specify this using the `recognitionModel` parameter when you create the group ([PersonGroup - Create] or [LargePersonGroup - Create]).
+A **PersonGroup** should have one unique recognition model for all of the **Person**s, and you can specify this using the `recognitionModel` parameter when you create the group ([PersonGroup - Create] or [LargePersonGroup - Create]). If you do not specify this parameter, the original `recognition_v01` model is used. A group will always use the recognition model it was created with, and new faces will become associated with this model when they are added to it; this cannot be changed after a group's creation. To see what model a **PersonGroup** is configured with, use the [PersonGroup - Get] API.
 
 See the following code example for the .NET client library.
 
-```csharp 
+```csharp
 // Create an empty PersonGroup with "recognition_v02" model
 string personGroupId = "myfriends";
 await faceServiceClient.CreatePersonGroupAsync(personGroupId, "My Friends", "recognition_v02");
 ```
 
-In this code, a **PersonGroup** with id `myfriends` is created, and it is set up to use the new _recognition_v02_ model to extract face features.
+In this code, a **PersonGroup** with id `myfriends` is created, and it is set up to use the _recognition_v02_ model to extract face features.
 
-Correspondingly, you need to specify which model to use when identifying faces against this **PersonGroup** (through the [Face - Detect] API). The model you use should always be consistent with the **PersonGroup**'s configuration; otherwise, the operation will fail due to incompatible models.
+Correspondingly, you need to specify which model to use when detecting faces to compare against this **PersonGroup** (through the [Face - Detect] API). The model you use should always be consistent with the **PersonGroup**'s configuration; otherwise, the operation will fail due to incompatible models.
 
-There is no change in the [Face - Identify] API; you only specify the model version in detection.
+There is no change in the [Face - Identify] API; you only need to specify the model version in detection.
 
 ## Find similar faces with specified model
 
-You can also specify a recognition model for similarity search. You can assign the model version with `recognitionModel` when creating the face list with [FaceList - Create] API or [LargeFaceList - Create].
+You can also specify a recognition model for similarity search. You can assign the model version with `recognitionModel` when creating the face list with [FaceList - Create] API or [LargeFaceList - Create]. If you do not specify this parameter, the original `recognition_v01` model is used. A face list will always use the recognition model it was created with, and new faces will become associated with this model when they are added to it; this cannot be changed after creation. To see what model a face list is configured with, use the [FaceList - Get] API.
 
 See the following code example for the .NET client library.
 
 ```csharp
 await faceServiceClient.CreateFaceListAsync(faceListId, "My face collection", "recognition_v02");
 ```
-This code creates a face list called `My face collection`, using the _recognition_v02_ model for feature extraction. So, when you search for similar faces in this face list with a `faceId`, that `faceId`'s corresponding face should also be detected with the [Face - Detect] API using _recognition_v02_. As in the previous section, the model needs to be consistent.
+
+This code creates a face list called `My face collection`, using the _recognition_v02_ model for feature extraction. When you search this face list for similar faces to a new detected face, that face must have been detected ([Face - Detect]) using the _recognition_v02_ model. As in the previous section, the model needs to be consistent.
 
 There is no change in the [Face - Find Similar] API; you only specify the model version in detection.
+
+## Verify faces with specified model
+
+The [Face - Verify] API checks whether two faces belong to the same person. There is no change in the Verify API with regard to recognition models, but note that you can only compare faces that were detected with the same model. So, the two faces will both need to have been detected using `recognition_v01` or `recognition_v02`.
 
 ## Evaluate different models
 
@@ -101,9 +105,12 @@ If you normally specify a confidence threshold (a value between zero and one tha
 [Face - Detect]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [Face - Find Similar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237
 [Face - Identify]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239
+[Face - Verify]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a
 [PersonGroup - Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244
+[PersonGroup - Get]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246
 [PersonGroup Person - Add Face]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b
 [PersonGroup - Train]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249
 [LargePersonGroup - Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d
 [FaceList - Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b
+[FaceList - Get]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c
 [LargeFaceList - Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc
