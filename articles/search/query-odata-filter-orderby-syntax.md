@@ -83,9 +83,9 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
     This third parameter is a string where each character of the string, or subset of this string is treated as a separator when parsing the list of values in the second parameter.
 
     > [!NOTE]  	
-    >  Some scenarios require comparing a field against a large number of constant values. For example, implementing security trimming with filters might require comparing the document ID field against a list of IDs to which the requesting user is granted read access. In scenarios like this we highly recommend using the `search.in` function instead of a more complicated disjunction of equality expressions. For example, use `search.in(Id, '123, 456, ...')` instead of `Id eq 123 or Id eq 456 or ....`. 
-
->  If you use `search.in`, you can expect sub-second response time when the second parameter contains a list of hundreds or thousands of values. Note that there is no explicit limit on the number of items you can pass to `search.in`, although you are still limited by the maximum request size. However, the latency will grow as the number of values grows.
+    > Some scenarios require comparing a field against a large number of constant values. For example, implementing security trimming with filters might require comparing the document ID field against a list of IDs to which the requesting user is granted read access. In scenarios like this we highly recommend using the `search.in` function instead of a more complicated disjunction of equality expressions. For example, use `search.in(Id, '123, 456, ...')` instead of `Id eq 123 or Id eq 456 or ....`. 
+    >
+    > If you use `search.in`, you can expect sub-second response time when the second parameter contains a list of hundreds or thousands of values. Note that there is no explicit limit on the number of items you can pass to `search.in`, although you are still limited by the maximum request size. However, the latency will grow as the number of values grows.
 
 -   The `search.ismatch` function evaluates search query as a part of a filter expression. The documents that match the search query will be returned in the result set. The following overloads of this function are available:
     - `search.ismatch(search)`
