@@ -126,10 +126,6 @@
         href: vpn-gateway-howto-openvpn-clients.md
     - name: Transition to a public CA gateway certificate for P2S
       href: vpn-gateway-point-to-site-gateway-public-ca.md
-  - name: Configure IPsec/IKE policies on connections
-    href: vpn-gateway-ipsecikepolicy-rm-powershell.md
-  - name: Configure active-active connections
-    href: vpn-gateway-activeactive-rm-powershell.md
   - name: Create and manage a VPN gateway
     items:
     - name: Create a route-based VPN gateway
@@ -154,6 +150,10 @@
       href: vpn-gateway-about-skus-legacy.md
   - name: Create a zone-redundant VNet gateway in Azure Availability Zones
     href: create-zone-redundant-vnet-gateway.md
+  - name: Configure IPsec/IKE policies on connections
+    href: vpn-gateway-ipsecikepolicy-rm-powershell.md
+  - name: Configure active-active connections
+    href: vpn-gateway-activeactive-rm-powershell.md
   - name: Routing, BGP, and VNet Peering
     items:
     - name: Configure BGP for a VPN gateway
