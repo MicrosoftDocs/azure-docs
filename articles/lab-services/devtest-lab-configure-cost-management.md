@@ -28,7 +28,7 @@ To view the Monthly Estimated Cost Trend chart, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All Services**, and then select **DevTest Labs** from the list.
-3. From the list of labs, select the desired lab.  
+3. From the list of labs, select your lab.  
 4. Select **Configuration and policies** on the left menu.  
 4. Select **Cost trend** in the **Cost tracking** section on the left menu. The following screenshot shows an example of a cost chart. 
    
@@ -44,7 +44,7 @@ To view the Monthly Estimated Cost Trend chart, follow these steps:
 
     As it states above the chart, the costs you see by default in the chart are *estimated* costs using [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) offer rates. You can also set your own spending targets that are displayed in the charts by [managing the cost targets for your lab.](#managing-cost-targets-for-your-lab)
 
-    Additionally, the following are *not* included in the cost calculation:
+    The following costs are *not* included in the cost calculation:
 
     * CSP and Dreamspark subscriptions are currently not supported as Azure DevTest Labs uses the [Azure billing APIs](../billing/billing-usage-rate-card-overview.md) to calculate the lab cost, which does not support CSP or Dreamspark subscriptions.
     * Your offer rates. Currently, you can't use the offer rates (shown under your subscription) that you have negotiated with Microsoft or Microsoft partners. Only Pay-As-You-Go rates are used.
@@ -58,14 +58,14 @@ DevTest Labs lets you better manage the costs in  your lab by setting a spending
 1. On the **Cost trend** page, select **Manage target**.
 
     ![Manage target button](./media/devtest-lab-configure-cost-management/cost-trend-manage-target.png)
-2. On the Manage target pane, specify your desired spending target and thresholds. You can also set whether each selected threshold is reported on the cost trend chart or through a webhook notification.
+2. On the **Manage target** page, specify a spending target and thresholds. You can also set whether each selected threshold is reported on the cost trend chart or through a webhook notification.
 
     ![Manage target pane](./media/devtest-lab-configure-cost-management/cost-trend-manage-target-pane.png)
 
    - Select a time period during which you want cost targets tracked.
       - **Monthly**: cost targets are tracked per month.
-      - **Fixed**: cost targets are tracked for the date range you specify in the Start date and End date fields. Typically, this might correspond with how long your project is scheduled to run.
-   - Specify a **Target cost**. For example, this might be how much you plan to spend on this lab in the time period you defined.
+      - **Fixed**: cost targets are tracked for the date range you specify in the start and end dates. Typically, these values represent how long your project is scheduled to run.
+   - Specify a **Target cost**. For example, how much you plan to spend on this lab in the time period you defined.
    - Select to enable or disable any threshold you want reported – in increments of 25% – up to 125% of your specified **Target cost**.
       - **Notify**: When this threshold is met, you are notified by a webhook URL you specify.
       - **Plot on chart**: When this threshold is met, the results are plotted on the cost trend graph that you can view, as described in [Viewing the Monthly Estimated Cost Trend chart](#viewing-the-monthly-estimated-cost-trend-chart).
