@@ -12,7 +12,7 @@ ms.author: sideeksh
 ---
 # About Site Recovery and Backup Interoperability
 
-This article provides guidance for successfully using Azure Backup and Azure Site Recovery.
+This article provides guidance for successfully using Azure IaaS VM Backup and Azure VM disaster recovery.
 
 ## Azure Backup
 

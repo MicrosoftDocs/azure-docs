@@ -83,6 +83,8 @@
       href: azure-vm-disaster-recovery-with-accelerated-networking.md
     - name: ExpressRoute with Azure VM disaster recovery
       href: azure-vm-disaster-recovery-with-expressroute.md
+    - name: Azure VM disaster recovery and Azure Backup Interoperability
+      href: site-recovery-backup-interoperability.md
   - name: About VMware VM disaster recovery to Azure
     items:
     - name: VMware disaster recovery overview
@@ -127,8 +129,6 @@
     href: recovery-plan-overview.md
   - name: About migration to Azure
     href: migrate-overview.md
-  - name: Site Recovery and Backup Interoperability
-    href: site-recovery-backup-interoperability.md
   - name: About role-based access control with Site Recovery
     href: site-recovery-role-based-linked-access-control.md
   - name: About disaster recovery to a secondary on-premises site
