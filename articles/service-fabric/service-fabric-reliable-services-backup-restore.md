@@ -186,7 +186,7 @@ class MyCustomActorService : ActorService
 {
      public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
             : base(context, actorTypeInfo)
-     {                  
+     {
      }
     
     //
@@ -209,7 +209,7 @@ class MyCustomActorService : ActorService
 {
      public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
             : base(context, actorTypeInfo, null, null, new KvsActorStateProvider(true)) // Enable incremental backup
-     {                  
+     {
      }
     
     //
