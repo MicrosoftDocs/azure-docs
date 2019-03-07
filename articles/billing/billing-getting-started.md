@@ -181,7 +181,7 @@ If you're not the Account admin, then somebody probably gave you partial access 
 If your Account admin is no longer with your organization and you need to manage billing, [contact us](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 
-### How to request an Service Level Agreement credit for a service incident
+### How to request a Service Level Agreement credit for a service incident
 
 The Service Level Agreement (SLA) describes Microsoft’s commitments for uptime and connectivity. A service incident is reported when Azure services experience an issue that impacts uptime or connectivity, often referred to as an “outage.” If we do not achieve and maintain the Service Levels for each Service as described in the SLA, then you might be eligible for a credit towards a portion of your monthly service fees.
 
