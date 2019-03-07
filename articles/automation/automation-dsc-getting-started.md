@@ -175,7 +175,6 @@ State Configuration](automation-dsc-onboarding.md).
    The node configuration you specified are applied to the VM at intervals specified by the **Configuration Mode Frequency**,
    and the VM checks for updates to the node configuration at intervals specified by the **Refresh Frequency**. For more information about how these values are used, see
    [Configuring the Local Configuration Manager](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
-1. In the **Add Azure VMs** blade, click **Create**.
 
 Azure starts the process of onboarding the VM. When it is complete, the VM shows up in the
 **Nodes** tab of the **State configuration (DSC)** page in the Automation account.
