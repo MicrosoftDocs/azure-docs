@@ -1095,9 +1095,9 @@ You can use the Active Directory Authentication Library (ADAL) to sign users int
     }
     dependencies {
         implementation fileTree(dir: 'libs', include: ['*.jar'])
-        implementation('com.microsoft.aad:adal:1.1.1') {
+        implementation('com.microsoft.aad:adal:1.16.1') {
             exclude group: 'com.android.support'
-        } // Recent version is 1.1.1
+        } // Recent version is 1.16.1
         implementation 'com.android.support:support-v4:28.0.0'
     }
     ```
