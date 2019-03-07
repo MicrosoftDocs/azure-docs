@@ -78,7 +78,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## Use SSH to connect to the virtual machine
 
-From a client computer with SSH installed, connect to the virtual machine. If you're working on a Windows client, use [Putty](http://www.putty.org/) to create the connection. To connect to the virtual machine, use the following command:
+From a client computer with SSH installed, connect to the virtual machine. If you're working on a Windows client, use [Putty](https://www.putty.org/) to create the connection. To connect to the virtual machine, use the following command:
 
 ```bash
 ssh <publicIpAddress>

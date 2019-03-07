@@ -36,7 +36,7 @@ For feature feedback, vote at [Connect Health User Voice channel](https://feedba
 *	Azure AD Connect Health agent for AD FS (version 3.1.24.0)
 1. Transport Layer Security (TLS) protocol version 1.2 compliance and enforcement
 2. Support of Test-ADFSRequestToken for localized operating system
-3. Solved disgnostic agent EventHandler locking issue
+3. Solved diagnostic agent EventHandler locking issue
 4. Health agent registration bug fixes
 
 ## August 2018 

@@ -11,7 +11,7 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 03/04/2019
 ---
 # SQL Database dynamic data masking
 
@@ -51,8 +51,8 @@ The DDM recommendations engine, flags certain fields from your database as poten
 
 ## Set up dynamic data masking for your database using Powershell cmdlets
 
-See [Azure SQL Database Cmdlets](https://docs.microsoft.com/powershell/module/azurerm.sql).
+See [Azure SQL Database Cmdlets](https://docs.microsoft.com/powershell/module/az.sql).
 
 ## Set up dynamic data masking for your database using REST API
 
-See [Operations for Azure SQL Database](https://msdn.microsoft.com/library/dn505719.aspx).
+See [Operations for Azure SQL Database](https://docs.microsoft.com/rest/api/sql/).

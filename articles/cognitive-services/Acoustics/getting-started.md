@@ -20,7 +20,7 @@ This quickstart guide will show you how to integrate the plugin in your Unity pr
 Register [here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) to join the Designer Preview.
 
 ## Supported platforms for quickstart
-* [Unity 2018.2+](http://www.unity3d.com)
+* [Unity 2018.2+](https://www.unity3d.com)
   * Requires setting your project to the **.NET 4.x Equivalent** scripting runtime version 
   * Requires the Windows-based Unity editor
 

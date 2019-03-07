@@ -12,8 +12,8 @@ ms.custom: include file
 
 | Resource | Default limit |
 | --- | --- |
-| Profiles per subscription |200 <sup>1</sup> |
+| Profiles per subscription |200<sup>1</sup> |
 | Endpoints per profile |200 |
 
-<sup>1</sup>Contact support in case you need to increase these limits.
+<sup>1</sup>If you need to increase these limits, contact Azure Support.
 
