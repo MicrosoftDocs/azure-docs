@@ -5,7 +5,7 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: arduppal
-ms.date: 02/28/2019
+ms.date: 03/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
