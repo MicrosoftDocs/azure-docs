@@ -101,14 +101,14 @@ The Graph API that manipulates policy is described in the [Operations on policy]
 Following is an example HRD policy definition:
     
 ```
-   {
+{
     "HomeRealmDiscoveryPolicy":
     {
-    "AccelerateToFederatedDomain":true,
-    "PreferredDomain":"federated.example.edu",
-    "AllowCloudPasswordValidation":true
+        "AccelerateToFederatedDomain":true,
+        "PreferredDomain":"federated.example.edu",
+        "AllowCloudPasswordValidation":true
     }
-   }
+}
 ```
 
 The policy type is "HomeRealmDiscoveryPolicy."
