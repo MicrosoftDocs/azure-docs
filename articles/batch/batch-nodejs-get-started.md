@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.assetid: 
 ms.service: batch
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: conceptual
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
