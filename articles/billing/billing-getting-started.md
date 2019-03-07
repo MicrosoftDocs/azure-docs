@@ -190,7 +190,7 @@ To request a credit:
 1. Sign in to the [Azure Portal](https://portal.azure.com/). If you have multiple accounts, make sure that you use the one that was affected by Azure downtime. This helps Support automatically collect the necessary background information and resolve the case faster.
 2. Create a new support request.
 3. Under **Issue type**, select **Billing**.
-4. Under **Problem type**, select **Refund Reques**.
+4. Under **Problem type**, select **Refund Request**.
 5. Add details to specify that you’re asking for an SLA credit, mention the date/time/time-zone as well as the impacted services (VMs, Web Sites, etc.)
 6. Verify your contact details and select the **Create** button to submit your request.
 
