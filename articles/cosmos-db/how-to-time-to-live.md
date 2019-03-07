@@ -153,13 +153,9 @@ SalesOrder salesOrder = new SalesOrder
 const itemDefinition = {
           id: "doc",
           name: "sample Item",
-          key: "value"
+          key: "value", 
+          ttl: 2
         };
-
-async function createItemWithTTL(container: Container, itemDefinition: any, itemId: any, ttl: number){
-      itemDefinition.id = itemId;
-      itemDefinition.ttl = ttl;
-      await container.items.create(itemDefinition);
 }
 ```
 
