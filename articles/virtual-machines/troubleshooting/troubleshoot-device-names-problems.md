@@ -64,7 +64,7 @@ Applications use LUNs to find all of the attached disks and to construct symboli
 
 LUN information from the Linux guest account is retrieved by using `lsscsi` or a similar tool:
 
-       $ sudo lsscsi
+      $ sudo lsscsi
 
       [1:0:0:0] cd/dvd Msft Virtual CD/ROM 1.0 /dev/sr0
 
@@ -80,29 +80,29 @@ The guest LUN information is used with Azure subscription metadata to locate the
 
     $ az vm show --resource-group testVM --name testVM | jq -r .storageProfile.dataDisks
     [
-    {
-    "caching": "None",
-      "createOption": "empty",
-    "diskSizeGb": 1023,
-      "image": null,
-    "lun": 0,
-    "managedDisk": null,
-    "name": "testVM-20170619-114353",
-    "vhd": {
-      "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-114353.vhd"
-    }
-    },
-    {
-    "caching": "None",
-    "createOption": "empty",
-    "diskSizeGb": 512,
-    "image": null,
-    "lun": 1,
-    "managedDisk": null,
-    "name": "testVM-20170619-121516",
-    "vhd": {
-      "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-121516.vhd"
-      }
+      {
+        "caching": "None",
+          "createOption": "empty",
+        "diskSizeGb": 1023,
+          "image": null,
+        "lun": 0,
+        "managedDisk": null,
+        "name": "testVM-20170619-114353",
+        "vhd": {
+          "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-114353.vhd"
+        }
+      },
+      {
+        "caching": "None",
+        "createOption": "empty",
+        "diskSizeGb": 512,
+        "image": null,
+        "lun": 1,
+        "managedDisk": null,
+        "name": "testVM-20170619-121516",
+        "vhd": {
+          "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-121516.vhd"
+        }
       }
     ]
 
