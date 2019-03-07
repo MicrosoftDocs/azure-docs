@@ -1,13 +1,14 @@
 ---
 title: Upload files from devices to Azure IoT Hub with Java | Microsoft Docs
 description: How to upload files from a device to the cloud using Azure IoT device SDK for Java. Uploaded files are stored in an Azure storage blob container.
-author: dominicbetts
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.author: dobett
 ---
 
 # Upload files from your device to the cloud with IoT Hub
@@ -139,7 +140,7 @@ You need the **iothubowner** connection string for your IoT Hub to complete this
     ```
 
     > [!NOTE]
-    > You can check for the latest version of **iot-service-client** using [Maven search](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > You can check for the latest version of **iot-service-client** using [Maven search](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 4. Save and close the `pom.xml` file.
 

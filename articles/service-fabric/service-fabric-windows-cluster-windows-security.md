@@ -28,22 +28,22 @@ To prevent unauthorized access to a Service Fabric cluster, you must secure the 
 ## Configure Windows security using gMSA  
 The sample *ClusterConfig.gMSA.Windows.MultiMachine.JSON* configuration file downloaded with the [Microsoft.Azure.ServiceFabric.WindowsServer.<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) standalone cluster package contains a template for configuring Windows security using [Group Managed Service Account (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
 
-```  
+```
 "security": {
-            "ClusterCredentialType": "Windows",
-            "ServerCredentialType": "Windows",
-            "WindowsIdentities": {  
-                "ClustergMSAIdentity": "[gMSA Identity]", 
-                "ClusterSPN": "[Registered SPN for the gMSA account]",
-                "ClientIdentities": [  
-                    {  
-                        "Identity": "domain\\username",  
-                        "IsAdmin": true  
-                    }  
-                ]  
-            }  
-        }  
-```  
+    "ClusterCredentialType": "Windows",
+    "ServerCredentialType": "Windows",
+    "WindowsIdentities": {  
+        "ClustergMSAIdentity": "[gMSA Identity]",
+        "ClusterSPN": "[Registered SPN for the gMSA account]",
+        "ClientIdentities": [
+            {
+                "Identity": "domain\\username",
+                "IsAdmin": true
+            }
+        ]
+    }
+}
+```
 
 | **Configuration setting** | **Description** |
 | --- | --- |
@@ -63,36 +63,36 @@ This approach does not require the creation of a domain group for which cluster 
  
 The following example **security** section configures Windows security using gMSA and specifies that the machines in *ServiceFabric.clusterA.contoso.com* gMSA are part of the cluster and that *CONTOSO\usera* has admin client access:  
   
-```  
+```
 "security": {
-    "ClusterCredentialType": "Windows",            
+    "ClusterCredentialType": "Windows",
     "ServerCredentialType": "Windows",
-    "WindowsIdentities": {  
-        "ClustergMSAIdentity" : "ServiceFabric.clusterA.contoso.com",  
-        "ClusterSPN" : "http/servicefabric/clusterA.contoso.com",  
-        "ClientIdentities": [{  
-            "Identity": "CONTOSO\\usera",  
-            "IsAdmin": true  
-        }]  
-    }  
-}  
-```  
+    "WindowsIdentities": {
+        "ClustergMSAIdentity" : "ServiceFabric.clusterA.contoso.com",
+        "ClusterSPN" : "http/servicefabric/clusterA.contoso.com",
+        "ClientIdentities": [{
+            "Identity": "CONTOSO\\usera",
+            "IsAdmin": true
+        }]
+    }
+}
+```
   
 ## Configure Windows security using a machine group  
 This model is being deprecated. The recommendation is to use gMSA as detailed above. The sample *ClusterConfig.Windows.MultiMachine.JSON* configuration file downloaded with the [Microsoft.Azure.ServiceFabric.WindowsServer.<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) standalone cluster package contains a template for configuring Windows security.  Windows security is configured in the **Properties** section: 
 
 ```
 "security": {
-            "ClusterCredentialType": "Windows",
-            "ServerCredentialType": "Windows",
-            "WindowsIdentities": {
-                "ClusterIdentity" : "[domain\machinegroup]",
-                "ClientIdentities": [{
-                    "Identity": "[domain\username]",
-                    "IsAdmin": true
-                }]
-            }
-        }
+    "ClusterCredentialType": "Windows",
+    "ServerCredentialType": "Windows",
+    "WindowsIdentities": {
+        "ClusterIdentity" : "[domain\machinegroup]",
+        "ClientIdentities": [{
+            "Identity": "[domain\username]",
+            "IsAdmin": true
+        }]
+    }
+}
 ```
 
 | **Configuration setting** | **Description** |

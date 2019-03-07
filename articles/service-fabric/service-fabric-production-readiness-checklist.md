@@ -38,9 +38,9 @@ Is your application and cluster ready to take production traffic? Running and te
 6. Understand and set the [durability level](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Silver or higher durability level is recommended for node types running stateful workloads. The primary node type should have a durability level set to Silver or higher.
 7. Understand and pick the [reliability level](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) of the node type. Silver or higher reliability is recommended.
 8. Load and scale test your workloads to identify [capacity requirements](service-fabric-cluster-capacity.md) for your cluster. 
-9. Your services and applications are monitored and application logs are being generated and stored, with alerting. For example, see [Add logging to your Service Fabric application](service-fabric-how-to-diagnostics-log.md) and [Monitor containers with Log Analytics](service-fabric-diagnostics-oms-containers.md).
-10. The cluster is monitored with alerting (for example, with [Log Analytics](service-fabric-diagnostics-event-analysis-oms.md)). 
-11. The underlying virtual machine scale set infrastructure is monitored with alerting (for example, with [Log Analytics](service-fabric-diagnostics-oms-agent.md).
+9. Your services and applications are monitored and application logs are being generated and stored, with alerting. For example, see [Add logging to your Service Fabric application](service-fabric-how-to-diagnostics-log.md) and [Monitor containers with Azure Monitor logs](service-fabric-diagnostics-oms-containers.md).
+10. The cluster is monitored with alerting (for example, with [Azure Monitor logs](service-fabric-diagnostics-event-analysis-oms.md)). 
+11. The underlying virtual machine scale set infrastructure is monitored with alerting (for example, with [Azure Monitor logs](service-fabric-diagnostics-oms-agent.md).
 12. The cluster has [primary and secondary certificates](service-fabric-cluster-security-update-certs-azure.md) always (so you don't get locked out).
 13. Maintain separate clusters for development, staging, and production. 
 14. [Application upgrades](service-fabric-application-upgrade.md) and [cluster upgrades](service-fabric-tutorial-upgrade-cluster.md) are tested in development and staging clusters first. 

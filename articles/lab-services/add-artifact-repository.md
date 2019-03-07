@@ -168,7 +168,7 @@ There are a few ways to deploy the template to Azure and have the resource creat
 - [Deploy resources with Resource Manager templates and Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
 - [Deploy resources with Resource Manager templates and Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
-Let’s go ahead and see how to deploy the template in PowerShell. Cmdlets used to deploy the template are context-specific, so current tenant and current subscription are used. Use [Set-AzContext](/powershell/module/az.profile/set-azcontext) before deploying the template, if needed, to change context.
+Let’s go ahead and see how to deploy the template in PowerShell. Cmdlets used to deploy the template are context-specific, so current tenant and current subscription are used. Use [Set-AzContext](/powershell/module/az.accounts/set-azcontext) before deploying the template, if needed, to change context.
 
 First, create a resource group using [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). If the resource group you want to use already exists, skip this step.
 
@@ -371,9 +371,9 @@ if ($ArtifactRepositoryName -eq $null){
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | This command is used to get details about the lab such as its location. |
 | [New-AzResource](/powershell/module/az.resources/new-azresource) | There is no specific command for adding artifact repositories. The generic [New-AzResource](/powershell/module/az.resources/new-azresource) cmdlet does the job. This cmdlet needs either the **ResourceId** or the **ResourceName** and **ResourceType** pair to know the type of resource to create. This sample script uses the resource name and resource type pair. <br/><br/>Notice that you are creating the artifact repository source in the same location and under the same resource group as the lab.|
 
-The script adds a new resource to the current subscription. Use [Get-AzContext](/powershell/module/az.profile/get-azcontext) to see this information. Use [Set-AzContext](/powershell/module/az.profile/set-azcontext) to set the current tenant and subscription.
+The script adds a new resource to the current subscription. Use [Get-AzContext](/powershell/module/az.accounts/get-azcontext) to see this information. Use [Set-AzContext](/powershell/module/az.accounts/set-azcontext) to set the current tenant and subscription.
 
-The best way to discover the resource name and resource type information is to use the [Test Drive Azure REST APIs](https://azure.github.io/projects/apis/) website. Check out the [DevTest Labs – 2016-05-15](http://aka.ms/dtlrestapis) provider to see the available REST APIs for the DevTest Labs provider. The script users the following resource ID. 
+The best way to discover the resource name and resource type information is to use the [Test Drive Azure REST APIs](https://azure.github.io/projects/apis/) website. Check out the [DevTest Labs – 2016-05-15](https://aka.ms/dtlrestapis) provider to see the available REST APIs for the DevTest Labs provider. The script users the following resource ID. 
 
 ```powershell
 "/subscriptions/$SubscriptionId/resourceGroups/$($LabResource.ResourceGroupName)/providers/Microsoft.DevTestLab/labs/$LabName/artifactSources/$ArtifactRepositoryName"

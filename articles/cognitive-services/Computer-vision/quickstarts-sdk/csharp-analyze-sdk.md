@@ -54,7 +54,7 @@ To run the sample, do the following steps:
             private const string localImagePath = @"<LocalImage>";
 
             private const string remoteImageUrl =
-                "http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg";
+                "https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg";
 
             // Specify the features to return
             private static readonly List<VisualFeatureTypes> features =
@@ -149,7 +149,7 @@ A successful response displays the most relevant caption for each image. You can
 See [API Quickstarts: Analyze a local image with C#](../QuickStarts/CSharp-analyze.md#examine-the-response) for an example of a raw JSON output.
 
 ```
-http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg
+https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg
 a large waterfall over a rocky cliff
 ```
 

@@ -31,7 +31,7 @@ updated and the frequency and events that trigger an evaluation cycle.
 > [!WARNING]
 > If compliance state is being reported as **Not registered**, verify that the **Microsoft.PolicyInsights**
 > Resource Provider is registered and that the user has the appropriate role-based access control
-> (RBAC) permissions as described [here](../overview.md#rbac-permissions-in-azure-policy).
+> (RBAC) permissions as described in [RBAC in Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -504,8 +504,7 @@ Trent Baker
 ## Azure Monitor logs
 
 If you have a [Log Analytics workspace](../../../log-analytics/log-analytics-overview.md) with
-`AzureActivity` from the [Activity Log Analytics
-solution](../../../azure-monitor/platform/collect-activity-logs.md) tied to your subscription, you
+`AzureActivity` from the [Activity Log Analytics solution](../../../azure-monitor/platform/collect-activity-logs.md) tied to your subscription, you
 can also view non-compliance results from the evaluation cycle using simple Kusto queries and the
 `AzureActivity` table. With details in Azure Monitor logs, alerts can be configured to watch for
 non-compliance.

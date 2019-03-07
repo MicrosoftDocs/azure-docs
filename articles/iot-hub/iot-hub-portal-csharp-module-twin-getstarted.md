@@ -1,14 +1,14 @@
 ---
 title: Get started with Azure IoT Hub module identity and module twin (portal and .NET) | Microsoft Docs
 description: Learn how to create module identity and update module twin using the portal and .NET.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.author: dobett
 ---
 # Get started with IoT Hub module identity and module twin using the portal and .NET device
 
@@ -171,7 +171,7 @@ To continue getting started with IoT Hub and to explore other IoT scenarios, see
 [15]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
 [lnk-csharp-csharp-getstarted]: iot-hub-csharp-csharp-module-twin-getstarted.md

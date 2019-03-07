@@ -1,5 +1,5 @@
 ---
-title: "Troubleshooting | Microsoft Docs"
+title: "Troubleshooting"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -7,9 +7,9 @@ ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: "09/11/2018"
-ms.topic: "article"
+ms.topic: "conceptual"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
 ---
 # Troubleshooting guide
 
@@ -140,8 +140,8 @@ You see this error in Visual Studio Code if you have a newer version of the VS C
 
 Download and install the latest version of the Azure Dev Spaces CLI:
 
-* [Windows](http://aka.ms/get-azds-windows)
-* [Mac](http://aka.ms/get-azds-mac)
+* [Windows](https://aka.ms/get-azds-windows)
+* [Mac](https://aka.ms/get-azds-mac)
 * [Linux](https://aka.ms/get-azds-linux)
 
 ## Error 'azds' is not recognized as an internal or external command, operable program, or batch file

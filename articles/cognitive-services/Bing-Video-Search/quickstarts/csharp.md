@@ -22,7 +22,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 ## Prerequisites
 * Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
-* If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
+* If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
