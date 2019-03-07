@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: faq
+ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: sajagtap
 ---

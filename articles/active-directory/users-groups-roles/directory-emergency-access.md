@@ -6,7 +6,7 @@ services: active-directory
 author: markwahl-msft
 ms.author: curtand
 ms.date: 12/21/2018
-ms.topic: article-type-from-white-list
+ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity

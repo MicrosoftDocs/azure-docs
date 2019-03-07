@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.assetid:
 ms.service: azure
 ms.devlang:
-ms.topic:
+ms.topic: overview
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 08/24/2018
