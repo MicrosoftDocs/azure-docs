@@ -13,14 +13,16 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 03/07/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
 ---
 # List deny assignments for Azure resources using the REST API
 
-Currently, deny assignments are **read-only** and can only be set by Microsoft. Even though you can't create your own deny assignments, you can list deny assignments because they could impact your effective permissions. This article describes how you to list deny assignments using RBAC and the REST API.
+[Deny assignments](deny-assignments.md) block users from performing specific Azure resource actions even if a role assignment grants them access. To get information about a deny assignment, you must have the `Microsoft.Authorization/denyAssignments/read` permission, which is included in most [built-in roles for Azure resources](built-in-roles.md). Currently, the only way that you can add your own deny assignments is by using Azure Blueprints. For more information, see the [Azure Blueprints documentation](https://aka.ms/blueprintlocks).
+
+This article describes how to use the REST API to list deny assignments.
 
 ## List a single deny assignment
 

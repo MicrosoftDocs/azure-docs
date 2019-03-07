@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 03/07/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
 
 # View deny assignments for Azure resources using the Azure portal
 
-[Deny assignments](deny-assignments.md) block users from performing specific Azure resource actions even if a role assignment grants them access. Even though you can't create your own deny assignments, you still need to be able to view deny assignments because they might affect your overall permissions. To get information about a deny assignment, you must have the `Microsoft.Authorization/denyAssignments/read` permission, which is included in most [built-in roles for Azure resources](built-in-roles.md).
+[Deny assignments](deny-assignments.md) block users from performing specific Azure resource actions even if a role assignment grants them access. To get information about a deny assignment, you must have the `Microsoft.Authorization/denyAssignments/read` permission, which is included in most [built-in roles for Azure resources](built-in-roles.md). Currently, the only way that you can add your own deny assignments is by using Azure Blueprints. For more information, see the [Azure Blueprints documentation](https://aka.ms/blueprintlocks).
 
 This article describes how to use the Azure portal to view deny assignments.
 
