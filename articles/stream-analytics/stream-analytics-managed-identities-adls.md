@@ -88,62 +88,61 @@ This article shows you three ways to enable managed identity for an Azure Stream
 
 1. You can create a *Microsoft.StreamAnalytics/streamingjobs* resource with a managed identity by including the following property in the resource section of your Resource Manager template:
 
-   ```json
-   "Identity": {
-   "Type": "SystemAssigned",
-   },
-   ```
+    ```json
+    "Identity": {
+      "Type": "SystemAssigned",
+    },
+    ```
 
    This property tells Azure Resource Manager to create and manage the identity for your Azure Stream Analytics job.
 
    **Sample job**
 
-   ```json
-   { 
-   "Name": "AsaJobWithIdentity", 
-   "Type": "Microsoft.StreamAnalytics/streamingjobs", 
-   "Location": "West US",
-   "Identity": {
-     "Type": "SystemAssigned", 
-     }, 
-   "properties": {
-      "sku": {
-       "name": "standard"
-       },
-   "outputs": [
-         {
-           "name": "string",
-           "properties":{
-             "datasource": {      	
-               "type": "Microsoft.DataLake/Accounts",
-               "properties": {
-                 "accountName": “myDataLakeAccountName",
-                 "filePathPrefix": “cluster1/logs/{date}/{time}",
-                 "dateFormat": "YYYY/MM/DD",
-                 "timeFormat": "HH",
-                 "authenticationMode": "Msi"
-                 }
-                 
-   }
+    ```json
+    {
+      "Name": "AsaJobWithIdentity",
+      "Type": "Microsoft.StreamAnalytics/streamingjobs",
+      "Location": "West US",
+      "Identity": {
+        "Type": "SystemAssigned",
+      },
+      "properties": {
+        "sku": {
+          "name": "standard"
+        },
+        "outputs": [
+          {
+            "name": "string",
+            "properties":{
+              "datasource": {
+                "type": "Microsoft.DataLake/Accounts",
+                "properties": {
+                  "accountName": "myDataLakeAccountName",
+                  "filePathPrefix": "cluster1/logs/{date}/{time}",
+                  "dateFormat": "YYYY/MM/DD",
+                  "timeFormat": "HH",
+                  "authenticationMode": "Msi"
+                }
+              }
    ```
   
    **Sample job response**
 
    ```json
-   { 
-   "Name": "mySAJob", 
-   "Type": "Microsoft.StreamAnalytics/streamingjobs", 
-   "Location": "West US",
-   "Identity": {
-   "Type": "SystemAssigned",
-   	"principalId": "GUID", 
-   	"tenantId": "GUID", 
-   }, 
-   "properties": {
-           "sku": {
-             "name": "standard"
-           },
-   }
+   {
+    "Name": "mySAJob",
+    "Type": "Microsoft.StreamAnalytics/streamingjobs",
+    "Location": "West US",
+    "Identity": {
+      "Type": "SystemAssigned",
+        "principalId": "GUID",
+        "tenantId": "GUID",
+      },
+      "properties": {
+        "sku": {
+          "name": "standard"
+        },
+      }
    ```
 
    Take note of the Principal ID from the job response to grant access to the required ADLS resource.
