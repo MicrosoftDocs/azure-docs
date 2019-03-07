@@ -27,10 +27,11 @@ To configure Geo-replication between two caches, the following prerequisites mus
 
 - Both caches are [Premium tier](cache-premium-tier-intro.md) caches.
 - Both caches are in the same Azure subscription.
-- The secondary linked cache is either the same pricing tier or a larger pricing tier than the primary linked cache.
+- The secondary linked cache is either the same cache size or a larger cache size than the primary linked cache.
 - Both caches are created and in a running state.
 
 Some features aren't supported with geo-replication:
+
 - Persistence isn't supported with geo-replication.
 - Clustering is supported if both caches have clustering enabled and have the same number of shards.
 - Caches in the same VNET are supported.
