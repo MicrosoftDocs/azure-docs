@@ -26,9 +26,9 @@ Use this quickstart to begin using the Anomaly Detector API to find anomalies in
 - If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
 - A batch of time series data points. The data for this quickstart can be found TBD
 
-[!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
+[!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 
-[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
+[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
 
 ## Create a new application
 
@@ -80,7 +80,7 @@ static async Task<string> Request(string baseAddress, string endpoint, string su
 }
 ```
 
-## Send the request, and get a response
+## Send the API request and get a response
 
 1. In the main function of your application, perform the following steps. Read in the file containing your JSON time series data.
 
@@ -107,7 +107,7 @@ static async Task<string> Request(string baseAddress, string endpoint, string su
     System.Console.WriteLine(jsonObj);
     ```
 
-4. The response's `IsAnomaly` array contains a boolean value relating to whether a given data point is an anomaly. Convert this to a string array.
+4. The response's `IsAnomaly` field contains an array of boolean values relating to whether a given data point is an anomaly. Convert this to a string array.
 
     ```csharp
     string[] anomalies = jsonObj["IsAnomaly"].ToObject<string[]>();
