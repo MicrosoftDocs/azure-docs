@@ -226,9 +226,9 @@ The Azure Activity Log is a subscription log that provides insight into subscrip
 3.	Run the following command to authorize the Azure Log Integration service principal created in the previous step access to the read the Activity Log for the subscription. You need to be an Owner on the subscription to run the command.
 
     ```Azlog.exe authorize subscriptionId```
-Example:
+   Example:
 
-```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
+   ```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
 
 4.	Check the following folders to confirm that the Azure Active Directory audit log JSON files are created in them:
     - C:\Users\azlog\AzureResourceManagerJson

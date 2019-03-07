@@ -96,7 +96,7 @@ To configure a specialized VM size for your Batch pool, you have several options
 
 To run CUDA applications on a pool of Windows NC nodes, you need to install NVDIA GPU drivers. The following sample steps use an application package to install the NVIDIA GPU drivers. You might choose this option if your workload depends on a specific GPU driver version.
 
-1. Download a setup package for the GPU drivers on Windows Server 2016 from the [NVIDIA website](https://www.nvidia.com/Download/index.aspx) - for example, [version 411.82](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Save the file locally using a short name like *GPUDriverSetup.exe*.
+1. Download a setup package for the GPU drivers on Windows Server 2016 from the [NVIDIA website](https://www.nvidia.com/Download/index.aspx) - for example, [version 411.82](https://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Save the file locally using a short name like *GPUDriverSetup.exe*.
 2. Create a zip file of the package.
 3. Upload the package to your Batch account. For steps, see the [application packages](batch-application-packages.md) guidance. Specify an application id such as *GPUDriver*, and a version such as *411.82*.
 1. Using the Batch APIs or Azure portal, create a pool in the virtual machine configuration with the desired number of nodes and scale. The following table shows sample settings to install the NVIDIA GPU drivers silently using a start task:

@@ -50,7 +50,7 @@ Some preparation is required to build this solution:
 
 -   An Azure subscription. (Create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 
--   Download and install the [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+-   Download and install the [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 
 -   You will need to provide your own data to be processed by the functions. Data must be generated and available to upload to the Azure Stack storage blob container.
 

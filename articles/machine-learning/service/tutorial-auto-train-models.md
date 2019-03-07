@@ -77,6 +77,7 @@ Use these steps to create a local Jupyter Notebook server on your computer.  Aft
 
     ```shell
     jupyter notebook
+    ```
 
 ## <a name="start"></a>Set up your development environment
 

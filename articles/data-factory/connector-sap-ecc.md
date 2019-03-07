@@ -118,7 +118,7 @@ To copy data from SAP ECC, set the source type in the copy activity to **SapEccS
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **SapEccSource** | Yes |
-| query | OData query options to filter data. Example: "$select=Name,Description&$top=10".<br/><br/>SAP ECC connector copies data from the combined URL: (url specified in linked service)/(path specified in dataset)?(query specified in copy activity source). Refer to [OData URL components](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
+| query | OData query options to filter data. Example: "$select=Name,Description&$top=10".<br/><br/>SAP ECC connector copies data from the combined URL: (url specified in linked service)/(path specified in dataset)?(query specified in copy activity source). Refer to [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
 
 **Example:**
 

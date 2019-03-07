@@ -34,7 +34,7 @@ If you want to store rich media types, for example, videos, images, etc., you ha
 
 ## Check storage consumed
 
-To check the storage consumption of an Azure Cosmos container, you can run a HEAD or GET request on the container, and inspect the `x-ms-request-quota` and the `x-ms-request-usage` headers. Alternatively, when working with the .Net SDK, you can use the [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100)), and [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) properties to get the storage consumed.
+To check the storage consumption of an Azure Cosmos container, you can run a HEAD or GET request on the container, and inspect the `x-ms-request-quota` and the `x-ms-request-usage` headers. Alternatively, when working with the .Net SDK, you can use the [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100)), and [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) properties to get the storage consumed.
 
 ## Using SDK
 
