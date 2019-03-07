@@ -382,8 +382,6 @@
       href: sql-database-insights-alerts-portal.md
     - name: Troubleshoot connectivity
       href: sql-database-troubleshoot-common-connection-issues.md
-    - name: Configure backup retention using Azure vault (deprecated)
-      href: sql-database-long-term-backup-retention-configure-vault.md
     - name: Manage file space
       href: sql-database-file-space-management.md
     - name: Use Resource Health for connectivity issues
