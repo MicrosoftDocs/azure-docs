@@ -138,7 +138,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 
 ```json
 {
-  "properties":{  
+  "properties":{
       "retentionDays":28
    }
 }
