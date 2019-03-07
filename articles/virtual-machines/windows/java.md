@@ -447,10 +447,10 @@ Because you are charged for resources used in Azure, it is always good practice 
 
 1. To delete the resource group, add this code to the try block in the main method:
    
-```java
-System.out.println("Deleting resources...");
-azure.resourceGroups().deleteByName("myResourceGroup");
-```
+    ```java
+    System.out.println("Deleting resources...");
+    azure.resourceGroups().deleteByName("myResourceGroup");
+    ```
 
 2. Save the App.java file.
 
