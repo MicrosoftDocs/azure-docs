@@ -218,9 +218,9 @@ In this step, you define a catalog object that maps the schema from Apache Spark
 
 3. Save the array of new data to HBase:
 
-        sc.parallelize(newData).toDF.write
-        .options(Map(HBaseTableCatalog.tableCatalog -> catalog))
-        .format("org.apache.spark.sql.execution.datasources.hbase").save()
+    ```scala
+    sc.parallelize(newData).toDF.write.options(Map(HBaseTableCatalog.tableCatalog -> catalog)).format("org.apache.spark.sql.execution.datasources.hbase").save()
+    ```
 
 4. Examine the results:
     
