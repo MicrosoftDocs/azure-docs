@@ -21,9 +21,9 @@ For details on webhook requests, see [Azure Container Registry webhook schema re
 * Azure container registry - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md). See [Azure Container Registry SKUs](container-registry-skus.md) for the webhooks quotas available in the different service tiers.
 * Docker CLI - To set up your local computer as a Docker host and access the Docker CLI commands, install [Docker Engine](https://docs.docker.com/engine/installation/).
 
-## Create webhook Azure portal
+## Create webhook - Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to the container registry in which you want to create a webhook.
 1. Under **SERVICES**, select **Webhooks**.
 1. Select **Add** in the webhook toolbar.
@@ -34,17 +34,17 @@ For details on webhook requests, see [Azure Container Registry webhook schema re
 | Name | The name you want to give to the webhook. It may contain only lowercase letters and numbers, and must be 5-50 characters in length. |
 | Service URI | The URI where the webhook should send POST notifications. |
 | Custom headers | Headers you want to pass along with the POST request. They should be in "key: value" format. |
-| Trigger actions | Actions that trigger the webhook. Webhooks can currently be triggered by image push, image delete, Helm chart push, and Helm chart delete actions. You can choose one or more actions to trigger the webhook. |
+| Trigger actions | Actions that trigger the webhook. Actions include image push, image delete, Helm chart push, and Helm chart delete. You can choose one or more actions to trigger the webhook. |
 | Status | The status for the webhook after it's created. It's enabled by default. |
-| Scope | The scope at which the webhook works. By default, the scope is for all events in the registry. It can be specified for a repository or a tag by using the format "repository:tag", or "repository:*" for all tags under a repository. |
+| Scope | The scope at which the webhook works. If not specified, the scope is for all events in the registry. It can be specified for a repository or a tag by using the format "repository:tag", or "repository:*" for all tags under a repository. |
 
 Example webhook form:
 
 ![ACR webhook creation UI in the Azure portal](./media/container-registry-webhook/webhook.png)
 
-## Create webhook Azure CLI
+## Create webhook - Azure CLI
 
-To create a webhook using the Azure CLI, use the [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create) command.
+To create a webhook using the Azure CLI, use the [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create) command. The following command creates a webhook for all image delete events in the registry *mycontainerregistry*:
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -54,7 +54,7 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 
 ### Azure portal
 
-Prior to using the webhook on container image push and delete actions, you can test it with the **Ping** button. Ping sends a generic POST request to the specified endpoint and logs the response. Using the ping feature can help you verify you've correctly configured the webhook.
+Prior to using the webhook, you can test it with the **Ping** button. Ping sends a generic POST request to the specified endpoint and logs the response. Using the ping feature can help you verify you've correctly configured the webhook.
 
 1. Select the webhook you want to test.
 2. In the top toolbar, select **Ping**.
