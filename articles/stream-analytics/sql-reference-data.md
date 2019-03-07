@@ -140,7 +140,7 @@ When using the delta query, [temporal tables in Azure SQL Database](../sql-datab
          , [ValidTo] datetime2 (0) GENERATED ALWAYS AS ROW END
          , PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo)
       )  
-      WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.DeviceHistory));
+      WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.DeviceHistory));  -- DeviceHistory table will be used in Delta query
    ```
 2. Author the snapshot query. 
 
@@ -163,7 +163,7 @@ When using the delta query, [temporal tables in Azure SQL Database](../sql-datab
       WHERE ValidFrom BETWEEN @deltaStartTime AND @deltaEndTime   -- records inserted
       UNION
       SELECT DeviceId, GroupDeviceId, Description, 2 as _operation_
-      FROM dbo.DeviceHistory
+      FROM dbo.DeviceHistory   -- table we created in step 1
       WHERE ValidTo BETWEEN @deltaStartTime AND @deltaEndTime     -- record deleted
    ```
  
