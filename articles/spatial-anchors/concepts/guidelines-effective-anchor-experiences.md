@@ -11,7 +11,7 @@ ms.service: azure-spatial-anchors
 #Customer intent: Guidance for creating and locating Azure Spatial Anchors. This guidance targets mixed-reality developers.
 ---
 
-# Guidelines to create an effective anchor experience by using Azure Spatial Anchors
+# Create an effective anchor experience by using Azure Spatial Anchors
 
 This article provides guidelines and considerations to help you effectively create and locate anchors by using Spatial Anchors.
 
@@ -100,7 +100,9 @@ First, if the user doesn't locate an anchor within a few seconds, the app should
 
 For target scenarios, ask the user to move around the target to view it from different perspectives. In other words, ask the user to capture the target from new perspectives until the anchor is located.
 
-For room scenarios, ask the user to slowly scan the room. For example, ask the user to turn to capture 180 degrees or even 360 degrees of the room. Or ask the user to view the room from a new perspective. The most meaningful method is to scan across the room. A scan across the room captures more visual features of the environment than a scan of a nearby wall, for example. A scan of a nearby wall won't capture as many useful visual features of the environment.
+For room scenarios, ask the user to slowly scan the room. For example, ask the user to turn to capture 180 degrees or even 360 degrees of the room. Or ask the user to view the room from a new perspective. 
+
+The most meaningful method is to scan across the room. A scan across the room captures more visual features of the environment than a scan of a nearby wall, for example. A scan of a nearby wall won't capture as many useful visual features of the environment.
 
 It's not helpful to repeatedly move the device from side to side when looking for an anchor. This simply captures the same points from the same perspective.
 

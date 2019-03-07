@@ -14,7 +14,7 @@ ms.service: azure-spatial-anchors
 
 Azure Spatial Anchors provides a standard logging mechanism that's useful for app development. The Spatial Anchors diagnostics logging mode is useful when you need more information for debugging. Diagnostics logging stores images of the environment.
 
-## Standard logging in Spatial Anchors
+## Standard logging
 In the Spatial Anchors API, you can subscribe to the logging mechanism to get useful logs for application development and debugging. The standard logging APIs don't store pictures of the environment on the device disk. The SDK provides these logs as event callbacks. It's up to you to integrate these logs into the application's logging mechanism.
 
 ### Configuration of log messages
@@ -41,7 +41,7 @@ These event callbacks are provided to process logs and errors from the session:
 - [OnLogDebug](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug): Provides standard debug log events.
 - [Error](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error): Provides log events that the runtime considers to be errors.
 
-## Diagnostics logging in Spatial Anchors
+## Diagnostics logging
 
 In addition to the standard mode of operation for logging, Spatial Anchors also has a diagnostics mode. Diagnostics mode captures images of the environment and logs them to the disk. You can use this mode to debug certain kinds of issues, like failure to predictably locate an anchor. Enable diagnostics logging only to reproduce a specific issue. Then disable it. Don't enable diagnostics when you're running your apps normally.
 
