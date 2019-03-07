@@ -59,10 +59,10 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
              {
                 "Please run the script as an administrator in elevated mode."
                 $choice = Read-Host
-                return;       
+                return;
              }
 
-            $error.Clear()    
+            $error.Clear()
             "This script will remove the old Azure Site Recovery Provider related properties. Do you want to continue (Y/N) ?"
             $choice =  Read-Host
 
@@ -91,7 +91,7 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
             {
                 if (Test-Path $registrationPath)
                 {
-                    "Removing registration related registry keys."    
+                    "Removing registration related registry keys."
                     Remove-Item -Recurse -Path $registrationPath
                 }
 
@@ -103,12 +103,12 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
 
                 $regNode = Get-ItemProperty -Path $asrHivePath
                 if($regNode.DraID -ne $null)
-                {            
+                {
                     "Removing DraId"
                     Remove-ItemProperty -Path $asrHivePath -Name $draIdValue
                 }
                 if($regNode.IdMgmtCloudContainerId -ne $null)
-                {            
+                {
                     "Removing IdMgmtCloudContainerId"
                     Remove-ItemProperty -Path $asrHivePath -Name $idMgmtCloudContainerId
                 }
@@ -127,7 +127,7 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
                 $store.Remove($cert)
             }
         }catch
-        {    
+        {
             [system.exception]
             Write-Host "Error occurred" -ForegroundColor "Red"
             $error[0]
