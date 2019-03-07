@@ -22,7 +22,7 @@ This article shows you how to use the Data Factory _load data from SAP Business 
 
 - **Azure Data Factory (ADF):** If you don't have a data factory, follow the "[Create a data factory](quickstart-create-data-factory-portal.md#create-a-data-factory)" section to create one. 
 
-- **SAP BW Open Hub Destination (OHD) with destination type as "Database Table". Follow [SAP BW Open Hub Destination configurations](#sap-bw-open-hub-destination-configurations) section to create one or to confirm if your existing OHD is configured properly to be integrated with ADF.
+- **SAP BW Open Hub Destination (OHD) with destination type as "Database Table".** Follow [SAP BW Open Hub Destination configurations](#sap-bw-open-hub-destination-configurations) section to create one or to confirm if your existing OHD is configured properly to be integrated with ADF.
 
 - **SAP BW user being used needs to have following permissions:**
 
@@ -166,7 +166,7 @@ On the ADF UI **Let's get started** page, select **Create pipeline**.
 
    2. Go back to edit the ADF **Web activity** settings as below. Configure the body as expression (add dynamic content) `{"sapOpenHubMaxRequestId":"@{activity('CopyFromSap').output.sapOpenHubMaxRequestId}"}`.
 
-   3. ![Web activity settings](media\load-sap-bw-data\web-activity-settings.png)
+      ![Web activity settings](media\load-sap-bw-data\web-activity-settings.png)
 
 5. Then you can click **Debug** to validate the configuration, or select **Publish All** to publish all the changes then click **Trigger** to execute a run.
 
