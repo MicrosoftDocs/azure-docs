@@ -7,12 +7,14 @@ ms.author: orspod
 ms.reviewer: 
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 2/20/2019
+ms.date: 3/7/2019
 
 #Customer intent: I want to use Azure Data Factory to load data into Azure Data Explorer so that I can analyze it later.
 ---
 
 # Load data into Azure Data Explorer by using Azure Data Factory
+
+Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from many sources such as applications, websites, and IoT devices. Iteratively explore data and identify patterns and anomalies to improve products, enhance customer experiences, monitor devices, and boost operations. Explore new questions and get answers in minutes.
 
 Azure Data Factory is a fully managed cloud-based data integration service. You can use the service to populate your Azure Data Explorer database with data from your existing system and save time when building your analytics solutions.
 
@@ -60,6 +62,11 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
 ## Load data into Azure Data Explorer
 
+There are two ways to load data into Azure Data Explorer using Azure Data Factory:
+
+1. Azure Data Factory user interface - [**Author** tab](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory)
+1. Azure Data Factory **Copy Data** tool (used in this topic)
+
 ### Copy data from Amazon S3 (Source)
 
 1. In the **Let's get started** page, select the **Copy Data** tile to launch the Copy Data tool:
@@ -80,12 +87,12 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
 1. In the **New Linked Service (Amazon S3)** pane, do the following steps:
 
+    ![Specify Amazon S3 linked service](media/data-factory-load-data/amazon-s3-linked-service.png)
+
     1. Specify **Name** of your new linked service.
     1. Specify the **Access Key ID** value.
     1. Specify the **Secret Access Key** value.
     1. Select **Finish**.
-
-    ![Specify Amazon S3 linked service](media/data-factory-load-data/amazon-s3-linked-service.png)
 
 1. You will see a new connection. Select **Next**.
 
@@ -104,45 +111,9 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
 ## Create a service principal
 
-> [!IMPORTANT]
-> In this how-to, you use a Create an Azure Active Directory (Azure AD) service principal. The service principal is used by Azure Data Factory to access the Azure Data Explorer service.
+> In this how-to, you use a Azure Active Directory (Azure AD) service principal. The service principal is used by Azure Data Factory to access the Azure Data Explorer service. To create a service principal see ***(new doc)***
 
-Create a service principal in the Azure portal or using the Azure cli command line experience. You will get values for 4 connection properties that you'll use in later steps.
-
-> [NOTE]
-> The Azure AAD app must have permissions on the Azure Data Explorer cluster.
-
-### Create a service principal in the Azure Portal
-
-1. Create the service principal as described in [Use the portal to create an Azure AD application and service principal](/azure/active-directory/develop/howto-create-service-principal-portal).
-
-    1. In [Assign the application to a role](/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role), assign a role type, **Reader** to your Azure Data Explorer cluster.
-    1. In [Get values for signing in](azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), copy the 3 property values: **Directory ID** (tenant ID), **Application ID**, and **Authentication Key** (password).
-
-1. In the Azure portal, select **Subscriptions**. Copy the **Subscription ID** in which you created the service principal.
-
-    ![subscription ID - pic from word doc from Tzvia]()
-
-### Create a service principal using Azure CLI
-
-Create a service principal as described in [Create an Azure service principal with Azure CLI](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli).
-
-1. Create a service principal with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command. When creating a service principal, you choose the type of sign-in authentication it uses.
-
-    ```azurecli-interactive
-    az ad sp create-for-rbac --name ServicePrincipalName
-    ```
-
-1. Add the **Reader** role and remove the **Contributor** role (default):
-
-    ```azurecli-interactive
-    az role assignment create --assignee APP_ID --role Reader
-    az role assignment delete --assignee APP_ID --role Contributor
-    ```
-
-///check additional info with Tzvia
-
-## Create a new linked service
+## Create a new linked service - Sink
 
 1. In the **Destination data store** page, click **+ Create new connection**, and then select **Azure Data Explorer**, and select **Continue**.
 
