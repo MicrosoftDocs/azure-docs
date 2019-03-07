@@ -19,7 +19,7 @@ The [Entity Recognition API](https://westus.dev.cognitive.microsoft.com/docs/ser
 
 ## Entity Linking and Named Entity Recognition
 
-The Text Analytics' `entities` endpoint supprts both named entity recognition (NER) and entity linking.
+The Text Analytics' `entities` endpoint supports both named entity recognition (NER) and entity linking.
 
 ### Entity Linking
 Entity linking is the ability to identify and disambiguate the identity of an entity found in text (for example, determining whether the "Mars" is being used as the planet or as the Roman god of war). This process requires the presence of a knowledge base to which recognized entities are linked - Wikipedia is used as the knowledge base for the `entities` endpoint Text Analytics.
@@ -58,7 +58,7 @@ Using entity linking in various languages requires using a corresponding knowled
 | DateTime      | Duration      | "1 minute and 45 seconds"   | 
 | DateTime      | Set           | "every Tuesday"     | 
 | DateTime      | TimeZone      |    | 
-| URL           | N/A\*         | "http://www.bing.com"    |
+| URL           | N/A\*         | "https://www.bing.com"    |
 | Email         | N/A\*         | "support@contoso.com" |
 \* Depending on the input and extracted entities, certain entities may omit the `SubType`.
 

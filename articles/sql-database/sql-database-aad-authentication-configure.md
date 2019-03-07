@@ -11,7 +11,7 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 02/20/2019
+ms.date: 03/04/2019
 ---
 # Configure and manage Azure Active Directory authentication with SQL
 
@@ -231,7 +231,7 @@ The following example removes an Azure AD administrator:
 Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server"
 ```
 
-You can also provision an Azure Active Directory Administrator by using the REST APIs. For more information, see [Service Management REST API Reference and Operations for Azure SQL Database Operations for Azure SQL Database](https://msdn.microsoft.com/library/azure/dn505719.aspx)
+You can also provision an Azure Active Directory Administrator by using the REST APIs. For more information, see [Service Management REST API Reference and Operations for Azure SQL Database Operations for Azure SQL Database](https://docs.microsoft.com/rest/api/sql/)
 
 ### CLI  
 

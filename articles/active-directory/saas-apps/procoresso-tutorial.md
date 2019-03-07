@@ -211,7 +211,7 @@ Please follow the below steps to create a Procore test user on Procore SSOc side
 
 	![Configure Single Sign-On](./media/procoresso-tutorial/Procore_user_check.png)
 
-5. Click on **Save and Send Invitiation** (if an invite through mail is required) or **Save** (Save directly) to complete the user registration.
+5. Click on **Save and Send Invitation** (if an invite through mail is required) or **Save** (Save directly) to complete the user registration.
 	
 	![Configure Single Sign-On](./media/procoresso-tutorial/Procore_user_save.png)
 

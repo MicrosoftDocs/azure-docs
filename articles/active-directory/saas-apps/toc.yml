@@ -183,6 +183,8 @@
         href: brightidea-tutorial.md
       - name: Brightspace by Desire2Learn
         href: brightspace-desire2learn-tutorial.md
+      - name: Bugsnag
+        href: bugsnag-tutorial.md
       - name: Bynder
         href: bynder-tutorial.md
     - name: C
@@ -221,11 +223,11 @@
         href: ciscocloud-tutorial.md
       - name: Cisco Cloudlock
         href: ciscocloudlock-tutorial.md
-      - name: Cisco Spark
+      - name: Cisco Webex
         href: cisco-spark-tutorial.md
       - name: Cisco Umbrella
         href: cisco-umbrella-tutorial.md    
-      - name: Cisco Webex
+      - name: Cisco Webex Meetings
         href: cisco-webex-tutorial.md
       - name: Citrix ShareFile
         href: sharefile-tutorial.md
@@ -239,6 +241,8 @@
         href: clever-tutorial.md
       - name: ClickTime
         href: clicktime-tutorial.md
+      - name: ClickUp Productivity Platform
+        href: clickup-productivity-platform-tutorial.md
       - name: Cloud Management Portal for Microsoft Azure
         href: newsignature-tutorial.md
       - name: CloudPassage
@@ -353,6 +357,8 @@
         href: envimmis-tutorial.md
       - name: Envoy
         href: envoy-tutorial.md
+      - name: ePlatform
+        href: eplatform-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
         href: ethicspoint-incident-management-tutorial.md
       - name: etouches
@@ -365,8 +371,12 @@
         href: evernote-tutorial.md
       - name: Evidence.com
         href: evidence-tutorial.md
+      - name: ExcelityGlobal
+        href: excelityglobal-tutorial.md
       - name: Expensify
         href: expensify-tutorial.md
+      - name: Explanation-Based Auditing System
+        href: explanation-based-auditing-system-tutorial.md
       - name: Expiration Reminder
         href: expiration-reminder-tutorial.md
     - name: F - G
@@ -605,6 +615,8 @@
         href: klue-tutorial.md
       - name: KnowBe4 Security Awareness Training
         href: knowbe4-tutorial.md
+      - name: Knowledge Anywhere LMS
+        href: knowledge-anywhere-lms-tutorial.md
       - name: KnowledgeOwl
         href: knowledgeowl-tutorial.md
       - name: Kontiki
@@ -623,6 +635,8 @@
         href: launchdarkly-tutorial.md
       - name: LCVista
         href: lcvista-tutorial.md
+      - name: Lean
+        href: lean-tutorial.md
       - name: Leapsome
         href: leapsome-tutorial.md
       - name: Learning at Work
@@ -727,6 +741,8 @@
         href: neotalogicstudio-tutorial.md
       - name: NetDocuments
         href: netdocuments-tutorial.md
+      - name: Netop Portal
+        href: netop-portal-tutorial.md
       - name: Netsuite
         href: netsuite-tutorial.md
       - name: New Relic
@@ -771,6 +787,8 @@
         href: orgchartnow-tutorial.md
       - name: Origami
         href: origami-tutorial.md
+      - name: OU Campus
+        href: ou-campus-tutorial.md
       - name: Overdrive
         href: overdrive-books-tutorial.md
     - name: P
@@ -807,6 +825,8 @@
         href: perceptionunitedstates-tutorial.md
       - name: PerformanceCentre
         href: performancecentre-tutorial.md
+      - name: Periscope Data
+        href: periscope-data-tutorial.md
       - name: Phraseanet
         href: phraseanet-tutorial.md
       - name: Picturepark
@@ -843,6 +863,8 @@
         href: proofpoint-ondemand-tutorial.md
       - name: Proxyclick
         href: proxyclick-tutorial.md
+      - name: PureCloud by Genesys
+        href: purecloud-by-genesys-tutorial.md
       - name: PurelyHR
         href: purelyhr-tutorial.md
     - name: Q - R
@@ -959,6 +981,8 @@
         href: securejoinnow-tutorial.md
       - name: Sedgwick CMS
         href: sedgwickcms-tutorial.md
+      - name: Seismic
+        href: seismic-tutorial.md
       - name: SensoScientific Wireless Temperature Monitoring System
         href: sensoscientific-tutorial.md
       - name: Sequr
@@ -1015,6 +1039,8 @@
         href: smartlpa-tutorial.md
       - name: SmartRecruiters
         href: smartrecruiters-tutorial.md
+      - name: smartvid.io
+        href: smartvid.io-tutorial.md
       - name: Snowflake
         href: snowflake-tutorial.md
       - name: Softeon WMS
@@ -1161,6 +1187,8 @@
         href: waywedo-tutorial.md
       - name: Wdesk
         href: wdesk-tutorial.md
+      - name: webMethods Integration Cloud
+        href: webmethods-integration-cloud-tutorial.md
       - name: Weekdone
         href: weekdone-tutorial.md
       - name: Wikispaces
@@ -1250,6 +1278,8 @@
         href: amazon-web-service-tutorial.md#configure-azure-ad-single-sign-on
       - name: Asana
         href: asana-provisioning-tutorial.md
+      - name: Atlassian Cloud
+        href: atlassian-cloud-provisioning-tutorial.md
       - name: BlueJeans
         href: bluejeans-provisioning-tutorial.md
       - name: Bonusly
@@ -1316,6 +1346,10 @@
         href: zendesk-provisioning-tutorial.md
       - name: Zscaler
         href: zscaler-provisioning-tutorial.md
+      - name: Zscaler Beta
+        href: zscaler-beta-provisioning-tutorial.md
+      - name: Zscaler Three
+        href: zscaler-three-provisioning-tutorial.md
       - name: Zscaler ZSCloud
         href: zscaler-zscloud-provisioning-tutorial.md
-        
+      

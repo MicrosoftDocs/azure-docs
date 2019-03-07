@@ -23,7 +23,7 @@ When using the .NET managed APIs, the primary constructs for publishing data to 
 
 ## Get started
 
-The .NET classes that support Event Hubs are provided in the [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) NuGet package. You can install using the Visual Studio Solution explorer, or the [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) in Visual Studio. To do so, issue the following command in the [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) window:
+The .NET classes that support Event Hubs are provided in the [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) NuGet package. You can install using the Visual Studio Solution explorer, or the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) in Visual Studio. To do so, issue the following command in the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) window:
 
 ```shell
 Install-Package Microsoft.Azure.EventHubs

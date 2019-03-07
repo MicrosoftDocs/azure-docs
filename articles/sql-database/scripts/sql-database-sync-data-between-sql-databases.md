@@ -11,7 +11,7 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 03/04/2019
 ---
 # Use PowerShell to sync between multiple SQL Databases
  
