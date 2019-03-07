@@ -19,8 +19,10 @@
       href: azure-to-azure-tutorial-enable-replication.md
     - name: Run a disaster recovery drill
       href: azure-to-azure-tutorial-dr-drill.md
-    - name: Run failover and failback
+    - name: Run failover and reprotect
       href: azure-to-azure-tutorial-failover-failback.md
+    - name: Run failback
+      href: azure-to-azure-tutorial-failback.md
   - name: VMware VM disaster recovery to Azure
     items:
     - name: Prepare Azure
