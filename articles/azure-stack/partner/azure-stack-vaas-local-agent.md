@@ -39,7 +39,7 @@ To deploy the local agent:
 
 ## Download and start the local agent
 
-Download the agent to a machine that meets the prerequisites in your datacenter. This machine should not part of the Azure Stack system or hosted in the Azure Stack cloud, but should have access to all the Azure Stack endpoints.
+Download the agent to a machine that meets the prerequisites in your datacenter and has access to all the Azure Stack endpoints. This machine should not be part of the Azure Stack system or hosted in the Azure Stack cloud.
 
 ### Machine prerequisites
 
