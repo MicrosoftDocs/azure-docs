@@ -168,7 +168,9 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
   - Azure Site Recovery required access to Office 365 IPs ranges for authentication.
     If you are using Azure Network security group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure you allow communication to O365 IPranges. Create a [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to AAD
 	    - If new addresses are added to the Azure Active Directory (AAD) in the future, you need to create new NSG rules.
-
+>[!NOTE]
+> If the virtual machines are behind **Standard** internal load balancer then it would not have access to O365 IPs i.e login.micorsoftonline.com by default. Either change it to **Basic** internal load balancer type or  create out bound access as mentioned in the [article] (https://aka.ms/lboutboundrulescli).
+>
 
 ### Issue 3: Site Recovery configuration failed (151197)
 - **Possible cause** </br>
