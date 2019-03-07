@@ -4,15 +4,14 @@ description: Learn how to use continuous integration and delivery to move Data F
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
-manager: craigg
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/17/2019
-ms.author: douglasl
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
 ---
 # Continuous integration and delivery (CI/CD) in Azure Data Factory
 
