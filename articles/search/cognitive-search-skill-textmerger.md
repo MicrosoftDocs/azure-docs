@@ -63,7 +63,7 @@ This example shows the output of the previous input, assuming that the *insertPr
         "recordId": "1",
         "data":
            {
-             "mergedText": "The quick brown fox jumps over the lazy dog" 
+             "mergedText": "The quick brown fox jumps over the lazy dog"
            }
       }
     ]
@@ -128,10 +128,10 @@ The following example skillset uses the OCR skill to extract text from images em
 The example above assumes that a normalized-images field exists. To get normalized-images field, set the *imageAction* configuration in your indexer definition to *generateNormalizedImages* as shown below:
 
 ```json
-{  
-   //...rest of your indexer definition goes here ... 
-  "parameters":{  
-      "configuration":{  
+{
+   //...rest of your indexer definition goes here ...
+  "parameters":{
+      "configuration":{
          "dataToExtract":"contentAndMetadata",
          "imageAction":"generateNormalizedImages"
       }
