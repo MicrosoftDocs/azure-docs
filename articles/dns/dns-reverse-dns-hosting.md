@@ -266,6 +266,6 @@ For more information, see [Import and export a DNS zone file using Azure CLI](dn
 
 ## Next steps
 
-For more information on reverse DNS, see [reverse DNS lookup on Wikipedia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
+For more information on reverse DNS, see [reverse DNS lookup on Wikipedia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
 Learn how to [manage reverse DNS records for your Azure services](dns-reverse-dns-for-azure-services.md).

@@ -9044,42 +9044,47 @@
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1802.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1901",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1803.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1901",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1804.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1901",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1805.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1901",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1807.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1901",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
       "redirect_document_id": false
-    },    
+    },
+    {
+      "source_path": "articles/azure-stack/azure-stack-update-1808.md",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1710.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1901",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1711.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1901",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1712.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1901",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
       "redirect_document_id": false
     },
     {
@@ -11641,12 +11646,12 @@
       "source_path": "articles/lab-services/devtest-lab-create-first-vm.md",
       "redirect_url": "/azure/lab-services/tutorial-create-custom-lab#add-a-vm-to-the-lab",
       "redirect_document_id": false
-    }, 
+    },
     {
       "source_path": "articles/lab-services/compare-lab-types.md",
       "redirect_url": "/azure/lab-services/lab-services-overview#types-of-labs",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/lab-services/how-to-manage-classroom-labs.md",
       "redirect_url": "/azure/lab-services/classroom-labs/how-to-manage-classroom-labs",
@@ -13898,7 +13903,7 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-solution-quick-starts.md",
-      "redirect_url": "/azure/sql-database/sql-database-explore-tutorials", 
+      "redirect_url": "/azure/sql-database/sql-database-explore-tutorials",
       "redirect_document_id": false
     },
     {
@@ -14749,6 +14754,12 @@
     {
       "source_path": "articles/stream-analytics/stream-analytics-tools-for-visual-studio.md",
       "redirect_url": "/azure/stream-analytics/stream-analytics-quick-create-vs",
+      "redirect_document_id": false
+
+    },
+    {
+      "source_path": "articles/stream-analytics/stream-analytics-out-of-order-and-late-events.md",
+      "redirect_url": "/azure/stream-analytics/stream-analytics-time-handling",
       "redirect_document_id": false
 
     },
@@ -23798,11 +23809,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/container-instances/container-instances-region-availability.md",
-      "redirect_url": "/azure/container-instances/container-instances-quotas",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/container-instances/container-instances-mounting-azure-files-volume.md",
       "redirect_url": "/azure/container-instances/container-instances-volume-azure-files",
       "redirect_document_id": false
@@ -30743,7 +30749,11 @@
       "redirect_url": "/azure/key-vault/key-vault-overview",
       "redirect_document_id": true
     },
-
+    {
+      "source_path": "articles/virtual-machines/windows/mount-azure-file-storage.md",
+      "redirect_url": "/azure/storage/files/storage-files-quick-create-use-windows",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/azure-stack/asdk/asdk-deploy.md",
       "redirect_url": "/azure/azure-stack/asdk/asdk-install",
@@ -35714,8 +35724,8 @@
       "redirect_url": "/azure/application-insights/app-insights-pricing",
       "redirect_document_id": false
     },
-	{ "source_path": "articles/virtual-machines/workloads/sap/dbms-guide.md", 
-	"redirect_url": "/azure/virtual-machines/workloads/sap/dbms_guide_general", 
+	{ "source_path": "articles/virtual-machines/workloads/sap/dbms-guide.md",
+	"redirect_url": "/azure/virtual-machines/workloads/sap/dbms_guide_general",
 	"redirect_document_id": true },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-find-region-csharp.md",
@@ -35751,11 +35761,11 @@
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-manage-keys.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-azure-subscription",
       "redirect_document_id": true
-    }, 
-	{ "source_path": "articles/virtual-machines/workloads/sap/suse-quickstart.md", 
-	"redirect_url": "/azure/virtual-machines/workloads/sap/sap-deployment-checklist", 
-	"redirect_document_id": true 
-    },        
+    },
+	{ "source_path": "articles/virtual-machines/workloads/sap/suse-quickstart.md",
+	"redirect_url": "/azure/virtual-machines/workloads/sap/sap-deployment-checklist",
+	"redirect_document_id": true
+    },
     {
         "source_path": "articles/active-directory/devices/hybrid-azuread-join-manual-steps.md",
         "redirect_url": "/azure/active-directory/devices/hybrid-azuread-join-plan",
@@ -36131,6 +36141,55 @@
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters",
       "redirect_document_id": false
     },
+    {      "source_path": "articles/azure-signalr/signalr-authenticate-oauth.md",
+      "redirect_url": "/azure/azure-signalr/signalr-concept-authenticate-oauth",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-signalr/signalr-overview-azure-functions.md",
+      "redirect_url": "/azure/azure-signalr/signalr-concept-azure-functions",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-signalr/signalr-disaster-recovery.md",
+      "redirect_url": "/azure/azure-signalr/signalr-concept-disaster-recovery",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-signalr/signalr-internals.md",
+      "redirect_url": "/azure/azure-signalr/signalr-concept-internals",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-signalr/signalr-messages.md",
+      "redirect_url": "/azure/azure-signalr/signalr-concept-messages-and-connections",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-signalr/signalr-overview-scale-aspnet-core.md",
+      "redirect_url": "/azure/azure-signalr/signalr-concept-scale-aspnet-core",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-signalr/signalr-key-rotation.md",
+      "redirect_url": "/azure/azure-signalr/signalr-howto-key-rotation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-signalr/signalr-cli-samples.md",
+      "redirect_url": "/azure/azure-signalr/signalr-reference-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-signalr/signalr-faq.md",
+      "redirect_url": "/azure/azure-signalr/signalr-resource-faq",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-signalr/signalr-authenticate-azure-functions.md",
+      "redirect_url": "/azure/azure-signalr/signalr-tutorial-authenticate-azure-functions",
+      "redirect_document_id": true
+    },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-collect-debug-heap-dumps.md",
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-collect-debug-heap-dump-linux",
@@ -36181,6 +36240,12 @@
       "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-stream-log-store",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/cost-management/migrate-cost-management-api.md",
+      "redirect_url": "/azure/cost-management/overview-cost-mgt",
+      "redirect_document_id": false
+    },
+
     {
       "source_path": "articles/azure-monitor/app/java-live.md",
       "redirect_url": "/azure/azure-monitor/app/java-get-started",

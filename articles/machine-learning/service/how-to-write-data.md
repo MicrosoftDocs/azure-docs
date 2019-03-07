@@ -13,9 +13,9 @@ ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
 ---
-# Write data using the Azure Machine Learning Data Prep SDK
+# Write and configure data using Azure Machine Learning
 
-In this article, you learn different methods to write data using the [Azure Machine Learning Data Prep Python SDK](https://aka.ms/data-prep-sdk). Output data can be written at any point in a dataflow, and writes are added as steps to the resulting data flow and are run every time the data flow is. Data is written to multiple partition files to allow parallel writes.
+In this article, you learn different methods to write data using the [Azure Machine Learning Data Prep Python SDK](https://aka.ms/data-prep-sdk) and how to configure that data for experimentation with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Output data can be written at any point in a dataflow. Writes are added as steps to the resulting data flow, and these steps run every time the data flow runs. Data is written to multiple partition files to allow parallel writes.
 
 Since there are no limitations to how many write steps there are in a pipeline, you can easily add additional write steps to get intermediate results for troubleshooting or for other pipelines.
 
@@ -84,7 +84,6 @@ Example output:
 |3| 10013.0 | 99999.0 |	ERROR | NO | NO |	  |	NaN | NaN |	NaN |
 |4| 10014.0 | 99999.0 |	ERROR | NO | NO | ENSO |	59783.0 | 5350.0 |	500.0|
 
-
 In the preceding output, several errors appear in the numeric columns because of numbers that were not parsed correctly. When written to CSV, null values are replaced with the string "ERROR" by default.
 
 Add parameters as part of your write call and specify a string to use to represent null values.
@@ -133,6 +132,51 @@ The preceding code produces this output:
 |2| 10010.0 | 99999.0 | MiscreantData | NO| JN| ENJA|   70933.0|    -8667.0 |90.0|
 |3| 10013.0 | 99999.0 | MiscreantData | NO| NO| |   MiscreantData|    MiscreantData|    MiscreantData|
 |4| 10014.0 | 99999.0 | MiscreantData | NO| NO| ENSO|   59783.0|    5350.0| 500.0|
+
+## Configure data for automated machine learning training
+
+Pass your newly written data file into an [`AutoMLConfig`](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#automlconfig) object in preparation for automated machine learning training. 
+
+The following code example illustrates how to convert your dataflow to a Pandas dataframe  and subsequently, split it into training and test datasets for automated machine learning training.
+
+```Python
+from azureml.train.automl import AutoMLConfig
+from sklearn.model_selection import train_test_split
+
+dataflow = dprep.auto_read_file(path="")
+X_dflow = dataflow.keep_columns([feature_1,feature_2, feature_3])
+y_dflow = dataflow.keep_columns("target")
+
+X_df = X_dflow.to_pandas_dataframe()
+y_df = y_dflow.to_pandas_dataframe()
+
+X_train, X_test, y_train, y_test = train_test_split(X_df, y_df, test_size=0.2, random_state=223)
+
+# flatten y_train to 1d array
+y_train.values.flatten()
+
+#configure 
+automated_ml_config = AutoMLConfig(task = 'regression',
+	                           X = X_train.values,  
+				   y = y_train.values.flatten(),
+				   iterations = 30,
+			           Primary_metric = "AUC_weighted",
+			           n_cross_validation = 5
+			           )
+
+```
+
+If you do not require any intermediate data preparation steps like in the preceding example, you can pass your dataflow directly into `AutoMLConfig`.
+
+```Python
+automated_ml_config = AutoMLConfig(task = 'regression', 
+				   X = X_dflow,   
+				   y = y_dflow, 
+				   iterations = 30, 
+				   Primary_metric = "AUC_weighted",
+				   n_cross_validation = 5
+				   )
+```
 
 ## Next steps
 * See the SDK [overview](https://aka.ms/data-prep-sdk) for design patterns and usage examples 

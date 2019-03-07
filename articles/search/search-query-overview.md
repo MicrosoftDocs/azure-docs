@@ -32,15 +32,15 @@ The following table lists the APIs and tool-based approaches for submitting quer
 Examples are useful for introducing new concepts. As a representative query constructed in the [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents), this example targets the [real estate demo index](search-get-started-portal.md) and includes common parameters.
 
 ```
-{  
+{
     "queryType": "simple" 
-    "search": "seattle townhouse* +\"lake\"", 
-    "searchFields": "description, city",  
-    "count": "true", 
+    "search": "seattle townhouse* +\"lake\"",
+    "searchFields": "description, city",
+    "count": "true",
     "select": "listingId, street, status, daysOnMarket, description",
     "top": "10",
     "orderby": "daysOnMarket"
- } 
+}
 ```
 
 + **`queryType`** sets the parser, which in Azure Search can be the [default simple query parser](search-query-simple-examples.md) (optimal for full text search), or the [full Lucene query parser](search-query-lucene-examples.md) used for advanced query constructs like regular expressions, proximity search, fuzzy and wildcard search, to name a few.
