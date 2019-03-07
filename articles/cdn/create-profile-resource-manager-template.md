@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Create an Azure CDN profile and endpoint using Resource Manager templates | Microsoft Docs
-description: Learn how to create an Azure CDN profile and endpoint using Resource Manager templates
+title: Quickstart - Create an Azure Content Delivery Network profile and endpoint using Resource Manager templates | Microsoft Docs
+description: Learn how to create an Azure Content Deliver Network profile and endpoint using Resource Manager templates
 services: cdn
 documentationcenter: ''
 author: senthuransivananthan
@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
 ms.service: cdn
-ms.workload: tbd
+ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
@@ -41,17 +41,17 @@ Create the resource group in the location that you select. This example shows th
 az group create --name cdn --location eastus
 ```
 
-![New Resource Group](./media/cdn-create-an-azure-cdn-profile-using-arm-template/cdn-create-resource-group.png)
+![New Resource Group](./media/create-profile-resource-manager-template/cdn-create-resource-group.png)
 
 ## Create the Resource Manager template
 
 In this step, you create a template file that deploys the resources.
 
-While this example walks through a General Website Acceleration scenario, there are many other settings that can be configured. These settings are available in the ARM template reference. Please see references for [CDN Profile](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles) and [CDN Profile Endpoint](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints).
+While this example walks through a General Website Acceleration scenario, there are many other settings that can be configured. These settings are available in the Azure Resource Manager template reference. Please see references for [CDN Profile](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles) and [CDN Profile Endpoint](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints).
 
 Note that Microsoft CDN doesn't support modifying the content type list.
 
-Save the template as **arm-cdn.json**.
+Save the template as **resource-manager-cdn.json**.
 
 ```json
 {
@@ -188,7 +188,7 @@ Deploy the template using Azure CLI. You will be prompted for 2 inputs:
 az group deployment create --resource-group cdn --template-file arm-cdn.json
 ```
 
-![Deploy ARM Template](./media/cdn-create-an-azure-cdn-profile-using-arm-template/cdn-deploy-arm.png)
+![Deploy Resource Manager Template](./media/create-profile-resource-manager-template/cdn-deploy-resource-manager.png)
 
 ## View the CDN profile
 
@@ -196,7 +196,7 @@ az group deployment create --resource-group cdn --template-file arm-cdn.json
 az cdn profile list --resource-group cdn -o table
 ```
 
-![View CDN Profile](./media/cdn-create-an-azure-cdn-profile-using-arm-template/cdn-view-profile.png)
+![View CDN Profile](./media/create-profile-resource-manager-template/cdn-view-profile.png)
 
 ## View the CDN Endpoint for the profile standard-microsoft
 
@@ -204,7 +204,7 @@ az cdn profile list --resource-group cdn -o table
 az cdn endpoint list --profile-name standard-microsoft --resource-group cdn -o table
 ```
 
-![View CDN Endpoint](./media/cdn-create-an-azure-cdn-profile-using-arm-template/cdn-view-endpoint.png)
+![View CDN Endpoint](./media/create-profile-resource-manager-template/cdn-view-endpoint.png)
 
 Use the HostName to view the content. For example, access https://cdndemo-azurewebsites-net.azureedge.net using your browser.
 
@@ -216,12 +216,12 @@ Deleting the resource group will automatically remove all of the resources that 
 az group delete --name cdn
 ```
 
-![Delete Resource Group](./media/cdn-create-an-azure-cdn-profile-using-arm-template/cdn-delete-resource-group.png)
+![Delete Resource Group](./media/create-profile-resource-manager-template/cdn-delete-resource-group.png)
 
 ## References
 
-* CDN Profile - [ARM Template Reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles)
-* CDN Endpoint - [ARM Template Reference Documentation](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)
+* CDN Profile - [Azure Resource Manager Template Reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles)
+* CDN Endpoint - [Azure Resource Manager Template Reference Documentation](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)
 
 ## Next steps
 
