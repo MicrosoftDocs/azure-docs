@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.workload: data-services
 author: swinarko
 ms.author: sawinark
-ms.reviewer: douglasl
+ms.reviewer: 
 manager: craigg
 ---
 # Configure the Azure-SSIS Integration Runtime for high performance
