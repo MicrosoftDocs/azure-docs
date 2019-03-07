@@ -73,7 +73,7 @@ az vm create \
 ### Template
 Within your Resource Manager templates, an additional parameter `licenseType` must be specified. You can read more about [authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md)
 ```json
-"properties": {  
+"properties": {
    "licenseType": "Windows_Server",
    "hardwareProfile": {
         "vmSize": "[variables('vmSize')]"
