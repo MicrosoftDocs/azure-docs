@@ -103,21 +103,21 @@ For this tutorial, use the REST API and a tool that can formulate and send HTTP 
 ### Sample Request
 ```http
 POST https://[service name].search.windows.net/datasources?api-version=2017-11-11-Preview
-Content-Type: application/json  
-api-key: [admin key]  
+Content-Type: application/json
+api-key: [admin key]
 ```
 #### Request Body Syntax
 ```json
-{   
-    "name" : "demodata",  
-    "description" : "Demo files to demonstrate cognitive search capabilities.",  
+{
+    "name" : "demodata",
+    "description" : "Demo files to demonstrate cognitive search capabilities.",
     "type" : "azureblob",
     "credentials" :
     { "connectionString" :
       "DefaultEndpointsProtocol=https;AccountName=<your account name>;AccountKey=<your account key>;"
-    },  
+    },
     "container" : { "name" : "<your blob container name>" }
-}  
+}
 ```
 Send the request. The web test tool should return a status code of 201 confirming success. 
 
@@ -372,7 +372,7 @@ Content-Type: application/json
         {
             "sourceFieldName": "/document/languageCode",
             "targetFieldName": "languageCode"
-        }      
+        }
   ],
   "parameters":
   {
