@@ -79,12 +79,5 @@ After failover of the VM, you need to reprotect it so that it replicates back to
 > See the ["how to" section](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection) for more details about the reprotection work flow and what happens during reprotection.
 
 
-## Fail back to the primary region
-
-After VMs are reprotected, you can fail back to the primary region as you need to. To do this, set up a failover from the secondary region to the primary region, as described in this article.
-
-![Right-click to reprotect](./media/azure-to-azure-tutorial-failover-failback/failback.png)
-
-If you see the preceding screenshot, "ContosoWin2016" VM failed over from Central US to East US and failed back from East US to Central US.
-
-The failover shuts down the VM in the secondary region, that is, the disaster recovery region, and creates and boots the VM in the primary region. Please **note** that the DR VMs will remain in the shutdown deallocated state as shown above. This behavior is by design because Azure Site Recovery saves the information of the virtual machine, which may be useful in failover for the primary to the secondary region later. You aren't charged for the deallocated virtual machines, so it should be kept as it is.
+## Next steps
+- Read [how to failback. ](site-recovery-azure-to-azure-tutorial-failback.md).
