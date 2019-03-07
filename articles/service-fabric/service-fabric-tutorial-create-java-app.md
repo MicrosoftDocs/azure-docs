@@ -111,36 +111,36 @@ app.controller("VotingAppController", ['$rootScope', '$scope', '$http', '$timeou
     $scope.refresh = function () {
         $http.get('getStatelessList')
             .then(function successCallback(response) {
-		$scope.votes = Object.assign(
-		  {},
-		  ...Object.keys(response.data) .
-		    map(key => ({[decodeURI(key)]: response.data[key]}))
-		)
-  		},
-  		function errorCallback(response) {
-      		alert(response);
-  		});
+        $scope.votes = Object.assign(
+            {},
+            ...Object.keys(response.data) .
+            map(key => ({[decodeURI(key)]: response.data[key]}))
+        )
+        },
+        function errorCallback(response) {
+            alert(response);
+        });
     };
 
     $scope.remove = function (item) {
        $http.get("removeItem", {params: { item: encodeURI(item) }})
-       		.then(function successCallback(response) {
-     			$scope.refresh();
-  			},
-  			function errorCallback(response) {
-      			alert(response);
-  			});
+            .then(function successCallback(response) {
+                $scope.refresh();
+            },
+            function errorCallback(response) {
+                alert(response);
+            });
     };
 
     $scope.add = function (item) {
         if (!item) {return;}
-       	$http.get("addItem", {params: { item: encodeURI(item) }})
-   			.then(function successCallback(response) {
- 				$scope.refresh();
-			},
-			function errorCallback(response) {
-  				alert(response);
-			});
+        $http.get("addItem", {params: { item: encodeURI(item) }})
+            .then(function successCallback(response) {
+                $scope.refresh();
+            },
+            function errorCallback(response) {
+                alert(response);
+            });
     };
 }]);
 </script>
@@ -301,30 +301,30 @@ public class HttpCommunicationListener implements CommunicationListener {
             @Override
             public void handle(HttpExchange t) {
                 try {
-	                File file = new File(ROOT + FILE_NAME).getCanonicalFile();
-	
-	                if (!file.isFile()) {
-	                  // Object does not exist or is not a file: reject with 404 error.
-	                  t.sendResponseHeaders(STATUS_NOT_FOUND, RESPONSE_NOT_FOUND.length());
-	                  OutputStream os = t.getResponseBody();
-	                  os.write(RESPONSE_NOT_FOUND.getBytes());
-	                  os.close();
-	                } else {	
-	                  Headers h = t.getResponseHeaders();
-	                  h.set(HEADER_CONTENT_TYPE, MIME);
-	                  t.sendResponseHeaders(STATUS_OK, 0);
-	
-	                  OutputStream os = t.getResponseBody();
-	                  FileInputStream fs = new FileInputStream(file);
-	                  final byte[] buffer = new byte[0x10000];
-	                  int count = 0;
-	                  while ((count = fs.read(buffer)) >= 0) {
-	                    os.write(buffer,0,count);
-	                  }
+                    File file = new File(ROOT + FILE_NAME).getCanonicalFile();
 
-	                  fs.close();
-	                  os.close();
-	                }
+                    if (!file.isFile()) {
+                      // Object does not exist or is not a file: reject with 404 error.
+                      t.sendResponseHeaders(STATUS_NOT_FOUND, RESPONSE_NOT_FOUND.length());
+                      OutputStream os = t.getResponseBody();
+                      os.write(RESPONSE_NOT_FOUND.getBytes());
+                      os.close();
+                    } else {
+                      Headers h = t.getResponseHeaders();
+                      h.set(HEADER_CONTENT_TYPE, MIME);
+                      t.sendResponseHeaders(STATUS_OK, 0);
+    
+                      OutputStream os = t.getResponseBody();
+                      FileInputStream fs = new FileInputStream(file);
+                      final byte[] buffer = new byte[0x10000];
+                      int count = 0;
+                      while ((count = fs.read(buffer)) >= 0) {
+                        os.write(buffer,0,count);
+                      }
+
+                      fs.close();
+                      os.close();
+                    }
                 } catch (Exception e) {
                     logger.log(Level.WARNING, null, e);
                 }
@@ -390,10 +390,10 @@ When the VotingWeb service front-end service is created, Service Fabric selects 
 ```xml
 <Resources>
     <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to
-           listen. Please note that if your service is partitioned, this port is shared with
-           replicas of different partitions that are placed in your code. -->
-      	<Endpoint Name="WebEndpoint" Protocol="http" Port="8080" />
+        <!-- This endpoint is used by the communication listener to obtain the port on which to
+            listen. Please note that if your service is partitioned, this port is shared with
+            replicas of different partitions that are placed in your code. -->
+        <Endpoint Name="WebEndpoint" Protocol="http" Port="8080" />
     </Endpoints>
   </Resources>
 ```
@@ -494,7 +494,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
     public CompletableFuture<Integer> addItem(String itemToAdd) {
         AtomicInteger status = new AtomicInteger(-1);
 
-    	try {
+        try {
 
             ReliableHashMap<String, String> votesMap = stateManager
                     .<String, String> getOrAddReliableHashMapAsync(MAP_NAME).get();
@@ -505,8 +505,8 @@ class VotingDataService extends StatefulService implements VotingRPC {
                     return "1";
                 }
                 else {
-                	int numVotes = Integer.parseInt(v);
-                	numVotes = numVotes + 1;
+                    int numVotes = Integer.parseInt(v);
+                    numVotes = numVotes + 1;
                     return Integer.toString(numVotes);
                 }
             }).get();
@@ -568,11 +568,11 @@ The skeleton for the front-end stateless service and the backend service is now 
     import microsoft.servicefabric.services.remoting.Service;
     
     public interface VotingRPC extends Service {
-    	CompletableFuture<HashMap<String, String>> getList();
+        CompletableFuture<HashMap<String, String>> getList();
     
-    	CompletableFuture<Integer> addItem(String itemToAdd);
+        CompletableFuture<Integer> addItem(String itemToAdd);
     
-    	CompletableFuture<Integer> removeItem(String itemToRemove);
+        CompletableFuture<Integer> removeItem(String itemToRemove);
     }
     ```
 
@@ -869,7 +869,7 @@ In this section, the Gradle scripts for the project are configured.
     jar {
         from configurations.compile.collect {
             (it.isDirectory() && !it.getName().contains("native")) ? it : zipTree(it)}
-    	
+    
         manifest {
             attributes('Main-Class': 'statefulservice.VotingDataServiceHost')
     
