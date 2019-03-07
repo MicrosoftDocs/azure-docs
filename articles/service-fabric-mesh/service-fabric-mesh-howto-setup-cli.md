@@ -6,7 +6,7 @@ keywords:
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/28/2018
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt  
 #Customer intent: As a developer, I need to prepare install the prerequisites to enable deployment to service fabric mesh.

@@ -6,7 +6,7 @@ keywords: optimize debugging performance
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/29/2018
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chakdan  
 #Customer intent: As a developer, I want to use optimize my Visual Studio environment for faster debugging.

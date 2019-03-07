@@ -6,7 +6,7 @@ keywords:  containerize service fabric mesh
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/08/2018
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chakdan  
 #Customer intent: As a developer, I want to use environment variables when I debug to test different scenarios.

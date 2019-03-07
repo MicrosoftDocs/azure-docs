@@ -10,7 +10,7 @@ editor: ''
 ms.assetid:
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18

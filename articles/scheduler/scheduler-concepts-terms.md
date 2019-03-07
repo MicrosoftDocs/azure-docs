@@ -8,7 +8,7 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 08/18/2016
 ---
 

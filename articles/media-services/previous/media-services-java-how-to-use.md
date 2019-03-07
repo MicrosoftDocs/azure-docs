@@ -12,7 +12,7 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: juliako
 
