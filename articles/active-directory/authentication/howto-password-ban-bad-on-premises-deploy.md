@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure AD Password Protection preview
-description: Deploy the Azure AD Password Protection preview to ban bad passwords on-premises
+title: Deploy password protection for Azure Active Directory preview
+description: Deploy the password protection for Azure Active Directory preview to ban bad passwords on-premises
 
 services: active-directory
 ms.service: active-directory
@@ -15,34 +15,33 @@ ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ---
 
-# Preview: Deploy Azure AD Password Protection
+# Preview: Deploy password protection for Azure Active Directory
 
 |     |
 | --- |
-| Azure AD Password Protection is a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Password protection for Azure Active Directory is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
-Now that we have an understanding of [how to enforce Azure AD Password Protection for Windows Server Active Directory](concept-password-ban-bad-on-premises.md), the next step is to plan and execute the deployment.
+Now that you have an understanding of [how to enforce password protection for Azure Active Directory for Windows Server Active Directory](concept-password-ban-bad-on-premises.md), the next step is to plan and execute the deployment.
 
 ## Deployment strategy
 
-Microsoft suggests that any deployment start in audit mode. Audit mode is the default initial setting where passwords can continue to be set and any that would be blocked create entries in the event log. Once proxy server(s) and DC agents are fully deployed in audit mode, regular monitoring should be done in order to determine what impact password policy enforcement would have on users and the environment if the policy was enforced.
+We recommend that any deployment start in audit mode. Audit mode is the default initial setting, where passwords can continue to be set. Passwords that would be blocked are recorded in the event log. After proxy servers and DC agents are fully deployed in audit mode,  you should regularly monitor to determine what impact password policy enforcement will have on users and the environment if the policy is enforced.
 
-During the audit stage, many organizations find:
+During the audit stage, many organizations determine that:
 
-* They need to improve existing operational processes to use more secure passwords.
-* Users are accustomed to regularly choosing unsecure passwords
-* They need to inform users about the upcoming change in security enforcement, the impact it may have on them, and help them better understand how they can choose more secure passwords.
+* They need to improve existing operational processes to use more-secure passwords.
+* Users often use unsecure passwords.
+* They need to inform users about the upcoming change in security enforcement, possible the impact on them, and to choose more-secure passwords.
 
-Once the feature has been running in audit mode for a reasonable time, the enforcement configuration can be flipped from **Audit** to **Enforce** thereby requiring more secure passwords. Focused monitoring during this time is a good idea.
+After the feature has been running in audit mode for a reasonable period, the enforcement configuration can be flipped from **Audit** to **Enforce**, thereby requiring more-secure passwords. Focused monitoring during this time is a good idea.
 
 ## Deployment requirements
 
-* All domain controllers where the Azure AD Password Protection DC Agent service will be installed must be running Windows Server 2012 or later.
-* All machines where the Azure AD Password Protection Proxy service will be installed must be running Windows Server 2012 R2 or later.
-* All machines where Azure AD Password Protection components are installed including domain controllers must have the Universal C runtime installed.
-This is preferably accomplished by fully patching the machine via Windows Update. Otherwise an appropriate OS-specific update package may be installed - see [Update for Universal C Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows)
-* Network connectivity must exist between at least one domain controller in each domain and at least one server hosting the Azure AD Password Protection Proxy service. This connectivity must allow the domain controller to access the RPC endpoint mapper port (135) and the RPC server port on the proxy service. The RPC server port is by default a dynamic RPC port but can be configured (see below) to use a static port.
+* All domain controllers that get the password protection for Azure Active Directory DC Agent service installed must be running Windows Server 2012 or later.
+* All machines that get the password protection for Azure Active Directory proxy service installed must be running Windows Server 2012 R2 or later.
+* All machines that get password protection for Azure Active Directory components installed, including domain controllers, must have the Universal C Runtime installed. You can get the runtime by making sure all Windows Updates are installed. Or you get it via an operating-specific update package. For more information, see [Update for Universal C Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
+* Network connectivity must exist between at least one domain controller in each domain and at least one server that hosts the password protection proxy service. This connectivity must allow the domain controller to access the RPC endpoint mapper port (135) and the RPC server port on the proxy service. By default, the RPC server port is a dynamic RPC port but can be configured to [use a static port](#static).
 * All machines hosting the Azure AD Password Protection Proxy service must have network access to the following endpoints:
 
     |Endpoint |Purpose|
@@ -223,7 +222,7 @@ There are two required installers for Azure AD Password Protection that can be d
 
 7. Optional: Configure the Azure AD Password Protection Proxy service to listen on a specific port.
    * RPC over TCP is used by the Azure AD Password Protection DC Agent software on the domain controllers to communicate with the Azure AD Password Protection Proxy service. By default, the Azure AD Password Protection Proxy service listens on any available dynamic RPC endpoint. If necessary due to networking topology or firewall requirements, the service may instead be configured to listen on a specific TCP port.
-      * To configure the service to run under a static port, use the `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet.
+      * <a id="static" /></a>To configure the service to run under a static port, use the `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet.
          ```PowerShell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
          ```
