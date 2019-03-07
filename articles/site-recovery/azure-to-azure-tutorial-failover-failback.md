@@ -78,4 +78,4 @@ After failover of the VM, you need to reprotect it so that it replicates back to
 
 
 ## Next steps
-- Read [how to failback. ](site-recovery-azure-to-azure-tutorial-failback.md).
+- Read [how to failback. ](azure-to-azure-tutorial-failback.md).
