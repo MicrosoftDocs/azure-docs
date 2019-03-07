@@ -88,7 +88,7 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
 1. In the `Build.Gradle` file for the **app**, add the following lines in the **dependencies** section.
 
     ```gradle
-    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.5@aar'
+    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
     implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 
