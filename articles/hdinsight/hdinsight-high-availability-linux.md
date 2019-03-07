@@ -107,7 +107,8 @@ When you arrive on the Ambari page, the installed services are listed on the lef
 
 ![Installed services](./media/hdinsight-high-availability-linux/services.png)
 
-There are a series of icons that may appear next to a service to indicate status. Any alerts related to a service can be viewed using the **Alerts** link at the top of the page.  Ambari offers several predefined alerts. 
+There are a series of icons that may appear next to a service to indicate status. Any alerts related to a service can be viewed using the **Alerts** link at the top of the page.  Ambari offers several predefined alerts.
+
 The following alerts help monitor the availability of a cluster:
 
 | Alert Name                               | Description                                                                                                                                                                                  |
