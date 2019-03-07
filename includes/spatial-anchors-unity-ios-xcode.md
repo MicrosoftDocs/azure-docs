@@ -11,7 +11,7 @@ When the export is complete, a folder will be displayed containing the exported 
 
 ### Open the Xcode project
 
-In the exported Xcode project folder, run the following command to install the necessary CocoaPods for the project:
+In the exported Xcode project folder, run the following command in the Terminal to install the necessary CocoaPods for the project:
 
 ```bash
 pod install --repo-update
