@@ -176,17 +176,17 @@ You can use the following CLI commands, or use the strongSwan steps in the [GUI]
   
   ```
   conn azure
-  keyexchange=ikev2
-  type=tunnel
-  leftfirewall=yes
-  left=%any
-  leftauth=eap-tls
-  leftid=%client # use the DNS alternative name prefixed with the %
-  right= Enter the VPN Server value here# Azure VPN gateway address
-  rightid=% # Enter the VPN Server value here# Azure VPN gateway FQDN with %
-  rightsubnet=0.0.0.0/0
-  leftsourceip=%config
-  auto=add
+      keyexchange=ikev2
+      type=tunnel
+      leftfirewall=yes
+      left=%any
+      leftauth=eap-tls
+      leftid=%client # use the DNS alternative name prefixed with the %
+      right= Enter the VPN Server value here# Azure VPN gateway address
+      rightid=% # Enter the VPN Server value here# Azure VPN gateway FQDN with %
+      rightsubnet=0.0.0.0/0
+      leftsourceip=%config
+      auto=add
   ```
 6. Add the following to */etc/ipsec.secrets*.
 
