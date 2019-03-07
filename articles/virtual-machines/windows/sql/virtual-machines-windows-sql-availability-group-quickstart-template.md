@@ -37,7 +37,7 @@ To automate the setup of an Always On availability group using quickstart templa
 - Two available (not used by any entity) IP addresses, one for the Internal Load Balancer, and one for the availability group listener within the same subnet as the availability group. If an existing load balancer is being used, then only one available IP address is needed.  
 
 ## Permissions
-The following permissions are necessary to configure the Always On availability group using Azure SQL VM CLI. 
+The following permissions are necessary to configure the Always On availability group using Azure Quickstart Templates: 
 
 - An existing domain user account that has permission to 'Create Computer Object' in the domain.  For example, a domain admin account typically has sufficient permission (ex: account@domain.com). _This account should also be part of the local administrator group on each VM to create the cluster._
 - The domain user account that controls the SQL Server service. 
