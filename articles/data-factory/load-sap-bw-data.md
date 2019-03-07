@@ -20,9 +20,9 @@ This article shows you how to use the Data Factory _load data from SAP Business 
 
 ## Prerequisites
 
-- **Azure Data Factory:** If you don't have a data factory, follow the "[Create a data factory](quickstart-create-data-factory-portal.md#create-a-data-factory)" section to create one. 
+- **Azure Data Factory (ADF):** If you don't have a data factory, follow the "[Create a data factory](quickstart-create-data-factory-portal.md#create-a-data-factory)" section to create one. 
 
-- **SAP BW Open Hub Destination (OHD) with destination type as "Database Table".** If you don't have one, refer to [SAP BW Open Hub Destination configurations](#sap-bw-open-hub-destination-configurations) section with guidance. If you already have OHD, you are also suggested to go through this section to make sure your OHD is configured properly to be integrated with ADF.
+- **SAP BW Open Hub Destination (OHD) with destination type as "Database Table". Follow [SAP BW Open Hub Destination configurations](#sap-bw-open-hub-destination-configurations) section to create one or to confirm if your existing OHD is configured properly to be integrated with ADF.
 
 - **SAP BW user being used needs to have following permissions:**
 
@@ -33,7 +33,7 @@ This article shows you how to use the Data Factory _load data from SAP Business 
 
   1. Install and register the Self-hosted IR with version >= 3.13 (covered in the following walkthrough). 
 
-  2. Download the [64-bit SAP .NET Connector 3.0](https://support.sap.com/en/product/connectors/msnet.html) from SAP’s website, and install it on the same machine as where the Self-hosted IR is installed.  When installing, in the "Optional setup steps" window, please make sure you select the **Install Assemblies to GAC** option as shown in the following image.
+  2. Download the [64-bit SAP .NET Connector 3.0](https://support.sap.com/en/product/connectors/msnet.html) from SAP’s website, and install it the Self-hosted IR machine.  When installing, in the "Optional setup steps" window, please make sure you select the "**Install Assemblies to GAC**" option as shown in the following image.
 
      ![Set up SAP .NET Connector](media\connector-sap-business-warehouse-open-hub\install-sap-dotnet-connector.png)
 
@@ -50,7 +50,7 @@ On Azure portal, go to your data factory -> select **Author & Monitor** to launc
 
 4. On the **Specify SAP BW Open Hub connection** page, 
 
-   ![Create SAP BW Open Hub linked service](C:\AzureContent\azure-docs-pr\articles\data-factory\media\load-sap-bw-data\create-sap-bw-open-hub-linked-service.png)
+   ![Create SAP BW Open Hub linked service](media\load-sap-bw-data\create-sap-bw-open-hub-linked-service.png)
 
    1. Choose the **Connect via Integration Runtime**: click the drop-down list to select an existing Self-hosted IR, or create one if you don't have Self-hosted IR set up yet. 
 
@@ -64,13 +64,13 @@ On Azure portal, go to your data factory -> select **Author & Monitor** to launc
 
    4. You will see a new connection gets created. Select **Next**.
 
-5. On the **Select Open Hub destinations from which to copy the data** page, browse the Open Hub Destinations available on your SAP BW, and select the one you want to copy data from, then click **Next**.
+5. On the **Select Open Hub destinations** page, browse the Open Hub Destinations available on your SAP BW, and select the one you want to copy data from, then click **Next**.
 
-   ![Select SAP BW Open Hub table](C:\AzureContent\azure-docs-pr\articles\data-factory\media\load-sap-bw-data\select-sap-bw-open-hub-table.png)
+   ![Select SAP BW Open Hub table](media\load-sap-bw-data\select-sap-bw-open-hub-table.png)
 
-6. Specify the filter if needed. If your Open Hub Destination only contains data from single DTP execution (single request ID), or you are sure your DTP has finished and want to copy all the data, uncheck the **Exclude Last Request**. You can learn more on how this settings relate to your SAP BW configuration in [SAP BW Open Hub Destination configurations](#sap-bw-open-hub-destination-configurations) section. Click **Validate** to double check the data returned, then select **Next**.
+6. Specify the filter if needed. If your Open Hub Destination only contains data from single Data Transfer Process (DTP) execution with single request ID, or you are sure your DTP has finished and want to copy all the data, uncheck the **Exclude Last Request**. You can learn more on how this settings relate to your SAP BW configuration in [SAP BW Open Hub Destination configurations](#sap-bw-open-hub-destination-configurations) section. Click **Validate** to double check the data returned, then select **Next**.
 
-   ![Configure SAP BW Open Hub filter](C:\AzureContent\azure-docs-pr\articles\data-factory\media\load-sap-bw-data\configure-sap-bw-open-hub-filter.png)
+   ![Configure SAP BW Open Hub filter](media\load-sap-bw-data\configure-sap-bw-open-hub-filter.png)
 
 7. In the **Destination data store** page, click **+ Create new connection**, and then select **Azure Data Lake Storage Gen2**, and select **Continue**.
 
@@ -87,7 +87,7 @@ On Azure portal, go to your data factory -> select **Author & Monitor** to launc
 
 10. In the **File format setting** page, select **Next** to use the default settings.
 
-    ![Specify sink format](media\load-sap-bw-data\specify-sink-format.png)
+   ![Specify sink format](media\load-sap-bw-data\specify-sink-format.png)
 
 11. In the **Settings** page, expand the **Performance settings**, and set **Degree of copy parallelism** such as 5 in order to load from SAP BW in parallel. Click **Next**.
 
@@ -207,13 +207,13 @@ You must not have more than one DTP for the same OHD. Therefore, you need to cre
 
 For a full load OHD, choose different options than delta extraction:
 
-- In OHD: set "Extraction" option as "*Delete Data and Insert Records*", otherwise data would be extracted many times when repeating the DTP in a BW process chain.
+- In OHD: set "Extraction" option as "*Delete Data and Insert Records*". Otherwise data would be extracted many times when repeating the DTP in a BW process chain.
 
 - In DTP: set "Extraction Mode" as "*Full*". You must change the automatically created DTP from Delta to Full just after the OHD has been created:
 
   ![create-sap-bw-ohd-full2](media\load-sap-bw-data\create-sap-bw-ohd-full2.png)
 
-- In ADF SAP BW Open Hub connector: turn off the option "*Exclude last request*", otherwise nothing would be extracted. 
+- In ADF SAP BW Open Hub connector: turn off the option "*Exclude last request*". Otherwise nothing would be extracted. 
 
 You typically run the Full DTP manually. In this case, **you must wait until the DTP has finished before starting the extraction using the ADF Connector.**
 
