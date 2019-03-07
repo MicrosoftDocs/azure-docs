@@ -145,8 +145,8 @@ Yes, Geo-replication of caches in VNETs is supported with caveats:
 
 - Geo-replication between caches in the same VNET is supported.
 - Geo-replication between caches in different VNETs is also supported.
-  - If the VNETs are in the same region, you can connect them using [VNET peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) or a [VPN Gateway VNET-to-VNET connection](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V).
-  - If the VNETs are in different regions, geo-replication using VNET peering isn't supported because of a constraint with Basic internal load balancers. For more information about VNET peering constraints, see [Virtual Network - Peering - Requirements and constraints](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). The recommended solution is to use a VPN Gateway VNET-to-VNET connection.
+  - If the VNETs are in the same region, you can connect them using [VNET peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) or a [VPN Gateway VNET-to-VNET connection](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V).
+  - If the VNETs are in different regions, geo-replication using VNET peering isn't supported because of a constraint with Basic internal load balancers. For more information about VNET peering constraints, see [Virtual Network - Peering - Requirements and constraints](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). The recommended solution is to use a VPN Gateway VNET-to-VNET connection.
 
 ### What is the replication schedule for Redis geo-replication?
 
@@ -164,7 +164,7 @@ To obtain a recovery point, [Export](cache-how-to-import-export-data.md#export) 
 
 ### Can I use PowerShell or Azure CLI to manage Geo-replication?
 
-Yes, geo-replication can be managed using the Azure portal, PowerShell, or Azure CLI. For more information, see the [PowerShell docs](https://docs.microsoft.com/en-us/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) or [Azure CLI docs](https://docs.microsoft.com/en-us/cli/azure/redis/server-link?view=azure-cli-latest).
+Yes, geo-replication can be managed using the Azure portal, PowerShell, or Azure CLI. For more information, see the [PowerShell docs](https://docs.microsoft.com/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) or [Azure CLI docs](https://docs.microsoft.com/cli/azure/redis/server-link?view=azure-cli-latest).
 
 ### How much does it cost to replicate my data across Azure regions?
 
