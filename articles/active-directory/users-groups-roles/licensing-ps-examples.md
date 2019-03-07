@@ -61,16 +61,16 @@ HTTP/1.1 200 OK
   “value”: [
 {
   “assignedLicenses”: [
-     {
-          "accountId":"f1b45b40-57df-41f7-9596-7f2313883635",
-          "skuId":"c7df2760-2c81-4ef7-b578-5b5392b571df",
+    {
+      "accountId":"f1b45b40-57df-41f7-9596-7f2313883635",
+      "skuId":"c7df2760-2c81-4ef7-b578-5b5392b571df",
       "disabledPlans":[]
-     },
-     {
-          "accountId":"f1b45b40-57df-41f7-9596-7f2313883635",
-          "skuId":" b05e124f-c7cc-45a0-a6aa-8cf78c946968",
+    },
+    {
+      "accountId":"f1b45b40-57df-41f7-9596-7f2313883635",
+      "skuId":" b05e124f-c7cc-45a0-a6aa-8cf78c946968",
       "disabledPlans":[]
-     },
+    },
   ],
 }
   ]
