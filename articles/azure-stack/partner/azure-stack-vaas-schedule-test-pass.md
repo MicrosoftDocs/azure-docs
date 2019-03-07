@@ -10,7 +10,7 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: How to
+ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: johnhas

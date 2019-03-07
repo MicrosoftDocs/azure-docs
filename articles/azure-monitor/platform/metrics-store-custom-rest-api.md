@@ -4,7 +4,7 @@ description: Send custom metrics for an Azure resource to the Azure Monitor metr
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
