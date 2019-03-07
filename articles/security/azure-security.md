@@ -284,7 +284,7 @@ You can manage the list of DNS servers used in a VNet in the Management Portal, 
 
 ### Azure DNS
 The [Domain Name System](https://technet.microsoft.com/library/bb629410.aspx), or DNS, is responsible for translating (or resolving) a website or service name to its IP address. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview) is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. DNS supports the availability aspect of the “CIA” security triad.
-### Log Analytics NSGs
+### Azure Monitor logs NSGs
 You can enable the following diagnostic log categories for NSGs:
 -	Event: Contains entries for which NSG rules are applied to VMs and instance roles based on MAC address. The status for these rules is collected every 60 seconds.
 

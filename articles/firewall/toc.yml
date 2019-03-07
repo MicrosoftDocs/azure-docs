@@ -19,7 +19,7 @@
   items:
   - name: Azure PowerShell
     href: sample-powershell.md
-  - name: Log Analytics
+  - name: Azure Monitor logs
     href: log-analytics-samples.md
 - name: Concepts
   items:

@@ -20,6 +20,8 @@ This article describes how to configure the Azure-SSIS Integration Runtime with 
 
 For more info about geo-replication and failover for SQL Database, see [Overview: Active geo-replication and auto-failover groups](../sql-database/sql-database-geo-replication-overview.md).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Scenario 1 - Azure-SSIS IR is pointing to read-write listener endpoint
 
 ### Conditions
@@ -81,7 +83,7 @@ Follow these steps to stop your Azure-SSIS IR, switch the IR to a new region, an
 2. Call the following command in PowerShell to update the IR with the new settings.
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -Location "new region" `
+    Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
                     -CatalogServerEndpoint "Azure SQL Database server endpoint" `
                     -CatalogAdminCredential "Azure SQL Database server admin credentials" `
                     -VNetId "new VNet" `

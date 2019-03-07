@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 03/06/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -30,6 +30,8 @@ Before enabling the new experience, review this administrator-focused documentat
 
 > [!IMPORTANT]
 > If a user is enabled for both the original preview and the enhanced combined registration experience, they will see the new experience. Users who are enabled for both experiences will only see the new My Profile experience. The new My Profile aligns with the look and feel of combined registration and provides a seamless experience for users. Users can see My Profile by going to [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
+
+The MyProfile pages are localized based on the current language settings on the machine accessing the page. Microsoft stores the most recent language utilized in the browser cache so subsequent attempts to access will continue to render in the last language used. Clearing the cache will cause the pages to re-render. If you would like to force a specific language adding a `?lng=de-DE` to the end of the URL where `de-DE` is set to the appropriate language code will force the pages to render in that language.
 
 ![My Profile interface showing Security info and ability for user to setup SSPR or other additional security verification methods.](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
 
