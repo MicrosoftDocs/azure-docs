@@ -154,11 +154,11 @@ To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/featu
 If your connectivity provider is not listed in previous sections, you can still create a connection.
 
 * Check with your connectivity provider to see if they are connected to any of the exchanges in the table above. You can check the following links to gather more information about services offered by exchange providers. Several connectivity providers are already connected to Ethernet exchanges.
-  * [Cologix](http://www.cologix.com/)
+  * [Cologix](https://www.cologix.com/)
   * [CoreSite](http://www.coresite.com/)
-  * [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
-  * [InterXion](http://www.interxion.com/)
-  * [NextDC](http://www.nextdc.com/)
+  * [Equinix Cloud Exchange](https://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
+  * [InterXion](https://www.interxion.com/)
+  * [NextDC](https://www.nextdc.com/)
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
   * [PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)
   

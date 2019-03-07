@@ -17,7 +17,7 @@ The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The r
 
 To learn more about how the IoT Edge runtime works and what components are included, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
-This article lists the steps to run the Azure IoT Edge runtime on an Ubuntu 16.04 Virtual Machine using the preconfigured [Azure IoT Edge on Ubuntu Azure Marketplace offer](http://aka.ms/azure-iot-edge-ubuntuvm). 
+This article lists the steps to run the Azure IoT Edge runtime on an Ubuntu 16.04 Virtual Machine using the preconfigured [Azure IoT Edge on Ubuntu Azure Marketplace offer](https://aka.ms/azure-iot-edge-ubuntuvm). 
 
 On first boot, the Azure IoT Edge on Ubuntu VM preinstalls the latest version of the Azure IoT Edge runtime. It also includes a script to set the connection string and then restart the runtime, which can be triggered remotely through the Azure VM portal or Azure command line, allowing you to easily configure and connect the IoT Edge device without starting an SSH or remote desktop session. This script will wait to set the connection string until the IoT Edge client is fully installed so that you don’t have to build that into your automation.
 
