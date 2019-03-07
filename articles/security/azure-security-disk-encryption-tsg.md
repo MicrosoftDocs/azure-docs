@@ -3,7 +3,6 @@ title: Troubleshooting - Azure Disk Encryption for IaaS VMs | Microsoft Docs
 description: This article provides troubleshooting tips for Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
 author: mestew
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 03/04/2019

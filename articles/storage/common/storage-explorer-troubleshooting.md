@@ -7,7 +7,6 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.subservice: common
 ---
 
 # Azure Storage Explorer Troubleshooting Guide
