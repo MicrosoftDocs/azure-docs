@@ -99,13 +99,13 @@ This article shows you three ways to enable managed identity for an Azure Stream
    **Sample job**
 
    ```json
-   { 
-   "Name": "AsaJobWithIdentity", 
-   "Type": "Microsoft.StreamAnalytics/streamingjobs", 
+   {
+   "Name": "AsaJobWithIdentity",
+   "Type": "Microsoft.StreamAnalytics/streamingjobs",
    "Location": "West US",
    "Identity": {
-     "Type": "SystemAssigned", 
-     }, 
+     "Type": "SystemAssigned",
+     },
    "properties": {
       "sku": {
        "name": "standard"
@@ -114,7 +114,7 @@ This article shows you three ways to enable managed identity for an Azure Stream
          {
            "name": "string",
            "properties":{
-             "datasource": {      	
+             "datasource": {
                "type": "Microsoft.DataLake/Accounts",
                "properties": {
                  "accountName": “myDataLakeAccountName",
@@ -123,22 +123,22 @@ This article shows you three ways to enable managed identity for an Azure Stream
                  "timeFormat": "HH",
                  "authenticationMode": "Msi"
                  }
-                 
+
    }
    ```
   
    **Sample job response**
 
    ```json
-   { 
-   "Name": "mySAJob", 
-   "Type": "Microsoft.StreamAnalytics/streamingjobs", 
+   {
+   "Name": "mySAJob",
+   "Type": "Microsoft.StreamAnalytics/streamingjobs",
    "Location": "West US",
    "Identity": {
    "Type": "SystemAssigned",
-   	"principalId": "GUID", 
-   	"tenantId": "GUID", 
-   }, 
+   	"principalId": "GUID",
+   	"tenantId": "GUID",
+   },
    "properties": {
            "sku": {
              "name": "standard"
