@@ -48,7 +48,7 @@ For more information about diagnostic logs, see [Diagnostic Logs](https://docs.m
 
 Follow these steps enable logging with CDN core analytics:
 
-Sign in to the [Azure portal](http://portal.azure.com). If you don't already have enabled CDN for your workflow, [Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md) before you continue.
+Sign in to the [Azure portal](https://portal.azure.com). If you don't already have enabled CDN for your workflow, [Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md) before you continue.
 
 1. In the Azure portal, navigate to **CDN profile**.
 
@@ -167,7 +167,7 @@ The following example shows how to enable diagnostic logs via the Azure PowerShe
 This section describes the schema of CDN core analytics, how it is organized inside of an Azure storage account, and provides sample code to download the logs in a CSV file.
 
 ### Using Microsoft Azure Storage Explorer
-Before you can access the core analytics data from an Azure storage account, you first need a tool to access the contents in a storage account. While there are several tools available in the market, the one that we recommend is the Microsoft Azure Storage Explorer. To download the tool, see [Azure Storage Explorer](http://storageexplorer.com/). After downloading and installing the software, configure it to use the same Azure storage account that was configured as a destination to the CDN Diagnostics Logs.
+Before you can access the core analytics data from an Azure storage account, you first need a tool to access the contents in a storage account. While there are several tools available in the market, the one that we recommend is the Microsoft Azure Storage Explorer. To download the tool, see [Azure Storage Explorer](https://storageexplorer.com/). After downloading and installing the software, configure it to use the same Azure storage account that was configured as a destination to the CDN Diagnostics Logs.
 
 1.	Open **Microsoft Azure Storage Explorer**
 2.	Locate the storage account
