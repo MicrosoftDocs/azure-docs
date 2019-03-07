@@ -7,7 +7,7 @@ ms.subservice: monitor
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: danimir 
+author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
@@ -157,7 +157,7 @@ To enable streaming of diagnostics telemetry for a managed instance resource, fo
 > [!NOTE]
 > In addition to configuring diagnostics telemetry for a managed instance, you also need to configure diagnostics telemetry for each instance database, as documented below. 
 
-### Configure streaming of diagnostics telemetry for instance database in managed instance
+### Configure streaming of diagnostics telemetry for database in managed instance
 
    ![Instance database in managed instance icon](./media/sql-database-metrics-diag-logging/icon-mi-database-text.png)
 
