@@ -64,7 +64,7 @@ The script starts with commands to clean up after a possible previous run, and i
 
 ### PowerShell code
 
-This PowerShell script assumes you have already run the cmdlet Import-Module for the AzureRm module. For reference documentation, see [PowerShell Module Browser](https://docs.microsoft.com/powershell/module/).
+This PowerShell script assumes you have already installed the Az module. For information, see [Install the Azure PowerShell module](/powershell/azure/install-Az-ps).
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
