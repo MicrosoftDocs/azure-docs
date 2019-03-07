@@ -189,8 +189,8 @@ Support at least one of the recommended encryption models detailed in the follow
 | Encryption Models |  |  |  |
 | ----------------  | ----------------- | ----------------- | --------------- |
 | Server Encryption | Server Encryption | Server Encryption | Client Encryption
-| Server-Side Encryption using Service Managed Keys | Server-side encryption using Customer-Managed Keys in Azure Key Vault | Server-side encryption using on-prem customer managed keys |
-| •	Azure Resource Providers perform the encryption and decryption operations <br> •	Microsoft manages the keys <br>•	Full cloud functionality | •	Azure Resource Providers perform the encryption and decryption operations<br>•	Customer controls keys via Azure Key Vault<br>•	Full cloud functionality | •	Azure Resource Providers perform the encryption and decryption operations <br>•	Customer controls keys On-Prem <br> •	Full cloud functionality| •	Azure services cannot see decrypted data <br>•	Customers keep keys on-premises (or in other secure stores). Keys are not available to Azure services <br>•	Reduced cloud functionality|
+| Server-Side Encryption using Service Managed Keys | Server-side encryption using Customer-Managed Keys in Azure Key Vault | Server-side encryption using on premises customer managed keys |
+| •	Azure Resource Providers perform the encryption and decryption operations <br> •	Microsoft manages the keys <br>•	Full cloud functionality | •	Azure Resource Providers perform the encryption and decryption operations<br>•	Customer controls keys via Azure Key Vault<br>•	Full cloud functionality | •	Azure Resource Providers perform the encryption and decryption operations <br>•	Customer controls keys On-premises <br> •	Full cloud functionality| •	Azure services cannot see decrypted data <br>•	Customers keep keys on-premises (or in other secure stores). Keys are not available to Azure services <br>•	Reduced cloud functionality|
 
 ### Enabling encryption at rest
 
