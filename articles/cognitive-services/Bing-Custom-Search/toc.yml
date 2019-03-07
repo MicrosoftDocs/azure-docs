@@ -29,6 +29,8 @@
         items:
           - name: Using C#
             href: sdk-csharp-quick-start.md
+          - name: Using Python
+            href: sdk-python-quickstart.md
 - name: Tutorials
   items:
     - name: Build a Custom Search web page
