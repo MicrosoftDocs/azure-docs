@@ -50,7 +50,7 @@ To complete the steps in this tutorial, first do the following tasks:
 
   Take a note of the Azure IoT Hub device name you created.
 
-1. Open `Functions\DevKitTranslatorFunction.cs` and update the following lines of code with the devce name and Speech Service key you noted down.
+1. Open `Functions\DevKitTranslatorFunction.cs` and update the following lines of code with the device name and Speech Service key you noted down.
   ```csharp
   // Subscription Key of Speech Service
   const string speechSubscriptionKey = "";
@@ -132,7 +132,7 @@ The IoT DevKit records your voice then posts an HTTP request to trigger Azure Fu
 
 If you encounter problems, refer to the [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) or reach out to us using the following channels:
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## Next steps

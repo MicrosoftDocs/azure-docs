@@ -657,7 +657,7 @@ For more information, see [Manage all VMs in a virtual machine scale set](https:
 
 ### Is it possible to integrate scale sets with Azure Monitor logs?
 
-Yes, you can by installing the Log Analytics extension on the scale set VMs. Here is an Azure CLI example:
+Yes, you can by installing the Azure Monitor extension on the scale set VMs. Here is an Azure CLI example:
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```

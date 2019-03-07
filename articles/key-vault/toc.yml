@@ -170,7 +170,7 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=key-vault
   - name: Blog
-    href: http://blogs.technet.com/b/kv/
+    href: https://blogs.technet.com/b/kv/
   - name: Product Feedback
     href: https://feedback.azure.com/forums/906355-azure-key-vault
 

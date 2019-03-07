@@ -65,7 +65,7 @@ ISCPSpout is the interface for non-transactional spout.
 
 When `NextTuple()` is called, the C\# user code can emit one or more tuples. If there is nothing to emit, this method should return without emitting anything. It should be noted that `NextTuple()`, `Ack()`, and `Fail()` are all called in a tight loop in a single thread in C\# process. When there are no tuples to emit, it is courteous to have NextTuple sleep for a short amount of time (such as 10 milliseconds) so as not to waste too much CPU.
 
-`Ack()` and `Fail()` are called only when ack mechanism is enabled in spec file. The `seqId` is used to identify the tuple that is acked or failed. So if ack is enabled in non-transactional topology, the following emit function should be used in Spout:
+`Ack()` and `Fail()` are called only when ack mechanism is enabled in spec file. The `seqId` is used to identify the tuple that is acknowledged or failed. So if ack is enabled in non-transactional topology, the following emit function should be used in Spout:
 
     public abstract void Emit(string streamId, List<object> values, long seqId); 
 
@@ -425,7 +425,7 @@ Two methods in the SCP.NET Context object have been added. They are used to emit
 The emitting to a non-existing stream causes runtime exceptions.
 
 ### Fields Grouping
-The built-in Fields Grouping in Strom is not working properly in SCP.NET. On the Java Proxy side, all the fields data types are actually byte[], and the fields grouping uses the byte[] object hash code to perform the grouping. The byte[] object hash code is the address of this object in memory. So the grouping will be wrong for two byte[] objects that share the same content but not the same address.
+The built-in Fields Grouping in Storm is not working properly in SCP.NET. On the Java Proxy side, all the fields data types are actually byte[], and the fields grouping uses the byte[] object hash code to perform the grouping. The byte[] object hash code is the address of this object in memory. So the grouping will be wrong for two byte[] objects that share the same content but not the same address.
 
 SCP.NET adds a customized grouping method, and it uses the content of the byte[] to do the grouping. In **SPEC** file, the syntax is like:
 
@@ -567,7 +567,7 @@ There are two spec files, **HelloWorld.spec** and **HelloWorld\_EnableAck.spec**
     }
     Context.Logger.Info("enableAck: {0}", enableAck);
 
-In the spout, if ack is enabled, a dictionary is used to cache the tuples that have not been acked. If Fail() is called, the failed tuple is replayed:
+In the spout, if ack is enabled, a dictionary is used to cache the tuples that have not been acknowledged. If Fail() is called, the failed tuple is replayed:
 
     public void Fail(long seqId, Dictionary<string, Object> parms)
     {

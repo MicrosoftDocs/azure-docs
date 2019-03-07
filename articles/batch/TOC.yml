@@ -218,6 +218,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-batch
+    href: https://stackoverflow.com/questions/tagged/azure-batch
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=batch

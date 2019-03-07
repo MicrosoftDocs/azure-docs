@@ -25,7 +25,7 @@ This article uses a sample application to demonstrate how to use the Speech clie
 
 ### Platform requirements
 
-The sample is developed by [Android Studio](http://developer.android.com/sdk/index.html) for Windows in Java.
+The sample is developed by [Android Studio](https://developer.android.com/sdk/index.html) for Windows in Java.
 
 ### Get the client library and sample application
 

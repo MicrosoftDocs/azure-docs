@@ -45,7 +45,7 @@ The following table includes links to bash scripts built using the Azure CLI.
 |**Secure virtual machines**||
 | [Encrypt a VM and data disks](./../scripts/virtual-machines-linux-cli-sample-encrypt-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates an Azure Key Vault, encryption key, and service principal, then encrypts a VM. |
 |**Monitor virtual machines**||
-| [Monitor a VM with Azure Log Analytics](./../scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machine, installs the Log Analytics agent, and enrolls the VM in an Log Analytics workspace.  |
+| [Monitor a VM with Azure Monitor logs](./../scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machine, installs the Log Analytics agent, and enrolls the VM in an Log Analytics workspace.  |
 |**Troubleshoot virtual machines**||
 | [Troubleshoot a VMs operating system disk](./../scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Mounts the operating system disk from one VM as a data disk on a second VM. |
 | | |

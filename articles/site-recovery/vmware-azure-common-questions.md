@@ -5,7 +5,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 03/03/2019
+ms.date: 03/07/2019
 ms.topic: conceptual
 ms.author: mayg
 ---
@@ -43,7 +43,7 @@ Please refer to our FAQ on licensing [here](https://aka.ms/asr_pricing_FAQ) for 
 
 ### How can I calculate approximate charges during the use of Site Recovery?
 
-You can use [pricing calculator](https://aka.ms/asr_pricing_calculator) to estimate costs while using Azure Site Recovery. For detailed estimate on costs, run the deployment planner tool(https://aka.ms/siterecovery_deployment_planner) and analyse the [cost estimation report](https://aka.ms/asr_DP_costreport).
+You can use [pricing calculator](https://aka.ms/asr_pricing_calculator) to estimate costs while using Azure Site Recovery. For detailed estimate on costs, run the deployment planner tool(https://aka.ms/siterecovery_deployment_planner) and analyze the [cost estimation report](https://aka.ms/asr_DP_costreport).
 
 ### I have been an Azure Site Recovery user for over a month. Do I still get the first 31 days free for every protected instance?
 
@@ -123,6 +123,10 @@ For an ongoing replication, storage account can only be upgraded to premium. If 
 
 Yes, you can easily change the type of managed disk. [Learn more](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage).
 
+### Can I switch the replication from managed disks to unmanaged disks?
+
+No, switching from managed to unmanaged is not supported.
+
 ### Why can't I replicate over VPN?
 
 When you replicate to Azure, replication traffic reaches the public endpoints of a Azure Storage, Thus you can only replicate over the public internet with ExpressRoute (public peering), and VPN doesn't work.
@@ -159,7 +163,7 @@ Yes, you can add new VMs to an existing replication group when you enable replic
 
 For VMware replication to Azure you can modify disk size. If you want to add new disks you need to add the disk and reenable protection for the VM.
 
-### Can I migrate on-prem machines to a new Vcenter without impacting ongoing replication?
+### Can I migrate on premises machines to a new Vcenter without impacting ongoing replication?
 No, change of Vcenter or migration will impact ongoing replication. You need to set up ASR with the new Vcenter and enable replication for machines.
 
 ### Can I replicate to cache/target storage account which has a Vnet (with Azure storage firewalls) configured on it?
