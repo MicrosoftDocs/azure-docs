@@ -53,38 +53,38 @@ To create a global Filter, use the following HTTP requests:
 #### HTTP Request
 Request Headers
 
-    POST https://media.windows.net/API/Filters HTTP/1.1 
-    DataServiceVersion:3.0 
-    MaxDataServiceVersion: 3.0 
-    Content-Type: application/json 
-    Accept: application/json 
-    Accept-Charset: UTF-8 
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17 
-    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
-    Host:media.windows.net 
+    POST https://media.windows.net/API/Filters HTTP/1.1
+    DataServiceVersion:3.0
+    MaxDataServiceVersion: 3.0
+    Content-Type: application/json
+    Accept: application/json
+    Accept-Charset: UTF-8
+    Authorization: Bearer <ENCODED JWT TOKEN>
+    x-ms-version: 2.17
+    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+    Host:media.windows.net
 
 Request body 
 
-    {  
+    {
        "Name":"GlobalFilter",
-       "PresentationTimeRange":{  
+       "PresentationTimeRange":{
           "StartTimestamp":"0",
           "EndTimestamp":"9223372036854775807",
           "PresentationWindowDuration":"12000000000",
           "LiveBackoffDuration":"0",
           "Timescale":"10000000"
        },
-       "Tracks":[  
-          {  
+       "Tracks":[
+          {
              "PropertyConditions":
-                  [  
-                {  
+                  [
+                {
                    "Property":"Type",
                    "Value":"audio",
                    "Operator":"Equal"
                 },
-                {  
+                {
                    "Property":"Bitrate",
                    "Value":"0-2147483647",
                    "Operator":"Equal"
@@ -106,87 +106,87 @@ To create a local AssetFilter, use the following HTTP requests:
 #### HTTP Request
 Request Headers
 
-    POST https://media.windows.net/API/AssetFilters HTTP/1.1 
-    DataServiceVersion: 3.0 
-    MaxDataServiceVersion: 3.0 
-    Content-Type: application/json 
-    Accept: application/json 
-    Accept-Charset: UTF-8 
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17 
-    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
-    Host: media.windows.net  
+    POST https://media.windows.net/API/AssetFilters HTTP/1.1
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    Content-Type: application/json
+    Accept: application/json
+    Accept-Charset: UTF-8
+    Authorization: Bearer <ENCODED JWT TOKEN>
+    x-ms-version: 2.17
+    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+    Host: media.windows.net
 
 Request body 
 
-    {   
-       "Name":"AssetFilter", 
-       "ParentAssetId":"nb:cid:UUID:536e555d-1500-80c3-92dc-f1e4fdc6c592", 
-       "PresentationTimeRange":{   
-          "StartTimestamp":"0", 
-          "EndTimestamp":"9223372036854775807", 
-          "PresentationWindowDuration":"12000000000", 
-          "LiveBackoffDuration":"0", 
-          "Timescale":"10000000" 
-       }, 
-       "Tracks":[   
-          {   
-             "PropertyConditions": 
-                  [   
-                {   
-                   "Property":"Type", 
-                   "Value":"audio", 
-                   "Operator":"Equal" 
-                }, 
-                {   
-                   "Property":"Bitrate", 
-                   "Value":"0-2147483647", 
-                   "Operator":"Equal" 
-                } 
-             ] 
-          } 
-       ] 
-    } 
+    {
+       "Name":"AssetFilter",
+       "ParentAssetId":"nb:cid:UUID:536e555d-1500-80c3-92dc-f1e4fdc6c592",
+       "PresentationTimeRange":{
+          "StartTimestamp":"0",
+          "EndTimestamp":"9223372036854775807",
+          "PresentationWindowDuration":"12000000000",
+          "LiveBackoffDuration":"0",
+          "Timescale":"10000000"
+       },
+       "Tracks":[
+          {
+             "PropertyConditions":
+                  [
+                {
+                   "Property":"Type",
+                   "Value":"audio",
+                   "Operator":"Equal"
+                },
+                {
+                   "Property":"Bitrate",
+                   "Value":"0-2147483647",
+                   "Operator":"Equal"
+                }
+             ]
+          }
+       ]
+    }
 
 #### HTTP Response
-    HTTP/1.1 201 Created 
-    . . . 
+    HTTP/1.1 201 Created
+    . . .
 
 ## List filters
 ### Get all global **Filter**s in the AMS account
 To list filters, use the following HTTP requests: 
 
 #### HTTP Request
-    GET https://media.windows.net/API/Filters HTTP/1.1 
-    DataServiceVersion:3.0 
-    MaxDataServiceVersion: 3.0 
-    Accept: application/json 
-    Accept-Charset: UTF-8 
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17 
-    Host: media.windows.net 
+    GET https://media.windows.net/API/Filters HTTP/1.1
+    DataServiceVersion:3.0
+    MaxDataServiceVersion: 3.0
+    Accept: application/json
+    Accept-Charset: UTF-8
+    Authorization: Bearer <ENCODED JWT TOKEN>
+    x-ms-version: 2.17
+    Host: media.windows.net
 
 ### Get **AssetFilter**s associated with an asset
 #### HTTP Request
-    GET https://media.windows.net/API/Assets('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592')/AssetFilters HTTP/1.1 
-    DataServiceVersion: 3.0 
-    MaxDataServiceVersion: 3.0 
-    Accept: application/json 
-    Accept-Charset: UTF-8 
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17 
-    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
-    Host: media.windows.net 
+    GET https://media.windows.net/API/Assets('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592')/AssetFilters HTTP/1.1
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    Accept: application/json
+    Accept-Charset: UTF-8
+    Authorization: Bearer <ENCODED JWT TOKEN>
+    x-ms-version: 2.17
+    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+    Host: media.windows.net
 
 ### Get an **AssetFilter** based on its Id
 #### HTTP Request
-    GET https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__TestFilter') HTTP/1.1 
-    DataServiceVersion: 3.0 
-    MaxDataServiceVersion: 3.0 
-    Accept: application/json 
-    Accept-Charset: UTF-8 
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17 
+    GET https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__TestFilter') HTTP/1.1
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    Accept: application/json
+    Accept-Charset: UTF-8
+    Authorization: Bearer <ENCODED JWT TOKEN>
+    x-ms-version: 2.17
     x-ms-client-request-id: 00000000
 
 
@@ -201,39 +201,39 @@ To update a global filter, use the following HTTP requests:
 #### HTTP Request
 Request headers: 
 
-    MERGE https://media.windows.net/API/Filters('filterName') HTTP/1.1 
-    DataServiceVersion:3.0 
-    MaxDataServiceVersion: 3.0 
-    Content-Type: application/json 
-    Accept: application/json 
-    Accept-Charset: UTF-8 
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17 
-    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
-    Host: media.windows.net 
+    MERGE https://media.windows.net/API/Filters('filterName') HTTP/1.1
+    DataServiceVersion:3.0
+    MaxDataServiceVersion: 3.0
+    Content-Type: application/json
+    Accept: application/json
+    Accept-Charset: UTF-8
+    Authorization: Bearer <ENCODED JWT TOKEN>
+    x-ms-version: 2.17
+    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+    Host: media.windows.net
     Content-Length: 384
 
 Request body: 
 
-    { 
-       "Tracks":[   
-          {   
-             "PropertyConditions": 
-             [   
-                {   
-                   "Property":"Type", 
-                   "Value":"audio", 
-                   "Operator":"Equal" 
-                }, 
-                {   
-                   "Property":"Bitrate", 
-                   "Value":"0-2147483647", 
-                   "Operator":"Equal" 
-                } 
-             ] 
-          } 
-       ] 
-    } 
+    {
+       "Tracks":[
+          {
+             "PropertyConditions":
+             [
+                {
+                   "Property":"Type",
+                   "Value":"audio",
+                   "Operator":"Equal"
+                },
+                {
+                   "Property":"Bitrate",
+                   "Value":"0-2147483647",
+                   "Operator":"Equal"
+                }
+             ]
+          }
+       ]
+    }
 
 ### Update local AssetFilters
 To update a local filter, use the following HTTP requests: 
@@ -241,38 +241,38 @@ To update a local filter, use the following HTTP requests:
 #### HTTP Request
 Request headers: 
 
-    MERGE https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__TestFilter')  HTTP/1.1 
-    DataServiceVersion: 3.0 
-    MaxDataServiceVersion: 3.0 
-    Content-Type: application/json 
-    Accept: application/json 
-    Accept-Charset: UTF-8 
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17 
-    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
-    Host: media.windows.net 
+    MERGE https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__TestFilter')  HTTP/1.1
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    Content-Type: application/json
+    Accept: application/json
+    Accept-Charset: UTF-8
+    Authorization: Bearer <ENCODED JWT TOKEN>
+    x-ms-version: 2.17
+    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+    Host: media.windows.net
 
 Request body: 
 
-    { 
-       "Tracks":[   
-          {   
-             "PropertyConditions": 
-             [   
-                {   
-                   "Property":"Type", 
-                   "Value":"audio", 
-                   "Operator":"Equal" 
-                }, 
-                {   
-                   "Property":"Bitrate", 
-                   "Value":"0-2147483647", 
-                   "Operator":"Equal" 
-                } 
-             ] 
-          } 
-       ] 
-    } 
+    {
+       "Tracks":[
+          {
+             "PropertyConditions":
+             [
+                {
+                   "Property":"Type",
+                   "Value":"audio",
+                   "Operator":"Equal"
+                },
+                {
+                   "Property":"Bitrate",
+                   "Value":"0-2147483647",
+                   "Operator":"Equal"
+                }
+             ]
+          }
+       ]
+    }
 
 
 ## Delete filters
@@ -280,28 +280,28 @@ Request body:
 To delete a global Filter, use the following HTTP requests:
 
 #### HTTP Request
-    DELETE https://media.windows.net/api/Filters('GlobalFilter') HTTP/1.1 
-    DataServiceVersion:3.0 
-    MaxDataServiceVersion: 3.0 
-    Accept: application/json 
-    Accept-Charset: UTF-8 
-    Authorization: Bearer <ENCODED JWT TOKEN>  
-    x-ms-version: 2.17 
-    Host: media.windows.net 
+    DELETE https://media.windows.net/api/Filters('GlobalFilter') HTTP/1.1
+    DataServiceVersion:3.0
+    MaxDataServiceVersion: 3.0
+    Accept: application/json
+    Accept-Charset: UTF-8
+    Authorization: Bearer <ENCODED JWT TOKEN>
+    x-ms-version: 2.17
+    Host: media.windows.net
 
 
 ### Delete local AssetFilters
 To delete a local AssetFilter, use the following HTTP requests:
 
 #### HTTP Request
-    DELETE https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__LocalFilter') HTTP/1.1 
-    DataServiceVersion: 3.0 
-    MaxDataServiceVersion: 3.0 
-    Accept: application/json 
-    Accept-Charset: UTF-8 
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17 
-    Host: media.windows.net 
+    DELETE https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__LocalFilter') HTTP/1.1
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    Accept: application/json
+    Accept-Charset: UTF-8
+    Authorization: Bearer <ENCODED JWT TOKEN>
+    x-ms-version: 2.17
+    Host: media.windows.net
 
 ## Build streaming URLs that use filters
 For information on how to publish and deliver your assets, see [Delivering Content to Customers Overview](media-services-deliver-content-overview.md).
@@ -324,7 +324,7 @@ The following examples show how to add filters to your streaming URLs.
 
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)
 
-	
+
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
