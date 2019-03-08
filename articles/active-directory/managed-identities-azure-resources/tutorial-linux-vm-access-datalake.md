@@ -166,7 +166,7 @@ resp_json = requests.get(auth_url, params=params, headers=headers).json()
 token = MSIAuthentication(**resp_json)
 
 # Create an ADLS file system client using the token
-adls = core.AzureDLFileSystem(token=token, store_name=account_name)
+adls = core.AzureDLFileSystem(token=token, store_name="<ADLS_ACCOUNT_NAME>")
 
 ```
 Refer to [Azure Data Lake Storage Gen1 using Python](/azure/data-lake-store/data-lake-store-data-operations-python) for details on how to use the obtained `adls` client object
