@@ -156,7 +156,8 @@ The Chrome App is created via JavaScript, and you can use any of your preferred 
         registerWindowCreated = true;
         chrome.app.window.create(
             "register.html",
-            {  width: 520,
+            {
+                width: 520,
                 height: 500,
                 frame: 'chrome'
             },
@@ -225,7 +226,7 @@ The Chrome App is created via JavaScript, and you can use any of your preferred 
         currentStatus = currentStatus + "\n\n";
         }
 
-        document.getElementById("console").innerHTML = currentStatus  + status;
+        document.getElementById("console").innerHTML = currentStatus + status;
     }
 
     function registerWithGCM() {
