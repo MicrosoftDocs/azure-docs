@@ -3,16 +3,14 @@ title: 'Transform data using Hive in Azure Virtual Network | Microsoft Docs'
 description: 'This tutorial provides step-by-step instructions for transforming data by using Hive activity in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-
 ms.topic: tutorial
 ms.date: 01/04/2018
-ms.author: douglasl
+author: nabhishek
+ms.author: abnarain
+manager: craigg
 ---
 # Transform data in Azure Virtual Network using Hive activity in Azure Data Factory
 In this tutorial, you use Azure portal to create a Data Factory pipeline that transforms data using Hive Activity on a HDInsight cluster that is in an Azure Virtual Network (VNet). You perform the following steps in this tutorial:

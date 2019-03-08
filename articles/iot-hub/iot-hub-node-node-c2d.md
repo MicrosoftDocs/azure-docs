@@ -185,8 +185,8 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 [Get started with IoT Hub]: quickstart-send-telemetry-node.md
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [IoT Hub developer guide]: iot-hub-devguide.md
-[Azure IoT Developer Center]: http://azure.microsoft.com/develop/iot
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[Azure IoT Developer Center]: https://azure.microsoft.com/develop/iot
+[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Azure portal]: https://portal.azure.com
 [Azure IoT Remote Monitoring solution accelerator]: https://azure.microsoft.com/documentation/suites/iot-suite/

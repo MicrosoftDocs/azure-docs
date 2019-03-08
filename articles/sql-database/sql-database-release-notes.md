@@ -21,6 +21,7 @@ This article lists the new features and improvements in the SQL Database service
 
 | Service improvements | Details |
 | --- | --- |
+| Coming soon ||
 | &nbsp; |
 
 ### Documentation improvements
