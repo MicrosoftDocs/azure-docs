@@ -513,7 +513,7 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
 4. Save the `dev.properties` file and then use the following command to upload it to the **Storm** cluster:
 
      ```bash
-    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
+    scp dev.properties USERNAME@BASENAME-ssh.azurehdinsight.net:dev.properties
     ```
 
     Replace **USERNAME** with the SSH user name for the cluster. Replace **BASENAME** with the base name you used when creating the cluster.
