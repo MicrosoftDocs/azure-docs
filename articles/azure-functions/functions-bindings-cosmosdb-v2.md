@@ -675,7 +675,7 @@ Here's the C# script code:
     // Change input document contents using Azure Cosmos DB input binding
     public static void Run(string myQueueItem, dynamic inputDocument)
     {
-      inputDocument.text = "This has changed.";
+        inputDocument.text = "This has changed.";
     }
 ```
 
@@ -772,7 +772,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
     if (toDoItem == null)
     {
-         log.LogInformation($"ToDo item not found");
+        log.LogInformation($"ToDo item not found");
     }
     else
     {
@@ -835,7 +835,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
     if (toDoItem == null)
     {
-         log.LogInformation($"ToDo item not found");
+        log.LogInformation($"ToDo item not found");
     }
     else
     {
@@ -1030,9 +1030,9 @@ Here's the JavaScript code:
 ```javascript
     // Change input document contents using Azure Cosmos DB input binding, using context.bindings.inputDocumentOut
     module.exports = function (context) {
-    context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
-    context.bindings.inputDocumentOut.text = "This was updated!";
-    context.done();
+        context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
+        context.bindings.inputDocumentOut.text = "This was updated!";
+        context.done();
     };
 ```
 
@@ -1897,16 +1897,16 @@ Here's the C# script code:
 
     public static void Run(string myQueueItem, out object employeeDocument, ILogger log)
     {
-      log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
+        log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
 
-      dynamic employee = JObject.Parse(myQueueItem);
+        dynamic employee = JObject.Parse(myQueueItem);
 
-      employeeDocument = new {
-        id = employee.name + "-" + employee.employeeId,
-        name = employee.name,
-        employeeId = employee.employeeId,
-        address = employee.address
-      };
+        employeeDocument = new {
+            id = employee.name + "-" + employee.employeeId,
+            name = employee.name,
+            employeeId = employee.employeeId,
+            address = employee.address
+        };
     }
 ```
 
@@ -2132,9 +2132,9 @@ public String cosmosDbQueryById(
       queueName = "myqueue-items",
       connection = "AzureWebJobsStorage")
     String message,
-    final ExecutionContext context)  {
-     return "{ id: \"" + System.currentTimeMillis() + "\", Description: " + message + " }";
-   }
+    final ExecutionContext context) {
+        return "{ id: \"" + System.currentTimeMillis() + "\", Description: " + message + " }";
+    }
 ```
 
 #### HTTP trigger, save one document to database via return value (Java)
