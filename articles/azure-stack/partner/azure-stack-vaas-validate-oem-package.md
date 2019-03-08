@@ -11,10 +11,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 02/19/2019
+ms.lastreviewed: 03/11/2019
 
 ROBOTS: NOINDEX
 
@@ -39,12 +39,12 @@ When using the **Package Validation** workflow to validate a package, you will n
 
 Create a container in your storage account for package blobs. This container can be used for all your Package Validation runs.
 
-1. In the [Azure Portal](https://portal.azure.com), go to the storage account created in [Set up your Validation as a Service resources](azure-stack-vaas-set-up-resources.md).
+1. In the [Azure portal](https://portal.azure.com), go to the storage account created in [Set up your Validation as a Service resources](azure-stack-vaas-set-up-resources.md).
 
 2. On the left blade under **Blob Service**, select **Containers**.
 
 3. Select **+ Container** from the menu bar.
-    1. Provide a name for the container, e.g., `vaaspackages`.
+    1. Provide a name for the container, for example, `vaaspackages`.
     1. Select the desired access level for unauthenticated clients such as VaaS. For details on how to grant VaaS access to packages in each scenario, see [Handling container access level](#handling-container-access-level).
 
 ### Upload package to storage account
@@ -54,9 +54,9 @@ Create a container in your storage account for package blobs. This container can
     > [!NOTE]
     > Please ensure that the `.zip` contents are placed at the root of the `.zip` file. There should be no sub-folders in the package.
 
-1. In the [Azure Portal](https://portal.azure.com), select the package container and upload the package by selecting on **Upload** in the menu bar.
+1. In the [Azure portal](https://portal.azure.com), select the package container and upload the package by selecting on **Upload** in the menu bar.
 
-1. Select the package `.zip` file to upload. Keep defaults for **Blob type** (i.e., **Block Blob**) and **Block size**.
+1. Select the package `.zip` file to upload. Keep defaults for **Blob type** (that is, **Block Blob**) and **Block size**.
 
 ### Generate package blob URL for VaaS
 
