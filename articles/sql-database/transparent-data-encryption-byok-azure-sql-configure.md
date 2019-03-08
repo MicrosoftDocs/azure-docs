@@ -11,7 +11,7 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/15/2019
+ms.date: 03/07/2019
 ---
 
 # PowerShell and CLI: Enable Transparent Data Encryption with customer-managed key from Azure Key Vault
@@ -170,7 +170,7 @@ Use the [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/g
 ## Troubleshooting
 
 Check the following if an issue occurs:
-- If the key vault cannot be found, make sure you're in the right subscription using the [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription) cmdlet.
+- If the key vault cannot be found, make sure you're in the right subscription using the [Get-AzSubscription](/powershell/module/az.account/get-azsubscription) cmdlet.
 
    ```powershell
    Get-AzSubscription `
