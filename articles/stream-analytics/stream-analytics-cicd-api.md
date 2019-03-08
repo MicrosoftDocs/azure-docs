@@ -222,7 +222,7 @@ Sample of Deployment Manifest:
             "settings": {
               "image": "<settings.image>",
               "createOptions": "<settings.createOptions>"
-            }
+            },
             "version": "<version>",
             "env": {
               "PlanId": {
