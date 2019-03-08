@@ -97,9 +97,9 @@ The steps described in this topic are:
 	Date: Wed, 02 Dec 2015 05:10:40 GMT
 	
 	{
-   		"d":{
-      		"results":[]
-   		}
+		"d":{
+			"results":[]
+		}
 	}
  
 ## Create a Notification Endpoint for monitoring
@@ -117,9 +117,9 @@ The steps described in this topic are:
 	Content-Length: 115
 	
 	{
-   		"Name":"monitoring",
-   		"EndPointAddress":"https://telemetryvalidationstore.table.core.windows.net/",
-   		"EndPointType":2
+		"Name":"monitoring",
+		"EndPointAddress":"https://telemetryvalidationstore.table.core.windows.net/",
+		"EndPointType":2
 	}
 
 >[!NOTE]
@@ -189,13 +189,13 @@ The steps described in this topic are:
 	Content-Length: 133
 	
 	{
-	   "NotificationEndPointId":"nb:nepid:UUID:76bb4faf-ea29-4815-840a-9a8e20102fc4",
-	   "Settings":[
-	      {
-		 "Component":"Channel",
-		 "Level":"Normal"
-	      }
-	   ]
+		"NotificationEndPointId":"nb:nepid:UUID:76bb4faf-ea29-4815-840a-9a8e20102fc4",
+		"Settings":[
+			{
+				"Component":"Channel",
+				"Level":"Normal"
+			}
+		]
 	}
 
 ### Response
