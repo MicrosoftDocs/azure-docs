@@ -50,24 +50,24 @@ Here's the binding data in the *function.json* file:
 
 ```json
 {
-"bindings": [
-    {
-    "name": "myQueueItem",
-    "queueName": "myqueue-items",
-    "connection":"",
-    "type": "queueTrigger",
-    "direction": "in"
-    },
-    {
-        "name": "record",
-        "type": "mobileTable",
-        "tableName": "MyTable",
-        "id" : "{queueTrigger}",
-        "connection": "My_MobileApp_Url",
-        "apiKey": "My_MobileApp_Key",
-        "direction": "in"
-    }
-]
+    "bindings": [
+        {
+            "name": "myQueueItem",
+            "queueName": "myqueue-items",
+            "connection":"",
+            "type": "queueTrigger",
+            "direction": "in"
+        },
+        {
+            "name": "record",
+            "type": "mobileTable",
+            "tableName": "MyTable",
+            "id" : "{queueTrigger}",
+            "connection": "My_MobileApp_Url",
+            "apiKey": "My_MobileApp_Key",
+            "direction": "in"
+        }
+    ]
 }
 ```
 The [configuration](#input---configuration) section explains these properties.
@@ -75,7 +75,7 @@ The [configuration](#input---configuration) section explains these properties.
 Here's the C# script code:
 
 ```cs
-#r "Newtonsoft.Json"    
+#r "Newtonsoft.Json"
 using Newtonsoft.Json.Linq;
 
 public static void Run(string myQueueItem, JObject record)
@@ -83,7 +83,7 @@ public static void Run(string myQueueItem, JObject record)
     if (record != null)
     {
         record["Text"] = "This has changed.";
-    }    
+    }
 }
 ```
 
@@ -95,24 +95,24 @@ Here's the binding data in the *function.json* file:
 
 ```json
 {
-"bindings": [
-    {
-    "name": "myQueueItem",
-    "queueName": "myqueue-items",
-    "connection":"",
-    "type": "queueTrigger",
-    "direction": "in"
-    },
-    {
-        "name": "record",
-        "type": "mobileTable",
-        "tableName": "MyTable",
-        "id" : "{queueTrigger}",
-        "connection": "My_MobileApp_Url",
-        "apiKey": "My_MobileApp_Key",
-        "direction": "in"
-    }
-]
+    "bindings": [
+        {
+            "name": "myQueueItem",
+            "queueName": "myqueue-items",
+            "connection":"",
+            "type": "queueTrigger",
+            "direction": "in"
+        },
+        {
+            "name": "record",
+            "type": "mobileTable",
+            "tableName": "MyTable",
+            "id" : "{queueTrigger}",
+            "connection": "My_MobileApp_Url",
+            "apiKey": "My_MobileApp_Key",
+            "direction": "in"
+        }
+    ]
 }
 ```
 The [configuration](#input---configuration) section explains these properties.
@@ -120,7 +120,7 @@ The [configuration](#input---configuration) section explains these properties.
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, myQueueItem) {    
+module.exports = function (context, myQueueItem) {
     context.log(context.bindings.record);
     context.done();
 };
@@ -177,7 +177,7 @@ See the language-specific example:
 The following example shows a [C# function](functions-dotnet-class-library.md) that is triggered by a queue message and creates a record in a mobile app table.
 
 ```csharp
-[FunctionName("MobileAppsOutput")]        
+[FunctionName("MobileAppsOutput")]
 [return: MobileTable(ApiKeySetting = "MyMobileAppKey", TableName = "MyTable", MobileAppUriSetting = "MyMobileAppUri")]
 public static object Run(
     [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
@@ -195,23 +195,23 @@ Here's the binding data in the *function.json* file:
 
 ```json
 {
-"bindings": [
-    {
-    "name": "myQueueItem",
-    "queueName": "myqueue-items",
-    "connection":"",
-    "type": "queueTrigger",
-    "direction": "in"
-    },
-    {
-    "name": "record",
-    "type": "mobileTable",
-    "tableName": "MyTable",
-    "connection": "My_MobileApp_Url",
-    "apiKey": "My_MobileApp_Key",
-    "direction": "out"
-    }
-]
+    "bindings": [
+        {
+            "name": "myQueueItem",
+            "queueName": "myqueue-items",
+            "connection":"",
+            "type": "queueTrigger",
+            "direction": "in"
+        },
+        {
+            "name": "record",
+            "type": "mobileTable",
+            "tableName": "MyTable",
+            "connection": "My_MobileApp_Url",
+            "apiKey": "My_MobileApp_Key",
+            "direction": "out"
+        }
+    ]
 }
 ```
 
@@ -236,24 +236,24 @@ Here's the binding data in the *function.json* file:
 
 ```json
 {
-"bindings": [
-    {
-    "name": "myQueueItem",
-    "queueName": "myqueue-items",
-    "connection":"",
-    "type": "queueTrigger",
-    "direction": "in"
-    },
-    {
-    "name": "record",
-    "type": "mobileTable",
-    "tableName": "MyTable",
-    "connection": "My_MobileApp_Url",
-    "apiKey": "My_MobileApp_Key",
-    "direction": "out"
-    }
-],
-"disabled": false
+    "bindings": [
+        {
+            "name": "myQueueItem",
+            "queueName": "myqueue-items",
+            "connection":"",
+            "type": "queueTrigger",
+            "direction": "in"
+        },
+        {
+            "name": "record",
+            "type": "mobileTable",
+            "tableName": "MyTable",
+            "connection": "My_MobileApp_Url",
+            "apiKey": "My_MobileApp_Key",
+            "direction": "out"
+        }
+    ],
+    "disabled": false
 }
 ```
 
@@ -266,7 +266,7 @@ module.exports = function (context, myQueueItem) {
 
     context.bindings.record = {
         text : "I'm running in a Node function! Data: '" + myQueueItem + "'"
-    }   
+    }
 
     context.done();
 };
@@ -279,7 +279,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the [MobileTable
 For information about attribute properties that you can configure, see [Output - configuration](#output---configuration). Here's a `MobileTable` attribute example in a method signature:
 
 ```csharp
-[FunctionName("MobileAppsOutput")]        
+[FunctionName("MobileAppsOutput")]
 [return: MobileTable(ApiKeySetting = "MyMobileAppKey", TableName = "MyTable", MobileAppUriSetting = "MyMobileAppUri")]
 public static object Run(
     [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
