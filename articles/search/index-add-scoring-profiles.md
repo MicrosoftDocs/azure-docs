@@ -35,24 +35,24 @@ translation.priority.mt:
 "scoringProfiles": [
   {
     "name":"geo",
-    "text": {
-      "weights": {
-        "hotelName": 5
-      }                              
+    "text": {
+      "weights": {
+        "hotelName": 5
+      }
     },
     "functions": [
       {
         "type": "distance",
-        "boost": 5,
-        "fieldName": "location",
-        "interpolation": "logarithmic",
-        "distance": {
-          "referencePointParameter": "currentLocation",
-          "boostingDistance": 10
-        }                        
-      }                                      
-    ]                     
-  }            
+        "boost": 5,
+        "fieldName": "location",
+        "interpolation": "logarithmic",
+        "distance": {
+          "referencePointParameter": "currentLocation",
+          "boostingDistance": 10
+        }
+      }
+    ]
+  }
 ]
 ```
 
