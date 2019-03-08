@@ -166,5 +166,5 @@ If your ASP.NET or ASP.NET core application runs in Azure App Service, the instr
 ## Next steps
 
 - Generate traffic to your application that can trigger an exception. Then, wait 10 to 15 minutes for snapshots to be sent to the Application Insights instance.
-- See [snapshots](snapshot-debuggger.md?toc=/azure/azure-monitor/toc.json) in the Azure portal.
+- See [snapshots](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json) in the Azure portal.
 - For help with troubleshooting Profiler issues, see [Snapshot Debugger troubleshooting](snapshot-debugger-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
