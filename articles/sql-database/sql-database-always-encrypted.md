@@ -182,20 +182,19 @@ Replace the contents of **Program.cs** with the following code. Replace the conn
 
 Run the app to see Always Encrypted in action.
 
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Data;
-    using System.Data.SqlClient;
+```cs
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Globalization;
 
-    namespace AlwaysEncryptedConsoleApp
-    {
+namespace AlwaysEncryptedConsoleApp
+{
     class Program
     {
         // Update this line with your Clinic database connection string from the Azure portal.
-        static string connectionString = @"Replace with your connection string";
+        static string connectionString = @"Data Source = SPE-T640-01.sys-sqlsvr.local; Initial Catalog = Clinic; Integrated Security = true";
 
         static void Main(string[] args)
         {
@@ -218,7 +217,6 @@ Run the app to see Always Encrypted in action.
             Console.WriteLine(Environment.NewLine + "Enter server password:");
             connStringBuilder.Password = Console.ReadLine();
 
-
             // Assign the updated connection string to our global variable.
             connectionString = connStringBuilder.ConnectionString;
 
@@ -229,16 +227,42 @@ Run the app to see Always Encrypted in action.
             // Add sample data to the Patients table.
             Console.Write(Environment.NewLine + "Adding sample patient data to the database...");
 
-            InsertPatient(new Patient() {
-                SSN = "999-99-0001", FirstName = "Orlando", LastName = "Gee", BirthDate = DateTime.Parse("01/04/1964") });
-            InsertPatient(new Patient() {
-                SSN = "999-99-0002", FirstName = "Keith", LastName = "Harris", BirthDate = DateTime.Parse("06/20/1977") });
-            InsertPatient(new Patient() {
-                SSN = "999-99-0003", FirstName = "Donna", LastName = "Carreras", BirthDate = DateTime.Parse("02/09/1973") });
-            InsertPatient(new Patient() {
-                SSN = "999-99-0004", FirstName = "Janet", LastName = "Gates", BirthDate = DateTime.Parse("08/31/1985") });
-            InsertPatient(new Patient() {
-                SSN = "999-99-0005", FirstName = "Lucy", LastName = "Harrington", BirthDate = DateTime.Parse("05/06/1993") });
+            CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
+            InsertPatient(new Patient()
+            {
+                SSN = "999-99-0001",
+                FirstName = "Orlando",
+                LastName = "Gee",
+                BirthDate = DateTime.Parse("01/04/1964", culture)
+            });
+            InsertPatient(new Patient()
+            {
+                SSN = "999-99-0002",
+                FirstName = "Keith",
+                LastName = "Harris",
+                BirthDate = DateTime.Parse("06/20/1977", culture)
+            });
+            InsertPatient(new Patient()
+            {
+                SSN = "999-99-0003",
+                FirstName = "Donna",
+                LastName = "Carreras",
+                BirthDate = DateTime.Parse("02/09/1973", culture)
+            });
+            InsertPatient(new Patient()
+            {
+                SSN = "999-99-0004",
+                FirstName = "Janet",
+                LastName = "Gates",
+                BirthDate = DateTime.Parse("08/31/1985", culture)
+            });
+            InsertPatient(new Patient()
+            {
+                SSN = "999-99-0005",
+                FirstName = "Lucy",
+                LastName = "Harrington",
+                BirthDate = DateTime.Parse("05/06/1993", culture)
+            });
 
 
             // Fetch and display all patients.
@@ -288,7 +312,7 @@ Run the app to see Always Encrypted in action.
             int returnValue = 0;
 
             string sqlCmdText = @"INSERT INTO [dbo].[Patients] ([SSN], [FirstName], [LastName], [BirthDate])
-         VALUES (@SSN, @FirstName, @LastName, @BirthDate);";
+     VALUES (@SSN, @FirstName, @LastName, @BirthDate);";
 
             SqlCommand sqlCmd = new SqlCommand(sqlCmdText);
 
@@ -459,8 +483,8 @@ Run the app to see Always Encrypted in action.
         public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
     }
-    }
-
+}
+```
 
 ## Verify that the data is encrypted
 You can quickly check that the actual data on the server is encrypted by querying the **Patients** data with SSMS. (Use your current connection where the column encryption setting is not yet enabled.)
