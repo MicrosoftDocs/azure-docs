@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 03/08/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use pattern roles. 
 ---
