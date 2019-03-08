@@ -62,7 +62,7 @@ In the fabricSettings section in your ARM template (for Azure deployments) or Cl
 
 ## Deploy the Service Fabric Azure Files application
 
-The Service Fabric application that provides the volumes for your containers can be downloaded from the following [link](https://aka.ms/sfvolume6.4). The application can be deployed to the cluster via [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) or [FabricClient APIs](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
+The Service Fabric application that provides the volumes for your containers can be downloaded from the following [link](http://download.microsoft.com/download/C/0/3/C0373AA9-DEFA-48CF-9EBE-994CA2A5FA2F/AzureFilesVolumePlugin.6.4.571.9590.zip). The application can be deployed to the cluster via [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) or [FabricClient APIs](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
 
 1. Using the command line, change directory to the root directory of the application package downloaded.
 
