@@ -145,6 +145,29 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
    ```
 
 By using other APIs for the Data Lake Store file system, you can append to files, download files, and more.
+### Access using python
+
+``` python
+from msrestazure.azure_active_directory import MSIAuthentication
+
+auth_url = 'http://169.254.169.254/metadata/identity/oauth2/token'
+headers = {'metadata': 'true'}
+params = {
+    'resource': 'https://datalake.azure.net/',
+    'api-version': '2018-02-01',
+}
+
+# Requesting a token using managed identity, returns a dict which has auth token
+resp_json = requests.get(auth_url, params=params, headers=headers).json()
+
+# Pass the acquired token to generate a usable token object
+token = MSIAuthentication(**resp_json)
+
+# Create an ADLS file system client using the token
+adls = core.AzureDLFileSystem(token=token, store_name=account_name)
+
+```
+Refer to [Azure Data Lake Storage Gen1 using Python](/azure/data-lake-store/data-lake-store-data-operations-python) for details on how to use the obtained `adls` client object
 
 ## Next steps
 
