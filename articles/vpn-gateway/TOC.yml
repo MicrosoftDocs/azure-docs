@@ -170,10 +170,10 @@
       href: vpn-gateway-modify-local-network-gateway-cli.md
   - name: Configure VPN devices
     items:
-    - name: Download VPN device configuration scripts
-      href: vpn-gateway-download-vpndevicescript.md
     - name: Overview & Azure configuration
       href: vpn-gateway-3rdparty-device-config-overview.md
+    - name: Download VPN device configuration scripts
+      href: vpn-gateway-download-vpndevicescript.md
     - name: 'Sample: Cisco ASA device (IKEv2/no BGP)'
       href: vpn-gateway-3rdparty-device-config-cisco-asa.md
   - name: Troubleshoot
