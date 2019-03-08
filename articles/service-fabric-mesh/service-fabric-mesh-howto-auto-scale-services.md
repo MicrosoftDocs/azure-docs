@@ -36,51 +36,51 @@ The following example shows an autoscaling policy in a JSON deployment template.
 
 ```json
 {
-"apiVersion": "2018-09-01-preview",
-"name": "WorkerApp",
-"type": "Microsoft.ServiceFabricMesh/applications",
-"location": "[parameters('location')]",
-"dependsOn": [
-"Microsoft.ServiceFabricMesh/networks/worker-app-network"
-],
-"properties": {
-"services": [
-    { ... },
-    {
-    "name": "WorkerService",
-    "properties": {
-        "description": "Worker Service",
-        "osType": "linux",
-        "codePackages": [
-        {  ...              }
-        ],
-        "replicaCount": 1,
-        "autoScalingPolicies": [
-        {
-            "name": "AutoScaleWorkerRule",
-            "trigger": {
+  "apiVersion": "2018-09-01-preview",
+  "name": "WorkerApp",
+  "type": "Microsoft.ServiceFabricMesh/applications",
+  "location": "[parameters('location')]",
+  "dependsOn": [
+    "Microsoft.ServiceFabricMesh/networks/worker-app-network"
+  ],
+  "properties": {
+    "services": [
+      { ... },
+      {
+        "name": "WorkerService",
+        "properties": {
+          "description": "Worker Service",
+          "osType": "linux",
+          "codePackages": [
+            {  ...              }
+          ],
+          "replicaCount": 1,
+          "autoScalingPolicies": [
+            {
+              "name": "AutoScaleWorkerRule",
+              "trigger": {
                 "kind": "AverageLoad",
                 "metric": {
-                    "kind": "Resource",
-                    "name": "cpu"
+                  "kind": "Resource",
+                  "name": "cpu"
                 },
                 "lowerLoadThreshold": "0.2",
                 "upperLoadThreshold": "0.8",
                 "scaleIntervalInSeconds": "60"
-            },
-            "mechanism": {
+              },
+              "mechanism": {
                 "kind": "AddRemoveReplica",
                 "minCount": "1",
                 "maxCount": "40",
                 "scaleIncrement": "1"
+              }
             }
+          ],
+          ...
         }
-        ],
-        ...
-    }
-    }
-]
-}
+      }
+    ]
+  }
 }
 ```
 
