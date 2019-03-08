@@ -29,7 +29,7 @@ The Application Gateway v2 SKU supports static public IP addresses, as well as s
 
 ## Listeners
 
-Before you start using your application gateway, you must add one or more listeners. A listener is a logical entity that checks for incoming connection requests and accepts the requests if the protocol, port, host and IP address associated with the request match with the protocol, port, host and IP address associated with the listener configuration. There can be multiple listeners attached to an application gateway and they can be used for the same protocol. After the listener detects incoming requests from the clients, the Application Gateway routes these requests to the backend servers in the backend pool, using the request routing rules that you define for the listener that received the incoming request.
+Before you start using your application gateway, you must add one or more listeners. A listener is a logical entity that checks for incoming connection requests and accepts the requests if the protocol, port, host and IP address associated with the request match with the protocol, port, host and IP address associated with the listener configuration. There can be multiple listeners attached to an application gateway and they can be used for the same protocol. After the listener detects incoming requests from the clients, the Application Gateway routes these requests to the members in the backend pool, using the request routing rules that you define for the listener that received the incoming request.
 
 Listeners support the following ports and protocols:
 
