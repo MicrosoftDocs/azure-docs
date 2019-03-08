@@ -149,6 +149,8 @@ By using other APIs for the Data Lake Store file system, you can append to files
 
 ``` python
 from msrestazure.azure_active_directory import MSIAuthentication
+from azure.datalake.store import core
+import requests
 
 auth_url = 'http://169.254.169.254/metadata/identity/oauth2/token'
 headers = {'metadata': 'true'}
