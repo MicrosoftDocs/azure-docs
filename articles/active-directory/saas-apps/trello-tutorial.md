@@ -24,7 +24,7 @@ In this tutorial, you learn how to integrate Trello with Azure Active Directory 
 Integrating Trello with Azure AD provides you with the following benefits:
 
 * You can control in Azure AD who has access to Trello.
-* You can enable your users to be automatically signed-in to Trello (single sign-n) with their Azure AD accounts.
+* You can enable your users to be automatically signed-in to Trello (single sign-on) with their Azure AD accounts.
 * You can manage your accounts in one central location: the Azure portal.
 
 For more information about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -143,7 +143,7 @@ To configure Azure AD single sign-on with Trello, take the following steps:
 
 	![Manage user claims](common/new-attribute-details.png)
 
-	b. In the **Name** box, type the attribute name shown for that row.
+	b. In the **Name** box, type the attribute name that's shown for that row.
 
 	c. Leave **Namespace** blank.
 
@@ -171,7 +171,7 @@ To configure Azure AD single sign-on with Trello, take the following steps:
 
 ### Configure Trello single sign-on
 
-To configure single sign-on on the **Trello** side, first send the downloaded **Certificate (Base64)** and copied URLs from the Azure portal to [Trello support team](mailto:support@trello.com). They ensure that the the SAML SSO connection is set properly on both sides.
+To configure single sign-on on the **Trello** side, first send the downloaded **Certificate (Base64)** and copied URLs from the Azure portal to the [Trello support team](mailto:support@trello.com). They ensure that the SAML SSO connection is set properly on both sides.
 
 ### Create an Azure AD test user 
 
@@ -225,7 +225,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create a Trello test user
 
-In this section, a user called Britta Simon is created in Trello. Trello supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Trello, a new one is created after authentication.
+In this section, you create a user called Britta Simon in Trello. Trello supports Just in Time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Trello, a new one is created after authentication.
 
 > [!NOTE]
 > If you need to create a user manually, contact the [Trello support team](mailto:support@trello.com).
@@ -234,11 +234,11 @@ In this section, a user called Britta Simon is created in Trello. Trello support
 
 In this section, you test your Azure AD single sign-on configuration by using the MyApps portal.
 
-When you select the Trello tile in the https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction, you should be automatically signed in to Trello. For more information about the My Apps portal, see [What is the MyApps portal?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+When you select the Trello tile in the [MyApps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction), you should be automatically signed in to Trello. For more information about the My Apps portal, see [What is the MyApps portal?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of tutorials on how to integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

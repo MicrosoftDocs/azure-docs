@@ -53,7 +53,7 @@ To add Coralogix from the gallery, take the following steps:
 
 	![The Azure Active Directory button](common/select-azuread.png)
 
-2. Go to **Enterprise Applications**, and then select the **All Applications** option.
+2. Go to **Enterprise Applications**, and then select **All Applications**.
 
 	![The Enterprise applications blade](common/enterprise-applications.png)
 
@@ -89,7 +89,7 @@ To configure Azure AD single sign-on with Coralogix, take the following steps:
 
     ![Configure single sign-on link](common/select-sso.png)
 
-2. In the **Select a Single sign-on method** dialog box, select **SAML/WS-Fed** mode to enable single sign-on.
+2. In the **Select a Single sign-on method** dialog box, select **SAML** to enable single sign-on.
 
     ![Single sign-on select mode](common/select-saml-option.png)
 
@@ -97,21 +97,21 @@ To configure Azure AD single sign-on with Coralogix, take the following steps:
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. In the **Basic SAML Configuration** section, take the following steps:
+4. In the **Basic SAML Configuration** dialog box, take the following steps:
 
     ![Coralogix Domain and URLs single sign-on information](common/sp-identifier.png)
 
 	a. In the **Sign on URL** box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.coralogix.com`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL:
+    b. In the **Identifier (Entity ID)** text box, type a URL, such as:
 	| |
 	|--|
 	| `https://api.coralogix.com/saml/metadata.xml` |
 	| `https://aws-client-prod.coralogix.com/saml/metadata.xml` |
 
 	> [!NOTE]
-	> The sign-on URL value is not real. Update the value with the actual sign-on URL. Contact [Coralogix Client support team](mailto:info@coralogix.com) to get the value. You can also refer to the patterns in the **Basic SAML Configuration** section in the Azure portal.
+	> The sign-on URL value isn't real. Update the value with the actual sign-on URL. Contact the [Coralogix Client support team](mailto:info@coralogix.com) to get the value. You can also refer to the patterns in the **Basic SAML Configuration** section in the Azure portal.
 
 5. The Coralogix application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on the application integration page. On the **Set up Single Sign-On with SAML** page, select the **Edit** button to open the **User Attributes** dialog box.
 
@@ -135,7 +135,7 @@ To configure Azure AD single sign-on with Coralogix, take the following steps:
 
 	![The Certificate download link](common/metadataxml.png)
 
-8. On the **Set up Coralogix** section, copy the appropriate URL(s).
+8. In the **Set up Coralogix** section, copy the appropriate URL(s).
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -161,13 +161,13 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![New user Button](common/new-user.png)
 
-3. In the User properties dialog box, take the following steps.
+3. In the **User** dialog box, take the following steps.
 
     ![The User dialog box](common/user-properties.png)
 
     a. In the **Name** field, type **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**. For example, in this case, you might type **BrittaSimon@contoso.com**.
+    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**. For example, in this case, you might type **BrittaSimon@contoso.com**.
 
     c. Select the **Show password** check box, and then note the value that's displayed in the **Password** box.
 
@@ -189,11 +189,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
     ![The "Users and groups" link](common/users-groups-blade.png)
 
-4. Select the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog box.
+4. Select the **Add user** button. Then select **Users and groups** in the **Add Assignment** dialog box.
 
     ![The Add Assignment pane](common/add-assign-user.png)
 
-5. In the **Users and groups** dialog box, select **Britta Simon** in the Users list. Then clickthe **Select** button at the bottom of the screen.
+5. In the **Users and groups** dialog box, select **Britta Simon** in the users list. Then click the **Select** button at the bottom of the screen.
 
 6. If you are expecting any role value in the SAML assertion, then in the **Select Role** dialog box, select the appropriate role for the user from the list. Then click the **Select** button at the bottom of the screen.
 
@@ -201,13 +201,13 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Coralogix test user
 
-In this section, you create a user called Britta Simon in Coralogix. Work with the [Coralogix support team](mailto:info@coralogix.com) to add the users in the Coralogix platform. You must be create and activate users before you use single sign-on.
+In this section, you create a user called Britta Simon in Coralogix. Work with the [Coralogix support team](mailto:info@coralogix.com) to add the users in the Coralogix platform. You must create and activate users before you use single sign-on.
 
 ### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration by using the MyApps portal.
 
-When you select the Coralogix tile in the MyApps portal, you should be automatically signed in to Coralogix. For more information about the MyApps portal, see [What is the MyApps portal?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Coralogix tile in the [MyApps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction), you should be automatically signed in to Coralogix. For more information about the MyApps portal, see [What is the MyApps portal?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
