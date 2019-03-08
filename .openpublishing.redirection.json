@@ -13982,7 +13982,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/sql-database/sql-database-view-backups-in-vault-portal.md",
+      "source_path": "articles/sql-database/sql-database-long-term-backup-retention-configure-vault.md",
       "redirect_url": "/azure/sql-database/sql-database-long-term-backup-retention-configure",
       "redirect_document_id": false
     },
