@@ -1,5 +1,5 @@
 ---
-title:  How to get a Media Processor instance using REST | Microsoft Docs
+title: How to get a Media Processor instance using REST | Microsoft Docs
 description: Learn how to create a media processor component to encode, convert format, encrypt, or decrypt media content for Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -63,17 +63,17 @@ Response:
     . . .
 
     {
-       "odata.metadata":"https://media.windows.net/api/$metadata#MediaProcessors",
-       "value":[
-          {
-             "Id":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
-             "Description":"Media Encoder Standard",
-             "Name":"Media Encoder Standard",
-             "Sku":"",
-             "Vendor":"Microsoft",
-             "Version":"1.1"
-          }
-       ]
+        "odata.metadata":"https://media.windows.net/api/$metadata#MediaProcessors",
+        "value":[
+            {
+                "Id":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
+                "Description":"Media Encoder Standard",
+                "Name":"Media Encoder Standard",
+                "Sku":"",
+                "Vendor":"Microsoft",
+                "Version":"1.1"
+            }
+        ]
     }
 
 
