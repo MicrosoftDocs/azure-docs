@@ -101,6 +101,8 @@ To enable network access for the first time the user should shut down the emulat
 
 ## Developing with the emulator
 
+### SQL API
+
 Once you have the Azure Cosmos Emulator running on your desktop, you can use any supported [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) or the [Azure Cosmos DB REST API](/rest/api/cosmos-db/) to interact with the emulator. The Azure Cosmos Emulator also includes a built-in Data Explorer that lets you create containers for SQL API or Cosmos DB for Mongo DB API, and view and edit items without writing any code.
 
 ```csharp
@@ -111,11 +113,87 @@ Once you have the Azure Cosmos Emulator running on your desktop, you can use any
 
 ```
 
+### Azure Cosmos DB's API for MongoDB
+
 If you're using [Azure Cosmos DB wire protocol support for MongoDB](mongodb-introduction.md), use the following connection string:
 
-```
+```bash
     mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
 ```
+
+### Table API
+
+Once you have the Azure Cosmos Emulator running on your desktop, you can use the [Azure Cosmos DB Table API SDK](table-storage-how-to-use-dotnet.md) to interact with the emulator. Start emulator from command prompt as an administrator with “/EnableTableEndpoint”. Next run the following code to connect to the table API account:
+
+```csharp
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Table;
+using CloudTable = Microsoft.WindowsAzure.Storage.Table.CloudTable;
+using CloudTableClient = Microsoft.WindowsAzure.Storage.Table.CloudTableClient;
+                string connectionString =
+                                "DefaultEndpointsProtocol=http;AccountName=localhost;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==;TableEndpoint=http://localhost:8902/;";
+                CloudStorageAccount account = CloudStorageAccount.Parse(connectionString);
+                CloudTableClient tableClient = account.CreateCloudTableClient();
+                CloudTable table = tableClient.GetTableReference("testtable");
+                table.CreateIfNotExists();
+                table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowKey")));
+```
+
+### Cassandra API
+
+Start emulator from an administrator command prompt with “/EnableCassandraEndpoint”. Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_CASSANDRA_ENDPOINT=true`.
+
+* Install Python 2.7
+
+* Install Cassandra CLI/CQLSH
+
+* Run the following commands in a regular command prompt window:
+  * set Path=c:\Python27;%Path%
+  * cd /d C:\sdk\apache-cassandra-3.11.3\bin
+  * set SSL_VERSION=TLSv1_2
+  * set SSL_VALIDATE=false
+  * cqlsh localhost 10350 -u localhost -p C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw== --ssl
+
+* In the CQLSH shell, run the following commands to connect to the Cassandra endpoint:
+
+  ```bash
+  CREATE KEYSPACE MyKeySpace WITH replication = {'class':'MyClass', 'replication_factor': 1};
+  DESCRIBE keyspaces;
+  USE mykeyspace;
+  CREATE table table1(my_id int PRIMARY KEY, my_name text, my_desc text);
+  INSERT into table1 (my_id, my_name, my_desc) values( 1, 'name1', 'description 1');
+  SELECT * from table1;
+  EXIT
+  ```
+
+### Gremlin API
+
+Start emulator from an administrator command prompt with “/EnableGremlinEndpoint”. Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
+
+* Install apache-tinkerpop-gremlin-console-3.3.4
+* In the emulator’s Data Explorer create a database “db1” and a collection “coll1”; for the partition key choose “/name”
+* In a regular command prompt window:
+
+  * cd /d C:\sdk\apache-tinkerpop-gremlin-console-3.3.4-bin\apache-tinkerpop-gremlin-console-3.3.4
+  * copy /y conf\remote.yaml conf\remote-localcompute.yaml
+  * notepad.exe conf\remote-localcompute.yaml
+    hosts: [localhost]
+    port: 8901
+    username: /dbs/db1/colls/coll1
+    password: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+    connectionPool: {
+    enableSsl: false}
+    serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0,
+    config: { serializeResultToString: true  }}
+  * bin\gremlin.bat
+* In the Gremlin shell run the following commands to connect to the Gremlin endpoint:
+
+  :remote connect tinkerpop.server conf/remote-localcompute.yaml
+  :remote console
+  :> g.V()
+  :> g.addV('person1').property(id, '1').property('name', 'somename1')
+  :> g.addV('person2').property(id, '2').property('name', 'somename2')
+  :> g.V()
 
 You can also migrate data between the Azure Cosmos Emulator and the Azure Cosmos DB service using the [Azure Cosmos DB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool).
 
