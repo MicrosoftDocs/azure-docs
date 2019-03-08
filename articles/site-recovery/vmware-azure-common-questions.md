@@ -117,11 +117,11 @@ Yes, ExpressRoute can be used to replicate VMs to Azure. Site Recovery replicate
 
 ### How can I change storage account after machine is protected?
 
-For an ongoing replication, storage account can only be upgraded to premium. If you want to use standard pricing, you need to disable the replication of your source machine and re-enable the protection with standard managed disk. Apart from this, there is a no other way to change the storage account after protection is enabled.
+You need to disable and enable replication to either upgrade or downgrade the storage account type.
 
 ### How can I change Managed Disk type after machine is protected?
 
-Yes, you can easily change the type of managed disk. [Learn more](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage).
+You cannot change the managed disk type once the replication is enabled.
 
 ### Can I switch the replication from managed disks to unmanaged disks?
 
