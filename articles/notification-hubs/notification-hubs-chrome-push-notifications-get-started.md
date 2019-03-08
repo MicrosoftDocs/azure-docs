@@ -214,7 +214,7 @@ The Chrome App is created via JavaScript, and you can use any of your preferred 
     var originalUri    = "", targetUri = "", endpoint = "", sasKeyName = "", sasKeyValue = "", sasToken = "";
 
     window.onload = function() {
-        document.getElementById("registerWithGCM").onclick = registerWithGCM;  
+        document.getElementById("registerWithGCM").onclick = registerWithGCM;
         document.getElementById("registerWithNH").onclick = registerWithNH;
         updateLog("You have not registered yet. Please provider sender ID and register with GCM and then with  Notification Hubs.");
     }
