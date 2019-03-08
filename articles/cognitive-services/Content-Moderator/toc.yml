@@ -27,6 +27,8 @@
     href: ecommerce-retail-catalog-moderation.md
   - name: Moderate Facebook content
     href: facebook-post-moderation.md
+  - name: Video and trancript moderation
+    href: video-transcript-moderation-review-tutorial-dotnet.md
 - name: Concepts
   items:
   - name: Image moderation
@@ -105,10 +107,6 @@
       href: Review-Tool-User-Guide/Workflows.md
     - name: View dashboard
       href: Review-Tool-User-Guide/View-Dashboard.md
-  - name: First Content Moderator apps
-    items:
-    - name: Video and trancript moderation
-      href: video-transcript-moderation-review-tutorial-dotnet.md
   - name: Export or delete account data
     href: ./export-delete-data.md
   - name: Azure webinar series
