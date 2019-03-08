@@ -1,6 +1,6 @@
 ---
 title: Deploy Kubernetes to Azure Government | Microsoft Docs
-description: This article describes how to deploy Kubernetes to Azure Government using acs-engine.
+description: This article describes how to deploy Kubernetes to Azure Government using aks-engine.
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 03/11/2018
-ms.author: gsacavdm
+ms.date: 03/08/2019
+ms.author: gsacavdm, kenrward
 
 ---
 
 # Kubernetes on Azure Government
-This article describes how to deploy a Kubernetes cluster to Azure Government using acs-engine.
+This article describes how to deploy a Kubernetes cluster to Azure Government using aks-engine.
 
 ## Prerequisites
 
