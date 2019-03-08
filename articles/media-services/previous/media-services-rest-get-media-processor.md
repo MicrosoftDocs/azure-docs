@@ -62,10 +62,10 @@ Response:
 
     . . .
 
-    {  
+    {
        "odata.metadata":"https://media.windows.net/api/$metadata#MediaProcessors",
-       "value":[  
-          {  
+       "value":[
+          {
              "Id":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
              "Description":"Media Encoder Standard",
              "Name":"Media Encoder Standard",
