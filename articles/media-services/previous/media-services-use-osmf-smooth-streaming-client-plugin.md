@@ -57,7 +57,7 @@ For more information on static and dynamic loading, see the official [OSMF plugi
 The code snippet below shows how to load the SS plugin for OSMF statically and play a basic video using OSMF MediaFactory class. Before including the SS for OSMF code, please ensure that the project reference includes the "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" static plugin.
 
 ```
-package 
+package
 {
 
     import com.microsoft.azure.media.AdaptiveStreamingPluginInfo;
@@ -74,7 +74,7 @@ package
 
     [SWF(width="1024", height="768", backgroundColor='#405050', frameRate="25")]
     public class TestPlayer extends Sprite
-    {        
+    {
         public var _container:MediaContainer;
         public var _mediaFactory:DefaultMediaFactory;
         private var _mediaPlayerSprite:MediaPlayerSprite;
@@ -92,7 +92,7 @@ package
         {
 
             // Create the container (sprite) for managing display and layout
-            _mediaPlayerSprite = new MediaPlayerSprite();    
+            _mediaPlayerSprite = new MediaPlayerSprite();
             _mediaPlayerSprite.addEventListener(MediaErrorEvent.MEDIA_ERROR, onPlayerFailed);
             _mediaPlayerSprite.addEventListener(MediaPlayerStateChangeEvent.MEDIA_PLAYER_STATE_CHANGE, onPlayerStateChange);
             _mediaPlayerSprite.scaleMode = ScaleMode.NONE;
@@ -108,8 +108,8 @@ package
             _mediaFactory.addEventListener(MediaFactoryEvent.PLUGIN_LOAD,onPluginLoaded);
             _mediaFactory.addEventListener(MediaFactoryEvent.PLUGIN_LOAD_ERROR, onPluginLoadFailed );
 
-            // Load the plugin class 
-            loadAdaptiveStreamingPlugin( );  
+            // Load the plugin class
+            loadAdaptiveStreamingPlugin( );
 
         }
 
@@ -117,8 +117,8 @@ package
         {
             var pluginResource:MediaResourceBase;
 
-            pluginResource = new PluginInfoResource(new AdaptiveStreamingPluginInfo( )); 
-            _mediaFactory.loadPlugin( pluginResource ); 
+            pluginResource = new PluginInfoResource(new AdaptiveStreamingPluginInfo( ));
+            _mediaFactory.loadPlugin( pluginResource );
         }
 
         private function onPluginLoaded( event:MediaFactoryEvent ):void
@@ -143,14 +143,14 @@ package
 
             switch (state)
             {
-                case MediaPlayerState.LOADING: 
+                case MediaPlayerState.LOADING:
 
                     // A new source is started to load.
 
                     break;
 
-                case  MediaPlayerState.READY :   
-                    // Add code to deal with Player Ready when it is hit the first load after a source is loaded. 
+                case  MediaPlayerState.READY :
+                    // Add code to deal with Player Ready when it is hit the first load after a source is loaded.
 
                     break;
 
@@ -159,17 +159,17 @@ package
                     break;
 
                 case  MediaPlayerState.PAUSED :
-                    break;      
-                // other states ...          
+                    break;
+                // other states ...
             }
         }
 
         private function onPlayerFailed(event:MediaErrorEvent) : void
         {
-            // Media Player is failed .           
+            // Media Player is failed .
         }
 
-        private function loadMediaSource(sourceURL : String):void 
+        private function loadMediaSource(sourceURL : String):void
         {
             // Take an URL of SmoothStreamingSource's manifest and add it to the page.
 
@@ -182,7 +182,7 @@ package
 
             // Add the media element
             _mediaPlayerSprite.media = element;
-        }     
+        }
 
     }
 }
@@ -192,7 +192,7 @@ package
 ### SS for OSMF Dynamic Loading
 The code snippet below shows how to load the SS plugin for OSMF dynamically and play a basic video using the OSMF MediaFactory class. Before including the SS for OSMF code, copy the "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" dynamic plugin to the project folder if you want to load using FILE protocol, or copy under a web server for HTTP load. There is no need to include "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" in the project references.
 
-package 
+package
 {
 
     import flash.display.*;
@@ -210,7 +210,7 @@ package
 
     [SWF(width="1024", height="768", backgroundColor='#405050', frameRate="25")]
     public class TestPlayer extends Sprite
-    {        
+    {
         public var _container:MediaContainer;
         public var _mediaFactory:DefaultMediaFactory;
         private var _mediaPlayerSprite:MediaPlayerSprite;
@@ -226,7 +226,7 @@ package
         {
 
             // Create the container (sprite) for managing display and layout
-            _mediaPlayerSprite = new MediaPlayerSprite();    
+            _mediaPlayerSprite = new MediaPlayerSprite();
             _mediaPlayerSprite.addEventListener(MediaErrorEvent.MEDIA_ERROR, onPlayerFailed);
             _mediaPlayerSprite.addEventListener(MediaPlayerStateChangeEvent.MEDIA_PLAYER_STATE_CHANGE, onPlayerStateChange);
 
@@ -240,8 +240,8 @@ package
             _mediaFactory.addEventListener(MediaFactoryEvent.PLUGIN_LOAD,onPluginLoaded);
             _mediaFactory.addEventListener(MediaFactoryEvent.PLUGIN_LOAD_ERROR, onPluginLoadFailed );
 
-            // Load the plugin class 
-            loadAdaptiveStreamingPlugin( );  
+            // Load the plugin class
+            loadAdaptiveStreamingPlugin( );
 
         }
 
@@ -254,7 +254,7 @@ package
 
             adaptiveStreamingPluginUrl = "http://yourdomain/MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf";
             pluginResource = new URLResource(adaptiveStreamingPluginUrl);
-            _mediaFactory.loadPlugin( pluginResource ); 
+            _mediaFactory.loadPlugin( pluginResource );
 
         }
 
@@ -281,14 +281,14 @@ package
 
             switch (state)
             {
-                case MediaPlayerState.LOADING: 
+                case MediaPlayerState.LOADING:
 
                     // A new source is started to load.
 
                     break;
 
-                case  MediaPlayerState.READY :   
-                    // Add code to deal with Player Ready when it is hit the first load after a source is loaded. 
+                case  MediaPlayerState.READY :
+                    // Add code to deal with Player Ready when it is hit the first load after a source is loaded.
 
                     break;
 
@@ -296,18 +296,18 @@ package
 
                     break;
 
-                case  MediaPlayerState.PAUSED :
-                    break;      
-                // other states ...          
+                case MediaPlayerState.PAUSED :
+                    break;
+                // other states ...
             }
         }
 
         private function onPlayerFailed(event:MediaErrorEvent) : void
         {
-            // Media Player is failed .           
+            // Media Player is failed .
         }
 
-        private function loadMediaSource(sourceURL : String):void 
+        private function loadMediaSource(sourceURL : String):void
         {
             // Take an URL of SmoothStreamingSource's manifest and add it to the page.
 
@@ -319,7 +319,7 @@ package
             _mediaPlayerSprite.height = stage.stageHeight;
             // Add the media element
             _mediaPlayerSprite.media = element;
-        }     
+        }
 
     }
 }
@@ -336,19 +336,19 @@ The Smooth Streaming for OSMF dynamic plugin is compatible with [Strobe Media Pl
 
         <html>
         <body>
-        <object width="920" height="640"> 
+        <object width="920" height="640">
         <param name="movie" value="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf"></param>
         <param name="flashvars" value="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest &autoPlay=true"></param>
         <param name="allowFullScreen" value="true"></param>
         <param name="allowscriptaccess" value="always"></param>
         <param name="wmode" value="direct"></param>
-        <embed src="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf" 
-            type="application/x-shockwave-flash" 
-            allowscriptaccess="always" 
-            allowfullscreen="true" 
-            wmode="direct" 
-            width="920" 
-            height="640" 
+        <embed src="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf"
+            type="application/x-shockwave-flash"
+            allowscriptaccess="always"
+            allowfullscreen="true"
+            wmode="direct"
+            width="920"
+            height="640"
             flashvars=" src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true">
         </embed>
         </object>
@@ -360,19 +360,19 @@ The Smooth Streaming for OSMF dynamic plugin is compatible with [Strobe Media Pl
 1. Add Smooth Streaming OSMF plugin to the embed code and save.
    
         <html>
-        <object width="920" height="640"> 
+        <object width="920" height="640">
         <param name="movie" value="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf"></param>
         <param name="flashvars" value="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true&plugin_AdaptiveStreamingPlugin=http://yourdomain/MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf&AdaptiveStreamingPlugin_retryLive=true&AdaptiveStreamingPlugin_retryInterval=10"></param>
         <param name="allowFullScreen" value="true"></param>
         <param name="allowscriptaccess" value="always"></param>
         <param name="wmode" value="direct"></param>
-        <embed src="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf" 
-            type="application/x-shockwave-flash" 
-            allowscriptaccess="always" 
-            allowfullscreen="true" 
-            wmode="direct" 
-            width="920" 
-            height="640" 
+        <embed src="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf"
+            type="application/x-shockwave-flash"
+            allowscriptaccess="always"
+            allowfullscreen="true"
+            wmode="direct"
+            width="920"
+            height="640"
             flashvars="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true&plugin_AdaptiveStreamingPlugin=http://yourdomain/MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf&AdaptiveStreamingPlugin_retryLive=true&AdaptiveStreamingPlugin_retryInterval=10">
         </embed>
         </object>
