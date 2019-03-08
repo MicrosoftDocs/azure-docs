@@ -108,14 +108,14 @@ HTTP action with fuller element details described in later sections:
    "action": {
       "type": "Http",
       "request": {
-         "uri": "http://contoso.com/some-method", 
-         "method": "PUT",          
+         "uri": "http://contoso.com/some-method",
+         "method": "PUT",
          "body": "Posting from a timer",
          "headers": {
             "Content-Type": "application/json"
          },
-         "retryPolicy": { 
-             "retryType": "None" 
+         "retryPolicy": {
+             "retryType": "None"
          },
       },
       "errorAction": {
@@ -175,9 +175,9 @@ Here's an example for a Storage queue action:
 "action": {
    "type": "storageQueue",
    "queueMessage": {
-      "storageAccount": "myStorageAccount",  
-      "queueName": "myqueue",                
-      "sasToken": "TOKEN",                   
+      "storageAccount": "myStorageAccount",
+      "queueName": "myqueue",
+      "sasToken": "TOKEN",
       "message": "My message body"
     }
 }
@@ -189,14 +189,14 @@ Here's an example for a Service Bus queue action:
 "action": {
    "type": "serviceBusQueue",
    "serviceBusQueueMessage": {
-      "queueName": "q1",  
+      "queueName": "q1",
       "namespace": "mySBNamespace",
       "transportType": "netMessaging", // Either netMessaging or AMQP
-      "authentication": {  
+      "authentication": {
          "sasKeyName": "QPolicy",
          "type": "sharedAccessKey"
       },
-      "message": "Some message",  
+      "message": "Some message",
       "brokeredMessageProperties": {},
       "customMessageProperties": {
          "appname": "FromScheduler"
@@ -211,7 +211,7 @@ Here's an example for a Service Bus topic action:
 "action": {
    "type": "serviceBusTopic",
    "serviceBusTopicMessage": {
-      "topicPath": "t1",  
+      "topicPath": "t1",
       "namespace": "mySBNamespace",
       "transportType": "netMessaging", // Either netMessaging or AMQP
       "authentication": {
@@ -294,7 +294,7 @@ You can make this policy more or less aggressive, for example,
 this policy retries an action two times per day:
 
 ```json
-"retryPolicy": { 
+"retryPolicy": {
    "retryType": "Fixed",
    "retryInterval": "PT1D",
    "retryCount": 2
