@@ -62,7 +62,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 ```cs
 [FunctionName("HttpTriggerCSharp")]
 public static async Task<IActionResult> Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] 
+    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]
     HttpRequest req, ILogger log)
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
@@ -142,7 +142,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
 public static string Run(Person person, ILogger log)
-{   
+{
     return person.Name != null
         ? (ActionResult)new OkObjectResult($"Hello, {person.Name}")
         : new BadRequestObjectResult("Please pass an instance of Person.");
@@ -227,7 +227,7 @@ Here's the *function.json* file:
 
 ```json
 {
-    "disabled": false,    
+    "disabled": false,
     "bindings": [
         {
             "authLevel": "function",
@@ -277,7 +277,7 @@ Here's the *function.json* file:
 ```json
 {
     "scriptFile": "__init__.py",
-    "disabled": false,    
+    "disabled": false,
     "bindings": [
         {
             "authLevel": "function",
@@ -336,7 +336,7 @@ Here's the *function.json* file:
 
 ```json
 {
-    "disabled": false,    
+    "disabled": false,
     "bindings": [
         {
             "authLevel": "anonymous",
@@ -360,12 +360,12 @@ This example reads a parameter, named ```id```, from the query string, and uses 
 ```java
     @FunctionName("TriggerStringGet")
     public HttpResponseMessage run(
-            @HttpTrigger(name = "req", 
-              methods = {HttpMethod.GET}, 
+            @HttpTrigger(name = "req",
+              methods = {HttpMethod.GET},
               authLevel = AuthorizationLevel.ANONYMOUS)
             HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) {
-        
+
         // Item list
         context.getLogger().info("GET parameters are: " + request.getQueryParameters());
 
@@ -377,12 +377,12 @@ This example reads a parameter, named ```id```, from the query string, and uses 
             return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
                           .body("Document not found.")
                           .build();
-        } 
+        }
         else {
             // return JSON from to the client
             // Generate document
             final String name = "fake_name";
-            final String jsonDocument = "{\"id\":\"" + id + "\", " + 
+            final String jsonDocument = "{\"id\":\"" + id + "\", " +
                                          "\"description\": \"" + name + "\"}";
             return request.createResponseBuilder(HttpStatus.OK)
                           .header("Content-Type", "application/json")
@@ -399,12 +399,12 @@ This example reads the body of a POST request, as a ```String```, and uses it to
 ```java
     @FunctionName("TriggerStringPost")
     public HttpResponseMessage run(
-            @HttpTrigger(name = "req", 
-              methods = {HttpMethod.POST}, 
+            @HttpTrigger(name = "req",
+              methods = {HttpMethod.POST},
               authLevel = AuthorizationLevel.ANONYMOUS)
             HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) {
-        
+
         // Item list
         context.getLogger().info("Request body is: " + request.getBody().orElse(""));
 
@@ -413,12 +413,12 @@ This example reads the body of a POST request, as a ```String```, and uses it to
             return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
                           .body("Document not found.")
                           .build();
-        } 
+        }
         else {
             // return JSON from to the client
             // Generate document
             final String body = request.getBody().get();
-            final String jsonDocument = "{\"id\":\"123456\", " + 
+            final String jsonDocument = "{\"id\":\"123456\", " +
                                          "\"description\": \"" + body + "\"}";
             return request.createResponseBuilder(HttpStatus.OK)
                           .header("Content-Type", "application/json")
@@ -435,15 +435,15 @@ This example reads a mandatory parameter, named ```id```, and an optional parame
 ```java
     @FunctionName("TriggerStringRoute")
     public HttpResponseMessage run(
-            @HttpTrigger(name = "req", 
-              methods = {HttpMethod.GET}, 
+            @HttpTrigger(name = "req",
+              methods = {HttpMethod.GET},
               authLevel = AuthorizationLevel.ANONYMOUS,
               route = "trigger/{id}/{name=EMPTY}") // name is optional and defaults to EMPTY
             HttpRequestMessage<Optional<String>> request,
             @BindingName("id") String id,
             @BindingName("name") String name,
             final ExecutionContext context) {
-        
+
         // Item list
         context.getLogger().info("Route parameters are: " + id);
 
@@ -452,11 +452,11 @@ This example reads a mandatory parameter, named ```id```, and an optional parame
             return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
                           .body("Document not found.")
                           .build();
-        } 
+        }
         else {
             // return JSON from to the client
             // Generate document
-            final String jsonDocument = "{\"id\":\"" + id + "\", " + 
+            final String jsonDocument = "{\"id\":\"" + id + "\", " +
                                          "\"description\": \"" + name + "\"}";
             return request.createResponseBuilder(HttpStatus.OK)
                           .header("Content-Type", "application/json")
@@ -475,7 +475,7 @@ Here is the code for the ```ToDoItem``` class, referenced in this example:
 public class ToDoItem {
 
   private String id;
-  private String description;  
+  private String description;
 
   public ToDoItem(String id, String description) {
     this.id = id;
@@ -489,7 +489,7 @@ public class ToDoItem {
   public String getDescription() {
     return description;
   }
-  
+
   @Override
   public String toString() {
     return "ToDoItem={id=" + id + ",description=" + description + "}";
@@ -503,12 +503,12 @@ This example reads the body of a POST request. The request body gets automatical
 ```java
     @FunctionName("TriggerPojoPost")
     public HttpResponseMessage run(
-            @HttpTrigger(name = "req", 
-              methods = {HttpMethod.POST}, 
+            @HttpTrigger(name = "req",
+              methods = {HttpMethod.POST},
               authLevel = AuthorizationLevel.ANONYMOUS)
             HttpRequestMessage<Optional<ToDoItem>> request,
             final ExecutionContext context) {
-        
+
         // Item list
         context.getLogger().info("Request body is: " + request.getBody().orElse(null));
 
@@ -517,7 +517,7 @@ This example reads the body of a POST request. The request body gets automatical
             return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
                           .body("Document not found.")
                           .build();
-        } 
+        }
         else {
             // return JSON from to the client
             // Generate document
@@ -613,7 +613,7 @@ public static Task<IActionResult> Run(HttpRequest req, string category, int? id,
     {
         return (ActionResult)new OkObjectResult($"{category} item with id = {id} has been requested.");
     }
-    
+
     // -----
     log.LogInformation($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
 }
