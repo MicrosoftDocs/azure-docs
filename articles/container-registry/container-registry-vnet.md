@@ -312,7 +312,7 @@ To revert the registry to allow access by default, substitute the name of your r
 az acr update --name myContainerRegistry --default-action Allow
 ```
 
-# Restore default registry access - portal
+## Restore default registry access - portal
 
 To revert the registry to allow access by default:
 
