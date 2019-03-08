@@ -288,7 +288,7 @@ Now that you have modified your app backend to send just the *id* of a notificat
         NSString* richType = [self.userInfo objectForKey:@"richType"];
 
         // Retrieve image data
-        if ([richType isEqualToString:@"img"]) {  
+        if ([richType isEqualToString:@"img"]) {
             [self retrieveRichImageWithId:richId completion:^(NSError* error) {
                 if (!error){
                     // Send local notification
