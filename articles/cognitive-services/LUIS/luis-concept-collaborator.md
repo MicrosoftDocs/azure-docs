@@ -56,6 +56,10 @@ This method allows you to have one active version, one stage version, and one pu
 
 Exported apps are JSON-formatted files, which can be compared with the base export for changes. Combine the files to create a single JSON file of the new version. Change the **versionId** property in the JSON to signify the new merged version. Import that version into the original app.
 
+## Collaborator roles vs entity roles
+
+[Entity roles](luis-concept-roles.md) apply to the data model of the LUIS app. Collaborator roles apply to levels of authoring access. 
+
 ## Next steps
 
 Understand [versioning](luis-concept-version.md) concepts. 

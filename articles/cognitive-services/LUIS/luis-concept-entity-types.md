@@ -115,25 +115,11 @@ This entity is a good fit when the data:
 
 ## Hierarchical entity
 
+**Hierarchical entities will eventually be deprecated. Please use [entity roles](luis-concept-roles.md) to determine entity subtypes, instead of hierarchical entities.**
+
 A hierarchical entity is a category of contextually learned simple entities called children.
 
-This entity is a good fit when the data:
-
-* Are simple entities.
-* Are related to each other in the context of the utterance.
-* Use specific word choice to indicate each child entity. Examples of these words include: from/to, leaving/headed to, away from/toward.
-* Children are frequently in the same utterance. 
-* Need to be grouped and processed by client app as a unit of information.
-
-Do not use if:
-
-* You need an entity that has exact text matches for children regardless of context. Use a [List entity](#list-entity) instead. 
-* You need an entity for a parent-child relationship with other entity types. Use the [Composite entity](#composite-entity).
-
 ![hierarchical entity](./media/luis-concept-entities/hierarchical-entity.png)
-
-[Tutorial](luis-quickstart-intent-and-hier-entity.md)<br>
-[Example JSON response for entity](luis-concept-data-extraction.md#hierarchical-entity-data)<br>
 
 ### Roles versus hierarchical entities
 

@@ -75,6 +75,10 @@ In a pattern's template utterance, roles are used within the utterance:
 ## Role syntax in patterns
 The entity and role are surrounded in parentheses, `{}`. The entity and the role are separated by a colon. 
 
+## Entity roles versus collaborator roles
+
+Entity roles apply to the data model of the LUIS app. [Collaborator](luis-concept-collaborator.md) roles apply to levels of authoring access. 
+
 ## Next steps
 
 * Learn how to add [roles](luis-how-to-add-entities.md#add-a-role-to-pattern-based-entity)
