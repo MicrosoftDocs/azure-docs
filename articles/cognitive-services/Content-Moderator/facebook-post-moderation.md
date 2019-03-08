@@ -149,16 +149,14 @@ Then click **+ New function** at the top of the page. This function receives eve
         3. Select **Get Permanent Page Access Token** and click **Send**.
     5. Copy the **access_token** value from the response and assign it to the App setting, **fb:PageAccessToken**.
 
-That's it!
-
-The solution sends all images and text posted on your Facebook page to Content Moderator. The workflows that you configured earlier are invoked. The content that does not pass your criteria defined in the workflows results in reviews within the review tool. The rest of the content gets published.
+The solution sends all images and text posted on your Facebook page to Content Moderator. Then the workflows that you configured earlier are invoked. The content that does not pass your criteria defined in the workflows gets passed to reviews within the review tool. The rest of the content gets published automatically.
 
 ## Next steps
 
 In this tutorial, you set up a program to analyze product images for the purpose of tagging them by product type and allowing a review team to make informed decisions about content moderation. Next, learn more about the details of image moderation.
 
 > [!div class="nextstepaction"]
-> [TBD](./TBD.md)
+> [Image moderation](./image-moderation-api.md)
 
 [Watch a demo (video)](https://channel9.msdn.com/Events/Build/2017/T6033) of this solution from Microsoft Build 2017.
 
