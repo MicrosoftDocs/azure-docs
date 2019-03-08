@@ -83,7 +83,7 @@ The following program shows how to:
 2. Creates a job with a video thumbnail task based on a configuration file that contains the following json preset: 
     
     ```json
-            {                
+            {
                 "version": "1.0",
                 "options": {
                     "outputAudio": "true",
@@ -129,7 +129,7 @@ Set up your development environment and populate the app.config file with connec
 
             static void Main(string[] args)
             {
-                AzureAdTokenCredentials tokenCredentials = 
+                AzureAdTokenCredentials tokenCredentials =
                     new AzureAdTokenCredentials(_AADTenantDomain,
                         new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
                         AzureEnvironments.AzureCloudEnvironment);
@@ -177,7 +177,7 @@ Set up your development environment and populate the app.config file with connec
                 // Add an output asset to contain the results of the job.
                 task.OutputAssets.AddNew("My Video Thumbnail Output Asset", AssetCreationOptions.None);
 
-                // Use the following event handler to check job progress.  
+                // Use the following event handler to check job progress.
                 job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
 
                 // Launch the job.
