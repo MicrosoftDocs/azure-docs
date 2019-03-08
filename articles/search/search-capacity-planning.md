@@ -6,7 +6,7 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 11/09/2017
+ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -39,9 +39,15 @@ In Azure Search, a service is initially allocated a minimal level of resources c
 To increase or change the allocation of replicas and partitions, we recommend using the Azure portal. The portal enforces limits on allowable combinations that stay below maximum limits:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and select the search service.
-2. In **Settings**, open the **Scale** blade and use the sliders to increase or decrease the number of partitions and replicas.
+2. In **Settings**, open the **Scale** page and use the sliders to increase or decrease the number of partitions and replicas.
 
-If you require a script-based or code-based provisioning approach, the [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/services) is an alternative to the portal.
+If you substantially increase or decrease capacity, for example increasing from 1 each to 6 of each resource, it can take awhile (several hours) before additional capacity is available. 
+
+You can monitor the progression of new replicas and partitions in the page. The following screenshot indicates how many of the six replicas and six partitions are already created.
+
+ ![Progress report when changing capacity](media/search-capacity-planning/progress-updating-replicas-partitions.png "Progress report when changing capacity")
+
+If you require a script-based or code-based provisioning approach, the [Azure PowerShell](search-manage-powershell.md) or the [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/services) is an alternative.
 
 Generally, search applications need more replicas than partitions, particularly when the service operations are biased toward query workloads. The section on [high availability](#HA) explains why.
 

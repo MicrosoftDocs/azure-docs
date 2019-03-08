@@ -7,7 +7,7 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -32,6 +32,20 @@ Within a tier, you can [adjust replica and partition resources](search-capacity-
 <!---
 The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
 --->
+
+## Tiers 
+
+The following table lists all of the available tiers. You can refer to the [pricing page](https://azure.microsoft.com/pricing/details/search/) for more details and to [service limits](search-limits-quotas-capacity.md) for information on data limits.
+
+|Tier | Description |
+|-----|-------------|
+|Free | A multi-tenant shared service that comes with your Azure subscription. Non-scalable. Limited number of indexes and data. |
+|Basic | Dedicated computing resources for production workloads at a smaller scale. One partition and up to three replicas. |
+|S1 (Standard one) | Dedicated machines with more storage and processing capacity at every level. Partition size is 25 GB. |
+|S2 (Standard two) | Similar to S1 but with larger partitions (100 GB). |
+|S3 (Standard three) | 200 GB Partition size. |
+|S3 HD (High-density) | Underlying hardware is optimized for a large number of smaller indexes, intended for multi-tenant scenarios. |
+
 
 ## How billing works
 
