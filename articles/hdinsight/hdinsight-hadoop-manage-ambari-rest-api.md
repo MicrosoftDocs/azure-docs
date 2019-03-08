@@ -80,7 +80,7 @@ $clusterName
 
 ### Parsing JSON data
 
-The following example uses [jq](https://stedolan.github.io/jq/) to parse the JSON response document and display only the `health_report` information from the results.
+The following example uses [jq](https://stedolan.github.io/jq/) or [ConvertFrom-Json](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) to parse the JSON response document and display only the `health_report` information from the results.
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" \
@@ -94,7 +94,7 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.Clusters.health_report
 ```   
 
-### Get the FQDN of cluster nodes
+### <a href="#example-get-the-fqdn-of-cluster-nodes"></a> Get the FQDN of cluster nodes
 
 When working with HDInsight, you may need to know the fully qualified domain name (FQDN) of a cluster node. You can easily retrieve the FQDN for the various nodes in the cluster using the following examples:
 
@@ -154,7 +154,7 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.host_components.HostRoles.host_name
 ```
 
-### Get the internal IP address of cluster nodes
+### <a href="#example-get-the-internal-ip-address-of-cluster-nodes"></a> Get the internal IP address of cluster nodes
 
 The IP addresses returned by the examples in this section are not directly accessible over the internet. They are only accessible within the Azure Virtual Network that contains the HDInsight cluster.
 
@@ -246,10 +246,10 @@ The return value is similar to one of the following examples:
     The return value is similar to `/clusters/CLUSTERNAME/`. This value is a path within the Data Lake Storage account. This path is the root of the HDFS compatible file system for the cluster.  
 
 > [!NOTE]  
-> The `Get-AzHDInsightCluster` cmdlet provided by [Azure PowerShell](/powershell/azure/overview) also returns the storage information for the cluster.
+> The [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) cmdlet provided by [Azure PowerShell](/powershell/azure/overview) also returns the storage information for the cluster.
 
 
-### Get all configurations
+### <a href="#get-all-configurations"></a> Get all configurations
 
 Get the configurations that are available for your cluster.
 
