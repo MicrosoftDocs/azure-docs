@@ -41,9 +41,9 @@ To increase or change the allocation of replicas and partitions, we recommend us
 1. Sign in to the [Azure portal](https://portal.azure.com/) and select the search service.
 2. In **Settings**, open the **Scale** page and use the sliders to increase or decrease the number of partitions and replicas.
 
-If you substantially increase or decrease capacity, for example increasing from 1 each to 6 of each resource, it can take awhile (several hours) before additional capacity is available. 
+Changes in capacity take time to process. If you triple or quadruple resource levels, it could take over an hour to complete.
 
-You can monitor the progression of new replicas and partitions in the page. The following screenshot indicates how many of the six replicas and six partitions are already created.
+You can monitor changes to replica and partition counts in the portal. The following screenshot indicates how many of the requested six replicas and six partitions are already created.
 
  ![Progress report when changing capacity](media/search-capacity-planning/progress-updating-replicas-partitions.png "Progress report when changing capacity")
 

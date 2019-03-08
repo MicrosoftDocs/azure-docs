@@ -33,7 +33,7 @@ Within a tier, you can [adjust replica and partition resources](search-capacity-
 The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
 --->
 
-## Tiers 
+## Search service tiers 
 
 The following table lists all of the available tiers. You can refer to the [pricing page](https://azure.microsoft.com/pricing/details/search/) for more details and to [service limits](search-limits-quotas-capacity.md) for information on data limits.
 
