@@ -220,7 +220,7 @@ One option for updating your web service is to retrain the model programmaticall
 [Convert it to a predictive experiment]: #convert-the-training-experiment-to-a-predictive-experiment
 [New web service]: #deploy-it-as-a-new-web-service
 [Classic web service]: #deploy-it-as-a-classic-web-service
-[new]: #deploy-the-predictive-experiment-as-a-new-web-service
+[new]: #deploy-it-as-a-new-web-service
 [classic]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
