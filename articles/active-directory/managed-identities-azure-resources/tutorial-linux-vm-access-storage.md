@@ -112,6 +112,34 @@ To complete the following steps, you need to work from the VM created earlier an
    Hello world! :)
    ```
 
+
+### Access using python
+
+``` python
+from azure.storage.blob.blockblobservice import BlockBlobService
+from azure.storage.common import TokenCredential
+import requests
+
+auth_url = 'http://169.254.169.254/metadata/identity/oauth2/token'
+headers = {'metadata': 'true'}
+params = {
+    'resource': 'https://storage.azure.net/',
+    'api-version': '2018-02-01',
+}
+
+# Requesting a token using managed identity, returns a dict which has auth token
+resp_json = requests.get(auth_url, params=params, headers=headers).json()
+
+# Pass the acquired token to generate a usable token object
+token = TokenCredential(resp_json['access_token'])
+
+# Create an Blob client using the token
+blob = BlockBlobService(account_name='<BLOB_ACCOUNT_NAME>', token_credential=token)
+
+```
+Refer to [Azure Storage SDK for Python Docs](https://azure-storage.readthedocs.io/index.html) for details on how to use the obtained `blob` client object
+
+
 ## Next steps
 
 In this tutorial, you learned how enable a Linux VM system-assigned managed identity to access Azure Storage.  To learn more about Azure Storage see:
