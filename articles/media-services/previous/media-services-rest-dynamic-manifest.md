@@ -67,35 +67,31 @@ Request Headers
 Request body 
 
     {
-       "Name":"GlobalFilter",
-       "PresentationTimeRange":{
-          "StartTimestamp":"0",
-          "EndTimestamp":"9223372036854775807",
-          "PresentationWindowDuration":"12000000000",
-          "LiveBackoffDuration":"0",
-          "Timescale":"10000000"
-       },
-       "Tracks":[
-          {
-             "PropertyConditions":
-                  [
-                {
-                   "Property":"Type",
-                   "Value":"audio",
-                   "Operator":"Equal"
-                },
-                {
-                   "Property":"Bitrate",
-                   "Value":"0-2147483647",
-                   "Operator":"Equal"
-                }
-             ]
-          }
-       ]
+      "Name":"GlobalFilter",
+      "PresentationTimeRange":{
+        "StartTimestamp":"0",
+        "EndTimestamp":"9223372036854775807",
+        "PresentationWindowDuration":"12000000000",
+        "LiveBackoffDuration":"0",
+        "Timescale":"10000000"
+      },
+      "Tracks":[
+        {
+          "PropertyConditions": [
+            {
+              "Property":"Type",
+              "Value":"audio",
+              "Operator":"Equal"
+            },
+            {
+              "Property":"Bitrate",
+              "Value":"0-2147483647",
+              "Operator":"Equal"
+            }
+          ]
+        }
+      ]
     }
-
-
-
 
 #### HTTP Response
     HTTP/1.1 201 Created 
@@ -120,32 +116,31 @@ Request Headers
 Request body 
 
     {
-       "Name":"AssetFilter",
-       "ParentAssetId":"nb:cid:UUID:536e555d-1500-80c3-92dc-f1e4fdc6c592",
-       "PresentationTimeRange":{
-          "StartTimestamp":"0",
-          "EndTimestamp":"9223372036854775807",
-          "PresentationWindowDuration":"12000000000",
-          "LiveBackoffDuration":"0",
-          "Timescale":"10000000"
-       },
-       "Tracks":[
-          {
-             "PropertyConditions":
-                  [
-                {
-                   "Property":"Type",
-                   "Value":"audio",
-                   "Operator":"Equal"
-                },
-                {
-                   "Property":"Bitrate",
-                   "Value":"0-2147483647",
-                   "Operator":"Equal"
-                }
-             ]
-          }
-       ]
+      "Name":"AssetFilter",
+      "ParentAssetId":"nb:cid:UUID:536e555d-1500-80c3-92dc-f1e4fdc6c592",
+      "PresentationTimeRange":{
+        "StartTimestamp":"0",
+        "EndTimestamp":"9223372036854775807",
+        "PresentationWindowDuration":"12000000000",
+        "LiveBackoffDuration":"0",
+        "Timescale":"10000000"
+      },
+      "Tracks":[
+        {
+          "PropertyConditions": [
+            {
+              "Property":"Type",
+              "Value":"audio",
+              "Operator":"Equal"
+            },
+            {
+              "Property":"Bitrate",
+              "Value":"0-2147483647",
+              "Operator":"Equal"
+            }
+          ]
+        }
+      ]
     }
 
 #### HTTP Response
@@ -216,23 +211,22 @@ Request headers:
 Request body: 
 
     {
-       "Tracks":[
-          {
-             "PropertyConditions":
-             [
-                {
-                   "Property":"Type",
-                   "Value":"audio",
-                   "Operator":"Equal"
-                },
-                {
-                   "Property":"Bitrate",
-                   "Value":"0-2147483647",
-                   "Operator":"Equal"
-                }
-             ]
-          }
-       ]
+      "Tracks":[
+        {
+          "PropertyConditions": [
+            {
+              "Property":"Type",
+              "Value":"audio",
+              "Operator":"Equal"
+            },
+            {
+              "Property":"Bitrate",
+              "Value":"0-2147483647",
+              "Operator":"Equal"
+            }
+          ]
+        }
+      ]
     }
 
 ### Update local AssetFilters
@@ -255,23 +249,22 @@ Request headers:
 Request body: 
 
     {
-       "Tracks":[
-          {
-             "PropertyConditions":
-             [
-                {
-                   "Property":"Type",
-                   "Value":"audio",
-                   "Operator":"Equal"
-                },
-                {
-                   "Property":"Bitrate",
-                   "Value":"0-2147483647",
-                   "Operator":"Equal"
-                }
-             ]
-          }
-       ]
+      "Tracks":[
+        {
+          "PropertyConditions": [
+            {
+              "Property":"Type",
+              "Value":"audio",
+              "Operator":"Equal"
+            },
+            {
+              "Property":"Bitrate",
+              "Value":"0-2147483647",
+              "Operator":"Equal"
+            }
+          ]
+        }
+      ]
     }
 
 
