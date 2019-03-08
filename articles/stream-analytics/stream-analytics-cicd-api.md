@@ -64,72 +64,72 @@ curl -u { <username:password> }  -H "Content-Type: application/json" -X { <metho
 Example of request body in JSON:
 
 ```json
-{ 
-  "location": "West US", 
-  "tags": { "key": "value", "ms-suppressjobstatusmetrics": "true" }, 
-  "sku": {  
-      "name": "Standard" 
-    }, 
-  "properties": { 
-    "sku": {  
-      "name": "standard" 
-    }, 
-       "eventsLateArrivalMaxDelayInSeconds": 1, 
-       "jobType": "edge", 
-    "inputs": [ 
-      { 
-        "name": "{inputname}", 
-        "properties": { 
-         "type": "stream", 
-          "serialization": { 
-            "type": "JSON", 
-            "properties": { 
-              "fieldDelimiter": ",", 
-              "encoding": "UTF8" 
-            } 
-          }, 
-          "datasource": { 
-            "type": "GatewayMessageBus", 
-            "properties": { 
-            } 
-          } 
-        } 
-      } 
-    ], 
-    "transformation": { 
-      "name": "{queryName}", 
-      "properties": { 
-        "query": "{query}" 
-      } 
-    }, 
-    "package": { 
-      "storageAccount" : { 
-        "accountName": "{blobstorageaccountname}", 
-        "accountKey": "{blobstorageaccountkey}" 
-      }, 
-      "container": "{blobcontaine}]" 
-    }, 
-    "outputs": [ 
-      { 
-        "name": "{outputname}", 
-        "properties": { 
-          "serialization": { 
-            "type": "JSON", 
-            "properties": { 
-              "fieldDelimiter": ",", 
-              "encoding": "UTF8" 
-            } 
-          }, 
-          "datasource": { 
-            "type": "GatewayMessageBus", 
-            "properties": { 
-            } 
-          } 
-        } 
-      } 
-    ] 
-  } 
-} 
+{
+  "location": "West US",
+  "tags": { "key": "value", "ms-suppressjobstatusmetrics": "true" },
+  "sku": {
+      "name": "Standard"
+    },
+  "properties": {
+    "sku": {
+      "name": "standard"
+    },
+       "eventsLateArrivalMaxDelayInSeconds": 1,
+       "jobType": "edge",
+    "inputs": [
+      {
+        "name": "{inputname}",
+        "properties": {
+         "type": "stream",
+          "serialization": {
+            "type": "JSON",
+            "properties": {
+              "fieldDelimiter": ",",
+              "encoding": "UTF8"
+            }
+          },
+          "datasource": {
+            "type": "GatewayMessageBus",
+            "properties": {
+            }
+          }
+        }
+      }
+    ],
+    "transformation": {
+      "name": "{queryName}",
+      "properties": {
+        "query": "{query}"
+      }
+    },
+    "package": {
+      "storageAccount" : {
+        "accountName": "{blobstorageaccountname}",
+        "accountKey": "{blobstorageaccountkey}"
+      },
+      "container": "{blobcontaine}]"
+    },
+    "outputs": [
+      {
+        "name": "{outputname}",
+        "properties": {
+          "serialization": {
+            "type": "JSON",
+            "properties": {
+              "fieldDelimiter": ",",
+              "encoding": "UTF8"
+            }
+          },
+          "datasource": {
+            "type": "GatewayMessageBus",
+            "properties": {
+            }
+          }
+        }
+      }
+    ]
+  }
+}
 ```
  
 For more information, see the [API documentation](/rest/api/streamanalytics/stream-analytics-job).  
@@ -171,82 +171,82 @@ The response includes the information you need to add to the Edge deployment scr
 Sample response body after publishing successfully:
 
 ```json
-{ 
-  edgePackageUrl : null 
-  error : null 
-  manifest : "{"supportedPlatforms":[{"os":"linux","arch":"amd64","features":[]},{"os":"linux","arch":"arm","features":[]},{"os":"windows","arch":"amd64","features":[]}],"schemaVersion":"2","name":"{jobname}","version":"1.0.0.0","type":"docker","settings":{"image":"{imageurl}","createOptions":null},"endpoints":{"inputs":["],"outputs":["{outputnames}"]},"twin":{"contentType":"assignments","content":{"properties.desired":{"ASAJobInfo":"{asajobsasurl}","ASAJobResourceId":"{asajobresourceid}","ASAJobEtag":"{etag}",”PublishTimeStamp”:”{publishtimestamp}”}}}}" 
-  status : "Succeeded" 
-} 
+{
+  edgePackageUrl : null
+  error : null
+  manifest : "{"supportedPlatforms":[{"os":"linux","arch":"amd64","features":[]},{"os":"linux","arch":"arm","features":[]},{"os":"windows","arch":"amd64","features":[]}],"schemaVersion":"2","name":"{jobname}","version":"1.0.0.0","type":"docker","settings":{"image":"{imageurl}","createOptions":null},"endpoints":{"inputs":["],"outputs":["{outputnames}"]},"twin":{"contentType":"assignments","content":{"properties.desired":{"ASAJobInfo":"{asajobsasurl}","ASAJobResourceId":"{asajobresourceid}","ASAJobEtag":"{etag}",”PublishTimeStamp”:”{publishtimestamp}”}}}}"
+  status : "Succeeded"
+}
 ```
 
 Sample of Deployment Manifest: 
 
 ```json
-{ 
-  "modulesContent": { 
-    "$edgeAgent": { 
-      "properties.desired": { 
-        "schemaVersion": "1.0", 
-        "runtime": { 
-          "type": "docker", 
-          "settings": { 
-            "minDockerVersion": "v1.25", 
-            "loggingOptions": "", 
-            "registryCredentials": {} 
-          } 
-        }, 
-        "systemModules": { 
-          "edgeAgent": { 
-            "type": "docker", 
-            "settings": { 
-              "image": "mcr.microsoft.com/azureiotedge-agent:1.0", 
-              "createOptions": "{}" 
-            } 
-          }, 
-          "edgeHub": { 
-            "type": "docker", 
-            "status": "running", 
-            "restartPolicy": "always", 
-            "settings": { 
-              "image": "mcr.microsoft.com/azureiotedge-hub:1.0", 
-              "createOptions": "{}" 
-            } 
-          } 
-        }, 
-        "modules": { 
-          "<asajobname>": { 
-            "version": "1.0", 
-            "type": "docker", 
-            "status": "running", 
-            "restartPolicy": "always", 
-            "settings": { 
-              "image": "<settings.image>", 
-              "createOptions": "<settings.createOptions>" 
-            } 
-            "version": "<version>", 
-             "env": { 
-              "PlanId": { 
-               "value": "stream-analytics-on-iot-edge" 
-          } 
-        } 
-      } 
-    }, 
-    "$edgeHub": { 
-      "properties.desired": { 
-        "schemaVersion": "1.0", 
-        "routes": { 
-            "route": "FROM /* INTO $upstream" 
-        }, 
-        "storeAndForwardConfiguration": { 
-          "timeToLiveSecs": 7200 
-        } 
-      } 
-    }, 
-    "<asajobname>": { 
-      "properties.desired": {<twin.content.properties.desired>} 
-    } 
-  } 
-} 
+{
+  "modulesContent": {
+    "$edgeAgent": {
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "runtime": {
+          "type": "docker",
+          "settings": {
+            "minDockerVersion": "v1.25",
+            "loggingOptions": "",
+            "registryCredentials": {}
+          }
+        },
+        "systemModules": {
+          "edgeAgent": {
+            "type": "docker",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+              "createOptions": "{}"
+            }
+          },
+          "edgeHub": {
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+              "createOptions": "{}"
+            }
+          }
+        },
+        "modules": {
+          "<asajobname>": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "<settings.image>",
+              "createOptions": "<settings.createOptions>"
+            }
+            "version": "<version>",
+             "env": {
+              "PlanId": {
+               "value": "stream-analytics-on-iot-edge"
+          }
+        }
+      }
+    },
+    "$edgeHub": {
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "routes": {
+            "route": "FROM /* INTO $upstream"
+        },
+        "storeAndForwardConfiguration": {
+          "timeToLiveSecs": 7200
+        }
+      }
+    },
+    "<asajobname>": {
+      "properties.desired": {<twin.content.properties.desired>}
+    }
+  }
+}
 ```
 
 After the configuration of the deployment manifest, refer to [Deploy Azure IoT Edge modules with Azure CLI](../iot-edge/how-to-deploy-modules-cli.md) for deployment.
