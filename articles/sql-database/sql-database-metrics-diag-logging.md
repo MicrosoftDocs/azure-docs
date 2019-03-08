@@ -432,6 +432,18 @@ Refer to the following table for details about logs for managed instances.
 
 Refer to the following tables for details about logs for Azure SQL single, pooled, and instance databases.
 
+| Log name | Single database and pooled database support | Instance database support |
+|-----------------|---|---|
+| QueryStoreRuntimeStatistic | Yes | Yes |
+| QueryStoreWaitStatistics | Yes | Yes |
+| Errors | Yes | Yes |
+| DatabaseWaitStatistics | Yes | No |
+| TimeoutEvent | Yes | No |
+| Blocks | Yes | No |
+| Deadlocks | Yes | No |
+| AutomaticTuning | Yes | No |
+| SQLInsights | Yes | Yes |
+
 ### Query Store runtime statistics
 
 |Property|Description|
