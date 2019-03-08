@@ -31,17 +31,17 @@ translation.priority.mt:
  To give you an idea of what a scoring profile looks like, the following example shows a simple profile named 'geo'. This one boosts items that have the search term in the **hotelName** field. It also uses the `distance` function to favor items that are within ten kilometers of the current location. If someone searches on the term 'inn', and 'inn' happens to be part of the hotel name, documents that include hotels with 'inn' within a 10 KM radius of the current location will appear higher in the search results.  
 
 
-```  
+```
 "scoringProfiles": [
-  {  
+  {
     "name":"geo",
-    "text": {  
-      "weights": {  
+    "text": {
+      "weights": {
         "hotelName": 5
       }                              
     },
     "functions": [
-      {  
+      {
         "type": "distance",
         "boost": 5,
         "fieldName": "location",
@@ -54,14 +54,14 @@ translation.priority.mt:
     ]                     
   }            
 ]
-```  
+```
 
 
  To use this scoring profile, your query is formulated to specify the profile on the query string. In the query below, notice the query parameter `scoringProfile=geo` in the request.  
 
-```  
-GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2017-11-11  
-```  
+```
+GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2017-11-11
+```
 
  This query searches on the term ‘inn’ and passes in the current location. Note that this query includes other parameters, such as `scoringParameter`. Query parameters are described in [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).  
 
@@ -86,70 +86,70 @@ The search score is computed based on statistical properties of the data and the
 
  This example shows the schema of an index with two scoring profiles (`boostGenre`, `newAndHighlyRated`). Any query against this index that includes either profile as a query parameter will use the profile to score the result set.  
 
-```  
-{  
-  "name": "musicstoreindex",  
-  "fields": [  
-    { "name": "key", "type": "Edm.String", "key": true },  
-    { "name": "albumTitle", "type": "Edm.String" },  
-    { "name": "albumUrl", "type": "Edm.String", "filterable": false },  
-    { "name": "genre", "type": "Edm.String" },  
-    { "name": "genreDescription", "type": "Edm.String", "filterable": false },  
-    { "name": "artistName", "type": "Edm.String" },  
-    { "name": "orderableOnline", "type": "Edm.Boolean" },  
-    { "name": "rating", "type": "Edm.Int32" },  
-    { "name": "tags", "type": "Collection(Edm.String)" },  
-    { "name": "price", "type": "Edm.Double", "filterable": false },  
-    { "name": "margin", "type": "Edm.Int32", "retrievable": false },  
-    { "name": "inventory", "type": "Edm.Int32" },  
-    { "name": "lastUpdated", "type": "Edm.DateTimeOffset" }  
-  ],  
-  "scoringProfiles": [  
-    {  
-      "name": "boostGenre",  
-      "text": {  
-        "weights": {  
-          "albumTitle": 1.5,  
-          "genre": 5,  
-          "artistName": 2  
-        }  
-      }  
-    },  
-    {  
-      "name": "newAndHighlyRated",  
-      "functions": [  
-        {  
-          "type": "freshness",  
-          "fieldName": "lastUpdated",  
-          "boost": 10,  
-          "interpolation": "quadratic",  
-          "freshness": {  
-            "boostingDuration": "P365D"  
-          }  
-        },  
+```
+{
+  "name": "musicstoreindex",
+  "fields": [
+    { "name": "key", "type": "Edm.String", "key": true },
+    { "name": "albumTitle", "type": "Edm.String" },
+    { "name": "albumUrl", "type": "Edm.String", "filterable": false },
+    { "name": "genre", "type": "Edm.String" },
+    { "name": "genreDescription", "type": "Edm.String", "filterable": false },
+    { "name": "artistName", "type": "Edm.String" },
+    { "name": "orderableOnline", "type": "Edm.Boolean" },
+    { "name": "rating", "type": "Edm.Int32" },
+    { "name": "tags", "type": "Collection(Edm.String)" },
+    { "name": "price", "type": "Edm.Double", "filterable": false },
+    { "name": "margin", "type": "Edm.Int32", "retrievable": false },
+    { "name": "inventory", "type": "Edm.Int32" },
+    { "name": "lastUpdated", "type": "Edm.DateTimeOffset" }
+  ],
+  "scoringProfiles": [
+    {
+      "name": "boostGenre",
+      "text": {
+        "weights": {
+          "albumTitle": 1.5,
+          "genre": 5,
+          "artistName": 2
+        }
+      }
+    },
+    {
+      "name": "newAndHighlyRated",
+      "functions": [
         {
-          "type": "magnitude",  
-          "fieldName": "rating",  
-          "boost": 10,  
-          "interpolation": "linear",  
-          "magnitude": {  
-            "boostingRangeStart": 1,  
-            "boostingRangeEnd": 5,  
-            "constantBoostBeyondRange": false  
-          }  
-        }  
-      ]  
-    }  
-  ],  
-  "suggesters": [  
-    {  
-      "name": "sg",  
-      "searchMode": "analyzingInfixMatching",  
-      "sourceFields": [ "albumTitle", "artistName" ]  
-    }  
-  ]   
-}  
-```  
+          "type": "freshness",
+          "fieldName": "lastUpdated",
+          "boost": 10,
+          "interpolation": "quadratic",
+          "freshness": {
+            "boostingDuration": "P365D"
+          }
+        },
+        {
+          "type": "magnitude",
+          "fieldName": "rating",
+          "boost": 10,
+          "interpolation": "linear",
+          "magnitude": {
+            "boostingRangeStart": 1,
+            "boostingRangeEnd": 5,
+            "constantBoostBeyondRange": false
+          }
+        }
+      ]
+    }
+  ],
+  "suggesters": [
+    {
+      "name": "sg",
+      "searchMode": "analyzingInfixMatching",
+      "sourceFields": [ "albumTitle", "artistName" ]
+    }
+  ]
+}
+```
 
 ## Workflow  
  To implement custom scoring behavior, add a scoring profile to the schema that defines the index. You can have up to 100 scoring profiles within an index (see [Service Limits](search-limits-quotas-capacity.md)), but you can only specify one profile at time in any given query.  
@@ -170,56 +170,56 @@ The search score is computed based on statistical properties of the data and the
 ##  <a name="bkmk_template"></a> Template  
  This section shows the syntax and template for scoring profiles. Refer to [Index attributes reference](#bkmk_indexref) in the next section for descriptions of the attributes.  
 
-```  
-. . .   
-"scoringProfiles": [  
-  {   
-    "name": "name of scoring profile",   
-    "text": (optional, only applies to searchable fields) {   
-      "weights": {   
-        "searchable_field_name": relative_weight_value (positive #'s),   
-        ...   
-      }   
-    },   
-    "functions": (optional) [  
-      {   
-        "type": "magnitude | freshness | distance | tag",   
-        "boost": # (positive number used as multiplier for raw score != 1),   
-        "fieldName": "...",   
-        "interpolation": "constant | linear (default) | quadratic | logarithmic",   
+```
+. . .
+"scoringProfiles": [
+  {
+    "name": "name of scoring profile",
+    "text": (optional, only applies to searchable fields) {
+      "weights": {
+        "searchable_field_name": relative_weight_value (positive #'s),
+        ...
+      }
+    },
+    "functions": (optional) [
+      {
+        "type": "magnitude | freshness | distance | tag",
+        "boost": # (positive number used as multiplier for raw score != 1),
+        "fieldName": "...",
+        "interpolation": "constant | linear (default) | quadratic | logarithmic",
 
         "magnitude": {
-          "boostingRangeStart": #,   
-          "boostingRangeEnd": #,   
+          "boostingRangeStart": #,
+          "boostingRangeEnd": #,
           "constantBoostBeyondRange": true | false (default)
-        }  
+        }
 
-        // ( - or -)  
+        // ( - or -)
 
         "freshness": {
-          "boostingDuration": "..." (value representing timespan over which boosting occurs)   
-        }  
+          "boostingDuration": "..." (value representing timespan over which boosting occurs)
+        }
 
-        // ( - or -)  
+        // ( - or -)
 
         "distance": {
-          "referencePointParameter": "...", (parameter to be passed in queries to use as reference location)   
-          "boostingDistance": # (the distance in kilometers from the reference location where the boosting range ends)   
-        }   
+          "referencePointParameter": "...", (parameter to be passed in queries to use as reference location)
+          "boostingDistance": # (the distance in kilometers from the reference location where the boosting range ends)
+        }
 
-        // ( - or -)  
+        // ( - or -)
 
         "tag": {
-          "tagsParameter":  "..."(parameter to be passed in queries to specify a list of tags to compare against target field)   
+          "tagsParameter":  "..."(parameter to be passed in queries to specify a list of tags to compare against target field)
         }
       }
-    ],   
-    "functionAggregation": (optional, applies only when functions are specified) "sum (default) | average | minimum | maximum | firstMatching"   
-  }   
-],   
-"defaultScoringProfile": (optional) "...",   
-. . .  
-```  
+    ],
+    "functionAggregation": (optional, applies only when functions are specified) "sum (default) | average | minimum | maximum | firstMatching"
+  }
+],
+"defaultScoringProfile": (optional) "...",
+. . .
+```
 
 ##  <a name="bkmk_indexref"></a> Index attributes reference  
 
