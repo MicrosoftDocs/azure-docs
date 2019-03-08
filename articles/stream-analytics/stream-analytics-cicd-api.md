@@ -65,70 +65,70 @@ Example of request body in JSON:
 
 ```json
 {
-  "location": "West US",
-  "tags": { "key": "value", "ms-suppressjobstatusmetrics": "true" },
-  "sku": {
-      "name": "Standard"
-    },
-  "properties": {
-    "sku": {
-      "name": "standard"
-    },
-       "eventsLateArrivalMaxDelayInSeconds": 1,
-       "jobType": "edge",
-    "inputs": [
-      {
-        "name": "{inputname}",
-        "properties": {
-         "type": "stream",
-          "serialization": {
-            "type": "JSON",
-            "properties": {
-              "fieldDelimiter": ",",
-              "encoding": "UTF8"
-            }
-          },
-          "datasource": {
-            "type": "GatewayMessageBus",
-            "properties": {
-            }
-          }
-        }
-      }
-    ],
-    "transformation": {
-      "name": "{queryName}",
-      "properties": {
-        "query": "{query}"
-      }
-    },
-    "package": {
-      "storageAccount" : {
-        "accountName": "{blobstorageaccountname}",
-        "accountKey": "{blobstorageaccountkey}"
-      },
-      "container": "{blobcontaine}]"
-    },
-    "outputs": [
-      {
-        "name": "{outputname}",
-        "properties": {
-          "serialization": {
-            "type": "JSON",
-            "properties": {
-              "fieldDelimiter": ",",
-              "encoding": "UTF8"
-            }
-          },
-          "datasource": {
-            "type": "GatewayMessageBus",
-            "properties": {
-            }
-          }
-        }
-      }
-    ]
-  }
+  "location": "West US",
+  "tags": { "key": "value", "ms-suppressjobstatusmetrics": "true" },
+  "sku": {
+    "name": "Standard"
+  },
+  "properties": {
+    "sku": {
+      "name": "standard"
+    },
+    "eventsLateArrivalMaxDelayInSeconds": 1,
+    "jobType": "edge",
+    "inputs": [
+      {
+        "name": "{inputname}",
+        "properties": {
+          "type": "stream",
+          "serialization": {
+            "type": "JSON",
+            "properties": {
+              "fieldDelimiter": ",",
+              "encoding": "UTF8"
+            }
+          },
+          "datasource": {
+            "type": "GatewayMessageBus",
+            "properties": {
+            }
+          }
+        }
+      }
+    ],
+    "transformation": {
+      "name": "{queryName}",
+      "properties": {
+        "query": "{query}"
+      }
+    },
+    "package": {
+      "storageAccount" : {
+        "accountName": "{blobstorageaccountname}",
+        "accountKey": "{blobstorageaccountkey}"
+      },
+      "container": "{blobcontaine}]"
+    },
+    "outputs": [
+      {
+        "name": "{outputname}",
+        "properties": {
+          "serialization": {
+            "type": "JSON",
+            "properties": {
+              "fieldDelimiter": ",",
+              "encoding": "UTF8"
+            }
+          },
+          "datasource": {
+            "type": "GatewayMessageBus",
+            "properties": {
+            }
+          }
+        }
+      }
+    ]
+  }
 }
 ```
  
@@ -224,29 +224,29 @@ Sample of Deployment Manifest:
               "createOptions": "<settings.createOptions>"
             }
             "version": "<version>",
-             "env": {
+            "env": {
               "PlanId": {
-               "value": "stream-analytics-on-iot-edge"
+                "value": "stream-analytics-on-iot-edge"
+              }
+            }
           }
-        }
-      }
-    },
-    "$edgeHub": {
-      "properties.desired": {
-        "schemaVersion": "1.0",
-        "routes": {
-            "route": "FROM /* INTO $upstream"
         },
-        "storeAndForwardConfiguration": {
-          "timeToLiveSecs": 7200
+        "$edgeHub": {
+          "properties.desired": {
+            "schemaVersion": "1.0",
+            "routes": {
+              "route": "FROM /* INTO $upstream"
+            },
+            "storeAndForwardConfiguration": {
+              "timeToLiveSecs": 7200
+            }
+          }
+        },
+        "<asajobname>": {
+          "properties.desired": {<twin.content.properties.desired>}
         }
       }
-    },
-    "<asajobname>": {
-      "properties.desired": {<twin.content.properties.desired>}
     }
-  }
-}
 ```
 
 After the configuration of the deployment manifest, refer to [Deploy Azure IoT Edge modules with Azure CLI](../iot-edge/how-to-deploy-modules-cli.md) for deployment.
