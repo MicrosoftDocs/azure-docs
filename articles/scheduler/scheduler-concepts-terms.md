@@ -115,7 +115,7 @@ HTTP action with fuller element details described in later sections:
             "Content-Type": "application/json"
          },
          "retryPolicy": {
-             "retryType": "None"
+            "retryType": "None"
          },
       },
       "errorAction": {
@@ -179,7 +179,7 @@ Here's an example for a Storage queue action:
       "queueName": "myqueue",
       "sasToken": "TOKEN",
       "message": "My message body"
-    }
+   }
 }
 ```
 
