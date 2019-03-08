@@ -21,7 +21,7 @@ ms.author: aljo, subramar
 The Azure Files volume plugin is a [Docker volume plugin](https://docs.docker.com/engine/extend/plugins_volume/) that provides [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) based volumes for Docker containers. This Docker volume plugin is packaged as a Service Fabric application that can be deployed to Service Fabric clusters. It's purpose is to provide Azure Files based volumes for other Service Fabric container applications that are deployed to the cluster.
 
 > [!NOTE]
-> Version 6.4.571.9494 of the Azure Files volume plugin is a preview release that is available with this document. As a preview release, it is **not** supported for use in production environments.
+> Version 6.4.571.9590 of the Azure Files volume plugin is a preview release that is available with this document. As a preview release, it is **not** supported for use in production environments.
 >
 
 ## Prerequisites
