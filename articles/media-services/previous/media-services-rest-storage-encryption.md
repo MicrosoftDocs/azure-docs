@@ -156,7 +156,7 @@ Request:
     Accept: application/json
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
-    Authorization: Bearer <ENCODED JWT TOKEN> 
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
@@ -201,8 +201,8 @@ Request
     Host: media.windows.net
     {
     "Name":"ContentKey",
-    "ProtectionKeyId":"7D9BB04D9D0A4A24800CADBFEF232689E048F69C", 
-    "ContentKeyType":"1", 
+    "ProtectionKeyId":"7D9BB04D9D0A4A24800CADBFEF232689E048F69C",
+    "ContentKeyType":"1",
     "ProtectionKeyType":"0",
     "EncryptedContentKey":"your encrypted content key",
     "Checksum":"calculated checksum"
@@ -268,7 +268,7 @@ If successful, the following response is returned:
     DataServiceVersion: 3.0;
     Strict-Transport-Security: max-age=31536000; includeSubDomains
     Date: Sun, 18 Jan 2015 22:06:40 GMT
-    {  
+    {
        "odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Assets/@Element",
        "Id":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
        "State":0,
@@ -322,10 +322,10 @@ After you upload your digital media file into a blob container, you will use the
     Host: media.windows.net
     Content-Length: 164
 
-    {  
+    {
        "IsEncrypted":"true",
-       "EncryptionScheme" : "StorageEncryption", 
-       "EncryptionVersion" : "1.0",       
+       "EncryptionScheme" : "StorageEncryption",
+       "EncryptionVersion" : "1.0",
        "EncryptionKeyId" : "nb:kid:UUID:32e6efaf-5fba-4538-b115-9d1cefe43510",
        "InitializationVector" : "397304628502661816</d:InitializationVector",
        "Options":0,
@@ -351,7 +351,7 @@ After you upload your digital media file into a blob container, you will use the
     Strict-Transport-Security: max-age=31536000; includeSubDomains
     Date: Mon, 19 Jan 2015 00:34:07 GMT
 
-    {  
+    {
        "odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Files/@Element",
        "Id":"nb:cid:UUID:f13a0137-0a62-9d4c-b3b9-ca944b5142c5",
        "Name":"BigBuckBunny.mp4",
