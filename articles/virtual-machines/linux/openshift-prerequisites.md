@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: 02/02/2019
 ms.author: haroldw
 ---
 
@@ -49,14 +49,14 @@ This guide describes how to create the artifacts associated with the prerequisit
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Sign in to Azure 
-Sign in to your Azure subscription with the [az login](/cli/azure/reference-index#az_login) command and follow the on-screen directions, or click **Try it** to use Cloud Shell.
+Sign in to your Azure subscription with the [az login](/cli/azure/reference-index) command and follow the on-screen directions, or click **Try it** to use Cloud Shell.
 
 ```azurecli 
 az login
 ```
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. It is recommended to use a dedicated resource group to host the key vault. This group is separate from the resource group into which the OpenShift cluster resources deploy.
+Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. It is recommended to use a dedicated resource group to host the key vault. This group is separate from the resource group into which the OpenShift cluster resources deploy.
 
 The following example creates a resource group named *keyvaultrg* in the *eastus* location:
 
@@ -65,7 +65,7 @@ az group create --name keyvaultrg --location eastus
 ```
 
 ## Create a key vault
-Create a key vault to store the SSH keys for the cluster with the [az keyvault create](/cli/azure/keyvault#az_keyvault_create) command. The key vault name must be globally unique.
+Create a key vault to store the SSH keys for the cluster with the [az keyvault create](/cli/azure/keyvault) command. The key vault name must be globally unique.
 
 The following example creates a key vault named *keyvault* in the *keyvaultrg* resource group:
 

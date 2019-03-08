@@ -51,7 +51,7 @@ If you didn't build the voting sample application in [part one of this tutorial 
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart 
 ```
 
-Open the application in Visual Studio, running as administor, and build the application.
+Open the application in Visual Studio, running as administrator, and build the application.
 
 ## Create a cluster
 

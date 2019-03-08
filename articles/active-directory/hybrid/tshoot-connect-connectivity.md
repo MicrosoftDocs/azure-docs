@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Troubleshoot connectivity issues with Azure AD Connect
 This article explains how connectivity between Azure AD Connect and Azure AD works and how to troubleshoot connectivity issues. These issues are most likely to be seen in an environment with a proxy server.
@@ -71,7 +72,7 @@ This error appears if the endpoint **https://secure.aadcdn.microsoftonline-p.com
 
 ### The password cannot be verified
 If the installation wizard is successful in connecting to Azure AD, but the password itself cannot be verified you see this error:  
-![badpassword](./media/tshoot-connect-connectivity/badpassword.png)
+![Bad password.](./media/tshoot-connect-connectivity/badpassword.png)
 
 * Is the password a temporary password and must be changed? Is it actually the correct password? Try to sign in to https://login.microsoftonline.com (on another computer than the Azure AD Connect server) and verify the account is usable.
 
@@ -162,20 +163,55 @@ Your credentials have expired. Change your password.
 ### Authorization Failure
 Failed to authorize user to perform action in Azure AD.
 
-### Authentication Cancelled
-The multi-factor authentication (MFA) challenge was cancelled.
+### Authentication Canceled
+The multi-factor authentication (MFA) challenge was canceled.
+
+<div id="connect-msolservice-failed">
+<!--
+  Empty div just to act as an alias for the "Connect To MS Online Failed" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
 
 ### Connect To MS Online Failed
 Authentication was successful, but Azure AD PowerShell has an authentication problem.
 
+<div id="get-msoluserrole-failed">
+<!--
+  Empty div just to act as an alias for the "Azure AD Global Admin Role Needed" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
+
 ### Azure AD Global Admin Role Needed
 User was authenticated successfully. However user is not assigned global admin role. This is [how you can assign global admin role](../users-groups-roles/directory-assign-admin-roles.md) to the user. 
+
+<div id="privileged-identity-management">
+<!--
+  Empty div just to act as an alias for the "Privileged Identity Management Enabled" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
 
 ### Privileged Identity Management Enabled
 Authentication was successful. Privileged identity management has been enabled and you are currently not a global administrator. For more information, see [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
+<div id="get-msolcompanyinformation-failed">
+<!--
+  Empty div just to act as an alias for the "Company Information Unavailable" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
+
 ### Company Information Unavailable
 Authentication was successful. Could not retrieve company information from Azure AD.
+
+<div id="get-msoldomain-failed">
+<!--
+  Empty div just to act as an alias for the "Domain Information Unavailable" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
 
 ### Domain Information Unavailable
 Authentication was successful. Could not retrieve domain information from Azure AD.

@@ -20,7 +20,7 @@ Because the vFXT cluster sits within a private virtual network, you must create 
 > [!NOTE] 
 > This article assumes that you have set a public IP address on the cluster controller or on another VM inside your cluster's virtual network. This article describes how to use that VM as a host to access the cluster. If you are using a VPN or ExpressRoute for vnet access, skip to [Connect to the Avere Control Panel](#connect-to-the-avere-control-panel-in-a-browser).
 
-Before connecting, make sure that the SSH public/private key pair that you used when creating the cluster controller is installed on your local machine. Read the SSH keys documentation for [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) or for [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) if you need help.  
+Before connecting, make sure that the SSH public/private key pair that you used when creating the cluster controller is installed on your local machine. Read the SSH keys documentation for [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) or for [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) if you need help. (If you used a password instead of a public key, you will be prompted to enter it when you connect.) 
 
 ## SSH tunnel with a Linux host
 
@@ -36,7 +36,7 @@ Example:
 ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
 ```
 
-Authentication is automatic if you used your SSH public key to create the cluster and the matching key is installed on the client system.
+Authentication is automatic if you used your SSH public key to create the cluster and the matching key is installed on the client system. If you used a password, the system will prompt you to enter it.
 
 ## SSH tunnel with a Windows host
 
@@ -58,7 +58,7 @@ In the **Configuration** panel:
 
 ![Screenshot of Putty application showing where to click to add a tunnel](media/avere-vfxt-ptty-numbered.png)
 
-Authentication is automatic if you used your SSH public key to create the cluster and the matching key is installed on the client system.
+Authentication is automatic if you used your SSH public key to create the cluster and the matching key is installed on the client system. If you used a password, the system will prompt you to enter it.
 
 ## Connect to the Avere Control Panel in a browser
 
@@ -72,7 +72,7 @@ This step uses a web browser to connect to the configuration utility running on 
 
 Depending on your browser, you might need to click **Advanced** and verify that it is safe to proceed to the page.
 
-Enter the username `admin` and the password you provided when creating the cluster.
+Enter the username `admin` and the administrative password you provided when creating the cluster.
 
 ![Screenshot of the Avere sign in page populated with the username 'admin' and a password](media/avere-vfxt-gui-login.png)
 

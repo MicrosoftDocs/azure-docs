@@ -63,8 +63,8 @@ The following properties are supported for Concur linked service:
             "clientId" : "<clientId>",
             "username" : "<username>",
             "password": {
-                 "type": "SecureString",
-                 "value": "<password>"
+                "type": "SecureString",
+                "value": "<password>"
             }
         }
     }

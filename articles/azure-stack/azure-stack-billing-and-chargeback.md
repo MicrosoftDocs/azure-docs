@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: alfredop
+ms.lastreviewed: 10/19/2018
 
 ---
 # Usage and billing in Azure Stack

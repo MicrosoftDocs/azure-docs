@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: A list of culture, natural languages supported by QnA Maker for your knowledge base. Do not mix languages in the same knowledge base.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 02/04/2019
 ms.author: tulasim
 ms.custom: seodec18
 ---

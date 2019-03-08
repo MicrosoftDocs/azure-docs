@@ -46,7 +46,7 @@ The Power Query add-in for Excel makes it easy to import data from your HDInsigh
    
         ![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
        
-        **Note:** If you don't see the **Power Query** menu, go to **File** > **Options** > **Add-Ins**, and select **COM Add-ins** from the drop-down **Manage** box at the bottom of the page. Select the **Go...** button and verify that the box for the Power Query for Excel add-in has been checked.
+        **Note:** If you don't see the **Power Query** menu, go to **File** > **Options** > **Add-ins**, and select **COM Add-ins** from the drop-down **Manage** box at the bottom of the page. Select the **Go...** button and verify that the box for the Power Query for Excel add-in has been checked.
        
         **Note:** Power Query also allows you to import data from HDFS by clicking **From Other Sources**.
 4. For **Account Name**, enter the name of the Azure Blob storage account associated with your cluster, and then click **OK**. This account can be the [default storage account](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account) or a linked storage account.  The format is *https://&lt;StorageAccountName>.blob.core.windows.net/*.
@@ -64,7 +64,7 @@ In this article, you learned how to use Power Query to retrieve data from HDInsi
 
 * [Visualize Apache Hive data with Microsoft Power BI in Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
 * [Visualize Interactive Query Hive data with Power BI in Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
-* [Use Apache Zeppelin to run Apache Hive queries in Azure HDInsight ](./../hdinsight-connect-hive-zeppelin.md).
+* [Use Apache Zeppelin to run Apache Hive queries in Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
 * [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Connect to Azure HDInsight and run Apache Hive queries using Data Lake Tools for Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).
 * [Use Azure HDInsight Tool for Visual Studio Code](../hdinsight-for-vscode.md).

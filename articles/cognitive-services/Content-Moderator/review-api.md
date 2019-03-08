@@ -4,9 +4,9 @@ titlesuffix: Azure Cognitive Services
 description: Combine machine-assisted moderation with human-in-the-loop capabilities by using the Azure Content Moderator Review API to get the best results for your business.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap

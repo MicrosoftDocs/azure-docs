@@ -4,9 +4,9 @@ titleSuffix: Azure Cognitive Services
 description: The Text-to-Speech API offers more than 75 voices in more than 45 languages and locales. To use standard voice fonts, you only need to specify the voice name with a few other parameters when you call the Speech Service.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
@@ -32,6 +32,9 @@ Scenarios in which speech synthesis is being adopted include:
 ## Voice support
 
 The Microsoft **Text-to-Speech** service offers more than 75 voices in more than 45 languages and locales. To use these standard "voice fonts", you only need to specify the voice name with a few other parameters when you call the service's REST API. For more information about supported languages, locales, and voices, see [supported languages](language-support.md#text-to-speech).
+
+> [!IMPORTANT]
+> Costs vary for standard, custom, and neural voices. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### Neural voices
 

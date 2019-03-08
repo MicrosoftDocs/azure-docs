@@ -79,7 +79,7 @@ You can find commonly used URLs for your cluster in the Azure portal, the Azure 
 
 ### How do I upgrade the orchestrator after deployment?
 
-Currently, Azure Container Service doesn't provide tools to upgrade the version of the orchestrator you deployed on your cluster. If Container Service supports a later version, you can deploy a new cluster. Another option is to use orchestrator-specific tools if they are available to upgrade a cluster in-place. For example, see [DC/OS Upgrading](https://dcos.io/docs/1.8/administration/upgrading/).
+Currently, Azure Container Service doesn't provide tools to upgrade the version of the orchestrator you deployed on your cluster. If Container Service supports a later version, you can deploy a new cluster. Another option is to use orchestrator-specific tools if they are available to upgrade a cluster in-place. For example, see [DC/OS Upgrading](http://docs.mesosphere.com/1.12/installing/production/upgrading).
  
 ### Where do I find the SSH connection string to my cluster?
 

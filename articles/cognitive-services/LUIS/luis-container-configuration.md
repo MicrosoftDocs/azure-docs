@@ -4,18 +4,18 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: The LUIS container runtime environment is configured using the `docker run` command arguments. LUIS has several required settings, along with a few optional settings.   
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual 
-ms.date: 01/02/2019
+ms.date: 02/08/2019
 ms.author: diberry 
 ---
 
-# Configure Language Understanding docker containers 
+# Configure Language Understanding Docker containers 
 
-The Language Understanding (LUIS) container runtime environment is configured using the `docker run` command arguments. LUIS has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the input [mount settings](#mount-settings) and the billing settings. 
+The **Language Understanding** (LUIS) container runtime environment is configured using the `docker run` command arguments. LUIS has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the input [mount settings](#mount-settings) and the billing settings. 
 
 Container settings are [hierarchical](#hierarchical-settings) and can be set with [environment variables](#environment-variable-settings) or docker [command-line arguments](#command-line-argument-settings).
 
@@ -30,6 +30,7 @@ This container has the following configuration settings:
 |Yes|[Billing](#billing-setting)|Specifies the endpoint URI of the service resource on Azure.|
 |Yes|[Eula](#eula-setting)| Indicates that you've accepted the license for the container.|
 |No|[Fluentd](#fluentd-settings)|Write log and, optionally, metric data to a Fluentd server.|
+|No|[Http Proxy](#http-proxy-credentials-settings)|Configure an HTTP proxy for making outbound requests.|
 |No|[Logging](#logging-settings)|Provides ASP.NET Core logging support for your container. |
 |Yes|[Mounts](#mount-settings)|Read and write data from host computer to container and from container back to host computer.|
 
@@ -53,7 +54,7 @@ Do not use the starter key or the authoring key.
 
 ## Billing setting
 
-The `Billing` setting specifies the endpoint URI of the _Language Understanding_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _Language Understanding_ resource on Azure.
+The `Billing` setting specifies the endpoint URI of the _Language Understanding_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _Language Understanding_ resource on Azure. The container reports usage about every 10 to 15 minutes.
 
 This setting can be found in the following places:
 
@@ -72,6 +73,10 @@ This setting can be found in the following places:
 
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
+
+## Http proxy credentials settings
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## Logging settings
  
@@ -184,4 +189,5 @@ ApiKey={APPLICATION_ID} \
 ## Next steps
 
 * Review [How to install and run containers](luis-container-howto.md)
-* Refer to [Frequently asked questions (FAQ)](luis-resources-faq.md) to resolve issues related to LUIS functionality.
+* Refer to [Troubleshooting](troubleshooting.md) to resolve issues related to LUIS functionality.
+* Use more [Cognitive Services Containers](../cognitive-services-container-support.md)

@@ -4,7 +4,7 @@ description: " Learn how to enable File Integrity Monitoring in Azure Security C
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -27,13 +27,13 @@ Security Center’s File Integrity Monitoring validates the integrity of Windows
 
 - File and Registry creation and removal
 - File modifications (changes in file size, access control lists, and hash of the content)
-- Registry modifications (changes in size, access conrol lists, type, and the content)
+- Registry modifications (changes in size, access control lists, type, and the content)
 
 Security Center recommends entities to monitor, which you can easily enable FIM on. You can also define your own FIM policies or entities to monitor. This walkthrough shows you how.
 
 > [!NOTE]
 > The File Integrity Monitoring (FIM) feature works for Windows and Linux computers and VMs and is available on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
-FIM uploads data to the Log Analytics workspace. Data charges apply, based on the amount of data you upload. See [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/) to learn more.
+FIM uploads data to the Log Analytics workspace. Data charges apply, based on the amount of data you upload. See [log analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/) to learn more.
 >
 >
 
@@ -84,7 +84,7 @@ To enable FIM on a workspace:
 4. Select **Apply file integrity monitoring** to enable FIM.
 
 > [!NOTE]
-> You can change the settings at any time. See [Edit monitored entities](security-center-file-integrity-monitoring.md#edit-monitored-items) below to learn more.
+> You can change the settings at any time. See Edit monitored entities below to learn more.
 >
 >
 
@@ -148,7 +148,7 @@ Under **Edit for Change Tracking** you can:
 - Delete the entity, discard the change, or save the change
 
 ## Add a new entity to monitor
-1. Return to the **File integirty monitoring dashboard** and select **Settings** at the top. **Workspace Configuration** opens.
+1. Return to the **File integrity monitoring dashboard** and select **Settings** at the top. **Workspace Configuration** opens.
 2. Under **Workspace Configuration**, select the tab for the type of entity that you want to add: Windows Registry, Windows Files, or Linux Files. In this example, we selected **Linux Files**.
 
   ![Add a new item to monitor][14]

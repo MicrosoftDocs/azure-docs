@@ -138,7 +138,7 @@ the following properties are available in **typeProperties** section:
 Using this Cosmos DB connector, you can easily
 
 * Import JSON documents from various sources into Cosmos DB, including Azure Blob, Azure Data Lake, on-premises File System or other file-based stores supported by Azure Data Factory.
-* Export JSON documents from Cosmos DB collecton into various file-based stores.
+* Export JSON documents from Cosmos DB collection into various file-based stores.
 * Migrate data between two Cosmos DB collections as-is.
 
 To achieve such schema-agnostic copy,
@@ -300,11 +300,11 @@ The following pipeline copies data from the Person collection in the Azure Cosmo
 ## Example: Copy data from Azure Blob to Azure Cosmos DB
 The sample below shows:
 
-1. A linked service of type [DocumentDb](#azure-documentdb-linked-service-properties).
+1. A linked service of type DocumentDb.
 2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 3. An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-4. An output [dataset](data-factory-create-datasets.md) of type [DocumentDbCollection](#azure-documentdb-dataset-type-properties).
-5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) and [DocumentDbCollectionSink](#azure-documentdb-copy-activity-type-properties).
+4. An output [dataset](data-factory-create-datasets.md) of type DocumentDbCollection.
+5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) and DocumentDbCollectionSink.
 
 The sample copies data from Azure blob to Azure Cosmos DB. The JSON properties used in these samples are described in sections following the samples.
 

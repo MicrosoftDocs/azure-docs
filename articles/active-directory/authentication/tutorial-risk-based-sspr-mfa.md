@@ -4,9 +4,9 @@ description: In this tutorial, you will enable Azure Identity Protection integra
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 01/31/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -14,6 +14,7 @@ manager: daveba
 ms.reviewer: sahenry
 
 # Customer intent: How, as an Azure AD Administrator, do I utilize Azure AD Identity Protection to better protect the sign-in process.
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Use risk events to trigger Multi-Factor Authentication and password changes
 
@@ -49,7 +50,7 @@ Enabling the risk-based policies is a straightforward process. The steps below w
 
 ### Enable users to register for Multi-Factor Authentication
 
-Azure AD Identity Protection includes a default policy that can hep you to get your users registered for Multi-Factor Authentication and easily identify the current registration status. Enabling this policy does not start requiring users to perform Multi-Factor Authentication, but will ask them to pre-register.
+Azure AD Identity Protection includes a default policy that can help you to get your users registered for Multi-Factor Authentication and easily identify the current registration status. Enabling this policy does not start requiring users to perform Multi-Factor Authentication, but will ask them to pre-register.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Click on **All services**, then browse to **Azure AD Identity Protection**.

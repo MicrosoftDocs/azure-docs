@@ -3,7 +3,7 @@ title: Connect to Azure Stack with PowerShell as a user | Microsoft Docs
 description: Steps to connect to the user's Azure Stack instance.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
 
@@ -12,9 +12,10 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2018
-ms.author: sethm
-ms.reviewer: bganapa
+ms.date: 02/11/2019
+ms.author: mabrigg
+ms.reviewer: thoroet
+ms.lastreviewed: 01/24/2019
 
 ---
 
@@ -64,17 +65,8 @@ Make sure you replace the following script variables with values from your Azure
   # Register an Azure Resource Manager environment that targets your Azure Stack instance
   Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
 
-  $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
-  $tenantId = (invoke-restmethod "$($AuthEndpoint)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
-
   # Sign in to your environment
-
-  $cred = get-credential
-
-  Login-AzureRmAccount `
-    -EnvironmentName "AzureStackUser" `
-    -TenantId $tenantId `
-    -Credential $cred
+  Login-AzureRmAccount -EnvironmentName "AzureStackUser"
   ```
 
 ## Register resource providers
@@ -99,6 +91,7 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 ## Next steps
 
-- [Develop templates for Azure Stack](azure-stack-develop-templates.md)
-- [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)
+- [Develop templates for Azure Stack](azure-stack-develop-templates.md)  
+- [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)  
+- [Azure Stack Module Reference](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)  
 - If you want to set up PowerShell for the cloud operator environment, refer to the [Configure the Azure Stack operator's PowerShell environment](../azure-stack-powershell-configure-admin.md) article.

@@ -12,8 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2018
+ms.date: 03/04/2018
 ms.author: mabrigg
+ms.lastreviewed: 12/01/2018
 
 ---
 
@@ -23,7 +24,7 @@ ms.author: mabrigg
 
 This article provides an overview of the Azure Monitor service in Azure Stack. It discusses the operation of Azure Monitor and additional information on how to use Azure Monitor on Azure Stack. 
 
-For an introduction, overview, and how to get started with Azure Monitor, see the global Azure article [Get started with Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started).
+For an introduction, overview, and how to get started with Azure Monitor, see the global Azure article [Get started with Azure Monitor on Azure Stack](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started).
 
 ![Azure Stack Monitor blade](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
@@ -32,7 +33,7 @@ Azure Monitor is the platform service that provides a single source for monitori
 > [!Note]  
 Metrics and diagnostic logs are not available for the Azure Stack Development Kit.
 
-## Prerequisites
+## Prerequisites for Azure Monitor on Azure Stack
 
 Register the **Microsoft.insights** resource provider on your subscription's offer resource providers settings. You can verify that the resource provider is available in your offer associated with your subscription:
 
@@ -42,13 +43,13 @@ Register the **Microsoft.insights** resource provider on your subscription's off
 4. Select **Resource providers** under **Settings.** 
 5. Find **Microsoft.Insights** in the list and verify that the status is **Registered.**.
 
-## Overview
+## Overview of Azure Monitor on Azure Stack
 
 Like Azure Monitor on Azure, Azure Monitor on Azure Stack provides base-level infrastructure metrics and logs for most services.
 
-## Azure monitor sources: compute subset
+## Azure Monitor sources: compute subset
 
-![Azure monitor sources -compute subset](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
+![Azure Monitor on Azure Stack sources -compute subset](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
 
 The **Microsoft.Compute** resource provider in Azure Stack includes:
  - Virtual Machines 
@@ -82,7 +83,7 @@ You can search the activity logs for information about your compute resources as
 
 ## Azure monitor sources: everything else
 
-![Azure monitor sources - everything else](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
+![Azure Monitor on Azure Stack sources - everything else](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
 
 ### Resources - Metrics and Diagnostics logs
 

@@ -32,7 +32,7 @@ In this tutorial, you do the following actions:
 
 > [!div class="checklist"]
 > * Add category selection to the mobile app.
-> * Registerd for notifications with tags.
+> * Registered for notifications with tags.
 > * Send tagged notifications.
 > * Test the app
 

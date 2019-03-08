@@ -47,6 +47,8 @@
     href: batch-quota-limit.md
   - name: Supported VM sizes
     href: batch-pool-vm-sizes.md
+  - name: High availability and disaster recovery
+    href: high-availability-disaster-recovery.md
 - name: How-to guides
   items:
   - name: Manage Batch accounts
@@ -157,7 +159,7 @@
   - name: Azure CLI
     href: /cli/azure/batch
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.batch
+    href: /powershell/module/az.batch
   - name: .NET
     href: /dotnet/api/overview/azure/batch
   - name: Java
@@ -216,6 +218,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-batch
+    href: https://stackoverflow.com/questions/tagged/azure-batch
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=batch

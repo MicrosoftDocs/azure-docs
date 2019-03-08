@@ -4,7 +4,7 @@ description: Get cloud passwords written back to on-premises AD infratstructure
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 01/16/2019
 
@@ -12,6 +12,7 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
+ms.collection: M365-identity-device-management
 ---
 # What is password writeback?
 

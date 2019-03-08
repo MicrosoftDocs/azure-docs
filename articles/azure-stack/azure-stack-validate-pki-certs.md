@@ -12,9 +12,10 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/08/2019
+ms.date: 01/08/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
+ms.lastreviewed: 01/08/2019
 ---
 
 # Validate Azure Stack PKI certificates
@@ -78,7 +79,11 @@ Use these steps to prepare and to validate the Azure Stack PKI certificates for 
     ```
     
     > [!Note]  
-    > AD FS and Graph are required if you are using AD FS as your identity system.
+    > AD FS and Graph are required if you are using AD FS as your identity system. For example:
+    >
+    > ```PowerShell  
+    > $directories = 'ADFS','Graph','ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
+    > ```
     
      - Place your certificate(s) in the appropriate directories created in the previous step. For example:  
         - `c:\certificates\ACSBlob\CustomerCertificate.pfx`
@@ -95,7 +100,7 @@ Use these steps to prepare and to validate the Azure Stack PKI certificates for 
 
 4. Check the output and all certificates pass all tests. For example:
 
-````PowerShell
+```PowerShell
 Invoke-AzsCertificateValidation v1.1809.1005.1 started.
 Testing: ARM Public\ssl.pfx
 Thumbprint: 7F6B27****************************E9C35A
@@ -137,7 +142,7 @@ Thumbprint: 4DBEB2****************************C5E7E6
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsCertificateValidation Completed
-````
+```
 
 ### Known issues
 

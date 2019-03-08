@@ -9,11 +9,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/16/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Federate a single AD forest environment to the cloud
@@ -277,7 +278,7 @@ We will now verify that the users that we had in our on-premises directory have 
 
 ## Test signing in with one of our users
 
-1.  Browse to [https://myapps.microsoft.com](httpss://myapps.microsoft.com)
+1.  Browse to [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Sign-in with a user account that was created in our new tenant.  You will need to sign-in using the following format: (user@domain.onmicrosoft.com). Use the same password that the user uses to sign-in on-premises.
 ![Verify](media/tutorial-password-hash-sync/verify1.png)
 

@@ -8,7 +8,7 @@ author: MarkusVi
 manager: daveba
 editor: ''
 
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.date: 12/10/2018
 ms.author: markvi
 ms.reviewer: calebb
 
+ms.collection: M365-identity-device-management
 ---
 # How to: Require MFA for access from untrusted networks with conditional access   
 

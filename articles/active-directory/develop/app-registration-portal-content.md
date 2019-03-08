@@ -7,7 +7,7 @@ ms.author: celested
 manager: mtillman
 ms.date: 10/25/2018
 ms.topic: article
-ms.component: develop
+ms.subservice: develop
 ms.service: active-directory
 
 # optional metadata
@@ -20,6 +20,7 @@ ROBOTS: NOINDEX,NOFOLLOW
 #ms.tgt_pltfrm:
 #ms.custom: 
 #Do not delete this file. It compiles all the include files used in the Application Registration Portal but not rendered on docs.
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory guided setup steps
 

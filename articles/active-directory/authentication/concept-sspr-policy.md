@@ -4,14 +4,15 @@ description: Configure Azure AD self-service password reset policy options
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/31/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
+ms.collection: M365-identity-device-management
 ---
 # Password policies and restrictions in Azure Active Directory
 
@@ -45,6 +46,8 @@ The two-gate policy requires two pieces of authentication data, such as an **ema
   * Application proxy service administrator
   * CRM service administrator
   * Power BI service administrator
+  * Authentication administrator
+  * Privileged Authentication administrator
 
 * If 30 days have elapsed in a trial subscription; or
 * A vanity domain is present, such as contoso.com; or
@@ -70,19 +73,19 @@ Every user account that needs to sign in to Azure AD must have a unique user pri
 
 ## Password policies that only apply to cloud user accounts
 
-The following table describes the available password policy settings that can be applied to user accounts that are created and managed in Azure AD:
+The following table describes the password policy settings applied to user accounts that are created and managed in Azure AD:
 
 | Property | Requirements |
 | --- | --- |
 | Characters allowed |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
-| Characters not allowed |<ul><li>Unicode characters.</li><li>Spaces.</li><li> Strong passwords only: Cannot contain a dot character "." Immediately preceding the "\@\" symbol”.</li></ul> |
-| Password restrictions |<ul><li>A minimum of 8 characters and a maximum of 16 characters.</li><li>Strong passwords only: Requires three out of four of the following:<ul><li>Lowercase characters.</li><li>Uppercase characters.</li><li>Numbers (0-9).</li><li>Symbols (see the previous password restrictions).</li></ul></li></ul> |
+| Characters not allowed |<ul><li>Unicode characters.</li><li>Spaces.</li><li> Cannot contain a dot character "." immediately preceding the "\@\" symbol”.</li></ul> |
+| Password restrictions |<ul><li>A minimum of 8 characters and a maximum of 16 characters.</li><li>Requires three out of four of the following:<ul><li>Lowercase characters.</li><li>Uppercase characters.</li><li>Numbers (0-9).</li><li>Symbols (see the previous password restrictions).</li></ul></li></ul> |
 | Password expiry duration |<ul><li>Default value: **90** days.</li><li>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet from the Azure Active Directory Module for Windows PowerShell.</li></ul> |
 | Password expiry notification |<ul><li>Default value: **14** days (before password expires).</li><li>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet.</li></ul> |
 | Password expiry |<ul><li>Default value: **false** days (indicates that password expiry is enabled).</li><li>The value can be configured for individual user accounts by using the `Set-MsolUser` cmdlet.</li></ul> |
 | Password change history |The last password *can't* be used again when the user changes a password. |
 | Password reset history | The last password *can* be used again when the user resets a forgotten password. |
-| Account lockout |After 10 unsuccessful sign-in attempts with the wrong password, the user is locked out for one minute. Further incorrect sign-in attempts lock out the user for increasing durations of time. |
+| Account lockout |After 10 unsuccessful sign-in attempts with the wrong password, the user is locked out for one minute. Further incorrect sign-in attempts lock out the user for increasing durations of time. [Smart lockout](howto-password-smart-lockout.md) tracks the last three bad password hashes to avoid incrementing the lockout counter for the same password. If someone enters the same bad password multiple times, this behavior will not cause the account to lockout. |
 
 ## Set password expiration policies in Azure AD
 

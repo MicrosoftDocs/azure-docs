@@ -131,6 +131,12 @@
       href: event-hubs-management-libraries.md
   - name: Get Event Hubs connection string
     href: event-hubs-get-connection-string.md
+  - name: Java development
+    items:
+    - name: Create a Spring Cloud Stream Binder app
+      href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
+    - name: Use the Spring Boot Starter for Apache Kafka 
+      href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
   - name: Troubleshoot
     items:
     - name: Exceptions
@@ -145,6 +151,9 @@
     href: event-hubs-streaming-azure-diags-data.md
   - name: Exchange events between applications using different protocols
     href: event-hubs-exchange-events-different-protocols.md    
+  - name: Create a Spring Cloud Stream Binder application
+    href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?view=azure-java-stable
+    maintainContext: true
 - name: Reference
   items:
   - name: Java
@@ -186,6 +195,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=event-hubs
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-eventhub
+    href: https://stackoverflow.com/questions/tagged/azure-eventhub
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs

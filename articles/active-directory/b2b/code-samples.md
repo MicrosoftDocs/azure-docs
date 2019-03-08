@@ -1,10 +1,10 @@
 ---
-title: Azure Active Directory B2B collaboration code and PowerShell samples | Microsoft Docs
+title: B2B collaboration code and PowerShell samples - Azure Active Directory | Microsoft Docs
 description: Code and PowerShell samples for Azure Active Directory B2B collaboration
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: sample
 ms.date: 04/11/2017
 
@@ -12,7 +12,8 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-
+ms.custom: "it-pro, seo-update-azuread-jan"
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory B2B collaboration code and PowerShell samples

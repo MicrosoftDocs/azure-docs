@@ -68,7 +68,7 @@ To use Real User Measurements, complete the following procedure:
     In your **app/build.gradle** file add the following lines:
 
     ```groovy
-    dependencies {   
+    dependencies {
      
         def mobileCenterSdkVersion = '0.12.1-16+3fe5b08'
         compile "com.microsoft.azure.mobile:mobile-center-rum:${mobileCenterSdkVersion}"

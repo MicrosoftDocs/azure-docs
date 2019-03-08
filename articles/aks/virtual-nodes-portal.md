@@ -16,6 +16,16 @@ To quickly deploy workloads in an Azure Kubernetes Service (AKS) cluster, you ca
 > [!IMPORTANT]
 > Virtual nodes for AKS are currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 
+## Preview limitations
+
+While this feature is in preview, the following regions are supported for deployments:
+
+* Australia East (australiaeast)
+* East US (eastus)
+* West Central US (westcentralus)
+* West Europe (westeurope)
+* West US (westus)
+
 ## Sign in to Azure
 
 Sign in to the Azure portal at https://portal.azure.com.
@@ -122,6 +132,9 @@ virtual-node-helloworld-9b55975f-bnmfl   1/1       Running   0          4m      
 
 The pod is assigned an internal IP address from the Azure virtual network subnet delegated for use with virtual nodes.
 
+> [!NOTE]
+> If you use images stored in Azure Container Registry, [configure and use a Kubernetes secret][acr-aks-secrets]. A current limitation of the virtual nodes preview is that you can't use integrated Azure AD service principal authentication. If you don't use a secret, pods scheduled on virtual nodes fail to start and report the error `HTTP response status code 400 error code "InaccessibleImage"`.
+
 ## Test the virtual node pod
 
 To test the pod running on the virtual node, browse to the demo application with a web client. As the pod is assigned an internal IP address, you can quickly test this connectivity from another pod on the AKS cluster. Create a test pod and attach a terminal session to it:
@@ -179,3 +192,5 @@ Virtual nodes are one component of a scaling solution in AKS. For more informati
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
+[acr-aks-secrets]: ../container-registry/container-registry-auth-aks.md#access-with-kubernetes-secret
+

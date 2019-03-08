@@ -18,7 +18,7 @@ This article shows you how to deploy the prerequisites for AKS and Azure AD, the
 
 The following limitations apply:
 
-- Existing non-RBAC enabled AKS clusters cannot currently be updated for RBAC use.
+- Azure AD can only be enabled when you create a new, RBAC-enabled cluster. You can't enable Azure AD on an existing AKS cluster.
 - *Guest* users in Azure AD, such as if you are using a federated login from a different directory, are not supported.
 
 ## Authentication details
@@ -216,7 +216,9 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.9.9
 
 Once complete, the authentication token is cached. You are only reprompted to log in when the token has expired or the Kubernetes config file re-created.
 
-If you are seeing an authorization error message after signing in successfully, check that the user you are signing in as is not a Guest in the Azure AD (this is often the case if you are using a federated login from a different directory).
+If you are seeing an authorization error message after signing in successfully, check whether:
+1. The user you are signing in as is not a Guest in the Azure AD instance (this is often the case if you are using a federated login from a different directory).
+2. The user is not a member of more than 200 groups.
 
 ```console
 error: You must be logged in to the server (Unauthorized)

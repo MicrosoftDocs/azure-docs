@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of uploading files into a
 services: media-services
 documentationcenter: ''
 author: johndeu
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 8812623a-b425-4a0f-9e05-0ee6c839b6f9
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/17/2017
+ms.date: 02/08/2019
 ms.author: juliako
 
 ---
-# Upload files into a Media Services account using the Aspera Server On-Demand service on Azure
+# Upload files into a Media Services account using the Aspera Server On-Demand service on Azure 
 
 ## Overview
 
@@ -126,7 +126,7 @@ The following resources were mentioned in this article.
 
 ## Next steps
 
-You can now [copy blobs from a storage account into an AMS account ](media-services-copying-existing-blob.md#copy-blobs-from-a-storage-account-into-an-ams-account).
+You can now [copy blobs from a storage account into an AMS account](media-services-copying-existing-blob.md#copy-blobs-from-a-storage-account-into-an-ams-account).
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

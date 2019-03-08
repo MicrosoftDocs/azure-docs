@@ -12,16 +12,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
+ms.lastreviewed: 01/30/2019
 ---
 
 # Prepare Azure Stack PKI certificates for use in deployment or rotation
+
 The certificate files [obtained from your CA of choice](azure-stack-get-pki-certs.md) must be imported and exported with properties matching Azure Stack’s certificate requirements.
 
-
 ## Prepare certificates for deployment
+
 Use these steps to prepare and validate the Azure Stack PKI certificates that will be used for deploying a new Azure Stack environment or for rotating secrets in an existing Azure Stack environment: 
 
 ### Import the certificate
@@ -78,7 +80,9 @@ Open Certificate Manager MMC console and connect to the Local Machine certificat
     
     ![Certificate export wizard with selected options](./media/prepare-pki-certs\azure-stack-save-cert.png)
 
-1. Select **Password** and provide a password for the certificates. Remember this password as it is used as a deployment parameter. Select **Next**.
+1. Select **Password** and provide a password for the certificates. Create a password that meets the following password complexity requirements. A minimum length of eight characters. The password contains at least three of the following: uppercase letter, lowercase letter, numbers from 0-9, special characters, alphabetical character that is neither uppercase nor lowercase. Make note of this password. You will use it as a deployment parameter.
+
+1. Select **Next**.
 
 1. Choose a file name and location for the pfx file to export. Select **Next**.
 

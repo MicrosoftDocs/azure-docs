@@ -1,21 +1,21 @@
 ---
 title: Subscription keys
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: You do not need to create subscription keys to use your free first-1000 endpoint queries. If you recieve an _out of quota_ error in the form of an HTTP 403 or 429, you need to create a key and assign it to your app.
+description: You do not need to create subscription keys to use your free first-1000 endpoint queries. If you receive an _out of quota_ error in the form of an HTTP 403 or 429, you need to create a key and assign it to your app.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 01/29/2019
 ms.author: diberry
 ---
 
 # Using subscription keys with your LUIS app
 
-You do not need to create subscription keys to use your free first-1000 endpoint queries. Once those endpoint queries are used, create an Azure resource in the [Azure portal](http://portal.azure.com), then assign that resource to a LUIS app in the [LUIS portal](https://www.luis.ai).
+You do not need to create subscription keys to use your free first-1000 endpoint queries. Once those endpoint queries are used, create an Azure resource in the [Azure portal](https://portal.azure.com), then assign that resource to a LUIS app in the [LUIS portal](https://www.luis.ai).
 
 If you receive an _out of quota_ error in the form of an HTTP 403 or 429, you need to create a key and assign it to your app. 
 
@@ -27,7 +27,7 @@ For testing and prototype only, use the free (F0) tier. For production systems, 
 
 This procedure creates a **Language Understanding** resource. If you want a resource that can be used across Cognitive Services, create the all-in-one key **[Cognitive Service](../cognitive-services-apis-create-account.md)** instead of the Language Understanding resource. 
 
-This key should only be used for endpoint prediction queries. Do not sure this key for changes to the model or app. 
+This key should only be used for endpoint prediction queries. Do not use this key for changes to the model or app. 
 
 1. Sign in to the **[Azure portal](https://ms.portal.azure.com/)**. 
 1. Select the green **+** sign in the upper left-hand panel and search for `Language Understanding` in the marketplace, then select on **Language Understanding** and follow the **create experience** to create a LUIS subscription account. 
@@ -38,7 +38,7 @@ This key should only be used for endpoint prediction queries. Do not sure this k
 
     ![Azure API Choice](./media/luis-azure-subscription/azure-api-choice.png) 
 
-1. Once you create the Language Understanding resource, you can view the access keys generated in **Resource Management->Keys**. Do not the keys. The next section will show you how to connect this new resource to a LUIS app in the LUIS portal. You need the name of the LUIS resource from step 3.
+1. Once you create the Language Understanding resource, you can view the access keys generated in **Resource Management->Keys**. The next section will show you how to connect this new resource to a LUIS app in the LUIS portal. You need the name of the LUIS resource from step 3.
 
     ![Azure Keys](./media/luis-azure-subscription/azure-keys.png)
 
@@ -60,13 +60,13 @@ This key should only be used for endpoint prediction queries. Do not sure this k
 
 1. Sign in to the LUIS portal, choose an app to add the new key to, then select **Manage** in the top-right menu, then select **Keys and endpoints**.
 
-    [ ![Keys and endpoints page](./media/luis-manage-keys/keys-and-endpoints.png) ](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
+    [![Keys and endpoints page](./media/luis-manage-keys/keys-and-endpoints.png)](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
 
 1. In order to add the LUIS, select **Assign Resource +**.
 
     ![Assign a resource to your app](./media/luis-manage-keys/assign-key.png)
 
-1. Select a Tenant in the dialog associated with the email address your login with to the LUIS website.  
+1. Select a Tenant in the dialog associated with the email address your used to sign in with to the LUIS website.  
 
 1. Choose the **Subscription Name** associated with the Azure resource you want to add.
 
@@ -117,7 +117,7 @@ The intents and their scores are also included the endpoint logs. You can [expor
 ### Enable Bing spell checker 
 In the **Endpoint url settings**, the **Bing spell checker** toggle allows LUIS to correct misspelled words before prediction. Create a **[Bing Spell Check key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. 
 
-Add the **spellCheck=true** querystring parameter and the **bing-spell-check-subscription-key={YOUR_BING_KEY_HERE}** . Replace the `{YOUR_BING_KEY_HERE}` with your Bing spell checker key.
+Add the **spellCheck=true** querystring parameter and the **bing-spell-check-subscription-key={YOUR_BING_KEY_HERE}**. Replace the `{YOUR_BING_KEY_HERE}` with your Bing spell checker key.
 
 ```JSON
 {
@@ -137,11 +137,11 @@ Learn more about publishing [regions](luis-reference-regions.md) including publi
 
 ## Assign resource without LUIS portal
 
-For automation purposes such as a CI/CD pipeline, you may want to automate the assignment of a LUIS resource to a LUIS app. In order to that, you need to perform the following steps:
+For automation purposes such as a CI/CD pipeline, you may want to automate the assignment of a LUIS resource to a LUIS app. In order to do that, you need to perform the following steps:
 
 1. Get an Azure Resource Manager token from this [website](https://resources.azure.com/api/token?plaintext=true). This token does expire so use it immediately. The request returns an Azure Resource Manager token.
 
-    ![Request  Azure Resource Manager token and receive  Azure Resource Manager token](./media/luis-manage-keys/get-arm-token.png)
+    ![Request Azure Resource Manager token and receive Azure Resource Manager token](./media/luis-manage-keys/get-arm-token.png)
 
 1. Use the token to request the LUIS resources across subscriptions, from the [Get LUIS azure accounts API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), your user account has access to. 
 

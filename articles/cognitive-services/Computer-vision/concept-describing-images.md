@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Concepts related to the image description feature of the Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
 
 # Describe images with human-readable language
 
-Computer Vision's algorithms analyze the content in an image. This analysis forms the foundation for a 'description' displayed as human-readable language in complete sentences. The description summarizes what is found in the image. Computer Vision's algorithms generate various descriptions based on the visual features identified in the image. Each description is evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest.
+Computer Vision can analyze an image and generate a human-readable sentence that describes its contents. The algorithm actually retruns several descriptions based on different visual features, and each description is given a confidence score. The final output is a list of descriptions ordered from highest to lowest confidence.
 
 ## Image description example
 

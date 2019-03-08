@@ -220,6 +220,7 @@ To learn more about how to configure your ILB ASE with a WAF device, see [Config
 
 * To get started with ASEs, see [Introduction to App Service environments][Intro].
  
+
 <!--Image references-->
 [1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png
 [2]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-webapp.png

@@ -37,7 +37,7 @@ Enter the following values in the **Container name**, **Container image**, and *
 
 ![Configuring basic settings for a new container instance in the Azure portal][aci-portal-03]
 
-You can create both Windows and Linux containers in Azure Container Instances. For this quickstart, leave the default setting of **Linux** to deploy the Linux-based `microsoft/aci-helloworld` image.
+For this quickstart, leave the default setting of **Public** to deploy the `microsoft/aci-helloworld` image from the public Docker Hub registry. This image packages a small web app written in Node.js that serves a static HTML page.
 
 Under **Configuration**, specify a **DNS name label** for your container. The name must be unique within the Azure region you create the container instance. Your container will be publicly reachable at `<dns-name-label>.<region>.azurecontainer.io`.
 

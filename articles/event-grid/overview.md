@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: overview
-ms.date: 12/06/2018
+ms.date: 01/06/2019
 ms.author: babanisa
 ms.custom: seodec18
 ---
@@ -61,7 +61,7 @@ There are five concepts in Azure Event Grid that let you get going:
 * **Events** - What happened.
 * **Event sources** - Where the event took place.
 * **Topics** - The endpoint where publishers send events.
-* **Event subscriptions** - The endpoint or built-in mechanism to route events, sometimes to more than on handler. Subscriptions are also used by handlers to intelligently filter incoming events.
+* **Event subscriptions** - The endpoint or built-in mechanism to route events, sometimes to more than one handler. Subscriptions are also used by handlers to intelligently filter incoming events.
 * **Event handlers** - The app or service reacting to the event.
 
 For more information about these concepts, see [Concepts in Azure Event Grid](concepts.md).
@@ -83,7 +83,7 @@ For a comparison of Event Grid, Event Hubs, and Service Bus, see [Choose between
 
 ## What can I do with Event Grid?
 
-Azure Event Grid provides several features that vastly improve serverless, ops automation, and [integration](http://azure.com/integration) work: 
+Azure Event Grid provides several features that vastly improve serverless, ops automation, and [integration](https://azure.com/integration) work: 
 
 ### Serverless application architectures
 

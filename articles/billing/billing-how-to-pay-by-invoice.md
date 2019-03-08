@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: cwatson
+ms.author: banders
 
 ---
 # Submit a request to pay Azure subscription by invoice
@@ -40,7 +40,7 @@ You can change the payment method for your Azure subscription to invoice by subm
 
     * Company name
     * Billing address
-    * [Account administrator's email address](billing-add-change-azure-subscription-administrator.md#check-the-account-administrator-of-the-subscription)
+    * [Account administrator's email address](../role-based-access-control/classic-administrators.md#view-the-account-administrator)
 
 1. Verify your contact information and preferred contact method, and then click **Create**.
 

@@ -2,12 +2,12 @@
 title: Azure Event Grid subscriptions through portal
 description: Describes how to create Event Grid subscriptions through the portal.
 services: event-grid
-author: tfitzmac
+author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/08/2018
-ms.author: tomfitz
+ms.date: 01/08/2019
+ms.author: spelluru
 ---
 
 # Subscribe to events through portal

@@ -34,7 +34,7 @@ Log in to the Azure portal at https://portal.azure.com.
 ## Create a VM
 
 1. Select **+ Create a resource** found on the upper, left corner of the Azure portal.
-2. Select **Compute**, and then select **Windows Server 2016 Datacenter** or **Ubuntu Server 17.10 VM**.
+2. Select **Compute**, and then select **Windows Server 2016 Datacenter** or a version of **Ubuntu Server**.
 3. Enter, or select, the following information, accept the defaults for the remaining settings, and then select **OK**:
 
     |Setting|Value|

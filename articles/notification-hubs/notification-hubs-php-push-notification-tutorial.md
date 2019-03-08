@@ -135,7 +135,7 @@ First, let us define a class representing a notification.
         public $headers;
 
         function __construct($format, $payload) {
-            if (!in_array($format, ["template", "apple", "windows", "gcm", "windowsphone"])) {
+            if (!in_array($format, ["template", "apple", "windows", "fcm", "windowsphone"])) {
                 throw new Exception('Invalid format: ' . $format);
             }
 
@@ -163,7 +163,7 @@ Armed with this class, we can now write the send notification methods inside of 
         $uri = $this->endpoint . $this->hubPath . "/messages" . NotificationHub::API_VERSION;
         $ch = curl_init($uri);
 
-        if (in_array($notification->format, ["template", "apple", "gcm"])) {
+        if (in_array($notification->format, ["template", "apple", "fcm"])) {
             $contentType = "application/json";
         } else {
             $contentType = "application/xml";
@@ -205,7 +205,7 @@ Armed with this class, we can now write the send notification methods inside of 
         $info = curl_getinfo($ch);
 
         if ($info['http_code'] <> 201) {
-            throw new Exception('Error sending notificaiton: '. $info['http_code'] . ' msg: ' . $response);
+            throw new Exception('Error sending notification: '. $info['http_code'] . ' msg: ' . $response);
         }
     } 
     ```
@@ -245,7 +245,7 @@ Then add the send code depending on your target mobile platform.
 
     ```php
     $message = '{"data":{"msg":"Hello from PHP!"}}';
-    $notification = new Notification("gcm", $message);
+    $notification = new Notification("fcm", $message);
     $hub->sendNotification($notification, null);
     ```
 

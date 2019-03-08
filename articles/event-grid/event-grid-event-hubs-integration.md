@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 12/13/2018
+ms.date: 01/13/2019
 ms.author: spelluru
 ---
 # Tutorial: Stream big data into a data warehouse

@@ -19,7 +19,7 @@ deployment (CD) in Jenkins. When you update the app by
 pushing commits to GitHub, Jenkins automatically builds 
 and republishes your app to Azure App Service. The sample 
 app in this tutorial was developed by using the 
-[Spring Boot](http://projects.spring.io/spring-boot/) framework. 
+[Spring Boot](https://projects.spring.io/spring-boot/) framework. 
 
 ![Overview](media/tutorial-jenkins-deploy-web-app-azure-app-service/overview.png)
 
@@ -54,7 +54,7 @@ and Maven tools installed on an Azure Linux VM
   [Create Jenkins server on an Azure Linux VM](/azure/jenkins/install-jenkins-solution-template)
 
 * A [GitHub](https://github.com) account so you can get a 
-working copy ([fork](#fork)) for the sample Java web app. 
+working copy (fork) for the sample Java web app. 
 
 * [Azure CLI](/cli/azure/install-azure-cli), 
 which you can run from either your local command line 
@@ -246,7 +246,7 @@ can deploy to Azure without using your own credentials.
    1. In the **Properties Content** box that appears, 
    add these environment variables and their values. 
 
-      ```text
+      ```ini
       AZURE_CRED_ID=yourAzureServicePrincipalName
       RES_GROUP=yourWebAppAzureResourceGroupName
       WEB_APP=yourWebAppName
@@ -267,7 +267,7 @@ app configuration file named `web.config`, which contains this XML
 but replace `$(JAR_FILE_NAME)` with `gs-spring-boot-0.1.0.jar`:
 
    ```xml
-   <?xml version="1.0" encoding="UTF-8">
+   <?xml version="1.0" encoding="UTF-8"?>
    <configuration>
       <system.webServer>
          <handlers>
@@ -282,7 +282,7 @@ but replace `$(JAR_FILE_NAME)` with `gs-spring-boot-0.1.0.jar`:
 deployment script named `Jenkinsfile`, which contains this text 
 ([source in GitHub here](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/doc/resources/jenkins/Jenkinsfile-webapp-se)):
 
-   ```text  
+   ```groovy
    node {
       stage('init') {
          checkout scm

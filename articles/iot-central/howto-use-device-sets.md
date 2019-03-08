@@ -22,7 +22,7 @@ To create a device set:
 
 1. Choose **Device Sets** on the left navigation menu.
 
-1. Click **+ New**.
+1. Select **+ New**.
 
     ![New device set](media/howto-use-device-sets/image1.png)
 
@@ -45,7 +45,7 @@ After you create your device set, you can configure its **Dashboard**. The **Das
 
 1. Choose the **Dashboard** tab.
 
-1. Click **Edit Template**.
+1. Select **Edit Template**.
 
     ![Design Mode on](media/howto-use-device-sets/image3.png)
 
@@ -54,7 +54,7 @@ After you create your device set, you can configure its **Dashboard**. The **Das
 1. Add a link tile:
     1. Choose **Link** on the right pane.
     1. Give your link a **Title**.
-    1. Choose a URL to be opened when the link is clicked.
+    1. Choose a URL to be opened when the link is selected.
     1. Give your link a description that shows below the **Title**.
     1. Choose **Save**.
 
@@ -79,7 +79,7 @@ After you create your device set, you can configure its **Dashboard**. The **Das
     > [!NOTE]
     > You can add multiple images, links, and grids.
   
-    1. Click **Done**.
+    1. Select **Done**.
 
     ![Design Mode off](media/howto-use-device-sets/image10.png)
 
@@ -99,7 +99,7 @@ In order to add a location map to you device sets dashboard you must have config
 4. Now when an operator views the device sets dashboard, the operator can see all the tiles you have configured, including the location Map to visualize all the devices location at a glance! 
     
 > [!NOTE] 
-> You will be able to resize the map to your desired size. Clicking on a pin in the map will display the device information, name and location. You can click on the pop-up to go to the device property page.  
+> You will be able to resize the map to your desired size. Selecting a pin in the map will display the device information, name and location. You can select the pop-up to go to the device property page.  
 
 
 ## Configure the List for your device set

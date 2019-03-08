@@ -54,12 +54,12 @@ To resolve this issue, remove the lock on the resource group of the VM, and retr
 **Step 1: [Remove lock from the restore point resource group](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Step 2: [Clean up restore point collection](#clean_up_restore_point_collection)**<br>
 
-## UserErrorKeyvaultPermissionsNotConfigured - Backup doesn't have sufficient permissions to the key vault for backup of encrypted VMs.
+## UserErrorKeyvaultPermissionsNotConfigured - Backup doesn't have sufficient permissions to the key vault for backup of encrypted VMs
 
 **Error code**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Error message**: Backup doesn't have sufficient permissions to the key vault for backup of encrypted VMs. <br>
 
-For backup operation to succeed on encrypted VMs, it must have permissions to access the key vault. This can be done using the [Azure portal](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#provide-permissions-to-backup) or through the [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
+For backup operation to succeed on encrypted VMs, it must have permissions to access the key vault. This can be done using the [Azure portal](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) or through the [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - Snapshot operation failed due to no network connectivity on the virtual machine
 
@@ -92,7 +92,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Cause 3: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Cause 4: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
-**Cause 5: [Backup service doesn't have permission to delete the old restore points because of a resource group lock](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)** <br>
+**Cause 5: Backup service doesn't have permission to delete the old restore points because of a resource group lock** <br>
 **Cause 6: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**
 
 ## UserErrorUnsupportedDiskSize - Currently Azure Backup does not support disk sizes greater than 1023GB
@@ -100,7 +100,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Error code**: UserErrorUnsupportedDiskSize <br>
 **Error message**: Currently Azure Backup does not support disk sizes greater than 1023GB <br>
 
-Your backup operation could fail when backing up VM with disk size greater than 1023GB since your vault is not upgraded to Instant Restore. Upgrading to Instant Restore will provide support up to 4TB, see this [article](backup-instant-restore-capability.md).  
+Your backup operation could fail when backing up VM with disk size greater than 1023GB since your vault is not upgraded to Instant Restore. Upgrading to Instant Restore will provide support up to 4TB, see this [article](backup-instant-restore-capability.md#upgrading-to-instant-restore). After you upgrade, it will take up to two hours for the subscription to avail this functionality. Provide sufficient buffer before you retry the operation.  
 
 ## UserErrorStandardSSDNotSupported - Currently Azure Backup does not support Standard SSD disks
 
@@ -108,6 +108,25 @@ Your backup operation could fail when backing up VM with disk size greater than 
 **Error message**: Currently Azure Backup does not support Standard SSD disks <br>
 
 Currently Azure Backup supports Standard SSD disks only for vaults that are upgraded to [Instant Restore](backup-instant-restore-capability.md).
+
+## UserErrorBackupOperationInProgress - Unable to initiate backup as another backup operation is currently in progress
+
+**Error code**: UserErrorBackupOperationInProgress <br>
+**Error message**: Unable to initiate backup as another backup operation is currently in progress<br>
+
+Your recent backup job failed because there is an existing backup job in progress. You can't start a new backup job until the current job finishes. Ensure the backup operation currently in progress is completed before triggering or scheduling another backup operations. To check the backup jobs status, perform the below steps:
+
+1. Sign in to Azure portal, click **All services**. Type Recovery Services and click **Recovery Services vaults**. The list of recovery services vaults appears.
+2. From the list of recovery services vaults, select a vault in which the backup is configured.
+3. On the vault dashboard menu, click **Backup Jobs** it displays all the backup jobs.
+
+	* If a backup job is in progress, wait for it to complete or cancel the backup job.
+		* To cancel the backup job right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0).
+	* If you have reconfigured the backup in a different vault, then ensure there are no backup jobs running in the old vault. If it exists then cancel the backup job.
+		* To cancel the backup job right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0)
+4. Retry backup operation.
+
+If the scheduled backup operation is taking longer time conflicting with the next backup configuration then review the [Best Practices](backup-azure-vms-introduction.md#best-practices), [Backup Performance](backup-azure-vms-introduction.md#backup-performance) and [Restore consideration](backup-azure-vms-introduction.md#restore-considerations).
 
 
 ## Causes and solutions
@@ -196,36 +215,39 @@ For Linux VM, If the VMSnapshot extension does not show in the Azure portal, [up
 Completing these steps causes the extension to be reinstalled during the next backup.
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Remove lock from the recovery point resource group
-1. Sign in to the [Azure portal](http://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Go to **All Resources option**, select the restore point collection resource group in the following format AzureBackupRG_`<Geo>`_`<number>`.
 3. In the **Settings** section, select **Locks** to display the locks.
 4. To remove the lock, select the ellipsis and click **Delete**.
 
-	![Delete lock ](./media/backup-azure-arm-vms-prepare/delete-lock.png)
+	![Delete lock](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
 ### <a name="clean_up_restore_point_collection"></a> Clean up restore point collection
 After removing the lock, the restore points have to be cleaned up. To clean up the restore points, follow any of the methods:<br>
-* [Clean up restore point collection by running ad-hoc backup](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+* [Clean up restore point collection by running ad hoc backup](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
 * [Clean up restore point collection from Azure portal](#clean-up-restore-point-collection-from-azure-portal)<br>
 
-#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Clean up restore point collection by running ad-hoc backup
-After removing lock, trigger an ad-hoc/manual backup. This will ensure the restore points are automatically cleaned up. Expect this ad-hoc/manual operation to fail first time; however, it will ensure automatic cleanup instead of manual deletion of restore points. After cleanup your next scheduled backup should succeed.
+#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Clean up restore point collection by running ad hoc backup
+After removing lock, trigger an ad hoc/manual backup. This will ensure the restore points are automatically cleaned up. Expect this ad hoc/manual operation to fail first time; however, it will ensure automatic cleanup instead of manual deletion of restore points. After cleanup your next scheduled backup should succeed.
 
 > [!NOTE]
-	> Automatic cleanup will happen after few hours of triggering the ad-hoc/manual backup. If your scheduled backup still fails, then try manually deleting the restore point collection using the steps listed [here](#clean-up-restore-point-collection-from-azure-portal).
+	> Automatic cleanup will happen after few hours of triggering the ad hoc/manual backup. If your scheduled backup still fails, then try manually deleting the restore point collection using the steps listed [here](#clean-up-restore-point-collection-from-azure-portal).
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Clean up restore point collection from Azure portal <br>
 
 To manually clear the restore points collection which are not cleared due to the lock on the resource group, try the following steps:
-1. Sign in to the [Azure portal](http://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. On the **Hub** menu, click **All resources**, select the Resource group with the following format AzureBackupRG_`<Geo>`_`<number>` where your VM is located.
 
-	![Delete lock ](./media/backup-azure-arm-vms-prepare/resource-group.png)
+	![Delete lock](./media/backup-azure-arm-vms-prepare/resource-group.png)
 
 3. Click Resource group, the **Overview** blade is displayed.
 4. Select **Show hidden types** option to display all the hidden resources. Select the restore point collections with the following format AzureBackupRG_`<VMName>`_`<number>`.
 
-	![Delete lock ](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
+	![Delete lock](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
 
 5. Click **Delete**, to clean the restore point collection.
 6. Retry the backup operation again.
+
+> [!NOTE]
+ >If the resource (RP Collection) has large number of Restore Points, then deleting the same from portal may timeout and fail. This is a known CRP issue, where all restore points are not deleted in the stipulated time and the operation times out; however the delete operation usually succeeds after 2 or 3 retries.

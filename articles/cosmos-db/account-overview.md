@@ -11,7 +11,7 @@ ms.reviewer: sngun
 
 ---
 
-# Working with Azure Cosmos account
+# Work with Azure Cosmos account
 
 Azure Cosmos DB is a fully managed platform-as-a-service (PaaS). To begin using Azure Cosmos DB, you should initially create an Azure Cosmos account in your Azure subscription. Your Azure Cosmos account contains a unique DNS name and you can manage an account by using Azure portal, Azure CLI or by using different language-specific SDKs. For more information, see [how to manage your Azure Cosmos account](how-to-manage-database-account.md).
 

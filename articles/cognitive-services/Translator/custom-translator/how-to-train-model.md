@@ -5,10 +5,10 @@ description: Training a model is an important step when building a translation m
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
-ms.date: 11/13/2018
+ms.subservice: custom-translator
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
+ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to train, so that I can start start building my custom translation model.
 ---
 

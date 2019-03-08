@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/27/2017
---- 
+---
 # Continuously integrate and develop with Stream Analytics tools
 This article describes how to use to use the Azure Stream Analytics tools for Visual Studio to set up a continuous integration and deployment process.
 

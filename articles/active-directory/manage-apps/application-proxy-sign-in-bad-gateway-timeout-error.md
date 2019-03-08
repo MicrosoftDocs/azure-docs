@@ -3,20 +3,21 @@ title: "Can't Access this Corporate Application error when using an Application 
 description: How to resolve common access issues with Azure AD Application Proxy applications.
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # "Can't Access this Corporate Application" error when using an Application Proxy application
@@ -65,7 +66,7 @@ If you confirm the user is assigned to the application in Azure, check the user 
 
 ## Check the application's internal URL
 
-As a first quick step, double check and fix the internal URL by opening the application through **Enterprise Applications**, then selecting the **Application Proxy** menu. Verify the internal URL is the one used from your on-prem network to access the application.
+As a first quick step, double check and fix the internal URL by opening the application through **Enterprise Applications**, then selecting the **Application Proxy** menu. Verify the internal URL is the one used from your on premises network to access the application.
 
 ## Check the application is assigned to a working Connector Group
 
@@ -81,7 +82,7 @@ To verify the application is assigned to a working Connector Group:
 
   * Move an active Connector into the group: If you have an active Connector that should belong to this group and has line of sight to the target backend application, you can move the Connector into the assigned group. To do so, click the Connector. In the “Connector Group” field, use the drop-down to select the correct group, and click save.
 
-  * Download a new Connector for that group: From this page, you can get the link to [download a new Connector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Install the Connector on a machine with direct line of sight to the backend application. Typicall, the Connector is installed on the same server as the application. Use the download Connector link to download a connector onto the target machine. Next, click the Connector, and use the “Connector Group” drop-down to make sure it belongs to the right group.
+  * Download a new Connector for that group: From this page, you can get the link to [download a new Connector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Install the Connector on a machine with direct line of sight to the backend application. Typically, the Connector is installed on the same server as the application. Use the download Connector link to download a connector onto the target machine. Next, click the Connector, and use the “Connector Group” drop-down to make sure it belongs to the right group.
 
   * Investigate an inactive Connector: If a connector shows as inactive, it is unable to reach the service. This error is typically due to some required ports being blocked. To solve this issue, move on to “verify all required ports are whitelisted.”
 

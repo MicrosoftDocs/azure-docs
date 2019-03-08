@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of uploading files to a M
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 3ad3dcea-95be-4711-9aae-a455a32434f6
@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/07/2017
+ms.date: 02/08/2019
 ms.author: juliako
 
 ---
-# Upload files to a Media Services account in the Azure portal
+# Upload files to a Media Services account in the Azure portal 
+
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-upload-files.md)
 > * [.NET](media-services-dotnet-upload-files.md)

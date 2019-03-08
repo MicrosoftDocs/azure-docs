@@ -1,15 +1,15 @@
-﻿---
+---
 title: "Tutorial: Create a custom search web page - Bing Custom Search"
 titlesuffix: Azure Cognitive Services
 description: Describes how to configure a custom search instance and integrate it into a web page.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 10/16/2017
+ms.date: 03/04/2019
 ms.author: aahi
 ---
 

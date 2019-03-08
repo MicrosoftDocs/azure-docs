@@ -77,7 +77,7 @@ To create a gateway:
 * 172.16.0.0/12 - This means an IP address range from  172.16.0.0 to 172.31.255.255 
 * 192.168.0.0/16 - This means an IP address range from  192.168.0.0 to 192.168.255.255
 
-If your are just creating the gateway for use with App Service VNet Integration, then you do not need to upload a certificate. Creating the gateway can take 30 minutes. You will not be able to integrate your app with your VNet until the gateway is provisioned. 
+If you are just creating the gateway for use with App Service VNet Integration, then you do not need to upload a certificate. Creating the gateway can take 30 minutes. You will not be able to integrate your app with your VNet until the gateway is provisioned. 
 
 ### Configure VNet Integration with your app ###
 

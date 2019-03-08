@@ -12,9 +12,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/01/2018
+ms.date: 03/04/2018
 ms.author: mabrigg
 ms.reviewer: anajod
+ms.lastreviewed: 12/01/2018
 ---
 
 # Tutorial: Create a staged data analytics solution with Azure and Azure Stack 
@@ -49,7 +50,7 @@ Some preparation is required to build this solution:
 
 -   An Azure subscription. (Create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 
--   Download and install the [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+-   Download and install the [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 
 -   You will need to provide your own data to be processed by the functions. Data must be generated and available to upload to the Azure Stack storage blob container.
 

@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning service
 description: This tutorial shows how to use Azure Machine Learning service to deploy an image classification model with scikit-learn in a Python Jupyter notebook. This tutorial is the second of a two-part series.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: tutorial
 
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 09/24/2018
+ms.date: 01/29/2019
 ms.custom: seodec18
 # As a professional data scientist, I can deploy the model previously trained in tutorial1.
 ---
@@ -30,23 +30,18 @@ In this part of the tutorial, you use Azure Machine Learning service for the fol
 > * Deploy the model to Container Instances.
 > * Test the deployed model.
 
-Container Instances isn't ideal for production deployments, but it's great for testing and understanding the workflow. For scalable production deployments, consider using Azure Kubernetes Service. For more information, see [how to deploy and where](how-to-deploy-and-where.md).
-
-## Get the notebook
-
-For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Run the `tutorials/img-classification-part2-deploy.ipynb` notebook, either in Azure Notebooks or in your own Jupyter notebook server.
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+Container Instances is a great solution for testing and understanding the workflow. For scalable production deployments, consider using Azure Kubernetes Service. For more information, see [how to deploy and where](how-to-deploy-and-where.md).
 
 >[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 1.0.2.
+> Code in this article was tested with Azure Machine Learning SDK version 1.0.8.
 
 ## Prerequisites
+Skip to [Set the development environment](#start) to read through the notebook steps.  
 
-Do the model training in the following notebook: [Tutorial (part 1): Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).  
+To run the notebook, first complete the model training in [Tutorial (part 1): Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).   Then run the  **tutorials/img-classification-part2-deploy.ipynb** notebook using the same notebook server.
 
 
-## Set up the environment
+## <a name="start"></a>Set up the environment
 
 Start by setting up a testing environment.
 
@@ -75,13 +70,16 @@ You registered a model in your workspace in the previous tutorial. Now load this
 ```python
 from azureml.core import Workspace
 from azureml.core.model import Model
-
+import os 
 ws = Workspace.from_config()
 model=Model(ws, 'sklearn_mnist')
-model.download(target_dir = '.')
-import os 
+
+model.download(target_dir=os.getcwd(), exist_ok=True)
+
 # verify the downloaded model file
-os.stat('./sklearn_mnist_model.pkl')
+file_path = os.path.join(os.getcwd(), "sklearn_mnist_model.pkl")
+
+os.stat(file_path)
 ```
 
 ## Test the model locally
@@ -97,12 +95,12 @@ Load the test data from the **./data/** directory created during the training tu
 
 ```python
 from utils import load_data
+import os
 
+data_folder = os.path.join(os.getcwd(), 'data')
 # note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the neural network converge faster
-
-X_test = load_data('./data/test-images.gz', False) / 255.0
-y_test = load_data('./data/test-labels.gz', True).reshape(-1)
-
+X_test = load_data(os.path.join(data_folder, 'test-images.gz'), False) / 255.0
+y_test = load_data(os.path.join(data_folder, 'test-labels.gz'), True).reshape(-1)
 ```
 
 ### Predict test data
@@ -113,7 +111,7 @@ To get predictions, feed the test dataset to the model:
 import pickle
 from sklearn.externals import joblib
 
-clf = joblib.load('./sklearn_mnist_model.pkl')
+clf = joblib.load( os.path.join(os.getcwd(), 'sklearn_mnist_model.pkl'))
 y_hat = clf.predict(X_test)
 ```
 
@@ -211,7 +209,8 @@ def run(raw_data):
     data = np.array(json.loads(raw_data)['data'])
     # make prediction
     y_hat = model.predict(data)
-    return json.dumps(y_hat.tolist())
+    # you can return any data type as long as it is JSON-serializable
+    return y_hat.tolist()
 ```
 
 <a name="make-myenv"></a>
@@ -311,10 +310,10 @@ n = 30
 sample_indices = np.random.permutation(X_test.shape[0])[0:n]
 
 test_samples = json.dumps({"data": X_test[sample_indices].tolist()})
-test_samples = bytes(test_samples, encoding = 'utf8')
+test_samples = bytes(test_samples, encoding='utf8')
 
 # predict using the deployed model
-result = json.loads(service.run(input_data=test_samples))
+result = service.run(input_data=test_samples)
 
 # compare actual value vs. the predicted values:
 i = 0
@@ -344,7 +343,6 @@ You can also send a raw HTTP request to test the web service:
 
 ```python
 import requests
-import json
 
 # send a random row from the test set to score
 random_index = np.random.randint(0, len(X_test)-1)
@@ -377,6 +375,8 @@ service.delete()
 
 ## Next steps
 
-+ Learn about all of the [deployment options for Azure Machine Learning service](how-to-deploy-and-where.md). Options include Azure Container Instances, Azure Kubernetes Service, FPGAs, and Azure IoT Edge.
-
-+ See how Azure Machine Learning service can autoselect and tune the best algorithm for your model. It also builds that model for you. Try out the [automatic algorithm selection](tutorial-auto-train-models.md) tutorial. 
++ Learn about all of the [deployment options for Azure Machine Learning service](how-to-deploy-and-where.md).
++ Learn how to [create clients for the web service](how-to-consume-web-service.md).
++  [Make predictions on large quantities of data](how-to-run-batch-predictions.md) asynchronously.
++ Monitor your Azure Machine Learning models with [Application Insights](how-to-enable-app-insights.md).
++ Try out the [automatic algorithm selection](tutorial-auto-train-models.md) tutorial. 

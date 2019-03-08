@@ -6,7 +6,7 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
@@ -19,12 +19,12 @@ This article presents generic Hive queries that create Hive tables and load data
 ## Prerequisites
 This article assumes that you have:
 
-* Created an Azure storage account. If you need instructions, see [About Azure storage accounts](../../storage/common/storage-create-storage-account.md).
-* Provisioned a customized Hadoop cluster with the HDInsight service.  If you need instructions, see [Customize Azure HDInsight Hadoop clusters for advanced analytics](customize-hadoop-cluster.md).
-* Enabled remote access to the cluster, logged in, and opened the Hadoop Command-Line console. If you need instructions, see [Access the Head Node of Hadoop Cluster](customize-hadoop-cluster.md).
+* Created an Azure storage account. If you need instructions, see [About Azure storage accounts](../../storage/common/storage-introduction.md).
+* Provisioned a customized Hadoop cluster with the HDInsight service.  If you need instructions, see [Setup Clusters in HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
+* Enabled remote access to the cluster, logged in, and opened the Hadoop Command-Line console. If you need instructions, see [Manage Apache Hadoop clusters](../../hdinsight/hdinsight-administer-use-portal-linux.md).
 
 ## Upload data to Azure blob storage
-If you created an Azure virtual machine by following the instructions provided in [Set up an Azure virtual machine for advanced analytics](../data-science-virtual-machine/setup-virtual-machine.md), this script file should have been downloaded to the *C:\\Users\\\<user name\>\\Documents\\Data Science Scripts* directory on the virtual machine. These Hive queries only require that you plug in your own data schema and Azure blob storage configuration in the appropriate fields to be ready for submission.
+If you created an Azure virtual machine by following the instructions provided in [Set up an Azure virtual machine for advanced analytics](../../machine-learning/data-science-virtual-machine/overview.md), this script file should have been downloaded to the *C:\\Users\\\<user name\>\\Documents\\Data Science Scripts* directory on the virtual machine. These Hive queries only require that you plug in your own data schema and Azure blob storage configuration in the appropriate fields to be ready for submission.
 
 We assume that the data for Hive tables is in an **uncompressed** tabular format, and that the data has been uploaded to the default (or to an additional) container of the storage account used by the Hadoop cluster.
 
@@ -32,7 +32,7 @@ If you want to practice on the **NYC Taxi Trip Data**, you need to:
 
 * **download** the 24 [NYC Taxi Trip Data](http://www.andresmh.com/nyctaxitrips) files (12 Trip files and 12 Fare files),
 * **unzip** all files into .csv files, and then
-* **upload** them to the default (or appropriate container) of the Azure storage account that was created by the procedure outlined in the [Customize Azure HDInsight Hadoop clusters for Advanced Analytics Process and Technology](customize-hadoop-cluster.md) topic. The process to upload the .csv files to the default container on the storage account can be found on this [page](hive-walkthrough.md#upload).
+* **upload** them to the default (or appropriate container) of the Azure storage account; options for such an account appear at [Use Azure storage with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-blob-storage.md) topic. The process to upload the .csv files to the default container on the storage account can be found on this [page](hive-walkthrough.md#upload).
 
 ## <a name="submit"></a>How to submit Hive queries
 Hive queries can be submitted by using:

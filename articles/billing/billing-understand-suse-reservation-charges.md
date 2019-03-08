@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
-ms.author: cwatson
+ms.author: banders
 ---
 # Understand how the SUSE Linux Enterprise software plan discount is applied
 

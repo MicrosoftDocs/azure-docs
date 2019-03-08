@@ -272,7 +272,7 @@ Contoso admins need to make sure the web apps and database can all communicate. 
 
     ![Connection string](media/contoso-migration-refactor-web-app-sql/strings3.png)
 
-5. After the changes are in the code, admins need to commit the changes. Using Team Explorer in Visual Studio, they commmit and sync.
+5. After the changes are in the code, admins need to commit the changes. Using Team Explorer in Visual Studio, they commit and sync.
 
 
 ## Step 6: Set up build and release pipelines in Azure DevOps
@@ -342,7 +342,7 @@ Contoso admins now configure Azure DevOps to perform build and release process.
 
     ![Deploy app service](./media/contoso-migration-refactor-web-app-sql/pipeline15.png)
 
-18. In **Select a file or folder**, they locate the **SmartHotel.Registration.Wcf.zip** file that was creating during the build, and clilck **Save**.
+18. In **Select a file or folder**, they locate the **SmartHotel.Registration.Wcf.zip** file that was creating during the build, and click **Save**.
 
     ![Save WCF](./media/contoso-migration-refactor-web-app-sql/pipeline16.png)
 

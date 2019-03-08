@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: 9818edd3-48c0-411d-b05a-3ec805eafb2e
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Procore SSO
 
@@ -210,7 +211,7 @@ Please follow the below steps to create a Procore test user on Procore SSOc side
 
 	![Configure Single Sign-On](./media/procoresso-tutorial/Procore_user_check.png)
 
-5. Click on **Save and Send Invitiation** (if an invite through mail is required) or **Save** (Save directly) to complete the user registration.
+5. Click on **Save and Send Invitation** (if an invite through mail is required) or **Save** (Save directly) to complete the user registration.
 	
 	![Configure Single Sign-On](./media/procoresso-tutorial/Procore_user_save.png)
 

@@ -4,12 +4,12 @@ titleSuffix: Azure Cognitive Services
 description: Use the Translator Text API Translate method.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 02/01/2019
 ms.author: v-jansko
 ---
 
@@ -50,7 +50,7 @@ Request parameters passed on the query string are:
   </tr>
   <tr>
     <td>category</td>
-    <td>*Optional parameter*.<br/>A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with [Custom Translator](../customization.md). Default value is: `general`.</td>
+    <td>*Optional parameter*.<br/>A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with [Custom Translator](../customization.md). Add the Category ID from your Custom Translator project to this parameter to use your deployed customized system. Default value is: `general`.</td>
   </tr>
   <tr>
     <td>profanityAction</td>
@@ -122,7 +122,7 @@ The body of the request is a JSON array. Each array element is a JSON object wit
 
 The following limitations apply:
 
-* The array can have at most 25 elements.
+* The array can have at most 100 elements.
 * The entire text included in the request cannot exceed 5,000 characters including spaces.
 
 ## Response body
@@ -220,6 +220,8 @@ The following are the possible HTTP status codes that a request returns.
     <td>Server temporarily unavailable. Retry the request. If the error persists, report it with: date and time of the failure, request identifier from response header `X-RequestId`, and client identifier from request header `X-ClientTraceId`.</td>
   </tr>
 </table> 
+
+If an error occurs, the request will also return a JSON error response. The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes can be found on the [v3 Translator Text API reference page](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## Examples
 

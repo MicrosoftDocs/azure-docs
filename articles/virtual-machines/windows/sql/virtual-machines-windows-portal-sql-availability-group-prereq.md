@@ -305,7 +305,7 @@ After the server finishes the configuration changes, restart the server.
 
 In the Azure portal, under virtual network, change the DNS Server to include the IP address of the secondary domain controller. This setting allows the DNS service redundancy.
 
-### <a name=DomainAccounts></a> Configure the domain accounts
+### <a name="DomainAccounts"></a> Configure the domain accounts
 
 In the next steps, you configure the Active Directory accounts. The following table shows the accounts:
 
@@ -410,7 +410,7 @@ After each virtual machine restarts as a member of the domain, add **CORP\Instal
 
 ### <a name="setServiceAccount"></a>Set the SQL Server service accounts
 
-On each SQL Server VM, set the SQL Server service account. Use the accounts that you created when you [configured the domain accounts](#DomainAccounts).
+On each SQL Server VM, set the SQL Server service account. Use the accounts that you created when you configured the domain accounts.
 
 1. Open **SQL Server Configuration Manager**.
 2. Right-click the SQL Server service, and then click **Properties**.
@@ -461,7 +461,7 @@ To add Failover Clustering features, do the following steps on both SQL Server V
 Repeat the steps on the other SQL Server VM.
 
   >[!NOTE]
-  > This step, along with actually joining the SQL Server VMs to the failover cluster, can now be automated with an Azure Quickstart Template. For more information, see [Create WSFC, listener, and configure ILB for an Always On availability group on a SQL Server VM with Azure Quickstart template](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+  > This step, along with actually joining the SQL Server VMs to the failover cluster, can now be automated with [Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) and [Azure Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 ## <a name="endpoint-firewall"> Configure the firewall on each SQL Server VM

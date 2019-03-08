@@ -6,9 +6,9 @@ author: swhite-msft
 manager: ehansen
 ms.assetid: BE2B2F8C-20B5-4E0B-AEC8-EAD505BA4C85
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 03/04/2019
 ms.author: scottwhi
 ---
 

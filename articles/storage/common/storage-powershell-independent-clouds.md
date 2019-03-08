@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
-ms.component: common
+ms.subservice: common
 ---
 
 # Managing Storage in the Azure independent clouds using PowerShell

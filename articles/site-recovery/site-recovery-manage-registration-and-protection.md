@@ -51,18 +51,18 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
         pushd .
         try
         {
-             $windowsIdentity=[System.Security.Principal.WindowsIdentity]::GetCurrent()
-             $principal=new-object System.Security.Principal.WindowsPrincipal($windowsIdentity)
-             $administrators=[System.Security.Principal.WindowsBuiltInRole]::Administrator
-             $isAdmin=$principal.IsInRole($administrators)
-             if (!$isAdmin)
-             {
+            $windowsIdentity=[System.Security.Principal.WindowsIdentity]::GetCurrent()
+            $principal=new-object System.Security.Principal.WindowsPrincipal($windowsIdentity)
+            $administrators=[System.Security.Principal.WindowsBuiltInRole]::Administrator
+            $isAdmin=$principal.IsInRole($administrators)
+            if (!$isAdmin)
+            {
                 "Please run the script as an administrator in elevated mode."
                 $choice = Read-Host
-                return;       
-             }
+                return;
+            }
 
-            $error.Clear()    
+            $error.Clear()
             "This script will remove the old Azure Site Recovery Provider related properties. Do you want to continue (Y/N) ?"
             $choice =  Read-Host
 
@@ -84,26 +84,33 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
             $registrationPath = $asrHivePath + '\Registration'
             $proxySettingsPath = $asrHivePath + '\ProxySettings'
             $draIdvalue = 'DraID'
+            $idMgmtCloudContainerId='IdMgmtCloudContainerId'
+
 
             if (Test-Path $asrHivePath)
             {
                 if (Test-Path $registrationPath)
                 {
-                    "Removing registration related registry keys."    
+                    "Removing registration related registry keys."
                     Remove-Item -Recurse -Path $registrationPath
                 }
 
                 if (Test-Path $proxySettingsPath)
-            {
+                {
                     "Removing proxy settings"
                     Remove-Item -Recurse -Path $proxySettingsPath
                 }
 
                 $regNode = Get-ItemProperty -Path $asrHivePath
                 if($regNode.DraID -ne $null)
-                {            
+                {
                     "Removing DraId"
                     Remove-ItemProperty -Path $asrHivePath -Name $draIdValue
+                }
+                if($regNode.IdMgmtCloudContainerId -ne $null)
+                {
+                    "Removing IdMgmtCloudContainerId"
+                    Remove-ItemProperty -Path $asrHivePath -Name $idMgmtCloudContainerId
                 }
                 "Registry keys removed."
             }
@@ -120,7 +127,7 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
                 $store.Remove($cert)
             }
         }catch
-        {    
+        {
             [system.exception]
             Write-Host "Error occurred" -ForegroundColor "Red"
             $error[0]
@@ -143,11 +150,11 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
 ## Disable protection for a Hyper-V virtual machine (Hyper-V to Azure)
 
 > [!NOTE]
-> Use this procedure if you're replicating Hyper-V VMs to Azure without a VMM server. If you are replicating your virtual machines using the **System Center VMM to Azure** scenario, then follow the instructions [Disable protection for a Hyper-V virtual machine replicating using the System Center VMM to Azure scenario](#disable-protection-for-a-hyper-v-virtual-machine-replicating-using-the-system-centet-vmm-to-azure-scenario)
+> Use this procedure if you're replicating Hyper-V VMs to Azure without a VMM server. If you are replicating your virtual machines using the **System Center VMM to Azure** scenario, then follow the instructions Disable protection for a Hyper-V virtual machine replicating using the System Center VMM to Azure scenario
 
 1. In **Protected Items** > **Replicated Items**, right-click the machine > **Disable replication**.
 2. In **Disable replication**, you can select the following options:
-     - **Disable replication and remove (recommended)** -  This option remove the replicated item from Azure Site Recovery and the replication for the machine is stopped. Replication configuration on the on-premises virtual machine will be cleaned up and Site Recovery billing for this protected server is stopped.
+    - **Disable replication and remove (recommended)** -  This option remove the replicated item from Azure Site Recovery and the replication for the machine is stopped. Replication configuration on the on-premises virtual machine will be cleaned up and Site Recovery billing for this protected server is stopped.
     - **Remove** - This option is  supposed to be used only if the source environment is deleted or not accessible (not connected). This removes the replicated item from Azure Site Recovery (billing is stopped). Replication configuration on the on-premises virtual machine **will not** be cleaned up. 
 
     > [!NOTE]
@@ -197,8 +204,8 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
 
 3. Run this script on the source VMM server, using PowerShell (administrator privileges required) from the VMM console. Replace the placeholder **SQLVM1** with the name of your virtual machine.
 
-         $vm = get-scvirtualmachine -Name "SQLVM1"
-         Set-SCVirtualMachine -VM $vm -ClearDRProtection
+        $vm = get-scvirtualmachine -Name "SQLVM1"
+        Set-SCVirtualMachine -VM $vm -ClearDRProtection
 4. On the secondary VMM server, run this script to clean up the settings for the secondary virtual machine:
 
         $vm = get-scvirtualmachine -Name "SQLVM1"

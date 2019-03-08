@@ -4,11 +4,11 @@ description:  Understand how indexing works in Azure Cosmos DB. Learn how to con
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2018
+ms.date: 3/1/2019
 ms.author: mjbrown
 ---
 
-# Indexing policy in Azure Cosmos DB
+# Index policy in Azure Cosmos DB
 
 You can override the default indexing policy on an Azure Cosmos container by configuring the following parameters:
 
@@ -18,9 +18,9 @@ You can override the default indexing policy on an Azure Cosmos container by con
 
 * **Configure index modes**: By using the indexing policy on a container, you can configure different indexing modes such as *Consistent* or *None*.
 
-## Indexing modes 
+## Indexing modes
 
-Azure Cosmos DB supports two indexing modes that you can configure on an Azure Cosmos container. You can configure the following two indexing modes through the indexing policy: 
+Azure Cosmos DB supports two indexing modes that you can configure on an Azure Cosmos container. You can configure the following two indexing modes through the indexing policy:
 
 * **Consistent**: If an Azure Cosmos container’s policy is set to Consistent, the queries on a specific container follow the same consistency level as the one specified for point-reads (for example, strong, bounded-staleness, session, or eventual). 
 
@@ -32,6 +32,9 @@ Azure Cosmos DB supports two indexing modes that you can configure on an Azure C
   > Configuring the indexing mode as a None has the side effect of dropping any existing indexes. You should use this option if your access patterns require ID or self-link only.
 
 Query consistency levels are maintained similar to the regular read operations. Azure Cosmos database returns an error if you query the container that has a None indexing mode. You can execute the queries as scans through the explicit **x-ms-documentdb-enable-scan** header in the REST API or the **EnableScanInQuery** request option by using the .NET SDK. Some query features, like ORDER BY are currently not supported with **EnableScanInQuery**, because they mandate a corresponding index.
+
+> [!NOTE]
+> Azure Cosmos DB has a third, Lazy indexing mode. However this is being de-emphasized because query performance and cost can be unpredictable. We recommend using Consistent indexing mode.
 
 ## Modifying the indexing policy
 

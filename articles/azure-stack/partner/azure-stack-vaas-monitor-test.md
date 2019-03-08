@@ -11,9 +11,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 11/26/2018
+
+
 
 ROBOTS: NOINDEX
 
@@ -137,7 +140,7 @@ In the Test Pass workflow, **rescheduling** a test instance reuses the same set 
 
 #### Cancel a test instance
 
-A scheduled test may be cancelled if its status is `Pending` or `Running`.  
+A scheduled test may be canceled if its status is `Pending` or `Running`.  
 
 1. Select **Cancel** from the context menu to open a prompt for cancelling the test instance.
 

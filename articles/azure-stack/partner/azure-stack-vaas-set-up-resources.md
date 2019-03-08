@@ -11,9 +11,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 11/26/2018
+
+
 
 ROBOTS: NOINDEX
 
@@ -90,7 +93,7 @@ As the Azure AD administrator, give the VaaS Azure AD application the required p
 
 ## Create an Azure Storage account
 
-During test execution, VaaS outputs diagnostic logs to an Azure Storage account. In addition to test logs, the storage account may also be used to the upload the OEM extension packages for the Solution Validation workflow.
+During test execution, VaaS outputs diagnostic logs to an Azure Storage account. In addition to test logs, the storage account may also be used to the upload the OEM extension packages for the Package Validation workflow.
 
 The Azure Storage account is hosted in the Azure public cloud, not on your Azure Stack environment.
 

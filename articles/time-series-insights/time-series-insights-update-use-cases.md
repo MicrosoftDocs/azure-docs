@@ -27,7 +27,7 @@ This document provides an overview of the use cases that the Azure Time Series I
 
 ## Introduction
 
-Time Series Insights is an end-to-end platform-as-a-service offering. It's used to ingest, process, store, and query highly contextualized, time-series-optimized IoT-scale data. Time Series Insights is ideal for ad-hoc data exploration and operational analysis. Time Series Insights is a uniquely extensible, customized, service offering that meets the broad needs of industrial IoT deployments.
+Time Series Insights is an end-to-end platform-as-a-service offering. It's used to ingest, process, store, and query highly contextualized, time-series-optimized IoT-scale data. Time Series Insights is ideal for ad hoc data exploration and operational analysis. Time Series Insights is a uniquely extensible, customized, service offering that meets the broad needs of industrial IoT deployments.
 
 ## Data exploration and visual anomaly detection
 

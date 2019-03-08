@@ -4,11 +4,11 @@ titleSuffix: Text Analytics -  Azure Cognitive Services
 description: Deploy the language detection container, with a running sample, to the Azure Kubernetes Service, and test it in a web browser. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 01/22/2019
 ms.author: diberry
 ---
 
@@ -402,8 +402,8 @@ az group delete --name cogserv-container-rg
 
 ## Next steps 
 
-> [!div class="nextstepaction"]
-> [Use the Text Analytics Connected Service](../vs-text-connected-service.md)
+* Use more [Cognitive Services Containers](../../cognitive-services-container-support.md)
+* Use the Text Analytics Connected Service](../vs-text-connected-service.md)
 
 
 <!--

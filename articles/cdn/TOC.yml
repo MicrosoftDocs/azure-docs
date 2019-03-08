@@ -147,7 +147,7 @@
       - name: X-EC-Debug headers
         href: cdn-http-debug-headers.md       
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.cdn
+    href: /powershell/module/az.cdn
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.cdn
   - name: Java
@@ -177,6 +177,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=cdn
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-cdn
+    href: https://stackoverflow.com/questions/tagged/azure-cdn
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=cdn
