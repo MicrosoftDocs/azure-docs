@@ -81,7 +81,7 @@ Each scheduled test instance shows the following information:
 
 ### Actions
 
-Each test instance lists available actions you can take when you click on its context menu **[...]** in the test instances table.
+Each test instance lists available actions you can take when you select its context menu **[...]** in the test instances table.
 
 #### View information about the test definition
 
