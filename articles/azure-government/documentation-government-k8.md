@@ -75,7 +75,7 @@ Download [kubectl][kubectl-install].
 1. Use acs-engine to deploy your template to Azure Government. This operation takes up to 30 minutes for three nodes.
 
     ```bash
-    acs-engine deploy --azure-env AzureUSGovernmentCloud --location usgovvirginia --subscription-id <YOUR_SUBSCRIPTION_ID> --api-model apimodel.json
+    aks-engine deploy --azure-env AzureUSGovernmentCloud --location usgovvirginia --subscription-id <YOUR_SUBSCRIPTION_ID> --client-id <YOUR-SP-ID> --client-secret <YOUR-SP-PASSWD> --api-model kubernetes.json
     ```
 
 ## Connect to your Kubernetes cluster
