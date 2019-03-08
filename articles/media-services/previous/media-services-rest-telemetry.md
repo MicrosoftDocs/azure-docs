@@ -96,8 +96,8 @@ The steps described in this topic are:
 	Strict-Transport-Security: max-age=31536000; includeSubDomains
 	Date: Wed, 02 Dec 2015 05:10:40 GMT
 	
-	{  
-   		"d":{  
+	{
+   		"d":{
       		"results":[]
    		}
 	}
@@ -116,7 +116,7 @@ The steps described in this topic are:
 	Host: wamsbnp1clus001rest-hs.cloudapp.net
 	Content-Length: 115
 	
-	{  
+	{
    		"Name":"monitoring",
    		"EndPointAddress":"https://telemetryvalidationstore.table.core.windows.net/",
    		"EndPointType":2
@@ -188,10 +188,10 @@ The steps described in this topic are:
 	Host: wamsbnp1clus001rest-hs.cloudapp.net
 	Content-Length: 133
 	
-	{  
+	{
 	   "NotificationEndPointId":"nb:nepid:UUID:76bb4faf-ea29-4815-840a-9a8e20102fc4",
-	   "Settings":[  
-	      {  
+	   "Settings":[
+	      {
 		 "Component":"Channel",
 		 "Level":"Normal"
 	      }
