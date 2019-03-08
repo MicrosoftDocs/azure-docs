@@ -155,6 +155,12 @@ To view the list of options, type `CosmosDB.Emulator.exe /?` at the command prom
 | ComputePort | Specified the port number to use for the Compute Interop Gateway service. The Gateway's HTTP endpoint probe port is calculated as ComputePort + 79. Hence, ComputePort and ComputePort + 79 must be open and available. The defaults is 8900, 8979. | CosmosDB.Emulator.exe /ComputePort = \<computeport\> | \<computeport\>: Single port number |
 | EnableCassandraEndpoint | Enables Cassandra API | CosmosDB.Emulator.exe /EnableCassandraEndpoint | |
 | EnableGremlinEndpoint | Enables Gremlin API | CosmosDB.Emulator.exe /EnableGremlinEndpoint | |
+| GremlinPort | Port number to use for the Gremlin Endpoint. Default is 8901. | CosmosDB.Emulator.exe /GremlinPort=\<port\> | \<port\>: Single port number |
+|TablePort | Port number to use for the Azure Table Endpoint. Default is 8902. | CosmosDB.Emulator.exe /TablePort=\<port\> | \<port\>: Single port number|
+| KeyFile | Read authorization key from the specified file. Use the /GenKeyFile option to generate a keyfile | CosmosDB.Emulator.exe /KeyFile=\<file_name\> | \<file_name\>: Path to the file |
+| ResetDataPath | Recursively removes all the files in the specified path. If you don't specify a path, it defaults to %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath[=<path>] | \<path\>: File path  |
+| StartTraces  |  Start collecting debug trace logs. | CosmosDB.Emulator.exe /StartTraces | |
+| StopTraces     | Stop collecting debug trace logs. | CosmosDB.Emulator.exe /StopTraces  | |
 |EnableTableEndpoint | Enables Azure Table API | CosmosDB.Emulator.exe /EnableTableEndpoint | |
 |FailOnSslCertificateNameMismatch | By default the Emulator regenerates its self-signed SSL certificate, if the certificate's SAN does not include the Emulator host's domain name, local IPv4 address, 'localhost', and '127.0.0.1'. With this option, the emulator will fail at startup instead. You should then use the /GenCert option to create and install a new self-signed SSL certificate. | CosmosDB.Emulator.exe /FailOnSslCertificateNameMismatch  | |
 | GenCert | Generate and install a new self-signed SSL certificate. optionally including a comma-separated list of additional DNS names for accessing the Emulator over the network. | CosmosDB.Emulator.exe /GenCert[ \<comma-separated list of additional dns-names\>] | |
