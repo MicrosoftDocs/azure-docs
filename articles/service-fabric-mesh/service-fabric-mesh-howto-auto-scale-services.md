@@ -44,8 +44,8 @@ The following example shows an autoscaling policy in a JSON deployment template.
 "Microsoft.ServiceFabricMesh/networks/worker-app-network"
 ],
 "properties": {
-"services": [   
-    { ... },       
+"services": [
+    { ... },
     {
     "name": "WorkerService",
     "properties": {
@@ -75,7 +75,7 @@ The following example shows an autoscaling policy in a JSON deployment template.
                 "scaleIncrement": "1"
             }
         }
-        ],        
+        ],
         ...
     }
     }
