@@ -6,13 +6,13 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 02/28/2019
 ms.author: iainfou
 ---
 
 # Kubernetes core concepts for Azure Kubernetes Service (AKS)
 
-As application development has moved towards a container-based approach, the need to orchestrate and manage the inter-connected resources becomes important. Kubernetes is the leading platform that provides the ability to provide reliable scheduling of fault-tolerant application workloads. Azure Kubernetes Service (AKS) is a managed Kubernetes offering that further simplifies container-based application deployment and management.
+As application development moves towards a container-based approach, the need to orchestrate and manage resources is important. Kubernetes is the leading platform that provides the ability to provide reliable scheduling of fault-tolerant application workloads. Azure Kubernetes Service (AKS) is a managed Kubernetes offering that further simplifies container-based application deployment and management.
 
 This article introduces the core Kubernetes infrastructure components such as the *cluster master*, *nodes*, and *node pools*. Workload resources such as *pods*, *deployments*, and *sets* are also introduced, along with how to group resources into *namespaces*.
 
@@ -37,7 +37,7 @@ A Kubernetes cluster is divided into two components:
 
 ## Cluster master
 
-When you create an AKS cluster, a cluster master is automatically created and configured. This cluster master is provided as a managed Azure resource abstracted from the user. There is no cost for the cluster master, only the nodes that are part of the AKS cluster.
+When you create an AKS cluster, a cluster master is automatically created and configured. This cluster master is provided as a managed Azure resource abstracted from the user. There's no cost for the cluster master, only the nodes that are part of the AKS cluster.
 
 The cluster master includes the following core Kubernetes components:
 
@@ -48,9 +48,11 @@ The cluster master includes the following core Kubernetes components:
 
 AKS provides a single-tenant cluster master, with a dedicated API server, Scheduler, etc. You define the number and size of the nodes, and the Azure platform configures the secure communication between the cluster master and nodes. Interaction with the cluster master occurs through Kubernetes APIs, such as `kubectl` or the Kubernetes dashboard.
 
-This managed cluster master means that you do not need to configure components like a highly available *etcd* store, but it also means that you cannot access the cluster master directly. Upgrades to Kubernetes are orchestrated through the Azure CLI or Azure portal, which upgrades the cluster master and then the nodes. To troubleshoot possible issues, you can review the cluster master logs through Azure Monitor logs.
+This managed cluster master means that you don't need to configure components like a highly available *etcd* store, but it also means that you can't access the cluster master directly. Upgrades to Kubernetes are orchestrated through the Azure CLI or Azure portal, which upgrades the cluster master and then the nodes. To troubleshoot possible issues, you can review the cluster master logs through Azure Monitor logs.
 
 If you need to configure the cluster master in a particular way or need direct access to them, you can deploy your own Kubernetes cluster using [aks-engine][aks-engine].
+
+For associated best practices, see [Best practices for cluster security and upgrades in AKS][operator-best-practices-cluster-security].
 
 ## Nodes and node pools
 
@@ -58,15 +60,15 @@ To run your applications and supporting services, you need a Kubernetes *node*. 
 
 - The `kubelet` is the Kubernetes agent that processes the orchestration requests from the cluster master and scheduling of running the requested containers.
 - Virtual networking is handled by the *kube-proxy* on each node. The proxy routes network traffic and manages IP addressing for services and pods.
-- The *container runtime* is the component that allows containerized applications to run and interact with additional resources such as the virtual network and storage. In AKS, Docker is used as the container runtime.
+- The *container runtime* is the component that allows containerized applications to run and interact with additional resources such as the virtual network and storage. In AKS, Moby is used as the container runtime.
 
 ![Azure virtual machine and supporting resources for a Kubernetes node](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
 The Azure VM size for your nodes defines how many CPUs, how much memory, and the size and type of storage available (such as high-performance SSD or regular HDD). If you anticipate a need for applications that require large amounts of CPU and memory or high-performance storage, plan the node size accordingly. You can also scale up the number of nodes in your AKS cluster to meet demand.
 
-In AKS, the VM image for the nodes in your cluster is currently based on Ubuntu Linux. When you create an AKS cluster or scale up the number of nodes, the Azure platform creates the requested number of VMs and configures them. There is no manual configuration for you to perform.
+In AKS, the VM image for the nodes in your cluster is currently based on Ubuntu Linux. When you create an AKS cluster or scale up the number of nodes, the Azure platform creates the requested number of VMs and configures them. There's no manual configuration for you to perform.
 
-If you need to use a different host OS, container runtime, or include custom packages, you can deploy your own Kubernetes cluster using [aks-engine][aks-engine]. The upstream `aks-engine` releases features and provides configuration options before they are officially supported in AKS clusters. For example, if you wish to use Windows containers or a container runtime other than Docker, you can use `aks-engine` to configure and deploy a Kubernetes cluster that meets your current needs.
+If you need to use a different host OS, container runtime, or include custom packages, you can deploy your own Kubernetes cluster using [aks-engine][aks-engine]. The upstream `aks-engine` releases features and provides configuration options before they are officially supported in AKS clusters. For example, if you wish to use Windows containers or a container runtime other than Moby, you can use `aks-engine` to configure and deploy a Kubernetes cluster that meets your current needs.
 
 ### Resource reservations
 
@@ -75,7 +77,7 @@ You don't need to manage the core Kubernetes components on each node, such as th
 - **CPU** - 60 ms
 - **Memory** - 20% up to 4 GiB
 
-These reservations mean that the amount of available CPU and memory for your applications may appear less than the node itself contains. If there are resource constraints due to the number of applications that you run, these reservations ensure CPU and memory remains available for the core Kubernetes components. The resource reservations cannot be changed.
+These reservations mean that the amount of available CPU and memory for your applications may appear less than the node itself contains. If there are resource constraints due to the number of applications that you run, these reservations ensure CPU and memory remains available for the core Kubernetes components. The resource reservations can't be changed.
 
 For example:
 
@@ -88,6 +90,8 @@ For example:
     - A total of *(32 - 4) = 28 GiB* is available for the node
     
 The underlying node OS also requires some amount of CPU and memory resources to complete its own core functions.
+
+For associated best practices, see [Best practices for basic scheduler features in AKS][operator-best-practices-scheduler].
 
 ### Node pools
 
@@ -111,7 +115,7 @@ A *deployment* represents one or more identical pods, managed by the Kubernetes 
 
 You can update deployments to change the configuration of pods, container image used, or attached storage. The Deployment Controller drains and terminates a given number of replicas, creates replicas from the new deployment definition, and continues the process until all replicas in the deployment are updated.
 
-Most stateless applications in AKS should use the deployment model rather than scheduling individual pods. Kubernetes can monitor the health and status of deployments to ensure that the required number of replicas run within the cluster. When you only schedule individual pods, the pods are not restarted if they encounter a problem, and are not rescheduled on healthy nodes if their current node encounters a problem.
+Most stateless applications in AKS should use the deployment model rather than scheduling individual pods. Kubernetes can monitor the health and status of deployments to ensure that the required number of replicas run within the cluster. When you only schedule individual pods, the pods aren't restarted if they encounter a problem, and aren't rescheduled on healthy nodes if their current node encounters a problem.
 
 If an application requires a quorum of instances to always be available for management decisions to be made, you don't want an update process to disrupt that ability. *Pod Disruption Budgets* can be used to define how many replicas in a deployment can be taken down during an update or node upgrade. For example, if you have *5* replicas in your deployment, you can define a pod disruption of *4* to only permit one replica from being deleted/rescheduled at a time. As with pod resource limits, a best practice is to define pod disruption budgets on applications that require a minimum number of replicas to always be present.
 
@@ -232,3 +236,5 @@ This article covers some of the core Kubernetes components and how they apply to
 [aks-concepts-network]: concepts-network.md
 [acr-helm]: ../container-registry/container-registry-helm-repos.md
 [aks-helm]: kubernetes-helm.md
+[operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[operator-best-practices-scheduler]: operator-best-practices-scheduler.md

@@ -4,7 +4,7 @@ description: Use this tutorial to learn how to investigate alerts with Azure Sen
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: b5fbc5ac-68b2-4024-9c1b-bd3cc41a66d0

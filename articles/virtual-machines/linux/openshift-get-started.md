@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: 03/01/2019
 ms.author: haroldw
 ---
 
@@ -42,7 +42,7 @@ Of the five versions covered in this article, only two are available today for c
 
 Container Platform is an enterprise-ready [commercial version](https://www.openshift.com) from and supported by Red Hat. With this version, customers purchase the necessary entitlements for OpenShift Container Platform and are responsible for installation and management of the entire infrastructure.
 
-Because customers "own" the entire platform, they can install it in their on-premises datacenter, or in a public cloud (such as Azure, AWS, or Google).
+Because customers "own" the entire platform, they can install it in their on-premises datacenter, or in a public cloud (such as Azure).
 
 ## OpenShift On Azure
 
@@ -54,7 +54,7 @@ OKD is an [open-source](https://www.okd.io/) upstream project of OpenShift that'
 
 ## OpenShift Dedicated
 
-Dedicated is a Red Hat-managed *single-tenant* OpenShift that uses OpenShift Container Platform. Red Hat manages all of the underlying infrastructure (VMs, OpenShift cluster, networking, storage, etc.). The cluster is specific to one customer and runs in a public cloud (such as AWS or Google). A starting cluster includes four application nodes and all costs are annual and paid upfront.
+Dedicated is a Red Hat-managed *single-tenant* OpenShift that uses OpenShift Container Platform. Red Hat manages all of the underlying infrastructure (VMs, OpenShift cluster, networking, storage, etc.). The cluster is specific to one customer and runs in a public cloud (such as Azure). A starting cluster includes four application nodes and all costs are annual and paid upfront.
 
 ## OpenShift Online
 

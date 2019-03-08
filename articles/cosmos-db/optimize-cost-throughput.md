@@ -108,7 +108,7 @@ Furthermore, if you're using Azure Cosmos DB, and you know you are not going to 
 
 ## Optimize by changing indexing policy 
 
-By default, Azure Cosmos DB automatically indexes every property of every record. This is intended to ease development and ensure excellent performance across many different types of ad-hoc queries. If you have large records with thousands of properties, paying the throughput cost for indexing every property may not be useful, especially if you only query against 10 or 20 of those properties. As you get closer to getting a handle on your specific workload, our guidance is to tune your index policy. Full details on Azure Cosmos DB indexing policy can be found [here](indexing-policies.md). 
+By default, Azure Cosmos DB automatically indexes every property of every record. This is intended to ease development and ensure excellent performance across many different types of ad hoc queries. If you have large records with thousands of properties, paying the throughput cost for indexing every property may not be useful, especially if you only query against 10 or 20 of those properties. As you get closer to getting a handle on your specific workload, our guidance is to tune your index policy. Full details on Azure Cosmos DB indexing policy can be found [here](indexing-policies.md). 
 
 ## Monitoring provisioned and consumed throughput 
 

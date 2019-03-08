@@ -103,7 +103,6 @@ You can retrieve the URL for the dashboard from the master node in your cluster.
 3. Make note of the file locations. Update the script with the locations, and then open PowerShell with an elevated prompt. Run the updated script:  
 
     ```PowerShell   
-    Import  /etc/kubernetes/certs/ca.crt -CertStoreLocation cert:\LocalMachine\Root 
     Import-Certificate -Filepath "ca.crt" -CertStoreLocation cert:\LocalMachine\Root 
     $pfxpwd = Get-Credential -UserName 'Enter password below' -Message 'Enter password below' 
     Import-PfxCertificate -Filepath "client.pfx" -CertStoreLocation cert:\CurrentUser\My -Password $pfxpwd.Password 
@@ -118,9 +117,11 @@ https://azurestackdomainnamefork8sdashboard/api/v1/namespaces/kube-system/servic
 3.  Select the client certificate.
 4.  Enter the token. 
 5. Reconnect to the bash command line on the master node and give permissions to `kubernetes-dashboard`. Run the following command:
-    ```Bash   
+
+    ```Bash  
     kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard 
     ``` 
+
     The script gives `kubernetes-dashboard` Cloud administrator privileges. For more information, see [For RBAC-enabled clusters](https://docs.microsoft.com/azure/aks/kubernetes-dashboard).
 
 You can use the dashboard. For more information on the Kubernetes dashboard, see [Kubernetes Web UI Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) 

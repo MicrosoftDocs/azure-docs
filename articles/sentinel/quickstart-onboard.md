@@ -4,7 +4,7 @@ description: Learn how to collect data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae

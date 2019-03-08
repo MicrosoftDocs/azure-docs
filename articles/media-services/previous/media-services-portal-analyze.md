@@ -17,7 +17,7 @@ ms.date: 02/10/2019
 ms.author: juliako
 
 ---
-# Analyze your media using the Azure portal (legacy)
+# Analyze your media using the Azure portal 
 > [!NOTE]
 > To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
 > 

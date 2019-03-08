@@ -4,7 +4,7 @@ description: Provides an overview of known issues in the Azure Migrate service, 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 03/04/2019
 ms.author: raynew
 ---
 
@@ -162,10 +162,34 @@ This issue could occur due to an issue with VMware PowerCLI installation. Follow
         C:\Program Files (x86)\WindowsPowerShell\Modules
 
    d. Restart the 'Azure Migrate Collector' service in Windows Service Manager (Open 'Run' and type services.msc to open Windows Service Manager). Right click on Azure Migrate Collector Service and click Start.
-   
-   e. Double-click the desktop shortcut 'Run collector' to start the collector application. The collector application should automatically download and install the required version fo PowerCLI.
 
-3. If the above does not resolve the issue, manually install [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) and check if the issue is resolved.
+   e. Double-click the desktop shortcut 'Run collector' to start the collector application. The collector application should automatically download and install the required version of PowerCLI.
+
+3. If the above does not resolve the issue, follow steps a to c above and then manually install PowerCLI in the appliance using the following steps:
+
+   a. Clean up all incomplete PowerCLI installation files by following steps #a to #c in step #2 above.
+
+   b. Go to Start > Run > Open Windows PowerShell(x86) in administrator mode
+
+   c. Run the command:  Install-Module "VMWare.VimAutomation.Core" -RequiredVersion "6.5.2.6234650" (type 'A' when it asks for confirmation)
+
+   d. Restart the 'Azure Migrate Collector' service in Windows Service Manager (Open 'Run' and type services.msc to open Windows Service Manager). Right click on Azure Migrate Collector Service and click Start.
+
+   e. Double-click the desktop shortcut 'Run collector' to start the collector application. The collector application should automatically download and install the required version of PowerCLI.
+
+4. If you are unable to download the module in the appliance due to firewall issues, download and install the module in a machine that has access to internet using the following steps:
+
+    a. Clean up all incomplete PowerCLI installation files by following steps #a to #c in step #2 above.
+
+    b. Go to Start > Run > Open Windows PowerShell(x86) in administrator mode
+
+    c. Run the command:  Install-Module "VMWare.VimAutomation.Core" -RequiredVersion "6.5.2.6234650" (type 'A' when it asks for confirmation)
+
+    d. Copy all modules starting with "VMware" from “C:\Program Files (x86)\WindowsPowerShell\Modules” to the same location on the collector VM.
+
+    e. Restart the 'Azure Migrate Collector' service in Windows Service Manager (Open 'Run' and type services.msc to open Windows Service Manager). Right click on Azure Migrate Collector Service and click Start.
+
+    f. Double-click the desktop shortcut 'Run collector' to start the collector application. The collector application should automatically download and install the required version of PowerCLI.
 
 ### Error UnableToConnectToServer
 
@@ -221,7 +245,7 @@ The list of Windows operating systems supported by dependency agent is [here](ht
 The list of Linux operating systems supported by dependency agent is [here](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### I am unable to visualize dependencies in Azure Migrate for more than one hour duration?
-Azure Migrate lets you visualize dependencies for up to one hour duration. Although, Azure Migrate allows you to go back to a particular date in the history for up to last one month, the maximum duration for which you can visualize the dependencies is up to 1 hour. For example, you can use the time duration functionality in the dependency map, to view dependencies for yesterday, but can only view it for a one hour window. However, you can use Azure Monitor logs to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) over a longer duration.
+Azure Migrate lets you visualize dependencies for up to one hour duration. Although, Azure Migrate allows you to go back to a particular date in the history for up to last one month, the maximum duration for which you can visualize the dependencies is up to 1 hour. For example, you can use the time duration functionality in the dependency map, to view dependencies for yesterday, but can only view it for a one hour window. However, you can use Azure Monitor logs to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) over a longer duration.
 
 ### I am unable to visualize dependencies for groups with more than 10 VMs?
 You can [visualize dependencies for groups](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) that have up to 10 VMs, if you have a group with more than 10 VMs, we recommend you to split the group in to smaller groups and visualize the dependencies.

@@ -52,6 +52,8 @@
     href: concept-accelerate-with-fpgas.md
   - name: Machine learning pipelines
     href: concept-ml-pipelines.md
+  - name: Enterprise security
+    href: concept-enterprise-security.md
 - name: How-to guides
   items:
   - name: Manage workspaces

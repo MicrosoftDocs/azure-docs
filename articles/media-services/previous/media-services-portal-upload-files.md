@@ -17,7 +17,7 @@ ms.date: 02/08/2019
 ms.author: juliako
 
 ---
-# Upload files to a Media Services account in the Azure portal (legacy)
+# Upload files to a Media Services account in the Azure portal 
 
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-upload-files.md)

@@ -39,7 +39,7 @@ Full Outer produces all columns and rows from both sides with NULL values for co
 
 ### Cross Join
 
-Specific the cross product of the two streams with an expression
+Specify the cross product of the two streams with an expression. You can use this to create custom join conditions.
 
 ## Specify Join Conditions
 
@@ -62,3 +62,7 @@ You can achieve self-join conditions in ADF Data Flow by using the Select transf
 ![Self-join](media/data-flow/selfjoin.png "Self-join")
 
 In the above diagram, the Select transform is at the top. All it's doing is aliasing the original stream to "OrigSourceBatting". In the highlighted Join transform below it you can see that we use this Select alias stream as the right-hand join, allowing us to reference the same key in both the Left & Right side of the Inner Join.
+
+## Next steps
+
+After joining data, you can then [create new columns](data-flow-derived-column.md) and [sink your data to a destination data store](data-flow-sink.md).

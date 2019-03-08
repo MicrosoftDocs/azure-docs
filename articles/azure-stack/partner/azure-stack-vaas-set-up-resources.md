@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
@@ -115,7 +115,7 @@ The Azure Storage account is hosted in the Azure public cloud, not on your Azure
     - The **Replication field** is set to **Locally-redundant storage (LRS)** by default.
     - The **Access tier** is set to **Hot** by default.
 
-7. Click **Review + Create** to review your storage account settings and create the account.
+7. Select **Review + Create** to review your storage account settings and create the account.
 
 ## Next steps
 

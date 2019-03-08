@@ -1,9 +1,9 @@
 ---
 title: Administer an Azure IoT Central application | Microsoft Docs
-description: As an adminstrator, how to administer your Azure IoT Central application
+description: As an administrator, how to administer your Azure IoT Central application
 author: viv-liu
 ms.author: viviali
-ms.date: 02/05/2019
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -39,9 +39,9 @@ In the **Application Settings** page, you can change the name and URL of your ap
 To change the application image, see [Prepare and upload images to your Azure IoT Central application](howto-prepare-images-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 ### Copy an application
-You can create a copy of any application, minus any device instances, device data history, and user data. The copy will be a Pay-As-You-Go application that you'll be charged for. You can't create a Trial application in this way.
+You can create a copy of any application, minus any device instances, device data history, and user data. The copy is a Pay-As-You-Go application that you'll be charged for. You can't create a Trial application in this way.
 
-Click the **Copy** button. In the dialog box, enter the details for the new Pay-As-You-Go application. Then click the **Copy** button to confirm that you want to proceed. Learn more about the fields in this form in [Create an application](quick-deploy-iot-central-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) quickstart.
+Select **Copy**. In the dialog box, enter the details for the new Pay-As-You-Go application. Then select **Copy** to confirm that you want to proceed. Learn more about the fields in this form in [Create an application](quick-deploy-iot-central-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) quickstart.
 
 ![Application settings page](media/howto-administer-experimental/appCopy2.png)
 
@@ -57,7 +57,7 @@ After the app copy operation succeeds, you  can go to the new application that w
 > [!Note]
 > To delete an application, you must also have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Use role-based access control to manage access to your Azure subscription resources](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
 
-Use the **Delete** button to permanently delete your IoT Central application. Doing this will permanently delete all data that's associated with that application.
+Use the **Delete** button to permanently delete your IoT Central application. Doing this permanently deletes all data that's associated with that application.
 
 ## Manage users
 
@@ -90,7 +90,7 @@ To delete users, select one or more check boxes on the **Users** page. Then sele
 
 ## Manage roles
 
-Roles enable you to control who within your organization can perform various tasks in IoT Central. There are three roles you can assign to users of your application. 
+Roles enable you to control who within your organization can perform various tasks in IoT Central. There are three roles you can assign to users of your application.
 
 ### Administrator
 
@@ -106,7 +106,6 @@ Users in the **Application Builder** role can do everything in an application ex
 
 Users in the **Application Operator** role can't make changes to device templates and can't administer the application. This means operators can adding and deleting devices, manage device sets, and run analytics and jobs. Operators won't have access to the **Application Builder** and **Administration** pages.
 
-
 ## View your bill
 
 To view your bill, go to the **Billing** page in the **Administration** section. The Azure billing page opens in a new tab, where you can see the bill for each of your Azure IoT Central applications.
@@ -119,20 +118,20 @@ You can convert your Trial application to a Pay-As-You-Go application. Here are 
 - **Pay-As-You-Go** applications are charged per device, with the first 5 devices free.
 
 Learn more about pricing on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
-    
+
 To complete this self-service process, follow these steps:
 
-1. Go to the **Billing** page in the **Administration** section. 
+1. Go to the **Billing** page in the **Administration** section.
 
     ![Trial state](media/howto-administer-experimental/freetrialbilling.png)
 
-1. Click **Convert to Pay-As-You-Go**. 
+1. Select **Convert to Pay-As-You-Go**.
 
     ![Convert trial](media/howto-administer-experimental/convert.png)
 
 1. Select the appropriate Azure Active Directory, and then the Azure subscription to use for your Pay-As-You-Go application.
 
-1. After you click **Convert**, your application is now a Pay-As-You-Go application and you start getting billed.
+1. After you select **Convert**, your application is now a Pay-As-You-Go application and you start getting billed.
 
 ## Export data
 
@@ -144,7 +143,7 @@ Connect devices at scale in your application using the keys and certificates her
 
 ## Use access tokens
 
-Generate access tokens to use them in developer tools. Currently there is one developer tool available which is the IoT Central explorer for monitoring device messages and changes in propreties and settings. Learn more about the IoT Central explorer. 
+Generate access tokens to use them in developer tools. Currently there is one developer tool available which is the IoT Central explorer for monitoring device messages and changes in properties and settings. Learn more about the IoT Central explorer. 
 
 ## Use the Azure SDKs for control plane operations
 

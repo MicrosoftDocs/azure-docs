@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/26/2019
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
@@ -22,6 +22,8 @@ ms.custom: seodec18
 Learn how to retrieve secrets from Azure Key Vault and pass the secrets as parameters during Resource Manager deployment. The value is never exposed because you only reference its key vault ID. For more information, see [Use Azure Key Vault to pass secure parameter value during deployment](./resource-manager-keyvault-parameter.md)
 
 In the [Set resource deployment order](./resource-manager-tutorial-create-templates-with-dependent-resources.md) tutorial, you create a virtual machine, a virtual network, and some other dependent resources. In this tutorial, you customize the template to retrieve the virtual machine administrator password from a key vault.
+
+![Resource Manager template Key Vault integration diagram](./media/resource-manager-tutorial-use-key-vault/resource-manager-template-key-vault-diagram.png)
 
 This tutorial covers the following tasks:
 

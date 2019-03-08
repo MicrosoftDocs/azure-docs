@@ -381,4 +381,4 @@ Use the service principal credentials to open a **BatchServiceClient** object. T
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
 [aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Authentication Scenarios for Azure AD"
 [aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integrating Applications with Azure Active Directory"
-[azure_portal]: http://portal.azure.com
+[azure_portal]: https://portal.azure.com

@@ -11,10 +11,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/07/2019
+ms.lastreviewed: 03/11/2019
 
 
 
@@ -28,7 +28,7 @@ This article describes key concepts in Validation as a Service (VaaS).
 
 ## Solutions
 
-A VaaS solution represents a Azure Stack solution with a particular hardware bill of materials (BoM). The VaaS solution acts as a container for the workflows that run against the Azure Stack solution.
+A VaaS solution represents an Azure Stack solution with a particular hardware bill of materials (BoM). The VaaS solution acts as a container for the workflows that run against the Azure Stack solution.
 
 ### Create a solution in the VaaS portal
 

@@ -107,7 +107,7 @@ Now you are ready to run the Azure Import/Export Tool to prepare the two hard dr
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
 ```
 
-If any more data needs to be added, create another dataset file (same format as Initialdataset).
+If any more data needs to be added, create another dataset file (same format as Initial dataset).
 
 **For the second session:**
 

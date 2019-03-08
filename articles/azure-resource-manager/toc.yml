@@ -51,29 +51,13 @@
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager
 - name: Concepts
   items:
-  - name: Templates
-    items:
-    - name: Template file structure
-      href: resource-group-authoring-templates.md
-    - name: Parameters
-      href: resource-manager-templates-parameters.md
-    - name: Variables
-      href: resource-manager-templates-variables.md
-    - name: Functions
-      href: resource-group-authoring-templates.md#functions
-    - name: Resources
-      href: resource-manager-templates-resources.md
-    - name: Outputs
-      href: resource-manager-templates-outputs.md
-  - name: Guidance
-    items:
-    - name: Template best practices
-      href: template-best-practices.md
-    - name: Subscription governance
-      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold
-      maintainContext: true
-    - name: Templates for cloud consistency
-      href: templates-cloud-consistency.md
+  - name: Template file structure
+    displayName: parameters,variables,resources,outputs
+    href: resource-group-authoring-templates.md
+  - name: Template best practices
+    href: template-best-practices.md
+  - name: Templates for cloud consistency
+    href: templates-cloud-consistency.md
   - name: Resource providers and types
     href: resource-manager-supported-services.md
   - name: Management groups

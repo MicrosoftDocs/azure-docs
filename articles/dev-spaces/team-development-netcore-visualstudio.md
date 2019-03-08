@@ -1,5 +1,5 @@
 ---
-title: "Team development with Azure Dev Spaces using .NET Core and Visual Studio | Microsoft Docs"
+title: "Team development with Azure Dev Spaces using .NET Core and Visual Studio"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -11,7 +11,7 @@ ms.author: stevenry
 ms.date: "12/09/2018"
 ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
 ---
 
 # Team development with Azure Dev Spaces

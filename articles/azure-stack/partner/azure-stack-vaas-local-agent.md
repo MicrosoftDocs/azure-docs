@@ -11,10 +11,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/26/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 
 
 
@@ -26,16 +26,16 @@ ROBOTS: NOINDEX
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Learn how to use the Validation as a Service (VaaS) local agent to run validation tests. The local agent must be deployed prior to running validation tests.
+Learn how to use the Validation as a Service (VaaS) local agent to run validation tests. The local agent must be deployed before running validation tests.
 
 > [!Note]  
 > Make sure that the machine on which the local agent is running doesn't lose outbound access to the internet. This machine should be accessible only to users who are authorized to use VaaS on behalf of your tenant.
 
 To deploy the local agent:
 
-1. Install the local agent
-2. Perform sanity checks
-3. Run the local agent
+1. Install the local agent.
+2. Perform sanity checks.
+3. Run the local agent.
 
 ## Download and start the local agent
 

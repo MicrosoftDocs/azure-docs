@@ -67,7 +67,7 @@ The following change cannot be upgraded. If you have this configuration, the upg
 
 ![Upgrade blocked](./media/how-to-dirsync-upgrade-get-started/analysisblocked.png)
 
-In those cases, the recommendation is to install a new Azure AD Connect server in [staging mode](how-to-connect-sync-operations.md#staging-mode) and verify the old DirSync and new Azure AD Connect configuration. Reapply any changes using custom configuration, as described in [Azure AD Connect Sync custom configuration](how-to-connect-sync-whatis.md).
+In those cases, the recommendation is to install a new Azure AD Connect server in [staging mode](how-to-connect-sync-staging-server.md) and verify the old DirSync and new Azure AD Connect configuration. Reapply any changes using custom configuration, as described in [Azure AD Connect Sync custom configuration](how-to-connect-sync-whatis.md).
 
 The passwords used by DirSync for the service accounts cannot be retrieved and are not migrated. These passwords are reset during the upgrade.
 
@@ -159,12 +159,12 @@ When you install Azure AD Connect on a new server, the assumption is that you wa
      These options can be seen on this screen:  
      ![Enter your Azure AD credentials](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)
 7. Click **Next**.
-8. On the **Ready to configure** page, leave the **Start the synchronization process as soon as the configuration completes** checked. The server is now in [staging mode](how-to-connect-sync-operations.md#staging-mode) so changes are not exported to Azure AD.
+8. On the **Ready to configure** page, leave the **Start the synchronization process as soon as the configuration completes** checked. The server is now in [staging mode](how-to-connect-sync-staging-server.md) so changes are not exported to Azure AD.
 9. Click **Install**.
 10. After the installation has completed, sign out and sign in again to Windows before you use Synchronization Service Manager, Synchronization Rule Editor, or try to make any other configuration changes.
 
 > [!NOTE]
-> Synchronization between Windows Server Active Directory and Azure Active Directory begins, but no changes are exported to Azure AD. Only one synchronization tool can be actively exporting changes at a time. This state is called [staging mode](how-to-connect-sync-operations.md#staging-mode).
+> Synchronization between Windows Server Active Directory and Azure Active Directory begins, but no changes are exported to Azure AD. Only one synchronization tool can be actively exporting changes at a time. This state is called [staging mode](how-to-connect-sync-staging-server.md).
 
 ### Verify that Azure AD Connect is ready to begin synchronization
 To verify that Azure AD Connect is ready to take over from DirSync, you need to open **Synchronization Service Manager** in the group **Azure AD Connect** from the start menu.
@@ -180,7 +180,7 @@ In the application, go to the **Operations** tab. On this tab, confirm that the 
 
 Review the result from these operations and ensure there are no errors.
 
-If you want to see and inspect the changes that are about to be exported to Azure AD, then read how to verify the configuration under [staging mode](how-to-connect-sync-operations.md#staging-mode). Make required configuration changes until you do not see anything unexpected.
+If you want to see and inspect the changes that are about to be exported to Azure AD, then read how to verify the configuration under [staging mode](how-to-connect-sync-staging-server.md). Make required configuration changes until you do not see anything unexpected.
 
 You are ready to switch from DirSync to Azure AD when you have completed these steps and are happy with the result.
 

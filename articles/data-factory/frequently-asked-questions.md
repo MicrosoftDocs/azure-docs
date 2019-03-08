@@ -196,7 +196,7 @@ You will no longer have to bring your own Databricks clusters. ADF will manage c
 When Microsoft provides help or troubleshooting with Data Flows, please provide the "DSL Code Plan". To do this, follow these steps:
 
 * From the Data Flow Designer, click "Code" in the top-right corner. This will display the editable JSON code for the data flow.
-* From the code view, click "Plan" on the top-right corner. The Plan swtich from JSON to the formatted DSL script plan.
+* From the code view, click "Plan" on the top-right corner. The Plan toggle will switch from JSON to the read-only formatted DSL script plan.
 * Copy & paste this script or save it in a text file.
 
 ### How do I access data using the other 80 dataset types in ADF?

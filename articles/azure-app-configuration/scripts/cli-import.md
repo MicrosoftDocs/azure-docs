@@ -48,7 +48,7 @@ This script uses the following commands to import an app configuration store. Ea
 
 | Command | Notes |
 |---|---|
-| [az appconfig import](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-import) | Imports to an app configuration store resource. |
+| [az appconfig import](/cli/azure/ext/appconfig/appconfig) | Imports to an app configuration store resource. |
 
 ## Next steps
 

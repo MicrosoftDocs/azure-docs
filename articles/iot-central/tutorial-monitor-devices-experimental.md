@@ -50,7 +50,7 @@ Choose the **Dashboard** view to see information about the device.
 
 ![Device dashboard](media/tutorial-monitor-devices-experimental/initial_screen.png)
 
-The chart on the dashboard shows a plot of the device temperature. You can also see the current target temperature for the device in the **Set target temperature** tile. You decide that the target temperature is too high.
+The chart on the dashboard shows a plot of the device temperature. You can also see the current target temperature for the device in the **Device properties** tile. You decide that the target temperature is too high.
 
 ## Remediate an issue
 

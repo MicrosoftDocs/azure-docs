@@ -46,7 +46,7 @@ The Power Query add-in for Excel makes it easy to import data from your HDInsigh
    
         ![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
        
-        **Note:** If you don't see the **Power Query** menu, go to **File** > **Options** > **Add-Ins**, and select **COM Add-ins** from the drop-down **Manage** box at the bottom of the page. Select the **Go...** button and verify that the box for the Power Query for Excel add-in has been checked.
+        **Note:** If you don't see the **Power Query** menu, go to **File** > **Options** > **Add-ins**, and select **COM Add-ins** from the drop-down **Manage** box at the bottom of the page. Select the **Go...** button and verify that the box for the Power Query for Excel add-in has been checked.
        
         **Note:** Power Query also allows you to import data from HDFS by clicking **From Other Sources**.
 4. For **Account Name**, enter the name of the Azure Blob storage account associated with your cluster, and then click **OK**. This account can be the [default storage account](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account) or a linked storage account.  The format is *https://&lt;StorageAccountName>.blob.core.windows.net/*.
