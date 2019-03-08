@@ -1,6 +1,6 @@
 ---
 title: Securely use Azure Machine Learning service
-description: 'Learn about the security features available with the Azure Machine Learning service. In this article, you will learn about authentication, authorization, network security, data encryption, and monitoring.'
+description: 'Enterprise security for Azure Machine Learning service: authentication, authorization, network security, data encryption, and monitoring.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 02/26/2018
+ms.date: 03/10/2019
 ---
 
-# Enterprise security for the Azure Machine Learning service
+# Enterprise security for Azure Machine Learning service
 
 In this article, you will learn about security features available with the Azure Machine learning service.
 
