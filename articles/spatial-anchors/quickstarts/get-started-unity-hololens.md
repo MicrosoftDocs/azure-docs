@@ -48,7 +48,7 @@ Open **Build Settings** by selecting **File** -> **Build Settings**.
 
 In the **Platform** section, select **Universal Windows Platform**. Then, change the **Target Device** to **HoloLens**.
 
-Select **Switch Platform** to change the platform to **Universal Windows Platform**.
+Select **Switch Platform** to change the platform to **Universal Windows Platform**. Unity may ask you to install UWP support components if they're missing.
 
 ![Unity Build Settings](./media/get-started-unity-hololens/unity-build-settings.png)
 
