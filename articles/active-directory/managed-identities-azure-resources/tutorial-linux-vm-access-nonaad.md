@@ -101,6 +101,35 @@ To complete these steps, you need an SSH client.  If you are using Windows, you
     
 Once you’ve retrieved the secret from the Key Vault, you can use it to authenticate to a service that requires a name and password.
 
+### Access using python
+
+``` python
+from msrestazure.azure_active_directory import MSIAuthentication
+from azure.keyvault import KeyVaultClient
+import requests
+
+auth_url = 'http://169.254.169.254/metadata/identity/oauth2/token'
+headers = {'metadata': 'true'}
+params = {
+    'resource': 'https://vault.azure.net/',
+    'api-version': '2018-02-01',
+}
+
+# Requesting a token using managed identity, returns a dict which has auth token
+resp_json = requests.get(auth_url, params=params, headers=headers).json()
+
+# Pass the acquired token to generate a usable token object
+token = MSIAuthentication(**resp_json)
+
+# Create an KeyVault client using the token
+vault_client = KeyVaultClient(credentials=token)
+
+secret = client.get_secret("<VAULT_URL>", "<SECRET_ID>", "<SECRET_VERSION>").value
+
+```
+Refer to [Azure Key Vault libraries for Python](https://docs.microsoft.com/en-us/python/api/overview/azure/key-vault?view=azure-python) for more details on how to use the obtained `vault_client` client object
+
+
 ## Next steps
 
 In this tutorial, you learned how to use a Linux VM system-assigned managed identity to access Azure Key Vault.  To learn more about Azure Key Vault see:
