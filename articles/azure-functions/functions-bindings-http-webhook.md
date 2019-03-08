@@ -149,7 +149,7 @@ public static string Run(Person person, ILogger log)
 }
 
 public class Person {
-     public string Name {get; set;}
+    public string Name {get; set;}
 }
 ```
 
@@ -457,7 +457,7 @@ This example reads a mandatory parameter, named ```id```, and an optional parame
             // return JSON from to the client
             // Generate document
             final String jsonDocument = "{\"id\":\"" + id + "\", " +
-                                         "\"description\": \"" + name + "\"}";
+                                        "\"description\": \"" + name + "\"}";
             return request.createResponseBuilder(HttpStatus.OK)
                           .header("Content-Type", "application/json")
                           .body(jsonDocument)
@@ -649,7 +649,7 @@ By default, all function routes are prefixed with *api*. You can also customize 
 ```json
 {
     "http": {
-    "routePrefix": ""
+        "routePrefix": ""
     }
 }
 ```
