@@ -23,7 +23,7 @@ Microsoft Azure Backup Server (MABS) is a server product that can be used to bac
 - MABS is based on System Center Data Protection Manager (DPM) and provides similar functionality with a couple of differences:
   - No System Center license is required to run MABS.
   - For both MABS and DPM, Azure provides long-term backup storage. In addition, DPM allows you to back up data for long-term storage on tape. MABS doesn't provide this functionality.
-- You download MABS from the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=57520). It can be run on-premises, or on an Azure VM in Azure.
+- You download MABS from the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=57520). It can be run on-premises or on an Azure VM in Azure.
 
 DPM and MABS support backing up a wide variety of apps, and server and client operating systems. They provide multiple backup scenarios:
 
@@ -50,7 +50,7 @@ For more information:
 **Scenario** | **Agent** | **Location**
 --- | --- | ---
 **Back up on-premises machines/workloads** | DPM/MABS protection agent runs on the machines that you want to back up.<br/><br/> The MARS agent on DPM/MABS server. | DPM/MABS must be running on-premises.
-**Back up of Azure VMs/workloads** | DPM/MABS protection agent on protected machine.<br/><br/> MARS agent on DPM/MABS. | DPM/MABS must be running on an Azure VM.
+**Back up of Azure VMs/workloads** | DPM/MABS protection agent on protected machine.<br/><br/> The MARS agent on DPM/MABS server. | DPM/MABS must be running on an Azure VM.
 
 ## Supported deployments
 
@@ -94,7 +94,7 @@ You can deploy MABS on an Azure Stack VM so that you can manage backup of Azure 
 --- | --- 
 **MABS on Azure Stack VM** | At least size A2. We recommend you start with a Windows Server 2012 R2 or Windows Server 2016 image from the Azure marketplace.<br/><br/> You shouldn't install anything else on the MABS VM.
 **MABS storage** | Use a separate storage account for the MABS VM. The MARS agent running on MABS needs temporary storage for a cache location and to hold data restored from the cloud.
-**MABS storage pool** | The size of the MABS storage pool is determined by the number and size of disks that are attached to the MABS VM. Each Azure Stack VM size has a maximum number of disks. For example A2 is four disks.
+**MABS storage pool** | The size of the MABS storage pool is determined by the number and size of disks that are attached to the MABS VM. Each Azure Stack VM size has a maximum number of disks. For example, A2 is four disks.
 **MABS retention** | You shouldn't retain backed up data on the local MABS disks for more than five days.
 **MABS scale up** | To scale up your deployment, you can increase the size of the MABS VM. For example, from A to D series.<br/><br/> You can also ensure that you're offloading data with backup to Azure regularly, and if necessary, you can deploy additional MABS servers.
 **.NET Framework on MABS** | The MABS VM needs .NET Framework 3.3 SP1 or later installed on it.
@@ -145,7 +145,7 @@ From DPM 2016/MABS v2 (running on Windows Server 2016) and later, you can take a
 - MBS backups are stored on a Resilient File System (ReFS) disk.
 - MBS uses ReFS block cloning for faster backup and more efficient use of storage space.
 - When you add volumes to the local DPM/MABS storage pool, you configure them with drive letters. You can then configure workload storage on different volumes.
-- When you create protection groups to back up data to DPM/MABS, you select the drive you want to use. For example, you could store backups for SQL or other high IOPS workloads a high performance drive, and store workloads that are backed up less frequently on a lower performance drive.
+- When you create protection groups to back up data to DPM/MABS, you select the drive you want to use. For example, you could store backups for SQL or other high IOPS workloads a high-performance drive, and store workloads that are backed up less frequently on a lower performance drive.
 
 
 ## Supported backups to MABS
@@ -168,9 +168,9 @@ The following table summarizes what can be backed up to MABS from on-premises ma
 **SQL Server 2016/2016 with SP1** | MABS v3, v2 | On-premises/Azure VM.| Back up SQL Server database.<br/><br/> SQL Server cluster backup supported.<br/><br/>Databases stored on CSVs unsupported.
 **SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | MABS v3, v2, v1 | On-premises/Azure VM.| Back up SQL Server database.<br/><br/> SQL Server cluster backup supported.<br/><br/>Databases stored on CSVs unsupported.
 **Exchange 2016**<br/><br/> **Exchange 2013**<br/><br/> **Exchange 2010** | MABS v3, v2, V1 | On-premises. | Back up standalone Exchange server, database under a DAG.<br/><br/> Recover mailbox, mailbox database under a DAG.<br/><br/> ReFS not supported.<br/><br/> Back up non-shared disk clusters.<br/><br/> Back up Exchange Server configured for continuous replication.
-**SharePoint 2016**<br/><br/> **Sharepoint 2013**<br/><br/> **SharePoint 2010** | MABS v3, v2, v1 | On-premises/Azure VM. | Back up farm, front-end web server.<br/><br/> Recover farm, database, web app, file or list item, SharePoint search, front-end web server.<br/><br/> You can't back up a farm using SQL Server AlwaysOn for the content databases.
+**SharePoint 2016**<br/><br/> **SharePoint 2013**<br/><br/> **SharePoint 2010** | MABS v3, v2, v1 | On-premises/Azure VM. | Back up farm, front-end web server.<br/><br/> Recover farm, database, web app, file or list item, SharePoint search, front-end web server.<br/><br/> You can't back up a farm using SQL Server AlwaysOn for the content databases.
 **Hyper-V on Windows Server 2016**<br/><br/> **Windows Server 2012 R2/2012** (Datacenter/Standard)<br/><br/> **Windows Server 2008 R2 (with SP1)** | MABS v3, v2, v1 | On-premises. | **MABS agent on Hyper-V host**: Backup entire VMs and host data files. Back up VMs with local storage, VMs in cluster with CSV storage, VMs with SMB file server storage.<br/><br/> **MABS agent on guest VM**: Back up workloads running on the VM. CSVs.<br/><br/> **Recovery**: VM, item-level recovery of VHD/volume/folders/files.<br/><br/> **Linux VMs**: Back up when Hyper-V is running on Windows Server 2012 R2 and later. Recovery for Linux VMs is for the entire machine.
-**VMware VMs: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2, v1.<br/><br/> MABS v1 needs update rollup 1) | On-premises. | Back up VMware VMs on CSVs, NFS, and SAN storage.<br/><br/> Recover entire VM.<br/><br/> Windows/Linux backup.<br/><br/> Item-level recovery of folder/files for Windows VMs only.<br/><br/> VMware vApps aren't supported.<br/><br/> Recovery for Linux VMs is for the entire machine.
+**VMware VMs: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2, v1<br/><br/> MABS v1 needs update rollup 1) | On-premises. | Back up VMware VMs on CSVs, NFS, and SAN storage.<br/><br/> Recover entire VM.<br/><br/> Windows/Linux backup.<br/><br/> Item-level recovery of folder/files for Windows VMs only.<br/><br/> VMware vApps aren't supported.<br/><br/> Recovery for Linux VMs is for the entire machine.
 
 
 
@@ -196,7 +196,7 @@ The following table summarizes what can be backed up to DPM from on-premises mac
 **SQL Server 2016** | Not supported for DPM 2012 R2. Supported for DPM SAC, DPM 2016 from Update Rollup 2 and later.<br/><br/> On-premises/Azure VM.| Back up SQL Server database.<br/><br/> SQL Server cluster backup supported.<br/><br/>Databases stored on CSVs unsupported.
 **SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | SQL Server 2014 with DPM 2012 R2 running Update Rollup 4 and later.<br/><br/> On-premises/Azure VM.| Back up SQL Server database.<br/><br/> SQL Server cluster backup supported.<br/><br/>Databases stored on CSVs unsupported.
 **Exchange 2016**<br/><br/> **Exchange 2013**<br/><br/> **Exchange 2010** | For Exchange 2016, DPM 2012 R2 needs Update Rollup 9 or later.<br/><br/> On-premises | Back up standalone Exchange server, database under a DAG.<br/><br/> Recover mailbox, mailbox database under a DAG.<br/><br/> ReFS not supported.<br/><br/> Back up non-shared disk clusters.<br/><br/> Back up Exchange Server configured for continuous replication.
-**SharePoint 2016**<br/><br/> **Sharepoint 2013**<br/><br/> **SharePoint 2010** | SharePoint 2016 on DPM 2016 and later.<br/><br/>On-premises/Azure VM. | Back up farm, front-end web server.<br/><br/> Recover farm, database, web app, file or list item, SharePoint search, front-end web server.<br/><br/> You can't back up a farm using SQL Server AlwaysOn for the content databases.
+**SharePoint 2016**<br/><br/> **SharePoint 2013**<br/><br/> **SharePoint 2010** | SharePoint 2016 on DPM 2016 and later.<br/><br/>On-premises/Azure VM. | Back up farm, front-end web server.<br/><br/> Recover farm, database, web app, file or list item, SharePoint search, front-end web server.<br/><br/> You can't back up a farm using SQL Server AlwaysOn for the content databases.
 **Hyper-V on Windows Server 2016**<br/><br/> **Windows Server 2012 R2/2012** (Datacenter/Standard)<br/><br/> **Windows Server 2008 R2 (with SP1)** | Hyper-V on 2016 supported for DPM 2016 and later.<br/><br/> On-premises. | **MABS agent on Hyper-V host**: Backup entire VMs and host data files. Back up VMs with local storage, VMs in cluster with CSV storage, VMs with SMB file server storage.<br/><br/> **MABS agent on guest VM**: Back up workloads running on the VM. CSVs.<br/><br/> **Recovery**: VM, item-level recovery of VHD/volume/folders/files.<br/><br/> **Linux VMs**: Back up when Hyper-V is running on Windows Server 2012 R2 and later. Recovery for Linux VMs is for the entire machine.
 **VMware VMs: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2, v1<br/><br/> DPM 2012 R2 needs System Center Update Rollup 1) <br/><br/>On-premises. | Back up VMware VMs on CSVs, NFS and SAN storage.<br/><br/> Recover entire VM.<br/><br/> Windows/Linux backup.<br/><br/> Item-level recovery of folder/files for Windows VMs only.<br/><br/> VMware vApps aren't supported.<br/><br/> Recovery for Linux VMs is for the entire machine.
 
