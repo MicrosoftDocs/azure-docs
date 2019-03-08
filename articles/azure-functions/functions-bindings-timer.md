@@ -54,7 +54,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
 {
-    if(myTimer.IsPastDue)
+    if (myTimer.IsPastDue)
     {
         log.LogInformation("Timer is running late!");
     }
@@ -82,7 +82,7 @@ Here's the C# script code:
 ```csharp
 public static void Run(TimerInfo myTimer, ILogger log)
 {
-    if(myTimer.IsPastDue)
+    if (myTimer.IsPastDue)
     {
         log.LogInformation("Timer is running late!");
     }
@@ -136,7 +136,7 @@ Here's the JavaScript code:
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
-    if(myTimer.IsPastDue)
+    if (myTimer.IsPastDue)
     {
         context.log('Node is running late!');
     }
