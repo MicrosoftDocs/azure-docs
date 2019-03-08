@@ -107,19 +107,13 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
 
     ![Run a Spark SQL statement using the notebook](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "Run a Spark SQL statement using the notebook")
 
-9. Restart the Livy interpreter to exit the application. To do so, open interpreter settings by selecting the logged in user name from the top-right corner, and then select **Interpreter**.
+9. Restart the Livy interpreter to exit the application. To do so, open interpreter settings by selecting the logged in user name from the top-right corner, and then select **Interpreter**.  
 
     ![Launch interpreter](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Hive output")
-<<<<<<< HEAD
 
 10. Scroll to **livy**, and then select **restart**.  Select **OK** at the prompt.
 
     ![Restart the Livy intepreter](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Restart the Zeppelin intepreter")
-=======
-1. Scroll to Livy interpreter settings and then click **Restart**.
-   
-    ![Restart the Livy interpreter](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Restart the Zeppelin interpreter")
->>>>>>> 17658bd9857605cf0e96dd766d492f2640eb4262
 
 ## How do I use external packages with the notebook?
 You can configure the Zeppelin notebook in Apache Spark cluster on HDInsight to use external, community-contributed packages that are not included out-of-the-box in the cluster. You can search the [Maven repository](https://search.maven.org/) for the complete list of packages that are available. You can also get a list of available packages from other sources. For example, a complete list of community-contributed packages is available at [Spark Packages](https://spark-packages.org/).
@@ -140,7 +134,7 @@ In this article, you will see how to use the [spark-csv](https://search.maven.or
 
     Select **Save** and then restart the Livy interpreter.
 
-4. **Tip**: If you want to understand how to arrive at the value of the key entered above, here's how.
+4. If you want to understand how to arrive at the value of the key entered above, here's how.
    
     a. Locate the package in the Maven Repository. For this tutorial, we used [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
    
