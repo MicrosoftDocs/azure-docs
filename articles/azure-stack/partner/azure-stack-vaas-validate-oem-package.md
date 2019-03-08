@@ -134,10 +134,6 @@ Use this option if it is acceptable to allow unauthenticated clients access to i
 
 1. Copy the **URL**. Use this value when providing package blob URLs to the portal.
 
-## Apply monthly update
-
-[!INCLUDE [azure-stack-vaas-workflow-section_update-azs](includes/azure-stack-vaas-workflow-section_update-azs.md)]
-
 ## Create a Package Validation workflow
 
 1. Sign in to the [VaaS portal](https://azurestackvalidation.com).
@@ -179,7 +175,7 @@ The following tests are required for OEM package validation:
 
     > [!NOTE]
     > Scheduling a validation test over an existing instance will create a new instance in place of the old instance in the portal. Logs for the old instance will be retained but are not accessible from the portal.  
-    Once a test has completed successfully, the **Schedule** action becomes disabled.
+    > Once a test has completed successfully, the **Schedule** action becomes disabled.
 
 2. Select the agent that will run the test. For information about adding local test execution agents, see [Deploy the local agent](azure-stack-vaas-local-agent.md).
 
