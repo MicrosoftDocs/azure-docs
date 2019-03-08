@@ -94,7 +94,7 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.Clusters.health_report
 ```   
 
-### <a href="#example-get-the-fqdn-of-cluster-nodes"></a> Get the FQDN of cluster nodes
+### <a name="#example-get-the-fqdn-of-cluster-nodes"></a> Get the FQDN of cluster nodes
 
 When working with HDInsight, you may need to know the fully qualified domain name (FQDN) of a cluster node. You can easily retrieve the FQDN for the various nodes in the cluster using the following examples:
 
@@ -154,7 +154,7 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.host_components.HostRoles.host_name
 ```
 
-### <a href="#example-get-the-internal-ip-address-of-cluster-nodes"></a> Get the internal IP address of cluster nodes
+### <a name="#example-get-the-internal-ip-address-of-cluster-nodes"></a> Get the internal IP address of cluster nodes
 
 The IP addresses returned by the examples in this section are not directly accessible over the internet. They are only accessible within the Azure Virtual Network that contains the HDInsight cluster.
 
@@ -249,7 +249,7 @@ The return value is similar to one of the following examples:
 > The [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) cmdlet provided by [Azure PowerShell](/powershell/azure/overview) also returns the storage information for the cluster.
 
 
-### <a href="#get-all-configurations"></a> Get all configurations
+### <a name="#get-all-configurations"></a> Get all configurations
 
 Get the configurations that are available for your cluster.
 
