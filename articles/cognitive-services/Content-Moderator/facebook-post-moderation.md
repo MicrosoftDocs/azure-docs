@@ -11,7 +11,7 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/18/2019
 ms.author: pafarley
-#tbd
+#Customer intent: As the moderator of a Facebook page, I want to use Azure's machine learning technology to automate and streamline the process of post moderation.
 ---
 
 # Tutorial: Moderate Facebook posts and commands with Azure Content Moderator
@@ -87,7 +87,7 @@ Then click **+ New function** at the top of the page. This function receives eve
     6. Click **Create**.
     7. Replace the contents of the **run.csx** with the contents from **FbListener/run.csx**
 
-[!code-csharp[FBListener: csx file](~/samples-fbPageModeration/blob/master/FbListener/run.csx?range=1-160)]
+[!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-160)]
 
 6. Create a new **Http trigger** function named **CMListener**. This function receives events from Content Moderator. Follow these steps to create this function.
 
