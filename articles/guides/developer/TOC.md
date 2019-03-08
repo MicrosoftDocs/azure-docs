@@ -95,7 +95,7 @@
 ## SDKs
 ### [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
 ### [Java](https://docs.microsoft.com/java/api/)
-### [Node.js](http://azure.github.io/azure-sdk-for-node/)
+### [Node.js](https://azure.github.io/azure-sdk-for-node/)
 ### [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
 ### [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
 ### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)

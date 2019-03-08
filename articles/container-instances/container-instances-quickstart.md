@@ -151,7 +151,7 @@ To try out options for running containers in an orchestration system on Azure, s
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
 [azure-account]: https://azure.microsoft.com/free/
-[node-js]: http://nodejs.org
+[node-js]: https://nodejs.org
 
 <!-- LINKS - Internal -->
 [az-container-attach]: /cli/azure/container#az-container-attach

@@ -411,11 +411,7 @@ Not every role or application that’s installed on a Windows-based computer sup
 ## Complete recommended configurations
 The following settings do not affect VHD uploading. However, we strongly recommend that you configured them.
 
-* Install the [Azure VMs Agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Then you can enable VM extensions. The VM extensions implement most of the critical functionality that you might want to use with your VMs such as resetting passwords, configuring RDP, and so on. For more information, see:
-
-    - [VM Agent and Extensions – Part 1](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/)
-    - [VM Agent and Extensions – Part 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)
-
+* Install the [Azure VMs Agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Then you can enable VM extensions. The VM extensions implement most of the critical functionality that you might want to use with your VMs such as resetting passwords, configuring RDP, and so on. For more information, see [Azure Virtual Machine Agent overview](../extensions/agent-windows.md).
 *  After the VM is created in Azure, we recommend that you put the pagefile on the ”Temporal drive” volume to improve performance. You can set up this as follows:
 
     ```PowerShell

@@ -3,16 +3,15 @@ title: Enable Azure Active Directory authentication for Azure-SSIS Integration R
 description: This article describes how to enable Azure Active Directory authentication with the managed identity for Azure Data Factory to create Azure-SSIS Integration Runtime.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 2/19/2019
-ms.author: douglasl
+author: swinarko
+ms.author: sawinark
+manager: craigg
 ---
 # Enable Azure Active Directory authentication for Azure-SSIS Integration Runtime
 
@@ -22,6 +21,8 @@ For more info about the managed identity for your ADF, see [Managed identiy for 
 
 > [!NOTE]
 > If you have already created an Azure-SSIS IR using SQL authentication, you can not reconfigure your IR to use Azure AD authentication with PowerShell at this time, but you can do so in Azure portal/ADF app. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Enable Azure AD on Azure SQL Database
 
@@ -212,7 +213,7 @@ To provision your Azure-SSIS IR with PowerShell, do the following things:
 2.  In your script, do not set `CatalogAdminCredential` parameter. For example:
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                                -DataFactoryName $DataFactoryName `
                                                -Name $AzureSSISName `
                                                -Description $AzureSSISDescription `
@@ -225,7 +226,7 @@ To provision your Azure-SSIS IR with PowerShell, do the following things:
                                                -CatalogServerEndpoint $SSISDBServerEndpoint `
                                                -CatalogPricingTier $SSISDBPricingTier
 
-    Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                                  -DataFactoryName $DataFactoryName `
                                                  -Name $AzureSSISName
    ```

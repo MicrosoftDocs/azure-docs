@@ -5,7 +5,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 03/03/2019
+ms.date: 03/07/2019
 ms.topic: conceptual
 ms.author: mayg
 ---
@@ -122,6 +122,10 @@ For an ongoing replication, storage account can only be upgraded to premium. If 
 ### How can I change Managed Disk type after machine is protected?
 
 Yes, you can easily change the type of managed disk. [Learn more](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage).
+
+### Can I switch the replication from managed disks to unmanaged disks?
+
+No, switching from managed to unmanaged is not supported.
 
 ### Why can't I replicate over VPN?
 

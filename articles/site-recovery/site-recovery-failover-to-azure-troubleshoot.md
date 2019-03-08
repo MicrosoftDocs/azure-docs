@@ -7,7 +7,7 @@ ms.service: site-recovery
 services: site-recovery
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 3/4/2019
+ms.date: 03/04/2019
 ms.author: mayg
 ---
 # Troubleshoot errors when failing over VMware VM or physical machine to Azure

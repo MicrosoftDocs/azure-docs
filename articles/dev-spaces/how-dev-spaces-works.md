@@ -73,7 +73,7 @@ Here's the basic flow for setting up and using Azure Dev Spaces:
 
 We'll cover more details of how Azure Dev Spaces works in each of the below sections.
 
-## Prepare your Azure Kubernetes Service cluster
+## Prepare your AKS cluster
 
 Preparing your AKS cluster involves:
 * Verifying your AKS cluster is in a region [supported by Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
@@ -394,7 +394,7 @@ ingress:
 
 For Java, .NET and Node.js applications, you can debug your application running directly in your dev space using Visual Studio Code or Visual Studio 2017. Visual Studio Code and Visual Studio 2017 provide tooling to connect to your dev space, launch your application, and attach a debugger. After running `azds prep`, you can open your project in Visual Studio Code or Visual Studio 2017. Visual Studio Code or Visual Studio 2017 will generate their own configuration files for connecting which is separate from running `azds prep`. From within Visual Studio Code or Visual Studio 2017, you can set breakpoints and launch your application to your dev space.
 
-![](media/get-started-node/debug-configuration-nodejs2.png)
+![Debugging your code](media/get-started-node/debug-configuration-nodejs2.png)
 
 When you launch your application using Visual Studio Code or Visual Studio 2017 for debugging, they handle launching and connecting to your dev space in the same way as running `azds up`. The client-side tooling in Visual Studio Code and Visual Studio 2017 also provide an additional parameter with specific information for debugging. The parameter contains the name of debugger image, the location of the debugger within in the debugger's image, and the destination location within the application's container to mount the debugger folder. 
 
@@ -415,7 +415,7 @@ For example:
 
 When using *azureuser*, all requests to *serviceA* will be routed to the updated version in *azureuser*. A request to *serviceB* will first try to be routed to the *azureuser* version of *serviceB*. Since it does not exist, it will be routed to the *default* version of *serviceB*. If the *azureuser* version of *serviceA* is removed, all requests to *serviceA* will fall back to using the *default* version of *serviceA*.
 
-## Next Steps
+## Next steps
 
 To get started using Azure Dev Spaces, see the following quickstarts:
 

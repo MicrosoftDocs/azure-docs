@@ -15,7 +15,7 @@ ms.date: 02/14/2019
 
 Datasets are a Data Factory construct that define the shape of the data you are working with in your pipeline. In Data Flow, row & column level data requires a finely-grained dataset definition. Datasets used in control flow pipelines do not require the same depth of data understanding.
 
-Datasets in Data Flow are used in Source and Sink transformations. They are used to define the basic data schemas. If you do not have schema in your data, you can set Schema Drift on for your Source and Sink. With schema defined from the dataset, you will have the related data types, data formats, file location, and connection information from the associated Linked Service. The metadata from the datasets will appear in your Source transform as the source "Projection".
+Datasets in Data Flow are used in Source and Sink transformations. They are used to define the basic data schemas. If you do not have schema in your data, you can set Schema Drift on for your Source and Sink. With schema defined from the dataset, you will have the related data types, data formats, file location, and connection information from the associated Linked Service. The metadata from the datasets will appear in your Source transform as the source "Projection". The schema in the dataset represents the physical data type and shape while the projection in the Source transformation represents the data flow representation of the data with defined names and types.
 
 ## Dataset types
 
@@ -24,7 +24,7 @@ Currently in data flow, you will find four dataset types:
 * Azure SQL DB
 * Azure SQL DW
 * Parquet (from ADLS & Blob)
-* Delimited Text (from ADLB & Blob)
+* Delimited Text (from ADLS & Blob)
 
 Data flow datasets separate the *source type* from the *Linked Service connection type*. Typically in Data Factory, you choose the connection type (Blob, ADLS, etc.) and then define the type of file in the Dataset. Inside Data Flow, you will pick the source types, which can be associated with different Linked Service connection types.
 
@@ -41,4 +41,6 @@ When importing the schema of Data Flow datasets, you will see an Import Schema b
 ## Next steps
 
 Start by [creating a new Data Flow](data-flow-create.md) and add a Source Transformation. Then configure the dataset for your Source.
+
+Use the [Copy Activity](copy-activity-overview.md) to bring in data from any ADF data source and stage it in ADLS or Blob for access by Data Flow.
 

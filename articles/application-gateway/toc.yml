@@ -77,14 +77,16 @@
   items:
   - name: Manage web traffic
     items:
-    - name: Azure PowerShell
+    - name: Azure portal
       href: tutorial-manage-web-traffic-powershell.md
     - name: Template
       href: create-vmss-template.md
   - name: Configure internal load balancer
     items:
     - name: Azure PowerShell
-      href: application-gateway-ilb-arm.md
+      href: configure-application-gateway-with-private-frontend-ip.md
+    - name: Azure PowerShell
+      href: application-gateway-ilb-arm.md      
   - name: Configure SSL termination
     items:
     - name: SSL termination - portal

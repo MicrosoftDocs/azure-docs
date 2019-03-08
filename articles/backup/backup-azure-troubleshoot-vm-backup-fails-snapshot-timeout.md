@@ -215,7 +215,7 @@ For Linux VM, If the VMSnapshot extension does not show in the Azure portal, [up
 Completing these steps causes the extension to be reinstalled during the next backup.
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Remove lock from the recovery point resource group
-1. Sign in to the [Azure portal](http://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Go to **All Resources option**, select the restore point collection resource group in the following format AzureBackupRG_`<Geo>`_`<number>`.
 3. In the **Settings** section, select **Locks** to display the locks.
 4. To remove the lock, select the ellipsis and click **Delete**.
@@ -236,7 +236,7 @@ After removing lock, trigger an ad hoc/manual backup. This will ensure the resto
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Clean up restore point collection from Azure portal <br>
 
 To manually clear the restore points collection which are not cleared due to the lock on the resource group, try the following steps:
-1. Sign in to the [Azure portal](http://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. On the **Hub** menu, click **All resources**, select the Resource group with the following format AzureBackupRG_`<Geo>`_`<number>` where your VM is located.
 
 	![Delete lock](./media/backup-azure-arm-vms-prepare/resource-group.png)
