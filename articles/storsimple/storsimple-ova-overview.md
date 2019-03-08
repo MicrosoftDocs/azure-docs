@@ -96,7 +96,7 @@ You can use the StorSimple Device Manager service running in the Azure portal to
 ![cloud-based storage management](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
 ### Location-independent backup
-With the virtual array, cloud snapshots provide a location-independent, point-in-time copy of a volume or share. Cloud snapshots are enabled by default and cannot be disabled. All volumes and shares are backup up at the same time through a single daily backup policy, and you can take additional ad-hoc backups whenever necessary.
+With the virtual array, cloud snapshots provide a location-independent, point-in-time copy of a volume or share. Cloud snapshots are enabled by default and cannot be disabled. All volumes and shares are backup up at the same time through a single daily backup policy, and you can take additional ad hoc backups whenever necessary.
 
 ### Data protection and disaster recovery
 The virtual array supports the following data protection and disaster recovery scenarios:

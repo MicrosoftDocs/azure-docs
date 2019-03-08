@@ -22,20 +22,15 @@ Devices can use telemetry measurement to send numerical data from the device. A 
 
 To create a telemetry rule, the device template must have at least one telemetry measurement defined. This example uses a refrigerated vending machine device that sends temperature and humidity telemetry. The rule monitors the temperature reported by the device and sends an email when it goes above 80 degrees.
 
-1. Using Device Explorer, navigate to the device template for which you are adding the rule for.
+1. Using the **Device Templates** page, navigate to the device template for which you are adding the rule for.
 
-1. Under the selected template, click on an existing device. 
-
-    >[!TIP]
-    >If the template doesn't have any devices then add a new device first.
-
-1. If you haven’t created any rules yet, you will see the following screen:
+1. If you haven’t created any rules yet, you see the following screen:
 
     ![No rules yet](media/howto-create-telemetry-rules-experimental/Rules_Landing_Page.png)
 
-1. On the **Rules** tab, click **+ New Rule** to see the types of rules you can create.
+1. On the **Rules** tab, select **+ New Rule** to see the types of rules you can create.
 
-1. Click **Telemetry** to create a rule to monitor device telemetry.
+1. Select **Telemetry** to create a rule to monitor device telemetry.
 
     ![Rule Types](media/howto-create-telemetry-rules-experimental/Rule_Types.png)
 
@@ -51,15 +46,15 @@ To create a telemetry rule, the device template must have at least one telemetry
 
 Condition defines the criteria that is monitored by the rule.
 
-1. Click **+** next to **Conditions** to add a new condition.
+1. Select **+** next to **Conditions** to add a new condition.
 
 1. Select the telemetry you want to monitor from the **Measurement** dropdown.
 
-   ![Condition](media/howto-create-telemetry-rules-experimental/Aggregate_Condition_Filled_Out.png)
-
 1. Next, choose **Aggregation**, **Operator**, and provide a **Threshold** value.
-    - Aggregation is optional. Without aggregation, the rule triggers for each telemetry data point that meets the condition. For example, if the rule is configured to trigger when temperature is above 80 then the rule will trigger almost instantly when the device reports temperature > 80.
+    - Aggregation is optional. Without aggregation, the rule triggers for each telemetry data point that meets the condition. For example, if the rule is configured to trigger when temperature is above 80 then the rule triggers almost instantly when the device reports temperature > 80.
     - If an aggregate function like Average, Min, Max, Count is chosen then, the user must provide an **Aggregate time window** over which the condition needs to be evaluated. For example, if you set the period as "5 minutes" and your rule looks for Average temperature above 80, the rule triggers when the average temperature is above 80 for at least 5 minutes. The rule evaluation frequency is the same as the **Aggregate time window**, which means, in this example, the rule is evaluated once every 5 minutes.
+
+    ![Condition](media/howto-create-telemetry-rules-experimental/Aggregate_Condition_Filled_Out.png)
 
     >[!NOTE]
     >More than one telemetry measurement can be added under **Condition**. When multiple conditions are specified, all the conditions must be met for the rule to trigger. Each conditon gets joined by an 'AND' clause implicitly. When using aggregate, every measurement must be aggregated.

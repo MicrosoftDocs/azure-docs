@@ -19,6 +19,15 @@ In this article, you learn how to run your experiments and inferencing inside a 
 
 The Azure Machine Learning service relies on other Azure services for compute resources. Compute resources (compute targets) are used to train and deploy models. These compute targets can be created inside a virtual network. For example, you can use the Microsoft Data Science Virtual Machine to train a model and then deploy the model to Azure Kubernetes Service (AKS). For more information about virtual networks, see the [Azure Virtual Network overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
+## Prerequisites
+
+This document assumes that you are familiar with Azure Virtual Networks, and IP networking in general. This document also assumes that you have created a virtual network and subnet to use with your compute resources. If you are not familiar with Azure Virtual Networks, read the following articles to learn about the service:
+
+* [IP addressing](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
+* [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview)
+* [Quickstart: Create a virtual network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Filter network traffic](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+
 ## Storage account for your workspace
 
 When you create an Azure Machine Learning service workspace, it requires an Azure Storage account. Don't turn on firewall rules for this storage account. The Azure Machine Learning service requires unrestricted access to the storage account.

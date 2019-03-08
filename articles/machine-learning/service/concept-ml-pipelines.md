@@ -49,7 +49,7 @@ Using distinct steps makes it possible to rerun only the steps you need, as you 
 
 After the pipeline is designed, there is often more fine-tuning around the training loop of the pipeline. When you rerun a pipeline, the run jumps to the steps that need to be rerun, such as an updated training script, and skips what hasn't changed. The same paradigm applies to unchanged scripts used for the execution of the step. 
 
-With Azure Machine Learning, you can use various toolkits and frameworks, such as Microsoft Cognitive Toolkit or TensorFlow, for each step in your pipeline. Azure coordinates between the various [compute targets](concept-azure-machine-learning-architecture.md) you use, so that your intermediate data can be shared with the downstream compute targets easily. 
+With Azure Machine Learning, you can use various toolkits and frameworks, such as PyTorch or TensorFlow, for each step in your pipeline. Azure coordinates between the various [compute targets](concept-azure-machine-learning-architecture.md) you use, so that your intermediate data can be shared with the downstream compute targets easily. 
 
 You can [track the metrics for your pipeline experiments](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments) directly in the Azure portal. 
 

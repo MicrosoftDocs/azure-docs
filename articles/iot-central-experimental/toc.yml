@@ -105,12 +105,14 @@
         href: ../iot-central/howto-manage-iot-central-from-powershell.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
       - name: As a CSP create and manage an application
         href: ../iot-central/howto-create-and-manage-applications-as-CSP.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
-      - name: Configure homepage
-        href: ../iot-central/howto-configure-homepage-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json     
+      - name: Configure application dashboard
+        href: ../iot-central/howto-configure-homepage-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
   - name : Personalization
     items:
+      - name: Create personal dashboards
+        href: ../iot-central/howto-personalize-dashboard-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
       - name: Manage your preferences
-        href: ../iot-central/howto-manage-preferences.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json      
+        href: ../iot-central/howto-manage-preferences.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
 - name: Related
   items:
   - name: Solutions

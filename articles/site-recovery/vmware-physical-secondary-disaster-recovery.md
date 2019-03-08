@@ -156,7 +156,7 @@ Scout Update 7 is a full installer which can be used for fresh installation as w
 #### Manual Upgrade for PHP and MySQL on CS,PS, and RX
 The PHP scripting platform should be upgraded to version 7.2.10 on Configuration Server, Process Server and RX Server.
 The MySQL database management system should be upgraded to version 5.7.23 on Configuration Server, Process Server and RX Server.
-Please follow the manaual steps given in the [Quick installation guide](https://aka.ms/asr-scout-quick-install-guide) to upgrade PHP and MySQL versions.
+Please follow the manual steps given in the [Quick installation guide](https://aka.ms/asr-scout-quick-install-guide) to upgrade PHP and MySQL versions.
 
 ### Site Recovery Scout 8.0.1 Update 6 
 Updated: October 12, 2017

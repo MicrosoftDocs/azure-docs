@@ -21,7 +21,7 @@
   items:
     - name: Recent Release
       href: release-notes-10-0-10106-0.md  
-    - name: Gen2 region migration schedule
+    - name: Gen2 region upgrade schedule
       href: gen2-migration-schedule.md
     - name: Archived Release Notes
       items:   

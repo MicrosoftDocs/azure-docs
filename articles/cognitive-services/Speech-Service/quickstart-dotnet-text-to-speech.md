@@ -151,7 +151,7 @@ string host = "https://westus.tts.speech.microsoft.com/cognitiveservices/v1";
 Text is sent as the body of a `POST` request. With SSML, you can specify the voice and language. In this quickstart, we'll use SSML with the language set to `en-US` and the voice set as `ZiraRUS`. Let's construct the SSML for your request:
 
 ```csharp
-string body = @"<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'>
+string body = @"<speak version='1.0' xmlns='https://www.w3.org/2001/10/synthesis' xml:lang='en-US'>
               <voice name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>" +
               text + "</voice></speak>";
 ```

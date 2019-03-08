@@ -24,6 +24,8 @@ This article walks you through downloading and modifying an existing [Azure Reso
 
 If you are simply deploying the template directly from GitHub without any changes, skip to deploy a template from GitHub.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Scenario
 
 In this scenario you will:
@@ -119,13 +121,13 @@ If you have never used Azure PowerShell, visit: [How to install and configure Az
 1. Login to PowerShell
 
     ```powershell
-    Login-AzureRmAccount
+    Login-AzAccount
     ```
 
 1. Check the subscriptions for the account.
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     You are prompted to authenticate with your credentials.
@@ -133,19 +135,19 @@ If you have never used Azure PowerShell, visit: [How to install and configure Az
 1. Choose which of your Azure subscriptions to use.
 
     ```powershell
-    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    Select-AzSubscription -Subscriptionid "GUID of subscription"
     ```
 
 1. If needed, create a resource group by using the **New-AzureResourceGroup** cmdlet. In the following example, you create a resource group called AppgatewayRG in East US location.
 
     ```powershell
-    New-AzureRmResourceGroup -Name AppgatewayRG -Location "West US"
+    New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
-1. Run the **New-AzureRmResourceGroupDeployment** cmdlet to deploy the new virtual network by using the preceding template and parameter files you downloaded and modified.
+1. Run the **New-AzResourceGroupDeployment** cmdlet to deploy the new virtual network by using the preceding template and parameter files you downloaded and modified.
     
     ```powershell
-    New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+    New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
     ```
 
@@ -211,7 +213,7 @@ To delete all resources created in this article, complete one of the following s
 ### PowerShell
 
 ```powershell
-Remove-AzureRmResourceGroup -Name appgatewayRG
+Remove-AzResourceGroup -Name appgatewayRG
 ```
 
 ### Azure CLI

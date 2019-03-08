@@ -172,7 +172,7 @@ knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
 Next, [download and install](https://downloads.chef.io/chef-workstation/) Chef Workstation.
 Install Chef Workstation the default location. This installation may take a few minutes.
 
-On the desktop, you'll see a "CW PowerShell", which is an environment loaded with the tool you'll need for interacting with the Chef products. The CW PowerShell makes new ad-hoc commands available, such as `chef-run` as well as traditional Chef CLI commands, such as `chef`. See your installed version of Chef Workstation and the Chef tools with `chef -v`. You can also check your Workstation version by selecting "About Chef Workstation" from the Chef Workstation App.
+On the desktop, you'll see a "CW PowerShell", which is an environment loaded with the tool you'll need for interacting with the Chef products. The CW PowerShell makes new ad hoc commands available, such as `chef-run` as well as traditional Chef CLI commands, such as `chef`. See your installed version of Chef Workstation and the Chef tools with `chef -v`. You can also check your Workstation version by selecting "About Chef Workstation" from the Chef Workstation App.
 
 `chef --version` should return something like:
 

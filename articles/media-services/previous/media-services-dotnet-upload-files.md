@@ -17,7 +17,7 @@ ms.date: 02/08/2019
 ms.author: juliako
 
 ---
-# Upload files into a Media Services account using .NET (legacy)
+# Upload files into a Media Services account using .NET 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)

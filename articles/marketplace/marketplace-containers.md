@@ -40,7 +40,6 @@ Microsoft currently supports free and bring-your-own-license (BYOL) licensing mo
 | Hosting in ACR | Container images must be hosted in an Azure Container Registry (ACR) repository.<ul> <li>For more information about working with ACR, visit the Quickstart: Create a container registry using the Azure portal page located at [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).</li> </ul> |  
 | Image tagging | Container images must contain at least 1 tag (maximum tags: 16).<ul> <li>For more information about tagging an image, visit the docker tag page located at [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag).</li> </ul> |  
 
-
 ## Next steps
 
 If you haven't already done so, 

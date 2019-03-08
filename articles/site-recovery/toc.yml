@@ -125,6 +125,8 @@
     href: recovery-plan-overview.md
   - name: About migration to Azure
     href: migrate-overview.md
+  - name: Site Recovery and Backup Interoperability
+    href: site-recovery-backup-interoperability.md
   - name: About role-based access control with Site Recovery
     href: site-recovery-role-based-linked-access-control.md
   - name: About disaster recovery to a secondary on-premises site
@@ -426,9 +428,9 @@
     - name: Troubleshoot reprotection and failback of VMware VMs 
       href: vmware-azure-troubleshoot-failback-reprotect.md
     - name: Troubleshoot Microsoft Azure Site Recovery Provider upgrade failures
-      href: vmware-azure-troubleshoot-upgrade-failures.md  
+      href: vmware-azure-troubleshoot-upgrade-failures.md
     - name: Troubleshoot vCenter discovery failures
-      href: vmware-azure-troubleshoot-vcenter-discovery-failures.md       
+      href: vmware-azure-troubleshoot-vcenter-discovery-failures.md
   - name: Hyper-V
     items:
     - name: Troubleshoot Hyper-V replication

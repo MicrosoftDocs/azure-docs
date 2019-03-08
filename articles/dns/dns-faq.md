@@ -257,7 +257,7 @@ Yes. During the public preview, the following limitations exist.
 
 ### Are there any quotas or limits on zones or records for private zones?
 
-There are no limits on the number of zones allowed per subscription for private zones. There are no limits on the number of record sets per zone for private zones. Both public and private zones count toward the overall DNS limits. For more information, see the [Azure subscription and service limits](../azure-subscription-service-limits.md#dns-limits)
+There are no limits on the number of zones allowed per subscription for private zones. There are no limits on the number of record sets per zone for private zones. Both public and private zones count toward the overall DNS limits. For more information, see the [Azure subscription and service limits](../azure-subscription-service-limits.md#azure-dns-limits)
 
 ### Is there portal support for private zones?
 

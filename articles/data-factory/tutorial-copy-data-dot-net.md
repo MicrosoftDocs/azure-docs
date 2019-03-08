@@ -53,7 +53,7 @@ Now, prepare your Azure Blob and Azure SQL Database for the tutorial by performi
     Jane|Doe
 	```
 
-2. Use tools such as [Azure Storage Explorer](http://storageexplorer.com/) to create the **adfv2tutorial** container, and to upload the **inputEmp.txt** file to the container.
+2. Use tools such as [Azure Storage Explorer](https://storageexplorer.com/) to create the **adfv2tutorial** container, and to upload the **inputEmp.txt** file to the container.
 
 #### Create a sink SQL table
 

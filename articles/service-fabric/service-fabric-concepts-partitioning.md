@@ -55,7 +55,7 @@ Before implementing a service, you should always consider the partitioning strat
 
 A good approach is to think about the structure of the state that needs to be partitioned, as the first step.
 
-Let's take a simple example. If you were to build a service for a countywide poll, you could create a partition for each city in the county. Then, you could store the votes for every person in the city in the partition that corresponds to that city. Figure 3 illustrates a set of people and the city in which they reside.
+Let's take a simple example. If you were to build a service for a county-wide poll, you could create a partition for each city in the county. Then, you could store the votes for every person in the city in the partition that corresponds to that city. Figure 3 illustrates a set of people and the city in which they reside.
 
 ![Simple partition](./media/service-fabric-concepts-partitioning/cities.png)
 
