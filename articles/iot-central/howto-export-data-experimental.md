@@ -80,14 +80,14 @@ Now that you have a Storage/Event Hubs/Service Bus destination to export data to
 
 1. Sign in to your IoT Central application.
 
-2. In the left menu, click **Continuous Data Export**.
+2. In the left menu, select **Continuous Data Export**.
 
     > [!Note]
     > If you don't see Continuous Data Export in the left menu, you are not an administrator in your app. Talk to an administrator to set up data export.
 
     ![Create new Event Hub](media/howto-export-data-experimental/export_menu.png)
 
-3. Click the **+ New** button in the top right. Choose one of **Azure Blob Storage**, **Azure Event Hubs**, or **Azure Service Bus** as the destination of your export.
+3. Select the **+ New** button in the top right. Choose one of **Azure Blob Storage**, **Azure Event Hubs**, or **Azure Service Bus** as the destination of your export.
 
     > [!NOTE]
     > The maximum number of exports per app is five.
@@ -106,10 +106,10 @@ Now that you have a Storage/Event Hubs/Service Bus destination to export data to
 
 5. (Optional) If you chose **Enter a connection string**, a new box appears for you to paste your connection string. To get the connection string for your:
     - Storage account, go to the Storage account in the Azure Portal.
-        - Under **Settings**, click **Access keys**
+        - Under **Settings**, select **Access keys**
         - Copy either the key1 Connection string or the key2 Connection string
     - Event Hubs or Service Bus, go to the namespace in the Azure Portal.
-        - Under **Settings**, click **Shared Access Policies**
+        - Under **Settings**, select **Shared Access Policies**
         - Choose the default **RootManageSharedAccessKey** or create a new one
         - Copy either the primary or secondary connection string
 

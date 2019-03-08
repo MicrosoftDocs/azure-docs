@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/28/2019
+ms.date: 03/04/2019
 ms.author: jeedes
 
 ---
@@ -102,19 +102,19 @@ To configure Azure AD single sign-on with ExcelityGlobal, perform the following 
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
-    **For Production Envoronment** : `https://ess.excelityglobal.com`
+    **For Production Environment** : `https://ess.excelityglobal.com`
 
-    **For Sandbox Envoronment** : `https://s6.excelityglobal.com`
+    **For Sandbox Environment** : `https://s6.excelityglobal.com`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
 
-    **For Production Envoronment** : `https://ess.excelityglobal.com/ACS`
+    **For Production Environment** : `https://ess.excelityglobal.com/ACS`
 
-    **For Sandbox Envoronment** : `https://s6.excelityglobal.com/ACS`
+    **For Sandbox Environment** : `https://s6.excelityglobal.com/ACS`
 
 5. Your ExcelityGlobal application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. ExcelityGlobal application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
  
-    ![image](common/edit-attribute.png)
+	![image](common/edit-attribute.png)
 
 6. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog.
 
@@ -136,7 +136,7 @@ To configure Azure AD single sign-on with ExcelityGlobal, perform the following 
 
 ### Configure ExcelityGlobal Single Sign-On
 
-To configure single sign-on on **ExcelityGlobal** side, you need to send the **Thumbprint value** and appropriate copied URLs from Azure portal to [ExcelityGlobal support team](mailto:yashwanths@quinnox.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **ExcelityGlobal** side, you need to send the **Thumbprint value** and appropriate copied URLs from Azure portal to [ExcelityGlobal support team](https://www.excelityglobal.com/contact-us/our-locations/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -191,7 +191,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create ExcelityGlobal test user
 
-In this section, you create a user called Britta Simon in ExcelityGlobal. Work with [ExcelityGlobal support team](mailto:yashwanths@quinnox.com) to add the users in the ExcelityGlobal platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in ExcelityGlobal. Work with [ExcelityGlobal support team](https://www.excelityglobal.com/contact-us/our-locations/) to add the users in the ExcelityGlobal platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on
 

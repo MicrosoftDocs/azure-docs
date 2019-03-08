@@ -1,6 +1,6 @@
 ---
 title: Azure traffic analytics schema | Microsoft Docs
-description: Understand schema of Traffic Analytics to analyse Azure network security group flow logs.
+description: Understand schema of Traffic Analytics to analyze Azure network security group flow logs.
 services: network-watcher
 documentationcenter: na
 author: vinynigam

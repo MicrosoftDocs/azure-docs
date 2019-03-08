@@ -194,12 +194,12 @@ Usage is reported for the following resource providers:
 **Unit**: GB\*month      
 **Notes**: The actual size on disk of premium managed disk 
 
-**Meter ID**: 75d4b707-1027-4403-9986-6ec7c05579c8  
+**Meter ID**: 108fa95b-be0d-4cd9-96e8-5b0d59505df1  
 **Meter name**: ActualStandardSnapshotSize   
 **Unit**: GB\*month   
 **Notes**: The actual size on disk of managed standard snapshot.  
 
-**Meter ID**: 5ca1cbb9-6f14-4e76-8be8-1ca91547965e   
+**Meter ID**: 578ae51d-4ef9-42f9-85ae-42b52d3d83ac   
 **Meter name**: ActualPremiumSnapshotSize   
 **Unit**: GB\*month   
 **Notes**: The actual size on disk of managed premium.   

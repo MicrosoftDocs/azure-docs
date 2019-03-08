@@ -65,7 +65,7 @@ Site Recovery can be integrated with native SQL Server BCDR technologies summari
 
 This table summarizes our recommendations for integrating SQL Server BCDR technologies with Site Recovery.
 
-| **Version** | **Edition** | **Deployment** | **On-prem to on-prem** | **On-prem to Azure** |
+| **Version** | **Edition** | **Deployment** | **On-prem to on premises** | **On-prem to Azure** |
 | --- | --- | --- | --- | --- |
 | SQL Server 2016, 2014 or 2012 |Enterprise |Failover cluster instance |Always On availability groups |Always On availability groups |
 || Enterprise |Always On availability groups for high availability |Always On availability groups |Always On availability groups | |

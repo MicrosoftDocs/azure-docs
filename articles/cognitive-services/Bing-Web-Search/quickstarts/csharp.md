@@ -23,7 +23,7 @@ Use this quickstart to make your first call to the Bing Web Search API and recei
 Here are a few things that you'll need before running this quickstart:
 
 * Windows: [Visual Studio 2017](https://www.visualstudio.com/downloads/)
-* Linux/macOS: [Mono](http://www.mono-project.com/)  
+* Linux/macOS: [Mono](https://www.mono-project.com/)  
 * A subscription key
 
 This example program only uses .NET Core classes.

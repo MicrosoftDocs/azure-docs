@@ -135,7 +135,7 @@ Add code to your C module that allows it to read in data from the sensor, check 
 
    4. Save the **CMakeLists.txt** file.
 
-   5. Open **modules** > **CModule** > **main.c**. At the buttom of the list of include statements, add a new one to include `parson.h` for JSON support:
+   5. Open **modules** > **CModule** > **main.c**. At the bottom of the list of include statements, add a new one to include `parson.h` for JSON support:
 
       ```c
       #include "parson.h"

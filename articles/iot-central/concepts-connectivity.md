@@ -85,9 +85,9 @@ The following steps describe how to connect devices to IoT Central using X.509 c
       If you have a security breach or your primary certificate is set to expire, use the secondary certificate to reduce downtime. You can continue to provision devices using the secondary certificate while you update the primary certificate.
 
     - Verifying certificate ownership ensures that the uploader of the certificate has the certificate's private key. To verify the certificate:
-        - Click the button next to **Verification Code** to generate a code.
+        - Select the button next to **Verification Code** to generate a code.
         - Create an X.509 verification certificate with the verification code you generated in the previous step. Save the certificate as a .cer file.
-        - Upload the signed verification certificate and click verify.
+        - Upload the signed verification certificate and select **Verify**.
 
           ![Connection settings](media/concepts-connectivity/verify-cert.png)
 
@@ -168,7 +168,7 @@ When a real device connects to your IoT Central application, its provisioning st
 
 The following steps describe how you can get a connection string for a device:
 
-1. Click **Connect** on the **Device Explorer** page to get the connection details: **Scope ID**, **Device ID**, and **Device Primary key**:
+1. Select **Connect** on the **Device Explorer** page to get the connection details: **Scope ID**, **Device ID**, and **Device Primary key**:
 
     ![Connection details](media/concepts-connectivity/device-connect.png)
 

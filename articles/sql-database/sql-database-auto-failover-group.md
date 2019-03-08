@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
+ms.date: 03/07/2019
 ---
 
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
@@ -210,7 +210,7 @@ If your application uses Managed Instance as the data tier, follow these general
   > [!NOTE]
   > In certain service tiers, Azure SQL Database supports the use of [read-only replicas](sql-database-read-scale-out.md) to load balance read-only query workloads using the capacity of one read-only replica and using the `ApplicationIntent=ReadOnly` parameter in the connection string. When you have configured a geo-replicated secondary, you can use this capability to connect to either a read-only replica in the primary location or in the geo-replicated location.
   > - To connect to a read-only replica in the primary location, use `failover-group-name.zone_id.database.windows.net`.
-  > - To connect to a read-only replica in the primary location, use `failover-group-name.secondary.zone_id.database.windows.net`.
+  > - To connect to a read-only replica in the secondary location, use `failover-group-name.secondary.zone_id.database.windows.net`.
 
 - **Be prepared for perf degradation**
 
@@ -301,12 +301,12 @@ As discussed previously, auto-failover groups and active geo-replication can als
 
 | Cmdlet | Description |
 | --- | --- |
-| [New-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |This command creates a failover group and registers it on both primary and secondary servers|
-| [Remove-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Removes the failover group from the server and deletes all secondary databases included the group |
-| [Get-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Retrieves the failover group configuration |
-| [Set-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |Modifies the configuration of the failover group |
-| [Switch-AzureRMSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Triggers failover of the failover group to the secondary server |
-| [Add-AzureRmSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqldatabasetofailovergroup)|Adds one or more databases to an Azure SQL Database failover group|
+| [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |This command creates a failover group and registers it on both primary and secondary servers|
+| [Remove-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Removes the failover group from the server and deletes all secondary databases included the group |
+| [Get-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Retrieves the failover group configuration |
+| [Set-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Modifies the configuration of the failover group |
+| [Switch-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/switch-azsqldatabasefailovergroup) | Triggers failover of the failover group to the secondary server |
+| [Add-AzSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/add-azsqldatabasetofailovergroup)|Adds one or more databases to an Azure SQL Database failover group|
 |  | |
 
 > [!IMPORTANT]
@@ -336,11 +336,11 @@ As discussed previously, auto-failover groups and active geo-replication can als
 
 | API | Description |
 | --- | --- |
-| New-AzureRmSqlDatabaseInstanceFailoverGroup |This command creates a failover group and registers it on both primary and secondary servers|
-| Set-AzureRmSqlDatabaseInstanceFailoverGroup |Modifies the configuration of the failover group|
-| Get-AzureRmSqlDatabaseInstanceFailoverGroup |Retrieves the failover group configuration|
-| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Triggers failover of the failover group to the secondary server|
-| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Removes a failover group|
+| New-AzSqlDatabaseInstanceFailoverGroup |This command creates a failover group and registers it on both primary and secondary servers|
+| Set-AzSqlDatabaseInstanceFailoverGroup |Modifies the configuration of the failover group|
+| Get-AzSqlDatabaseInstanceFailoverGroup |Retrieves the failover group configuration|
+| Switch-AzSqlDatabaseInstanceFailoverGroup |Triggers failover of the failover group to the secondary server|
+| Remove-AzSqlDatabaseInstanceFailoverGroup | Removes a failover group|
 
 ### REST API: Manage SQL database failover groups with single and pooled databases
 

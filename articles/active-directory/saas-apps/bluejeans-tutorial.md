@@ -8,7 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: dfc634fd-1b55-4ba8-94a8-b8288429b6a9
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -249,7 +249,7 @@ The objective of this section is to create a user called Britta Simon in BlueJea
 
 	i. Click **CONTINUE**.
 
-	![Addd User](./media/bluejeans-tutorial/IC785887.png "Addd User")
+	![Add User](./media/bluejeans-tutorial/IC785887.png "Add User")
 
 	J. Click **ADD USER**.
 

@@ -52,13 +52,13 @@ Ensure the proxy machine has connectivity to the endpoints listed in the [deploy
 
 This problem can manifest with a variety of symptoms but usually has a common root cause.
 
-Azure AD Password Protection has a critical dependency on the encryption and decryption functionality supplied by the Microsoft Key Distribution Service, which is available on domain controllers running Windows Server 2012 and later. The KDS service must be enabled and functional on all Windows Server 2012 and later domain controllers in a domain.  
+Azure AD Password Protection has a critical dependency on the encryption and decryption functionality supplied by the Microsoft Key Distribution Service, which is available on domain controllers running Windows Server 2012 and later. The KDS service must be enabled and functional on all Windows Server 2012 and later domain controllers in a domain.
 
-By default the KDS service's service start mode is configured as Manual (Trigger Start). This configuration means that the first time a client tries to use the service, it is started on-demand. This default service start mode is acceptable for Azure AD Password Protection to work. 
+By default the KDS service's service start mode is configured as Manual (Trigger Start). This configuration means that the first time a client tries to use the service, it is started on-demand. This default service start mode is acceptable for Azure AD Password Protection to work.
 
 If the KDS service start mode has been configured to Disabled, this configuration must be fixed before Azure AD Password Protection will work properly.
 
-A simple test for this issue is to manually start the KDS service, either via the the Service management MMC console, or using other service management tools (for example, run "net start kdssvc" from a command prompt console). The KDS service is expected to start successfully and stay running.
+A simple test for this issue is to manually start the KDS service, either via the Service management MMC console, or using other service management tools (for example, run "net start kdssvc" from a command prompt console). The KDS service is expected to start successfully and stay running.
 
 The most common root cause is that the Active Directory domain controller object is located outside of the default Domain Controllers OU. This configuration is not supported by the KDS service and is not a limitation imposed by Azure AD Password Protection. The fix for this condition is to move the domain controller object to a location under the default Domain Controllers OU.
 
@@ -115,7 +115,7 @@ If it is decided to uninstall the public preview software and cleanup all relate
 
    Do not omit the asterisk (“*”) at the end of the $keywords variable value.
 
-   The resulting object(s) found via the `Get-ADObject` command can then be piped to `Remove-ADObject`, or deleted manually. 
+   The resulting object(s) found via the `Get-ADObject` command can then be piped to `Remove-ADObject`, or deleted manually.
 
 4. Manually remove all DC agent connection points in each domain naming context. There may be one these objects per domain controller in the forest, depending on how widely the public preview software was deployed. The location of that object may be discovered with the following Active Directory PowerShell command:
 

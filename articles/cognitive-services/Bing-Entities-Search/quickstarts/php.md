@@ -21,7 +21,7 @@ While this application is written in PHP, the API is a RESTful Web service compa
 
 ## Prerequisites
 
-* [PHP 5.6.x](http://php.net/downloads.php) or later
+* [PHP 5.6.x](https://php.net/downloads.php) or later
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
@@ -60,7 +60,7 @@ function search ($host, $path, $key, $mkt, $query) {
 	$headers = "Ocp-Apim-Subscription-Key: $key\r\n";
 
 	// NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-	// http://php.net/manual/en/function.stream-context-create.php
+	// https://php.net/manual/en/function.stream-context-create.php
 	$options = array (
 		'http' => array (
 			'header' => $headers,
@@ -118,7 +118,7 @@ A successful response is returned in JSON, as shown in the following example:
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [

@@ -19,9 +19,6 @@ This guide shows you how to quickly get started using API Management to manage y
 ## What is Azure API Management?
 Azure API Management is an Azure service that lets you manage your REST API endpoints by defining user access, usage throttling, and dashboard monitoring. Click [here](https://azure.microsoft.com/services/api-management/) for details on Azure API Management. Click [here](/azure/api-management/import-and-publish) for a guide on how to get started with Azure API Management. This other guide, which this guide is based on, covers more topics, including notification configurations, tier pricing, response handling, user authentication, creating products, developer subscriptions, and usage dashboarding.
 
-## What is AzureML?
-AzureML is an Azure service for machine learning that enables you to easily build, deploy, and share advanced analytics solutions. Click [here](https://azure.microsoft.com/services/machine-learning/) for details on AzureML.
-
 ## Prerequisites
 To complete this guide, you need:
 

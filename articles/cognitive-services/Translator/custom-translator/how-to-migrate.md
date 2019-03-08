@@ -27,7 +27,7 @@ For a training to succeed, Custom Translator requires a minimum of 10,000 unique
 
 ## Enable account migration
 
-In order to use the Migration Tool, you'll need to have your Hub account migration enabled. To do this, email [custommt@microsoft.com](mailto:custommt@microsoft.com) with a list of all liveid accounts that you would like enabled. These accounts should be the email addresses that you log in with.
+In order to use the Migration Tool, you'll need to have your Hub account migration enabled. To do this, email [custommt@microsoft.com](mailto:custommt@microsoft.com) with a list of all live id accounts that you would like enabled. These accounts should be the email addresses that you log in with.
 
 ## Find Custom Translator Workspace ID
 
@@ -137,6 +137,10 @@ This table compares the features between Microsoft Translator Hub and Custom Tra
 | NMT customization	| No	| Yes |
 | New unified Speech services customization	| No	| Yes |
 | No Trace | Yes | Yes |
+
+## New languages
+
+If you are a community or organization working on creating a new language system for Microsoft Translator, reach out to [custommt@microsoft.com](mailto:custommt@microsoft.com) for more information.
 
 ## Next steps
 
