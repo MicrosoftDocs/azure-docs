@@ -20,7 +20,7 @@ Azure Backup helps protect data for on-premises servers, virtual machines, virtu
 
 ## Azure Site Recovery
 
-It's possible to configure both Azure Backup and Azure Site Recovery on a VM or a group of VMs. Both products are interoperable. A few scenarios where the interoperability between Backup and ASR becomes important are as follows:
+It's possible to configure both Azure Backup and Azure Site Recovery on a VM or a group of VMs. Both products are interoperable. A few scenarios where the interoperability between Backup and Azure Site Recovery becomes important are as follows:
 
 ### File Backup/Restore
 
@@ -34,7 +34,7 @@ We do not currently support this for an on-going replicating VM. Protection need
 
 Backup and restore of a VM or group of VMs is not supported. To make it work, protection needs to be re-enabled.
 
-**Scenario** | **Supported by ASR?** | **Workaround, if any**  
+**Scenario** | **Supported by Azure Site Recovery ?** | **Workaround, if any**  
 --- | --- | ---
 File/folder backup | Yes | Not Applicable
 Disk backup | Not currently | Disable and Enable Protection
