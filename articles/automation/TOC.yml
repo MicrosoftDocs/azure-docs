@@ -192,8 +192,6 @@
       href: automation-update-azure-modules.md
     - name: Az modules in runbooks
       href: az-modules.md
-    - name: Integration modules
-      href: automation-integration-modules.md
   - name: Scenarios
     items:
     - name: Runbook gallery
