@@ -1,6 +1,7 @@
 ---
-title: Securely use Azure Machine Learning service
-description: 'Enterprise security for Azure Machine Learning service: authentication, authorization, network security, data encryption, and monitoring.'
+title: Enterprise security
+titleSuffix: Azure Machine Learning service
+description: 'Securely use Azure Machine Learning service: authentication, authorization, network security, data encryption, and monitoring.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
