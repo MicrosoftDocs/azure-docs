@@ -1,13 +1,13 @@
---- 
+---
 author: diberry
 ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 002/08/2019
---- 
+---
 
 
-Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (the utterance) to Microsoft. The container reports usage about every 10 to 15 minutes.
+Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (e.g., the image or text that is being analyzed) to Microsoft. The container reports usage about every 10 to 15 minutes.
 
 The `docker run` uses the following arguments for billing purposes:
 

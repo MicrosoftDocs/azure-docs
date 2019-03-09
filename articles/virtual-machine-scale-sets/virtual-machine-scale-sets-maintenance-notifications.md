@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
 
---- 
+---
 
 # Planned maintenance notifications for virtual machine scale sets
 

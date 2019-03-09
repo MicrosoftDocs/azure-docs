@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 02/28/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 > * Verify the action to ensure that the virtual machine was successfully resized
 
 ## Prerequisites
-Recommendations are available for a variety of Azure account types, including [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. To view the full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md). You must have at least read access to one or more of the following scopes to view cost data.
+Recommendations are available for a variety of scopes and Azure account types, including [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. To view the full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md). You must have at least read access to one or more of the following scopes to view cost data. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
 - Subscription
 - Resource group

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/20189
+ms.date: 01/04/2019
 ms.author: jowargo
 ---
 

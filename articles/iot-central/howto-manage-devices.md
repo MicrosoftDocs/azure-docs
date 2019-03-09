@@ -62,7 +62,7 @@ To bulk-register devices in your application:
  >   [!NOTE] 
     If you don’t have a device template yet then you can import devices under **Unassociated devices** and register them without any template. Once devices have been imported, you can then associate them with a template as a subsequent step.
 
-1. Click **Import**.
+1. Select **Import**.
 
     [![Import Action](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
 
@@ -74,7 +74,7 @@ To bulk-register devices in your application:
 
     [![Import Success](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
 
-If the device import operation fails, you will see an error message on the Device grid. A log file capturing all the errors is generated and can be downloaded by clicking the error message.
+If the device import operation fails, you will see an error message on the Device grid. A log file capturing all the errors is generated and can be downloaded by selecting the error message.
 
 
 **Associating devices with a template**
@@ -84,9 +84,9 @@ If you register devices by starting the import under **Unassociated devices**, t
 1. On the left panel, choose **Unassociated devices**.
     [![Unassociated Devices](./media/howto-manage-devices/UnassociatedDevices1.png)](./media/howto-manage-devices/UnassociatedDevices1.png#lightbox)
 1. Select the devices you want to associate with a template.
-1. Click **Associate** option.
+1. Select **Associate** option.
     [![Associate Devices](./media/howto-manage-devices/UnassociatedDevices2.png)](./media/howto-manage-devices/UnassociatedDevices2.png#lightbox)
-1. Choose the template from the list of available templates and click **Associate** button.
+1. Choose the template from the list of available templates and select **Associate**.
 1. The selected devices will be moved under the respective device template.
 
  >   [!NOTE] 
@@ -101,7 +101,7 @@ To bulk export devices from your application:
 
 1. On the left panel, choose the device template for which you want to export the devices.
 
-1. Select the devices that you want to export and then click the **Export** action.
+1. Select the devices that you want to export and then select the **Export** action.
 
     [![Export](./media/howto-manage-devices/Export1.png)](./media/howto-manage-devices/Export1.png#lightbox)
 
@@ -109,11 +109,11 @@ To bulk export devices from your application:
 
 1. Once the export completes, a success message is shown along with a link to download the generated file.
 
-1. Click on the **success message** to download the file to a local folder on the disk.
+1. Select the **success message** to download the file to a local folder on the disk.
 
     [![Export Success](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
 
-1. The exported CSV file will have the following columns information: **Device Id, Device Name, Device Priamry/Secondary Keys and Primary/Secondary certificate thumbrpints**
+1. The exported CSV file will have the following columns information: **Device Id, Device Name, Device Priamry/Secondary Keys and Primary/Secondary certificate thumbprints**
     *   IOTC_DEVICEID
     *   IOTC_DEVICENAME
     *   IOTC_SASKEY_PRIMARY

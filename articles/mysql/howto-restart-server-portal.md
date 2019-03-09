@@ -31,15 +31,15 @@ The following steps restart the MySQL server:
 
 3. Click **Yes** to confirm restarting the server.
 
-   ![Azure Database for MySQL - Restart confirm ](./media/howto-restart-server-portal/3-restart-confirm.png)
+   ![Azure Database for MySQL - Restart confirm](./media/howto-restart-server-portal/3-restart-confirm.png)
 
 4. Observe that the server status changes to "Restarting".
 
-   ![Azure Database for MySQL - Restart status ](./media/howto-restart-server-portal/4-restarting-status.png)
+   ![Azure Database for MySQL - Restart status](./media/howto-restart-server-portal/4-restarting-status.png)
 
 5. Confirm server restart is successful.
 
-   ![Azure Database for MySQL - Restart success ](./media/howto-restart-server-portal/5-restart-success.png)
+   ![Azure Database for MySQL - Restart success](./media/howto-restart-server-portal/5-restart-success.png)
 
 ## Next steps
 

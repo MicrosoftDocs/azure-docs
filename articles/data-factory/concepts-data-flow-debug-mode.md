@@ -7,9 +7,9 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
---- 
+---
 
-# Azure Data Factory Mapping Data Flow Debug Mode
+# Mapping Data Flow Debug Mode
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -31,7 +31,7 @@ When you switch on debug mode, you will be prompted with a side-panel form that 
 >When running in Debug Mode in Data Flow, your data will not be written to the Sink transform. A Debug session is intended to serve as a test >harness for your transformations. Sinks are not required during debug and are ignored in your data flow. If you wish to test writing the data >in your Sink, execute the Data Flow from an Azure Data Factory Pipeline and use the Debug execution from a pipeline.
 
 ## Debug Settings
-Debug settings can be Each Source from your Data Flow will appear in the side panel and can also be edited by selecting "source settings" on Data Flow design toolbar. You can select the limits and/or file source to use for each your Source transformation here. You can also select which Databricks cluster that you'd like to use for debug.
+Debug settings can be Each Source from your Data Flow will appear in the side panel and can also be edited by selecting "source settings" on the Data Flow designer toolbar. You can select the limits and/or file source to use for each your Source transformation here. The row limits in this setting are only for the current debug session. You can also use the Sampling setting in the source for limiting rows into the Source transforamtion.
 
 ## Cluster status
 There is a cluster status indicator at the top of the design surface that will turn green when the cluster is ready for debug. If your cluster is already warm, then the green indicator will appear almost instantly. If your cluster was not already running when you entered debug mode, then you will have to wait 5-7 minutes for the cluster to spin up. The indicator light will be yellow until it is ready. Once your cluster is ready for Data Flow debug, the indicator light will turn green.

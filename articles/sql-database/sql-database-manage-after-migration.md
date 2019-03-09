@@ -1,5 +1,5 @@
 ---
-title: Manage after migration - Azure SQL Database | Microsoft Docs
+title: Manage single and pooled databases after migration - Azure SQL Database | Microsoft Docs
 description: Learn how to manage your database after migration to Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,22 +11,25 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
+ms.date: 02/13/2019
 ---
-# New DBA in the cloud – Managing your database in Azure SQL Database
+# New DBA in the cloud – Managing your single and pooled databases in Azure SQL Database
 
-Moving from the traditional self-managed, self-controlled environment to a PaaS environment can seem a bit overwhelming at first. As an app developer or a DBA, you would want to know the core capabilities of the platform that would help you keep your application available, performant, secure and resilient - always. This article aims to do exactly that. The article succinctly organizes resources and gives you some guidance on how to best use the key capabilities of SQL Database to manage and keep your application running efficiently and achieve optimal results in the cloud. Typical audience for this article would be those who:
+Moving from the traditional self-managed, self-controlled environment to a PaaS environment can seem a bit overwhelming at first. As an app developer or a DBA, you would want to know the core capabilities of the platform that would help you keep your application available, performant, secure and resilient - always. This article aims to do exactly that. The article succinctly organizes resources and gives you some guidance on how to best use the key capabilities of SQL Database with single and pooled databases to manage and keep your application running efficiently and achieve optimal results in the cloud. Typical audience for this article would be those who:
 
-- Are evaluating migration of their application(s) to Azure SQL DB – Modernizing your application(s).
+- Are evaluating migration of their application(s) to Azure SQL Database – Modernizing your application(s).
 - Are In the process of migrating their application(s) – On-going migration scenario.
 - Have recently completed the migration to Azure SQL DB – New DBA in the cloud.
 
-This article discusses some of the core characteristics of Azure SQL DB as a platform that you can readily leverage. They are the following:
+This article discusses some of the core characteristics of Azure SQL Database as a platform that you can readily leverage when working with single databases and pooled databases in elastic pools. They are the following:
 
 - Business continuity and disaster recovery (BCDR)
 - Security and compliance
 - Intelligent database monitoring and maintenance
 - Data movement
+
+> [!NOTE]
+> This article applies to the following deployment options in Azure SQL Database: single databases and elastic pools. It does not apply to the managed instance deployment option in SQL Database.
 
 ## Business continuity and disaster recovery (BCDR)
 
@@ -252,9 +255,9 @@ You can query the [sys.dm_db_resource_stats](/sql/relational-databases/system-dy
 
 ![Query Performance Insight](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-#### Azure SQL Analytics (Preview) in Log Analytics
+#### Azure SQL Analytics (Preview) in Azure Monitor logs
 
-[Azure Log Analytics](../azure-monitor/insights/azure-sql.md) allows you to collect and visualize key Azure SQL Azure performance metrics, supporting up to 150,000 SQL Databases and 5,000 SQL Elastic pools per workspace. You can use it to monitor and receive notifications. You can monitor SQL Database and elastic pool metrics across multiple Azure subscriptions and elastic pools and can be used to identify issues at each layer of an application stack.
+[Azure Monitor logs](../azure-monitor/insights/azure-sql.md) allows you to collect and visualize key Azure SQL Azure performance metrics, supporting up to 150,000 SQL Databases and 5,000 SQL Elastic pools per workspace. You can use it to monitor and receive notifications. You can monitor SQL Database and elastic pool metrics across multiple Azure subscriptions and elastic pools and can be used to identify issues at each layer of an application stack.
 
 ### I am noticing performance issues: How does my SQL Database troubleshooting methodology differ from SQL Server
 
@@ -293,11 +296,11 @@ SQL Database uses some smart techniques that allow it to handle certain classes 
 
 - **Export**: You can export your Azure SQL database as a BACPAC file from the Azure portal
 
-   ![database export](./media/sql-database-export/database-export.png)
+   ![database export](./media/sql-database-export/database-export1.png)
 
 - **Import**: You can also import data as a BACPAC file into the database using the Azure portal.
 
-   ![database import](./media/sql-database-import/import.png)
+   ![database import](./media/sql-database-import/import1.png)
 
 ### How do I synchronize data between SQL Database and SQL Server
 

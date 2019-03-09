@@ -273,7 +273,7 @@ ms.collection: M365-identity-device-management
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="privileged-identity-management/index.yml">Managed identities for Azure resources</a></h3>
+                                                        <h3><a href="managed-identities-azure-resources/index.yml">Managed identities for Azure resources</a></h3>
                                                         <p>
                                                             <a href="managed-identities-azure-resources/tutorial-windows-vm-access-sql.md">Use Windows VM to access Azure SQL</a><br>
                                                             <a href="managed-identities-azure-resources/how-to-use-vm-token.md">Use Azure VM for token acquisition</a><br>

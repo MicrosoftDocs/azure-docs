@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 02/14/2019
 ms.author: magoedte
 ---
 
@@ -73,10 +73,10 @@ The information below list the proxy and firewall configuration information requ
 
 |Agent Resource|Ports |Direction |Bypass HTTPS inspection|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Port 443 |Inbound and outbound|Yes |  
-|*.oms.opinsights.azure.com |Port 443 |Inbound and outbound|Yes |  
-|*.blob.core.windows.net |Port 443 |Inbound and outbound|Yes |  
-|*.azure-automation.net |Port 443 |Inbound and outbound|Yes |  
+|*.ods.opinsights.azure.com |Port 443 |Outbound|Yes |  
+|*.oms.opinsights.azure.com |Port 443 |Outbound|Yes |  
+|*.blob.core.windows.net |Port 443 |Outbound|Yes |  
+|*.azure-automation.net |Port 443 |Outbound|Yes |  
 
 
 If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 

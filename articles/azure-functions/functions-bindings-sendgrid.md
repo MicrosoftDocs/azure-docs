@@ -39,6 +39,7 @@ See the language-specific example:
 * [C#](#c-example)
 * [C# script (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
+* [Java](#java-example)
 
 ### C# example
 
@@ -54,7 +55,7 @@ public static void Run(
 {
 var emailObject = JsonConvert.DeserializeObject<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
 
-var message = new SendGridMessage();
+message = new SendGridMessage();
 message.AddTo(emailObject.To);
 message.AddContent("text/html", emailObject.Body);
 message.SetFrom(new EmailAddress(emailObject.From));
@@ -156,6 +157,33 @@ public class Message
     public string Subject { get; set; }
     public string Content { get; set; }
 }
+```
+
+### Java example
+
+The following example uses the `@SendGridOutput` annotation from the [Java functions runtime library](/java/api/overview/azure/functions/runtime) to send an email using the SendGrid output binding.
+
+```java
+@FunctionName("SendEmail")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
+            @SendGridOutput(
+                name = "email", dataType = "String", apiKey = "SendGridConnection", to = "test@example.com", from = "test@example.com",
+                subject= "Sending with SendGrid", text = "Hello from Azure Functions"
+                ) OutputBinding<String> email
+            )
+    {
+        String name = request.getBody().orElse("World");
+
+        final String emailBody = "{\"personalizations\":" +
+                                    "[{\"to\":[{\"email\":\"test@example.com\"}]," +
+                                    "\"subject\":\"Sending with SendGrid\"}]," +
+                                    "\"from\":{\"email\":\"test@example.com\"}," +
+                                    "\"content\":[{\"type\":\"text/plain\",\"value\": \"Hello" + name + "\"}]}";
+
+        email.setValue(emailBody);
+        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
+    }
 ```
 
 ### JavaScript example

@@ -1,6 +1,6 @@
 ---
-title: Copy data to or from Azure Data Lake Storage Gen2 Preview by using Data Factory (Preview) | Microsoft Docs
-description: Learn how to copy data to and from Azure Data Lake Storage Gen2 Preview using Azure Data Factory.
+title: Copy data to or from Azure Data Lake Storage Gen2 by using Data Factory | Microsoft Docs
+description: Learn how to copy data to and from Azure Data Lake Storage Gen2 using Azure Data Factory.
 services: data-factory
 author: linda33wj
 manager: craigg
@@ -9,13 +9,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 02/25/2019
 ms.author: jingwang
 
 ---
-# Copy data to or from Azure Data Lake Storage Gen2 Preview using Azure Data Factory (Preview)
+# Copy data to or from Azure Data Lake Storage Gen2 using Azure Data Factory
 
-Azure Data Lake Storage Gen2 Preview is a set of capabilities dedicated to big data analytics, built into [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). It allows you to interface with your data using both file system and object storage paradigms.
+Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built into [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). It allows you to interface with your data using both file system and object storage paradigms.
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data to and from Data Lake Storage Gen2. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of Copy Activity.
 
@@ -94,10 +94,16 @@ To use service principal authentication, follow these steps:
     - Application key
     - Tenant ID
 
-2. Grant the service principal proper permission in Azure storage.
+2. Grant the service principal proper permission.
 
-    - **As source**, in Access control (IAM), grant at least **Storage Blob Data Reader** role.
-    - **As sink**, in Access control (IAM), grant at least **Storage Blob Data Contributor** role.
+    - **As source**, in Storage Explorer, grant at least **Read + Execute** permission to list and copy the files in folders and subfolders or grant **Read** permission to copy a single file. Alternatively, in Access control (IAM), grant at least **Storage Blob Data Reader** role.
+    - **As sink**, in Storage Explorer, grant at least **Write + Execute** permission to create child items in the folder. Alternatively, in Access control (IAM), grant at least **Storage Blob Data Contributor** role.
+
+>[!NOTE]
+>To list folders starting from the root, you need to set the permission of the service principal being granted to **at root level with "Execute" permission** or permission on IAM. This is true when you use the:
+>- **Copy Data Tool** to author copy pipeline.
+>- **Data Factory UI** to test connection and navigating folders during authoring. 
+>If you have concern on granting permission at root level, you can skip test connection and input path manually during authoring. Copy activity will still work as long as the service principal is granted with proper permission at the files to be copied.
 
 These properties are supported in linked service:
 
@@ -136,16 +142,22 @@ These properties are supported in linked service:
 
 ### <a name="managed-identity"></a> Managed identities for Azure resources authentication
 
-A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md), which represents this specific data factory. You can directly use this service identity for Blob storage authentication similar to using your own service principal. It allows this designated factory to access and copy data from/to your Blob storage.
+A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md), which represents this specific data factory. You can directly use this managed identity for Blob storage authentication similar to using your own service principal. It allows this designated factory to access and copy data from/to your Blob storage.
 
 To use managed identities for Azure resources authentication, follow these steps:
 
-1. [Retrieve data factory service identity](data-factory-service-identity.md#retrieve-service-identity) by copying the value of "SERVICE IDENTITY APPLICATION ID" generated along with your factory.
+1. [Retrieve data factory managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of "SERVICE IDENTITY APPLICATION ID" generated along with your factory.
 
-2. Grant the managed identity proper permission in Azure storage. 
+2. Grant the managed identity proper permission. 
 
-    - **As source**, in Access control (IAM), grant at least **Storage Blob Data Reader** role.
-    - **As sink**, in Access control (IAM), grant at least **Storage Blob Data Contributor** role.
+    - **As source**, in Storage Explorer, grant at least **Read + Execute** permission to list and copy the files in folders and subfolders or grant **Read** permission to copy a single file. Alternatively, in Access control (IAM), grant at least **Storage Blob Data Reader** role.
+    - **As sink**, in Storage Explorer, grant at least **Write + Execute** permission to create child items in the folder. Alternatively, in Access control (IAM), grant at least **Storage Blob Data Contributor** role.
+
+>[!NOTE]
+>To list folders starting from the root, you need to set the permission of the managed identity being granted to **at root level with "Execute" permission** or permission on IAM. This is true when you use the:
+>- **Copy Data Tool** to author copy pipeline.
+>- **Data Factory UI** to test connection and navigating folders during authoring. 
+>If you have concern on granting permission at root level, you can skip test connection and input path manually during authoring. Copy activity will still work as long as the managed identity is granted with proper permission at the files to be copied.
 
 These properties are supported in linked service:
 
@@ -182,6 +194,8 @@ For a full list of sections and properties available for defining datasets, see 
 | type | The type property of the dataset must be set to **AzureBlobFSFile**. |Yes |
 | folderPath | Path to the folder in the Data Lake Storage Gen2. If not specified, it points to the root. <br/><br/>Wildcard filter is supported, allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside. <br/><br/>Examples: rootfolder/subfolder/, see more examples in [Folder and file filter examples](#folder-and-file-filter-examples). |No |
 | fileName | **Name or wildcard filter** for the file(s) under the specified "folderPath". If you don't specify a value for this property, the dataset points to all files in the folder. <br/><br/>For filter, allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character).<br/>- Example 1: `"fileName": "*.csv"`<br/>- Example 2: `"fileName": "???20180427.txt"`<br/>Use `^` to escape if your actual file name has wildcard or this escape char inside.<br/><br/>When fileName isn't specified for an output dataset and **preserveHierarchy** isn't specified in the activity sink, the copy activity automatically generates the file name with the following pattern: "*Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]*", e.g. "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"; if you copy from tabular source using table name instead of query, the name pattern is "*[table name].[format].[compression if configured]*", e.g. "MyTable.csv". |No |
+| modifiedDatetimeStart | Files filter based on the attribute: Last Modified. The files will be selected if their last modified time are within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> The properties can be NULL which mean no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected.| No |
+| modifiedDatetimeEnd | Files filter based on the attribute: Last Modified. The files will be selected if their last modified time are within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> The properties can be NULL which mean no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected.| No |
 | format | If you want to copy files as is between file-based stores (binary copy), skip the format section in both the input and output dataset definitions.<br/><br/>If you want to parse or generate files with a specific format, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, and **ParquetFormat**. Set the **type** property under **format** to one of these values. For more information, see the [Text format](supported-file-formats-and-compression-codecs.md#text-format), [JSON format](supported-file-formats-and-compression-codecs.md#json-format), [Avro format](supported-file-formats-and-compression-codecs.md#avro-format), [Orc format](supported-file-formats-and-compression-codecs.md#orc-format), and [Parquet format](supported-file-formats-and-compression-codecs.md#parquet-format) sections. |No (only for binary copy scenario) |
 | compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Supported types are **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are **Optimal** and **Fastest**. |No |
 
@@ -201,7 +215,9 @@ For a full list of sections and properties available for defining datasets, see 
         },
         "typeProperties": {
             "folderPath": "mycontainer/myfolder",
-            "fileName": "myfile.csv.gz",
+            "fileName": "*",
+            "modifiedDatetimeStart": "2018-12-01T05:00:00Z",
+            "modifiedDatetimeEnd": "2018-12-01T06:00:00Z",
             "format": {
                 "type": "TextFormat",
                 "columnDelimiter": ",",

@@ -35,7 +35,7 @@ By using the advanced option, you can associate existing resources. When selecti
 When the storage setup prompt appears, select **Show advanced settings** to view additional options. The populated storage options filter for locally redundant storage (LRS),  geo-redundant storage (GRS), and zone-redundant storage (ZRS) accounts. 
 
 > [!NOTE]
-> Using GRS or ZRS storage accounts are recommended for additional resiliency for your backing file share. Which type of redundancy depends on your goals and price preference. [Learn more about replication options for Azure Storage accounts](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option).
+> Using GRS or ZRS storage accounts are recommended for additional resiliency for your backing file share. Which type of redundancy depends on your goals and price preference. [Learn more about replication options for Azure Storage accounts](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
 
 ![The Resource group setting](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 

@@ -125,7 +125,7 @@ The following steps show how to create a client application that implements the 
     ```
 
   > [!NOTE]
-  > Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections, follow these instrustions to [Get the device connection string](concepts-connectivity.md#getting-device-connection-string) and continue with the rest of the tutorial. For more help, you can also find a detailed set of instructions in [Prepare the client code](tutorial-add-device.md#prepare-the-client-code) in Tutorials > Add a device.
+  > Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections, follow these instructions to [Get the device connection string](concepts-connectivity.md#get-a-connection-string) and continue with the rest of the tutorial. For more help, you can also find a detailed set of instructions in [Prepare the client code](tutorial-add-device.md#prepare-the-client-code) in Tutorials > Add a device.
 
 
   Update the placeholder `{your device connection string}` with the device connection string. In this sample, we initialize `targetTemperature` to zero, you can optionally take the current reading from the device or value from the device twin. 
@@ -264,11 +264,11 @@ As an operator in your Azure IoT Central application, for your real device you c
 
     ![View telemetry](media/howto-connect-nodejs/viewtelemetry.png)
 
-* View the device property values sent from your device on the **Properties** page. The device properties tiles will be updated if the connection is successful. 
+* View the device property values sent from your device on the **Properties** page. The device properties tiles are updated if the connection is successful.
 
     ![View device properties](media/howto-connect-nodejs/viewproperties.png)
 
-* Set the fan speed and target temperature from the **Settings** page. The settings values will sync if the connection is successful. 
+* Set the fan speed and target temperature from the **Settings** page. The settings values sync if the connection is successful.
 
     ![Set fan speed](media/howto-connect-nodejs/setfanspeed.png)
 

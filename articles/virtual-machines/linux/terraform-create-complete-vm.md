@@ -92,7 +92,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
     name                         = "myPublicIP"
     location                     = "eastus"
     resource_group_name          = "${azurerm_resource_group.myterraformgroup.name}"
-    public_ip_address_allocation = "dynamic"
+    allocation_method            = "dynamic"
 
     tags {
         environment = "Terraform Demo"
@@ -284,7 +284,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
     name                         = "myPublicIP"
     location                     = "eastus"
     resource_group_name          = "${azurerm_resource_group.myterraformgroup.name}"
-    public_ip_address_allocation = "dynamic"
+    allocation_method            = "dynamic"
 
     tags {
         environment = "Terraform Demo"

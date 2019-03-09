@@ -681,7 +681,7 @@ For more information about analyzing web server logs, see the following resource
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   A tool for viewing data in web server logs (*.log* files).
-* [Troubleshooting IIS Performance Issues or Application Errors using LogParser ](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+* [Troubleshooting IIS Performance Issues or Application Errors using LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   An introduction to the Log Parser tool that you can use to analyze web server logs.
 * [Blog posts by Robert McMurray on using LogParser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [The HTTP status code in IIS 7.0, IIS 7.5, and IIS 8.0](https://support.microsoft.com/kb/943891)

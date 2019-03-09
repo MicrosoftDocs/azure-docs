@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 02/19/2019
 ms.author: raynew
 ---
 
@@ -19,22 +19,27 @@ You can use the [Azure Backup service](backup-overview.md) to back up data to th
 
 Azure Backup backs up data, machine state, and workloads running on on-premises machines and Azure VMs. There are a number of Azure Backup scenarios.
 
+## How does Azure Backup work?
+
+You can back up machines and data using a number of methods.
+
 - **Back up on-premises machines**:
-    - You can back up on-premises machines directly to Azure using Azure Backup.
-    - You can protect on-premises machines with System Center Data Protection Manager (DPM) or Microsoft Azure Backup Server (MABS), and then in turn back up the protected data on DPM/MABS to Azure using Azure Backup.
+    - You can back up on-premises Windows machines directly to Azure using the Azure Backup Microsoft Azure Recovery Services (MARS) agent. Linux machines aren't supported.
+    - You can back up on-premises machines to a backup server (System Center Data Protection Manager (DPM) or Microsoft Azure Backup Server (MABS)), and then in turn back up backup server to an Azure Backup Recovery Services vault in Azure.
 - **Back up Azure VMs**:
-    - You can back up Azure VMs directly with Azure Backup.
-    - You can protect Azure VMs with DPM or MABS running in Azure, and then in turn back up the protected data on DPM/MABS data with Azure Backup.
+    - You can back up Azure VMs directly. Azure Backup installs a backup extension to the Azure VM agent running on the VM to do this. This backs up the entire VM.
+    - You can back up specific files and folders on the Azure VM by running the MARS agent.
+    - You can backup Azure VMs to MABS running in Azure, and then in turn back up MABS to the vault.
 
 Learn more about [what you can back up](backup-overview.md), and [supported backup scenarios](backup-support-matrix.md).
 
 
 ## Where is data backed up?
 
-Azure Backup stores backed up data in a Recovery Services vault. A vault is an online storage entity in Azure, that's used to hold data such as backup copies, recovery points, and backup policies.
+Azure Backup stores backed up data in a Recovery Services vault. A vault is an online storage entity in Azure that's used to hold data such as backup copies, recovery points, and backup policies.
 
-- Recovery Services vaults make it easy to organize your backup data, while minimizing management overhead.
-- In each Azure subscription, you can create up to 500 Recovery Services vaults. 
+- Vaults make it easy to organize your backup data, while minimizing management overhead.
+- In each Azure subscription, you can create up to 500 vaults.
 - You can monitor backed up items in a vault, including Azure VMs and on-premises machines.
 - You can manage vault access with Azure [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 - You specify how data in the vault is replicated for redundancy:
@@ -44,18 +49,6 @@ Azure Backup stores backed up data in a Recovery Services vault. A vault is an o
 
 
 
-## How does Azure Backup work?
-
-Azure Backup runs backup jobs based on a default or customized backup policy. The way in which Azure Backup takes a backup depends on the scenario.
-
-**Scenario** | **Details** 
---- | ---
-**Directly back up on-premises machines** | To directly back up on-premises machines, Azure Backup uses the Microsoft Azure Recovery Services (MARS) agent. The agent is installed on each machine you want to back up. <br/><br/> This type of backup isn't available for on-premises Linux machines. 
-**Directly back up Azure VMs** | To directly back up Azure VMs, an Azure VM extension is installed on the VM the first time a back up runs for the VM. 
-**Back up machines and apps protected by DPM or MABS** | In this scenario, the machine/app is first backed up to DPM or MABS local storage. Then, the data in DPM/MABS is backed up to the vault by Azure Backup. On-premises machines can be protected by DPM/MABS running on-premises. Azure VMs can be protected by DPM/MABS running in Azure.
-
-[Get an overview](backup-overview.md), and see [what's supported](backup-support-matrix.md) for each scenario.
-
 
 ### Backup agents
 
@@ -63,17 +56,26 @@ Azure Backup provides different agents, depending on the type of backup.
 
 **Agent** | **Details** 
 --- | --- 
-**Microsoft Azure Recovery Services (MARS) agent** | This agent runs on individual on-premises Windows Servers to back up files, folders, and system state<br/><br/> This agent runs on DPM/MABS servers to back up the DPM/MABS local storage disk. Machines and apps are backed up locally to this DPM/MABS disk.
-**Azure VM extension** | To back up Azure VMs, a backup extension is added to the Azure VM agent running on the VMs. 
+**Microsoft Azure Recovery Services (MARS) agent** | 1) Runs on individual on-premises Windows Servers to back up files, folders, and system state<br/><br/> 2) Runs on Azure VMs to back up files, folders, and system state.<br/><br/>  3) Runs on DPM/MABS servers to back up the DPM/MABS local storage disk to Azure. 
+**Azure VM extension** | Runs on Azure VMs to back them up to a vault.
 
 
 ## Backup types
 
 **Backup type** | **Details** | **Usage**
 --- | --- | ---
-**Full** | A backup contains the entire data source.<br/><br/> Full backup takes more network bandwidth. | Used for initial backup.
+**Full** | A backup contains the entire data source. Full backup takes more network bandwidth. | Used for initial backup.
 **Differential** |  Stores the blocks that changed since the initial full backup. Uses a smaller amount of network and storage, and doesn't retain redundant copies of unchanged data.<br/><br/> Inefficient because data blocks unchanged between subsequent backups are transferred and stored. | Not used by Azure Backup.
 **Incremental** | High storage and network efficiency. Stores only blocks of data that changed since the previous backup. <br/><br/> No need to With incremental backup, there is no need to supplement with full backups. | Used by DPM/MABS for disk backups, and used in all backups to Azure.
+
+## SQL Server backup types
+
+**Backup type** | **Details** | **Usage**
+--- | --- | ---
+**Full backup** | A full database backup backs up the entire database. It contains all of the data in a specific database, or a set of filegroups or files, and enough logs to recover that data. | At most, you can trigger one full backup per day.<br/><br/> You can choose to take a full backup on a daily or weekly interval.
+**Differential backup** | A differential backup is based on the most recent, previous full data backup.<br/><br/> It captures only the data that's changed since the full backup. |  At most, you can trigger one differential backup per day.<br/><br/> You can't configure a full backup and a differential backup on the same day.
+**Transaction log backup** | A log backup enables point-in-time restoration up to a specific second. | At most, you can configure transactional log backups every 15 minutes.
+
 
 ### Comparison
 
@@ -100,19 +102,7 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
 ![table key](./media/backup-architecture/table-key.png)
 
 
-## Architecture: Direct backup of on-premises Windows machines
 
-1. To set up the scenario, you download and install the Microsoft Azure Recovery Services (MARS) agent on the machine, select what to back up, when backups will run, and how long they'll be kept in Azure.
-2. The initial backup runs in accordance with your backup settings.
-3. The MARS agent uses the Windows Volume Shadow Copy (VSS) service to take a point-in-time snapshot of the volumes selected for backup.
-    - The MARS agent only uses the Windows System Write to capture the snapshot.
-    - The agent doesn't use any application VSS writers and thus doesn't capture app-consistent snapshots.
-3. After taking the snapshot with VSS, the MARS agent creates a VHD in the cache folder you specified when you configured the backup, and stores checksums for each data blocks. 
-4. Incremental backups run in accordance with the schedule you specify, unless you run an ad-hoc backup.
-5. In incremental backups, changed files are identified and a new VHD is created. It's compressed and encrypted, and sent to the vault.
-6. After the incremental backup finishes, the new VHD is merged with the VHD created after the initial replication, providing the latest state to be used for comparison for ongoing backup. 
-
-![Backup of on-premises Windows server with MARS agent](./media/backup-architecture/architecture-on-premises-mars.png)
 
 
 ## Architecture: Direct backup of Azure VMs
@@ -131,19 +121,33 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
     - Snapshot data might not be immediately copied to the vault. It might take some hours at peak times. Total backup time for a VM will be less that 24 hours for daily backup policies.
 5. After data has been sent to the vault, the snapshot is removed, and a recovery point is created.
 
+Note that Azure VMs need internet access for control commands. If you're backing on workloads inside the VM (for example SQL Server backup), the back data also needs internet access. 
 
 ![Backup of Azure VMs](./media/backup-architecture/architecture-azure-vm.png)
 
+## Architecture: Direct backup of on-premises Windows machines/Azure VM files/folders
+
+1. To set up the scenario, you download and install the Microsoft Azure Recovery Services (MARS) agent on the machine, select what to back up, when backups will run, and how long they'll be kept in Azure.
+2. The initial backup runs in accordance with your backup settings.
+3. The MARS agent uses the Windows Volume Shadow Copy (VSS) service to take a point-in-time snapshot of the volumes selected for backup.
+    - The MARS agent only uses the Windows System Write to capture the snapshot.
+    - The agent doesn't use any application VSS writers and thus doesn't capture app-consistent snapshots.
+3. After taking the snapshot with VSS, the MARS agent creates a VHD in the cache folder you specified when you configured the backup, and stores checksums for each data blocks. 
+4. Incremental backups run in accordance with the schedule you specify, unless you run an ad hoc backup.
+5. In incremental backups, changed files are identified and a new VHD is created. It's compressed and encrypted, and sent to the vault.
+6. After the incremental backup finishes, the new VHD is merged with the VHD created after the initial replication, providing the latest state to be used for comparison for ongoing backup. 
+
+![Backup of on-premises Windows server with MARS agent](./media/backup-architecture/architecture-on-premises-mars.png)
 
 ## Architecture: Back up to DPM/MABS
 
 1. You install the DPM or MABS protection agent on machines you want to protect, and add the machines to a DPM protection group.
     - To protect on-premises machines, the DPM or MABS server must be located on-premises.
-    - To protect Azure VMs, the DPM or MABS server must be located in Azure, running as an Azure VM.
+    - To protect Azure VMs, the MABS server must be located in Azure, running as an Azure VM.
     - Using DPM/MABS you can protect back up volumes, shares, files, and folder. You can protect machines system state/bare-metal, and protect specific apps with app-aware backup settings.
-2. When you set up protection for a machine or app in DPM, you select to back up to the DPM local disk for short-term storage, and to Azure (online protection). You also specify when the backup to local DPM/MABS storage should run, and when the online backup to Azure should run.
-3. The disk of the protected workload is backed up to the local DPM disks, and to Azure, in accordance with the schedule you specified.
-4. The online backup to the vault is handled by the MARS agent running on the DPM/MABS server.
+2. When you set up protection for a machine or app in DPM/MABS, you select to back up to the MABS/DPM local disk for short-term storage, and to Azure (online protection). You also specify when the backup to local DPM/MABS storage should run, and when the online backup to Azure should run.
+3. The disk of the protected workload is backed up to the local MABS/DPM disks, in accordance with the schedule you specified.
+4. The DPM/MABS disks are backed up to the vault by the MARS agent running on the DPM/MABS server.
 
 ![Backup of machines/workloads protected by DPM or MABS](./media/backup-architecture/architecture-dpm-mabs.png)
 
@@ -170,8 +174,8 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
 
 Read more:
 
-- Learn more about disk storage for [Windows](../virtual-machines/windows/about-disks-and-vhds.md) and [Linux](../virtual-machines/linux/about-disks-and-vhds.md) VMs.
-- Learn about [standard](../virtual-machines/windows/standard-storage.md) and [premium](../virtual-machines/windows/premium-storage.md) storage.
+- Learn more about disk storage for [Windows](../virtual-machines/windows/managed-disks-overview.md) and [Linux](../virtual-machines/linux/managed-disks-overview.md) VMs.
+- Learn about the available [disk-types](../virtual-machines/windows/disks-types.md) such as standard and premium.
 
 
 ### Backing up and restoring Azure VMs with premium storage 
@@ -179,9 +183,9 @@ Read more:
 You can back up Azure VMs using premium storage with Azure Backup:
 
 - While backing up VMs with premium storage, the Backup service creates a temporary staging location, named "AzureBackup-", in the storage account. The size of the staging location is equal to the size of the recovery point snapshot.
-- Make sure that the premium storage account has adequate free space to accommodate the temporary staging location. [Learn more](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets). Don't modify the staging location.
+- Make sure that the premium storage account has adequate free space to accommodate the temporary staging location. [Learn more](../storage/common/storage-scalability-targets.md#premium-storage-account-scale-limits). Don't modify the staging location.
 - After the backup job finishes, the staging location is deleted.
-- The price of storage used for the staging location is consistent with [premium storage pricing](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
+- The price of storage used for the staging location is consistent with [premium storage pricing](../virtual-machines/windows/disks-types.md#billing).
 
 When you restore Azure VMs using premium storage, you can restore them to premium or standard storage. Typically you would restore to premium, but it might be cost effective to restore to standard if you only need a subset of files from the VM.
 

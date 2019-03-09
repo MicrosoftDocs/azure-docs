@@ -92,6 +92,6 @@ Whitespace is ignored.
 ## Next steps
 
 Use the following resources to get started with Microsoft Genomics:
-- Get started by running your first workflow through the Microsoft Genomics service. [Run a workflow through the Microsoft Genomics service ](quickstart-run-genomics-workflow-portal.md)
+- Get started by running your first workflow through the Microsoft Genomics service. [Run a workflow through the Microsoft Genomics service](quickstart-run-genomics-workflow-portal.md)
 - Submit your own data for processing by the Microsoft Genomics service: [paired FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ or BAM](quickstart-input-multiple.md) 
 

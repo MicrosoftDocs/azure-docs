@@ -1,6 +1,6 @@
 ---
-title: Saved searches and alerts in management solutions | Microsoft Docs
-description: Management solutions typically include saved searches in Log Analytics to analyze data collected by the solution. They may also define alerts to notify the user or automatically take action in response to a critical issue. This article describes how to define Log Analytics saved searches and alerts in a Resource Manager template so they can be included in management solutions.
+title: Saved searches in management solutions | Microsoft Docs
+description: Management solutions typically include saved searches in Log Analytics to analyze data collected by the solution. They may also define alerts to notify the user or automatically take action in response to a critical issue. This article describes how to define Log Analytics saved searches in a Resource Manager template so they can be included in management solutions.
 services: monitoring
 documentationcenter: ''
 author: bwren
@@ -10,7 +10,7 @@ ms.service: monitoring
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/18/2018
+ms.date: 02/27/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ---
@@ -85,7 +85,6 @@ Each property of a saved search is described in the following table.
 
 > [!NOTE]
 > Beginning May 14, 2018, all alerts in an Azure public cloud instance of Log Analytics workspace began to extend into Azure. For more information, see [Extend Alerts into Azure](../../azure-monitor/platform/alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group - Azure Resource Manager Template](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
-
 Alert rules in a management solution are made up of the following three different resources.
 
 - **Saved search.** Defines the log search that is run. Multiple alert rules can share a single saved search.
@@ -115,29 +114,21 @@ A saved search can have one or more schedules with each schedule representing a 
 			"enabled": "[variables('Schedule').Enabled]"
 		}
 	}
-
 The properties for schedule resources are described in the following table.
-
 | Element name | Required | Description |
 |:--|:--|:--|
 | enabled       | Yes | Specifies whether the alert is enabled when it's created. |
 | interval      | Yes | How often the query runs in minutes. |
 | queryTimeSpan | Yes | Length of time in minutes over which to evaluate results. |
-
 The schedule resource should depend on the saved search so that it's created before the schedule.
-
 > [!NOTE]
 > Schedule Name must be unique in a given workspace; two schedules cannot have the same ID even if they are associated with different saved searches. Also name for all saved searches, schedules, and actions created with the Log Analytics API must be in lowercase.
 
 ### Actions
 A schedule can have multiple actions. An action may define one or more processes to perform such as sending a mail or starting a runbook, or it may define a threshold that determines when the results of a search match some criteria. Some actions will define both so that the processes are performed when the threshold is met.
-
 Actions can be defined using [action group] resource or action resource.
-
 > [!NOTE]
 > Beginning May 14, 2018, all alerts in an Azure public cloud instance of Log Analytics workspace began to automatically extend into Azure. For more information, see [Extend Alerts into Azure](../../azure-monitor/platform/alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group - Azure Resource Manager Template](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
-
-
 There are two types of action resource specified by the **Type** property. A schedule requires one **Alert** action, which defines the details of the alert rule and what actions are taken when an alert is created. Action resources have a type of `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.
 
 Alert actions have the following structure. This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names.
@@ -240,7 +231,7 @@ Every schedule has one **Alert** action. This defines the details of the alert a
 | Attachment | No | Attachments are not currently supported. If this element is included, it should be **None**. |
 
 ##### Remediation
-This section is optional Include it if you want a runbook to start in response to the alert. |
+This section is optional Include it if you want a runbook to start in response to the alert. 
 
 | Element name | Required | Description |
 |:--|:--|:--|
@@ -269,9 +260,7 @@ If your alert will call a webhook, then it will need an action resource with a t
         "customPayload": "[variables('Alert').Webhook.CustomPayLoad]"
       }
     }
-
 The properties for Webhook action resources are described in the following tables.
-
 | Element name | Required | Description |
 |:--|:--|:--|
 | type | Yes | Type of the action. This is **Webhook** for webhook actions. |

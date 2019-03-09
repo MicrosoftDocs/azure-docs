@@ -66,8 +66,8 @@ Users can also delete their entire workspace:
 ![Delete a free workspace in Machine Learning Studio](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
 ## Export Studio data with PowerShell
-Use PowerShell to export all your information to a portable format from Azure Machine Learning Studio using commands. For information, see the [PowerShell module for Azure Machine Learning](powershell-module.md) article.
+Use PowerShell to export all your information to a portable format from Azure Machine Learning Studio using commands. For information, see the [PowerShell module for Azure Machine Learning Studio](powershell-module.md) article.
 
 ## Next steps
 
-For documentation covering web services and commitment plan billing, see [Azure Machine Learning REST API reference](https://docs.microsoft.com/rest/api/machinelearning/). 
+For documentation covering web services and commitment plan billing, see [Azure Machine Learning Studio REST API reference](https://docs.microsoft.com/rest/api/machinelearning/). 

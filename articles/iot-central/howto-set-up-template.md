@@ -60,7 +60,7 @@ Measurements are the data that comes from your device. You can add multiple meas
 - **State** measurements represent the state of the device or its components over a period of time. For example, a fan mode can be defined as having **Operating** and **Stopped** as the two possible states.
 
 ### Create a telemetry measurement
-To add a new telemetry measurement, select **Edit Template**, and then click the **+ New Measurement** button. Select **Telemetry** as the measurement type, and enter the details on the **Create Telemetry** form.
+To add a new telemetry measurement, select **Edit Template**, and then select the **+ New Measurement** button. Select **Telemetry** as the measurement type, and enter the details on the **Create Telemetry** form.
 
 > [!NOTE]
 > The field names in the device template must match the property names in the corresponding device code in order for the telemetry measurement to be displayed in the application when a real device is connected. Do the same when you configure settings, device properties, and commands as you continue to define the device template in the following sections.
@@ -79,7 +79,7 @@ After you select **Done**, the **Temperature** measurement appears in the list o
   The data type of the telemetry measurement is a floating point number.
 
 ### Create an event measurement
-To add a new event measurement, select **Edit Template**, and then click the **+ New Measurement** button. Select **Event** as the measurement type, and enter the details on the **Create Event** form.
+To add a new event measurement, select **Edit Template**, and then select the **+ New Measurement** button. Select **Event** as the measurement type, and enter the details on the **Create Event** form.
 
 Provide the **Display Name**, **Field Name**, and **Severity** details for the event. You can choose from the three available levels of severity: **Error**, **Warning**, and **Information**.  
 
@@ -103,7 +103,7 @@ To view more details about the event, select the event icon on the chart.
   The data type of the Event measurement is string.
 
 ### Create a state measurement
-To add a new state measurement, select **Edit Template**, and then click the **+ New Measurement** button. Select **State** as the measurement type, and enter the details on the **Create State** form.
+To add a new state measurement, select **Edit Template**, and then select the **+ New Measurement** button. Select **State** as the measurement type, and enter the details on the **Create State** form.
 
 Provide the details for **Display Name**, **Field Name**, and **Values** of the state. Each value can also have a display name that will be used when the value appears in charts and tables.
 
@@ -120,7 +120,7 @@ After you select **Done**, the **Fan Mode** state measurement appears in the lis
 
 ![State measurement chart](./media/howto-set-up-template/statemeasurementschart.png)
 
-If the device sends too many data points in a small duration, the state measurement appears with a different visual, as shown in the following screenshot. If you click on the chart, all the data points within that time period are displayed in a chronological order. You can also narrow down the time range to see the measurement plotted on the chart.
+If the device sends too many data points in a small duration, the state measurement appears with a different visual, as shown in the following screenshot. If you select the chart, all the data points within that time period are displayed in a chronological order. You can also narrow down the time range to see the measurement plotted on the chart.
 
 > [!NOTE]
   The data type of the State measurement is string.
@@ -237,7 +237,7 @@ How is a command different from a setting?
 * **Command**: You use commands to instantly run a command on the device remotely from IoT Central. If a device isn't connected, the command times out and fails. For example, you want to restart a device.  
 
 
-For example, you can add a new **Echo** command by selecting **Editing Template**, then clicking **+ New Command**, and entering in the new command:
+For example, you can add a new **Echo** command by selecting **Editing Template**, then selecting **+ New Command**, and entering in the new command:
 
 | Display Name  | Field Name | Default Timeout | Data Type |
 | --------------| -----------|---------------- | --------- | 

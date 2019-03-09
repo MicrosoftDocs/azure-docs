@@ -14,7 +14,7 @@ ms.custom: "seodec18, H1Hack27Feb2017"
 
 # Push your first image to a private Docker container registry using the Docker CLI
 
-An Azure container registry stores and manages private [Docker](http://hub.docker.com) container images, similar to the way [Docker Hub](https://hub.docker.com/) stores public Docker images. You can use the [Docker command-line interface](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) for [login](https://docs.docker.com/engine/reference/commandline/login/), [push](https://docs.docker.com/engine/reference/commandline/push/), [pull](https://docs.docker.com/engine/reference/commandline/pull/), and other operations on your container registry.
+An Azure container registry stores and manages private [Docker](https://hub.docker.com) container images, similar to the way [Docker Hub](https://hub.docker.com/) stores public Docker images. You can use the [Docker command-line interface](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) for [login](https://docs.docker.com/engine/reference/commandline/login/), [push](https://docs.docker.com/engine/reference/commandline/push/), [pull](https://docs.docker.com/engine/reference/commandline/pull/), and other operations on your container registry.
 
 In the following steps, you download an official [Nginx image](https://store.docker.com/images/nginx) from the public Docker Hub registry, tag it for your private Azure container registry, push it to your registry, and then pull it from the registry.
 
@@ -112,10 +112,10 @@ If you no longer need the Nginx image, you can delete it locally with the [docke
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
-To remove images from your Azure container registry, you can use the Azure CLI command [az acr repository delete](/cli/azure/acr/repository#az-acr-repository-delete). For example, the following command deletes the manifest referenced by a tag, any associated layer data, and all other tags referencing the manifest.
+To remove images from your Azure container registry, you can use the Azure CLI command [az acr repository delete](/cli/azure/acr/repository#az-acr-repository-delete). For example, the following command deletes the manifest referenced by the `samples/nginx:latest` tag, any unique layer data, and all other tags referencing the manifest.
 
 ```azurecli
-az acr repository delete --name myregistry --repository samples/nginx --tag latest --manifest
+az acr repository delete --name myregistry --image samples/nginx:latest
 ```
 
 ## Next steps

@@ -140,6 +140,7 @@ Install the Bing Entity Search SDK dependencies by using Maven, Gradle, or anoth
             }
         }
     }
+    ```
 
 ## Next steps
 

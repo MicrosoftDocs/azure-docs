@@ -37,9 +37,9 @@ A consortium member also has a set of load-balanced transaction nodes. These nod
 
 Transaction nodes are load-balanced within an availability set to maintain high availability. The template supports up to five transaction nodes provisioned using virtual machine scale sets.
 
-### Log analytics details
+### Azure Monitor logs details
 
-Each deployment also creates a new Log analytics instance or can join an existing instance. Log analytics allows the monitoring of various performance metrics of each virtual machine that makes up the deployed network.
+Each deployment also creates a new Azure Monitor logs instance or can join an existing instance. Azure Monitor logs allows the monitoring of various performance metrics of each virtual machine that makes up the deployed network.
 
 ## Deployment architecture
 
@@ -90,7 +90,7 @@ Operations Management Suite (OMS) allows you to configure an OMS resource for yo
 
 Parameter Name|Description| Allowed Values|Default Values
 ---|---|---|---
-Connect to existing OMS|Create a new Log Analytics instance or join an existing instance|Create new Join existing|Create new Log Analytics Location|The region where the new Log Analytics will be deployed (Visible if *Create new* is selected)
+Connect to existing OMS|Create a new Azure Monitor logs instance or join an existing instance|Create new Join existing|Create new Azure Monitor logs location|The region where the new Azure Monitor logs will be deployed (Visible if *Create new* is selected)
 Existing OMS Workspace Id|Workspace ID of the existing instance (Visible if *Join Existing* is selected) OMS Service Tier|Choose the pricing tier for the new instance. More Info at https://azure.microsoft.com/pricing/details/log-analytics/ (Visible if *Join Existing* is selected)|Free Standalone Per Node|Free
 Existing OMS Primary Key|The primary key used to connect to the existing OMS instance (Visible if *Join Existing* is selected)
 

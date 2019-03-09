@@ -7,9 +7,9 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
---- 
+---
 
-# Azure Data Factory Mapping Data Flow Schema Drift
+# Mapping Data Flow Schema Drift
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 

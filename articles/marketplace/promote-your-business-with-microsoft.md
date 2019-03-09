@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
 
----  
+---
 
 # Promote Your Business with Microsoft  
 Microsoft has the goal to support partners (you) and to simplify the selling of your app or offer in the storefronts on the marketplace. By listing on the marketplace, you access the programs and resources on the marketplace. 
@@ -37,4 +37,4 @@ To promote your offer or app, use the following table to access more benefits an
 | Earn your Cloud Platform Competency | Earning a competency helps you differentiate yourself among other Microsoft partners. Earning a competency also helps you demonstrate technical expertise and customer success in the market. Competency is a prerequisite for many key partner programs like Co-Sell.<ul> <li>For more information about Cloud Platform competency, visit the Cloud Platform Competency page located at [partner.microsoft.com/membership/cloud-platform-competency](https://partner.microsoft.com/membership/cloud-platform-competency).</li> </ul> |  
 | Become Co-Sell Ready | The Co-Sell Ready program allows you to collaborate directly with Microsoft sellers and other partners on target customer opportunities and account planning. Your solution becomes visible to Microsoft sellers in the seller solution catalog. Microsoft sellers are rewarded for collaborating and winning with you.<ul> <li>For more information about Co-Sell readiness, visit the Promote Your Business page located at [partner.microsoft.com/reach-customers/promote-your-business](https://partner.microsoft.com/reach-customers/promote-your-business).</li> </ul> |  
 
----  
+---

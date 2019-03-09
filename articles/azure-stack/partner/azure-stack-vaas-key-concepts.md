@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 01/07/2019
@@ -46,7 +46,7 @@ Workflows are categorized by testing scenario type. In unofficial testing, the *
 ![VaaS workflow tiles](media/tile_all-workflows.png)
 
 > [!NOTE]
-> The **Solution Validation** workflow currently supports two scenarios: [Validate OEM packages](azure-stack-vaas-validate-oem-package.md) and [Validate software updates from Microsoft](azure-stack-vaas-validate-microsoft-updates.md).
+> The **Package Validation** workflow currently supports two scenarios: [Validate OEM packages](azure-stack-vaas-validate-oem-package.md) and [Validate software updates from Microsoft](azure-stack-vaas-validate-microsoft-updates.md).
 
 For more information on workflow types, see [What is Validation as a Service for Azure Stack?](azure-stack-vaas-overview.md).
 
@@ -56,8 +56,8 @@ For more information on workflow types, see [What is Validation as a Service for
 2. To create a new workflow, select on **Start** on any tile. For information specific to each workflow, see the following articles:
     - Test Pass: [Quickstart: Use the Validation as a Service portal to schedule your first test](azure-stack-vaas-schedule-test-pass.md)
     - Solution Validation: [Validate a new Azure Stack solution](azure-stack-vaas-validate-solution-new.md)
-    - Solution Validation: [Validate software updates from Microsoft](azure-stack-vaas-validate-microsoft-updates.md)
-    - Solution Validation: [Validate OEM packages](azure-stack-vaas-validate-oem-package.md)
+    - Package Validation (monthly update): [Validate software updates from Microsoft](azure-stack-vaas-validate-microsoft-updates.md)
+    - Package Validation (package signing): [Validate OEM packages](azure-stack-vaas-validate-oem-package.md)
 
 3. To manage or monitor an existing workflow, select on **Manage** on the workflow tile. Select the name of the workflow and use the **Edit** button to view properties or change common test parameters.
 

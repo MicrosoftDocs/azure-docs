@@ -9,7 +9,7 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/14/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
 ---
@@ -98,7 +98,7 @@ public void ConfigureServices(IServiceCollection services)
 
 - **Incoming configuration**
 
-  - For J2EE apps, add the following to the `<TelemetryModules>` tag inside ApplicationInsights.xml:
+  - For Java EE apps, add the following to the `<TelemetryModules>` tag inside ApplicationInsights.xml:
 
     ```xml
     <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule>

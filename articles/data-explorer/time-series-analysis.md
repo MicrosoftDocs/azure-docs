@@ -220,9 +220,9 @@ demo_many_series1
 |   |   |
 | --- | --- |
 |   | Count |
-|   | 23115 |
+|   | 18339 |
 
-Now, we're going to create a set of 23115 time series of the read count metric. We add the `by` clause to the make-series statement, apply linear regression, and select the top two time series that had the most significant decreasing trend:
+Now, we're going to create a set of 18339 time series of the read count metric. We add the `by` clause to the make-series statement, apply linear regression, and select the top two time series that had the most significant decreasing trend:
 
 ```kusto
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
@@ -231,7 +231,7 @@ demo_many_series1
 | make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, Op, DB
 | extend (rsquare, slope) = series_fit_line(reads)
 | top 2 by slope asc 
-| render timechart with(title='Service Traffic Outage for 2 instances (out of 23115)')
+| render timechart with(title='Service Traffic Outage for 2 instances (out of 18339)')
 ```
 
 ![Time series top two](media/time-series-analysis/time-series-top-2.png)
@@ -254,6 +254,6 @@ demo_many_series1
 |   | Loc 15 | 37 | 1151 | -102743.910227889 |
 |   | Loc 13 | 37 | 1249 | -86303.2334644601 |
 
-In less than two minutes, ADX analyzed over 20,000 time series and detected two abnormal time series in which the read count suddenly dropped.
+In less than two minutes, ADX analyzed close to 20,000 time series and detected two abnormal time series in which the read count suddenly dropped.
 
 These advanced capabilities combined with ADX fast performance supply a unique and powerful solution for time series analysis.

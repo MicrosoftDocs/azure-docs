@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 02/18/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -122,6 +122,11 @@ Event Grid is designed for high availability, consistent performance, and dynami
 The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#WaitForJobToFinish)]
+
+
+### Job error codes
+
+See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ### Download the result of the job
 

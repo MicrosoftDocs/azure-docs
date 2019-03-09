@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/19/2018
+ms.date: 02/28/2018
 ---
 
 # Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS
@@ -38,8 +38,17 @@ To complete this tutorial, you need to:
     In addition, the on-premises PostgreSQL version must match the Azure Database for PostgreSQL version. For example, PostgreSQL 9.5.11.5 can only migrate to Azure Database for PostgreSQL 9.5.11 and not to version 9.6.7.
 
 - [Create an instance in Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).  
-- Create a VNET for the Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Ensure that your Azure Virtual Network (VNET) Network Security Group rules do not block the following communication ports 443, 53, 9354, 445, 12000. For more detail on Azure VNET NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+- Create an Azure Virtual Network (VNET) for the Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+
+    > [!NOTE]
+    > During VNET setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) to the subnet in which the service will be provisioned:
+    > - Target database endpoint (for example, SQL endpoint, Cosmos DB endpoint, and so on)
+    > - Storage endpoint
+    > - Service bus endpoint
+    >
+    > This configuration is necessary because the Azure Database Migration Service lacks internet connectivity.
+
+- Ensure that your VNET Network Security Group rules do not block the following communication ports 443, 53, 9354, 445, 12000. For more detail on Azure VNET NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 - Configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Open your Windows firewall to allow the Azure Database Migration Service to access the source PostgreSQL Server, which by default is TCP port 5432.
 - When using a firewall appliance in front of your source database(s), you may need to add firewall rules to allow the Azure Database Migration Service to access the source database(s) for migration.
@@ -121,7 +130,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 
     Run the drop foreign key (which is the second column) in the query result.
 
-5.	Triggers in the data (insert or update triggers) will enforce data integrity in the target ahead of the replicated data from the source. It is recommended that you disable triggers in all the tables **at the target** during migration and then re-enable the triggers after migration is complete.
+5.	Triggers in the data (insert or update triggers) will enforce data integrity in the target ahead of the replicated data from the source. It's recommended that you disable triggers in all the tables **at the target** during migration and then re-enable the triggers after migration is complete.
 
     To disable triggers in target database, use the following command:
 
@@ -130,7 +139,7 @@ To complete all the database objects like table schemas, indexes and stored proc
     from information_schema.triggers;
     ```
 
-6.	If there are ENUM data type in any tables, it is recommended that you temporarily update it to a ‘character varying’ datatype in the target table. After data replication is done, revert the datatype to ENUM.
+6.	If there are ENUM data type in any tables, it's recommended that you temporarily update it to a ‘character varying’ datatype in the target table. After data replication is done, revert the datatype to ENUM.
 
 ## Provisioning an instance of DMS using the CLI
 
@@ -264,7 +273,7 @@ To complete all the database objects like table schemas, indexes and stored proc
                 }
         ```
 
-    - There is also a database option json file that lists the json objects. For PostgreSQL, the format of the database options JSON object is shown below:
+    - There's also a database option json file that lists the json objects. For PostgreSQL, the format of the database options JSON object is shown below:
 
         ```
         [

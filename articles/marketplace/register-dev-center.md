@@ -1,4 +1,4 @@
----  
+---
 title: Register in Dev Center | Azure
 description: How to Register in Developer Center (Dev Center).
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
 
----  
+---
 
 # Register in Dev Center  
 To help verify that you are not logged into a personal browser account, open a new Internet Explorer InPrivate or Chrome Incognito browsing session.  
@@ -79,7 +79,7 @@ To help verify that you are not logged into a personal browser account, open a n
 
     *   An example of a commercial offer is a VM offer with an hourly billing model.  
 
----  
+---
 
 ## Get Help with Dev Center Registration  
 If you have issues with Dev Center registration, then follow these steps to submit a support ticket.  
@@ -122,7 +122,7 @@ The bank and tax information is required for all commercial offers using the tra
 
 4.  Click on the Next button. 
 
----   
+---
 
 ## Add tax information  
 1.  Sign into Dev Center using your Microsoft ID.  
@@ -193,4 +193,4 @@ To access support, visit the Windows developer support page located at [develope
 ## Next steps
 *   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
  
----  
+---

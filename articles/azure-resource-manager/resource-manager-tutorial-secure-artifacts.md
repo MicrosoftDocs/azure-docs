@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/07/2018
+ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -32,8 +32,6 @@ This tutorial covers the following tasks:
 > * Verify the deployment
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Prerequisites
 
@@ -213,7 +211,7 @@ New-AzResourceGroupDeployment `
     -_artifactsLocation $artifactsLocation `
     -_artifactsLocationSasToken $artifactsLocationSasToken `
     -bacpacFileName $bacpacFileName `
-    -TemplateFile azuredeploy.json
+    -TemplateFile "$HOME/azuredeploy.json"
 ```
 
 Use a generated password. See [Prerequisites](#prerequisites).

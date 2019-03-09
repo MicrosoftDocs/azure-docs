@@ -41,11 +41,11 @@ Before you begin, you should complete the [Define a new device type in your appl
 
     ![Connected air conditioner page](media/tutorial-configure-rules/builderdevicelist1.png)
 
-3. To start adding a rule in the **Rules** view, choose **Rules** and then click **Edit Template**:
+3. To start adding a rule in the **Rules** view, choose **Rules** and then select **Edit Template**:
 
     ![Rules view](media/tutorial-configure-rules/builderedittemplate.png)
 
-4. To create a threshold-based telemetry rule, click **New Rule**, and then **Telemetry**.
+4. To create a threshold-based telemetry rule, select **New Rule**, and then **Telemetry**.
 
     ![Edit Template](media/tutorial-configure-rules/buildernewrule.png)
 

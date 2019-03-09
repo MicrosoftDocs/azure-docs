@@ -11,7 +11,7 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 02/07/2019
+ms.date: 02/27/2019
 ---
 # Overview Azure SQL Database Managed Instance resource limits
 
@@ -34,7 +34,7 @@ Azure SQL Database Managed Instance can be deployed on two hardware generation (
 | Compute | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
 | Memory | 7 GB per vCore | 5.1 GB per vCore |
 | In-Memory OLTP memory | 3 GB per vCore | 2.6 GB per vCore |
-| Max storage (General Purpose) |  8 TB | 1 TB |
+| Max storage (General Purpose) |  8 TB | 8 TB |
 | Max storage (Business Critical) | 1 TB | 1 TB, 2 TB, or 4 TB depending on the number of cores |
 
 ### Service tier characteristics
@@ -50,7 +50,7 @@ Managed Instance has two service tiers - General Purpose and Business Critical. 
 | Max number of databases per instance | 100 | 100 |
 | Max database files per instance | Up to 280 | 32,767 files per database |
 | Data/Log IOPS (approximate) | 500 - 7,500 per file<br/>\*[Depends on the file size](https://docs.microsoft.com/azure/virtual-machines)| 11 K - 110 K (1,375 per vCore) |
-|Log throughput | 22 MB/s per instance | 3 MB/s per vCore<br/>Max 48 MB/s |
+|Log throughput | 22 MB/s per instance | 3 MB/s per vCore<br/>Max 48 MB/s per instance|
 | Data throughput (approximate) | 100 - 250 MB/s per file<br/>\*[Depends on the file size](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24 - 48 MB/s per vCore |
 | IO latency (approximate) | 5-10 ms | 1-2 ms |
 | Max tempDB size | 192 - 1,920 GB (24 GB per vCore) | No constraints - limited by the max instance storage size |

@@ -80,6 +80,11 @@ Like PITR, the LTR backups are geo-redundant and protected by [Azure Storage cro
 
 For more information, see [Long-term backup retention](sql-database-long-term-retention.md).
 
+## Storage costs
+7 days of automated backups of your databases are copied to RA-GRS Standard blob storage by default. The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every 5 minutes. The size of the transaction log depends on the rate of change of the database. A minimum storage amount equal to 100% of database size is provided at no extra charge. Additional consumption of backup storage will be charged in GB/month.
+
+For more information about storage prices, see the [pricing](https://azure.microsoft.com/pricing/details/sql-database/single/) page. 
+
 ## Are backups encrypted
 
 If your database is encrypted with TDE, the backups are automatically encrypted at rest, including LTR backups. When TDE is enabled for an Azure SQL database, backups are also encrypted. All new Azure SQL databases are configured with TDE enabled by default. For more information on TDE, see  [Transparent Data Encryption with Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
@@ -115,12 +120,11 @@ To change the PITR backup retention period using the Azure portal, navigate to t
 
 ### Change PITR backup retention period using PowerShell
 
-```powershell
-Set-AzureRmSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
-```
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-> [!IMPORTANT]
-> This API is included in AzureRM.Sql PowerShell Module starting from version [4.7.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.7.0-preview).
+```powershell
+Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
+```
 
 ### Change PITR retention period using REST API
 
@@ -134,9 +138,9 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 
 ```json
 {
-  "properties":{  
-      "retentionDays":28
-   }
+  "properties":{
+    "retentionDays":28
+  }
 }
 ```
 
@@ -163,4 +167,4 @@ For more information, see [Backup Retention REST API](https://docs.microsoft.com
 - To restore to a point in time using the Azure portal, see [restore database to a point in time using the Azure portal](sql-database-recovery-using-backups.md).
 - To restore to a point in time using PowerShell, see [restore database to a point in time using PowerShell](scripts/sql-database-restore-database-powershell.md).
 - To configure, manage, and restore from long-term retention of automated backups in Azure Blob storage using the Azure portal, see [Manage long-term backup retention using the Azure portal](sql-database-long-term-backup-retention-configure.md).
-- To configure, manage, and restore from long-term retention of automated backups in Azure blog storage using PowerShell, see [Manage long-term backup retention using PowerShell](sql-database-long-term-backup-retention-configure.md).
+- To configure, manage, and restore from long-term retention of automated backups in Azure Blob storage using PowerShell, see [Manage long-term backup retention using PowerShell](sql-database-long-term-backup-retention-configure.md).

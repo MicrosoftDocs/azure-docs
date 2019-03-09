@@ -38,6 +38,7 @@ To understand the live streaming workflow in Media Services v3, you have to revi
 
 - [Streaming Endpoints](streaming-endpoint-concept.md)
 - [Live Events and Live Outputs](live-events-outputs-concept.md)
+- [Streaming Locators](streaming-locators-concept.md)
 
 ## Live streaming workflow
 

@@ -73,7 +73,7 @@ Before you set up the job in Jenkins, you need an Azure App Service plan and a w
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
     ```
     
-3. Set up the Java runtime configuration that your app needs. The following Azure CLI command configures the web app to run on a recent JDK 8 and [Apache Tomcat](http://tomcat.apache.org/) version 8.0:
+3. Set up the Java runtime configuration that your app needs. The following Azure CLI command configures the web app to run on a recent JDK 8 and [Apache Tomcat](https://tomcat.apache.org/) version 8.0:
     ```azurecli-interactive
     az webapp config set \
     --name <myAppName> \

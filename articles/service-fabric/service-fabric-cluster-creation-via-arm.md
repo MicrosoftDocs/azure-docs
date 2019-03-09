@@ -292,4 +292,4 @@ For the JSON syntax and properties to use a template, see [Microsoft.ServiceFabr
 [azure-powershell]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
-[customize-your-cluster-template]: service-fabric-cluster-creation-via-arm.md#create-a-service-fabric-cluster-resource-manager-template
+[customize-your-cluster-template]: service-fabric-cluster-creation-create-template.md

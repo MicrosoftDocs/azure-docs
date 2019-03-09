@@ -48,4 +48,5 @@
       href: avere-vfxt-configure-dns.md
     - name: Authorize non-owners to deploy Avere vFXT
       href: avere-vfxt-non-owner.md
-    
+  - name: Whitepapers   
+    href: avere-vfxt-whitepapers.md 

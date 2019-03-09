@@ -134,7 +134,7 @@ For this example, follow these steps:
    1. In the middle box, select this operator: **is greater than**
 
    1. In the rightmost column, enter this comparison value, 
-   which is in seconds and equivlent to 10 minutes: **600**
+   which is in seconds and equivalent to 10 minutes: **600**
 
       When you're done, your condition looks like this example:
 

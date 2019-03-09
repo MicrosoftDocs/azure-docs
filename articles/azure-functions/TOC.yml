@@ -73,7 +73,19 @@
   - name: Scale and hosting
     href: functions-scale.md
   - name: Triggers and bindings
-    href: functions-triggers-bindings.md
+    items:
+    - name: About triggers and bindings
+      href: functions-triggers-bindings.md
+    - name: Binding example
+      href: functions-bindings-example.md
+    - name: Register binding extensions
+      href: functions-bindings-register.md
+    - name: Binding expression patterns
+      href: functions-bindings-expressions-patterns.md
+    - name: Use binding return values
+      href: functions-bindings-return-value.md
+    - name: Handle binding errors
+      href: functions-bindings-errors.md
   - name: Languages
     items:
     - name: Supported languages 
@@ -124,10 +136,12 @@
        href: manage-connections.md
      - name: Error handling
        href: functions-bindings-error-pages.md
-       name: Manually run a non HTTP-triggered function
+     - name: Manually run a non HTTP-triggered function
        href: functions-manually-run-non-http.md
      - name: Debug Event Grid trigger locally
        href: functions-debug-event-grid-trigger-local.md
+     - name: Azure for Students Starter
+       href: functions-create-student-starter.md
   - name: Deploy
     items:
     - name: Continuous deployment
@@ -220,6 +234,8 @@
       href: functions-bindings-event-grid.md
     - name: Event Hubs
       href: functions-bindings-event-hubs.md
+    - name: IoT Hub
+      href: functions-bindings-event-iot.md
     - name: HTTP and webhooks
       href: functions-bindings-http-webhook.md
     - name: Microsoft Graph

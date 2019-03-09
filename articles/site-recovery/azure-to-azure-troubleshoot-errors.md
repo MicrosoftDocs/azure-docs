@@ -168,7 +168,9 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
   - Azure Site Recovery required access to Office 365 IPs ranges for authentication.
     If you are using Azure Network security group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure you allow communication to O365 IPranges. Create a [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to AAD
 	    - If new addresses are added to the Azure Active Directory (AAD) in the future, you need to create new NSG rules.
-
+>[!NOTE]
+> If the virtual machines are behind **Standard** internal load balancer then it would not have access to O365 IPs i.e login.micorsoftonline.com by default. Either change it to **Basic** internal load balancer type or  create out bound access as mentioned in the [article] (https://aka.ms/lboutboundrulescli).
+>
 
 ### Issue 3: Site Recovery configuration failed (151197)
 - **Possible cause** </br>
@@ -290,7 +292,7 @@ You can open 'Services' console and ensure the 'COM+ System Application' and 'Vo
 --- | --- | ---
 150172<br></br>**Message**: Protection couldn't be enabled for the virtual machine as it has (DiskName) with size (DiskSize) that is lesser than the minimum supported size 1024 MB. | - The disk is less than supported size of 1024 MB| Ensure that the disk sizes are within the supported size range and retry the operation. 
 
-## Enable protection failed as device name mentioned in the GRUB configuration instead of UUID (error code 151126)
+## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>Enable protection failed as device name mentioned in the GRUB configuration instead of UUID (error code 151126)
 
 **Possible Cause:** </br>
 The GRUB configuration files ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") may contain the value for the parameters **root** and **resume** as the actual device names instead of UUID. Site Recovery mandates UUID approach as devices name may change across reboot of the VM as VM may not come-up with the same name on failover resulting in issues. For example: </br>

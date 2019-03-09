@@ -23,6 +23,8 @@ Azure Database for MySQL is a relational database service in the Microsoft cloud
 > * Update data
 > * Restore data
 
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+
 You may use the Azure Cloud Shell in the browser, or [Install Azure CLI]( /cli/azure/install-azure-cli) on your own computer to run the code blocks in this tutorial.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
@@ -46,13 +48,13 @@ az group create --name myresourcegroup --location westus
 ## Create an Azure Database for MySQL server
 Create an Azure Database for MySQL server with the az mysql server create command. A server can manage multiple databases. Typically, a separate database is used for each project or for each user.
 
-The following example creates an Azure Database for MySQL server located in `westus` in the resource group `myresourcegroup` with name `mydemoserver`. The server has an administrator log in named `myadmin`. It is a General Purpose, Gen 4 server with 2 vCores. Substitute the `<server_admin_password>` with your own value.
+The following example creates an Azure Database for MySQL server located in `westus` in the resource group `myresourcegroup` with name `mydemoserver`. The server has an administrator log in named `myadmin`. It is a General Purpose, Gen 5 server with 2 vCores. Substitute the `<server_admin_password>` with your own value.
 
 ```azurecli-interactive
-az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
+az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
 ```
 The sku-name parameter value follows the convention {pricing tier}\_{compute generation}\_{vCores} as in the examples below:
-+ `--sku-name B_Gen4_4` maps to Basic, Gen 4, and 4 vCores.
++ `--sku-name B_Gen5_2` maps to Basic, Gen 5, and 2 vCores.
 + `--sku-name GP_Gen5_32` maps to General Purpose, Gen 5, and 32 vCores.
 + `--sku-name MO_Gen5_2` maps to Memory Optimized, Gen 5, and 2 vCores.
 
@@ -90,8 +92,8 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
   "resourceGroup": "myresourcegroup",
  "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },

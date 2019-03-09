@@ -125,6 +125,8 @@
     href: recovery-plan-overview.md
   - name: About migration to Azure
     href: migrate-overview.md
+  - name: Site Recovery and Backup Interoperability
+    href: site-recovery-backup-interoperability.md
   - name: About role-based access control with Site Recovery
     href: site-recovery-role-based-linked-access-control.md
   - name: About disaster recovery to a secondary on-premises site
@@ -159,6 +161,8 @@
         href: azure-to-azure-how-to-enable-replication-ade-vms.md
       - name: Enable Azure to Azure replication for S2D VMs
         href: azure-to-azure-how-to-enable-replication-s2d-vms.md
+      - name: Exclude disks
+        href: azure-to-azure-exclude-disks.md
       - name: Reprotect Azure VMs after failover 
         href: azure-to-azure-how-to-reprotect.md
       - name: Set up disaster recovery for Azure VMs after migration to Azure
@@ -424,7 +428,9 @@
     - name: Troubleshoot reprotection and failback of VMware VMs 
       href: vmware-azure-troubleshoot-failback-reprotect.md
     - name: Troubleshoot Microsoft Azure Site Recovery Provider upgrade failures
-      href: vmware-azure-troubleshoot-upgrade-failures.md  
+      href: vmware-azure-troubleshoot-upgrade-failures.md
+    - name: Troubleshoot vCenter discovery failures
+      href: vmware-azure-troubleshoot-vcenter-discovery-failures.md
   - name: Hyper-V
     items:
     - name: Troubleshoot Hyper-V replication

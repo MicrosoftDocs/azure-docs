@@ -1,6 +1,4 @@
-﻿- name: Azure IoT Fundamentals
-  href: /azure/iot-fundamentals
-- name: IoT Hub Documentation
+﻿- name: IoT Hub Documentation
   href: index.yml
 - name: Overview
   items:
@@ -288,6 +286,8 @@
       href: iot-hub-upgrade.md
     - name: Usage metrics
       href: iot-hub-metrics.md
+    - name: Enable message tracing
+      href: iot-hub-distributed-tracing.md  
     - name: Configure IP filtering
       href: iot-hub-ip-filtering.md
     - name: Configure devices at scale
@@ -416,7 +416,7 @@
   - name: Azure IoT Samples for iOS Platform
     href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
   - name: Azure Certified for IoT device catalog
-    href: https://catalog.azureiotsuite.com/
+    href: https://catalog.azurazureiotsolutionseiotsuite.com/
   - name: Azure IoT Developer Center
     href: https://azure.microsoft.com/develop/iot/
   - name: Customer data requests
@@ -438,7 +438,7 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=iot-hub
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-iot-hub
+    href: https://stackoverflow.com/questions/tagged/azure-iot-hub
   - name: Technical case studies
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Videos

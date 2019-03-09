@@ -9,7 +9,7 @@ ms.assetid: AB1B9898-C94A-4B59-91A1-8623C94BA3D4
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: conceptual
-ms.date: 8/8/2018
+ms.date: 03/04/2019
 ms.author: aahi
 ---
 

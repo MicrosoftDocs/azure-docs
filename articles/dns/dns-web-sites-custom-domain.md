@@ -5,7 +5,7 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 7/20/2018
+ms.date: 2/19/2019
 ms.author: victorh
 #Customer intent: As an experienced network administrator I want to create DNS records in Azure DNS, so I can host a web app in a custom domain.
 ---
@@ -78,9 +78,12 @@ New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
 
 App Services uses this record only at configuration time to verify that you own the custom domain. You can delete this TXT record after your custom domain is validated and configured in App Service.
 
+> [!NOTE]
+> If you want to verify the domain name, but not route production traffic to the web app, you only need to specify the TXT record for the verification step.  Verification does not require an A or CNAME record in addition to the TXT record.
+
 ```powershell
 New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
- -Name `"@" -RecordType "txt" -Ttl 600 `
+ -Name "@" -RecordType "txt" -Ttl 600 `
  -DnsRecords (New-AzDnsRecordConfig -Value  "contoso.azurewebsites.net")
 ```
 

@@ -111,7 +111,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 * [Will I lose data from my cache during scaling?](#will-i-lose-data-from-my-cache-during-scaling)
 * [Is my custom databases setting affected during scaling?](#is-my-custom-databases-setting-affected-during-scaling)
 * [Will my cache be available during scaling?](#will-my-cache-be-available-during-scaling)
-* [With Geo-replication configured, why am I not able to scale my cache or change the shards in a cluster?](#scaling-limitations-with-geo-relication)
+* With Geo-replication configured, why am I not able to scale my cache or change the shards in a cluster?
 * [Operations that are not supported](#operations-that-are-not-supported)
 * [How long does scaling take?](#how-long-does-scaling-take)
 * [How can I tell when scaling is complete?](#how-can-i-tell-when-scaling-is-complete)
