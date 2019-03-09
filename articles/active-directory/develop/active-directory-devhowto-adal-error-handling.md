@@ -256,8 +256,8 @@ The following guidance provides examples for error handling in conjunction with 
 Your code would be implemented as follows:
 
 ```csharp
-    try {acquireToken(…, PromptBehavior.Never);
-    }
+try {acquireToken(…, PromptBehavior.Never);
+}
 
 catch(AdalServiceException e) {
     // Exception: AdalServiceException represents
@@ -446,7 +446,7 @@ Your code would be implemented as follows:
 
 ```csharp
 try {
-AcquireTokenAsync(…);
+    AcquireTokenAsync(…);
 }
 
 catch (AdalServiceException e) {
