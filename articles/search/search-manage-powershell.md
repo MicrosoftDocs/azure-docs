@@ -23,7 +23,7 @@ ms.author: heidist
 Run PowerShell cmdlets and scripts on Windows, Linux, or in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) to create and configure [Azure Search](https://docs.microsoft.com/azure/search/). The [**Az.Search**](https://docs.microsoft.com/powershell/module/az.search/?view=azps-1.4.0#search) module extends [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.4.0) with full parity to the [Azure Search Management REST APIs](https://docs.microsoft.com/rest/api/searchmanagement). With Azure PowerShell and **Az.Search**, you can perform the following tasks:
 
 > [!div class="checklist"]
-> * [Get version and resource information](#check-versions-and-load)
+> * [List all of the search services in your subscription](#list-search-services)
 > * [Get information about a specific search service](#get-search-service-information)
 > * [Create or delete a service](#create-or-delete-a-service)
 > * [Regenerate admin API-keys](#regenerate-admin-api-keys)
@@ -32,7 +32,7 @@ Run PowerShell cmdlets and scripts on Windows, Linux, or in [Azure Cloud Shell](
 
 PowerShell cannot be used to change the name, region, or tier of your service. Dedicated resources are allocated when a service is created. Changing the underlying hardware (location or node type) requires a new service. There are no tools or APIs for transferring content. All content management is through [REST](https://docs.microsoft.com/rest/api/searchservice/) or [.NET](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search) APIs. 
 
-While there are no dedicated PowerShell commands for content management. You can write PowerShell script that calls REST or .NET to create and load indexes. The **Az.Search** module by itself does not provide these operations.
+While there are no dedicated PowerShell commands for content management, you can write PowerShell script that calls REST or .NET to create and load indexes. The **Az.Search** module by itself does not provide these operations.
 
 Other tasks not supported through PowerShell or any other API (portal-only) include:
 + [Attach a cognitive services resource](cognitive-search-attach-cognitive-services.md) for [AI-enriched indexing](cognitive-search-concept-intro.md). A cognitive service is attached to a skillset, not a subscription or service.
@@ -86,7 +86,9 @@ To specify the subscription, run the following command. In the following example
 Select-AzSubscription -SubscriptionName ContosoSubscription
 ```
 
-### List all Azure Search services in your subscription
+<a name="list-search-services"></a>
+
+##\# List all Azure Search services in your subscription
 
 The following commands are from [**Az.Resources**](https://docs.microsoft.com/powershell/module/az.resources/?view=azps-1.4.0#resources), returning information about existing resources and services already provisioned in your subscription. If you don't know how many search services are already created, these commands return that information, saving you a trip to the portal.
 
