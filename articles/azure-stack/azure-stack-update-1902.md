@@ -73,6 +73,16 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 
 - The 1902 build introduces a new user interface on the Azure Stack Administrator portal for creating plans, offers, quotas, and add-on plans. For more information, including screenshots, see [Create plans, offers, and quotas](azure-stack-create-plan.md).
 
+<!--
+1426197	3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout	PNU
+1399240	3322580: [PNU] Optimize the DSC resource execution on the Host	PNU
+1398846	Bug 3751038: ECEClient.psm1 should provide cmdlet to resume action plan instance	PNU
+1398818	3685138, 3734779: ECE exception logging, VirtualMachine ConfigurePending should take node name from execution context	PNU
+1381018	[1902] 3610787 - Infra VM creation should fail if the ClusterGroup already exists	PNU
+-->
+- Improvements to reliability, performance, and diagnosability of Azure Stack updates. 
+
+
 ## Common vulnerabilities and exposures
 
 This update installs the following security updates:  
