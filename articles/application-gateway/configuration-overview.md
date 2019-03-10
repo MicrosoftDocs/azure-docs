@@ -46,8 +46,8 @@ Network Security Groups (NSGs) are supported on the Application Gateway subnet w
 This scenario can be done using NSGs on the application gateway subnet. The following restrictions should be put on the subnet in the listed order of priority:
 
 1. Allow incoming traffic from source IP/IP range.
-2. Allow incoming requests from all sources to ports 65503-65534 for [backend health communication](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics). This port range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to initiate any changes on those endpoints.
-3. Allow incoming Azure Load Balancer probes (AzureLoadBalancer tag) and inbound virtual network traffic (VirtualNetwork tag) on the [NSG](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview).
+2. Allow incoming requests from all sources to ports 65503-65534 for [backend health communication](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). This port range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to initiate any changes on those endpoints.
+3. Allow incoming Azure Load Balancer probes (AzureLoadBalancer tag) and inbound virtual network traffic (VirtualNetwork tag) on the [NSG](https://docs.microsoft.com/azure/virtual-network/security-overview).
 4. Block all other incoming traffic with a Deny all rule.
 5. Allow outbound traffic to the internet for all destinations.
 
@@ -107,9 +107,9 @@ You need to choose between HTTP and HTTPS protocol.
 
   To configure Secure Sockets Layer (SSL) termination and end to end SSL encryption, a certificate is required to be added to the listener so as to enable the Application Gateway to derive a symmetric key as per SSL protocol specification. The symmetric key is then used to encrypt and decrypt the traffic sent to the gateway. The gateway certificate needs to be in Personal Information Exchange (PFX) format. This file format allows you to export the private key that is required by the application gateway to perform the encryption and decryption of traffic. 
 
-  #### Supported certs
+#### Supported certs
 
-  Self-Signed certs, CA certs, wild-card certs and EV certs are supported.
+Self-Signed certs, CA certs, wild-card certs and EV certs are supported.
 
 ### Additional protocol support
 
@@ -133,7 +133,7 @@ Websocket support is enabled by default. There's no user-configurable setting to
 
 Custom error pages can be defined at the global level as well as the listener level, however, creating global level custom error pages from the Azure portal is currently not supported. You can configure a custom error page for a 403 WAF error or a 502 maintenance page at the listener level. You also need to specify a publicly accessible blob URL for the given error status code. For more information, see [Create custom error page](https://docs.microsoft.com/azure/application-gateway/custom-error).
 
-![Application Gateway error codes](https://docs.microsoft.com/en-us/azure/application-gateway/media/custom-error/ag-error-codes.png)
+![Application Gateway error codes](https://docs.microsoft.com/azure/application-gateway/media/custom-error/ag-error-codes.png)
 
 To configure a global custom error page, use [Azure PowerShell for configuration](https://docs.microsoft.com/azure/application-gateway/custom-error#azure-powershell-configuration) 
 
@@ -179,7 +179,7 @@ Add a backend HTTP setting for each rule. The requests will be routed from the A
 
 If the redirection is configured for a basic rule, all the requests on the associated  listener will be redirected to the redirection target, thereby enabling global redirection. If the redirection is configured for a path-based rule, the requests only on a specific site area, for example a shopping cart area denoted by /cart/*, will be redirected to the redirection target, thereby enabling path-based redirection. 
 
-For information about the redirection capability, see [Redirection overview](https://docs.microsoft.com/en-us/azure/application-gateway/redirect-overview).
+For information about the redirection capability, see [Redirection overview](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
 
 - #### Redirection type
 
@@ -199,13 +199,13 @@ For information about the redirection capability, see [Redirection overview](htt
 
     Choose external site when you want to redirect the traffic on the listener associated with thus rule to be redirected to an external site. You can choose the query string in the original request to be included in the request forwarded to the redirection target. You cannot forward the path in the original request to the external site.
 
-    For more information on redirection to external site, see [redirect traffic to external site using PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-external-site-powershell) and [https://docs.microsoft.com/en-us/azure/application-gateway/redirect-external-site-cli](https://docs.microsoft.com/azure/application-gateway/redirect-external-site-cli)
+    For more information on redirection to external site, see [redirect traffic to external site using PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-external-site-powershell) and [https://docs.microsoft.com/azure/application-gateway/redirect-external-site-cli](https://docs.microsoft.com/azure/application-gateway/redirect-external-site-cli)
 
 #### Rewrite HTTP header setting
 
 This capability allows you to add, remove, or update HTTP request and response headers while the request and response packets move between the client and backend pools.    You can configure this capability only through PowerShell. Portal and CLI support is not available yet. For more information, see [Rewrite HTTP headers](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) overview and [Configure HTTP header rewrite](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-your-http-header-rewrite-rule-configuration).
 
-## HTTP Settings
+## HTTP settings
 
 The application gateway routes traffic to the backend servers using the configuration specified in this component. Once you create an HTTP setting, you need to associate it with one or more request routing rules.
 
@@ -294,4 +294,4 @@ After learning about Application Gateway components, you can:
 
 - [Create an Application Gateway in the Azure portal](quick-create-portal.md)
 - [Create an Application Gateway using PowerShell](quick-create-powershell.md)
-- [Create an Application Gateway using Azure CLI](quick-create-cli.md).
+- [Create an Application Gateway using Azure CLI](quick-create-cli.md)
