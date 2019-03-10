@@ -121,7 +121,7 @@ You need to disable and enable replication to either upgrade or downgrade the st
 
 ### How can I change Managed Disk type after machine is protected?
 
-Yes, you can easily change the type of managed disk. [Learn more](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). However, once you upgrade the managed disk type, ensure that you wait for fresh recovery points to be generated if you need to do test failover or failover post this activity.
+Yes, you can easily change the type of managed disk. [Learn more](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). However, once you change the managed disk type, ensure that you wait for fresh recovery points to be generated if you need to do test failover or failover post this activity.
 
 ### Can I switch the replication from managed disks to unmanaged disks?
 
