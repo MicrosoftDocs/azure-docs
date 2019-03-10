@@ -73,6 +73,9 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 
 - The 1902 build introduces a new user interface on the Azure Stack Administrator portal for creating plans, offers, quotas, and add-on plans. For more information, including screenshots, see [Create plans, offers, and quotas](azure-stack-create-plan.md).
 
+<!-- 1391444	[ISE] Telemetry for Hardware Inventory - Fill gap for hardware inventory info	System info -->
+- Improvements hardware inventory collection in Get-AzureStackStampInformation.
+
 ## Common vulnerabilities and exposures
 
 This update installs the following security updates:  
