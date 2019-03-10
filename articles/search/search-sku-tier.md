@@ -44,7 +44,7 @@ The following table lists the available tiers. Other sources of tier information
 |Standard 1 (S1) | From S1 on up, dedicated machines with more storage and processing capacity at every level. Partition size is 25 GB/partition (max 300 GB documents per service) for S1. |
 |Standard 2 (S2) | Similar to S1 but with 100 GB/partitions (max 1.2 TB documents per service) |
 |Standard 3 (S3) | 200 GB/partition (max 2.4 TB documents per service). |
-|Standard 3 High-density (S3-HD) | High density is a *hosting mode* for S3. The underlying hardware is optimized for a large number of smaller indexes, intended for multitenancy scenarios. S3-HD has the same per-unit charge as S3 but the hardware is optimized for faster I/O.|
+|Standard 3 High-density (S3-HD) | High density is a *hosting mode* for S3. The underlying hardware is optimized for a large number of smaller indexes, intended for multitenancy scenarios. S3-HD has the same per-unit charge as S3 but the hardware is optimized for fast file reads on a large number of smaller indexes.|
 
 
 ## How billing works
@@ -77,7 +77,7 @@ For Azure Search operations, the most important billing concept to understand is
 
 SU is the product of *replica* and *partitions* used by a service: **`(R X P = SU)`**
 
-Every service starts with one SU (one replica multiplied by one partition) as the minimum. The maximum for any service is 36 SUs, which can be achieved in multiple ways: 6 partitions x 6 replicas, or 3 partitions x 12 replicas, to name a few. It's common to use less than total capacity. For example, a 3-replica, 3-partition service, billed as 9 SUs. 
+Every service starts with one SU (one replica multiplied by one partition) as the minimum. The maximum for any service is 36 SUs, which can be achieved in multiple ways: 6 partitions x 6 replicas, or 3 partitions x 12 replicas, to name a few. It's common to use less than total capacity. For example, a 3-replica, 3-partition service, billed as 9 SUs. You can review [this chart](search-capacity-planning.md#chart) to see valid combinations at a glance.
 
 The billing rate is **hourly per SU**, with each tier having a progressively higher rate. Higher tiers come with larger and speedier partitions, contributing to an overall higher hourly rate for that tier. Rates for each tier can be found on [Pricing Details](https://azure.microsoft.com/pricing/details/search/). 
 

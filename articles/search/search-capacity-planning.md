@@ -1,5 +1,5 @@
 ---
-title:  Allocate partitions and replicas for query and indexing - Azure Search
+title:  Scale partitions and replicas for query and indexing - Azure Search
 description: Adjust partition and replica computer resources in Azure Search, where each resource is priced in billable search units.
 author: HeidiSteen
 manager: cgronlun
@@ -11,7 +11,7 @@ ms.author: heidist
 ms.custom: seodec2018
 ---
 
-# Allocate partitions and replicas for query and indexing workloads in Azure Search
+# Scale partitions and replicas for query and indexing workloads in Azure Search
 After you [choose a pricing tier](search-sku-tier.md) and [provision a search service](search-create-service-portal.md), the next step is to optionally increase the number of replicas or partitions used by your service. Each tier offers a fixed number of billing units. This article explains how to allocate those units to achieve an optimal configuration that balances your requirements for query execution, indexing, and storage.
 
 Resource configuration is available when you set up a service at the [Basic tier](https://aka.ms/azuresearchbasic) or one of the [Standard tiers](search-limits-quotas-capacity.md). For services at these tiers, capacity is purchased in increments of *search units* (SUs) where each partition and replica counts as one SU. 
@@ -32,6 +32,7 @@ Partitions and replicas are the primary resources that back a search service.
 > [!NOTE]
 > There is no way to directly manipulate or manage which indexes run on a replica. One copy of each index on every replica is part of the service architecture.
 >
+
 
 ## How to allocate partitions and replicas
 In Azure Search, a service is initially allocated a minimal level of resources consisting of one partition and one replica. For tiers that support it, you can incrementally adjust computational resources by increasing partitions if you need more storage and I/O, or add more replicas for larger query volumes or better performance. A single service must have sufficient resources to handle all workloads (indexing and queries). You cannot subdivide workloads among multiple services.
@@ -55,6 +56,31 @@ Generally, search applications need more replicas than partitions, particularly 
 > After a service is provisioned, it cannot be upgraded to a higher SKU. You must create a search service at the new tier and reload your indexes. See [Create an Azure Search service in the portal](search-create-service-portal.md) for help with service provisioning.
 >
 >
+
+<a id="chart"></a>
+
+## Partition and replica combinations
+
+A Basic service can have exactly one partition and up to three replicas, for a maximum limit of three SUs. The only adjustable resource is replicas. You need a minimum of two replicas for high availability on queries.
+
+All standard services can assume the following combinations of replicas and partitions, subject to the 36-SU limit. 
+
+|   | **1 partition** | **2 partitions** | **3 partitions** | **4 partitions** | **6 partitions** | **12 partitions** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **1 replica** |1 SU |2 SU |3 SU |4 SU |6 SU |12 SU |
+| **2 replicas** |2 SU |4 SU |6 SU |8 SU |12 SU |24 SU |
+| **3 replicas** |3 SU |6 SU |9 SU |12 SU |18 SU |36 SU |
+| **4 replicas** |4 SU |8 SU |12 SU |16 SU |24 SU |N/A |
+| **5 replicas** |5 SU |10 SU |15 SU |20 SU |30 SU |N/A |
+| **6 replicas** |6 SU |12 SU |18 SU |24 SU |36 SU |N/A |
+| **12 replicas** |12 SU |24 SU |36 SU |N/A |N/A |N/A |
+
+SUs, pricing, and capacity are explained in detail on the Azure website. For more information, see [Pricing Details](https://azure.microsoft.com/pricing/details/search/).
+
+> [!NOTE]
+> The number of replicas and partitions divides evenly into 12 (specifically, 1, 2, 3, 4, 6, 12). This is because Azure Search pre-divides each index into 12 shards so that it can be spread in equal portions across all partitions. For example, if your service has three partitions and you create an index, each partition will contain four shards of the index. How Azure Search shards an index is an implementation detail, subject to change in future releases. Although the number is 12 today, you shouldn't expect that number to always be 12 in the future.
+>
+
 
 <a id="HA"></a>
 
@@ -94,32 +120,7 @@ Search applications that require near real-time data refresh will need proportio
 
 Larger indexes take longer to query. As such, you might find that every incremental increase in partitions requires a smaller but proportional increase in replicas. The complexity of your queries and query volume will factor into how quickly query execution is turned around.
 
-## Basic tier: Partition and replica combinations
-A Basic service can have exactly one partition and up to three replicas, for a maximum limit of three SUs. The only adjustable resource is replicas. You need a minimum of two replicas for high availability on queries.
 
-<a id="chart"></a>
+## Next steps
 
-## Standard tiers: Partition and replica combinations
-This table shows the SUs required to support combinations of replicas and partitions, subject to the 36-SU limit, for all Standard tiers.
-
-|   | **1 partition** | **2 partitions** | **3 partitions** | **4 partitions** | **6 partitions** | **12 partitions** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **1 replica** |1 SU |2 SU |3 SU |4 SU |6 SU |12 SU |
-| **2 replicas** |2 SU |4 SU |6 SU |8 SU |12 SU |24 SU |
-| **3 replicas** |3 SU |6 SU |9 SU |12 SU |18 SU |36 SU |
-| **4 replicas** |4 SU |8 SU |12 SU |16 SU |24 SU |N/A |
-| **5 replicas** |5 SU |10 SU |15 SU |20 SU |30 SU |N/A |
-| **6 replicas** |6 SU |12 SU |18 SU |24 SU |36 SU |N/A |
-| **12 replicas** |12 SU |24 SU |36 SU |N/A |N/A |N/A |
-
-SUs, pricing, and capacity are explained in detail on the Azure website. For more information, see [Pricing Details](https://azure.microsoft.com/pricing/details/search/).
-
-> [!NOTE]
-> The number of replicas and partitions divides evenly into 12 (specifically, 1, 2, 3, 4, 6, 12). This is because Azure Search pre-divides each index into 12 shards so that it can be spread in equal portions across all partitions. For example, if your service has three partitions and you create an index, each partition will contain four shards of the index. How Azure Search shards an index is an implementation detail, subject to change in future releases. Although the number is 12 today, you shouldn't expect that number to always be 12 in the future.
->
->
-
-## Billing formula for replica and partition resources
-The formula for calculating how many SUs are used for specific combinations is the product of replicas and partitions, or (R X P = SU). For example, three replicas multiplied by three partitions is billed as nine SUs.
-
-Cost per SU is determined by the tier, with a lower per-unit billing rate for Basic than for Standard. Rates for each tier can be found on [Pricing Details](https://azure.microsoft.com/pricing/details/search/).
+[Choose a pricing tier for Azure Search](search-sku-tier.md)
