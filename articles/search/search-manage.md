@@ -21,9 +21,10 @@ ms.custom: seodec2018
 
 Azure Search is a fully managed, cloud-based search service used for building a rich search experience into custom apps. This article covers the service administration tasks that you can perform in the [Azure portal](https://portal.azure.com) for a search service that you've already provisioned. Service administration is lightweight by design, limited to the following tasks:
 
-* Manage access to the *api-keys* used for read or write access to your service.
-* Adjust service capacity by changing the allocation of partitions and replicas.
-* Monitor resource usage, relative to maximum limits of your service tier.
+> [!div class="checklist"]
+> * Manage access to the *api-keys* used for read or write access to your service.
+> * Adjust service capacity by changing the allocation of partitions and replicas.
+> * Monitor resource usage, relative to maximum limits of your service tier.
 
 Notice that *upgrade* is not listed as an administrative task. Because resources are allocated when the service is provisioned, moving to a different tier requires a new service. For details, see [Create an Azure Search service](search-create-service-portal.md).
 

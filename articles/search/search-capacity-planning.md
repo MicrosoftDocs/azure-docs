@@ -37,20 +37,35 @@ Partitions and replicas are the primary resources that back a search service.
 ## How to allocate partitions and replicas
 In Azure Search, a service is initially allocated a minimal level of resources consisting of one partition and one replica. For tiers that support it, you can incrementally adjust computational resources by increasing partitions if you need more storage and I/O, or add more replicas for larger query volumes or better performance. A single service must have sufficient resources to handle all workloads (indexing and queries). You cannot subdivide workloads among multiple services.
 
-To increase or change the allocation of replicas and partitions, we recommend using the Azure portal. The portal enforces limits on allowable combinations that stay below maximum limits:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/) and select the search service.
-2. In **Settings**, open the **Scale** page and use the sliders to increase or decrease the number of partitions and replicas.
-
-Changes in capacity take time to process. If you triple or quadruple resource levels, it could take over an hour to complete.
-
-You can monitor changes to replica and partition counts in the portal. The following screenshot indicates how many of the requested six replicas and six partitions are already created.
-
- ![Progress report when changing capacity](media/search-capacity-planning/progress-updating-replicas-partitions.png "Progress report when changing capacity")
-
-If you require a script-based or code-based provisioning approach, the [Azure PowerShell](search-manage-powershell.md) or the [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/services) is an alternative.
+To increase or change the allocation of replicas and partitions, we recommend using the Azure portal. The portal enforces limits on allowable combinations that stay below maximum limits. If you require a script-based or code-based provisioning approach, the [Azure PowerShell](search-manage-powershell.md) or the [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/services) are alternative solutions.
 
 Generally, search applications need more replicas than partitions, particularly when the service operations are biased toward query workloads. The section on [high availability](#HA) explains why.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) and select the search service.
+2. In **Settings**, open the **Scale** page to modify replicas and partitions. 
+
+   The following screenshot shows a standard service provisioned with 2 replicas and 2 partitions. The formula at the bottom indicates how many search units are being used.
+
+   ![Scale page showing current values](media/search-capacity-planning/1-initial-values.png "Scale page showing current values")
+
+3. Use the slider to increase or decrease the number of partitions. The formula at the bottom indicates how many search units are being used.
+
+    Revisit the [Pricing page](https://azure.microsoft.com/pricing/details/search/) for the unit costs associated with adding scale before you click **Save**.
+
+   This example adds 2 replicas and 2 partitions, doubling the capacity, but doubling capacity more than doubles the cost of running the service.
+
+   ![Add replicas and partitions](media/search-capacity-planning/2-add-2-each.png "Add replicas and partitions")
+
+3. Click **Save** to confirm the changes.
+
+   ![Confirm changes to scale and billing](media/search-capacity-planning/3-save-confirm.png "Confirm changes to scale and billing")
+
+   Changes in capacity take time to process. If you triple or quadruple resource levels, it could take several hours to complete.
+    
+   There is no real-time monitoring for replica and partition adjustments. The following message remains visible while changes are underway.
+
+   ![Status message in the portal](media/search-capacity-planning/4-updating.png "Status message in the portal")
+
 
 > [!NOTE]
 > After a service is provisioned, it cannot be upgraded to a higher SKU. You must create a search service at the new tier and reload your indexes. See [Create an Azure Search service in the portal](search-create-service-portal.md) for help with service provisioning.
