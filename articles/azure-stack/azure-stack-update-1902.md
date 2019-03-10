@@ -73,6 +73,10 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 
 - The 1902 build introduces a new user interface on the Azure Stack Administrator portal for creating plans, offers, quotas, and add-on plans. For more information, including screenshots, see [Create plans, offers, and quotas](azure-stack-create-plan.md).
 
+<!-- 1384958	Adding a Test-AzureStack group for Secret Rotation	Diagnostics -->
+- Improvements to Test-AzureStack for secret rotation readiness test.
+
+
 ## Common vulnerabilities and exposures
 
 This update installs the following security updates:  
