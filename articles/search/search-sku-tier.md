@@ -41,10 +41,10 @@ The following table lists the available tiers. Other sources of tier information
 |-----|-------------|
 |Free | Shared with other subscribers. Non-scalable, limited to 3 indexes and 50 MB storage. |
 |Basic | Dedicated computing resources for production workloads at a smaller scale. One 2 GB partition and up to three replicas. |
-|S1 (Standard one) | From S1 on up, dedicated machines with more storage and processing capacity at every level. Partition size is 25 GB/partition (max 300 GB documents per service) for S1. |
-|S2 (Standard two) | Similar to S1 but with 100 GB/partitions (max 1.2 TB documents per service) |
-|S3 (Standard three) | 200 GB/partition (max 2.4 TB documents per service). |
-|S3 HD (High-density) | Underlying hardware is optimized for a large number of smaller indexes, intended for multi-tenant scenarios. It has the same per-unit charge as S3 but the hardware is optimized for faster I/O.|
+|Standard 1 (S1) | From S1 on up, dedicated machines with more storage and processing capacity at every level. Partition size is 25 GB/partition (max 300 GB documents per service) for S1. |
+|Standard 2 (S2) | Similar to S1 but with 100 GB/partitions (max 1.2 TB documents per service) |
+|Standard 3 (S3) | 200 GB/partition (max 2.4 TB documents per service). |
+|Standard 3 High-density (S3-HD) | High density is a *hosting mode* for S3. The underlying hardware is optimized for a large number of smaller indexes, intended for multitenancy scenarios. S3-HD has the same per-unit charge as S3 but the hardware is optimized for faster I/O.|
 
 
 ## How billing works
@@ -53,13 +53,11 @@ In Azure Search, there are three ways to incur costs in Aure Search, and there a
 
 ### 1. Core service costs (fixed and variable)
 
-For the service itself, the fixed cost is the first search unit (1 replica x 1 partition). The minimum you will pay is the per-unit price for each tier. In the following screenshot, per unit pricing is highlighted for Free, Basic, and S1 (S2 and S3 are not shown). 
+For the service itself, the minimum charge is the first search unit (1 replica x 1 partition), and this amount is constant for the lifetime of the service. In the following screenshot, per unit pricing is highlighted for Free, Basic, and S1 (S2 and S3 are not shown). Unit costs vary by tier because the computational power and storage capacity is greater at the higher tiers.
 
 ![Per unit pricing](./media/search-sku-tier/per-unit-pricing.png "Per unit pricing")
 
- Variable costs increase as you add more replicas and partitions. Each new replica or partition is an additional search unit. For example, if you sign up for Basic, costs start at $75.14 per month (on average). If you add a replica (another unit), monthly costs double ($150.28). Search units are explained in detail further on.
-
- As you progress up each tier, per-unit costs go up because the computational power and storage capacity is greater for each unit at each level.
+Additional replicas and partitions are an add-on to the initial charge. The first replica-partition combo is one search unit, but additional replicas and partitions are charged based on a [formula](#search-units). 
 
 ### 2. Data egress charges during indexing
 
@@ -71,7 +69,9 @@ For [cognitive search](cognitive-search-concept-intro.md) only, image extraction
 
 If you are not using [cognitive search](cognitive-search-concept-intro.md) or [Azure Search indexers](search-indexer-overview.md), your only costs are related to replicas and partitions in active use, for regular indexing and query workloads.
 
-### Billing for general-purpose indexing and queries
+<a name="search-units"></a>
+
+### Billing based on search units
 
 For Azure Search operations, the most important billing concept to understand is a *search unit* (SU). Because Azure Search depends on both replicas and partitions for indexing and queries, it doesn't make sense to bill by just one or the other. Instead, billing is based on a composite of both. 
 
