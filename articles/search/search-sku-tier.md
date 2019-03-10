@@ -53,11 +53,13 @@ In Azure Search, there are three ways to incur costs in Aure Search, and there a
 
 ### 1. Core service costs (fixed and variable)
 
-For the service itself, the minimum charge is the first search unit (1 replica x 1 partition), and this amount is constant for the lifetime of the service. In the following screenshot, per unit pricing is highlighted for Free, Basic, and S1 (S2 and S3 are not shown). If you created a basic service or a standard service, your monthly cost would average $75.14 or $249.98 respectively. Unit costs vary by tier because the computational power and storage capacity is greater at each consecutive tiers.
+For the service itself, the minimum charge is the first search unit (1 replica x 1 partition), and this amount is constant for the lifetime of the service because the service cannot run on anything less than this configuration. 
+
+In the following screenshot, per unit pricing is highlighted for Free, Basic, and S1 (S2 and S3 are not shown). If you created a basic service or a standard service, your monthly cost would average $75.14 or $249.98 respectively. Unit costs vary by tier because the computational power and storage capacity is greater at each consecutive tiers.
 
 ![Per unit pricing](./media/search-sku-tier/per-unit-pricing.png "Per unit pricing")
 
-Additional replicas and partitions are an add-on to the initial charge. The first replica-partition combo is one search unit, but additional replicas and partitions are charged based on a [formula](#search-units). 
+Additional replicas and partitions are an add-on to the initial charge. The first replica-partition combo is one search unit, but additional replicas and partitions are charged based on a [formula](#search-units). For a walkthrough, see ["How to allocate replicas and partitions"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)
 
 ### 2. Data egress charges during indexing
 

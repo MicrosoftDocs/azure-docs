@@ -21,8 +21,8 @@ Using fewer SUs results in a proportionally lower bill. Billing is in effect for
 > [!Note]
 > Deleting a service deletes everything on it. There is no facility within Azure Search for backing up and restoring persisted search data. To redeploy an existing index on a new service, you should run the program used to create and load it originally. 
 
-## Terminology: partitions and replicas
-Partitions and replicas are the primary resources that back a search service.
+## Terminology: replicas and partitions
+Replicas and partitions are the primary resources that back a search service.
 
 | Resource | Definition |
 |----------|------------|
@@ -34,7 +34,7 @@ Partitions and replicas are the primary resources that back a search service.
 >
 
 
-## How to allocate partitions and replicas
+## How to allocate replicas and partitions
 In Azure Search, a service is initially allocated a minimal level of resources consisting of one partition and one replica. For tiers that support it, you can incrementally adjust computational resources by increasing partitions if you need more storage and I/O, or add more replicas for larger query volumes or better performance. A single service must have sufficient resources to handle all workloads (indexing and queries). You cannot subdivide workloads among multiple services.
 
 To increase or change the allocation of replicas and partitions, we recommend using the Azure portal. The portal enforces limits on allowable combinations that stay below maximum limits. If you require a script-based or code-based provisioning approach, the [Azure PowerShell](search-manage-powershell.md) or the [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/services) are alternative solutions.
@@ -52,7 +52,7 @@ Generally, search applications need more replicas than partitions, particularly 
 
     Revisit the [Pricing page](https://azure.microsoft.com/pricing/details/search/) for the unit costs associated with adding scale before you click **Save**.
 
-   This example adds 2 replicas and 2 partitions, doubling the capacity, but doubling capacity more than doubles the cost of running the service.
+   This example adds 2 replicas and 2 partitions, doubling the capacity, but doubling capacity more than doubles the cost of running the service. The new monthly bill is 20 times the per unit cost of a standard search service.
 
    ![Add replicas and partitions](media/search-capacity-planning/2-add-2-each.png "Add replicas and partitions")
 
