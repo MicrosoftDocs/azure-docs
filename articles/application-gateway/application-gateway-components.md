@@ -83,7 +83,7 @@ The application gateway routes traffic to the backend servers (specified in the 
 
 ## Backend pool
 
-The backend pool is used to route requests to the backend servers, which serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IP addresses, internal IP addresses, FQDN, and multi-tenant back-ends like Azure App Service. Application gateway backend pool members are not tied to an availability set. Application Gateway can communicate with instances outside of the virtual network that it is in, therefore, the members of the backend pools can be across clusters, data centers, or outside of Azure, as long as there is IP connectivity. If you plan to use internal IPs as backend pool members, then it requires [VNET Peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) or [VPN Gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways). VNet peering is supported and is beneficial for load-balancing traffic in other virtual networks. The application gateway can also communicate with to on-premises servers when they are connected by ExpressRoute or VPN tunnels, as long as traffic is allowed.
+The backend pool is used to route requests to the backend servers, which serve the request. Backend pools can be composed of NICs, virtual machine scale sets, public IP addresses, internal IP addresses, FQDN, and multi-tenant back-ends like Azure App Service. Application gateway backend pool members are not tied to an availability set. Application Gateway can communicate with instances outside of the virtual network that it is in, therefore, the members of the backend pools can be across clusters, data centers, or outside of Azure, as long as there is IP connectivity. If you plan to use internal IPs as backend pool members, then it requires [VNET Peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) or [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). VNet peering is supported and is beneficial for load-balancing traffic in other virtual networks. The application gateway can also communicate with to on-premises servers when they are connected by ExpressRoute or VPN tunnels, as long as traffic is allowed.
 
 You can create different backend pools for different types of requests. For example, create one backend pool for general requests and other backend pool for requests to the microservices for your application.
 
@@ -95,5 +95,5 @@ Application gateway by default monitors the health of all resources in its backe
 
 After learning about Application Gateway components, you can:
 * [Create an Application Gateway in the Azure portal](quick-create-portal.md)
-* [Create an Application Gateway using PowerShell](quick-create-powershell.md)
-* [Create an Application Gateway using Azure CLI](quick-create-cli.md).
+* [Create an Application Gateway by using Azure PowerShell](quick-create-powershell.md)
+* [Create an Application Gateway by using the Azure CLI](quick-create-cli.md)
