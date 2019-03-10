@@ -16,18 +16,20 @@ Application gateway comprises of several components that can be configured in di
 
 ![application-gateway-components](.\media\configuration-overview\configuration-overview1.png)
 
+The example image above illustrates configuration of an application with 3 listeners. First two are multi-site listeners for http://acme.com/* and http://fabrikam.com/*, respectively. Both are listening on port 80. The third listener is a basic listener with end to end SSL termination. 
+
 ## Prerequisites
 
 ### Azure virtual network and dedicated subnet
 
-Application gateway is a dedicated deployment in your virtual network. You require an virtual network with a dedicated subnet for application gateway. You can have multiple instances of a given application gateway deployment in this subnet. You can also deploy other application gateways in the subnet but you cannot deploy any other resource in the application gateway subnet.  
+Application gateway is a dedicated deployment in your virtual network. Within your virtual network, a dedicated subnet is required for your application gateway. You can have multiple instances of a given application gateway deployment in this subnet. You can also deploy other application gateways in the subnet but you cannot deploy any other resource in the application gateway subnet.  
 
 > [!NOTE]	
 > Mixing Standard_v2 and Standard Application Gateway on the same subnet is not supported.
 
 #### Size of the subnet
 
-Application Gateway consumes one private IP address per instance, plus another private IP address if a  private frontend IP configuration is configured. Also, Azure reserves the first four and last IP address in each subnet for internal usage. For example, if an application gateway is set to three instances and no private frontend IP, then a /29 subnet size or greater is needed. In this case, the application gateway uses three IP addresses. If you have three instances and an IP address for the private frontend IP configuration, then a /28 subnet size or greater is needed as four IP addresses are required.
+In case of v1 SKU, application Gateway consumes one private IP address per instance, plus another private IP address if a  private frontend IP configuration is configured. Also, Azure reserves the first four and last IP address in each subnet for internal usage. For example, if an application gateway is set to three instances and no private frontend IP, then a /29 subnet size or greater is needed. In this case, the application gateway uses three IP addresses. If you have three instances and an IP address for the private frontend IP configuration, then a /28 subnet size or greater is needed as four IP addresses are required.
 
 #### Network Security Groups supported on the Application Gateway subnet
 
@@ -39,23 +41,23 @@ Network Security Groups (NSGs) are supported on the Application Gateway subnet w
 
 - Traffic from the AzureLoadBalancer tag must be allowed.
 
-  ##### Whitelist Application Gateway access to a few source IPs
+##### Whitelist Application Gateway access to a few source IPs
 
-  This scenario can be done using NSGs on the application gateway subnet. The following restrictions should be put on the subnet in the listed order of priority:
+This scenario can be done using NSGs on the application gateway subnet. The following restrictions should be put on the subnet in the listed order of priority:
 
-  1. Allow incoming traffic from source IP/IP range.
-  2. Allow incoming requests from all sources to ports 65503-65534 for [backend health communication](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics). This port range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to initiate any changes on those endpoints.
-  3. Allow incoming Azure Load Balancer probes (AzureLoadBalancer tag) and inbound virtual network traffic (VirtualNetwork tag) on the [NSG](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview).
-  4. Block all other incoming traffic with a Deny all rule.
-  5. Allow outbound traffic to the internet for all destinations.
+1. Allow incoming traffic from source IP/IP range.
+2. Allow incoming requests from all sources to ports 65503-65534 for [backend health communication](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics). This port range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to initiate any changes on those endpoints.
+3. Allow incoming Azure Load Balancer probes (AzureLoadBalancer tag) and inbound virtual network traffic (VirtualNetwork tag) on the [NSG](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview).
+4. Block all other incoming traffic with a Deny all rule.
+5. Allow outbound traffic to the internet for all destinations.
 
 #### User-defined routes supported on the Application Gateway subnet
 
-User-defined routes (UDRs) are supported on the application gateway subnet, as long as they do not alter the end-to-end request/response communication.
+In case of v1 SKU, User-defined routes (UDRs) are supported on the application gateway subnet, as long as they do not alter the end-to-end request/response communication.
 
 For example, you can set up a UDR in the application gateway subnet to point to a firewall appliance for packet inspection, but you must ensure that the packet can reach its intended destination post inspection. Failure to do so might result in incorrect health probe or traffic routing behavior. This includes learned routes or default 0.0.0.0/0 routes propagated by ExpressRoute or VPN Gateways in the virtual network.
 
-UDRs on the application gateway subnet are not supported on the v2 SKU. For more information, see [Autoscaling and Zone-redundant Application Gateway (Public Preview)](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations).
+In case of v2 SKU, UDRs on the application gateway subnet are not supported. For more information, see [Autoscaling and Zone-redundant Application Gateway (Public Preview)](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations).
 
 ## Frontend IP
 
