@@ -92,13 +92,11 @@ If you cannot find any self-signed certificates using the preceding steps, conta
 
 Blank sign-in dialogs are most often caused by ADFS asking Storage Explorer to perform a redirect, which is unsupported by Electron. To work around this issue you can attempt to use Device Code Flow for sign-in. To do so, perform the following steps:
 
-1. "Go to Experimental" -> "Use Device Code Sign-In".
+1. "Go to Preview" -> "Use Device Code Sign-In".
 2. Open the Connect Dialog (either via the plug icon on the left-hand vertical bar, or "Add Account" on the account panel).
 3. Choose what environment you want to sign in to.
 4. Click the "Sign" In button.
 5. Follow the instructions on the next panel.
-
-Note: this feature is currently only available in 1.7.0 Preview.
 
 If you find yourself having issues signing into the account you want to use because your default browser is already signed into a different account, you can either:
 
@@ -239,6 +237,14 @@ For Linux distributions other than Ubuntu 16.04, you may need to manually instal
 * Up-to-date GCC
 
 Depending on your distribution, there may be other packages you need to install. The Storage Explorer [Release Notes](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contain specific steps for some distributions.
+
+## Open In Explorer From Azure portal Doesn't Work
+
+If the "Open In Explorer" button on the Azure portal doesn't work for you, make sure you are using a compatible browser. The following browsers have been tested for compatibility.
+* Microsoft Edge
+* Mozilla Firefox
+* Google Chrome
+* Microsoft Internet Explorer
 
 ## Next steps
 

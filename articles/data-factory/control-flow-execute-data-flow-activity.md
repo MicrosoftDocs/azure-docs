@@ -52,8 +52,6 @@ Use the execute data flow activity to run your ADF data flow in pipeline debug (
 
 Choose the compute environment for this execution of your data flow. The default is the Azure Auto-Resolve Default Integration Runtime. This choice will execute the data flow on the Spark environment in the same region as your data factory. The compute type will be a job cluster, which means the compute environment will take several minutes to start-up.
 
-If you choose a dedicated IR, you can create a new Azure IR with a pinned region and compute sizes that meet your data flow requirements. This option will spin-up interactive clusters, which will start-up immediately after the initial job is dispatched. This cluster will stay alive until the TTL expires after the last job has executed.
-
 ### Compute type
 
 You can choose General Purpose, Compute Optimized, or Memory Optimized, depending upon the requirements of your data flow.
