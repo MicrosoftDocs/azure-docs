@@ -49,7 +49,7 @@ you can use these AS2 tracking schemas in your integration account:
       "isNrrEnabled": "",
       "isMdnExpected": "",
       "mdnType": ""
-    }
+   }
 }
 ```
 
