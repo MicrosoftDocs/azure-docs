@@ -57,7 +57,7 @@ ms.author: radeltch
 This article describes how to deploy the virtual machines, configure the virtual machines, install the cluster framework, and install a highly available SAP NetWeaver 7.50 system, using [Azure NetApp Files (ANF)](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction/).
 In the example configurations, installation commands etc. the ASCS instance is number 00, the ERS instance number 01, the Primary Application instance (PAS) is 02 and the Application instance (AAS) is 03. SAP System ID QAS is used. 
 
-This article explains how to achieve high availability for SAP NetWeaver application with Azure NetApp Files. In the interest of brevity, we will refer to Azure NetApp Files as ANF. The database layer is not the covered in detail in this article.
+This article explains how to achieve high availability for SAP NetWeaver application with Azure NetApp Files. In the interest of brevity, we'll refer to Azure NetApp Files as ANF. The database layer isn't the covered in detail in this article.
 
 Read the following SAP Notes and papers first:
 
@@ -89,7 +89,7 @@ Read the following SAP Notes and papers first:
 High availability(HA) for SAP Netweaver central services requires shared storage.
 To achieve that on SLES so far it was necessary to build separate highly available NFS cluster. 
 
-Now it is possible to achieve SAP Netweaver HA by using shared storage, deployed on Azure NetApp Files. Using ANF for the shared storage eliminates the need for additional NFS cluster. Note that Pacemaker is still needed for HA of the SAP Netweaver central services(ASCS/SCS).
+Now it is possible to achieve SAP Netweaver HA by using shared storage, deployed on Azure NetApp Files. Using ANF for the shared storage eliminates the need for additional NFS cluster. Pacemaker is still needed for HA of the SAP Netweaver central services(ASCS/SCS).
 
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse-anf/high-availability-guide-suse-anf.PNG)
@@ -104,7 +104,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA datab
   * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
 * Probe Port
   * Port 620**&lt;nr&gt;**
-* Loadbalancing rules
+* Load balancing rules
   * 32**&lt;nr&gt;** TCP
   * 36**&lt;nr&gt;** TCP
   * 39**&lt;nr&gt;** TCP
@@ -121,7 +121,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA datab
   * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
 * Probe Port
   * Port 621**&lt;nr&gt;**
-* Loadbalancing rules
+* Load balancing rules
   * 33**&lt;nr&gt;** TCP
   * 5**&lt;nr&gt;**13 TCP
   * 5**&lt;nr&gt;**14 TCP
@@ -129,16 +129,16 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA datab
 
 ## Setting up the Azure NetApp Files infrastructure 
 
-SAP NetWeaver requires shared storage for the transport and profile directory.  Before proceeding with the set up for Azure NetApp files infrastructure, familiarize yourself with the [Azure NetApp Files documentation][anf-azure-doc]. 
-Check if your desired Azure region offers ANF(Azure NetApp Files). The following link shows the availability of ANF by Azure region: [ANF Availability by Azure Region][anf-avail-matrix].
+SAP NetWeaver requires shared storage for the transport and profile directory.  Before proceeding with the setup for Azure NetApp files infrastructure, familiarize yourself with the [Azure NetApp Files documentation][anf-azure-doc]. 
+Check if your selected Azure region offers ANF(Azure NetApp Files). The following link shows the availability of ANF by Azure region: [ANF Availability by Azure Region][anf-avail-matrix].
 
-Azure NetApp files is in public preview in several Azure regions. Before deploying Azure NetApp Files, you will need to sign up for ANF preview, following the [Register for Azure NetApp files instructions][anf-register] . 
+The Azure NetApp files feature is in public preview in several Azure regions. Before deploying Azure NetApp Files, sign up for ANF preview, following the [Register for Azure NetApp files instructions][anf-register]. 
 
 ###Deploy Azure NetApp File(ANF) resources  
 
 The steps assume that you have already deployed Azure [VNET](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview). Keep in mind that the ANF resources and the VMs, where the ANF resources will be mounted must be deployed in the same VNET.  
 
-1. If you have not done that already, request to [enroll in the Azure NetApp(ANF) preview](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-register) .  
+1. If you haven't done that already, request to [enroll in the Azure NetApp(ANF) preview](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-register) .  
 1. Create the NetApp account in the selected Azure region, following the [instructions to create NetApp Account](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-create-netapp-account).   
 2. Set up ANF capacity pool, following the [instructions on how to set up ANF capacity pool](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool).  
 The SAP Netweaver architecture presented in this article uses single ANF capacity pool, Premium SKU. We recommend ANF Premium SKU for SAP Netweaver application workload on Azure.  
@@ -153,23 +153,23 @@ The SAP Netweaver architecture presented in this article uses single ANF capacit
    6. volume usrsap<b>QAS</b>aas (nfs://10.1.0.4/usrsap<b>qas</b>aas)
    7. volume trans (nfs://10.1.0.4/trans)
 
-In this example we used ANF for all SAP Netweaver file systems to demonstrate how ANF can be used. The SAP file systems that don't need to be mounted via NFS can also be done with [Azure disk storage](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-types#premium-ssd) (for instance: /usr/sap/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS</b>/D<b>03</b>). 
+In this example, we used ANF for all SAP Netweaver file systems to demonstrate how ANF can be used. The SAP file systems that don't need to be mounted via NFS can also be deployed as [Azure disk storage](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-types#premium-ssd) (for instance: /usr/sap/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS</b>/D<b>03</b>). 
 
 ###Important considerations
 
 When considering ANF for the SAP Netweaver on SUSE High Availability architecture, be aware of the following important considerations:
 
-- The minimum ANF capacity pool is 4TiB . The ANF capacity pool size must be in multiples of 4TiB.
+- The minimum ANF capacity pool is 4TiB. The ANF capacity pool size must be in multiples of 4TiB.
 - The minimum ANF volume is 100 GiB
-- ANF and all virtual machines, where ANF volumes will be mounted must be in the same VNET. VNET peering is not supported yet.
+- ANF and all virtual machines, where ANF volumes will be mounted must be in the same VNET. VNET peering isn't supported yet.
 - The selected VNET must have a subnet, delegated to ANF.
 - ANF currently supports only NFSv3 
-- ANF is not zone aware yet. Currently ANF is not deployed in all Availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions. 
+- ANF isn't zone aware yet. Currently ANF isn't deployed in all Availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions. 
 
 
 ## Setting up (A)SCS
 
-In this example the resources were deployed manually via the [Azure portal](https://portal.azure.com/#home) .
+In this example, the resources were deployed manually via the [Azure portal](https://portal.azure.com/#home) .
 
 ### Deploy Linux manually via Azure portal
 
@@ -215,9 +215,9 @@ First you need to create the ANF volumes. Deploy the VMs. Afterwards, you create
          1. Click OK
       1. Port 621**01** for ASCS ERS
          * Repeat the steps above to create a health probe for the ERS (for example 621**01** and **health.QAS.ERS**)
-   1. Loadbalancing rules
+   1. Load balancing rules
       1. 32**00** TCP for ASCS
-         1. Open the load balancer, select load balancing rules and click Add
+         1. Open the load balancer, select Load balancing rules and click Add
          1. Enter the name of the new load balancer rule (for example **lb.QAS.ASCS.3200**)
          1. Select the frontend IP address for ASCS, backend pool, and health probe you created earlier (for example **frontend.QAS.ASCS**)
          1. Keep protocol **TCP**, enter port **3200**
@@ -421,7 +421,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-   If the installation fails to create a subfolder in /usr/sap/**QAS**/ASCS**00** ,try setting the owner and group of the ASCS**00**  folder and retry. 
+   If the installation fails to create a subfolder in /usr/sap/**QAS**/ASCS**00**,try setting the owner and group of the ASCS**00**  folder and retry. 
 
    <pre><code>
    chown <b>qas</b>adm /usr/sap/<b>QAS</b>/ASCS<b>00</b>
@@ -485,7 +485,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    > [!NOTE]
    > Use SWPM SP 20 PL 05 or higher. Lower versions do not set the permissions correctly and the installation will fail.
 
-   If the installation fails to create a subfolder in /usr/sap/**QAS**/ERS**01** , try setting the owner and group of the ERS**01** folder and retry.
+   If the installation fails to create a subfolder in /usr/sap/**QAS**/ERS**01**, try setting the owner and group of the ERS**01** folder and retry.
 
    <pre><code>
    chown qasadm /usr/sap/<b>QAS</b>/ERS<b>01</b>
@@ -803,7 +803,7 @@ Follow the steps in the chapter [SAP NetWeaver application server preparation](h
 
 The following tests are a copy of the test cases in the best practices guides of SUSE. They are copied for your convenience. Always also read the best practices guides and perform all additional tests that might have been added.
 
-1. Test HAGetFailoverConfig, HACheckConfig and HACheckFailoverConfig
+1. Test HAGetFailoverConfig, HACheckConfig, and HACheckFailoverConfig
 
    Run the following commands as \<sapsid>adm on the node where the ASCS instance is currently running. If the commands fail with FAIL: Insufficient memory, it might be caused by dashes in your hostname. This is a known issue and will be fixed by SUSE in the sap-suse-cluster-connector package.
 
