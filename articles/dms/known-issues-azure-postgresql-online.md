@@ -1,4 +1,4 @@
-﻿---
+---
 title: Article about known issues/migration limitations with online migrations to Azure Database for MySQL | Microsoft Docs
 description: Learn about known issues/migration limitations with online migrations to Azure Database for MySQL.
 services: database-migration
@@ -38,19 +38,19 @@ Known issues and limitations associated with online migrations from PostgreSQL t
     ```
     							SELECT Queries.tablename
            ,concat('alter table ', Queries.tablename, ' ', STRING_AGG(concat('DROP CONSTRAINT ', Queries.foreignkey), ',')) as DropQuery
-                ,concat('alter table ', Queries.tablename, ' ', 
+                ,concat('alter table ', Queries.tablename, ' ',
                                                 STRING_AGG(concat('ADD CONSTRAINT ', Queries.foreignkey, ' FOREIGN KEY (', column_name, ')', 'REFERENCES ', foreign_table_name, '(', foreign_column_name, ')' ), ',')) as AddQuery
         FROM
         (SELECT
-        tc.table_schema, 
-        tc.constraint_name as foreignkey, 
-        tc.table_name as tableName, 
-        kcu.column_name, 
+        tc.table_schema,
+        tc.constraint_name as foreignkey,
+        tc.table_name as tableName,
+        kcu.column_name,
         ccu.table_schema AS foreign_table_schema,
         ccu.table_name AS foreign_table_name,
-        ccu.column_name AS foreign_column_name 
-    FROM 
-        information_schema.table_constraints AS tc 
+        ccu.column_name AS foreign_column_name
+    FROM
+        information_schema.table_constraints AS tc
         JOIN information_schema.key_column_usage AS kcu
           ON tc.constraint_name = kcu.constraint_name
           AND tc.table_schema = kcu.table_schema
@@ -59,7 +59,6 @@ Known issues and limitations associated with online migrations from PostgreSQL t
           AND ccu.table_schema = tc.table_schema
     WHERE constraint_type = 'FOREIGN KEY') Queries
       GROUP BY Queries.tablename;
-    
     ```
 
     Run the drop foreign key (which is the second column) in the query result.
@@ -105,33 +104,33 @@ PostgreSQL 10.x makes various changes to pg_xlog folder names and hence causing 
 ```
 BEGIN;
 CREATE SCHEMA IF NOT EXISTS fnRenames;
-CREATE OR REPLACE FUNCTION fnRenames.pg_switch_xlog() RETURNS pg_lsn AS $$ 
+CREATE OR REPLACE FUNCTION fnRenames.pg_switch_xlog() RETURNS pg_lsn AS $$
    SELECT pg_switch_wal(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_xlog_replay_pause() RETURNS VOID AS $$ 
+CREATE OR REPLACE FUNCTION fnRenames.pg_xlog_replay_pause() RETURNS VOID AS $$
    SELECT pg_wal_replay_pause(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_xlog_replay_resume() RETURNS VOID AS $$ 
+CREATE OR REPLACE FUNCTION fnRenames.pg_xlog_replay_resume() RETURNS VOID AS $$
    SELECT pg_wal_replay_resume(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_current_xlog_location() RETURNS pg_lsn AS $$ 
+CREATE OR REPLACE FUNCTION fnRenames.pg_current_xlog_location() RETURNS pg_lsn AS $$
    SELECT pg_current_wal_lsn(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_is_xlog_replay_paused() RETURNS boolean AS $$ 
+CREATE OR REPLACE FUNCTION fnRenames.pg_is_xlog_replay_paused() RETURNS boolean AS $$
    SELECT pg_is_wal_replay_paused(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_xlogfile_name(lsn pg_lsn) RETURNS TEXT AS $$ 
+CREATE OR REPLACE FUNCTION fnRenames.pg_xlogfile_name(lsn pg_lsn) RETURNS TEXT AS $$
    SELECT pg_walfile_name(lsn); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_last_xlog_replay_location() RETURNS pg_lsn AS $$ 
+CREATE OR REPLACE FUNCTION fnRenames.pg_last_xlog_replay_location() RETURNS pg_lsn AS $$
    SELECT pg_last_wal_replay_lsn(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_last_xlog_receive_location() RETURNS pg_lsn AS $$ 
+CREATE OR REPLACE FUNCTION fnRenames.pg_last_xlog_receive_location() RETURNS pg_lsn AS $$
    SELECT pg_last_wal_receive_lsn(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_current_xlog_flush_location() RETURNS pg_lsn AS $$ 
+CREATE OR REPLACE FUNCTION fnRenames.pg_current_xlog_flush_location() RETURNS pg_lsn AS $$
    SELECT pg_current_wal_flush_lsn(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_current_xlog_insert_location() RETURNS pg_lsn AS $$ 
+CREATE OR REPLACE FUNCTION fnRenames.pg_current_xlog_insert_location() RETURNS pg_lsn AS $$
    SELECT pg_current_wal_insert_lsn(); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_xlog_location_diff(lsn1 pg_lsn, lsn2 pg_lsn) RETURNS NUMERIC AS $$ 
+CREATE OR REPLACE FUNCTION fnRenames.pg_xlog_location_diff(lsn1 pg_lsn, lsn2 pg_lsn) RETURNS NUMERIC AS $$
    SELECT pg_wal_lsn_diff(lsn1, lsn2); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_xlogfile_name_offset(lsn pg_lsn, OUT TEXT, OUT INTEGER) AS $$ 
+CREATE OR REPLACE FUNCTION fnRenames.pg_xlogfile_name_offset(lsn pg_lsn, OUT TEXT, OUT INTEGER) AS $$
    SELECT pg_walfile_name_offset(lsn); $$ LANGUAGE SQL;
-CREATE OR REPLACE FUNCTION fnRenames.pg_create_logical_replication_slot(slot_name name, plugin name, 
-   temporary BOOLEAN DEFAULT FALSE, OUT slot_name name, OUT xlog_position pg_lsn) RETURNS RECORD AS $$ 
-   SELECT slot_name::NAME, lsn::pg_lsn FROM pg_catalog.pg_create_logical_replication_slot(slot_name, plugin, 
+CREATE OR REPLACE FUNCTION fnRenames.pg_create_logical_replication_slot(slot_name name, plugin name,
+   temporary BOOLEAN DEFAULT FALSE, OUT slot_name name, OUT xlog_position pg_lsn) RETURNS RECORD AS $$
+   SELECT slot_name::NAME, lsn::pg_lsn FROM pg_catalog.pg_create_logical_replication_slot(slot_name, plugin,
    temporary); $$ LANGUAGE SQL;
 ALTER USER PG_User SET search_path = fnRenames, pg_catalog, "$user", public;
 
