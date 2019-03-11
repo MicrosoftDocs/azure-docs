@@ -77,7 +77,7 @@ Push the transformation results out to the destination systems by applying outpu
 
 Start the streaming application and run until a termination signal is received.
 
-    ssc.start()            
+    ssc.start()
     ssc.awaitTermination()
 
 For details on the Spark Stream API, along with the event sources, transformations, and output operations it supports, see [Apache Spark Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html).
@@ -95,7 +95,7 @@ The following sample application is self-contained, so you can run it inside a [
 
         /** Periodically generate a random number from 0 to 9, and the timestamp */
         private def receive() {
-            var counter = 0  
+            var counter = 0
             while(!isStopped()) {
                 store(Iterator((counter, System.currentTimeMillis)))
                 counter += 1
@@ -120,7 +120,7 @@ The following sample application is self-contained, so you can run it inside a [
         val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
         _sqlContext.createDataFrame(rdd).toDF("value", "time")
             .registerTempTable("demo_numbers")
-    } 
+    }
 
     // Start the stream processing
     ssc.start()
@@ -171,7 +171,7 @@ The following example  updates the code that uses the DummySource, to collect th
         val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
         _sqlContext.createDataFrame(rdd).toDF("value", "time")
         .registerTempTable("demo_numbers")
-    } 
+    }
 
     // Start the stream processing
     ssc.start()
