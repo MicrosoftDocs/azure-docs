@@ -73,7 +73,7 @@ Now that you have a test DNS zone with a test 'A' record, you can test the name 
 1. Open a command prompt, and run the following command:
 
    ```
-   nslookup <host name> <name server name>
+   nslookup www.contoso.xyz <name server name>
    ```
 
    For example:
