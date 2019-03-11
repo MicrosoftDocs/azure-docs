@@ -45,7 +45,7 @@ sed -i 's/GSS_USE_PROXY="yes"/GSS_USE_PROXY="no"/g' /etc/sysconfig/nfs​
 ## Cache Cleaning​
 On HPC systems it is often useful to clean up the memory after a job has finished before the next user is assigned the same node. After running applications in Linux you may find that your available memory reduces while your buffer memory increases, despite not running any applications.
 ​
-![Screenshot of command prompt](./media/known-issues/cache-cleaning1.png)
+![Screenshot of command prompt](./media/known-issues/cache-cleaning-1.png)
 ​​
 Using `numactl -H` will show which NUMAnode(s) the memory is buffered with (possibly all). In Linux, users can clean the caches in 3 ways to return buffered or cached memory to ‘free’. You need to be root or have sudo permissions.
 
