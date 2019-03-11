@@ -1,6 +1,6 @@
 ---
 title: Data Box Edge security | Microsoft Docs
-description: Describes the security and privacy features that protect your Data Box Edge device, service and data on premises and in the cloud.
+description: Describes the security and privacy features that protect your Data Box Edge device, service, and data on premises and in the cloud.
 services: Data Box Edge
 author: alkohli
 
@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 # Data Box Edge security and data protection
 
-Security is a major concern for anyone who is adopting a new technology, especially when the technology is used with confidential or proprietary data. Microsoft Azure Data Box Edge provides both a security and privacy solution for data protection helping ensure that only authorized entities can view, modify, or delete your data.
+Security is a major concern when adopting a new technology, and if the technology is used with confidential or proprietary data. Microsoft Azure Data Box Edge solution helps ensure that only authorized entities can view, modify, or delete your data.
 
 This article describes the Data Box Edge security features that help protect each of these components and the data stored on them.
 
@@ -21,7 +21,7 @@ The Azure Data Box Edge solution consists of four main components that interact 
 - **Data Box Edge/ Data Box Gateway service hosted in Azure** – The management resource that you use to create the device order, configure the device, and then track the order to completion.
 - **Data Box Edge device** – The transfer device that is shipped to you to import your on-premises data into Azure.
 - **Clients/hosts connected to the device** – The clients in your infrastructure that connect to the Data Box Edge device and contain data that needs to be protected.
-- **Cloud storage** – The location in the Azure cloud where data is stored. This is typically the storage account linked to the Data Box Edge resource that you created.
+- **Cloud storage** – The location in the Azure cloud where data is stored. This location is typically the storage account linked to the Data Box Edge resource that you created.
 
 ## Data Box Edge/Data Box Gateway service protection
 
@@ -36,7 +36,7 @@ The Data Box Edge device is an on-premises device that helps transform the data 
 
 - Needs an activation key to access the Data Box Edge/Data Box Gateway service.
 - Is protected at all times by a device administrator password.
-- Is a locked-down device. The device BMC and BIOS are password-protected with very limited user-access for the BIOS.
+- Is a locked-down device. The device BMC and BIOS are password-protected with limited user-access for the BIOS.
 - Has secure boot enabled.
 - Runs Windows Defender Device Guard. Device Guard allows you to run only trusted applications that you define in your code integrity policies. 
 
@@ -47,8 +47,8 @@ Only an authorized Data Box Edge device is allowed to join the Data Box Edge/Dat
 The activation key that you use:
 
 - Is an Azure Active Directory (AAD) based authentication key.
-- Expires after 3 days.
-- Is not used after device activation.
+- Expires after three days.
+- Isn't used after device activation.
 
  
 After a device is activated, it uses tokens to communicate with Microsoft Azure.
