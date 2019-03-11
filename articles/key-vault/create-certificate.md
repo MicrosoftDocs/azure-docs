@@ -1,4 +1,4 @@
-﻿---
+---
 title: Certificate creation methods  
 description: Ways to create a certificate in Key Vault.
 services: key-vault
@@ -61,21 +61,21 @@ When a request to create a KV certificate completes, the status of the pending o
 ## Self-issued certificate
  To create a self-issued certificate, set the issuer name as "Self" in the certificate policy as shown in following snippet from certificate policy.  
 
-```  
-"issuer": {  
-       "name": "Self"  
-    }  
+```
+"issuer": {
+       "name": "Self"
+    }
 
-```  
+```
 
  If the issuer name is not specified, then the issuer name is set to "Unknown". When issuer is "Unknown", the certificate owner will have to manually get a x509 certificate from the issuer of his/her choice, then merge the public x509 certificate with the key vault certificate pending object to complete the certificate creation.
 
-```  
-"issuer": {  
-       "name": "Unknown"  
-    }  
+```
+"issuer": {
+       "name": "Unknown"
+    }
 
-```  
+```
 
 ## Partnered CA Providers
 Certificate creation can be completed manually or using a “Self” issuer. Key Vault also partners with certain issuer providers to simplify the creation of certificates. The following types of certificates can be ordered for key vault with these partner issuer providers.  
