@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2018
+ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
 
@@ -312,7 +312,7 @@ Yes. When you access the Custom Domains and SSL blade in the Azure portal, you s
 
 You can move a domain to another subscription/resource group using the [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource?view=azurermps-6.13.0) PowerShell cmdlet.
 
-**How can I manage my custom domain if I don’t currently have an Azure App Service app that is not a free app?**
+**How can I manage my custom domain if I don’t currently have an Azure App Service app?**
 
 You can manage your domain even if you don’t have an App Service Web App. Domain can be used for Azure services like Virtual machine, Storage etc. If you intend to use the domain for App Service Web Apps, then you need to include a Web App that is not on the Free App Service plan in order to bind the domain to your web app.
 
