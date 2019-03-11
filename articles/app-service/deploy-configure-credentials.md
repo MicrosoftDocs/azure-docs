@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 03/10/2019
-ms.author: byvinyal
+ms.author: cephalin;byvinyal
 ms.custom: seodec18
 
 ---
@@ -52,9 +52,9 @@ and *FTP* deployment username in your app's **Properties**.
 >
 >  
 
-## Using user-level credentials
+## Use user-level credentials with FTP/FTPS
 
-Authenticating to an endpoint using user-level credentials requirers a username in the following format:
+Authenticating to an FTP/FTPS endpoint using user-level credentials requirers a username in the following format:
 `<app-name>\<user-name>`
 
 Since user-level credentials are linked to the user and not a specific resource, the username must be in this format to direct the sign-in action to the right app endpoint.
