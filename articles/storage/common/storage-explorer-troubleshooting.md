@@ -7,7 +7,6 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.subservice: common
 ---
 
 # Azure Storage Explorer Troubleshooting Guide
@@ -237,6 +236,14 @@ For Linux distributions other than Ubuntu 16.04, you may need to manually instal
 * Up-to-date GCC
 
 Depending on your distribution, there may be other packages you need to install. The Storage Explorer [Release Notes](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contain specific steps for some distributions.
+
+## Open In Explorer From Azure portal Doesn't Work
+
+If the "Open In Explorer" button on the Azure portal doesn't work for you, make sure you are using a compatible browser. The following browsers have been tested for compatibility.
+* Microsoft Edge
+* Mozilla Firefox
+* Google Chrome
+* Microsoft Internet Explorer
 
 ## Next steps
 

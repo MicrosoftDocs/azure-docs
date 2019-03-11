@@ -155,9 +155,6 @@ Follow the instructions in the [Bind an existing custom SSL certificate](/azure/
 
 ### Tomcat
 
->[!NOTE]
-> If your application uses the Spring Framework or Spring Boot, you can set database connection information for Spring Data JPA as environment variables [in your application properties file]. Then use [app settings](/azure/app-service/web-sites-configure#app-settings) to define these values for your application in the Azure portal or CLI.
-
 These instructions apply to all database connections. You will need to fill placeholders with your chosen database's driver class name and JAR file. Provided is a table with class names and driver downloads for common databases.
 
 | Database   | Driver Class Name                             | JDBC Driver                                                                      |
