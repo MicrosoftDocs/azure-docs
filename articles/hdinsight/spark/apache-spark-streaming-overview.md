@@ -3,12 +3,12 @@ title: Spark Streaming in Azure HDInsight
 description: How to use Spark Streaming applications on HDInsight Spark clusters.
 services: hdinsight
 ms.service: hdinsight
-author: maxluk
-ms.author: maxluk
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/05/2018
+ms.date: 03/11/2019
 ---
 # Overview of Apache Spark Streaming
 
@@ -51,39 +51,53 @@ This definition is static, and no data is processed until you run the applicatio
 
 Create a StreamingContext from the SparkContext that points to your cluster. When creating a StreamingContext, you specify the size of the batch in seconds, for example:
 
-    val ssc = new StreamingContext(spark, Seconds(1))
+    ```scala
+    import org.apache.spark._
+    import org.apache.spark.streaming._
+
+    val ssc = new StreamingContext(sc, Seconds(1))
+    ```
 
 #### Create a DStream
 
 With the StreamingContext instance, create an input DStream for your input source. In this case, the application is watching for the appearance of new files in the default storage attached to the HDInsight cluster.
 
-    val lines = ssc.textFileStream("/uploads/2017/01/")
+    ```scala
+    val lines = ssc.textFileStream("/uploads/Test/")
+    ```
 
 #### Apply transformations
 
 You implement the processing by applying transformations on the DStream. This application receives one line of text at a time from the file, splits each line into words, and then uses a map-reduce pattern to count the number of times each word appears.
 
+    ```scala
     val words = lines.flatMap(_.split(" "))
     val pairs = words.map(word => (word, 1))
     val wordCounts = pairs.reduceByKey(_ + _)
+    ```
 
 #### Output results
 
 Push the transformation results out to the destination systems by applying output operations. In this case,  the result of each run through the computation is printed in the console output.
 
+    ```scala
     wordCounts.print()
+    ```
 
 ### Run the application
 
 Start the streaming application and run until a termination signal is received.
 
-    ssc.start()            
+    ```scala
+    ssc.start()
     ssc.awaitTermination()
+    ```
 
 For details on the Spark Stream API, along with the event sources, transformations, and output operations it supports, see [Apache Spark Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html).
 
 The following sample application is self-contained, so you can run it inside a [Jupyter Notebook](apache-spark-jupyter-notebook-kernels.md). This example creates a mock data source in the class DummySource that outputs the value of a counter and the current time in milliseconds every five seconds. A  new StreamingContext object  has a batch interval of 30 seconds. Every time a batch is created, the streaming application examines the RDD produced, converts the RDD to a Spark DataFrame, and creates a temporary table over the DataFrame.
 
+    ```scala
     class DummySource extends org.apache.spark.streaming.receiver.Receiver[(Int, Long)](org.apache.spark.storage.StorageLevel.MEMORY_AND_DISK_2) {
 
         /** Start the thread that simulates receiving data */
@@ -124,11 +138,14 @@ The following sample application is self-contained, so you can run it inside a [
 
     // Start the stream processing
     ssc.start()
+    ```
 
-You can then query the DataFrame periodically to see the current set of values present in the batch, for example using this SQL query:
+Wait for about 30 seconds after starting the application above.  Then, you can query the DataFrame periodically to see the current set of values present in the batch, for example using this SQL query:
 
+    ```sql
     %%sql
     SELECT * FROM demo_numbers
+    ```
 
 The resulting output looks like the following:
 
@@ -155,6 +172,27 @@ Sliding windows can overlap, for example, you can define a window with a length 
 
 The following example  updates the code that uses the DummySource, to collect the batches into a window with a one-minute duration and a one-minute slide.
 
+    ```scala
+    class DummySource extends org.apache.spark.streaming.receiver.Receiver[(Int, Long)](org.apache.spark.storage.StorageLevel.MEMORY_AND_DISK_2) {
+
+        /** Start the thread that simulates receiving data */
+        def onStart() {
+            new Thread("Dummy Source") { override def run() { receive() } }.start()
+        }
+
+        def onStop() {  }
+
+        /** Periodically generate a random number from 0 to 9, and the timestamp */
+        private def receive() {
+            var counter = 0  
+            while(!isStopped()) {
+                store(Iterator((counter, System.currentTimeMillis)))
+                counter += 1
+                Thread.sleep(5000)
+            }
+        }
+    }
+
     // A batch is created every 30 seconds
     val ssc = new org.apache.spark.streaming.StreamingContext(spark.sparkContext, org.apache.spark.streaming.Seconds(30))
 
@@ -175,6 +213,7 @@ The following example  updates the code that uses the DummySource, to collect th
 
     // Start the stream processing
     ssc.start()
+    ```
 
 After the first minute, there are 12 entries - six entries from each of the two batches collected in the window.
 
