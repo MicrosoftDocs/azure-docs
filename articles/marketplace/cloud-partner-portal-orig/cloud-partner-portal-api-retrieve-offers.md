@@ -51,10 +51,10 @@ Body example
 
 ### Response
 
-``` json
-  200 OK 
-  [ 
-      {  
+```json
+  200 OK
+  [
+      {
           "offerTypeId": "microsoft-azure-virtualmachines",
           "publisherId": "contoso",
           "status": "published",
