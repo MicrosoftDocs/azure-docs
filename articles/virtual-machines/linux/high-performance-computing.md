@@ -14,7 +14,6 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.date: 01/15/2019
 ms.author: danlep
-ms.topic: conceptual
 ---
 
 # HPC, Batch, and Big Compute solutions using Azure VMs
