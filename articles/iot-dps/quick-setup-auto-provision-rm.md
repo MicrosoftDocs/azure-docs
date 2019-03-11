@@ -49,7 +49,7 @@ Sign in to your Azure account and select your subscription.
 3. When you create Azure cloud resources like IoT hubs and provisioning services, you create them in a resource group. Either use an existing resource group, or run the following [command to create a resource group][lnk-az-resource-command]:
     
     ```azurecli
-     az group create --name {your resource group name} --location westus
+    az group create --name {your resource group name} --location westus
     ```
 
     > [!TIP]
@@ -63,19 +63,19 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
 
 1. Use a text editor to create an Azure Resource Manager template called **template.json** with the following skeleton content. 
 
-   ```json
-   {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {},
-       "variables": {},
-       "resources": []
-   }
-   ```
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {},
+        "variables": {},
+        "resources": []
+    }
+    ```
 
 2. Replace the **parameters** section with the following content. The parameters section specifies parameters that can be passed in from another file. This section specifies the name of the IoT hub and provisioning service to create. It also specifies the location for both the IoT hub and provisioning service. The values are restricted to Azure regions that support IoT hubs and provisioning services. For a list of supported locations for Device Provisioning Service, you can run the following command `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` or go to the [Azure Status](https://azure.microsoft.com/status/) page and search on "Device Provisioning Service".
 
-   ```json
+    ```json
     "parameters": {
         "iotHubName": {
             "type": "string"
@@ -95,138 +95,134 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
             ]
         }
     },
-
-   ```
+    ```
 
 3. Replace the **variables** section with the following content. This section defines values that are used later to construct the IoT hub connection string, which is needed to link the provisioning service and the IoT hub. 
- 
-   ```json
+
+    ```json
     "variables": {
         "iotHubResourceId": "[resourceId('Microsoft.Devices/Iothubs', parameters('iotHubName'))]",
         "iotHubKeyName": "iothubowner",
         "iotHubKeyResource": "[resourceId('Microsoft.Devices/Iothubs/Iothubkeys', parameters('iotHubName'), variables('iotHubKeyName'))]"
     },
-
-   ```
+    ```
 
 4. To create an IoT hub, add the following lines to the **resources** collection. The JSON specifies the minimum properties required to create an IoT Hub. The **name** and **location** properties are passed as parameters. To learn more about the properties you can specify for an IoT Hub in a template, see [Microsoft.Devices/IotHubs template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
 
    ```json
-        {
-            "apiVersion": "2017-07-01",
-            "type": "Microsoft.Devices/IotHubs",
-            "name": "[parameters('iotHubName')]",
-            "location": "[parameters('hubLocation')]",
-            "sku": {
-                "name": "S1",
-                "capacity": 1
-            },
-            "tags": {
-            },
-            "properties": {
-            }
+    {
+        "apiVersion": "2017-07-01",
+        "type": "Microsoft.Devices/IotHubs",
+        "name": "[parameters('iotHubName')]",
+        "location": "[parameters('hubLocation')]",
+        "sku": {
+            "name": "S1",
+            "capacity": 1
         },
-
-   ```
+        "tags": {
+        },
+        "properties": {
+        }
+    },
+    ```
 
 5. To create the provisioning service, add the following lines after the IoT hub specification in the **resources** collection. The **name** and **location** of the provisioning service are passed in parameters. Specify the IoT hubs to link to the provisioning service in the **iotHubs** collection. At a minimum, you must specify the **connectionString** and **location** properties for each linked IoT hub. You can also set properties like **allocationWeight** and **applyAllocationPolicy** on each IoT hub, as well as properties like **allocationPolicy** and **authorizationPolicies** on the provisioning service itself. To learn more, see [Microsoft.Devices/provisioningServices template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices).
 
    The **dependsOn** property is used to ensure that Resource Manager creates the IoT hub before it creates the provisioning service. The template requires the connection string of the IoT hub to specify its linkage to the provisioning service, so the hub and its keys must be created first. The template uses functions like **concat** and **listKeys** to create the connection string. To learn more, see [Azure Resource Manager template functions](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions).
 
-   ```json
-        {
-            "type": "Microsoft.Devices/provisioningServices",
-            "sku": {
-                "name": "S1",
-                "capacity": 1
-            },
-            "name": "[parameters('provisioningServiceName')]",
-            "apiVersion": "2017-11-15",
-            "location": "[parameters('hubLocation')]",
-            "tags": {},
-            "properties": {
-                "iotHubs": [
-                    {
-                        "connectionString": "[concat('HostName=', reference(variables('iotHubResourceId')).hostName, ';SharedAccessKeyName=', variables('iotHubKeyName'), ';SharedAccessKey=', listkeys(variables('iotHubKeyResource'), '2017-07-01').primaryKey)]",
-                        "location": "[parameters('hubLocation')]",
-                        "name": "[concat(parameters('iotHubName'),'.azure-devices.net')]"
-                    }
-                ]
-            },
-            "dependsOn": ["[parameters('iotHubName')]"]
-        }
-
-   ```
+    ```json
+    {
+        "type": "Microsoft.Devices/provisioningServices",
+        "sku": {
+            "name": "S1",
+            "capacity": 1
+        },
+        "name": "[parameters('provisioningServiceName')]",
+        "apiVersion": "2017-11-15",
+        "location": "[parameters('hubLocation')]",
+        "tags": {},
+        "properties": {
+            "iotHubs": [
+                {
+                    "connectionString": "[concat('HostName=', reference(variables('iotHubResourceId')).hostName, ';SharedAccessKeyName=', variables('iotHubKeyName'), ';SharedAccessKey=', listkeys(variables('iotHubKeyResource'), '2017-07-01').primaryKey)]",
+                    "location": "[parameters('hubLocation')]",
+                    "name": "[concat(parameters('iotHubName'),'.azure-devices.net')]"
+                }
+            ]
+        },
+        "dependsOn": ["[parameters('iotHubName')]"]
+    }
+    ```
 
 6. Save the template file. The finished template should look like the following:
 
-   ```json
-   {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {
-           "iotHubName": {
-               "type": "string"
-           },
-           "provisioningServiceName": {
-               "type": "string"
-           },
-           "hubLocation": {
-               "type": "string",
-               "allowedValues": [
-                   "eastus",
-                   "westus",
-                   "westeurope",
-                   "northeurope",
-                   "southeastasia",
-                   "eastasia"
-               ]
-           }
-       },
-       "variables": {
-           "iotHubResourceId": "[resourceId('Microsoft.Devices/Iothubs', parameters('iotHubName'))]",
-           "iotHubKeyName": "iothubowner",
-           "iotHubKeyResource": "[resourceId('Microsoft.Devices/Iothubs/Iothubkeys', parameters('iotHubName'), variables('iotHubKeyName'))]"
-       },
-       "resources": [
-           {
-               "apiVersion": "2017-07-01",
-               "type": "Microsoft.Devices/IotHubs",
-               "name": "[parameters('iotHubName')]",
-               "location": "[parameters('hubLocation')]",
-               "sku": {
-                   "name": "S1",
-                   "capacity": 1
-               },
-               "tags": {
-               },
-               "properties": {
-               }
-           },
-           {
-               "type": "Microsoft.Devices/provisioningServices",
-               "sku": {
-                   "name": "S1",
-                   "capacity": 1
-               },
-               "name": "[parameters('provisioningServiceName')]",
-               "apiVersion": "2017-11-15",
-               "location": "[parameters('hubLocation')]",
-               "tags": {},
-               "properties": {
-                   "iotHubs": [
-                       {
-                           "connectionString": "[concat('HostName=', reference(variables('iotHubResourceId')).hostName, ';SharedAccessKeyName=', variables('iotHubKeyName'), ';SharedAccessKey=', listkeys(variables('iotHubKeyResource'), '2017-07-01').primaryKey)]",
-                           "location": "[parameters('hubLocation')]",
-                           "name": "[concat(parameters('iotHubName'),'.azure-devices.net')]"
-                       }
-                   ]
-               },
-               "dependsOn": ["[parameters('iotHubName')]"]
-           }
-       ]
-   }
-   ```
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "iotHubName": {
+                "type": "string"
+            },
+            "provisioningServiceName": {
+                "type": "string"
+            },
+            "hubLocation": {
+                "type": "string",
+                "allowedValues": [
+                    "eastus",
+                    "westus",
+                    "westeurope",
+                    "northeurope",
+                    "southeastasia",
+                    "eastasia"
+                ]
+            }
+        },
+        "variables": {
+            "iotHubResourceId": "[resourceId('Microsoft.Devices/Iothubs', parameters('iotHubName'))]",
+            "iotHubKeyName": "iothubowner",
+            "iotHubKeyResource": "[resourceId('Microsoft.Devices/Iothubs/Iothubkeys', parameters('iotHubName'), variables('iotHubKeyName'))]"
+        },
+        "resources": [
+            {
+                "apiVersion": "2017-07-01",
+                "type": "Microsoft.Devices/IotHubs",
+                "name": "[parameters('iotHubName')]",
+                "location": "[parameters('hubLocation')]",
+                "sku": {
+                    "name": "S1",
+                    "capacity": 1
+                },
+                "tags": {
+                },
+                "properties": {
+                }
+            },
+            {
+                "type": "Microsoft.Devices/provisioningServices",
+                "sku": {
+                    "name": "S1",
+                    "capacity": 1
+                },
+                "name": "[parameters('provisioningServiceName')]",
+                "apiVersion": "2017-11-15",
+                "location": "[parameters('hubLocation')]",
+                "tags": {},
+                "properties": {
+                    "iotHubs": [
+                        {
+                            "connectionString": "[concat('HostName=', reference(variables('iotHubResourceId')).hostName, ';SharedAccessKeyName=', variables('iotHubKeyName'), ';SharedAccessKey=', listkeys(variables('iotHubKeyResource'), '2017-07-01').primaryKey)]",
+                            "location": "[parameters('hubLocation')]",
+                            "name": "[concat(parameters('iotHubName'),'.azure-devices.net')]"
+                        }
+                    ]
+                },
+                "dependsOn": ["[parameters('iotHubName')]"]
+            }
+        ]
+    }
+    ```
 
 ## Create a Resource Manager parameter file
 
@@ -234,29 +230,28 @@ The template that you defined in the last step uses parameters to specify the na
 
 1. Use a text editor to create an Azure Resource Manager parameter file called **parameters.json** with the following skeleton content: 
 
-   ```json
-   {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {}
-       }
-   }
-   ```
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {}
+        }
+    }
+    ```
 
 2. Add the **iotHubName** value to the parameter section. If you change the name, make sure it follows proper naming conventions for an IoT hub. It should be 3-50 characters in length and can contain only upper or lower case alphanumeric characters or hyphens ('-'). 
 
-   ```json
+    ```json
     "parameters": {
         "iotHubName": {
             "value": "my-sample-iot-hub"
         },
     }
-
-   ```
+    ```
 
 3. Add the **provisioningServiceName** value to the parameter section. If you change the name, make sure it follows proper naming conventions for an IoT Hub Device Provisioning Service. It should be 3-64 characters in length and can contain only upper or lower case alphanumeric characters or hyphens ('-').
 
-   ```json
+    ```json
     "parameters": {
         "iotHubName": {
             "value": "my-sample-iot-hub"
@@ -265,12 +260,11 @@ The template that you defined in the last step uses parameters to specify the na
             "value": "my-sample-provisioning-service"
         },
     }
-
-   ```
+    ```
 
 4. Add the **hubLocation** value to the parameter section. This value specifies the location for both the IoT hub and provisioning service. The value must correspond to one of the locations specified in the **allowedValues** collection in the parameter definition in the template file. This collection restricts the values to Azure locations that support both IoT hubs and provisioning services. For a list of supported locations for Device Provisioning Service, you can run the following command `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` or go to the [Azure Status](https://azure.microsoft.com/status/) page and search on "Device Provisioning Service".
 
-   ```json
+    ```json
     "parameters": {
         "iotHubName": {
             "value": "my-sample-iot-hub"
@@ -282,8 +276,7 @@ The template that you defined in the last step uses parameters to specify the na
             "value": "westus"
         }
     }
-
-   ```
+    ```
 
 5. Save the file. 
 
