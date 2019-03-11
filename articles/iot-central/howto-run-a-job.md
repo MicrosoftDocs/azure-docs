@@ -5,7 +5,7 @@ ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 09/15/2018
+ms.date: 02/04/2019
 ms.topic: conceptual
 manager: peterpr
 ---
@@ -35,8 +35,6 @@ This section shows you how to create and run a job. Each step goes through an ex
 1. On the right-hand side, pick and choose the devices you’d like to run the job on. By selecting the top check box, all devices are selected in the entire device set. By selecting the check box near Name, all devices on the current page are selected.
 
 1. Once your desired devices have been selected, choose **Run**. The job will now appear on your main **Jobs** page. On this view, you are able to see your currently running job and the history of any previously run jobs. Your running job will always show up at the top of the list.
-
-    ![Run job](./media/howto-run-a-job/runjob.png)
 
     ![View job](./media/howto-run-a-job/viewjob.png)
 

@@ -7,7 +7,7 @@ author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
-ms.service: monitoring
+ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article

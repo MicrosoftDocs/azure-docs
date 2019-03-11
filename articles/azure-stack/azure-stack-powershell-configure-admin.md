@@ -78,4 +78,8 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
  - [Develop templates for Azure Stack](user/azure-stack-develop-templates.md)
  - [Deploy templates with PowerShell](user/azure-stack-deploy-template-powershell.md)
+<<<<<<< HEAD
+ - [Azure Stack PowerShell Module Reference](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)
+=======
 - [Azure Stack Module Reference](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)  
+>>>>>>> ac8c5a2d00d4eb5b4ef65359c5349ddff1bf30cf
