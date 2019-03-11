@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Deploy multi-container groups in Azure Container Instances - YAML
+title: Tutorial - Deploy a multi-container group in Azure Container Instances - YAML
 description: In this tutorial, you learn how to deploy a container group with multiple containers in Azure Container Instances by using a YAML file with the Azure CLI.
 services: container-instances
 author: dlepow
@@ -14,7 +14,7 @@ ms.author: danlep
 
 Azure Container Instances supports the deployment of multiple containers onto a single host using a [container group](container-instances-container-groups.md). A container group is useful when building an application sidecar for logging, monitoring, or any other configuration where a service needs a second attached process.
 
-In this tutorial, you follow steps to run a simple two-container sidecar configuration by deploying a YAML file using the Azure CLI. You learn how to:
+In this tutorial, you follow steps to run a simple two-container sidecar configuration by deploying a YAML file using the Azure CLI. A YAML file provides a concise format for specifying the instance settings. You learn how to:
 
 > [!div class="checklist"]
 > * Configure a YAML file
@@ -89,7 +89,7 @@ To use a private container image registry, include the following YAML with value
 For example, the following YAML deploys a container group with a single container whose image is pulled from a private Azure Container Registry named "myregistry":
 
 ```YAML
-apiVersion: 2018-06-01
+apiVersion: 2018-10-01
 location: eastus
 name: myContainerGroup2
 properties:
