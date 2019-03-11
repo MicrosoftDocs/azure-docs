@@ -4,7 +4,7 @@ description: This article walks you through the steps to create a policy definit
 services: azure-policy
 author: mumian
 ms.author: jgao
-ms.date: 03/08/2019
+ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: dougeby
@@ -45,7 +45,7 @@ $policyDefinitionID = $definition.PolicyDefinitionId
 
 1. Select the following image to sign in to the Azure portal and open the template:
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-buildinpolicy-resourcegroup%2Fazuredeploy.json"><img src="./media/resource-manager-tutorial-use-key-vault/deploy-to-azure.png" alt="deploy to azure"/></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-buildinpolicy-resourcegroup%2Fazuredeploy.json"><img src="./media/assign-policy-template/deploy-to-azure.png" alt="deploy to azure"/></a>
 
 2. Select or enter the following values:
 
@@ -61,13 +61,12 @@ $policyDefinitionID = $definition.PolicyDefinitionId
 
 3. Select **Purchase**.
 
-
 ## Identify non-compliant resources
 
 Select **Compliance** in the left side of the page. Then locate the **Audit VMs that do not use
 managed disks** policy assignment you created.
 
-![Policy compliance](./media/assign-policy-portal/policy-compliance.png)
+![Policy compliance](./media/assign-policy-template/policy-compliance.png)
 
 If there are any existing resources that aren't compliant with this new assignment, they appear
 under **Non-compliant resources**.
@@ -95,7 +94,7 @@ To remove the assignment created, follow these steps:
 
 1. Right-click the **Audit VMs that do not use managed disks** policy assignment and select **Delete assignment**
 
-   ![Delete an assignment](./media/assign-policy-portal/delete-assignment.png)
+   ![Delete an assignment](./media/assign-policy-template/delete-assignment.png)
 
 ## Next steps
 
