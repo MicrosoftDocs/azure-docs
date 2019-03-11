@@ -291,7 +291,7 @@ ms.topic: hub-page
                         <h3>Vision API</h3>
                         <p><a href="/azure/cognitive-services/computer-vision/">Computer Vision</a></p>
                         <p><a href="/azure/cognitive-services/content-moderator/">Content Moderator</a></p>
-                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/"><span>Custom Vision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/">Custom Vision Service</a></p>
                         <p><a href="/azure/cognitive-services/face/">Face API</a></p>
                         <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">Video Indexer</a></p>
                     </div>
