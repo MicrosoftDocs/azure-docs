@@ -28,9 +28,9 @@ The Data Box Edge device has two 100-240 V Power supply units (PSUs) with high-p
 | Voltage range selection | Auto ranging: 100-240 V AC |
 | Hot pluggable           | Yes                        |
 
-## Power consumption statistics
+<!--## Power consumption statistics
 
-The following table lists the typical power consumption data (actual values may vary from the published) for the Data Box Edge device.
+The following table lists the typical power consumption data (actual values may vary from the published) for the Data Box Edge device.-->
 
 ## Storage specifications
 
