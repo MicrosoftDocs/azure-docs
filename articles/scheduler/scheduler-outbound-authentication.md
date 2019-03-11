@@ -250,33 +250,33 @@ x-ms-routing-request-id: WESTUS:20160316T190506Z:7816f222-6ea7-468d-b919-e6ddebb
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Wed, 16 Mar 2016 19:05:06 GMT
 
-{  
+{
    "id":"/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
    "type":"Microsoft.Scheduler/jobCollections/jobs",
    "name":"southeastasiajc/httpjob",
-   "properties":{  
+   "properties":{
       "startTime":"2015-05-14T14:10:00Z",
-      "action":{  
-         "request":{  
+      "action":{
+         "request":{
             "uri":"https://mywebserviceendpoint.com",
             "method":"GET",
-            "headers":{  
+            "headers":{
                "x-ms-version":"2013-03-01"
             },
-            "authentication":{  
+            "authentication":{
                "username":"user1",
                "type":"Basic"
             }
          },
          "type":"Http"
       },
-      "recurrence":{  
+      "recurrence":{
          "frequency":"Minute",
          "endTime":"2016-04-10T08:00:00Z",
          "interval":1
       },
       "state":"Enabled",
-      "status":{  
+      "status":{
          "nextExecutionTime":"2016-03-16T19:06:00Z",
          "executionCount":0,
          "failureCount":0,
@@ -382,14 +382,14 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
    "name": "southeastasiajc/httpjob",
    "properties": {
       "startTime": "2015-05-14T14:10:00Z",
-      "action": {  
+      "action": {
          "request": {
             "uri": "https://mywebserviceendpoint.com",
             "method": "GET",
-            "headers": {  
+            "headers": {
                "x-ms-version": "2013-03-01"
             },
-            "authentication": {  
+            "authentication": {
                "tenant": "microsoft.onmicrosoft.com",
                "audience": "https://management.core.windows.net/",
                "clientId": "dc23e764-9be6-4a33-9b9a-c46e36f0c137",
@@ -398,13 +398,13 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
          },
          "type": "Http"
       },
-      "recurrence": {  
+      "recurrence": {
          "frequency": "minute",
          "endTime": "2016-04-10T08:00:00Z",
          "interval": 1
       },
       "state": "Enabled",
-      "status": {  
+      "status": {
          "lastExecutionTime": "2016-03-16T19:10:00.3762123Z",
          "nextExecutionTime": "2016-03-16T19:11:00Z",
          "executionCount": 5,
