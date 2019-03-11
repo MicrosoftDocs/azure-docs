@@ -118,26 +118,26 @@ In the previous example, the `telemetryConfig` device twin desired and reported 
 
 1. The solution back end sets the desired property with the desired configuration value. Here is the portion of the document with the desired property set:
 
-   ```json
-   "desired": {
-       "telemetryConfig": {
-           "sendFrequency": "5m"
-       },
-       ...
-   },
-   ```
+    ```json
+    "desired": {
+        "telemetryConfig": {
+            "sendFrequency": "5m"
+        },
+        ...
+    },
+    ```
 
 2. The device app is notified of the change immediately if connected, or at the first reconnect. The device app then reports the updated configuration (or an error condition using the `status` property). Here is the portion of the reported properties:
 
-   ```json
-   "reported": {
-       "telemetryConfig": {
-           "sendFrequency": "5m",
-           "status": "success"
-       }
-       ...
-   }
-   ```
+    ```json
+    "reported": {
+        "telemetryConfig": {
+            "sendFrequency": "5m",
+            "status": "success"
+        }
+        ...
+    }
+    ```
 
 3. The solution back end can track the results of the configuration operation across many devices by [querying](iot-hub-devguide-query-language.md) device twins.
 
@@ -155,19 +155,19 @@ The solution back end operates on the device twin using the following atomic ope
 
 * **Partially update device twin**. This operation enables the solution back end to partially update the tags or desired properties in a device twin. The partial update is expressed as a JSON document that adds or updates any property. Properties set to `null` are removed. The following example creates a new desired property with value `{"newProperty": "newValue"}`, overwrites the existing value of `existingProperty` with `"otherNewValue"`, and removes `otherOldProperty`. No other changes are made to existing desired properties or tags:
 
-   ```json
-   {
-       "properties": {
-           "desired": {
-               "newProperty": {
-                   "nestedProperty": "newValue"
-               },
-               "existingProperty": "otherNewValue",
-               "otherOldProperty": null
-           }
-       }
-   }
-   ```
+    ```json
+    {
+        "properties": {
+            "desired": {
+                "newProperty": {
+                    "nestedProperty": "newValue"
+                },
+                "existingProperty": "otherNewValue",
+                "otherOldProperty": null
+            }
+        }
+    }
+    ```
 
 * **Replace desired properties**. This operation enables the solution back end to completely overwrite all existing desired properties and substitute a new JSON document for `properties/desired`.
 
@@ -195,24 +195,24 @@ The solution back end operates on the device twin using the following atomic ope
         
    This section includes all the twin changes in a JSON format. It uses the same format as a patch, with the difference that it can contain all twin sections: tags, properties.reported, properties.desired, and that it contains the “$metadata” elements. For example,
 
-   ```json
-   {
-       "properties": {
-           "desired": {
-               "$metadata": {
-                   "$lastUpdated": "2016-02-30T16:24:48.789Z"
-               },
-               "$version": 1
-           },
-           "reported": {
-               "$metadata": {
-                   "$lastUpdated": "2016-02-30T16:24:48.789Z"
-               },
-               "$version": 1
-           }
-       }
-   }
-   ```
+    ```json
+    {
+        "properties": {
+            "desired": {
+                "$metadata": {
+                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
+                },
+                "$version": 1
+            },
+            "reported": {
+                "$metadata": {
+                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
+                },
+                "$version": 1
+            }
+        }
+    }
+    ```
 
 All the preceding operations support [Optimistic concurrency](iot-hub-devguide-device-twins.md#optimistic-concurrency) and require the **ServiceConnect** permission, as defined in [Control access to IoT Hub](iot-hub-devguide-security.md).
 
@@ -246,25 +246,25 @@ Tags, desired properties, and reported properties are JSON objects with the foll
 
 * All JSON objects in tags, desired, and reported properties can have a maximum depth of 5. For instance, the following object is valid:
 
-   ```json
-   {
-       ...
-       "tags": {
-           "one": {
-               "two": {
-                   "three": {
-                       "four": {
-                           "five": {
-                               "property": "value"
-                           }
-                       }
-                   }
-               }
-           }
-       },
-       ...
-   }
-   ```
+    ```json
+    {
+        ...
+        "tags": {
+            "one": {
+                "two": {
+                    "three": {
+                        "four": {
+                            "five": {
+                                "property": "value"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        ...
+    }
+    ```
 
 * All string values can be at most 512 bytes in length.
 
@@ -305,7 +305,7 @@ For example:
             "telemetryConfig": {
                 "sendFrequency": "5m",
                 "status": "success"
-            }
+            },
             "batteryLevel": "55%",
             "$metadata": {
                 "telemetryConfig": {
@@ -314,7 +314,7 @@ For example:
                         "$lastUpdated": "2016-03-31T16:35:48.789Z"
                     },
                     "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                }
+                },
                 "batteryLevel": {
                     "$lastUpdated": "2016-04-01T16:35:48.789Z"
                 },
