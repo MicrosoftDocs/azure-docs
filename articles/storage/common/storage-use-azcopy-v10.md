@@ -11,11 +11,11 @@ ms.subservice: common
 ---
 # Transfer data with AzCopy v10 (Preview)
 
-AzCopy v10 (Preview) is the next-generation command-line utility for copying data to or from Microsoft Azure Blob and File storage. AzCopy v10 (Preview) offers a redesigned command-line interface and new architecture for high-performance reliable data transfers. AzCopy enables you to copy data between a file system and a storage account, or between storage accounts.
+AzCopy v10 (Preview) is the command-line utility for copying data to or from Microsoft Azure Blob and File storage. AzCopy v10 offers a redesigned command-line interface, and new architecture for reliable data transfers. AzCopy enables you to copy data between a file system and a storage account, or between storage accounts.
 
 ## What's new in AzCopy v10
 
-- Synchronize a file system to Azure Blob storage or vice versa. Use `azcopy sync <source> <destination>`. Ideal for incremental copy scenarios.
+- Synchronize a file system to Azure Blob storage or the other way around. Use `azcopy sync <source> <destination>`. Ideal for incremental copy scenarios.
 - Supports Azure Data Lake Storage Gen2 APIs. Use `myaccount.dfs.core.windows.net` as a URI to call the Data Lake Storage Gen2 APIs.
 - Supports copying an entire account (Blob service only) to another account.
 - Account to account copy now uses the new [Put Block from URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) APIs. The data transfer is faster, as transfer to the client isn't required.
@@ -43,16 +43,13 @@ Download the [AzCopy v7.3 supporting copying data to/from Microsoft Azure Table 
 
 ## Post-installation steps
 
-AzCopy v10 does not require an installation. Open a preferred command-line application and navigate to the folder where the `azcopy.exe` executable is located. If desired, you can add the AzCopy folder location to your system path.
+AzCopy v10 doesn't require an installation. Open a preferred command-line application and navigate to the folder where the `azcopy.exe` executable is located. If needed, you can add the AzCopy folder location to your system path.
 
 ## Authentication options
 
 AzCopy v10 allows you to use the following options when authenticating with Azure Storage:
 - **Azure Active Directory [Supported for Blob and ADLS Gen2 services]**. Use ```.\azcopy login``` to sign in with Azure Active Directory.  The user should have ["Storage Blob Data Contributor" role assigned](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) to write to Blob storage with Azure Active Directory authentication. For authentication through Managed Service Identity (MSI), use `azcopy login --identity`.
-- **Shared access signature tokens [Supported for Blob and File services]**. Append the shared access signature (SAS) token to the blob path on the command line to use it. You can generate SAS tokens with Azure Portal, [Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), or other tools of your choice. For more information, see [examples](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
-
-> [!IMPORTANT]
-> When submitting a request to Microsoft Support (or troubleshooting the issue involving any 3rd party), share the redacted version of the command you want to execute. This ensures the SAS is not accidentally shared with anybody. You can find the redacted version at the start of the log file created by AzCopy. Review the Troubleshooting section later in this article for more details.
+- **Shared access signature tokens [Supported for Blob and File services]**. Append the shared access signature (SAS) token to the blob path on the command line to use it. You can generate SAS tokens with the Azure portal, [Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), or other tools of your choice. For more information, see [examples](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
 ## Getting started
 
@@ -112,7 +109,7 @@ To see the help page and examples for a specific command, run the following comm
 
 **Create a blob container with Azure Data Lake Storage Gen2**
 
-If you've enabled hierarchical namespaces on your blob storage account, you can use the following command to create a new file system (blob container) for uploading files.
+If you've enabled hierarchical namespaces on your blob storage account, you can use the following command to create a new blob container for uploading files.
 
 ```azcopy
 .\azcopy make "https://account.dfs.core.windows.net/top-level-resource-name"
@@ -152,7 +149,7 @@ To find more examples, use the following command:
 
 ## Copy data between two storage accounts
 
-Copying data between two storage accounts uses the [Put Block From URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, and does not utilize the client machine's network bandwidth. Data is copied between two Azure storage servers directly, while AzCopy simply orchestrates the copy operation. This option is currently only available for blob storage.
+Copying data between two storage accounts uses the [Put Block From URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, and doesn't use the client machine's network bandwidth. Data is copied between two Azure storage servers directly, while AzCopy simply orchestrates the copy operation. This option is currently only available for blob storage.
 
 To copy the data between two storage accounts, use the following command:
 ```azcopy
@@ -168,13 +165,18 @@ AzCopy v10 by default uploads data into block blobs. However, if a source file h
 
 ## Sync: incremental copy and delete (Blob storage only)
 
+The sync command synchronizes contents of a source directory to a directory in the destination, comparing file names and last modified timestamps. This operation includes the optional deletion of destination files if those do not exist in the source when `--delete-destination=prompt|true` flag is provided. By default the delete behavior is disabled. 
+
+> [!NOTE] 
+> Use `--delete-destination` flag with caution. Enable the [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) feature before you enable delete behavior in sync to prevent accidental deletes in your account. 
+
+> When `--delete-destination` is set to true, AzCopy will delete files that do not exist in the source from destination without any prompt to the user. If you would like to be prompted for confirmation, use `--delete-destination=prompt`.
+
 To sync your local file system to a storage account, use the following command:
 
 ```azcopy
 .\azcopy sync "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
 ```
-> [!WARNING]
-> The sync command synchronizes contents from source to destination, and will delete destination files if those don't exist in the source. Always use the destination you intend to synchronize.
 
 You can also sync a blob container down to a local file system:
 
@@ -216,13 +218,6 @@ export AZCOPY_CONCURRENCY_VALUE=<value>
 # If the value is blank then the default value is currently in use
 ```
 
-## Troubleshooting
-
-AzCopy v10 creates log files and plan files for every job. You can use the logs to investigate and troubleshoot any potential problems. The logs will contain the status of failure (UPLOADFAILED, COPYFAILED, and DOWNLOADFAILED), the full path, and the reason of the failure. The job logs and plan files are located in the %USERPROFILE\\.azcopy folder on Windows or $HOME\\.azcopy folder on Mac and Linux.
-
-> [!IMPORTANT]
-> When submitting a request to Microsoft Support (or troubleshooting the issue involving any 3rd party), share the redacted version of the command you want to execute. This ensures the SAS isn't accidentally shared with anybody. You can find the redacted version at the start of the log file.
-
 ### Change the location of the log files
 
 You can change the location of the log files if needed or to avoid filling up the OS disk.
@@ -238,6 +233,9 @@ export AZCOPY_LOG_LOCATION=<value>
 .\azcopy env
 # If the value is blank, then the default value is currently in use
 ```
+### Change the default log level 
+
+By default AzCopy log level is set to INFO. If you would like to reduce the log verbosity to save disk space, overwrite the setting using ``--log-level`` option. Available log levels are: DEBUG, INFO, WARNING, ERROR, PANIC, and FATAL 
 
 ### Review the logs for errors
 
@@ -246,6 +244,12 @@ The following command will get all errors with UPLOADFAILED status from the 04dc
 ```azcopy
 cat 04dc9ca9-158f-7945-5933-564021086c79.log | grep -i UPLOADFAILED
 ```
+## Troubleshooting
+
+AzCopy v10 creates log files and plan files for every job. You can use the logs to investigate and troubleshoot any potential problems. The logs will contain the status of failure (UPLOADFAILED, COPYFAILED, and DOWNLOADFAILED), the full path, and the reason of the failure. The job logs and plan files are located in the %USERPROFILE\\.azcopy folder on Windows or $HOME\\.azcopy folder on Mac and Linux.
+
+> [!IMPORTANT]
+> When submitting a request to Microsoft Support (or troubleshooting the issue involving any 3rd party), share the redacted version of the command you want to execute. This ensures the SAS isn't accidentally shared with anybody. You can find the redacted version at the start of the log file.
 
 ### View and resume jobs
 
@@ -272,10 +276,6 @@ Use the following command to resume a failed/canceled job. This command uses its
 ```azcopy
 .\azcopy jobs resume <jobid> --sourcesastokenhere --destinationsastokenhere
 ```
-
-### Change the default log level
-
-By default, AzCopy log level is set to INFO. If you would like to reduce the log verbosity to save disk space, use the ``--log-level`` option to overwrite the setting. Available log levels are: DEBUG, INFO, WARNING, ERROR, PANIC, and FATAL
 
 ## Next steps
 
