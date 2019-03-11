@@ -27,7 +27,7 @@ If you want to explore and deploy existing Azure Functions that use Azure Media 
 
 - Before you can create your first function, you need to have an active Azure account. If you don't already have an Azure account, [free accounts are available](https://azure.microsoft.com/free/).
 - If you are going to create Azure Functions that perform actions on your Azure Media Services (AMS) account or listen to events sent by Media Services, you should create an AMS account, as described [here](media-services-portal-create-account.md).
-	
+
 ## Create a function app
 
 1. Go to the [Azure portal](http://portal.azure.com) and sign-in with your Azure account.
@@ -115,15 +115,15 @@ Add the following definition to project.json.
         "Microsoft.IdentityModel.Protocol.Extensions": "1.0.2.206221351"
       }
     }
-   }
+  }
 }
 
 ```
-	
+
 ### run.csx
 
 This is the C# code for your function.  The function defined below monitors a storage account container named **input** (that is what was specified in the path) for new MP4 files. Once a file is dropped into the storage container, the blob trigger executes the function.
-	
+
 The example defined in this section demonstrates 
 
 1. how to ingest an asset into a Media Services account (by coping a blob into an AMS asset) and 
@@ -173,7 +173,7 @@ private static CloudStorageAccount _destinationStorageAccount = null;
 public static void Run(CloudBlockBlob myBlob, string fileName, TraceWriter log)
 {
     // NOTE that the variables {fileName} here come from the path setting in function.json
-    // and are passed into the  Run method signature above. We can use this to make decisions on what type of file
+    // and are passed into the Run method signature above. We can use this to make decisions on what type of file
     // was dropped into the input container for the function.
 
     // No need to do any Retry strategy in this function, By default, the SDK calls a function up to 5 times for a
@@ -281,11 +281,11 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
     CloudBlobContainer assetContainer = destBlobStorage.GetContainerReference(destinationContainerName);
 
     try{
-    assetContainer.CreateIfNotExists();
+        assetContainer.CreateIfNotExists();
     }
     catch (Exception ex)
     {
-    log.Error ("ERROR:" + ex.Message);
+        log.Error ("ERROR:" + ex.Message);
     }
 
     log.Info("Created asset.");
@@ -296,25 +296,25 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
     // Copy Blob
     try
     {
-    using (var stream = await blob.OpenReadAsync())
-    {
-        await destinationBlob.UploadFromStreamAsync(stream);
-    }
+        using (var stream = await blob.OpenReadAsync())
+        {
+            await destinationBlob.UploadFromStreamAsync(stream);
+        }
 
-    log.Info("Copy Complete.");
+        log.Info("Copy Complete.");
 
-    var assetFile = asset.AssetFiles.Create(blob.Name);
-    assetFile.ContentFileSize = blob.Properties.Length;
-    assetFile.IsPrimary = true;
-    assetFile.Update();
-    asset.Update();
+        var assetFile = asset.AssetFiles.Create(blob.Name);
+        assetFile.ContentFileSize = blob.Properties.Length;
+        assetFile.IsPrimary = true;
+        assetFile.Update();
+        asset.Update();
     }
     catch (Exception ex)
     {
-    log.Error(ex.Message);
-    log.Info (ex.StackTrace);
-    log.Info ("Copy Failed.");
-    throw;
+        log.Error(ex.Message);
+        log.Info (ex.StackTrace);
+        log.Info ("Copy Failed.");
+        throw;
     }
 
     destinationLocator.Delete();
