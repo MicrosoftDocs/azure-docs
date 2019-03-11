@@ -17,7 +17,7 @@ The hardware components of your Microsoft Azure Data Box Edge device adhere to t
 
 ## Power supply unit specifications
 
-The Data Box Edge device has two 100-240 V high performance fan, Power supply units (PSUs). This provides a redundant power configuration. If a PSU fails, the device continues to operate normally on the other PSU until the failed module is replaced. The following table lists the technical specifications of the PSUs.
+The Data Box Edge device has two 100-240 V Power supply units (PSUs) with high-performance fans. The two PSUs provide a redundant power configuration. If a PSU fails, the device continues to operate normally on the other PSU until the failed module is replaced. The following table lists the technical specifications of the PSUs.
 
 | Specification           | 750 W PSU                  |
 |-------------------------|----------------------------|
@@ -32,7 +32,7 @@ The following table lists the typical power consumption data (actual values may 
 
 ## Storage specifications
 
-The Data Box Edge devices have 10 X 2.5” NVMe SSDs, each with a capacity of 1.6 TB. Of these, 2 are operating system disks, and the other 8 are data disks. The total usable capacity for the device is roughly XX TB. The following table has the details for the storage capacity of the device.
+The Data Box Edge devices have 10 X 2.5” NVMe SSDs, each with a capacity of 1.6 TB. Of these SSDs, 2 are operating system disks, and the other 8 are data disks. The total usable capacity for the device is roughly XX TB. The following table has the details for the storage capacity of the device.
 
 |     Specification                          |     Value             |
 |--------------------------------------------|-----------------------|
@@ -66,7 +66,7 @@ The device package weighs 66 lbs. and requires two persons to handle it. The wei
 
 ## Enclosure environment specifications
 
-This section lists the specifications related to the enclosure environment. The temperature, humidity, altitude, shock, vibration, orientation, safety, and Electromagnetic Compatibility (EMC) are included in this category.
+This section lists the specifications related to the enclosure environment such as temperature, humidity, and altitude.
 
 ### Temperature and humidity
 
