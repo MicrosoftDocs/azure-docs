@@ -41,7 +41,7 @@ The Data Box Edge devices have 10 X 2.5” NVMe SSDs, each with a capacity of 1.
 |    Total capacity                          |    12.8 TB            |
 |    Total usable capacity*                  |    ~ 12.5 TB            |
 
-* Some space is reserved for internal use.
+**Some space is reserved for internal use.*
 
 ## Enclosure dimensions and weight specifications
 
