@@ -54,10 +54,10 @@ and *FTP* deployment username in your app's **Properties**.
 
 ## Using user-level credentials
 
-When logging in to an endpoint using user-level credentials the username must be in the form:
+When authenticating to an endpoint using user-level credentials the username must be in the form:
 `<app-name>\<username>`
 
-Since user-level credentials are linked to the user and not a specif resource, the username must be in this format to direct the log-in action to the right app endpoint.
+Since user-level credentials are linked to the user and not a specific resource, the username must be in this format to direct the sign-in action to the right app endpoint.
 
 ## <a name="appscope"></a>Get and reset app-level credentials
 To get the app-level credentials:
