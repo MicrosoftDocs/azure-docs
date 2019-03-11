@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/25/2019
+ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -36,7 +36,7 @@ The following are some considerations to take into account when using this proce
 
 * If you import this runbook with the original name `Update-AutomationAzureModulesForAccount`, it will override the internal runbook with this name. As a result, the imported runbook will run when the **Update Azure Modules** button is pushed or when this runbook is invoked directly via Azure Resource Manager API for this Automation account.
 
-* Only `Azure` and `AzureRM.*` modules are currently supported. The new [Azure PowerShell Az modules](/powershell/azure/new-azureps-module-az) aren't supported yet.
+* This runbook supports updating only the **Azure** and **AzureRm** modules currently. [Azure PowerShell Az modules](/powershell/azure/new-azureps-module-az) are supported in Automation accounts, but cannot be updated with this runbook.
 
 * Avoid starting this runbook on Automation accounts that contain Az modules.
 

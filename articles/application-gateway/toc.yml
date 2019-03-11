@@ -43,6 +43,8 @@
     href: how-application-gateway-works.md
   - name: Application Gateway components
     href: application-gateway-components.md
+  - name: Configuration overview
+    href: configuration-overview.md    
   - name: SSL
     items:
     - name: SSL policy overview
@@ -83,7 +85,7 @@
       href: create-vmss-template.md
   - name: Configure internal load balancer
     items:
-    - name: Azure PowerShell
+    - name: Azure portal
       href: configure-application-gateway-with-private-frontend-ip.md
     - name: Azure PowerShell
       href: application-gateway-ilb-arm.md      

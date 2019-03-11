@@ -89,7 +89,7 @@ There are a couple of different ways to deploy the Nozzle: as a PCF tile or as a
 
 ### Deploy the Nozzle as a PCF Ops Manager tile
 
-Follow the steps to [install and configure the Azure Log Analytics Nozzle for PCF](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html).This is the simplified approach, the PCF Ops manager tile will automatically configure and push the nozzle. 
+Follow the steps to [install and configure the Azure Log Analytics Nozzle for PCF](https://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html).This is the simplified approach, the PCF Ops manager tile will automatically configure and push the nozzle. 
 
 ### Deploy the Nozzle manually as a CF application
 

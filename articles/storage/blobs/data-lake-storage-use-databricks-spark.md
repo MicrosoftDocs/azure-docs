@@ -6,7 +6,7 @@ author: dineshmurthy
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/29/2019
+ms.date: 03/11/2019
 ms.author: dineshm
 #Customer intent: As an data scientist, I want to connect my data in Azure Storage so that I can easily run analytics on it.
 ---
@@ -167,9 +167,10 @@ Use AzCopy to copy data from your *.csv* file into your Data Lake Storage Gen2 a
 2. To copy data from the *.csv* account, enter the following command.
 
    ```bash
-   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time
+   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
    ```
-   * Replace the `<csv-folder-path>` placeholder value with directory path to the *.csv* file (excluding the name of the file).
+
+   * Replace the `<csv-folder-path>` placeholder value with the path to the *.csv* file.
 
    * Replace the `storage-account-name` placeholder value with the name of your storage account.
 
@@ -183,22 +184,22 @@ In the notebook that you previously created, add a new cell, and paste the follo
 # Use the previously established DBFS mount point to read the data.
 # create a data frame to read data.
 
-flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/*.csv")
+flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/*.csv")
 
 # read the airline csv file and write the output to parquet format for easy query.
- flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
- print("Done")
- ```
+flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
+print("Done")
+```
 
 ## Explore data
 
-In a new cell, paste the following code to get a list of CSV files uploaded via AzCopy. Replace the `<csv-folder-path>` placeholder value with the same value for that placeholder that you used earlier.
+In a new cell, paste the following code to get a list of CSV files uploaded via AzCopy.
 
 ```python
 import os.path
 import IPython
 from pyspark.sql import SQLContext
-display(dbutils.fs.ls("/mnt/flightdata/On_Time/<your-folder-name>"))
+display(dbutils.fs.ls("/mnt/flightdata"))
 ```
 
 To create a new file and list files in the *parquet/flights* folder, run this script:
@@ -216,13 +217,11 @@ Next, you can begin to query the data you uploaded into your storage account. En
 
 To create data frames for your data sources, run the following script:
 
-* Replace the `<csv-folder-path>` placeholder value with directory path to the *.csv* file (excluding the name of the file).
-
-* Replace the `<your-csv-file-name` placeholder value with the name of your *csv* file.
+* Replace the `<csv-folder-path>` placeholder value with the path to the *.csv* file.
 
 ```python
 #Copy this into a Cmd cell in your notebook.
-acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/<your-csv-file-name>.csv")
+acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time.csv")
 acDF.write.parquet('/mnt/flightdata/parquet/airlinecodes')
 
 #read the existing parquet file for the flights database that was created earlier

@@ -21,7 +21,7 @@ Use this quickstart to make your first call to the Bing Web Search API and recei
 ## Prerequisites
 Here are a few things that you'll need before running this quickstart:
 
-* [PHP 5.6.x](http://php.net/downloads.php) or later
+* [PHP 5.6.x](https://php.net/downloads.php) or later
 * A subscription key  
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]

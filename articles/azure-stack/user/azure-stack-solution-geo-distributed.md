@@ -503,9 +503,9 @@ When App Service finishes uploading the certificate, it appears in the **SSL set
 
 1.  In the **Add SSL Binding** page, use the drop downs to select the domain name to secure, and the certificate to use.
 
-2.  In **SSL Type**, select whether to use [**Server Name Indication (SNI)**](http://en.wikipedia.org/wiki/Server_Name_Indication)or IP-based SSL.
+2.  In **SSL Type**, select whether to use [**Server Name Indication (SNI)**](https://en.wikipedia.org/wiki/Server_Name_Indication)or IP-based SSL.
 
--   **SNI-based SSL**- Multiple SNI-based SSL bindings may be added. This option allows multiple SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (find more comprehensive browser support information at [Server Name Indication](http://wikipedia.org/wiki/Server_Name_Indication)).
+-   **SNI-based SSL**- Multiple SNI-based SSL bindings may be added. This option allows multiple SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (find more comprehensive browser support information at [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication)).
 
 -   **IP-based SSL**- Only one IP-based SSL binding may be added. This option allows only one SSL certificate to secure a dedicated public IP address. To secure multiple domains, secure them all using the same SSL certificate. This is the traditional option for SSL binding.
 
