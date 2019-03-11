@@ -1,6 +1,6 @@
 ---
 title: Configuring high-performance computing in Azure | Microsoft Docs
-description: Learn how to configure high-performance computing in Azure. 
+description: Learn how to configure high-performance computing in Azure.
 services: virtual-machines
 documentationcenter: ''
 author: githubname
@@ -16,10 +16,7 @@ ms.author: msalias
 ---
 # Configure high-performance computing
 
-
-
-
-## Reclaim memory 
+## Reclaim memory
 
 Automatically reclaim memory to avoid remote memory access​.
 
@@ -27,21 +24,19 @@ Automatically reclaim memory to avoid remote memory access​.
 echo 1 >/proc/sys/vm/zone_reclaim_mode​
 ```
 
-To make this persist after VM reboots:​
+To make this persist after VM reboots:
 
 ```bash
-echo "vm.zone_reclaim_mode = 1" >> /etc/sysctl.conf sysctl -p​
-​```
-​
+echo "vm.zone_reclaim_mode = 1" >> /etc/sysctl.conf sysctl -p
+```
 
 ## Discover partition keys
 
-​
 Discover partition keys (pkeys) for communicating with other VMs.
 
 ```bash
 /sys/class/infiniband/mlx5_0/ports/1/pkeys/0
-/sys/class/infiniband/mlx5_0/ports/1/pkeys/1​
+/sys/class/infiniband/mlx5_0/ports/1/pkeys/1
 ```
 
 The bigger one is the tenant key that should be used with MPI​. The following are the partition keys, 0x800b should be used with MPI​.
@@ -54,8 +49,7 @@ cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/1​
 ```
 
 Use the partition other than default (0x7fff) partition key.​ UCX requires the MSB of pkey to be cleared. For example, set UCX_IB_PKEY as 0x000b for 0x800b.​
-​
-​
+​​
 ## Disable firewall and SELinux​
 
 Disable firewall and SELinux​.
@@ -82,7 +76,6 @@ cat << EOF >> /etc/security/limits.conf​
 *               soft    nofile          65535​
 EOF​
 ```
-​
 ​
 ## Set up SSH keys for MPI
 
@@ -112,4 +105,5 @@ sudo systemctl disable cpupower​
 ```
 
 ## Next steps
+
 Learn more about [high-performance computing](../../linux/high-performance-computing.md) in Azure.
