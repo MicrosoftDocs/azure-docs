@@ -207,6 +207,8 @@
       href: automation-deploy-template-runbook.md
     - name: Integrate Azure Automation with Event Grid and Microsoft Teams
       href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md?toc=%2fazure%2fautomation%2ftoc.json
+    - name: Move your Automation Account to another Subscription
+      href: how-to/move-account.md
   - name: Monitor
     items:
     - name: Forward Azure Automation job data to Azure Monitor logs
