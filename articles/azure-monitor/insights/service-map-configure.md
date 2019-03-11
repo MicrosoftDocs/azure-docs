@@ -22,8 +22,10 @@ This article describes the details of configuring Service Map and onboarding age
 ## Supported Azure regions
 Service Map is currently available in the following Azure regions:
 - East US
-- West Europe
 - West Central US
+- Canada Central
+- UK South
+- West Europe
 - Southeast Asia
 
 ## Supported Windows operating systems
