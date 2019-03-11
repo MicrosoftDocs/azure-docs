@@ -66,7 +66,7 @@ You can set up Azure SQL databases, and instance databases to collect the follow
 | [Blocks](#blockings-dataset): Contains information about blocking events on the database. | Yes | No |
 | [SQLInsights](#intelligent-insights-dataset): Contains Intelligent Insights into performance. To learn more, see [Intelligent Insights](sql-database-intelligent-insights.md). | Yes | Yes |
 
-> [!NOTE]
+> [!IMPORTANT]
 > Elastic pools and managed instances have its own separate diagnostics telemetry from databases they contain. This is important to note as diagnostics telemetry is configured separately for each of these resources, as documented below.
 
 ## Azure portal
@@ -399,11 +399,11 @@ Refer to the following tables for details about all metrics by resource.
 |---|---|
 |Azure SQL database|DTU percentage, DTU used, DTU limit, CPU percentage, physical data read percentage, log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, XTP storage percentage, and deadlocks |
 
-## Logs for managed instances
+## All logs
 
-Refer to the following table for details about logs for managed instances.
+Details of telemetry available for all logs are disclosed in tables below. Please see [supported diagnostic logging](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) to understand which logs are supported for a particular database flavor - Azure SQL single, pooled, or instance database.
 
-### Resource usage statistics
+### Resource usage stats for managed instance
 
 |Property|Description|
 |---|---|
@@ -427,10 +427,6 @@ Refer to the following table for details about logs for managed instances.
 |io_requests_s|IOPS count |
 |io_bytes_read_s|IOPS bytes read |
 |io_bytes_written_s|IOPS bytes written |
-
-## Logs for single, pooled, and instance databases
-
-Refer to the following tables for details about logs for Azure SQL single, pooled, and instance databases.
 
 ### Query Store runtime statistics
 

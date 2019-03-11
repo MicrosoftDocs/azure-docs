@@ -8,7 +8,7 @@ author: ggailey777
 manager: erikre
 
 ms.assetid: 
-ms.service: na
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na

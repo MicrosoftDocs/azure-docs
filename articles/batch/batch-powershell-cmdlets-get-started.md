@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: batch
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
 ms.date: 01/15/2019
