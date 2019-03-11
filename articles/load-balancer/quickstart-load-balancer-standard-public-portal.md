@@ -176,17 +176,6 @@ In this section, you create a NSG rule to allow inbound connections using HTTP.
     - Follow instructions to complete the rest of the wizard 
 7. Repeat steps 1 to 6 for the virtual machine *myVM2*.
 
-## Add VMs to the backend address pool
-
-Add virtual machines *VM1* and *VM2* to the load balancer's backend pool for load balancing internet traffic.
-
-1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
-2. Under **Settings**, click **Backend pools**, then **Backend pools** page, select *myBackendPool*.
-3. On the *myBackendPool* page, do the following:
-   - For **Virtual network**, select *myVNet*.
-   - Add *myVM1* and *myVM2* under **Virtual Machine** along with their corresponding IP addresses, and then select **Add**.
-4. Check to make sure your load balancer backend pool setting displays all the VMs *myVM1* and *myVM2*, and then click **OK**.
-
 ## Test the load balancer
 1. Find the public IP address for the Load Balancer on the **Overview** screen. Click **All resources** and then click **myPublicIP**.
 
