@@ -80,7 +80,17 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 1398818	3685138, 3734779: ECE exception logging, VirtualMachine ConfigurePending should take node name from execution context	PNU
 1381018	[1902] 3610787 - Infra VM creation should fail if the ClusterGroup already exists	PNU
 -->
-- Improvements to reliability, performance, and diagnosability of Azure Stack updates. 
+- To improve package integrity and security, as well as easier management for offline ingestion, Microsoft has changed the format of the Update package from .exe and .bin files to a .zip file. The new format adds additional reliability of the unpacking process that at times, can cause the preparation of the update to stall. The same package format also applies to update packages from your OEM.
+- To improve the Azure Stack operator experience when running Test-AzureStack, operators can now simply use, “Test-AzureStack -Group UpdateReadiness” as opposed to passing ten additional parameters after an Include statement.
+- To improve on the overall reliability and availability of core infrastructure services during the update process, the native Update resource provider as part of the update action plan will detect and invoke automatic global remediations as-needed. Global remediation “repair” workflows include:
+    - Checking for infrastructure virtual machines that are in a non-optimal state and attempt to repair them as-needed 
+    - Check for SQL service issues as part of the control plan and attempt to repair them as-needed
+    - Check the state of the Software Load Balancer (SLB) service as part of the Network Controller (NC) and attempt to repair them as-needed
+    - Check the state of the Network Controller (NC) service and attempt to repair it as needed
+    - Check the state of the Emergency Recovery Console Service (ERCS) service fabric nodes and repair them as needed
+    - Check the state of the XRP service fabric nodes and repair them as needed
+    - Check the state of the Azure Consistent Storage (ACS) service fabric nodes and repair them as needed
+
 
 
 ## Common vulnerabilities and exposures
