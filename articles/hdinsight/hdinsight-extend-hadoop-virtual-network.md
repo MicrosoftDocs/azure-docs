@@ -229,7 +229,7 @@ If you plan on using **network security groups** or **user-defined routes** to c
 3. Create or modify the network security groups or user-defined routes for the subnet that you plan to install HDInsight into.
 
     * __Network security groups__: allow __inbound__ traffic on port __443__ from the IP addresses. This will ensure that HDI management services can reach the cluster from outside VNET.
-    * __User-defined routes__: If you plan to use UDRs, create a route for each IP address and set the __Next hop type__ to __Internet__. You should also allow any other outbound traffic from the VNET with no restriction. For example, you can route all other traffic to your Azure firwall or network virtual appliance (hosted in Azure) for monitoring purposes but the outgoing traffic should not be blocked.
+    * __User-defined routes__: If you plan to use UDRs, create a route for each IP address and set the __Next hop type__ to __Internet__. You should also allow any other outbound traffic from the VNET with no restriction. For example, you can route all other traffic to your Azure firewall or network virtual appliance (hosted in Azure) for monitoring purposes but the outgoing traffic should not be blocked.
 
 For more information on network security groups or user-defined routes, see the following documentation:
 
@@ -239,7 +239,7 @@ For more information on network security groups or user-defined routes, see the 
 
 #### Forced tunneling to on-premise
 
-Forced tunneling is a user-defined routing configuration where all traffic from a subnet is forced to a specific network or location, such as your on-premises network. HDInsight does __not__ support forced tunneling to the on-premise networks. If you are using Azure Firewall or a netwrok virtual appliance hosted in Azure, you can use UDRs to route the traffic to it for monitoring purposes and allow all outgoing traffic.
+Forced tunneling is a user-defined routing configuration where all traffic from a subnet is forced to a specific network or location, such as your on-premises network. HDInsight does __not__ support forced tunneling to the on-premise networks. If you are using Azure Firewall or a network virtual appliance hosted in Azure, you can use UDRs to route the traffic to it for monitoring purposes and allow all outgoing traffic.
 
 ## <a id="hdinsight-ip"></a> Required IP addresses
 

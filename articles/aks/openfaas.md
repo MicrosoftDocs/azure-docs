@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Using OpenFaaS on AKS
 
-[OpenFaaS][open-faas] is a framework for building serverless functions on top of containers. As an open source project, it has gained large-scale adoption within the community. This document details installing and using OpenFaas on an Azure Kubernetes Service (AKS) cluster.
+[OpenFaaS][open-faas] is a framework for building serverless functions through the use of containers. As an open source project, it has gained large-scale adoption within the community. This document details installing and using OpenFaas on an Azure Kubernetes Service (AKS) cluster.
 
 ## Prerequisites
 
@@ -25,43 +25,48 @@ In order to complete the steps within this article, you need the following.
 * Azure CLI installed on your development system.
 * Git command-line tools installed on your system.
 
-## Get OpenFaaS
+## Add the OpenFaaS helm chart repo
 
-Clone the OpenFaaS project repository to your development system.
-
-```azurecli-interactive
-git clone https://github.com/openfaas/faas-netes
-```
-
-Change into the directory of the cloned repository.
+OpenFaaS maintains its own helm charts to keep up to date with all the latest changes.
 
 ```azurecli-interactive
-cd faas-netes
+helm repo add openfaas https://openfaas.github.io/faas-netes/
+helm repo update
 ```
 
 ## Deploy OpenFaaS
 
 As a good practice, OpenFaaS and OpenFaaS functions should be stored in their own Kubernetes namespace.
 
-Create a namespace for the OpenFaaS system.
+Create a namespace for the OpenFaaS system and functions:
 
 ```azurecli-interactive
-kubectl create namespace openfaas
+kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml
 ```
 
-Create a second namespace for OpenFaaS functions.
+Generate a password for the OpenFaaS UI Portal and REST API:
 
 ```azurecli-interactive
-kubectl create namespace openfaas-fn
+# generate a random password
+PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d' ' -f1)
+
+kubectl -n openfaas create secret generic basic-auth \
+--from-literal=basic-auth-user=admin \
+--from-literal=basic-auth-password="$PASSWORD"
 ```
+
+You can get the value of the secret with `echo $PASSWORD`.
+
+The password we create here will be used by the helm chart to enable basic authentication on the OpenFaaS Gateway, which is exposed to the Internet through a cloud LoadBalancer.
 
 A Helm chart for OpenFaaS is included in the cloned repository. Use this chart to deploy OpenFaaS into your AKS cluster.
 
 ```azurecli-interactive
-helm install --namespace openfaas -n openfaas \
-  --set functionNamespace=openfaas-fn, \
-  --set serviceType=LoadBalancer, \
-  --set rbac=false chart/openfaas/
+helm upgrade openfaas --install openfaas/openfaas \
+    --namespace openfaas  \
+    --set basic_auth=true \
+    --set functionNamespace=openfaas-fn \
+    --set serviceType=LoadBalancer
 ```
 
 Output:
@@ -100,7 +105,7 @@ gateway            ClusterIP      10.0.156.194   <none>         8080/TCP        
 gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP   7m
 ```
 
-To test the OpenFaaS system, browse to the external IP address on port 8080, `http://52.186.64.52:8080` in this example.
+To test the OpenFaaS system, browse to the external IP address on port 8080, `http://52.186.64.52:8080` in this example. You will be prompted to log in. To fetch your password, enter `echo $PASSWORD`.
 
 ![OpenFaaS UI](media/container-service-serverless/openfaas.png)
 
@@ -108,6 +113,15 @@ Finally, install the OpenFaaS CLI. This example used brew, see the [OpenFaaS CLI
 
 ```console
 brew install faas-cli
+```
+
+Set `$OPENFAAS_URL` to the public IP found above.
+
+Log in with the Azure CLI:
+
+```azurecli-interactive
+export OPENFAAS_URL=http://52.186.64.52:8080
+echo -n $PASSWORD | ./faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
 ```
 
 ## Create first function
@@ -229,10 +243,11 @@ You can also test the function within the OpenFaaS UI.
 
 ## Next Steps
 
-The default deployment of OpenFaas needs to be locked down for both OpenFaaS Gateway and Functions. [Alex Ellis' Blog post](https://blog.alexellis.io/lock-down-openfaas/) has more details on secure configuration options.
+You can continue to learn with the OpenFaaS workshop through a set of hands-on labs that cover topics such as how to create your own GitHub bot, consuming secrets, viewing metrics, and auto-scaling.
 
 <!-- LINKS - external -->
 [install-mongo]: https://docs.mongodb.com/manual/installation/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [open-faas]: https://www.openfaas.com/
 [open-faas-cli]: https://github.com/openfaas/faas-cli
+[openfaas-workshop]: https://github.com/openfaas/workshop

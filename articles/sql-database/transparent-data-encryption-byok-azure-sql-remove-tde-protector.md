@@ -11,7 +11,7 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/12/2018
+ms.date: 03/07/2019
 ---
 # Remove a Transparent Data Encryption (TDE) protector using PowerShell
 
@@ -40,7 +40,7 @@ This how-to guide goes over two approaches depending on the desired result after
 
 ## To keep the encrypted resources accessible
 
-1. Create a [new key in Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey?view=azurermps-4.1.0). Make sure this new key is created in a separate key vault from the potentially compromised TDE protector, since access control is provisioned on a vault level. 
+1. Create a [new key in Key Vault](/powershell/module/az.keyvault/add-azkeyvaultkey). Make sure this new key is created in a separate key vault from the potentially compromised TDE protector, since access control is provisioned on a vault level.
 2. Add the new key to the server using the [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) and [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets and update it as the server’s new TDE protector.
 
    ```powershell
@@ -68,12 +68,12 @@ This how-to guide goes over two approaches depending on the desired result after
    -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
 
-4. Take a [backup of the new key](/powershell/module/az.keyvault/backup-azurekeyvaultkey) in Key Vault.
+4. Take a [backup of the new key](/powershell/module/az.keyvault/backup-azkeyvaultkey) in Key Vault.
 
    ```powershell
    <# -OutputFile parameter is optional; 
    if removed, a file name is automatically generated. #>
-   Backup-AzureKeyVaultKey `
+   Backup-AzKeyVaultKey `
    -VaultName <KeyVaultName> `
    -Name <KeyVaultKeyName> `
    -OutputFile <DesiredBackupFilePath>
@@ -87,7 +87,7 @@ This how-to guide goes over two approaches depending on the desired result after
    -Name <KeyVaultKeyName>
    ```
  
-6. To restore a key to Key Vault in the future using the [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azurekeyvaultkey) cmdlet:
+6. To restore a key to Key Vault in the future using the [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) cmdlet:
    ```powershell
    Restore-AzKeyVaultKey `
    -VaultName <KeyVaultName> `

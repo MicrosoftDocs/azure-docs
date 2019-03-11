@@ -26,7 +26,7 @@ To follow the instructions in this article, you need:
 * Azure PowerShell and/or Azure Classic CLI.
 
 ### Resource Manager templates
-A Resource Manager template makes it easy to create the following resoruces for your application in a single, coordinated operation:
+A Resource Manager template makes it easy to create the following resources for your application in a single, coordinated operation:
 * HDInsight clusters and their dependent resources (such as the default storage account).
 * Other resources (such as Azure SQL Database to use [Apache Sqoop](https://sqoop.apache.org/)).
 

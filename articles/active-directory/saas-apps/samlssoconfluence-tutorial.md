@@ -203,7 +203,7 @@ To configure Azure AD single sign-on with SAML SSO for Confluence by resolution 
 	
 	![Configure Single Sign-On](./media/samlssoconfluence-tutorial/addon6b.png)
 	
-17. In the apprearing dialog reading **Skipping the test means...**, click **OK**.
+17. In the appearing dialog reading **Skipping the test means...**, click **OK**.
 	
 	![Configure Single Sign-On](./media/samlssoconfluence-tutorial/addon6c.png)
 

@@ -26,7 +26,7 @@ To complete the steps in this article, you need the following:
 
 An application created from the **Sample Devkits** application template includes a **MXChip** device template with the following characteristics: 
 
-- Telemetry which contains the measurements for the device **Humidity**, **Temperature**, **Pressure**, **Magnometer** (measured along X, Y, Z axis), **Accelorometer** (measured along X, Y, Z axis) and **Gyroscope** (measured along X, Y, Z axis).
+- Telemetry which contains the measurements for the device **Humidity**, **Temperature**, **Pressure**, **Magnometer** (measured along X, Y, Z axis), **Accelerometer** (measured along X, Y, Z axis) and **Gyroscope** (measured along X, Y, Z axis).
 - State which contains an example measurement for **Device State**.
 - Event measurement with a **Button B Pressed** event. 
 - Settings showing **Voltage**, **Current**, **Fan Speed**, and an **IR** toggle.
@@ -51,7 +51,7 @@ In your Azure IoT Central application, add a real device from the **MXChip** dev
  
     ![Connection details](media/concepts-connectivity/device-connect.PNG)
 
-3. Make sure to save these details, as you will temporaritly get disconnected from the internet as you prepare the DevKit device. 
+3. Make sure to save these details, as you will temporarily get disconnected from the internet as you prepare the DevKit device. 
 
 
 ### Prepare the DevKit device

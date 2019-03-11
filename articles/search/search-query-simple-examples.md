@@ -88,21 +88,21 @@ All documents have a unique identifier. To try out the syntax for a lookup query
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=id&$select=id&search=*
- ```
+```
 
 The next example is a lookup query returning a specific document based on `id` "9E1E3AF9-0660-4E00-AF51-9B654925A2D5", which appeared first in the previous response. The following query returns the entire document, not just selected fields. 
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2017-11-11&$count=true&search=*
- ```
+```
 
 ## Example 3: Filter queries
 
 [Filter syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) is an OData expression that you can use with **search** or by itself. A standalone filter, without a search parameter, is useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring (all scores are 1), and no ranking. Notice the search string is empty.
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
-    {  
+POST /indexes/nycjobs/docs/search?api-version=2017-11-11
+    {
       "search": "",
       "filter": "salary_frequency eq 'Annual' and salary_range_from gt 90000",
       "select": "select=job_id, business_title, agency, salary_range_from",
@@ -118,13 +118,13 @@ If you want to try this out in Postman using GET, you can paste in this string:
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,business_title,agency,salary_range_from&search=&$filter=salary_frequency eq 'Annual' and salary_range_from gt 90000
- ```
+```
 
 Another powerful way to combine filter and search is through **`search.ismatch*()`** in a filter expression, where you can use a search query within the filter. This filter expression uses a wildcard on *plan* to select business_title including the term plan, planner, planning, and so forth.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
- ```
+```
 
 For more information about the function, see [search.ismatch in "Filter examples"](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
 
@@ -137,8 +137,8 @@ Data types are important in range filters and work best when numeric data is in 
 The following examples are in POST format for readability (numeric range, followed by text range):
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
-    {  
+POST /indexes/nycjobs/docs/search?api-version=2017-11-11
+    {
       "search": "",
       "filter": "num_of_positions ge 5 and num_of_positions lt 10",
       "select": "job_id, business_title, num_of_positions, agency",
@@ -150,8 +150,8 @@ POST /indexes/nycjobs/docs/search?api-version=2017-11-11
 
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
-    {  
+POST /indexes/nycjobs/docs/search?api-version=2017-11-11
+    {
       "search": "",
       "filter": "business_title ge 'A*' and business_title lt 'C*'",
       "select": "job_id, business_title, agency",
@@ -170,7 +170,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=&$filter=business_title ge 'A*' and business_title lt 'C*'&$select=job_id, business_title, agency&$orderby=business_title&$count=true
- ```
+```
 
 > [!NOTE]
 > Faceting over ranges of values is a common search application requirement. For more information and examples on building filters for facet navigation structures, see ["Filter based on a range" in *How to implement faceted navigation*](search-faceted-navigation.md#filter-based-on-a-range).
@@ -182,8 +182,8 @@ The sample index includes a geo_location field with latitude and longitude coord
 The following example is in POST format for readability:
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
-    {  
+POST /indexes/nycjobs/docs/search?api-version=2017-11-11
+    {
       "search": "",
       "filter": "geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4",
       "select": "job_id, business_title, work_location",

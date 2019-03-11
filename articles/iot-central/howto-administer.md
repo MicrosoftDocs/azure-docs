@@ -1,6 +1,6 @@
 ---
 title: Administer an Azure IoT Central application | Microsoft Docs
-description: As an adminstrator, how to administer your Azure IoT Central application
+description: As an administrator, how to administer your Azure IoT Central application
 author: viv-liu
 ms.author: viviali
 ms.date: 04/16/2018
@@ -144,7 +144,7 @@ Connect devices at scale in your application using the keys and certificates her
 
 ## Use access tokens
 
-Generate access tokens to use them in developer tools. Currently there is one developer tool available which is the IoT Central explorer for monitoring device messages and changes in propreties and settings. Learn more about the IoT Central explorer. 
+Generate access tokens to use them in developer tools. Currently there is one developer tool available which is the IoT Central explorer for monitoring device messages and changes in properties and settings. Learn more about the IoT Central explorer. 
 
 ## Use the Azure SDKs for control plane operations
 

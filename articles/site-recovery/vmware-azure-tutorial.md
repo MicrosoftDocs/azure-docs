@@ -79,7 +79,7 @@ To set up the configuration server as a highly available VMware VM, download a p
  >You can download the latest version of the configuration server template directly from the [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 
 >[!NOTE]
-The licence provided with OVF template is an evaluation licence valid for 180 days. Customer needs to activate the windows with a procured licence.
+The license provided with OVF template is an evaluation license valid for 180 days. Customer needs to activate the windows with a procured license.
 
 ## Import the template in VMware
 

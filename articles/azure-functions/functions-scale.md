@@ -40,9 +40,6 @@ On an App Service plan, you can scale between tiers to allocate different amount
 
 When you're using a Consumption plan, instances of the Azure Functions host are dynamically added and removed based on the number of incoming events. This serverless plan scales automatically, and you're charged for compute resources only when your functions are running. On a Consumption plan, a function execution times out after a configurable period of time.
 
-> [!NOTE]
-> The default timeout for functions on a Consumption plan is 5 minutes. The value can be increased for the Function App up to a maximum of 10 minutes by changing the property `functionTimeout` in the [host.json](functions-host-json.md#functiontimeout) project file.
-
 Billing is based on number of executions, execution time, and memory used. Billing is aggregated across all functions within a function app. For more information, see the [Azure Functions pricing page].
 
 The Consumption plan is the default hosting plan and offers the following benefits:
@@ -59,7 +56,7 @@ Consider an App Service plan in the following cases:
 * You have existing, underutilized VMs that are already running other App Service instances.
 * Your function apps run continuously, or nearly continuously. In this case, an App Service Plan can be more cost-effective.
 * You need more CPU or memory options than what is provided on the Consumption plan.
-* Your code needs to run longer than the maximum execution time allowed on the Consumption plan, which is up to 10 minutes.
+* Your code needs to run longer than the [maximum execution time allowed](#timeout) on the Consumption plan.
 * You require features that are only available on an App Service plan, such as support for App Service Environment, VNET/VPN connectivity, and larger VM sizes.
 * You want to run your function app on Linux, or you want to provide a custom image on which to run your functions.
 
@@ -74,6 +71,8 @@ When running JavaScript functions on an App Service plan, you should choose a pl
 ###<a name="always-on"></a> Always On
 
 If you run on an App Service plan, you should enable the **Always on** setting so that your function app runs correctly. On an App Service plan, the functions runtime goes idle after a few minutes of inactivity, so only HTTP triggers will "wake up" your functions. Always on is available only on an App Service plan. On a Consumption plan, the platform activates function apps automatically.
+
+[!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 ## What is my hosting plan
 

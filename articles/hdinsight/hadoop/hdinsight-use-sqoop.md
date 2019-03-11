@@ -84,9 +84,9 @@ If you prefer to use Azure PowerShell to create the cluster and the SQL Database
     - **Cluster login name and password**: The default login name is admin.
     - **SSH user name and password**.
     - **SQL database server login name and password**.
-    - **_artifacts Location**: Use the default value unless you want to use your own backpac file in a different location.
+    - **_artifacts Location**: Use the default value unless you want to use your own bacpac file in a different location.
     - **_artifacts Location Sas Token**: Leave it blank.
-    - **Bacpac File Name**: Use the default value unless you want to use your own backpac file.
+    - **Bacpac File Name**: Use the default value unless you want to use your own bacpac file.
      
         The following values are hardcoded in the variables section:
         

@@ -45,7 +45,7 @@ This article provides answers to some of the most common questions about running
    Yes. Azure only maintains one image per major version and edition. For example, when a new SQL Server service pack is released, Azure adds a new image to the gallery for that service pack. The SQL Server image for the previous service pack is immediately removed from the Azure portal. However, it is still available for provisioning from PowerShell for the next three months. After three months, the previous service pack image is no longer available. This removal policy would also apply if a SQL Server version becomes unsupported when it reaches the end of its lifecycle.
 
 
-1. **Is it possible to deploy an older image of SQL Server that is not visible in the Azure Portal?**
+1. **Is it possible to deploy an older image of SQL Server that is not visible in the Azure portal?**
 
    Yes, by using PowerShell. For more information about deploying SQL Server VMs using PowerShell, see [How to provision SQL Server virtual machines with Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
 
@@ -116,21 +116,30 @@ This article provides answers to some of the most common questions about running
 
 1. **Is it possible to register self-deployed SQL Server VMs with the SQL VM resource provider?**
 
-   Yes. If you deployed SQL Server from your own media, and installed the SQL IaaS extension you can register your SQL Server VM with the resource provider to get the manageability benefits provided by the SQL IaaS extension. However, you are unable to convert a self-deployed SQL VM to pay-as-you-go.  
+   Yes. If you deployed SQL Server from your own media, and installed the SQL IaaS extension you can register your SQL Server VM with the resource provider to get the manageability benefits provided by the SQL IaaS extension. However, you are unable to convert a self-deployed SQL VM to pay-as-you-go.
 
 ## Administration
 
 1. **Can I install a second instance of SQL Server on the same VM? Can I change installed features of the default instance?**
 
-   Yes. The SQL Server installation media is located in a folder on the **C** drive. Run **Setup.exe** from that location to add new SQL Server instances or to change other installed features of SQL Server on the machine. Note that some features, such as Automated Backup, Automated Patching, and Azure Key Vault Integration, only operate against the default instance.
+   Yes. The SQL Server installation media is located in a folder on the **C** drive. Run **Setup.exe** from that location to add new SQL Server instances or to change other installed features of SQL Server on the machine. Note that some features, such as Automated Backup, Automated Patching, and Azure Key Vault Integration, only operate against the default instance, or a named instance that was configured properly (See Question 3). 
 
 1. **Can I uninstall the default instance of SQL Server?**
 
-   Yes, but there are some considerations. As stated in the previous answer, features that rely on the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) only operate on the default instance. If you uninstall the default instance, the extension continues to look for it and may generate event log errors. These errors are from the following two sources: **Microsoft SQL Server Credential Management** and **Microsoft SQL Server IaaS Agent**. One of the errors might be similar to the following:
+   Yes, but there are some considerations. As stated in the previous answer, there are features that rely on the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).  If you uninstall the default instance without removing the IaaS extension also, the extension continues to look for it and may generate event log errors. These errors are from the following two sources: **Microsoft SQL Server Credential Management** and **Microsoft SQL Server IaaS Agent**. One of the errors might be similar to the following:
 
       A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible.
 
    If you do decide to uninstall the default instance, also uninstall the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) as well.
+
+1. **Can I use a named instance of SQL Server with the IaaS extension**?
+   
+   Yes, if the named instance is the only instance on the SQL Server, and if the original default instance was uninstalled properly. To use a named instance, do the following:
+    1. Deploy a SQL Server VM from the marketplace. 
+    1. Uninstall the IaaS extension.
+    1. Uninstall SQL Server completely.
+    1. Install SQL Server with a named instance. 
+    1. Install the IaaS extension. 
 
 1. **Can I remove SQL Server completely from a SQL VM?**
 
@@ -138,9 +147,9 @@ This article provides answers to some of the most common questions about running
    
 ## Updating and Patching
 
-1. **How do I upgrade to a new version/edition of the SQL Server in an Azure VM?**
+1. **How do I change to a new version/edition of the SQL Server in an Azure VM?**
 
-   Currently, there is no in-place upgrade for SQL Server running in an Azure VM. Create a new Azure virtual machine with the desired SQL Server version/edition, and then migrate your databases to the new server using standard [data migration techniques](virtual-machines-windows-migrate-sql.md).
+   Customers with Software Assurance are able to do in-place upgrades of their SQL Server running on an Azure VM using the installation media in the Volume Licensing Portal. However, currently, there is no way to change the edition of an instance of SQL Server. Create a new Azure virtual machine with the desired SQL Server edition, and then migrate your databases to the new server using standard [data migration techniques](virtual-machines-windows-migrate-sql.md).
 
 1. **How are updates and service packs applied on a SQL Server VM?**
 
