@@ -48,48 +48,48 @@ Azure API Management provides you the ability to customize the content of develo
 <div class="row center-block ap-idp-container">
   <div class="col-md-6">
     {% if registrationEnabled == true %}
-        <p>{% localized "SigninStrings|WebAuthenticationSigininWithPassword" %}</p>
+      <p>{% localized "SigninStrings|WebAuthenticationSigininWithPassword" %}</p>
     <basic-SignIn></basic-SignIn>
     {% endif %}
   </div>
 
-    {% if registrationEnabled != true and providers.size == 0 %}
-        {% localized "ProviderInfoStrings|TextboxExternalIdentitiesDisabled" %}
+  {% if registrationEnabled != true and providers.size == 0 %}
+    {% localized "ProviderInfoStrings|TextboxExternalIdentitiesDisabled" %}
   {% else %}
-        {% if providers.size > 0 %}
+    {% if providers.size > 0 %}
       <div class="col-md-6">
-            <div class="providers-list">
-                <p class="text-left">
-                {% if registrationEnabled == true %}
-                    {% localized "ProviderInfoStrings|TextboxExternalIdentitiesSigninInvitation" %}
-                {% else %}
-                    {% localized "ProviderInfoStrings|TextboxExternalIdentitiesSigninInvitationPrimary" %}
-                {% endif %}
-                </p>
-        <providers></providers>
-            </div>
-    </div>
-        {% endif %}
+        <div class="providers-list">
+          <p class="text-left">
+            {% if registrationEnabled == true %}
+              {% localized "ProviderInfoStrings|TextboxExternalIdentitiesSigninInvitation" %}
+            {% else %}
+              {% localized "ProviderInfoStrings|TextboxExternalIdentitiesSigninInvitationPrimary" %}
+            {% endif %}
+          </p>
+          <providers></providers>
+        </div>
+      </div>
     {% endif %}
+  {% endif %}
 
   {% if userRegistrationTermsEnabled == true %}
     <div class="col-md-6">
-        <div id="terms" class="modal" role="dialog" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">{% localized "SigninResources|DialogHeadingTermsOfUse" %}</h4>
-                    </div>
-                    <div class="modal-body break-all">{{userRegistrationTerms}}</div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">{% localized "CommonStrings|ButtonLabelClose" %}</button>
-                    </div>
-                </div>
+      <div id="terms" class="modal" role="dialog" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">{% localized "SigninResources|DialogHeadingTermsOfUse" %}</h4>
             </div>
+            <div class="modal-body break-all">{{userRegistrationTerms}}</div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">{% localized "CommonStrings|ButtonLabelClose" %}</button>
+            </div>
+          </div>
         </div>
-        <p>{% localized "SigninResources|TextblockUserRegistrationTermsProvided" %}</p>
+      </div>
+      <p>{% localized "SigninResources|TextblockUserRegistrationTermsProvided" %}</p>
     </div>
-    {% endif %}
+  {% endif %}
 </div>
 ```
   
@@ -125,7 +125,7 @@ Azure API Management provides you the ability to customize the content of develo
             "AuthenticationType": "Aad",
             "Caption": "Azure Active Directory"
         }
-        ],
+    ],
     "UserRegistrationTerms": null,
     "UserRegistrationTermsEnabled": false
 }
