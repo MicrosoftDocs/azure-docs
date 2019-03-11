@@ -211,6 +211,10 @@ The value for **mac** in the previous output is the MAC address of the network i
 | 24 | Packets sent - Destination to source **Version 2 Only** | The total number of TCP or UDP packets sent from destination to source since last update. |
 | 14008| Bytes sent - Destination to source **Version 2 Only** | The total number of TCP and UDP packet bytes sent from destination to source since last update. Packet bytes include packet header and payload.| |
 
+## Azure platform considerations
+
+- **Inbound flows logged from internet IPs to VMs without public IPs**: VMs that do not have a public IP address assigned via a public IP address associated with the NIC or are part of a public load balancer backend pool have a public IP address assigned to facilitate outbound SNAT.  The only exception is for VMs that are only in a standard SKU internal load balancer backend pool.  As a result, you may see unexpected flow log entries for uninitiated flows from internet IPs if the uninitiated flow is destined to a port in the range of ports assigned for SNAT.  While the platform will not allow these flows to the VM, it is still recommended that unwanted inbound internet traffic be explicitly blocked in the NSG.  Network Watcher's NSG flow log will show these inbound flows being blocked by the platform as designed.
+
 ## Next steps
 
 In this tutorial, you learned how to enable NSG flow logging for an NSG. You also learned how to download and view data logged in a file. The raw data in the json file can be difficult to interpret. To visualize the data, you can use Network Watcher [traffic analytics](traffic-analytics.md), Microsoft [PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md), and other tools.
