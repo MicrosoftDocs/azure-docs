@@ -61,7 +61,7 @@ Download [kubectl][kubectl-install].
         > Make sure this service principal is set up with the correct scope. See [AKS-Engine: Service Principals](https://github.com/Azure/aks-engine/blob/master/docs/topics/service-principals.md).
         >
 
-## Deploy your Kubernetes cluster using acs-engine
+## Deploy your Kubernetes cluster using aks-engine
 1. Obtain your Subscription ID. The subscription ID is available in the Azure portal, via Powershell and via the Azure CLI:
 
     Via Azure CLI:
@@ -72,7 +72,7 @@ Download [kubectl][kubectl-install].
     az account list
     ```
 
-1. Use acs-engine to deploy your template to Azure Government. This operation takes up to 30 minutes for three nodes.
+1. Use aks-engine to deploy your template to Azure Government. This operation takes up to 30 minutes for three nodes.
 
     ```bash
     aks-engine deploy --azure-env AzureUSGovernmentCloud --location usgovvirginia --subscription-id <YOUR_SUBSCRIPTION_ID> --client-id <YOUR-SP-ID> --client-secret <YOUR-SP-PASSWD> --api-model kubernetes.json
