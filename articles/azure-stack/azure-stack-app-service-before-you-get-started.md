@@ -13,10 +13,10 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 02/22/2019
+ms.lastreviewed: 03/11/2019
 
 ---
 
@@ -166,6 +166,15 @@ Subnets
 - FrontEndsSubnet /24
 - PublishersSubnet /24
 - WorkersSubnet /21
+
+## Licensing concerns for required file server and SQL Server
+
+Azure App Service on Azure Stack requires a File Server and SQL Server to operate.  You are free to use pre-existing resources located outside of your Azure Stack deployment or deploy resources within their Azure Stack Default Provider Subscription.
+
+If you choose to deploy the resources within your Azure Stack Default Provider Subscription, the license for those resources (Windows Server Licenses and SQL Server Licenses) are included in the cost of Azure App Service on Azure Stack subject to the following constraints:
+
+- the infrastructure is deployed into the **Default Provider Subscription**;
+- the infrastructure is exclusively used by the Azure App Service on Azure Stack resource provider.  No other workloads, administrative (other resource providers, for example SQL-RP) or tenant (for example tenant applications which require a database), are permitted to make use of this infrastructure.
 
 ## Prepare the file server
 
