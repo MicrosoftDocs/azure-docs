@@ -27,14 +27,14 @@ The following Azure Resource Manager template defines a new Azure virtual machin
     "contentVersion": "1.0.0.0",
     "parameters": {
         "userStorageAccountName": {
-            "type": "string"            
+            "type": "string"
         },
         "userStorageContainerName": {
             "type": "string",
             "defaultValue": "vhds"
-        },        
+        },
         "dnsNameForPublicIP": {
-            "type": "string"            
+            "type": "string"
         },
         "adminUserName": {
             "defaultValue": "isv",
@@ -52,11 +52,11 @@ The following Azure Resource Manager template defines a new Azure virtual machin
                 "linux"
             ]
         },
-        "subscriptionId": {            
+        "subscriptionId": {
             "type": "string"
         },
         "location": {
-            "type": "string"           
+            "type": "string"
         },
         "vmSize": {
             "type": "string"
@@ -65,7 +65,7 @@ The following Azure Resource Manager template defines a new Azure virtual machin
             "type": "string"
         },
         "vmName": {
-            "type": "string"            
+            "type": "string"
         },
         "virtualNetworkName": {
             "type": "string"
@@ -74,13 +74,13 @@ The following Azure Resource Manager template defines a new Azure virtual machin
             "type": "string"
         },
         "vaultName": {
-            "type": "string",            
+            "type": "string",
             "metadata": {
                 "description": "Name of the KeyVault"
             }
         },
         "vaultResourceGroup": {
-            "type": "string",           
+            "type": "string",
             "metadata": {
                 "description": "Resource Group of the KeyVault"
             }
@@ -247,7 +247,7 @@ The following Azure Resource Manager template defines a new Azure virtual machin
                         "storageUri": "[concat('http://', parameters('userStorageAccountName'), '.blob.core.windows.net')]"
                     }
                 }
-                
+
                 }
             }
         ]
