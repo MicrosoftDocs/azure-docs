@@ -145,7 +145,7 @@ public static SendGridMessage Run(Message mymsg, ILogger log)
     {
         Subject = $"{mymsg.Subject}"
     };
-    
+
     message.AddContent("text/plain", $"{mymsg.Content}");
 
     return message;
@@ -213,10 +213,10 @@ The [configuration](#configuration) section explains these properties.
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, input) {    
+module.exports = function (context, input) {
     var message = {
          "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
-        from: { email: "sender@contoso.com" },        
+        from: { email: "sender@contoso.com" },
         subject: "Azure news",
         content: [{
             type: 'text/plain',
@@ -281,7 +281,7 @@ This section describes the global configuration settings available for this bind
         }
     }
 }
-```  
+```
 
 |Property  |Default | Description |
 |---------|---------|---------| 
