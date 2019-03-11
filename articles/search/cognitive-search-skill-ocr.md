@@ -27,6 +27,7 @@ The **OCR** skill extracts text from image files. Supported file formats include
 + .PNG
 + .BMP
 + .GIF
++ .TIFF
 
 > [!NOTE]
 > Starting December 21, 2018, you can [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) with an Azure Search skillset. This allows us to start charging for skillset execution. On this date, we also began charging for image extraction as part of the document-cracking stage. Text extraction from documents continues to be offered at no additional cost.
