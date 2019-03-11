@@ -38,10 +38,10 @@ To start with, [download the Service Fabric for Windows Server package](service-
         },
         "ClusterCertificateCommonNames": {
             "CommonNames": [
-            {
-                "CertificateCommonName": "[CertificateCommonName]",
-                "CertificateIssuerThumbprint": "[Thumbprint1,Thumbprint2,Thumbprint3,...]"
-            }
+                {
+                    "CertificateCommonName": "[CertificateCommonName]",
+                    "CertificateIssuerThumbprint": "[Thumbprint1,Thumbprint2,Thumbprint3,...]"
+                }
             ],
             "X509StoreName": "My"
         },
@@ -58,10 +58,10 @@ To start with, [download the Service Fabric for Windows Server package](service-
         },
         "ServerCertificateCommonNames": {
             "CommonNames": [
-            {
-                "CertificateCommonName": "[CertificateCommonName]",
-                "CertificateIssuerThumbprint": "[Thumbprint1,Thumbprint2,Thumbprint3,...]"
-            }
+                {
+                    "CertificateCommonName": "[CertificateCommonName]",
+                    "CertificateIssuerThumbprint": "[Thumbprint1,Thumbprint2,Thumbprint3,...]"
+                }
             ],
             "X509StoreName": "My"
         },
@@ -178,12 +178,12 @@ Here is an example cluster configuration where the cluster, server, and client c
             "ServerCredentialType": "X509",
             "CertificateInformation": {
                 "ClusterCertificateCommonNames": {
-                  "CommonNames": [
-                    {
-                      "CertificateCommonName": "myClusterCertCommonName"
-                    }
-                  ],
-                  "X509StoreName": "My"
+                    "CommonNames": [
+                        {
+                            "CertificateCommonName": "myClusterCertCommonName"
+                        }
+                    ],
+                    "X509StoreName": "My"
                 },
                 "ClusterCertificateIssuerStores": [
                     {
@@ -196,13 +196,13 @@ Here is an example cluster configuration where the cluster, server, and client c
                     }
                 ],
                 "ServerCertificateCommonNames": {
-                  "CommonNames": [
-                    {
-                      "CertificateCommonName": "myServerCertCommonName",
-                      "CertificateIssuerThumbprint": "7c fc 91 97 13 16 8d ff a8 ee 71 2b a2 f4 62 62 00 03 49 0d"
-                    }
-                  ],
-                  "X509StoreName": "My"
+                    "CommonNames": [
+                        {
+                            "CertificateCommonName": "myServerCertCommonName",
+                            "CertificateIssuerThumbprint": "7c fc 91 97 13 16 8d ff a8 ee 71 2b a2 f4 62 62 00 03 49 0d"
+                        }
+                    ],
+                    "X509StoreName": "My"
                 },
                 "ClientCertificateThumbprints": [{
                     "CertificateThumbprint": "c4 c18 8e aa a8 58 77 98 65 f8 61 4a 0d da 4c 13 c5 a1 37 6e",
@@ -271,7 +271,7 @@ Now export the certificate to a .pfx file with a protected password. First, get 
 
 5. Change the `String` value to a suitable secure password to protect it, and run the following in PowerShell:
 
-   ```powershell   
+   ```powershell
    $pswd = ConvertTo-SecureString -String "1234" -Force –AsPlainText
    Get-ChildItem -Path cert:\localMachine\my\<Thumbprint> | Export-PfxCertificate -FilePath C:\mypfx.pfx -Password $pswd
    ```
