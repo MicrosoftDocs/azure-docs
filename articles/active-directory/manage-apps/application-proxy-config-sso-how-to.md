@@ -40,7 +40,7 @@ Configure the specific type of single sign-on. The sign-on methods are classifie
 
 -   **Header-based Sign-On**: Header-based sign-on is enabled through a partnership and does require some additional configuration. For details on the partnership and step-by-step instructions for configuring single sign-on to an application that uses headers for authentication, see the [PingAccess for Azure AD documentation](application-proxy-configure-single-sign-on-with-ping-access.md).
 
--   **SAML single sign-on**: With SAML single sign-on, Azure AD authenticates to the application by using the user's Azure AD account. Azure AD communicates the sign-on information to the application through a connection protocol. With SAML-based single sign-on, you can map users to specific application roles based on rules you define in your SAML claims. For information about setting up SAML single sign-on, see [SAML for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-onpremises-apps.md).
+-   **SAML single sign-on**: With SAML single sign-on, Azure AD authenticates to the application by using the user's Azure AD account. Azure AD communicates the sign-on information to the application through a connection protocol. With SAML-based single sign-on, you can map users to specific application roles based on rules you define in your SAML claims. For information about setting up SAML single sign-on, see [SAML for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
 Each of these options can be found by going to your application in “Enterprise Applications”, and opening the **Single Sign-On** page on the left menu. Note that if your application was created in the old portal, you may not see all these options.
 
@@ -52,4 +52,4 @@ This option allows an admin to create a link to an application that users first 
 - [Password vaulting for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-password-vaulting.md)
 - [Kerberos Constrained Delegation for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Header-based authentication for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-ping-access.md) 
-- [SAML for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-onpremises-apps.md).
+- [SAML for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-on-premises-apps.md).

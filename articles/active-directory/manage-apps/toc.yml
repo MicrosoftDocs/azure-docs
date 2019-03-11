@@ -222,7 +222,7 @@
         - name: Headers
           href: application-proxy-configure-single-sign-on-with-ping-access.md
         - name: SAML SSO
-          href: application-proxy-configure-single-sign-on-onpremises-apps.md
+          href: application-proxy-configure-single-sign-on-on-premises-apps.md
     - name: Access panel
       items:
       - name: Manage browser extension
