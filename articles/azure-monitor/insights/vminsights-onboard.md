@@ -91,7 +91,7 @@ The following table lists the Windows and Linux operating systems that are suppo
 > - Only default and SMP Linux kernel releases are supported.
 > - Nonstandard kernel releases, such as Physical Address Extension (PAE) and Xen, aren't supported for any Linux distribution. For example, a system with the release string of *2.6.16.21-0.8-xen* isn't supported.
 > - Custom kernels, including recompiles of standard kernels, aren't supported.
-> - CentOSPlus kernel isn't supported.
+> - CentOSPlus kernel is supported.
 
 #### Red Hat Linux 7
 
@@ -107,6 +107,12 @@ The following table lists the Windows and Linux operating systems that are suppo
 |:--|:--|
 | 6.9 | 2.6.32-696 |
 | 6.10 | 2.6.32-754 |
+
+### CentOSPlus
+| OS version | Kernel version |
+|:--|:--|
+| 6.9 | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
+| 6.10 | 2.6.32-696.30.1<br>2.6.32-754.3.5 |
 
 #### Ubuntu Server
 

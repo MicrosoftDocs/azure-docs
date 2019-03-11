@@ -55,7 +55,7 @@ The following section list the supported operating systems for the Dependency ag
 - Only default and SMP Linux kernel releases are supported.
 - Nonstandard kernel releases, such as PAE and Xen, are not supported for any Linux distribution. For example, a system with the release string of "2.6.16.21-0.8-xen" is not supported.
 - Custom kernels, including recompiles of standard kernels, are not supported.
-- CentOSPlus kernel is not supported.
+- CentOSPlus kernel is supported.
 - Oracle Unbreakable Enterprise Kernel (UEK) is covered in a later section of this article.
 
 ### Red Hat Linux 7
@@ -72,6 +72,12 @@ The following section list the supported operating systems for the Dependency ag
 |:--|:--|
 | 6.9 | 2.6.32-696 |
 | 6.10 | 2.6.32-754 |
+
+### CentOSPlus
+| OS version | Kernel version |
+|:--|:--|
+| 6.9 | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
+| 6.10 | 2.6.32-696.30.1<br>2.6.32-754.3.5 |
 
 ### Ubuntu Server
 
