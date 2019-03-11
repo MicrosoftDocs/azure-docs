@@ -149,7 +149,7 @@ A device must be registered with your IoT hub before it can connect. In this sec
 
 ### Run the device-local proxy application
 
-1. Edit the source file `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample/iothub_client_c2d_streaming_proxy_sample.c` and provide your device connection string, target device IP/hostname, and the RDP port 22:
+1. Edit the source file `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample/iothub_client_c2d_streaming_proxy_sample.c` and provide your device connection string, target device IP/hostname, and the SSH port 22:
 
    ```C
    /* Paste in the your iothub connection string  */
