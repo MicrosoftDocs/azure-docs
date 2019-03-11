@@ -16,7 +16,7 @@ This article shows you how to create a VNet with a Point-to-Site connection that
 
 A Point-to-Site (P2S) VPN gateway lets you create a secure connection to your virtual network from an individual client computer. Point-to-Site VPN connections are useful when you want to connect to your VNet from a remote location, such as when you are telecommuting from home or a conference. A P2S VPN is also a useful solution to use instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet.
 
-A P2S VPN connection is started from Windows and Mac devices. Connecting clients can use the following authentication methods:
+A P2S VPN connection is started from Windows and Mac devices. Connecting clients can use the following authentication methods: 
 
 * RADIUS server
 * VPN Gateway native certificate authentication
