@@ -179,10 +179,6 @@ ensure
 end
 ```
 
-## Run Ruby code 
-- Save the code into a text file with file extension .rb, and save the file into a project folder, such as `C:\rubypostgres\read.rb` or `/home/username/rubypostgres/read.rb`
-- To run the code, launch the command prompt or bash shell. Change directory into your project folder `cd rubypostgres`, then type the command `ruby read.rb` to run the application.
-
 ## Next steps
 > [!div class="nextstepaction"]
 > [Migrate your database using Export and Import](./howto-migrate-using-export-and-import.md)
