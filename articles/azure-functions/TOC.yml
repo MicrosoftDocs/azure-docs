@@ -156,6 +156,7 @@
       href: functions-runtime-install.md
     - name: Deploy using the Jenkins plugin
       href: /azure/jenkins/jenkins-azure-functions-deploy
+      maintainContext: true
   - name: Configure
     items:
     - name: Manage a function app 
