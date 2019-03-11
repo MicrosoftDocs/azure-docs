@@ -323,7 +323,7 @@ print(aks_target.provisioning_errors)
 
 #### Use an existing cluster
 
-If you already have AKS cluster in your Azure subscription, and it is version 1.11.*, you can use it to deploy your image. The following code demonstrates how to attach an existing cluster to your workspace:
+If you already have AKS cluster in your Azure subscription, and it is version 1.11.##, you can use it to deploy your image. The following code demonstrates how to attach an existing AKS 1.11.## cluster to your workspace:
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
