@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 03/11/2019
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
@@ -230,7 +230,9 @@ and then choose **Review + create**, for example:
    each subnet must have a minimum 32 addresses. For example:
 
      * `10.0.0.0/27` has 32 addresses because 2<sup>(32-27)</sup> is 2<sup>5</sup> or 32.
+
      * `10.0.0.0/24` has 256 addresses because 2<sup>(32-24)</sup> is 2<sup>8</sup> or 256.
+
      * `10.0.0.0/28` has only 16 addresses and is too small because 2<sup>(32-28)</sup> 
      is 2<sup>4</sup> or 16.
 
@@ -317,7 +319,7 @@ Otherwise, for metric-based, follow these steps:
 
    1. On the **Scale rule** pane, set up your criteria 
    and action to take when the rule triggers.
-   
+
    1. When you're done, choose **Add**.
 
 1. When you're finished, remember to save your changes.
