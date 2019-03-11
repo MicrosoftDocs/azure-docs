@@ -32,12 +32,12 @@ The following information is common to all operations that you might do related 
 The service will use HTTP status codes to indicate success or failure. In addition, failures contain a response in the following format:
 
 ```
-   {
-     "error": {
-     "code": "BadRequest",
-     "message": "The key vault sku is invalid."
-     }
-   }
+{
+  "error": {
+    "code": "BadRequest",
+    "message": "The key vault sku is invalid."
+  }
+}
 ```
 
 |Element name | Type | Description |
