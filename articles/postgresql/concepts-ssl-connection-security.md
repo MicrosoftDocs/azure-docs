@@ -58,7 +58,7 @@ openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
 ### Connecting to Azure Database for PostgreSQL with SSL certificate authentication
 Now that you have successfully decoded your certificate, you can now connect to your database server securely over SSL. To allow server certificate verification, the certificate must be placed in the file ~/.postgresql/root.crt in the user's home directory. (On Microsoft Windows the file is named %APPDATA%\postgresql\root.crt.). 
 
-#### Using psql command-line utility
+#### Connect using psql
 The following example shows how to successfully connect to your PostgreSQL server using the psql command-line utility. Use the `root.crt` file created and the `sslmode=verify-ca` or `sslmode=verify-full` option.
 
 Using the PostgreSQL command-line interface, execute the following command:
@@ -77,11 +77,6 @@ Type "help" for help.
 
 postgres=>
 ```
-
-#### Using pgAdmin GUI tool
-Configuring pgAdmin 4 to connect securely over SSL requires you to set the `SSL mode = Verify-CA` or `SSL mode = Verify-Full` as follows:
-
-![Screenshot of pgAdmin - connection - SSL mode Require](./media/concepts-ssl-connection-security/2-pgadmin-ssl.png)
 
 ## Next steps
 Review various application connectivity options following [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md).
