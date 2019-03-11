@@ -894,7 +894,7 @@ Save and modify the json below as advanceddynamicmetricalert.parameters.json for
                 },
                 "timeAggregation": "Total"
             }
-        }
+        },
         "actionGroupId": {
             "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resource-group-name/providers/Microsoft.Insights/actionGroups/replace-with-actiongroup-name"
         }
