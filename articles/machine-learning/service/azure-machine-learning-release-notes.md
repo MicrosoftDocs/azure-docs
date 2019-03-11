@@ -56,6 +56,18 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 
 ## 2019-02-11
 
+### Azure Machine Learning Data Prep SDK v1.0.15
+
++ **New features**
+  + Data Prep now supports writing file streams from a dataflow. Also provides the ability to manipulate the file stream names to create new file names.
+    + How-to guide: [Working With File Streams notebook](https://aka.ms/aml-data-prep-file-stream-nb)
+
++ **Bug fixes and improvements**
+  + Improved performance of t-Digest on large data sets.
+  + Data Prep now supports reading data from a DataPath.
+  + One hot encoding now works on boolean and numeric columns.
+  + Other miscellaneous bug fixes.
+
 ### Azure Machine Learning SDK for Python v1.0.15
 
 + **New features**
