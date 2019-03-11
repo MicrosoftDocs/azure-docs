@@ -22,8 +22,6 @@ ms.author: cynthn
 This article walks you through how to move a Windows virtual machine (VM) between resource groups or subscriptions. Moving between subscriptions can be handy if you originally created a VM in a personal subscription and now want to move it to your company's subscription to continue your work.
 
 > [!IMPORTANT]
->You cannot move Azure Managed Disks at this time. 
->
 >New resource IDs are created as part of the move. After the VM has been moved, you will need to update your tools and scripts to use the new resource IDs. 
 > 
 > 
@@ -32,23 +30,23 @@ This article walks you through how to move a Windows virtual machine (VM) betwee
 
 ## Use Powershell to move a VM
 
-To move a virtual machine to another resource group, you need to make sure that you also move all of the dependent resources. To get a list with the resource ID of each of these resources, use the [Get-AzureRMResource](/powershell/module/azurerm.resources/get-azurermresource) cmdlet.
+To move a virtual machine to another resource group, you need to make sure that you also move all of the dependent resources. To get a list with the resource ID of each of these resources, use the [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) cmdlet.
 
 ```azurepowershell-interactive
- Get-AzureRMResource -ResourceGroupName <sourceResourceGroupName> | Format-table -Property ResourceId 
+ Get-AzResource -ResourceGroupName <sourceResourceGroupName> | Format-table -Property ResourceId 
 ```
 
-You can use the output of the previous command as a comma-separated list of resource IDs to [Move-AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource) to move each resource to the destination. 
+You can use the output of the previous command as a comma-separated list of resource IDs to [Move-AzResource](https://docs.microsoft.com/powershell/module/az.resources/move-azresource) to move each resource to the destination. 
 
 ```azurepowershell-interactive
-Move-AzureRmResource -DestinationResourceGroupName "<myDestinationResourceGroup>" `
+Move-AzResource -DestinationResourceGroupName "<myDestinationResourceGroup>" `
     -ResourceId <myResourceId,myResourceId,myResourceId>
 ```
 	
 To move the resources to different subscription, include the **-DestinationSubscriptionId** parameter. 
 
 ```azurepowershell-interactive
-Move-AzureRmResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" `
+Move-AzResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" `
     -DestinationResourceGroupName "<myDestinationResourceGroup>" `
     -ResourceId <myResourceId,myResourceId,myResourceId>
 ```

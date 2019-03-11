@@ -39,6 +39,8 @@ The following steps provide an overview of managing your API Management service 
 
 This article describes how to enable and use Git to manage your service configuration and provides a reference for the files and folders in the Git repository.
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ## Access Git configuration in your service
 
 To view and configure your Git configuration settings, you can click the **Security** menu and navigate to the **Configuration repository** tab.
@@ -74,7 +76,7 @@ To generate a password, first ensure that the **Expiry** is set to the desired e
 > Make a note of this password. Once you leave this page the password will not be displayed again.
 > 
 
-The following examples use the Git Bash tool from [Git for Windows](http://www.git-scm.com/downloads) but you can use any Git tool that you are familiar with.
+The following examples use the Git Bash tool from [Git for Windows](https://www.git-scm.com/downloads) but you can use any Git tool that you are familiar with.
 
 Open your Git tool in the desired folder and run the following command to clone the git repository to your local machine, using the command provided by the Azure portal.
 

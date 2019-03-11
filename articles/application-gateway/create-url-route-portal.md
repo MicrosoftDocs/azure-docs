@@ -35,7 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Log in to Azure
 
-Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
+Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
 
 ## Create an application gateway
 
@@ -96,6 +96,8 @@ In this example, you create three virtual machines to be used as backend servers
 
 ### Install IIS
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. Open the interactive shell and make sure that it is set to **PowerShell**.
 
     ![Install custom extension](./media/create-url-route-portal/application-gateway-extension.png)
@@ -104,7 +106,7 @@ In this example, you create three virtual machines to be used as backend servers
 
     ```azurepowershell-interactive
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
       -ExtensionName IIS `
@@ -115,12 +117,12 @@ In this example, you create three virtual machines to be used as backend servers
       -Settings $publicSettings
     ```
 
-3. Create two more virtual machines and install IIS using the steps that you just finished. Enter the names of *myVM2* and *myVM3* for the names and for the values of VMName in Set-AzureRmVMExtension.
+3. Create two more virtual machines and install IIS using the steps that you just finished. Enter the names of *myVM2* and *myVM3* for the names and for the values of VMName in Set-AzVMExtension.
 
 ## Create backend pools with the virtual machines
 
 1. Click **All resources** and then click **myAppGateway**.
-2. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGateayBackendPool**.
+2. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGatewayBackendPool**.
 3. Click **Add target** to add *myVM1* to appGatewayBackendPool.
 
     ![Add backend servers](./media/create-url-route-portal/application-gateway-backend.png)

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Data Box Edge is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -80,7 +80,7 @@ The Data Box Edge physical device has the following features:
 | Memory| 64 GB RAM|
 | Disks| 8 NVMe SSDs, each disk is 1.6 TB <br> The system fails if one NVMe SSD fails. |
 | Local storage capacity| 12.8 TB total capacity|
-| Network interfaces| 2 X 1 GbE interfaces – 1 management, not user configurable, used for initial setup. The other data interface is user configurable and is DHCP by default. <br>2 X 25 GbE interfaces – These can also operate as 10 GbE interfaces. These data interfaces can be configured by user as DHCP (default) or static. <br> 2 X 25 GbE interfaces - These data interfaces can be configured by user as DHCP (default) or static.|
+| Network interfaces| 2 X 1 GbE interfaces – 1 management, not user configurable, used for initial setup. The other interface is user configurable, can be used for data transfer, and is DHCP by default. <br>2 X 25 GbE interfaces – These can also operate as 10 GbE interfaces. These data interfaces can be configured by user as DHCP (default) or static. <br> 2 X 25 GbE interfaces - These data interfaces can be configured by user as DHCP (default) or static.|
 
 ## Components
 

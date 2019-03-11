@@ -1,6 +1,6 @@
 ---
-title: Receive events from Azure Event Hubs using Java | Microsoft Docs
-description: Get started receiving from Event Hubs using Java
+title: Receive events using Java - Azure Event Hubs | Microsoft Docs
+description: This article provides a walkthrough for creating a Java application that receives events from Azure Event Hubs. 
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
@@ -8,7 +8,8 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 08/26/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---
@@ -41,28 +42,28 @@ To use EventProcessorHost, you must have an [Azure Storage account][Azure Storag
 1. Log on to the [Azure portal][Azure portal], and click **+ Create a resource** on the left-hand side of the screen.
 2. Click **Storage**, then click **Storage account**. In the **Create storage account** window, type a name for the storage account. Complete the rest of the fields, select your desired region, and then click **Create**.
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
+    ![Create storage account](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
 3. Click the newly created storage account, and then click **Access Keys**:
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
+    ![Get access keys](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
     Copy the key1 value to a temporary location. You use it later in this tutorial.
 
 ### Create a Java project using the EventProcessor Host
 
-The Java client library for Event Hubs is available for use in Maven projects from the [Maven Central Repository][Maven Package], and can be referenced using the following dependency declaration inside your Maven project file. The current version for the artifact azure-eventhubs-eph is 2.0.1 and the current version for the artifact azure-eventhubs is 1.0.2:    
+The Java client library for Event Hubs is available for use in Maven projects from the [Maven Central Repository][Maven Package], and can be referenced using the following dependency declaration inside your Maven project file: 
 
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
-    <version>1.0.2</version>
+    <version>2.2.0</version>
 </dependency>
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs-eph</artifactId>
-    <version>2.0.1</version>
+    <version>2.4.0</version>
 </dependency>
 ```
 
@@ -274,7 +275,7 @@ Create a class that implements the interface com.microsoft.azure.eventprocessorh
 
 Use your custom implementation of the checkpoint manager (com.microsoft.azure.eventprocessorhost.ICheckpointManager)
 
-Within your implementation, you can override the default checkpointing mechanism and implement our own checkpoints based on your own data store (SQL Server, CosmosDB, Redis Cache etc). We recommend that the store used to back your checkpoint manager implementation is accessible to all EPH instances that are processing events for the consumer group.
+Within your implementation, you can override the default checkpointing mechanism and implement our own checkpoints based on your own data store (SQL Server, CosmosDB, Azure Cache for Redis etc). We recommend that the store used to back your checkpoint manager implementation is accessible to all EPH instances that are processing events for the consumer group.
 
 You can use any datastore that is available in your environment.
 

@@ -1,6 +1,6 @@
 ---
-title: Use Apache Kafka MirrorMaker with Azure Event Hubs for Kafka Ecosystem | Microsoft Docs
-description: Use Kafka MirrorMaker to mirror a Kafka cluster in Event Hubs.
+title: Use Apache Kafka MirrorMaker - Azure Event Hubs | Microsoft Docs
+description: This article provides information on how to use Kafka MirrorMaker to mirror a Kafka cluster in AzureEvent Hubs.
 services: event-hubs
 documentationcenter: .net
 author: basilhariri
@@ -8,8 +8,8 @@ manager: timlt
 
 ms.service: event-hubs
 ms.topic: mirror-maker
-ms.custom: mvc
-ms.date: 08/07/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: bahariri
 
 ---
@@ -46,7 +46,7 @@ To complete this tutorial, make sure you have:
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
     * On Ubuntu, run `apt-get install default-jdk` to install the JDK.
     * Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
-* [Download](http://maven.apache.org/download.cgi) and [install](http://maven.apache.org/install.html) a Maven binary archive
+* [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a Maven binary archive
     * On Ubuntu, you can run `apt-get install maven` to install Maven.
 * [Git](https://www.git-scm.com/downloads)
     * On Ubuntu, you can run `sudo apt-get install git` to install Git.

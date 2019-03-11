@@ -11,7 +11,7 @@
 ### [Disaster recovery using Azure DNS and Traffic Manager](disaster-recovery-dns-traffic-manager.md)
 ## Plan and design
 ### [Virtual networks](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Cross-premises connectivity - VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Cross-premises connectivity - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Cross-premises connectivity - dedicated private](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### Backend connectivity interoperability
 #### [Preface and Test Setup](connectivty-interoperability-preface.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -35,7 +35,7 @@
 # How to
 ## Internet connectivity
 ### [Network load balance public servers](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Application load balance public servers](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Application load balance public servers](../application-gateway/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Protect web applications](../application-gateway/application-gateway-web-application-firewall-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Distribute traffic across locations](../traffic-manager/traffic-manager-configure-geographic-routing-method.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## Internal connectivity

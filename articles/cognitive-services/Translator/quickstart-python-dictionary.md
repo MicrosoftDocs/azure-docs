@@ -1,18 +1,18 @@
 ---
-title: "Quickstart: Get alternate translations, Python - Translator Text API"
+title: "Quickstart: Look up words with bilingual dictionary, Python - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to find alternate translations and usage examples for a specified text using Python and the Translator Text REST API.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/21/2018
+ms.date: 02/21/2019
 ms.author: erhopf
 ---
 
-# Quickstart: Use the Translator Text API to get alternate translations using Python
+# Quickstart: Look up words with bilingual dictionary using Python
 
 In this quickstart, you'll learn how to find alternate translations and usage examples for a specified text using Python and the Translator Text REST API.
 
@@ -59,7 +59,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Currently, one endpoint is available for Translator Text, and it's set as the `base_url`. `path` sets the `dictionary/lookup` route and identifies that we want to hit version 3 of the API.
+The Translator Text global endpoint is set as the `base_url`. `path` sets the `dictionary/lookup` route and identifies that we want to hit version 3 of the API.
 
 The `params` are used to set the source and output languages. In this sample we're using English and Spanish: `en` and `es`.
 
@@ -163,7 +163,7 @@ If you've hardcoded your subscription key into your program, make sure to remove
 
 ## See also
 
-In addition to text transliteration, learn how to use the Translator Text API to:
+Learn how to use the Translator Text API to:
 
 * [Translate text](quickstart-python-translate.md)
 * [Transliterate text](quickstart-python-transliterate.md)

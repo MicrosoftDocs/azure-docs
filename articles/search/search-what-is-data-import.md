@@ -1,24 +1,20 @@
 ---
-title: Data import in Azure Search | Microsoft Docs
-description: Learn how to upload data to an index in Azure Search.
+title: Data import for data ingestion to a search index - Azure Search
+description: Populate and upload data to an index in Azure Search from external data sources.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/05/2018
+ms.date: 02/26/2019
 ms.author: heidist
-
+ms.custom: seodec2018
 ---
-# Indexing in Azure Search
-> [!div class="op_single_selector"]
-> * [Overview](search-what-is-data-import.md)
-> * [.NET](search-import-data-dotnet.md)
-> * [REST](search-import-data-rest-api.md)
-> 
-> 
+# Indexing external data for queries in Azure Search
 
-In Azure Search, queries execute over your content loaded into a [search index](search-what-is-an-index.md). This article examines the two basic approaches for loading content into an index: *push* your data into the index programmatically, or point an [Azure Search indexer](search-indexer-overview.md) at a supported data source to *pull* in the data.
+In Azure Search, queries execute over your content loaded into and saved in a [search index](search-what-is-an-index.md). This article examines the two basic approaches for populating an index: *push* your data into the index programmatically, or point an [Azure Search indexer](search-indexer-overview.md) at a supported data source to *pull* in the data.
+
+With either approach, the objective is to *load data* from an external data source into an Azure Search index. Azure Search will let you create an empty index, but until you push or pull data into it, it's not queryable.
 
 ## Pushing data to an index
 The push model, used to programmatically send your data to Azure Search, is the most flexible approach. First, it has no restrictions on data source type. Any dataset composed of JSON documents can be pushed to an Azure Search index, assuming each document in the dataset has fields mapping to fields defined in your index schema. Second, it has no restrictions on frequency of execution. You can push changes to an index as often as you like. For applications having very low latency requirements (for example, if you need search operations to be in sync with dynamic inventory databases), the push model is your only option.

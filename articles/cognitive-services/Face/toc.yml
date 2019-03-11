@@ -7,10 +7,14 @@
     href: Overview.md
 - name: Quickstarts
   items:
-  - name: Using the .NET SDK
+  - name: Using the client SDK
     items:
     - name: Detect faces in an image
-      href: QuickStarts/csharp-detect-sdk.md
+      items:
+      - name: C#
+        href: QuickStarts/csharp-detect-sdk.md
+      - name: Python
+        href: Tutorials/FaceAPIinPythonTutorial.md
   - name: Using the REST API  
     items:
     - name: Detect faces in an image  
@@ -43,13 +47,9 @@
       href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
 - name: How-to guides
   items:
-  - name: First Face API apps
-    items:
-    - name: Python
-      href: Tutorials/FaceAPIinPythonTutorial.md
-  - name: Detect faces in image
+  - name: Face detection
     href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-  - name: Identify faces in image
+  - name: Face identification
     href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
   - name: Add faces
     href: Face-API-How-to-Topics/how-to-add-faces.md
@@ -57,34 +57,42 @@
     href: Face-API-How-to-Topics/how-to-use-large-scale.md
   - name: Analyze videos in real time
     href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
-  - name: Work with Visual Studio
+  - name: Migrate face data
+    href: Face-API-How-to-Topics/how-to-migrate-face-data.md
+  - name: Use containers
     items:
-    - name: Use the Face API Connected Service
-      href: vs-face-connected-service.md
+    - name: Install and run containers
+      href: face-how-to-install-containers.md
+    - name: Configure containers
+      href: face-resource-container-config.md
+  - name: Use the Face API Connected Service
+    href: vs-face-connected-service.md
+- name: Samples
+  items:
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face
 - name: Reference
   items:
   - name: Face API
     href: APIReference.md
-  - name: Glossary
-    href: Glossary.md
   - name: SDKs
     items:
-    - name: Windows
-      href: https://github.com/Microsoft/Cognitive-Face-Windows
+    - name: .NET
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/face?view=azure-dotnet
     - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules
+      href: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest
     - name: Python
-      href: https://github.com/Microsoft/Cognitive-Face-Python
+      href: https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python
     - name: Go
-      href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face
-    - name: Android
-      href: https://github.com/Microsoft/Cognitive-Face-Android
+      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
+    - name: Android (Java)
+      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
     - name: iOS
       href: https://github.com/Microsoft/Cognitive-Face-iOS
 - name: Resources
   items:
-  - name: Samples
-    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face
+  - name: Glossary
+    href: Glossary.md
   - name: FAQ
     href: FAQ.md
   - name: Pricing and limits
@@ -94,8 +102,8 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+    href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Regional availability
-    href: https://azure.microsoft.com/global-infrastructure/services/
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Release notes
     href: ReleaseNotes.md

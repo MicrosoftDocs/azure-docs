@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 1/15/2019
 ms.author: cherylmc
 
 ---
@@ -20,12 +20,14 @@ This article helps you configure OpenVPN clients.
 
 ## Before you begin
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Verify that you have completed the steps to configure OpenVPN for your VPN gateway. For details, see [Configure OpenVPN for Azure VPN Gateway](vpn-gateway-howto-openvpn.md).
 
 ## <a name="windows"></a>Windows clients
 
 1. Download and install the OpenVPN client from the official [OpenVPN website](https://openvpn.net/index.php/open-source/downloads.html).
-2. Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in the Azure portal, or 'New-AzureRmVpnClientConfiguration' in PowerShell.
+2. Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in the Azure portal, or 'New-AzVpnClientConfiguration' in PowerShell.
 3. Unzip the profile. Next, open the *vpnconfig.ovpn* configuration file from the OpenVPN folder using Notepad.
 4. [Export](vpn-gateway-certificates-point-to-site.md#clientexport) the P2S client certificate you created and uploaded to your P2S configuration on the gateway.
 5. Extract the private key and the base64 thumbprint from the *.pfx*. There are multiple ways to do this. Using OpenSSL on your machine is one way. The *profileinfo.txt* file contains the private key and the thumbprint for the CA and the Client certificate. Be sure to use the thumbprint of the client certificate.
@@ -34,7 +36,7 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
   openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
   ```
 6. Open *profileinfo.txt* in Notepad. To get the thumbprint of the client (child) certificate, select the text (including and between)"-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----" for the child certificate and copy it. You can identify the child certificate by looking at the subject=/ line.
-7. Switch to the *vpnconfig.ovpn* file you opened in Notepad from step 3. Find the section shown below replace everything between "cert" and "/cert".
+7. Switch to the *vpnconfig.ovpn* file you opened in Notepad from step 3. Find the section shown below and replace everything between "cert" and "/cert".
 
   ```
   # P2S client certificate
@@ -60,14 +62,18 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 ## <a name="mac"></a>Mac clients
 
 1. Download and install an OpenVPN client, such as [TunnelBlik](https://tunnelblick.net/downloads.html). 
-2. Download the VPN profile for the gateway. This can be done from the point-to-site configuration tab in the Azure portal, or by using 'New-AzureRmVpnClientConfiguration' in PowerShell.
+2. Download the VPN profile for the gateway. This can be done from the point-to-site configuration tab in the Azure portal, or by using 'New-AzVpnClientConfiguration' in PowerShell.
 3. Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in Notepad.
 4. Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. See [Export the public key](vpn-gateway-certificates-point-to-site.md#cer) for information about how to export a certificate to get the encoded public key.
-5. Fill in the private key section with the P2S client certificate private key in base64. See [Export your private key](https://www.geotrust.eu/en/support/manuals/microsoft/all+windows+servers/export+private+key+or+certificate/) for information about how to extract private key.
+5. Fill in the private key section with the P2S client certificate private key in base64. See [Export your private key](https://openvpn.net/community-resources/how-to/#pki) for information about how to extract a private key.
 6. Do not change any other fields. Use the filled in configuration in client input to connect to the VPN.
 7. Double-click the profile file to create the profile in tunnelblik.
 8. Launch Tunnelblik from the applications folder.
-9. Click on the Tunneblik icon in the system tray and pick connect.
+9. Click on the Tunnelblik icon in the system tray and pick connect.
+
+> [!IMPORTANT]
+>Only iOS 11.0 and above and MacOS 10.13 and above are supported with OpenVPN protocol.
+>
 
 ## <a name="linux"></a>Linux clients
 
@@ -115,7 +121,7 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 11. To connect using the command line, type the following command:
   
   ```
-  Sudo openvpn –config <name and path of your VPN profile file>
+  sudo openvpn –-config <name and path of your VPN profile file>
   ```
 12. To connect using the GUI, go to system settings.
 13. Click **+** to add a new VPN connection.

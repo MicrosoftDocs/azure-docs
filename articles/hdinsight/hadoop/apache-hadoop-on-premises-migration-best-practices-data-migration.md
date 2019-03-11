@@ -14,25 +14,17 @@ ms.author: hrasheed
 
 This article gives recommendations for data migration to Azure HDInsight. It's part of a series that provides best practices to assist with migrating on-premises Apache Hadoop systems to Azure HDInsight.
 
-## Migrate data from on-premises to Azure
+## Migrate on-premises data to Azure
 
 There are two main options to migrate data from on-premises to Azure environment:
 
 1.  Transfer data over network with TLS
-    1.  Over internet
-    2.  Express Route
-2.  Shipping data
-    1.  Import / Export service
-        - Internal SATA HDDs or SSDs only
-        - Encrypted at REST (AES-128 / AES-256)
-        - Import job can have up to 10 disks
-        - Available in all Public regions & GA
-    1.  Data Box
-        - Up to 80 TB of data per Data box
-        - Encrypted at REST (AES-256)
-        - Uses NAS protocols and supports common data copy tools
-        - Ruggedized hardware
-        - Available in US only & Public Preview
+    1. Over internet - You can transfer data to Azure storage over a regular internet connection using any one of several tools such as: Azure Storage Explorer, AzCopy, Azure Powershell, and Azure CLI.  See [Moving data to and from Azure Storage](../../storage/common/storage-moving-data.md) for more information.
+    2. Express Route - ExpressRoute is an Azure service that lets you create private connections between Microsoft datacenters and infrastructure that’s on your premises or in a colocation facility. ExpressRoute connections do not go over the public Internet, and offer higher security, reliability, and speeds with lower latencies than typical connections over the Internet. For more information, see [Create and modify an ExpressRoute circuit](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
+    1. Data Box online data transfer - Data Box Edge and Data Box Gateway are online data transfer products that act as network storage gateways to manage data between your site and Azure. Data Box Edge, an on-premises network device, transfers data to and from Azure and uses artificial intelligence (AI)-enabled edge compute to process data. Data Box Gateway is a virtual appliance with storage gateway capabilities. For more information, see [Azure Data Box Documentation - Online Transfer](https://docs.microsoft.com/azure/databox-online/).
+1.  Shipping data Offline
+    1. Import / Export service - you can send physical disks to Azure and they will be uploaded for you. For more information, see [What is Azure Import/Export service?](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
+    1. Data Box offline data transfer - Data Box, Data Box Disk, and Data Box Heavy devices help you transfer large amounts of data to Azure when the network isn’t an option. These offline data transfer devices are shipped between your organization and the Azure datacenter. They use AES encryption to help protect your data in transit, and they undergo a thorough post-upload sanitization process to delete your data from the device. For more information, see [Azure Data Box Documentation - Offline Transfer](https://docs.microsoft.com/azure/databox/).
 
 The following table has approximate data transfer duration based on the data volume and network bandwidth. Use a Data box if the data migration is expected to take more than three weeks.
 
@@ -49,9 +41,11 @@ The following table has approximate data transfer duration based on the data vol
 |1 PB|6 years|3 years|97 days|10 days|
 |2 PB|12 years|5 years|194 days|19 days|
 
-Tools native to Azure, like DistCp, Azure Data Factory, and AzureCp, can be used to transfer data over the network. The third-party tool WANDisco can also be used for the same purpose. Kafka Mirrormaker and Sqoop can be used for ongoing data transfer from on-premises to Azure storage systems.
+Tools native to Azure, like Apache Hadoop  DistCp, Azure Data Factory, and AzureCp, can be used to transfer data over the network. The third-party tool WANDisco can also be used for the same purpose. Apache Kafka Mirrormaker and Apache Sqoop can be used for ongoing data transfer from on-premises to Azure storage systems.
 
-## Performance considerations when using Apache DistCp
+
+## Performance considerations when using Apache Hadoop DistCp
+
 
 DistCp is an Apache project that uses a MapReduce Map job to transfer data, handle errors, and recover from those errors. It assigns a list of source files to each Map task. The Map task then copies all of its assigned files to the destination. There are several techniques can improve the performance of DistCp.
 
@@ -88,30 +82,30 @@ hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatus
 
 ## Metadata migration
 
-### Hive
+### Apache Hive
 
 The hive metastore can be migrated either by using the scripts or by using the DB Replication.
 
 #### Hive metastore migration using scripts
 
-1. Generate the Hive DDLs from on-prem Hive metastore. This step can be done using a [wrapper bash script].(https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)
-1. Edit the generated DDL to replace HDFS url with WASB/ADLS/ABFS URLs
-1. Run the updated DDL on the metastore from the HDInsight cluster
-1. Make sure that the Hive metastore version is compatible between on-premises and cloud
+1. Generate the Hive DDLs from on premises Hive metastore. This step can be done using a [wrapper bash script](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
+1. Edit the generated DDL to replace HDFS url with WASB/ADLS/ABFS URLs.
+1. Run the updated DDL on the metastore from the HDInsight cluster.
+1. Make sure that the Hive metastore version is compatible between on-premises and cloud.
 
 #### Hive metastore migration using DB replication
 
-- Set up Database Replication between on-premises Hive metastore DB and HDInsight metastore DB
+- Set up Database Replication between on-premises Hive metastore DB and HDInsight metastore DB.
 - Use the "Hive MetaTool" to replace HDFS url with WASB/ADLS/ABFS urls, for example:
 
 ```bash
 ./hive --service metatool -updateLocation hdfs://nn1:8020/ wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
 ```
 
-### Ranger
+### Apache Ranger
 
 - Export on-premises Ranger policies to xml files.
-- Transform on-prem specific HDFS-based paths to WASB/ADLS using a tool like XSLT.
+- Transform on premises specific HDFS-based paths to WASB/ADLS using a tool like XSLT.
 - Import the policies on to Ranger running on HDInsight.
 
 ## Next steps

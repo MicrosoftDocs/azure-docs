@@ -3,7 +3,7 @@ title: Create a watcher task in the Azure Automation account
 description: Learn how to create a watcher task in the Azure Automation account to watch for new files created in a folder.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
@@ -98,13 +98,13 @@ To test the watcher is working as expected, you need to create a test file.
 
 Remote into the hybrid worker. Open **PowerShell** and create a test file in the folder.
   
-   ```PowerShell-interactive
-   New-Item -Name ExampleFile1.txt
-   ```
+```azurepowerShell-interactive
+New-Item -Name ExampleFile1.txt
+```
 
 The following example shows the expected output.
 
-```
+```output
     Directory: D:\examplefiles
 
 
@@ -124,7 +124,7 @@ Mode                LastWriteTime         Length Name
 
 The expected output when the new file is found can be seen in the following example:
 
-```
+```output
 Message is Process new file...
 
 
@@ -148,3 +148,4 @@ Follow this link to learn more about authoring your own runbook.
 
 > [!div class="nextstepaction"]
 > [My first PowerShell runbook](automation-first-runbook-textual-powershell.md).
+

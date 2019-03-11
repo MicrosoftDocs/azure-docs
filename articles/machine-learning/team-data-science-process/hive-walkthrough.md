@@ -1,25 +1,16 @@
 ---
-
-
-
-title: Explore data in a Hadoop cluster and create models in Azure Machine Learning | Microsoft Docs
+title: Explore data in a Hadoop cluster - Team Data Science Process
 description: Using the Team Data Science Process for an end-to-end scenario, employing an HDInsight Hadoop cluster to build and deploy a model.
-services: machine-learning,hdinsight
-documentationcenter: ''
-author: deguhath
+services: machine-learning
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: e9e76c91-d0f6-483d-bae7-2d3157b86aa0
 ms.service: machine-learning
-ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # The Team Data Science Process in action: Use Azure HDInsight Hadoop clusters
 In this walkthrough, we use the [Team Data Science Process (TDSP)](overview.md) in an end-to-end scenario. We use an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, and feature-engineer data from the publicly available [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset, and to down-sample the data. To handle binary and multiclass classification and regression predictive tasks, we build models of the data with Azure Machine Learning. 
@@ -419,7 +410,7 @@ From the Hive directory prompt, run the following command:
 > 
 > 
 
-When exploring a dataset, we frequently want to examine the number of co-occurences of groups of values. This section provides an example of how to do this for cabs and drivers.
+When exploring a dataset, we frequently want to examine the number of co-occurrences of groups of values. This section provides an example of how to do this for cabs and drivers.
 
 The **sample\_hive\_trip\_count\_by\_medallion\_license.hql** file groups the fare dataset on **medallion** and **hack_license**, and returns counts of each combination. Here are its contents:
 
@@ -768,7 +759,7 @@ You can now proceed to model building and model deployment in [Machine Learning]
 
   The following diagram shows our experiment to predict whether or not a tip was paid for a given trip:
 
-  ![Diagram of experiment](./media/hive-walkthrough/QGxRz5A.png)
+  ![Diagram of experiment to predict if tip was paid](./media/hive-walkthrough/QGxRz5A.png)
 
   b. For this experiment, our target label distributions were roughly 1:1.
 
@@ -788,7 +779,7 @@ You can now proceed to model building and model deployment in [Machine Learning]
 
   The following diagram shows the experiment to predict in which bin a tip is likely to fall. The bins are: Class 0: tip = $0, Class 1: tip > $0 and tip <= $5, Class 2: tip > $5 and tip <= $10, Class 3: tip > $10 and tip <= $20, and Class 4: tip > $20.
 
-  ![Diagram of experiment](./media/hive-walkthrough/5ztv0n0.png)
+  ![Diagram of experiment to predict bin for tip](./media/hive-walkthrough/5ztv0n0.png)
 
   We now show what the actual test class distribution looks like. Class 0 and Class 1 are prevalent, and the other classes are rare.
 
@@ -808,7 +799,7 @@ You can now proceed to model building and model deployment in [Machine Learning]
 
   The following diagram shows the experiment to predict the amount of the given tip:
 
-  ![Diagram of experiment](./media/hive-walkthrough/11TZWgV.png)
+  ![Diagram of experiment to predict amount of tip](./media/hive-walkthrough/11TZWgV.png)
 
   b. For regression problems, we measure the accuracies of the prediction by looking at the squared error in the predictions, and the coefficient of determination:
 
@@ -827,7 +818,7 @@ This sample walkthrough and its accompanying scripts are shared by Microsoft und
 ## References
 •    [Andrés Monroy NYC Taxi Trips Download Page](http://www.andresmh.com/nyctaxitrips/)  
 •    [FOILing NYC’s Taxi Trip Data by Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•    [NYC Taxi and Limousine Commission Research and Statistics](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml)
+•    [NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png
 [11]: ./media/hive-walkthrough/hive-reader-properties.png

@@ -1,5 +1,6 @@
 ---
-title: Monitor operations, events, and counters for public Basic Load Balancer | Microsoft Docs
+title: Monitor operations, events, and counters for public Basic Load Balancer
+titlesuffix: Azure Load Balancer
 description: Learn how to enable alert events, and probe health status logging for public Basic Load Balancer
 services: load-balancer
 documentationcenter: na
@@ -7,13 +8,14 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018
 ms.author: kumud
 ---
 
-# Log analytics for public Basic Load Balancer
+# Azure Monitor logs for public Basic Load Balancer
 
 >[!IMPORTANT] 
 >Azure Load Balancer supports two different types: Basic and Standard. This article discusses Basic Load Balancer. For more information about Standard Load Balancer, see [Standard Load Balancer overview](load-balancer-standard-overview.md) which exposes telemetry via multi-dimensional metrics in Azure Monitor.
@@ -25,7 +27,7 @@ You can use different types of logs in Azure to manage and troubleshoot Basic Lo
 * **Health probe logs:** You can use this log to view problems detected by your health probe, such as the number of instances in your backend-pool that are not receiving requests from the load balancer because of health probe failures. This log is written to when there is a change in the health probe status.
 
 > [!IMPORTANT]
-> Log analytics currently works only for public Basic load balancers. Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For more information about the deployment models, see [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
+> Azure Monitor logs currently works only for public Basic load balancers. Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For more information about the deployment models, see [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## Enable logging
 

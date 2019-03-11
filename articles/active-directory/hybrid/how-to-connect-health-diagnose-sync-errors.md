@@ -10,9 +10,10 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: zhiweiw
+ms.collection: M365-identity-device-management
 ---
 
 # Diagnose and remediate duplicated attribute sync errors
@@ -23,7 +24,7 @@ The diagnosis feature has these benefits:
 - It provides a diagnostic procedure that narrows down duplicated attribute sync errors. And it gives specific fixes.
 - It applies a fix for dedicated scenarios from Azure AD to resolve the error in a single step.
 - No upgrade or configuration is required to enable this feature.
-For more information about Azure AD, see [Identity synchronization and duplicate attribute resiliency](https://aka.ms/dupattributeresdocs).
+For more information about Azure AD, see [Identity synchronization and duplicate attribute resiliency](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
 
 ## Problems
 ### A common scenario

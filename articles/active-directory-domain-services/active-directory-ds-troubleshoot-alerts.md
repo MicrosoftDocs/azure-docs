@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Azure Active Directory Domain Services: Troubleshoot alerts | Microsoft Docs'
 description: Troubleshoot alerts for Azure AD Domain Services
 services: active-directory-ds
@@ -9,7 +9,7 @@ editor:
 
 ms.assetid: 54319292-6aa0-4a08-846b-e3c53ecca483
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -38,10 +38,10 @@ Pick the troubleshooting steps that correspond to the ID or message in the alert
 | AADDS108 | *The subscription used by Azure AD Domain Services has been moved to another directory. Azure AD Domain Services needs to have an active subscription in the same directory to function properly.* | [Subscription moved directories](#aadds108-subscription-moved-directories) |
 | AADDS109 | *A resource that is used for your managed domain has been deleted. This resource is needed for Azure AD Domain Services to function properly.* | [A resource has been deleted](#aadds109-resources-for-your-managed-domain-cannot-be-found) |
 | AADDS110 | *The subnet selected for deployment of Azure AD Domain Services is full, and does not have space for the additional domain controller that needs to be created.* | [Subnet is full](#aadds110-the-subnet-associated-with-your-managed-domain-is-full) |
-| AADDS111 | *A service principal that Azure AD Domain Services uses to service your domain is not authorized to manage resources on the Azure subscription. The service principal needs to gain permissions to service your managed domain. * | [Service principal unauthorized](#aadds111-service-principal-unauthorized) |
+| AADDS111 | *A service principal that Azure AD Domain Services uses to service your domain is not authorized to manage resources on the Azure subscription. The service principal needs to gain permissions to service your managed domain.* | [Service principal unauthorized](#aadds111-service-principal-unauthorized) |
 | AADDS112 | *We have identified that the subnet of the virtual network in this domain may not have enough IP addresses. Azure AD Domain Services needs at-least two available IP addresses within the subnet it is enabled in. We recommend having at-least 3-5 spare IP addresses within the subnet. This may have occurred if other virtual machines are deployed within the subnet, thus exhausting the number of available IP addresses or if there is a restriction on the number of available IP addresses in the subnet.* | [Not enough IP addresses](#aadds112-not-enough-ip-address-in-the-managed-domain) |
 | AADDS113 | *The resources used by Azure AD Domain Services were detected in an unexpected state and cannot be recovered.* | [Resources are unrecoverable](#aadds113-resources-are-unrecoverable) |
-| AADDS114 | *The subnet selected for deployment of Azure AD Domain Services is invalid, and cannot be used. * | [Subnet invalid](#aadds114-subnet-invalid) |
+| AADDS114 | *The subnet selected for deployment of Azure AD Domain Services is invalid, and cannot be used.* | [Subnet invalid](#aadds114-subnet-invalid) |
 | AADDS115 | *One or more of the network resources used by the managed domain cannot be operated on as the target scope has been locked.* | [Resources are locked](#aadds115-resources-are-locked) |
 | AADDS116 | *One or more of the network resources used by the managed domain cannot be operated on due to policy restriction(s).* | [Resources are unusable](#aadds116-resources-are-unusable) |
 | AADDS500 | *The managed domain was last synchronized with Azure AD on [date]. Users may be unable to sign-in on the managed domain or group memberships may not be in sync with Azure AD.* | [Synchronization hasn't happened in a while](#aadds500-synchronization-has-not-completed-in-a-while) |
@@ -175,7 +175,7 @@ Azure AD Domain Services creates specific resources while deploying in order to 
 
 This error is unrecoverable. To resolve, you must [delete your existing managed domain](active-directory-ds-disable-aadds.md) and [recreate your managed domain](active-directory-ds-getting-started.md)
 
-## AADDDS111: Service principal unauthorized
+## AADDS111: Service principal unauthorized
 
 **Alert message:**
 
@@ -197,7 +197,7 @@ Our service principals need access to be able to manage and create resources on 
 
 **Resolution:**
 
-1. [Delete your managed domain](#active-directory-ds-disable-aadds.md) from your tenant.
+1. Delete your managed domain from your tenant.
 2. Fix the IP address range for the subnet
   1. Navigate to the [Virtual Networks page on the Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
   2. Select the virtual network you plan to use for Azure AD Domain Services.

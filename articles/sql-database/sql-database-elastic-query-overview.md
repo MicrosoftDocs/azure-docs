@@ -3,15 +3,15 @@ title: Azure SQL Database elastic query overview | Microsoft Docs
 description: Elastic query enables you to run a Transact-SQL query that spans multiple databases.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer:
+ms.reviewer: sstein
 manager: craigg
-ms.date: 09/14/2018
+ms.date: 01/19/2019
 ---
 
 # Azure SQL Database elastic query overview (preview)
@@ -103,11 +103,11 @@ Using elastic query to perform reporting tasks over a sharded, that is, horizont
 
 The following steps configure elastic database queries for horizontal partitioning scenarios that require access to a set of tables located on (typically) several remote SQL databases:
 
-* [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
-* [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential
+* [CREATE MASTER KEY](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql) mymasterkey
+* [CREATE DATABASE SCOPED CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql) mycredential
 * Create a [shard map](sql-database-elastic-scale-shard-map-management.md) representing your data tier using the elastic database client library.
-* [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx) mydatasource of type **SHARD_MAP_MANAGER**
-* [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) mytable
+* [CREATE/DROP EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql) mydatasource of type **SHARD_MAP_MANAGER**
+* [CREATE/DROP EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) mytable
 
 Once you have performed these steps, you can access the horizontally partitioned table “mytable” as though it were a local table. Azure SQL Database automatically opens multiple parallel connections to the remote databases where the tables are physically stored, processes the requests on the remote databases, and returns the results.
 More information on the steps required for the horizontal partitioning scenario can be found in [elastic query for horizontal partitioning](sql-database-elastic-query-horizontal-partitioning.md).
@@ -141,7 +141,7 @@ Elastic query is included into the cost of Azure SQL Database databases. Note th
 
 ## Feedback
 
-Share feedback on your experience with elastic queries with us below, on the MSDN forums, or on Stackoverflow. We are interested in all kinds of feedback about the service (defects, rough edges, feature gaps).
+Share feedback on your experience with elastic queries with us below, on the MSDN forums, or on Stack Overflow. We are interested in all kinds of feedback about the service (defects, rough edges, feature gaps).
 
 ## Next steps
 

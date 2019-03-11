@@ -1,18 +1,19 @@
 ---
 title: Limits and boundaries - QnA Maker 
 titleSuffix: Azure Cognitive Services
-description: Comprehensive list of limits across QnA Maker.
+description: QnA Maker has meta-limits for parts of the knowledge base and service. It is important to keep your knowledge base within those limits in order to test and publish. 
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 02/26/2019
 ms.author: tulasim
+ms.custom: seodec18
 ---
 
-# QnA Maker Limits
+# QnA Maker knowledge base limits and boundaries
 Comprehensive list of limits across QnA Maker.
 
 ## Knowledge Bases
@@ -21,7 +22,9 @@ Comprehensive list of limits across QnA Maker.
 
 |**Azure Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Maximum number of published knowledge bases allowed (Max indexes -- 1 (reserved for test)|2|14|49|199|199|2,999|
+|Maximum number of published knowledge bases allowed|2|14|49|199|199|2,999|
+
+ For example, if your tier has 15 allowed indexes, you can publish 14 knowledge bases (1 index per published knowledge base). The fifteenth index, `testkb`, is used for all the knowledge bases for authoring and testing. 
 
 ## Extraction Limits
 * Maximum number of files that can be extracted and maximum file size: See [QnAMaker pricing](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
@@ -44,7 +47,7 @@ Overall limits on the content in the knowledge base:
 * Length of file name: 200
 * Supported file formats: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
 * Maximum number of alternate questions: 100
-* Maximum number of question-answer pairs: Depends on the [Azure Search tier](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) chosen 
+* Maximum number of question-answer pairs: Depends on the [Azure Search tier](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) chosen. A question and answer pair maps to a document on Azure Search index. 
 
 ## Create Knowledge base call limits:
 These represent the limits for each create knowledge base action; that is, clicking *Create KB* or calling the CreateKnowledgeBase API.
@@ -58,3 +61,11 @@ These represent the limits for each update action; that is, clicking *Save and t
 * Maximum number of alternate questions added or deleted: 100
 * Maximum number of metadata fields added or deleted: 10
 * Maximum number of URLs that can be refreshed: 5
+
+## Next steps
+
+Learn when and how to change service tiers:
+
+* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): When you need to have more source files or bigger documents in your knowledge base, beyond your current tier, upgrade your QnA Maker service pricing tier.
+* [App Service](how-to/upgrade-qnamaker-service.md#upgrade-app-service): When your knowledge base needs to serve more requests from your client app, upgrade your app service pricing tier.
+* [Azure Search](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): When you plan to have many knowledge bases, upgrade your Azure Search service pricing tier.

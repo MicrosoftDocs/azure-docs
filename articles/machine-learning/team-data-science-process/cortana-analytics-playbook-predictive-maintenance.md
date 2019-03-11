@@ -1,20 +1,16 @@
 ---
-title: Azure AI guide for predictive maintenance solutions | Microsoft Docs
+title: Azure AI guide for predictive maintenance solutions - Team Data Science Process
 description: A comprehensive description of the data science that powers predictive maintenance solutions in multiple vertical industries.
 services: machine-learning
-author: fboylu
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: 2e8b66db-91eb-432b-b305-6abccca25620
 ms.service: machine-learning
-ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 05/11/2018
-ms.author: fboylu
+ms.author: tdsp
+ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
 ---
 # Azure AI guide for predictive maintenance solutions
 
@@ -309,12 +305,12 @@ Multi-class classification techniques can be used in PdM solutions for two scena
 #### Label construction for multi-class classification
 The question here is: "What is the probability that an asset will fail in the next _nZ_ units of time where _n_ is the number of periods?" To answer this question, label nZ records prior to the failure of an asset using buckets of time (3Z, 2Z, Z). Label all other records as "normal" (label = 0). In this method, the target variable holds _categorical_ values. (See Figure 5).
 
-![Figure 5. Labeling for multiclass classification for failure time prediction](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png)
+![Figure 5. Failure time prediction labels for multiclass classification](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png)
 Figure 5. Labeling for multi-class classification for failure time prediction
 
 The question here is: "What is the probability that the asset will fail in the next X units of time due to root cause/problem _P<sub>i</sub>_?" where _i_ is the number of possible root causes. To answer this question, label X records prior to the failure of an asset as "about to fail due to root cause _P<sub>i</sub>_" (label = _P<sub>i</sub>_). Label all other records as being "normal" (label = 0). In this method also, labels are categorical (See Figure 6).
 
-![Figure 6. Labeling for multiclass classification for root cause prediction](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png)
+![Figure 6. Root cause prediction labels for multiclass classification](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png)
 Figure 6. Labeling for multi-class classification for root cause prediction
 
 The model assigns a failure probability due to each _P<sub>i</sub>_ as well as the probability of no failure. These probabilities can be ordered by magnitude to allow prediction of the problems that are most likely to occur in the future.
@@ -347,7 +343,7 @@ When time-series are stationary and easy to predict, both random and time-depend
 ### Time-dependent split
 This section describes best practices to implement time-dependent split. A time-dependent two-way split between training and test sets is described below.
 
-Assume a stream of timestamped events such as measurements from various sensors. Define features and labels of training and test examples over time frames that contain multiple events. For example, for binary classification, create features based on past events, and create labels  based on future events within "X" units of time in the future (see the sections on [feature engineering](#Feature-engineering) and [modeling techniques](#Modeling-techniques-applied-to-PdM-use-cases)). Thus, the labeling time frame of an example comes later than the time frame of its features.
+Assume a stream of timestamped events such as measurements from various sensors. Define features and labels of training and test examples over time frames that contain multiple events. For example, for binary classification, create features based on past events, and create labels  based on future events within "X" units of time in the future (see the sections on [feature engineering](#Feature-engineering) and modeling techniques). Thus, the labeling time frame of an example comes later than the time frame of its features.
 
 For time-dependent split, pick a _training cutoff time T<sub>c</sub>_ at which to train a model, with hyperparameters tuned using historical data up to T<sub>c</sub>. To prevent leakage of future labels that are beyond T<sub>c</sub> into the training data, choose the latest time to label training examples to be X units before T<sub>c</sub>. In the example shown in Figure 7, each square represents a record in the data set where features and labels are computed as described above. The figure shows the records that should go into training and testing sets for X=2 and W=3:
 
@@ -455,7 +451,7 @@ Microsoft Azure offers learning paths for the foundational concepts behind PdM t
 | [Microsoft AI School](https://aischool.microsoft.com/learning-paths) | Public |
 | [Azure AI Learning from GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Public |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | Public |
-| [Microsoft AI Youtube Webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Public |
+| [Microsoft AI YouTube Webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Public |
 | [Microsoft AI Show](http://channel9.msdn.com/Shows/AI-Show) | Public |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | Partners |
 | [Microsoft Partner Network](https://learningportal.microsoft.com) | Partners |

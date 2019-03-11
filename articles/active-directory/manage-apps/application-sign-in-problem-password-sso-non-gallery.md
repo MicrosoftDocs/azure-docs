@@ -3,20 +3,21 @@ title: Problems signing in to an Azure AD Gallery application configured for pas
 description: Discusses problem areas that provide guidance to troubleshoot issues related to signing in to Azure AD Gallery applications configured for password single sign-on
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # Problems signing in to an Azure AD Gallery application configured for password single sign-on
@@ -38,7 +39,7 @@ For password-based SSO, the end user’s browsers can be:
 -   Firefox 26.0 or later -- on Windows XP SP2 or later, and on Mac OS X 10.6 or later
 
 >[!NOTE]
->The password-based SSO extension become available for Edge in Windows 10 when browser extensions become supported for Edge.
+>The password-based SSO extension become available for Microsoft Edge in Windows 10 when browser extensions become supported for Microsoft Edge.
 >
 >
 

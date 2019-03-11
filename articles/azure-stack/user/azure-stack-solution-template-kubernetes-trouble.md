@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot your deployment to Kubernetes to Azure Stack | Microsoft Docs
-description: Learn how to troubleshoot your deployment to Kubernetes to Azure Stack.
+title: Troubleshoot your Kubernetes deployment to Azure Stack | Microsoft Docs
+description: Learn how to troubleshoot your Kubernetes deployment to Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,18 +12,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
-ms.author: mabrigg
+ms.author: mabvrigg
 ms.reviewer: waltero
+ms.lastreviewed: 01/24/2019
 
 ---
 
-# Troubleshoot your deployment to Kubernetes to Azure Stack
+# Troubleshoot your Kubernetes deployment to Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes on Azure Stack is in preview.
+> Kubernetes on Azure Stack is in preview. Azure Stack disconnected scenario is not currently supported by the preview.
 
 The following article looks at troubleshooting your Kubernetes cluster. You can review the deployment alert and review the status of your deployment by the elements required for the deployment. You might need to collect the deployment logs from Azure Stack or the Linux VMs that host Kubernetes. You might also need to work with your Azure Stack administrator to retrieve logs from an administrative endpoint.
 
@@ -44,12 +44,12 @@ The following diagram shows the general process for deploying the cluster.
     Enter the values you need to set up the Kubernetes cluster, including:
     -  **User name**: The user name for the Linux virtual machines that are part of the Kubernetes cluster and DVM.
     -  **SSH public key**: The key that's used for the authorization of all Linux machines that were created as part of the Kubernetes cluster and DVM.
-    -  **Service principle**: The ID that's used by the Kubernetes Azure cloud provider. The client ID identified as the application ID when you created your service principal. 
+    -  **Service principal**: The ID that's used by the Kubernetes Azure cloud provider. The client ID identified as the application ID when you created your service principal. 
     -  **Client secret**: They key you created when you created your service principal.
 
 2. Create the deployment VM and custom script extension.
     -  Create the deployment Linux VM by using the marketplace Linux image **Ubuntu Server 16.04-LTS**.
-    -  Download and run the customer script extension from the marketplace. The script is **Custom Script for Linux 2.0**.
+    -  Download and run the custom  script extension from the marketplace. The script is **Custom Script for Linux 2.0**.
     -  Run the DVM custom script. The script does the following tasks:
         1. Gets the gallery endpoint from the Azure Resource Manager metadata endpoint.
         2. Gets the active directory resource ID from the Azure Resource Manager metadata endpoint.
@@ -57,7 +57,7 @@ The following diagram shows the general process for deploying the cluster.
         4. Deploys the ACS Engine to the Kubernetes cluster and saves the Azure Stack cloud profile to `/etc/kubernetes/azurestackcloud.json`.
 3. Create the master VMs.
 
-4. Download and run customer script extensions.
+4. Download and run custom script extensions.
 
 5. Run the master script.
 
@@ -71,7 +71,7 @@ The following diagram shows the general process for deploying the cluster.
         3. Starts the scheduler service.
 6. Create agent VMs.
 
-7. Download and run the customer script extension.
+7. Download and run the custom script extension.
 
 7. Run the agent script. The agent custom script does the following tasks:
     - Installs etcd
@@ -83,11 +83,11 @@ The following diagram shows the general process for deploying the cluster.
 You can collect logs on the VMs that support your Kubernetes cluster. You can also review the deployment log. You might need to talk to your Azure Stack administrator to verify the version of Azure Stack that you need to use, and to get logs from Azure Stack that are related to your deployment.
 
 1. Review the [deployment status](#review-deployment-status) and [retrieve the logs](#get-logs-from-a-vm) from the master node in your Kubernetes cluster.
-2. Be sure that you're using the latest version of Azure Stack. If you're unsure which version you're using, contact your Azure Stack administrator. The Kubernetes cluster marketplace time 0.3.0 requires Azure Stack version 1808 or greater.
+2. Be sure that you're using the latest version of Azure Stack. If you're unsure which version you're using, contact your Azure Stack administrator.
 3.  Review your VM creation files. You might have had the following issues:  
     - The public key might be invalid. Review the key that you created.  
     - VM creation might have triggered an internal error or triggered a creation error. A number of factors can cause errors, including capacity limitations for your Azure Stack subscription.
-    - Make sure that the fully qualified domain name (FDQN) for the VM begins with a duplicate prefix.
+    - Make sure that the fully qualified domain name (FQDN) for the VM begins with a duplicate prefix.
 4.  If the VM is **OK**, then evaluate the DVM. If the DVM has an error message:
 
     - The public key might be invalid. Review the key that you created.  
@@ -144,21 +144,26 @@ To get logs, take the following steps:
 3. In the same session, run the following command with the parameters updated to match your environment:
 
     ```Bash  
-    ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmdhost 192.168.102.37
+    ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmd-host 192.168.102.37
     ```
 
 4. Review the parameters, and set the values based on your environment.
     | Parameter           | Description                                                                                                      | Example                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -i, --identity-file | The RSA private key file to connect the Kubernetes master VM. They key must start with `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.pem                                                        |
-    | -h, --host          | The public IP or the fully qualified domain name (FQDN) of the Kubernetes cluster master VM. The VM name starts with `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
+    | -d, --vmd-host       | The public IP or the FQDN of the DVM. The VM name starts with `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
+    | -f, --force | Do not prompt before uploading the private key. | |
+    | -i, --identity-file | The RSA private key file to connect the Kubernetes master VM. They key must start with: <br>`-----BEGIN RSA PRIVATE KEY-----` | C:\data\id_rsa.pem                                                        |
+    | -h, --help  | Print the command usage for `getkuberneteslogs.sh` script. | |
+    | -m, --master-host          | The public IP or the fully qualified domain name (FQDN) of the Kubernetes cluster master VM. The VM name starts with `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
     | -u, --user          | The user name of the Kubernetes cluster master VM. You set this name when you configure the marketplace item.                                                                    | azureuser                                                                     |
-    | -d, --vmdhost       | The public IP or the FQDN of the DVM. The VM name starts with `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
+
+
+
 
    When you add your parameter values, it might look something like the following code:
 
     ```Bash  
-    ./getkuberneteslogs.sh --identity-file "C:\secretsecret.pem" --user azureuser --vmdhost 192.168.102.37
+    ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmdhost 192.168.102.37
      ```
 
     A successful run creates the logs.
@@ -175,6 +180,6 @@ To get logs, take the following steps:
 
 [Deploy Kubernetes to Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)
 
-[Add a Kubernetes cluster to the Marketplace (for the Azure Stack operator)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[Add a Kubernetes cluster to the Marketplace (for the Azure Stack operator)](../azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Kubernetes on Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

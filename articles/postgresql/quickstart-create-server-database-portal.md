@@ -1,15 +1,12 @@
 ---
 title: Quickstart - Create an Azure Database for PostgreSQL server using the Azure portal
 description: Quickstart guide to creating and managing an Azure Database for PostgreSQL server by using the Azure portal user interface.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 11/01/2018
+ms.date: 01/09/2019
 ---
 
 # Quickstart: Create an Azure Database for PostgreSQL server in the Azure portal
@@ -46,10 +43,11 @@ To create an Azure Database for PostgreSQL server, take the following steps:
     Password |Your password| A new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.).
     Location|The region closest to your users| The location that is closest to your users.
     Version|The latest major version| The latest PostgreSQL major version, unless you have specific requirements otherwise.
-    Pricing tier | **General Purpose**, **Gen 4**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** | The compute, storage, and backup configurations for your new server. Select **Pricing tier**. Next, select the **General Purpose** tab. *Gen 4*, *2 vCores*, *5 GB*, and *7 days* are the default values for **Compute Generation**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is. To enable your server backups in geo-redundant storage select **Geographically Redundant** from the **Backup Redundancy Options**. To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
+    Pricing tier | **General Purpose**, **Gen 5**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** | The compute, storage, and backup configurations for your new server. Select **Pricing tier**. Next, select the **General Purpose** tab. *Gen 5*, *2 vCores*, *5 GB*, and *7 days* are the default values for **Compute Generation**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is. To enable your server backups in geo-redundant storage select **Geographically Redundant** from the **Backup Redundancy Options**. To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
 
-    > [!IMPORTANT]
-    > The server admin login and password that you specify here are required to sign in to the server and its databases later in this Quickstart. Remember or record this information for later use.
+   > [!NOTE]
+   > Consider using the Basic pricing tier if light compute and I/O are adequate for your workload. Note that servers created in the Basic pricing tier cannot later be scaled to General Purpose or Memory Optimized. See the [pricing page](https://azure.microsoft.com/pricing/details/postgresql/) for more information.
+   > 
 
     ![The "Pricing tier" pane](./media/quickstart-create-database-portal/2-pricing-tier.png)
 

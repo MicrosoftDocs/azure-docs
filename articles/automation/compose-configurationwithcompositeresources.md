@@ -4,7 +4,7 @@ description: Learn how to compose configurations using composite resources in Az
 keywords: powershell dsc, desired state configuration, powershell dsc azure, composite resources
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 08/21/2018

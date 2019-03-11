@@ -11,13 +11,14 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 10/29/2018
+ms.topic: conceptual
+ms.date: 02/08/2019
 ms.author: juliako
 
 ---
 
-# Get started with delivering content on demand using .NET SDK
+# Get started with delivering content on demand using .NET SDK  
+
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery service with Azure Media Services (AMS) application using the Azure Media Services .NET SDK.

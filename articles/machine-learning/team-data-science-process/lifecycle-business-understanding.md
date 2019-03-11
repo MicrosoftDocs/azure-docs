@@ -1,24 +1,18 @@
 ---
-title: Business understanding stage of the Team Data Science Process lifecycle - Azure | Microsoft Docs
-description: The goals, tasks, and deliverables for the business understanding stage of your data-science projects
+title: Business understanding in Team Data Science Process
+description: The goals, tasks, and deliverables for the business understanding stage of your data-science projects in the Team Data Science Process.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: 
 ms.service: machine-learning
-ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
-# Business understanding
+# The business understanding stage of the Team Data Science Process lifecycle
 
 This article outlines the goals, tasks, and deliverables associated with the business understanding stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that you can use to structure your data-science projects. The lifecycle outlines the major stages that projects typically execute, often iteratively:
 
@@ -92,5 +86,3 @@ Here are links to each step in the lifecycle of the TDSP:
    5. [Customer acceptance](lifecycle-acceptance.md)
 
 We provide full end-to-end walkthroughs that demonstrate all the steps in the process for specific scenarios. The [Example walkthroughs](walkthroughs.md) article provides a list of the scenarios with links and thumbnail descriptions. The walkthroughs illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
-
-For examples of how to execute steps in TDSPs that use Azure Machine Learning Studio, see [Use the TDSP with Azure Machine Learning](https://aka.ms/datascienceprocess).

@@ -4,12 +4,12 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you will use the Azure Face REST API with cURL to detect faces in an image.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/09/2018
+ms.date: 02/06/2019
 ms.author: pafarley
 #Customer intent: As a cURL developer, I want to implement a simple Face detection scenario with REST calls, so that I can build more complex scenarios later on.
 ---
@@ -36,7 +36,7 @@ Replace `<Subscription Key>` with your valid Face subscription key.
 
 ### Face endpoint URL
 
-The URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indicates the Azure Face endpoint to query. You will need to change the first part of this URL to match the region that corresponds to your subscription key (unless it is already correct).
+The URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indicates the Azure Face endpoint to query. You may need to change the first part of this URL to match the region that corresponds to your subscription key (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints).
 
 ### URL query string
 

@@ -199,8 +199,8 @@
 ### Archive
 #### [Update 3](storsimple-update3-release-notes.md)
 #### [Update 2.2](storsimple-update21-release-notes.md)
-#### [Update 2 ](storsimple-update2-release-notes.md)
-#### [Update 1 ](storsimple-update1-release-notes.md)
+#### [Update 2](storsimple-update2-release-notes.md)
+#### [Update 1](storsimple-update1-release-notes.md)
 #### [Update 0.3](storsimple-february-2015-release-notes.md)
 #### [Update 0.2](storsimple-january-2015-release-notes.md)
 #### [Update 0.1](storsimple-october-2014-release-notes.md)
@@ -209,7 +209,7 @@
 ## Reference
 ### [REST API](https://docs.microsoft.com/rest/api/storsimple)
 ### [Windows PowerShell for StorSimple cmdlets](https://technet.microsoft.com/library/dn688168.aspx)
-
+### [Resource Manager template](/azure/templates/microsoft.storsimple/allversions)
 
 # StorSimple Data Manager
 

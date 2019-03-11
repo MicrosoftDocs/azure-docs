@@ -1,20 +1,22 @@
 ---
-title: Azure Active Directory - FAQ | Microsoft Docs
-description: Learn common questions and answers about Azure and Azure Active Directory, password management, and application access.
+title: Frequently asked questions (FAQ) - Azure Active Directory | Microsoft Docs
+description: Common questions and answers about Azure and Azure Active Directory, password management, and application access.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/14/2017
+ms.date: 11/12/2018
 ms.author: lizross
+ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
-# Azure Active Directory FAQ
+# Frequently asked questions about Azure Active Directory
 Azure Active Directory (Azure AD) is a comprehensive identity as a service (IDaaS) solution that spans all aspects of identity, access management, and security.
 
 For more information, see [What is Azure Active Directory?](active-directory-whatis.md).
@@ -167,7 +169,7 @@ For more information, see:
 * Direct sign-in to federated apps
 * Deep links to federated, password-based, or existing apps
 
-For more information, see [Deploying Azure AD integrated applications to users](../manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
+For more information, see [End user experiences for applications](../manage-apps/end-user-experiences.md).
 
 - - -
 **Q: What are the different ways Azure AD enables authentication and single sign-on to applications?**
@@ -178,7 +180,7 @@ For more information, see:
 
 * [Authentication Scenarios for Azure AD](../develop/authentication-scenarios.md)
 * [Active Directory authentication protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx)
-* [How does single sign-on with Azure Active Directory work?](../manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)
+* [Single sign-on for applications in Azure AD](../manage-apps/what-is-single-sign-on.md)
 
 - - -
 **Q: Can I add applications I’m running on-premises?**

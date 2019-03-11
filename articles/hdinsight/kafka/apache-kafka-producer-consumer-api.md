@@ -14,7 +14,7 @@ ms.date: 11/06/2018
 
 # Tutorial: Use the Apache Kafka Producer and Consumer APIs
 
-Learn how to use the Kafka Producer and Consumer APIs with Kafka on HDInsight.
+Learn how to use the Apache Kafka Producer and Consumer APIs with Kafka on HDInsight.
 
 The Kafka Producer API allows applications to send streams of data to the Kafka cluster. The Kafka Consumer API allows applications to read streams of data from the cluster.
 
@@ -35,7 +35,7 @@ You must have the following components installed in your development environment
 
 * [Java JDK 8](https://aka.ms/azure-jdks) or an equivalent, such as OpenJDK.
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 * An SSH client and the `scp` command. For more information, see the [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) document.
 
@@ -45,14 +45,14 @@ The following environment variables may be set when you install Java and the JDK
 
 * `JAVA_HOME` - should point to the directory where the JDK is installed.
 * `PATH` - should contain the following paths:
-  
+
     * `JAVA_HOME` (or the equivalent path).
     * `JAVA_HOME\bin` (or the equivalent path).
     * The directory where Maven is installed.
 
 ## Set up your deployment environment
 
-This tutorial requires Apache Kafka on HDInsight 3.6. To learn how to create a Kafka on HDInsight cluster, see the [Start with Kafka on HDInsight](apache-kafka-get-started.md) document.
+This tutorial requires Apache Kafka on HDInsight 3.6. To learn how to create a Kafka on HDInsight cluster, see the [Start with Apache Kafka on HDInsight](apache-kafka-get-started.md) document.
 
 ## Understand the code
 
@@ -78,7 +78,7 @@ The important things to understand in the `pom.xml` file are:
     </dependency>
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > The `${kafka.version}` entry is declared in the `<properties>..</properties>` section of `pom.xml`, and is configured to the Kafka version of the HDInsight cluster.
 
 * Plugins: Maven plugins provide various capabilities. In this project, the following plugins are used:
@@ -88,7 +88,7 @@ The important things to understand in the `pom.xml` file are:
 
 ### Producer.java
 
-The producer communicates with the Kafka broker hosts (worker nodes) and sends data to a Kafka topic. The following code snippet from is from the [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) file from the [github repository](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) and shows how to set the producer properties:
+The producer communicates with the Kafka broker hosts (worker nodes) and sends data to a Kafka topic. The following code snippet from is from the [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) file from the [GitHub repository](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) and shows how to set the producer properties:
 
 ```java
 Properties properties = new Properties();
@@ -130,6 +130,8 @@ The [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started
 
 ## Build and deploy the example
 
+You can skip the steps 1 and 2 for build, and download the pre-built jars(kafka-producer-consumer.jar) from [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars). You can then copy this jar to your HDInsight cluster.
+
 1. Download the examples from [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
 
 2. Change directories to the location of the `Producer-Consumer` directory and use the following command:
@@ -141,11 +143,11 @@ The [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started
     This command creates a directory named `target`, that contains a file named `kafka-producer-consumer-1.0-SNAPSHOT.jar`.
 
 3. Use the following commands to copy the `kafka-producer-consumer-1.0-SNAPSHOT.jar` file to your HDInsight cluster:
-   
+
     ```bash
     scp ./target/kafka-producer-consumer-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
     ```
-   
+
     Replace **SSHUSER** with the SSH user for your cluster, and replace **CLUSTERNAME** with the name of your cluster. When prompted enter the password for the SSH user.
 
 ## <a id="run"></a> Run the example
@@ -167,7 +169,7 @@ The [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started
         read -p 'Enter your Kafka cluster name:' CLUSTERNAME
         ```
     
-    2. To get the Kafka broker hosts and the Zookeeper hosts, use the following commands. When prompted, enter the password for the cluster login (admin) account.
+    2. To get the Kafka broker hosts and the Apache Zookeeper hosts, use the following commands. When prompted, enter the password for the cluster login (admin) account.
     
         ```bash
         export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
@@ -186,11 +188,11 @@ The [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started
     ```
 
 4. Once the producer has finished, use the following command to read from the topic:
-   
+
     ```bash
     java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS
     ```
-   
+
     The records read, along with a count of records, is displayed.
 
 5. Use __Ctrl + C__ to exit the consumer.
@@ -200,7 +202,7 @@ The [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started
 Kafka consumers use a consumer group when reading records. Using the same group with multiple consumers results in load balanced reads from a topic. Each consumer in the group receives a portion of the records.
 
 The consumer application accepts a parameter that is used as the group ID. For example, the following command starts a consumer using a group ID of `mygroup`:
-   
+
 ```bash
 java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup
 ```
@@ -216,15 +218,15 @@ This command uses `tmux` to split the terminal into two columns. A consumer is s
 
 Consumption by clients within the same group is handled through the partitions for the topic. In this code sample, the `test` topic created earlier has eight partitions. If you start eight consumers, each consumer reads records from a single partition for the topic.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > There cannot be more consumer instances in a consumer group than partitions. In this example, one consumer group can contain up to eight consumers since that is the number of partitions in the topic. Or you can have multiple consumer groups, each with no more than eight consumers.
 
 Records stored in Kafka are stored in the order they are received within a partition. To achieve in-ordered delivery for records *within a partition*, create a consumer group where the number of consumer instances matches the number of partitions. To achieve in-ordered delivery for records *within the topic*, create a consumer group with only one consumer instance.
 
 ## Next steps
 
-In this document, you learned how to use the Kafka Producer and Consumer API with Kafka on HDInsight. Use the following to learn more about working with Kafka:
+In this document, you learned how to use the Apache Kafka Producer and Consumer API with Kafka on HDInsight. Use the following to learn more about working with Kafka:
 
-* [Analyze Kafka logs](apache-kafka-log-analytics-operations-management.md)
-* [Replicate data between Kafka clusters](apache-kafka-mirroring.md)
-* [Kafka Streams API with HDInsight](apache-kafka-streams-api.md)
+* [Analyze Apache Kafka logs](apache-kafka-log-analytics-operations-management.md)
+* [Replicate data between Apache Kafka clusters](apache-kafka-mirroring.md)
+* [Apache Kafka Streams API with HDInsight](apache-kafka-streams-api.md)

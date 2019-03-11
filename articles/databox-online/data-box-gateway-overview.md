@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: databox
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 01/18/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Data Box Gateway is and how it works so I can use it to send data to Azure.
 ---
@@ -35,7 +35,10 @@ Data Box Gateway has the following benefits:
 
 - **Easy data transfer**- Makes it easy to move data in and out of Azure storage as easy as working with a local network share.  
 - **High performance** - Takes the hassle out of network data transport with high-performance transfers to and from Azure. 
-- **Fast access** - Caches most recent files for fast access of on-premises files.  
+- **Fast access and high data ingestion rates during business hours** - Data Box Gateway has a local cache that you define as the local capacity size when the virtual device is provisioned. The data disk size should be specified as per the [virtual device minimum requirements](data-box-gateway-system-requirements.md#specifications-for-the-virtual-device). The local cache provides the following benefits:
+    - The local cache allows data ingestion at a high rate. When high amount of data is ingested during peak business hours, the cache can hold the data and upload it to the cloud.
+    - The local cache allows fast read access until a certain threshold. Until the device is 50-60% full, all the reads from the device are accessed from the cache making them faster. Once the used space on device goes above this threshold, then the device starts to remove local files. 
+ 
 - **Limited bandwidth usage** - Data can be written to Azure even when the network is throttled to limit usage during peak business hours.  
 
 ## Key capabilities

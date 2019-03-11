@@ -114,7 +114,7 @@ When limited to methods available in Windows by default, PowerShell can be a bet
 ### Disable Windows Firewall
 `netsh advfirewall set allprofiles state off`
 
-You can use this command when troubleshooting to temporarily rule out the Windows Firewall. It will be enable on next restart or when you enaable it using the command below. Do not stop the Windows Firewall service (MPSSVC) or Base Filtering Engine (BFE) service as way to rule out the Windows Firewall. Stopping MPSSVC or BFE will result in all connectivity being blocked.
+You can use this command when troubleshooting to temporarily rule out the Windows Firewall. It will be enable on next restart or when you enable it using the command below. Do not stop the Windows Firewall service (MPSSVC) or Base Filtering Engine (BFE) service as way to rule out the Windows Firewall. Stopping MPSSVC or BFE will result in all connectivity being blocked.
 ### Enable Windows Firewall
 `netsh advfirewall set allprofiles state on`
 ## Manage Users and Groups

@@ -1,5 +1,5 @@
 ---
-title: FAQ for ClearDB MySql databases with Azure App Service | Microsoft Docs
+title: FAQ for ClearDB MySql databases with Azure App Service
 description: Answers to common questions about using ClearDB MySQL databases with Azure App Service.
 documentationcenter: php
 services: mysql
@@ -7,7 +7,6 @@ author: sunbuild
 manager: yochayk
 tags: mysql
 ms.service: multiple
-ms.workload: data-management
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
@@ -19,18 +18,16 @@ This FAQ answers common questions about using and purchasing ClearDB MySQL datab
 > [!IMPORTANT]
 > As of June 13, 2018, ClearDB transitioned Azure-based customers currently billed by Microsoft to a direct billing model with ClearDB. The information in this article is now out of date. You will no longer be able to create or upgrade a ClearDB database that was created in Azure.
 >
-> For more details and next steps, see [Changes to ClearDB service plans](http://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/).
-
+> For more details and next steps, see [Changes to ClearDB service plans](https://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/).
 
 ## What options do I have for MySQL on Azure?
-You have several options:
+See [ClearDB](https://w2.cleardb.net/) for the latest information on that service. ClearDB is a MySQL hosting service and manages the MySQL infrastructure for you. 
 
-* [ClearDB Shared MySQL database](/marketplace/partners/cleardb/databases/)
-* [ClearDB MySQL Premium clusters](/marketplace/partners/cleardb-clusters/cluster/)
+You have several other options for hosting MySQL in Azure:
+* [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/)
 * [MySQL cluster running on an Azure VM](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
 * [Single instance of MySQL running on an Azure VM](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-ClearDB is a MySQL hosting service and manages the MySQL infrastructure for you. When you run your own MySQL cluster or database on an Azure Virtual Machine, you have to set up the MySQL server and keep it updated with patches.
 
 ## Do I need a credit card for the Web app + MySQL template in the Azure Marketplace?
 This depends on the type of subscription you are using. Here are some commonly used subscription types:
@@ -47,7 +44,7 @@ The default database option is Titan, which is $3.50. We don’t show the cost d
 Yes. You can connect your web app to your database as long as your Azure VM has given remote access to your web app. For more information, see [Install MySQL on a virtual machine](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## In which countries are ClearDB Premium MySQL clusters supported?
-[ClearDB Premium MySQL clusters](/marketplace/partners/cleardb-clusters/cluster/) are available in all Azure regions worldwide with the exception of India, Australia, Brazil South, and China.
+ClearDB Premium MySQL clusters are available in all Azure regions worldwide with the exception of India, Australia, Brazil South, and China.
 
 ## Can I create a new cluster prior to creating a database with ClearDB premium cluster solution?
 No, creating empty ClearDB clusters is not supported. The Azure portal allows you to create databases in a cluster, which may create a new cluster at the same time.
@@ -59,7 +56,7 @@ No, Azure will not warn you if you delete a marketplace purchase that your appli
 Azure Marketplace is not available to customers enrolled in Azerbaijan, Croatia, Norway or Puerto Rico. ClearDB is not available in these regions.
 
 ## What pricing tier should I choose for a production web app and database?
-Use Basic or a higher pricing tier for Web Apps. For ClearDB, we recommend either a Saturn or Jupiter plan. Review the features & limitations of each pricing tier for both [Web Apps](https://azure.microsoft.com/pricing/details/app-service/) and [ClearDB MySQL databases](/marketplace/partners/cleardb/databases/) to choose the one that fits your needs.
+Use Basic or a higher pricing tier for Web Apps. For ClearDB, we recommend either a Saturn or Jupiter plan. Review the features & limitations of each pricing tier for both [Web Apps](https://azure.microsoft.com/pricing/details/app-service/) and [ClearDB MySQL databases](https://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/) to choose the one that fits your needs.
 
 ## How do I upgrade my ClearDB database from one plan to another?
 In the [Azure portal](https://portal.azure.com), you can scale up a ClearDB shared hosting database. Read this [article](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/) to learn more. We currently don't support upgrade for ClearDB Premium clusters in the Azure portal.

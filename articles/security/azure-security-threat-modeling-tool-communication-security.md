@@ -23,7 +23,7 @@ ms.author: jegeib
 | --------------- | ------- |
 | **Azure Event Hub** | <ul><li>[Secure communication to Event Hub using SSL/TLS](#comm-ssltls)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Check service account privileges and check that the custom Services or ASP.NET Pages respect CRM's security](#priv-aspnet)</li></ul> |
-| **Azure Data Factory** | <ul><li>[Use Data management gateway while connecting On Prem SQL Server to Azure Data Factory](#sqlserver-factory)</li></ul> |
+| **Azure Data Factory** | <ul><li>[Use Data management gateway while connecting On-premises SQL Server to Azure Data Factory](#sqlserver-factory)</li></ul> |
 | **Identity Server** | <ul><li>[Ensure that all traffic to Identity Server is over HTTPS connection](#identity-https)</li></ul> |
 | **Web Application** | <ul><li>[Verify X.509 certificates used to authenticate SSL, TLS, and DTLS connections](#x509-ssltls)</li><li>[Configure SSL certificate for custom domain in Azure App Service](#ssl-appservice)</li><li>[Force all traffic to Azure App Service over HTTPS connection](#appservice-https)</li><li>[Enable HTTP Strict Transport Security (HSTS)](#http-hsts)</li></ul> |
 | **Database** | <ul><li>[Ensure SQL server connection encryption and certificate validation](#sqlserver-validation)</li><li>[Force Encrypted communication to SQL server](#encrypted-sqlserver)</li></ul> |
@@ -31,7 +31,7 @@ ms.author: jegeib
 | **Mobile Client** | <ul><li>[Implement Certificate Pinning](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[Enable HTTPS - Secure Transport channel](#https-transport)</li><li>[WCF: Set Message security Protection level to EncryptAndSign](#message-protection)</li><li>[WCF: Use a least-privileged account to run your WCF service](#least-account-wcf)</li></ul> |
 | **Web API** | <ul><li>[Force all traffic to Web APIs over HTTPS connection](#webapi-https)</li></ul> |
-| **Azure Redis Cache** | <ul><li>[Ensure that communication to Azure Redis Cache is over SSL](#redis-ssl)</li></ul> |
+| **Azure Cache for Redis** | <ul><li>[Ensure that communication to Azure Cache for Redis is over SSL](#redis-ssl)</li></ul> |
 | **IoT Field Gateway** | <ul><li>[Secure Device to Field Gateway communication](#device-field)</li></ul> |
 | **IoT Cloud Gateway** | <ul><li>[Secure Device to Cloud Gateway communication using SSL/TLS](#device-cloud)</li></ul> |
 
@@ -57,15 +57,15 @@ ms.author: jegeib
 | **References**              | N/A  |
 | **Steps** | Check service account privileges and check that the custom Services or ASP.NET Pages respect CRM's security |
 
-## <a id="sqlserver-factory"></a>Use Data management gateway while connecting On Prem SQL Server to Azure Data Factory
+## <a id="sqlserver-factory"></a>Use Data management gateway while connecting On-premises SQL Server to Azure Data Factory
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
 | **Component**               | Azure Data Factory | 
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
-| **Attributes**              | Linked Service Types - Azure and On Prem |
-| **References**              |[ Moving data between On Prem and Azure Data Factory](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway), [Data management gateway](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
+| **Attributes**              | Linked Service Types - Azure and On-premises |
+| **References**              |[Moving data between On-premises and Azure Data Factory](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway), [Data management gateway](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
 | **Steps** | <p>The Data Management Gateway (DMG) tool is required to connect to data sources which are protected behind corpnet or a firewall.</p><ol><li>Locking down the machine isolates the DMG tool and prevents malfunctioning programs from damaging or snooping on the data source machine. (E.g. latest updates must be installed, enable minimum required ports, controlled accounts provisioning, auditing enabled, disk encryption enabled etc.)</li><li>Data Gateway key must be rotated at frequent intervals or whenever the DMG service account password renews</li><li>Data transits through Link Service must be encrypted</li></ol> |
 
 ## <a id="identity-https"></a>Ensure that all traffic to Identity Server is over HTTPS connection
@@ -369,16 +369,16 @@ public class ValuesController : ApiController
 }
 ```
  
-## <a id="redis-ssl"></a>Ensure that communication to Azure Redis Cache is over SSL
+## <a id="redis-ssl"></a>Ensure that communication to Azure Cache for Redis is over SSL
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure Redis Cache | 
+| **Component**               | Azure Cache for Redis | 
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Azure Redis SSL support](https://azure.microsoft.com/documentation/articles/cache-faq/#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis) |
-| **Steps** | Redis server does not support SSL out of the box, but Azure Redis Cache does. If you are connecting to Azure Redis Cache and your client supports SSL, like StackExchange.Redis, then you should use SSL. By default non-SSL port is disabled for new Azure Redis Cache instances. Ensure that the secure defaults are not changed unless there is a dependency on SSL support for redis clients. |
+| **Steps** | Redis server does not support SSL out of the box, but Azure Cache for Redis does. If you are connecting to Azure Cache for Redis and your client supports SSL, like StackExchange.Redis, then you should use SSL. By default non-SSL port is disabled for new Azure Cache for Redis instances. Ensure that the secure defaults are not changed unless there is a dependency on SSL support for redis clients. |
 
 Please note that Redis is designed to be accessed by trusted clients inside trusted environments. This means that usually it is not a good idea to expose the Redis instance directly to the internet or, in general, to an environment where untrusted clients can directly access the Redis TCP port or UNIX socket. 
 

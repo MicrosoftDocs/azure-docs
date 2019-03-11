@@ -55,7 +55,7 @@ To use a selected subscription, set the subscription for this session with [az a
 az account set --subscription="${SUBSCRIPTION_ID}"
 ```
 
-Now you can create a service principal for use with Terraform. Use [az ad sp create-for-rbac]/cli/azure/ad/sp#az-ad-sp-create-for-rbac), and set the *scope* to your subscription as follows:
+Now you can create a service principal for use with Terraform. Use [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac), and set the *scope* to your subscription as follows:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"

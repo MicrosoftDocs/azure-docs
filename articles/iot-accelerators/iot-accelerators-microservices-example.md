@@ -1,5 +1,5 @@
 ---
-title: Change and redeploy a microservice | Microsoft Docs
+title: Change and redeploy a microservice - Azure | Microsoft Docs
 description: This tutorial shows you how to change and redeploy a microservice in Remote Monitoring
 author: dominicbetts
 ms.author: dobett
@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 # Customize and redeploy a microservice
 
-This tutorial shows you how to edit one of the microservices in the Remote Monitoring solution, build an image of your microservice, deploy the image to your docker hub, and then use it in Remote Monitoring solution. To introduce this concept, the tutorial uses a basic scenario where you call a microservice API and change the status message from "Alive and Well" to "New Edits Made Here!"
+This tutorial shows you how to edit one of the [microservices](https://azure.com/microservices) in the Remote Monitoring solution, build an image of your microservice, deploy the image to your docker hub, and then use it in Remote Monitoring solution. To introduce this concept, the tutorial uses a basic scenario where you call a microservice API and change the status message from "Alive and Well" to "New Edits Made Here!"
 
 Remote Monitoring solution uses microservices that are built using docker images  that are pulled from a docker hub. 
 
@@ -49,26 +49,32 @@ In this part, you call the default IoT hub manager microservice API. The API ret
 Now change the status message of the Iot Hub Manager microservice to "New Edits Made Here!" and then rebuild the docker image with this new status. If you run into issues here, refer to our [Troubleshooting](#Troubleshoot) section.
 
 1. Make sure your terminal is open and change to the directory where you have cloned the Remote Monitoring solution. 
-2. Change your directory to "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/WebService/v1/Controllers".
-3. Open StatusController.cs in any text editor or IDE that you like. 
-4. Locate the following code:
+1. Change your directory to "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/Services".
+1. Open StatusService.cs in any text editor or IDE that you like. 
+1. Locate the following code:
 
     ```csharp
-    return new StatusApiModel(true, "Alive and well");
+    var result = new StatusServiceModel(true, "Alive and well!");
     ```
 
     and change it to the code below and save it.
 
     ```csharp
-    return new StatusApiModel(true, "New Edits Made Here!");
+    var result = new StatusServiceModel(true, "New Edits Made Here!");
     ```
 
 5. Go back to your terminal but now change to the following directory:
  "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/scripts/docker".
 6. To build your new docker image, type
 
-    ```cmd/sh
+    ```sh
     sh build
+    ```
+    
+    or on Windows:
+    
+    ```cmd
+    ./build.cmd
     ```
 
 7. To verify your new image was successfully created, type
@@ -114,13 +120,13 @@ You now need to update your local docker-compose.yml to pull your new docker ima
 2. Open docker-compose.yml in any text editor or IDE that you like.
 3. Locate the following code:
 
-    ```docker
+    ```yml
     image: azureiotpcs/iothub-manager-dotnet:testing
     ```
 
     and change it to look like the image below and save it.
 
-    ```cmd/sh
+    ```yml
     image: [docker ID]/iothub-manager-dotnet:testing
     ```
 

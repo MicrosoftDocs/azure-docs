@@ -6,7 +6,7 @@ author: trinadhk
 manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/1/2018
+ms.date: 12/09/2018
 ms.author: trinadhk
 ---
 
@@ -14,7 +14,7 @@ ms.author: trinadhk
 Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs.
 
 > [!IMPORTANT]
-> Roles provided by Azure Backup are limited to actions that can be performed in Azure portal or Recovery Services vault PowerShell cmdlets. Actions performed in Azure backup Agent Client UI or System center Data Protection Manager UI or Azure Backup Server UI are out of control of these roles.
+> Roles provided by Azure Backup are limited to actions that can be performed in Azure portal or via REST API or Recovery Services vault PowerShell or CLI cmdlets. Actions performed in Azure backup Agent Client UI or System center Data Protection Manager UI or Azure Backup Server UI are out of control of these roles.
 
 Azure Backup provides 3 built-in roles to control backup management operations. Learn more on [Azure RBAC built-in roles](../role-based-access-control/built-in-roles.md)
 
@@ -36,7 +36,7 @@ The following table captures the Backup management actions and corresponding min
 | | Virtual Machine Contributor | VM resource |
 | On-demand backup of VM | Backup Operator | Recovery vault resource |
 | Restore VM | Backup Operator | Recovery Services vault |
-| | Virtual Machine Contributor | Resource group in which VM will be deployed |
+| | Contributor | Resource group in which VM will be deployed |
 | | Virtual Machine Contributor | Source VM which got backed up |
 | Restore unmanaged disks VM backup | Backup Operator | Recovery vault resource |
 | | Virtual Machine Contributor | Source VM which got backed up |

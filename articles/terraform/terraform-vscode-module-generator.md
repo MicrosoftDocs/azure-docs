@@ -3,11 +3,11 @@
 title: 'Create a Terraform base template in Azure using Yeoman'
 description: Learn how to create a Terraform base template in Azure using Yeoman.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, virtual machine, azure, yeoman
-author: v-mavick
+author: tomarchermsft
 manager: jeconnoc
-ms.author: v-mavick
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
 
@@ -224,7 +224,7 @@ All of these items are pre-installed in Cloud Shell.
 
 ### Start a Cloud Shell session
 
-1. Start an Azure Cloud Shell session via either the [Azure portal](https:/portal.azure.com/), [shell.azure.com](https://shell.azure.com), or the [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/).
+1. Start an Azure Cloud Shell session via either the [Azure portal](https://portal.azure.com/), [shell.azure.com](https://shell.azure.com), or the [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/).
 
 1. **The Welcome to Azure Cloud Shell** page opens. Select **Bash (Linux)**. (Power Shell is not supported.)
 
@@ -280,4 +280,4 @@ All of these items are pre-installed in Cloud Shell.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Install and use the Azure Terraform Visual Studio Code extenstion.](https://docs.microsoft.com/azure/terraform/terraform-vscode-extension)
+> [Install and use the Azure Terraform Visual Studio Code extension.](https://docs.microsoft.com/azure/terraform/terraform-vscode-extension)

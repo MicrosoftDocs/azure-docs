@@ -4,7 +4,7 @@ description: Learn how to manage endpoint protection issues in Azure Security Ce
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 1599ad5f-d810-421d-aafc-892e831b403f
@@ -56,7 +56,7 @@ In this example, we will use **Compute**.  We will look at how to install antima
    - Installed endpoint protection providers - Lists the different providers identified by Security Center.
    - Installed endpoint protection health state - Shows the health state of VMs and computers that have an endpoint protection solution installed. The chart shows the number of VMs and computers that are healthy and the number with insufficient protection.
    - Malware detected – Shows the number of VMs and computers where Security Center is reporting detected malware.
-   - Attacked computers – Shows the number of VMs and computers where Security Center is reporting attacks by malwares.
+   - Attacked computers – Shows the number of VMs and computers where Security Center is reporting attacks by malware.
 
    At the bottom of the dashboard there is a list of endpoint protection issues which includes the following information:  
 
@@ -80,13 +80,13 @@ In this example, we will use **Compute**.  We will look at how to install antima
 
    ![Select Endpoint protection not installed on non-Azure computers][4]
 
-2. Under **Endpoint protection not installed on non-Azure computers**, select a workspace. A Log Analytics search query filtered to the workspace opens and lists computers missing antimalware. Select a computer from the list for more information.
+2. Under **Endpoint protection not installed on non-Azure computers**, select a workspace. An Azure Monitor logs search query filtered to the workspace opens and lists computers missing antimalware. Select a computer from the list for more information.
 
-   ![Log Analytics search][5]
+   ![Azure Monitor logs search][5]
 
 Another search result opens with information filtered only for that computer.
 
-  ![Log Analytics search][6]
+  ![Azure Monitor logs search][6]
 
 > [!NOTE]
 > We recommend that endpoint protection be provisioned for all VMs and computers to help identify and remove viruses, spyware, and other malicious software.
@@ -100,7 +100,7 @@ This article showed you how to implement the Security Center recommendation "Ins
 
 To learn more about Security Center, see the following documents:
 
-* [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies.
+* [Setting security policies in Azure Security Center](tutorial-security-policy.md) -- Learn how to configure security policies.
 * [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.

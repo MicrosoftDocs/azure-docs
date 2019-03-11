@@ -4,12 +4,12 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you will use the Azure Face REST API with C# to detect faces in an image.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/09/2018
+ms.date: 02/06/2019
 ms.author: pafarley
 #Customer intent: As a C# developer, I want to implement a simple Face detection scenario with REST calls, so that I can build more complex scenarios later on.
 ---
@@ -48,7 +48,7 @@ using System.Text;
 
 ### Add essential fields
 
-Add the following fields to the **Program** class. This data specifies how to connect to the Face service and where to get the input data. You'll need to update the `subscriptionKey` field with the value of your subscription key, and you may need to change the `uriBase` string so that it contains the correct region identifier.
+Add the following fields to the **Program** class. This data specifies how to connect to the Face service and where to get the input data. You'll need to update the `subscriptionKey` field with the value of your subscription key, and you may need to change the `uriBase` string so that it contains the correct region identifier (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints).
 
 
 ```csharp
@@ -60,7 +60,7 @@ const string subscriptionKey = "<Subscription Key>";
 // subscription keys from westus, replace "westcentralus" in the URL
 // below with "westus".
 //
-// Free trial subscription keys are generated in the westcentralus region.
+// Free trial subscription keys are generated in the "westus" region.
 // If you use a free trial subscription key, you shouldn't need to change
 // this region.
 const string uriBase =

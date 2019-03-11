@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure Cisco Spark for automatic user provisioning

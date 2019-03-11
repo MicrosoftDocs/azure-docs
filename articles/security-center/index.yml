@@ -68,16 +68,21 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: Azure Security Center Fundamentals
-      href: https://mva.microsoft.com/en-US/training-courses/hybrid-cloud-workload-protection-with-azure-security-center-18173?l=Ld0LK42jE_006218965
+    - title: Simplify protection of cloud resources with Azure Security Center - Ignite 2018
+      href: https://youtu.be/0txX1Y0GXDc
       image: 
         src: https://docs.microsoft.com/media/logos/logo_azure.svg
-        href: https://mva.microsoft.com/en-US/training-courses/hybrid-cloud-workload-protection-with-azure-security-center-18173?l=Ld0LK42jE_006218965
+        href: https://youtu.be/0txX1Y0GXDc
+    - title: Protect server workloads with Azure Security Center - Ignite 2018
+      href: https://youtu.be/Kb_xeIJVROo
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_azure.svg
+        href: https://youtu.be/Kb_xeIJVROo
 - title: Reference
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - html: <a href="https://msdn.microsoft.com/library/mt704034(Azure.100).aspx">REST API Reference</a>
+    - html: <a href="https://docs.microsoft.com/rest/api/securitycenter/">REST API reference</a>
     - html: <a href="https://azure.microsoft.com/updates/?product=security-center">Service updates</a>

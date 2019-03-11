@@ -1,6 +1,6 @@
 ---
-title: Azure API managment policy sample - Add capabilities to a backend service | Microsoft Docs
-description: Azure API managment policy sample - Demonstrates how to add capabilities to a backend service. For example, accept a name of the place instead of latitude and longitude in a weather forecast API.
+title: Azure API management policy sample - Add capabilities to a backend service | Microsoft Docs
+description: Azure API management policy sample - Demonstrates how to add capabilities to a backend service. For example, accept a name of the place instead of latitude and longitude in a weather forecast API.
 services: api-management
 documentationcenter: ''
 author: vladvino

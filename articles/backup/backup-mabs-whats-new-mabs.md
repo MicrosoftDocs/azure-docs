@@ -2,17 +2,17 @@
 title: What's new in Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server gives you enhanced backup capabilities for protecting VMs, files and folders, workloads, and more. Learn how to install or upgrade to Azure Backup Server V3.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/12/2018
-ms.author: adigan; kasinh
+ms.date: 11/13/2018
+ms.author: adigan
 ---
 
 # What's new in Microsoft Azure Backup Server
 
-Microsoft Azure Backup Server version 3 (MABS V3) is the latest upgrade, and includes critical bug fixes, Windows Server 2019 support, SQL 2017 support and other features and enhancements. To view the list of bugs fixed and the installation instructions for MABS V3, see KB article 4457852.
+Microsoft Azure Backup Server version 3 (MABS V3) is the latest upgrade, and includes critical bug fixes, Windows Server 2019 support, SQL 2017 support and other features and enhancements. To view the list of bugs fixed and the installation instructions for MABS V3, see KB article [4457852](https://support.microsoft.com/en-us/help/4457852/microsoft-azure-backup-server-v3).
 
 The following features are included in MABS V3:
 
@@ -55,6 +55,7 @@ Find more information about the installation/upgrade steps for MABS [here](https
 ## Next steps
 
 Learn how to prepare your server or begin protecting a workload:
+- [Known issues in MABS V3](backup-mabs-release-notes-v3.md)
 - [Prepare Backup Server workloads](backup-azure-microsoft-azure-backup.md)
 - [Use Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md)
 - [Use Backup Server to back up SQL Server](backup-azure-sql-mabs.md)

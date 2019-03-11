@@ -1,5 +1,5 @@
 ---
-title: Batch rendering capabilities
+title: Rendering capabilities - Azure Batch
 description: Specific rendering capabilities in Azure Batch
 services: batch
 author: mscurrell

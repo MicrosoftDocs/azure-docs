@@ -4,7 +4,7 @@ description: This article helps you automate installation of the Mobility Servic
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
 ---
 
@@ -19,7 +19,7 @@ This article provides you an example of how you can use System Center Configurat
 
 This article uses System Center Configuration Manager 2012 R2 to demonstrate the deployment activity. We assumes you are using version **9.9.4510.1** or higher of the Mobility service.
 
-Alternately, you can automate Mobility Service installation with [Azure Automation DSC ](vmware-azure-mobility-deploy-automation-dsc.md).
+Alternately, you can automate Mobility Service installation with [Azure Automation DSC](vmware-azure-mobility-deploy-automation-dsc.md).
 
 ## Prerequisites
 

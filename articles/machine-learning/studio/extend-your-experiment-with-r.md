@@ -1,24 +1,18 @@
 ---
-title: Extend your experiment with R | Microsoft Docs
+title: Extend your experiment with R
+titleSuffix: Azure Machine Learning Studio
 description: How to extend the functionality of Azure Machine Learning Studio through the R language by using the Execute R Script module.
 services: machine-learning
-documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
-manager: hjerez
-editor: cgronlun
-
-ms.assetid: 2c038a45-ba4d-42ea-9a88-e67391ef8c0a
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2017
+ms.subservice: studio
+ms.topic: conceptual
 
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 03/20/2017
 ---
-# Extend your experiment with R
+# Azure Machine Learning Studio: Extend your experiment with R 
 You can extend the functionality of Azure Machine Learning Studio through the R language by using the [Execute R Script][execute-r-script] module.
 
 This module accepts multiple input datasets and yields a single dataset as output. You can type an R script into the **R Script** parameter of the [Execute R Script][execute-r-script] module.
@@ -28,7 +22,7 @@ You access each input port of the module by using code similar to the following:
     dataset1 <- maml.mapInputPort(1)
 
 ## Listing all currently-installed packages
-The list of installed packages can change. A list of currently installed packages can be found in [R Packages Supported by Azure Machine Learning](https://msdn.microsoft.com/library/azure/mt741980.aspx).
+The list of installed packages can change. A list of currently installed packages can be found in [R Packages Supported by Azure Machine Learning Studio](https://msdn.microsoft.com/library/azure/mt741980.aspx).
 
 You also can get the complete, current list of installed packages by entering the following code into the [Execute R Script][execute-r-script] module:
 
@@ -53,7 +47,7 @@ You can import packages that are not already installed by using the following co
 
 where the `my_favorite_package.zip` file contains your package.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 
 <!-- Module References -->

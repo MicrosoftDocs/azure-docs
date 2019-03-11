@@ -11,7 +11,7 @@ ms.assetid: 58fc4007-b46d-4c8e-a279-cb9e479b3e2b
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
@@ -44,10 +44,13 @@ A pipeline can have more than one activity. And, you can chain two activities (r
 > The data pipeline in this tutorial copies data from a source data store to a destination data store. For a tutorial on how to transform data using Azure Data Factory, see [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Go through [Tutorial Overview and Pre-requisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) to get an overview of the tutorial and complete the **prerequisite** steps.
 * Visual Studio 2012 or 2013 or 2015
 * Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/)
-* Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.
+* Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.
 
 ### Create an application in Azure Active Directory
 Create an Azure Active Directory application, create a service principal for the application, and assign it to the **Data Factory Contributor** role.
@@ -56,17 +59,17 @@ Create an Azure Active Directory application, create a service principal for the
 2. Run the following command and enter the user name and password that you use to sign in to the Azure portal.
 
 	```PowerShell
-	Connect-AzureRmAccount
+	Connect-AzAccount
 	```
 3. Run the following command to view all the subscriptions for this account.
 
 	```PowerShell
-	Get-AzureRmSubscription
+	Get-AzSubscription
 	```
 4. Run the following command to select the subscription that you want to work with. Replace **&lt;NameOfAzureSubscription**&gt; with the name of your Azure subscription.
 
 	```PowerShell
-	Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+	Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
 	```
 
    > [!IMPORTANT]
@@ -75,7 +78,7 @@ Create an Azure Active Directory application, create a service principal for the
 5. Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell.
 
 	```PowerShell
-	New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+	New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 	```
 
     If the resource group already exists, you specify whether to update it (Y) or keep it as (N).
@@ -84,7 +87,7 @@ Create an Azure Active Directory application, create a service principal for the
 6. Create an Azure Active Directory application.
 
 	```PowerShell
-	$azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
+	$azureAdApplication = New-AzADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
 	```
 
     If you get the following error, specify a different URL and run the command again.
@@ -95,12 +98,12 @@ Create an Azure Active Directory application, create a service principal for the
 7. Create the AD service principal.
 
 	```PowerShell
-    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 	```
 8. Add service principal to the **Data Factory Contributor** role.
 
 	```PowerShell
-    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    New-AzRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 	```
 9. Get the application ID.
 

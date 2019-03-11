@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
@@ -128,7 +128,7 @@ The following table describes names and descriptions of properties that are spec
 | runtimeVersion      | Runtime version of the U-SQL engine to use. | No       |
 | compilationMode     | <p>Compilation mode of U-SQL. Must be one of these values: **Semantic:** Only perform semantic checks and necessary sanity checks, **Full:** Perform the full compilation, including syntax check, optimization, code generation, etc., **SingleBox:** Perform the full compilation, with TargetType setting to SingleBox. If you don't specify a value for this property, the server determines the optimal compilation mode. | No |
 
-Data Factory submits the See [SearchLogProcessing.txt Script Definition](#sample-u-sql-script) for the script definition. 
+See [SearchLogProcessing.txt](#sample-u-sql-script) for the script definition. 
 
 ## Sample U-SQL script
 

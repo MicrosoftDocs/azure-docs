@@ -3,7 +3,7 @@ title: Create a Jenkins server on Azure
 description: Install Jenkins on an Azure Linux virtual machine from the Jenkins solution template and build a sample Java application.
 ms.service: jenkins
 keywords: jenkins, azure, devops, portal, virtual machine, solution template
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
@@ -17,7 +17,7 @@ This quickstart shows how to install [Jenkins](https://jenkins.io) on an Ubuntu 
 ## Prerequisites
 
 * An Azure subscription
-* Access to SSH on your computer's command line (such as the Bash shell or [PuTTY](http://www.putty.org/))
+* Access to SSH on your computer's command line (such as the Bash shell or [PuTTY](https://www.putty.org/))
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

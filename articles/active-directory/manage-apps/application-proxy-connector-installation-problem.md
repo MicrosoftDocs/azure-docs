@@ -3,20 +3,21 @@ title: Problem installing the Application Proxy Agent Connector | Microsoft Docs
 description: How to troubleshoot issues you might face when installing the Application Proxy Agent Connector 
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: japere
 
+ms.collection: M365-identity-device-management
 ---
 
 # Problem installing the Application Proxy Agent Connector
@@ -60,7 +61,7 @@ When the installation of a connector fails, the root cause is usually one of the
 
 ## Verify admin is used to install the connector
 
-**Objective:** Verify that the user who tries to install the connector is an administrator with correct credentials. Currently, the user must be either an application adminstrator or global administrator for the installation to succeed.
+**Objective:** Verify that the user who tries to install the connector is an administrator with correct credentials. Currently, the user must be either an application administrator or global administrator for the installation to succeed.
 
 **To verify the credentials are correct:**
 

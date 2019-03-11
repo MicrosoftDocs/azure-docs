@@ -21,14 +21,13 @@ ms.custom:
 ---
 # Create and use shared images for virtual machine scale sets with the Azure CLI 2.0
 
-When you create a scale set, you specify an image to be used when the VM instances are deployed. The Shared Image Gallery service greatly simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. The Shared Image Gallery lets you share your custom VM images with others in your organization, within or across regions, within an AAD tenant. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group shared images. The gallery is a top-level resource that provides full role-based access control (RBAC). Images can be versioned, and you can choose to replicate each image version to a different set of Azure regions. The gallery only works with Managed Images. In this article you learn how to:
+When you create a scale set, you specify an image to be used when the VM instances are deployed. [Shared Image Galleries](shared-image-galleries.md) greatly simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. The Shared Image Gallery lets you share your custom VM images with others in your organization, within or across regions, within an AAD tenant. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group shared images. The gallery is a top-level resource that provides full role-based access control (RBAC). Images can be versioned, and you can choose to replicate each image version to a different set of Azure regions. The gallery only works with Managed Images. In this article you learn how to:
 
 > [!div class="checklist"]
 > * Create a shared image gallery
 > * Create a shared image definition
 > * Create a shared image version
 > * Create a VM from a shared image
-> * Delete a resources
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -62,7 +61,7 @@ It takes a few minutes to create and configure all the scale set resources and V
 
 
 ## Clean up resources
-To remove your scale set and additional resources, delete the resource group and all its resources with [az group delete](/cli/azure/group#az_group_delete). The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
+To remove your scale set and additional resources, delete the resource group and all its resources with [az group delete](/cli/azure/group). The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes
@@ -70,5 +69,13 @@ az group delete --name myResourceGroup --no-wait --yes
 
 
 ## Next steps
+
+You can also create Shared Image Gallery resource using templates. There are several Azure Quickstart Templates available: 
+
+- [Create a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-create/)
+- [Create an Image Definition in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
+- [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
+- [Create a VM from Image Version](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+
 
 If you run into any issues, you can [troubleshoot shared image galleries](troubleshooting-shared-images.md).

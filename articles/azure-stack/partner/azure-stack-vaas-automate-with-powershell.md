@@ -11,9 +11,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/19/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 03/11/2019
+
+ROBOTS: NOINDEX
 
 ---
 
@@ -21,17 +24,16 @@ ms.reviewer: johnhas
 
 Validation as a Service (VaaS) provides the ability to automate the launching of tests using the **LaunchVaaSTests.ps1** script.
 
-You can use PowerShell for the following workflow:
+> [!NOTE]  
+> Automation is only available for the Test Pass workflow. The Package Validation and Solution Validation workflows are only supported through the VaaS portal.
 
-- Test Pass
-
-In this tutorial, you learn how to create a script that:
+This script can be used to:
 
 > [!div class="checklist"]
-> * Installs prerequisites
-> * Installs and starts the local agent
-> * Launches a category of tests, like integration, functional, reliability
-> * Reports test results
+> * Install prerequisites
+> * Install and start the local agent
+> * Launch a category of tests, like *integration*, *functional*, *reliability*
+> * Report test results
 
 ## Launch the Test Pass workflow
 
@@ -68,7 +70,7 @@ In this tutorial, you learn how to create a script that:
 
     | Parameter | Description |
     | --- | --- |
-    | VaaSUserld | Your VaaS user ID. |
+    | VaaSUserId | Your VaaS user ID. |
     | VaaSUserPassword | Your VaaS password. |
     | VaaSAccountTenantId | Your VaaS tenant GUID. |
     | VaaSSolutionName | The name of the VaaS solution under which the test pass will run. |
@@ -85,7 +87,7 @@ In this tutorial, you learn how to create a script that:
 
 ## Next steps
 
-To learn more about PowerShell on Azure Stack, review the lastest modules.
+To learn more about PowerShell on Azure Stack, review the latest modules.
 
 > [!div class="nextstepaction"]
-> [Azure Stack Module](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.5.0)
+> [Azure Stack Module](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0)

@@ -1,20 +1,14 @@
 ---
-title: Troubleshooting Azure Virtual Network Performance | Microsoft Docs
+title: 'Troubleshoot virtual network performance: Azure | Microsoft Docs'
 description: This page provides a standardized method of testing Azure network link performance.
 services: expressroute
-documentationcenter: na
 author: tracsman
-manager: rossort
-editor: ''
 
-ms.assetid: 
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 12/20/2017
 ms.author: jonor
+ms.custom: seodec18
 
 ---
 # Troubleshooting network performance
@@ -200,7 +194,7 @@ Test setup:
 \* The latency to Brazil is a good example where the straight-line distance significantly differs from the fiber run distance. I would expect that the latency would be in the neighborhood of 160 ms, but is actually 189 ms. This difference against my expectation could indicate a network issue somewhere, but most likely that the fiber run does not go to Brazil in a straight line and has an extra 1,000 km or so of travel to get to Brazil from Seattle.
 
 ## Next steps
-1. Download the Azure Connectivity Toolkit from GitHub at [http://aka.ms/AzCT][ACT]
+1. Download the Azure Connectivity Toolkit from GitHub at [https://aka.ms/AzCT][ACT]
 2. Follow the instructions for [link performance testing][Performance Doc]
 
 <!--Image References-->
@@ -212,9 +206,9 @@ Test setup:
 <!--Link References-->
 [Performance Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/PerformanceTesting.md
 [Availability Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/AvailabilityTesting.md
-[Network Docs]: https://docs.microsoft.com/azure/index#pivot=services&panel=network
+[Network Docs]: https://docs.microsoft.com/azure/index
 [Ticket Link]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview
-[ACT]: http://aka.ms/AzCT
+[ACT]: https://aka.ms/AzCT
 
 
 

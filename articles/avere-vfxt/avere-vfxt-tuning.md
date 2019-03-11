@@ -21,7 +21,7 @@ This section explains some of the custom tuning that can be done.
 [ xxx keep or not? \/ research this xxx ]
 
 > [!TIP]
-> The VDBench utility can be helfpul in generating I/O workloads to test a vFXT cluster. Read [Measuring vFXT Performance](vdbench.md) to learn more.
+> The VDBench utility can be helpful in generating I/O workloads to test a vFXT cluster. Read [Measuring vFXT Performance](vdbench.md) to learn more.
 
 -->
 

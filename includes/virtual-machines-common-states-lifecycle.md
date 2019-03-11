@@ -103,7 +103,7 @@ Instance usage billing
  ]</code><br>
 </td>
 <td>
-<p><b>Not billed&#42;</b></p>
+<p><b>Billed&#42;</b></p>
 </td>
 </tr>
 <tr>
@@ -146,7 +146,7 @@ Instance usage billing
 </table>
 
 
-&#42;Some Azure resources, such as Disks and Networking, incur charges regardless of the instance's state. 
+&#42;Some Azure resources, such as Disks and Networking, incur charges. Software licenses on the instance do not incur charges.
 
 ## Provisioning states
 

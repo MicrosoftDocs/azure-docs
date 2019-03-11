@@ -1,4 +1,4 @@
----  
+---
 title: Virtual Machine Offer Publishing Guide for Azure Marketplace
 description: This article describes the requirements to publish a virtual machine and a software free trial to be deployed from the Marketplace.
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
 
----  
+---
 
 # Virtual Machine Offer Publishing Guide
 
@@ -63,14 +63,18 @@ Use the virtual machine offer type when you deploy a virtual appliance to the su
 | Requirement | Details |  
 |:--- |:--- | 
 | Billing and metering | Your VM must support either BYOL or Pay-As-You-Go monthly billing. |  
-| Azure-compatible virtual hard disk (VHD) | VMs must be built on Windows or Linux.<ul> <li>For more information about creating a Linux VHD, visit the Create an Azure-compatible VHD (Linux-based) section located at [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based).</li> <li>For more information about creating a Windows VHD, visit the Create an Azure-compatible VHD (Windows-based) section located at [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based).</li> </ul> |  
+| Azure-compatible virtual hard disk (VHD) | VMs must be built on Windows or Linux. <ul> <li>For more information about creating a Linux VHD, see [Linux distributions endorsed on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>For more information about creating a Windows VHD, see [Create an Azure-compatible VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
 
-## Next Steps
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](./cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
+
+## Next steps
 
 If you haven't already done so, 
 
-- [Register](https://azuremarketplace.microsoft.com/sell) in the marketplace
+- [Register](https://azuremarketplace.microsoft.com/sell) in the marketplace.
 
 If you're registered and are creating a new offer or working on an existing one,
 
-- [Log in to Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer
+- [Log in to Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer.
+- See [Virtual machine offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer) for more information.

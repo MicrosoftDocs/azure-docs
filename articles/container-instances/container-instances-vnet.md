@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 01/03/2019
 ms.author: danlep
 ---
 
@@ -29,24 +29,23 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 
 Certain limitations apply when you deploy container groups to a virtual network.
 
-* Windows containers are unsupported
 * To deploy container groups to a subnet, the subnet cannot contain any other resource types. Remove all existing resources from an existing subnet prior to deploying container groups to it, or create a new subnet.
 * Container groups deployed to a virtual network do not currently support public IP addresses or DNS name labels.
+* You cannot use a [managed identity](container-instances-managed-identity.md) in a container group deployed to a virtual network.
 * Due to the additional networking resources involved, deploying a container group to a virtual network is typically somewhat slower than deploying a standard container instance.
 
 ## Preview limitations
 
-While this feature is in preview, the following limitations apply when deploying container instances to a virtual network.
+While this feature is in preview, the following limitations apply when deploying container groups to a virtual network. 
 
-**Supported** regions:
+[!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
-* West Europe (westeurope)
-* West US (westus)
+Container resource limits may differ from limits for non-networked container instances in these regions. Currently only Linux containers are supported for this feature. Windows support is planned.
 
-**Unsupported** network resources:
+### Unsupported network resources and features
 
-* Network Security Group
 * Azure Load Balancer
+* Virtual network peering
 
 **Network resource deletion** requires [additional steps](#delete-network-resources) once you've deployed container groups to the virtual network.
 
@@ -68,7 +67,7 @@ The subnet that you use for container groups may contain only container groups. 
 
 A network profile is a network configuration template for Azure resources. It specifies certain network properties for the resource, for example, the subnet into which it should be deployed. When you first use the [az container create][az-container-create] command to deploy a container group to a subnet (and thus a virtual network), Azure creates a network profile for you. You can then use that network profile for future deployments to the subnet. 
 
-To use a Resource Manager template, YAML file, or a programmatic method to deploy a container group to a subnet, you need to provide the full Resource Manager resource ID of a network profile. You can use a profile previously created using [az container create][az-container-create], or create a profile using a Resource Manager template (see [reference](https://docs.microsoft.com/azure/templates/microsoft.network/networkprofiles)). To get the ID of a previously created profile, use the [az network profile list][az-network-profile-list] command. 
+To use a Resource Manager template, YAML file, or a programmatic method to deploy a container group to a subnet, you need to provide the full Resource Manager resource ID of a network profile. You can use a profile previously created using [az container create][az-container-create], or create a profile using a Resource Manager template (see [template example](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet) and [reference](https://docs.microsoft.com/azure/templates/microsoft.network/networkprofiles)). To get the ID of a previously created profile, use the [az network profile list][az-network-profile-list] command. 
 
 In the following diagram, several container groups have been deployed to a subnet delegated to Azure Container Instances. Once you've deployed one container group to a subnet, you can deploy additional container groups to it by specifying the same network profile.
 
@@ -291,6 +290,9 @@ az network vnet delete --resource-group $RES_GROUP --name aci-vnet
 ```
 
 ## Next steps
+
+To deploy a new virtual network, subnet, network profile, and container group using a Resource Manager template, see [Create an Azure container group with VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
+).
 
 Several virtual network resources and features were discussed in this article, though briefly. The Azure Virtual Network documentation covers these topics extensively:
 

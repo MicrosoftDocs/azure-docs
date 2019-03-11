@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ---
@@ -66,7 +66,7 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
     *  WeekNumberOfYear
     *  DayNumberOfWeek
   
- ## What's next?
+## What's next?
 [Lesson 10: Create partitions](../tutorials/aas-lesson-10-create-partitions.md). 
   
   

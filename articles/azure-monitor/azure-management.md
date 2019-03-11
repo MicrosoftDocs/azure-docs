@@ -5,15 +5,12 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-
-ms.service: monitoring
-ms.devlang: na
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/07/2018
 ms.author: bwren
-
 ---
 
 # Azure Management - Monitoring
@@ -35,7 +32,7 @@ The following sections briefly describe the different management areas and provi
 Monitoring is the act of collecting and analyzing data to determine the performance, health, and availability of your business application and the resources it depends on. An effective monitoring strategy will help you understand the detailed operation of the different components of your application and to increase your uptime by proactively notifying you of critical issues so that you can resolve them before they become problems. Monitoring in Azure is primarily provided by [Azure Monitor](../azure-monitor/overview.md) which provides common stores for storing monitoring data, multiple data sources for collecting data from the different tiers supporting your application, and features for analyzing and responding to collected data.
 
 ## Configure
-Configure refers to the initial deployment and configuration of applications and resources and their ongoing maintenance with patches and updates.  Automation of these tasks through script and policy allows you to eliminate redundancy, minimizing your time and effort and increasing your accuracy and efficiency.  [Azure Automation](..\automation\automation-intro.md) provides the bulk of services for automating configuration tasks.  In addition to runbooks for automating processes, it provides configuration and update management, which assist you in managing configuration through policy and in identifying and deploying updates.
+Configure refers to the initial deployment and configuration of applications and resources and their ongoing maintenance with patches and updates.  Automation of these tasks through script and policy allows you to eliminate redundancy, minimizing your time and effort and increasing your accuracy and efficiency.  [Azure Automation](../automation/automation-intro.md) provides the bulk of services for automating configuration tasks.  In addition to runbooks for automating processes, it provides configuration and update management, which assist you in managing configuration through policy and in identifying and deploying updates.
 
 ## Govern
 Governance provides mechanisms and processes to maintain control over your applications and resources in Azure.  It involves planning your initiatives and setting strategic priorities.  Governance in Azure is primarily implemented with two services.  [Azure Policy](../governance/policy/overview.md) allows you to create, assign and, manage policy definitions that enforce different rules and actions over your resources, so those resources stay compliant with your corporate standards and service level agreements. [Azure Cost Management by Cloudyn](../cost-management/overview.md) allows you to track cloud usage and expenditures for your Azure resources and other cloud providers including AWS and Google.
@@ -50,13 +47,3 @@ Protection refers to ensuring that your applications and data are always availab
 ## Migrate 
 Migration refers to transitioning workloads currently running on-premises to the Azure cloud.  [Azure Migrate](../migrate/migrate-overview.md) is a service that helps you assess the migration suitability, including performance-based sizing and cost estimates, of on-premises virtual machines to Azure.  Azure Site Recovery can help you perform the actual migration of virtual machines [from on-premises](../site-recovery/migrate-tutorial-on-premises-azure.md) or [from Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md).  [Azure Database Migration](../dms/dms-overview.md) will assist you in migrating multiple database sources to Azure Data platforms.
 
-
-## Operations Management Suite
-Previous technical documentation related to Azure management included Operations Management Suite (OMS), which is a bundling of the following Azure management services:
-
-- Azure Automation
-- Azure Backup
-- Log Analytics
-- Site Recovery
-
-We are moving away from describing this bundling in our technical documentation since complete management in Azure has expanded to include other services. None of the services that are part of OMS have changed, and each still has a critical role in managing your Azure applications and resources. Your focus should be on the management tasks that you need to perform and the different Azure services that work together for each task.

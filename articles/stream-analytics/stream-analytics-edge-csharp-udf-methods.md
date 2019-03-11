@@ -1,5 +1,5 @@
 ---
-title: Develop .NET Standard user-defined functions for Azure Stream Analytics Edge jobs (Preview)
+title: Develop .NET Standard functions for Azure Stream Analytics Edge jobs (Preview)
 description: Learn how to write c# user-defined functions for Stream Analytics Edge jobs.
 services: stream-analytics
 author: mamccrea
@@ -8,7 +8,8 @@ manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 12/06/2018
+ms.custom: seodec18
 ---
 
 # Develop .NET Standard user-defined functions for Azure Stream Analytics Edge jobs (Preview)
@@ -77,15 +78,15 @@ In this example, **UDFTest** is a C# class library project and **ASAEdgeUDFDemo*
 
 4. You should see the **UDFTest** listed under **References** in **Solution Explorer**.
 
-   ![View the user defined function reference in your Azure Stream Analytics Edge solution explorer](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-added-reference.png)
+   ![View the user defined function reference in solution explorer](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-added-reference.png)
 
 5. Right click on the **Functions** folder and choose **New Item**.
 
-   ![Add a new item to Functions in your Azure Stream Analytics Edge solution in Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function.png)
+   ![Add new item to Functions in Azure Stream Analytics Edge solution](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function.png)
 
 6. Add a C# function **SquareFunction.json** to your Azure Stream Analytics project.
 
-   ![Select C Sharp function from the list of Stream Analytics Edge items in Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function-2.png)
+   ![Select CSharp function from Stream Analytics Edge items in Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function-2.png)
 
 7. Double-click the function in **Solution Explorer** to open the configuration dialog.
 

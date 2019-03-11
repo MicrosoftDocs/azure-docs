@@ -3,9 +3,9 @@ title: include file
 description: include file
 services: functions
 author: ggailey777
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
-ms.date: 05/22/2018
+ms.date: 03/05/2019
 ms.author: glenga
 ms.custom: include file
 ---
@@ -28,4 +28,8 @@ The Azure Functions project template in Visual Studio creates a project that can
     | **Template** | HTTP trigger | This creates a function triggered by an HTTP request. |
     | **Storage account**  | Storage Emulator | An HTTP trigger doesn't use the Storage account connection. All other trigger types require a valid Storage account connection string. |
     | **Access rights** | Anonymous | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information about keys and authorization, see [Authorization keys](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys) in the [HTTP and webhook bindings](../articles/azure-functions/functions-bindings-http-webhook.md). |
+    
+    > [!NOTE]
+    > Make sure you set the **Access rights** to `Anonymous`. When you choose the default level of `Function`, you are required to present the [function key](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys) in requests to access your function endpoint.
+    
 4. Click **OK** to create the function project and HTTP triggered function.

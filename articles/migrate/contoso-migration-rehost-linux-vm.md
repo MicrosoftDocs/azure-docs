@@ -141,7 +141,7 @@ Contoso needs a couple of Azure components for Site Recovery:
     - The storage account must be in the same region as the Recovery Services vault.
     - They use a general purpose account, with standard storage, and LRS replication.
 
-    ![Site Recovery storage](./media/contoso-migration-rehost-linux-vm/asr-storage.png)
+      ![Site Recovery storage](./media/contoso-migration-rehost-linux-vm/asr-storage.png)
 
 2. With the network and storage account in place, they create a vault (ContosoMigrationVault), and place it in the **ContosoFailoverRG** resource group, in the primary East US 2 region.
 
@@ -404,7 +404,7 @@ Contoso admins are now ready to run a failover on the recovery plan, to migrate 
 
 ### Connect the VM to the database
 
-As the final step in the migration process, Contoso adins update the connection string of the application to point to the app database running on the **OSTICKETMYSQL** VM. 
+As the final step in the migration process, Contoso admins update the connection string of the application to point to the app database running on the **OSTICKETMYSQL** VM. 
 
 1. They make an SSH connection to the **OSTICKETWEB** VM using Putty or another SSH client. The VM is private so they connect using the private IP address.
 
@@ -461,7 +461,7 @@ The Contoso security team review the OSTICKETWEB and OSTICKETMYSQLVMs to determi
 - The team reviews the Network Security Groups (NSGs) for the VMs to control access. NSGs are used to ensure that only traffic allowed to the application can pass.
 - The team also considers securing the data on the VM disks using Disk encryption and Azure KeyVault.
 
-[Read more](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control) about security practices for VMs.
+[Read more](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms) about security practices for VMs.
 
 ### BCDR
 

@@ -64,6 +64,8 @@
   - name: Stream data into Azure Databricks using Event Hubs
     href: ../azure-databricks/databricks-stream-from-eventhubs.md
     maintainContext: true        
+  - name: Enable Virtual Networks Integration and Firewalls on Event Hubs Namespace
+    href: event-hubs-tutorial-virtual-networks-firewalls.md
   - name: Event Hubs for Apache Kafka 
     items:
       - name: Mirror a Kafka broker in an Apache Kafka-enabled event hub
@@ -103,6 +105,8 @@
     maintainContext: true
 - name: How-to guides
   items:
+  - name: Send, receive, and capture events using Python
+    href: event-hubs-python.md
   - name: Set up diagnostic logs
     href: event-hubs-diagnostic-logs.md
   - name: Event Hubs for Apache Kafka 
@@ -127,11 +131,17 @@
       href: event-hubs-management-libraries.md
   - name: Get Event Hubs connection string
     href: event-hubs-get-connection-string.md
+  - name: Java development
+    items:
+    - name: Create a Spring Cloud Stream Binder app
+      href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
+    - name: Use the Spring Boot Starter for Apache Kafka 
+      href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
   - name: Troubleshoot
     items:
     - name: Exceptions
       href: event-hubs-messaging-exceptions.md
-  - name: Use IP filters
+  - name: Use firewalls
     href: event-hubs-ip-filtering.md
   - name: Use virtual network service endpoints
     href: event-hubs-service-endpoints.md
@@ -141,6 +151,9 @@
     href: event-hubs-streaming-azure-diags-data.md
   - name: Exchange events between applications using different protocols
     href: event-hubs-exchange-events-different-protocols.md    
+  - name: Create a Spring Cloud Stream Binder application
+    href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?view=azure-java-stable
+    maintainContext: true
 - name: Reference
   items:
   - name: Java
@@ -163,6 +176,8 @@
       href: /dotnet/api/microsoft.azure.management.eventhub
   - name: REST
     href: /rest/api/eventhub
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.eventhub/allversions
   - name: Quotas
     href: event-hubs-quotas.md
 - name: Resources
@@ -180,6 +195,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=event-hubs
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-eventhub
+    href: https://stackoverflow.com/questions/tagged/azure-eventhub
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs

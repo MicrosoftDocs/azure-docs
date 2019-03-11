@@ -426,7 +426,7 @@ The following section describes how to create a short script to start and delete
 ### Start and delete cloud snapshots by using a script
 
 > [!NOTE]
-> Carefully assess the compliance and data retention repercussions before you delete a StorSimple snapshot. For more information about how to run a post-backup script, see the [Backup Exec documentation](https://www.veritas.com/support/en_US/15047.html).
+> Carefully assess the compliance and data retention repercussions before you delete a StorSimple snapshot. For more information about how to run a post-backup script, see the [Backup Exec documentation](https://www.veritas.com/support/en_US/article.100032497.html).
 
 ### Backup lifecycle
 

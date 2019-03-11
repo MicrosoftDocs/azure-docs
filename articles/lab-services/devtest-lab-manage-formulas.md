@@ -41,39 +41,35 @@ The following steps guide you through the process of creating a formula from a c
 
 3. From the list of labs, select the desired lab.  
 
-4. On the lab's blade, select **Formulas (reusable bases)**.
+4. On the lab's page, select **Formulas (reusable bases)**.
    
     ![Formula menu](./media/devtest-lab-create-formulas/lab-settings-formulas.png)
 
-5. On the **Formulas** blade, select **+ Add**.
+5. On the **Formulas** page, select **+ Add**.
    
     ![Add a formula](./media/devtest-lab-create-formulas/add-formula.png)
 
-6. On the **Choose a base** blade, select the base (custom image, Marketplace image, or formula) from which you want to create the formula.
+6. On the **Choose a base** page, select the base (custom image, Marketplace image, or formula) from which you want to create the formula.
    
     ![Base list](./media/devtest-lab-create-formulas/base-list.png)
 
-7. On the **Create formula** blade, specify the following values:
+7. On the **Basic Settings** tab of the **Create formula** page, specify the following values:
    
 	* **Formula name** - Enter a name for your formula. This value is displayed in the list of base images when you create a VM. The name is validated as you type it, and if not valid, a message indicates the requirements for a valid name.
-	* **Description** - Enter a meaningful description for your formula. This value is available from the formula's context menu when you create a VM.
 	* **User name** - Enter a user name that is granted administrator privileges.
 	* **Password** - Enter - or select from the dropdown - a value that is associated with the secret (password) that you want to use for the specified user. To learn about saving secrets in a key vault and using them when creating lab resources, see [Store secrets in Azure Key Vault](devtest-lab-store-secrets-in-key-vault.md).
-	* **Virtual machine disk type** - Specify either HDD (hard-disk drive) or SSD (solid-state drive) to indicate which storage disk type is allowed for the virtual machines provisioned using this base image.
-	* ** Virtual machine size** - Select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create. 
-	* **Artifacts** - Select to open the **Add artifacts** blade, in which you select and configure the artifacts that you want to add to the base image. For more information about artifacts, see [Create custom artifacts for your Azure DevTest Labs virtual machine](devtest-lab-artifact-author.md).
-	* **Advanced settings** - Select to open the **Advanced** blade where you configure the following settings:
-		* **Virtual network** - Specify the desired virtual network.
-		* **Subnet** - Specify the desired subnet.    
-		* **IP address configuration** - Specify if you want the Public, Private, or Shared IP addresses. For more information about shared IP addresses, see [Understand shared IP addresses in Azure DevTest Labs](./devtest-lab-shared-ip.md).
-		* **Make this machine claimable** - Making a machine "claimable" means that it will not be assigned ownership at the time of creation. Instead lab users will be able to take ownership ("claim") the machine in the lab's blade.     
-	* **Image** - This field displays name of the base image you selected on the previous blade. 
-     
-       ![Create formula](./media/devtest-lab-create-formulas/create-formula.png)
+	* **VM size** - Select **Change Size** to change the size of the VM. 
+	* **Artifacts** - Select **Add or Remove artifacts** page, in which you select and configure the artifacts that you want to add to the base image. For more information about artifacts, see [Create custom artifacts for your Azure DevTest Labs virtual machine](devtest-lab-artifact-author.md).
+8. Switch to the **Advanced settings** tab, and specify the following values:
+    - **Virtual network** - To change the virtual network, select **Change Vnet**. 
+    - **Subnet** - To change the subnet, select **Change Subnet**. 
+    - **IP address configuration** - Specify if you want the Public, Private, or Shared IP addresses. For more information about shared IP addresses, see [Understand shared IP addresses in Azure DevTest Labs](./devtest-lab-shared-ip.md).
+    - **Expiration date and time** - Specify the expiration date and time for the VM so that the VM is automatically deleted. 
+    - **Make this machine claimable** - Making a machine "claimable" means that it will not be assigned ownership at the time of creation. Instead lab users will be able to take ownership ("claim") the machine in the lab's page.     
+    - **Number of claimable instances** - specify how many of claimable instances you want to create. 
+8. Select **Submit** to create the formula.
 
-8. Select **Create** to create the formula.
-
-9. When the formula has been created, it displays in the list on the **Formulas** blade.
+9. When the formula has been created, it displays in the list on the **Formulas** page.
 
 ### Create a formula from a VM
 The following steps guide you through the process of creating a formula based on an existing VM. 
@@ -86,15 +82,15 @@ The following steps guide you through the process of creating a formula based on
 1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Select **All Services**, and then select **DevTest Labs** from the list.
 3. From the list of labs, select the desired lab.  
-4. On the lab's **Overview** blade, select the VM from which you wish to create the formula.
+4. On the lab's **Overview** page, select the VM from which you wish to create the formula.
    
     ![Labs VMs](./media/devtest-lab-create-formulas/my-vms.png)
-5. On the VM's blade, select **Create formula (reusable base)**.
+5. On the VM's page, select **Create formula (reusable base)**.
    
     ![Create formula](./media/devtest-lab-create-formulas/create-formula-menu.png)
-6. On the **Create formula** blade, enter a **Name** and **Description** for your new formula.
+6. On the **Create formula** page, enter a **Name** and **Description** for your new formula.
    
-    ![Create formula blade](./media/devtest-lab-create-formulas/create-formula-blade.png)
+    ![Create formula page](./media/devtest-lab-create-formulas/create-formula-blade.png)
 7. Select **OK** to create the formula.
 
 ## Modify a formula
@@ -103,11 +99,11 @@ To modify a formula, follow these steps:
 1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Select **All Services**, and then select **DevTest Labs** from the list.
 3. From the list of labs, select the desired lab.  
-4. On the lab's blade, select **Formulas (reusable bases)**.
+4. On the lab's page, select **Formulas (reusable bases)**.
    
     ![Formula menu](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
-5. On the **Lab formulas** blade, select the formula you wish to modify.
-6. On the **Update formula** blade, make the desired edits, and select **Update**.
+5. On the **Lab formulas** page, select the formula you wish to modify.
+6. On the **Update formula** page, make the desired edits, and select **Update**.
 
 ## Delete a formula
 To delete a formula, follow these steps:
@@ -115,10 +111,10 @@ To delete a formula, follow these steps:
 1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Select **All Services**, and then select **DevTest Labs** from the list.
 3. From the list of labs, select the desired lab.  
-4. On the lab **Settings** blade, select **Formulas**.
+4. On the lab **Settings** page, select **Formulas**.
    
     ![Formula menu](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
-5. On the **Lab formulas** blade, select the ellipsis to the right of the formula you wish to delete.
+5. On the **Lab formulas** page, select the ellipsis to the right of the formula you wish to delete.
    
     ![Formula menu](./media/devtest-lab-manage-formulas/lab-formulas-blade.png)
 6. On the formula's context menu, select **Delete**.

@@ -1,16 +1,17 @@
 ---
-title: Understand how to use Azure Digital Twins Swagger | Microsoft Docs
-description: Use Azure Digital Twins Swagger
+title: 'Understand how to use Azure Digital Twins reference Swagger | Microsoft Docs'
+description: Understanding how to use Azure Digital Twins Swagger reference documentation.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/31/2018
 ms.author: adgera
+ms.custom: seodec18
 ---
 
-# Use Azure Digital Twins Swagger
+# Azure Digital Twins Swagger reference documentation
 
 Each provisioned Azure Digital Twins instance includes its own automatically generated Swagger reference documentation.
 
@@ -29,32 +30,19 @@ Swagger provides an interactive summary of your API, which includes:
 * Example response information used to validate and confirm HTTP responses.
 * Error code information.
 
-Swagger is a convenient tool to assist with development and testing calls made to the Management API.
+Swagger is a convenient tool to assist with development and testing calls made to the Azure Digital Twins Management APIs.
 
-> [!TIP]
-> A Swagger sneak preview is provided to demonstrate the API feature set.
-> It's hosted at [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
-
-You can access your own generated Management API Swagger documentation at:
-
-```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
-```
-
-| Custom name | Replace with |
-| --- | --- |
-| yourInstanceName | The name of your Azure Digital Twins instance |
-| yourLocation | Which server region your instance is hosted on |
+[!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 ## Reference material
 
-Automatically generated reference material explains critical concepts and object models.
+The automatically generated Swagger reference material supplies a quick overview of important concepts, available Management API endpoints, and a description of each object model to assist development and testing.
 
 A concise summary describes the API.
 
 ![Swagger top][1]
 
-Core API object models are also listed.
+Management API object models are also listed.
 
 ![Swagger models][2]
 
@@ -62,11 +50,11 @@ You can select each listed object model for a more detailed summary of key attri
 
 ![Swagger model][3]
 
-The generated Swagger object models are convenient to see all available Azure Digital Twins [objects and APIs](./concepts-objectmodel-spatialgraph.md). Developers can make use of this resource when they build solutions on Azure Digital Twins.
+The generated Swagger object models are convenient to see all available Azure Digital Twins [objects and APIs](./concepts-objectmodel-spatialgraph.md). Developers can use this resource when they build solutions on Azure Digital Twins.
 
 ## Endpoint summary
 
-Swagger also provides a thorough overview of all endpoints that compose the API.
+Swagger also provides a thorough overview of all endpoints that compose the Management APIs.
 
 Each listed endpoint also includes the required request information, such as the:
 
@@ -86,7 +74,7 @@ After you select a specific endpoint, you see **Try it out**.
 
 ![Swagger try][5]
 
-Expand that section to bring up input fields for each required and optional parameter. Enter the values accordingly, and select **Execute**.
+Expand that section to bring up input fields for each required and optional parameter. Enter the correct values, and select **Execute**.
 
 ![Swagger tried][6]
 
@@ -109,9 +97,9 @@ To learn more about interactively testing requests protected by OAuth 2.0, see t
 
 ## Next steps
 
-To read more about Azure Digital Twins object models and the spatial intelligence graph, read [Understand Azure Digital Twins object models](./concepts-objectmodel-spatialgraph.md).
+- To read more about Azure Digital Twins object models and the spatial intelligence graph, read [Understand Azure Digital Twins object models](./concepts-objectmodel-spatialgraph.md).
 
-To learn how to authenticate with your Management API, read [Authenticate with APIs](./security-authenticating-apis.md).
+- To learn how to authenticate with your Management API, read [Authenticate with APIs](./security-authenticating-apis.md).
 
 <!-- Images -->
 [1]: media/how-to-use-swagger/swagger_management_top.PNG

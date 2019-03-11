@@ -313,7 +313,7 @@ In this example the policy routes the request to a service fabric backend, using
 </set-body>
 ```
 
-#### Example accessing the body as a JObject. Note that since we are not reserving the original request body, accesing it later in the pipeline will result in an exception.
+#### Example accessing the body as a JObject. Note that since we are not reserving the original request body, accessing it later in the pipeline will result in an exception.
 
 ```xml
 <set-body> 
@@ -348,7 +348,7 @@ In this example the policy routes the request to a service fabric backend, using
 ```
 
 ### Using Liquid templates with set body
-The `set-body` policy can be configured to use the [Liquid](https://shopify.github.io/liquid/basics/introduction/) templating language to transfom the body of a request or response. This can be very effective if you need to completely reshape the format of your message.
+The `set-body` policy can be configured to use the [Liquid](https://shopify.github.io/liquid/basics/introduction/) templating language to transform the body of a request or response. This can be very effective if you need to completely reshape the format of your message.
 
 > [!IMPORTANT]
 > The implementation of Liquid used in the `set-body` policy is configured in 'C# mode'. This is particularly important when doing things such as filtering. As an example, using a date filter requires the use of Pascal casing and C# date formatting e.g.:
@@ -371,7 +371,7 @@ The `set-body` policy can be configured to use the [Liquid](https://shopify.gith
 </set-body>
 ```
 
-#### Tranform JSON using a Liquid template
+#### Transform JSON using a Liquid template
 ```xml
 {
 "order": {
@@ -704,7 +704,7 @@ OriginalUrl.
 |----------|-----------------|--------------|
 |xsl-transform|Root element.|Yes|
 |parameter|Used to define variables used in the transform|No|
-|xsl:stylesheet|Root stylesheet element. All elements and attributes defined within follow the standard [XSLT specification](http://www.w3.org/TR/xslt)|Yes|
+|xsl:stylesheet|Root stylesheet element. All elements and attributes defined within follow the standard [XSLT specification](https://www.w3.org/TR/xslt)|Yes|
 
 ### Usage
  This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
