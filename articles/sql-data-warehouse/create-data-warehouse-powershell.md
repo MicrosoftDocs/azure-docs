@@ -5,13 +5,12 @@ services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
-ms.topic: conceptual
+ms.topic: quickstart
 ms.subservice: manage
-ms.date: 11/15/2018
+ms.date: 11/16/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ---
-
 # Quickstart: Create and query an Azure SQL data warehouse with Azure PowerShell
 
 Quickly create an Azure SQL data warehouse using Azure PowerShell.
