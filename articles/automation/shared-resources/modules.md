@@ -6,14 +6,14 @@ ms.service: automation
 ms.subservice: shared-resources
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/06/2019
+ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm 
 ---
 
 # Manage Modules in Azure Automation
 
-Azure Automation provides the ability to import PowerShell modules into your Automation Account to be used by the PowerShell based runbooks. These modules can be custom modules you have created, from the PowerShell Gallery, or the AzureRM and Az modules for Azure.
+Azure Automation provides the ability to import PowerShell modules into your Automation Account to be used by the PowerShell based runbooks. These modules can be custom modules you've created, from the PowerShell Gallery, or the AzureRM and Az modules for Azure.
 
 ## Import modules
 
@@ -42,9 +42,9 @@ To import a module from the PowerShell Gallery, go to https://www.powershellgall
 
 ![PowerShell Gallery import module](../media/modules/powershell-gallery.png)
 
-You can also import modules from the PowerShell Gallery directly from your Automation Account. In your Automation Account select **Modules** under **Shared Resources**. On the modules page, click **Browse gallery**. This opens up the **Browse Gallery** page. You can use this page to search the PowerShell Gallery for a module. Select the module you want to import and click **Import**. On the **Import** page click **OK** to start the import process.
+You can also import modules from the PowerShell Gallery directly from your Automation Account. In your Automation Account, select **Modules** under **Shared Resources**. On the modules page, click **Browse gallery**. This opens up the **Browse Gallery** page. You can use this page to search the PowerShell Gallery for a module. Select the module you want to import and click **Import**. On the **Import** page, click **OK** to start the import process.
 
-![PowerShell Gallery import from azure portal](../media/modules/gallery-azure-portal.png)
+![PowerShell Gallery import from Azure portal](../media/modules/gallery-azure-portal.png)
 
 ## Internal cmdlets
 
@@ -105,6 +105,7 @@ We recommend you consider the following when you author a PowerShell module for 
     function Get-ContosoUser {
     [CmdletBinding](DefaultParameterSetName='UseConnectionObject', `
     HelpUri='https://www.contoso.com/docs/information')]
+    [OutputType([String])]
     param(
        [Parameter(ParameterSetName='UserAccount', Mandatory=true)]
        [ValidateNotNullOrEmpty()]
@@ -138,47 +139,71 @@ We recommend you consider the following when you author a PowerShell module for 
 
    ![Integration Module Help](../media/modules/module-activity-description.png)
 
-2. If the module runs against a remote system:
+2. If the module connects to an external service, it should contain a [connection type](#add-a-connection-type-to-your-module). Each cmdlet in the module should be able to take in a connection object (an instance of that connection type) as a parameter. This allows users to map parameters of the connection asset to the cmdlet's corresponding parameters each time they call a cmdlet. Based on the runbook example above, it uses an example Contoso connection asset called ContosoConnection to access Contoso resources and return data from the external service.
 
-   1. It should contain an Integration Module metadata file that defines the information needed to connect to that remote system, meaning the connection type.
-   2. Each cmdlet in the module should be able to take in a connection object (an instance of that connection type) as a parameter.  
+   In the following example, the fields are mapped to the UserName and Password properties of a `PSCredential` object and then passed to the cmdlet.
 
-    Cmdlets in the module become easier to use in Azure Automation if you allow passing an object with the fields of the connection type as a parameter to the cmdlet. This allows users to map parameters of the connection asset to the cmdlet's corresponding parameters each time they call a cmdlet.
+   ```powershell
+   $contosoConnection = Get-AutomationConnection -Name 'ContosoConnection'
 
-    Based on the runbook example above, it uses a Twilio connection asset called CorpTwilio to access Twilio and return all the phone numbers in the account.  Notice how it's mapping the fields of the connection to the parameters of the cmdlet?
+   $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $contosoConnection.UserName, $contosoConnection.Password
+   Connect-Contoso -Credential $cred
+   }
+   ```
 
-    ```powershell
-    $contosoConnection = Get-AutomationConnection -Name 'ContosoConnection'
+   An easier and better way to approach this behavior is directly passing the connection object to the cmdlet:
 
-    $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $contosoConnection.UserName, $contosoConnection.Password
-    Connect-Contoso -Credential $cred
-    }
-    ```
+   ```powershell
+   $contosoConnection = Get-AutomationConnection -Name 'ContosoConnection'
 
-    An easier and better way to approach this behavior is directly passing the connection object to the cmdlet:
+   Connect-Contoso -Connection $contosoConnection
+   }
+   ```
 
-    ```powershell
-    $contosoConnection = Get-AutomationConnection -Name 'ContosoConnection'
-
-    Connect-Contoso -Connection $contosoConnection
-    }
-    ```
-
-    You can enable behavior like the preceding example for your cmdlets by allowing them to accept a connection object directly as a parameter, instead of just connection fields for parameters. Usually you want a parameter set for each, so that a user not using Azure Automation can call your cmdlets without constructing a hashtable to act as the connection object. The parameter set `UserAccount`, is used to pass the connection field properties one by one. `ConnectionObject` lets you pass the connection straight through.
+   You can enable behavior like the preceding example for your cmdlets by allowing them to accept a connection object directly as a parameter, instead of just connection fields for parameters. Usually you want a parameter set for each, so that a user not using Azure Automation can call your cmdlets without constructing a hashtable to act as the connection object. The parameter set `UserAccount`, is used to pass the connection field properties. `ConnectionObject` lets you pass the connection straight through.
 
 3. Define the output type for all cmdlets in the module. Defining an output type for a cmdlet allows design-time IntelliSense to help you determine the output properties of the cmdlet, for use during authoring. It's especially helpful during Automation runbook graphical authoring, where design time knowledge is key to an easy user experience with your module.
 
-   This can be achieved by adding `[OutputType([<MyOutputType>])]` where MyOutputType is a valid type.
+   This can be achieved by adding `[OutputType([<MyOutputType>])]` where MyOutputType is a valid type. To learn more about OutputType, see [About Functions OutputTypeAttribute](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute). The following code is an example of adding `OutputType` to a cmdlet:
 
-   ![Graphical Runbook Output Type](../media/automation-integration-modules/runbook-graphical-module-output-type.png)
+   ```powershell
+   function Get-ContosoUser {
+   [OutputType([String])]
+   param(
+      [string]
+      $Parameter1
+   )
+   # <script location here>
+   }
+   ```
+
+   ![Graphical Runbook Output Type](../media/modules/runbook-graphical-module-output-type.png)
 
    This behavior is similar to the "type ahead" functionality of a cmdlet's output in PowerShell ISE without having to run it.
 
-   ![POSH IntelliSense](../media/automation-integration-modules/automation-posh-ise-intellisense.png)
+   ![POSH IntelliSense](../media/modules/automation-posh-ise-intellisense.png)
 
-4. The module should be fully contained in an xcopy-able package. Azure Automation modules are distributed to the Automation sandboxes when runbooks need to execute. The modules need to work independently of the host they're running on. You should be able to Zip up and move a module package and have it function as normal when imported into another host's PowerShell environment. In order for that to happen, the module shouldn't depend on any files outside the module folder. This folder is the folder that gets zipped up when the module is imported into Azure Automation. The module should also not depend on any unique registry settings on a host, such as those settings set when a product is installed. All files in the module should have a path less than 140 characters. Any paths over 140 characters will cause issues importing your runbook. If this best practice isn't followed, the module won't be usable in Azure Automation.  
+Make all cmdlets in the module stateless. Multiple runbook jobs can simultaneously run in the same AppDomain and the same process and sandbox. If there is any state shared on those levels, jobs can affect each other. This behavior can lead to intermittent and hard to diagnose issues.  Here is an example of what not to do.
 
-5. If referencing [Azure Powershell Az modules](/powershell/azure/new-azureps-module-az?view=azps-1.1.0) in your module, ensure you aren't also referencing `AzureRM`. The `Az` module can't be used in conjunction with the `AzureRM` modules. `Az` is supported in runbooks but aren't imported by default. To learn about the `Az` modules and considerations to take into account, see [Az module support in Azure Automation](../az-modules.md).
+```powershell
+$globalNum = 0
+function Set-GlobalNum {
+   param(
+       [int] $num
+   )
+
+   $globalNum = $num
+}
+function Get-GlobalNumTimesTwo {
+   $output = $globalNum * 2
+
+   $output
+}
+```
+
+1. The module should be fully contained in an xcopy-able package. Azure Automation modules are distributed to the Automation sandboxes when runbooks need to execute. The modules need to work independently of the host they're running on. You should be able to Zip up and move a module package and have it function as normal when imported into another host's PowerShell environment. In order for that to happen, the module shouldn't depend on any files outside the module folder. This folder is the folder that gets zipped up when the module is imported into Azure Automation. The module should also not depend on any unique registry settings on a host, such as those settings set when a product is installed. All files in the module should have a path fewer than 140 characters. Any paths over 140 characters will cause issues importing your runbook. If this best practice isn't followed, the module won't be usable in Azure Automation.  
+
+2. If referencing [Azure Powershell Az modules](/powershell/azure/new-azureps-module-az?view=azps-1.1.0) in your module, ensure you aren't also referencing `AzureRM`. The `Az` module can't be used in conjunction with the `AzureRM` modules. `Az` is supported in runbooks but aren't imported by default. To learn about the `Az` modules and considerations to take into account, see [Az module support in Azure Automation](../az-modules.md).
 
 ## Next steps
 
