@@ -38,7 +38,7 @@ This section shows how to integrate Azure AD using the OpenID Connect protocol f
 4. Click on **App registrations** and choose **Add**.
 5. Enter the name for your application, and select 'Web Application and/or Web API' as the Application Type. For the sign-on URL, enter the base URL for your application, which is your Azure App URL + "/signin-oidc." 
 
-    >[!Note] 
+    >[!Note]
     > If you have not deployed your application and want to run it locally, your App URL would be your local host address.
     >
     >
@@ -59,7 +59,7 @@ The only variation when setting up Azure AD Authorization on the Azure Governmen
 3. Add an `Authentication` section and fill out the properties with your Azure AD tenant information.
 	
     ```cs
-    //ClientId: Azure AD->  App registrations -> Application ID
+    //ClientId: Azure AD -> App registrations -> Application ID
     //Domain: <tenantname>.onmicrosoft.com
     //TenantId: Azure AD -> Properties -> Directory ID
 
@@ -82,7 +82,7 @@ The only variation when setting up Azure AD Authorization on the Azure Governmen
 
     ```cs
         public void ConfigureServices(IServiceCollection services)
-        {      
+        {
             //Add Azure AD authentication
             services.AddAuthentication(options => {
                 options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
