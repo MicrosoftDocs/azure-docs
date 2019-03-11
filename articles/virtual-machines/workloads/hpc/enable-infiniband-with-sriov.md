@@ -21,7 +21,7 @@ ms.author: msalias
 
 The simplest and recommend way to configure your IB with RHEL/CentOS (ver 7.4-7.6) is to add the following VM extension to your deployment:​
 
-```
+```bash
 "properties":{​
 "publisher": "Microsoft.HpcCompute.Edp",​
 "type": "InfiniBandDriverLinux",​
