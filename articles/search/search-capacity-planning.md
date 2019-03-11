@@ -44,15 +44,15 @@ Generally, search applications need more replicas than partitions, particularly 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and select the search service.
 2. In **Settings**, open the **Scale** page to modify replicas and partitions. 
 
-   The following screenshot shows a standard service provisioned with 2 replicas and 2 partitions. The formula at the bottom indicates how many search units are being used.
+   The following screenshot shows a standard service provisioned with one replica and partition. The formula at the bottom indicates how many search units are being used (1). If the unit price was $100 (not a real price), the monthly cost of running this service would be $100 on average.
 
    ![Scale page showing current values](media/search-capacity-planning/1-initial-values.png "Scale page showing current values")
 
 3. Use the slider to increase or decrease the number of partitions. The formula at the bottom indicates how many search units are being used.
 
-   Revisit the [Pricing page](https://azure.microsoft.com/pricing/details/search/) for the unit costs associated with adding scale before you click **Save**.
+   This example doubles capacity, with two replicas and partitions each. Notice the search unit count; it is now four because the billing formula is replicas multiplied by partitions (2 x 2). Doubling capacity more than doubles the cost of running the service. If the search unit cost was $100, the new monthly bill would now be $400.
 
-   This example adds 2 replicas and 2 partitions, doubling the capacity, but doubling capacity more than doubles the cost of running the service. The new monthly bill is 20 times the per unit cost of a standard search service.
+   For the current per unit costs of each tier, visit the [Pricing page](https://azure.microsoft.com/pricing/details/search/).
 
    ![Add replicas and partitions](media/search-capacity-planning/2-add-2-each.png "Add replicas and partitions")
 
@@ -60,9 +60,7 @@ Generally, search applications need more replicas than partitions, particularly 
 
    ![Confirm changes to scale and billing](media/search-capacity-planning/3-save-confirm.png "Confirm changes to scale and billing")
 
-   Changes in capacity take time to process. If you triple or quadruple resource levels, it could take several hours to complete.
-    
-   There is no real-time monitoring for replica and partition adjustments. The following message remains visible while changes are underway.
+   Changes in capacity take several hours to complete. You cannot cancel once the process has started and there is no real-time monitoring for replica and partition adjustments. However, the following message remains visible while changes are underway.
 
    ![Status message in the portal](media/search-capacity-planning/4-updating.png "Status message in the portal")
 
