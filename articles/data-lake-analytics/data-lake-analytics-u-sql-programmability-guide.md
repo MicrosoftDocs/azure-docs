@@ -25,8 +25,8 @@ Download and install [Azure Data Lake Tools for Visual Studio](https://www.micro
 Look at the following U-SQL script:
 
 ```
-@a  = 
-  SELECT * FROM 
+@a  =
+  SELECT * FROM
     (VALUES
        ("Contoso",   1500.0, "2017-03-39"),
        ("Woodgrove", 2700.0, "2017-04-10")
@@ -37,7 +37,7 @@ Look at the following U-SQL script:
     customer,
     amount,
     date
-  FROM @a;    
+  FROM @a;
 ```
 
 This script defines two RowSets: `@a` and `@results`. RowSet `@results` is defined from `@a`.
@@ -52,7 +52,7 @@ A U-SQL Expression is a C# expression combined with U-SQL logical operations suc
     customer,
     amount,
     DateTime.Parse(date) AS date
-  FROM @a;    
+  FROM @a;
 ```
 
 The following snippet parses a string as DateTime value in a DECLARE statement.
@@ -69,13 +69,13 @@ The following example demonstrates how you can do a datetime data conversion by 
 DECLARE @dt = "2016-07-06 10:23:15";
 
 @rs1 =
-  SELECT 
+  SELECT
     Convert.ToDateTime(Convert.ToDateTime(@dt).ToString("yyyy-MM-dd")) AS dt,
     dt AS olddt
   FROM @rs0;
 
-OUTPUT @rs1 
-  TO @output_file 
+OUTPUT @rs1
+  TO @output_file
   USING Outputters.Text();
 ```
 
@@ -271,8 +271,8 @@ DECLARE @default_dt DateTime = Convert.ToDateTime("06/01/2016");
     FROM @rs0
     GROUP BY user, des;
 
-OUTPUT @rs1 
-    TO @output_file 
+OUTPUT @rs1
+    TO @output_file
     USING Outputters.Text();
 ```
 
@@ -351,7 +351,7 @@ DECLARE @out3 string = @"\UserSession\Out3.csv";
 
 @records =
     EXTRACT DataId string,
-            EventDateTime string,           
+            EventDateTime string,
             UserName string,
             UserSessionTimestamp string
 
@@ -359,13 +359,13 @@ DECLARE @out3 string = @"\UserSession\Out3.csv";
     USING Extractors.Tsv();
 
 @rs1 =
-    SELECT 
+    SELECT
         EventDateTime,
         UserName,
-	LAG(EventDateTime, 1) 
-		OVER(PARTITION BY UserName ORDER BY EventDateTime ASC) AS prevDateTime,          
-        string.IsNullOrEmpty(LAG(EventDateTime, 1) 
-		OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)) AS Flag,           
+	LAG(EventDateTime, 1)
+		OVER(PARTITION BY UserName ORDER BY EventDateTime ASC) AS prevDateTime,
+        string.IsNullOrEmpty(LAG(EventDateTime, 1)
+		OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)) AS Flag,
         USQLApplication21.UserSession.StampUserSession
            (
            	EventDateTime,
@@ -375,10 +375,10 @@ DECLARE @out3 string = @"\UserSession\Out3.csv";
     FROM @records;
 
 @rs2 =
-    SELECT 
+    SELECT
     	EventDateTime,
         UserName,
-        LAG(EventDateTime, 1) 
+        LAG(EventDateTime, 1)
 		OVER(PARTITION BY UserName ORDER BY EventDateTime ASC) AS prevDateTime,
         string.IsNullOrEmpty( LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)) AS Flag,
         USQLApplication21.UserSession.getStampUserSession(UserSessionTimestamp) AS UserSessionTimestamp
@@ -434,12 +434,12 @@ If we try to use UDT in EXTRACTOR or OUTPUTTER (out of previous SELECT), as show
 
 ```
 @rs1 =
-    SELECT 
+    SELECT
     	MyNameSpace.Myfunction_Returning_UDT(filed1) AS myfield
     FROM @rs0;
 
-OUTPUT @rs1 
-    TO @output_file 
+OUTPUT @rs1
+    TO @output_file
     USING Outputters.Text();
 ```
 
@@ -700,7 +700,7 @@ DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.
 	FROM @input_file USING Extractors.Tsv();
 
 @rs1 =
-    SELECT 
+    SELECT
     	guid AS start_id,
         dt,
         DateTime.Now.ToString("M/d/yyyy") AS Nowdate,
@@ -712,7 +712,7 @@ DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.
     FROM @rs0;
 
 @rs2 =
-    SELECT 
+    SELECT
     	   start_id,
            dt,
            DateTime.Now.ToString("M/d/yyyy") AS Nowdate,
@@ -726,8 +726,8 @@ DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.
            des
     FROM @rs1;
 
-OUTPUT @rs2 
-	TO @output_file 
+OUTPUT @rs2
+	TO @output_file
 	USING Outputters.Text();
 ```
 
@@ -1006,7 +1006,7 @@ DECLARE @output_file string = @" \usql-programmability\output_file.tsv";
 	    dt DateTime,
             user String,
             des String
-	FROM @input_file 
+	FROM @input_file
 	USING Extractors.Tsv();
 
 @rs1 =
@@ -1320,7 +1320,7 @@ public override void Output(IRow row, IUnstructuredWriter output)
  …
 if (isHeaderRow)
 {
-    …                
+    …
 }
 
  …
@@ -1351,7 +1351,7 @@ public class HTMLOutputter : IOutputter
     private bool IsTableHeader = true;
     private Stream g_writer;
 
-    // Parameters definition            
+    // Parameters definition
     public HTMLOutputter(bool isHeader = false, Encoding encoding = null)
     {
 	this.isHeaderRow = isHeader;
@@ -1401,7 +1401,7 @@ public class HTMLOutputter : IOutputter
 	}
 
 	// Data row output
-	streamWriter.Write("<tr>");                
+	streamWriter.Write("<tr>");
 	for (int i = 0; i < schema.Count(); i++)
 	{
 	    var col = schema[i];
@@ -1459,8 +1459,8 @@ DECLARE @output_file string = @"\usql-programmability\output_file.html";
          FROM @input_file
          USING new USQL_Programmability.FullDescriptionExtractor(Encoding.UTF8);
 
-OUTPUT @rs0 
-	TO @output_file 
+OUTPUT @rs0
+	TO @output_file
 	USING new USQL_Programmability.HTMLOutputter(isHeader: true);
 ```
 
@@ -1489,8 +1489,8 @@ To avoid creating an instance of the object in base script, we can create a func
 In this case, the original call looks like the following:
 
 ```
-OUTPUT @rs0 
-TO @output_file 
+OUTPUT @rs0
+TO @output_file
 USING USQL_Programmability.Factory.HTMLOutputter(isHeader: true);
 ```
 
@@ -1735,7 +1735,7 @@ public override IEnumerable<IRow> Apply(IRow input, IUpdatableRow output)
 	if (parsingPart.ToUpper().Contains("TYPE") || parsingPart.ToUpper().Contains("ALL")) output.Set<string>("type", type);
 	if (parsingPart.ToUpper().Contains("MILLAGE") || parsingPart.ToUpper().Contains("ALL")) output.Set<int>("millage", millage);
     }
-    yield return output.AsReadOnly();            
+    yield return output.AsReadOnly();
 }
 }
 ```
@@ -2187,12 +2187,12 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 	    dt DateTime,
             user String,
             des String
-	FROM @input_file 
+	FROM @input_file
 	USING Extractors.Tsv();
 
 @rs1 =
     REDUCE @rs0 PRESORT guid
-    ON guid  
+    ON guid
     PRODUCE guid string, dt DateTime, user String, des String
     USING new USQL_Programmability.EmptyUserReducer();
 
@@ -2205,7 +2205,7 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
            des
     FROM @rs1;
 
-OUTPUT @rs2 
-	TO @output_file 
+OUTPUT @rs2
+	TO @output_file
 	USING Outputters.Text();
 ```
