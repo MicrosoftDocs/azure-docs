@@ -76,7 +76,7 @@ The following section list the supported operating systems for the Dependency ag
 ### CentOSPlus
 | OS version | Kernel version |
 |:--|:--|
-| 6.9 | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
+| 6.9 | 2.6.32-696.18.7<br>2.6.32-696.30.1 |
 | 6.10 | 2.6.32-696.30.1<br>2.6.32-754.3.5 |
 
 ### Ubuntu Server
