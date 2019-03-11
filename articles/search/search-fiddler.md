@@ -59,8 +59,8 @@ Service URL composition includes the following elements:
 
 Request header composition includes two elements, content type and the api-key described in the previous section:
 
-         content-type: application/json
-         api-key: <placeholder>
+    api-key: <placeholder>
+    Content-Type: application/json
 
 
 ### Postman
