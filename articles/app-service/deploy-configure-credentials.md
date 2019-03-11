@@ -55,7 +55,7 @@ and *FTP* deployment username in your app's **Properties**.
 ## Using user-level credentials
 
 Authenticating to an endpoint using user-level credentials requirers a username in the following format:
-`<app-name>\<username>`
+`<app-name>\<user-name>`
 
 Since user-level credentials are linked to the user and not a specific resource, the username must be in this format to direct the sign-in action to the right app endpoint.
 
