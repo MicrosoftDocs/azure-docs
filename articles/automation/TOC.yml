@@ -115,9 +115,9 @@
       displayName: input,json
     - name: Error handling in graphical runbooks
       href: automation-runbook-graphical-error-handling.md
-    - name: Track a runbook job
+    - name: Runbook execution
       href: automation-runbook-execution.md
-      displayName: fair share, activity log
+      displayName: fair share, activity log, job
     - name: Manage Azure Automation data
       href: automation-managing-data.md
       displayName: backup
