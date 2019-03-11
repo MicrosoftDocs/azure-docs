@@ -36,75 +36,75 @@ Save the JSON defined in the [H264 Multiple Bitrate 720p](media-services-mes-pre
 
 Open the **CustomPreset_JSON.json** file and remove first three layers from **H264Layers** so your file looks like this.
 
-```json	
-	{  
-	  "Version": 1.0,  
-	  "Codecs": [  
-	    {  
-	      "KeyFrameInterval": "00:00:02",  
-	      "H264Layers": [  
-	        {  
-	          "Profile": "Auto",  
-	          "Level": "auto",  
-	          "Bitrate": 1000,  
-	          "MaxBitrate": 1000,  
-	          "BufferWindow": "00:00:05",  
-	          "Width": 640,  
-	          "Height": 360,  
-	          "BFrames": 3,  
-	          "ReferenceFrames": 3,  
-	          "AdaptiveBFrame": true,  
-	          "Type": "H264Layer",  
-	          "FrameRate": "0/1"  
-	        },  
-	        {  
-	          "Profile": "Auto",  
-	          "Level": "auto",  
-	          "Bitrate": 650,  
-	          "MaxBitrate": 650,  
-	          "BufferWindow": "00:00:05",  
-	          "Width": 640,  
-	          "Height": 360,  
-	          "BFrames": 3,  
-	          "ReferenceFrames": 3,  
-	          "AdaptiveBFrame": true,  
-	          "Type": "H264Layer",  
-	          "FrameRate": "0/1"  
-	        },  
-	        {  
-	          "Profile": "Auto",  
-	          "Level": "auto",  
-	          "Bitrate": 400,  
-	          "MaxBitrate": 400,  
-	          "BufferWindow": "00:00:05",  
-	          "Width": 320,  
-	          "Height": 180,  
-	          "BFrames": 3,  
-	          "ReferenceFrames": 3,  
-	          "AdaptiveBFrame": true,  
-	          "Type": "H264Layer",  
-	          "FrameRate": "0/1"  
-	        }  
-	      ],  
-	      "Type": "H264Video"  
-	    },  
-	    {  
-	      "Profile": "AACLC",  
-	      "Channels": 2,  
-	      "SamplingRate": 48000,  
-	      "Bitrate": 128,  
-	      "Type": "AACAudio"  
-	    }  
-	  ],  
-	  "Outputs": [  
-	    {  
-	      "FileName": "{Basename}_{Width}x{Height}_{VideoBitrate}.mp4",  
-	      "Format": {  
-	        "Type": "MP4Format"  
-	      }  
-	    }  
-	  ]  
-	}  
+```json
+	{
+	  "Version": 1.0,
+	  "Codecs": [
+	    {
+	      "KeyFrameInterval": "00:00:02",
+	      "H264Layers": [
+	        {
+	          "Profile": "Auto",
+	          "Level": "auto",
+	          "Bitrate": 1000,
+	          "MaxBitrate": 1000,
+	          "BufferWindow": "00:00:05",
+	          "Width": 640,
+	          "Height": 360,
+	          "BFrames": 3,
+	          "ReferenceFrames": 3,
+	          "AdaptiveBFrame": true,
+	          "Type": "H264Layer",
+	          "FrameRate": "0/1"
+	        },
+	        {
+	          "Profile": "Auto",
+	          "Level": "auto",
+	          "Bitrate": 650,
+	          "MaxBitrate": 650,
+	          "BufferWindow": "00:00:05",
+	          "Width": 640,
+	          "Height": 360,
+	          "BFrames": 3,
+	          "ReferenceFrames": 3,
+	          "AdaptiveBFrame": true,
+	          "Type": "H264Layer",
+	          "FrameRate": "0/1"
+	        },
+	        {
+	          "Profile": "Auto",
+	          "Level": "auto",
+	          "Bitrate": 400,
+	          "MaxBitrate": 400,
+	          "BufferWindow": "00:00:05",
+	          "Width": 320,
+	          "Height": 180,
+	          "BFrames": 3,
+	          "ReferenceFrames": 3,
+	          "AdaptiveBFrame": true,
+	          "Type": "H264Layer",
+	          "FrameRate": "0/1"
+	        }
+	      ],
+	      "Type": "H264Video"
+	    },
+	    {
+	      "Profile": "AACLC",
+	      "Channels": 2,
+	      "SamplingRate": 48000,
+	      "Bitrate": 128,
+	      "Type": "AACAudio"
+	    }
+	  ],
+	  "Outputs": [
+	    {
+	      "FileName": "{Basename}_{Width}x{Height}_{VideoBitrate}.mp4",
+	      "Format": {
+	        "Type": "MP4Format"
+	      }
+	    }
+	  ]
+	}
 ```
 
 ## <a id="encoding_with_dotnet"></a>Encoding with Media Services .NET SDK
@@ -185,7 +185,7 @@ namespace CustomizeMESPresests
         {
             // Declare a new job.
             IJob job = _context.Jobs.Create("Media Encoder Standard Job");
-            // Get a media processor reference, and pass to it the name of the 
+            // Get a media processor reference, and pass to it the name of the
             // processor to use for the specific task.
             IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
@@ -200,9 +200,9 @@ namespace CustomizeMESPresests
 
             // Specify the input asset to be encoded.
             task.InputAssets.Add(asset);
-            // Add an output asset to contain the results of the job. 
-            // This output is specified as AssetCreationOptions.None, which 
-            // means the output asset is not encrypted. 
+            // Add an output asset to contain the results of the job.
+            // This output is specified as AssetCreationOptions.None, which
+            // means the output asset is not encrypted.
             task.OutputAssets.AddNew("Output asset",
             AssetCreationOptions.None);
 
