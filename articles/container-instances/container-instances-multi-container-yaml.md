@@ -26,7 +26,7 @@ In this tutorial, you follow steps to run a simple two-container sidecar configu
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Configure a YAML file
 
@@ -75,46 +75,13 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-### Deploy from private registry
-
-To use a private container image registry, include the following YAML with values modified for your environment:
+To use a private container image registry, add the `imageRegistryCredentials` property to the container group, with values modified for your environment:
 
 ```YAML
   imageRegistryCredentials:
   - server: imageRegistryLoginServer
     username: imageRegistryUsername
     password: imageRegistryPassword
-```
-
-For example, the following YAML deploys a container group with a single container whose image is pulled from a private Azure Container Registry named "myregistry":
-
-```YAML
-apiVersion: 2018-10-01
-location: eastus
-name: myContainerGroup2
-properties:
-  containers:
-  - name: aci-tutorial-app
-    properties:
-      image: myregistry.azurecr.io/aci-helloworld:latest
-      resources:
-        requests:
-          cpu: 1
-          memoryInGb: 1.5
-      ports:
-      - port: 80
-  osType: Linux
-  ipAddress:
-    type: Public
-    ports:
-    - protocol: tcp
-      port: '80'
-  imageRegistryCredentials:
-  - server: myregistry.azurecr.io
-    username: myregistry
-    password: REGISTRY_PASSWORD
-tags: null
-type: Microsoft.ContainerInstance/containerGroups
 ```
 
 ## Deploy the container group
