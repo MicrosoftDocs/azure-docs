@@ -56,6 +56,7 @@ You can assign a conditional access policy to the following cloud apps from Micr
 - Dynamics CRM Online
 - Microsoft Application Insights Analytics
 - Microsoft Azure Information Protection - [Learn more](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+- Microsoft Azure Management - [Learn more](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
 - Microsoft Azure RemoteApp
 - Microsoft Azure Subscription Management
 - Microsoft Cloud App Security
@@ -83,6 +84,7 @@ You can assign a conditional access policy to the following cloud apps from Micr
 - Virtual Private Network (VPN)
 - Visual Studio App Center
 - Windows Defender ATP
+
 
 
 
