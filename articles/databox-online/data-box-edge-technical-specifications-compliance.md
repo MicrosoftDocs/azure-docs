@@ -10,10 +10,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: alkohli
 ---
-# Azure Data Box Edge technical specifications
+# Azure Data Box Edge technical specifications (preview)
 
 The hardware components of your Microsoft Azure Data Box Edge device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power supply units (PSUs), storage capacity, enclosures, and environmental standards. 
 
+> [!IMPORTANT]
+> Data Box Edge is in preview. Before you order and deploy this solution, review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 ## Power supply unit specifications
 
