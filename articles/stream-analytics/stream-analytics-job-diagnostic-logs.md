@@ -23,7 +23,9 @@ Stream Analytics offers two types of logs:
 * [Diagnostics logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (configurable), which provide richer insights into everything that happens with a job. Diagnostics logs start when the job is created and end when the job is deleted. They cover events when the job is updated and while it’s running.
 
 > [!NOTE]
-> You can use services like Azure Storage, Azure Event Hubs, and Azure Log Analytics to analyze nonconforming data. You are charged based on the pricing model for those services.
+> You can use services like Azure Storage, Azure Event Hubs, and Azure Monitor logs to analyze nonconforming data. You are charged based on the pricing model for those services.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Debugging using activity logs
 
@@ -45,11 +47,11 @@ Activity logs are on by default and give high-level insights into operations per
 
 5. You can take corrective actions based on the error message in JSON. In this example, checks to ensure latitude value is between -90 degrees and 90 degrees need to be added to the query.
 
-6. If the error message in the Activity logs isn’t helpful in identifying root cause, enable diagnostic logs and use Log Analytics.
+6. If the error message in the Activity logs isn’t helpful in identifying root cause, enable diagnostic logs and use Azure Monitor logs.
 
-## Send diagnostics to Log Analytics
+## Send diagnostics to Azure Monitor logs
 
-Turning on diagnostic logs and sending them to Log Analytics is highly recommended. Diagnostics logs are **off** by default. To turn on diagnostics logs, complete these steps:
+Turning on diagnostic logs and sending them to Azure Monitor logs is highly recommended. Diagnostics logs are **off** by default. To turn on diagnostics logs, complete these steps:
 
 1.  Sign in to the Azure portal, and navigate to your Stream Analytics job. Under **Monitoring**, select **Diagnostics logs**. Then select **Turn on diagnostics**.
 
@@ -61,7 +63,7 @@ Turning on diagnostic logs and sending them to Log Analytics is highly recommend
 
 3. When your Stream Analytics job starts, diagnostic logs are routed to your Log Analytics workspace. Navigate to the Log Analytics workspace and choose **Logs** under the **General** section.
 
-   ![Log Analytics logs under general section](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
+   ![Azure Monitor logs under general section](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
 
 4. You can [write your own query](../azure-monitor/log-query/get-started-portal.md) to search for terms, identify trends, analyze patterns, and provide insights based on your data. For example, you can write a query to filter only diagnostic logs that have the message “The streaming job failed.” Diagnostic logs from Azure Stream Analytics are stored in the **AzureDiagnostics** table.
 

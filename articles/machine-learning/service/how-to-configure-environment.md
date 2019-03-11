@@ -37,7 +37,7 @@ If you already have a Python 3 environment, or just want the basic steps for ins
 
 - An Azure Machine Learning service workspace. To create the workspace, see [Get started with Azure Machine Learning service](quickstart-get-started.md).
 
-- Either the [Continuum Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://conda.io/miniconda.html) package manager.
+- Either the [Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://conda.io/miniconda.html) package manager.
 
     > [!IMPORTANT]
     > Anaconda and Miniconda are not required when you're using Azure Notebooks.

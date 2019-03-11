@@ -53,7 +53,7 @@ While the import tool includes a graphical user interface (dtui.exe), it can als
 
 ## <a id="Install"></a>Installation
 
-The migration tool source code is available on GitHub in [this repository](https://github.com/azure/azure-documentdb-datamigrationtool). You can download and compile the solution locally, or [download a pre-compiled binary](http://aka.ms/csdmtool), then run either:
+The migration tool source code is available on GitHub in [this repository](https://github.com/azure/azure-documentdb-datamigrationtool). You can download and compile the solution locally, or [download a pre-compiled binary](https://aka.ms/csdmtool), then run either:
 
 * **Dtui.exe**: Graphical interface version of the tool
 * **Dt.exe**: Command-line version of the tool

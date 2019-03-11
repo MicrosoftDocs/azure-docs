@@ -34,7 +34,7 @@ Azure Active Directory B2C is a cloud identity management solution for consumer-
    > [!NOTE]
    > If you haven't yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Get started with Azure API Management tutorial][Get started with Azure API Management].
 
-2. Under **SECURITY**, select **Identities**. Click **+Add** at the top.
+2. Under **Identities**. Click **+Add** at the top.
 
    The **Add identity provider** pane appears on the right. Choose **Azure Active Directory B2C**.
     

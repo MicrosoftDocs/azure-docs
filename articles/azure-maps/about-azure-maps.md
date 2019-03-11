@@ -18,15 +18,21 @@ Azure Maps is a collection of geospatial services, unpinned by the freshest mapp
 
 The following video explains Azure Maps in depth:
 
-<iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 ## Map Controls
 
-### Web Control
+### Web SDK
 
-The Azure Maps Web Control lets you customize interactive maps with your own content and imagery for display in your web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with the control using JavaScript or TypeScript.
+The Azure Maps Web SDK lets you customize interactive maps with your own content and imagery for display in your web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with the SDK using JavaScript or TypeScript.
 
-![Azure Maps Web Control](media/about-azure-maps/Introduction_WebMapControl.png)
+![Azure Maps Web SDK](media/about-azure-maps/Introduction_WebMapControl.png)
+
+### Android SDK
+
+The Azure Maps Android SDK lets you create powerful mobile mapping applications. 
+
+![Azure Maps Android SDK](media/about-azure-maps/AndroidSDK.png)
 
 ## Services in Azure Maps
 

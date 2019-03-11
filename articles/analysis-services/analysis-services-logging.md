@@ -298,4 +298,4 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 Learn more about [Azure resource diagnostic logging](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-See [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.insights/Set-azDiagnosticSetting) in PowerShell help.
+See [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) in PowerShell help.

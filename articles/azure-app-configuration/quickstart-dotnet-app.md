@@ -48,7 +48,7 @@ To complete this quickstart, install [Visual Studio 2017](https://visualstudio.m
     Microsoft.Configuration.ConfigurationBuilders.Environment 2.0.0 preview or later
     ```
 
-2. Update the *App.config* file of your project as following
+2. Update the *App.config* file of your project as following:
 
     ```xml
     <configSections>
@@ -64,10 +64,11 @@ To complete this quickstart, install [Visual Studio 2017](https://visualstudio.m
 
     <appSettings configBuilders="Environment,MyConfigStore">
         <add key="AppName" value="Console App Demo" />
-        <add key="ConnectionString" value ="First filled in by 'Environment'. Could be a dev, test, staging, or production connection string." />
+        <add key="ConnectionString" value ="Set via an environment variable - for example, dev, test, staging, or production connection string." />
     </appSettings>
     ```
-   Plesae note, as we will be reading the connection string of your app configuration store from the environment variable `ConnectionString`, it's important to add the `Environment` configuration builder before the `MyConfigStore` in the `configBuilders` property of the `appSettings` section.
+
+   Please note, as we will be reading the connection string of your app configuration store from the environment variable `ConnectionString`, it's important to add the `Environment` configuration builder before the `MyConfigStore` in the `configBuilders` property of the `appSettings` section.
 
 3. Open *Program.cs* and update the `Main` method to use App Configuration by calling `ConfigurationManager`.
 

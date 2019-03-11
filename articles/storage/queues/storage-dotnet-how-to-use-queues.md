@@ -5,7 +5,7 @@ services: storage
 author: tamram
 ms.service: storage
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 06/13/2018
 ms.author: tamram
 ms.subservice: queues
@@ -24,7 +24,7 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 
 **Estimated time to complete:** 45 minutes
 
-**Prerequisities:**
+**Prerequisites:**
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
@@ -55,7 +55,7 @@ The sample code needs to authorize access to your storage account. To authorize,
 3. In the **Settings** section of the storage account overview, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.   
 4. Find the **Connection string** value under **key1**, and click the **Copy** button to copy the connection string. You will add the connection string value to an environment variable in the next step.
 
-    ![Screen shot showing how to copy a connection string from the Azure portal](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
+    ![Screenshot showing how to copy a connection string from the Azure portal](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
 
 ### Parse the connection string
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]

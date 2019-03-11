@@ -278,7 +278,7 @@ select * from jobs.jobsteps
 ```
 
 
-## Begin ad-hoc execution of a job
+## Begin ad hoc execution of a job
 
 The following example shows how to start a job immediately.  
 Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:

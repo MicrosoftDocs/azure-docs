@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.lastreviewed: 01/24/2019
+ms.lastreviewed: 02/28/2019
 
 ---
 
@@ -147,7 +147,9 @@ For more information about these vulnerabilities, click on the preceding links, 
 
   ```PowerShell
   Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
-  ``` 
+  ```
+
+- When Azure Stack is managed by System Center Operations Manager (SCOM), be sure to update the Management Pack for Microsoft Azure Stack to version 1.0.3.11 before applying 1809.
 
 ### Known issues with the update process
 

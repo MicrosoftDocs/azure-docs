@@ -25,7 +25,7 @@ You can deploy models to the following compute targets:
 | Compute target | Deployment type | Description |
 | ----- | ----- | ----- |
 | [Azure Kubernetes Service (AKS)](#aks) | Real-time inference | Good for high-scale production deployments. Provides autoscaling, and fast response times. |
-| Azure ML Compute | Batch inference | Run batch prediction on serverless compute. Supports normal and low priority VMs. |
+| [Azure ML Compute](#azuremlcompute) | Batch inference | Run batch prediction on serverless compute. Supports normal and low priority VMs. |
 | [Azure Container Instances (ACI)](#aci) | Testing | Good for development or testing. **Not suitable for production workloads.** |
 | [Azure IoT Edge](#iotedge) | (Preview) IoT module | Deploy models on IoT devices. Inferencing happens on the device. |
 | [Field-programmable gate array (FPGA)](#fpga) | (Preview) Web service | Ultra-low latency for real-time inferencing. |
@@ -254,6 +254,44 @@ Azure Kubernetes Service provides the following capabilities:
 * Logging
 * Model data collection
 * Fast response times for your web services
+* TLS termination
+* Authentication
+
+#### Autoscaling
+
+Autoscaling can be controlled by setting `autoscale_target_utilization`, `autoscale_min_replicas`, and `autoscale_max_replicas` for the AKS web service. The following example demonstrates how to enable autoscaling:
+
+```python
+aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True, 
+                                                autoscale_target_utilization=30,
+                                                autoscale_min_replicas=1,
+                                                autoscale_max_replicas=4)
+```
+
+Decisions to scale up/down is based off of utilization of the current container replicas. The number of replicas that are busy (processing a request) divided by the total number of current replicas is the current utilization. If this number exceeds the target utilization, then more replicas are created. If it is lower, then replicas are reduced. By default, the target utilization is 70%.
+
+Decisions to add replicas are eager and fast (around 1 second). Decisions to remove replicas are conservative (around 1 minute).
+
+You can calculate the required replicas by using the following code:
+
+```python
+from math import ceil
+# target requests per second
+targetRps = 20
+# time to process the request (in seconds)
+reqTime = 10
+# Maximum requests per container
+maxReqPerContainer = 1
+# target_utilization. 70% in this example
+targetUtilization = .7
+
+concurrentRequests = targetRps * reqTime / targetUtilization
+
+# Number of container replicas
+replicas = ceil(concurrentRequests / maxReqPerContainer)
+```
+
+For more information on setting `autoscale_target_utilization`, `autoscale_max_replicas`, and `autoscale_min_replicas`, see the [AksWebservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) module reference.
 
 #### Create a new cluster
 
@@ -285,7 +323,7 @@ print(aks_target.provisioning_errors)
 
 #### Use an existing cluster
 
-If you already have AKS cluster in your Azure subscription, and it is version 1.11.*, you can use it to deploy your image. The following code demonstrates how to attach an existing cluster to your workspace:
+If you already have AKS cluster in your Azure subscription, and it is version 1.11.## and has at least 12 virtual CPUs, you can use it to deploy your image. The following code demonstrates how to attach an existing AKS 1.11.## cluster to your workspace:
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -303,6 +341,11 @@ aks_target.wait_for_completion(True)
 ```
 
 **Time estimate**: Approximately 3 minutes.
+
+For more information on creating an AKS cluster outside of the Azure Machine Learning SDK, see the following articles:
+
+* [Create an AKS clsuter](https://docs.microsoft.com/cli/azure/aks?toc=%2Fen-us%2Fazure%2Faks%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
+* [Create an AKS cluster (portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
 #### Deploy the image
 
@@ -329,7 +372,7 @@ print(service.state)
 
 For more information, see the reference documentation for the [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) classes.
 
-### <a id="fpga"></a> Inference with Azure ML Compute
+### <a id="azuremlcompute"></a> Inference with Azure ML Compute
 
 Azure ML compute targets are created and managed by the Azure Machine Learning service. They can be used for batch prediction from Azure ML Pipelines.
 
@@ -344,9 +387,14 @@ For a walkthrough of deploying a model using Project Brainwave, see the [Deploy 
 
 ### <a id="iotedge"></a> Deploy to Azure IoT Edge
 
-An Azure IoT Edge device is a Linux or Windows-based device that runs the Azure IoT Edge runtime. Machine learning models can be deployed to these devices as IoT Edge modules. Deploying a model to an IoT Edge device allows the device to use the model directly, instead of having to send data to the cloud for processing. You get faster response times and less data transfer.
+An Azure IoT Edge device is a Linux or Windows-based device that runs the Azure IoT Edge runtime. Using the Azure IoT Hub, you can deploy machine learning models to these devices as IoT Edge modules. Deploying a model to an IoT Edge device allows the device to use the model directly, instead of having to send data to the cloud for processing. You get faster response times and less data transfer.
 
 Azure IoT Edge modules are deployed to your device from a container registry. When you create an image from your model, it is stored in the container registry for your workspace.
+
+> [!IMPORTANT]
+> The information in this section assumes that you are already familiar with Azure IoT Hub and Azure IoT Edge modules. While some of the information in this section is specific to Azure Machine Learning service, the majority of the process to deploy to an edge device happens in the Azure IoT service.
+>
+> If you are unfamiliar with Azure IoT, see [Azure IoT Fundamentals](https://docs.microsoft.com/azure/iot-fundamentals/) and [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) for basic information. Then use the other links in this section to learn more about specific operations.
 
 #### Set up your environment
 
@@ -356,36 +404,11 @@ Azure IoT Edge modules are deployed to your device from a container registry. Wh
 
 * A trained model. For an example of how to train a model, see the [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) document. A pre-trained model is available on the [AI Toolkit for Azure IoT Edge GitHub repo](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
 
-#### Prepare the IoT device
-You must create an IoT hub and register a device or reuse one you have with [this script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister).
+#### <a id="getcontainer"></a> Get the container registry credentials
 
-``` bash
-ssh <yourusername>@<yourdeviceip>
-sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister
-sudo chmod +x createNregister
-sudo ./createNregister <The Azure subscriptionID you want to use> <Resourcegroup to use or create for the IoT hub> <Azure location to use e.g. eastus2> <the Hub ID you want to use or create> <the device ID you want to create>
-```
-
-Save the resulting connection string after "cs":"{copy this string}".
-
-Initialize your device by downloading [this script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge) into an UbuntuX64 IoT Edge node or DSVM to run the following commands:
-
-```bash
-ssh <yourusername>@<yourdeviceip>
-sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge
-sudo chmod +x installIoTEdge
-sudo ./installIoTEdge
-```
-
-The IoT Edge node is ready to receive the connection string for your IoT Hub. Look for the line ```device_connection_string:``` and paste the connection string from above in between the quotes.
-
-You can also learn how to register your device and install the IoT runtime by following the [Quickstart: Deploy your first IoT Edge module to a Linux x64 device](../../iot-edge/quickstart-linux.md) document.
-
-
-#### Get the container registry credentials
 To deploy an IoT Edge module to your device, Azure IoT needs the credentials for the container registry that Azure Machine Learning service stores docker images in.
 
-You can easily retrieve the necessary container registry credentials in two ways:
+You can get the credentials in two ways:
 
 + **In the Azure portal**:
 
@@ -426,25 +449,21 @@ You can easily retrieve the necessary container registry credentials in two ways
 
      These credentials are necessary to provide the IoT Edge device access to images in your private container registry.
 
+#### Prepare the IoT device
+
+You must register your device with Azure IoT Hub, and then install the IoT Edge runtime on the device. If you are not familiar with this process, see [Quickstart: Deploy your first IoT Edge module to a Linux x64 device](../../iot-edge/quickstart-linux.md).
+
+Other methods of registering a device are:
+
+* [Azure portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
+* [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
+* [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
+
 #### Deploy the model to the device
 
-You can easily deploy a model by running [this script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/deploymodel) and providing the following information from the steps above:
-container registry Name, username, password, image location url, desired deployment name, IoT Hub name, and the device ID you created. You can do this in the VM by following these steps: 
+To deploy the model to the device, use the registry information gathered in the [Get container registry credentials](#getcontainer) section with the module deployment steps for IoT Edge modules. For example, when [Deploying Azure IoT Edge modules from the Azure portal](../../iot-edge/how-to-deploy-modules-portal.md), you must configure the __Registry settings__ for the device. Use the __login server__, __username__, and __password__ for your workspace container registry.
 
-```bash 
-wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/deploymodel
-sudo chmod +x deploymodel
-sudo ./deploymodel <ContainerRegistryName> <username> <password> <imageLocationURL> <DeploymentID> <IoTHubname> <DeviceID>
-```
-
-Alternatively, you can follow the steps in the [Deploy Azure IoT Edge modules from the Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) document to deploy the image to your device. When configuring the __Registry settings__ for the device, use the __login server__, __username__, and __password__ for your workspace container registry.
-
-> [!NOTE]
-> If you're unfamiliar with Azure IoT, see the following documents for information on getting started with the service:
->
-> * [Quickstart: Deploy your first IoT Edge module to a Linux device](../../iot-edge/quickstart-linux.md)
-> * [Quickstart: Deploy your first IoT Edge module to a Windows device](../../iot-edge/quickstart.md)
-
+You can also deploy using [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) and [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode).
 
 ## Testing web service deployments
 

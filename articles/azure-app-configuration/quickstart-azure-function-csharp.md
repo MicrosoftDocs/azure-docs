@@ -76,15 +76,15 @@ To complete this quickstart, install [Visual Studio 2017](https://visualstudio.m
 
 1. Set an environment variable named **ConnectionString** and set it to the access key to your app configuration store. If you are using Windows Command Prompt, execute the following command and restart the Command Prompt to allow the change to take effect:
 
-        setx ConnectionString "Endpoint=<service_endpoint>;Id=<store_id>;Secret=<secret_key>="
+        setx ConnectionString "connection-string-of-your-app-configuration-store"
 
     If you are using Windows PowerShell, execute the following command:
 
-        $Env:ConnectionString = "Endpoint=<service_endpoint>;Id=<store_id>;Secret=<secret_key>="
+        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
     If you are using macOS or Linux, execute the following command:
 
-        export ConnectionString='Endpoint=<service_endpoint>;Id=<store_id>;Secret=<secret_key>='
+        export ConnectionString='connection-string-of-your-app-configuration-store'
 
 2. To test your function, press **F5**. If prompted, accept the request from Visual Studio to download and install **Azure Functions Core (CLI)** tools. You may also need to enable a firewall exception so that the tools can handle HTTP requests.
 

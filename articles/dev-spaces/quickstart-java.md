@@ -1,15 +1,14 @@
 ---
-title: "Create a Kubernetes dev space in the cloud | Microsoft Docs"
+title: "Create a Kubernetes dev space in the cloud"
 titleSuffix: Azure Dev Spaces
 author: "stepro"
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 ms.author: "stephpr"
 ms.date: "09/26/2018"
 ms.topic: "quickstart"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
 manager: "mmontwil"
 ---
 # Quickstart: Create a Kubernetes dev space with Azure Dev Spaces (Java and VS Code)
@@ -32,7 +31,7 @@ In this guide, you will learn how to:
 
     ```cmd
     az group create --name MyResourceGroup --location <region>
-    az aks create -g MyResourceGroup -n myAKS --location <region> --kubernetes-version 1.10.9 --generate-ssh-keys
+    az aks create -g MyResourceGroup -n myAKS --location <region> --kubernetes-version 1.10.13 --generate-ssh-keys
     ```
 
 ## Set up Azure Dev Spaces

@@ -9,7 +9,7 @@ manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
@@ -41,7 +41,7 @@ First, create a public Basic Load Balancer by using the portal. The name and pub
     | Type          | Select **Public**.                                        |
     | SKU           | Select **Basic**.                          |
     | Public IP address | Select **Create new**. |
-    | Public IP address name              | Type *myPublicIP* in the text box.   |
+    | Public IP address name              | *MyPublicIP*   |
     | Assignment| Static|
 
 3. In the **Review + create** tab, click **Create**.   

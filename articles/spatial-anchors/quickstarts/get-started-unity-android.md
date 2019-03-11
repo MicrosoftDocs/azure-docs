@@ -75,6 +75,9 @@ Select the Android device in the **Select Deployment Target** dialog, and select
 
 Follow the instructions in the app to place and recall an anchor.
 
+> [!NOTE]
+> When running the app, if you don't see the camera as the background (for instance you instead see a blank, blue or other textures) then you likely need to re-import assets in Unity. Stop the app. From the top menu in Unity, choose **Assets -> Reimport all**. Then, run the app again.
+
 Stop the app by selecting **Stop** from the Android Studio toolbar.
 
 ![Android Studio Stop](./media/get-started-unity-android/android-studio-stop.png)

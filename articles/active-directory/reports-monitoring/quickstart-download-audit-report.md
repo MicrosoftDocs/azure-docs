@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 
 # Quickstart: Download an audit report using the Azure portal
 
-In this quickstart, you learn how to download the audit logs for your tenant for the past 24 hours. You can download up to 5000 records from the Azure portal. The records are sorted by most recent so by default, you get the most recent 5000 records. 
+In this quickstart, you learn how to download a CSV file of the audit logs for your tenant for the past 24 hours. You can download up to 250,000 records from the Azure portal. The records are sorted by most recent so by default, you get the most recent 250,000 records. 
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ You need:
 2. Select **Azure Active Directory** from the left navigation pane and use the **Switch directory** button to select your active directory.
 3. From the dashboard, select **Azure Active Directory** and then select **Audit logs**. 
 4. Choose **last 24 hours** in the **Date range** filter drop-down and select **Apply** to view the audit logs for the past 24 hours. 
-5. Select the **Download** button to download a CSV file containing the filtered records. 
+5. Select the **Download** button, select **CSV** as the file format and specify a file name to download a CSV file containing the filtered records. 
 
 ![Reporting](./media/quickstart-download-audit-report/download-audit-logs.png)
 

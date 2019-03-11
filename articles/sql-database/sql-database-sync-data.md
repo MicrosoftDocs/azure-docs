@@ -222,7 +222,7 @@ Do you have to update the schema of a database in a sync group? Schema changes a
 
 Is SQL Data Sync performing as expected? To monitor activity and troubleshoot issues, see the following articles:
 
-- [Monitor Azure SQL Data Sync with Log Analytics](sql-database-sync-monitor-oms.md)
+- [Monitor Azure SQL Data Sync with Azure Monitor logs](sql-database-sync-monitor-oms.md)
 - [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 ### Learn more about Azure SQL Database
