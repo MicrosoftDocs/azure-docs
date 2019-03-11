@@ -11,7 +11,6 @@ ms.devlang: na
 ms.topic: conceptual
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
-ms.technology: database-engine
 ms.author: mathoma
 ms.reviewer: jroth
 ---
