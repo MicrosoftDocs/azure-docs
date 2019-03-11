@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: In this quickstart, you will use the online Content Moderator Review tool to test out the basic functionality of Content Moderator without having to write any code.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator

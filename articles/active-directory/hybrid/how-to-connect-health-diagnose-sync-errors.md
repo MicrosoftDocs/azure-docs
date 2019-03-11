@@ -10,9 +10,10 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: zhiweiw
+ms.collection: M365-identity-device-management
 ---
 
 # Diagnose and remediate duplicated attribute sync errors

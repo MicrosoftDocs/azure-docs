@@ -19,6 +19,7 @@ ms.date: 12/10/2018
 ms.author: markvi
 ms.reviewer: calebb
 
+ms.collection: M365-identity-device-management
 ---
 # How to: Require MFA for access from untrusted networks with conditional access   
 

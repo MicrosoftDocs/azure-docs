@@ -14,6 +14,7 @@ ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
 ---
+
 # Azure Resource Manager resource group deletion
 
 This article describes how Azure Resource Manager orders the deletion of resources when you delete a resource group.

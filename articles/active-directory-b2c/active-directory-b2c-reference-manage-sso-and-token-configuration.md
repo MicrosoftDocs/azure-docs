@@ -48,7 +48,18 @@ The following values are set in the previous example:
 - **Refresh token lifetime** - The refresh token lifetime value is set with the **refresh_token_lifetime_secs** metadata item. The default value is 1209600 seconds (14 days).
 - **Refresh token sliding window lifetime** - If you would like to set a sliding window lifetime to your refresh token, set the value of **rolling_refresh_token_lifetime_secs** metadata item. The default value is 7776000 (90 days). If you don't want to enforce a sliding window lifetime, replace the item with `<Item Key="allow_infinite_rolling_refresh_token">True</Item>`.
 - **Issuer (iss) claim** - The Issuer (iss) claim is set with the **IssuanceClaimPattern** metadata item. The applicable values are `AuthorityAndTenantGuid` and `AuthorityWithTfp`.
-- **Setting claim representing policy ID** - The options for setting this value are `TFP` (trust framework policy) and `ACR` (authentication context reference). `TFP` is the recommended value. Set **AuthenticationContextReferenceClaimPattern** with the value of `None`. In your **OutputClaims** item, add this element:
+- **Setting claim representing policy ID** - The options for setting this value are `TFP` (trust framework policy) and `ACR` (authentication context reference). `TFP` is the recommended value. Set **AuthenticationContextReferenceClaimPattern** with the value of `None`. 
+
+    In the **ClaimsSchema** element, add this element: 
+    
+    ```XML
+    <ClaimType Id="trustFrameworkPolicy">
+      <DisplayName>Trust framework policy name</DisplayName>
+      <DataType>string</DataType>
+    </ClaimType>
+    ```
+    
+    In your **OutputClaims** element, add this element:
     
     ```XML
     <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />

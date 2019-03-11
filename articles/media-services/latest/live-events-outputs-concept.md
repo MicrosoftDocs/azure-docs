@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 03/01/2019
 ms.author: juliako
 
 ---
@@ -21,8 +21,8 @@ ms.author: juliako
 Azure Media Services enables you to deliver live events to your customers on the Azure cloud. To configure your live streaming events in Media Services v3, you need to understand concepts discussed in this article:
 
 * [Live Events](#live-events)
-* [Live Event types](#live-vent-types)
-* [Live Event types comparison](#live-event-types-comparison)
+* Live Event types
+* Live Event types comparison
 * [Live Event creation options](#live-event-creation-options)
 * [Live Event ingest URLs](#live-event-ingest-urls)
 * [Live Event preview URL](#live-event-preview-url)
@@ -38,7 +38,7 @@ A [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) can be one 
 
 ### Pass-through
 
-![pass-through](./media/live-streaming/pass-through.png)
+![pass-through](./media/live-streaming/pass-through.svg)
 
 When using the pass-through **Live Event**, you rely on your on-premises live encoder to generate a multiple bitrate video stream and send that as the contribution feed to the Live Event (using RTMP or fragmented-MP4 protocol). The Live Event then carries through the incoming video streams without any further processing. Such a pass-through LiveEvent is optimized for long-running live events or 24x365 linear live streaming. When creating this type of Live Event, specify None (LiveEventEncodingType.None).
 
@@ -52,11 +52,16 @@ See a .NET code example in [MediaV3LiveApp](https://github.com/Azure-Samples/med
 
 ### Live encoding  
 
-![live encoding](./media/live-streaming/live-encoding.png)
+![live encoding](./media/live-streaming/live-encoding.svg)
 
 When using live encoding with Media Services, you would configure your on-premises live encoder to send a single bitrate video as the contribution feed to the Live Event (using RTMP or Fragmented-Mp4 protocol). The Live Event encodes that incoming single bitrate stream to a [multiple bitrate video stream](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), makes it available for delivery to play back devices via protocols like MPEG-DASH, HLS, and Smooth Streaming. When creating this type of Live Event, specify the encoding type as **Standard** (LiveEventEncodingType.Standard).
 
 You can send the contribution feed at up to 1080p resolution at a frame rate of 30 frames/second, with H.264/AVC video codec and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec. See the [Live Event types comparison](live-event-types-comparison.md) article for more details.
+
+When using live encoding (Live Event set to **Standard**), the encoding preset defines how the incoming stream is encoded into multiple bitrates or layers. For information, see [System presets](live-event-types-comparison.md#system-presets).
+
+> [!NOTE]
+> Currently, the only allowed preset value for the Standard type of Live Event is *Default720p*. If you need to use a custom live encoding preset, please contact amshelp@microsoft.com. You should specify the desired table of resolution and bitrates. Do verify that there is only one layer at 720p, and at most 6 layers.
 
 ## Live Event creation options
 
@@ -64,7 +69,7 @@ When creating a Live Event, you can specify the following options:
 
 * The streaming protocol for the Live Event (currently, the RTMP and Smooth Streaming protocols are supported).<br/>You cannot change the protocol option while the Live Event or its associated Live Outputs are running. If you require different protocols, you should create separate Live Event for each streaming protocol.  
 * IP restrictions on the ingest and preview. You can define the IP addresses that are allowed to ingest a video to this Live Event. Allowed IP addresses can be specified as either a single IP address (for example '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (for example, '10.0.0.1/22'), or an IP range using an IP address and a dotted decimal subnet mask (for example, '10.0.0.1(255.255.252.0)').<br/>If no IP addresses are specified and there is no rule definition, then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.<br/>The IP addresses have to be in one of the following formats: IpV4 address with 4 numbers, CIDR address range.
-* When creating the event, you can specify to auto start it. <br/>When autostart is set to true, the Live Event will be started after creation. That means, the billing starts as soon as the Live Event starts running. You must explicitly call Stop on the Live Event resource to halt further billing. Alternatively, you can start the event when you are ready to start streaming. 
+* When creating the event, you can specify to auto start it. <br/>When autostart is set to true, the Live Event will be started after creation. The billing starts as soon as the Live Event starts running. You must explicitly call Stop on the Live Event resource to halt further billing. Alternatively, you can start the event when you are ready to start streaming. 
 
     For more information, see [Live Event states and billing](live-event-states-billing.md).
 

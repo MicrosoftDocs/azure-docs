@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 
 ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA

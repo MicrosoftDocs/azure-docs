@@ -1,5 +1,5 @@
 ---
-title: Get help with accessing and using the MyApps portal in Azure Active Directory | Microsoft Docs
+title: Get help with accessing and using the MyApps portal - Azure Active Directory | Microsoft Docs
 description: Get help with signing in to and performing common tasks in the access panel.
 services: active-directory
 author: eross-msft
@@ -13,6 +13,8 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
+ms.custom: "user-help, seo-update-azuread-jan"
+ms.collection: M365-identity-device-management
 ---
 
 # Troubleshoot issues with accessing and using the MyApps portal

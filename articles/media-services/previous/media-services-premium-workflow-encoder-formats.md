@@ -29,7 +29,7 @@ This document contains a list of input and output file formats and codecs that a
 
 [Media Encoder Premium Workflow Input Formats and Codecs](#input_formats)
 
-[Media Encoder Premium Workflow Output Formats and Codecs](#output_formats)
+Media Encoder Premium Workflow Output Formats and Codecs
 
 **Media Encoder Premium Workflow** supports closed captioning described in [this](#closed_captioning) section. 
 

@@ -22,7 +22,7 @@ This article explains how to troubleshoot an issue in which there is no network 
 
 ## Symptoms
 
-You cannot connect to an Azure Windows 10 or Windows Server 2016 VM by using Rmote Desktop Protocol (RDP). In [Boot diagnostics](boot-diagnostics.md), the screen shows a red cross over the network interface card (NIC). This indicates that the VM has no connectivity after the operating system is fully loaded.
+You cannot connect to an Azure Windows 10 or Windows Server 2016 VM by using Remote Desktop Protocol (RDP). In [Boot diagnostics](boot-diagnostics.md), the screen shows a red cross over the network interface card (NIC). This indicates that the VM has no connectivity after the operating system is fully loaded.
 
 Typically, this issue occurs in Windows [build 14393](http://support.microsoft.com/help/4093120/) and [build 15063](http://support.microsoft.com/help/4015583/). If the version of your operating system is later than these versions, this article does not apply to your scenario. To check the version of the system, open a CMD session in [the Serial Access Console feature](serial-console-windows.md), and then run **Ver**.
 

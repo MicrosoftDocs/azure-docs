@@ -11,7 +11,7 @@ tags: azure-service-management
 ms.assetid: 65e14579-86cf-4d29-a6ac-547ccbd743bd
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
@@ -246,7 +246,7 @@ You can add and remove trusted root certificates from Azure. When you remove a r
 
 ### To add a trusted root certificate
 
-You can add up to 20 trusted root certificate .cer files to Azure. For instructions, see [Upload the root certificate .cer file](#upload-the-root-certificate-.cer-file).
+You can add up to 20 trusted root certificate .cer files to Azure. For instructions, see Upload the root certificate .cer file.
 
 ### To remove a trusted root certificate
 
@@ -287,7 +287,7 @@ After updating has completed, the certificate can no longer be used to connect. 
 
 ## Next steps
 
-- After your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). 
+- After your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://docs.microsoft.com/azure/). 
 
 - To understand more about networking and Linux virtual machines, see [Azure and Linux VM network overview](../virtual-machines/linux/network-overview.md).
 

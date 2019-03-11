@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: This article includes sample code for translating speech using the Speech SDK in a C# environment.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service

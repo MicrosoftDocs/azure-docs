@@ -12,10 +12,10 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/12/2018
+ms.topic: conceptual
+ms.date: 02/13/2019
 ms.author: sethm
-ms.reviewer: unknown
+ms.reviewer: efemmano
 ms.lastreviewed: 10/12/2018
 
 ---
@@ -23,7 +23,7 @@ ms.lastreviewed: 10/12/2018
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-[Azure Stack](azure-stack-poc.md) lets you deliver a wide variety of services, like virtual machines, SQL Server databases, SharePoint, Exchange, and even [Azure Marketplace items](azure-stack-marketplace-azure-items.md). As an Azure Stack operator, you configure and deliver such services in Azure Stack by using plans, offers, and quotas.
+[Azure Stack](azure-stack-poc.md) enables you to deliver a wide variety of services, such as virtual machines, SQL Server databases, SharePoint, Exchange, and even [Azure Marketplace items](azure-stack-marketplace-azure-items.md). As an Azure Stack operator, you configure and deliver such services in Azure Stack by using plans, offers, and quotas.
 
 Offers contain one or more plans, and each plan includes one or more services. By creating plans and combining them into different offers, you can manage:
 
@@ -72,9 +72,9 @@ When you [create an offer](azure-stack-create-offer.md), you must include at lea
 
 ## Subscriptions
 
-A subscription is how users access your offers. If you're an Azure Stack operator for a service provider, your users (tenants) buy your services by subscribing to your offers. If you're an Azure Stack operator at an organization, your users (employees) can subscribe to the services you offer without paying.
+A subscription is how users access your offers. If you are an Azure Stack operator for a service provider, your users (tenants) buy your services by subscribing to your offers. If you're an Azure Stack operator at an organization, your users (employees) can subscribe to the services you offer without paying.
 
-Each combination of a user with an offer is a unique subscription. A user can have subscriptions to multiple offers, but each subscription only applies to one offer. Plans, offers, and quotas only apply to a unique subscription – they can’t be shared between subscriptions. Each resource that a user creates is associated with one subscription.
+Each combination of a user with an offer is a unique subscription. A user can have subscriptions to multiple offers, but each subscription only applies to one offer. Plans, offers, and quotas only apply to a unique subscription – they cannot be shared between subscriptions. Each resource that a user creates is associated with one subscription.
 
 ### Default provider subscription
 

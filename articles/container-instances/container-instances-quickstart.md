@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Run an application in Azure Container Instances - CLI
-description: In this quickstart, you use the Azure CLI to deploy a Docker container application to run in an isolated container in Azure Container Instances
+title: Quickstart - Deploy Docker container to Azure Container Instances - CLI
+description: In this quickstart, you use the Azure CLI to quickly deploy a containerized web app that runs in an isolated Azure container instance
 services: container-instances
 author: dlepow
 
@@ -11,9 +11,11 @@ ms.author: danlep
 ms.custom: "seodec18, mvc"
 ---
 
-# Quickstart: Run a container application in Azure Container Instances with the Azure CLI
+# Quickstart: Deploy a container instance in Azure using the Azure CLI
 
-Use Azure Container Instances to run Docker containers in Azure with simplicity and speed. You don't need to deploy virtual machines or use a full container orchestration platform like Kubernetes. In this quickstart, you use the Azure CLI to create a container in Azure and make its application available with a fully qualified domain name (FQDN). A few seconds after you execute a single deployment command, you can browse to the running application:
+Use Azure Container Instances to run serverless Docker containers in Azure with simplicity and speed. Deploy an application to a container instance on-demand when you don't need a full container orchestration platform like Azure Kubernetes Service.
+
+In this quickstart, you use the Azure CLI to deploy an isolated Docker container and make its application available with a fully qualified domain name (FQDN). A few seconds after you execute a single deployment command, you can browse to the application running in the container:
 
 ![App deployed to Azure Container Instances viewed in browser][aci-app-browser]
 
@@ -21,7 +23,7 @@ If you don't have an Azure subscription, create a [free account][azure-account] 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. If you'd like to use it locally, you need version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. If you'd like to use it locally, version 2.0.55 or later is recommended. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Create a resource group
 
@@ -35,9 +37,11 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a container
 
-Now that you have a resource group, you can run a container in Azure. To create a container instance with the Azure CLI, provide a resource group name, container instance name, and Docker container image to the [az container create][az-container-create] command. You can expose your containers to the internet by specifying one or more ports to open, a DNS name label, or both. In this quickstart, you deploy a container with a DNS name label that hosts a small web app written in Node.js.
+Now that you have a resource group, you can run a container in Azure. To create a container instance with the Azure CLI, provide a resource group name, container instance name, and Docker container image to the [az container create][az-container-create] command. In this quickstart, you use the public `microsoft/aci-helloworld` image. This image packages a small web app written in Node.js that serves a static HTML page.
 
-Execute the following command to start a container instance. The `--dns-name-label` value must be unique within the Azure region you create the instance. If you receive a "DNS name label not available" error message, try a different DNS name label.
+You can expose your containers to the internet by specifying one or more ports to open, a DNS name label, or both. In this quickstart, you deploy a container with a DNS name label so that the web app is publicly reachable.
+
+Execute a command similar to the following to start a container instance. Set a `--dns-name-label` value that's unique within the Azure region where you create the instance. If you receive a "DNS name label not available" error message, try a different DNS name label.
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --dns-name-label aci-demo --ports 80
@@ -88,16 +92,16 @@ listening on port 80
 
 In addition to viewing the logs, you can attach your local standard out and standard error streams to that of the container.
 
-First, execute the [az container attach][az-container-attach] command to attach your local console the container's output streams:
+First, execute the [az container attach][az-container-attach] command to attach your local console to the container's output streams:
 
 ```azurecli-interactive
-az container attach --resource-group myResourceGroup -n mycontainer
+az container attach --resource-group myResourceGroup --name mycontainer
 ```
 
 Once attached, refresh your browser a few times to generate some additional output. When you're done, detach your console with `Control+C`. You should see output similar to the following:
 
 ```console
-$ az container attach --resource-group myResourceGroup -n mycontainer
+$ az container attach --resource-group myResourceGroup --name mycontainer
 Container 'mycontainer' is in state 'Running'...
 (count: 1) (last timestamp: 2018-03-15 21:17:59+00:00) pulling image "microsoft/aci-helloworld"
 (count: 1) (last timestamp: 2018-03-15 21:18:05+00:00) Successfully pulled image "microsoft/aci-helloworld"
@@ -141,7 +145,7 @@ In this quickstart, you created an Azure container instance by using an image in
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorial](./container-instances-tutorial-prepare-app.md)
 
-To try out options for running containers in an orchestration system on Azure, see the [Service Fabric][service-fabric] or [Azure Kubernetes Service (AKS)][container-service] quickstarts.
+To try out options for running containers in an orchestration system on Azure, see the [Azure Kubernetes Service (AKS)][container-service] quickstarts.
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
@@ -149,7 +153,7 @@ To try out options for running containers in an orchestration system on Azure, s
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
 [azure-account]: https://azure.microsoft.com/free/
-[node-js]: http://nodejs.org
+[node-js]: https://nodejs.org
 
 <!-- LINKS - Internal -->
 [az-container-attach]: /cli/azure/container#az-container-attach
@@ -162,4 +166,3 @@ To try out options for running containers in an orchestration system on Azure, s
 [az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md
-[service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md

@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: fryu
-ms.component: common
+ms.subservice: common
 ---
 # Require secure transfer in Azure Storage
 

@@ -1,17 +1,17 @@
 ---
-title: How-to language detection in Text Analytics REST API (Microsoft Cognitive Services on Azure) | Microsoft Docs
-description: How to detect language using the Text Analytics REST API in Microsoft Cognitive Services on Azure in this walkthrough tutorial.
+title: Detecting language with the Text Analytics REST API | Microsoft Docs
+description: How to detect language using the Text Analytics REST API from Azure Cognitive Services.
 services: cognitive-services
-author: HeidiSteen
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/12/2018
-ms.author: heidist
+ms.date: 02/13/2019
+ms.author: aahi
 ---
 
-# Example: How to detect language in Text Analytics
+# Example: How to detect language with Text Analytics
 
 The [Language Detection API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) evaluates text input and for each document and returns language identifiers with a score indicating the strength of the analysis. Text Analytics recognizes up to 120 languages.
 
@@ -24,7 +24,7 @@ This capability is useful for content stores that collect arbitrary text, where 
 
 You must have JSON documents in this format: id, text
 
-Document size must be under 5,000 characters per document, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following is an example of content you might submit for language detection.
+Document size must be under 5,120 characters per document, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following is an example of content you might submit for language detection.
 
    ```
     {

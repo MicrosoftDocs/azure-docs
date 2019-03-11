@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with RingCentral
 
@@ -133,7 +134,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE]
 	> You get the **Service Provider metadata file** on the RingCentral SSO Configuration page which is explained later in the tutorial.
 
-6. If you dont have **Service Provider metadata file**, perform the following steps:
+6. If you don't have **Service Provider metadata file**, perform the following steps:
 
 	a. In the **Sign on URL** textbox, type a URL:
 	| |
@@ -187,7 +188,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	d. Click **Save**.
 
-	e. From **Step 2** click **Download** to download the **Service Provider metadata file** and upload it in **Basic SAML Configuration** section to auto polulate the **Identifier** and **Reply URL** values in Azure portal.
+	e. From **Step 2** click **Download** to download the **Service Provider metadata file** and upload it in **Basic SAML Configuration** section to auto-populate the **Identifier** and **Reply URL** values in Azure portal.
 
 	![image](./media/ringcentral-tutorial/ringcentral6.png) 
 

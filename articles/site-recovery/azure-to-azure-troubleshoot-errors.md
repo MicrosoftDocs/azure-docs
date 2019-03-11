@@ -168,7 +168,9 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
   - Azure Site Recovery required access to Office 365 IPs ranges for authentication.
     If you are using Azure Network security group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure you allow communication to O365 IPranges. Create a [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to AAD
 	    - If new addresses are added to the Azure Active Directory (AAD) in the future, you need to create new NSG rules.
-
+>[!NOTE]
+> If the virtual machines are behind **Standard** internal load balancer then it would not have access to O365 IPs i.e login.micorsoftonline.com by default. Either change it to **Basic** internal load balancer type or  create out bound access as mentioned in the [article] (https://aka.ms/lboutboundrulescli).
+>
 
 ### Issue 3: Site Recovery configuration failed (151197)
 - **Possible cause** </br>
@@ -288,9 +290,9 @@ You can open 'Services' console and ensure the 'COM+ System Application' and 'Vo
 
 **Error code** | **Possible causes** | **Recommendations**
 --- | --- | ---
-150172<br></br>**Message**: Protection couldn't be enabled for the virtual machine as it has (DiskName) with size (DiskSize) that is lesser than the minimum supported size 10 GB. | - The disk is less than supported size of 1024 MB| Ensure that the disk sizes are within the supported size range and retry the operation. 
+150172<br></br>**Message**: Protection couldn't be enabled for the virtual machine as it has (DiskName) with size (DiskSize) that is lesser than the minimum supported size 1024 MB. | - The disk is less than supported size of 1024 MB| Ensure that the disk sizes are within the supported size range and retry the operation. 
 
-## Enable protection failed as device name mentioned in the GRUB configuration instead of UUID (error code 151126)
+## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>Enable protection failed as device name mentioned in the GRUB configuration instead of UUID (error code 151126)
 
 **Possible Cause:** </br>
 The GRUB configuration files ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") may contain the value for the parameters **root** and **resume** as the actual device names instead of UUID. Site Recovery mandates UUID approach as devices name may change across reboot of the VM as VM may not come-up with the same name on failover resulting in issues. For example: </br>
@@ -324,10 +326,36 @@ blkid /dev/sda1
 *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 1. Restart the protection again
 
+## Enable protection failed as device mentioned in the GRUB configuration doesn't exist(error code 151124)
+**Possible Cause:** </br>
+The GRUB configuration files ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") may contain the parameters "rd.lvm.lv" or "rd_LVM_LV" to indicate the LVM device that should be discovered at the time of booting. If these LVM devices doesn't exist, then the protected system itself will not boot and stuck in the boot process. Even the same will be observed with the failover VM. Below are few examples: 
+
+Few examples: </br>
+
+1. The following line is from the GRUB file **"/boot/grub2/grub.cfg"** on RHEL7. </br>
+*linux16 /vmlinuz-3.10.0-957.el7.x86_64 root=/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel=128M@64M **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet LANG=en_US.UTF-8*</br>
+Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg". 
+1. The following line is from the GRUB file **"/etc/default/grub"** on RHEL7 </br>
+ *GRUB_CMDLINE_LINUX="crashkernel=auto **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet"*</br>
+Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg". 
+1. The following line is from the GRUB file **"/boot/grub/menu.lst"** on RHEL6 </br>
+*kernel /vmlinuz-2.6.32-754.el6.x86_64 ro root=UUID=36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto rd_LVM_LV=rootvg/lv_root  KEYBOARDTYPE=pc KEYTABLE=us rd_LVM_LV=rootvg/lv_swap rd_NO_DM rhgb quiet* </br>
+ Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".<br>
+
+**How to Fix:**<br>
+
+If the LVM device doesn't exist, fix either by creating it or remove the parameter for the same from the GRUB configuration files and then retry the enable protection. </br>
 
 ## Site recovery mobility service update completed with warnings ( error code 151083)
 Site Recovery mobility service has many components, one of which is called filter driver. Filter driver gets loaded into system memory only at a time of system reboot. Whenever there are  site recovery mobility service updates that has filter driver changes, we update the machine but still gives you warning that some fixes require a reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded which can happen only at the time of system reboot.<br>
 **Please note** that this is just a warning and existing replication keeps on working even after the new agent update. You can choose to reboot anytime you want to get the benefits of new filter driver but if you don't reboot than also old filter driver keeps on working. Apart from filter driver, **benefits of  any other enhancements and fixes in mobility service get realized without any reboot when the agent gets updated.**  
+
+
+## Protection couldn't be enabled as replica managed disk 'diskname-replica' already exists without expected tags in the target resource group( error code 150161
+
+**Cause**: It can occur if the  virtual machine was protected earlier in the past and during disabling the replication, replica disk was not cleaned due to some reason.</br>
+**How to fix:** 
+Delete the mentioned replica disk in the error message and restart the failed protection job again. 
 
 ## Next steps
 [Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)

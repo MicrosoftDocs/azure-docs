@@ -206,7 +206,7 @@ Azure virtual machine extensions can be deployed with Azure Resource Manager tem
 ```
 
 ## PowerShell deployment
-The `Set-AzureRmVMExtension` command can be used to deploy Azure Performance Diagnostics VM Extension to an existing virtual machine.
+The `Set-AzVMExtension` command can be used to deploy Azure Performance Diagnostics VM Extension to an existing virtual machine.
 
 PowerShell
 
@@ -214,7 +214,7 @@ PowerShell
 $PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z";"resourceId"="VMResourceId" }
 $ProtectedSettings = @{"storageAccountKey"="mystoragekey" }
 
-Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
+Set-AzVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Publisher "Microsoft.Azure.Performance.Diagnostics" `

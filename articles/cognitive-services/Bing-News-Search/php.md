@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use this quickstart to send a request to the Bing News Search REST API using PHP, and receive a JSON response.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-news-search
@@ -61,7 +61,7 @@ $term = 'Microsoft';
 function BingNewsSearch ($url, $key, $query) {
     // Prepare HTTP request
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    // https://php.net/manual/en/function.stream-context-create.php
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
     $options = array ('http' => array (
                           'header' => $headers,

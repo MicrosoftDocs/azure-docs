@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: monitor
 ms.custom: 
 ms.devlang: 
-ms.topic: howto
+ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
@@ -100,7 +100,6 @@ Once you have created an alert, you can select it and:
 |||||| 	 	 	 	 
 | SQL data warehouse | cpu_percent | CPU percentage | Average | 10 minutes |
 | SQL data warehouse | physical_data_read_percent | Data IO percentage | Average | 10 minutes |
-| SQL data warehouse | storage | Total database size | Maximum | 10 minutes |
 | SQL data warehouse | connection_successful | Successful Connections | Total | 10 minutes |
 | SQL data warehouse | connection_failed | Failed Connections | Total | 10 minutes |
 | SQL data warehouse | blocked_by_firewall | Blocked by Firewall | Total | 10 minutes |

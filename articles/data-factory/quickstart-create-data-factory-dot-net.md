@@ -12,12 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/28/2018
+ms.date: 02/20/2019
 ms.author: jingwang
-
 ---
+# Quickstart: Create a data factory and pipeline using .NET SDK
 
-# Create a data factory and pipeline using .NET SDK
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Current version](quickstart-create-data-factory-dot-net.md)
@@ -58,13 +57,12 @@ Using Visual Studio 2013/2015/2017, create a C# .NET console application.
 ## Install NuGet packages
 
 1. Click **Tools** -> **NuGet Package Manager** -> **Package Manager Console**.
-2. In the **Package Manager Console**, run the following commands to install packages:
+2. In the **Package Manager Console**, run the following commands to install packages. Refer to [Microsoft.Azure.Management.DataFactory nuget package](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) with details.
 
     ```
-    Install-Package Microsoft.Azure.Management.DataFactory -Prerelease
-    Install-Package Microsoft.Azure.Management.ResourceManager -Prerelease
+    Install-Package Microsoft.Azure.Management.DataFactory
+    Install-Package Microsoft.Azure.Management.ResourceManager
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-
     ```
 
 ## Create a data factory client
@@ -296,7 +294,8 @@ Build and start the application, then verify the pipeline execution.
 
 The console prints the progress of creating data factory, linked service, datasets, pipeline, and pipeline run. It then checks the pipeline run status. Wait until you see the copy activity run details with data read/written size. Then, use tools such as [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) to check the blob(s) is copied to "outputBlobPath" from "inputBlobPath" as you specified in variables.
 
-### Sample output: 
+### Sample output
+
 ```json
 Creating data factory SPv2Factory0907...
 {

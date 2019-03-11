@@ -18,6 +18,7 @@ ms.date: 1/11/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to learn how my .NET Core app can get an access token and call an API that's protected by an Azure AD v2.0 endpoint using client credentials flow.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Acquire a token and call Microsoft Graph API from a console app using app's identity
@@ -200,7 +201,7 @@ var app = new ConfidentialClientApplication(
 > | `userTokenCache`  | Instance of a token cache for the user. In this case, because this app runs in context of the app, and not the user, this value is null|
 > | `appTokenCache`  | Instance of a token cache for the app|
 
-For more information, please see the [reference documentation for `ConfidentialClientApplication`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.-ctor?view=azure-dotnet#Microsoft_Identity_Client_ConfidentialClientApplication__ctor_System_String_System_String_System_String_Microsoft_Identity_Client_ClientCredential_Microsoft_Identity_Client_TokenCache_Microsoft_Identity_Client_TokenCache)
+For more information, please see the [reference documentation for `ConfidentialClientApplication`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.-ctor?view=azure-dotnet)
 
 ### Requesting tokens
 

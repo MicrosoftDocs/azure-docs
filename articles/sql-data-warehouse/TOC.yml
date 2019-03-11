@@ -2,7 +2,7 @@
   href: index.md
 - name: Overview
   items:
-  - name: About SQL Data Warehouse
+  - name: What is SQL Data Warehouse?
     href: sql-data-warehouse-overview-what-is.md
   - name: SQL Data Warehouse architecture
     href: massively-parallel-processing-mpp-architecture.md
@@ -19,10 +19,12 @@
 - name: Release Notes
   href: release-notes.md
   items:
-    - name: Version 10.0.10106.0
+    - name: Recent Release
       href: release-notes-10-0-10106-0.md  
+    - name: Gen2 region upgrade schedule
+      href: gen2-migration-schedule.md
     - name: Archived Release Notes
-      items:
+      items:   
       - name: December 2018 
         href: release-notes-december-2018.md  
       - name: October 2018 
@@ -244,8 +246,6 @@
       href: sql-data-warehouse-how-to-monitor-cache.md
     - name: Restore your data warehouse
       href: sql-data-warehouse-restore.md
-    - name: Automate performance levels
-      href: manage-compute-with-azure-functions.md
   - name: Integrate
     items:
     - name: Use machine learning

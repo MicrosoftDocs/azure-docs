@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/10/2018
 ms.author: priyamo
+ms.collection: M365-identity-device-management
 ---
 
 # Configure managed identities for Azure resources on an Azure VM using Azure CLI
@@ -78,7 +79,7 @@ To enable system-assigned managed identity on a VM, your account needs the [Virt
    az login
    ```
 
-2. Use [az vm identity assign](/cli/azure/vm/identity/#az-vm-identity-assign) with the `identity assign` command enable the system-assigned identity to an existing VM:
+2. Use [az vm identity assign](/cli/azure/vm/identity/) with the `identity assign` command enable the system-assigned identity to an existing VM:
 
    ```azurecli-interactive
    az vm identity assign -g myResourceGroup -n myVm
@@ -103,7 +104,7 @@ If you have a virtual machine that no longer needs system-assigned identity and 
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-To remove the managed identity for Azure resources VM extension (planned for deprecation in January 2019), user `-n ManagedIdentityExtensionForWindows` or `-n ManagedIdentityExtensionForLinux` switch (depending on the type of VM) with [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity):
+To remove the managed identity for Azure resources VM extension (planned for deprecation in January 2019), user `-n ManagedIdentityExtensionForWindows` or `-n ManagedIdentityExtensionForLinux` switch (depending on the type of VM) with [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/):
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -182,7 +183,7 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
    }
    ```
 
-2. Assign the user-assigned identity to your VM using [az vm identity assign](/cli/azure/vm#az-vm-identity-assign). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<USER ASSIGNED IDENTITY NAME>` is the user-assigned managed identity's resource `name` property, as created in the previous step:
+2. Assign the user-assigned identity to your VM using [az vm identity assign](/cli/azure/vm). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. The `<USER ASSIGNED IDENTITY NAME>` is the user-assigned managed identity's resource `name` property, as created in the previous step:
 
     ```azurecli-interactive
     az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>

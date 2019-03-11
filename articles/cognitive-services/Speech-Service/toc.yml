@@ -23,6 +23,9 @@
       - name: 'C# (UWP)'
         href: quickstart-csharp-uwp.md
         displayName: 'recognize speech, speech recognition, speech to text, stt, C#, universal windows platform'
+      - name: 'C# (Unity)'
+        href: quickstart-csharp-unity.md
+        displayName: 'recognize speech, speech recognition, speech to text, stt, C#, unity 3d, windows, android, universal windows platform, uwp'
       - name: 'C++ (Windows)'
         href: quickstart-cpp-windows.md
         displayName: recognize speech, speech recognition, speech to text, stt
@@ -132,6 +135,9 @@
     href: prepare-transcription.md
   - name: Use custom audio streams
     href: how-to-use-audio-input-streams.md
+  - name: Select an audio input device
+    href: how-to-select-audio-input-devices.md
+    displayName: audio, microphone, input, device
   - name: Migrate
     items:
     - name: From Bing Speech
@@ -201,7 +207,7 @@
     - name: License
       href: https://aka.ms/csspeech/license201809
     - name: Third-party notices
-      href: https://csspeechstorage.blob.core.windows.net/drop/1.0.0/ThirdPartyNotices.html
+      href: https://aka.ms/csspeech/toctpn
   - name: Speech Devices SDK
     href: speech-devices-sdk.md
     displayName: roobo, speech devices sdk

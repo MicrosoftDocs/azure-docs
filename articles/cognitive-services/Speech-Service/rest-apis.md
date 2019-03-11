@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to use the speech-to-text and text-to-speech REST APIs. In this article, you'll learn about authorization options, query options, how to structure a request and receive a response.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
@@ -61,7 +61,7 @@ Content-type: application/x-www-form-urlencoded
 Content-Length: 0
 ```
 
-The body of the response contains the access token in Java Web Token (JWT) format.
+The body of the response contains the access token in JSON Web Token (JWT) format.
 
 #### PowerShell sample
 
@@ -149,7 +149,7 @@ Content-type: application/ssml+xml
 Content-Length: 199
 Connection: Keep-Alive
 
-<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
+<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice name='Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)'>
     Hello, world!
 </voice></speak>

@@ -31,46 +31,9 @@ To complete this tutorial, make sure you have installed:
 - [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later.
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
-## Log on to the Azure portal
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-First, go to the [Azure portal][Azure portal] and log on using your Azure subscription. The first step is to create a Service Bus namespace of type **Messaging**.
-
-## Create a Service Bus namespace
-
-A Service Bus messaging namespace provides a unique scoping container, referenced by its [fully qualified domain name][], in which you create one or more queues, topics, and subscriptions. The following example creates a Service Bus messaging namespace in a new or existing [resource group](/azure/azure-resource-manager/resource-group-portal):
-
-1. In the left navigation pane of the portal, click **+ Create a resource**, then click **Enterprise Integration**, and then click **Service Bus**.
-2. In the **Create namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.
-3. After making sure the namespace name is available, choose the pricing tier (Standard or Premium).
-4. In the **Subscription** field, choose an Azure subscription in which to create the namespace.
-5. In the **Resource group** field, choose an existing resource group in which the namespace will live, or create a new one.      
-6. In **Location**, choose the country or region in which your namespace should be hosted.
-7. Click **Create**. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
-
-![namespace](./media/service-bus-quickstart-portal/create-namespace.png)
-
-### Obtain the management credentials
-
-Creating a new namespace automatically generates an initial Shared Access Signature (SAS) rule with an associated pair of primary and secondary keys that each grant full control over all aspects of the namespace. To copy the initial rule, follow these steps: 
-
-1.  Click **All resources**, then click the newly created namespace name.
-2. In the namespace window, click **Shared access policies**.
-3. In the **Shared access policies** screen, click **RootManageSharedAccessKey**.
-4. In the **Policy: RootManageSharedAccessKey** window, click the **Copy** button next to **Primary Connection String**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location. 
-
-    ![connection-string][connection-string]
-5. Repeat the previous step, copying and pasting the value of **Primary Key** to a temporary location for later use.
-
-## Create a queue
-
-To create a Service Bus queue, specify the namespace under which you want it created. The following example shows how to create a queue on the portal:
-
-1. In the left navigation pane of the portal, click **Service Bus** (if you don't see **Service Bus**, click **More services**).
-2. Click the namespace in which you would like to create the queue.
-3. In the namespace window, click **Queues**, then in the **Queues** window, click **+ Queue**.
-4. Enter the queue **Name** and leave the other values with their defaults.
-5. At the bottom of the window, click **Create**.
-6. Make a note of the queue name.
+[!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## Send and receive messages
 
@@ -80,28 +43,22 @@ To run the code, do the following:
 
 1. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/) by issuing the following command:
 
-   ```shell
+   ```
    git clone https://github.com/Azure/azure-service-bus.git
    ```
-
 3. Navigate to the sample folder `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
-
-4. Copy the connection string and queue name you obtained in the [Obtain the management credentials](#obtain-the-management-credentials) section.
-
+4. Copy the connection string and queue name you obtained in the Obtain the management credentials section.
 5.	At a command prompt, type the following command:
 
-   ```shell
-   dotnet build
-   ```
-
+    ```
+    dotnet build
+    ```
 6.	Navigate to the `bin\Debug\netcoreapp2.0` folder.
-
 7.	Type the following command to run the program. Be sure to replace `myConnectionString` with the value you previously obtained, and `myQueueName` with the name of the queue you created:
 
-   ```shell
-   dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
-   ``` 
-
+    ```shell
+    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
+    ``` 
 8. Observe 10 messages being sent to the queue, and subsequently received from the queue:
 
    ![program output](./media/service-bus-quickstart-portal/dotnet.png)
@@ -255,5 +212,4 @@ In this article, you created a Service Bus namespace and other resources require
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 
-[connection-string]: ./media/service-bus-quickstart-portal/connection-string.png
 [service-bus-flow]: ./media/service-bus-quickstart-portal/service-bus-flow.png

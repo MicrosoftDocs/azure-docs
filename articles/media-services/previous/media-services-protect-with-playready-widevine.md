@@ -12,8 +12,8 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 09/18/2018
+ms.topic: conceptual
+ms.date: 02/10/2019
 ms.author: juliako
 
 ---

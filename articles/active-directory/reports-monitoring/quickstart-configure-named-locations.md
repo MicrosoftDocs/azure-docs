@@ -17,6 +17,7 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 #Customer intent: As an IT administrator, I want to label trusted IP address ranges in my organization so that I can whitelist them and configure location-based conditional access.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Configure named locations in Azure Active Directory

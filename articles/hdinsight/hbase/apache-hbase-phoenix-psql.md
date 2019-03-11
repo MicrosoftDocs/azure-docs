@@ -111,7 +111,7 @@ For higher-throughput loading distributed over the cluster, use the MapReduce lo
     org.apache.phoenix.mapreduce.CsvBulkLoadTool --table Customers --input /inputFolderBulkLoad/customers.csv –zookeeper ZookeeperQuorum:2181:/hbase-unsecure
     ```
 
-8. To use MapReduce with ADLS, locate the ADLS root directory, which is the `hbase.rootdir` value in `hbase-site.xml`. In the following command, the ADLS root directory is `adl://hdinsightconf1.azuredatalakestore.net:443/hbase1`. In this command, specify the ADLS input and output folders as parameters:
+8. To use MapReduce with Azure Data Lake Storage, locate the Data Lake Storage root directory, which is the `hbase.rootdir` value in `hbase-site.xml`. In the following command, the Data Lake Storage root directory is `adl://hdinsightconf1.azuredatalakestore.net:443/hbase1`. In this command, specify the Data Lake Storage input and output folders as parameters:
 
     ```bash
     cd /usr/hdp/current/phoenix-client
@@ -123,7 +123,7 @@ For higher-throughput loading distributed over the cluster, use the MapReduce lo
 
 ## Recommendations
 
-* Use the same storage medium for both input and output folders, either  WASB or  ADLS. To transfer data from WASB to ADLS, you can use the `distcp` command:
+* Use the same storage medium for both input and output folders, either Azure Storage (WASB) or Azure Data Lake Storage (ADL). To transfer data from Azure Storage to Data Lake Storage, you can use the `distcp` command:
 
     ```bash
     hadoop distcp wasb://@.blob.core.windows.net/example/data/gutenberg adl://.azuredatalakestore.net:443/myfolder

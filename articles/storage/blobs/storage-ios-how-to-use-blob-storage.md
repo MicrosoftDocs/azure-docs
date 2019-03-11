@@ -158,7 +158,7 @@ The following example shows you how to create a container with **Container** acc
 ```
 
 ## Upload a blob into a container
-As mentioned in the [Blob service concepts](#blob-service-concepts) section, Blob Storage offers three different types of blobs: block blobs, append blobs, and page blobs. The Azure Storage iOS library supports all three types of blobs. In most cases, block blob is the recommended type to use.
+As mentioned in the Blob service concepts section, Blob Storage offers three different types of blobs: block blobs, append blobs, and page blobs. The Azure Storage iOS library supports all three types of blobs. In most cases, block blob is the recommended type to use.
 
 The following example shows how to upload a block blob from an NSString. If a blob with the same name already exists in this container, the contents of this blob will be overwritten.
 

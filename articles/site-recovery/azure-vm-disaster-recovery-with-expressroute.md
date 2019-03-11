@@ -185,7 +185,7 @@ For a simple topology that uses a single ExpressRoute circuit, with same IP addr
 ### Example steps
 To automate recovery in this example, here's what you need to do:
 
-1. Follow the steps to [set up replication](#azure-vm-replication-steps).
+1. Follow the steps to set up replication.
 2. [Fail over the Azure VMs](azure-to-azure-tutorial-failover-failback.md), with these additional steps during or after the failover.
 
     a. Create the Azure ExpressRoute Gateway in the target region hub VNet. This is need to connect the target hub vNet to the ExpressRoute circuit.

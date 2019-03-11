@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
@@ -24,7 +24,7 @@ ms.lastreviewed: 01/16/2019
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes on Azure Stack is in preview.
+> Kubernetes on Azure Stack is in preview. Azure Stack disconnected scenario is not currently supported by the preview.
 
 You can follow the steps in this article to deploy and set up the resources for Kubernetes, when using Azure Active Directory (Azure AD) as your identity management service, in a single, coordinated operation.
 
@@ -34,7 +34,7 @@ To get started, make sure you have the right permissions and that your Azure Sta
 
 1. Verify that you can create applications in your Azure Active Directory (Azure AD) tenant. You need these permissions for the Kubernetes deployment.
 
-    For instructions on checking your permissions, see [Check Azure Active Directory permissions](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#check-azure-active-directory-permissions).
+    For instructions on checking your permissions, see [Check Azure Active Directory permissions](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 
 1. Generate an SSH public and private key pair to sign in to the Linux VM on Azure Stack. You will need the public key when creating the cluster.
 
@@ -50,7 +50,7 @@ To get started, make sure you have the right permissions and that your Azure Sta
 
 Set up a service principal in Azure. The service principal gives your application access to Azure Stack resources.
 
-1. Sign in to the global [Azure portal](http://portal.azure.com).
+1. Sign in to the global [Azure portal](https://portal.azure.com).
 
 1. Check that you signed in using the Azure AD tenant associated with the Azure Stack instance. You can switch your sign-in by clicking the filter icon in the Azure toolbar.
 
@@ -164,3 +164,5 @@ Give the service principal access to your subscription so that the principal can
 ## Next steps
 
 [Connect to your cluster](azure-stack-solution-template-kubernetes-deploy.md#connect-to-your-cluster)
+
+[Enable the Kubernetes Dashboard](azure-stack-solution-template-kubernetes-dashboard.md)

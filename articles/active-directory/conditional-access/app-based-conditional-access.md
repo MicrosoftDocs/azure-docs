@@ -20,6 +20,7 @@ ms.author: markvi
 ms.reviewer: spunukol
 #Customer intent: As a It admin, I wan to know how to require approved client apps for the access to certain resources to ensure that they are accessed only from devices that meet my standards for security and compliance
 
+ms.collection: M365-identity-device-management
 ---
 # How To: Require approved client apps for cloud app access with conditional access 
 
@@ -93,7 +94,7 @@ This scenario assumes that a user:
 
 - Is able to access email
 
-Any Intune app protection policies are activated at the time the access corporate data and may prompt the user to restart the application, use an additional PIN etc (if configured for the application and platform).
+Any Intune app protection policies are activated at the time the access corporate data and may prompt the user to restart the application, use an additional PIN etc. (if configured for the application and platform).
 
 ### Configuration 
 

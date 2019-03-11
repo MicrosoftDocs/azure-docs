@@ -8,7 +8,7 @@ ms.devlang: dotnet
 ms.topic: overview
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
+ms.subservice: tables
 ---
 # Introduction to Table storage in Azure
 

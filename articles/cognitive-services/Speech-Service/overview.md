@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: "The Speech Service, part of Azure Cognitive Services, unites several speech services that were previously available separately: Bing Speech (comprising speech recognition and text to speech), Custom Speech, and Speech Translation."
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
@@ -16,7 +16,7 @@ ms.author: erhopf
 
 Like the other Azure speech services, Speech Services are powered by speech technologies used in products like Cortana and Microsoft Office.
 
-The Speech Services unite Azure speech features previously available via the [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/speech/home), [Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [Custom Speech](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home), and [Custom Voice](http://customvoice.ai/) services. Now, one subscription provides access to all of these capabilities.
+The Speech Services unite Azure speech features previously available via the [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/speech/home), [Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [Custom Speech](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home), and [Custom Voice](https://customvoice.ai/) services. Now, one subscription provides access to all of these capabilities.
 
 ## Main Speech Services functions
 

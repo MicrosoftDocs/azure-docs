@@ -27,10 +27,8 @@ This article describes how to use Service Bus queues. The samples are written in
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## Create a Service Bus namespace
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## Create a Service Bus queue
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## Configure your application to use Service Bus

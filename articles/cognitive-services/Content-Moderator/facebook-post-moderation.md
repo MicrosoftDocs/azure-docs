@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: In this tutorial, you will learn how to use machine-learning-based Content Moderator to help moderate Facebook posts and comments.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
@@ -155,5 +155,5 @@ All Microsoft Cognitive Services SDKs and samples are licensed with the MIT Lice
 1. [Watch a demo (video)](https://channel9.msdn.com/Events/Build/2017/T6033) of this solution from Microsoft Build 2017.
 1. [The Facebook sample on GitHub](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
 1. https://docs.microsoft.com/azure/azure-functions/functions-create-github-webhook-triggered-function
-2. http://ukimiawz.github.io/facebook/2015/08/12/webhook-facebook-subscriptions/
-3. http://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token
+2. https://ukimiawz.github.io/facebook/2015/08/12/webhook-facebook-subscriptions/
+3. https://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token

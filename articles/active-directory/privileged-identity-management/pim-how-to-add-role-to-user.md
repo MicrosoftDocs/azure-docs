@@ -12,6 +12,7 @@ ms.workload: identity
 ms.subservice: pim
 ms.date: 10/30/2018
 ms.author: rolyon
+ms.collection: M365-identity-device-management
 ---
 
 # Assign Azure AD directory roles in PIM

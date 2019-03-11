@@ -44,7 +44,7 @@ The graph relationships and graph query capabilities are integrated into Transac
 
 There is nothing a graph database can achieve, which cannot be achieved using a relational database. However, a graph database can make it easier to express certain queries. Your decision to choose one over the other can be based on following factors:
 
-- Model hierarchical data where one node can have multiple parents, so HieararchyId cannot be used
+- Model hierarchical data where one node can have multiple parents, so HierarchyId cannot be used
 - Model has Your application has complex many-to-many relationships; as application evolves, new relationships are added.
 - You need to analyze interconnected data and relationships.
 
@@ -91,7 +91,7 @@ Azure SQL Database also provides specialized [Spatial indexes](https://docs.micr
 SQL Server provides a powerful platform for developing rich applications for semi-structured data management. Support for XML is integrated into all the components in SQL Server and includes the following:
 
 - The xml data type. XML values can be stored natively in an xml data type column that can be typed according to a collection of XML schemas, or left untyped. You can index the XML column.
-- The ability to specify an XQuery query against XML data stored in columns and variables of the xml type. XQUery functionalities can be used in any Transact-SQL query that access any data model that you use in your database.
+- The ability to specify an XQuery query against XML data stored in columns and variables of the xml type. XQuery functionalities can be used in any Transact-SQL query that access any data model that you use in your database.
 - Automatically index all elements in XML documents using [primary XML index](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#primary-xml-index) or specify the exact paths that should be indexed using [secondary XML index](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#secondary-xml-indexes).
 - OPENROWSET that allows bulk loading of XML data.
 - Transform relational data to XML format.
@@ -119,7 +119,7 @@ CREATE TABLE Collection (
 
 You can customize this key-value structure to fit your needs without any constraints. As an example, the value can be XML document instead of `nvarchar(max)` type, if the value is JSON document, you can put `CHECK` constraint that verifies the validity of JSON content. You can put any number of values related to one key in the additional columns, add computed columns and indexes to simplify and optimize data access, define the table as memory/optimized schema-only table to get better performance, etc.
 
-See [how BWin is using In-Memory OLTP to achieve unprecedented performance and scale](https://blogs.msdn.microsoft.com/sqlcat/2016/10/26/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) for their ASP.NET caching solution that achieved 1.200.000 batches per seconds, as an example how relational model can be effectively used as key-value pair solution in practice.
+See [how BWin is using In-Memory OLTP to achieve unprecedented performance and scale](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) for their ASP.NET caching solution that achieved 1.200.000 batches per seconds, as an example how relational model can be effectively used as key-value pair solution in practice.
 
 ## Next steps
 Multi-model capabilities in Azure SQL Databases are also the core SQL Server Database Engine features that are shared between Azure SQL Database and SQL Server. To learn more details about these features, visit the SQL Relational database documentation pages:

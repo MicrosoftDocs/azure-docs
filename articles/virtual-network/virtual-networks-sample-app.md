@@ -37,7 +37,7 @@ If you use the following scripts, this firewall rule addition is the first state
 This script will:
 
 1. Open IMCPv4 (Ping) on the local server windows firewall for easier testing
-2. Install IIS and the .Net Framework v4.5
+2. Install IIS and the .NET Framework v4.5
 3. Create an ASP.NET web page and a Web.config file
 4. Change the Default application pool to make file access easier
 5. Set the Anonymous user to your admin account and password
@@ -91,7 +91,7 @@ This PowerShell script should be run locally while RDP’d into IIS01.
           <ul style="margin-top: 0px;">
             <li> Local Server Time - Shows if this page is or isn''t cached anywhere</li>
             <li> File Output - Shows that the web server is reaching AppVM01 on the backend subnet and successfully returning content</li>
-            <li> Image from the Internet - Doesnt really show anything, but it made me happy to see this when the app worked</li>
+            <li> Image from the Internet - Doesn''t really show anything, but it made me happy to see this when the app worked</li>
           </ul>
           <div style="border: 2px solid #8AC007; border-radius: 25px; padding: 20px; margin: 10px; width: 650px;">
             <b>Local Web Server Time</b>: <asp:Label runat="server" ID="lblTime" /></div>
@@ -147,12 +147,12 @@ This script sets up the back-end for this simple application. This script will:
 2. Create a directory for the web site
 3. Create a text file to be remotely access by the web page
 4. Set permissions on the directory and file to Anonymous to allow access
-5. Turn off IE Enhanced Security to allow easier browsing from this server 
+5. Turn off IE Enhanced Security to allow easier browsing from this server
 
 > [!IMPORTANT]
 > **Best Practice**: Never turn off IE Enhanced Security on a production server, plus it's generally a bad idea to surf the web from a production server. Also, opening up file shares for anonymous access is a bad idea, but done here for simplicity.
-> 
-> 
+>
+>
 
 This PowerShell script should be run locally while RDP’d into AppVM01. PowerShell is required to be run as Administrator to ensure successful execution.
 

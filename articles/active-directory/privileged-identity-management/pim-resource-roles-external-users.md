@@ -14,6 +14,7 @@ ms.subservice: pim
 ms.date: 11/29/2018
 ms.author: rolyon
 ms.custom: pim
+ms.collection: M365-identity-device-management
 ---
 
 # Invite external users and assign Azure resource roles in PIM

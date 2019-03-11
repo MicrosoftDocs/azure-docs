@@ -191,6 +191,7 @@ featureFlags:
                                                 <h4>Relational Databases</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/sql-database/">SQL database as a service</a></li>
+                                                    <li><a class="barLink" href="/azure/virtual-machines/windows/sql/">SQL Server on an Azure VM</a></li>
                                                     <li><a class="barLink" href="/azure/sql-data-warehouse/">SQL Data Warehouse as a service</a></li>
                                                     <li><a class="barLink" href="/azure/postgresql/">PostgreSQL database as a service</a></li>
                                                     <li><a class="barLink" href="/azure/mysql/">MySQL database as a service</a></li>
@@ -302,7 +303,7 @@ featureFlags:
                                                 <h3>Build your skills with Microsoft Learn</h3>
                                                 <ul class="noBullet">
                                                     <li>
-                                                        <a class="barLink" href="/learn/modules/tour-azure-services-and-features/">
+                                                        <a class="barLink" href="/learn/modules/tour-azure-portal/">
                                                             <img src="https://docs.microsoft.com/learn/achievements/tour-azure-services-and-features.svg" alt="">
                                                             Tour Azure services and features
                                                         </a>
@@ -1021,7 +1022,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/cost-management/">
-                                                <img src="media/index/billing.svg" alt="" />
+                                                <img src="media/index/cost-management.svg" alt="" />
                                                 <p>Cost Management</p>
                                             </a>
                                         </li>
@@ -1035,6 +1036,21 @@ featureFlags:
                                             <a href="/azure/migrate/migrate-overview">
                                                 <img src="media/index/azure-migrate.svg" alt="" />
                                                 <p>Azure Migrate</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Mixed Reality</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/digital-twins/">
+                                                <img src="media/index/digital_twin.svg" alt="" />
+                                                <p>Azure Digital Twins</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/spatial-anchors/">
+                                                <img src="media/index/spatial_anchors.png" alt="" />
+                                                <p>Azure Spatial Anchors</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1075,7 +1091,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/virtual-machines/windows/about-disks-and-vhds">
+                                            <a href="/azure/virtual-machines/windows/managed-disks-overview">
                                                 <img src="media/index/Disks-color.svg" alt="" />
                                                 <p>Disk Storage</p>
                                             </a>
@@ -1328,7 +1344,7 @@ featureFlags:
                                         <li>
                                             <a href="/azure/iot-fundamentals">
                                                 <img src="media/index/IoTHub.svg" alt="" />
-                                                <p>IoT Fundamentals</p>
+                                                <p>Azure IoT</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1606,6 +1622,12 @@ featureFlags:
                                                 <p>Role-based access control</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/sentinel/">
+                                                <img src="media/index/sentinel.png" alt="" />
+                                                <p>Azure Sentinel</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Identity</h3>
                                     <ul>
@@ -1721,7 +1743,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://azure.microsoft.com/">
+                                            <a href="https://docs.microsoft.com/azure/azure-portal/">
                                                 <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="" />
                                                 <p>Microsoft Azure Portal</p>
                                             </a>
@@ -1764,7 +1786,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/cost-management/">
-                                                <img src="media/index/billing.svg" alt="" />
+                                                <img src="media/index/cost-management.svg" alt="" />
                                                 <p>Cost Management</p>
                                             </a>
                                         </li>
@@ -2413,7 +2435,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-machines/windows/about-disks-and-vhds">
+                                <a href="/azure/virtual-machines/windows/managed-disks-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2489,7 +2511,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/en-us/azure/databox-family/" data-linktype="absolute-path">
+                                <a href="/azure/databox-family/" data-linktype="absolute-path">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2508,7 +2530,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/en-us/azure/avere-vfxt/" data-linktype="absolute-path">
+                                <a href="/azure/avere-vfxt/" data-linktype="absolute-path">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3943,12 +3965,12 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/iothub.svg" alt="" />
+                                                        <img src="media/index/question-mark-grey.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>IoT Fundamentals</h3>
-                                                    <p>Get started connecting your devices</p>
+                                                    <h3>New to Azure IoT?</h3>
+                                                    <p>Start here to learn which service meets your needs</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4749,6 +4771,25 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/sentinel/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/sentinel.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Sentinel</h3>
+                                                    <p>Learn how to use Microsoft's SIEM that provides intelligent security analytics for your entire enterprise at cloud scale</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -5417,7 +5458,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/billing.svg" alt="" />
+                                                        <img src="media/index/cost-management.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -5655,7 +5696,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/billing.svg" alt="" />
+                                                        <img src="media/index/cost-management.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -5802,6 +5843,49 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure China 21Vianet</h3>
                                                     <p>Build and host applications in compliance with policies and data-handling regulations stipulated by the government in China</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#mixed">Mixed Reality</a>
+                        <ul id="mixed" class="cardsA">
+                            <li>
+                                <a href="/azure/digital-twins/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/digital_twin.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Digital Twins</h3>
+                                                    <p>Build next-generation IoT spatial intelligence solutions</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/spatial-anchors/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/spatial_anchors.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Spatial Anchors</h3>
+                                                    <p>Create multi-user, spatially aware mixed reality experiences</p>
                                                 </div>
                                             </div>
                                         </div>

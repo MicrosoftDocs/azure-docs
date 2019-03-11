@@ -4,7 +4,7 @@ description: Learn about the locking options to protect resources when assigning
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
@@ -17,19 +17,21 @@ maintain that consistency. This article explains how resource locking works in A
 
 ## Locking modes and states
 
-Locking Mode applies to the blueprint assignment and it only has two options: **None** or **All
-Resources**. The locking mode is configured during blueprint assignment and can't be changed once
-the assignment is successfully applied to the subscription.
+Locking Mode applies to the blueprint assignment and it has three options: **Don't Lock**, **Read
+Only**, or **Do Not Delete**. The locking mode is configured during artifact deployment during a
+blueprint assignment. A different locking mode can be set by updating the blueprint assignment.
+Locking modes, however, can't be changed outside of Blueprints.
 
-Resources created by artifacts in a blueprint assignment have three states: **Not Locked**, **Read
-Only**, or **Cannot Edit / Delete**. Each artifact can be in the **Not Locked** state. However,
-non-resource group artifacts have **Read Only** and resource groups have **Cannot
-Edit / Delete** states. This difference is an important distinction in how these resources are managed.
+Resources created by artifacts in a blueprint assignment have four states: **Not Locked**, **Read
+Only**, **Cannot Edit / Delete**, or **Cannot Delete**. Each artifact type can be in the **Not
+Locked** state. The following table can be used to determine the state of a resource:
 
-The **Read Only** state is exactly as defined: the resource can't be altered in any way -- no
-changes and it can't be deleted. The **Cannot Edit / Delete** is more nuanced because of the
-"container" nature of resource groups. The resource group object is read only, but it's possible to
-make changes to non-locked resources within the resource group.
+|Mode|Artifact Resource Type|State|Description|
+|-|-|-|-|
+|Don't Lock|*|Not Locked|Resources aren't protected by Blueprints. This state is also used for resources added to a **Read Only** or **Do Not Delete** resource group artifact from outside a blueprint assignment.|
+|Read Only|Resource group|Cannot Edit / Delete|The resource group is read only and tags on the resource group can't be modified. **Not Locked** resources can be added, moved, changed, or deleted from this resource group.|
+|Read Only|Non-resource group|Read Only|The resource can't be altered in any way -- no changes and it can't be deleted.|
+|Do Not Delete|*|Cannot Delete|The resources can be altered, but can't be deleted. **Not Locked** resources can be added, moved, changed, or deleted from this resource group.|
 
 ## Overriding locking states
 
@@ -37,28 +39,34 @@ It's typically possible for someone with appropriate [role-based access
 control](../../../role-based-access-control/overview.md) (RBAC) on the subscription, such as the
 'Owner' role, to be allowed to alter or delete any resource. This access isn't the case when
 Blueprints applies locking as part of a deployed assignment. If the assignment was set with the
-**Lock** option, not even the subscription owner can change the included resources.
+**Read Only** or **Do Not Delete** option, not even the subscription owner can perform the blocked
+action on the protected resource.
 
 This security measure protects the consistency of the defined blueprint and the environment it was
 designed to create from accidental or programmatic deletion or alteration.
 
 ## Removing locking states
 
-If it becomes necessary to delete the resources created by an assignment, the way to delete them is
-to first remove the assignment. When the assignment is removed, the locks created by Blueprints are
-removed. However, the resource is left behind and would need to be deleted through normal means.
+If it becomes necessary to modify or delete a resource protected by an assignment, there are two
+ways to do so.
+
+- Updating the blueprint assignment to a locking mode of **Don't Lock**
+- Delete the blueprint assignment
+
+When the assignment is removed, the locks created by Blueprints are removed. However, the resource
+is left behind and would need to be deleted through normal means.
 
 ## How blueprint locks work
 
-An RBAC role `denyAssignments` is applied to artifact resources during assignment of a blueprint if
-the assignment selected the **Lock** option. The role is added by the managed identity of the
+An RBAC [deny assignments](../../../role-based-access-control/deny-assignments.md) deny action is
+applied to artifact resources during assignment of a blueprint if the assignment selected the
+**Read Only** or **Do Not Delete** option. The deny action is added by the managed identity of the
 blueprint assignment and can only be removed from the artifact resources by the same managed
 identity. This security measure enforces the locking mechanism and prevents removing the blueprint
-lock outside Blueprints. Removal of the role and the lock is only possible by removing the
-blueprint assignment, which can only be performed by individuals with appropriate rights.
+lock outside Blueprints.
 
 > [!IMPORTANT]
-> Azure Resource Manager caches role assignment details for up to 30 minutes. As a result, `denyAssignments`
+> Azure Resource Manager caches role assignment details for up to 30 minutes. As a result, deny assignments deny action's
 > on blueprint resources may not immediately be in full effect. During this period of time, it might be
 > possible to delete a resource intended to be protected by blueprint locks.
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: In this article, you create a C# Universal Windows Platform (UWP) application by using the Cognitive Services Speech SDK. You transcribe speech to text in real time from your device's microphone. The application is built with the Speech SDK NuGet Package and Microsoft Visual Studio 2017.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart

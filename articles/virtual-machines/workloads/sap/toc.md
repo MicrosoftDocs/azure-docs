@@ -74,6 +74,7 @@
 ### High Availability Architecture
 #### [HA Architecture and Scenarios](sap-high-availability-architecture-scenarios.md)
 #### [Higher Availability Architecture and Scenarios](sap-higher-availability-architecture-scenarios.md)
+#### [SAP workload configurations with Azure Availability Zones](sap-ha-availability-zones.md)
 #### [HA on Windows with Shared Disk for (A)SCS Instance](sap-high-availability-guide-wsfc-shared-disk.md)
 #### [HA on Windows with SOFS File Share for (A)SCS Instance](sap-high-availability-guide-wsfc-file-share.md)
 #### [HA on SUSE Linux for (A)SCS Instance](high-availability-guide-suse.md)

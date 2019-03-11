@@ -5,9 +5,9 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 01/31/2019
 ms.author: jeffpatt
-ms.component: files
+ms.subservice: files
 ---
 
 # Troubleshoot Azure File Sync
@@ -140,12 +140,12 @@ A server endpoint health status of "No Activity" means the server endpoint has n
 
 A server endpoint may not log sync activity for the following reasons:
 
-- The server has an active VSS sync session (SnapshotSync). When a VSS sync session is active for a server endpoint, other server endpoints on the same volume cannot start a start sync session until the VSS sync session completes.
+- Agent version 4.3.0.0 or older is installed and the server has an active VSS sync session (SnapshotSync). When a VSS sync session is active for a server endpoint, other server endpoints on the same volume cannot start a start sync session until the VSS sync session completes. To resolve this issue, install agent version 5.0.2.0 or newer which supports multiple server endpoints syncing on a volume when a VSS sync session is active.
 
 	To check current sync activity on a server, see [How do I monitor the progress of a current sync session?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
 - The server has reached the maximum number of concurrent sync sessions. 
-	- Agent version 4.x and later: Limit varies based on available system resources.
+	- Agent version 4.x and newer: Limit varies based on available system resources.
 	- Agent version 3.x: 2 active sync sessions per processor or a maximum of 8 active sync sessions per server.
 
 > [!Note]  
@@ -246,8 +246,8 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 | 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | The file or directory name is invalid. | Rename the file or directory in question. See [Handling unsupported characters](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) for more information. |
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | A file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. Azure File Sync creates a temporary VSS snapshot once a day on the server to sync files that have open handles. |
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | A file has changed, but the change has not yet been detected by sync. Sync will recover after this change is detected. | No action required. |
-| 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | The file cannot be synced because the Azure file share limit is reached. | To resolve this issue, see [You reached the Azure file share storage limit](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) section in the troubleshooting guide. |
-| 0x80070005 | -2147024891 | E_ACCESSDENIED | This error can occur if the file is encrypted by an unsupported solution (like NTFS EFS) or the file has a delete pending state. | If the file is encrypted by an unsupported solution, decrypt the file and use a supported encryption solution . For a list of support solutions, see [Encryption solutions](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning#encryption-solutions) section in the planning guide. If the file is in a delete pending state, the file will be deleted once all open file handles are closed. |
+| 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | The file cannot be synced because the Azure file share limit is reached. | To resolve this issue, see [You reached the Azure file share storage limit](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) section in the troubleshooting guide. |
+| 0x80070005 | -2147024891 | E_ACCESSDENIED | This error can occur if the file is encrypted by an unsupported solution (like NTFS EFS) or the file has a delete pending state. | If the file is encrypted by an unsupported solution, decrypt the file and use a supported encryption solution . For a list of support solutions, see [Encryption solutions](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) section in the planning guide. If the file is in a delete pending state, the file will be deleted once all open file handles are closed. |
 | 0x20 | 32 | ERROR_SHARING_VIOLATION | A file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | A file was changed during sync, so it needs to be synced again. | No action required. |
 
@@ -365,7 +365,7 @@ This error occurs when the Azure file share storage limit has been reached, whic
 
 5. Select **Files** to view the list of file shares.
 6. Click the three dots at the end of the row for the Azure file share referenced by the cloud endpoint.
-7. Verify that the **Usage** is below the **Quota**. Note unless an alternate quota has been specified, the quota will match the [maxium size of the Azure file share](storage-files-scale-targets.md).
+7. Verify that the **Usage** is below the **Quota**. Note unless an alternate quota has been specified, the quota will match the [maximum size of the Azure file share](storage-files-scale-targets.md).
 
     ![A screenshot of the Azure file share properties.](media/storage-sync-files-troubleshoot/file-share-limit-reached-1.png)
 
@@ -533,7 +533,7 @@ This error occurs because there are changes on the Azure file share directly and
 | **Error string** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
 | **Remediation required** | Yes |
 
-In cases where there are many per file sync errors, sync sessions may begin to fail. To troubleshoot this state, see [Troubleshooting per file/directory sync errors](#troubleshooting-per-file-directory-sync-errors).
+In cases where there are many per file sync errors, sync sessions may begin to fail. <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
 
 > [!NOTE]
 > Azure File Sync creates a temporary VSS snapshot once a day on the server to sync files that have open handles.
@@ -725,7 +725,7 @@ if ($fileShare -eq $null) {
 1. Click the **Role assignments** tab to the list the users and applications (*service principals*) that have access to your storage account.
 1. Verify **Hybrid File Sync Service** appears in the list with the **Reader and Data Access** role. 
 
-    ![A screen shot of the Hybrid File Sync Service service principal in the access control tab of the storage account](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
+    ![A screenshot of the Hybrid File Sync Service service principal in the access control tab of the storage account](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 
 	If **Hybrid File Sync Service** does not appear in the list, perform the following steps:
 
@@ -847,6 +847,9 @@ Antivirus, backup, and other applications that read large numbers of files cause
 Consult with your software vendor to learn how to configure their solution to skip reading offline files.
 
 Unintended recalls also might occur in other scenarios, like when you are browsing files in File Explorer. Opening a folder that has cloud-tiered files in File Explorer on the server might result in unintended recalls. This is even more likely if an antivirus solution is enabled on the server.
+
+> [!NOTE]
+>Use Event ID 9059 in the Telemetry event log to determine which application(s) is causing recalls. This event provides application recall distribution for a server endpoint and is logged once an hour.
 
 ## General troubleshooting
 If you encounter issues with Azure File Sync on a server, start by completing the following steps:

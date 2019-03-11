@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Create a project, add tags, upload images, train your project, and detect objects using the Python SDK.
 services: cognitive-services
 author: areddish
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
@@ -66,7 +66,7 @@ project = trainer.create_project("My Detection Project", domain_id=obj_detection
 
 ### Create tags in the project
 
-To create classification tags to your project, add the following code to the end of *sample.py*:
+To create object tags in your project, add the following code to the end of *sample.py*:
 
 ```Python
 # Make two tags in the new project

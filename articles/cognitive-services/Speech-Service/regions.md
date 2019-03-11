@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Reference for regions of the Speech Service.
 services: cognitive-services
 author: mahilleb-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service
@@ -22,7 +22,7 @@ Make sure that you use the endpoint that matches the region for your subscriptio
 
 ## Speech SDK
 
-In the [Speech Service SDK](speech-sdk.md), regions are specified as a string
+In the [Speech SDK](speech-sdk.md), regions are specified as a string
 (for example, as a parameter to `SpeechConfig.FromSubscription` in the Speech SDK for C#).
 
 ### Speech recognition and translation

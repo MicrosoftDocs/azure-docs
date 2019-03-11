@@ -212,7 +212,7 @@ private static async void SendTemplateNotificationAsync()
 
     // Sending the notification as a template notification. All template registrations that contain
     // "messageParam" or "News_<local selected>" and the proper tags will receive the notifications.
-    // This includes APNS, GCM, WNS, and MPNS template registrations.
+    // This includes APNS, FCM, WNS, and MPNS template registrations.
     Dictionary<string, string> templateParams = new Dictionary<string, string>();
 
     // Create an array of breaking news categories.

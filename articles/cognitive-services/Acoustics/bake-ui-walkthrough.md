@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: This document describes the process of submitting an acoustics bake using the Unity editor extension.
 services: cognitive-services
 author: kegodin
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: acoustics
@@ -238,7 +238,7 @@ As an example, on an 8 core machine with Intel Xeon E5-1660 @ 3 GHz and 32 GB RA
 ### Setup Docker
 Install and configure Docker on the PC that will process the simulation -
 1. Install the [Docker toolset](https://www.docker.com/products/docker-desktop).
-2. Launch Docker settings, navigate to the "Advanced" options and configure resources to have at leat 8GB RAM. The more CPUs you can allocate to Docker, the faster the bake will complete. ![Example Docker settings](media/DockerSettings.png)
+2. Launch Docker settings, navigate to the "Advanced" options and configure resources to have at least 8GB RAM. The more CPUs you can allocate to Docker, the faster the bake will complete. ![Example Docker settings](media/DockerSettings.png)
 3. Navigate to "Shared Drives" and turn on sharing for the drive used for processing.![DockerDriveSharing](media/DockerSharedDrives.png)
 
 ### Run local bake

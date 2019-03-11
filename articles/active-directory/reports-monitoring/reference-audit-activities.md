@@ -19,6 +19,7 @@ ms.date: 01/24/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD audit activity reference
 
@@ -62,10 +63,10 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Access Reviews|Update Access Review|
 |Access Reviews|Update Azure AD Access Reviews Onboarding status|
 |Access Reviews|Update access review mail notification settings|
-|Access Reviews|Update access review reccurrence count setting|
-|Access Reviews|Update access review reccurrence duration in days setting|
-|Access Reviews|Update access review reccurrence end type setting|
-|Access Reviews|Update access review reccurrence type setting|
+|Access Reviews|Update access review recurrence count setting|
+|Access Reviews|Update access review recurrence duration in days setting|
+|Access Reviews|Update access review recurrence end type setting|
+|Access Reviews|Update access review recurrence type setting|
 |Access Reviews|Update access review reminder settings|
 |Access Reviews|Update program|
 |Access Reviews|Update request approval|

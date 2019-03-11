@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to create apps using the Speech SDK.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
@@ -37,24 +37,26 @@ The required Speech SDK files can be deployed in the same directory as your appl
 | Name | Function
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | Core SDK, required for native and managed deployment
-| `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` | Required for managed deployment
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Required for managed deployment
+
+>[!NOTE]
+> Starting with the release 1.3.0 the file `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (shipped in previous releases) isn't needed anymore. The functionality is now integrated in the core SDK.
 
 ## Linux
 
+The Speech SDK currently supports the Ubuntu 16.04 and 18.04 distributions.
 For a native application, you need to ship the Speech SDK library, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Make sure you select the version (x86, x64) that matches your application. Depending on the Linux version, you also might need to include the following dependencies:
 
 * The shared libraries of the GNU C library (including the POSIX Threads Programming library, `libpthreads`)
 * The OpenSSL library (`libssl.so.1.0.0`)
-* The cURL library (`libcurl.so.4`)
 * The shared library for ALSA applications (`libasound.so.2`)
 
-On Ubuntu 16.04 or 18.04, for example, the GNU C libraries should already be installed by default. The last three can be installed by using these commands:
+On Ubuntu, the GNU C libraries should already be installed by default. The last three can be installed by using these commands:
 
 ```sh
 sudo apt-get update
-sudo apt-get install libssl1.0.0 libcurl3 libasound2 wget
+sudo apt-get install libssl1.0.0 libasound2 wget
 ```
 
 ## Next steps

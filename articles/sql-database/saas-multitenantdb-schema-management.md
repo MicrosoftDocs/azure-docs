@@ -11,7 +11,7 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
-ms.date: 09/19/2018
+ms.date: 12/18/2018
 ---
 # Manage schema in a SaaS application that uses sharded multi-tenant SQL databases
 
@@ -167,5 +167,5 @@ In this tutorial you learned how to:
 > * Update reference data in all tenant databases
 > * Create an index on a table in all tenant databases
 
-Next, try the [Ad-hoc reporting tutorial](saas-multitenantdb-adhoc-reporting.md) to explore running distributed queries across tenant databases.
+Next, try the [Ad hoc reporting tutorial](saas-multitenantdb-adhoc-reporting.md) to explore running distributed queries across tenant databases.
 

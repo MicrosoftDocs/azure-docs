@@ -66,7 +66,7 @@ az vm availability-set create \
 
 ### Create a virtual machine
 
-Create a VM by using the [az vm create](/cli/azure/vm#az_vm_create) command. 
+Create a VM by using the [az vm create](/cli/azure/vm) command. 
 
 The following example creates two VMs named `myVM1` and `myVM2`. It also creates SSH keys, if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.
 

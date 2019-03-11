@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
 ---
@@ -26,10 +26,6 @@ The Azure NetApp Files documentation provides instructions on creating and manag
 > All tasks described in this documentation require that you be part of the Public Preview program and whitelisted for accessing the Microsoft.NetApp Azure Resource Provider. To request joining the Public Preview program, see [Register for Azure NetApp Files](azure-netapp-files-register.md). 
 
 **Get started** 
-1. [Register for Azure NetApp Files](azure-netapp-files-register.md)
-1. [Create a NetApp account](azure-netapp-files-create-netapp-account.md)
-1. [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
-1. [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
-1. [Configure export policy for a volume (optional)](azure-netapp-files-configure-export-policy.md)
 
-
+* [Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md) 
+* [Quickstart: Set up Azure NetApp Files and create a volume](azure-netapp-files-quickstart-set-up-account-create-volumes.md)

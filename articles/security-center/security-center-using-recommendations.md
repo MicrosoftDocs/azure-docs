@@ -4,7 +4,7 @@ description: " Learn how to use security policies and recommendations in Azure S
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid:

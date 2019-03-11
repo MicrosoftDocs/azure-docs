@@ -2,7 +2,7 @@
 title: Use Terraform to create an Azure virtual machine scale set
 description: Tutorial about using Terraform to configure and version an Azure virtual machine scale set complete with a virtual network and managed attached disks
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, virtual machine, Azure, scale set, network, storage, modules
 author: tomarchermsft
 ms.author: tarcher
@@ -185,7 +185,7 @@ Within the Azure Cloud Shell, perform the following steps:
     name                         = "vmss-public-ip"
     location                     = "${var.location}"
     resource_group_name          = "${azurerm_resource_group.vmss.name}"
-    allocation_method = "static"
+    allocation_method = "Static"
     domain_name_label            = "${random_string.fqdn.result}"
     tags                         = "${var.tags}"
   }
@@ -458,7 +458,7 @@ An SSH *jumpbox* is a single server that you "jump" through in order to access o
     name                         = "jumpbox-public-ip"
     location                     = "${var.location}"
     resource_group_name          = "${azurerm_resource_group.vmss.name}"
-    allocation_method = "static"
+    allocation_method = "Static"
     domain_name_label            = "${random_string.fqdn.result}-ssh"
     tags                         = "${var.tags}"
   }

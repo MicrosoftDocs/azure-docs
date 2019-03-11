@@ -3,7 +3,7 @@
 title: 'Create a Terraform base template in Azure using Yeoman'
 description: Learn how to create a Terraform base template in Azure using Yeoman.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, virtual machine, azure, yeoman
 author: tomarchermsft
 manager: jeconnoc
@@ -280,4 +280,4 @@ All of these items are pre-installed in Cloud Shell.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Install and use the Azure Terraform Visual Studio Code extenstion.](https://docs.microsoft.com/azure/terraform/terraform-vscode-extension)
+> [Install and use the Azure Terraform Visual Studio Code extension.](https://docs.microsoft.com/azure/terraform/terraform-vscode-extension)

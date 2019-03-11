@@ -8,7 +8,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
-ms.component: common
+ms.subservice: common
 ---
 # Transfer Data with the Microsoft Azure Storage Data Movement Library
 

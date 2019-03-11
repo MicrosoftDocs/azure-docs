@@ -5,10 +5,10 @@ services: storage
 author: roygara
 
 ms.service: storage
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 09/14/2017
 ms.author: rogarana
-ms.component: queues
+ms.subservice: queues
 ---
 
 # Perform Azure Queue storage operations with Azure PowerShell
@@ -192,4 +192,4 @@ In this how-to article, you learned about basic Queue storage management with Po
 
 ### Microsoft Azure Storage Explorer
 
-* [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
+* [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.

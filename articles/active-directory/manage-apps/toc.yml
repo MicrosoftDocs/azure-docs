@@ -67,6 +67,8 @@
         href: manage-certificates-for-federated-single-sign-on.md
       - name: Tenant restrictions
         href: tenant-restrictions.md
+      - name: Configure SAML token encryption (Preview)
+        href: howto-saml-token-encryption.md
     - name: Single sign-on
       href: what-is-single-sign-on.md
     - name: End-user portals

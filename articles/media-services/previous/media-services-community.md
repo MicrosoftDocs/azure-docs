@@ -4,7 +4,7 @@ description: 'This Azure Media Services (AMS) community page discusses different
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 0df020f4-8297-4f31-92bf-de098283e997
@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
 
 ---
-# Azure Media Services Community
+# Azure Media Services Community  
+
 This Azure Media Services (AMS) community page discusses different ways you can get updates about AMS. You can also view new videos and podcasts, ask questions and give feedback.   
 
 ## Videos and Podcasts

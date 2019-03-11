@@ -1,6 +1,6 @@
 ---
 title: Migrate from Azure Media Services v2 to v3 | Microsoft Docs
-description: This article describes changes that were introduced in Azure Media Services v3 and shows differences between two versions.
+description: This article describes changes that were introduced in Azure Media Services v3 and shows differences between two versions. The article also provides migration guidance for moving from Media Services v2 to v3.
 services: media-services
 documentationcenter: na
 author: Juliako
@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 01/24/2019
+ms.date: 02/04/2019
 ms.author: juliako
 ---
 
@@ -41,11 +41,11 @@ If you have a video service developed today on top of the [legacy Media Services
 
 * For file-based Job processing, you can use a HTTP(S) URL as the input.<br/>You do not need to have content already stored in Azure, nor do you need to create Assets.
 * Introduces the concept of [Transforms](transforms-jobs-concept.md) for file-based Job processing. A Transform can be used to build reusable configurations, to create Azure Resource Manager Templates, and isolate processing settings between multiple customers or tenants.
-* An Asset can have multiple [Streaming Locators](streaming-locators-concept.md) each with different Dynamic Packaging and Dynamic Encryption settings.
+* An Asset can have multiple [Streaming Locators](streaming-locators-concept.md) each with different [Dynamic Packaging](dynamic-packaging-overview.md) and Dynamic Encryption settings.
 * [Content protection](content-key-policy-concept.md) supports multi-key features.
 * You can stream Live Events that are up to 24 hours long when using Media Services for transcoding a single bitrate contribution feed into an output stream that has multiple bitrates.
 * New Low Latency live streaming support on Live Events. For more information, see [latency](live-event-latency.md).
-* Live Event Preview supports Dynamic Packaging and Dynamic Encryption. This enables content protection on Preview as well as DASH and HLS packaging.
+* Live Event Preview supports [Dynamic Packaging](dynamic-packaging-overview.md) and Dynamic Encryption. This enables content protection on Preview as well as DASH and HLS packaging.
 * Live Output is simpler to use than the Program entity in the v2 APIs. 
 * Improved RTMP support (increased stability and more source encoder support).
 * RTMPS secure ingest.<br/>When you create a Live Event, you get 4 ingest URLs. The 4 ingest URLs are almost identical, have the same streaming token (AppId), only the port number part is different. Two of the URLs are primary and backup for RTMPS.   

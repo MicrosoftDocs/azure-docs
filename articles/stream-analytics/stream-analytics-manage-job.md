@@ -234,7 +234,7 @@ You can test a query from the query editor using sample data. Run the following 
 
 4. Select **Test** to test the query. You should see the following results:
 
-   ![Out put from Stream Analytics query test](media/stream-analytics-manage-job/sample-test-output-restuls.png)
+   ![Output from Stream Analytics query test](media/stream-analytics-manage-job/sample-test-output-restuls.png)
 
 ## Start the job and visualize output
 

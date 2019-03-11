@@ -19,6 +19,7 @@ ms.author: celested
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about the basic authentication concepts in Azure Active Directory, including the app model, API, provisioning, and supported scenarios, so I understand what I need to do when I create apps that integrate Microsoft sign-in.
+ms.collection: M365-identity-device-management
 ---
 
 # What is authentication?
@@ -44,7 +45,7 @@ Here’s what you need to know about the various components shown in the diagram
 
 * Azure AD is the identity provider. The identity provider is responsible for verifying the identity of users and applications that exist in an organization’s directory, and issues security tokens upon successful authentication of those users and applications.
 * An application that wants to outsource authentication to Azure AD must be registered in Azure AD. Azure AD registers and uniquely identifies the app in the directory.
-* Developers can use the open-source Azure AD authentication libraries to make authentication easy by handling the protocol details for you. For more info, see Azure AD [v2.0 authentication libaries](reference-v2-libraries.md) and [v1.0 authentication libraries](active-directory-authentication-libraries.md).
+* Developers can use the open-source Azure AD authentication libraries to make authentication easy by handling the protocol details for you. For more info, see Azure AD [v2.0 authentication libraries](reference-v2-libraries.md) and [v1.0 authentication libraries](active-directory-authentication-libraries.md).
 * Once a user has been authenticated, the application must validate the user’s security token to ensure that authentication was successful. You can find quickstarts, tutorials, and code samples in a variety of languages and frameworks which show what the application must do.
   * To quickly build an app and add functionality like getting tokens, refreshing tokens, signing in a user, displaying some user info, and more, see the **Quickstarts** section of the documentation.
   * To get in-depth, scenario-based procedures for top auth developer tasks like obtaining access tokens and using them in calls to the Microsoft Graph API and other APIs, implementing sign-in with Microsoft with a traditional web browser-based app using OpenID Connect, and more, see the **Tutorials** section of the documentation.

@@ -3,8 +3,8 @@ title: Automated SaaS app user provisioning in Azure AD | Microsoft Docs
 description: An introduction to how you can use Azure AD to automatically provision, de-provision, and continuously update user accounts across multiple third-party SaaS applications.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,9 +12,10 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/30/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
 
+ms.collection: M365-identity-device-management
 ---
 # Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory
 
@@ -34,7 +35,7 @@ Azure Active Directory (Azure AD) allows you to automate the creation, maintenan
 
 * The ability to match existing identities between source and target systems.
 * Customizable attribute mappings that define what user data should flow from the source system to the target system.
-* Optional email alerts for provisioning errors
+* Optional email alerts for provisioning errors.
 * Reporting and activity logs to help with monitoring and troubleshooting.
 
 ## Why use automated provisioning?
@@ -42,7 +43,7 @@ Azure Active Directory (Azure AD) allows you to automate the creation, maintenan
 Some common motivations for using this feature include:
 
 * Avoiding the costs, inefficiencies, and human error associated with manual provisioning processes.
-* Avoiding the costs associated with hosting and maintaining custom-developed provisioning solutions and scripts
+* Avoiding the costs associated with hosting and maintaining custom-developed provisioning solutions and scripts.
 * To secure your organization by instantly removing users' identities from key SaaS apps when they leave the organization.
 * To easily import a large number of users into a particular SaaS application or system.
 * To enjoy having a single set of policies to determine who is provisioned and who can sign in to an app.
@@ -102,7 +103,7 @@ In the application management screen, provisioning is configured in the **Provis
 
 ![Settings](./media/user-provisioning/provisioning_settings1.PNG)
 
-* **Scoping filters** tell the provisioning service which users and group in the source system should be provisioned and/or deprovisioned to the target system. There are two aspects to scoping filters that are evaluated together that determine who is in scope for provisioning:
+* **Scoping filters** tell the provisioning service which users and groups in the source system should be provisioned and/or deprovisioned to the target system. There are two aspects to scoping filters that are evaluated together that determine who is in scope for provisioning:
 
     * **Filter on attribute values** - The "Source Object Scope" menu in the attribute mappings allows filtering on specific attribute values. For example, you can specify that only users with a "Department" attribute of "Sales" should be in scope for provisioning. For more information, see [Using scoping filters](define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -209,13 +210,13 @@ For the configuration **Sync assigned user and groups only**, you can use the fo
 	
 Summary of factors that influence the time it takes to complete an **initial sync**:
 
-* The total number of users and groups in scope for provisioning
+* The total number of users and groups in scope for provisioning.
 
-* The total number of users, groups, and group members present in the source system (Azure AD)
+* The total number of users, groups, and group members present in the source system (Azure AD).
 
 * Whether or not users in scope for provisioning are matched to existing users in the target application, or need to be created for the first time. Sync jobs for which all users are created for the first time take approximately *twice as long* as sync jobs for which all users are matched to existing users.
 
-* Number of errors in the [audit logs](check-status-user-account-provisioning.md). Performance is slower if there are many errors and the provisioning service has gone into a quarantine state	
+* Number of errors in the [audit logs](check-status-user-account-provisioning.md). Performance is slower if there are many errors and the provisioning service has gone into a quarantine state.	
 
 * Request rate limits and throttling implemented by the target system. Some target systems implement request rate limits and throttling which can impact performance during large sync operations. Under these conditions, an app that receives too many requests too fast might slow its response rate or close the connection. To improve performance, the connector needs to adjust by not sending the app requests faster than the app can process them. Provisioning connectors built by Microsoft make this adjustment. 
 
@@ -254,7 +255,7 @@ Yes. When configured to "sync only assigned users and groups", the Azure AD user
 
 However, usage of dynamic groups can impact the overall performance of end-to-end user provisioning from the Azure AD to SaaS applications. When using dynamic groups, please keep these caveats and recommendations in mind:
 
-* How fast a user in a dynamic group is provisioned or deprovisioned in a SaaS application depends on how fast the dynamic group can evaluate membership changes. For information on how to check the processing status of a dynamic group, see [Check processing status for a membership rule](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule).
+* How fast a user in a dynamic group is provisioned or deprovisioned in a SaaS application depends on how fast the dynamic group can evaluate membership changes. For information on how to check the processing status of a dynamic group, see [Check processing status for a membership rule](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule).
 
 * When using dynamic groups, the rules must be carefully considered with user provisioning and de-provisioning in mind, as a loss of membership will result in a deprovisioning event.
 

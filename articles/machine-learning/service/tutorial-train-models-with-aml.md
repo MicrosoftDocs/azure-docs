@@ -172,16 +172,16 @@ Download the MNIST dataset and save the files into a `data` directory locally. I
 
 
 ```python
-import os
 import urllib.request
+import os
 
-data_path = os.path.join(os.getcwd(), 'data')
-os.makedirs(data_path, exist_ok = True)
+data_folder = os.path.join(os.getcwd(), 'data')
+os.makedirs(data_folder, exist_ok = True)
 
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename='./data/train-images.gz')
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename='./data/train-labels.gz')
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename='./data/test-images.gz')
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename='./data/test-labels.gz')
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename=os.path.join(data_folder, 'train-images.gz'))
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename=os.path.join(data_folder, 'train-labels.gz'))
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename=os.path.join(data_folder, 'test-images.gz'))
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename=os.path.join(data_folder, 'test-labels.gz'))
 ```
 You will see output similar to this:
 ```('./data/test-labels.gz', <http.client.HTTPMessage at 0x7f40864c77b8>)```
@@ -197,13 +197,12 @@ Load the compressed files into `numpy` arrays. Then use `matplotlib` to plot 30 
 from utils import load_data
 
 # note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the model converge faster.
-X_train = load_data('./data/train-images.gz', False) / 255.0
-y_train = load_data('./data/train-labels.gz', True).reshape(-1)
+X_train = load_data(os.path.join(data_folder, 'train-images.gz'), False) / 255.0
+X_test = load_data(os.path.join(data_folder, 'test-images.gz'), False) / 255.0
+y_train = load_data(os.path.join(data_folder, 'train-labels.gz'), True).reshape(-1)
+y_test = load_data(os.path.join(data_folder, 'test-labels.gz'), True).reshape(-1)
 
-X_test = load_data('./data/test-images.gz', False) / 255.0
-y_test = load_data('./data/test-labels.gz', True).reshape(-1)
-
-# now let's show some randomly chosen images from the training set.
+# now let's show some randomly chosen images from the traininng set.
 count = 0
 sample_size = 30
 plt.figure(figsize = (16, 6))
@@ -233,7 +232,7 @@ The MNIST files are uploaded into a directory named `mnist` at the root of the d
 ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 
-ds.upload(src_dir=data_path, target_path='mnist', overwrite=True, show_progress=True)
+ds.upload(src_dir=data_folder, target_path='mnist', overwrite=True, show_progress=True)
 ```
 You now have everything you need to start training a model. 
 
@@ -279,7 +278,7 @@ parser.add_argument('--data-folder', type=str, dest='data_folder', help='data fo
 parser.add_argument('--regularization', type=float, dest='reg', default=0.01, help='regularization rate')
 args = parser.parse_args()
 
-data_folder = os.path.join(args.data_folder, 'mnist')
+data_folder = args.data_folder
 print('Data folder:', data_folder)
 
 # load train and test set into numpy arrays
@@ -340,13 +339,13 @@ An estimator object is used to submit the run. Create your estimator by running 
 * Parameters required from the training script. 
 * Python packages needed for training.
 
-In this tutorial, this target is AmlCompute. All files in the script folder are uploaded into the cluster nodes for run. The **data_folder** is set to use the datastore, `ds.as_mount()`:
+In this tutorial, this target is AmlCompute. All files in the script folder are uploaded into the cluster nodes for run. The **data_folder** is set to use the datastore, `ds.path('mnist').as_mount()`:
 
 ```python
 from azureml.train.estimator import Estimator
 
 script_params = {
-    '--data-folder': ds.as_mount(),
+    '--data-folder': ds.path('mnist').as_mount(),
     '--regularization': 0.8
 }
 
