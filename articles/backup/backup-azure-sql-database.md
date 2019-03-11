@@ -13,9 +13,9 @@ ms.author: raynew
 ---
 # Back up SQL Server databases on Azure VMs 
 
-SQL Server databases are critical workloads that require a low recovery point objective (RPO) and long-term retention. You can backup SQL Server databases running on Azure VMs using [Azure Backup](backup-overview.md). 
+SQL Server databases are critical workloads that require a low recovery point objective (RPO) and long-term retention. You can backup SQL Server databases that are running on Azure VMs by using [Azure Backup](backup-overview.md). 
 
-This article shows you how to back up a SQL Server database running on an Azure VM to an Azure Backup Recovery Services vault. In this article, you learn how to:
+This tutorial shows you how to back up a SQL Server database that is running on an Azure VM to an Azure Backup Recovery Services vault. In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Verify the prerequisites for backing up a SQL Server instance.
@@ -30,7 +30,7 @@ This article shows you how to back up a SQL Server database running on an Azure 
 
 Before you start, verify the following:
 
-1. Make sure you have a SQL Server instance running in Azure. You can [quickly create a SQL Server instance](../sql-database/sql-database-get-started-portal.md) in the marketplace.
+1. Make sure that you have a SQL Server instance running in Azure. You can quickly [create a SQL Server instance](../sql-database/sql-database-get-started-portal.md) in the marketplace.
 2. Review the public preview limitations below.
 3. Review scenario support.
 4. [Review common questions](faq-backup-sql-server.md) about this scenario.
@@ -40,13 +40,13 @@ Before you start, verify the following:
 
 This public preview has a number of limitations.
 
-- The VM running SQL Server requires internet connectivity to access Azure public IP addresses. 
+- The VM that is running SQL Server requires internet connectivity to access Azure public IP addresses. 
 - You can back up to 2000 SQL Server databases in a vault. If you have more, create another vault. 
 - Backups of [distributed availability groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017) don't fully work.
 - SQL Server Always On Failover Cluster Instances (FCIs) aren't supported for backup.
-- SQL Server backup should be configured in the portal. You can't currently configure backup with Azure PowerShell, CLI, or the REST APIs.
-- Backup and restore operations for FCI mirror databases, database snapshots and databases aren't supported.
-- Databases with large number of files can't be protected. The maximum number of files supported isn't deterministic. It not only depends on the number of files, but also depends on the path length of the files. 
+- Configure SQL Server backup in the portal. You can't currently configure backup with Azure PowerShell, CLI, or the REST APIs.
+- Backup and restore operations for FCI mirror databases, database snapshots, and databases aren't supported.
+- Databases with large number of files can't be protected. The maximum number of files that are supported isn't deterministic. It depends on the number of files, and also depends on the path length of the files. 
 
 Review [frequently asked questions](faq-backup-sql-server.md) about backing up SQL Server databases.
 ## Scenario support
