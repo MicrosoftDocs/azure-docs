@@ -107,7 +107,7 @@ When running and debugging the Azure Functions runtime locally, application sett
         },
         "Host": {
             "LocalHttpPort": 7071,
-            "CORS": "http://localhost:5500",
+            "CORS": "http://127.0.0.1:5500",
             "CORSCredentials": true
         }
     }
@@ -116,6 +116,9 @@ When running and debugging the Azure Functions runtime locally, application sett
     * Enter the Azure SignalR Service connection string into a setting named `AzureSignalRConnectionString`. Obtain the value from the **Keys** page in the Azure SignalR Service resource in the Azure portal; either the primary or secondary connection string can be used.
     * The `WEBSITE_NODE_DEFAULT_VERSION` setting is not used locally, but is required when deployed to Azure.
     * The `Host` section configures the port and CORS settings for the local Functions host (this setting has no effect when running in Azure).
+
+        > [!NOTE]
+        > Live Server typically defaults to http://127.0.0.1:5500, if it is using a different URL or you are using a different HTTP server, change the `CORS` setting to reflect the correct origin.
 
     ![Get SignalR Service key](media/signalr-tutorial-authenticate-azure-functions/signalr-get-key.png)
 
