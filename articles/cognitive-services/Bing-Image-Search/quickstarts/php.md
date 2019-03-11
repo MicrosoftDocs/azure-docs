@@ -23,7 +23,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Prerequisites
 
-* [PHP 5.6.x or later](http://php.net/downloads.php).
+* [PHP 5.6.x or later](https://php.net/downloads.php).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 

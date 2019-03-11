@@ -83,7 +83,7 @@ For a comparison of Event Grid, Event Hubs, and Service Bus, see [Choose between
 
 ## What can I do with Event Grid?
 
-Azure Event Grid provides several features that vastly improve serverless, ops automation, and [integration](http://azure.com/integration) work: 
+Azure Event Grid provides several features that vastly improve serverless, ops automation, and [integration](https://azure.com/integration) work: 
 
 ### Serverless application architectures
 

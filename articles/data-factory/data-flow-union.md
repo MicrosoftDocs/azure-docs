@@ -9,11 +9,24 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ---
 
-# Azure Data Factory Mapping Data Flow Union Transformation
+# Mapping data flow union transformation
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Union will combine multiple data streams into one, with the SQL Union of those streams as the new output from the Union transformation.
+Union will combine multiple data streams into one, with the SQL Union of those streams as the new output from the Union transformation. All of the schema from each input stream will be combined inside of your data flow, without needing to have a join key.
 
-![Union Transformation](media/data-flow/union.png "Union")
+You can combine n-number of streams in the settings table by selecting the "+" icon next to each configured row.
 
+![Union transformation](media/data-flow/union.png "Union")
+
+In this case, you can combine disparate metadata from multiple sources (in this example, three different source files) and combine them into a single stream:
+
+![Union transformation overview](media/data-flow/union111.png "Union 1")
+
+To achieve this, add additional rows in the Union Settings by including all source you wish to add. There is no need for a common lookup or join key:
+
+![Union transformation settings](media/data-flow/unionsettings.png "Union settings")
+
+If you set a Select transformation after your Union, you will be able to rename overlapping fields or fields that were not named from headerless sources. Click on "Inspect" to see the combine metadata with 132 total columns in this example from three different sources:
+
+![Union transformation final](media/data-flow/union333.png "Union 3")

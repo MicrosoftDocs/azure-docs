@@ -859,20 +859,6 @@ In VS Code, you can set the language mode to JSON with comments. The inline comm
 
    ![Select language mode](./media/resource-group-authoring-templates/select-json-comments.png)
 
-## Template limits
-
-Limit the size of your template to 1 MB, and each parameter file to 64 KB. The 1-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. 
-
-You're also limited to:
-
-* 256 parameters
-* 256 variables
-* 800 resources (including copy count)
-* 64 output values
-* 24,576 characters in a template expression
-
-You can exceed some template limits by using a nested template. For more information, see [Using linked templates when deploying Azure resources](resource-group-linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several values into an object. For more information, see [Objects as parameters](resource-manager-objects-as-parameters.md).
-
 [!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 
 ## Next steps

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/03/2018
+ms.date: 03/05/2019
 ms.author: tomfitz
 
 ---
@@ -203,6 +203,7 @@ Resource Manager provides the following functions for working with strings:
 * [last](resource-group-template-functions-string.md#last)
 * [lastIndexOf](resource-group-template-functions-string.md#lastindexof)
 * [length](resource-group-template-functions-string.md#length)
+* [newGuid](resource-group-template-functions-string.md#newguid)
 * [padLeft](resource-group-template-functions-string.md#padleft)
 * [replace](resource-group-template-functions-string.md#replace)
 * [skip](resource-group-template-functions-string.md#skip)
@@ -218,6 +219,7 @@ Resource Manager provides the following functions for working with strings:
 * [uri](resource-group-template-functions-string.md#uri)
 * [uriComponent](resource-group-template-functions-string.md#uricomponent)
 * [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
+* [utcNow](resource-group-template-functions-string.md#utcnow)
 
 ## Next steps
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md)

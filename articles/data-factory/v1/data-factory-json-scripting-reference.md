@@ -24,6 +24,8 @@ robots: noindex
 
 This article provides JSON schemas and examples for defining Azure Data Factory entities (pipeline, activity, dataset, and linked service).
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Pipeline
 The high-level structure for a pipeline definition is as follows:
 
@@ -47,7 +49,7 @@ Following table describes the properties within the pipeline JSON definition:
 | name | Name of the pipeline. Specify a name that represents the action that the activity or pipeline is configured to do<br/><ul><li>Maximum number of characters: 260</li><li>Must start with a letter number, or an underscore (\_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Yes |
 | description |Text describing what the activity or pipeline is used for | No |
 | activities | Contains a list of activities. | Yes |
-| start |Start date-time for the pipeline. Must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41. <br/><br/>It is possible to specify a local time, for example an EST time. Here is an example: `2016-02-27T06:00:00**-05:00`, which is 6 AM EST.<br/><br/>The start and end properties together specify active period for the pipeline. Output slices are only produced with in this active period. |No<br/><br/>If you specify a value for the end property, you must specify value for the start property.<br/><br/>The start and end times can both be empty to create a pipeline. You must specify both values to set an active period for the pipeline to run. If you do not specify start and end times when creating a pipeline, you can set them using the Set-AzureRmDataFactoryPipelineActivePeriod cmdlet later. |
+| start |Start date-time for the pipeline. Must be in [ISO format](https://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41. <br/><br/>It is possible to specify a local time, for example an EST time. Here is an example: `2016-02-27T06:00:00**-05:00`, which is 6 AM EST.<br/><br/>The start and end properties together specify active period for the pipeline. Output slices are only produced with in this active period. |No<br/><br/>If you specify a value for the end property, you must specify value for the start property.<br/><br/>The start and end times can both be empty to create a pipeline. You must specify both values to set an active period for the pipeline to run. If you do not specify start and end times when creating a pipeline, you can set them using the Set-AzDataFactoryPipelineActivePeriod cmdlet later. |
 | end |End date-time for the pipeline. If specified must be in ISO format. For example: 2014-10-14T17:32:41 <br/><br/>It is possible to specify a local time, for example an EST time. Here is an example: `2016-02-27T06:00:00**-05:00`, which is 6 AM EST.<br/><br/>To run the pipeline indefinitely, specify 9999-09-09 as the value for the end property. |No <br/><br/>If you specify a value for the start property, you must specify value for the end property.<br/><br/>See notes for the **start** property. |
 | isPaused |If set to true the pipeline does not run. Default value = false. You can use this property to enable or disable. |No |
 | pipelineMode |The method for scheduling runs for the pipeline. Allowed values are: scheduled (default), onetime.<br/><br/>‘Scheduled’ indicates that the pipeline runs at a specified time interval according to its active period (start and end time). ‘Onetime’ indicates that the pipeline runs only once. Onetime pipelines once created cannot be modified/updated currently. See [Onetime pipeline](data-factory-create-pipelines.md#onetime-pipeline) for details about onetime setting. |No |
@@ -2455,7 +2457,7 @@ The following table provides description for JSON elements specific to SQL Serve
 | username |Specify user name if you are using Windows Authentication. Example: **domainname\\username**. |No |
 | password |Specify password for the user account you specified for the username. |No |
 
-You can encrypt credentials using the **New-AzureRmDataFactoryEncryptValue** cmdlet and use them in the connection string as shown in the following example (**EncryptedCredential** property):
+You can encrypt credentials using the **New-AzDataFactoryEncryptValue** cmdlet and use them in the connection string as shown in the following example (**EncryptedCredential** property):
 
 ```json
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -3316,7 +3318,7 @@ You can link an on-premises file system to an Azure data factory with the **On-P
 | host |Specifies the root path of the folder that you want to copy. Use the escape character ‘ \ ’ for special characters in the string. See Sample linked service and dataset definitions for examples. |Yes |
 | userid |Specify the ID of the user who has access to the server. |No (if you choose encryptedCredential) |
 | password |Specify the password for the user (userid). |No (if you choose encryptedCredential |
-| encryptedCredential |Specify the encrypted credentials that you can get by running the New-AzureRmDataFactoryEncryptValue cmdlet. |No (if you choose to specify userid and password in plain text) |
+| encryptedCredential |Specify the encrypted credentials that you can get by running the New-AzDataFactoryEncryptValue cmdlet. |No (if you choose to specify userid and password in plain text) |
 | gatewayName |Specifies the name of the gateway that Data Factory should use to connect to the on-premises file server. |Yes |
 
 #### Sample folder path definitions
@@ -3729,7 +3731,7 @@ To define a HDFS linked service, set the **type** of the linked service to **Hdf
 | userName |Username for Windows authentication. |Yes (for Windows Authentication) |
 | password |Password for Windows authentication. |Yes (for Windows Authentication) |
 | gatewayName |Name of the gateway that the Data Factory service should use to connect to the HDFS. |Yes |
-| encryptedCredential |[New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) output of the access credential. |No |
+| encryptedCredential |[New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) output of the access credential. |No |
 
 #### Example: Using Anonymous authentication
 
@@ -4279,7 +4281,7 @@ To define an OData linked service, set the **type** of the linked service to **O
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "http://services.odata.org/OData/OData.svc",
+            "url": "https://services.odata.org/OData/OData.svc",
             "authenticationType": "Basic",
             "username": "username",
             "password": "password"
@@ -4296,7 +4298,7 @@ To define an OData linked service, set the **type** of the linked service to **O
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "http://services.odata.org/OData/OData.svc",
+            "url": "https://services.odata.org/OData/OData.svc",
             "authenticationType": "Anonymous"
         }
     }
@@ -4460,7 +4462,7 @@ To define an ODBC linked service, set the **type** of the linked service to **On
 }
 ```
 #### Example - Using Basic authentication with encrypted credentials
-You can encrypt the credentials using the [New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) (1.0 version of Azure PowerShell) cmdlet or [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0.9 or earlier version of the Azure PowerShell).
+You can encrypt the credentials using the [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) cmdlet.
 
 ```json
 {
@@ -5060,7 +5062,7 @@ The following table provides description for JSON elements specific to SQL Serve
 | username |Specify user name if you are using Windows Authentication. Example: **domainname\\username**. |No |
 | password |Specify password for the user account you specified for the username. |No |
 
-You can encrypt credentials using the **New-AzureRmDataFactoryEncryptValue** cmdlet and use them in the connection string as shown in the following example (**EncryptedCredential** property):
+You can encrypt credentials using the **New-AzDataFactoryEncryptValue** cmdlet and use them in the connection string as shown in the following example (**EncryptedCredential** property):
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
