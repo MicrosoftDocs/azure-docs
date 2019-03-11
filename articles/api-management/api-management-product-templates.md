@@ -47,20 +47,20 @@ Azure API Management provides you the ability to customize the content of develo
 </div>
 <div class="row">
     <div class="col-md-12">
-	{% if products.size > 0 %}
-	<ul class="list-unstyled">
-	{% for product in products %}
-		<li>
-			<h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
-			{{product.description}}
-		</li>
-	{% endfor %}
-	</ul>
-	<paging-control></paging-control>
-	{% else %}
-	{% localized "CommonResources|NoItemsToDisplay" %}
-	{% endif %}
-	</div>
+    {% if products.size > 0 %}
+    <ul class="list-unstyled">
+    {% for product in products %}
+        <li>
+            <h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
+            {{product.description}}
+        </li>
+    {% endfor %}
+    </ul>
+    <paging-control></paging-control>
+    {% else %}
+    {% localized "CommonResources|NoItemsToDisplay" %}
+    {% endif %}
+    </div>
 </div>
 ```
   
