@@ -16,10 +16,9 @@ ms.author: jingwang
 ---
 # Load data from SAP Business Warehouse (BW) by using Azure Data Factory
 
-This article shows you how to use the Data Factory _load data from SAP Business Warehouse (BW) via Open Hub into Azure Data Lake Storage Gen2_. You can follow similar steps to copy data to other [supported sink data stores](copy-activity-overview.md#supported-data-stores-and-formats). 
+This article shows you a walkthrough on how to use the Data Factory _load data from SAP Business Warehouse (BW) via Open Hub into Azure Data Lake Storage Gen2_. You can follow similar steps to copy data to other [supported sink data stores](copy-activity-overview.md#supported-data-stores-and-formats). 
 
 > [!TIP]
->
 > Refer to [SAP BW Open Hub connector article](connector-sap-business-warehouse-open-hub.md) on copying data from SAP BW in general, including introduction on SAP BW Open Hub integration and delta extraction flow.
 
 ## Prerequisites
@@ -37,10 +36,9 @@ This article shows you how to use the Data Factory _load data from SAP Business 
 
   1. Install and register the Self-hosted IR with version >= 3.13 (covered in the following walkthrough). 
 
-  2. Download the [64-bit SAP .NET Connector 3.0](https://support.sap.com/en/product/connectors/msnet.html) from SAP’s website, and install it the Self-hosted IR machine.  When installing, in the "Optional setup steps" window, please make sure you select the "**Install Assemblies to GAC**" option as shown in the following image.
+  2. Download the [64-bit SAP .NET Connector 3.0](https://support.sap.com/en/product/connectors/msnet.html) from SAP's website, and install it on the Self-hosted IR machine.  When installing, in the "Optional setup steps" window, please make sure you select the "**Install Assemblies to GAC**" option as shown in the following image.
 
      ![Set up SAP .NET Connector](media\connector-sap-business-warehouse-open-hub\install-sap-dotnet-connector.png)
-
 
 ## Full copy from SAP BW Open Hub
 
@@ -72,7 +70,7 @@ On Azure portal, go to your data factory -> select **Author & Monitor** to launc
 
    ![Select SAP BW Open Hub table](media\load-sap-bw-data\select-sap-bw-open-hub-table.png)
 
-6. Specify the filter if needed. If your Open Hub Destination only contains data from single Data Transfer Process (DTP) execution with single request ID, or you are sure your DTP has finished and want to copy all the data, uncheck the **Exclude Last Request**. You can learn more on how this settings relate to your SAP BW configuration in [SAP BW Open Hub Destination configurations](#sap-bw-open-hub-destination-configurations) section. Click **Validate** to double check the data returned, then select **Next**.
+6. Specify the filter if needed. If your Open Hub Destination only contains data from single Data Transfer Process (DTP) execution with single request ID, or you are sure your DTP has finished and want to copy all the data, uncheck the **Exclude Last Request**. You can learn more on how these settings relate to your SAP BW configuration in [SAP BW Open Hub Destination configurations](#sap-bw-open-hub-destination-configurations) section. Click **Validate** to double check the data returned, then select **Next**.
 
    ![Configure SAP BW Open Hub filter](media\load-sap-bw-data\configure-sap-bw-open-hub-filter.png)
 
@@ -125,7 +123,7 @@ On Azure portal, go to your data factory -> select **Author & Monitor** to launc
 
 > [!TIP]
 
-> Refer to [SAP BW Open Hub connector delta extraction flow](connector-sap-business-warehouse-open-hub.md#delta-extraction-flow) to learn more on how ADF connector works to copy incremental data from SAP BW.
+> Refer to [SAP BW Open Hub connector delta extraction flow](connector-sap-business-warehouse-open-hub.md#delta-extraction-flow) to learn more on how ADF copy activity works to copy incremental data from SAP BW.
 
 Now, let's continue to configure incremental copy from SAP BW Open Hub. 
 
@@ -180,7 +178,11 @@ On the ADF UI **Let's get started** page, select **Create pipeline**.
 
 ## SAP BW Open Hub Destination configurations
 
+This section introduces the needed configuration on SAP BW side in order to use SAP BW Open Hub connector in ADF to copy data.
+
 ### Configure delta extraction in SAP BW
+
+If you need both historical copy and incremental copy, or only incremental copy, configure delta extraction in SAP BW.
 
 1. Create the Open Hub Destination (OHD)
 
@@ -207,7 +209,7 @@ On the ADF UI **Let's get started** page, select **Create pipeline**.
 
 ### Configure full extraction in SAP BW
 
-In addition to the delta extraction, you might want to have a full extraction of the same InfoProvider. This usually applies if you want to do one-time full copy without incremental need, or you want to [re-sync delta extraction](#re-sync-delta-extraction).
+In addition to the delta extraction, you might want to have a full extraction of the same InfoProvider. This usually applies if you want to do full copy without incremental need or you want to [re-sync delta extraction](#re-sync-delta-extraction).
 
 You must not have more than one DTP for the same OHD. Therefore, you need to create an additional OHD than delta extraction.
 
@@ -219,17 +221,15 @@ For a full load OHD, choose different options than delta extraction:
 
 - In DTP: set "Extraction Mode" as "*Full*". You must change the automatically created DTP from Delta to Full just after the OHD has been created:
 
-![create-sap-bw-ohd-full2](media\load-sap-bw-data\create-sap-bw-ohd-full2.png)
+   ![create-sap-bw-ohd-full2](media\load-sap-bw-data\create-sap-bw-ohd-full2.png)
 
 - In ADF SAP BW Open Hub connector: turn off the option "*Exclude last request*". Otherwise nothing would be extracted. 
 
-You typically run the Full DTP manually. In this case, **you must wait until the DTP has finished before starting the extraction using the ADF Connector.**
-
-You might also create a process chain for the Full DTP. This would typically be a separate process chain independent from your existing process chains. In this case, you need to make sure you schedule this process chain at a point in time that **does not overlap** with your ADF copy extractions, otherwise, partial data will be copied.
+You typically run the Full DTP manually. Or you might also create a process chain for the Full DTP - this would usually be a separate process chain independent from your existing process chains. In either case, you must **make sure the DTP has finished before starting the extraction using ADF copy**, otherwise, partial data will be copied.
 
 ### Run delta extraction the first time
 
-The first Delta Extraction is technically a **Full Extraction**. However, this might result in an unexpected behavior when using the option "Exclude last request" in the ADF SAP BW Open Hub connector: if the cube data is not changing after the first extraction then no data will be extracted. There are two possible ways to avoid this scenario:
+The first Delta Extraction is technically a **Full Extraction**. Note by default ADF SAP BW Open Hub connector excludes the last request when copying the data. In the case of delta extraction for the first time, in ADF copy activtiy, no data will be extracted until there is subsequent DTP generates delta data in the table with separate request ID. While, there are two possible ways to avoid this scenario:
 
 1. Turn off the option "Exclude last request" for the first Delta Extraction
    In this case you need to make sure that the first Delta DTP has finished before starting the Delta Extraction the first time
