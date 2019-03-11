@@ -9,6 +9,7 @@ ms.topic: include
 ms.date: 09/16/2018
 ms.author: glenga
 ms.custom: include file
+ms.custom: fasttrack-edit
 ---
 
 ## Update the function

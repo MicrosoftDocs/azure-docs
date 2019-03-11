@@ -9,6 +9,7 @@ ms.date: 11/28/2018
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
+ms.custom: fasttrack-edit
 ms.devlang: javascript
 manager: jeconnoc
 ---
