@@ -44,12 +44,12 @@ IoT Hub events contain all the information you need to respond to changes in you
 The following example shows the schema of a device connected event: 
 
 ```json
-[{  
-  "id": "f6bbf8f4-d365-520d-a878-17bf7238abd8", 
-  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>", 
-  "subject": "devices/LogicAppTestDevice", 
-  "eventType": "Microsoft.Devices.DeviceConnected", 
-  "eventTime": "2018-06-02T19:17:44.4383997Z", 
+[{
+  "id": "f6bbf8f4-d365-520d-a878-17bf7238abd8",
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
+  "subject": "devices/LogicAppTestDevice",
+  "eventType": "Microsoft.Devices.DeviceConnected",
+  "eventTime": "2018-06-02T19:17:44.4383997Z",
   "data": {
       "deviceConnectionStateEventInfo": {
         "sequenceNumber":
@@ -58,9 +58,9 @@ The following example shows the schema of a device connected event:
     "hubName": "egtesthub1",
     "deviceId": "LogicAppTestDevice",
     "moduleId" : "DeviceModuleID",
-  }, 
-  "dataVersion": "1", 
-  "metadataVersion": "1" 
+  },
+  "dataVersion": "1",
+  "metadataVersion": "1"
 }]
 ```
 
