@@ -114,6 +114,7 @@ In this section, you create a virtual network, create two virtual machines for t
     ![Create a virtual network](./media/load-balancer-standard-public-portal/2-load-balancer-virtual-network.png)
 
 ### Create virtual machines
+Standard Load Balancer only supports VMs with Standard IP addresses in the backend pool. In this section, you will create two VMs (*myVM1* and *myVM2*) with a Standard public IP address (*myPublicIP*) that are added to the backend pool (*myBackendPool*) of the Standard Load Balancer, named *myLoadBalancer* that was created earlier.
 
 1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Windows Server 2016 Datacenter**. 
    
