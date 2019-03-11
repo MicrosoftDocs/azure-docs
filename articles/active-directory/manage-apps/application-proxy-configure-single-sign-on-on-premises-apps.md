@@ -1,5 +1,5 @@
 ---
-title: SAML single sign-on for on-premises applications with Application Proxy (Preview) | Microsoft Docs 
+title: SAML single sign-on for on-premises applications with Azure Active Directory Application Proxy (Preview) | Microsoft Docs 
 description: Learn how to provide single sign-on for on-premises applications published through Application Proxy that are secured with SAML authentication.
 services: active-directory
 documentationcenter: ''

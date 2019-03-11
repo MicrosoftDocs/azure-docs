@@ -163,7 +163,7 @@ Now that you've prepared your environment and installed a connector, you're read
 
 4. In the **Add your own on-premises application** blade, provide the following information about your application:
 
-    ![Configure your on-premises application](./media/application-proxy-add-on-premises-application/add-on-premises-app-with-application-proxy.png)
+    ![Configure your on-premises application](./media/application-proxy-add-on-premises-application/add-on-premises-app-with-application-proxy-updated.png)
 
     | Field | Description |
     | :---- | :---------- |
