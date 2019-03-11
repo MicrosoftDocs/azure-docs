@@ -41,8 +41,8 @@ or review this basic scope example:
          "actions": {
             "Http": {
                "inputs": {
-                   "method": "GET",
-                   "uri": "http://www.bing.com"
+                  "method": "GET",
+                  "uri": "http://www.bing.com"
                },
                "runAfter": {},
                "type": "Http"
@@ -73,8 +73,8 @@ or review this basic example that shows a condition action:
       "actions": {
          "Http_2": {
             "inputs": {
-                "method": "GET",
-                "uri": "http://www.bing.com"
+               "method": "GET",
+               "uri": "http://www.bing.com"
             },
             "runAfter": {},
             "type": "Http"
@@ -110,7 +110,7 @@ also after action B succeeds or fails, set up this `runAfter` property:
    "runAfter": {
       "A": ["Succeeded"],
       "B": ["Succeeded", "Failed"]
-    }
+   }
 }
 ```
 
