@@ -39,59 +39,59 @@ Azure API Management provides you the ability to customize the content of develo
   
 ### Default template  
   
-```xml  
-<h2 class="text-center">{% localized "SigninStrings|WebAuthenticationSigninTitle" %}</h2>  
-{% if registrationEnabled == true %}  
-<p class="text-center">{% localized "SigninStrings|WebAuthenticationNotAMember" %}</p>  
-{% endif %}  
-  
-<div class="row center-block ap-idp-container">  
-  <div class="col-md-6">  
-    {% if registrationEnabled == true %}  
-        <p>{% localized "SigninStrings|WebAuthenticationSigininWithPassword" %}</p>  
-    <basic-SignIn></basic-SignIn>  
-    {% endif %}  
-  </div>  
-  
-    {% if registrationEnabled != true and providers.size == 0 %}  
-        {% localized "ProviderInfoStrings|TextboxExternalIdentitiesDisabled" %}  
-  {% else %}  
-        {% if providers.size > 0 %}  
-      <div class="col-md-6">  
-            <div class="providers-list">  
-                <p class="text-left">  
-                {% if registrationEnabled == true %}  
-                    {% localized "ProviderInfoStrings|TextboxExternalIdentitiesSigninInvitation" %}  
-                {% else %}  
-                    {% localized "ProviderInfoStrings|TextboxExternalIdentitiesSigninInvitationPrimary" %}  
-                {% endif %}  
-                </p>  
-        <providers></providers>  
-            </div>  
-    </div>  
-        {% endif %}  
-    {% endif %}  
-  
-  {% if userRegistrationTermsEnabled == true %}  
-    <div class="col-md-6">  
-        <div id="terms" class="modal" role="dialog" tabindex="-1">  
-            <div class="modal-dialog">  
-                <div class="modal-content">  
-                    <div class="modal-header">  
-                        <h4 class="modal-title">{% localized "SigninResources|DialogHeadingTermsOfUse" %}</h4>  
-                    </div>  
-                    <div class="modal-body break-all">{{userRegistrationTerms}}</div>  
-                    <div class="modal-footer">  
-                        <button type="button" class="btn btn-default" data-dismiss="modal">{% localized "CommonStrings|ButtonLabelClose" %}</button>  
-                    </div>  
-                </div>  
-            </div>  
-        </div>  
-        <p>{% localized "SigninResources|TextblockUserRegistrationTermsProvided" %}</p>  
-    </div>  
-    {% endif %}  
-</div>  
-```  
+```xml
+<h2 class="text-center">{% localized "SigninStrings|WebAuthenticationSigninTitle" %}</h2>
+{% if registrationEnabled == true %}
+<p class="text-center">{% localized "SigninStrings|WebAuthenticationNotAMember" %}</p>
+{% endif %}
+
+<div class="row center-block ap-idp-container">
+  <div class="col-md-6">
+    {% if registrationEnabled == true %}
+        <p>{% localized "SigninStrings|WebAuthenticationSigininWithPassword" %}</p>
+    <basic-SignIn></basic-SignIn>
+    {% endif %}
+  </div>
+
+    {% if registrationEnabled != true and providers.size == 0 %}
+        {% localized "ProviderInfoStrings|TextboxExternalIdentitiesDisabled" %}
+  {% else %}
+        {% if providers.size > 0 %}
+      <div class="col-md-6">
+            <div class="providers-list">
+                <p class="text-left">
+                {% if registrationEnabled == true %}
+                    {% localized "ProviderInfoStrings|TextboxExternalIdentitiesSigninInvitation" %}
+                {% else %}
+                    {% localized "ProviderInfoStrings|TextboxExternalIdentitiesSigninInvitationPrimary" %}
+                {% endif %}
+                </p>
+        <providers></providers>
+            </div>
+    </div>
+        {% endif %}
+    {% endif %}
+
+  {% if userRegistrationTermsEnabled == true %}
+    <div class="col-md-6">
+        <div id="terms" class="modal" role="dialog" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">{% localized "SigninResources|DialogHeadingTermsOfUse" %}</h4>
+                    </div>
+                    <div class="modal-body break-all">{{userRegistrationTerms}}</div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{% localized "CommonStrings|ButtonLabelClose" %}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p>{% localized "SigninResources|TextblockUserRegistrationTermsProvided" %}</p>
+    </div>
+    {% endif %}
+</div>
+```
   
 ### Controls  
  This template may  use the following [page controls](api-management-page-controls.md).  
@@ -105,7 +105,7 @@ Azure API Management provides you the ability to customize the content of develo
   
 ### Sample template data  
   
-```json  
+```json
 {
     "Email": null,
     "Password": null,
@@ -116,20 +116,20 @@ Azure API Management provides you the ability to customize the content of develo
     "DelegationUrl": null,
     "SsoSignUpUrl": null,
     "AuxServiceUrl": "https://portal.azure.com/#resource/subscriptions/{subscription ID}/resourceGroups/Api-Default-West-US/providers/Microsoft.ApiManagement/service/contoso5",
-    "Providers": [  
-        {  
-            "Properties": {  
-                "AuthenticationType": "Aad",  
-                "Caption": "Azure Active Directory"  
-            },  
-            "AuthenticationType": "Aad",  
-            "Caption": "Azure Active Directory"  
-        }  
+    "Providers": [
+        {
+            "Properties": {
+                "AuthenticationType": "Aad",
+                "Caption": "Azure Active Directory"
+            },
+            "AuthenticationType": "Aad",
+            "Caption": "Azure Active Directory"
+        }
         ],
     "UserRegistrationTerms": null,
     "UserRegistrationTermsEnabled": false
 }
-```  
+```
   
 ##  <a name="SignUp"></a> Sign up  
  The **sign up** template allows you to customize the sign up page in the developer portal.  
@@ -138,19 +138,19 @@ Azure API Management provides you the ability to customize the content of develo
   
 ### Default template  
   
-```xml  
-<h2 class="text-center">{% localized "SignupStrings|PageTitleSignup" %}</h2>  
-<p class="text-center">  
-  {% localized "SignupStrings|WebAuthenticationAlreadyAMember" %} <a href="/signin">{% localized "SignupStrings|WebAuthenticationSigninNow" %}</a>  
-</p>  
-  
-<div class="row center-block ap-idp-container">  
-  <div class="col-md-6">  
-    <p>{% localized "SignupStrings|WebAuthenticationCreateNewAccount" %}</p>  
-    <sign-up></sign-up>  
-  </div>  
-</div>  
-```  
+```xml
+<h2 class="text-center">{% localized "SignupStrings|PageTitleSignup" %}</h2>
+<p class="text-center">
+  {% localized "SignupStrings|WebAuthenticationAlreadyAMember" %} <a href="/signin">{% localized "SignupStrings|WebAuthenticationSigninNow" %}</a>
+</p>
+
+<div class="row center-block ap-idp-container">
+  <div class="col-md-6">
+    <p>{% localized "SignupStrings|WebAuthenticationCreateNewAccount" %}</p>
+    <sign-up></sign-up>
+  </div>
+</div>
+```
   
 ### Controls  
  This template may  use the following [page controls](api-management-page-controls.md).  
@@ -162,22 +162,22 @@ Azure API Management provides you the ability to customize the content of develo
   
 ### Sample template data  
   
-```json  
-{  
-    "PasswordConfirm": null,  
-    "Password": null,  
-    "PasswordVerdictLevel": 0,  
-    "UserRegistrationTerms": null,  
-    "UserRegistrationTermsOptions": 0,  
-    "ConsentAccepted": false,  
-    "Email": null,  
-    "FirstName": null,  
-    "LastName": null,  
-    "UserData": null,  
-    "NameIdentifier": null,  
-    "ProviderName": null  
-}  
-```  
+```json
+{
+    "PasswordConfirm": null,
+    "Password": null,
+    "PasswordVerdictLevel": 0,
+    "UserRegistrationTerms": null,
+    "UserRegistrationTermsOptions": 0,
+    "ConsentAccepted": false,
+    "Email": null,
+    "FirstName": null,
+    "LastName": null,
+    "UserData": null,
+    "NameIdentifier": null,
+    "ProviderName": null
+}
+```
   
 ##  <a name="PageNotFound"></a> Page not found  
  The **page not found** template allows you to customize the page not found page in the developer portal.  
@@ -186,35 +186,35 @@ Azure API Management provides you the ability to customize the content of develo
   
 ### Default template  
   
-```xml  
-<h2>{% localized "NotFoundStrings|PageTitleNotFound" %}</h2>  
-  
-<h3>{% localized "NotFoundStrings|TitlePotentialCause" %}</h3>  
-<ul>  
-  <li>{% localized "NotFoundStrings|TextblockPotentialCauseOldLink" %}</li>  
-  <li>{% localized "NotFoundStrings|TextblockPotentialCauseMisspelledUrl" %}</li>  
-</ul>  
-  
-<h3>{% localized "NotFoundStrings|TitlePotentialSolution" %}</h3>  
-<ul>  
-  <li>{% localized "NotFoundStrings|TextblockPotentialSolutionRetype" %}</li>  
-  <li>  
-    {% capture textPotentialSolutionStartOver %}{% localized "NotFoundStrings|TextblockPotentialSolutionStartOver" %}{% endcapture %}  
-    {% capture homeLink %}<a href="/">{% localized "NotFoundStrings|LinkLabelHomePage" %}</a>{% endcapture %}  
-    {% assign replaceString = '{0}' %}  
-  
-    {{ textPotentialSolutionStartOver | replace : replaceString, homeLink }}  
-  </li>  
-</ul>  
-  
-<p>  
-  {% capture textReportProblem %}{% localized "NotFoundStrings|TextReportProblem" %}{% endcapture %}  
-  {% capture emailLink %}<a href="mailto:apimgmt@microsoft.com" target="_self" title="API Management Support">{% localized "NotFoundStrings|LinkLabelSendUsEmail" %}</a>{% endcapture %}  
-  {% assign replaceString = '{0}' %}  
-  
-  {{ textReportProblem | replace : replaceString, emailLink }}  
-</p>  
-```  
+```xml
+<h2>{% localized "NotFoundStrings|PageTitleNotFound" %}</h2>
+
+<h3>{% localized "NotFoundStrings|TitlePotentialCause" %}</h3>
+<ul>
+  <li>{% localized "NotFoundStrings|TextblockPotentialCauseOldLink" %}</li>
+  <li>{% localized "NotFoundStrings|TextblockPotentialCauseMisspelledUrl" %}</li>
+</ul>
+
+<h3>{% localized "NotFoundStrings|TitlePotentialSolution" %}</h3>
+<ul>
+  <li>{% localized "NotFoundStrings|TextblockPotentialSolutionRetype" %}</li>
+  <li>
+    {% capture textPotentialSolutionStartOver %}{% localized "NotFoundStrings|TextblockPotentialSolutionStartOver" %}{% endcapture %}
+    {% capture homeLink %}<a href="/">{% localized "NotFoundStrings|LinkLabelHomePage" %}</a>{% endcapture %}
+    {% assign replaceString = '{0}' %}
+
+    {{ textPotentialSolutionStartOver | replace : replaceString, homeLink }}
+  </li>
+</ul>
+
+<p>
+  {% capture textReportProblem %}{% localized "NotFoundStrings|TextReportProblem" %}{% endcapture %}
+  {% capture emailLink %}<a href="mailto:apimgmt@microsoft.com" target="_self" title="API Management Support">{% localized "NotFoundStrings|LinkLabelSendUsEmail" %}</a>{% endcapture %}
+  {% assign replaceString = '{0}' %}
+
+  {{ textReportProblem | replace : replaceString, emailLink }}
+</p>
+```
   
 ### Controls  
  This template may  not use any [page controls](api-management-page-controls.md).  
@@ -231,14 +231,14 @@ Azure API Management provides you the ability to customize the content of develo
   
 ### Sample template data  
   
-```json  
-{  
-    "referenceCode": null,  
-    "errorCode": null,  
-    "emailBody": null,  
-    "requestedUrl": "https://contoso5.portal.azure-api.net:443/NotFoundPage?startEditTemplate=NotFoundPage",  
-    "referrerUrl": "https://contoso5.portal.azure-api.net/signup?startEditTemplate=SignUpTemplate"  
-}  
+```json
+{
+    "referenceCode": null,
+    "errorCode": null,
+    "emailBody": null,
+    "requestedUrl": "https://contoso5.portal.azure-api.net:443/NotFoundPage?startEditTemplate=NotFoundPage",
+    "referrerUrl": "https://contoso5.portal.azure-api.net/signup?startEditTemplate=SignUpTemplate"
+}
 ```
 
 ## Next steps
