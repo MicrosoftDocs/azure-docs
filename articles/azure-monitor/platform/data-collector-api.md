@@ -212,7 +212,7 @@ Alternatively, you can change the variables for the log type and JSON data.
 ### PowerShell sample
 ```powershell
 # Replace with your Workspace ID
-$CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
+$CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
 # Replace with your Primary Key
 $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
@@ -289,7 +289,7 @@ Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
 }
 
 # Submit the data to the API endpoint
-Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
+Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType
 ```
 
 ### C# sample
@@ -312,7 +312,7 @@ namespace OIAPIExample
 		// Update customerId to your Log Analytics workspace ID
 		static string customerId = "xxxxxxxx-xxx-xxx-xxx-xxxxxxxxxxxx";
 
-		// For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
+		// For sharedKey, use either the primary or the secondary Connected Sources client authentication key
 		static string sharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
 		// LogName is name of the event type that is being submitted to Azure Monitor
@@ -390,7 +390,7 @@ import base64
 # Update the customer ID to your Log Analytics workspace ID
 customer_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 
-# For the shared key, use either the primary or the secondary Connected Sources client authentication key   
+# For the shared key, use either the primary or the secondary Connected Sources client authentication key
 shared_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 # The log type is the name of the event that is being submitted
@@ -408,7 +408,7 @@ json_data = [{
     "critical_Threshold": 0,
     "IsActive": "true"
 },
-{   
+{
     "slot_ID": 67890,
     "ID": "b6bee458-fb65-492e-996d-61c4d7fbb942",
     "availability_Value": 100,
@@ -422,14 +422,14 @@ json_data = [{
 body = json.dumps(json_data)
 
 #####################
-######Functions######  
+######Functions######
 #####################
 
 # Build the API signature
 def build_signature(customer_id, shared_key, date, content_length, method, content_type, resource):
     x_headers = 'x-ms-date:' + date
     string_to_hash = method + "\n" + str(content_length) + "\n" + content_type + "\n" + x_headers + "\n" + resource
-    bytes_to_hash = bytes(string_to_hash).encode('utf-8')  
+    bytes_to_hash = bytes(string_to_hash).encode('utf-8')
     decoded_key = base64.b64decode(shared_key)
     encoded_hash = base64.b64encode(hmac.new(decoded_key, bytes_to_hash, digestmod=hashlib.sha256).digest())
     authorization = "SharedKey {}:{}".format(customer_id,encoded_hash)
