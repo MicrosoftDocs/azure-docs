@@ -311,7 +311,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-The values for **@in** and **@out** parameters in the U-SQL script are passed dynamically by ADF using the ‘parameters’ section. See the ‘parameters’ section in the pipeline definition.
+The values for **\@in** and **\@out** parameters in the U-SQL script are passed dynamically by ADF using the ‘parameters’ section. See the ‘parameters’ section in the pipeline definition.
 
 You can specify other properties such as degreeOfParallelism and priority as well in your pipeline definition for the jobs that run on the Azure Data Lake Analytics service.
 

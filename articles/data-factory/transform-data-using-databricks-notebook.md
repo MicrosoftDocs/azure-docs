@@ -169,13 +169,13 @@ In this section, you author a Databricks linked service. This linked service con
 
        1. The **Notebook Path** in this case is **/adftutorial/mynotebook**
 
-1.  Switch back to the **Data Factory UI authoring tool**. Navigate to **Settings** Tab under the **Notebook1 Activity**. 
-    
+1.  Switch back to the **Data Factory UI authoring tool**. Navigate to **Settings** Tab under the **Notebook1 Activity**.
+
     a.  **Add Parameter** to the Notebook activity. You use the same parameter that you added earlier to the **Pipeline**.
 
        ![Add a parameter](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
 
-    b.  Name the parameter as **input** and provide the value as expression **@pipeline().parameters.name**.
+    b.  Name the parameter as **input** and provide the value as expression **\@pipeline().parameters.name**.
 
 1.  To validate the pipeline, select the **Validate** button on the toolbar. To close the validation window, select the **\>\>** (right arrow) button.
 
