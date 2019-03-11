@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2019
+ms.date: 03/11/2019
 ms.author: kumud
 ms.custom: mvc
 ---
@@ -51,6 +51,53 @@ In this section, you create a public load balancer that helps load balance virtu
     |Availability zone| Select **Zone redundant**.    |
 3. In the **Review + create** tab, click **Create**.   
 
+## Create load balancer resources
+
+In this section, you configure load balancer settings for a backend address pool, a health probe, and specify a balancer rule.
+
+### Create a backend address pool
+
+To distribute traffic to the VMs, a backend address pool contains the IP addresses of the virtual (NICs) connected to the load balancer. Create the backend address pool *myBackendPool* to include virtual machines for load balancing internet traffic.
+
+1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
+2. Under **Settings**, click **Backend pools**, then click **Add**.
+3. On the **Add a backend pool** page, do the following:
+   - For name, type *myBackendPool*, as the name for your backend pool.
+   - For **Virtual network**, select *myVNet*.
+   - Add *myVM1*, *myVM2*, and *my VM3* under **Virtual Machine** along with their corresponding IP addresses, and then select **Add**.
+4. Check to make sure your load balancer backend pool setting displays all the VMs *myVM1*, *myVM2*, and *myVM3*, and then click **OK**.
+
+### Create a health probe
+
+To allow the load balancer to monitor the status of your app, you use a health probe. The health probe dynamically adds or removes VMs from the load balancer rotation based on their response to health checks. Create a health probe *myHealthProbe* to monitor the health of the VMs.
+
+1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
+2. Under **Settings**, click **Health probes**, then click **Add**.
+3. Use these values to create the health probe:
+    - *myHealthProbe* - for the name of the health probe.
+    - **HTTP** - for the protocol type.
+    - *80* - for the port number.
+    - *15* - for number of **Interval** in seconds between probe attempts.
+    - *2* - for number of **Unhealthy threshold** or consecutive probe failures that must occur before a VM is considered unhealthy.
+4. Click **OK**.
+
+   ![Adding a probe](./media/load-balancer-standard-public-portal/4-load-balancer-probes.png)
+
+### Create a load balancer rule
+
+A load balancer rule is used to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myLoadBalancerRuleWeb* for listening to port 80 in the frontend *FrontendLoadBalancer* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80. 
+
+1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
+2. Under **Settings**, click **Load balancing rules**, then click **Add**.
+3. Use these values to configure the load balancing rule:
+    - *myHTTPRule* - for the name of the load balancing rule.
+    - **TCP** - for the protocol type.
+    - *80* - for the port number.
+    - *80* - for the backend port.
+    - *myBackendPool* - for the name of the backend pool.
+    - *myHealthProbe* - for the name of the health probe.
+4. Click **OK**.
+
 ## Create backend servers
 
 In this section, you create a virtual network, create two virtual machines for the backend pool of your load balancer, and then install IIS on the virtual machines to help test the load balancer.
@@ -66,20 +113,34 @@ In this section, you create a virtual network, create two virtual machines for t
 
 ### Create virtual machines
 
-1. On the top left-hand side of the screen, click **New** > **Compute** > **Windows Server 2016 Datacenter** and enter these values for the virtual machine:
-    - *myVM1* - for the name of the virtual machine.        
-    - *myResourceGroupSLB* - for **Resource group**, select **Use existing**, and then select *myResourceGroupSLB*.
-2. Click **OK**.
-3. Select **DS1_V2** for the size of the virtual machine, and click **Select**.
-4. Enter these values for the VM settings:
-    1. Ensure that  *myVNet* is selected as the virtual network, and *myBackendSubnet* is selected as the subnet.
-    2. For **Public IP address**, in the **Create Public IP address** pane, select **Standard**, and then select **OK**.
-    3. For **Network Security Group**, select **Advanced**, and then do the following:
-        1. Select *Network security group (firewall), and the **Choose network security group** page, select **Create new**. 
-        2. In the **Create network security group** page, for **Name**, enter *myNetworkSecurityGroup*, and then select **OK**.
-5. Click **Disabled** to disable boot diagnostics.
-6. Click **OK**, review the settings on the summary page, and then click **Create**.
-7. Using steps 1-6, create a second VM, named, *VM2* with *myVnet* as its virtual network, *myBackendSubnet* and its subnet, and **myNetworkSecurityGroup* as its network security group. 
+1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Windows Server 2016 Datacenter**. 
+   
+1. In **Create a virtual machine**, type or select the following values in the **Basics** tab:
+   - **Subscription** > **Resource Group**: Select **MyResourceGroupSLB**.
+   - **Instance Details** > **Virtual machine name**: Type *MyVM1*.
+   - **Instance Details** > **Region** > select **West Europe**.
+   - **Instance Details** > **Availability Options** > Select **Availability zones**. 
+   - **Instance Details** > **Availability zone** > Select **1**.
+  
+1. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**. 
+   
+   - Make sure the following are selected:
+       - **Virtual network**: **MyVnet**
+       - **Subnet**: **MyBackendSubnet**
+       - **Public IP** > select **Create new**, and in the **Create public IP address** window, for **SKU**, select **Standard**.
+      
+   - To create a new network security group (NSG), a type of firewall, under **Network Security Group**, select **Advanced**. 
+       1. In the **Configure network security group** field, select **Create new**. 
+       1. Type *MyNetworkSecurityGroup*, and select **OK**.
+
+    - To make the VM a part of the load balancer's backend pool, complete the following steps:
+        - In **Load Balancing**, for **Place this virtual machine behind an existing load balancing solution**, click **Yes**.
+        - In **Load balancing settings**, for **Load balancing options**, select **Azure load balancer**.
+        - For **Select a load balancer**, *myLoadBalancer*. 
+1. Select the **Management** tab, or select **Next** > **Management**. Under **Monitoring**, set **Boot diagnostics** to **Off**. 
+1. Select **Review + create**.   
+1. Review the settings, and then select **Create**.
+1. Follow the steps to create a second VM named *MyVM2*, with a Standard SKU public IP address named *MyVM2-ip*, and **Availability zone** setting of **2** and all the other settings the same as *MyVM1*. 
 
 ### Create NSG rule
 
@@ -112,58 +173,16 @@ In this section, you create a NSG rule to allow inbound connections using HTTP.
     - Follow instructions to complete the rest of the wizard 
 7. Repeat steps 1 to 6 for the virtual machine *myVM2*.
 
-## Create load balancer resources
+## Add VMs to the backend address pool
 
-In this section, you  configure load balancer settings for a backend address pool and a health probe, and specify a load balancer rule.
-
-
-### Create a backend address pool
-
-To distribute traffic to the VMs, a backend address pool contains the IP addresses of the virtual (NICs) connected to the load balancer. Create the backend address pool *myBackendPool* to include *VM1* and *VM2*.
+Add virtual machines *VM1* and *VM2* to the load balancer's backend pool for load balancing internet traffic.
 
 1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
-2. Under **Settings**, click **Backend pools**, then click **Add**.
-3. On the **Add a backend pool** page, do the following:
-   - For name, type *myBackendPool*, as the name for your backend pool.
+2. Under **Settings**, click **Backend pools**, then **Backend pools** page, select *myBackendPool*.
+3. On the *myBackendPool* page, do the following:
    - For **Virtual network**, select *myVNet*.
-   - Add *myVM1* and *my VM2* under **Virtual Machine** along with their corresponding IP addresses, and then select **Add**.
-    - Click **OK**.
-
-3. Check to make sure your load balancer backend pool setting displays both the VMs **VM1** and **VM2**.
-
-### Create a health probe
-
-To allow the load balancer to monitor the status of your app, you use a health probe. The health probe dynamically adds or removes VMs from the load balancer rotation based on their response to health checks. Create a health probe *myHealthProbe* to monitor the health of the VMs.
-
-1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
-2. Under **Settings**, click **Health probes**, then click **Add**.
-3. Use these values to create the health probe:
-    - *myHealthProbe* - for the name of the health probe.
-    - **HTTP** - for the protocol type.
-    - *80* - for the port number.
-    - *Healthprobe.aspx* - for the URI path. You can either replace this value with any other URI or keep the default path value of **"\\"** to get the default URI.
-    - *15* - for number of **Interval** in seconds between probe attempts.
-    - *2* - for number of **Unhealthy threshold** or consecutive probe failures that must occur before a VM is considered unhealthy.
-4. Click **OK**.
-
-   ![Adding a probe](./media/load-balancer-standard-public-portal/4-load-balancer-probes.png)
-
-### Create a load balancer rule
-
-A load balancer rule is used to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myLoadBalancerRuleWeb* for listening to port 80 in the frontend *FrontendLoadBalancer* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80. 
-
-1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
-2. Under **Settings**, click **Load balancing rules**, then click **Add**.
-3. Use these values to configure the load balancing rule:
-    - *myHTTPRule* - for the name of the load balancing rule.
-    - **TCP** - for the protocol type.
-    - *80* - for the port number.
-    - *80* - for the backend port.
-    - *myBackendPool* - for the name of the backend pool.
-    - *myHealthProbe* - for the name of the health probe.
-4. Click **OK**.
-    
-    ![Adding a load balancing rule](./media/load-balancer-standard-public-portal/5-load-balancing-rules.png)
+   - Add *myVM1* and *myVM2* under **Virtual Machine** along with their corresponding IP addresses, and then select **Add**.
+4. Check to make sure your load balancer backend pool setting displays all the VMs *myVM1* and *myVM2*, and then click **OK**.
 
 ## Test the load balancer
 1. Find the public IP address for the Load Balancer on the **Overview** screen. Click **All resources** and then click **myPublicIP**.
