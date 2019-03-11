@@ -97,7 +97,7 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
     ![Launch interpreter](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Hive output")
 1. Scroll to Livy interpreter settings and then click **Restart**.
    
-    ![Restart the Livy intepreter](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Restart the Zeppelin intepreter")
+    ![Restart the Livy interpreter](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Restart the Zeppelin interpreter")
 
 ## How do I use external packages with the notebook?
 You can configure the Zeppelin notebook in Apache Spark cluster on HDInsight (Linux) to use external, community-contributed packages that are not included out-of-the-box in the cluster. You can search the [Maven repository](https://search.maven.org/) for the complete list of packages that are available. You can also get a list of available packages from other sources. For example, a complete list of community-contributed packages is available at [Spark Packages](https://spark-packages.org/).
@@ -144,7 +144,7 @@ In such a case, you must perform the following steps before you can start runnin
     ![Launch interpreter](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Hive output")
 1. Scroll to Livy interpreter settings and then click **Restart**.
    
-    ![Restart the Livy intepreter](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Restart the Zeppelin intepreter")
+    ![Restart the Livy interpreter](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Restart the Zeppelin interpreter")
 1. Run a code cell from an existing Zeppelin notebook. This creates a new Livy session in the HDInsight cluster.
 
 ## <a name="seealso"></a>See also

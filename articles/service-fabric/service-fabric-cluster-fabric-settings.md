@@ -323,7 +323,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |EndpointProviderEnabled| bool, default is FALSE|Static| Enables management of Endpoint resources by Fabric. Requires specification of start and end application port range in FabricNode. |
 |FabricContainerAppsEnabled| bool, default is FALSE|Static| |
 |FirewallPolicyEnabled|bool, default is FALSE|Static| Enables opening firewall ports for Endpoint resources with explicit ports specified in ServiceManifest |
-|GetCodePackageActivationContextTimeout|TimeSpan, default is Common::TimeSpan::FromSeconds(120)|Dynamic|Specify timespan in seconds. The timeout value for the CodePackageActivationContext calls. This is not applicable to ad-hoc services. |
+|GetCodePackageActivationContextTimeout|TimeSpan, default is Common::TimeSpan::FromSeconds(120)|Dynamic|Specify timespan in seconds. The timeout value for the CodePackageActivationContext calls. This is not applicable to ad hoc services. |
 |GovernOnlyMainMemoryForProcesses|bool, default is FALSE|Static|Default behavior of Resource Governance is to put limit specified in MemoryInMB on amount of total memory (RAM + swap) that process uses. If the limit is exceeded; the process will receive OutOfMemory exception. If this parameter is set to true; limit will be applied only to the amount of RAM memory that a process will use. If this limit is exceeded; and if this setting is true; then OS will swap the main memory to disk. |
 |IPProviderEnabled|bool, default is FALSE|Static|Enables management of IP addresses. |
 |IsDefaultContainerRepositoryPasswordEncrypted|bool, default is FALSE|Static|Whether the DefaultContainerRepositoryPassword is encrypted or not.|
@@ -370,7 +370,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |SharedLogId |string, default is "" |Static|Unique guid for shared log container. Use "" if using default path under fabric data root. |
 |SharedLogPath |string, default is "" |Static|Path and file name to location to place shared log container. Use "" for using default path under fabric data root. |
 |SharedLogSizeInMB |Int, default is 8192 |Static|The number of MB to allocate in the shared log container. |
-|SharedLogThrottleLimitInPercentUsed|int, default is 0 | Static | The percentage of usage of the shared log that will induce throttling. Value should be between 0 and 100. A value of 0 implies using the default percentage value. A value of 100 implies no throttling at all. A value between 1 and 99 specifies the percentage of log usage above which throttling will occur; for example if the shared log is 10GB and the value is 90 then throttleing will occur once 9GB is in use. Using the default value is recommended.|
+|SharedLogThrottleLimitInPercentUsed|int, default is 0 | Static | The percentage of usage of the shared log that will induce throttling. Value should be between 0 and 100. A value of 0 implies using the default percentage value. A value of 100 implies no throttling at all. A value between 1 and 99 specifies the percentage of log usage above which throttling will occur; for example if the shared log is 10GB and the value is 90 then throttling will occur once 9GB is in use. Using the default value is recommended.|
 |WriteBufferMemoryPoolMaximumInKB | Int, default is 0 |Dynamic|The number of KB to allow the write buffer memory pool to grow up to. Use 0 to indicate no limit. |
 |WriteBufferMemoryPoolMinimumInKB |Int, default is 8388608 |Dynamic|The number of KB to initially allocate for the write buffer memory pool. Use 0 to indicate no limit Default should be consistent with SharedLogSizeInMB below. |
 
@@ -667,7 +667,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |InvokeInfrastructureCommand |string, default is "Admin" |Dynamic| Security configuration for infrastructure task management commands. |
 |InvokeInfrastructureQuery |string, default is "Admin\|\|User" | Dynamic|Security configuration for querying infrastructure tasks. |
 |List |string, default is "Admin\|\|User" | Dynamic|Security configuration for image store client file list operation. |
-|MoveNextFabricUpgradeDomain |string, default is "Admin" |Dynamic| Security configuration for resuming cluster upgrades with an explicity Upgrade Domain. |
+|MoveNextFabricUpgradeDomain |string, default is "Admin" |Dynamic| Security configuration for resuming cluster upgrades with an explicit Upgrade Domain. |
 |MoveNextUpgradeDomain |string, default is "Admin" |Dynamic| Security configuration for resuming application upgrades with an explicit Upgrade Domain. |
 |MoveReplicaControl |string, default is "Admin" | Dynamic|Move replica. |
 |NameExists |string, default is "Admin\|\|User" | Dynamic|Security configuration for Naming URI existence checks. |

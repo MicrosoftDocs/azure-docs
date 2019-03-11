@@ -40,7 +40,7 @@ Typically, you're more likely to see these behaviors in user interaction pattern
 
 ## Operators in simple search
 
-You can embed operators in a query string to build a riche set of criteria against which matching documents are found. 
+You can embed operators in a query string to build a rich set of criteria against which matching documents are found. 
 
 ## AND operator `+`
 

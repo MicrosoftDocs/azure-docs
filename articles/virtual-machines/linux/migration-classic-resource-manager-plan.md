@@ -120,7 +120,7 @@ The following were issues discovered in many of the larger migrations. This is n
 
     You can check your current Azure Resource Manager quotas using the following commands with the latest version of Azure CLI.
 
-    **Compute** *(Cores, Avaiability Sets)*
+    **Compute** *(Cores, Availability Sets)*
 
     ```bash
     az vm list-usage -l <azure-region> -o jsonc 

@@ -77,6 +77,7 @@ Use these steps to create a local Jupyter Notebook server on your computer.  Aft
 
     ```shell
     jupyter notebook
+    ```
 
 ## <a name="start"></a>Set up your development environment
 
@@ -106,7 +107,7 @@ import os
 
 ### Configure workspace
 
-Create a workspace object from the existing workspace. A `Workspace` is a class that accepts your Azure subscription and resource information. It also creates a cloud resource to monitor and track your model runs.
+Create a workspace object from the existing workspace. A [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py) is a class that accepts your Azure subscription and resource information. It also creates a cloud resource to monitor and track your model runs.
 
 `Workspace.from_config()` reads the file **aml_config/config.json** and loads the details into an object named `ws`.  `ws` is used throughout the rest of the code in this tutorial.
 

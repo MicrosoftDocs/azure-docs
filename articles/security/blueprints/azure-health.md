@@ -76,7 +76,7 @@ HIPAA and HITRUST (through the Common Security Framework
 -   **Architectural diagram.** The diagram shows the reference
     architecture used for the blueprint and the example use case scenario.
 
--   [IaaS Extension](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)   This solution will demonstrate how to migrate an on-premise SQL based solution to Azure, and to implement a Privileged Access Workstation to securely manage cloud-bsed services and solutions. 
+-   [IaaS Extension](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)   This solution will demonstrate how to migrate an on-premise SQL based solution to Azure, and to implement a Privileged Access Workstation to securely manage cloud-based services and solutions. 
 
 ## Solution components
 
@@ -405,7 +405,7 @@ When using the demo script. .\\HealthcareDemo.ps1 with the **BulkPatientadmissio
 
 **2. Key Vault** requested for a secret that is associated to the requested token.
 
-**3. Azure Roles validate the request, and authorize access request to the Key Vault.
+**3. Azure Roles** validate the request, and authorize access request to the Key Vault.
 
 **4. Key Vault** returns the secret, in this case the SQL DB Connection string.
 

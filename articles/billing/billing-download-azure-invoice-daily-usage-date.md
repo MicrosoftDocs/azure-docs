@@ -61,7 +61,7 @@ Invoices are generated for each [billing profile](billing-mca-overview.md#unders
 5. Click on the ellipsis (`...`) at the end of the row.
 6. In the download context menu, select **Invoice**.
 
-If you don't see an invoice for the last billing period, see [Additional information]() <!-- Fix this -->
+If you don't see an invoice for the last billing period, see **Additional information**. <!-- Fix this -->
 ### <a name="noinvoice"></a> Why don't I see an invoice for the last billing period?
 
 There could be several reasons that you don't see an invoice:

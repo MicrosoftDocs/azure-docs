@@ -16,15 +16,15 @@ The **Dashboard** is the page that loads when you first navigate to your applica
 
 ## Create dashboard
 
-The following screenshot shows the dashboard in an application created from the **Sample Contoso** template. You can replace the default application dashboard with a personal dashboard. To do so, click **+ New** at the top right of the page.
+The following screenshot shows the dashboard in an application created from the **Sample Contoso** template. You can replace the default application dashboard with a personal dashboard. To do so, select **+ New** at the top right of the page.
 
 ![Dashboard for applications based on the "Sample Contoso" template](media/howto-personalize-dashboard/defaultdashboard.png)
 
-Clicking **+ New**, opens the dashboard editor. In the editor, you can give your dashboard a name and chose items from the library. The library contains the tiles and dashboard primitives you can use to customize the dashboard.
+Selecting **+ New**, opens the dashboard editor. In the editor, you can give your dashboard a name and chose items from the library. The library contains the tiles and dashboard primitives you can use to customize the dashboard.
 
 ![Dashboard library](media/howto-personalize-dashboard/dashboardeditor.png)
 
-For example, you can add a **Device Settings and Properties** tile to show settings and properties values for one of the devices you manage. To do so, first select a **Device Template** then select a **Device Instance**. Then give the tile a title and select a **Setting** or a **Property** to display. The following screenshot shows the **Fan speed** setting selected to add to the tile. Click **Done** to save the change to your dashboard.
+For example, you can add a **Device Settings and Properties** tile to show settings and properties values for one of the devices you manage. To do so, first select a **Device Template** then select a **Device Instance**. Then give the tile a title and select a **Setting** or a **Property** to display. The following screenshot shows the **Fan speed** setting selected to add to the tile. Select **Done** to save the change to your dashboard.
 
 !["Configure Device Details" form with details for settings and properties](media/howto-personalize-dashboard/dashboardsetting.png)
 

@@ -39,7 +39,7 @@ The following administrator roles are available:
 
 * **[Application Developer](#application-developer)**: Users in this role can create application registrations when the "Users can register applications" setting is set to No. This role also allows members to consent on their own behalf when the "Users can consent to apps accessing company data on their behalf" setting is set to No. Members of this role are added as owners when creating new application registrations or enterprise applications.
 
-* **[Authentication Administrator](#authentication-administrator)**: Users with this role can set or reset non-password credentials. Authentication Administrators can require users to re-register against existing non-password credential (for example, MFA or FIDO) and revoke **remember MFA on the device**, pwhich rompts for MFA on the next sign-in of users who are non-administrators or members of the following roles only:
+* **[Authentication Administrator](#authentication-administrator)**: Users with this role can set or reset non-password credentials. Authentication Administrators can require users to re-register against existing non-password credential (for example, MFA or FIDO) and revoke **remember MFA on the device**, which prompts for MFA on the next sign-in of users who are non-administrators or members of the following roles only:
   * Authentication Administrator
   * Directory Readers
   * Guest Inviter
@@ -153,6 +153,10 @@ Users in this role can add, remove, and update license assignments on users, gro
 * **[Power BI Administrator](#power-bi-service-administrator)**: Users with this role have global permissions within Microsoft Power BI, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [Understanding the Power BI admin role](https://docs.microsoft.com/power-bi/service-admin-role).
   > [!NOTE]
   > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Power BI Service Administrator ". It is "Power BI Administrator" in the [Azure portal](https://portal.azure.com).
+
+* **[Privileged Authentication Administrator](#privileged-authentication-administrator)**: Users with this role can set or reset non-password credentials for all users, including global administrators. Privileged Authentication Administrators can force users to re-register against existing non-password credential (e.g. MFA, FIDO) and revoke ‘remember MFA on the device’, prompting for MFA on the next login of all users. Privileged Authentication Administrators can:
+  *	Force users to re-register against existing non-password credential (e.g. MFA, FIDO)
+  *	Revoke ‘remember MFA on the device’, prompting for MFA on the next login
 
 * **[Privileged Role Administrator](#privileged-role-administrator)**: Users with this role can manage role assignments in Azure Active Directory, as well as within Azure AD Privileged Identity Management. In addition, this role allows management of all aspects of Privileged Identity Management.
 
@@ -297,7 +301,7 @@ Can create application registrations independent of the ‘Users can register ap
 | microsoft.aad.directory/servicePrincipals/createAsOwner | Create servicePrincipals in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
 
 ### Authentication Administrator
-Allowed to view, set, and reset authentication method information for any non-admin user.
+Allowed to view, set and reset authentication method information for any non-admin user.
 
 | **Actions** | **Description** |
 | --- | --- |
@@ -320,7 +324,6 @@ Can perform common billing related tasks like updating payment information.
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/organization/basic/update | Update basic properties on organization in Azure Active Directory. |
-| microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/update | Update organization.trustedCAsForPasswordlessAuth property in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.commerce.billing/allEntities/allTasks | Manage all aspects of Office 365 billing. |
@@ -449,14 +452,12 @@ Can manage all aspects of Azure AD and Microsoft services that use Azure AD iden
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.commerce.billing/allEntities/allTasks | Manage all aspects of Office 365 billing. |
 | microsoft.intune/allEntities/allTasks | Manage all aspects of Intune. |
-| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Manage all aspects of Office 365 Compliance Manager |
 | microsoft.office365.desktopAnalytics/allEntities/allTasks | Manage all aspects of Desktop Analytics. |
 | microsoft.office365.exchange/allEntities/allTasks | Manage all aspects of Exchange Online. |
 | microsoft.office365.lockbox/allEntities/allTasks | Manage all aspects of Office 365 Customer Lockbox |
 | microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
 | microsoft.office365.messageCenter/securityMessages/read | Read securityMessages in microsoft.office365.messageCenter. |
-| microsoft.powerApps.powerBI/allEntities/allTasks | Manage all aspects of Power BI. |
 | microsoft.office365.protectionCenter/allEntities/allTasks | Manage all aspects of Office 365 Protection Center. |
 | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Create and delete all resources, and read and update standard properties in microsoft.office365.securityComplianceCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
@@ -464,7 +465,9 @@ Can manage all aspects of Azure AD and Microsoft services that use Azure AD iden
 | microsoft.office365.skypeForBusiness/allEntities/allTasks | Manage all aspects of Skype for Business Online. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 | microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.powerApps.dynamics365/allEntities/allTasks | Manage all aspects of Dynamics 365. |
+| microsoft.powerApps.powerBI/allEntities/allTasks | Manage all aspects of Power BI. |
 | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Read all resources in microsoft.windows.defenderAdvancedThreatProtection. |
 
 ### Compliance Administrator
@@ -518,8 +521,8 @@ Can manage all aspects of the Dynamics 365 product.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
-### Customer Lockbox access approver
-Can approve Microsoft support requests to access customer organizational data. This role has no access to view, create, or manage support tickets.
+### Customer LockBox Access Approver
+Can approve Microsoft support requests to access customer organizational data.
 
   > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
@@ -783,7 +786,7 @@ Can manage all aspects of the Skype for Business product.
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
 ### Message Center Reader
-Can read messages and updates for their organization in Office 365 Message Center only. This role has no access to view, create, or manage support tickets.
+Can read messages and updates for their organization in Office 365 Message Center only. 
 
   > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
@@ -846,7 +849,6 @@ Do not use - not intended for general use.
 | microsoft.aad.directory/groups/members/update | Update groups.members property in Azure Active Directory. |
 | microsoft.aad.directory/groups/restore | Restore groups in Azure Active Directory. |
 | microsoft.aad.directory/organization/basic/update | Update basic properties on organization in Azure Active Directory. |
-| microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/update | Update organization.trustedCAsForPasswordlessAuth property in Azure Active Directory. |
 | microsoft.aad.directory/users/appRoleAssignments/update | Update users.appRoleAssignments property in Azure Active Directory. |
 | microsoft.aad.directory/users/assignLicense | Manage licenses on users in Azure Active Directory. |
 | microsoft.aad.directory/users/basic/update | Update basic properties on users in Azure Active Directory. |
@@ -875,6 +877,19 @@ Can manage all aspects of the Power BI product.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.powerApps.powerBI/allEntities/allTasks | Manage all aspects of Power BI. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+
+### Privileged Authentication Administrator
+Allowed to view, set and reset authentication method information for any user (admin or non-admin).
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
+| microsoft.aad.directory/users/strongAuthentication/update | Update strong authentication properties like MFA credential information. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
@@ -1042,7 +1057,7 @@ Can troubleshoot communications issues within Teams using basic tools.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 
 ### Teams Service Administrator
-Can manage the Microsoft Teams service. 
+Can manage the Microsoft Teams service.
 
   > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.

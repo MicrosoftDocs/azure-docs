@@ -22,7 +22,7 @@ IoT Central is supported in multiple languages. You can switch your preferred la
 
 ## Changing theme
 
-We have support for both dark theme and light theme. While the light theme is the default, you can change this by clicking on the settings icon on the top navigation bar.
+We have support for both dark theme and light theme. While the light theme is the default, you can change this by selecting the settings icon on the top navigation bar.
 
 ![IoT Central theme picker](media/howto-manage-preferences/settings.png)
 

@@ -56,81 +56,81 @@ A *custom analyzer* is a specific type of [text analyzer](search-analyzers.md) t
 
  An analyzer definition includes a name, a type, one or more char filters, a maximum of one tokenizer, and one or more token filters for post-tokenization processing. Char filers are applied before tokenization. Token filters and char filters are applied from left to right.
 
- The `tokenizer_name` is the name of a tokenizer, `token_filter_name_1`  and `token_filter_name_2` are the names of token filters, and `char_filter_name_1` and `char_filter_name_2` are the names of char filters (see the [Tokenizers](#Tokenizers), [Token filters](#TokenFilters) and [Char filters](#CharFilters) tables for valid values).
+ The `tokenizer_name` is the name of a tokenizer, `token_filter_name_1`  and `token_filter_name_2` are the names of token filters, and `char_filter_name_1` and `char_filter_name_2` are the names of char filters (see the [Tokenizers](#Tokenizers), [Token filters](#TokenFilters) and Char filters tables for valid values).
 
 The analyzer definition is a part of the larger index. See [Create Index API](https://docs.microsoft.com/rest/api/searchservice/create-index) for information about the rest of the index.
 
-```  
-"analyzers":(optional)[  
-   {  
-      "name":"name of analyzer",  
-      "@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer",  
-      "charFilters":[  
-         "char_filter_name_1",  
-         "char_filter_name_2"  
-      ],  
-      "tokenizer":"tokenizer_name",  
-      "tokenFilters":[  
-         "token_filter_name_1",  
-         "token_filter_name_2"  
-      ]  
-   },  
-   {  
-      "name":"name of analyzer",  
-      "@odata.type":"#analyzer_type",  
-      "option1":value1,  
-      "option2":value2,  
-      ...  
-   }  
-],  
-"charFilters":(optional)[  
-   {  
-      "name":"char_filter_name",  
-      "@odata.type":"#char_filter_type",  
-      "option1":value1,  
-      "option2":value2,  
-      ...  
-   }  
-],  
-"tokenizers":(optional)[  
-   {  
-      "name":"tokenizer_name",  
-      "@odata.type":"#tokenizer_type",  
-      "option1":value1,  
-      "option2":value2,  
-      ...  
-   }  
-],  
-"tokenFilters":(optional)[  
-   {  
-      "name":"token_filter_name",  
-      "@odata.type":"#token_filter_type",  
-      "option1":value1,  
-      "option2":value2,  
-      ...  
-   }  
-]  
-```  
+```
+"analyzers":(optional)[
+   {
+      "name":"name of analyzer",
+      "@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer",
+      "charFilters":[
+         "char_filter_name_1",
+         "char_filter_name_2"
+      ],
+      "tokenizer":"tokenizer_name",
+      "tokenFilters":[
+         "token_filter_name_1",
+         "token_filter_name_2"
+      ]
+   },
+   {
+      "name":"name of analyzer",
+      "@odata.type":"#analyzer_type",
+      "option1":value1,
+      "option2":value2,
+      ...
+   }
+],
+"charFilters":(optional)[
+   {
+      "name":"char_filter_name",
+      "@odata.type":"#char_filter_type",
+      "option1":value1,
+      "option2":value2,
+      ...
+   }
+],
+"tokenizers":(optional)[
+   {
+      "name":"tokenizer_name",
+      "@odata.type":"#tokenizer_type",
+      "option1":value1,
+      "option2":value2,
+      ...
+   }
+],
+"tokenFilters":(optional)[
+   {
+      "name":"token_filter_name",
+      "@odata.type":"#token_filter_type",
+      "option1":value1,
+      "option2":value2,
+      ...
+   }
+]
+```
 
 > [!NOTE]  
 >  Custom analyzers that you create are not exposed in the Azure portal. The only way to add a custom analyzer is through code that makes calls to the API when defining an index.  
 
  Within an index definition, you can place this section anywhere in the body of a create index request but usually it goes at the end:  
 
-```  
-{  
-  "name": "name_of_index",  
-  "fields": [ ],  
-  "suggesters": [ ],  
-  "scoringProfiles": [ ],  
-  "defaultScoringProfile": (optional) "...",  
-  "corsOptions": (optional) { },  
-  "analyzers":(optional)[ ],  
-  "charFilters":(optional)[ ],  
-  "tokenizers":(optional)[ ],  
-  "tokenFilters":(optional)[ ]  
-}  
-```  
+```
+{
+  "name": "name_of_index",
+  "fields": [ ],
+  "suggesters": [ ],
+  "scoringProfiles": [ ],
+  "defaultScoringProfile": (optional) "...",
+  "corsOptions": (optional) { },
+  "analyzers":(optional)[ ],
+  "charFilters":(optional)[ ],
+  "tokenizers":(optional)[ ],
+  "tokenFilters":(optional)[ ]
+}
+```
 
 Definitions for char filters, tokenizers, and token filters are added to the index only if you are setting custom options. To use an existing filter or tokenizer as-is, specify it by name in the analyzer definition.
 
@@ -360,7 +360,7 @@ In the table below, the token filters that are implemented using Apache Lucene a
 |[shingle](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/shingle/ShingleFilter.html)|ShingleTokenFilter|Creates combinations of tokens as a single token.<br /><br /> **Options**<br /><br /> maxShingleSize (type: int) - Defaults to 2.<br /><br /> minShingleSize (type: int) - Defaults to 2.<br /><br /> outputUnigrams (type: bool) - if true, the output stream contains the input tokens (unigrams) as well as shingles. The default is true.<br /><br /> outputUnigramsIfNoShingles (type: bool) - If true, override the behavior of outputUnigrams==false for those times when no shingles are available. The default is false.<br /><br /> tokenSeparator (type: string) - The string to use when joining adjacent tokens to form a shingle. The default is " ".<br /><br /> filterToken (type: string) - The string to insert for each position at which there is no token. The default is "_".|  
 |[snowball](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/snowball/SnowballFilter.html)|SnowballTokenFilter|Snowball Token Filter.<br /><br /> **Options**<br /><br /> language (type: string) - Allowed values include: "armenian", "basque", "catalan", "danish", "dutch", "english", "finnish", "french", "german", "german2", "hungarian", "italian", "kp", "lovins", "norwegian", "porter", "portuguese", "romanian", "russian", "spanish", "swedish", "turkish"|  
 |[sorani_normalization](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/ckb/SoraniNormalizationFilter.html)|SoraniNormalizationTokenFilter|Normalizes the Unicode representation of Sorani text.<br /><br /> **Options**<br /><br /> None.|  
-|stemmer|StemmerTokenFilter|Language-specific stemming filter.<br /><br /> **Options**<br /><br /> language (type: string) - Allowed values include: <br /> -   ["arabic"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/ar/ArabicStemmer.html)<br />-   ["armenian"](http://snowballstem.org/algorithms/armenian/stemmer.html)<br />-   ["basque"](http://snowballstem.org/algorithms/basque/stemmer.html)<br />-   ["brazilian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/br/BrazilianStemmer.html)<br />-   "bulgarian"<br />-   ["catalan"](http://snowballstem.org/algorithms/catalan/stemmer.html)<br />-   ["czech"](https://portal.acm.org/citation.cfm?id=1598600)<br />-   ["danish"](http://snowballstem.org/algorithms/danish/stemmer.html)<br />-   ["dutch"](http://snowballstem.org/algorithms/dutch/stemmer.html)<br />-   ["dutchKp"](http://snowballstem.org/algorithms/kraaij_pohlmann/stemmer.html)<br />-   ["english"](http://snowballstem.org/algorithms/porter/stemmer.html)<br />-   ["lightEnglish"](https://ciir.cs.umass.edu/pubfiles/ir-35.pdf)<br />-   ["minimalEnglish"](https://www.researchgate.net/publication/220433848_How_effective_is_suffixing)<br />-   ["possessiveEnglish"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/en/EnglishPossessiveFilter.html)<br />-   ["porter2"](http://snowballstem.org/algorithms/english/stemmer.html)<br />-   ["lovins"](http://snowballstem.org/algorithms/lovins/stemmer.html)<br />-   ["finnish"](http://snowballstem.org/algorithms/finnish/stemmer.htm)<br />-   "lightFinnish"<br />-   ["french"](http://snowballstem.org/algorithms/french/stemmer.html)<br />-   ["lightFrench"](https://dl.acm.org/citation.cfm?id=1141523)<br />-   ["minimalFrench"](https://dl.acm.org/citation.cfm?id=318984)<br />-   "galician"<br />-   "minimalGalician"<br />-   ["german"](http://snowballstem.org/algorithms/german/stemmer.html)<br />-   ["german2"](http://snowballstem.org/algorithms/german2/stemmer.html)<br />-   ["lightGerman"](https://dl.acm.org/citation.cfm?id=1141523)<br />-   "minimalGerman"<br />-   ["greek"](https://sais.se/mthprize/2007/ntais2007.pdf)<br />-   "hindi"<br />-   ["hungarian"](http://snowballstem.org/algorithms/hungarian/stemmer.html)<br />-   ["lightHungarian"](https://dl.acm.org/citation.cfm?id=1141523&dl=ACM&coll=DL&CFID=179095584&CFTOKEN=80067181)<br />-   ["indonesian"](https://www.illc.uva.nl/Publications/ResearchReports/MoL-2003-02.text.pdf)<br />-   ["irish"](http://snowballstem.org/otherapps/oregan/intro.html)<br />-   ["italian"](http://snowballstem.org/algorithms/italian/stemmer.html)<br />-   ["lightItalian"](https://www.ercim.eu/publication/ws-proceedings/CLEF2/savoy.pdf)<br />-   ["sorani"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/ckb/SoraniStemmer.html)<br />-   ["latvian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/lv/LatvianStemmer.html)<br />-   ["norwegian"](http://snowballstem.org/algorithms/norwegian/stemmer.html)<br />-   ["lightNorwegian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianLightStemmer.html)<br />-   ["minimalNorwegian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianMinimalStemmer.html)<br />-   ["lightNynorsk"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianLightStemmer.html)<br />-   ["minimalNynorsk"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianMinimalStemmer.html)<br />-   ["portuguese"](http://snowballstem.org/algorithms/portuguese/stemmer.html)<br />-   ["lightPortuguese"](https://dl.acm.org/citation.cfm?id=1141523&dl=ACM&coll=DL&CFID=179095584&CFTOKEN=80067181)<br />-   ["minimalPortuguese"](https://www.inf.ufrgs.br/~buriol/papers/Orengo_CLEF07.pdf)<br />-   ["portugueseRslp"](https://www.inf.ufrgs.br//~viviane/rslp/index.htm)<br />-   ["romanian"](http://snowballstem.org/otherapps/romanian/)<br />-   ["russian"](http://snowballstem.org/algorithms/russian/stemmer.html)<br />-   ["lightRussian"](https://doc.rero.ch/lm.php?url=1000%2C43%2C4%2C20091209094227-CA%2FDolamic_Ljiljana_-_Indexing_and_Searching_Strategies_for_the_Russian_20091209.pdf)<br />-   ["spanish"](http://snowballstem.org/algorithms/spanish/stemmer.html)<br />-   ["lightSpanish"](https://www.ercim.eu/publication/ws-proceedings/CLEF2/savoy.pdf)<br />-   ["swedish"](http://snowballstem.org/algorithms/swedish/stemmer.html)<br />-   "lightSwedish"<br />-   ["turkish"](http://snowballstem.org/algorithms/turkish/stemmer.html)|  
+|stemmer|StemmerTokenFilter|Language-specific stemming filter.<br /><br /> **Options**<br /><br /> language (type: string) - Allowed values include: <br /> -   ["arabic"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/ar/ArabicStemmer.html)<br />-   ["armenian"](http://snowballstem.org/algorithms/armenian/stemmer.html)<br />-   ["basque"](http://snowballstem.org/algorithms/basque/stemmer.html)<br />-   ["brazilian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/br/BrazilianStemmer.html)<br />-   "bulgarian"<br />-   ["catalan"](http://snowballstem.org/algorithms/catalan/stemmer.html)<br />-   ["czech"](https://portal.acm.org/citation.cfm?id=1598600)<br />-   ["danish"](http://snowballstem.org/algorithms/danish/stemmer.html)<br />-   ["dutch"](http://snowballstem.org/algorithms/dutch/stemmer.html)<br />-   ["dutchKp"](http://snowballstem.org/algorithms/kraaij_pohlmann/stemmer.html)<br />-   ["english"](http://snowballstem.org/algorithms/porter/stemmer.html)<br />-   ["lightEnglish"](https://ciir.cs.umass.edu/pubfiles/ir-35.pdf)<br />-   ["minimalEnglish"](https://www.researchgate.net/publication/220433848_How_effective_is_suffixing)<br />-   ["possessiveEnglish"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/en/EnglishPossessiveFilter.html)<br />-   ["porter2"](http://snowballstem.org/algorithms/english/stemmer.html)<br />-   ["lovins"](http://snowballstem.org/algorithms/lovins/stemmer.html)<br />-   ["finnish"](http://snowballstem.org/algorithms/finnish/stemmer.html)<br />-   "lightFinnish"<br />-   ["french"](http://snowballstem.org/algorithms/french/stemmer.html)<br />-   ["lightFrench"](https://dl.acm.org/citation.cfm?id=1141523)<br />-   ["minimalFrench"](https://dl.acm.org/citation.cfm?id=318984)<br />-   "galician"<br />-   "minimalGalician"<br />-   ["german"](http://snowballstem.org/algorithms/german/stemmer.html)<br />-   ["german2"](http://snowballstem.org/algorithms/german2/stemmer.html)<br />-   ["lightGerman"](https://dl.acm.org/citation.cfm?id=1141523)<br />-   "minimalGerman"<br />-   ["greek"](https://sais.se/mthprize/2007/ntais2007.pdf)<br />-   "hindi"<br />-   ["hungarian"](http://snowballstem.org/algorithms/hungarian/stemmer.html)<br />-   ["lightHungarian"](https://dl.acm.org/citation.cfm?id=1141523&dl=ACM&coll=DL&CFID=179095584&CFTOKEN=80067181)<br />-   ["indonesian"](https://www.illc.uva.nl/Publications/ResearchReports/MoL-2003-02.text.pdf)<br />-   ["irish"](http://snowballstem.org/otherapps/oregan/)<br />-   ["italian"](http://snowballstem.org/algorithms/italian/stemmer.html)<br />-   ["lightItalian"](https://www.ercim.eu/publication/ws-proceedings/CLEF2/savoy.pdf)<br />-   ["sorani"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/ckb/SoraniStemmer.html)<br />-   ["latvian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/lv/LatvianStemmer.html)<br />-   ["norwegian"](http://snowballstem.org/algorithms/norwegian/stemmer.html)<br />-   ["lightNorwegian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianLightStemmer.html)<br />-   ["minimalNorwegian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianMinimalStemmer.html)<br />-   ["lightNynorsk"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianLightStemmer.html)<br />-   ["minimalNynorsk"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianMinimalStemmer.html)<br />-   ["portuguese"](http://snowballstem.org/algorithms/portuguese/stemmer.html)<br />-   ["lightPortuguese"](https://dl.acm.org/citation.cfm?id=1141523&dl=ACM&coll=DL&CFID=179095584&CFTOKEN=80067181)<br />-   ["minimalPortuguese"](https://www.inf.ufrgs.br/~buriol/papers/Orengo_CLEF07.pdf)<br />-   ["portugueseRslp"](https://www.inf.ufrgs.br//~viviane/rslp/index.htm)<br />-   ["romanian"](http://snowballstem.org/otherapps/romanian/)<br />-   ["russian"](http://snowballstem.org/algorithms/russian/stemmer.html)<br />-   ["lightRussian"](https://doc.rero.ch/lm.php?url=1000%2C43%2C4%2C20091209094227-CA%2FDolamic_Ljiljana_-_Indexing_and_Searching_Strategies_for_the_Russian_20091209.pdf)<br />-   ["spanish"](http://snowballstem.org/algorithms/spanish/stemmer.html)<br />-   ["lightSpanish"](https://www.ercim.eu/publication/ws-proceedings/CLEF2/savoy.pdf)<br />-   ["swedish"](http://snowballstem.org/algorithms/swedish/stemmer.html)<br />-   "lightSwedish"<br />-   ["turkish"](http://snowballstem.org/algorithms/turkish/stemmer.html)|  
 |[stemmer_override](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/StemmerOverrideFilter.html)|StemmerOverrideTokenFilter|Any dictionary-Stemmed terms are marked as keywords, which prevents stemming down the chain. Must be placed before any stemming filters.<br /><br /> **Options**<br /><br /> rules (type: string array) - Stemming rules in the following format "word => stem" for example "ran => run". The default is an empty list.  Required.|  
 |[stopwords](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/StopFilter.html)|StopwordsTokenFilter|Removes stop words from a token stream. By default, the filter uses a predefined stop word list for English.<br /><br /> **Options**<br /><br /> stopwords (type: string array) - A list of stopwords. Cannot be specified if a stopwordsList is specified.<br /><br /> stopwordsList (type: string) - A predefined list of stopwords. Cannot be specified if stopwords is specified. Allowed values include:"arabic", "armenian", "basque", "brazilian", "bulgarian", "catalan", "czech", "danish", "dutch", "english", "finnish", "french", "galician", "german", "greek", "hindi", "hungarian", "indonesian", "irish", "italian", "latvian", "norwegian", "persian", "portuguese", "romanian", "russian", "sorani", "spanish", "swedish", "thai", "turkish", default: "english". Cannot be specified if stopwords is specified. <br /><br /> ignoreCase (type: bool) - If true, all words are lower cased first. The default is false.<br /><br /> removeTrailing (type: bool) - If true, ignore the last search term if it's a stop word. The default is true.
 |[synonym](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/synonym/SynonymFilter.html)|SynonymTokenFilter|Matches single or multi word synonyms in a token stream.<br /><br /> **Options**<br /><br /> synonyms (type: string array) - Required. List of synonyms in one of the following two formats:<br /><br /> -incredible, unbelievable, fabulous => amazing - all terms on the left side of => symbol are replaced with all terms on its right side.<br /><br /> -incredible, unbelievable, fabulous, amazing - A comma-separated list of equivalent words. Set the expand option to change how this list is interpreted.<br /><br /> ignoreCase (type: bool) - Case-folds input for matching. The default is false.<br /><br /> expand (type: bool) - If true, all words in the list of synonyms (if => notation is not used) map to one another. <br />The following list: incredible, unbelievable, fabulous, amazing is equivalent to: incredible, unbelievable, fabulous, amazing => incredible, unbelievable, fabulous, amazing<br /><br />- If false, the following list: incredible, unbelievable, fabulous, amazing are equivalent to: incredible, unbelievable, fabulous, amazing => incredible.|  

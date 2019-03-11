@@ -51,20 +51,9 @@
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager
 - name: Concepts
   items:
-  - name: Templates
-    items:
-    - name: Template file structure
-      href: resource-group-authoring-templates.md
-    - name: Parameters
-      href: resource-group-authoring-templates.md#parameters
-    - name: Variables
-      href: resource-group-authoring-templates.md#variables
-    - name: Functions
-      href: resource-group-authoring-templates.md#functions
-    - name: Resources
-      href: resource-manager-templates-resources.md
-    - name: Outputs
-      href: resource-group-authoring-templates.md#outputs
+  - name: Template file structure
+    displayName: parameters,variables,resources,outputs
+    href: resource-group-authoring-templates.md
   - name: Template best practices
     href: template-best-practices.md
   - name: Templates for cloud consistency

@@ -39,7 +39,7 @@ Let's review the parts of the template to understand how the template works. You
 
 * The [functions](resource-group-authoring-templates.md#functions) section, which shows customized template expressions that are used in your template.
 
-* The [resources](resource-manager-templates-resources.md) section, which shows the Azure resources that are deployed to your subscription.
+* The [resources](resource-group-authoring-templates.md#resources) section, which shows the Azure resources that are deployed to your subscription.
 
 * The [outputs](resource-group-authoring-templates.md#outputs) section, which shows the values that are returned after deployment has finished.
 
@@ -93,7 +93,7 @@ You can add tags to your resources to logically organize by categories, and divi
 }
 ```
 
-You can also apply tags dynamically from parameters. For more information, see [tags in template](resource-manager-templates-resources.md#tags).
+You can also apply tags dynamically from parameters. For more information, see [tags in template](resource-group-using-tags.md#templates).
 
 ## Review template functions
 
@@ -171,7 +171,7 @@ The following example conditionally deploys a storage account:
 }
 ```
 
-For more information, see the [condition element](resource-manager-templates-resources.md#condition).
+For more information, see the [condition element](resource-group-authoring-templates.md#condition).
 
 ## Review dependencies
 

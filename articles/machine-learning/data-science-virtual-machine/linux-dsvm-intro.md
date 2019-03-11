@@ -194,7 +194,7 @@ Before running in Spark context in Microsoft R Server, you need to do a one time
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-You can stop the Hadoop related services when you dont need them by running ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```
+You can stop the Hadoop related services when you don't need them by running ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```
 A sample demonstrating how to develop and test MRS in remote Spark context (which is the standalone Spark instance on the DSVM) is provided and available in the `/dsvm/samples/MRS` directory. 
 
 ### IDEs and editors

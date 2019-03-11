@@ -215,6 +215,7 @@ For a full list of sections and properties available for defining datasets, see 
         },
         "typeProperties": {
             "folderPath": "mycontainer/myfolder",
+            "fileName": "*",
             "modifiedDatetimeStart": "2018-12-01T05:00:00Z",
             "modifiedDatetimeEnd": "2018-12-01T06:00:00Z",
             "format": {

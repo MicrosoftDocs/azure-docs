@@ -50,7 +50,7 @@ First, create a resource group to contain the resources needed to deploy the fir
 
 The resource group contains all the resources for the tutorial.
 
-1. Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
+1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. On the Azure portal home page, click **Resource groups** > **Add**.
 3. For **Resource group name**, type **Test-FW-RG**.
 4. For **Subscription**, select your subscription.
@@ -231,12 +231,12 @@ Now test the firewall to confirm that it works as expected.
 1. From the Azure portal, review the network settings for the **Srv-Work** virtual machine and note the private IP address.
 2. Connect a remote desktop to **Srv-Jump** virtual machine, and from there open a remote desktop connection to the **Srv-Work** private IP address.
 
-3. Open Internet Explorer and browse to http://msn.com.
+3. Open Internet Explorer and browse to https://msn.com.
 4. Click **OK** > **Close** on the security alerts.
 
    You should see the MSN home page.
 
-5. Browse to http://www.msn.com.
+5. Browse to https://www.msn.com.
 
    You should be blocked by the firewall.
 
