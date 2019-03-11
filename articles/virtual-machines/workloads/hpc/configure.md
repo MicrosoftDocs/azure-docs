@@ -1,6 +1,6 @@
 ---
 title: Configuring high-performance computing in Azure | Microsoft Docs
-description: Learn how to configure high-performance computing in Azure. 
+description: Learn how to configure high-performance computing in Azure.
 services: virtual-machines
 documentationcenter: ''
 author: githubname
@@ -16,10 +16,7 @@ ms.author: msalias
 ---
 # Configure high-performance computing
 
-
-
-
-## Reclaim memory 
+## Reclaim memory
 
 Automatically reclaim memory to avoid remote memory access?.
 
@@ -34,9 +31,8 @@ echo "vm.zone_reclaim_mode = 1" >> /etc/sysctl.conf sysctl -p
 ```
 
 
+
 ## Discover partition keys
-
-
 Discover partition keys (pkeys) for communicating with other VMs.
 
 ```bash
@@ -112,4 +108,5 @@ sudo systemctl disable cpupower
 ```
 
 ## Next steps
+
 Learn more about [high-performance computing](../../linux/high-performance-computing.md) in Azure.
