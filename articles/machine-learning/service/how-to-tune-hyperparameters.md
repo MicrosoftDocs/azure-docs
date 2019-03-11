@@ -80,7 +80,7 @@ Continuous hyperparameters are specified as a distribution over a continuous ran
 An example of a parameter space definition:
 
 ```Python
-    {    
+    {
         "learning_rate": normal(10, 3),
         "keep_probability": uniform(0.05, 0.1)
     }
@@ -282,9 +282,9 @@ Configure your hyperparameter tuning experiment:
 ```Python
 from azureml.train.hyperdrive import HyperDriveRunConfig
 hyperdrive_run_config = HyperDriveRunConfig(estimator=estimator,
-                          hyperparameter_sampling=param_sampling, 
+                          hyperparameter_sampling=param_sampling,
                           policy=early_termination_policy,
-                          primary_metric_name="accuracy", 
+                          primary_metric_name="accuracy",
                           primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
                           max_total_runs=100,
                           max_concurrent_runs=4)
