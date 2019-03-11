@@ -22,7 +22,7 @@ sections:
     - type: list
       style: cards
       className: cardsM
-      columns: 3
+      columns: 2
       items:
         - href: /azure/media-services/latest/
           html: <p>Learn how to encode, stream on-demand, broadcast live, and analyze your videos with Media Services v3.</p>
@@ -39,6 +39,11 @@ sections:
           image:
             src: media/index/AMSIcons-media_analytics.svg
           title: Video Indexer
+        - href: /azure/cdn/
+          html: <p>Learn how to use CDN to cache static objects or accelerate dynamic content, which cannot be cached.</p>
+          image:
+            src: /azure/cdn/media/index/cdn.svg
+          title: CDN
 
   - title: 5-Minute Quickstarts
     items:
