@@ -123,8 +123,6 @@
     href: monitor.md
   - name: Backup and recovery
     href: backup-recovery.md
-  - name: High performance computing
-    href: high-performance-computing.md
   - name: Infrastructure example
     href: infrastructure-example.md
 - name: How-to guides

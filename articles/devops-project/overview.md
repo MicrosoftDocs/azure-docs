@@ -7,7 +7,7 @@ author: mlearned
 manager: douge
 editor: mlearned
 ms.assetid: 
-ms.service: devops-project
+ms.service: az-devops-project
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
