@@ -14,7 +14,7 @@ ms.reviewer: jrasnick
 
 # Quickstart: Create a workload classifier
 
-In this quickstart, you'll quickly create a workload classifier with high importance for the CEO of your organization. This workload classifier will allow CEO queries to take precedence over other queries in the queue.
+In this quickstart, you'll quickly create a workload classifier with high importance for the CEO of your organization. This workload classifier will allow CEO queries to take precedence over other queries with lower importance in the queue.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -35,10 +35,9 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
    ```sql
    CREATE USER [TheCEO] WITH DEFAULT_SCHEMA=[dbo]
-   CREATE USER [DataAnalyst] WITH DEFAULT_SCHEMA=[dbo]
-   ```
+    ```
 
-## Create workload classifiers for TheCEO and the DataAnalyst with normal importance
+## Create a workload classifier for TheCEO with high importance.
 
    ```sql
    DROP WORKLOAD CLASSIFIER wgcTheCEO;
@@ -52,9 +51,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
    ```sql
    DROP USER [TheCEO]
-   DROP USER [DataAnalyst]
    DROP WORKLOAD CLASSIFIER wgcTheCEO;
-   DROP WORKLOAD CLASSIFIER wgcDataAnalyst;
    ```
 
 You're being charged for data warehouse units and data stored your data warehouse. These compute and storage resources are billed separately.
@@ -78,4 +75,4 @@ Follow these steps to clean up resources.
 
 ## Next steps
 
-You've now created a workload classifier. Run a few queries to see how they perform. See sys.dm_pdw_exec_requests (/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.
+You've now created a workload classifier. Run a few queries to see how they perform. See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.

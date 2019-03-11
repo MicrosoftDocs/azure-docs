@@ -53,4 +53,4 @@ Classification is evaluated on a per request basis.  Multiple requests in a sing
 
 ## Next steps
 
-For more information about SQL Dta Warehouse workload classification see [SQL Data Warehouse Classification](classification.md) and [Create a workload classifier](quickstart-create-a-workload-classifier). See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.
+For more information about SQL Dta Warehouse workload classification see SQL Data Warehouse {Classification](classification.md) and [Create a workload classifier](quickstart-create-a-workload-classifier). See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.

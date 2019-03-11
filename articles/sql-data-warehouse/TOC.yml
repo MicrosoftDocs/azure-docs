@@ -64,6 +64,10 @@
       href: quickstart-scale-compute-powershell.md
     - name: T-SQL
       href: quickstart-scale-compute-tsql.md
+  - name: Workload Management
+    items: 
+    - name: Portal
+      href: create-create-a-worload-classifier.md
 - name: Concepts
   items:
   - name: Security
@@ -154,6 +158,10 @@
     items:
     - name: Resource classes & workload management
       href: resource-classes-for-workload-management.md
+    - name: Classification (Preview for Gen2)
+      href: classification.md
+    - name: Importance (Preview for Gen2)
+      href: importance.md
     - name: Memory & concurrency limits
       href: memory-and-concurrency-limits.md
   - name: Manageability & monitoring
