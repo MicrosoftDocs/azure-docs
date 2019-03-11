@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/27/2019
+ms.date: 03/11/2019
 ms.author: kumud
 ms.custom: seodec18
 ---
@@ -53,7 +53,9 @@ In this section, you create a public load balancer that helps load balance virtu
     | Public IP address | Select **Create new**. |
     | Public IP address name              | Type *myPublicIP* in the text box.   |
     |Availability zone| Select **Zone redundant**.    |
-3. In the **Review + create** tab, click **Create**.   
+3. In the **Review + create** tab, click **Create**.
+
+   ![Create a virtual network](./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png)
 
 ## Create load balancer resources
 

@@ -51,6 +51,8 @@ In this section, you create a public load balancer that helps load balance virtu
     |Availability zone| Select **Zone redundant**.    |
 3. In the **Review + create** tab, click **Create**.   
 
+    ![Create a virtual network](./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png)
+
 ## Create load balancer resources
 
 In this section, you configure load balancer settings for a backend address pool, a health probe, and specify a balancer rule.
