@@ -75,7 +75,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Log Analytics](#log-analytics-limits)
 * [Media Services](#media-services-limits)
 * [Mobile Services](#mobile-services-limits)
-* [Multi-Factor Authentication](#multi-factor-authentication)
+* [Multi-Factor Authentication](#multi-factor-authentication-limits)
 * [Networking](#networking-limits)
 * [Network Watcher](#network-watcher-limits)
 * [Notification Hubs](#notification-hubs-limits)
