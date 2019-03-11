@@ -1,4 +1,4 @@
-﻿---
+---
 title: Secure an Azure Service Fabric cluster on Windows by using certificates | Microsoft Docs
 description: Secure communication within an Azure Service Fabric standalone or on-premises cluster, as well as between clients and the cluster.
 services: service-fabric
@@ -35,7 +35,7 @@ To start with, [download the Service Fabric for Windows Server package](service-
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
             "X509StoreName": "My"
-        },        
+        },
         "ClusterCertificateCommonNames": {
             "CommonNames": [
             {
