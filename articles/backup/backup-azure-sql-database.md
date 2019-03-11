@@ -34,8 +34,6 @@ Before you start, verify the following:
 2. Review the public preview limitations below.
 3. Review scenario support.
 4. [Review common questions](faq-backup-sql-server.md) about this scenario.
-
-
 ## Preview limitations
 
 This public preview has a number of limitations.
@@ -58,7 +56,6 @@ Review [frequently asked questions](faq-backup-sql-server.md) about backing up S
 **Supported operating systems** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux isn't currently supported.
 **Supported SQL Server versions** | SQL Server 2017; SQL Server 2016, SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
 
-
 ## Prerequisites
 
 Before you back up your SQL Server database, check the following conditions:
@@ -67,17 +64,16 @@ Before you back up your SQL Server database, check the following conditions:
 2. [Check the VM permissions](#fix-sql-sysadmin-permissions) needed to back up the SQL databases.
 3. Verify that the  VM has [network connectivity](backup-azure-sql-database.md#establish-network-connectivity).
 4. Check that the SQL Server databases are named in accordance with [naming guidelines](backup-azure-sql-database.md) for Azure Backup.
-5. Verify that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you set up this scenario. You can enable Azure Backup for an Azure VM along with Azure Backup for a SQL Server database running on the VM without any conflict.
-
+5. Verify that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you set up this scenario. You can enable Azure Backup for an Azure VM along with Azure Backup for a SQL Server database that is running on the VM without any conflict.
 
 ### Establish network connectivity
 
-For all operations, the SQL Server VM virtual machine needs connectivity to Azure public IP addresses. VM operations (database discovery, configure backups, schedule backups, restore recovery points etc) fail without connectivity to the public IP addresses. Establish connectivity with one of these options:
+For all operations, the SQL Server VM virtual machine needs connectivity to Azure public IP addresses. VM operations (database discovery, configure backups, schedule backups, restore recovery points) fail without connectivity to the public IP addresses. Establish connectivity with one of these options:
 
-- **Allow the Azure datacenter IP ranges**: Allow the [IP ranges](https://www.microsoft.com/download/details.aspx?id=41653) in the download. For access in an network security group (NSG), use the **Set-AzureNetworkSecurityRule** cmdlet.
+- **Allow the Azure datacenter IP ranges**: Allow the [IP ranges](https://www.microsoft.com/download/details.aspx?id=41653) in the download. For access in a network security group (NSG), use the **Set-AzureNetworkSecurityRule** cmdlet.
 - **Deploy an HTTP proxy server to route traffic**: When you back up a SQL Server database on an Azure VM, the backup extension on the VM uses the HTTPS APIs to send management commands to Azure Backup, and data to Azure Storage. The backup extension also uses Azure Active Directory (Azure AD) for authentication. Route the backup extension traffic for these three services through the HTTP proxy. The extension's the only component that's configured for access to the public internet.
 
-Each options has advantages and disadvantages
+Each option has advantages and disadvantages
 
 **Option** | **Advantages** | **Disadvantages**
 --- | --- | ---
@@ -89,14 +85,14 @@ Use an HTTP proxy   | Granular control in the proxy over the storage URLs is all
 Azure Backup does a number of things when you configure backup for a SQL Server database:
 
 - Adds the **AzureBackupWindowsWorkload** extension.
-- To discover databases on the virtual machine, Azure Backup creates the account **NT SERVICE\AzureWLBackupPluginSvc**. This account is used for backup and restore, and requires SQL sysadmin permissions.
-- Azure Backup leverages the **NT AUTHORITY\SYSTEM** account for database discovery/inquiry, so this account need to be a public login on SQL.
+- Azure Backup creates the account **NT SERVICE\AzureWLBackupPluginSvc** to discover databases on the virtual machine. This account is used for backup and restore and requires SQL sysadmin permissions.
+- Azure Backup leverages the **NT AUTHORITY\SYSTEM** account for database discovery/inquiry. This account must be a public login on SQL Server.
 
-If you didn't create the SQL Server VM from the Azure Marketplace, you might receive an error **UserErrorSQLNoSysadminMembership**. If this occurs [follow these instructions](#fix-sql-sysadmin-permissions).
+If you didn't create the SQL Server VM from the Azure Marketplace, you might receive a **UserErrorSQLNoSysadminMembership** error. If this occurs [follow these instructions](#fix-sql-sysadmin-permissions).
 
 ### Verify database naming guidelines for Azure Backup
 
-Avoid the following for database names:
+Avoid the following names for database names:
 
   * Trailing/Leading spaces
   * Trailing ‘!’
@@ -137,7 +133,7 @@ Discover databases running on the VM.
     - Multiple VMs can have the same name but they'll belong to different resource groups. 
 
 9. Select the VM running the SQL Server database > **Discover DBs**. 
-10. Azure Backup discovers all SQL Server databases on the VM. During discovery the following occurs in the background:
+10. Azure Backup discovers all SQL Server databases on the VM. During discovery the following activity occurs in the background:
 
     - Azure Backup register the VM with the vault for workload backup. All databases on the registered VM can only be backed up to this vault.
     - Azure Backup installs the **AzureBackupWindowsWorkload** extension on the VM. No agent is installed on the SQL database.
@@ -217,7 +213,7 @@ A backup policy defines when backups are taken and how long they're retained.
 To create a backup policy:
 
 1. In the vault, click **Backup policies** > **Add**.
-2. In **Add** menu, click **SQL Server in Azure VM**. This defines the policy type.
+2. In the **Add** menu, click **SQL Server in Azure VM**. This defines the policy type.
 
    ![Choose a policy type for the new backup policy](./media/backup-azure-sql-database/policy-type-details.png)
 
@@ -271,9 +267,9 @@ To create a backup policy:
 
 ## Enable auto-protection  
 
-Enable auto-protection to automatically back up all existing databases, and databases that are added in the future to a standalone SQL Server instance or a SQL Server Always On Availability group. 
+Enable auto-protection to automatically back up all existing databases, and databases that are added in the future, to a standalone SQL Server instance or a SQL Server Always On Availability group. 
 
-- When you turn on auto-protection and select a policy, the existing protected databases will continue to use previous policy.
+- When you turn on auto-protection and select a policy, the existing protected databases will continue to use the previous policy.
 - There's no limit on the number of databases you can select for auto-protection in one go.
 
 Enable auto-protection as follows:
@@ -293,7 +289,7 @@ If you need to disable auto-protection, click the instance name under **Configur
 
 ## Fix SQL sysadmin permissions
 
-If you need to fix permissions because of an **UserErrorSQLNoSysadminMembership** error, do the following:
+If you need to fix permissions because of a **UserErrorSQLNoSysadminMembership** error, follow these steps:
 
 1. Use an account with SQL Server sysadmin permissions to sign in to SQL Server Management Studio (SSMS). Unless you need special permissions, Windows authentication should work.
 2. On the SQL Server, open the **Security/Logins** folder.
