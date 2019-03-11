@@ -73,20 +73,20 @@ This topic covers specifics for the Azure Key Vault service. For general informa
 
  Azure Key Vault also returns error information in the response body when a problem occurs. The response body is JSON formatted and takes the form:  
 
-```  
+```
 
-{  
-  "error":  
-  {  
-    "code": "BadArgument",  
-    "message":  
+{
+  "error":
+  {
+    "code": "BadArgument",
+    "message":
 
-      "’Foo’ is not a valid argument for ‘type’."  
-    }  
-  }  
-}  
+      "’Foo’ is not a valid argument for ‘type’."
+    }
+  }
+}
 
-```  
+```
 
 ## Authentication  
  All requests to Azure Key Vault MUST be authenticated. Azure Key Vault supports Azure Active Directory access tokens that may be obtained using OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
@@ -95,19 +95,19 @@ This topic covers specifics for the Azure Key Vault service. For general informa
  
  Access tokens must be sent to the service using the HTTP Authorization header:  
 
-```  
-PUT /keys/MYKEY?api-version=<api_version>  HTTP/1.1  
-Authorization: Bearer <access_token>  
+```
+PUT /keys/MYKEY?api-version=<api_version>  HTTP/1.1
+Authorization: Bearer <access_token>
 
-```  
+```
 
  When an access token is not supplied, or when a token is not accepted by the service, an HTTP 401 error will be returned to the client and will include the WWW-Authenticate header, for example:  
 
-```  
-401 Not Authorized  
-WWW-Authenticate: Bearer authorization="…", resource="…"  
+```
+401 Not Authorized
+WWW-Authenticate: Bearer authorization="…", resource="…"
 
-```  
+```
 
  The parameters on the WWW-Authenticate header are:  
 
